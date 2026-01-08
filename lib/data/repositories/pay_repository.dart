@@ -94,48 +94,48 @@ enum PayStatus {
   timeout;
 
   /// Convert API status code to enum.
+  /// RN Source: 2=SUCCESS, 3=FAILED, 1=PROCESSING, 0=PENDING
   static PayStatus fromCode(int code) {
     switch (code) {
-      case 0:
-        return PayStatus.pending;
-      case 1:
-        return PayStatus.success;
       case 2:
-        return PayStatus.processing;
+        return PayStatus.success;
       case 3:
         return PayStatus.failed;
+      case 1:
+        return PayStatus.processing;
       case 4:
         return PayStatus.canceled;
       case 5:
         return PayStatus.timeout;
+      case 0:
+        return PayStatus.pending;
       default:
         return PayStatus.unknown;
     }
   }
 
-  /// Localized display text for the status.
+  /// Localized display text for the status (Based on RN).
   String get displayText {
     switch (this) {
       case PayStatus.pending:
-        return 'Awaiting Payment';
+        return '等待支付';
       case PayStatus.processing:
-        return 'Processing Payment...';
+        return '支付处理中';
       case PayStatus.success:
-        return 'Payment Successful';
+        return '支付成功';
       case PayStatus.failed:
-        return 'Payment Failed';
+        return '支付失败';
       case PayStatus.canceled:
-        return 'Payment Canceled';
+        return '支付已取消';
       case PayStatus.timeout:
-        return 'Payment Timeout';
+        return '支付超时';
       case PayStatus.unknown:
-        return 'Checking Status...';
+        return '查询状态中...';
     }
   }
 
-  /// Whether this status is a terminal state (no more polling needed).
-  bool get isTerminal =>
-      this == success || this == failed || this == canceled || this == timeout;
+  /// Whether this status is a terminal state (Based on RN isFinalStatus).
+  bool get isTerminal => this == success || this == failed || this == canceled || this == timeout;
 
   /// Whether this status represents a successful payment.
   bool get isSuccess => this == success;

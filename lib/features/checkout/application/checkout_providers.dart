@@ -97,33 +97,32 @@ class CheckoutController extends StateNotifier<CheckoutState> {
       bestCoupon = coupon?.available == true ? coupon : null;
 
       // 4. Re-price if coupon found (auto-apply if not touched)
+      // 4. Re-price if coupon found (auto-apply if not touched)
       OrderPricingSummary? finalPricing = pricing;
+      String? finalCouponCode;
+
       if (!state.couponTouched && bestCoupon != null) {
         try {
           finalPricing = await _orderRepository.priceOrder(items, couponCode: bestCoupon.code);
+          finalCouponCode = bestCoupon.code;
         } catch (_) {
-          // If pricing fails with coupon, fallback to no coupon
-          bestCoupon = null;
+          finalPricing = pricing;
+          finalCouponCode = null;
         }
       } else if (state.couponTouched && state.couponCode != null) {
-        // If touched and has code, try to preserve it?
-        // But init implies fresh start usually.
-        // If we are re-entering, maybe stick to what we had?
-        // For now, let's assume init with touched means we respect current state, 
-        // but init creates clear state usually. 
-        // If we want to persist across hot reload or re-entry, we need to pass couponCode.
-        // But for "auto-apply", the rule is: if user hasn't touched it, we can auto-apply.
-      } else {
-        // If touched and no code, or no best coupon, we don't apply.
-        bestCoupon = null;
+        try {
+          finalPricing = await _orderRepository.priceOrder(items, couponCode: state.couponCode);
+          finalCouponCode = state.couponCode;
+        } catch (_) {
+          finalPricing = pricing;
+          finalCouponCode = null;
+        }
       }
 
       state = state.copyWith(
         address: address,
         pricing: finalPricing,
-        couponCode: bestCoupon?.code,
-        // We might want to store the full coupon object or list if available
-        // But for now, repo only gives us one.
+        couponCode: finalCouponCode,
         availableCoupons: coupon != null ? [coupon] : [],
         isLoading: false,
       );

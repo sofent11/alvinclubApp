@@ -33,8 +33,10 @@ class AiFashionNotifier extends StateNotifier<AsyncValue<String>> {
   final AiFashionRepository _repository;
 
   Future<void> generate({
-    required String modelId,
-    required String productImageUrl,
+    String? modelId,
+    String? productImageUrl,
+    String? customPrompt,
+    String? styleTrendyElements,
     Map<String, String>? selections,
   }) async {
     state = const AsyncValue.loading();
@@ -42,6 +44,8 @@ class AiFashionNotifier extends StateNotifier<AsyncValue<String>> {
       final taskId = await _repository.initiateGeneration(
         modelId: modelId,
         productImageUrl: productImageUrl,
+        customPrompt: customPrompt,
+        styleTrendyElements: styleTrendyElements,
         selections: selections,
       );
       state = AsyncValue.data(taskId);
@@ -53,4 +57,39 @@ class AiFashionNotifier extends StateNotifier<AsyncValue<String>> {
 
 final aiFashionControllerProvider = StateNotifierProvider.autoDispose<AiFashionNotifier, AsyncValue<String>>((ref) {
   return AiFashionNotifier(ref.watch(aiFashionRepositoryProvider));
+});
+
+final aiFashionFeedProvider = FutureProvider.autoDispose<List<AiFashionPost>>((ref) async {
+  final repo = ref.watch(aiFashionRepositoryProvider);
+  return repo.getFashionPosts();
+});
+
+final aiPostDetailProvider = FutureProvider.autoDispose.family<AiFashionPost?, String>((ref, postId) async {
+  final repo = ref.watch(aiFashionRepositoryProvider);
+  return repo.getPostDetail(postId);
+});
+
+final aiFashionHistoryProvider = FutureProvider.autoDispose<List<AiFashionHistoryItem>>((ref) async {
+  final repo = ref.watch(aiFashionRepositoryProvider);
+  return repo.getHistory();
+});
+
+final bodyShapesProvider = FutureProvider.autoDispose<Map<String, List<BodyShapeItem>>>((ref) async {
+  final repo = ref.watch(aiFashionRepositoryProvider);
+  return repo.getBodyShapes();
+});
+
+final fashionModelsProvider = FutureProvider.autoDispose<List<FashionModelGroup>>((ref) async {
+  final repo = ref.watch(aiFashionRepositoryProvider);
+  return repo.getFashionModels();
+});
+
+final customModelStatusProvider = FutureProvider.autoDispose.family<CustomModelStatus, String>((ref, modelId) async {
+  final repo = ref.watch(aiFashionRepositoryProvider);
+  return repo.getCustomModelStatus(modelId);
+});
+
+final aiOutfitPresetProvider = FutureProvider.autoDispose.family<AiFashionPreset?, ({String? taskId, String? templateId})>((ref, arg) async {
+  final repo = ref.watch(aiFashionRepositoryProvider);
+  return repo.getOutfitPreset(taskId: arg.taskId, templateId: arg.templateId);
 });

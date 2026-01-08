@@ -17,7 +17,13 @@ import '../../data/repositories/address_repository.dart';
 import '../../features/account/presentation/profile_edit_screen.dart';
 import '../../features/address/presentation/address_edit_screen.dart';
 import '../../features/address/presentation/address_list_screen.dart';
+import '../../features/ai_fashion/presentation/ai_fashion_feed_screen.dart';
 import '../../features/ai_fashion/presentation/ai_fashion_screen.dart';
+import '../../features/ai_fashion/presentation/history_screen.dart';
+import '../../features/ai_fashion/presentation/post_detail_screen.dart';
+import '../../features/ai_fashion/presentation/model_settings_screen.dart';
+import '../../features/ai_fashion/presentation/custom_model_screen.dart';
+import '../../features/ai_fashion/presentation/outfit_result_screen.dart';
 import '../../features/checkout/presentation/checkout_screen.dart';
 import '../../features/checkout/presentation/order_success_screen.dart';
 import '../../features/checkout/presentation/payment_screen.dart';
@@ -151,33 +157,52 @@ final routerProvider = Provider<GoRouter>((ref) {
       GoRoute(path: RoutePaths.webview, name: RoutePaths.webview, builder: (context, state) => const PlaceholderScreen(title: 'WebView')),
       GoRoute(path: RoutePaths.modal, name: RoutePaths.modal, builder: (context, state) => const PlaceholderScreen(title: 'Modal')),
       GoRoute(
+        path: RoutePaths.fashionFeed,
+        name: RoutePaths.fashionFeed,
+        builder: (context, state) => const AiFashionFeedScreen(),
+      ),
+      GoRoute(
         path: RoutePaths.fashionStyleMe,
         name: RoutePaths.fashionStyleMe,
         builder: (context, state) {
-          final imageUrl = state.uri.queryParameters['imageUrl'] ?? '';
-          return AiFashionScreen(productImageUrl: imageUrl);
+          return AiFashionScreen(
+            productImageUrl: state.uri.queryParameters['imageUrl'] ?? '',
+            taskId: state.uri.queryParameters['taskId'],
+            templateId: state.uri.queryParameters['templateId'],
+            modelId: state.uri.queryParameters['modelId'],
+            prompt: state.uri.queryParameters['prompt'],
+            modelImage: state.uri.queryParameters['modelImage'],
+            modelHeaderImg: state.uri.queryParameters['modelHeaderImg'],
+          );
         },
       ),
       GoRoute(
         path: RoutePaths.fashionModelSettings,
         name: RoutePaths.fashionModelSettings,
-        builder: (context, state) => const PlaceholderScreen(title: 'Model Settings'),
+        builder: (context, state) => const ModelSettingsScreen(),
       ),
       GoRoute(
         path: RoutePaths.fashionCustomModel,
         name: RoutePaths.fashionCustomModel,
-        builder: (context, state) => const PlaceholderScreen(title: 'Custom Model'),
+        builder: (context, state) => const CustomModelScreen(),
       ),
       GoRoute(
         path: RoutePaths.fashionOutfitResult,
         name: RoutePaths.fashionOutfitResult,
-        builder: (context, state) => const PlaceholderScreen(title: 'Outfit Result'),
+        builder: (context, state) {
+          final taskId = state.uri.queryParameters['taskId'] ?? '';
+          return OutfitResultScreen(taskId: taskId);
+        },
       ),
-      GoRoute(path: RoutePaths.fashionHistory, name: RoutePaths.fashionHistory, builder: (context, state) => const PlaceholderScreen(title: 'History')),
+      GoRoute(
+        path: RoutePaths.fashionHistory,
+        name: RoutePaths.fashionHistory,
+        builder: (context, state) => const HistoryScreen(),
+      ),
       GoRoute(
         path: RoutePaths.fashionPost,
         name: RoutePaths.fashionPost,
-        builder: (context, state) => PlaceholderScreen(title: 'Fashion Post ${state.pathParameters['id']}'),
+        builder: (context, state) => PostDetailScreen(postId: state.pathParameters['id'] ?? ''),
       ),
     ],
     redirect: (context, state) {

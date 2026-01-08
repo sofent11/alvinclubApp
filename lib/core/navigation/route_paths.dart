@@ -29,6 +29,7 @@ class RoutePaths {
   static const webview = '/webview';
   static const modal = '/modal';
 
+  static const fashionFeed = '/fashion/feed';
   static const fashionStyleMe = '/fashion/style-me';
   static const fashionModelSettings = '/fashion/model-settings';
   static const fashionCustomModel = '/fashion/custom-model';

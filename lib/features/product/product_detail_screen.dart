@@ -276,6 +276,22 @@ class _ProductDetailContentState extends ConsumerState<_ProductDetailContent> {
         top: false,
         child: Row(
           children: [
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                IconButton(
+                  onPressed: () {
+                    final imageUrl = selectedSku?.imageUrl ?? (widget.detail.images.isNotEmpty ? widget.detail.images.first : '');
+                    context.push('${RoutePaths.fashionStyleMe}?imageUrl=${Uri.encodeComponent(imageUrl)}');
+                  },
+                  icon: const Icon(Icons.auto_awesome_outlined),
+                  padding: EdgeInsets.zero,
+                  constraints: const BoxConstraints(),
+                ),
+                const Text('AI Try-on', style: TextStyle(fontSize: 10)),
+              ],
+            ),
+            const SizedBox(width: 16),
             Expanded(
               child: ThemedButton(
                 label: selectedSku != null ? 'Add to Cart' : 'Select Options',
