@@ -1,0 +1,1278 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "pay-service",
+    "version": "last"
+  },
+  "basePath": "/pay-service",
+  "tags": [
+    {
+      "name": "返佣",
+      "description": null
+    },
+    {
+      "name": "公共分类",
+      "description": "公共分类"
+    },
+    {
+      "name": "回想币",
+      "description": null
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/withdraw/orders": {
+      "get": {
+        "tags": [
+          "返佣"
+        ],
+        "summary": "提现记录",
+        "description": "",
+        "parameters": [
+          {
+            "name": "current",
+            "in": "query",
+            "required": true,
+            "description": "",
+            "type": "string"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": true,
+            "description": "",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "records": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "orderNo": {
+                            "type": "string"
+                          },
+                          "amount": {
+                            "type": "string"
+                          },
+                          "currency": {
+                            "type": "string"
+                          },
+                          "status": {
+                            "type": "number"
+                          },
+                          "remark": {
+                            "type": "string"
+                          },
+                          "createTime": {
+                            "type": "string"
+                          },
+                          "completedTime": {
+                            "type": "string"
+                          },
+                          "attach": {
+                            "type": "string"
+                          },
+                          "accountType": {
+                            "type": "string"
+                          },
+                          "accountNo": {
+                            "type": "string"
+                          }
+                        },
+                        "required": []
+                      }
+                    },
+                    "total": {
+                      "type": "number"
+                    },
+                    "size": {
+                      "type": "number"
+                    },
+                    "current": {
+                      "type": "number"
+                    },
+                    "pages": {
+                      "type": "number"
+                    }
+                  }
+                },
+                "traceId": {
+                  "type": "string"
+                },
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/withdraw/apply": {
+      "post": {
+        "tags": [
+          "返佣"
+        ],
+        "summary": "申请提现",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "root",
+            "in": "body",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "amount": {
+                  "type": "string"
+                },
+                "accountType": {
+                  "type": "string"
+                },
+                "accountNo": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "orderNo": {
+                      "type": "string"
+                    },
+                    "amount": {
+                      "type": "string"
+                    },
+                    "currency": {
+                      "type": "string"
+                    },
+                    "status": {
+                      "type": "number",
+                      "description": "状态：1-提现中，2-已打款，3-已拒绝"
+                    },
+                    "rejectReason": {
+                      "type": "string"
+                    },
+                    "createTime": {
+                      "type": "string",
+                      "description": "申请时间"
+                    },
+                    "completedTime": {
+                      "type": "string",
+                      "description": "完成时间"
+                    }
+                  }
+                },
+                "traceId": {
+                  "type": "string"
+                },
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/commission/summary": {
+      "get": {
+        "tags": [
+          "返佣"
+        ],
+        "summary": "获取佣金总体信息接口",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "title": "empty object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "commissionTotal": {
+                      "type": "string",
+                      "description": "佣金总数"
+                    },
+                    "targetCurrencyTotal": {
+                      "type": "string",
+                      "description": "目标货币佣金总数"
+                    },
+                    "withdrawAmount": {
+                      "type": "string",
+                      "description": "已提现金额"
+                    },
+                    "withdrawableBalance": {
+                      "type": "string",
+                      "description": "可提现余额"
+                    },
+                    "pendingCommission": {
+                      "type": "string",
+                      "description": "待确认订单佣金数"
+                    },
+                    "totalPoints": {
+                      "type": "number",
+                      "description": "总积分"
+                    },
+                    "pendingWithdrawAmount": {
+                      "type": "string",
+                      "description": "提现中金额"
+                    }
+                  },
+                  "required": [
+                    "commissionTotal",
+                    "withdrawAmount",
+                    "withdrawableBalance",
+                    "pendingCommission",
+                    "targetCurrencyTotal",
+                    "totalPoints",
+                    "pendingWithdrawAmount"
+                  ]
+                }
+              },
+              "required": [
+                "code",
+                "message",
+                "data"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "/commission/transaction": {
+      "get": {
+        "tags": [
+          "返佣"
+        ],
+        "summary": "获取交易记录接口",
+        "description": "",
+        "parameters": [
+          {
+            "name": "current",
+            "in": "query",
+            "required": true,
+            "description": "",
+            "type": "string"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": true,
+            "description": "",
+            "type": "string"
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "required": true,
+            "description": "0或者不传全部 1佣金明细 2 提现明细",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "total": {
+                      "type": "number"
+                    },
+                    "pageSize": {
+                      "type": "number"
+                    },
+                    "totalPages": {
+                      "type": "number"
+                    },
+                    "current": {
+                      "type": "number"
+                    },
+                    "records": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "amount": {
+                            "type": "string",
+                            "description": "金额"
+                          },
+                          "time": {
+                            "type": "string",
+                            "description": "时间 "
+                          },
+                          "typeName": {
+                            "type": "string",
+                            "description": "类型名"
+                          },
+                          "currency": {
+                            "type": "string",
+                            "description": "货币"
+                          }
+                        },
+                        "required": [
+                          "amount",
+                          "time",
+                          "typeName",
+                          "currency"
+                        ]
+                      }
+                    }
+                  }
+                },
+                "traceId": {
+                  "type": "string"
+                },
+                "placeholder": {
+                  "type": "null"
+                },
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/recharge/balance": {
+      "get": {
+        "tags": [
+          "公共分类"
+        ],
+        "summary": "充值卡余额接口",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "balance": {
+                      "type": "string"
+                    },
+                    "currency": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "symbol": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "yesterdayProfit": {
+                      "type": "string"
+                    },
+                    "totalProfit": {
+                      "type": "string"
+                    },
+                    "rechargeAmounts": {
+                      "type": "string"
+                    },
+                    "rechargeAmountsText": {
+                      "type": "string"
+                    },
+                    "rechargeRuleText": {
+                      "type": "string"
+                    },
+                    "rechargeRuleTitle": {
+                      "type": "string"
+                    },
+                    "targetBalance": {
+                      "type": "string"
+                    },
+                    "rechargeReward": {
+                      "type": "object",
+                      "properties": {
+                        "amount": {
+                          "type": "string"
+                        },
+                        "expireAt": {
+                          "type": "number"
+                        }
+                      }
+                    },
+                    "targetCurrency": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "symbol": {
+                          "type": "string"
+                        }
+                      }
+                    }
+                  }
+                },
+                "traceId": {
+                  "type": "string"
+                },
+                "placeholder": {
+                  "type": "null"
+                },
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/recharge/orders": {
+      "get": {
+        "tags": [
+          "公共分类"
+        ],
+        "summary": "充值卡订单接口",
+        "description": "",
+        "parameters": [
+          {
+            "name": "current",
+            "in": "query",
+            "required": true,
+            "description": "",
+            "type": "string"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": true,
+            "description": "",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "records": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "number"
+                          },
+                          "userId": {
+                            "type": "string"
+                          },
+                          "tenantCode": {
+                            "type": "string"
+                          },
+                          "amount": {
+                            "type": "string"
+                          },
+                          "currency": {
+                            "type": "string"
+                          },
+                          "targetAmount": {
+                            "type": "string"
+                          },
+                          "targetCurrency": {
+                            "type": "string"
+                          },
+                          "gmtCreate": {
+                            "type": "string"
+                          },
+                          "gmtUpdate": {
+                            "type": "string"
+                          },
+                          "status": {
+                            "type": "number"
+                          },
+                          "payType": {
+                            "type": "number"
+                          },
+                          "payAmount": {
+                            "type": "string"
+                          },
+                          "payFee": {
+                            "type": "string"
+                          },
+                          "payOrderId": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    },
+                    "total": {
+                      "type": "number"
+                    },
+                    "size": {
+                      "type": "number"
+                    },
+                    "current": {
+                      "type": "number"
+                    },
+                    "pages": {
+                      "type": "number"
+                    }
+                  }
+                },
+                "traceId": {
+                  "type": "string"
+                },
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/recharge/log": {
+      "get": {
+        "tags": [
+          "公共分类"
+        ],
+        "summary": "充值记录接口",
+        "description": "",
+        "parameters": [
+          {
+            "name": "current",
+            "in": "query",
+            "required": true,
+            "description": "",
+            "type": "string"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": true,
+            "description": "",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "title": "empty object",
+              "properties": {}
+            }
+          }
+        }
+      }
+    },
+    "/recharge/createOrder": {
+      "post": {
+        "tags": [
+          "公共分类"
+        ],
+        "summary": "发起充值接口",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "root",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "title": "empty object",
+              "properties": {
+                "amount": {
+                  "type": "string"
+                },
+                "currency": {
+                  "type": "string"
+                },
+                "relatedOrderId": {
+                  "type": "string"
+                },
+                "relatedOrderType": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "amount",
+                "currency"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "orderId": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "traceId": {
+                  "type": "string"
+                },
+                "placeholder": {
+                  "type": "null"
+                },
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/pay/pay": {
+      "post": {
+        "tags": [
+          "公共分类"
+        ],
+        "summary": "发起支付",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "root",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "title": "empty object",
+              "properties": {
+                "orderId": {
+                  "type": "string",
+                  "description": "订单号"
+                },
+                "payType": {
+                  "type": "string"
+                },
+                "orderType": {
+                  "type": "string",
+                  "description": "0 电商下单 1 充值卡 2 运费下单"
+                },
+                "chainId": {
+                  "type": "string",
+                  "description": "链id"
+                },
+                "payTokenSymbol": {
+                  "type": "string",
+                  "description": "支付代币符号"
+                },
+                "callbackUrl": {
+                  "type": "string"
+                },
+                "uiType": {
+                  "type": "number",
+                  "description": "0默认，1自定义"
+                }
+              },
+              "required": [
+                "orderId",
+                "payType",
+                "orderType"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "thirdPayParam": {
+                      "type": "string",
+                      "description": "第三方支付参数"
+                    },
+                    "receiptAddress": {
+                      "type": "string",
+                      "description": "加密货币收款地址"
+                    }
+                  },
+                  "required": [
+                    "receiptAddress"
+                  ]
+                },
+                "traceId": {
+                  "type": "string"
+                },
+                "placeholder": {
+                  "type": "null"
+                },
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/pay/payResult": {
+      "get": {
+        "tags": [
+          "公共分类"
+        ],
+        "summary": "支付结果",
+        "description": "",
+        "parameters": [
+          {
+            "name": "orderId",
+            "in": "query",
+            "required": true,
+            "description": "",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "payStatus": {
+                      "type": "number"
+                    },
+                    "orderType": {
+                      "type": "number"
+                    },
+                    "currency": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "symbol": {
+                          "type": "string"
+                        }
+                      }
+                    },
+                    "payAmount": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "traceId": {
+                  "type": "string"
+                },
+                "placeholder": {
+                  "type": "null"
+                },
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/pay/payType": {
+      "get": {
+        "tags": [
+          "公共分类"
+        ],
+        "summary": "收银台",
+        "description": "",
+        "parameters": [
+          {
+            "name": "orderId",
+            "in": "query",
+            "required": true,
+            "description": "",
+            "type": "string"
+          },
+          {
+            "name": "orderType",
+            "in": "query",
+            "required": false,
+            "description": "0为商品订单，1为充值订单，2为包裹订单",
+            "type": "string"
+          },
+          {
+            "name": "orderAmount",
+            "in": "query",
+            "required": false,
+            "description": "",
+            "type": "string"
+          },
+          {
+            "name": "currency",
+            "in": "query",
+            "required": false,
+            "description": "",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "list": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "payType": {
+                            "type": "string"
+                          },
+                          "payAmount": {
+                            "type": "string"
+                          },
+                          "currency": {
+                            "type": "object",
+                            "properties": {
+                              "name": {
+                                "type": "string"
+                              },
+                              "symbol": {
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "payTypeName": {
+                            "type": "string"
+                          },
+                          "payTypeIcon": {
+                            "type": "string"
+                          },
+                          "payTypeDesc": {
+                            "type": "string"
+                          },
+                          "payFee": {
+                            "type": "string",
+                            "description": "支付手续费"
+                          },
+                          "rechargeOnly": {
+                            "type": "string",
+                            "description": "仅支持充值"
+                          },
+                          "rechargeDifference": {
+                            "type": "string",
+                            "description": "充值卡差额"
+                          },
+                          "isDefault": {
+                            "type": "boolean"
+                          }
+                        },
+                        "required": []
+                      }
+                    }
+                  }
+                },
+                "traceId": {
+                  "type": "string"
+                },
+                "placeholder": {
+                  "type": "null"
+                },
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/echoooCoin/addBalance": {
+      "get": {
+        "tags": [
+          "回想币"
+        ],
+        "summary": "RPC-回想币增加",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "title": "empty object",
+              "properties": {}
+            }
+          }
+        }
+      }
+    },
+    "/echoooCoin/subBalance": {
+      "get": {
+        "tags": [
+          "回想币"
+        ],
+        "summary": "RPC-回想币扣减",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {}
+          }
+        }
+      }
+    },
+    "/echoooCoin/type": {
+      "get": {
+        "tags": [
+          "回想币"
+        ],
+        "summary": "回响币所有类型查询",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "type": {
+                        "type": "number",
+                        "description": "类型(查询时传入)全部: 客户端写死空, 充值卡收益: 14"
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "类型名称"
+                      }
+                    },
+                    "required": [
+                      "type",
+                      "name"
+                    ]
+                  }
+                },
+                "traceId": {
+                  "type": "string"
+                },
+                "placeholder": {
+                  "type": "null"
+                },
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/echoooCoin/info": {
+      "get": {
+        "tags": [
+          "回想币"
+        ],
+        "summary": "回想币余额",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "balance": {
+                      "type": "number",
+                      "description": "回想币余额"
+                    },
+                    "percentage": {
+                      "type": "string",
+                      "description": "抵扣百分比"
+                    },
+                    "deductibleAmount": {
+                      "type": "string",
+                      "description": "可抵扣金额"
+                    },
+                    "accumulateAmount": {
+                      "type": "string",
+                      "description": "累计省"
+                    },
+                    "currency": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "symbol": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "name",
+                        "symbol"
+                      ],
+                      "description": "货币单位"
+                    }
+                  },
+                  "required": [
+                    "deductibleAmount",
+                    "balance",
+                    "accumulateAmount",
+                    "currency",
+                    "percentage"
+                  ]
+                },
+                "traceId": {
+                  "type": "string"
+                },
+                "placeholder": {
+                  "type": "null"
+                },
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/echoooCoin/log": {
+      "get": {
+        "tags": [
+          "回想币"
+        ],
+        "summary": "回想币明细接口",
+        "description": "",
+        "parameters": [
+          {
+            "name": "current",
+            "in": "query",
+            "required": true,
+            "description": "",
+            "type": "string"
+          },
+          {
+            "name": "pageSize",
+            "in": "query",
+            "required": true,
+            "description": "",
+            "type": "string"
+          },
+          {
+            "name": "type",
+            "in": "query",
+            "required": false,
+            "description": "不填为查询全部, 充值卡收益填 14",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "total": {
+                      "type": "number"
+                    },
+                    "pageSize": {
+                      "type": "number"
+                    },
+                    "totalPages": {
+                      "type": "number"
+                    },
+                    "current": {
+                      "type": "number"
+                    },
+                    "records": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "actualAmount": {
+                            "type": "number"
+                          },
+                          "gmtCreate": {
+                            "type": "number"
+                          },
+                          "type": {
+                            "type": "number",
+                            "description": "(0购物返 1订单抵扣 2活动奖励 3售后扣减)"
+                          },
+                          "name": {
+                            "type": "string",
+                            "description": "获取、扣减文案"
+                          }
+                        },
+                        "required": [
+                          "actualAmount",
+                          "gmtCreate",
+                          "type",
+                          "name"
+                        ]
+                      }
+                    }
+                  }
+                },
+                "traceId": {
+                  "type": "string"
+                },
+                "placeholder": {
+                  "type": "null"
+                },
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,4496 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "user-service",
+    "version": "last"
+  },
+  "basePath": "/user-service",
+  "tags": [
+    {
+      "name": "收货地址",
+      "description": null
+    },
+    {
+      "name": "服务接口",
+      "description": null
+    },
+    {
+      "name": "注册&登录",
+      "description": null
+    },
+    {
+      "name": "非验权接口",
+      "description": null
+    },
+    {
+      "name": "文件上传",
+      "description": ""
+    },
+    {
+      "name": "优惠券",
+      "description": null
+    },
+    {
+      "name": "IM",
+      "description": null
+    },
+    {
+      "name": "用户",
+      "description": null
+    },
+    {
+      "name": "用户画像",
+      "description": null
+    },
+    {
+      "name": "app端",
+      "description": null
+    }
+  ],
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/address/update": {
+      "post": {
+        "tags": [
+          "收货地址"
+        ],
+        "summary": "修改地址",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "root",
+            "in": "body",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "isDefault": {
+                  "type": "number",
+                  "description": "是否默认地址1是0否"
+                },
+                "country": {
+                  "type": "string",
+                  "description": "国家"
+                },
+                "countryCode": {
+                  "type": "string",
+                  "description": "国家编码(areaCode)"
+                },
+                "state": {
+                  "type": "string",
+                  "description": "州\\省"
+                },
+                "stateCode": {
+                  "type": "string",
+                  "description": "州省编码(areaCode)"
+                },
+                "city": {
+                  "type": "string",
+                  "description": "城市"
+                },
+                "cityCode": {
+                  "type": "string"
+                },
+                "street": {
+                  "type": "string",
+                  "description": "街道"
+                },
+                "apartment": {
+                  "type": "string",
+                  "description": "公寓单元"
+                },
+                "address": {
+                  "type": "string",
+                  "description": "详细地址"
+                },
+                "coordinate": {
+                  "type": "string",
+                  "description": "经纬度"
+                },
+                "firstName": {
+                  "type": "string",
+                  "description": "姓"
+                },
+                "lastName": {
+                  "type": "string",
+                  "description": "名"
+                },
+                "phoneNumber": {
+                  "type": "string",
+                  "description": "手机号(\"区号不带+\"+\"手机号\")",
+                  "mock": {
+                    "mock": "86+18888888888"
+                  }
+                },
+                "zipCode": {
+                  "type": "string",
+                  "description": "邮编"
+                },
+                "userId": {
+                  "type": "string",
+                  "description": "用户Id"
+                },
+                "id": {
+                  "type": "number",
+                  "description": "地址id"
+                },
+                "remark": {
+                  "type": "string"
+                },
+                "accessCode": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "tin": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "id",
+                "userId",
+                "countryCode",
+                "stateCode",
+                "cityCode",
+                "remark",
+                "accessCode",
+                "email"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "number"
+                },
+                "traceId": {
+                  "type": "string"
+                },
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/address/delete": {
+      "delete": {
+        "tags": [
+          "收货地址"
+        ],
+        "summary": "删除地址",
+        "description": "",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "query",
+            "required": true,
+            "description": "id",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "number"
+                },
+                "traceId": {
+                  "type": "string"
+                },
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/address/query": {
+      "get": {
+        "tags": [
+          "收货地址"
+        ],
+        "summary": "地址联想",
+        "description": "",
+        "parameters": [
+          {
+            "name": "searchAddress",
+            "in": "query",
+            "required": false,
+            "description": "",
+            "type": "string"
+          },
+          {
+            "name": "portalCode",
+            "in": "query",
+            "required": true,
+            "description": "",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "apartment": {
+                        "type": "string"
+                      },
+                      "street": {
+                        "type": "string"
+                      },
+                      "city": {
+                        "type": "string"
+                      },
+                      "cityCode": {
+                        "type": "string"
+                      },
+                      "state": {
+                        "type": "string"
+                      },
+                      "stateCode": {
+                        "type": "string"
+                      },
+                      "country": {
+                        "type": "string"
+                      },
+                      "countryCode": {
+                        "type": "string"
+                      },
+                      "address": {
+                        "type": "string"
+                      },
+                      "zipCode": {
+                        "type": "string"
+                      },
+                      "latitude": {
+                        "type": "number"
+                      },
+                      "longitude": {
+                        "type": "number"
+                      }
+                    }
+                  }
+                },
+                "traceId": {
+                  "type": "string"
+                },
+                "placeholder": {
+                  "type": "string"
+                },
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/no-auth/support/country": {
+      "get": {
+        "tags": [
+          "收货地址"
+        ],
+        "summary": "支持国家",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "placeholder": {
+                  "type": "null"
+                },
+                "traceId": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/address/list": {
+      "get": {
+        "tags": [
+          "收货地址"
+        ],
+        "summary": "收货地址列表",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "number"
+                      },
+                      "tenantCode": {
+                        "type": "string"
+                      },
+                      "userId": {
+                        "type": "string"
+                      },
+                      "isDefault": {
+                        "type": "number"
+                      },
+                      "country": {
+                        "type": "string"
+                      },
+                      "countryCode": {
+                        "type": "string"
+                      },
+                      "state": {
+                        "type": "string"
+                      },
+                      "stateCode": {
+                        "type": "string"
+                      },
+                      "city": {
+                        "type": "string"
+                      },
+                      "cityCode": {
+                        "type": "string"
+                      },
+                      "street": {
+                        "type": "string"
+                      },
+                      "apartment": {
+                        "type": [
+                          "string",
+                          "null"
+                        ]
+                      },
+                      "address": {
+                        "type": "string"
+                      },
+                      "coordinate": {
+                        "type": "string"
+                      },
+                      "firstName": {
+                        "type": "string"
+                      },
+                      "lastName": {
+                        "type": "string"
+                      },
+                      "phoneNumber": {
+                        "type": "string"
+                      },
+                      "zipCode": {
+                        "type": "string"
+                      },
+                      "deleted": {
+                        "type": "number"
+                      },
+                      "isDelivered": {
+                        "type": "number"
+                      },
+                      "gmtCreate": {
+                        "type": "string"
+                      },
+                      "gmtUpdate": {
+                        "type": "string"
+                      },
+                      "tin": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "tenantCode",
+                      "userId",
+                      "isDefault",
+                      "country",
+                      "countryCode",
+                      "state",
+                      "stateCode",
+                      "city",
+                      "cityCode",
+                      "street",
+                      "apartment",
+                      "address",
+                      "coordinate",
+                      "firstName",
+                      "lastName",
+                      "phoneNumber",
+                      "zipCode",
+                      "deleted",
+                      "isDelivered",
+                      "gmtCreate",
+                      "gmtUpdate"
+                    ]
+                  }
+                },
+                "traceId": {
+                  "type": "string"
+                },
+                "placeholder": {
+                  "type": "string"
+                },
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/getShippingAddressByCountry": {
+      "get": {
+        "tags": [
+          "收货地址"
+        ],
+        "summary": "收货地址（按国家查询）",
+        "description": "",
+        "parameters": [
+          {
+            "name": "country",
+            "in": "query",
+            "required": true,
+            "description": "",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "isDefault": {
+                      "type": "boolean"
+                    },
+                    "country": {
+                      "type": "string"
+                    },
+                    "countryCode": {
+                      "type": "string",
+                      "description": "国家编码(areaCode)"
+                    },
+                    "state": {
+                      "type": "string",
+                      "description": "州\\省"
+                    },
+                    "stateCode": {
+                      "type": "string",
+                      "description": "州编码(areaCode) iso3166(带国家)"
+                    },
+                    "simpleStateCode": {
+                      "type": "string",
+                      "description": "州编码(areaCode) iso3166(不带国家)"
+                    },
+                    "city": {
+                      "type": "string"
+                    },
+                    "cityCode": {
+                      "type": "string",
+                      "description": "城市编码(areaCode仅内部)"
+                    },
+                    "apartment": {
+                      "type": "string"
+                    },
+                    "address": {
+                      "type": "string"
+                    },
+                    "coordinate": {
+                      "type": "string",
+                      "description": "坐标(经度,纬度)"
+                    },
+                    "firstName": {
+                      "type": "string"
+                    },
+                    "lastName": {
+                      "type": "string"
+                    },
+                    "phoneNumber": {
+                      "type": "string",
+                      "description": "手机区号(不带+号)+手机号",
+                      "mock": {
+                        "mock": "86+18888888888"
+                      }
+                    }
+                  },
+                  "required": [
+                    "isDefault",
+                    "id",
+                    "firstName",
+                    "lastName",
+                    "phoneNumber",
+                    "address",
+                    "countryCode",
+                    "stateCode",
+                    "country",
+                    "state",
+                    "cityCode",
+                    "simpleStateCode"
+                  ]
+                },
+                "placeholder": {
+                  "type": "null"
+                },
+                "traceId": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/address/add": {
+      "post": {
+        "tags": [
+          "收货地址"
+        ],
+        "summary": "新增用户地址",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "root",
+            "in": "body",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "isDefault": {
+                  "type": "number",
+                  "description": "是否默认地址 1是0否"
+                },
+                "username": {
+                  "type": "string",
+                  "description": "用户名"
+                },
+                "country": {
+                  "type": "string",
+                  "description": "国家"
+                },
+                "countryCode": {
+                  "type": "string",
+                  "description": "国家编码"
+                },
+                "state": {
+                  "type": "string",
+                  "description": "州\\省"
+                },
+                "stateCode": {
+                  "type": "string",
+                  "description": "州\\省编码"
+                },
+                "city": {
+                  "type": "string",
+                  "description": "城市"
+                },
+                "cityCode": {
+                  "type": "string",
+                  "description": "城市编码"
+                },
+                "street": {
+                  "type": "string",
+                  "description": "街道"
+                },
+                "apartment": {
+                  "type": "string",
+                  "description": "公寓单元"
+                },
+                "address": {
+                  "type": "string",
+                  "description": "详细地址"
+                },
+                "coordinate": {
+                  "type": "string",
+                  "description": "经纬度"
+                },
+                "firstName": {
+                  "type": "string",
+                  "description": "姓"
+                },
+                "lastName": {
+                  "type": "string",
+                  "description": "名"
+                },
+                "phoneNumber": {
+                  "type": "string",
+                  "description": "手机号(\"区号不带+\"+\"手机号\")",
+                  "mock": {
+                    "mock": "86+18888888888"
+                  }
+                },
+                "zipCode": {
+                  "type": "string",
+                  "description": "邮编"
+                },
+                "remark": {
+                  "type": "string"
+                },
+                "accessCode": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "tin": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "countryCode",
+                "stateCode",
+                "country",
+                "state",
+                "username",
+                "city",
+                "firstName",
+                "lastName",
+                "phoneNumber",
+                "zipCode",
+                "cityCode",
+                "remark",
+                "accessCode",
+                "email"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "number"
+                },
+                "traceId": {
+                  "type": "string"
+                },
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/getDefaultShippingAddress": {
+      "get": {
+        "tags": [
+          "收货地址"
+        ],
+        "summary": "查询默认收货地址",
+        "description": "",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Authorization (Only:)",
+            "required": true,
+            "type": "string",
+            "default": ""
+          },
+          {
+            "name": "userId",
+            "in": "query",
+            "required": false,
+            "description": "",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string"
+                    },
+                    "isDefault": {
+                      "type": "boolean"
+                    },
+                    "country": {
+                      "type": "string"
+                    },
+                    "countryCode": {
+                      "type": "string",
+                      "description": "国家编码(areaCode)"
+                    },
+                    "state": {
+                      "type": "string",
+                      "description": "州\\省"
+                    },
+                    "stateCode": {
+                      "type": "string",
+                      "description": "州编码(areaCode) iso3166(带国家)"
+                    },
+                    "simpleStateCode": {
+                      "type": "string",
+                      "description": "州编码(areaCode) iso3166(不带国家)"
+                    },
+                    "city": {
+                      "type": "string"
+                    },
+                    "cityCode": {
+                      "type": "string",
+                      "description": "城市编码(areaCode仅内部)"
+                    },
+                    "apartment": {
+                      "type": "string"
+                    },
+                    "address": {
+                      "type": "string"
+                    },
+                    "coordinate": {
+                      "type": "string",
+                      "description": "坐标(经度,纬度)"
+                    },
+                    "firstName": {
+                      "type": "string"
+                    },
+                    "lastName": {
+                      "type": "string"
+                    },
+                    "phoneNumber": {
+                      "type": "string",
+                      "description": "手机区号(不带+号)+手机号",
+                      "mock": {
+                        "mock": "86+18888888888"
+                      }
+                    },
+                    "street": {
+                      "type": "string"
+                    },
+                    "zipCode": {
+                      "type": "string"
+                    },
+                    "email": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "isDefault",
+                    "id",
+                    "firstName",
+                    "lastName",
+                    "phoneNumber",
+                    "address",
+                    "countryCode",
+                    "stateCode",
+                    "country",
+                    "state",
+                    "cityCode",
+                    "simpleStateCode",
+                    "street",
+                    "zipCode",
+                    "email"
+                  ]
+                },
+                "placeholder": {
+                  "type": "null"
+                },
+                "traceId": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/address/country": {
+      "get": {
+        "tags": [
+          "收货地址"
+        ],
+        "summary": "省市区列表",
+        "description": "",
+        "parameters": [
+          {
+            "name": "areaCode",
+            "in": "query",
+            "required": false,
+            "description": "",
+            "type": "string"
+          },
+          {
+            "name": "portalCode",
+            "in": "query",
+            "required": true,
+            "description": "CA,US",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "areaCode": {
+                        "type": "string",
+                        "description": "国家\\州编码"
+                      },
+                      "icon": {
+                        "type": "string",
+                        "description": "国家icon"
+                      },
+                      "name": {
+                        "type": "string",
+                        "description": "国家\\州名称"
+                      }
+                    },
+                    "required": [
+                      "areaCode",
+                      "name",
+                      "icon"
+                    ]
+                  }
+                },
+                "placeholder": {
+                  "type": "null"
+                },
+                "traceId": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/address/queryByZipCode": {
+      "get": {
+        "tags": [
+          "收货地址"
+        ],
+        "summary": "邮编查询",
+        "description": "",
+        "parameters": [
+          {
+            "name": "zipCode",
+            "in": "query",
+            "required": true,
+            "description": "",
+            "type": "string"
+          },
+          {
+            "name": "portalCode",
+            "in": "query",
+            "required": true,
+            "description": "",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "apartment": {
+                        "type": "null"
+                      },
+                      "street": {
+                        "type": "string"
+                      },
+                      "city": {
+                        "type": "string"
+                      },
+                      "cityCode": {
+                        "type": "string"
+                      },
+                      "state": {
+                        "type": "string"
+                      },
+                      "stateCode": {
+                        "type": "string"
+                      },
+                      "country": {
+                        "type": "string"
+                      },
+                      "countryCode": {
+                        "type": "string"
+                      },
+                      "address": {
+                        "type": "null"
+                      },
+                      "zipCode": {
+                        "type": "string"
+                      },
+                      "latitude": {
+                        "type": "null"
+                      },
+                      "longitude": {
+                        "type": "null"
+                      }
+                    },
+                    "required": [
+                      "apartment",
+                      "street",
+                      "city",
+                      "cityCode",
+                      "state",
+                      "stateCode",
+                      "country",
+                      "countryCode",
+                      "address",
+                      "zipCode",
+                      "latitude",
+                      "longitude"
+                    ]
+                  }
+                },
+                "traceId": {
+                  "type": "string"
+                },
+                "placeholder": {
+                  "type": "null"
+                },
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/inner/upd/user-level": {
+      "post": {
+        "tags": [
+          "服务接口"
+        ],
+        "summary": "更新用户等级",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "root",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "userId": {
+                  "type": "string"
+                },
+                "tenantCode": {
+                  "type": "string"
+                },
+                "level": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "userId",
+                "tenantCode",
+                "level"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {}
+                },
+                "traceId": {
+                  "type": "string"
+                },
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/signin/switchPortal": {
+      "post": {
+        "tags": [
+          "注册&登录"
+        ],
+        "summary": "切换国家",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "root",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "title": "empty object",
+              "properties": {
+                "dstPortalCode": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "dstPortalCode"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "tenantCode": {
+                      "type": "string"
+                    },
+                    "userId": {
+                      "type": "string"
+                    },
+                    "nickname": {
+                      "type": "string"
+                    },
+                    "email": {
+                      "type": "string"
+                    },
+                    "photo": {
+                      "type": "string"
+                    },
+                    "phoneNumber": {
+                      "type": "string"
+                    },
+                    "signUpType": {
+                      "type": "string"
+                    },
+                    "signUpName": {
+                      "type": "string"
+                    },
+                    "accessToken": {
+                      "type": "string"
+                    },
+                    "refreshToken": {
+                      "type": "string"
+                    },
+                    "expiresIn": {
+                      "type": "number"
+                    },
+                    "tokenType": {
+                      "type": "string"
+                    },
+                    "authWay": {
+                      "type": "string"
+                    },
+                    "remainTimes": {
+                      "type": "string"
+                    },
+                    "lockTime": {
+                      "type": "string"
+                    },
+                    "loginStatus": {
+                      "type": "number"
+                    },
+                    "timestamp": {
+                      "type": "number"
+                    },
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "portalCode": {
+                      "type": "string"
+                    },
+                    "source": {
+                      "type": "string"
+                    },
+                    "newUser": {
+                      "type": "boolean"
+                    },
+                    "compliance": {
+                      "type": "string"
+                    },
+                    "finalSuccess": {
+                      "type": "number"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "currency": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "traceId": {
+                  "type": "string"
+                },
+                "placeholder": {
+                  "type": "string"
+                },
+                "success": {
+                  "type": "boolean"
+                },
+                "url": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/signIn/init": {
+      "post": {
+        "tags": [
+          "注册&登录"
+        ],
+        "summary": "发送验证码",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "root",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "title": "empty object",
+              "properties": {
+                "loginName": {
+                  "type": "string",
+                  "description": "email",
+                  "mock": {
+                    "mock": "86+18888888888"
+                  }
+                },
+                "authWay": {
+                  "type": "number",
+                  "description": "1:密码登录 2:邮箱验证码 3:手机验证码 4第三方登入"
+                },
+                "source": {
+                  "type": "number",
+                  "description": "0 web"
+                }
+              },
+              "required": [
+                "loginName",
+                "authWay"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "authWay": {
+                      "type": "string"
+                    },
+                    "code": {
+                      "type": "string"
+                    },
+                    "jumpUrl": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "authWay",
+                    "code",
+                    "jumpUrl"
+                  ]
+                },
+                "traceId": {
+                  "type": "null"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/otp/apply": {
+      "post": {
+        "tags": [
+          "注册&登录"
+        ],
+        "summary": "生成临时token",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "root",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "title": "empty object",
+              "properties": {}
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "string"
+                },
+                "traceId": {
+                  "type": "null"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/signOut": {
+      "post": {
+        "tags": [
+          "注册&登录"
+        ],
+        "summary": "登出",
+        "description": "",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Authorization (Only:)",
+            "required": true,
+            "type": "string",
+            "default": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "string",
+              "format": "binary",
+              "default": "{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"type\":\"object\",\"properties\":{\"code\":{\"type\":\"number\"},\"message\":{\"type\":\"string\"},\"data\":{\"type\":\"object\",\"properties\":{}},\"traceId\":{\"type\":\"null\"}}}"
+            }
+          }
+        }
+      }
+    },
+    "/signIn/verify": {
+      "post": {
+        "tags": [
+          "注册&登录"
+        ],
+        "summary": "登录校验密码\\验证码",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "root",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "title": "empty object",
+              "properties": {
+                "loginName": {
+                  "type": "string",
+                  "description": "邮箱或第三方id"
+                },
+                "authWay": {
+                  "type": "string",
+                  "description": "1:密码登录（暂不支持） 2:邮箱验证码 ，5：telegarm，6：Echooo，7: 谷歌登录， 8: AC登录"
+                },
+                "code": {
+                  "type": "string",
+                  "description": "password和验证码都填这,telegram将返回的object直接stringfy填入，谷歌登录返回绑定token"
+                },
+                "source": {
+                  "type": "integer",
+                  "description": "0 web"
+                },
+                "inviteCode": {
+                  "type": "string"
+                },
+                "portalCode": {
+                  "type": "string",
+                  "description": "05租户必填"
+                }
+              },
+              "required": [
+                "code",
+                "authWay"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "tenantCode": {
+                      "type": "string"
+                    },
+                    "userId": {
+                      "type": "string"
+                    },
+                    "nickname": {
+                      "type": "string"
+                    },
+                    "email": {
+                      "type": "string"
+                    },
+                    "photo": {
+                      "type": "string"
+                    },
+                    "phoneNumber": {
+                      "type": "string"
+                    },
+                    "signUpType": {
+                      "type": "string"
+                    },
+                    "signUpName": {
+                      "type": "string"
+                    },
+                    "accessToken": {
+                      "type": "string"
+                    },
+                    "refreshToken": {
+                      "type": "string"
+                    },
+                    "expiresIn": {
+                      "type": "number"
+                    },
+                    "tokenType": {
+                      "type": "string"
+                    },
+                    "authWay": {
+                      "type": "string"
+                    },
+                    "remainTimes": {
+                      "type": "string"
+                    },
+                    "lockTime": {
+                      "type": "string"
+                    },
+                    "loginStatus": {
+                      "type": "number"
+                    },
+                    "timestamp": {
+                      "type": "number"
+                    },
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "portalCode": {
+                      "type": "string"
+                    },
+                    "source": {
+                      "type": "string"
+                    },
+                    "newUser": {
+                      "type": "boolean"
+                    },
+                    "compliance": {
+                      "type": "string"
+                    },
+                    "finalSuccess": {
+                      "type": "number"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "currency": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "traceId": {
+                  "type": "string"
+                },
+                "placeholder": {
+                  "type": "string"
+                },
+                "success": {
+                  "type": "boolean"
+                },
+                "url": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/signIn/call": {
+      "post": {
+        "tags": [
+          "注册&登录"
+        ],
+        "summary": "轮询登录信息",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "root",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "title": "empty object",
+              "properties": {
+                "authWay": {
+                  "type": "number",
+                  "description": "1:密码登录 2:邮箱验证码 3:手机验证码 4第三方登入"
+                },
+                "code": {
+                  "type": "string",
+                  "description": "验证code"
+                },
+                "inviteCode": {
+                  "type": "string"
+                },
+                "portalCode": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "authWay",
+                "code",
+                "inviteCode",
+                "portalCode"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "tenantCode": {
+                      "type": "string"
+                    },
+                    "userId": {
+                      "type": "string"
+                    },
+                    "nickname": {
+                      "type": "string"
+                    },
+                    "email": {
+                      "type": "string"
+                    },
+                    "photo": {
+                      "type": "string"
+                    },
+                    "phoneNumber": {
+                      "type": "string"
+                    },
+                    "signUpType": {
+                      "type": "string"
+                    },
+                    "signUpName": {
+                      "type": "string"
+                    },
+                    "accessToken": {
+                      "type": "string"
+                    },
+                    "refreshToken": {
+                      "type": "string"
+                    },
+                    "expiresIn": {
+                      "type": "number"
+                    },
+                    "tokenType": {
+                      "type": "string"
+                    },
+                    "authWay": {
+                      "type": "string"
+                    },
+                    "remainTimes": {
+                      "type": "string"
+                    },
+                    "lockTime": {
+                      "type": "string"
+                    },
+                    "loginStatus": {
+                      "type": "number"
+                    },
+                    "timestamp": {
+                      "type": "number"
+                    },
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "portalCode": {
+                      "type": "string"
+                    },
+                    "source": {
+                      "type": "string"
+                    },
+                    "newUser": {
+                      "type": "boolean"
+                    },
+                    "compliance": {
+                      "type": "string"
+                    },
+                    "finalSuccess": {
+                      "type": "number"
+                    },
+                    "message": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "traceId": {
+                  "type": "string"
+                },
+                "placeholder": {
+                  "type": "string"
+                },
+                "success": {
+                  "type": "boolean"
+                },
+                "url": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/no-auth/otp/verify": {
+      "post": {
+        "tags": [
+          "注册&登录"
+        ],
+        "summary": "验证临时token",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "root",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "title": "empty object",
+              "properties": {
+                "code": {
+                  "type": "string",
+                  "description": "password和验证码都填这,telegram将返回的object直接stringfy填入，谷歌登录返回绑定token"
+                }
+              },
+              "required": [
+                "code"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "tenantCode": {
+                      "type": "string"
+                    },
+                    "userId": {
+                      "type": "string"
+                    },
+                    "nickname": {
+                      "type": "string"
+                    },
+                    "email": {
+                      "type": "string"
+                    },
+                    "photo": {
+                      "type": "string"
+                    },
+                    "phoneNumber": {
+                      "type": "string"
+                    },
+                    "signUpType": {
+                      "type": "string"
+                    },
+                    "signUpName": {
+                      "type": "string"
+                    },
+                    "accessToken": {
+                      "type": "string"
+                    },
+                    "refreshToken": {
+                      "type": "string"
+                    },
+                    "expiresIn": {
+                      "type": "number"
+                    },
+                    "tokenType": {
+                      "type": "string"
+                    },
+                    "authWay": {
+                      "type": "string"
+                    },
+                    "remainTimes": {
+                      "type": "string"
+                    },
+                    "lockTime": {
+                      "type": "string"
+                    },
+                    "loginStatus": {
+                      "type": "number"
+                    },
+                    "timestamp": {
+                      "type": "number"
+                    },
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "portalCode": {
+                      "type": "string"
+                    },
+                    "source": {
+                      "type": "string"
+                    },
+                    "newUser": {
+                      "type": "boolean"
+                    },
+                    "compliance": {
+                      "type": "string"
+                    },
+                    "finalSuccess": {
+                      "type": "number"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "currency": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "traceId": {
+                  "type": "string"
+                },
+                "placeholder": {
+                  "type": "string"
+                },
+                "success": {
+                  "type": "boolean"
+                },
+                "url": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/no-auth/email/unsubscribe": {
+      "post": {
+        "tags": [
+          "非验权接口"
+        ],
+        "summary": "邮箱取消订阅",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "root",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "title": "empty object",
+              "properties": {
+                "email": {
+                  "type": "string"
+                },
+                "token": {
+                  "type": "string"
+                },
+                "source": {
+                  "type": "string",
+                  "description": "0-营销邮箱，1-用户邮箱"
+                }
+              },
+              "required": [
+                "email",
+                "token",
+                "source"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "title": "empty object",
+              "properties": {}
+            }
+          }
+        }
+      }
+    },
+    "/no-auth/common-config/default-setting": {
+      "get": {
+        "tags": [
+          "非验权接口"
+        ],
+        "summary": "默认国家和语言",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "countryCode": {
+                      "type": "string"
+                    },
+                    "lang": {
+                      "type": "string"
+                    },
+                    "currency": {
+                      "type": "string"
+                    }
+                  },
+                  "required": []
+                },
+                "placeholder": {
+                  "type": "null"
+                },
+                "traceId": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/file/im/upload": {
+      "post": {
+        "tags": [
+          "文件上传"
+        ],
+        "summary": "IM多文件上传",
+        "description": "",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "name": "files",
+            "in": "formData",
+            "required": true,
+            "description": "最大7M",
+            "type": "file"
+          },
+          {
+            "name": "files",
+            "in": "formData",
+            "required": true,
+            "description": "",
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "title": "empty object",
+              "properties": {
+                "code": {
+                  "type": "integer"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "url": {
+                        "type": "string"
+                      },
+                      "fileId": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "url",
+                      "fileId"
+                    ]
+                  }
+                }
+              },
+              "required": [
+                "code",
+                "data",
+                "message"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "/file/logo/upload": {
+      "post": {
+        "tags": [
+          "文件上传"
+        ],
+        "summary": "上传头像",
+        "description": "",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "name": "file",
+            "in": "formData",
+            "required": true,
+            "description": "最大7M",
+            "type": "file"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "title": "empty object",
+              "properties": {
+                "code": {
+                  "type": "string"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "url": {
+                      "type": "string"
+                    },
+                    "fileId": {
+                      "type": "string"
+                    }
+                  },
+                  "required": []
+                }
+              },
+              "required": []
+            }
+          }
+        }
+      }
+    },
+    "/user/coupon/count": {
+      "get": {
+        "tags": [
+          "优惠券"
+        ],
+        "summary": "优惠券数量列表",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "total": {
+                      "type": "string",
+                      "description": "全部"
+                    },
+                    "unUsed": {
+                      "type": "string",
+                      "description": "未使用"
+                    },
+                    "locked": {
+                      "type": "string",
+                      "description": "锁定"
+                    },
+                    "used": {
+                      "type": "string",
+                      "description": "已使用"
+                    },
+                    "invalid": {
+                      "type": "string",
+                      "description": "过期"
+                    }
+                  }
+                },
+                "traceId": {
+                  "type": "string"
+                },
+                "placeholder": {
+                  "type": "string"
+                },
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/coupon/activityInfo": {
+      "get": {
+        "tags": [
+          "优惠券"
+        ],
+        "summary": "优惠券活动信息",
+        "description": "",
+        "parameters": [
+          {
+            "name": "couponActivityCode",
+            "in": "query",
+            "required": true,
+            "description": "new_comer_voucher",
+            "type": "string"
+          },
+          {
+            "name": "received",
+            "in": "query",
+            "required": false,
+            "description": "",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean"
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "couponList": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "currencySymbol": {
+                            "type": "string"
+                          },
+                          "discountType": {
+                            "type": "number",
+                            "description": "0 打折     1 立减"
+                          },
+                          "discountInfo": {
+                            "type": "number"
+                          },
+                          "limitAmount": {
+                            "type": "number"
+                          },
+                          "invalidPeriod": {
+                            "type": "number"
+                          },
+                          "userCouponCode": {
+                            "type": "string",
+                            "description": "CP-gk7Sd1wf4d4n"
+                          }
+                        },
+                        "required": [
+                          "currencySymbol",
+                          "discountType",
+                          "discountInfo",
+                          "limitAmount"
+                        ]
+                      }
+                    },
+                    "received": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/coupon/code2Coupon": {
+      "get": {
+        "tags": [
+          "优惠券"
+        ],
+        "summary": "按code领取",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "code",
+            "in": "query",
+            "required": true,
+            "description": "",
+            "type": "string"
+          },
+          {
+            "name": "isDiscount",
+            "in": "query",
+            "required": false,
+            "description": "",
+            "type": "string"
+          },
+          {
+            "name": "root",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "title": "empty object",
+              "properties": {
+                "sourceCode": {
+                  "type": "string"
+                },
+                "isDiscount": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "sourceCode",
+                "isDiscount"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "userId": {
+                      "type": "string"
+                    },
+                    "tenantCode": {
+                      "type": "string",
+                      "description": "租户编码"
+                    },
+                    "couponCode": {
+                      "type": "string",
+                      "description": "优惠券code"
+                    },
+                    "couponTitle": {
+                      "type": "string",
+                      "description": "优惠券名称"
+                    },
+                    "isUsed": {
+                      "type": "number",
+                      "description": "是否被用"
+                    },
+                    "gmtInvalid": {
+                      "type": "string",
+                      "description": "失效时间"
+                    },
+                    "type": {
+                      "type": "number",
+                      "description": "优惠券类型，0-打折，1-立减"
+                    },
+                    "discount": {
+                      "type": "string",
+                      "description": "折扣数据"
+                    },
+                    "limitAmount": {
+                      "type": "string",
+                      "description": "折扣金额门槛"
+                    },
+                    "currency": {
+                      "type": "string",
+                      "description": "货币单位"
+                    },
+                    "discountTarget": {
+                      "type": "string",
+                      "description": "目标币折扣"
+                    },
+                    "limitAmountTarget": {
+                      "type": "string",
+                      "description": "目标币金额门槛"
+                    },
+                    "currencyTarget": {
+                      "type": "string",
+                      "description": "目标货币"
+                    },
+                    "couponImage": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "traceId": {
+                  "type": "string"
+                },
+                "placeholder": {
+                  "type": "string"
+                },
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/coupon/activityInfos": {
+      "get": {
+        "tags": [
+          "优惠券"
+        ],
+        "summary": "活动信息(多活动)",
+        "description": "",
+        "parameters": [
+          {
+            "name": "couponActivityCodes",
+            "in": "query",
+            "required": false,
+            "description": "如多个，数组结构",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean"
+                },
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "sourceCode": {
+                        "type": "string"
+                      },
+                      "received": {
+                        "type": "boolean"
+                      },
+                      "couponList": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "couponCode": {
+                              "type": "string"
+                            },
+                            "invalidPeriod": {
+                              "type": "number"
+                            },
+                            "currencySymbol": {
+                              "type": "string"
+                            },
+                            "discountType": {
+                              "type": "integer",
+                              "description": "0-折扣 1-立减"
+                            },
+                            "discountInfo": {
+                              "type": "number"
+                            },
+                            "limitAmount": {
+                              "type": "number"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "required": []
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/coupon/getActivities": {
+      "get": {
+        "tags": [
+          "优惠券"
+        ],
+        "summary": "用户优惠券ActivityCodes",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "traceId": {
+                  "type": "string"
+                },
+                "placeholder": {
+                  "type": "string"
+                },
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/coupon/getList": {
+      "get": {
+        "tags": [
+          "优惠券"
+        ],
+        "summary": "用户优惠券列表（多活动分组）",
+        "description": "",
+        "parameters": [
+          {
+            "name": "userCouponState",
+            "in": "query",
+            "required": true,
+            "description": "0未使用，1下单占用，2支付已使用",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "sourceCode": {
+                        "type": "string"
+                      },
+                      "userCouponDtos": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "userId": {
+                              "type": "string"
+                            },
+                            "tenantCode": {
+                              "type": "string",
+                              "description": "租户编码"
+                            },
+                            "couponCode": {
+                              "type": "string",
+                              "description": "优惠券code"
+                            },
+                            "couponTitle": {
+                              "type": "string",
+                              "description": "优惠券名称"
+                            },
+                            "isUsed": {
+                              "type": "number",
+                              "description": "是否被用"
+                            },
+                            "gmtInvalid": {
+                              "type": "string",
+                              "description": "失效时间"
+                            },
+                            "type": {
+                              "type": "number",
+                              "description": "优惠券类型，0-打折，1-立减"
+                            },
+                            "discount": {
+                              "type": "string",
+                              "description": "折扣数据"
+                            },
+                            "limitAmount": {
+                              "type": "string",
+                              "description": "折扣金额门槛"
+                            },
+                            "currency": {
+                              "type": "string",
+                              "description": "货币单位"
+                            },
+                            "discountTarget": {
+                              "type": "string",
+                              "description": "目标币折扣"
+                            },
+                            "limitAmountTarget": {
+                              "type": "string",
+                              "description": "目标币金额门槛"
+                            },
+                            "currencyTarget": {
+                              "type": "string",
+                              "description": "目标货币"
+                            },
+                            "couponImage": {
+                              "type": "string"
+                            },
+                            "invalidPeriod": {
+                              "type": "number"
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "required": []
+                  }
+                },
+                "traceId": {
+                  "type": "string"
+                },
+                "placeholder": {
+                  "type": "string"
+                },
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/coupon/getUserCouponByActivity": {
+      "post": {
+        "tags": [
+          "优惠券"
+        ],
+        "summary": "领取优惠券（多活动）",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "root",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "title": "empty object",
+              "properties": {
+                "couponActivityCodes": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                }
+              },
+              "required": [
+                "couponActivityCodes"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "boolean"
+                },
+                "traceId": {
+                  "type": "string"
+                },
+                "placeholder": {
+                  "type": "null"
+                },
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/coupon/save": {
+      "get": {
+        "tags": [
+          "优惠券"
+        ],
+        "summary": "发放优惠券",
+        "description": "",
+        "parameters": [
+          {
+            "name": "couponActivityCode",
+            "in": "query",
+            "required": true,
+            "description": "0未使用，1下单占用，2支付已使用",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "string"
+                },
+                "traceId": {
+                  "type": "string"
+                },
+                "placeholder": {
+                  "type": "string"
+                },
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/coupon/no-auth/activityInfo": {
+      "get": {
+        "tags": [
+          "优惠券"
+        ],
+        "summary": "活动信息（非验权）",
+        "description": "",
+        "parameters": [
+          {
+            "name": "couponActivityCode",
+            "in": "query",
+            "required": true,
+            "description": "",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "success": {
+                  "type": "boolean"
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "couponList": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "currencySymbol": {
+                            "type": "string"
+                          },
+                          "discountType": {
+                            "type": "number",
+                            "description": "0 打折     1 立减"
+                          },
+                          "discountInfo": {
+                            "type": "number"
+                          },
+                          "limitAmount": {
+                            "type": "number"
+                          }
+                        },
+                        "required": [
+                          "currencySymbol",
+                          "discountType",
+                          "discountInfo",
+                          "limitAmount"
+                        ]
+                      }
+                    },
+                    "received": {
+                      "type": "boolean"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/coupon/getCouponByActivity": {
+      "post": {
+        "tags": [
+          "优惠券"
+        ],
+        "summary": "领取活动优惠券",
+        "description": "",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [
+          {
+            "name": "couponActivityCode",
+            "in": "formData",
+            "required": true,
+            "description": "new_comer_voucher   写死",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "userId": {
+                        "type": "string"
+                      },
+                      "tenantCode": {
+                        "type": "string",
+                        "description": "租户编码"
+                      },
+                      "couponCode": {
+                        "type": "string",
+                        "description": "优惠券code"
+                      },
+                      "couponTitle": {
+                        "type": "string",
+                        "description": "优惠券名称"
+                      },
+                      "isUsed": {
+                        "type": "number",
+                        "description": "是否被用"
+                      },
+                      "gmtInvalid": {
+                        "type": "string",
+                        "description": "失效时间"
+                      },
+                      "type": {
+                        "type": "number",
+                        "description": "优惠券类型，0-打折，1-立减"
+                      },
+                      "discount": {
+                        "type": "string",
+                        "description": "折扣数据"
+                      },
+                      "limitAmount": {
+                        "type": "string",
+                        "description": "折扣金额门槛"
+                      },
+                      "currency": {
+                        "type": "string",
+                        "description": "货币单位"
+                      },
+                      "discountTarget": {
+                        "type": "string",
+                        "description": "目标币折扣"
+                      },
+                      "limitAmountTarget": {
+                        "type": "string",
+                        "description": "目标币金额门槛"
+                      },
+                      "currencyTarget": {
+                        "type": "string",
+                        "description": "目标货币"
+                      },
+                      "couponImage": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                },
+                "traceId": {
+                  "type": "string"
+                },
+                "placeholder": {
+                  "type": "string"
+                },
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/coupon/get": {
+      "get": {
+        "tags": [
+          "优惠券"
+        ],
+        "summary": "用户优惠券列表",
+        "description": "",
+        "parameters": [
+          {
+            "name": "userCouponState",
+            "in": "query",
+            "required": true,
+            "description": "0未使用，1下单占用，2支付已使用 3过期  4 无效(已用+过期)",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "userId": {
+                        "type": "string"
+                      },
+                      "tenantCode": {
+                        "type": "string",
+                        "description": "租户编码"
+                      },
+                      "couponCode": {
+                        "type": "string",
+                        "description": "优惠券code"
+                      },
+                      "couponTitle": {
+                        "type": "string",
+                        "description": "优惠券名称"
+                      },
+                      "isUsed": {
+                        "type": "number",
+                        "description": "是否被用"
+                      },
+                      "gmtInvalid": {
+                        "type": "string",
+                        "description": "失效时间"
+                      },
+                      "type": {
+                        "type": "number",
+                        "description": "优惠券类型，0-打折，1-立减"
+                      },
+                      "discount": {
+                        "type": "string",
+                        "description": "折扣数据"
+                      },
+                      "limitAmount": {
+                        "type": "string",
+                        "description": "折扣金额门槛"
+                      },
+                      "currency": {
+                        "type": "string",
+                        "description": "货币单位"
+                      },
+                      "discountTarget": {
+                        "type": "string",
+                        "description": "目标币折扣"
+                      },
+                      "limitAmountTarget": {
+                        "type": "string",
+                        "description": "目标币金额门槛"
+                      },
+                      "currencyTarget": {
+                        "type": "string",
+                        "description": "目标货币"
+                      },
+                      "couponImage": {
+                        "type": "string"
+                      },
+                      "couponStatus": {
+                        "type": "string",
+                        "description": "0未使用，1下单占用，2支付已使用 3过期 "
+                      },
+                      "msgInfo": {
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "type": "string"
+                          },
+                          "limit": {
+                            "type": "string"
+                          },
+                          "usage": {
+                            "type": "string"
+                          },
+                          "discountStr": {
+                            "type": "string"
+                          },
+                          "discountUnit": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "discountUnit",
+                          "discountStr"
+                        ]
+                      }
+                    },
+                    "required": [
+                      "userId",
+                      "tenantCode",
+                      "couponCode",
+                      "couponStatus"
+                    ]
+                  }
+                },
+                "traceId": {
+                  "type": "string"
+                },
+                "placeholder": {
+                  "type": "string"
+                },
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/im/getInfo": {
+      "post": {
+        "tags": [
+          "IM"
+        ],
+        "summary": "交换IMtoken",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "root",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "title": "empty object",
+              "properties": {}
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "data": {
+                  "$schema": "http://json-schema.org/draft-04/schema#",
+                  "type": "object",
+                  "properties": {
+                    "api": {
+                      "type": "string",
+                      "description": "聊天服务api域名"
+                    },
+                    "longConnectApi": {
+                      "type": "string",
+                      "description": "长连接通道域名"
+                    },
+                    "wsApi": {
+                      "type": "string"
+                    },
+                    "longConnectKeep": {
+                      "type": "boolean",
+                      "description": "客户端是否建立长连接"
+                    },
+                    "whiteList": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "channelId": {
+                            "type": "string",
+                            "description": "白名单uid"
+                          },
+                          "channelType": {
+                            "type": "string",
+                            "description": "会话类型"
+                          }
+                        },
+                        "required": [
+                          "channelId",
+                          "channelType"
+                        ]
+                      },
+                      "description": "会话列表白名单列表"
+                    },
+                    "uid": {
+                      "type": "string"
+                    },
+                    "app_id": {
+                      "type": "string"
+                    },
+                    "name": {
+                      "type": "string"
+                    },
+                    "username": {
+                      "type": "string"
+                    },
+                    "sex": {
+                      "type": "number"
+                    },
+                    "category": {
+                      "type": "string"
+                    },
+                    "short_no": {
+                      "type": "string"
+                    },
+                    "zone": {
+                      "type": "string"
+                    },
+                    "phone": {
+                      "type": "string"
+                    },
+                    "token": {
+                      "type": "string"
+                    },
+                    "chat_pwd": {
+                      "type": "string"
+                    },
+                    "lock_screen_pwd": {
+                      "type": "string"
+                    },
+                    "lock_after_minute": {
+                      "type": "number"
+                    },
+                    "setting": {
+                      "type": "object",
+                      "properties": {
+                        "search_by_phone": {
+                          "type": "number"
+                        },
+                        "search_by_short": {
+                          "type": "number"
+                        },
+                        "new_msg_notice": {
+                          "type": "number"
+                        },
+                        "msg_show_detail": {
+                          "type": "number"
+                        },
+                        "voice_on": {
+                          "type": "number"
+                        },
+                        "shock_on": {
+                          "type": "number"
+                        },
+                        "offline_protection": {
+                          "type": "number"
+                        },
+                        "device_lock": {
+                          "type": "number"
+                        },
+                        "mute_of_app": {
+                          "type": "number"
+                        }
+                      }
+                    },
+                    "rsa_public_key": {
+                      "type": "string"
+                    },
+                    "short_status": {
+                      "type": "number"
+                    },
+                    "msg_expire_second": {
+                      "type": "number"
+                    },
+                    "showStatus": {
+                      "type": "number",
+                      "description": "0仅显示邮箱,  1显示邮箱,客服,电话"
+                    }
+                  },
+                  "required": [
+                    "longConnectApi",
+                    "api",
+                    "uid",
+                    "token",
+                    "wsApi",
+                    "longConnectKeep",
+                    "whiteList",
+                    "showStatus"
+                  ]
+                },
+                "message": {
+                  "type": "string"
+                },
+                "traceId": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/share/list": {
+      "get": {
+        "tags": [
+          "用户"
+        ],
+        "summary": "分享列表",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "root",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "title": "empty object",
+              "properties": {
+                "orderId": {
+                  "type": "string"
+                },
+                "tiktokUrl": {
+                  "type": "string"
+                },
+                "insUrl": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "orderId"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "rewardId": {
+                        "type": "string"
+                      },
+                      "tenantCode": {
+                        "type": "string"
+                      },
+                      "userId": {
+                        "type": "string"
+                      },
+                      "content": {
+                        "type": "string"
+                      },
+                      "auditStatus": {
+                        "type": "integer",
+                        "description": "0:待审核 1:已通过 2:已拒绝"
+                      },
+                      "auditTime": {
+                        "type": "string"
+                      },
+                      "rewardAmount": {
+                        "type": "number"
+                      },
+                      "currency": {
+                        "type": "string"
+                      },
+                      "rewardType": {
+                        "type": "integer"
+                      }
+                    }
+                  }
+                },
+                "placeholder": {
+                  "type": "null"
+                },
+                "traceId": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/share/rewardInfo": {
+      "get": {
+        "tags": [
+          "用户"
+        ],
+        "summary": "分享返利信息",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "orderId",
+            "in": "query",
+            "required": true,
+            "description": "",
+            "type": "string"
+          },
+          {
+            "name": "root",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "title": "empty object",
+              "properties": {
+                "orderId": {
+                  "type": "string"
+                },
+                "tiktokUrl": {
+                  "type": "string"
+                },
+                "insUrl": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "orderId"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "rewardId": {
+                      "type": "string"
+                    },
+                    "tenantCode": {
+                      "type": "string"
+                    },
+                    "userId": {
+                      "type": "string"
+                    },
+                    "content": {
+                      "type": "string"
+                    },
+                    "auditStatus": {
+                      "type": "integer",
+                      "description": "0:待审核 1:已通过 2:已拒绝"
+                    },
+                    "auditTime": {
+                      "type": "string"
+                    },
+                    "rewardAmount": {
+                      "type": "number"
+                    },
+                    "currency": {
+                      "type": "string"
+                    },
+                    "rewardType": {
+                      "type": "integer"
+                    }
+                  }
+                },
+                "placeholder": {
+                  "type": "null"
+                },
+                "traceId": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/share/submit": {
+      "post": {
+        "tags": [
+          "用户"
+        ],
+        "summary": "提交分享",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "root",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "title": "empty object",
+              "properties": {
+                "orderId": {
+                  "type": "string"
+                },
+                "tiktokUrl": {
+                  "type": "string"
+                },
+                "insUrl": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "orderId"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "string"
+                },
+                "placeholder": {
+                  "type": "null"
+                },
+                "traceId": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/delete": {
+      "get": {
+        "tags": [
+          "用户"
+        ],
+        "summary": "注销发送验证码",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "authWay": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "placeholder": {
+                  "type": "null"
+                },
+                "traceId": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/delete/confirm": {
+      "get": {
+        "tags": [
+          "用户"
+        ],
+        "summary": "注销确认",
+        "description": "",
+        "parameters": [
+          {
+            "name": "code",
+            "in": "query",
+            "required": true,
+            "description": "",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "boolean"
+                },
+                "placeholder": {
+                  "type": "null"
+                },
+                "traceId": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/update": {
+      "post": {
+        "tags": [
+          "用户"
+        ],
+        "summary": "用户修改",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Authorization (Only:undefined)",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "root",
+            "in": "body",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "userId": {
+                  "type": "string"
+                },
+                "nickname": {
+                  "type": "string"
+                },
+                "description": {
+                  "type": "string"
+                },
+                "gender": {
+                  "type": "number",
+                  "description": "性别：0保密 1男 2女',"
+                },
+                "birthday": {
+                  "type": "string"
+                },
+                "photo": {
+                  "type": "string"
+                },
+                "phoneNumber": {
+                  "type": "string"
+                },
+                "email": {
+                  "type": "string"
+                },
+                "platform": {
+                  "type": "string"
+                },
+                "delete": {
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "userId"
+              ]
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "type": "object",
+              "title": "empty object",
+              "properties": {}
+            }
+          }
+        }
+      }
+    },
+    "/user/get": {
+      "get": {
+        "tags": [
+          "用户"
+        ],
+        "summary": "用户查询",
+        "description": "",
+        "parameters": [
+          {
+            "name": "Authorization",
+            "in": "header",
+            "description": "Authorization (Only:)",
+            "required": true,
+            "type": "string",
+            "default": ""
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "userId": {
+                      "type": "string"
+                    },
+                    "nickname": {
+                      "type": "string"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "gender": {
+                      "type": "number",
+                      "description": "性别：0保密 1男 2女"
+                    },
+                    "birthday": {
+                      "type": "string",
+                      "description": "格式yyyy-MM-dd"
+                    },
+                    "photo": {
+                      "type": "string"
+                    },
+                    "phoneNumber": {
+                      "type": "string"
+                    },
+                    "email": {
+                      "type": "string"
+                    },
+                    "signUpType": {
+                      "type": "number",
+                      "description": "1email 2phone 3google 4apple -1 unkonw"
+                    },
+                    "platform": {
+                      "type": "string"
+                    },
+                    "createTime": {
+                      "type": "string"
+                    },
+                    "inviteCode": {
+                      "type": "string",
+                      "description": "邀请码"
+                    },
+                    "inviteCount": {
+                      "type": "string",
+                      "description": "邀请人数"
+                    },
+                    "portalCode": {
+                      "type": "string"
+                    },
+                    "currency": {
+                      "type": "string"
+                    },
+                    "thirdAccount": {
+                      "type": "string"
+                    },
+                    "imUid": {
+                      "type": "string"
+                    },
+                    "imUsername": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "placeholder": {
+                  "type": "null"
+                },
+                "traceId": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/user-commission": {
+      "get": {
+        "tags": [
+          "用户"
+        ],
+        "summary": "用户积分信息",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "currentUserLevel": {
+                      "type": "integer"
+                    },
+                    "nextUserLevel": {
+                      "type": "integer"
+                    },
+                    "nextUserLevelPoints": {
+                      "type": "integer"
+                    }
+                  },
+                  "required": []
+                },
+                "placeholder": {
+                  "type": "null"
+                },
+                "traceId": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/configure-setting": {
+      "get": {
+        "tags": [
+          "用户"
+        ],
+        "summary": "用户配置",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "showGiveawayGift": {
+                      "type": "integer",
+                      "description": "0-无，1-袜子"
+                    }
+                  }
+                },
+                "placeholder": {
+                  "type": "null"
+                },
+                "traceId": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/invite/count": {
+      "get": {
+        "tags": [
+          "用户"
+        ],
+        "summary": "邀请数量",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "integer"
+                },
+                "placeholder": {
+                  "type": "null"
+                },
+                "traceId": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/invite/num": {
+      "get": {
+        "tags": [
+          "用户"
+        ],
+        "summary": "邀请统计",
+        "description": "",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "inviteTotalNum": {
+                      "type": "number"
+                    },
+                    "inviteNum": {
+                      "type": "number",
+                      "description": "一级邀请人数"
+                    },
+                    "subInviteNum": {
+                      "type": "number",
+                      "description": "二级邀请人数"
+                    }
+                  }
+                },
+                "placeholder": {
+                  "type": "null"
+                },
+                "traceId": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/share/update": {
+      "post": {
+        "tags": [
+          "用户"
+        ],
+        "summary": "重新提交分享",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "root",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "title": "empty object",
+              "properties": {
+                "rewardId": {
+                  "type": "string"
+                },
+                "tiktokUrl": {
+                  "type": "string"
+                },
+                "insUrl": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "string"
+                },
+                "placeholder": {
+                  "type": "null"
+                },
+                "traceId": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/user-reward": {
+      "get": {
+        "tags": [
+          "用户"
+        ],
+        "summary": "领取奖励",
+        "description": "",
+        "parameters": [
+          {
+            "name": "rewardType",
+            "in": "query",
+            "required": true,
+            "description": "",
+            "type": "string"
+          },
+          {
+            "name": "expire",
+            "in": "query",
+            "required": false,
+            "description": "",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "boolean"
+                },
+                "placeholder": {
+                  "type": "null"
+                },
+                "traceId": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user-tag-portrait/ai-to-portrait": {
+      "post": {
+        "tags": [
+          "用户画像"
+        ],
+        "summary": "ai解析画像",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "root",
+            "in": "body",
+            "description": "用户回答记录，每一个问题一条",
+            "schema": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "用户回答记录，每一个问题一条"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "object",
+                  "title": "empty object",
+                  "properties": {
+                    "age": {
+                      "type": "number"
+                    },
+                    "sex": {
+                      "type": "number",
+                      "description": "1 male,2 female, 3 unknown"
+                    },
+                    "birthday": {
+                      "type": "number",
+                      "description": "epoch sec from 1970"
+                    },
+                    "nickname": {
+                      "type": "string"
+                    },
+                    "favoriteShoppingPlatforms": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "favoriteBrands": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "traceId": {
+                  "type": "string"
+                },
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user-tag-portrait/ai-to-portrait-v2": {
+      "post": {
+        "tags": [
+          "用户画像"
+        ],
+        "summary": "ai解析画像V2",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "root",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "userAnswers": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  },
+                  "description": "用户回答记录，每一个问题一条"
+                }
+              },
+              "required": []
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "object",
+                  "title": "empty object",
+                  "properties": {
+                    "age": {
+                      "type": "number"
+                    },
+                    "sex": {
+                      "type": "number",
+                      "description": "1 male,2 female, 3 unknown"
+                    },
+                    "birthday": {
+                      "type": "number",
+                      "description": "epoch sec from 1970"
+                    },
+                    "nickname": {
+                      "type": "string"
+                    },
+                    "favoriteShoppingPlatforms": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "favoriteBrands": {
+                      "type": "string"
+                    }
+                  }
+                },
+                "traceId": {
+                  "type": "string"
+                },
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user-tag-portrait/update-portrait": {
+      "post": {
+        "tags": [
+          "用户画像"
+        ],
+        "summary": "更新用户画像",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "root",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "title": "empty object",
+              "properties": {
+                "age": {
+                  "type": "number"
+                },
+                "sex": {
+                  "type": "number",
+                  "description": "1 male,2 female, 3 unknown"
+                },
+                "birthday": {
+                  "type": "number",
+                  "description": "epoch sec from 1970"
+                },
+                "nickname": {
+                  "type": "string"
+                },
+                "avatarUrl": {
+                  "type": "string"
+                },
+                "favoriteShoppingPlatforms": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "favoriteBrands": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "boolean"
+                },
+                "traceId": {
+                  "type": "string"
+                },
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user-tag-portrait/get-portrait": {
+      "get": {
+        "tags": [
+          "用户画像"
+        ],
+        "summary": "获取用户画像",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "root",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "title": "empty object",
+              "properties": {
+                "age": {
+                  "type": "number"
+                },
+                "sex": {
+                  "type": "number",
+                  "description": "1 male,2 female, 3 unknown"
+                },
+                "birthday": {
+                  "type": "number",
+                  "description": "epoch sec from 1970"
+                },
+                "nickname": {
+                  "type": "string"
+                },
+                "favoriteShoppingPlatforms": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "favoriteBrands": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "object",
+                  "title": "empty object",
+                  "properties": {
+                    "age": {
+                      "type": "number"
+                    },
+                    "sex": {
+                      "type": "number",
+                      "description": "1 male,2 female, 3 unknown"
+                    },
+                    "birthday": {
+                      "type": "number",
+                      "description": "epoch sec from 1970"
+                    },
+                    "nickname": {
+                      "type": "string"
+                    },
+                    "avatarUrl": {
+                      "type": "string"
+                    },
+                    "favoriteShoppingPlatforms": {
+                      "type": "array",
+                      "items": {
+                        "type": "string"
+                      }
+                    },
+                    "favoriteBrands": {
+                      "type": "string"
+                    }
+                  },
+                  "required": []
+                },
+                "traceId": {
+                  "type": "string"
+                },
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/user/coupon/app/homeActivity": {
+      "post": {
+        "tags": [
+          "app端"
+        ],
+        "summary": "首页活动",
+        "description": "",
+        "consumes": [
+          "multipart/form-data"
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "userId": {
+                        "type": "string"
+                      },
+                      "tenantCode": {
+                        "type": "string",
+                        "description": "租户编码"
+                      },
+                      "couponCode": {
+                        "type": "string",
+                        "description": "优惠券code"
+                      },
+                      "couponTitle": {
+                        "type": "string",
+                        "description": "优惠券名称"
+                      },
+                      "isUsed": {
+                        "type": "number",
+                        "description": "是否被用"
+                      },
+                      "gmtInvalid": {
+                        "type": "string",
+                        "description": "失效时间"
+                      },
+                      "type": {
+                        "type": "number",
+                        "description": "优惠券类型，0-打折，1-立减"
+                      },
+                      "discount": {
+                        "type": "string",
+                        "description": "折扣数据"
+                      },
+                      "limitAmount": {
+                        "type": "string",
+                        "description": "折扣金额门槛"
+                      },
+                      "currency": {
+                        "type": "string",
+                        "description": "货币单位"
+                      },
+                      "discountTarget": {
+                        "type": "string",
+                        "description": "目标币折扣"
+                      },
+                      "limitAmountTarget": {
+                        "type": "string",
+                        "description": "目标币金额门槛"
+                      },
+                      "currencyTarget": {
+                        "type": "string",
+                        "description": "目标货币"
+                      },
+                      "couponImage": {
+                        "type": "string"
+                      },
+                      "msgInfo": {
+                        "type": "object",
+                        "properties": {
+                          "name": {
+                            "type": "string"
+                          },
+                          "usage": {
+                            "type": "string"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "traceId": {
+                  "type": "string"
+                },
+                "placeholder": {
+                  "type": "string"
+                },
+                "success": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

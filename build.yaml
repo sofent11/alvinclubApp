@@ -1,0 +1,13 @@
+targets:
+  $default:
+    sources:
+      - lib/**
+      - docs/api/**
+      - $package$
+    builders:
+      swagger_dart_code_generator:
+        options:
+          input_folder: "docs/api/sanitized"
+          output_folder: "lib/data/api/generated"
+          # Keep full client + models for now; repositories can wrap Dio separately.
+          build_only_models: false
