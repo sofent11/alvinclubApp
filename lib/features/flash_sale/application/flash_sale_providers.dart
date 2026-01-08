@@ -1,14 +1,13 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import '../../../data/repositories/product_repository.dart';
 
-import '../../data/repositories/product_repository.dart';
-
-final categoriesProvider = FutureProvider<List<CategoryItem>>((ref) async {
+final flashSaleActivitiesProvider = FutureProvider.autoDispose<List<FlashSaleActivity>>((ref) async {
   final repo = ref.watch(productRepositoryProvider);
-  return repo.getProductCategories();
+  return repo.getFlashSaleActivities();
 });
 
-class CategoryProductsState {
-  const CategoryProductsState({
+class FlashSaleProductsState {
+  const FlashSaleProductsState({
     this.products = const [],
     this.isLoading = false,
     this.hasMore = false,
@@ -22,14 +21,14 @@ class CategoryProductsState {
   final int page;
   final String? error;
 
-  CategoryProductsState copyWith({
+  FlashSaleProductsState copyWith({
     List<ProductItem>? products,
     bool? isLoading,
     bool? hasMore,
     int? page,
     String? error,
   }) {
-    return CategoryProductsState(
+    return FlashSaleProductsState(
       products: products ?? this.products,
       isLoading: isLoading ?? this.isLoading,
       hasMore: hasMore ?? this.hasMore,
@@ -39,23 +38,19 @@ class CategoryProductsState {
   }
 }
 
-class CategoryProductsNotifier extends StateNotifier<CategoryProductsState> {
-  CategoryProductsNotifier(this._repository, this._categoryId) : super(const CategoryProductsState()) {
+class FlashSaleProductsNotifier extends StateNotifier<FlashSaleProductsState> {
+  FlashSaleProductsNotifier(this._repository, this._activityId) : super(const FlashSaleProductsState()) {
     loadFirstPage();
   }
 
   final ProductRepository _repository;
-  final String _categoryId;
+  final String _activityId;
   static const int _pageSize = 20;
 
   Future<void> loadFirstPage() async {
     state = state.copyWith(isLoading: true, error: null, products: []);
     try {
-      final response = await _repository.getCategoryProducts(CategoryProductsParams(
-        categoryId: _categoryId,
-        page: 1,
-        pageSize: _pageSize,
-      ));
+      final response = await _repository.getFlashSaleActivityProducts(_activityId, page: 1, pageSize: _pageSize);
       state = state.copyWith(
         products: response.products,
         hasMore: response.hasMore,
@@ -74,11 +69,7 @@ class CategoryProductsNotifier extends StateNotifier<CategoryProductsState> {
     state = state.copyWith(isLoading: true);
 
     try {
-      final response = await _repository.getCategoryProducts(CategoryProductsParams(
-        categoryId: _categoryId,
-        page: nextPage,
-        pageSize: _pageSize,
-      ));
+      final response = await _repository.getFlashSaleActivityProducts(_activityId, page: nextPage, pageSize: _pageSize);
       state = state.copyWith(
         products: [...state.products, ...response.products],
         hasMore: response.hasMore,
@@ -91,10 +82,7 @@ class CategoryProductsNotifier extends StateNotifier<CategoryProductsState> {
   }
 }
 
-final categoryProductsProvider =
-    StateNotifierProvider.family.autoDispose<CategoryProductsNotifier, CategoryProductsState, String>(
-  (ref, categoryId) {
-    final repo = ref.watch(productRepositoryProvider);
-    return CategoryProductsNotifier(repo, categoryId);
-  },
-);
+final flashSaleProductsProvider = StateNotifierProvider.family.autoDispose<FlashSaleProductsNotifier, FlashSaleProductsState, String>((ref, activityId) {
+  final repo = ref.watch(productRepositoryProvider);
+  return FlashSaleProductsNotifier(repo, activityId);
+});

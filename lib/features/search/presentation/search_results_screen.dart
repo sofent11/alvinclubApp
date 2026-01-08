@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../../core/navigation/route_paths.dart';
 import '../../../shared/widgets/product_card.dart';
+import '../application/search_history_notifier.dart';
 import '../application/search_providers.dart';
 
 class SearchResultsScreen extends ConsumerStatefulWidget {
@@ -56,6 +57,10 @@ class _SearchResultsScreenState extends ConsumerState<SearchResultsScreen> {
 
   void _onSearch(String query) {
     if (query.trim().isEmpty) return;
+    
+    // Add to history
+    ref.read(searchHistoryNotifierProvider.notifier).add(query);
+    
     // Update URL and trigger search
     context.pushReplacement(
       Uri(path: RoutePaths.searchResults, queryParameters: {'q': query}).toString(),

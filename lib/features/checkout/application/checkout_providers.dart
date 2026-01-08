@@ -17,6 +17,8 @@ class CheckoutState {
     this.isLoading = false,
     this.isSubmitting = false,
     this.error,
+    this.remark = '',
+    this.couponTouched = false,
   });
 
   final List<CartPricingRequestItem> items;
@@ -29,6 +31,8 @@ class CheckoutState {
   final bool isLoading;
   final bool isSubmitting;
   final String? error;
+  final String remark;
+  final bool couponTouched;
 
   CheckoutState copyWith({
     List<CartPricingRequestItem>? items,
@@ -42,6 +46,8 @@ class CheckoutState {
     bool? isLoading,
     bool? isSubmitting,
     String? error,
+    String? remark,
+    bool? couponTouched,
   }) {
     return CheckoutState(
       items: items ?? this.items,
@@ -54,6 +60,8 @@ class CheckoutState {
       isLoading: isLoading ?? this.isLoading,
       isSubmitting: isSubmitting ?? this.isSubmitting,
       error: error,
+      remark: remark ?? this.remark,
+      couponTouched: couponTouched ?? this.couponTouched,
     );
   }
 }
@@ -88,15 +96,26 @@ class CheckoutController extends StateNotifier<CheckoutState> {
       final coupon = await _orderRepository.getAvailableCoupon(items);
       bestCoupon = coupon?.available == true ? coupon : null;
 
-      // 4. Re-price if coupon found (auto-apply)
+      // 4. Re-price if coupon found (auto-apply if not touched)
       OrderPricingSummary? finalPricing = pricing;
-      if (bestCoupon != null) {
+      if (!state.couponTouched && bestCoupon != null) {
         try {
           finalPricing = await _orderRepository.priceOrder(items, couponCode: bestCoupon.code);
         } catch (_) {
           // If pricing fails with coupon, fallback to no coupon
           bestCoupon = null;
         }
+      } else if (state.couponTouched && state.couponCode != null) {
+        // If touched and has code, try to preserve it?
+        // But init implies fresh start usually.
+        // If we are re-entering, maybe stick to what we had?
+        // For now, let's assume init with touched means we respect current state, 
+        // but init creates clear state usually. 
+        // If we want to persist across hot reload or re-entry, we need to pass couponCode.
+        // But for "auto-apply", the rule is: if user hasn't touched it, we can auto-apply.
+      } else {
+        // If touched and no code, or no best coupon, we don't apply.
+        bestCoupon = null;
       }
 
       state = state.copyWith(
@@ -110,13 +129,7 @@ class CheckoutController extends StateNotifier<CheckoutState> {
       );
 
       // 5. Load Payment Methods (needs orderId usually? PayRepo says getPaymentMethods(orderId...))
-      // Wait, getPaymentMethods requires orderId. But we haven't submitted yet.
-      // Usually we submit order -> get order ID -> get payment methods -> pay.
-      // OR there is a way to get payment methods before order?
-      // Checking PayRepository: getPaymentMethodsInput takes orderId (required).
-      // So we can only select payment method AFTER submitting order?
-      // Or maybe we submit a "draft" order first?
-      // OrderRepository.submitOrder has 'submitAsDraft'.
+      // ...
       
     } catch (e) {
       state = state.copyWith(isLoading: false, error: e.toString());
@@ -148,14 +161,18 @@ class CheckoutController extends StateNotifier<CheckoutState> {
 
   Future<void> applyCoupon(String code) async {
     if (code == state.couponCode) return;
-    state = state.copyWith(couponCode: code);
+    state = state.copyWith(couponCode: code, couponTouched: true);
     await refreshPricing();
   }
 
   Future<void> removeCoupon() async {
     if (state.couponCode == null) return;
-    state = state.copyWith(clearCoupon: true);
+    state = state.copyWith(clearCoupon: true, couponTouched: true);
     await refreshPricing();
+  }
+
+  void setRemark(String remark) {
+    state = state.copyWith(remark: remark);
   }
 
   Future<OrderSubmitResult?> submitOrder() async {
@@ -174,7 +191,7 @@ class CheckoutController extends StateNotifier<CheckoutState> {
           country: state.address!.country,
           userAddressId: int.tryParse(state.address!.id),
           couponCode: state.couponCode,
-          remark: '', // TODO: Add remark field
+          remark: state.remark,
         ),
       );
       

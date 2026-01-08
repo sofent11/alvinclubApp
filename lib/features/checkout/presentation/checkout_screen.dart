@@ -77,6 +77,8 @@ class _CheckoutScreenState extends ConsumerState<CheckoutScreen> {
                   const SizedBox(height: 20),
                   _buildCouponSection(state),
                   const SizedBox(height: 20),
+                  _buildRemarkSection(state),
+                  const SizedBox(height: 20),
                   _buildPricingSummary(state),
                 ],
               ),
@@ -205,6 +207,37 @@ class _CheckoutScreenState extends ConsumerState<CheckoutScreen> {
                 ),
               ],
             ),
+        ],
+      ),
+    );
+  }
+  
+  Widget _buildRemarkSection(CheckoutState state) {
+    return Container(
+      padding: const EdgeInsets.all(16),
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(8),
+        border: Border.all(color: Colors.grey[200]!),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          const ThemedText('Remark (Optional)', type: ThemedTextType.defaultSemiBold),
+          const SizedBox(height: 10),
+          TextField(
+            onChanged: (val) {
+              ref.read(checkoutControllerProvider.notifier).setRemark(val);
+            },
+            decoration: const InputDecoration(
+              hintText: 'Add a note to your order',
+              isDense: true,
+              contentPadding: EdgeInsets.symmetric(horizontal: 10, vertical: 8),
+              border: OutlineInputBorder(),
+            ),
+            minLines: 1,
+            maxLines: 3,
+          ),
         ],
       ),
     );

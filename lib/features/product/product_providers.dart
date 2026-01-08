@@ -1,7 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../core/storage/favorites_store.dart';
 import '../../data/repositories/product_repository.dart';
+import '../favorites/application/favorites_notifier.dart';
 
 final productDetailProvider = FutureProvider.family<ProductDetail, String>((ref, productCode) async {
   final repo = ref.watch(productRepositoryProvider);
@@ -24,7 +24,9 @@ final similarProductsProvider = FutureProvider.family<List<ProductItem>, String>
   return repo.getSimilarProducts(productCode);
 });
 
-final isFavoriteProvider = FutureProvider.family<bool, String>((ref, productCode) async {
-  final store = ref.watch(favoritesStoreProvider);
-  return store.isFavorite(productCode);
+final isFavoriteProvider = Provider.family<AsyncValue<bool>, String>((ref, productCode) {
+  final favoritesState = ref.watch(favoritesNotifierProvider);
+  return favoritesState.whenData(
+    (items) => items.any((item) => item.productCode == productCode),
+  );
 });

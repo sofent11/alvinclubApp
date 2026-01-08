@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../../data/repositories/pay_repository.dart';
@@ -88,4 +89,22 @@ class PaymentController extends StateNotifier<PaymentState> {
 
 final paymentControllerProvider = StateNotifierProvider.autoDispose<PaymentController, PaymentState>((ref) {
   return PaymentController(ref.watch(payRepositoryProvider));
+});
+
+final paymentResultProvider = StreamProvider.family.autoDispose<PayResult, String>((ref, orderId) async* {
+  final repo = ref.watch(payRepositoryProvider);
+  
+  while (true) {
+    try {
+      final result = await repo.getPayResult(orderId);
+      yield result;
+      
+      // If status is terminal (success, failed, canceled, timeout)
+      // we stop polling.
+      if (result.isTerminal) break;
+    } catch (_) {
+      // Ignore errors during polling
+    }
+    await Future.delayed(const Duration(seconds: 3));
+  }
 });

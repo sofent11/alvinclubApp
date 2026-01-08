@@ -3,6 +3,7 @@ import 'dart:convert';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../core/error/api_error.dart';
+import '../../core/env/env_config.dart';
 import '../api/swagger_client.dart';
 
 class PaymentMethod {
@@ -81,18 +82,89 @@ class InitiatePaymentResult {
   final String? stripeIntentId;
 }
 
+/// Payment status enum with localized display text.
+/// Matches RN payment status codes from the API.
+enum PayStatus {
+  unknown,
+  pending,
+  processing,
+  success,
+  failed,
+  canceled,
+  timeout;
+
+  /// Convert API status code to enum.
+  static PayStatus fromCode(int code) {
+    switch (code) {
+      case 0:
+        return PayStatus.pending;
+      case 1:
+        return PayStatus.success;
+      case 2:
+        return PayStatus.processing;
+      case 3:
+        return PayStatus.failed;
+      case 4:
+        return PayStatus.canceled;
+      case 5:
+        return PayStatus.timeout;
+      default:
+        return PayStatus.unknown;
+    }
+  }
+
+  /// Localized display text for the status.
+  String get displayText {
+    switch (this) {
+      case PayStatus.pending:
+        return 'Awaiting Payment';
+      case PayStatus.processing:
+        return 'Processing Payment...';
+      case PayStatus.success:
+        return 'Payment Successful';
+      case PayStatus.failed:
+        return 'Payment Failed';
+      case PayStatus.canceled:
+        return 'Payment Canceled';
+      case PayStatus.timeout:
+        return 'Payment Timeout';
+      case PayStatus.unknown:
+        return 'Checking Status...';
+    }
+  }
+
+  /// Whether this status is a terminal state (no more polling needed).
+  bool get isTerminal =>
+      this == success || this == failed || this == canceled || this == timeout;
+
+  /// Whether this status represents a successful payment.
+  bool get isSuccess => this == success;
+}
+
 class PayResult {
   const PayResult({
-    required this.status,
+    required this.statusCode,
     this.orderType,
     this.amount,
     this.currency,
   });
 
-  final int status;
+  final int statusCode;
   final int? orderType;
   final double? amount;
   final String? currency;
+
+  /// Get the parsed status enum.
+  PayStatus get status => PayStatus.fromCode(statusCode);
+
+  /// Convenience getter for display text.
+  String get statusText => status.displayText;
+
+  /// Whether payment is complete (terminal state).
+  bool get isTerminal => status.isTerminal;
+
+  /// Whether payment was successful.
+  bool get isSuccess => status.isSuccess;
 }
 
 class PayRepository {
@@ -173,10 +245,23 @@ class PayRepository {
 
     final data = _toMap(body['data']);
     final thirdPayParam = data?['thirdPayParam']?.toString();
+    var receiptAddress = data?['receiptAddress']?.toString();
+
+    // If receiptAddress is missing, try to construct it from payInfoKey (RN parity)
+    if (receiptAddress == null || receiptAddress.isEmpty) {
+      final payInfoKey = _extractPayInfoKey(thirdPayParam);
+      if (payInfoKey != null) {
+        // Assume cashier URL follows pattern /pay/cashier?payInfoKey=...
+        // Domain uses referer which defaults to www.alvinclub.com
+        final host = EnvConfig.current.referer.replaceAll(RegExp(r'/$'), '');
+        receiptAddress = '$host/pay/cashier?payInfoKey=$payInfoKey';
+      }
+    }
+
     final stripeParams = _extractStripeParams(thirdPayParam);
 
     return InitiatePaymentResult(
-      receiptAddress: data?['receiptAddress']?.toString(),
+      receiptAddress: receiptAddress,
       thirdPartyParams: thirdPayParam,
       stripePublicKey: stripeParams.publicKey,
       stripeClientSecret: stripeParams.clientSecret,
@@ -199,7 +284,7 @@ class PayRepository {
 
     final currency = _toMap(data['currency']);
     return PayResult(
-      status: _parseInt(data['payStatus']),
+      statusCode: _parseInt(data['payStatus']),
       orderType: _parseOptionalInt(data['orderType']),
       amount: _parseOptionalDouble(data['payAmount']),
       currency: currency?['symbol']?.toString() ?? currency?['name']?.toString(),
@@ -221,6 +306,28 @@ class StripeParamResult {
   final String? publicKey;
   final String? clientSecret;
   final String? intentId;
+}
+
+String? _extractPayInfoKey(String? thirdPayParam) {
+  if (thirdPayParam == null || thirdPayParam.isEmpty) return null;
+  
+  // Try URL parsing
+  try {
+    final uri = Uri.tryParse(thirdPayParam.startsWith('http') ? thirdPayParam : 'https://dummy.com/$thirdPayParam');
+    if (uri != null && uri.queryParameters.containsKey('payInfoKey')) {
+      return uri.queryParameters['payInfoKey'];
+    }
+  } catch (_) {}
+
+  // Try JSON parsing
+  try {
+    final decoded = jsonDecode(thirdPayParam);
+    if (decoded is Map && decoded.containsKey('payInfoKey')) {
+      return decoded['payInfoKey']?.toString();
+    }
+  } catch (_) {}
+
+  return null;
 }
 
 StripeParamResult _extractStripeParams(String? thirdPayParam) {

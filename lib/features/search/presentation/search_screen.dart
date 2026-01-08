@@ -3,8 +3,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../core/navigation/route_paths.dart';
-import '../../../core/storage/search_history_store.dart';
 import '../../../shared/widgets/themed_text.dart';
+import '../application/search_history_notifier.dart';
 
 class SearchScreen extends ConsumerStatefulWidget {
   const SearchScreen({super.key});
@@ -35,7 +35,7 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
 
   void _onSearch(String query) {
     if (query.trim().isEmpty) return;
-    ref.read(searchHistoryProvider).add(query);
+    ref.read(searchHistoryNotifierProvider.notifier).add(query);
     context.push(
       Uri(path: RoutePaths.searchResults, queryParameters: {'q': query}).toString(),
     );
@@ -76,9 +76,9 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
   }
 
   Widget _buildHistory() {
-    final historyFuture = ref.watch(searchHistoryFutureProvider);
+    final historyState = ref.watch(searchHistoryNotifierProvider);
 
-    return historyFuture.when(
+    return historyState.when(
       data: (history) {
         if (history.isEmpty) return const SizedBox.shrink();
         return Column(
@@ -92,33 +92,35 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
                   const ThemedText('Search History', type: ThemedTextType.defaultSemiBold),
                   GestureDetector(
                     onTap: () {
-                      ref.read(searchHistoryProvider).clear();
-                      ref.invalidate(searchHistoryFutureProvider);
+                      ref.read(searchHistoryNotifierProvider.notifier).clear();
                     },
                     child: const Icon(Icons.delete_outline, size: 20, color: Colors.grey),
                   ),
                 ],
               ),
             ),
-            Wrap(
-              spacing: 8,
-              runSpacing: 8,
-              children: history.map((keyword) {
-                return Padding(
-                  padding: const EdgeInsets.only(left: 16),
-                  child: ActionChip(
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 16),
+              child: Wrap(
+                spacing: 8,
+                runSpacing: 8,
+                children: history.map((keyword) {
+                  return InputChip(
                     label: Text(keyword),
                     onPressed: () {
                       _controller.text = keyword;
                       _onSearch(keyword);
                     },
+                    onDeleted: () {
+                      ref.read(searchHistoryNotifierProvider.notifier).remove(keyword);
+                    },
                     avatar: const Icon(Icons.history, size: 16, color: Colors.grey),
                     backgroundColor: Colors.grey[100],
                     side: BorderSide.none,
                     shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(20)),
-                  ),
-                );
-              }).toList(),
+                  );
+                }).toList(),
+              ),
             ),
           ],
         );
@@ -128,9 +130,3 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
     );
   }
 }
-
-// Helper provider to watch history changes
-final searchHistoryFutureProvider = FutureProvider.autoDispose<List<String>>((ref) {
-  final store = ref.watch(searchHistoryProvider);
-  return store.get();
-});

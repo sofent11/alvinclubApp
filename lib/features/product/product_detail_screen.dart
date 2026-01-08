@@ -11,6 +11,7 @@ import '../../data/repositories/product_repository.dart';
 import '../../shared/widgets/product_card.dart';
 import '../../shared/widgets/themed_button.dart';
 import '../../shared/widgets/themed_text.dart';
+import '../favorites/application/favorites_notifier.dart';
 import 'product_detail_controller.dart';
 import 'product_providers.dart';
 
@@ -64,19 +65,20 @@ class _ProductDetailContentState extends ConsumerState<_ProductDetailContent> {
 
   Future<void> _toggleFavorite() async {
     final detail = widget.detail;
-    final store = ref.read(favoritesStoreProvider);
     
     // We use detail image if available, otherwise first main image
     final imageUrl = detail.images.isNotEmpty ? detail.images.first : '';
     
-    await store.toggleFavorite(
-      productCode: detail.id,
-      productName: detail.name,
-      imageUrl: imageUrl,
-      price: detail.price,
-      currency: detail.currency,
+    await ref.read(favoritesNotifierProvider.notifier).toggle(
+      FavoriteItem(
+        productCode: detail.id,
+        productName: detail.name,
+        imageUrl: imageUrl,
+        price: detail.price,
+        currency: detail.currency,
+        addedAt: DateTime.now().toIso8601String(),
+      ),
     );
-    ref.invalidate(isFavoriteProvider(detail.id));
   }
 
   @override
@@ -89,6 +91,8 @@ class _ProductDetailContentState extends ConsumerState<_ProductDetailContent> {
 
     // Image logic: Sku Image -> Product Detail Main Image
     final mainImage = selectedSku?.imageUrl ?? (widget.detail.images.isNotEmpty ? widget.detail.images.first : '');
+
+    final isFav = isFavoriteAsync.valueOrNull ?? false;
 
     return Column(
       children: [
@@ -118,8 +122,8 @@ class _ProductDetailContentState extends ConsumerState<_ProductDetailContent> {
                     ),
                     child: IconButton(
                       icon: Icon(
-                        isFavoriteAsync.valueOrNull == true ? Icons.favorite : Icons.favorite_border,
-                        color: isFavoriteAsync.valueOrNull == true ? Colors.red : Colors.black,
+                        isFav ? Icons.favorite : Icons.favorite_border,
+                        color: isFav ? Colors.red : Colors.black,
                       ),
                       onPressed: _toggleFavorite,
                     ),

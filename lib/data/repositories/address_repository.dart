@@ -100,7 +100,7 @@ class AddressRepository {
 
     final body = _toMap(response.body);
     if (body == null || _parseInt(body['code']) != 0) {
-      throw _createApiError(body?['message']?.toString() ?? '删除地址失败', body);
+      throw _createApiError('删除地址失败', body);
     }
   }
 
@@ -116,6 +116,25 @@ class AddressRepository {
     final data = _toMap(body['data']);
     if (data == null) return null;
     return _mapAddress(data);
+  }
+
+  Future<List<String>> getSupportCountries() async {
+
+
+    final api = _ref.read(swaggerUserApiProvider);
+    final response = await api.userServiceNoAuthSupportCountryGet();
+
+    final body = _toMap(response.body);
+    if (body == null || _parseInt(body['code']) != 0) {
+      return ['United States', 'Canada', 'United Kingdom']; // Fallback
+    }
+
+    final data = _toList(body['data']);
+    return data.map((item) {
+      if (item is String) return item;
+      final map = _toMap(item);
+      return map?['countryName']?.toString() ?? map?['country']?.toString();
+    }).whereType<String>().toList();
   }
 
   ShippingAddress? _mapAddress(Map<String, dynamic> data) {

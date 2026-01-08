@@ -8,12 +8,26 @@ import '../../features/account/account_screen.dart';
 import '../../features/auth/sign_in_screen.dart';
 import '../../features/cart/cart_screen.dart';
 import '../../features/catalog/categories_screen.dart';
+import '../../features/catalog/category_detail_screen.dart';
+import '../../features/catalog/topic_detail_screen.dart';
 import '../../features/home/home_screen.dart';
+import '../../features/home/kol_landing_screen.dart';
 import '../../data/repositories/cart_repository.dart';
+import '../../data/repositories/address_repository.dart';
+import '../../features/account/presentation/profile_edit_screen.dart';
+import '../../features/address/presentation/address_edit_screen.dart';
+import '../../features/address/presentation/address_list_screen.dart';
+import '../../features/ai_fashion/presentation/ai_fashion_screen.dart';
 import '../../features/checkout/presentation/checkout_screen.dart';
 import '../../features/checkout/presentation/order_success_screen.dart';
 import '../../features/checkout/presentation/payment_screen.dart';
+import '../../features/community/presentation/community_screen.dart';
+import '../../features/coupon/presentation/coupon_screen.dart';
+import '../../features/favorites/presentation/favorites_screen.dart';
+import '../../features/flash_sale/presentation/flash_sale_screen.dart';
+import '../../features/order/presentation/order_list_screen.dart';
 import '../../features/product/product_detail_screen.dart';
+import '../../features/wallet/presentation/wallet_screen.dart';
 import '../../features/search/presentation/search_results_screen.dart';
 import '../../features/search/presentation/search_screen.dart';
 import '../../shared/widgets/placeholder_screen.dart';
@@ -28,19 +42,21 @@ final routerProvider = Provider<GoRouter>((ref) {
       ShellRoute(
         builder: (context, state, child) => TabsScaffold(location: state.uri.toString(), child: child),
         routes: [
-          GoRoute(path: RoutePaths.home, builder: (context, state) => const HomeScreen()),
-          GoRoute(path: RoutePaths.categories, builder: (context, state) => const CategoriesScreen()),
-          GoRoute(path: RoutePaths.cart, builder: (context, state) => const CartScreen()),
-          GoRoute(path: RoutePaths.account, builder: (context, state) => const AccountScreen()),
+          GoRoute(path: RoutePaths.home, name: RoutePaths.home, builder: (context, state) => const HomeScreen()),
+          GoRoute(path: RoutePaths.categories, name: RoutePaths.categories, builder: (context, state) => const CategoriesScreen()),
+          GoRoute(path: RoutePaths.cart, name: RoutePaths.cart, builder: (context, state) => const CartScreen()),
+          GoRoute(path: RoutePaths.account, name: RoutePaths.account, builder: (context, state) => const AccountScreen()),
         ],
       ),
-      GoRoute(path: RoutePaths.signIn, builder: (context, state) => const SignInScreen()),
+      GoRoute(path: RoutePaths.signIn, name: RoutePaths.signIn, builder: (context, state) => const SignInScreen()),
       GoRoute(
         path: RoutePaths.search,
+        name: RoutePaths.search,
         builder: (context, state) => const SearchScreen(),
       ),
       GoRoute(
         path: RoutePaths.searchResults,
+        name: RoutePaths.searchResults,
         builder: (context, state) {
           final query = state.uri.queryParameters['q'] ?? '';
           return SearchResultsScreen(query: query);
@@ -48,74 +64,119 @@ final routerProvider = Provider<GoRouter>((ref) {
       ),
       GoRoute(
         path: RoutePaths.productDetail,
+        name: RoutePaths.productDetail,
         builder: (context, state) => ProductDetailScreen(
           productCode: state.pathParameters['productCode'] ?? '',
         ),
       ),
       GoRoute(
         path: RoutePaths.categoryDetail,
-        builder: (context, state) => PlaceholderScreen(title: 'Category ${state.pathParameters['id']}'),
+        name: RoutePaths.categoryDetail,
+        builder: (context, state) {
+          final id = state.pathParameters['id'] ?? '';
+          final title = state.uri.queryParameters['title'];
+          return CategoryDetailScreen(id: id, title: title);
+        },
       ),
       GoRoute(
         path: RoutePaths.topicDetail,
-        builder: (context, state) => PlaceholderScreen(title: 'Topic ${state.pathParameters['id']}'),
+        name: RoutePaths.topicDetail,
+        builder: (context, state) {
+          final id = state.pathParameters['id'] ?? '';
+          final title = state.uri.queryParameters['title'];
+          return TopicDetailScreen(id: id, title: title);
+        },
       ),
-      GoRoute(path: RoutePaths.flashSale, builder: (context, state) => const PlaceholderScreen(title: 'Flash Sale')),
-      GoRoute(path: RoutePaths.kol, builder: (context, state) => PlaceholderScreen(title: 'KOL ${state.pathParameters['code']}')),
+      GoRoute(path: RoutePaths.flashSale, name: RoutePaths.flashSale, builder: (context, state) => const FlashSaleScreen()),
+      GoRoute(
+        path: RoutePaths.kol,
+        name: RoutePaths.kol,
+        builder: (context, state) {
+          final code = state.pathParameters['code'] ?? '';
+          return KolLandingScreen(code: code);
+        },
+      ),
       GoRoute(
         path: RoutePaths.checkout,
+        name: RoutePaths.checkout,
         builder: (context, state) {
           final items = state.extra as List<CartPricingRequestItem>? ?? [];
           return CheckoutScreen(items: items);
         },
       ),
-      GoRoute(path: RoutePaths.orderList, builder: (context, state) => const PlaceholderScreen(title: 'Orders')),
+      GoRoute(path: RoutePaths.orderList, name: RoutePaths.orderList, builder: (context, state) => const OrderListScreen()),
       GoRoute(
         path: RoutePaths.orderPay,
+        name: RoutePaths.orderPay,
         builder: (context, state) => PaymentScreen(
           orderId: state.pathParameters['orderId'] ?? '',
         ),
       ),
       GoRoute(
         path: RoutePaths.orderSuccess,
+        name: RoutePaths.orderSuccess,
         builder: (context, state) => OrderSuccessScreen(
           orderId: state.pathParameters['orderId'] ?? '',
         ),
       ),
-      GoRoute(path: RoutePaths.addressList, builder: (context, state) => const PlaceholderScreen(title: 'Addresses')),
-      GoRoute(path: RoutePaths.addressNew, builder: (context, state) => const PlaceholderScreen(title: 'New Address')),
+      GoRoute(
+        path: RoutePaths.addressList,
+        name: RoutePaths.addressList,
+        builder: (context, state) => const AddressListScreen(),
+      ),
+      GoRoute(
+        path: RoutePaths.addressNew,
+        name: RoutePaths.addressNew,
+        builder: (context, state) => const AddressEditScreen(),
+      ),
       GoRoute(
         path: RoutePaths.addressDetail,
-        builder: (context, state) => PlaceholderScreen(title: 'Address ${state.pathParameters['id']}'),
+        name: RoutePaths.addressDetail,
+        builder: (context, state) {
+          final address = state.extra as ShippingAddress?;
+          return AddressEditScreen(address: address);
+        },
       ),
-      GoRoute(path: RoutePaths.profileEdit, builder: (context, state) => const PlaceholderScreen(title: 'Edit Profile')),
-      GoRoute(path: RoutePaths.coupon, builder: (context, state) => const PlaceholderScreen(title: 'Coupons')),
-      GoRoute(path: RoutePaths.favorite, builder: (context, state) => const PlaceholderScreen(title: 'Favorites')),
-      GoRoute(path: RoutePaths.community, builder: (context, state) => const PlaceholderScreen(title: 'Community')),
-      GoRoute(path: RoutePaths.wallet, builder: (context, state) => const PlaceholderScreen(title: 'Wallet')),
-      GoRoute(path: RoutePaths.walletRebate, builder: (context, state) => const PlaceholderScreen(title: 'Wallet Rebate')),
+      GoRoute(path: RoutePaths.profileEdit, name: RoutePaths.profileEdit, builder: (context, state) => const ProfileEditScreen()),
+      GoRoute(path: RoutePaths.favorite, name: RoutePaths.favorite, builder: (context, state) => const FavoritesScreen()),
+      GoRoute(path: RoutePaths.coupon, name: RoutePaths.coupon, builder: (context, state) => const CouponScreen()),
+      GoRoute(path: RoutePaths.community, name: RoutePaths.community, builder: (context, state) => const CommunityScreen()),
+      GoRoute(path: RoutePaths.wallet, name: RoutePaths.wallet, builder: (context, state) => const WalletScreen()),
+      GoRoute(path: RoutePaths.walletRebate, name: RoutePaths.walletRebate, builder: (context, state) => const PlaceholderScreen(title: 'Wallet Rebate')),
       GoRoute(
         path: RoutePaths.walletTransactions,
+        name: RoutePaths.walletTransactions,
         builder: (context, state) => const PlaceholderScreen(title: 'Wallet Transactions'),
       ),
-      GoRoute(path: RoutePaths.webview, builder: (context, state) => const PlaceholderScreen(title: 'WebView')),
-      GoRoute(path: RoutePaths.modal, builder: (context, state) => const PlaceholderScreen(title: 'Modal')),
-      GoRoute(path: RoutePaths.fashionStyleMe, builder: (context, state) => const PlaceholderScreen(title: 'Style Me')),
+      GoRoute(path: RoutePaths.webview, name: RoutePaths.webview, builder: (context, state) => const PlaceholderScreen(title: 'WebView')),
+      GoRoute(path: RoutePaths.modal, name: RoutePaths.modal, builder: (context, state) => const PlaceholderScreen(title: 'Modal')),
+      GoRoute(
+        path: RoutePaths.fashionStyleMe,
+        name: RoutePaths.fashionStyleMe,
+        builder: (context, state) {
+          final imageUrl = state.uri.queryParameters['imageUrl'] ?? '';
+          return AiFashionScreen(productImageUrl: imageUrl);
+        },
+      ),
       GoRoute(
         path: RoutePaths.fashionModelSettings,
+        name: RoutePaths.fashionModelSettings,
         builder: (context, state) => const PlaceholderScreen(title: 'Model Settings'),
       ),
       GoRoute(
         path: RoutePaths.fashionCustomModel,
+        name: RoutePaths.fashionCustomModel,
         builder: (context, state) => const PlaceholderScreen(title: 'Custom Model'),
       ),
       GoRoute(
         path: RoutePaths.fashionOutfitResult,
+        name: RoutePaths.fashionOutfitResult,
         builder: (context, state) => const PlaceholderScreen(title: 'Outfit Result'),
       ),
-      GoRoute(path: RoutePaths.fashionHistory, builder: (context, state) => const PlaceholderScreen(title: 'History')),
+      GoRoute(path: RoutePaths.fashionHistory, name: RoutePaths.fashionHistory, builder: (context, state) => const PlaceholderScreen(title: 'History')),
       GoRoute(
         path: RoutePaths.fashionPost,
+        name: RoutePaths.fashionPost,
         builder: (context, state) => PlaceholderScreen(title: 'Fashion Post ${state.pathParameters['id']}'),
       ),
     ],

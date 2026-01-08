@@ -239,6 +239,24 @@ class ProductReviewDistribution {
   final int percentage;
 }
 
+class FlashSaleActivity {
+  const FlashSaleActivity({
+    required this.id,
+    required this.title,
+    required this.startTime,
+    required this.endTime,
+    required this.status, // 1: upcoming, 2: ongoing, 3: ended
+    this.banner,
+  });
+
+  final String id;
+  final String title;
+  final String startTime;
+  final String endTime;
+  final int status;
+  final String? banner;
+}
+
 class ProductListParams {
   const ProductListParams({
     this.page,
@@ -426,6 +444,79 @@ class ProductRepository {
       products: products,
       total: products.length,
       hasMore: false,
+    );
+  }
+
+  Future<List<FlashSaleActivity>> getFlashSaleActivities() async {
+    final api = _ref.read(swaggerProductApiProvider);
+    final response = await api.productServiceActivityNoAuthFlashSaleActivityGet();
+
+    final body = _toMap(response.body);
+    if (body == null || _parseInt(body['code']) != 0) {
+      throw _createApiError('获取秒杀活动失败', body);
+    }
+
+    final data = _toMap(body['data']);
+    final list = _toList(data?['activities']);
+    return list.map((itemRaw) {
+      final item = _toMap(itemRaw);
+      if (item == null) return null;
+      return FlashSaleActivity(
+        id: item['id']?.toString() ?? '',
+        title: item['name']?.toString() ?? '',
+        startTime: item['startTime']?.toString() ?? '',
+        endTime: item['endTime']?.toString() ?? '',
+        status: _parseInt(item['status']),
+        banner: item['bannerUrl']?.toString(),
+      );
+    }).whereType<FlashSaleActivity>().toList();
+  }
+
+  Future<ProductListResponse> getFlashSaleActivityProducts(String activityId, {int page = 1, int pageSize = 20}) async {
+    final api = _ref.read(swaggerProductApiProvider);
+    final response = await api.productServiceActivityNoAuthFlashSaleActivityProductGet(
+      activityId: activityId,
+      current: page.toString(),
+      size: pageSize.toString(),
+    );
+
+    final body = _toMap(response.body);
+    if (body == null || _parseInt(body['code']) != 0) {
+      throw _createApiError('获取秒杀商品失败', body);
+    }
+
+    final data = _toMap(body['data']);
+    final records = _toMapList(data?['records']);
+    if (records.isEmpty) {
+      return const ProductListResponse(products: [], total: 0, hasMore: false);
+    }
+
+    final total = _parseInt(data?['total']);
+    final current = _parseInt(data?['current'], fallback: page);
+    final size = _parseInt(data?['pageSize'], fallback: pageSize);
+
+    final products = records.map((item) {
+      final image = _toMap(item['image']);
+      final flashSaleInfo = _toMap(item['flashSaleInfo']);
+      
+      return ProductItem(
+        id: item['productCode']?.toString() ?? '',
+        skuCode: item['skuCode']?.toString(),
+        name: item['productName']?.toString() ?? '',
+        price: _parsePrice(flashSaleInfo?['flashSalePrice'] ?? item['targetSellPrice']),
+        originalPrice: _parseOptionalPrice(item['targetSellPrice']),
+        currency: item['targetSellCur']?.toString(),
+        imageUrl: image?['url']?.toString() ?? '',
+        images: image?['url'] != null ? [image!['url'].toString()] : [],
+        sales: _parseInt(item['sellQuantity']),
+        stock: _parseInt(flashSaleInfo?['stock']),
+      );
+    }).toList();
+
+    return ProductListResponse(
+      products: products,
+      total: total,
+      hasMore: current * size < total,
     );
   }
 

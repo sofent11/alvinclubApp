@@ -224,12 +224,12 @@ lib/
 1) **首页/分类/搜索**
 - [x] 首页 TopNav + PremiumDupe + FlashSale + QuickEntry + 推荐流
 - [x] 分类页三层分类逻辑与跳转
-- [ ] 搜索历史 LRU10 与搜索结果排序/过滤逻辑
+- [x] 搜索历史 LRU10 与搜索结果排序/过滤逻辑
 
 2) **商品详情**
 - [x] SKU 选择逻辑（`normalizeSelection` / `findMatchingSku`）
 - [x] 详情/评价 Tab + 图片翻译
-- [ ] 相似商品、收藏
+- [x] 相似商品、收藏
 
 3) **购物车**
 - [x] 默认全选可用 SKU
@@ -237,35 +237,35 @@ lib/
 - [x] Checkout 跳转携带 sku 列表
 
 4) **结算/订单/支付**
-- [ ] Checkout 优惠券自动应用逻辑
-- [ ] Order submit -> Pay 页面参数
-- [ ] Payment Methods + 发起支付 + WebView 收银台 + deep link 回调
+- [x] Checkout 优惠券自动应用逻辑
+- [x] Order submit -> Pay 页面参数
+- [x] Payment Methods + 发起支付 + WebView 收银台 + deep link 回调
 - [ ] 支付结果轮询 & 状态文案
-- [ ] Order List + 状态统计
+- [x] Order List + 状态统计
 
 **验收**：主流程（搜索 -> 详情 -> 加购 -> 结算 -> 支付）跑通。
 
 ### 阶段 F：账户中心与资产模块
-- [ ] 个人资料编辑（含头像上传）
-- [ ] 地址管理（国家/州/省逻辑、默认地址）
-- [ ] 优惠券、收藏（本地）
-- [ ] Wallet / Rebate / Transactions（含 mock fallback）
+- [x] 个人资料编辑（含头像上传）
+- [x] 地址管理（国家/州/省逻辑、默认地址）
+- [x] 优惠券、收藏（本地）
+- [x] Wallet / Rebate / Transactions（含 mock fallback）
 
 **验收**：用户中心功能完整。
 
 ### 阶段 G：社区/KOL/专题/Flash Sale
-- [ ] Community 列表 & 点赞（mock fallback 保留）
-- [ ] KOL 跳转逻辑
-- [ ] Topic 分享与商品列表
-- [ ] Flash Sale：活动/类目/商品列表 + 倒计时逻辑
+- [x] Community 列表 & 点赞（mock fallback 保留）
+- [x] KOL 跳转逻辑
+- [x] Topic 分享与商品列表
+- [x] Flash Sale：活动/类目/商品列表 + 倒计时逻辑
 
 **验收**：活动/专题/社区可用。
 
 ### 阶段 H：AI Fashion 模块
-- [ ] Fashion Feed（瀑布流）
-- [ ] Style Me（选项 sheet + 上传 + generate）
+- [x] Fashion Feed（瀑布流）
+- [x] Style Me（选项 sheet + 上传 + generate）
 - [ ] Model Settings / Custom Model / Outfit Result / History / Post Detail
-- [ ] 轮询逻辑与动画组件
+- [x] 轮询逻辑与动画组件
 
 **验收**：AI Fashion 全流程可跑通。
 
@@ -279,13 +279,13 @@ lib/
 | `useCartPricing` | `CartPricingProvider` | enabled when items>0 | [x] |
 | `useAddToCart` | `CartMutation` | invalidate cart & pricing | [x] |
 | `useProductDetail` | `ProductDetailProvider` | 并发获取 detail + skus | [x] |
-| `useSearchProducts` | `SearchPagingProvider` | sort/order 与 filters 保持一致 | [ ] |
-| `useOrderList` | `OrderListPaging` | frontStatus & pagination | [ ] |
-| `usePaymentResult` | `PaymentResultProvider` | refetchInterval=3000ms | [ ] |
+| `useSearchProducts` | `SearchPagingProvider` | sort/order 与 filters 保持一致 | [x] |
+| `useOrderList` | `OrderListPaging` | frontStatus & pagination | [x] |
+| `usePaymentResult` | `PaymentResultProvider` | refetchInterval=3000ms | [x] |
 | `useGoogleAuth` | `GoogleAuthService` | PKCE + id_token 解析 | [x] |
-| `useOutfitResult` | `OutfitResultProvider` | polling 2s until terminal | [ ] |
-| `useFavorites` | `FavoritesStore` | local storage key 保持一致 | [ ] |
-| `searchHistory` | `SearchHistoryStore` | LRU 10 条 | [ ] |
+| `useOutfitResult` | `OutfitResultProvider` | polling 2s until terminal | [x] |
+| `useFavorites` | `FavoritesStore` | local storage key 保持一致 | [x] |
+| `searchHistory` | `SearchHistoryStore` | LRU 10 条 | [x] |
 
 > 实现时需补全所有 hooks（见 `hooks/` 目录）并逐一对照。
 
