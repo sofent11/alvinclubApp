@@ -27,9 +27,7 @@ class UploadRepository {
       final response = await dio.post(
         url,
         data: formData,
-        options: Options(
-          headers: {'Content-Type': 'multipart/form-data'},
-        ),
+        options: Options(headers: {'Content-Type': 'multipart/form-data'}),
       );
 
       final body = response.data;
@@ -46,20 +44,30 @@ class UploadRepository {
       }
 
       if (innerUrl == null || innerUrl.isEmpty) {
-        throw ApiError(status: 400, message: 'Upload returned empty URL');
+        throw ApiError(
+          status: 400,
+          message: 'Upload returned empty URL',
+          raw: response.data,
+        );
       }
 
       if (innerUrl.startsWith('http')) {
         return innerUrl;
       } else {
-        final normalizedInner = innerUrl.startsWith('/') ? innerUrl.substring(1) : innerUrl;
+        final normalizedInner = innerUrl.startsWith('/')
+            ? innerUrl.substring(1)
+            : innerUrl;
         return 'https://cdn.cn2u.xyz/$normalizedInner';
       }
     } catch (e) {
       if (e is DioException && e.error is ApiError) {
         rethrow;
       }
-      throw ApiError(status: 400, message: 'Upload Failed: ${e.toString()}');
+      throw ApiError(
+        status: 400,
+        message: 'Upload Failed: ${e.toString()}',
+        raw: e,
+      );
     }
   }
 }

@@ -48,7 +48,9 @@ class _CustomModelScreenState extends ConsumerState<CustomModelScreen> {
       });
 
       try {
-        final url = await ref.read(uploadRepositoryProvider).uploadFile(pickedFile.path);
+        final url = await ref
+            .read(uploadRepositoryProvider)
+            .uploadFile(pickedFile.path);
         setState(() {
           _uploadedUrl = url;
           _isUploading = false;
@@ -56,7 +58,9 @@ class _CustomModelScreenState extends ConsumerState<CustomModelScreen> {
       } catch (e) {
         setState(() => _isUploading = false);
         if (mounted) {
-          ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Upload failed: $e')));
+          ScaffoldMessenger.of(
+            context,
+          ).showSnackBar(SnackBar(content: Text('Upload failed: $e')));
         }
       }
     }
@@ -87,7 +91,9 @@ class _CustomModelScreenState extends ConsumerState<CustomModelScreen> {
     } catch (e) {
       setState(() => _isGenerating = false);
       if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Generation failed: $e')));
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(SnackBar(content: Text('Generation failed: $e')));
       }
     }
   }
@@ -114,7 +120,8 @@ class _CustomModelScreenState extends ConsumerState<CustomModelScreen> {
   }
 
   Future<void> _handleSave() async {
-    if (_taskId == null || _status == null || _status!.generatedModels.isEmpty) return;
+    if (_taskId == null || _status == null || _status!.generatedModels.isEmpty)
+      return;
 
     try {
       final repo = ref.read(aiFashionRepositoryProvider);
@@ -123,12 +130,16 @@ class _CustomModelScreenState extends ConsumerState<CustomModelScreen> {
         selectedIndex: _status!.generatedModels[_selectedIndex].index,
       );
       if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Model saved to library!')));
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text('Model saved to library!')),
+        );
         Navigator.pop(context);
       }
     } catch (e) {
       if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Failed to save model: $e')));
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(SnackBar(content: Text('Failed to save model: $e')));
       }
     }
   }
@@ -145,14 +156,20 @@ class _CustomModelScreenState extends ConsumerState<CustomModelScreen> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const ThemedText('Add Your Photo', type: ThemedTextType.subtitle),
-            const Text('建议上传面部照，再搭配身材', style: TextStyle(color: Colors.grey, fontSize: 12)),
+            const Text(
+              '建议上传面部照，再搭配身材',
+              style: TextStyle(color: Colors.grey, fontSize: 12),
+            ),
             const SizedBox(height: 16),
             _buildUploadBox(),
             const SizedBox(height: 32),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                const ThemedText('Choose Your Body Type', type: ThemedTextType.subtitle),
+                const ThemedText(
+                  'Choose Your Body Type',
+                  type: ThemedTextType.subtitle,
+                ),
                 _buildGenderToggle(),
               ],
             ),
@@ -193,7 +210,10 @@ class _CustomModelScreenState extends ConsumerState<CustomModelScreen> {
               : ThemedButton(
                   label: _isGenerating ? 'Creating...' : 'Create My Model',
                   loading: _isGenerating,
-                  onPressed: (_uploadedUrl != null && _selectedBodyShape != null) ? _handleGenerate : null,
+                  onPressed:
+                      (_uploadedUrl != null && _selectedBodyShape != null)
+                      ? _handleGenerate
+                      : null,
                 ),
         ),
       ),
@@ -216,16 +236,25 @@ class _CustomModelScreenState extends ConsumerState<CustomModelScreen> {
                 borderRadius: BorderRadius.circular(12),
                 child: Stack(
                   children: [
-                    Image.file(_imageFile!, fit: BoxFit.cover, width: double.infinity, height: double.infinity),
+                    Image.file(
+                      _imageFile!,
+                      fit: BoxFit.cover,
+                      width: double.infinity,
+                      height: double.infinity,
+                    ),
                     if (_isUploading)
                       Container(
                         color: Colors.black26,
-                        child: const Center(child: CircularProgressIndicator(color: Colors.white)),
+                        child: const Center(
+                          child: CircularProgressIndicator(color: Colors.white),
+                        ),
                       ),
                   ],
                 ),
               )
-            : const Center(child: Icon(Icons.add_a_photo, size: 40, color: Colors.grey)),
+            : const Center(
+                child: Icon(Icons.add_a_photo, size: 40, color: Colors.grey),
+              ),
       ),
     );
   }
@@ -254,7 +283,7 @@ class _CustomModelScreenState extends ConsumerState<CustomModelScreen> {
         _selectedBodyShape = null;
       }),
       child: Container(
-        padding: const EdgeInsets.horizontal(16, vertical: 6),
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
         decoration: BoxDecoration(
           color: isActive ? Colors.black87 : Colors.transparent,
           borderRadius: BorderRadius.circular(16),
@@ -309,7 +338,8 @@ class _CustomModelScreenState extends ConsumerState<CustomModelScreen> {
       children: [
         const ThemedText('Your Result', type: ThemedTextType.subtitle),
         const SizedBox(height: 16),
-        if (_isGenerating && (_status == null || _status!.generatedModels.isEmpty))
+        if (_isGenerating &&
+            (_status == null || _status!.generatedModels.isEmpty))
           const Center(
             child: Column(
               children: [
@@ -327,7 +357,8 @@ class _CustomModelScreenState extends ConsumerState<CustomModelScreen> {
                       height: 300,
                       child: PageView.builder(
                         itemCount: _status!.generatedModels.length,
-                        onPageChanged: (index) => setState(() => _selectedIndex = index),
+                        onPageChanged: (index) =>
+                            setState(() => _selectedIndex = index),
                         itemBuilder: (context, index) {
                           final model = _status!.generatedModels[index];
                           return Center(
@@ -354,14 +385,22 @@ class _CustomModelScreenState extends ConsumerState<CustomModelScreen> {
                           height: 8,
                           decoration: BoxDecoration(
                             shape: BoxShape.circle,
-                            color: _selectedIndex == index ? Colors.black87 : Colors.grey[300],
+                            color: _selectedIndex == index
+                                ? Colors.black87
+                                : Colors.grey[300],
                           ),
                         ),
                       ),
                     ),
                   ],
                 )
-              : Center(child: Text(_status!.status == 'FAILED' ? 'Generation failed: ${_status!.error}' : 'Processing...')),
+              : Center(
+                  child: Text(
+                    _status!.status == 'FAILED'
+                        ? 'Generation failed: ${_status!.error}'
+                        : 'Processing...',
+                  ),
+                ),
       ],
     );
   }

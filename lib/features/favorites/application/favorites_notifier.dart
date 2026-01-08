@@ -71,7 +71,15 @@ class FavoritesNotifier extends StateNotifier<AsyncValue<List<FavoriteItem>>> {
 }
 
 final favoritesNotifierProvider =
-    StateNotifierProvider<FavoritesNotifier, AsyncValue<List<FavoriteItem>>>((ref) {
-  final store = ref.watch(favoritesStoreProvider);
-  return FavoritesNotifier(store);
+    StateNotifierProvider<FavoritesNotifier, AsyncValue<List<FavoriteItem>>>((
+      ref,
+    ) {
+      final store = ref.watch(favoritesStoreProvider);
+      return FavoritesNotifier(store);
+    });
+
+final isFavoriteProvider = Provider.family<bool, String>((ref, productCode) {
+  final favorites = ref.watch(favoritesNotifierProvider);
+  return favorites.value?.any((item) => item.productCode == productCode) ??
+      false;
 });

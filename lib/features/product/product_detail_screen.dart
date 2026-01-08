@@ -11,7 +11,8 @@ import '../../data/repositories/product_repository.dart';
 import '../../shared/widgets/product_card.dart';
 import '../../shared/widgets/themed_button.dart';
 import '../../shared/widgets/themed_text.dart';
-import '../favorites/application/favorites_notifier.dart';
+import '../favorites/application/favorites_notifier.dart'
+    hide isFavoriteProvider;
 import 'product_detail_controller.dart';
 import 'product_providers.dart';
 
@@ -42,16 +43,14 @@ class ProductDetailScreen extends ConsumerWidget {
 }
 
 class _ProductDetailContent extends ConsumerStatefulWidget {
-  const _ProductDetailContent({
-    required this.detail,
-    required this.skus,
-  });
+  const _ProductDetailContent({required this.detail, required this.skus});
 
   final ProductDetail detail;
   final List<ProductSku> skus;
 
   @override
-  ConsumerState<_ProductDetailContent> createState() => _ProductDetailContentState();
+  ConsumerState<_ProductDetailContent> createState() =>
+      _ProductDetailContentState();
 }
 
 class _ProductDetailContentState extends ConsumerState<_ProductDetailContent> {
@@ -59,26 +58,30 @@ class _ProductDetailContentState extends ConsumerState<_ProductDetailContent> {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      ref.read(productDetailControllerProvider.notifier).init(widget.detail, widget.skus);
+      ref
+          .read(productDetailControllerProvider.notifier)
+          .init(widget.detail, widget.skus);
     });
   }
 
   Future<void> _toggleFavorite() async {
     final detail = widget.detail;
-    
+
     // We use detail image if available, otherwise first main image
     final imageUrl = detail.images.isNotEmpty ? detail.images.first : '';
-    
-    await ref.read(favoritesNotifierProvider.notifier).toggle(
-      FavoriteItem(
-        productCode: detail.id,
-        productName: detail.name,
-        imageUrl: imageUrl,
-        price: detail.price,
-        currency: detail.currency,
-        addedAt: DateTime.now().toIso8601String(),
-      ),
-    );
+
+    await ref
+        .read(favoritesNotifierProvider.notifier)
+        .toggle(
+          FavoriteItem(
+            productCode: detail.id,
+            productName: detail.name,
+            imageUrl: imageUrl,
+            price: detail.price,
+            currency: detail.currency,
+            addedAt: DateTime.now().toIso8601String(),
+          ),
+        );
   }
 
   @override
@@ -90,9 +93,9 @@ class _ProductDetailContentState extends ConsumerState<_ProductDetailContent> {
     final isFavoriteAsync = ref.watch(isFavoriteProvider(widget.detail.id));
 
     // Image logic: Sku Image -> Product Detail Main Image
-    final mainImage = selectedSku?.imageUrl ?? (widget.detail.images.isNotEmpty ? widget.detail.images.first : '');
-
-    final isFav = isFavoriteAsync.valueOrNull ?? false;
+    final mainImage =
+        selectedSku?.imageUrl ??
+        (widget.detail.images.isNotEmpty ? widget.detail.images.first : '');
 
     return Column(
       children: [
@@ -120,20 +123,67 @@ class _ProductDetailContentState extends ConsumerState<_ProductDetailContent> {
                       color: Colors.white54,
                       shape: BoxShape.circle,
                     ),
-                    child: IconButton(
-                      icon: Icon(
-                        isFav ? Icons.favorite : Icons.favorite_border,
-                        color: isFav ? Colors.red : Colors.black,
+                    child: isFavoriteAsync.when(
+                      data: (isFav) => IconButton(
+                        icon: Icon(
+                          isFav ? Icons.favorite : Icons.favorite_border,
+                          color: isFav ? Colors.red : Colors.black,
+                        ),
+                        onPressed: _toggleFavorite,
                       ),
-                      onPressed: _toggleFavorite,
+                      loading: () => const SizedBox(
+                        width: 40,
+                        height: 40,
+                        child: Center(
+                          child: SizedBox(
+                            width: 20,
+                            height: 20,
+                            child: CircularProgressIndicator(strokeWidth: 2),
+                          ),
+                        ),
+                      ),
+                      error: (_, __) => IconButton(
+                        icon: const Icon(
+                          Icons.favorite_border,
+                          color: Colors.black,
+                        ),
+                        onPressed: _toggleFavorite,
+                      ),
                     ),
                   ),
                 ],
                 flexibleSpace: FlexibleSpaceBar(
                   background: mainImage.isNotEmpty
-                      ? CachedNetworkImage(
-                          imageUrl: mainImage,
-                          fit: BoxFit.cover,
+                      ? Stack(
+                          children: [
+                            CachedNetworkImage(
+                              imageUrl: mainImage,
+                              fit: BoxFit.cover,
+                            ),
+                            if (widget.detail.images.length > 1)
+                              Positioned(
+                                bottom: 12,
+                                right: 12,
+                                child: Container(
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 10,
+                                    vertical: 4,
+                                  ),
+                                  decoration: BoxDecoration(
+                                    color: Colors.black54,
+                                    borderRadius: BorderRadius.circular(12),
+                                  ),
+                                  child: Text(
+                                    '${widget.detail.images.indexOf(mainImage) + 1}/${widget.detail.images.length}',
+                                    style: const TextStyle(
+                                      color: Colors.white,
+                                      fontSize: 12,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                          ],
                         )
                       : Container(color: Colors.grey[200]),
                 ),
@@ -149,8 +199,19 @@ class _ProductDetailContentState extends ConsumerState<_ProductDetailContent> {
                         type: ThemedTextType.title,
                         style: TextStyle(color: context.appColors.primary),
                       ),
+                      const SizedBox(height: 4),
+                      Text(
+                        'Tax included',
+                        style: TextStyle(
+                          color: context.appColors.textMuted,
+                          fontSize: 12,
+                        ),
+                      ),
                       const SizedBox(height: 8),
-                      ThemedText(widget.detail.name, type: ThemedTextType.subtitle),
+                      ThemedText(
+                        widget.detail.name,
+                        type: ThemedTextType.subtitle,
+                      ),
                       const SizedBox(height: 16),
                       Divider(color: context.appColors.border),
                       const SizedBox(height: 16),
@@ -158,7 +219,10 @@ class _ProductDetailContentState extends ConsumerState<_ProductDetailContent> {
                       const SizedBox(height: 16),
                       Divider(color: context.appColors.border),
                       const SizedBox(height: 16),
-                      const ThemedText('Description', type: ThemedTextType.defaultSemiBold),
+                      const ThemedText(
+                        'Description',
+                        type: ThemedTextType.defaultSemiBold,
+                      ),
                       const SizedBox(height: 8),
                       Text(
                         widget.detail.description ?? 'No description.',
@@ -172,7 +236,10 @@ class _ProductDetailContentState extends ConsumerState<_ProductDetailContent> {
               const SliverToBoxAdapter(
                 child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-                  child: ThemedText('You May Also Like', type: ThemedTextType.subtitle),
+                  child: ThemedText(
+                    'You May Also Like',
+                    type: ThemedTextType.subtitle,
+                  ),
                 ),
               ),
               _buildSimilarProducts(),
@@ -190,7 +257,8 @@ class _ProductDetailContentState extends ConsumerState<_ProductDetailContent> {
 
     return similarAsync.when(
       data: (products) {
-        if (products.isEmpty) return const SliverToBoxAdapter(child: SizedBox.shrink());
+        if (products.isEmpty)
+          return const SliverToBoxAdapter(child: SizedBox.shrink());
         return SliverPadding(
           padding: const EdgeInsets.symmetric(horizontal: 10),
           sliver: SliverMasonryGrid.count(
@@ -221,7 +289,11 @@ class _ProductDetailContentState extends ConsumerState<_ProductDetailContent> {
     );
   }
 
-  Widget _buildOptions(BuildContext context, WidgetRef ref, ProductDetailState state) {
+  Widget _buildOptions(
+    BuildContext context,
+    WidgetRef ref,
+    ProductDetailState state,
+  ) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: widget.detail.options.map((option) {
@@ -236,13 +308,16 @@ class _ProductDetailContentState extends ConsumerState<_ProductDetailContent> {
                 spacing: 8,
                 runSpacing: 8,
                 children: option.values.map((value) {
-                  final isSelected = state.selectedOptions[option.name] == value.value;
+                  final isSelected =
+                      state.selectedOptions[option.name] == value.value;
                   return ChoiceChip(
                     label: Text(value.value),
                     selected: isSelected,
                     onSelected: (selected) {
                       if (selected) {
-                        ref.read(productDetailControllerProvider.notifier).selectOption(
+                        ref
+                            .read(productDetailControllerProvider.notifier)
+                            .selectOption(
                               option.name,
                               value.value,
                               widget.skus,
@@ -281,8 +356,14 @@ class _ProductDetailContentState extends ConsumerState<_ProductDetailContent> {
               children: [
                 IconButton(
                   onPressed: () {
-                    final imageUrl = selectedSku?.imageUrl ?? (widget.detail.images.isNotEmpty ? widget.detail.images.first : '');
-                    context.push('${RoutePaths.fashionStyleMe}?imageUrl=${Uri.encodeComponent(imageUrl)}');
+                    final imageUrl =
+                        selectedSku?.imageUrl ??
+                        (widget.detail.images.isNotEmpty
+                            ? widget.detail.images.first
+                            : '');
+                    context.push(
+                      '${RoutePaths.fashionStyleMe}?imageUrl=${Uri.encodeComponent(imageUrl)}',
+                    );
                   },
                   icon: const Icon(Icons.auto_awesome_outlined),
                   padding: EdgeInsets.zero,

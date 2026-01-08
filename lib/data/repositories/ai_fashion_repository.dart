@@ -24,20 +24,14 @@ class AiModel {
 }
 
 class AiFashionSelectionOption {
-  const AiFashionSelectionOption({
-    required this.key,
-    required this.options,
-  });
+  const AiFashionSelectionOption({required this.key, required this.options});
 
   final String key;
   final List<AiFashionOptionItem> options;
 }
 
 class AiFashionOptionItem {
-  const AiFashionOptionItem({
-    required this.label,
-    required this.value,
-  });
+  const AiFashionOptionItem({required this.label, required this.value});
 
   final String label;
   final String value;
@@ -89,7 +83,11 @@ class AiFashionGenerateResult {
   final String? imageUrl;
 
   bool get isTerminal =>
-      status == 'COMPLETED' || status == 'SUCCESS' || status == 'FAILED' || status == 'TIMEOUT' || status == 'CANCELED';
+      status == 'COMPLETED' ||
+      status == 'SUCCESS' ||
+      status == 'FAILED' ||
+      status == 'TIMEOUT' ||
+      status == 'CANCELED';
 
   bool get isSuccess => status == 'COMPLETED' || status == 'SUCCESS';
 }
@@ -207,18 +205,21 @@ class AiFashionRepository {
     }
 
     final data = _toList(body['data']);
-    return data.map((itemRaw) {
-      final item = _toMap(itemRaw);
-      if (item == null) return null;
-      return AiModel(
-        id: item['modelId']?.toString() ?? '',
-        name: item['modelName']?.toString() ?? 'Model',
-        imageUrl: item['imageUrl']?.toString() ?? '',
-        gender: item['gender']?.toString(),
-        age: item['age']?.toString(),
-        ethnicity: item['ethnicity']?.toString(),
-      );
-    }).whereType<AiModel>().toList();
+    return data
+        .map((itemRaw) {
+          final item = _toMap(itemRaw);
+          if (item == null) return null;
+          return AiModel(
+            id: item['modelId']?.toString() ?? '',
+            name: item['modelName']?.toString() ?? 'Model',
+            imageUrl: item['imageUrl']?.toString() ?? '',
+            gender: item['gender']?.toString(),
+            age: item['age']?.toString(),
+            ethnicity: item['ethnicity']?.toString(),
+          );
+        })
+        .whereType<AiModel>()
+        .toList();
   }
 
   Future<List<AiFashionSelectionOption>> getSelectionOptions() async {
@@ -232,25 +233,31 @@ class AiFashionRepository {
 
     final data = _toMap(body['data']);
     final list = _toList(data?['selectionList']);
-    
-    return list.map((itemRaw) {
-      final item = _toMap(itemRaw);
-      if (item == null) return null;
-      final options = _toList(item['data']).map((oRaw) {
-        final o = _toMap(oRaw);
-        return AiFashionOptionItem(
-          label: o?['label']?.toString() ?? '',
-          value: o?['value']?.toString() ?? '',
-        );
-      }).toList();
-      return AiFashionSelectionOption(
-        key: item['key']?.toString() ?? '',
-        options: options,
-      );
-    }).whereType<AiFashionSelectionOption>().toList();
+
+    return list
+        .map((itemRaw) {
+          final item = _toMap(itemRaw);
+          if (item == null) return null;
+          final options = _toList(item['data']).map((oRaw) {
+            final o = _toMap(oRaw);
+            return AiFashionOptionItem(
+              label: o?['label']?.toString() ?? '',
+              value: o?['value']?.toString() ?? '',
+            );
+          }).toList();
+          return AiFashionSelectionOption(
+            key: item['key']?.toString() ?? '',
+            options: options,
+          );
+        })
+        .whereType<AiFashionSelectionOption>()
+        .toList();
   }
 
-  Future<List<AiFashionPost>> getFashionPosts({String? cursor, int pageSize = 10}) async {
+  Future<List<AiFashionPost>> getFashionPosts({
+    String? cursor,
+    int pageSize = 10,
+  }) async {
     final api = _ref.read(swaggerComboApiProvider);
     final response = await api.comboServiceBizAiFashionNoAuthPostListGet(
       cursor: cursor,
@@ -264,19 +271,22 @@ class AiFashionRepository {
 
     final data = _toMap(body['data']);
     final posts = _toList(data?['posts']);
-    return posts.map((itemRaw) {
-      final item = _toMap(itemRaw);
-      if (item == null) return null;
-      final frontImage = _toMap(item['frontImage']);
-      return AiFashionPost(
-        id: item['postId']?.toString() ?? '',
-        title: item['postTitle']?.toString() ?? '',
-        imageUrl: frontImage?['url']?.toString() ?? '',
-        prompt: item['prompt']?.toString(),
-        width: _toDouble(frontImage?['width']),
-        height: _toDouble(frontImage?['height']),
-      );
-    }).whereType<AiFashionPost>().toList();
+    return posts
+        .map((itemRaw) {
+          final item = _toMap(itemRaw);
+          if (item == null) return null;
+          final frontImage = _toMap(item['frontImage']);
+          return AiFashionPost(
+            id: item['postId']?.toString() ?? '',
+            title: item['postTitle']?.toString() ?? '',
+            imageUrl: frontImage?['url']?.toString() ?? '',
+            prompt: item['prompt']?.toString(),
+            width: _toDouble(frontImage?['width']),
+            height: _toDouble(frontImage?['height']),
+          );
+        })
+        .whereType<AiFashionPost>()
+        .toList();
   }
 
   Future<AiFashionPost?> getPostDetail(String postId) async {
@@ -304,7 +314,10 @@ class AiFashionRepository {
     );
   }
 
-  Future<List<AiFashionHistoryItem>> getHistory({int pageNum = 1, int pageSize = 20}) async {
+  Future<List<AiFashionHistoryItem>> getHistory({
+    int pageNum = 1,
+    int pageSize = 20,
+  }) async {
     final api = _ref.read(swaggerComboApiProvider);
     final response = await api.comboServiceApiV1StyleOutfitsResultPageGet(
       pageNum: pageNum.toString(),
@@ -318,17 +331,22 @@ class AiFashionRepository {
 
     final data = _toMap(body['data']);
     final records = _toList(data?['records']);
-    return records.map((itemRaw) {
-      final item = _toMap(itemRaw);
-      if (item == null) return null;
-      return AiFashionHistoryItem(
-        taskId: item['taskId']?.toString() ?? '',
-        status: item['status']?.toString() ?? '',
-        imageUrl: item['imgUrl']?.toString(),
-        createdAt: DateTime.fromMillisecondsSinceEpoch(_parseInt(item['createdAt'])),
-        prompt: item['prompt']?.toString(),
-      );
-    }).whereType<AiFashionHistoryItem>().toList();
+    return records
+        .map((itemRaw) {
+          final item = _toMap(itemRaw);
+          if (item == null) return null;
+          return AiFashionHistoryItem(
+            taskId: item['taskId']?.toString() ?? '',
+            status: item['status']?.toString() ?? '',
+            imageUrl: item['imgUrl']?.toString(),
+            createdAt: DateTime.fromMillisecondsSinceEpoch(
+              _parseInt(item['createdAt']),
+            ),
+            prompt: item['prompt']?.toString(),
+          );
+        })
+        .whereType<AiFashionHistoryItem>()
+        .toList();
   }
 
   Future<String> initiateGeneration({
@@ -344,7 +362,8 @@ class AiFashionRepository {
         if (productImageUrl != null) 'modelImageUrl': productImageUrl,
         if (modelId != null) 'customModelId': modelId,
         if (customPrompt != null) 'customPrompt': customPrompt,
-        if (styleTrendyElements != null) 'styleTrendyElements': styleTrendyElements,
+        if (styleTrendyElements != null)
+          'styleTrendyElements': styleTrendyElements,
         'selections': selections,
         'count': 1,
       },
@@ -384,7 +403,7 @@ class AiFashionRepository {
 
   Future<Map<String, List<BodyShapeItem>>> getBodyShapes() async {
     final api = _ref.read(swaggerComboApiProvider);
-    final response = await api.comboServiceBizAiFashionNoAuthBodyShapeListGet();
+    final response = await api.comboServiceBizAiFashionNoAuthBodyShapeGet();
 
     final body = _toMap(response.body);
     if (body == null || _parseInt(body['code']) != 0) {
@@ -480,13 +499,17 @@ class AiFashionRepository {
     }
 
     final data = _toMap(bodyMap['data']);
-    return data?['modelId']?.toString() ?? data?['taskId']?.toString() ?? data?['task']?.toString() ?? '';
+    return data?['modelId']?.toString() ??
+        data?['taskId']?.toString() ??
+        data?['task']?.toString() ??
+        '';
   }
 
   Future<CustomModelStatus> getCustomModelStatus(String modelId) async {
     final api = _ref.read(swaggerComboApiProvider);
-    final response = await api.comboServiceApiV1StyleOutfitsStatusGet(
+    final response = await api.comboServiceApiV1StyleOutfitsModelIdStatusGet(
       modelId: modelId,
+      modelId$: modelId,
     );
 
     final body = _toMap(response.body);
@@ -519,10 +542,7 @@ class AiFashionRepository {
   }) async {
     final api = _ref.read(swaggerComboApiProvider);
     final response = await api.comboServiceBizAiFashionModelSavePost(
-      root: {
-        'taskId': taskId,
-        'selectedIndex': selectedIndex,
-      },
+      root: {'taskId': taskId, 'selectedIndex': selectedIndex},
     );
 
     final body = _toMap(response.body);
@@ -531,7 +551,10 @@ class AiFashionRepository {
     }
   }
 
-  Future<AiFashionPreset?> getOutfitPreset({String? taskId, String? templateId}) async {
+  Future<AiFashionPreset?> getOutfitPreset({
+    String? taskId,
+    String? templateId,
+  }) async {
     final api = _ref.read(swaggerComboApiProvider);
     final response = await api.comboServiceBizAiFashionNoAuthStylePresetGet(
       taskId: taskId,
@@ -560,7 +583,9 @@ class AiFashionRepository {
     final option = _toMap(data['option']);
 
     return AiFashionPreset(
-      referenceImages: _toList(data['referenceImages']).map((i) => _toMap(i)?['url']?.toString() ?? '').toList(),
+      referenceImages: _toList(
+        data['referenceImages'],
+      ).map((i) => _toMap(i)?['url']?.toString() ?? '').toList(),
       occasion: option?['occasion']?.toString(),
       styleTrendyElements: option?['styleTrendyElements']?.toString(),
       prompt: data['prompt']?.toString(),

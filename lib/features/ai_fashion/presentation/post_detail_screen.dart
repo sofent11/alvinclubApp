@@ -30,8 +30,8 @@ class PostDetailScreen extends ConsumerWidget {
                   width: double.infinity,
                   fit: BoxFit.cover,
                   placeholder: (context, url) => AspectRatio(
-                    aspectRatio: (post.width != null && post.height != null) 
-                        ? post.width! / post.height! 
+                    aspectRatio: (post.width != null && post.height != null)
+                        ? post.width! / post.height!
                         : 1.0,
                     child: Container(color: Colors.grey[200]),
                   ),
@@ -41,10 +41,13 @@ class PostDetailScreen extends ConsumerWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      ThemedText(post.title, type: ThemedTextType.heading),
+                      ThemedText(post.title, type: ThemedTextType.title),
                       if (post.prompt != null) ...[
                         const SizedBox(height: 24),
-                        const ThemedText('AI Prompt', type: ThemedTextType.defaultSemiBold),
+                        const ThemedText(
+                          'AI Prompt',
+                          type: ThemedTextType.defaultSemiBold,
+                        ),
                         const SizedBox(height: 12),
                         Container(
                           padding: const EdgeInsets.all(12),
@@ -73,11 +76,15 @@ class PostDetailScreen extends ConsumerWidget {
                   child: ThemedButton(
                     label: 'Style Me with this Template',
                     onPressed: () {
-                      final url = Uri.parse(RoutePaths.fashionStyleMe).replace(queryParameters: {
-                        'templateId': post.id,
-                        'imageUrl': post.imageUrl,
-                        'prompt': post.prompt ?? '',
-                      }).toString();
+                      final url = Uri.parse(RoutePaths.fashionStyleMe)
+                          .replace(
+                            queryParameters: {
+                              'templateId': post.id,
+                              'imageUrl': post.imageUrl,
+                              'prompt': post.prompt ?? '',
+                            },
+                          )
+                          .toString();
                       context.push(url);
                     },
                   ),

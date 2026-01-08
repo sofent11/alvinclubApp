@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
@@ -22,9 +24,9 @@ class HomeScreen extends ConsumerWidget {
       body: SafeArea(
         child: RefreshIndicator(
           onRefresh: () async {
-             ref.invalidate(homeConfigProvider);
-             ref.invalidate(hotProductsProvider);
-             ref.invalidate(flashSaleProductsProvider);
+            ref.invalidate(homeConfigProvider);
+            ref.invalidate(hotProductsProvider);
+            ref.invalidate(flashSaleProductsProvider);
           },
           child: CustomScrollView(
             slivers: [
@@ -72,7 +74,10 @@ class HomeScreen extends ConsumerWidget {
     );
   }
 
-  Widget _buildBanners(BuildContext context, AsyncValue<Map<String, dynamic>> configAsync) {
+  Widget _buildBanners(
+    BuildContext context,
+    AsyncValue<Map<String, dynamic>> configAsync,
+  ) {
     return SliverToBoxAdapter(
       child: configAsync.when(
         data: (config) {
@@ -80,33 +85,12 @@ class HomeScreen extends ConsumerWidget {
           if (banners == null || banners.isEmpty) {
             return const SizedBox.shrink();
           }
-          return SizedBox(
-            height: 160,
-            child: ListView.builder(
-              scrollDirection: Axis.horizontal,
-              itemCount: banners.length,
-              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-              itemBuilder: (context, index) {
-                final banner = banners[index] as Map?;
-                final imageUrl = banner?['imageUrl'] ?? banner?['image'] ?? '';
-                if (imageUrl.isEmpty) return const SizedBox.shrink();
-
-                return Container(
-                  width: 300,
-                  margin: const EdgeInsets.only(right: 12),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(12),
-                    image: DecorationImage(
-                      image: CachedNetworkImageProvider(imageUrl),
-                      fit: BoxFit.cover,
-                    ),
-                  ),
-                );
-              },
-            ),
-          );
+          return _BannerCarousel(banners: banners);
         },
-        loading: () => const SizedBox(height: 160, child: Center(child: CircularProgressIndicator())),
+        loading: () => const SizedBox(
+          height: 160,
+          child: Center(child: CircularProgressIndicator()),
+        ),
         error: (_, _) => const SizedBox.shrink(),
       ),
     );
@@ -121,7 +105,10 @@ class HomeScreen extends ConsumerWidget {
     );
   }
 
-  Widget _buildFlashSaleList(BuildContext context, AsyncValue<List<dynamic>> productsAsync) {
+  Widget _buildFlashSaleList(
+    BuildContext context,
+    AsyncValue<List<dynamic>> productsAsync,
+  ) {
     return SliverToBoxAdapter(
       child: productsAsync.when(
         data: (products) {
@@ -140,7 +127,10 @@ class HomeScreen extends ConsumerWidget {
                   child: ProductCard(
                     product: product,
                     onTap: () => context.push(
-                      RoutePaths.productDetail.replaceFirst(':productCode', product.id),
+                      RoutePaths.productDetail.replaceFirst(
+                        ':productCode',
+                        product.id,
+                      ),
                     ),
                   ),
                 );
@@ -148,13 +138,19 @@ class HomeScreen extends ConsumerWidget {
             ),
           );
         },
-        loading: () => const SizedBox(height: 100, child: Center(child: CircularProgressIndicator())),
+        loading: () => const SizedBox(
+          height: 100,
+          child: Center(child: CircularProgressIndicator()),
+        ),
         error: (_, _) => const SizedBox.shrink(),
       ),
     );
   }
 
-  Widget _buildProductGrid(BuildContext context, AsyncValue<List<dynamic>> productsAsync) {
+  Widget _buildProductGrid(
+    BuildContext context,
+    AsyncValue<List<dynamic>> productsAsync,
+  ) {
     return productsAsync.when(
       data: (products) {
         if (products.isEmpty) {
@@ -177,7 +173,10 @@ class HomeScreen extends ConsumerWidget {
               return ProductCard(
                 product: product,
                 onTap: () => context.push(
-                  RoutePaths.productDetail.replaceFirst(':productCode', product.id),
+                  RoutePaths.productDetail.replaceFirst(
+                    ':productCode',
+                    product.id,
+                  ),
                 ),
               );
             },
@@ -195,6 +194,109 @@ class HomeScreen extends ConsumerWidget {
           padding: const EdgeInsets.all(16.0),
           child: Center(child: Text('Error: $err')),
         ),
+      ),
+    );
+  }
+}
+
+class _BannerCarousel extends StatefulWidget {
+  const _BannerCarousel({required this.banners});
+
+  final List<dynamic> banners;
+
+  @override
+  State<_BannerCarousel> createState() => _BannerCarouselState();
+}
+
+class _BannerCarouselState extends State<_BannerCarousel> {
+  late PageController _pageController;
+  int _currentPage = 0;
+  late Timer _timer;
+
+  @override
+  void initState() {
+    super.initState();
+    _pageController = PageController();
+    _startAutoPlay();
+  }
+
+  @override
+  void dispose() {
+    _timer.cancel();
+    _pageController.dispose();
+    super.dispose();
+  }
+
+  void _startAutoPlay() {
+    _timer = Timer.periodic(const Duration(seconds: 3), (timer) {
+      if (_pageController.hasClients) {
+        final nextPage = (_currentPage + 1) % widget.banners.length;
+        _pageController.animateToPage(
+          nextPage,
+          duration: const Duration(milliseconds: 300),
+          curve: Curves.easeInOut,
+        );
+      }
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 160,
+      child: Stack(
+        children: [
+          PageView.builder(
+            controller: _pageController,
+            onPageChanged: (index) {
+              setState(() {
+                _currentPage = index;
+              });
+            },
+            itemCount: widget.banners.length,
+            itemBuilder: (context, index) {
+              final banner = widget.banners[index] as Map?;
+              final imageUrl = banner?['imageUrl'] ?? banner?['image'] ?? '';
+              if (imageUrl.isEmpty) return const SizedBox.shrink();
+
+              return Container(
+                margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(12),
+                  image: DecorationImage(
+                    image: CachedNetworkImageProvider(imageUrl),
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              );
+            },
+          ),
+          Positioned(
+            bottom: 16,
+            left: 0,
+            right: 0,
+            child: Center(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: List.generate(
+                  widget.banners.length,
+                  (index) => AnimatedContainer(
+                    duration: const Duration(milliseconds: 300),
+                    margin: const EdgeInsets.symmetric(horizontal: 4),
+                    width: _currentPage == index ? 20 : 6,
+                    height: 6,
+                    decoration: BoxDecoration(
+                      color: _currentPage == index
+                          ? Colors.white
+                          : Colors.white54,
+                      borderRadius: BorderRadius.circular(3),
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }
