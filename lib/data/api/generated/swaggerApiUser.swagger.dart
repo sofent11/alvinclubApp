@@ -45,28 +45,28 @@ abstract class SwaggerApiUser extends ChopperService {
       client: httpClient,
       authenticator: authenticator,
       errorConverter: errorConverter,
-      baseUrl: baseUrl ?? Uri.parse('http:///user-service'),
+      baseUrl: baseUrl ?? Uri.parse('http://'),
     );
     return _$SwaggerApiUser(newClient);
   }
 
   ///修改地址
   ///@param root
-  Future<chopper.Response<AddressUpdatePost$Response>> addressUpdatePost({
-    Object? root,
-  }) {
+  Future<chopper.Response<UserServiceAddressUpdatePost$Response>>
+  userServiceAddressUpdatePost({Object? root}) {
     generatedMapping.putIfAbsent(
-      AddressUpdatePost$Response,
-      () => AddressUpdatePost$Response.fromJsonFactory,
+      UserServiceAddressUpdatePost$Response,
+      () => UserServiceAddressUpdatePost$Response.fromJsonFactory,
     );
 
-    return _addressUpdatePost(root: root);
+    return _userServiceAddressUpdatePost(root: root);
   }
 
   ///修改地址
   ///@param root
-  @POST(path: '/address/update')
-  Future<chopper.Response<AddressUpdatePost$Response>> _addressUpdatePost({
+  @POST(path: '/user-service/address/update')
+  Future<chopper.Response<UserServiceAddressUpdatePost$Response>>
+  _userServiceAddressUpdatePost({
     @Body() Object? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -83,21 +83,21 @@ abstract class SwaggerApiUser extends ChopperService {
 
   ///删除地址
   ///@param id id
-  Future<chopper.Response<AddressDeleteDelete$Response>> addressDeleteDelete({
-    required String? id,
-  }) {
+  Future<chopper.Response<UserServiceAddressDeleteDelete$Response>>
+  userServiceAddressDeleteDelete({required String? id}) {
     generatedMapping.putIfAbsent(
-      AddressDeleteDelete$Response,
-      () => AddressDeleteDelete$Response.fromJsonFactory,
+      UserServiceAddressDeleteDelete$Response,
+      () => UserServiceAddressDeleteDelete$Response.fromJsonFactory,
     );
 
-    return _addressDeleteDelete(id: id);
+    return _userServiceAddressDeleteDelete(id: id);
   }
 
   ///删除地址
   ///@param id id
-  @DELETE(path: '/address/delete')
-  Future<chopper.Response<AddressDeleteDelete$Response>> _addressDeleteDelete({
+  @DELETE(path: '/user-service/address/delete')
+  Future<chopper.Response<UserServiceAddressDeleteDelete$Response>>
+  _userServiceAddressDeleteDelete({
     @Query('id') required String? id,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -115,16 +115,17 @@ abstract class SwaggerApiUser extends ChopperService {
   ///地址联想
   ///@param searchAddress
   ///@param portalCode
-  Future<chopper.Response<AddressQueryGet$Response>> addressQueryGet({
+  Future<chopper.Response<UserServiceAddressQueryGet$Response>>
+  userServiceAddressQueryGet({
     String? searchAddress,
     required String? portalCode,
   }) {
     generatedMapping.putIfAbsent(
-      AddressQueryGet$Response,
-      () => AddressQueryGet$Response.fromJsonFactory,
+      UserServiceAddressQueryGet$Response,
+      () => UserServiceAddressQueryGet$Response.fromJsonFactory,
     );
 
-    return _addressQueryGet(
+    return _userServiceAddressQueryGet(
       searchAddress: searchAddress,
       portalCode: portalCode,
     );
@@ -133,8 +134,9 @@ abstract class SwaggerApiUser extends ChopperService {
   ///地址联想
   ///@param searchAddress
   ///@param portalCode
-  @GET(path: '/address/query')
-  Future<chopper.Response<AddressQueryGet$Response>> _addressQueryGet({
+  @GET(path: '/user-service/address/query')
+  Future<chopper.Response<UserServiceAddressQueryGet$Response>>
+  _userServiceAddressQueryGet({
     @Query('searchAddress') String? searchAddress,
     @Query('portalCode') required String? portalCode,
     @chopper.Tag()
@@ -151,20 +153,20 @@ abstract class SwaggerApiUser extends ChopperService {
   });
 
   ///支持国家
-  Future<chopper.Response<NoAuthSupportCountryGet$Response>>
-  noAuthSupportCountryGet() {
+  Future<chopper.Response<UserServiceNoAuthSupportCountryGet$Response>>
+  userServiceNoAuthSupportCountryGet() {
     generatedMapping.putIfAbsent(
-      NoAuthSupportCountryGet$Response,
-      () => NoAuthSupportCountryGet$Response.fromJsonFactory,
+      UserServiceNoAuthSupportCountryGet$Response,
+      () => UserServiceNoAuthSupportCountryGet$Response.fromJsonFactory,
     );
 
-    return _noAuthSupportCountryGet();
+    return _userServiceNoAuthSupportCountryGet();
   }
 
   ///支持国家
-  @GET(path: '/no-auth/support/country')
-  Future<chopper.Response<NoAuthSupportCountryGet$Response>>
-  _noAuthSupportCountryGet({
+  @GET(path: '/user-service/no-auth/support/country')
+  Future<chopper.Response<UserServiceNoAuthSupportCountryGet$Response>>
+  _userServiceNoAuthSupportCountryGet({
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -179,18 +181,20 @@ abstract class SwaggerApiUser extends ChopperService {
   });
 
   ///收货地址列表
-  Future<chopper.Response<AddressListGet$Response>> addressListGet() {
+  Future<chopper.Response<UserServiceAddressListGet$Response>>
+  userServiceAddressListGet() {
     generatedMapping.putIfAbsent(
-      AddressListGet$Response,
-      () => AddressListGet$Response.fromJsonFactory,
+      UserServiceAddressListGet$Response,
+      () => UserServiceAddressListGet$Response.fromJsonFactory,
     );
 
-    return _addressListGet();
+    return _userServiceAddressListGet();
   }
 
   ///收货地址列表
-  @GET(path: '/address/list')
-  Future<chopper.Response<AddressListGet$Response>> _addressListGet({
+  @GET(path: '/user-service/address/list')
+  Future<chopper.Response<UserServiceAddressListGet$Response>>
+  _userServiceAddressListGet({
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -206,21 +210,21 @@ abstract class SwaggerApiUser extends ChopperService {
 
   ///收货地址（按国家查询）
   ///@param country
-  Future<chopper.Response<GetShippingAddressByCountryGet$Response>>
-  getShippingAddressByCountryGet({required String? country}) {
+  Future<chopper.Response<UserServiceGetShippingAddressByCountryGet$Response>>
+  userServiceGetShippingAddressByCountryGet({required String? country}) {
     generatedMapping.putIfAbsent(
-      GetShippingAddressByCountryGet$Response,
-      () => GetShippingAddressByCountryGet$Response.fromJsonFactory,
+      UserServiceGetShippingAddressByCountryGet$Response,
+      () => UserServiceGetShippingAddressByCountryGet$Response.fromJsonFactory,
     );
 
-    return _getShippingAddressByCountryGet(country: country);
+    return _userServiceGetShippingAddressByCountryGet(country: country);
   }
 
   ///收货地址（按国家查询）
   ///@param country
-  @GET(path: '/getShippingAddressByCountry')
-  Future<chopper.Response<GetShippingAddressByCountryGet$Response>>
-  _getShippingAddressByCountryGet({
+  @GET(path: '/user-service/getShippingAddressByCountry')
+  Future<chopper.Response<UserServiceGetShippingAddressByCountryGet$Response>>
+  _userServiceGetShippingAddressByCountryGet({
     @Query('country') required String? country,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -237,21 +241,21 @@ abstract class SwaggerApiUser extends ChopperService {
 
   ///新增用户地址
   ///@param root
-  Future<chopper.Response<AddressAddPost$Response>> addressAddPost({
-    Object? root,
-  }) {
+  Future<chopper.Response<UserServiceAddressAddPost$Response>>
+  userServiceAddressAddPost({Object? root}) {
     generatedMapping.putIfAbsent(
-      AddressAddPost$Response,
-      () => AddressAddPost$Response.fromJsonFactory,
+      UserServiceAddressAddPost$Response,
+      () => UserServiceAddressAddPost$Response.fromJsonFactory,
     );
 
-    return _addressAddPost(root: root);
+    return _userServiceAddressAddPost(root: root);
   }
 
   ///新增用户地址
   ///@param root
-  @POST(path: '/address/add')
-  Future<chopper.Response<AddressAddPost$Response>> _addressAddPost({
+  @POST(path: '/user-service/address/add')
+  Future<chopper.Response<UserServiceAddressAddPost$Response>>
+  _userServiceAddressAddPost({
     @Body() Object? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -269,14 +273,17 @@ abstract class SwaggerApiUser extends ChopperService {
   ///查询默认收货地址
   ///@param Authorization Authorization (Only:)
   ///@param userId
-  Future<chopper.Response<GetDefaultShippingAddressGet$Response>>
-  getDefaultShippingAddressGet({String? authorization, String? userId}) {
+  Future<chopper.Response<UserServiceGetDefaultShippingAddressGet$Response>>
+  userServiceGetDefaultShippingAddressGet({
+    String? authorization,
+    String? userId,
+  }) {
     generatedMapping.putIfAbsent(
-      GetDefaultShippingAddressGet$Response,
-      () => GetDefaultShippingAddressGet$Response.fromJsonFactory,
+      UserServiceGetDefaultShippingAddressGet$Response,
+      () => UserServiceGetDefaultShippingAddressGet$Response.fromJsonFactory,
     );
 
-    return _getDefaultShippingAddressGet(
+    return _userServiceGetDefaultShippingAddressGet(
       authorization: authorization?.toString(),
       userId: userId,
     );
@@ -285,9 +292,9 @@ abstract class SwaggerApiUser extends ChopperService {
   ///查询默认收货地址
   ///@param Authorization Authorization (Only:)
   ///@param userId
-  @GET(path: '/getDefaultShippingAddress')
-  Future<chopper.Response<GetDefaultShippingAddressGet$Response>>
-  _getDefaultShippingAddressGet({
+  @GET(path: '/user-service/getDefaultShippingAddress')
+  Future<chopper.Response<UserServiceGetDefaultShippingAddressGet$Response>>
+  _userServiceGetDefaultShippingAddressGet({
     @Header('Authorization') String? authorization,
     @Query('userId') String? userId,
     @chopper.Tag()
@@ -306,23 +313,28 @@ abstract class SwaggerApiUser extends ChopperService {
   ///省市区列表
   ///@param areaCode
   ///@param portalCode CA,US
-  Future<chopper.Response<AddressCountryGet$Response>> addressCountryGet({
+  Future<chopper.Response<UserServiceAddressCountryGet$Response>>
+  userServiceAddressCountryGet({
     String? areaCode,
     required String? portalCode,
   }) {
     generatedMapping.putIfAbsent(
-      AddressCountryGet$Response,
-      () => AddressCountryGet$Response.fromJsonFactory,
+      UserServiceAddressCountryGet$Response,
+      () => UserServiceAddressCountryGet$Response.fromJsonFactory,
     );
 
-    return _addressCountryGet(areaCode: areaCode, portalCode: portalCode);
+    return _userServiceAddressCountryGet(
+      areaCode: areaCode,
+      portalCode: portalCode,
+    );
   }
 
   ///省市区列表
   ///@param areaCode
   ///@param portalCode CA,US
-  @GET(path: '/address/country')
-  Future<chopper.Response<AddressCountryGet$Response>> _addressCountryGet({
+  @GET(path: '/user-service/address/country')
+  Future<chopper.Response<UserServiceAddressCountryGet$Response>>
+  _userServiceAddressCountryGet({
     @Query('areaCode') String? areaCode,
     @Query('portalCode') required String? portalCode,
     @chopper.Tag()
@@ -341,25 +353,28 @@ abstract class SwaggerApiUser extends ChopperService {
   ///邮编查询
   ///@param zipCode
   ///@param portalCode
-  Future<chopper.Response<AddressQueryByZipCodeGet$Response>>
-  addressQueryByZipCodeGet({
+  Future<chopper.Response<UserServiceAddressQueryByZipCodeGet$Response>>
+  userServiceAddressQueryByZipCodeGet({
     required String? zipCode,
     required String? portalCode,
   }) {
     generatedMapping.putIfAbsent(
-      AddressQueryByZipCodeGet$Response,
-      () => AddressQueryByZipCodeGet$Response.fromJsonFactory,
+      UserServiceAddressQueryByZipCodeGet$Response,
+      () => UserServiceAddressQueryByZipCodeGet$Response.fromJsonFactory,
     );
 
-    return _addressQueryByZipCodeGet(zipCode: zipCode, portalCode: portalCode);
+    return _userServiceAddressQueryByZipCodeGet(
+      zipCode: zipCode,
+      portalCode: portalCode,
+    );
   }
 
   ///邮编查询
   ///@param zipCode
   ///@param portalCode
-  @GET(path: '/address/queryByZipCode')
-  Future<chopper.Response<AddressQueryByZipCodeGet$Response>>
-  _addressQueryByZipCodeGet({
+  @GET(path: '/user-service/address/queryByZipCode')
+  Future<chopper.Response<UserServiceAddressQueryByZipCodeGet$Response>>
+  _userServiceAddressQueryByZipCodeGet({
     @Query('zipCode') required String? zipCode,
     @Query('portalCode') required String? portalCode,
     @chopper.Tag()
@@ -377,21 +392,21 @@ abstract class SwaggerApiUser extends ChopperService {
 
   ///更新用户等级
   ///@param root
-  Future<chopper.Response<UserInnerUpdUserLevelPost$Response>>
-  userInnerUpdUserLevelPost({Object? root}) {
+  Future<chopper.Response<UserServiceUserInnerUpdUserLevelPost$Response>>
+  userServiceUserInnerUpdUserLevelPost({Object? root}) {
     generatedMapping.putIfAbsent(
-      UserInnerUpdUserLevelPost$Response,
-      () => UserInnerUpdUserLevelPost$Response.fromJsonFactory,
+      UserServiceUserInnerUpdUserLevelPost$Response,
+      () => UserServiceUserInnerUpdUserLevelPost$Response.fromJsonFactory,
     );
 
-    return _userInnerUpdUserLevelPost(root: root);
+    return _userServiceUserInnerUpdUserLevelPost(root: root);
   }
 
   ///更新用户等级
   ///@param root
-  @POST(path: '/user/inner/upd/user-level')
-  Future<chopper.Response<UserInnerUpdUserLevelPost$Response>>
-  _userInnerUpdUserLevelPost({
+  @POST(path: '/user-service/user/inner/upd/user-level')
+  Future<chopper.Response<UserServiceUserInnerUpdUserLevelPost$Response>>
+  _userServiceUserInnerUpdUserLevelPost({
     @Body() Object? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -408,21 +423,21 @@ abstract class SwaggerApiUser extends ChopperService {
 
   ///切换国家
   ///@param root
-  Future<chopper.Response<SigninSwitchPortalPost$Response>>
-  signinSwitchPortalPost({Object? root}) {
+  Future<chopper.Response<UserServiceSigninSwitchPortalPost$Response>>
+  userServiceSigninSwitchPortalPost({Object? root}) {
     generatedMapping.putIfAbsent(
-      SigninSwitchPortalPost$Response,
-      () => SigninSwitchPortalPost$Response.fromJsonFactory,
+      UserServiceSigninSwitchPortalPost$Response,
+      () => UserServiceSigninSwitchPortalPost$Response.fromJsonFactory,
     );
 
-    return _signinSwitchPortalPost(root: root);
+    return _userServiceSigninSwitchPortalPost(root: root);
   }
 
   ///切换国家
   ///@param root
-  @POST(path: '/signin/switchPortal')
-  Future<chopper.Response<SigninSwitchPortalPost$Response>>
-  _signinSwitchPortalPost({
+  @POST(path: '/user-service/signin/switchPortal')
+  Future<chopper.Response<UserServiceSigninSwitchPortalPost$Response>>
+  _userServiceSigninSwitchPortalPost({
     @Body() Object? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -439,21 +454,21 @@ abstract class SwaggerApiUser extends ChopperService {
 
   ///发送验证码
   ///@param root
-  Future<chopper.Response<SignInInitPost$Response>> signInInitPost({
-    Object? root,
-  }) {
+  Future<chopper.Response<UserServiceSignInInitPost$Response>>
+  userServiceSignInInitPost({Object? root}) {
     generatedMapping.putIfAbsent(
-      SignInInitPost$Response,
-      () => SignInInitPost$Response.fromJsonFactory,
+      UserServiceSignInInitPost$Response,
+      () => UserServiceSignInInitPost$Response.fromJsonFactory,
     );
 
-    return _signInInitPost(root: root);
+    return _userServiceSignInInitPost(root: root);
   }
 
   ///发送验证码
   ///@param root
-  @POST(path: '/signIn/init')
-  Future<chopper.Response<SignInInitPost$Response>> _signInInitPost({
+  @POST(path: '/user-service/signIn/init')
+  Future<chopper.Response<UserServiceSignInInitPost$Response>>
+  _userServiceSignInInitPost({
     @Body() Object? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -470,19 +485,21 @@ abstract class SwaggerApiUser extends ChopperService {
 
   ///生成临时token
   ///@param root
-  Future<chopper.Response<OtpApplyPost$Response>> otpApplyPost({Object? root}) {
+  Future<chopper.Response<UserServiceOtpApplyPost$Response>>
+  userServiceOtpApplyPost({Object? root}) {
     generatedMapping.putIfAbsent(
-      OtpApplyPost$Response,
-      () => OtpApplyPost$Response.fromJsonFactory,
+      UserServiceOtpApplyPost$Response,
+      () => UserServiceOtpApplyPost$Response.fromJsonFactory,
     );
 
-    return _otpApplyPost(root: root);
+    return _userServiceOtpApplyPost(root: root);
   }
 
   ///生成临时token
   ///@param root
-  @POST(path: '/otp/apply')
-  Future<chopper.Response<OtpApplyPost$Response>> _otpApplyPost({
+  @POST(path: '/user-service/otp/apply')
+  Future<chopper.Response<UserServiceOtpApplyPost$Response>>
+  _userServiceOtpApplyPost({
     @Body() Object? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -499,14 +516,16 @@ abstract class SwaggerApiUser extends ChopperService {
 
   ///登出
   ///@param Authorization Authorization (Only:)
-  Future<chopper.Response<String>> signOutPost({String? authorization}) {
-    return _signOutPost(authorization: authorization?.toString());
+  Future<chopper.Response<String>> userServiceSignOutPost({
+    String? authorization,
+  }) {
+    return _userServiceSignOutPost(authorization: authorization?.toString());
   }
 
   ///登出
   ///@param Authorization Authorization (Only:)
-  @POST(path: '/signOut', optionalBody: true)
-  Future<chopper.Response<String>> _signOutPost({
+  @POST(path: '/user-service/signOut', optionalBody: true)
+  Future<chopper.Response<String>> _userServiceSignOutPost({
     @Header('Authorization') String? authorization,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -523,21 +542,21 @@ abstract class SwaggerApiUser extends ChopperService {
 
   ///登录校验密码\验证码
   ///@param root
-  Future<chopper.Response<SignInVerifyPost$Response>> signInVerifyPost({
-    Object? root,
-  }) {
+  Future<chopper.Response<UserServiceSignInVerifyPost$Response>>
+  userServiceSignInVerifyPost({Object? root}) {
     generatedMapping.putIfAbsent(
-      SignInVerifyPost$Response,
-      () => SignInVerifyPost$Response.fromJsonFactory,
+      UserServiceSignInVerifyPost$Response,
+      () => UserServiceSignInVerifyPost$Response.fromJsonFactory,
     );
 
-    return _signInVerifyPost(root: root);
+    return _userServiceSignInVerifyPost(root: root);
   }
 
   ///登录校验密码\验证码
   ///@param root
-  @POST(path: '/signIn/verify')
-  Future<chopper.Response<SignInVerifyPost$Response>> _signInVerifyPost({
+  @POST(path: '/user-service/signIn/verify')
+  Future<chopper.Response<UserServiceSignInVerifyPost$Response>>
+  _userServiceSignInVerifyPost({
     @Body() Object? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -554,21 +573,21 @@ abstract class SwaggerApiUser extends ChopperService {
 
   ///轮询登录信息
   ///@param root
-  Future<chopper.Response<SignInCallPost$Response>> signInCallPost({
-    Object? root,
-  }) {
+  Future<chopper.Response<UserServiceSignInCallPost$Response>>
+  userServiceSignInCallPost({Object? root}) {
     generatedMapping.putIfAbsent(
-      SignInCallPost$Response,
-      () => SignInCallPost$Response.fromJsonFactory,
+      UserServiceSignInCallPost$Response,
+      () => UserServiceSignInCallPost$Response.fromJsonFactory,
     );
 
-    return _signInCallPost(root: root);
+    return _userServiceSignInCallPost(root: root);
   }
 
   ///轮询登录信息
   ///@param root
-  @POST(path: '/signIn/call')
-  Future<chopper.Response<SignInCallPost$Response>> _signInCallPost({
+  @POST(path: '/user-service/signIn/call')
+  Future<chopper.Response<UserServiceSignInCallPost$Response>>
+  _userServiceSignInCallPost({
     @Body() Object? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -585,21 +604,21 @@ abstract class SwaggerApiUser extends ChopperService {
 
   ///验证临时token
   ///@param root
-  Future<chopper.Response<NoAuthOtpVerifyPost$Response>> noAuthOtpVerifyPost({
-    Object? root,
-  }) {
+  Future<chopper.Response<UserServiceNoAuthOtpVerifyPost$Response>>
+  userServiceNoAuthOtpVerifyPost({Object? root}) {
     generatedMapping.putIfAbsent(
-      NoAuthOtpVerifyPost$Response,
-      () => NoAuthOtpVerifyPost$Response.fromJsonFactory,
+      UserServiceNoAuthOtpVerifyPost$Response,
+      () => UserServiceNoAuthOtpVerifyPost$Response.fromJsonFactory,
     );
 
-    return _noAuthOtpVerifyPost(root: root);
+    return _userServiceNoAuthOtpVerifyPost(root: root);
   }
 
   ///验证临时token
   ///@param root
-  @POST(path: '/no-auth/otp/verify')
-  Future<chopper.Response<NoAuthOtpVerifyPost$Response>> _noAuthOtpVerifyPost({
+  @POST(path: '/user-service/no-auth/otp/verify')
+  Future<chopper.Response<UserServiceNoAuthOtpVerifyPost$Response>>
+  _userServiceNoAuthOtpVerifyPost({
     @Body() Object? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -616,14 +635,16 @@ abstract class SwaggerApiUser extends ChopperService {
 
   ///邮箱取消订阅
   ///@param root
-  Future<chopper.Response<Object>> noAuthEmailUnsubscribePost({Object? root}) {
-    return _noAuthEmailUnsubscribePost(root: root);
+  Future<chopper.Response<Object>> userServiceNoAuthEmailUnsubscribePost({
+    Object? root,
+  }) {
+    return _userServiceNoAuthEmailUnsubscribePost(root: root);
   }
 
   ///邮箱取消订阅
   ///@param root
-  @POST(path: '/no-auth/email/unsubscribe')
-  Future<chopper.Response<Object>> _noAuthEmailUnsubscribePost({
+  @POST(path: '/user-service/no-auth/email/unsubscribe')
+  Future<chopper.Response<Object>> _userServiceNoAuthEmailUnsubscribePost({
     @Body() Object? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -639,20 +660,25 @@ abstract class SwaggerApiUser extends ChopperService {
   });
 
   ///默认国家和语言
-  Future<chopper.Response<NoAuthCommonConfigDefaultSettingGet$Response>>
-  noAuthCommonConfigDefaultSettingGet() {
+  Future<
+    chopper.Response<UserServiceNoAuthCommonConfigDefaultSettingGet$Response>
+  >
+  userServiceNoAuthCommonConfigDefaultSettingGet() {
     generatedMapping.putIfAbsent(
-      NoAuthCommonConfigDefaultSettingGet$Response,
-      () => NoAuthCommonConfigDefaultSettingGet$Response.fromJsonFactory,
+      UserServiceNoAuthCommonConfigDefaultSettingGet$Response,
+      () => UserServiceNoAuthCommonConfigDefaultSettingGet$Response
+          .fromJsonFactory,
     );
 
-    return _noAuthCommonConfigDefaultSettingGet();
+    return _userServiceNoAuthCommonConfigDefaultSettingGet();
   }
 
   ///默认国家和语言
-  @GET(path: '/no-auth/common-config/default-setting')
-  Future<chopper.Response<NoAuthCommonConfigDefaultSettingGet$Response>>
-  _noAuthCommonConfigDefaultSettingGet({
+  @GET(path: '/user-service/no-auth/common-config/default-setting')
+  Future<
+    chopper.Response<UserServiceNoAuthCommonConfigDefaultSettingGet$Response>
+  >
+  _userServiceNoAuthCommonConfigDefaultSettingGet({
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -669,23 +695,25 @@ abstract class SwaggerApiUser extends ChopperService {
   ///IM多文件上传
   ///@param files 最大7M
   ///@param files
-  Future<chopper.Response<FileImUploadPost$Response>> fileImUploadPost({
+  Future<chopper.Response<UserServiceFileImUploadPost$Response>>
+  userServiceFileImUploadPost({
     required List<int>? files,
     required List<int>? files$,
   }) {
     generatedMapping.putIfAbsent(
-      FileImUploadPost$Response,
-      () => FileImUploadPost$Response.fromJsonFactory,
+      UserServiceFileImUploadPost$Response,
+      () => UserServiceFileImUploadPost$Response.fromJsonFactory,
     );
 
-    return _fileImUploadPost(files: files, files$: files$);
+    return _userServiceFileImUploadPost(files: files, files$: files$);
   }
 
   ///IM多文件上传
   ///@param files 最大7M
   ///@param files
-  @POST(path: '/file/im/upload', optionalBody: true)
-  Future<chopper.Response<FileImUploadPost$Response>> _fileImUploadPost({
+  @POST(path: '/user-service/file/im/upload', optionalBody: true)
+  Future<chopper.Response<UserServiceFileImUploadPost$Response>>
+  _userServiceFileImUploadPost({
     @Field('files') required List<int>? files,
     @Field('files') required List<int>? files$,
     @chopper.Tag()
@@ -703,21 +731,21 @@ abstract class SwaggerApiUser extends ChopperService {
 
   ///上传头像
   ///@param file 最大7M
-  Future<chopper.Response<FileLogoUploadPost$Response>> fileLogoUploadPost({
-    required List<int>? file,
-  }) {
+  Future<chopper.Response<UserServiceFileLogoUploadPost$Response>>
+  userServiceFileLogoUploadPost({required List<int>? file}) {
     generatedMapping.putIfAbsent(
-      FileLogoUploadPost$Response,
-      () => FileLogoUploadPost$Response.fromJsonFactory,
+      UserServiceFileLogoUploadPost$Response,
+      () => UserServiceFileLogoUploadPost$Response.fromJsonFactory,
     );
 
-    return _fileLogoUploadPost(file: file);
+    return _userServiceFileLogoUploadPost(file: file);
   }
 
   ///上传头像
   ///@param file 最大7M
-  @POST(path: '/file/logo/upload', optionalBody: true)
-  Future<chopper.Response<FileLogoUploadPost$Response>> _fileLogoUploadPost({
+  @POST(path: '/user-service/file/logo/upload', optionalBody: true)
+  Future<chopper.Response<UserServiceFileLogoUploadPost$Response>>
+  _userServiceFileLogoUploadPost({
     @Field('file') required List<int>? file,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -733,18 +761,20 @@ abstract class SwaggerApiUser extends ChopperService {
   });
 
   ///优惠券数量列表
-  Future<chopper.Response<UserCouponCountGet$Response>> userCouponCountGet() {
+  Future<chopper.Response<UserServiceUserCouponCountGet$Response>>
+  userServiceUserCouponCountGet() {
     generatedMapping.putIfAbsent(
-      UserCouponCountGet$Response,
-      () => UserCouponCountGet$Response.fromJsonFactory,
+      UserServiceUserCouponCountGet$Response,
+      () => UserServiceUserCouponCountGet$Response.fromJsonFactory,
     );
 
-    return _userCouponCountGet();
+    return _userServiceUserCouponCountGet();
   }
 
   ///优惠券数量列表
-  @GET(path: '/user/coupon/count')
-  Future<chopper.Response<UserCouponCountGet$Response>> _userCouponCountGet({
+  @GET(path: '/user-service/user/coupon/count')
+  Future<chopper.Response<UserServiceUserCouponCountGet$Response>>
+  _userServiceUserCouponCountGet({
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -761,17 +791,17 @@ abstract class SwaggerApiUser extends ChopperService {
   ///优惠券活动信息
   ///@param couponActivityCode new_comer_voucher
   ///@param received
-  Future<chopper.Response<UserCouponActivityInfoGet$Response>>
-  userCouponActivityInfoGet({
+  Future<chopper.Response<UserServiceUserCouponActivityInfoGet$Response>>
+  userServiceUserCouponActivityInfoGet({
     required String? couponActivityCode,
     String? received,
   }) {
     generatedMapping.putIfAbsent(
-      UserCouponActivityInfoGet$Response,
-      () => UserCouponActivityInfoGet$Response.fromJsonFactory,
+      UserServiceUserCouponActivityInfoGet$Response,
+      () => UserServiceUserCouponActivityInfoGet$Response.fromJsonFactory,
     );
 
-    return _userCouponActivityInfoGet(
+    return _userServiceUserCouponActivityInfoGet(
       couponActivityCode: couponActivityCode,
       received: received,
     );
@@ -780,9 +810,9 @@ abstract class SwaggerApiUser extends ChopperService {
   ///优惠券活动信息
   ///@param couponActivityCode new_comer_voucher
   ///@param received
-  @GET(path: '/user/coupon/activityInfo')
-  Future<chopper.Response<UserCouponActivityInfoGet$Response>>
-  _userCouponActivityInfoGet({
+  @GET(path: '/user-service/user/coupon/activityInfo')
+  Future<chopper.Response<UserServiceUserCouponActivityInfoGet$Response>>
+  _userServiceUserCouponActivityInfoGet({
     @Query('couponActivityCode') required String? couponActivityCode,
     @Query('received') String? received,
     @chopper.Tag()
@@ -802,18 +832,18 @@ abstract class SwaggerApiUser extends ChopperService {
   ///@param code
   ///@param isDiscount
   ///@param root
-  Future<chopper.Response<UserCouponCode2CouponGet$Response>>
-  userCouponCode2CouponGet({
+  Future<chopper.Response<UserServiceUserCouponCode2CouponGet$Response>>
+  userServiceUserCouponCode2CouponGet({
     required String? code,
     String? isDiscount,
     Object? root,
   }) {
     generatedMapping.putIfAbsent(
-      UserCouponCode2CouponGet$Response,
-      () => UserCouponCode2CouponGet$Response.fromJsonFactory,
+      UserServiceUserCouponCode2CouponGet$Response,
+      () => UserServiceUserCouponCode2CouponGet$Response.fromJsonFactory,
     );
 
-    return _userCouponCode2CouponGet(
+    return _userServiceUserCouponCode2CouponGet(
       code: code,
       isDiscount: isDiscount,
       root: root,
@@ -824,9 +854,9 @@ abstract class SwaggerApiUser extends ChopperService {
   ///@param code
   ///@param isDiscount
   ///@param root
-  @GET(path: '/user/coupon/code2Coupon')
-  Future<chopper.Response<UserCouponCode2CouponGet$Response>>
-  _userCouponCode2CouponGet({
+  @GET(path: '/user-service/user/coupon/code2Coupon')
+  Future<chopper.Response<UserServiceUserCouponCode2CouponGet$Response>>
+  _userServiceUserCouponCode2CouponGet({
     @Query('code') required String? code,
     @Query('isDiscount') String? isDiscount,
     @Body() Object? root,
@@ -845,23 +875,23 @@ abstract class SwaggerApiUser extends ChopperService {
 
   ///活动信息(多活动)
   ///@param couponActivityCodes 如多个，数组结构
-  Future<chopper.Response<UserCouponActivityInfosGet$Response>>
-  userCouponActivityInfosGet({String? couponActivityCodes}) {
+  Future<chopper.Response<UserServiceUserCouponActivityInfosGet$Response>>
+  userServiceUserCouponActivityInfosGet({String? couponActivityCodes}) {
     generatedMapping.putIfAbsent(
-      UserCouponActivityInfosGet$Response,
-      () => UserCouponActivityInfosGet$Response.fromJsonFactory,
+      UserServiceUserCouponActivityInfosGet$Response,
+      () => UserServiceUserCouponActivityInfosGet$Response.fromJsonFactory,
     );
 
-    return _userCouponActivityInfosGet(
+    return _userServiceUserCouponActivityInfosGet(
       couponActivityCodes: couponActivityCodes,
     );
   }
 
   ///活动信息(多活动)
   ///@param couponActivityCodes 如多个，数组结构
-  @GET(path: '/user/coupon/activityInfos')
-  Future<chopper.Response<UserCouponActivityInfosGet$Response>>
-  _userCouponActivityInfosGet({
+  @GET(path: '/user-service/user/coupon/activityInfos')
+  Future<chopper.Response<UserServiceUserCouponActivityInfosGet$Response>>
+  _userServiceUserCouponActivityInfosGet({
     @Query('couponActivityCodes') String? couponActivityCodes,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -877,20 +907,20 @@ abstract class SwaggerApiUser extends ChopperService {
   });
 
   ///用户优惠券ActivityCodes
-  Future<chopper.Response<UserCouponGetActivitiesGet$Response>>
-  userCouponGetActivitiesGet() {
+  Future<chopper.Response<UserServiceUserCouponGetActivitiesGet$Response>>
+  userServiceUserCouponGetActivitiesGet() {
     generatedMapping.putIfAbsent(
-      UserCouponGetActivitiesGet$Response,
-      () => UserCouponGetActivitiesGet$Response.fromJsonFactory,
+      UserServiceUserCouponGetActivitiesGet$Response,
+      () => UserServiceUserCouponGetActivitiesGet$Response.fromJsonFactory,
     );
 
-    return _userCouponGetActivitiesGet();
+    return _userServiceUserCouponGetActivitiesGet();
   }
 
   ///用户优惠券ActivityCodes
-  @GET(path: '/user/coupon/getActivities')
-  Future<chopper.Response<UserCouponGetActivitiesGet$Response>>
-  _userCouponGetActivitiesGet({
+  @GET(path: '/user-service/user/coupon/getActivities')
+  Future<chopper.Response<UserServiceUserCouponGetActivitiesGet$Response>>
+  _userServiceUserCouponGetActivitiesGet({
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -906,22 +936,21 @@ abstract class SwaggerApiUser extends ChopperService {
 
   ///用户优惠券列表（多活动分组）
   ///@param userCouponState 0未使用，1下单占用，2支付已使用
-  Future<chopper.Response<UserCouponGetListGet$Response>> userCouponGetListGet({
-    required String? userCouponState,
-  }) {
+  Future<chopper.Response<UserServiceUserCouponGetListGet$Response>>
+  userServiceUserCouponGetListGet({required String? userCouponState}) {
     generatedMapping.putIfAbsent(
-      UserCouponGetListGet$Response,
-      () => UserCouponGetListGet$Response.fromJsonFactory,
+      UserServiceUserCouponGetListGet$Response,
+      () => UserServiceUserCouponGetListGet$Response.fromJsonFactory,
     );
 
-    return _userCouponGetListGet(userCouponState: userCouponState);
+    return _userServiceUserCouponGetListGet(userCouponState: userCouponState);
   }
 
   ///用户优惠券列表（多活动分组）
   ///@param userCouponState 0未使用，1下单占用，2支付已使用
-  @GET(path: '/user/coupon/getList')
-  Future<chopper.Response<UserCouponGetListGet$Response>>
-  _userCouponGetListGet({
+  @GET(path: '/user-service/user/coupon/getList')
+  Future<chopper.Response<UserServiceUserCouponGetListGet$Response>>
+  _userServiceUserCouponGetListGet({
     @Query('userCouponState') required String? userCouponState,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -938,21 +967,26 @@ abstract class SwaggerApiUser extends ChopperService {
 
   ///领取优惠券（多活动）
   ///@param root
-  Future<chopper.Response<UserCouponGetUserCouponByActivityPost$Response>>
-  userCouponGetUserCouponByActivityPost({Object? root}) {
+  Future<
+    chopper.Response<UserServiceUserCouponGetUserCouponByActivityPost$Response>
+  >
+  userServiceUserCouponGetUserCouponByActivityPost({Object? root}) {
     generatedMapping.putIfAbsent(
-      UserCouponGetUserCouponByActivityPost$Response,
-      () => UserCouponGetUserCouponByActivityPost$Response.fromJsonFactory,
+      UserServiceUserCouponGetUserCouponByActivityPost$Response,
+      () => UserServiceUserCouponGetUserCouponByActivityPost$Response
+          .fromJsonFactory,
     );
 
-    return _userCouponGetUserCouponByActivityPost(root: root);
+    return _userServiceUserCouponGetUserCouponByActivityPost(root: root);
   }
 
   ///领取优惠券（多活动）
   ///@param root
-  @POST(path: '/user/coupon/getUserCouponByActivity')
-  Future<chopper.Response<UserCouponGetUserCouponByActivityPost$Response>>
-  _userCouponGetUserCouponByActivityPost({
+  @POST(path: '/user-service/user/coupon/getUserCouponByActivity')
+  Future<
+    chopper.Response<UserServiceUserCouponGetUserCouponByActivityPost$Response>
+  >
+  _userServiceUserCouponGetUserCouponByActivityPost({
     @Body() Object? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -969,21 +1003,23 @@ abstract class SwaggerApiUser extends ChopperService {
 
   ///发放优惠券
   ///@param couponActivityCode 0未使用，1下单占用，2支付已使用
-  Future<chopper.Response<UserCouponSaveGet$Response>> userCouponSaveGet({
-    required String? couponActivityCode,
-  }) {
+  Future<chopper.Response<UserServiceUserCouponSaveGet$Response>>
+  userServiceUserCouponSaveGet({required String? couponActivityCode}) {
     generatedMapping.putIfAbsent(
-      UserCouponSaveGet$Response,
-      () => UserCouponSaveGet$Response.fromJsonFactory,
+      UserServiceUserCouponSaveGet$Response,
+      () => UserServiceUserCouponSaveGet$Response.fromJsonFactory,
     );
 
-    return _userCouponSaveGet(couponActivityCode: couponActivityCode);
+    return _userServiceUserCouponSaveGet(
+      couponActivityCode: couponActivityCode,
+    );
   }
 
   ///发放优惠券
   ///@param couponActivityCode 0未使用，1下单占用，2支付已使用
-  @GET(path: '/user/coupon/save')
-  Future<chopper.Response<UserCouponSaveGet$Response>> _userCouponSaveGet({
+  @GET(path: '/user-service/user/coupon/save')
+  Future<chopper.Response<UserServiceUserCouponSaveGet$Response>>
+  _userServiceUserCouponSaveGet({
     @Query('couponActivityCode') required String? couponActivityCode,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -1000,23 +1036,25 @@ abstract class SwaggerApiUser extends ChopperService {
 
   ///活动信息（非验权）
   ///@param couponActivityCode
-  Future<chopper.Response<UserCouponNoAuthActivityInfoGet$Response>>
-  userCouponNoAuthActivityInfoGet({required String? couponActivityCode}) {
+  Future<chopper.Response<UserServiceUserCouponNoAuthActivityInfoGet$Response>>
+  userServiceUserCouponNoAuthActivityInfoGet({
+    required String? couponActivityCode,
+  }) {
     generatedMapping.putIfAbsent(
-      UserCouponNoAuthActivityInfoGet$Response,
-      () => UserCouponNoAuthActivityInfoGet$Response.fromJsonFactory,
+      UserServiceUserCouponNoAuthActivityInfoGet$Response,
+      () => UserServiceUserCouponNoAuthActivityInfoGet$Response.fromJsonFactory,
     );
 
-    return _userCouponNoAuthActivityInfoGet(
+    return _userServiceUserCouponNoAuthActivityInfoGet(
       couponActivityCode: couponActivityCode,
     );
   }
 
   ///活动信息（非验权）
   ///@param couponActivityCode
-  @GET(path: '/user/coupon/no-auth/activityInfo')
-  Future<chopper.Response<UserCouponNoAuthActivityInfoGet$Response>>
-  _userCouponNoAuthActivityInfoGet({
+  @GET(path: '/user-service/user/coupon/no-auth/activityInfo')
+  Future<chopper.Response<UserServiceUserCouponNoAuthActivityInfoGet$Response>>
+  _userServiceUserCouponNoAuthActivityInfoGet({
     @Query('couponActivityCode') required String? couponActivityCode,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -1033,23 +1071,33 @@ abstract class SwaggerApiUser extends ChopperService {
 
   ///领取活动优惠券
   ///@param couponActivityCode new_comer_voucher   写死
-  Future<chopper.Response<UserCouponGetCouponByActivityPost$Response>>
-  userCouponGetCouponByActivityPost({required String? couponActivityCode}) {
+  Future<
+    chopper.Response<UserServiceUserCouponGetCouponByActivityPost$Response>
+  >
+  userServiceUserCouponGetCouponByActivityPost({
+    required String? couponActivityCode,
+  }) {
     generatedMapping.putIfAbsent(
-      UserCouponGetCouponByActivityPost$Response,
-      () => UserCouponGetCouponByActivityPost$Response.fromJsonFactory,
+      UserServiceUserCouponGetCouponByActivityPost$Response,
+      () =>
+          UserServiceUserCouponGetCouponByActivityPost$Response.fromJsonFactory,
     );
 
-    return _userCouponGetCouponByActivityPost(
+    return _userServiceUserCouponGetCouponByActivityPost(
       couponActivityCode: couponActivityCode,
     );
   }
 
   ///领取活动优惠券
   ///@param couponActivityCode new_comer_voucher   写死
-  @POST(path: '/user/coupon/getCouponByActivity', optionalBody: true)
-  Future<chopper.Response<UserCouponGetCouponByActivityPost$Response>>
-  _userCouponGetCouponByActivityPost({
+  @POST(
+    path: '/user-service/user/coupon/getCouponByActivity',
+    optionalBody: true,
+  )
+  Future<
+    chopper.Response<UserServiceUserCouponGetCouponByActivityPost$Response>
+  >
+  _userServiceUserCouponGetCouponByActivityPost({
     @Field('couponActivityCode') required String? couponActivityCode,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -1066,21 +1114,21 @@ abstract class SwaggerApiUser extends ChopperService {
 
   ///用户优惠券列表
   ///@param userCouponState 0未使用，1下单占用，2支付已使用 3过期  4 无效(已用+过期)
-  Future<chopper.Response<UserCouponGetGet$Response>> userCouponGetGet({
-    required String? userCouponState,
-  }) {
+  Future<chopper.Response<UserServiceUserCouponGetGet$Response>>
+  userServiceUserCouponGetGet({required String? userCouponState}) {
     generatedMapping.putIfAbsent(
-      UserCouponGetGet$Response,
-      () => UserCouponGetGet$Response.fromJsonFactory,
+      UserServiceUserCouponGetGet$Response,
+      () => UserServiceUserCouponGetGet$Response.fromJsonFactory,
     );
 
-    return _userCouponGetGet(userCouponState: userCouponState);
+    return _userServiceUserCouponGetGet(userCouponState: userCouponState);
   }
 
   ///用户优惠券列表
   ///@param userCouponState 0未使用，1下单占用，2支付已使用 3过期  4 无效(已用+过期)
-  @GET(path: '/user/coupon/get')
-  Future<chopper.Response<UserCouponGetGet$Response>> _userCouponGetGet({
+  @GET(path: '/user-service/user/coupon/get')
+  Future<chopper.Response<UserServiceUserCouponGetGet$Response>>
+  _userServiceUserCouponGetGet({
     @Query('userCouponState') required String? userCouponState,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -1097,21 +1145,21 @@ abstract class SwaggerApiUser extends ChopperService {
 
   ///交换IMtoken
   ///@param root
-  Future<chopper.Response<ImGetInfoPost$Response>> imGetInfoPost({
-    Object? root,
-  }) {
+  Future<chopper.Response<UserServiceImGetInfoPost$Response>>
+  userServiceImGetInfoPost({Object? root}) {
     generatedMapping.putIfAbsent(
-      ImGetInfoPost$Response,
-      () => ImGetInfoPost$Response.fromJsonFactory,
+      UserServiceImGetInfoPost$Response,
+      () => UserServiceImGetInfoPost$Response.fromJsonFactory,
     );
 
-    return _imGetInfoPost(root: root);
+    return _userServiceImGetInfoPost(root: root);
   }
 
   ///交换IMtoken
   ///@param root
-  @POST(path: '/im/getInfo')
-  Future<chopper.Response<ImGetInfoPost$Response>> _imGetInfoPost({
+  @POST(path: '/user-service/im/getInfo')
+  Future<chopper.Response<UserServiceImGetInfoPost$Response>>
+  _userServiceImGetInfoPost({
     @Body() Object? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -1128,21 +1176,21 @@ abstract class SwaggerApiUser extends ChopperService {
 
   ///分享列表
   ///@param root
-  Future<chopper.Response<UserShareListGet$Response>> userShareListGet({
-    Object? root,
-  }) {
+  Future<chopper.Response<UserServiceUserShareListGet$Response>>
+  userServiceUserShareListGet({Object? root}) {
     generatedMapping.putIfAbsent(
-      UserShareListGet$Response,
-      () => UserShareListGet$Response.fromJsonFactory,
+      UserServiceUserShareListGet$Response,
+      () => UserServiceUserShareListGet$Response.fromJsonFactory,
     );
 
-    return _userShareListGet(root: root);
+    return _userServiceUserShareListGet(root: root);
   }
 
   ///分享列表
   ///@param root
-  @GET(path: '/user/share/list')
-  Future<chopper.Response<UserShareListGet$Response>> _userShareListGet({
+  @GET(path: '/user-service/user/share/list')
+  Future<chopper.Response<UserServiceUserShareListGet$Response>>
+  _userServiceUserShareListGet({
     @Body() Object? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -1160,22 +1208,22 @@ abstract class SwaggerApiUser extends ChopperService {
   ///分享返利信息
   ///@param orderId
   ///@param root
-  Future<chopper.Response<UserShareRewardInfoGet$Response>>
-  userShareRewardInfoGet({required String? orderId, Object? root}) {
+  Future<chopper.Response<UserServiceUserShareRewardInfoGet$Response>>
+  userServiceUserShareRewardInfoGet({required String? orderId, Object? root}) {
     generatedMapping.putIfAbsent(
-      UserShareRewardInfoGet$Response,
-      () => UserShareRewardInfoGet$Response.fromJsonFactory,
+      UserServiceUserShareRewardInfoGet$Response,
+      () => UserServiceUserShareRewardInfoGet$Response.fromJsonFactory,
     );
 
-    return _userShareRewardInfoGet(orderId: orderId, root: root);
+    return _userServiceUserShareRewardInfoGet(orderId: orderId, root: root);
   }
 
   ///分享返利信息
   ///@param orderId
   ///@param root
-  @GET(path: '/user/share/rewardInfo')
-  Future<chopper.Response<UserShareRewardInfoGet$Response>>
-  _userShareRewardInfoGet({
+  @GET(path: '/user-service/user/share/rewardInfo')
+  Future<chopper.Response<UserServiceUserShareRewardInfoGet$Response>>
+  _userServiceUserShareRewardInfoGet({
     @Query('orderId') required String? orderId,
     @Body() Object? root,
     @chopper.Tag()
@@ -1193,21 +1241,21 @@ abstract class SwaggerApiUser extends ChopperService {
 
   ///提交分享
   ///@param root
-  Future<chopper.Response<UserShareSubmitPost$Response>> userShareSubmitPost({
-    Object? root,
-  }) {
+  Future<chopper.Response<UserServiceUserShareSubmitPost$Response>>
+  userServiceUserShareSubmitPost({Object? root}) {
     generatedMapping.putIfAbsent(
-      UserShareSubmitPost$Response,
-      () => UserShareSubmitPost$Response.fromJsonFactory,
+      UserServiceUserShareSubmitPost$Response,
+      () => UserServiceUserShareSubmitPost$Response.fromJsonFactory,
     );
 
-    return _userShareSubmitPost(root: root);
+    return _userServiceUserShareSubmitPost(root: root);
   }
 
   ///提交分享
   ///@param root
-  @POST(path: '/user/share/submit')
-  Future<chopper.Response<UserShareSubmitPost$Response>> _userShareSubmitPost({
+  @POST(path: '/user-service/user/share/submit')
+  Future<chopper.Response<UserServiceUserShareSubmitPost$Response>>
+  _userServiceUserShareSubmitPost({
     @Body() Object? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -1223,18 +1271,20 @@ abstract class SwaggerApiUser extends ChopperService {
   });
 
   ///注销发送验证码
-  Future<chopper.Response<UserDeleteGet$Response>> userDeleteGet() {
+  Future<chopper.Response<UserServiceUserDeleteGet$Response>>
+  userServiceUserDeleteGet() {
     generatedMapping.putIfAbsent(
-      UserDeleteGet$Response,
-      () => UserDeleteGet$Response.fromJsonFactory,
+      UserServiceUserDeleteGet$Response,
+      () => UserServiceUserDeleteGet$Response.fromJsonFactory,
     );
 
-    return _userDeleteGet();
+    return _userServiceUserDeleteGet();
   }
 
   ///注销发送验证码
-  @GET(path: '/user/delete')
-  Future<chopper.Response<UserDeleteGet$Response>> _userDeleteGet({
+  @GET(path: '/user-service/user/delete')
+  Future<chopper.Response<UserServiceUserDeleteGet$Response>>
+  _userServiceUserDeleteGet({
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -1250,22 +1300,21 @@ abstract class SwaggerApiUser extends ChopperService {
 
   ///注销确认
   ///@param code
-  Future<chopper.Response<UserDeleteConfirmGet$Response>> userDeleteConfirmGet({
-    required String? code,
-  }) {
+  Future<chopper.Response<UserServiceUserDeleteConfirmGet$Response>>
+  userServiceUserDeleteConfirmGet({required String? code}) {
     generatedMapping.putIfAbsent(
-      UserDeleteConfirmGet$Response,
-      () => UserDeleteConfirmGet$Response.fromJsonFactory,
+      UserServiceUserDeleteConfirmGet$Response,
+      () => UserServiceUserDeleteConfirmGet$Response.fromJsonFactory,
     );
 
-    return _userDeleteConfirmGet(code: code);
+    return _userServiceUserDeleteConfirmGet(code: code);
   }
 
   ///注销确认
   ///@param code
-  @GET(path: '/user/delete/confirm')
-  Future<chopper.Response<UserDeleteConfirmGet$Response>>
-  _userDeleteConfirmGet({
+  @GET(path: '/user-service/user/delete/confirm')
+  Future<chopper.Response<UserServiceUserDeleteConfirmGet$Response>>
+  _userServiceUserDeleteConfirmGet({
     @Query('code') required String? code,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -1283,11 +1332,11 @@ abstract class SwaggerApiUser extends ChopperService {
   ///用户修改
   ///@param Authorization Authorization (Only:undefined)
   ///@param root
-  Future<chopper.Response<Object>> userUpdatePost({
+  Future<chopper.Response<Object>> userServiceUserUpdatePost({
     String? authorization,
     Object? root,
   }) {
-    return _userUpdatePost(
+    return _userServiceUserUpdatePost(
       authorization: authorization?.toString(),
       root: root,
     );
@@ -1296,8 +1345,8 @@ abstract class SwaggerApiUser extends ChopperService {
   ///用户修改
   ///@param Authorization Authorization (Only:undefined)
   ///@param root
-  @POST(path: '/user/update')
-  Future<chopper.Response<Object>> _userUpdatePost({
+  @POST(path: '/user-service/user/update')
+  Future<chopper.Response<Object>> _userServiceUserUpdatePost({
     @Header('Authorization') String? authorization,
     @Body() Object? root,
     @chopper.Tag()
@@ -1315,21 +1364,21 @@ abstract class SwaggerApiUser extends ChopperService {
 
   ///用户查询
   ///@param Authorization Authorization (Only:)
-  Future<chopper.Response<UserGetGet$Response>> userGetGet({
-    String? authorization,
-  }) {
+  Future<chopper.Response<UserServiceUserGetGet$Response>>
+  userServiceUserGetGet({String? authorization}) {
     generatedMapping.putIfAbsent(
-      UserGetGet$Response,
-      () => UserGetGet$Response.fromJsonFactory,
+      UserServiceUserGetGet$Response,
+      () => UserServiceUserGetGet$Response.fromJsonFactory,
     );
 
-    return _userGetGet(authorization: authorization?.toString());
+    return _userServiceUserGetGet(authorization: authorization?.toString());
   }
 
   ///用户查询
   ///@param Authorization Authorization (Only:)
-  @GET(path: '/user/get')
-  Future<chopper.Response<UserGetGet$Response>> _userGetGet({
+  @GET(path: '/user-service/user/get')
+  Future<chopper.Response<UserServiceUserGetGet$Response>>
+  _userServiceUserGetGet({
     @Header('Authorization') String? authorization,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -1345,20 +1394,20 @@ abstract class SwaggerApiUser extends ChopperService {
   });
 
   ///用户积分信息
-  Future<chopper.Response<UserUserCommissionGet$Response>>
-  userUserCommissionGet() {
+  Future<chopper.Response<UserServiceUserUserCommissionGet$Response>>
+  userServiceUserUserCommissionGet() {
     generatedMapping.putIfAbsent(
-      UserUserCommissionGet$Response,
-      () => UserUserCommissionGet$Response.fromJsonFactory,
+      UserServiceUserUserCommissionGet$Response,
+      () => UserServiceUserUserCommissionGet$Response.fromJsonFactory,
     );
 
-    return _userUserCommissionGet();
+    return _userServiceUserUserCommissionGet();
   }
 
   ///用户积分信息
-  @GET(path: '/user/user-commission')
-  Future<chopper.Response<UserUserCommissionGet$Response>>
-  _userUserCommissionGet({
+  @GET(path: '/user-service/user/user-commission')
+  Future<chopper.Response<UserServiceUserUserCommissionGet$Response>>
+  _userServiceUserUserCommissionGet({
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -1373,20 +1422,20 @@ abstract class SwaggerApiUser extends ChopperService {
   });
 
   ///用户配置
-  Future<chopper.Response<UserConfigureSettingGet$Response>>
-  userConfigureSettingGet() {
+  Future<chopper.Response<UserServiceUserConfigureSettingGet$Response>>
+  userServiceUserConfigureSettingGet() {
     generatedMapping.putIfAbsent(
-      UserConfigureSettingGet$Response,
-      () => UserConfigureSettingGet$Response.fromJsonFactory,
+      UserServiceUserConfigureSettingGet$Response,
+      () => UserServiceUserConfigureSettingGet$Response.fromJsonFactory,
     );
 
-    return _userConfigureSettingGet();
+    return _userServiceUserConfigureSettingGet();
   }
 
   ///用户配置
-  @GET(path: '/user/configure-setting')
-  Future<chopper.Response<UserConfigureSettingGet$Response>>
-  _userConfigureSettingGet({
+  @GET(path: '/user-service/user/configure-setting')
+  Future<chopper.Response<UserServiceUserConfigureSettingGet$Response>>
+  _userServiceUserConfigureSettingGet({
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -1401,18 +1450,20 @@ abstract class SwaggerApiUser extends ChopperService {
   });
 
   ///邀请数量
-  Future<chopper.Response<UserInviteCountGet$Response>> userInviteCountGet() {
+  Future<chopper.Response<UserServiceUserInviteCountGet$Response>>
+  userServiceUserInviteCountGet() {
     generatedMapping.putIfAbsent(
-      UserInviteCountGet$Response,
-      () => UserInviteCountGet$Response.fromJsonFactory,
+      UserServiceUserInviteCountGet$Response,
+      () => UserServiceUserInviteCountGet$Response.fromJsonFactory,
     );
 
-    return _userInviteCountGet();
+    return _userServiceUserInviteCountGet();
   }
 
   ///邀请数量
-  @GET(path: '/user/invite/count')
-  Future<chopper.Response<UserInviteCountGet$Response>> _userInviteCountGet({
+  @GET(path: '/user-service/user/invite/count')
+  Future<chopper.Response<UserServiceUserInviteCountGet$Response>>
+  _userServiceUserInviteCountGet({
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -1427,18 +1478,20 @@ abstract class SwaggerApiUser extends ChopperService {
   });
 
   ///邀请统计
-  Future<chopper.Response<UserInviteNumGet$Response>> userInviteNumGet() {
+  Future<chopper.Response<UserServiceUserInviteNumGet$Response>>
+  userServiceUserInviteNumGet() {
     generatedMapping.putIfAbsent(
-      UserInviteNumGet$Response,
-      () => UserInviteNumGet$Response.fromJsonFactory,
+      UserServiceUserInviteNumGet$Response,
+      () => UserServiceUserInviteNumGet$Response.fromJsonFactory,
     );
 
-    return _userInviteNumGet();
+    return _userServiceUserInviteNumGet();
   }
 
   ///邀请统计
-  @GET(path: '/user/invite/num')
-  Future<chopper.Response<UserInviteNumGet$Response>> _userInviteNumGet({
+  @GET(path: '/user-service/user/invite/num')
+  Future<chopper.Response<UserServiceUserInviteNumGet$Response>>
+  _userServiceUserInviteNumGet({
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -1454,21 +1507,21 @@ abstract class SwaggerApiUser extends ChopperService {
 
   ///重新提交分享
   ///@param root
-  Future<chopper.Response<UserShareUpdatePost$Response>> userShareUpdatePost({
-    Object? root,
-  }) {
+  Future<chopper.Response<UserServiceUserShareUpdatePost$Response>>
+  userServiceUserShareUpdatePost({Object? root}) {
     generatedMapping.putIfAbsent(
-      UserShareUpdatePost$Response,
-      () => UserShareUpdatePost$Response.fromJsonFactory,
+      UserServiceUserShareUpdatePost$Response,
+      () => UserServiceUserShareUpdatePost$Response.fromJsonFactory,
     );
 
-    return _userShareUpdatePost(root: root);
+    return _userServiceUserShareUpdatePost(root: root);
   }
 
   ///重新提交分享
   ///@param root
-  @POST(path: '/user/share/update')
-  Future<chopper.Response<UserShareUpdatePost$Response>> _userShareUpdatePost({
+  @POST(path: '/user-service/user/share/update')
+  Future<chopper.Response<UserServiceUserShareUpdatePost$Response>>
+  _userServiceUserShareUpdatePost({
     @Body() Object? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -1486,23 +1539,25 @@ abstract class SwaggerApiUser extends ChopperService {
   ///领取奖励
   ///@param rewardType
   ///@param expire
-  Future<chopper.Response<UserUserRewardGet$Response>> userUserRewardGet({
-    required String? rewardType,
-    String? expire,
-  }) {
+  Future<chopper.Response<UserServiceUserUserRewardGet$Response>>
+  userServiceUserUserRewardGet({required String? rewardType, String? expire}) {
     generatedMapping.putIfAbsent(
-      UserUserRewardGet$Response,
-      () => UserUserRewardGet$Response.fromJsonFactory,
+      UserServiceUserUserRewardGet$Response,
+      () => UserServiceUserUserRewardGet$Response.fromJsonFactory,
     );
 
-    return _userUserRewardGet(rewardType: rewardType, expire: expire);
+    return _userServiceUserUserRewardGet(
+      rewardType: rewardType,
+      expire: expire,
+    );
   }
 
   ///领取奖励
   ///@param rewardType
   ///@param expire
-  @GET(path: '/user/user-reward')
-  Future<chopper.Response<UserUserRewardGet$Response>> _userUserRewardGet({
+  @GET(path: '/user-service/user/user-reward')
+  Future<chopper.Response<UserServiceUserUserRewardGet$Response>>
+  _userServiceUserUserRewardGet({
     @Query('rewardType') required String? rewardType,
     @Query('expire') String? expire,
     @chopper.Tag()
@@ -1520,21 +1575,21 @@ abstract class SwaggerApiUser extends ChopperService {
 
   ///ai解析画像
   ///@param root 用户回答记录，每一个问题一条
-  Future<chopper.Response<UserTagPortraitAiToPortraitPost$Response>>
-  userTagPortraitAiToPortraitPost({List<String>? root}) {
+  Future<chopper.Response<UserServiceUserTagPortraitAiToPortraitPost$Response>>
+  userServiceUserTagPortraitAiToPortraitPost({List<String>? root}) {
     generatedMapping.putIfAbsent(
-      UserTagPortraitAiToPortraitPost$Response,
-      () => UserTagPortraitAiToPortraitPost$Response.fromJsonFactory,
+      UserServiceUserTagPortraitAiToPortraitPost$Response,
+      () => UserServiceUserTagPortraitAiToPortraitPost$Response.fromJsonFactory,
     );
 
-    return _userTagPortraitAiToPortraitPost(root: root);
+    return _userServiceUserTagPortraitAiToPortraitPost(root: root);
   }
 
   ///ai解析画像
   ///@param root 用户回答记录，每一个问题一条
-  @POST(path: '/user-tag-portrait/ai-to-portrait')
-  Future<chopper.Response<UserTagPortraitAiToPortraitPost$Response>>
-  _userTagPortraitAiToPortraitPost({
+  @POST(path: '/user-service/user-tag-portrait/ai-to-portrait')
+  Future<chopper.Response<UserServiceUserTagPortraitAiToPortraitPost$Response>>
+  _userServiceUserTagPortraitAiToPortraitPost({
     @Body() List<String>? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -1551,21 +1606,26 @@ abstract class SwaggerApiUser extends ChopperService {
 
   ///ai解析画像V2
   ///@param root
-  Future<chopper.Response<UserTagPortraitAiToPortraitV2Post$Response>>
-  userTagPortraitAiToPortraitV2Post({Object? root}) {
+  Future<
+    chopper.Response<UserServiceUserTagPortraitAiToPortraitV2Post$Response>
+  >
+  userServiceUserTagPortraitAiToPortraitV2Post({Object? root}) {
     generatedMapping.putIfAbsent(
-      UserTagPortraitAiToPortraitV2Post$Response,
-      () => UserTagPortraitAiToPortraitV2Post$Response.fromJsonFactory,
+      UserServiceUserTagPortraitAiToPortraitV2Post$Response,
+      () =>
+          UserServiceUserTagPortraitAiToPortraitV2Post$Response.fromJsonFactory,
     );
 
-    return _userTagPortraitAiToPortraitV2Post(root: root);
+    return _userServiceUserTagPortraitAiToPortraitV2Post(root: root);
   }
 
   ///ai解析画像V2
   ///@param root
-  @POST(path: '/user-tag-portrait/ai-to-portrait-v2')
-  Future<chopper.Response<UserTagPortraitAiToPortraitV2Post$Response>>
-  _userTagPortraitAiToPortraitV2Post({
+  @POST(path: '/user-service/user-tag-portrait/ai-to-portrait-v2')
+  Future<
+    chopper.Response<UserServiceUserTagPortraitAiToPortraitV2Post$Response>
+  >
+  _userServiceUserTagPortraitAiToPortraitV2Post({
     @Body() Object? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -1582,21 +1642,26 @@ abstract class SwaggerApiUser extends ChopperService {
 
   ///更新用户画像
   ///@param root
-  Future<chopper.Response<UserTagPortraitUpdatePortraitPost$Response>>
-  userTagPortraitUpdatePortraitPost({Object? root}) {
+  Future<
+    chopper.Response<UserServiceUserTagPortraitUpdatePortraitPost$Response>
+  >
+  userServiceUserTagPortraitUpdatePortraitPost({Object? root}) {
     generatedMapping.putIfAbsent(
-      UserTagPortraitUpdatePortraitPost$Response,
-      () => UserTagPortraitUpdatePortraitPost$Response.fromJsonFactory,
+      UserServiceUserTagPortraitUpdatePortraitPost$Response,
+      () =>
+          UserServiceUserTagPortraitUpdatePortraitPost$Response.fromJsonFactory,
     );
 
-    return _userTagPortraitUpdatePortraitPost(root: root);
+    return _userServiceUserTagPortraitUpdatePortraitPost(root: root);
   }
 
   ///更新用户画像
   ///@param root
-  @POST(path: '/user-tag-portrait/update-portrait')
-  Future<chopper.Response<UserTagPortraitUpdatePortraitPost$Response>>
-  _userTagPortraitUpdatePortraitPost({
+  @POST(path: '/user-service/user-tag-portrait/update-portrait')
+  Future<
+    chopper.Response<UserServiceUserTagPortraitUpdatePortraitPost$Response>
+  >
+  _userServiceUserTagPortraitUpdatePortraitPost({
     @Body() Object? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -1613,21 +1678,21 @@ abstract class SwaggerApiUser extends ChopperService {
 
   ///获取用户画像
   ///@param root
-  Future<chopper.Response<UserTagPortraitGetPortraitGet$Response>>
-  userTagPortraitGetPortraitGet({Object? root}) {
+  Future<chopper.Response<UserServiceUserTagPortraitGetPortraitGet$Response>>
+  userServiceUserTagPortraitGetPortraitGet({Object? root}) {
     generatedMapping.putIfAbsent(
-      UserTagPortraitGetPortraitGet$Response,
-      () => UserTagPortraitGetPortraitGet$Response.fromJsonFactory,
+      UserServiceUserTagPortraitGetPortraitGet$Response,
+      () => UserServiceUserTagPortraitGetPortraitGet$Response.fromJsonFactory,
     );
 
-    return _userTagPortraitGetPortraitGet(root: root);
+    return _userServiceUserTagPortraitGetPortraitGet(root: root);
   }
 
   ///获取用户画像
   ///@param root
-  @GET(path: '/user-tag-portrait/get-portrait')
-  Future<chopper.Response<UserTagPortraitGetPortraitGet$Response>>
-  _userTagPortraitGetPortraitGet({
+  @GET(path: '/user-service/user-tag-portrait/get-portrait')
+  Future<chopper.Response<UserServiceUserTagPortraitGetPortraitGet$Response>>
+  _userServiceUserTagPortraitGetPortraitGet({
     @Body() Object? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -1643,20 +1708,20 @@ abstract class SwaggerApiUser extends ChopperService {
   });
 
   ///首页活动
-  Future<chopper.Response<UserCouponAppHomeActivityPost$Response>>
-  userCouponAppHomeActivityPost() {
+  Future<chopper.Response<UserServiceUserCouponAppHomeActivityPost$Response>>
+  userServiceUserCouponAppHomeActivityPost() {
     generatedMapping.putIfAbsent(
-      UserCouponAppHomeActivityPost$Response,
-      () => UserCouponAppHomeActivityPost$Response.fromJsonFactory,
+      UserServiceUserCouponAppHomeActivityPost$Response,
+      () => UserServiceUserCouponAppHomeActivityPost$Response.fromJsonFactory,
     );
 
-    return _userCouponAppHomeActivityPost();
+    return _userServiceUserCouponAppHomeActivityPost();
   }
 
   ///首页活动
-  @POST(path: '/user/coupon/app/homeActivity', optionalBody: true)
-  Future<chopper.Response<UserCouponAppHomeActivityPost$Response>>
-  _userCouponAppHomeActivityPost({
+  @POST(path: '/user-service/user/coupon/app/homeActivity', optionalBody: true)
+  Future<chopper.Response<UserServiceUserCouponAppHomeActivityPost$Response>>
+  _userServiceUserCouponAppHomeActivityPost({
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -1672,8 +1737,8 @@ abstract class SwaggerApiUser extends ChopperService {
 }
 
 @JsonSerializable(explicitToJson: true)
-class AddressUpdatePost$Response {
-  const AddressUpdatePost$Response({
+class UserServiceAddressUpdatePost$Response {
+  const UserServiceAddressUpdatePost$Response({
     this.code,
     this.message,
     this.data,
@@ -1681,11 +1746,13 @@ class AddressUpdatePost$Response {
     this.success,
   });
 
-  factory AddressUpdatePost$Response.fromJson(Map<String, dynamic> json) =>
-      _$AddressUpdatePost$ResponseFromJson(json);
+  factory UserServiceAddressUpdatePost$Response.fromJson(
+    Map<String, dynamic> json,
+  ) => _$UserServiceAddressUpdatePost$ResponseFromJson(json);
 
-  static const toJsonFactory = _$AddressUpdatePost$ResponseToJson;
-  Map<String, dynamic> toJson() => _$AddressUpdatePost$ResponseToJson(this);
+  static const toJsonFactory = _$UserServiceAddressUpdatePost$ResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$UserServiceAddressUpdatePost$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final double? code;
@@ -1697,12 +1764,13 @@ class AddressUpdatePost$Response {
   final String? traceId;
   @JsonKey(name: 'success')
   final bool? success;
-  static const fromJsonFactory = _$AddressUpdatePost$ResponseFromJson;
+  static const fromJsonFactory =
+      _$UserServiceAddressUpdatePost$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is AddressUpdatePost$Response &&
+        (other is UserServiceAddressUpdatePost$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -1734,15 +1802,16 @@ class AddressUpdatePost$Response {
       runtimeType.hashCode;
 }
 
-extension $AddressUpdatePost$ResponseExtension on AddressUpdatePost$Response {
-  AddressUpdatePost$Response copyWith({
+extension $UserServiceAddressUpdatePost$ResponseExtension
+    on UserServiceAddressUpdatePost$Response {
+  UserServiceAddressUpdatePost$Response copyWith({
     double? code,
     String? message,
     double? data,
     String? traceId,
     bool? success,
   }) {
-    return AddressUpdatePost$Response(
+    return UserServiceAddressUpdatePost$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       data: data ?? this.data,
@@ -1751,14 +1820,14 @@ extension $AddressUpdatePost$ResponseExtension on AddressUpdatePost$Response {
     );
   }
 
-  AddressUpdatePost$Response copyWithWrapped({
+  UserServiceAddressUpdatePost$Response copyWithWrapped({
     Wrapped<double?>? code,
     Wrapped<String?>? message,
     Wrapped<double?>? data,
     Wrapped<String?>? traceId,
     Wrapped<bool?>? success,
   }) {
-    return AddressUpdatePost$Response(
+    return UserServiceAddressUpdatePost$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
@@ -1769,8 +1838,8 @@ extension $AddressUpdatePost$ResponseExtension on AddressUpdatePost$Response {
 }
 
 @JsonSerializable(explicitToJson: true)
-class AddressDeleteDelete$Response {
-  const AddressDeleteDelete$Response({
+class UserServiceAddressDeleteDelete$Response {
+  const UserServiceAddressDeleteDelete$Response({
     this.code,
     this.message,
     this.data,
@@ -1778,11 +1847,13 @@ class AddressDeleteDelete$Response {
     this.success,
   });
 
-  factory AddressDeleteDelete$Response.fromJson(Map<String, dynamic> json) =>
-      _$AddressDeleteDelete$ResponseFromJson(json);
+  factory UserServiceAddressDeleteDelete$Response.fromJson(
+    Map<String, dynamic> json,
+  ) => _$UserServiceAddressDeleteDelete$ResponseFromJson(json);
 
-  static const toJsonFactory = _$AddressDeleteDelete$ResponseToJson;
-  Map<String, dynamic> toJson() => _$AddressDeleteDelete$ResponseToJson(this);
+  static const toJsonFactory = _$UserServiceAddressDeleteDelete$ResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$UserServiceAddressDeleteDelete$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final double? code;
@@ -1794,12 +1865,13 @@ class AddressDeleteDelete$Response {
   final String? traceId;
   @JsonKey(name: 'success')
   final bool? success;
-  static const fromJsonFactory = _$AddressDeleteDelete$ResponseFromJson;
+  static const fromJsonFactory =
+      _$UserServiceAddressDeleteDelete$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is AddressDeleteDelete$Response &&
+        (other is UserServiceAddressDeleteDelete$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -1831,16 +1903,16 @@ class AddressDeleteDelete$Response {
       runtimeType.hashCode;
 }
 
-extension $AddressDeleteDelete$ResponseExtension
-    on AddressDeleteDelete$Response {
-  AddressDeleteDelete$Response copyWith({
+extension $UserServiceAddressDeleteDelete$ResponseExtension
+    on UserServiceAddressDeleteDelete$Response {
+  UserServiceAddressDeleteDelete$Response copyWith({
     double? code,
     String? message,
     double? data,
     String? traceId,
     bool? success,
   }) {
-    return AddressDeleteDelete$Response(
+    return UserServiceAddressDeleteDelete$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       data: data ?? this.data,
@@ -1849,14 +1921,14 @@ extension $AddressDeleteDelete$ResponseExtension
     );
   }
 
-  AddressDeleteDelete$Response copyWithWrapped({
+  UserServiceAddressDeleteDelete$Response copyWithWrapped({
     Wrapped<double?>? code,
     Wrapped<String?>? message,
     Wrapped<double?>? data,
     Wrapped<String?>? traceId,
     Wrapped<bool?>? success,
   }) {
-    return AddressDeleteDelete$Response(
+    return UserServiceAddressDeleteDelete$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
@@ -1867,8 +1939,8 @@ extension $AddressDeleteDelete$ResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class AddressQueryGet$Response {
-  const AddressQueryGet$Response({
+class UserServiceAddressQueryGet$Response {
+  const UserServiceAddressQueryGet$Response({
     this.code,
     this.message,
     this.data,
@@ -1877,30 +1949,32 @@ class AddressQueryGet$Response {
     this.success,
   });
 
-  factory AddressQueryGet$Response.fromJson(Map<String, dynamic> json) =>
-      _$AddressQueryGet$ResponseFromJson(json);
+  factory UserServiceAddressQueryGet$Response.fromJson(
+    Map<String, dynamic> json,
+  ) => _$UserServiceAddressQueryGet$ResponseFromJson(json);
 
-  static const toJsonFactory = _$AddressQueryGet$ResponseToJson;
-  Map<String, dynamic> toJson() => _$AddressQueryGet$ResponseToJson(this);
+  static const toJsonFactory = _$UserServiceAddressQueryGet$ResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$UserServiceAddressQueryGet$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final double? code;
   @JsonKey(name: 'message')
   final String? message;
   @JsonKey(name: 'data')
-  final List<AddressQueryGet$Response$Data$Item>? data;
+  final List<UserServiceAddressQueryGet$Response$Data$Item>? data;
   @JsonKey(name: 'traceId')
   final String? traceId;
   @JsonKey(name: 'placeholder')
   final String? placeholder;
   @JsonKey(name: 'success')
   final bool? success;
-  static const fromJsonFactory = _$AddressQueryGet$ResponseFromJson;
+  static const fromJsonFactory = _$UserServiceAddressQueryGet$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is AddressQueryGet$Response &&
+        (other is UserServiceAddressQueryGet$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -1938,16 +2012,17 @@ class AddressQueryGet$Response {
       runtimeType.hashCode;
 }
 
-extension $AddressQueryGet$ResponseExtension on AddressQueryGet$Response {
-  AddressQueryGet$Response copyWith({
+extension $UserServiceAddressQueryGet$ResponseExtension
+    on UserServiceAddressQueryGet$Response {
+  UserServiceAddressQueryGet$Response copyWith({
     double? code,
     String? message,
-    List<AddressQueryGet$Response$Data$Item>? data,
+    List<UserServiceAddressQueryGet$Response$Data$Item>? data,
     String? traceId,
     String? placeholder,
     bool? success,
   }) {
-    return AddressQueryGet$Response(
+    return UserServiceAddressQueryGet$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       data: data ?? this.data,
@@ -1957,15 +2032,15 @@ extension $AddressQueryGet$ResponseExtension on AddressQueryGet$Response {
     );
   }
 
-  AddressQueryGet$Response copyWithWrapped({
+  UserServiceAddressQueryGet$Response copyWithWrapped({
     Wrapped<double?>? code,
     Wrapped<String?>? message,
-    Wrapped<List<AddressQueryGet$Response$Data$Item>?>? data,
+    Wrapped<List<UserServiceAddressQueryGet$Response$Data$Item>?>? data,
     Wrapped<String?>? traceId,
     Wrapped<String?>? placeholder,
     Wrapped<bool?>? success,
   }) {
-    return AddressQueryGet$Response(
+    return UserServiceAddressQueryGet$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
@@ -1977,8 +2052,8 @@ extension $AddressQueryGet$ResponseExtension on AddressQueryGet$Response {
 }
 
 @JsonSerializable(explicitToJson: true)
-class NoAuthSupportCountryGet$Response {
-  const NoAuthSupportCountryGet$Response({
+class UserServiceNoAuthSupportCountryGet$Response {
+  const UserServiceNoAuthSupportCountryGet$Response({
     this.code,
     this.message,
     this.data,
@@ -1986,13 +2061,14 @@ class NoAuthSupportCountryGet$Response {
     this.traceId,
   });
 
-  factory NoAuthSupportCountryGet$Response.fromJson(
+  factory UserServiceNoAuthSupportCountryGet$Response.fromJson(
     Map<String, dynamic> json,
-  ) => _$NoAuthSupportCountryGet$ResponseFromJson(json);
+  ) => _$UserServiceNoAuthSupportCountryGet$ResponseFromJson(json);
 
-  static const toJsonFactory = _$NoAuthSupportCountryGet$ResponseToJson;
+  static const toJsonFactory =
+      _$UserServiceNoAuthSupportCountryGet$ResponseToJson;
   Map<String, dynamic> toJson() =>
-      _$NoAuthSupportCountryGet$ResponseToJson(this);
+      _$UserServiceNoAuthSupportCountryGet$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final double? code;
@@ -2004,12 +2080,13 @@ class NoAuthSupportCountryGet$Response {
   final Object? placeholder;
   @JsonKey(name: 'traceId')
   final String? traceId;
-  static const fromJsonFactory = _$NoAuthSupportCountryGet$ResponseFromJson;
+  static const fromJsonFactory =
+      _$UserServiceNoAuthSupportCountryGet$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is NoAuthSupportCountryGet$Response &&
+        (other is UserServiceNoAuthSupportCountryGet$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -2041,16 +2118,16 @@ class NoAuthSupportCountryGet$Response {
       runtimeType.hashCode;
 }
 
-extension $NoAuthSupportCountryGet$ResponseExtension
-    on NoAuthSupportCountryGet$Response {
-  NoAuthSupportCountryGet$Response copyWith({
+extension $UserServiceNoAuthSupportCountryGet$ResponseExtension
+    on UserServiceNoAuthSupportCountryGet$Response {
+  UserServiceNoAuthSupportCountryGet$Response copyWith({
     double? code,
     String? message,
     List<String>? data,
     Object? placeholder,
     String? traceId,
   }) {
-    return NoAuthSupportCountryGet$Response(
+    return UserServiceNoAuthSupportCountryGet$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       data: data ?? this.data,
@@ -2059,14 +2136,14 @@ extension $NoAuthSupportCountryGet$ResponseExtension
     );
   }
 
-  NoAuthSupportCountryGet$Response copyWithWrapped({
+  UserServiceNoAuthSupportCountryGet$Response copyWithWrapped({
     Wrapped<double?>? code,
     Wrapped<String?>? message,
     Wrapped<List<String>?>? data,
     Wrapped<Object?>? placeholder,
     Wrapped<String?>? traceId,
   }) {
-    return NoAuthSupportCountryGet$Response(
+    return UserServiceNoAuthSupportCountryGet$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
@@ -2077,8 +2154,8 @@ extension $NoAuthSupportCountryGet$ResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class AddressListGet$Response {
-  const AddressListGet$Response({
+class UserServiceAddressListGet$Response {
+  const UserServiceAddressListGet$Response({
     this.code,
     this.message,
     this.data,
@@ -2087,30 +2164,32 @@ class AddressListGet$Response {
     this.success,
   });
 
-  factory AddressListGet$Response.fromJson(Map<String, dynamic> json) =>
-      _$AddressListGet$ResponseFromJson(json);
+  factory UserServiceAddressListGet$Response.fromJson(
+    Map<String, dynamic> json,
+  ) => _$UserServiceAddressListGet$ResponseFromJson(json);
 
-  static const toJsonFactory = _$AddressListGet$ResponseToJson;
-  Map<String, dynamic> toJson() => _$AddressListGet$ResponseToJson(this);
+  static const toJsonFactory = _$UserServiceAddressListGet$ResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$UserServiceAddressListGet$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final double? code;
   @JsonKey(name: 'message')
   final String? message;
   @JsonKey(name: 'data')
-  final List<AddressListGet$Response$Data$Item>? data;
+  final List<UserServiceAddressListGet$Response$Data$Item>? data;
   @JsonKey(name: 'traceId')
   final String? traceId;
   @JsonKey(name: 'placeholder')
   final String? placeholder;
   @JsonKey(name: 'success')
   final bool? success;
-  static const fromJsonFactory = _$AddressListGet$ResponseFromJson;
+  static const fromJsonFactory = _$UserServiceAddressListGet$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is AddressListGet$Response &&
+        (other is UserServiceAddressListGet$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -2148,16 +2227,17 @@ class AddressListGet$Response {
       runtimeType.hashCode;
 }
 
-extension $AddressListGet$ResponseExtension on AddressListGet$Response {
-  AddressListGet$Response copyWith({
+extension $UserServiceAddressListGet$ResponseExtension
+    on UserServiceAddressListGet$Response {
+  UserServiceAddressListGet$Response copyWith({
     double? code,
     String? message,
-    List<AddressListGet$Response$Data$Item>? data,
+    List<UserServiceAddressListGet$Response$Data$Item>? data,
     String? traceId,
     String? placeholder,
     bool? success,
   }) {
-    return AddressListGet$Response(
+    return UserServiceAddressListGet$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       data: data ?? this.data,
@@ -2167,15 +2247,15 @@ extension $AddressListGet$ResponseExtension on AddressListGet$Response {
     );
   }
 
-  AddressListGet$Response copyWithWrapped({
+  UserServiceAddressListGet$Response copyWithWrapped({
     Wrapped<double?>? code,
     Wrapped<String?>? message,
-    Wrapped<List<AddressListGet$Response$Data$Item>?>? data,
+    Wrapped<List<UserServiceAddressListGet$Response$Data$Item>?>? data,
     Wrapped<String?>? traceId,
     Wrapped<String?>? placeholder,
     Wrapped<bool?>? success,
   }) {
-    return AddressListGet$Response(
+    return UserServiceAddressListGet$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
@@ -2187,8 +2267,8 @@ extension $AddressListGet$ResponseExtension on AddressListGet$Response {
 }
 
 @JsonSerializable(explicitToJson: true)
-class GetShippingAddressByCountryGet$Response {
-  const GetShippingAddressByCountryGet$Response({
+class UserServiceGetShippingAddressByCountryGet$Response {
+  const UserServiceGetShippingAddressByCountryGet$Response({
     this.code,
     this.message,
     this.data,
@@ -2196,31 +2276,32 @@ class GetShippingAddressByCountryGet$Response {
     this.traceId,
   });
 
-  factory GetShippingAddressByCountryGet$Response.fromJson(
+  factory UserServiceGetShippingAddressByCountryGet$Response.fromJson(
     Map<String, dynamic> json,
-  ) => _$GetShippingAddressByCountryGet$ResponseFromJson(json);
+  ) => _$UserServiceGetShippingAddressByCountryGet$ResponseFromJson(json);
 
-  static const toJsonFactory = _$GetShippingAddressByCountryGet$ResponseToJson;
+  static const toJsonFactory =
+      _$UserServiceGetShippingAddressByCountryGet$ResponseToJson;
   Map<String, dynamic> toJson() =>
-      _$GetShippingAddressByCountryGet$ResponseToJson(this);
+      _$UserServiceGetShippingAddressByCountryGet$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final double? code;
   @JsonKey(name: 'message')
   final String? message;
   @JsonKey(name: 'data')
-  final GetShippingAddressByCountryGet$Response$Data? data;
+  final UserServiceGetShippingAddressByCountryGet$Response$Data? data;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
   @JsonKey(name: 'traceId')
   final String? traceId;
   static const fromJsonFactory =
-      _$GetShippingAddressByCountryGet$ResponseFromJson;
+      _$UserServiceGetShippingAddressByCountryGet$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is GetShippingAddressByCountryGet$Response &&
+        (other is UserServiceGetShippingAddressByCountryGet$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -2252,16 +2333,16 @@ class GetShippingAddressByCountryGet$Response {
       runtimeType.hashCode;
 }
 
-extension $GetShippingAddressByCountryGet$ResponseExtension
-    on GetShippingAddressByCountryGet$Response {
-  GetShippingAddressByCountryGet$Response copyWith({
+extension $UserServiceGetShippingAddressByCountryGet$ResponseExtension
+    on UserServiceGetShippingAddressByCountryGet$Response {
+  UserServiceGetShippingAddressByCountryGet$Response copyWith({
     double? code,
     String? message,
-    GetShippingAddressByCountryGet$Response$Data? data,
+    UserServiceGetShippingAddressByCountryGet$Response$Data? data,
     Object? placeholder,
     String? traceId,
   }) {
-    return GetShippingAddressByCountryGet$Response(
+    return UserServiceGetShippingAddressByCountryGet$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       data: data ?? this.data,
@@ -2270,14 +2351,14 @@ extension $GetShippingAddressByCountryGet$ResponseExtension
     );
   }
 
-  GetShippingAddressByCountryGet$Response copyWithWrapped({
+  UserServiceGetShippingAddressByCountryGet$Response copyWithWrapped({
     Wrapped<double?>? code,
     Wrapped<String?>? message,
-    Wrapped<GetShippingAddressByCountryGet$Response$Data?>? data,
+    Wrapped<UserServiceGetShippingAddressByCountryGet$Response$Data?>? data,
     Wrapped<Object?>? placeholder,
     Wrapped<String?>? traceId,
   }) {
-    return GetShippingAddressByCountryGet$Response(
+    return UserServiceGetShippingAddressByCountryGet$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
@@ -2288,8 +2369,8 @@ extension $GetShippingAddressByCountryGet$ResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class AddressAddPost$Response {
-  const AddressAddPost$Response({
+class UserServiceAddressAddPost$Response {
+  const UserServiceAddressAddPost$Response({
     this.code,
     this.message,
     this.data,
@@ -2297,11 +2378,13 @@ class AddressAddPost$Response {
     this.success,
   });
 
-  factory AddressAddPost$Response.fromJson(Map<String, dynamic> json) =>
-      _$AddressAddPost$ResponseFromJson(json);
+  factory UserServiceAddressAddPost$Response.fromJson(
+    Map<String, dynamic> json,
+  ) => _$UserServiceAddressAddPost$ResponseFromJson(json);
 
-  static const toJsonFactory = _$AddressAddPost$ResponseToJson;
-  Map<String, dynamic> toJson() => _$AddressAddPost$ResponseToJson(this);
+  static const toJsonFactory = _$UserServiceAddressAddPost$ResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$UserServiceAddressAddPost$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final double? code;
@@ -2313,12 +2396,12 @@ class AddressAddPost$Response {
   final String? traceId;
   @JsonKey(name: 'success')
   final bool? success;
-  static const fromJsonFactory = _$AddressAddPost$ResponseFromJson;
+  static const fromJsonFactory = _$UserServiceAddressAddPost$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is AddressAddPost$Response &&
+        (other is UserServiceAddressAddPost$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -2350,15 +2433,16 @@ class AddressAddPost$Response {
       runtimeType.hashCode;
 }
 
-extension $AddressAddPost$ResponseExtension on AddressAddPost$Response {
-  AddressAddPost$Response copyWith({
+extension $UserServiceAddressAddPost$ResponseExtension
+    on UserServiceAddressAddPost$Response {
+  UserServiceAddressAddPost$Response copyWith({
     double? code,
     String? message,
     double? data,
     String? traceId,
     bool? success,
   }) {
-    return AddressAddPost$Response(
+    return UserServiceAddressAddPost$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       data: data ?? this.data,
@@ -2367,14 +2451,14 @@ extension $AddressAddPost$ResponseExtension on AddressAddPost$Response {
     );
   }
 
-  AddressAddPost$Response copyWithWrapped({
+  UserServiceAddressAddPost$Response copyWithWrapped({
     Wrapped<double?>? code,
     Wrapped<String?>? message,
     Wrapped<double?>? data,
     Wrapped<String?>? traceId,
     Wrapped<bool?>? success,
   }) {
-    return AddressAddPost$Response(
+    return UserServiceAddressAddPost$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
@@ -2385,8 +2469,8 @@ extension $AddressAddPost$ResponseExtension on AddressAddPost$Response {
 }
 
 @JsonSerializable(explicitToJson: true)
-class GetDefaultShippingAddressGet$Response {
-  const GetDefaultShippingAddressGet$Response({
+class UserServiceGetDefaultShippingAddressGet$Response {
+  const UserServiceGetDefaultShippingAddressGet$Response({
     this.code,
     this.message,
     this.data,
@@ -2394,31 +2478,32 @@ class GetDefaultShippingAddressGet$Response {
     this.traceId,
   });
 
-  factory GetDefaultShippingAddressGet$Response.fromJson(
+  factory UserServiceGetDefaultShippingAddressGet$Response.fromJson(
     Map<String, dynamic> json,
-  ) => _$GetDefaultShippingAddressGet$ResponseFromJson(json);
+  ) => _$UserServiceGetDefaultShippingAddressGet$ResponseFromJson(json);
 
-  static const toJsonFactory = _$GetDefaultShippingAddressGet$ResponseToJson;
+  static const toJsonFactory =
+      _$UserServiceGetDefaultShippingAddressGet$ResponseToJson;
   Map<String, dynamic> toJson() =>
-      _$GetDefaultShippingAddressGet$ResponseToJson(this);
+      _$UserServiceGetDefaultShippingAddressGet$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final double? code;
   @JsonKey(name: 'message')
   final String? message;
   @JsonKey(name: 'data')
-  final GetDefaultShippingAddressGet$Response$Data? data;
+  final UserServiceGetDefaultShippingAddressGet$Response$Data? data;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
   @JsonKey(name: 'traceId')
   final String? traceId;
   static const fromJsonFactory =
-      _$GetDefaultShippingAddressGet$ResponseFromJson;
+      _$UserServiceGetDefaultShippingAddressGet$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is GetDefaultShippingAddressGet$Response &&
+        (other is UserServiceGetDefaultShippingAddressGet$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -2450,16 +2535,16 @@ class GetDefaultShippingAddressGet$Response {
       runtimeType.hashCode;
 }
 
-extension $GetDefaultShippingAddressGet$ResponseExtension
-    on GetDefaultShippingAddressGet$Response {
-  GetDefaultShippingAddressGet$Response copyWith({
+extension $UserServiceGetDefaultShippingAddressGet$ResponseExtension
+    on UserServiceGetDefaultShippingAddressGet$Response {
+  UserServiceGetDefaultShippingAddressGet$Response copyWith({
     double? code,
     String? message,
-    GetDefaultShippingAddressGet$Response$Data? data,
+    UserServiceGetDefaultShippingAddressGet$Response$Data? data,
     Object? placeholder,
     String? traceId,
   }) {
-    return GetDefaultShippingAddressGet$Response(
+    return UserServiceGetDefaultShippingAddressGet$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       data: data ?? this.data,
@@ -2468,14 +2553,14 @@ extension $GetDefaultShippingAddressGet$ResponseExtension
     );
   }
 
-  GetDefaultShippingAddressGet$Response copyWithWrapped({
+  UserServiceGetDefaultShippingAddressGet$Response copyWithWrapped({
     Wrapped<double?>? code,
     Wrapped<String?>? message,
-    Wrapped<GetDefaultShippingAddressGet$Response$Data?>? data,
+    Wrapped<UserServiceGetDefaultShippingAddressGet$Response$Data?>? data,
     Wrapped<Object?>? placeholder,
     Wrapped<String?>? traceId,
   }) {
-    return GetDefaultShippingAddressGet$Response(
+    return UserServiceGetDefaultShippingAddressGet$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
@@ -2486,8 +2571,8 @@ extension $GetDefaultShippingAddressGet$ResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class AddressCountryGet$Response {
-  const AddressCountryGet$Response({
+class UserServiceAddressCountryGet$Response {
+  const UserServiceAddressCountryGet$Response({
     this.code,
     this.message,
     this.data,
@@ -2495,28 +2580,31 @@ class AddressCountryGet$Response {
     this.traceId,
   });
 
-  factory AddressCountryGet$Response.fromJson(Map<String, dynamic> json) =>
-      _$AddressCountryGet$ResponseFromJson(json);
+  factory UserServiceAddressCountryGet$Response.fromJson(
+    Map<String, dynamic> json,
+  ) => _$UserServiceAddressCountryGet$ResponseFromJson(json);
 
-  static const toJsonFactory = _$AddressCountryGet$ResponseToJson;
-  Map<String, dynamic> toJson() => _$AddressCountryGet$ResponseToJson(this);
+  static const toJsonFactory = _$UserServiceAddressCountryGet$ResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$UserServiceAddressCountryGet$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final double? code;
   @JsonKey(name: 'message')
   final String? message;
   @JsonKey(name: 'data')
-  final List<AddressCountryGet$Response$Data$Item>? data;
+  final List<UserServiceAddressCountryGet$Response$Data$Item>? data;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
   @JsonKey(name: 'traceId')
   final String? traceId;
-  static const fromJsonFactory = _$AddressCountryGet$ResponseFromJson;
+  static const fromJsonFactory =
+      _$UserServiceAddressCountryGet$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is AddressCountryGet$Response &&
+        (other is UserServiceAddressCountryGet$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -2548,15 +2636,16 @@ class AddressCountryGet$Response {
       runtimeType.hashCode;
 }
 
-extension $AddressCountryGet$ResponseExtension on AddressCountryGet$Response {
-  AddressCountryGet$Response copyWith({
+extension $UserServiceAddressCountryGet$ResponseExtension
+    on UserServiceAddressCountryGet$Response {
+  UserServiceAddressCountryGet$Response copyWith({
     double? code,
     String? message,
-    List<AddressCountryGet$Response$Data$Item>? data,
+    List<UserServiceAddressCountryGet$Response$Data$Item>? data,
     Object? placeholder,
     String? traceId,
   }) {
-    return AddressCountryGet$Response(
+    return UserServiceAddressCountryGet$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       data: data ?? this.data,
@@ -2565,14 +2654,14 @@ extension $AddressCountryGet$ResponseExtension on AddressCountryGet$Response {
     );
   }
 
-  AddressCountryGet$Response copyWithWrapped({
+  UserServiceAddressCountryGet$Response copyWithWrapped({
     Wrapped<double?>? code,
     Wrapped<String?>? message,
-    Wrapped<List<AddressCountryGet$Response$Data$Item>?>? data,
+    Wrapped<List<UserServiceAddressCountryGet$Response$Data$Item>?>? data,
     Wrapped<Object?>? placeholder,
     Wrapped<String?>? traceId,
   }) {
-    return AddressCountryGet$Response(
+    return UserServiceAddressCountryGet$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
@@ -2583,8 +2672,8 @@ extension $AddressCountryGet$ResponseExtension on AddressCountryGet$Response {
 }
 
 @JsonSerializable(explicitToJson: true)
-class AddressQueryByZipCodeGet$Response {
-  const AddressQueryByZipCodeGet$Response({
+class UserServiceAddressQueryByZipCodeGet$Response {
+  const UserServiceAddressQueryByZipCodeGet$Response({
     this.code,
     this.message,
     this.data,
@@ -2593,32 +2682,34 @@ class AddressQueryByZipCodeGet$Response {
     this.success,
   });
 
-  factory AddressQueryByZipCodeGet$Response.fromJson(
+  factory UserServiceAddressQueryByZipCodeGet$Response.fromJson(
     Map<String, dynamic> json,
-  ) => _$AddressQueryByZipCodeGet$ResponseFromJson(json);
+  ) => _$UserServiceAddressQueryByZipCodeGet$ResponseFromJson(json);
 
-  static const toJsonFactory = _$AddressQueryByZipCodeGet$ResponseToJson;
+  static const toJsonFactory =
+      _$UserServiceAddressQueryByZipCodeGet$ResponseToJson;
   Map<String, dynamic> toJson() =>
-      _$AddressQueryByZipCodeGet$ResponseToJson(this);
+      _$UserServiceAddressQueryByZipCodeGet$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final double? code;
   @JsonKey(name: 'message')
   final String? message;
   @JsonKey(name: 'data')
-  final List<AddressQueryByZipCodeGet$Response$Data$Item>? data;
+  final List<UserServiceAddressQueryByZipCodeGet$Response$Data$Item>? data;
   @JsonKey(name: 'traceId')
   final String? traceId;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
   @JsonKey(name: 'success')
   final bool? success;
-  static const fromJsonFactory = _$AddressQueryByZipCodeGet$ResponseFromJson;
+  static const fromJsonFactory =
+      _$UserServiceAddressQueryByZipCodeGet$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is AddressQueryByZipCodeGet$Response &&
+        (other is UserServiceAddressQueryByZipCodeGet$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -2656,17 +2747,17 @@ class AddressQueryByZipCodeGet$Response {
       runtimeType.hashCode;
 }
 
-extension $AddressQueryByZipCodeGet$ResponseExtension
-    on AddressQueryByZipCodeGet$Response {
-  AddressQueryByZipCodeGet$Response copyWith({
+extension $UserServiceAddressQueryByZipCodeGet$ResponseExtension
+    on UserServiceAddressQueryByZipCodeGet$Response {
+  UserServiceAddressQueryByZipCodeGet$Response copyWith({
     double? code,
     String? message,
-    List<AddressQueryByZipCodeGet$Response$Data$Item>? data,
+    List<UserServiceAddressQueryByZipCodeGet$Response$Data$Item>? data,
     String? traceId,
     Object? placeholder,
     bool? success,
   }) {
-    return AddressQueryByZipCodeGet$Response(
+    return UserServiceAddressQueryByZipCodeGet$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       data: data ?? this.data,
@@ -2676,15 +2767,16 @@ extension $AddressQueryByZipCodeGet$ResponseExtension
     );
   }
 
-  AddressQueryByZipCodeGet$Response copyWithWrapped({
+  UserServiceAddressQueryByZipCodeGet$Response copyWithWrapped({
     Wrapped<double?>? code,
     Wrapped<String?>? message,
-    Wrapped<List<AddressQueryByZipCodeGet$Response$Data$Item>?>? data,
+    Wrapped<List<UserServiceAddressQueryByZipCodeGet$Response$Data$Item>?>?
+    data,
     Wrapped<String?>? traceId,
     Wrapped<Object?>? placeholder,
     Wrapped<bool?>? success,
   }) {
-    return AddressQueryByZipCodeGet$Response(
+    return UserServiceAddressQueryByZipCodeGet$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
@@ -2696,8 +2788,8 @@ extension $AddressQueryByZipCodeGet$ResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class UserInnerUpdUserLevelPost$Response {
-  const UserInnerUpdUserLevelPost$Response({
+class UserServiceUserInnerUpdUserLevelPost$Response {
+  const UserServiceUserInnerUpdUserLevelPost$Response({
     this.code,
     this.message,
     this.data,
@@ -2705,13 +2797,14 @@ class UserInnerUpdUserLevelPost$Response {
     this.success,
   });
 
-  factory UserInnerUpdUserLevelPost$Response.fromJson(
+  factory UserServiceUserInnerUpdUserLevelPost$Response.fromJson(
     Map<String, dynamic> json,
-  ) => _$UserInnerUpdUserLevelPost$ResponseFromJson(json);
+  ) => _$UserServiceUserInnerUpdUserLevelPost$ResponseFromJson(json);
 
-  static const toJsonFactory = _$UserInnerUpdUserLevelPost$ResponseToJson;
+  static const toJsonFactory =
+      _$UserServiceUserInnerUpdUserLevelPost$ResponseToJson;
   Map<String, dynamic> toJson() =>
-      _$UserInnerUpdUserLevelPost$ResponseToJson(this);
+      _$UserServiceUserInnerUpdUserLevelPost$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final double? code;
@@ -2723,12 +2816,13 @@ class UserInnerUpdUserLevelPost$Response {
   final String? traceId;
   @JsonKey(name: 'success')
   final bool? success;
-  static const fromJsonFactory = _$UserInnerUpdUserLevelPost$ResponseFromJson;
+  static const fromJsonFactory =
+      _$UserServiceUserInnerUpdUserLevelPost$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is UserInnerUpdUserLevelPost$Response &&
+        (other is UserServiceUserInnerUpdUserLevelPost$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -2760,16 +2854,16 @@ class UserInnerUpdUserLevelPost$Response {
       runtimeType.hashCode;
 }
 
-extension $UserInnerUpdUserLevelPost$ResponseExtension
-    on UserInnerUpdUserLevelPost$Response {
-  UserInnerUpdUserLevelPost$Response copyWith({
+extension $UserServiceUserInnerUpdUserLevelPost$ResponseExtension
+    on UserServiceUserInnerUpdUserLevelPost$Response {
+  UserServiceUserInnerUpdUserLevelPost$Response copyWith({
     double? code,
     String? message,
     Object? data,
     String? traceId,
     bool? success,
   }) {
-    return UserInnerUpdUserLevelPost$Response(
+    return UserServiceUserInnerUpdUserLevelPost$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       data: data ?? this.data,
@@ -2778,14 +2872,14 @@ extension $UserInnerUpdUserLevelPost$ResponseExtension
     );
   }
 
-  UserInnerUpdUserLevelPost$Response copyWithWrapped({
+  UserServiceUserInnerUpdUserLevelPost$Response copyWithWrapped({
     Wrapped<double?>? code,
     Wrapped<String?>? message,
     Wrapped<Object?>? data,
     Wrapped<String?>? traceId,
     Wrapped<bool?>? success,
   }) {
-    return UserInnerUpdUserLevelPost$Response(
+    return UserServiceUserInnerUpdUserLevelPost$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
@@ -2796,8 +2890,8 @@ extension $UserInnerUpdUserLevelPost$ResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class SigninSwitchPortalPost$Response {
-  const SigninSwitchPortalPost$Response({
+class UserServiceSigninSwitchPortalPost$Response {
+  const UserServiceSigninSwitchPortalPost$Response({
     this.code,
     this.message,
     this.data,
@@ -2807,19 +2901,21 @@ class SigninSwitchPortalPost$Response {
     this.url,
   });
 
-  factory SigninSwitchPortalPost$Response.fromJson(Map<String, dynamic> json) =>
-      _$SigninSwitchPortalPost$ResponseFromJson(json);
+  factory UserServiceSigninSwitchPortalPost$Response.fromJson(
+    Map<String, dynamic> json,
+  ) => _$UserServiceSigninSwitchPortalPost$ResponseFromJson(json);
 
-  static const toJsonFactory = _$SigninSwitchPortalPost$ResponseToJson;
+  static const toJsonFactory =
+      _$UserServiceSigninSwitchPortalPost$ResponseToJson;
   Map<String, dynamic> toJson() =>
-      _$SigninSwitchPortalPost$ResponseToJson(this);
+      _$UserServiceSigninSwitchPortalPost$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final double? code;
   @JsonKey(name: 'message')
   final String? message;
   @JsonKey(name: 'data')
-  final SigninSwitchPortalPost$Response$Data? data;
+  final UserServiceSigninSwitchPortalPost$Response$Data? data;
   @JsonKey(name: 'traceId')
   final String? traceId;
   @JsonKey(name: 'placeholder')
@@ -2828,12 +2924,13 @@ class SigninSwitchPortalPost$Response {
   final bool? success;
   @JsonKey(name: 'url')
   final String? url;
-  static const fromJsonFactory = _$SigninSwitchPortalPost$ResponseFromJson;
+  static const fromJsonFactory =
+      _$UserServiceSigninSwitchPortalPost$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is SigninSwitchPortalPost$Response &&
+        (other is UserServiceSigninSwitchPortalPost$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -2877,18 +2974,18 @@ class SigninSwitchPortalPost$Response {
       runtimeType.hashCode;
 }
 
-extension $SigninSwitchPortalPost$ResponseExtension
-    on SigninSwitchPortalPost$Response {
-  SigninSwitchPortalPost$Response copyWith({
+extension $UserServiceSigninSwitchPortalPost$ResponseExtension
+    on UserServiceSigninSwitchPortalPost$Response {
+  UserServiceSigninSwitchPortalPost$Response copyWith({
     double? code,
     String? message,
-    SigninSwitchPortalPost$Response$Data? data,
+    UserServiceSigninSwitchPortalPost$Response$Data? data,
     String? traceId,
     String? placeholder,
     bool? success,
     String? url,
   }) {
-    return SigninSwitchPortalPost$Response(
+    return UserServiceSigninSwitchPortalPost$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       data: data ?? this.data,
@@ -2899,16 +2996,16 @@ extension $SigninSwitchPortalPost$ResponseExtension
     );
   }
 
-  SigninSwitchPortalPost$Response copyWithWrapped({
+  UserServiceSigninSwitchPortalPost$Response copyWithWrapped({
     Wrapped<double?>? code,
     Wrapped<String?>? message,
-    Wrapped<SigninSwitchPortalPost$Response$Data?>? data,
+    Wrapped<UserServiceSigninSwitchPortalPost$Response$Data?>? data,
     Wrapped<String?>? traceId,
     Wrapped<String?>? placeholder,
     Wrapped<bool?>? success,
     Wrapped<String?>? url,
   }) {
-    return SigninSwitchPortalPost$Response(
+    return UserServiceSigninSwitchPortalPost$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
@@ -2921,34 +3018,36 @@ extension $SigninSwitchPortalPost$ResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class SignInInitPost$Response {
-  const SignInInitPost$Response({
+class UserServiceSignInInitPost$Response {
+  const UserServiceSignInInitPost$Response({
     this.code,
     this.message,
     this.data,
     this.traceId,
   });
 
-  factory SignInInitPost$Response.fromJson(Map<String, dynamic> json) =>
-      _$SignInInitPost$ResponseFromJson(json);
+  factory UserServiceSignInInitPost$Response.fromJson(
+    Map<String, dynamic> json,
+  ) => _$UserServiceSignInInitPost$ResponseFromJson(json);
 
-  static const toJsonFactory = _$SignInInitPost$ResponseToJson;
-  Map<String, dynamic> toJson() => _$SignInInitPost$ResponseToJson(this);
+  static const toJsonFactory = _$UserServiceSignInInitPost$ResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$UserServiceSignInInitPost$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final double? code;
   @JsonKey(name: 'message')
   final String? message;
   @JsonKey(name: 'data')
-  final SignInInitPost$Response$Data? data;
+  final UserServiceSignInInitPost$Response$Data? data;
   @JsonKey(name: 'traceId')
   final Object? traceId;
-  static const fromJsonFactory = _$SignInInitPost$ResponseFromJson;
+  static const fromJsonFactory = _$UserServiceSignInInitPost$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is SignInInitPost$Response &&
+        (other is UserServiceSignInInitPost$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -2974,14 +3073,15 @@ class SignInInitPost$Response {
       runtimeType.hashCode;
 }
 
-extension $SignInInitPost$ResponseExtension on SignInInitPost$Response {
-  SignInInitPost$Response copyWith({
+extension $UserServiceSignInInitPost$ResponseExtension
+    on UserServiceSignInInitPost$Response {
+  UserServiceSignInInitPost$Response copyWith({
     double? code,
     String? message,
-    SignInInitPost$Response$Data? data,
+    UserServiceSignInInitPost$Response$Data? data,
     Object? traceId,
   }) {
-    return SignInInitPost$Response(
+    return UserServiceSignInInitPost$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       data: data ?? this.data,
@@ -2989,13 +3089,13 @@ extension $SignInInitPost$ResponseExtension on SignInInitPost$Response {
     );
   }
 
-  SignInInitPost$Response copyWithWrapped({
+  UserServiceSignInInitPost$Response copyWithWrapped({
     Wrapped<double?>? code,
     Wrapped<String?>? message,
-    Wrapped<SignInInitPost$Response$Data?>? data,
+    Wrapped<UserServiceSignInInitPost$Response$Data?>? data,
     Wrapped<Object?>? traceId,
   }) {
-    return SignInInitPost$Response(
+    return UserServiceSignInInitPost$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
@@ -3005,19 +3105,21 @@ extension $SignInInitPost$ResponseExtension on SignInInitPost$Response {
 }
 
 @JsonSerializable(explicitToJson: true)
-class OtpApplyPost$Response {
-  const OtpApplyPost$Response({
+class UserServiceOtpApplyPost$Response {
+  const UserServiceOtpApplyPost$Response({
     this.code,
     this.message,
     this.data,
     this.traceId,
   });
 
-  factory OtpApplyPost$Response.fromJson(Map<String, dynamic> json) =>
-      _$OtpApplyPost$ResponseFromJson(json);
+  factory UserServiceOtpApplyPost$Response.fromJson(
+    Map<String, dynamic> json,
+  ) => _$UserServiceOtpApplyPost$ResponseFromJson(json);
 
-  static const toJsonFactory = _$OtpApplyPost$ResponseToJson;
-  Map<String, dynamic> toJson() => _$OtpApplyPost$ResponseToJson(this);
+  static const toJsonFactory = _$UserServiceOtpApplyPost$ResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$UserServiceOtpApplyPost$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final double? code;
@@ -3027,12 +3129,12 @@ class OtpApplyPost$Response {
   final String? data;
   @JsonKey(name: 'traceId')
   final Object? traceId;
-  static const fromJsonFactory = _$OtpApplyPost$ResponseFromJson;
+  static const fromJsonFactory = _$UserServiceOtpApplyPost$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is OtpApplyPost$Response &&
+        (other is UserServiceOtpApplyPost$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -3058,14 +3160,15 @@ class OtpApplyPost$Response {
       runtimeType.hashCode;
 }
 
-extension $OtpApplyPost$ResponseExtension on OtpApplyPost$Response {
-  OtpApplyPost$Response copyWith({
+extension $UserServiceOtpApplyPost$ResponseExtension
+    on UserServiceOtpApplyPost$Response {
+  UserServiceOtpApplyPost$Response copyWith({
     double? code,
     String? message,
     String? data,
     Object? traceId,
   }) {
-    return OtpApplyPost$Response(
+    return UserServiceOtpApplyPost$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       data: data ?? this.data,
@@ -3073,13 +3176,13 @@ extension $OtpApplyPost$ResponseExtension on OtpApplyPost$Response {
     );
   }
 
-  OtpApplyPost$Response copyWithWrapped({
+  UserServiceOtpApplyPost$Response copyWithWrapped({
     Wrapped<double?>? code,
     Wrapped<String?>? message,
     Wrapped<String?>? data,
     Wrapped<Object?>? traceId,
   }) {
-    return OtpApplyPost$Response(
+    return UserServiceOtpApplyPost$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
@@ -3089,8 +3192,8 @@ extension $OtpApplyPost$ResponseExtension on OtpApplyPost$Response {
 }
 
 @JsonSerializable(explicitToJson: true)
-class SignInVerifyPost$Response {
-  const SignInVerifyPost$Response({
+class UserServiceSignInVerifyPost$Response {
+  const UserServiceSignInVerifyPost$Response({
     this.code,
     this.message,
     this.data,
@@ -3100,400 +3203,409 @@ class SignInVerifyPost$Response {
     this.url,
   });
 
-  factory SignInVerifyPost$Response.fromJson(Map<String, dynamic> json) =>
-      _$SignInVerifyPost$ResponseFromJson(json);
-
-  static const toJsonFactory = _$SignInVerifyPost$ResponseToJson;
-  Map<String, dynamic> toJson() => _$SignInVerifyPost$ResponseToJson(this);
-
-  @JsonKey(name: 'code')
-  final double? code;
-  @JsonKey(name: 'message')
-  final String? message;
-  @JsonKey(name: 'data')
-  final SignInVerifyPost$Response$Data? data;
-  @JsonKey(name: 'traceId')
-  final String? traceId;
-  @JsonKey(name: 'placeholder')
-  final String? placeholder;
-  @JsonKey(name: 'success')
-  final bool? success;
-  @JsonKey(name: 'url')
-  final String? url;
-  static const fromJsonFactory = _$SignInVerifyPost$ResponseFromJson;
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other is SignInVerifyPost$Response &&
-            (identical(other.code, code) ||
-                const DeepCollectionEquality().equals(other.code, code)) &&
-            (identical(other.message, message) ||
-                const DeepCollectionEquality().equals(
-                  other.message,
-                  message,
-                )) &&
-            (identical(other.data, data) ||
-                const DeepCollectionEquality().equals(other.data, data)) &&
-            (identical(other.traceId, traceId) ||
-                const DeepCollectionEquality().equals(
-                  other.traceId,
-                  traceId,
-                )) &&
-            (identical(other.placeholder, placeholder) ||
-                const DeepCollectionEquality().equals(
-                  other.placeholder,
-                  placeholder,
-                )) &&
-            (identical(other.success, success) ||
-                const DeepCollectionEquality().equals(
-                  other.success,
-                  success,
-                )) &&
-            (identical(other.url, url) ||
-                const DeepCollectionEquality().equals(other.url, url)));
-  }
-
-  @override
-  String toString() => jsonEncode(this);
-
-  @override
-  int get hashCode =>
-      const DeepCollectionEquality().hash(code) ^
-      const DeepCollectionEquality().hash(message) ^
-      const DeepCollectionEquality().hash(data) ^
-      const DeepCollectionEquality().hash(traceId) ^
-      const DeepCollectionEquality().hash(placeholder) ^
-      const DeepCollectionEquality().hash(success) ^
-      const DeepCollectionEquality().hash(url) ^
-      runtimeType.hashCode;
-}
-
-extension $SignInVerifyPost$ResponseExtension on SignInVerifyPost$Response {
-  SignInVerifyPost$Response copyWith({
-    double? code,
-    String? message,
-    SignInVerifyPost$Response$Data? data,
-    String? traceId,
-    String? placeholder,
-    bool? success,
-    String? url,
-  }) {
-    return SignInVerifyPost$Response(
-      code: code ?? this.code,
-      message: message ?? this.message,
-      data: data ?? this.data,
-      traceId: traceId ?? this.traceId,
-      placeholder: placeholder ?? this.placeholder,
-      success: success ?? this.success,
-      url: url ?? this.url,
-    );
-  }
-
-  SignInVerifyPost$Response copyWithWrapped({
-    Wrapped<double?>? code,
-    Wrapped<String?>? message,
-    Wrapped<SignInVerifyPost$Response$Data?>? data,
-    Wrapped<String?>? traceId,
-    Wrapped<String?>? placeholder,
-    Wrapped<bool?>? success,
-    Wrapped<String?>? url,
-  }) {
-    return SignInVerifyPost$Response(
-      code: (code != null ? code.value : this.code),
-      message: (message != null ? message.value : this.message),
-      data: (data != null ? data.value : this.data),
-      traceId: (traceId != null ? traceId.value : this.traceId),
-      placeholder: (placeholder != null ? placeholder.value : this.placeholder),
-      success: (success != null ? success.value : this.success),
-      url: (url != null ? url.value : this.url),
-    );
-  }
-}
-
-@JsonSerializable(explicitToJson: true)
-class SignInCallPost$Response {
-  const SignInCallPost$Response({
-    this.code,
-    this.message,
-    this.data,
-    this.traceId,
-    this.placeholder,
-    this.success,
-    this.url,
-  });
-
-  factory SignInCallPost$Response.fromJson(Map<String, dynamic> json) =>
-      _$SignInCallPost$ResponseFromJson(json);
-
-  static const toJsonFactory = _$SignInCallPost$ResponseToJson;
-  Map<String, dynamic> toJson() => _$SignInCallPost$ResponseToJson(this);
-
-  @JsonKey(name: 'code')
-  final double? code;
-  @JsonKey(name: 'message')
-  final String? message;
-  @JsonKey(name: 'data')
-  final SignInCallPost$Response$Data? data;
-  @JsonKey(name: 'traceId')
-  final String? traceId;
-  @JsonKey(name: 'placeholder')
-  final String? placeholder;
-  @JsonKey(name: 'success')
-  final bool? success;
-  @JsonKey(name: 'url')
-  final String? url;
-  static const fromJsonFactory = _$SignInCallPost$ResponseFromJson;
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other is SignInCallPost$Response &&
-            (identical(other.code, code) ||
-                const DeepCollectionEquality().equals(other.code, code)) &&
-            (identical(other.message, message) ||
-                const DeepCollectionEquality().equals(
-                  other.message,
-                  message,
-                )) &&
-            (identical(other.data, data) ||
-                const DeepCollectionEquality().equals(other.data, data)) &&
-            (identical(other.traceId, traceId) ||
-                const DeepCollectionEquality().equals(
-                  other.traceId,
-                  traceId,
-                )) &&
-            (identical(other.placeholder, placeholder) ||
-                const DeepCollectionEquality().equals(
-                  other.placeholder,
-                  placeholder,
-                )) &&
-            (identical(other.success, success) ||
-                const DeepCollectionEquality().equals(
-                  other.success,
-                  success,
-                )) &&
-            (identical(other.url, url) ||
-                const DeepCollectionEquality().equals(other.url, url)));
-  }
-
-  @override
-  String toString() => jsonEncode(this);
-
-  @override
-  int get hashCode =>
-      const DeepCollectionEquality().hash(code) ^
-      const DeepCollectionEquality().hash(message) ^
-      const DeepCollectionEquality().hash(data) ^
-      const DeepCollectionEquality().hash(traceId) ^
-      const DeepCollectionEquality().hash(placeholder) ^
-      const DeepCollectionEquality().hash(success) ^
-      const DeepCollectionEquality().hash(url) ^
-      runtimeType.hashCode;
-}
-
-extension $SignInCallPost$ResponseExtension on SignInCallPost$Response {
-  SignInCallPost$Response copyWith({
-    double? code,
-    String? message,
-    SignInCallPost$Response$Data? data,
-    String? traceId,
-    String? placeholder,
-    bool? success,
-    String? url,
-  }) {
-    return SignInCallPost$Response(
-      code: code ?? this.code,
-      message: message ?? this.message,
-      data: data ?? this.data,
-      traceId: traceId ?? this.traceId,
-      placeholder: placeholder ?? this.placeholder,
-      success: success ?? this.success,
-      url: url ?? this.url,
-    );
-  }
-
-  SignInCallPost$Response copyWithWrapped({
-    Wrapped<double?>? code,
-    Wrapped<String?>? message,
-    Wrapped<SignInCallPost$Response$Data?>? data,
-    Wrapped<String?>? traceId,
-    Wrapped<String?>? placeholder,
-    Wrapped<bool?>? success,
-    Wrapped<String?>? url,
-  }) {
-    return SignInCallPost$Response(
-      code: (code != null ? code.value : this.code),
-      message: (message != null ? message.value : this.message),
-      data: (data != null ? data.value : this.data),
-      traceId: (traceId != null ? traceId.value : this.traceId),
-      placeholder: (placeholder != null ? placeholder.value : this.placeholder),
-      success: (success != null ? success.value : this.success),
-      url: (url != null ? url.value : this.url),
-    );
-  }
-}
-
-@JsonSerializable(explicitToJson: true)
-class NoAuthOtpVerifyPost$Response {
-  const NoAuthOtpVerifyPost$Response({
-    this.code,
-    this.message,
-    this.data,
-    this.traceId,
-    this.placeholder,
-    this.success,
-    this.url,
-  });
-
-  factory NoAuthOtpVerifyPost$Response.fromJson(Map<String, dynamic> json) =>
-      _$NoAuthOtpVerifyPost$ResponseFromJson(json);
-
-  static const toJsonFactory = _$NoAuthOtpVerifyPost$ResponseToJson;
-  Map<String, dynamic> toJson() => _$NoAuthOtpVerifyPost$ResponseToJson(this);
-
-  @JsonKey(name: 'code')
-  final double? code;
-  @JsonKey(name: 'message')
-  final String? message;
-  @JsonKey(name: 'data')
-  final NoAuthOtpVerifyPost$Response$Data? data;
-  @JsonKey(name: 'traceId')
-  final String? traceId;
-  @JsonKey(name: 'placeholder')
-  final String? placeholder;
-  @JsonKey(name: 'success')
-  final bool? success;
-  @JsonKey(name: 'url')
-  final String? url;
-  static const fromJsonFactory = _$NoAuthOtpVerifyPost$ResponseFromJson;
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other is NoAuthOtpVerifyPost$Response &&
-            (identical(other.code, code) ||
-                const DeepCollectionEquality().equals(other.code, code)) &&
-            (identical(other.message, message) ||
-                const DeepCollectionEquality().equals(
-                  other.message,
-                  message,
-                )) &&
-            (identical(other.data, data) ||
-                const DeepCollectionEquality().equals(other.data, data)) &&
-            (identical(other.traceId, traceId) ||
-                const DeepCollectionEquality().equals(
-                  other.traceId,
-                  traceId,
-                )) &&
-            (identical(other.placeholder, placeholder) ||
-                const DeepCollectionEquality().equals(
-                  other.placeholder,
-                  placeholder,
-                )) &&
-            (identical(other.success, success) ||
-                const DeepCollectionEquality().equals(
-                  other.success,
-                  success,
-                )) &&
-            (identical(other.url, url) ||
-                const DeepCollectionEquality().equals(other.url, url)));
-  }
-
-  @override
-  String toString() => jsonEncode(this);
-
-  @override
-  int get hashCode =>
-      const DeepCollectionEquality().hash(code) ^
-      const DeepCollectionEquality().hash(message) ^
-      const DeepCollectionEquality().hash(data) ^
-      const DeepCollectionEquality().hash(traceId) ^
-      const DeepCollectionEquality().hash(placeholder) ^
-      const DeepCollectionEquality().hash(success) ^
-      const DeepCollectionEquality().hash(url) ^
-      runtimeType.hashCode;
-}
-
-extension $NoAuthOtpVerifyPost$ResponseExtension
-    on NoAuthOtpVerifyPost$Response {
-  NoAuthOtpVerifyPost$Response copyWith({
-    double? code,
-    String? message,
-    NoAuthOtpVerifyPost$Response$Data? data,
-    String? traceId,
-    String? placeholder,
-    bool? success,
-    String? url,
-  }) {
-    return NoAuthOtpVerifyPost$Response(
-      code: code ?? this.code,
-      message: message ?? this.message,
-      data: data ?? this.data,
-      traceId: traceId ?? this.traceId,
-      placeholder: placeholder ?? this.placeholder,
-      success: success ?? this.success,
-      url: url ?? this.url,
-    );
-  }
-
-  NoAuthOtpVerifyPost$Response copyWithWrapped({
-    Wrapped<double?>? code,
-    Wrapped<String?>? message,
-    Wrapped<NoAuthOtpVerifyPost$Response$Data?>? data,
-    Wrapped<String?>? traceId,
-    Wrapped<String?>? placeholder,
-    Wrapped<bool?>? success,
-    Wrapped<String?>? url,
-  }) {
-    return NoAuthOtpVerifyPost$Response(
-      code: (code != null ? code.value : this.code),
-      message: (message != null ? message.value : this.message),
-      data: (data != null ? data.value : this.data),
-      traceId: (traceId != null ? traceId.value : this.traceId),
-      placeholder: (placeholder != null ? placeholder.value : this.placeholder),
-      success: (success != null ? success.value : this.success),
-      url: (url != null ? url.value : this.url),
-    );
-  }
-}
-
-@JsonSerializable(explicitToJson: true)
-class NoAuthCommonConfigDefaultSettingGet$Response {
-  const NoAuthCommonConfigDefaultSettingGet$Response({
-    this.code,
-    this.message,
-    this.data,
-    this.placeholder,
-    this.traceId,
-  });
-
-  factory NoAuthCommonConfigDefaultSettingGet$Response.fromJson(
+  factory UserServiceSignInVerifyPost$Response.fromJson(
     Map<String, dynamic> json,
-  ) => _$NoAuthCommonConfigDefaultSettingGet$ResponseFromJson(json);
+  ) => _$UserServiceSignInVerifyPost$ResponseFromJson(json);
+
+  static const toJsonFactory = _$UserServiceSignInVerifyPost$ResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$UserServiceSignInVerifyPost$ResponseToJson(this);
+
+  @JsonKey(name: 'code')
+  final double? code;
+  @JsonKey(name: 'message')
+  final String? message;
+  @JsonKey(name: 'data')
+  final UserServiceSignInVerifyPost$Response$Data? data;
+  @JsonKey(name: 'traceId')
+  final String? traceId;
+  @JsonKey(name: 'placeholder')
+  final String? placeholder;
+  @JsonKey(name: 'success')
+  final bool? success;
+  @JsonKey(name: 'url')
+  final String? url;
+  static const fromJsonFactory = _$UserServiceSignInVerifyPost$ResponseFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is UserServiceSignInVerifyPost$Response &&
+            (identical(other.code, code) ||
+                const DeepCollectionEquality().equals(other.code, code)) &&
+            (identical(other.message, message) ||
+                const DeepCollectionEquality().equals(
+                  other.message,
+                  message,
+                )) &&
+            (identical(other.data, data) ||
+                const DeepCollectionEquality().equals(other.data, data)) &&
+            (identical(other.traceId, traceId) ||
+                const DeepCollectionEquality().equals(
+                  other.traceId,
+                  traceId,
+                )) &&
+            (identical(other.placeholder, placeholder) ||
+                const DeepCollectionEquality().equals(
+                  other.placeholder,
+                  placeholder,
+                )) &&
+            (identical(other.success, success) ||
+                const DeepCollectionEquality().equals(
+                  other.success,
+                  success,
+                )) &&
+            (identical(other.url, url) ||
+                const DeepCollectionEquality().equals(other.url, url)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(code) ^
+      const DeepCollectionEquality().hash(message) ^
+      const DeepCollectionEquality().hash(data) ^
+      const DeepCollectionEquality().hash(traceId) ^
+      const DeepCollectionEquality().hash(placeholder) ^
+      const DeepCollectionEquality().hash(success) ^
+      const DeepCollectionEquality().hash(url) ^
+      runtimeType.hashCode;
+}
+
+extension $UserServiceSignInVerifyPost$ResponseExtension
+    on UserServiceSignInVerifyPost$Response {
+  UserServiceSignInVerifyPost$Response copyWith({
+    double? code,
+    String? message,
+    UserServiceSignInVerifyPost$Response$Data? data,
+    String? traceId,
+    String? placeholder,
+    bool? success,
+    String? url,
+  }) {
+    return UserServiceSignInVerifyPost$Response(
+      code: code ?? this.code,
+      message: message ?? this.message,
+      data: data ?? this.data,
+      traceId: traceId ?? this.traceId,
+      placeholder: placeholder ?? this.placeholder,
+      success: success ?? this.success,
+      url: url ?? this.url,
+    );
+  }
+
+  UserServiceSignInVerifyPost$Response copyWithWrapped({
+    Wrapped<double?>? code,
+    Wrapped<String?>? message,
+    Wrapped<UserServiceSignInVerifyPost$Response$Data?>? data,
+    Wrapped<String?>? traceId,
+    Wrapped<String?>? placeholder,
+    Wrapped<bool?>? success,
+    Wrapped<String?>? url,
+  }) {
+    return UserServiceSignInVerifyPost$Response(
+      code: (code != null ? code.value : this.code),
+      message: (message != null ? message.value : this.message),
+      data: (data != null ? data.value : this.data),
+      traceId: (traceId != null ? traceId.value : this.traceId),
+      placeholder: (placeholder != null ? placeholder.value : this.placeholder),
+      success: (success != null ? success.value : this.success),
+      url: (url != null ? url.value : this.url),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class UserServiceSignInCallPost$Response {
+  const UserServiceSignInCallPost$Response({
+    this.code,
+    this.message,
+    this.data,
+    this.traceId,
+    this.placeholder,
+    this.success,
+    this.url,
+  });
+
+  factory UserServiceSignInCallPost$Response.fromJson(
+    Map<String, dynamic> json,
+  ) => _$UserServiceSignInCallPost$ResponseFromJson(json);
+
+  static const toJsonFactory = _$UserServiceSignInCallPost$ResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$UserServiceSignInCallPost$ResponseToJson(this);
+
+  @JsonKey(name: 'code')
+  final double? code;
+  @JsonKey(name: 'message')
+  final String? message;
+  @JsonKey(name: 'data')
+  final UserServiceSignInCallPost$Response$Data? data;
+  @JsonKey(name: 'traceId')
+  final String? traceId;
+  @JsonKey(name: 'placeholder')
+  final String? placeholder;
+  @JsonKey(name: 'success')
+  final bool? success;
+  @JsonKey(name: 'url')
+  final String? url;
+  static const fromJsonFactory = _$UserServiceSignInCallPost$ResponseFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is UserServiceSignInCallPost$Response &&
+            (identical(other.code, code) ||
+                const DeepCollectionEquality().equals(other.code, code)) &&
+            (identical(other.message, message) ||
+                const DeepCollectionEquality().equals(
+                  other.message,
+                  message,
+                )) &&
+            (identical(other.data, data) ||
+                const DeepCollectionEquality().equals(other.data, data)) &&
+            (identical(other.traceId, traceId) ||
+                const DeepCollectionEquality().equals(
+                  other.traceId,
+                  traceId,
+                )) &&
+            (identical(other.placeholder, placeholder) ||
+                const DeepCollectionEquality().equals(
+                  other.placeholder,
+                  placeholder,
+                )) &&
+            (identical(other.success, success) ||
+                const DeepCollectionEquality().equals(
+                  other.success,
+                  success,
+                )) &&
+            (identical(other.url, url) ||
+                const DeepCollectionEquality().equals(other.url, url)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(code) ^
+      const DeepCollectionEquality().hash(message) ^
+      const DeepCollectionEquality().hash(data) ^
+      const DeepCollectionEquality().hash(traceId) ^
+      const DeepCollectionEquality().hash(placeholder) ^
+      const DeepCollectionEquality().hash(success) ^
+      const DeepCollectionEquality().hash(url) ^
+      runtimeType.hashCode;
+}
+
+extension $UserServiceSignInCallPost$ResponseExtension
+    on UserServiceSignInCallPost$Response {
+  UserServiceSignInCallPost$Response copyWith({
+    double? code,
+    String? message,
+    UserServiceSignInCallPost$Response$Data? data,
+    String? traceId,
+    String? placeholder,
+    bool? success,
+    String? url,
+  }) {
+    return UserServiceSignInCallPost$Response(
+      code: code ?? this.code,
+      message: message ?? this.message,
+      data: data ?? this.data,
+      traceId: traceId ?? this.traceId,
+      placeholder: placeholder ?? this.placeholder,
+      success: success ?? this.success,
+      url: url ?? this.url,
+    );
+  }
+
+  UserServiceSignInCallPost$Response copyWithWrapped({
+    Wrapped<double?>? code,
+    Wrapped<String?>? message,
+    Wrapped<UserServiceSignInCallPost$Response$Data?>? data,
+    Wrapped<String?>? traceId,
+    Wrapped<String?>? placeholder,
+    Wrapped<bool?>? success,
+    Wrapped<String?>? url,
+  }) {
+    return UserServiceSignInCallPost$Response(
+      code: (code != null ? code.value : this.code),
+      message: (message != null ? message.value : this.message),
+      data: (data != null ? data.value : this.data),
+      traceId: (traceId != null ? traceId.value : this.traceId),
+      placeholder: (placeholder != null ? placeholder.value : this.placeholder),
+      success: (success != null ? success.value : this.success),
+      url: (url != null ? url.value : this.url),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class UserServiceNoAuthOtpVerifyPost$Response {
+  const UserServiceNoAuthOtpVerifyPost$Response({
+    this.code,
+    this.message,
+    this.data,
+    this.traceId,
+    this.placeholder,
+    this.success,
+    this.url,
+  });
+
+  factory UserServiceNoAuthOtpVerifyPost$Response.fromJson(
+    Map<String, dynamic> json,
+  ) => _$UserServiceNoAuthOtpVerifyPost$ResponseFromJson(json);
+
+  static const toJsonFactory = _$UserServiceNoAuthOtpVerifyPost$ResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$UserServiceNoAuthOtpVerifyPost$ResponseToJson(this);
+
+  @JsonKey(name: 'code')
+  final double? code;
+  @JsonKey(name: 'message')
+  final String? message;
+  @JsonKey(name: 'data')
+  final UserServiceNoAuthOtpVerifyPost$Response$Data? data;
+  @JsonKey(name: 'traceId')
+  final String? traceId;
+  @JsonKey(name: 'placeholder')
+  final String? placeholder;
+  @JsonKey(name: 'success')
+  final bool? success;
+  @JsonKey(name: 'url')
+  final String? url;
+  static const fromJsonFactory =
+      _$UserServiceNoAuthOtpVerifyPost$ResponseFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is UserServiceNoAuthOtpVerifyPost$Response &&
+            (identical(other.code, code) ||
+                const DeepCollectionEquality().equals(other.code, code)) &&
+            (identical(other.message, message) ||
+                const DeepCollectionEquality().equals(
+                  other.message,
+                  message,
+                )) &&
+            (identical(other.data, data) ||
+                const DeepCollectionEquality().equals(other.data, data)) &&
+            (identical(other.traceId, traceId) ||
+                const DeepCollectionEquality().equals(
+                  other.traceId,
+                  traceId,
+                )) &&
+            (identical(other.placeholder, placeholder) ||
+                const DeepCollectionEquality().equals(
+                  other.placeholder,
+                  placeholder,
+                )) &&
+            (identical(other.success, success) ||
+                const DeepCollectionEquality().equals(
+                  other.success,
+                  success,
+                )) &&
+            (identical(other.url, url) ||
+                const DeepCollectionEquality().equals(other.url, url)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(code) ^
+      const DeepCollectionEquality().hash(message) ^
+      const DeepCollectionEquality().hash(data) ^
+      const DeepCollectionEquality().hash(traceId) ^
+      const DeepCollectionEquality().hash(placeholder) ^
+      const DeepCollectionEquality().hash(success) ^
+      const DeepCollectionEquality().hash(url) ^
+      runtimeType.hashCode;
+}
+
+extension $UserServiceNoAuthOtpVerifyPost$ResponseExtension
+    on UserServiceNoAuthOtpVerifyPost$Response {
+  UserServiceNoAuthOtpVerifyPost$Response copyWith({
+    double? code,
+    String? message,
+    UserServiceNoAuthOtpVerifyPost$Response$Data? data,
+    String? traceId,
+    String? placeholder,
+    bool? success,
+    String? url,
+  }) {
+    return UserServiceNoAuthOtpVerifyPost$Response(
+      code: code ?? this.code,
+      message: message ?? this.message,
+      data: data ?? this.data,
+      traceId: traceId ?? this.traceId,
+      placeholder: placeholder ?? this.placeholder,
+      success: success ?? this.success,
+      url: url ?? this.url,
+    );
+  }
+
+  UserServiceNoAuthOtpVerifyPost$Response copyWithWrapped({
+    Wrapped<double?>? code,
+    Wrapped<String?>? message,
+    Wrapped<UserServiceNoAuthOtpVerifyPost$Response$Data?>? data,
+    Wrapped<String?>? traceId,
+    Wrapped<String?>? placeholder,
+    Wrapped<bool?>? success,
+    Wrapped<String?>? url,
+  }) {
+    return UserServiceNoAuthOtpVerifyPost$Response(
+      code: (code != null ? code.value : this.code),
+      message: (message != null ? message.value : this.message),
+      data: (data != null ? data.value : this.data),
+      traceId: (traceId != null ? traceId.value : this.traceId),
+      placeholder: (placeholder != null ? placeholder.value : this.placeholder),
+      success: (success != null ? success.value : this.success),
+      url: (url != null ? url.value : this.url),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class UserServiceNoAuthCommonConfigDefaultSettingGet$Response {
+  const UserServiceNoAuthCommonConfigDefaultSettingGet$Response({
+    this.code,
+    this.message,
+    this.data,
+    this.placeholder,
+    this.traceId,
+  });
+
+  factory UserServiceNoAuthCommonConfigDefaultSettingGet$Response.fromJson(
+    Map<String, dynamic> json,
+  ) => _$UserServiceNoAuthCommonConfigDefaultSettingGet$ResponseFromJson(json);
 
   static const toJsonFactory =
-      _$NoAuthCommonConfigDefaultSettingGet$ResponseToJson;
+      _$UserServiceNoAuthCommonConfigDefaultSettingGet$ResponseToJson;
   Map<String, dynamic> toJson() =>
-      _$NoAuthCommonConfigDefaultSettingGet$ResponseToJson(this);
+      _$UserServiceNoAuthCommonConfigDefaultSettingGet$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final double? code;
   @JsonKey(name: 'message')
   final String? message;
   @JsonKey(name: 'data')
-  final NoAuthCommonConfigDefaultSettingGet$Response$Data? data;
+  final UserServiceNoAuthCommonConfigDefaultSettingGet$Response$Data? data;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
   @JsonKey(name: 'traceId')
   final String? traceId;
   static const fromJsonFactory =
-      _$NoAuthCommonConfigDefaultSettingGet$ResponseFromJson;
+      _$UserServiceNoAuthCommonConfigDefaultSettingGet$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is NoAuthCommonConfigDefaultSettingGet$Response &&
+        (other is UserServiceNoAuthCommonConfigDefaultSettingGet$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -3525,16 +3637,16 @@ class NoAuthCommonConfigDefaultSettingGet$Response {
       runtimeType.hashCode;
 }
 
-extension $NoAuthCommonConfigDefaultSettingGet$ResponseExtension
-    on NoAuthCommonConfigDefaultSettingGet$Response {
-  NoAuthCommonConfigDefaultSettingGet$Response copyWith({
+extension $UserServiceNoAuthCommonConfigDefaultSettingGet$ResponseExtension
+    on UserServiceNoAuthCommonConfigDefaultSettingGet$Response {
+  UserServiceNoAuthCommonConfigDefaultSettingGet$Response copyWith({
     double? code,
     String? message,
-    NoAuthCommonConfigDefaultSettingGet$Response$Data? data,
+    UserServiceNoAuthCommonConfigDefaultSettingGet$Response$Data? data,
     Object? placeholder,
     String? traceId,
   }) {
-    return NoAuthCommonConfigDefaultSettingGet$Response(
+    return UserServiceNoAuthCommonConfigDefaultSettingGet$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       data: data ?? this.data,
@@ -3543,14 +3655,15 @@ extension $NoAuthCommonConfigDefaultSettingGet$ResponseExtension
     );
   }
 
-  NoAuthCommonConfigDefaultSettingGet$Response copyWithWrapped({
+  UserServiceNoAuthCommonConfigDefaultSettingGet$Response copyWithWrapped({
     Wrapped<double?>? code,
     Wrapped<String?>? message,
-    Wrapped<NoAuthCommonConfigDefaultSettingGet$Response$Data?>? data,
+    Wrapped<UserServiceNoAuthCommonConfigDefaultSettingGet$Response$Data?>?
+    data,
     Wrapped<Object?>? placeholder,
     Wrapped<String?>? traceId,
   }) {
-    return NoAuthCommonConfigDefaultSettingGet$Response(
+    return UserServiceNoAuthCommonConfigDefaultSettingGet$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
@@ -3561,31 +3674,33 @@ extension $NoAuthCommonConfigDefaultSettingGet$ResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class FileImUploadPost$Response {
-  const FileImUploadPost$Response({
+class UserServiceFileImUploadPost$Response {
+  const UserServiceFileImUploadPost$Response({
     required this.code,
     required this.message,
     required this.data,
   });
 
-  factory FileImUploadPost$Response.fromJson(Map<String, dynamic> json) =>
-      _$FileImUploadPost$ResponseFromJson(json);
+  factory UserServiceFileImUploadPost$Response.fromJson(
+    Map<String, dynamic> json,
+  ) => _$UserServiceFileImUploadPost$ResponseFromJson(json);
 
-  static const toJsonFactory = _$FileImUploadPost$ResponseToJson;
-  Map<String, dynamic> toJson() => _$FileImUploadPost$ResponseToJson(this);
+  static const toJsonFactory = _$UserServiceFileImUploadPost$ResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$UserServiceFileImUploadPost$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final int code;
   @JsonKey(name: 'message')
   final String message;
   @JsonKey(name: 'data')
-  final List<FileImUploadPost$Response$Data$Item> data;
-  static const fromJsonFactory = _$FileImUploadPost$ResponseFromJson;
+  final List<UserServiceFileImUploadPost$Response$Data$Item> data;
+  static const fromJsonFactory = _$UserServiceFileImUploadPost$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FileImUploadPost$Response &&
+        (other is UserServiceFileImUploadPost$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -3608,25 +3723,26 @@ class FileImUploadPost$Response {
       runtimeType.hashCode;
 }
 
-extension $FileImUploadPost$ResponseExtension on FileImUploadPost$Response {
-  FileImUploadPost$Response copyWith({
+extension $UserServiceFileImUploadPost$ResponseExtension
+    on UserServiceFileImUploadPost$Response {
+  UserServiceFileImUploadPost$Response copyWith({
     int? code,
     String? message,
-    List<FileImUploadPost$Response$Data$Item>? data,
+    List<UserServiceFileImUploadPost$Response$Data$Item>? data,
   }) {
-    return FileImUploadPost$Response(
+    return UserServiceFileImUploadPost$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       data: data ?? this.data,
     );
   }
 
-  FileImUploadPost$Response copyWithWrapped({
+  UserServiceFileImUploadPost$Response copyWithWrapped({
     Wrapped<int>? code,
     Wrapped<String>? message,
-    Wrapped<List<FileImUploadPost$Response$Data$Item>>? data,
+    Wrapped<List<UserServiceFileImUploadPost$Response$Data$Item>>? data,
   }) {
-    return FileImUploadPost$Response(
+    return UserServiceFileImUploadPost$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
@@ -3635,27 +3751,34 @@ extension $FileImUploadPost$ResponseExtension on FileImUploadPost$Response {
 }
 
 @JsonSerializable(explicitToJson: true)
-class FileLogoUploadPost$Response {
-  const FileLogoUploadPost$Response({this.code, this.message, this.data});
+class UserServiceFileLogoUploadPost$Response {
+  const UserServiceFileLogoUploadPost$Response({
+    this.code,
+    this.message,
+    this.data,
+  });
 
-  factory FileLogoUploadPost$Response.fromJson(Map<String, dynamic> json) =>
-      _$FileLogoUploadPost$ResponseFromJson(json);
+  factory UserServiceFileLogoUploadPost$Response.fromJson(
+    Map<String, dynamic> json,
+  ) => _$UserServiceFileLogoUploadPost$ResponseFromJson(json);
 
-  static const toJsonFactory = _$FileLogoUploadPost$ResponseToJson;
-  Map<String, dynamic> toJson() => _$FileLogoUploadPost$ResponseToJson(this);
+  static const toJsonFactory = _$UserServiceFileLogoUploadPost$ResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$UserServiceFileLogoUploadPost$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final String? code;
   @JsonKey(name: 'message')
   final String? message;
   @JsonKey(name: 'data')
-  final FileLogoUploadPost$Response$Data? data;
-  static const fromJsonFactory = _$FileLogoUploadPost$ResponseFromJson;
+  final UserServiceFileLogoUploadPost$Response$Data? data;
+  static const fromJsonFactory =
+      _$UserServiceFileLogoUploadPost$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FileLogoUploadPost$Response &&
+        (other is UserServiceFileLogoUploadPost$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -3678,25 +3801,26 @@ class FileLogoUploadPost$Response {
       runtimeType.hashCode;
 }
 
-extension $FileLogoUploadPost$ResponseExtension on FileLogoUploadPost$Response {
-  FileLogoUploadPost$Response copyWith({
+extension $UserServiceFileLogoUploadPost$ResponseExtension
+    on UserServiceFileLogoUploadPost$Response {
+  UserServiceFileLogoUploadPost$Response copyWith({
     String? code,
     String? message,
-    FileLogoUploadPost$Response$Data? data,
+    UserServiceFileLogoUploadPost$Response$Data? data,
   }) {
-    return FileLogoUploadPost$Response(
+    return UserServiceFileLogoUploadPost$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       data: data ?? this.data,
     );
   }
 
-  FileLogoUploadPost$Response copyWithWrapped({
+  UserServiceFileLogoUploadPost$Response copyWithWrapped({
     Wrapped<String?>? code,
     Wrapped<String?>? message,
-    Wrapped<FileLogoUploadPost$Response$Data?>? data,
+    Wrapped<UserServiceFileLogoUploadPost$Response$Data?>? data,
   }) {
-    return FileLogoUploadPost$Response(
+    return UserServiceFileLogoUploadPost$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
@@ -3705,8 +3829,8 @@ extension $FileLogoUploadPost$ResponseExtension on FileLogoUploadPost$Response {
 }
 
 @JsonSerializable(explicitToJson: true)
-class UserCouponCountGet$Response {
-  const UserCouponCountGet$Response({
+class UserServiceUserCouponCountGet$Response {
+  const UserServiceUserCouponCountGet$Response({
     this.code,
     this.message,
     this.data,
@@ -3715,30 +3839,33 @@ class UserCouponCountGet$Response {
     this.success,
   });
 
-  factory UserCouponCountGet$Response.fromJson(Map<String, dynamic> json) =>
-      _$UserCouponCountGet$ResponseFromJson(json);
+  factory UserServiceUserCouponCountGet$Response.fromJson(
+    Map<String, dynamic> json,
+  ) => _$UserServiceUserCouponCountGet$ResponseFromJson(json);
 
-  static const toJsonFactory = _$UserCouponCountGet$ResponseToJson;
-  Map<String, dynamic> toJson() => _$UserCouponCountGet$ResponseToJson(this);
+  static const toJsonFactory = _$UserServiceUserCouponCountGet$ResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$UserServiceUserCouponCountGet$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final double? code;
   @JsonKey(name: 'message')
   final String? message;
   @JsonKey(name: 'data')
-  final UserCouponCountGet$Response$Data? data;
+  final UserServiceUserCouponCountGet$Response$Data? data;
   @JsonKey(name: 'traceId')
   final String? traceId;
   @JsonKey(name: 'placeholder')
   final String? placeholder;
   @JsonKey(name: 'success')
   final bool? success;
-  static const fromJsonFactory = _$UserCouponCountGet$ResponseFromJson;
+  static const fromJsonFactory =
+      _$UserServiceUserCouponCountGet$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is UserCouponCountGet$Response &&
+        (other is UserServiceUserCouponCountGet$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -3776,16 +3903,17 @@ class UserCouponCountGet$Response {
       runtimeType.hashCode;
 }
 
-extension $UserCouponCountGet$ResponseExtension on UserCouponCountGet$Response {
-  UserCouponCountGet$Response copyWith({
+extension $UserServiceUserCouponCountGet$ResponseExtension
+    on UserServiceUserCouponCountGet$Response {
+  UserServiceUserCouponCountGet$Response copyWith({
     double? code,
     String? message,
-    UserCouponCountGet$Response$Data? data,
+    UserServiceUserCouponCountGet$Response$Data? data,
     String? traceId,
     String? placeholder,
     bool? success,
   }) {
-    return UserCouponCountGet$Response(
+    return UserServiceUserCouponCountGet$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       data: data ?? this.data,
@@ -3795,15 +3923,15 @@ extension $UserCouponCountGet$ResponseExtension on UserCouponCountGet$Response {
     );
   }
 
-  UserCouponCountGet$Response copyWithWrapped({
+  UserServiceUserCouponCountGet$Response copyWithWrapped({
     Wrapped<double?>? code,
     Wrapped<String?>? message,
-    Wrapped<UserCouponCountGet$Response$Data?>? data,
+    Wrapped<UserServiceUserCouponCountGet$Response$Data?>? data,
     Wrapped<String?>? traceId,
     Wrapped<String?>? placeholder,
     Wrapped<bool?>? success,
   }) {
-    return UserCouponCountGet$Response(
+    return UserServiceUserCouponCountGet$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
@@ -3815,27 +3943,32 @@ extension $UserCouponCountGet$ResponseExtension on UserCouponCountGet$Response {
 }
 
 @JsonSerializable(explicitToJson: true)
-class UserCouponActivityInfoGet$Response {
-  const UserCouponActivityInfoGet$Response({this.success, this.data});
+class UserServiceUserCouponActivityInfoGet$Response {
+  const UserServiceUserCouponActivityInfoGet$Response({
+    this.success,
+    this.data,
+  });
 
-  factory UserCouponActivityInfoGet$Response.fromJson(
+  factory UserServiceUserCouponActivityInfoGet$Response.fromJson(
     Map<String, dynamic> json,
-  ) => _$UserCouponActivityInfoGet$ResponseFromJson(json);
+  ) => _$UserServiceUserCouponActivityInfoGet$ResponseFromJson(json);
 
-  static const toJsonFactory = _$UserCouponActivityInfoGet$ResponseToJson;
+  static const toJsonFactory =
+      _$UserServiceUserCouponActivityInfoGet$ResponseToJson;
   Map<String, dynamic> toJson() =>
-      _$UserCouponActivityInfoGet$ResponseToJson(this);
+      _$UserServiceUserCouponActivityInfoGet$ResponseToJson(this);
 
   @JsonKey(name: 'success')
   final bool? success;
   @JsonKey(name: 'data')
-  final UserCouponActivityInfoGet$Response$Data? data;
-  static const fromJsonFactory = _$UserCouponActivityInfoGet$ResponseFromJson;
+  final UserServiceUserCouponActivityInfoGet$Response$Data? data;
+  static const fromJsonFactory =
+      _$UserServiceUserCouponActivityInfoGet$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is UserCouponActivityInfoGet$Response &&
+        (other is UserServiceUserCouponActivityInfoGet$Response &&
             (identical(other.success, success) ||
                 const DeepCollectionEquality().equals(
                   other.success,
@@ -3855,23 +3988,23 @@ class UserCouponActivityInfoGet$Response {
       runtimeType.hashCode;
 }
 
-extension $UserCouponActivityInfoGet$ResponseExtension
-    on UserCouponActivityInfoGet$Response {
-  UserCouponActivityInfoGet$Response copyWith({
+extension $UserServiceUserCouponActivityInfoGet$ResponseExtension
+    on UserServiceUserCouponActivityInfoGet$Response {
+  UserServiceUserCouponActivityInfoGet$Response copyWith({
     bool? success,
-    UserCouponActivityInfoGet$Response$Data? data,
+    UserServiceUserCouponActivityInfoGet$Response$Data? data,
   }) {
-    return UserCouponActivityInfoGet$Response(
+    return UserServiceUserCouponActivityInfoGet$Response(
       success: success ?? this.success,
       data: data ?? this.data,
     );
   }
 
-  UserCouponActivityInfoGet$Response copyWithWrapped({
+  UserServiceUserCouponActivityInfoGet$Response copyWithWrapped({
     Wrapped<bool?>? success,
-    Wrapped<UserCouponActivityInfoGet$Response$Data?>? data,
+    Wrapped<UserServiceUserCouponActivityInfoGet$Response$Data?>? data,
   }) {
-    return UserCouponActivityInfoGet$Response(
+    return UserServiceUserCouponActivityInfoGet$Response(
       success: (success != null ? success.value : this.success),
       data: (data != null ? data.value : this.data),
     );
@@ -3879,8 +4012,8 @@ extension $UserCouponActivityInfoGet$ResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class UserCouponCode2CouponGet$Response {
-  const UserCouponCode2CouponGet$Response({
+class UserServiceUserCouponCode2CouponGet$Response {
+  const UserServiceUserCouponCode2CouponGet$Response({
     this.code,
     this.message,
     this.data,
@@ -3889,32 +4022,34 @@ class UserCouponCode2CouponGet$Response {
     this.success,
   });
 
-  factory UserCouponCode2CouponGet$Response.fromJson(
+  factory UserServiceUserCouponCode2CouponGet$Response.fromJson(
     Map<String, dynamic> json,
-  ) => _$UserCouponCode2CouponGet$ResponseFromJson(json);
+  ) => _$UserServiceUserCouponCode2CouponGet$ResponseFromJson(json);
 
-  static const toJsonFactory = _$UserCouponCode2CouponGet$ResponseToJson;
+  static const toJsonFactory =
+      _$UserServiceUserCouponCode2CouponGet$ResponseToJson;
   Map<String, dynamic> toJson() =>
-      _$UserCouponCode2CouponGet$ResponseToJson(this);
+      _$UserServiceUserCouponCode2CouponGet$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final double? code;
   @JsonKey(name: 'message')
   final String? message;
   @JsonKey(name: 'data')
-  final UserCouponCode2CouponGet$Response$Data? data;
+  final UserServiceUserCouponCode2CouponGet$Response$Data? data;
   @JsonKey(name: 'traceId')
   final String? traceId;
   @JsonKey(name: 'placeholder')
   final String? placeholder;
   @JsonKey(name: 'success')
   final bool? success;
-  static const fromJsonFactory = _$UserCouponCode2CouponGet$ResponseFromJson;
+  static const fromJsonFactory =
+      _$UserServiceUserCouponCode2CouponGet$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is UserCouponCode2CouponGet$Response &&
+        (other is UserServiceUserCouponCode2CouponGet$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -3952,17 +4087,17 @@ class UserCouponCode2CouponGet$Response {
       runtimeType.hashCode;
 }
 
-extension $UserCouponCode2CouponGet$ResponseExtension
-    on UserCouponCode2CouponGet$Response {
-  UserCouponCode2CouponGet$Response copyWith({
+extension $UserServiceUserCouponCode2CouponGet$ResponseExtension
+    on UserServiceUserCouponCode2CouponGet$Response {
+  UserServiceUserCouponCode2CouponGet$Response copyWith({
     double? code,
     String? message,
-    UserCouponCode2CouponGet$Response$Data? data,
+    UserServiceUserCouponCode2CouponGet$Response$Data? data,
     String? traceId,
     String? placeholder,
     bool? success,
   }) {
-    return UserCouponCode2CouponGet$Response(
+    return UserServiceUserCouponCode2CouponGet$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       data: data ?? this.data,
@@ -3972,15 +4107,15 @@ extension $UserCouponCode2CouponGet$ResponseExtension
     );
   }
 
-  UserCouponCode2CouponGet$Response copyWithWrapped({
+  UserServiceUserCouponCode2CouponGet$Response copyWithWrapped({
     Wrapped<double?>? code,
     Wrapped<String?>? message,
-    Wrapped<UserCouponCode2CouponGet$Response$Data?>? data,
+    Wrapped<UserServiceUserCouponCode2CouponGet$Response$Data?>? data,
     Wrapped<String?>? traceId,
     Wrapped<String?>? placeholder,
     Wrapped<bool?>? success,
   }) {
-    return UserCouponCode2CouponGet$Response(
+    return UserServiceUserCouponCode2CouponGet$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
@@ -3992,27 +4127,32 @@ extension $UserCouponCode2CouponGet$ResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class UserCouponActivityInfosGet$Response {
-  const UserCouponActivityInfosGet$Response({this.success, this.data});
+class UserServiceUserCouponActivityInfosGet$Response {
+  const UserServiceUserCouponActivityInfosGet$Response({
+    this.success,
+    this.data,
+  });
 
-  factory UserCouponActivityInfosGet$Response.fromJson(
+  factory UserServiceUserCouponActivityInfosGet$Response.fromJson(
     Map<String, dynamic> json,
-  ) => _$UserCouponActivityInfosGet$ResponseFromJson(json);
+  ) => _$UserServiceUserCouponActivityInfosGet$ResponseFromJson(json);
 
-  static const toJsonFactory = _$UserCouponActivityInfosGet$ResponseToJson;
+  static const toJsonFactory =
+      _$UserServiceUserCouponActivityInfosGet$ResponseToJson;
   Map<String, dynamic> toJson() =>
-      _$UserCouponActivityInfosGet$ResponseToJson(this);
+      _$UserServiceUserCouponActivityInfosGet$ResponseToJson(this);
 
   @JsonKey(name: 'success')
   final bool? success;
   @JsonKey(name: 'data')
-  final List<UserCouponActivityInfosGet$Response$Data$Item>? data;
-  static const fromJsonFactory = _$UserCouponActivityInfosGet$ResponseFromJson;
+  final List<UserServiceUserCouponActivityInfosGet$Response$Data$Item>? data;
+  static const fromJsonFactory =
+      _$UserServiceUserCouponActivityInfosGet$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is UserCouponActivityInfosGet$Response &&
+        (other is UserServiceUserCouponActivityInfosGet$Response &&
             (identical(other.success, success) ||
                 const DeepCollectionEquality().equals(
                   other.success,
@@ -4032,23 +4172,24 @@ class UserCouponActivityInfosGet$Response {
       runtimeType.hashCode;
 }
 
-extension $UserCouponActivityInfosGet$ResponseExtension
-    on UserCouponActivityInfosGet$Response {
-  UserCouponActivityInfosGet$Response copyWith({
+extension $UserServiceUserCouponActivityInfosGet$ResponseExtension
+    on UserServiceUserCouponActivityInfosGet$Response {
+  UserServiceUserCouponActivityInfosGet$Response copyWith({
     bool? success,
-    List<UserCouponActivityInfosGet$Response$Data$Item>? data,
+    List<UserServiceUserCouponActivityInfosGet$Response$Data$Item>? data,
   }) {
-    return UserCouponActivityInfosGet$Response(
+    return UserServiceUserCouponActivityInfosGet$Response(
       success: success ?? this.success,
       data: data ?? this.data,
     );
   }
 
-  UserCouponActivityInfosGet$Response copyWithWrapped({
+  UserServiceUserCouponActivityInfosGet$Response copyWithWrapped({
     Wrapped<bool?>? success,
-    Wrapped<List<UserCouponActivityInfosGet$Response$Data$Item>?>? data,
+    Wrapped<List<UserServiceUserCouponActivityInfosGet$Response$Data$Item>?>?
+    data,
   }) {
-    return UserCouponActivityInfosGet$Response(
+    return UserServiceUserCouponActivityInfosGet$Response(
       success: (success != null ? success.value : this.success),
       data: (data != null ? data.value : this.data),
     );
@@ -4056,8 +4197,8 @@ extension $UserCouponActivityInfosGet$ResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class UserCouponGetActivitiesGet$Response {
-  const UserCouponGetActivitiesGet$Response({
+class UserServiceUserCouponGetActivitiesGet$Response {
+  const UserServiceUserCouponGetActivitiesGet$Response({
     this.code,
     this.message,
     this.data,
@@ -4066,13 +4207,14 @@ class UserCouponGetActivitiesGet$Response {
     this.success,
   });
 
-  factory UserCouponGetActivitiesGet$Response.fromJson(
+  factory UserServiceUserCouponGetActivitiesGet$Response.fromJson(
     Map<String, dynamic> json,
-  ) => _$UserCouponGetActivitiesGet$ResponseFromJson(json);
+  ) => _$UserServiceUserCouponGetActivitiesGet$ResponseFromJson(json);
 
-  static const toJsonFactory = _$UserCouponGetActivitiesGet$ResponseToJson;
+  static const toJsonFactory =
+      _$UserServiceUserCouponGetActivitiesGet$ResponseToJson;
   Map<String, dynamic> toJson() =>
-      _$UserCouponGetActivitiesGet$ResponseToJson(this);
+      _$UserServiceUserCouponGetActivitiesGet$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final double? code;
@@ -4086,12 +4228,13 @@ class UserCouponGetActivitiesGet$Response {
   final String? placeholder;
   @JsonKey(name: 'success')
   final bool? success;
-  static const fromJsonFactory = _$UserCouponGetActivitiesGet$ResponseFromJson;
+  static const fromJsonFactory =
+      _$UserServiceUserCouponGetActivitiesGet$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is UserCouponGetActivitiesGet$Response &&
+        (other is UserServiceUserCouponGetActivitiesGet$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -4129,9 +4272,9 @@ class UserCouponGetActivitiesGet$Response {
       runtimeType.hashCode;
 }
 
-extension $UserCouponGetActivitiesGet$ResponseExtension
-    on UserCouponGetActivitiesGet$Response {
-  UserCouponGetActivitiesGet$Response copyWith({
+extension $UserServiceUserCouponGetActivitiesGet$ResponseExtension
+    on UserServiceUserCouponGetActivitiesGet$Response {
+  UserServiceUserCouponGetActivitiesGet$Response copyWith({
     double? code,
     String? message,
     List<String>? data,
@@ -4139,7 +4282,7 @@ extension $UserCouponGetActivitiesGet$ResponseExtension
     String? placeholder,
     bool? success,
   }) {
-    return UserCouponGetActivitiesGet$Response(
+    return UserServiceUserCouponGetActivitiesGet$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       data: data ?? this.data,
@@ -4149,7 +4292,7 @@ extension $UserCouponGetActivitiesGet$ResponseExtension
     );
   }
 
-  UserCouponGetActivitiesGet$Response copyWithWrapped({
+  UserServiceUserCouponGetActivitiesGet$Response copyWithWrapped({
     Wrapped<double?>? code,
     Wrapped<String?>? message,
     Wrapped<List<String>?>? data,
@@ -4157,7 +4300,7 @@ extension $UserCouponGetActivitiesGet$ResponseExtension
     Wrapped<String?>? placeholder,
     Wrapped<bool?>? success,
   }) {
-    return UserCouponGetActivitiesGet$Response(
+    return UserServiceUserCouponGetActivitiesGet$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
@@ -4169,8 +4312,8 @@ extension $UserCouponGetActivitiesGet$ResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class UserCouponGetListGet$Response {
-  const UserCouponGetListGet$Response({
+class UserServiceUserCouponGetListGet$Response {
+  const UserServiceUserCouponGetListGet$Response({
     this.code,
     this.message,
     this.data,
@@ -4179,30 +4322,33 @@ class UserCouponGetListGet$Response {
     this.success,
   });
 
-  factory UserCouponGetListGet$Response.fromJson(Map<String, dynamic> json) =>
-      _$UserCouponGetListGet$ResponseFromJson(json);
+  factory UserServiceUserCouponGetListGet$Response.fromJson(
+    Map<String, dynamic> json,
+  ) => _$UserServiceUserCouponGetListGet$ResponseFromJson(json);
 
-  static const toJsonFactory = _$UserCouponGetListGet$ResponseToJson;
-  Map<String, dynamic> toJson() => _$UserCouponGetListGet$ResponseToJson(this);
+  static const toJsonFactory = _$UserServiceUserCouponGetListGet$ResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$UserServiceUserCouponGetListGet$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final double? code;
   @JsonKey(name: 'message')
   final String? message;
   @JsonKey(name: 'data')
-  final List<UserCouponGetListGet$Response$Data$Item>? data;
+  final List<UserServiceUserCouponGetListGet$Response$Data$Item>? data;
   @JsonKey(name: 'traceId')
   final String? traceId;
   @JsonKey(name: 'placeholder')
   final String? placeholder;
   @JsonKey(name: 'success')
   final bool? success;
-  static const fromJsonFactory = _$UserCouponGetListGet$ResponseFromJson;
+  static const fromJsonFactory =
+      _$UserServiceUserCouponGetListGet$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is UserCouponGetListGet$Response &&
+        (other is UserServiceUserCouponGetListGet$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -4240,17 +4386,17 @@ class UserCouponGetListGet$Response {
       runtimeType.hashCode;
 }
 
-extension $UserCouponGetListGet$ResponseExtension
-    on UserCouponGetListGet$Response {
-  UserCouponGetListGet$Response copyWith({
+extension $UserServiceUserCouponGetListGet$ResponseExtension
+    on UserServiceUserCouponGetListGet$Response {
+  UserServiceUserCouponGetListGet$Response copyWith({
     double? code,
     String? message,
-    List<UserCouponGetListGet$Response$Data$Item>? data,
+    List<UserServiceUserCouponGetListGet$Response$Data$Item>? data,
     String? traceId,
     String? placeholder,
     bool? success,
   }) {
-    return UserCouponGetListGet$Response(
+    return UserServiceUserCouponGetListGet$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       data: data ?? this.data,
@@ -4260,15 +4406,15 @@ extension $UserCouponGetListGet$ResponseExtension
     );
   }
 
-  UserCouponGetListGet$Response copyWithWrapped({
+  UserServiceUserCouponGetListGet$Response copyWithWrapped({
     Wrapped<double?>? code,
     Wrapped<String?>? message,
-    Wrapped<List<UserCouponGetListGet$Response$Data$Item>?>? data,
+    Wrapped<List<UserServiceUserCouponGetListGet$Response$Data$Item>?>? data,
     Wrapped<String?>? traceId,
     Wrapped<String?>? placeholder,
     Wrapped<bool?>? success,
   }) {
-    return UserCouponGetListGet$Response(
+    return UserServiceUserCouponGetListGet$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
@@ -4280,8 +4426,8 @@ extension $UserCouponGetListGet$ResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class UserCouponGetUserCouponByActivityPost$Response {
-  const UserCouponGetUserCouponByActivityPost$Response({
+class UserServiceUserCouponGetUserCouponByActivityPost$Response {
+  const UserServiceUserCouponGetUserCouponByActivityPost$Response({
     this.code,
     this.message,
     this.data,
@@ -4290,14 +4436,15 @@ class UserCouponGetUserCouponByActivityPost$Response {
     this.success,
   });
 
-  factory UserCouponGetUserCouponByActivityPost$Response.fromJson(
+  factory UserServiceUserCouponGetUserCouponByActivityPost$Response.fromJson(
     Map<String, dynamic> json,
-  ) => _$UserCouponGetUserCouponByActivityPost$ResponseFromJson(json);
+  ) =>
+      _$UserServiceUserCouponGetUserCouponByActivityPost$ResponseFromJson(json);
 
   static const toJsonFactory =
-      _$UserCouponGetUserCouponByActivityPost$ResponseToJson;
+      _$UserServiceUserCouponGetUserCouponByActivityPost$ResponseToJson;
   Map<String, dynamic> toJson() =>
-      _$UserCouponGetUserCouponByActivityPost$ResponseToJson(this);
+      _$UserServiceUserCouponGetUserCouponByActivityPost$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final double? code;
@@ -4312,12 +4459,12 @@ class UserCouponGetUserCouponByActivityPost$Response {
   @JsonKey(name: 'success')
   final bool? success;
   static const fromJsonFactory =
-      _$UserCouponGetUserCouponByActivityPost$ResponseFromJson;
+      _$UserServiceUserCouponGetUserCouponByActivityPost$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is UserCouponGetUserCouponByActivityPost$Response &&
+        (other is UserServiceUserCouponGetUserCouponByActivityPost$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -4355,9 +4502,9 @@ class UserCouponGetUserCouponByActivityPost$Response {
       runtimeType.hashCode;
 }
 
-extension $UserCouponGetUserCouponByActivityPost$ResponseExtension
-    on UserCouponGetUserCouponByActivityPost$Response {
-  UserCouponGetUserCouponByActivityPost$Response copyWith({
+extension $UserServiceUserCouponGetUserCouponByActivityPost$ResponseExtension
+    on UserServiceUserCouponGetUserCouponByActivityPost$Response {
+  UserServiceUserCouponGetUserCouponByActivityPost$Response copyWith({
     double? code,
     String? message,
     bool? data,
@@ -4365,7 +4512,7 @@ extension $UserCouponGetUserCouponByActivityPost$ResponseExtension
     Object? placeholder,
     bool? success,
   }) {
-    return UserCouponGetUserCouponByActivityPost$Response(
+    return UserServiceUserCouponGetUserCouponByActivityPost$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       data: data ?? this.data,
@@ -4375,7 +4522,7 @@ extension $UserCouponGetUserCouponByActivityPost$ResponseExtension
     );
   }
 
-  UserCouponGetUserCouponByActivityPost$Response copyWithWrapped({
+  UserServiceUserCouponGetUserCouponByActivityPost$Response copyWithWrapped({
     Wrapped<double?>? code,
     Wrapped<String?>? message,
     Wrapped<bool?>? data,
@@ -4383,7 +4530,7 @@ extension $UserCouponGetUserCouponByActivityPost$ResponseExtension
     Wrapped<Object?>? placeholder,
     Wrapped<bool?>? success,
   }) {
-    return UserCouponGetUserCouponByActivityPost$Response(
+    return UserServiceUserCouponGetUserCouponByActivityPost$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
@@ -4395,8 +4542,8 @@ extension $UserCouponGetUserCouponByActivityPost$ResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class UserCouponSaveGet$Response {
-  const UserCouponSaveGet$Response({
+class UserServiceUserCouponSaveGet$Response {
+  const UserServiceUserCouponSaveGet$Response({
     this.code,
     this.message,
     this.data,
@@ -4405,11 +4552,13 @@ class UserCouponSaveGet$Response {
     this.success,
   });
 
-  factory UserCouponSaveGet$Response.fromJson(Map<String, dynamic> json) =>
-      _$UserCouponSaveGet$ResponseFromJson(json);
+  factory UserServiceUserCouponSaveGet$Response.fromJson(
+    Map<String, dynamic> json,
+  ) => _$UserServiceUserCouponSaveGet$ResponseFromJson(json);
 
-  static const toJsonFactory = _$UserCouponSaveGet$ResponseToJson;
-  Map<String, dynamic> toJson() => _$UserCouponSaveGet$ResponseToJson(this);
+  static const toJsonFactory = _$UserServiceUserCouponSaveGet$ResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$UserServiceUserCouponSaveGet$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final double? code;
@@ -4423,12 +4572,13 @@ class UserCouponSaveGet$Response {
   final String? placeholder;
   @JsonKey(name: 'success')
   final bool? success;
-  static const fromJsonFactory = _$UserCouponSaveGet$ResponseFromJson;
+  static const fromJsonFactory =
+      _$UserServiceUserCouponSaveGet$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is UserCouponSaveGet$Response &&
+        (other is UserServiceUserCouponSaveGet$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -4466,8 +4616,9 @@ class UserCouponSaveGet$Response {
       runtimeType.hashCode;
 }
 
-extension $UserCouponSaveGet$ResponseExtension on UserCouponSaveGet$Response {
-  UserCouponSaveGet$Response copyWith({
+extension $UserServiceUserCouponSaveGet$ResponseExtension
+    on UserServiceUserCouponSaveGet$Response {
+  UserServiceUserCouponSaveGet$Response copyWith({
     double? code,
     String? message,
     String? data,
@@ -4475,7 +4626,7 @@ extension $UserCouponSaveGet$ResponseExtension on UserCouponSaveGet$Response {
     String? placeholder,
     bool? success,
   }) {
-    return UserCouponSaveGet$Response(
+    return UserServiceUserCouponSaveGet$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       data: data ?? this.data,
@@ -4485,7 +4636,7 @@ extension $UserCouponSaveGet$ResponseExtension on UserCouponSaveGet$Response {
     );
   }
 
-  UserCouponSaveGet$Response copyWithWrapped({
+  UserServiceUserCouponSaveGet$Response copyWithWrapped({
     Wrapped<double?>? code,
     Wrapped<String?>? message,
     Wrapped<String?>? data,
@@ -4493,7 +4644,7 @@ extension $UserCouponSaveGet$ResponseExtension on UserCouponSaveGet$Response {
     Wrapped<String?>? placeholder,
     Wrapped<bool?>? success,
   }) {
-    return UserCouponSaveGet$Response(
+    return UserServiceUserCouponSaveGet$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
@@ -4505,28 +4656,32 @@ extension $UserCouponSaveGet$ResponseExtension on UserCouponSaveGet$Response {
 }
 
 @JsonSerializable(explicitToJson: true)
-class UserCouponNoAuthActivityInfoGet$Response {
-  const UserCouponNoAuthActivityInfoGet$Response({this.success, this.data});
+class UserServiceUserCouponNoAuthActivityInfoGet$Response {
+  const UserServiceUserCouponNoAuthActivityInfoGet$Response({
+    this.success,
+    this.data,
+  });
 
-  factory UserCouponNoAuthActivityInfoGet$Response.fromJson(
+  factory UserServiceUserCouponNoAuthActivityInfoGet$Response.fromJson(
     Map<String, dynamic> json,
-  ) => _$UserCouponNoAuthActivityInfoGet$ResponseFromJson(json);
+  ) => _$UserServiceUserCouponNoAuthActivityInfoGet$ResponseFromJson(json);
 
-  static const toJsonFactory = _$UserCouponNoAuthActivityInfoGet$ResponseToJson;
+  static const toJsonFactory =
+      _$UserServiceUserCouponNoAuthActivityInfoGet$ResponseToJson;
   Map<String, dynamic> toJson() =>
-      _$UserCouponNoAuthActivityInfoGet$ResponseToJson(this);
+      _$UserServiceUserCouponNoAuthActivityInfoGet$ResponseToJson(this);
 
   @JsonKey(name: 'success')
   final bool? success;
   @JsonKey(name: 'data')
-  final UserCouponNoAuthActivityInfoGet$Response$Data? data;
+  final UserServiceUserCouponNoAuthActivityInfoGet$Response$Data? data;
   static const fromJsonFactory =
-      _$UserCouponNoAuthActivityInfoGet$ResponseFromJson;
+      _$UserServiceUserCouponNoAuthActivityInfoGet$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is UserCouponNoAuthActivityInfoGet$Response &&
+        (other is UserServiceUserCouponNoAuthActivityInfoGet$Response &&
             (identical(other.success, success) ||
                 const DeepCollectionEquality().equals(
                   other.success,
@@ -4546,23 +4701,23 @@ class UserCouponNoAuthActivityInfoGet$Response {
       runtimeType.hashCode;
 }
 
-extension $UserCouponNoAuthActivityInfoGet$ResponseExtension
-    on UserCouponNoAuthActivityInfoGet$Response {
-  UserCouponNoAuthActivityInfoGet$Response copyWith({
+extension $UserServiceUserCouponNoAuthActivityInfoGet$ResponseExtension
+    on UserServiceUserCouponNoAuthActivityInfoGet$Response {
+  UserServiceUserCouponNoAuthActivityInfoGet$Response copyWith({
     bool? success,
-    UserCouponNoAuthActivityInfoGet$Response$Data? data,
+    UserServiceUserCouponNoAuthActivityInfoGet$Response$Data? data,
   }) {
-    return UserCouponNoAuthActivityInfoGet$Response(
+    return UserServiceUserCouponNoAuthActivityInfoGet$Response(
       success: success ?? this.success,
       data: data ?? this.data,
     );
   }
 
-  UserCouponNoAuthActivityInfoGet$Response copyWithWrapped({
+  UserServiceUserCouponNoAuthActivityInfoGet$Response copyWithWrapped({
     Wrapped<bool?>? success,
-    Wrapped<UserCouponNoAuthActivityInfoGet$Response$Data?>? data,
+    Wrapped<UserServiceUserCouponNoAuthActivityInfoGet$Response$Data?>? data,
   }) {
-    return UserCouponNoAuthActivityInfoGet$Response(
+    return UserServiceUserCouponNoAuthActivityInfoGet$Response(
       success: (success != null ? success.value : this.success),
       data: (data != null ? data.value : this.data),
     );
@@ -4570,8 +4725,8 @@ extension $UserCouponNoAuthActivityInfoGet$ResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class UserCouponGetCouponByActivityPost$Response {
-  const UserCouponGetCouponByActivityPost$Response({
+class UserServiceUserCouponGetCouponByActivityPost$Response {
+  const UserServiceUserCouponGetCouponByActivityPost$Response({
     this.code,
     this.message,
     this.data,
@@ -4580,21 +4735,22 @@ class UserCouponGetCouponByActivityPost$Response {
     this.success,
   });
 
-  factory UserCouponGetCouponByActivityPost$Response.fromJson(
+  factory UserServiceUserCouponGetCouponByActivityPost$Response.fromJson(
     Map<String, dynamic> json,
-  ) => _$UserCouponGetCouponByActivityPost$ResponseFromJson(json);
+  ) => _$UserServiceUserCouponGetCouponByActivityPost$ResponseFromJson(json);
 
   static const toJsonFactory =
-      _$UserCouponGetCouponByActivityPost$ResponseToJson;
+      _$UserServiceUserCouponGetCouponByActivityPost$ResponseToJson;
   Map<String, dynamic> toJson() =>
-      _$UserCouponGetCouponByActivityPost$ResponseToJson(this);
+      _$UserServiceUserCouponGetCouponByActivityPost$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final double? code;
   @JsonKey(name: 'message')
   final String? message;
   @JsonKey(name: 'data')
-  final List<UserCouponGetCouponByActivityPost$Response$Data$Item>? data;
+  final List<UserServiceUserCouponGetCouponByActivityPost$Response$Data$Item>?
+  data;
   @JsonKey(name: 'traceId')
   final String? traceId;
   @JsonKey(name: 'placeholder')
@@ -4602,12 +4758,12 @@ class UserCouponGetCouponByActivityPost$Response {
   @JsonKey(name: 'success')
   final bool? success;
   static const fromJsonFactory =
-      _$UserCouponGetCouponByActivityPost$ResponseFromJson;
+      _$UserServiceUserCouponGetCouponByActivityPost$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is UserCouponGetCouponByActivityPost$Response &&
+        (other is UserServiceUserCouponGetCouponByActivityPost$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -4645,17 +4801,17 @@ class UserCouponGetCouponByActivityPost$Response {
       runtimeType.hashCode;
 }
 
-extension $UserCouponGetCouponByActivityPost$ResponseExtension
-    on UserCouponGetCouponByActivityPost$Response {
-  UserCouponGetCouponByActivityPost$Response copyWith({
+extension $UserServiceUserCouponGetCouponByActivityPost$ResponseExtension
+    on UserServiceUserCouponGetCouponByActivityPost$Response {
+  UserServiceUserCouponGetCouponByActivityPost$Response copyWith({
     double? code,
     String? message,
-    List<UserCouponGetCouponByActivityPost$Response$Data$Item>? data,
+    List<UserServiceUserCouponGetCouponByActivityPost$Response$Data$Item>? data,
     String? traceId,
     String? placeholder,
     bool? success,
   }) {
-    return UserCouponGetCouponByActivityPost$Response(
+    return UserServiceUserCouponGetCouponByActivityPost$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       data: data ?? this.data,
@@ -4665,15 +4821,18 @@ extension $UserCouponGetCouponByActivityPost$ResponseExtension
     );
   }
 
-  UserCouponGetCouponByActivityPost$Response copyWithWrapped({
+  UserServiceUserCouponGetCouponByActivityPost$Response copyWithWrapped({
     Wrapped<double?>? code,
     Wrapped<String?>? message,
-    Wrapped<List<UserCouponGetCouponByActivityPost$Response$Data$Item>?>? data,
+    Wrapped<
+      List<UserServiceUserCouponGetCouponByActivityPost$Response$Data$Item>?
+    >?
+    data,
     Wrapped<String?>? traceId,
     Wrapped<String?>? placeholder,
     Wrapped<bool?>? success,
   }) {
-    return UserCouponGetCouponByActivityPost$Response(
+    return UserServiceUserCouponGetCouponByActivityPost$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
@@ -4685,8 +4844,8 @@ extension $UserCouponGetCouponByActivityPost$ResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class UserCouponGetGet$Response {
-  const UserCouponGetGet$Response({
+class UserServiceUserCouponGetGet$Response {
+  const UserServiceUserCouponGetGet$Response({
     this.code,
     this.message,
     this.data,
@@ -4695,30 +4854,32 @@ class UserCouponGetGet$Response {
     this.success,
   });
 
-  factory UserCouponGetGet$Response.fromJson(Map<String, dynamic> json) =>
-      _$UserCouponGetGet$ResponseFromJson(json);
+  factory UserServiceUserCouponGetGet$Response.fromJson(
+    Map<String, dynamic> json,
+  ) => _$UserServiceUserCouponGetGet$ResponseFromJson(json);
 
-  static const toJsonFactory = _$UserCouponGetGet$ResponseToJson;
-  Map<String, dynamic> toJson() => _$UserCouponGetGet$ResponseToJson(this);
+  static const toJsonFactory = _$UserServiceUserCouponGetGet$ResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$UserServiceUserCouponGetGet$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final double? code;
   @JsonKey(name: 'message')
   final String? message;
   @JsonKey(name: 'data')
-  final List<UserCouponGetGet$Response$Data$Item>? data;
+  final List<UserServiceUserCouponGetGet$Response$Data$Item>? data;
   @JsonKey(name: 'traceId')
   final String? traceId;
   @JsonKey(name: 'placeholder')
   final String? placeholder;
   @JsonKey(name: 'success')
   final bool? success;
-  static const fromJsonFactory = _$UserCouponGetGet$ResponseFromJson;
+  static const fromJsonFactory = _$UserServiceUserCouponGetGet$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is UserCouponGetGet$Response &&
+        (other is UserServiceUserCouponGetGet$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -4756,16 +4917,17 @@ class UserCouponGetGet$Response {
       runtimeType.hashCode;
 }
 
-extension $UserCouponGetGet$ResponseExtension on UserCouponGetGet$Response {
-  UserCouponGetGet$Response copyWith({
+extension $UserServiceUserCouponGetGet$ResponseExtension
+    on UserServiceUserCouponGetGet$Response {
+  UserServiceUserCouponGetGet$Response copyWith({
     double? code,
     String? message,
-    List<UserCouponGetGet$Response$Data$Item>? data,
+    List<UserServiceUserCouponGetGet$Response$Data$Item>? data,
     String? traceId,
     String? placeholder,
     bool? success,
   }) {
-    return UserCouponGetGet$Response(
+    return UserServiceUserCouponGetGet$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       data: data ?? this.data,
@@ -4775,15 +4937,15 @@ extension $UserCouponGetGet$ResponseExtension on UserCouponGetGet$Response {
     );
   }
 
-  UserCouponGetGet$Response copyWithWrapped({
+  UserServiceUserCouponGetGet$Response copyWithWrapped({
     Wrapped<double?>? code,
     Wrapped<String?>? message,
-    Wrapped<List<UserCouponGetGet$Response$Data$Item>?>? data,
+    Wrapped<List<UserServiceUserCouponGetGet$Response$Data$Item>?>? data,
     Wrapped<String?>? traceId,
     Wrapped<String?>? placeholder,
     Wrapped<bool?>? success,
   }) {
-    return UserCouponGetGet$Response(
+    return UserServiceUserCouponGetGet$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
@@ -4795,205 +4957,116 @@ extension $UserCouponGetGet$ResponseExtension on UserCouponGetGet$Response {
 }
 
 @JsonSerializable(explicitToJson: true)
-class ImGetInfoPost$Response {
-  const ImGetInfoPost$Response({this.data, this.message, this.traceId});
-
-  factory ImGetInfoPost$Response.fromJson(Map<String, dynamic> json) =>
-      _$ImGetInfoPost$ResponseFromJson(json);
-
-  static const toJsonFactory = _$ImGetInfoPost$ResponseToJson;
-  Map<String, dynamic> toJson() => _$ImGetInfoPost$ResponseToJson(this);
-
-  @JsonKey(name: 'data')
-  final ImGetInfoPost$Response$Data? data;
-  @JsonKey(name: 'message')
-  final String? message;
-  @JsonKey(name: 'traceId')
-  final String? traceId;
-  static const fromJsonFactory = _$ImGetInfoPost$ResponseFromJson;
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other is ImGetInfoPost$Response &&
-            (identical(other.data, data) ||
-                const DeepCollectionEquality().equals(other.data, data)) &&
-            (identical(other.message, message) ||
-                const DeepCollectionEquality().equals(
-                  other.message,
-                  message,
-                )) &&
-            (identical(other.traceId, traceId) ||
-                const DeepCollectionEquality().equals(other.traceId, traceId)));
-  }
-
-  @override
-  String toString() => jsonEncode(this);
-
-  @override
-  int get hashCode =>
-      const DeepCollectionEquality().hash(data) ^
-      const DeepCollectionEquality().hash(message) ^
-      const DeepCollectionEquality().hash(traceId) ^
-      runtimeType.hashCode;
-}
-
-extension $ImGetInfoPost$ResponseExtension on ImGetInfoPost$Response {
-  ImGetInfoPost$Response copyWith({
-    ImGetInfoPost$Response$Data? data,
-    String? message,
-    String? traceId,
-  }) {
-    return ImGetInfoPost$Response(
-      data: data ?? this.data,
-      message: message ?? this.message,
-      traceId: traceId ?? this.traceId,
-    );
-  }
-
-  ImGetInfoPost$Response copyWithWrapped({
-    Wrapped<ImGetInfoPost$Response$Data?>? data,
-    Wrapped<String?>? message,
-    Wrapped<String?>? traceId,
-  }) {
-    return ImGetInfoPost$Response(
-      data: (data != null ? data.value : this.data),
-      message: (message != null ? message.value : this.message),
-      traceId: (traceId != null ? traceId.value : this.traceId),
-    );
-  }
-}
-
-@JsonSerializable(explicitToJson: true)
-class UserShareListGet$Response {
-  const UserShareListGet$Response({
-    this.code,
-    this.message,
+class UserServiceImGetInfoPost$Response {
+  const UserServiceImGetInfoPost$Response({
     this.data,
-    this.placeholder,
+    this.message,
     this.traceId,
   });
 
-  factory UserShareListGet$Response.fromJson(Map<String, dynamic> json) =>
-      _$UserShareListGet$ResponseFromJson(json);
+  factory UserServiceImGetInfoPost$Response.fromJson(
+    Map<String, dynamic> json,
+  ) => _$UserServiceImGetInfoPost$ResponseFromJson(json);
 
-  static const toJsonFactory = _$UserShareListGet$ResponseToJson;
-  Map<String, dynamic> toJson() => _$UserShareListGet$ResponseToJson(this);
-
-  @JsonKey(name: 'code')
-  final double? code;
-  @JsonKey(name: 'message')
-  final String? message;
-  @JsonKey(name: 'data')
-  final List<UserShareListGet$Response$Data$Item>? data;
-  @JsonKey(name: 'placeholder')
-  final Object? placeholder;
-  @JsonKey(name: 'traceId')
-  final String? traceId;
-  static const fromJsonFactory = _$UserShareListGet$ResponseFromJson;
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other is UserShareListGet$Response &&
-            (identical(other.code, code) ||
-                const DeepCollectionEquality().equals(other.code, code)) &&
-            (identical(other.message, message) ||
-                const DeepCollectionEquality().equals(
-                  other.message,
-                  message,
-                )) &&
-            (identical(other.data, data) ||
-                const DeepCollectionEquality().equals(other.data, data)) &&
-            (identical(other.placeholder, placeholder) ||
-                const DeepCollectionEquality().equals(
-                  other.placeholder,
-                  placeholder,
-                )) &&
-            (identical(other.traceId, traceId) ||
-                const DeepCollectionEquality().equals(other.traceId, traceId)));
-  }
-
-  @override
-  String toString() => jsonEncode(this);
-
-  @override
-  int get hashCode =>
-      const DeepCollectionEquality().hash(code) ^
-      const DeepCollectionEquality().hash(message) ^
-      const DeepCollectionEquality().hash(data) ^
-      const DeepCollectionEquality().hash(placeholder) ^
-      const DeepCollectionEquality().hash(traceId) ^
-      runtimeType.hashCode;
-}
-
-extension $UserShareListGet$ResponseExtension on UserShareListGet$Response {
-  UserShareListGet$Response copyWith({
-    double? code,
-    String? message,
-    List<UserShareListGet$Response$Data$Item>? data,
-    Object? placeholder,
-    String? traceId,
-  }) {
-    return UserShareListGet$Response(
-      code: code ?? this.code,
-      message: message ?? this.message,
-      data: data ?? this.data,
-      placeholder: placeholder ?? this.placeholder,
-      traceId: traceId ?? this.traceId,
-    );
-  }
-
-  UserShareListGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
-    Wrapped<String?>? message,
-    Wrapped<List<UserShareListGet$Response$Data$Item>?>? data,
-    Wrapped<Object?>? placeholder,
-    Wrapped<String?>? traceId,
-  }) {
-    return UserShareListGet$Response(
-      code: (code != null ? code.value : this.code),
-      message: (message != null ? message.value : this.message),
-      data: (data != null ? data.value : this.data),
-      placeholder: (placeholder != null ? placeholder.value : this.placeholder),
-      traceId: (traceId != null ? traceId.value : this.traceId),
-    );
-  }
-}
-
-@JsonSerializable(explicitToJson: true)
-class UserShareRewardInfoGet$Response {
-  const UserShareRewardInfoGet$Response({
-    this.code,
-    this.message,
-    this.data,
-    this.placeholder,
-    this.traceId,
-  });
-
-  factory UserShareRewardInfoGet$Response.fromJson(Map<String, dynamic> json) =>
-      _$UserShareRewardInfoGet$ResponseFromJson(json);
-
-  static const toJsonFactory = _$UserShareRewardInfoGet$ResponseToJson;
+  static const toJsonFactory = _$UserServiceImGetInfoPost$ResponseToJson;
   Map<String, dynamic> toJson() =>
-      _$UserShareRewardInfoGet$ResponseToJson(this);
+      _$UserServiceImGetInfoPost$ResponseToJson(this);
+
+  @JsonKey(name: 'data')
+  final UserServiceImGetInfoPost$Response$Data? data;
+  @JsonKey(name: 'message')
+  final String? message;
+  @JsonKey(name: 'traceId')
+  final String? traceId;
+  static const fromJsonFactory = _$UserServiceImGetInfoPost$ResponseFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is UserServiceImGetInfoPost$Response &&
+            (identical(other.data, data) ||
+                const DeepCollectionEquality().equals(other.data, data)) &&
+            (identical(other.message, message) ||
+                const DeepCollectionEquality().equals(
+                  other.message,
+                  message,
+                )) &&
+            (identical(other.traceId, traceId) ||
+                const DeepCollectionEquality().equals(other.traceId, traceId)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(data) ^
+      const DeepCollectionEquality().hash(message) ^
+      const DeepCollectionEquality().hash(traceId) ^
+      runtimeType.hashCode;
+}
+
+extension $UserServiceImGetInfoPost$ResponseExtension
+    on UserServiceImGetInfoPost$Response {
+  UserServiceImGetInfoPost$Response copyWith({
+    UserServiceImGetInfoPost$Response$Data? data,
+    String? message,
+    String? traceId,
+  }) {
+    return UserServiceImGetInfoPost$Response(
+      data: data ?? this.data,
+      message: message ?? this.message,
+      traceId: traceId ?? this.traceId,
+    );
+  }
+
+  UserServiceImGetInfoPost$Response copyWithWrapped({
+    Wrapped<UserServiceImGetInfoPost$Response$Data?>? data,
+    Wrapped<String?>? message,
+    Wrapped<String?>? traceId,
+  }) {
+    return UserServiceImGetInfoPost$Response(
+      data: (data != null ? data.value : this.data),
+      message: (message != null ? message.value : this.message),
+      traceId: (traceId != null ? traceId.value : this.traceId),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class UserServiceUserShareListGet$Response {
+  const UserServiceUserShareListGet$Response({
+    this.code,
+    this.message,
+    this.data,
+    this.placeholder,
+    this.traceId,
+  });
+
+  factory UserServiceUserShareListGet$Response.fromJson(
+    Map<String, dynamic> json,
+  ) => _$UserServiceUserShareListGet$ResponseFromJson(json);
+
+  static const toJsonFactory = _$UserServiceUserShareListGet$ResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$UserServiceUserShareListGet$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final double? code;
   @JsonKey(name: 'message')
   final String? message;
   @JsonKey(name: 'data')
-  final UserShareRewardInfoGet$Response$Data? data;
+  final List<UserServiceUserShareListGet$Response$Data$Item>? data;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
   @JsonKey(name: 'traceId')
   final String? traceId;
-  static const fromJsonFactory = _$UserShareRewardInfoGet$ResponseFromJson;
+  static const fromJsonFactory = _$UserServiceUserShareListGet$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is UserShareRewardInfoGet$Response &&
+        (other is UserServiceUserShareListGet$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -5025,16 +5098,16 @@ class UserShareRewardInfoGet$Response {
       runtimeType.hashCode;
 }
 
-extension $UserShareRewardInfoGet$ResponseExtension
-    on UserShareRewardInfoGet$Response {
-  UserShareRewardInfoGet$Response copyWith({
+extension $UserServiceUserShareListGet$ResponseExtension
+    on UserServiceUserShareListGet$Response {
+  UserServiceUserShareListGet$Response copyWith({
     double? code,
     String? message,
-    UserShareRewardInfoGet$Response$Data? data,
+    List<UserServiceUserShareListGet$Response$Data$Item>? data,
     Object? placeholder,
     String? traceId,
   }) {
-    return UserShareRewardInfoGet$Response(
+    return UserServiceUserShareListGet$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       data: data ?? this.data,
@@ -5043,14 +5116,14 @@ extension $UserShareRewardInfoGet$ResponseExtension
     );
   }
 
-  UserShareRewardInfoGet$Response copyWithWrapped({
+  UserServiceUserShareListGet$Response copyWithWrapped({
     Wrapped<double?>? code,
     Wrapped<String?>? message,
-    Wrapped<UserShareRewardInfoGet$Response$Data?>? data,
+    Wrapped<List<UserServiceUserShareListGet$Response$Data$Item>?>? data,
     Wrapped<Object?>? placeholder,
     Wrapped<String?>? traceId,
   }) {
-    return UserShareRewardInfoGet$Response(
+    return UserServiceUserShareListGet$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
@@ -5061,8 +5134,8 @@ extension $UserShareRewardInfoGet$ResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class UserShareSubmitPost$Response {
-  const UserShareSubmitPost$Response({
+class UserServiceUserShareRewardInfoGet$Response {
+  const UserServiceUserShareRewardInfoGet$Response({
     this.code,
     this.message,
     this.data,
@@ -5070,11 +5143,115 @@ class UserShareSubmitPost$Response {
     this.traceId,
   });
 
-  factory UserShareSubmitPost$Response.fromJson(Map<String, dynamic> json) =>
-      _$UserShareSubmitPost$ResponseFromJson(json);
+  factory UserServiceUserShareRewardInfoGet$Response.fromJson(
+    Map<String, dynamic> json,
+  ) => _$UserServiceUserShareRewardInfoGet$ResponseFromJson(json);
 
-  static const toJsonFactory = _$UserShareSubmitPost$ResponseToJson;
-  Map<String, dynamic> toJson() => _$UserShareSubmitPost$ResponseToJson(this);
+  static const toJsonFactory =
+      _$UserServiceUserShareRewardInfoGet$ResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$UserServiceUserShareRewardInfoGet$ResponseToJson(this);
+
+  @JsonKey(name: 'code')
+  final double? code;
+  @JsonKey(name: 'message')
+  final String? message;
+  @JsonKey(name: 'data')
+  final UserServiceUserShareRewardInfoGet$Response$Data? data;
+  @JsonKey(name: 'placeholder')
+  final Object? placeholder;
+  @JsonKey(name: 'traceId')
+  final String? traceId;
+  static const fromJsonFactory =
+      _$UserServiceUserShareRewardInfoGet$ResponseFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is UserServiceUserShareRewardInfoGet$Response &&
+            (identical(other.code, code) ||
+                const DeepCollectionEquality().equals(other.code, code)) &&
+            (identical(other.message, message) ||
+                const DeepCollectionEquality().equals(
+                  other.message,
+                  message,
+                )) &&
+            (identical(other.data, data) ||
+                const DeepCollectionEquality().equals(other.data, data)) &&
+            (identical(other.placeholder, placeholder) ||
+                const DeepCollectionEquality().equals(
+                  other.placeholder,
+                  placeholder,
+                )) &&
+            (identical(other.traceId, traceId) ||
+                const DeepCollectionEquality().equals(other.traceId, traceId)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(code) ^
+      const DeepCollectionEquality().hash(message) ^
+      const DeepCollectionEquality().hash(data) ^
+      const DeepCollectionEquality().hash(placeholder) ^
+      const DeepCollectionEquality().hash(traceId) ^
+      runtimeType.hashCode;
+}
+
+extension $UserServiceUserShareRewardInfoGet$ResponseExtension
+    on UserServiceUserShareRewardInfoGet$Response {
+  UserServiceUserShareRewardInfoGet$Response copyWith({
+    double? code,
+    String? message,
+    UserServiceUserShareRewardInfoGet$Response$Data? data,
+    Object? placeholder,
+    String? traceId,
+  }) {
+    return UserServiceUserShareRewardInfoGet$Response(
+      code: code ?? this.code,
+      message: message ?? this.message,
+      data: data ?? this.data,
+      placeholder: placeholder ?? this.placeholder,
+      traceId: traceId ?? this.traceId,
+    );
+  }
+
+  UserServiceUserShareRewardInfoGet$Response copyWithWrapped({
+    Wrapped<double?>? code,
+    Wrapped<String?>? message,
+    Wrapped<UserServiceUserShareRewardInfoGet$Response$Data?>? data,
+    Wrapped<Object?>? placeholder,
+    Wrapped<String?>? traceId,
+  }) {
+    return UserServiceUserShareRewardInfoGet$Response(
+      code: (code != null ? code.value : this.code),
+      message: (message != null ? message.value : this.message),
+      data: (data != null ? data.value : this.data),
+      placeholder: (placeholder != null ? placeholder.value : this.placeholder),
+      traceId: (traceId != null ? traceId.value : this.traceId),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class UserServiceUserShareSubmitPost$Response {
+  const UserServiceUserShareSubmitPost$Response({
+    this.code,
+    this.message,
+    this.data,
+    this.placeholder,
+    this.traceId,
+  });
+
+  factory UserServiceUserShareSubmitPost$Response.fromJson(
+    Map<String, dynamic> json,
+  ) => _$UserServiceUserShareSubmitPost$ResponseFromJson(json);
+
+  static const toJsonFactory = _$UserServiceUserShareSubmitPost$ResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$UserServiceUserShareSubmitPost$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final double? code;
@@ -5086,12 +5263,13 @@ class UserShareSubmitPost$Response {
   final Object? placeholder;
   @JsonKey(name: 'traceId')
   final String? traceId;
-  static const fromJsonFactory = _$UserShareSubmitPost$ResponseFromJson;
+  static const fromJsonFactory =
+      _$UserServiceUserShareSubmitPost$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is UserShareSubmitPost$Response &&
+        (other is UserServiceUserShareSubmitPost$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -5123,16 +5301,16 @@ class UserShareSubmitPost$Response {
       runtimeType.hashCode;
 }
 
-extension $UserShareSubmitPost$ResponseExtension
-    on UserShareSubmitPost$Response {
-  UserShareSubmitPost$Response copyWith({
+extension $UserServiceUserShareSubmitPost$ResponseExtension
+    on UserServiceUserShareSubmitPost$Response {
+  UserServiceUserShareSubmitPost$Response copyWith({
     double? code,
     String? message,
     String? data,
     Object? placeholder,
     String? traceId,
   }) {
-    return UserShareSubmitPost$Response(
+    return UserServiceUserShareSubmitPost$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       data: data ?? this.data,
@@ -5141,14 +5319,14 @@ extension $UserShareSubmitPost$ResponseExtension
     );
   }
 
-  UserShareSubmitPost$Response copyWithWrapped({
+  UserServiceUserShareSubmitPost$Response copyWithWrapped({
     Wrapped<double?>? code,
     Wrapped<String?>? message,
     Wrapped<String?>? data,
     Wrapped<Object?>? placeholder,
     Wrapped<String?>? traceId,
   }) {
-    return UserShareSubmitPost$Response(
+    return UserServiceUserShareSubmitPost$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
@@ -5159,8 +5337,8 @@ extension $UserShareSubmitPost$ResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class UserDeleteGet$Response {
-  const UserDeleteGet$Response({
+class UserServiceUserDeleteGet$Response {
+  const UserServiceUserDeleteGet$Response({
     this.code,
     this.message,
     this.data,
@@ -5168,28 +5346,30 @@ class UserDeleteGet$Response {
     this.traceId,
   });
 
-  factory UserDeleteGet$Response.fromJson(Map<String, dynamic> json) =>
-      _$UserDeleteGet$ResponseFromJson(json);
+  factory UserServiceUserDeleteGet$Response.fromJson(
+    Map<String, dynamic> json,
+  ) => _$UserServiceUserDeleteGet$ResponseFromJson(json);
 
-  static const toJsonFactory = _$UserDeleteGet$ResponseToJson;
-  Map<String, dynamic> toJson() => _$UserDeleteGet$ResponseToJson(this);
+  static const toJsonFactory = _$UserServiceUserDeleteGet$ResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$UserServiceUserDeleteGet$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final double? code;
   @JsonKey(name: 'message')
   final String? message;
   @JsonKey(name: 'data')
-  final UserDeleteGet$Response$Data? data;
+  final UserServiceUserDeleteGet$Response$Data? data;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
   @JsonKey(name: 'traceId')
   final String? traceId;
-  static const fromJsonFactory = _$UserDeleteGet$ResponseFromJson;
+  static const fromJsonFactory = _$UserServiceUserDeleteGet$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is UserDeleteGet$Response &&
+        (other is UserServiceUserDeleteGet$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -5221,15 +5401,16 @@ class UserDeleteGet$Response {
       runtimeType.hashCode;
 }
 
-extension $UserDeleteGet$ResponseExtension on UserDeleteGet$Response {
-  UserDeleteGet$Response copyWith({
+extension $UserServiceUserDeleteGet$ResponseExtension
+    on UserServiceUserDeleteGet$Response {
+  UserServiceUserDeleteGet$Response copyWith({
     double? code,
     String? message,
-    UserDeleteGet$Response$Data? data,
+    UserServiceUserDeleteGet$Response$Data? data,
     Object? placeholder,
     String? traceId,
   }) {
-    return UserDeleteGet$Response(
+    return UserServiceUserDeleteGet$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       data: data ?? this.data,
@@ -5238,14 +5419,14 @@ extension $UserDeleteGet$ResponseExtension on UserDeleteGet$Response {
     );
   }
 
-  UserDeleteGet$Response copyWithWrapped({
+  UserServiceUserDeleteGet$Response copyWithWrapped({
     Wrapped<double?>? code,
     Wrapped<String?>? message,
-    Wrapped<UserDeleteGet$Response$Data?>? data,
+    Wrapped<UserServiceUserDeleteGet$Response$Data?>? data,
     Wrapped<Object?>? placeholder,
     Wrapped<String?>? traceId,
   }) {
-    return UserDeleteGet$Response(
+    return UserServiceUserDeleteGet$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
@@ -5256,8 +5437,8 @@ extension $UserDeleteGet$ResponseExtension on UserDeleteGet$Response {
 }
 
 @JsonSerializable(explicitToJson: true)
-class UserDeleteConfirmGet$Response {
-  const UserDeleteConfirmGet$Response({
+class UserServiceUserDeleteConfirmGet$Response {
+  const UserServiceUserDeleteConfirmGet$Response({
     this.code,
     this.message,
     this.data,
@@ -5265,11 +5446,13 @@ class UserDeleteConfirmGet$Response {
     this.traceId,
   });
 
-  factory UserDeleteConfirmGet$Response.fromJson(Map<String, dynamic> json) =>
-      _$UserDeleteConfirmGet$ResponseFromJson(json);
+  factory UserServiceUserDeleteConfirmGet$Response.fromJson(
+    Map<String, dynamic> json,
+  ) => _$UserServiceUserDeleteConfirmGet$ResponseFromJson(json);
 
-  static const toJsonFactory = _$UserDeleteConfirmGet$ResponseToJson;
-  Map<String, dynamic> toJson() => _$UserDeleteConfirmGet$ResponseToJson(this);
+  static const toJsonFactory = _$UserServiceUserDeleteConfirmGet$ResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$UserServiceUserDeleteConfirmGet$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final double? code;
@@ -5281,12 +5464,13 @@ class UserDeleteConfirmGet$Response {
   final Object? placeholder;
   @JsonKey(name: 'traceId')
   final String? traceId;
-  static const fromJsonFactory = _$UserDeleteConfirmGet$ResponseFromJson;
+  static const fromJsonFactory =
+      _$UserServiceUserDeleteConfirmGet$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is UserDeleteConfirmGet$Response &&
+        (other is UserServiceUserDeleteConfirmGet$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -5318,16 +5502,16 @@ class UserDeleteConfirmGet$Response {
       runtimeType.hashCode;
 }
 
-extension $UserDeleteConfirmGet$ResponseExtension
-    on UserDeleteConfirmGet$Response {
-  UserDeleteConfirmGet$Response copyWith({
+extension $UserServiceUserDeleteConfirmGet$ResponseExtension
+    on UserServiceUserDeleteConfirmGet$Response {
+  UserServiceUserDeleteConfirmGet$Response copyWith({
     double? code,
     String? message,
     bool? data,
     Object? placeholder,
     String? traceId,
   }) {
-    return UserDeleteConfirmGet$Response(
+    return UserServiceUserDeleteConfirmGet$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       data: data ?? this.data,
@@ -5336,14 +5520,14 @@ extension $UserDeleteConfirmGet$ResponseExtension
     );
   }
 
-  UserDeleteConfirmGet$Response copyWithWrapped({
+  UserServiceUserDeleteConfirmGet$Response copyWithWrapped({
     Wrapped<double?>? code,
     Wrapped<String?>? message,
     Wrapped<bool?>? data,
     Wrapped<Object?>? placeholder,
     Wrapped<String?>? traceId,
   }) {
-    return UserDeleteConfirmGet$Response(
+    return UserServiceUserDeleteConfirmGet$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
@@ -5354,8 +5538,8 @@ extension $UserDeleteConfirmGet$ResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class UserGetGet$Response {
-  const UserGetGet$Response({
+class UserServiceUserGetGet$Response {
+  const UserServiceUserGetGet$Response({
     this.code,
     this.message,
     this.data,
@@ -5363,28 +5547,28 @@ class UserGetGet$Response {
     this.traceId,
   });
 
-  factory UserGetGet$Response.fromJson(Map<String, dynamic> json) =>
-      _$UserGetGet$ResponseFromJson(json);
+  factory UserServiceUserGetGet$Response.fromJson(Map<String, dynamic> json) =>
+      _$UserServiceUserGetGet$ResponseFromJson(json);
 
-  static const toJsonFactory = _$UserGetGet$ResponseToJson;
-  Map<String, dynamic> toJson() => _$UserGetGet$ResponseToJson(this);
+  static const toJsonFactory = _$UserServiceUserGetGet$ResponseToJson;
+  Map<String, dynamic> toJson() => _$UserServiceUserGetGet$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final double? code;
   @JsonKey(name: 'message')
   final String? message;
   @JsonKey(name: 'data')
-  final UserGetGet$Response$Data? data;
+  final UserServiceUserGetGet$Response$Data? data;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
   @JsonKey(name: 'traceId')
   final String? traceId;
-  static const fromJsonFactory = _$UserGetGet$ResponseFromJson;
+  static const fromJsonFactory = _$UserServiceUserGetGet$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is UserGetGet$Response &&
+        (other is UserServiceUserGetGet$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -5416,15 +5600,16 @@ class UserGetGet$Response {
       runtimeType.hashCode;
 }
 
-extension $UserGetGet$ResponseExtension on UserGetGet$Response {
-  UserGetGet$Response copyWith({
+extension $UserServiceUserGetGet$ResponseExtension
+    on UserServiceUserGetGet$Response {
+  UserServiceUserGetGet$Response copyWith({
     double? code,
     String? message,
-    UserGetGet$Response$Data? data,
+    UserServiceUserGetGet$Response$Data? data,
     Object? placeholder,
     String? traceId,
   }) {
-    return UserGetGet$Response(
+    return UserServiceUserGetGet$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       data: data ?? this.data,
@@ -5433,14 +5618,14 @@ extension $UserGetGet$ResponseExtension on UserGetGet$Response {
     );
   }
 
-  UserGetGet$Response copyWithWrapped({
+  UserServiceUserGetGet$Response copyWithWrapped({
     Wrapped<double?>? code,
     Wrapped<String?>? message,
-    Wrapped<UserGetGet$Response$Data?>? data,
+    Wrapped<UserServiceUserGetGet$Response$Data?>? data,
     Wrapped<Object?>? placeholder,
     Wrapped<String?>? traceId,
   }) {
-    return UserGetGet$Response(
+    return UserServiceUserGetGet$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
@@ -5451,8 +5636,8 @@ extension $UserGetGet$ResponseExtension on UserGetGet$Response {
 }
 
 @JsonSerializable(explicitToJson: true)
-class UserUserCommissionGet$Response {
-  const UserUserCommissionGet$Response({
+class UserServiceUserUserCommissionGet$Response {
+  const UserServiceUserUserCommissionGet$Response({
     this.code,
     this.message,
     this.data,
@@ -5460,128 +5645,32 @@ class UserUserCommissionGet$Response {
     this.traceId,
   });
 
-  factory UserUserCommissionGet$Response.fromJson(Map<String, dynamic> json) =>
-      _$UserUserCommissionGet$ResponseFromJson(json);
-
-  static const toJsonFactory = _$UserUserCommissionGet$ResponseToJson;
-  Map<String, dynamic> toJson() => _$UserUserCommissionGet$ResponseToJson(this);
-
-  @JsonKey(name: 'code')
-  final double? code;
-  @JsonKey(name: 'message')
-  final String? message;
-  @JsonKey(name: 'data')
-  final UserUserCommissionGet$Response$Data? data;
-  @JsonKey(name: 'placeholder')
-  final Object? placeholder;
-  @JsonKey(name: 'traceId')
-  final String? traceId;
-  static const fromJsonFactory = _$UserUserCommissionGet$ResponseFromJson;
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other is UserUserCommissionGet$Response &&
-            (identical(other.code, code) ||
-                const DeepCollectionEquality().equals(other.code, code)) &&
-            (identical(other.message, message) ||
-                const DeepCollectionEquality().equals(
-                  other.message,
-                  message,
-                )) &&
-            (identical(other.data, data) ||
-                const DeepCollectionEquality().equals(other.data, data)) &&
-            (identical(other.placeholder, placeholder) ||
-                const DeepCollectionEquality().equals(
-                  other.placeholder,
-                  placeholder,
-                )) &&
-            (identical(other.traceId, traceId) ||
-                const DeepCollectionEquality().equals(other.traceId, traceId)));
-  }
-
-  @override
-  String toString() => jsonEncode(this);
-
-  @override
-  int get hashCode =>
-      const DeepCollectionEquality().hash(code) ^
-      const DeepCollectionEquality().hash(message) ^
-      const DeepCollectionEquality().hash(data) ^
-      const DeepCollectionEquality().hash(placeholder) ^
-      const DeepCollectionEquality().hash(traceId) ^
-      runtimeType.hashCode;
-}
-
-extension $UserUserCommissionGet$ResponseExtension
-    on UserUserCommissionGet$Response {
-  UserUserCommissionGet$Response copyWith({
-    double? code,
-    String? message,
-    UserUserCommissionGet$Response$Data? data,
-    Object? placeholder,
-    String? traceId,
-  }) {
-    return UserUserCommissionGet$Response(
-      code: code ?? this.code,
-      message: message ?? this.message,
-      data: data ?? this.data,
-      placeholder: placeholder ?? this.placeholder,
-      traceId: traceId ?? this.traceId,
-    );
-  }
-
-  UserUserCommissionGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
-    Wrapped<String?>? message,
-    Wrapped<UserUserCommissionGet$Response$Data?>? data,
-    Wrapped<Object?>? placeholder,
-    Wrapped<String?>? traceId,
-  }) {
-    return UserUserCommissionGet$Response(
-      code: (code != null ? code.value : this.code),
-      message: (message != null ? message.value : this.message),
-      data: (data != null ? data.value : this.data),
-      placeholder: (placeholder != null ? placeholder.value : this.placeholder),
-      traceId: (traceId != null ? traceId.value : this.traceId),
-    );
-  }
-}
-
-@JsonSerializable(explicitToJson: true)
-class UserConfigureSettingGet$Response {
-  const UserConfigureSettingGet$Response({
-    this.code,
-    this.message,
-    this.data,
-    this.placeholder,
-    this.traceId,
-  });
-
-  factory UserConfigureSettingGet$Response.fromJson(
+  factory UserServiceUserUserCommissionGet$Response.fromJson(
     Map<String, dynamic> json,
-  ) => _$UserConfigureSettingGet$ResponseFromJson(json);
+  ) => _$UserServiceUserUserCommissionGet$ResponseFromJson(json);
 
-  static const toJsonFactory = _$UserConfigureSettingGet$ResponseToJson;
+  static const toJsonFactory =
+      _$UserServiceUserUserCommissionGet$ResponseToJson;
   Map<String, dynamic> toJson() =>
-      _$UserConfigureSettingGet$ResponseToJson(this);
+      _$UserServiceUserUserCommissionGet$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final double? code;
   @JsonKey(name: 'message')
   final String? message;
   @JsonKey(name: 'data')
-  final UserConfigureSettingGet$Response$Data? data;
+  final UserServiceUserUserCommissionGet$Response$Data? data;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
   @JsonKey(name: 'traceId')
   final String? traceId;
-  static const fromJsonFactory = _$UserConfigureSettingGet$ResponseFromJson;
+  static const fromJsonFactory =
+      _$UserServiceUserUserCommissionGet$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is UserConfigureSettingGet$Response &&
+        (other is UserServiceUserUserCommissionGet$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -5613,16 +5702,16 @@ class UserConfigureSettingGet$Response {
       runtimeType.hashCode;
 }
 
-extension $UserConfigureSettingGet$ResponseExtension
-    on UserConfigureSettingGet$Response {
-  UserConfigureSettingGet$Response copyWith({
+extension $UserServiceUserUserCommissionGet$ResponseExtension
+    on UserServiceUserUserCommissionGet$Response {
+  UserServiceUserUserCommissionGet$Response copyWith({
     double? code,
     String? message,
-    UserConfigureSettingGet$Response$Data? data,
+    UserServiceUserUserCommissionGet$Response$Data? data,
     Object? placeholder,
     String? traceId,
   }) {
-    return UserConfigureSettingGet$Response(
+    return UserServiceUserUserCommissionGet$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       data: data ?? this.data,
@@ -5631,14 +5720,14 @@ extension $UserConfigureSettingGet$ResponseExtension
     );
   }
 
-  UserConfigureSettingGet$Response copyWithWrapped({
+  UserServiceUserUserCommissionGet$Response copyWithWrapped({
     Wrapped<double?>? code,
     Wrapped<String?>? message,
-    Wrapped<UserConfigureSettingGet$Response$Data?>? data,
+    Wrapped<UserServiceUserUserCommissionGet$Response$Data?>? data,
     Wrapped<Object?>? placeholder,
     Wrapped<String?>? traceId,
   }) {
-    return UserConfigureSettingGet$Response(
+    return UserServiceUserUserCommissionGet$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
@@ -5649,8 +5738,8 @@ extension $UserConfigureSettingGet$ResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class UserInviteCountGet$Response {
-  const UserInviteCountGet$Response({
+class UserServiceUserConfigureSettingGet$Response {
+  const UserServiceUserConfigureSettingGet$Response({
     this.code,
     this.message,
     this.data,
@@ -5658,11 +5747,115 @@ class UserInviteCountGet$Response {
     this.traceId,
   });
 
-  factory UserInviteCountGet$Response.fromJson(Map<String, dynamic> json) =>
-      _$UserInviteCountGet$ResponseFromJson(json);
+  factory UserServiceUserConfigureSettingGet$Response.fromJson(
+    Map<String, dynamic> json,
+  ) => _$UserServiceUserConfigureSettingGet$ResponseFromJson(json);
 
-  static const toJsonFactory = _$UserInviteCountGet$ResponseToJson;
-  Map<String, dynamic> toJson() => _$UserInviteCountGet$ResponseToJson(this);
+  static const toJsonFactory =
+      _$UserServiceUserConfigureSettingGet$ResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$UserServiceUserConfigureSettingGet$ResponseToJson(this);
+
+  @JsonKey(name: 'code')
+  final double? code;
+  @JsonKey(name: 'message')
+  final String? message;
+  @JsonKey(name: 'data')
+  final UserServiceUserConfigureSettingGet$Response$Data? data;
+  @JsonKey(name: 'placeholder')
+  final Object? placeholder;
+  @JsonKey(name: 'traceId')
+  final String? traceId;
+  static const fromJsonFactory =
+      _$UserServiceUserConfigureSettingGet$ResponseFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is UserServiceUserConfigureSettingGet$Response &&
+            (identical(other.code, code) ||
+                const DeepCollectionEquality().equals(other.code, code)) &&
+            (identical(other.message, message) ||
+                const DeepCollectionEquality().equals(
+                  other.message,
+                  message,
+                )) &&
+            (identical(other.data, data) ||
+                const DeepCollectionEquality().equals(other.data, data)) &&
+            (identical(other.placeholder, placeholder) ||
+                const DeepCollectionEquality().equals(
+                  other.placeholder,
+                  placeholder,
+                )) &&
+            (identical(other.traceId, traceId) ||
+                const DeepCollectionEquality().equals(other.traceId, traceId)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(code) ^
+      const DeepCollectionEquality().hash(message) ^
+      const DeepCollectionEquality().hash(data) ^
+      const DeepCollectionEquality().hash(placeholder) ^
+      const DeepCollectionEquality().hash(traceId) ^
+      runtimeType.hashCode;
+}
+
+extension $UserServiceUserConfigureSettingGet$ResponseExtension
+    on UserServiceUserConfigureSettingGet$Response {
+  UserServiceUserConfigureSettingGet$Response copyWith({
+    double? code,
+    String? message,
+    UserServiceUserConfigureSettingGet$Response$Data? data,
+    Object? placeholder,
+    String? traceId,
+  }) {
+    return UserServiceUserConfigureSettingGet$Response(
+      code: code ?? this.code,
+      message: message ?? this.message,
+      data: data ?? this.data,
+      placeholder: placeholder ?? this.placeholder,
+      traceId: traceId ?? this.traceId,
+    );
+  }
+
+  UserServiceUserConfigureSettingGet$Response copyWithWrapped({
+    Wrapped<double?>? code,
+    Wrapped<String?>? message,
+    Wrapped<UserServiceUserConfigureSettingGet$Response$Data?>? data,
+    Wrapped<Object?>? placeholder,
+    Wrapped<String?>? traceId,
+  }) {
+    return UserServiceUserConfigureSettingGet$Response(
+      code: (code != null ? code.value : this.code),
+      message: (message != null ? message.value : this.message),
+      data: (data != null ? data.value : this.data),
+      placeholder: (placeholder != null ? placeholder.value : this.placeholder),
+      traceId: (traceId != null ? traceId.value : this.traceId),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class UserServiceUserInviteCountGet$Response {
+  const UserServiceUserInviteCountGet$Response({
+    this.code,
+    this.message,
+    this.data,
+    this.placeholder,
+    this.traceId,
+  });
+
+  factory UserServiceUserInviteCountGet$Response.fromJson(
+    Map<String, dynamic> json,
+  ) => _$UserServiceUserInviteCountGet$ResponseFromJson(json);
+
+  static const toJsonFactory = _$UserServiceUserInviteCountGet$ResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$UserServiceUserInviteCountGet$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final double? code;
@@ -5674,12 +5867,13 @@ class UserInviteCountGet$Response {
   final Object? placeholder;
   @JsonKey(name: 'traceId')
   final String? traceId;
-  static const fromJsonFactory = _$UserInviteCountGet$ResponseFromJson;
+  static const fromJsonFactory =
+      _$UserServiceUserInviteCountGet$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is UserInviteCountGet$Response &&
+        (other is UserServiceUserInviteCountGet$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -5711,15 +5905,16 @@ class UserInviteCountGet$Response {
       runtimeType.hashCode;
 }
 
-extension $UserInviteCountGet$ResponseExtension on UserInviteCountGet$Response {
-  UserInviteCountGet$Response copyWith({
+extension $UserServiceUserInviteCountGet$ResponseExtension
+    on UserServiceUserInviteCountGet$Response {
+  UserServiceUserInviteCountGet$Response copyWith({
     double? code,
     String? message,
     int? data,
     Object? placeholder,
     String? traceId,
   }) {
-    return UserInviteCountGet$Response(
+    return UserServiceUserInviteCountGet$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       data: data ?? this.data,
@@ -5728,14 +5923,14 @@ extension $UserInviteCountGet$ResponseExtension on UserInviteCountGet$Response {
     );
   }
 
-  UserInviteCountGet$Response copyWithWrapped({
+  UserServiceUserInviteCountGet$Response copyWithWrapped({
     Wrapped<double?>? code,
     Wrapped<String?>? message,
     Wrapped<int?>? data,
     Wrapped<Object?>? placeholder,
     Wrapped<String?>? traceId,
   }) {
-    return UserInviteCountGet$Response(
+    return UserServiceUserInviteCountGet$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
@@ -5746,8 +5941,8 @@ extension $UserInviteCountGet$ResponseExtension on UserInviteCountGet$Response {
 }
 
 @JsonSerializable(explicitToJson: true)
-class UserInviteNumGet$Response {
-  const UserInviteNumGet$Response({
+class UserServiceUserInviteNumGet$Response {
+  const UserServiceUserInviteNumGet$Response({
     this.code,
     this.message,
     this.data,
@@ -5755,28 +5950,30 @@ class UserInviteNumGet$Response {
     this.traceId,
   });
 
-  factory UserInviteNumGet$Response.fromJson(Map<String, dynamic> json) =>
-      _$UserInviteNumGet$ResponseFromJson(json);
+  factory UserServiceUserInviteNumGet$Response.fromJson(
+    Map<String, dynamic> json,
+  ) => _$UserServiceUserInviteNumGet$ResponseFromJson(json);
 
-  static const toJsonFactory = _$UserInviteNumGet$ResponseToJson;
-  Map<String, dynamic> toJson() => _$UserInviteNumGet$ResponseToJson(this);
+  static const toJsonFactory = _$UserServiceUserInviteNumGet$ResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$UserServiceUserInviteNumGet$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final double? code;
   @JsonKey(name: 'message')
   final String? message;
   @JsonKey(name: 'data')
-  final UserInviteNumGet$Response$Data? data;
+  final UserServiceUserInviteNumGet$Response$Data? data;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
   @JsonKey(name: 'traceId')
   final String? traceId;
-  static const fromJsonFactory = _$UserInviteNumGet$ResponseFromJson;
+  static const fromJsonFactory = _$UserServiceUserInviteNumGet$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is UserInviteNumGet$Response &&
+        (other is UserServiceUserInviteNumGet$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -5808,15 +6005,16 @@ class UserInviteNumGet$Response {
       runtimeType.hashCode;
 }
 
-extension $UserInviteNumGet$ResponseExtension on UserInviteNumGet$Response {
-  UserInviteNumGet$Response copyWith({
+extension $UserServiceUserInviteNumGet$ResponseExtension
+    on UserServiceUserInviteNumGet$Response {
+  UserServiceUserInviteNumGet$Response copyWith({
     double? code,
     String? message,
-    UserInviteNumGet$Response$Data? data,
+    UserServiceUserInviteNumGet$Response$Data? data,
     Object? placeholder,
     String? traceId,
   }) {
-    return UserInviteNumGet$Response(
+    return UserServiceUserInviteNumGet$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       data: data ?? this.data,
@@ -5825,14 +6023,14 @@ extension $UserInviteNumGet$ResponseExtension on UserInviteNumGet$Response {
     );
   }
 
-  UserInviteNumGet$Response copyWithWrapped({
+  UserServiceUserInviteNumGet$Response copyWithWrapped({
     Wrapped<double?>? code,
     Wrapped<String?>? message,
-    Wrapped<UserInviteNumGet$Response$Data?>? data,
+    Wrapped<UserServiceUserInviteNumGet$Response$Data?>? data,
     Wrapped<Object?>? placeholder,
     Wrapped<String?>? traceId,
   }) {
-    return UserInviteNumGet$Response(
+    return UserServiceUserInviteNumGet$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
@@ -5843,8 +6041,8 @@ extension $UserInviteNumGet$ResponseExtension on UserInviteNumGet$Response {
 }
 
 @JsonSerializable(explicitToJson: true)
-class UserShareUpdatePost$Response {
-  const UserShareUpdatePost$Response({
+class UserServiceUserShareUpdatePost$Response {
+  const UserServiceUserShareUpdatePost$Response({
     this.code,
     this.message,
     this.data,
@@ -5852,11 +6050,13 @@ class UserShareUpdatePost$Response {
     this.traceId,
   });
 
-  factory UserShareUpdatePost$Response.fromJson(Map<String, dynamic> json) =>
-      _$UserShareUpdatePost$ResponseFromJson(json);
+  factory UserServiceUserShareUpdatePost$Response.fromJson(
+    Map<String, dynamic> json,
+  ) => _$UserServiceUserShareUpdatePost$ResponseFromJson(json);
 
-  static const toJsonFactory = _$UserShareUpdatePost$ResponseToJson;
-  Map<String, dynamic> toJson() => _$UserShareUpdatePost$ResponseToJson(this);
+  static const toJsonFactory = _$UserServiceUserShareUpdatePost$ResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$UserServiceUserShareUpdatePost$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final double? code;
@@ -5868,12 +6068,13 @@ class UserShareUpdatePost$Response {
   final Object? placeholder;
   @JsonKey(name: 'traceId')
   final String? traceId;
-  static const fromJsonFactory = _$UserShareUpdatePost$ResponseFromJson;
+  static const fromJsonFactory =
+      _$UserServiceUserShareUpdatePost$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is UserShareUpdatePost$Response &&
+        (other is UserServiceUserShareUpdatePost$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -5905,16 +6106,16 @@ class UserShareUpdatePost$Response {
       runtimeType.hashCode;
 }
 
-extension $UserShareUpdatePost$ResponseExtension
-    on UserShareUpdatePost$Response {
-  UserShareUpdatePost$Response copyWith({
+extension $UserServiceUserShareUpdatePost$ResponseExtension
+    on UserServiceUserShareUpdatePost$Response {
+  UserServiceUserShareUpdatePost$Response copyWith({
     double? code,
     String? message,
     String? data,
     Object? placeholder,
     String? traceId,
   }) {
-    return UserShareUpdatePost$Response(
+    return UserServiceUserShareUpdatePost$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       data: data ?? this.data,
@@ -5923,14 +6124,14 @@ extension $UserShareUpdatePost$ResponseExtension
     );
   }
 
-  UserShareUpdatePost$Response copyWithWrapped({
+  UserServiceUserShareUpdatePost$Response copyWithWrapped({
     Wrapped<double?>? code,
     Wrapped<String?>? message,
     Wrapped<String?>? data,
     Wrapped<Object?>? placeholder,
     Wrapped<String?>? traceId,
   }) {
-    return UserShareUpdatePost$Response(
+    return UserServiceUserShareUpdatePost$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
@@ -5941,8 +6142,8 @@ extension $UserShareUpdatePost$ResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class UserUserRewardGet$Response {
-  const UserUserRewardGet$Response({
+class UserServiceUserUserRewardGet$Response {
+  const UserServiceUserUserRewardGet$Response({
     this.code,
     this.message,
     this.data,
@@ -5950,11 +6151,13 @@ class UserUserRewardGet$Response {
     this.traceId,
   });
 
-  factory UserUserRewardGet$Response.fromJson(Map<String, dynamic> json) =>
-      _$UserUserRewardGet$ResponseFromJson(json);
+  factory UserServiceUserUserRewardGet$Response.fromJson(
+    Map<String, dynamic> json,
+  ) => _$UserServiceUserUserRewardGet$ResponseFromJson(json);
 
-  static const toJsonFactory = _$UserUserRewardGet$ResponseToJson;
-  Map<String, dynamic> toJson() => _$UserUserRewardGet$ResponseToJson(this);
+  static const toJsonFactory = _$UserServiceUserUserRewardGet$ResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$UserServiceUserUserRewardGet$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final double? code;
@@ -5966,12 +6169,13 @@ class UserUserRewardGet$Response {
   final Object? placeholder;
   @JsonKey(name: 'traceId')
   final String? traceId;
-  static const fromJsonFactory = _$UserUserRewardGet$ResponseFromJson;
+  static const fromJsonFactory =
+      _$UserServiceUserUserRewardGet$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is UserUserRewardGet$Response &&
+        (other is UserServiceUserUserRewardGet$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -6003,15 +6207,16 @@ class UserUserRewardGet$Response {
       runtimeType.hashCode;
 }
 
-extension $UserUserRewardGet$ResponseExtension on UserUserRewardGet$Response {
-  UserUserRewardGet$Response copyWith({
+extension $UserServiceUserUserRewardGet$ResponseExtension
+    on UserServiceUserUserRewardGet$Response {
+  UserServiceUserUserRewardGet$Response copyWith({
     double? code,
     String? message,
     bool? data,
     Object? placeholder,
     String? traceId,
   }) {
-    return UserUserRewardGet$Response(
+    return UserServiceUserUserRewardGet$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       data: data ?? this.data,
@@ -6020,14 +6225,14 @@ extension $UserUserRewardGet$ResponseExtension on UserUserRewardGet$Response {
     );
   }
 
-  UserUserRewardGet$Response copyWithWrapped({
+  UserServiceUserUserRewardGet$Response copyWithWrapped({
     Wrapped<double?>? code,
     Wrapped<String?>? message,
     Wrapped<bool?>? data,
     Wrapped<Object?>? placeholder,
     Wrapped<String?>? traceId,
   }) {
-    return UserUserRewardGet$Response(
+    return UserServiceUserUserRewardGet$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
@@ -6038,8 +6243,8 @@ extension $UserUserRewardGet$ResponseExtension on UserUserRewardGet$Response {
 }
 
 @JsonSerializable(explicitToJson: true)
-class UserTagPortraitAiToPortraitPost$Response {
-  const UserTagPortraitAiToPortraitPost$Response({
+class UserServiceUserTagPortraitAiToPortraitPost$Response {
+  const UserServiceUserTagPortraitAiToPortraitPost$Response({
     this.code,
     this.message,
     this.data,
@@ -6047,31 +6252,32 @@ class UserTagPortraitAiToPortraitPost$Response {
     this.success,
   });
 
-  factory UserTagPortraitAiToPortraitPost$Response.fromJson(
+  factory UserServiceUserTagPortraitAiToPortraitPost$Response.fromJson(
     Map<String, dynamic> json,
-  ) => _$UserTagPortraitAiToPortraitPost$ResponseFromJson(json);
+  ) => _$UserServiceUserTagPortraitAiToPortraitPost$ResponseFromJson(json);
 
-  static const toJsonFactory = _$UserTagPortraitAiToPortraitPost$ResponseToJson;
+  static const toJsonFactory =
+      _$UserServiceUserTagPortraitAiToPortraitPost$ResponseToJson;
   Map<String, dynamic> toJson() =>
-      _$UserTagPortraitAiToPortraitPost$ResponseToJson(this);
+      _$UserServiceUserTagPortraitAiToPortraitPost$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final double? code;
   @JsonKey(name: 'message')
   final String? message;
   @JsonKey(name: 'data')
-  final UserTagPortraitAiToPortraitPost$Response$Data? data;
+  final UserServiceUserTagPortraitAiToPortraitPost$Response$Data? data;
   @JsonKey(name: 'traceId')
   final String? traceId;
   @JsonKey(name: 'success')
   final bool? success;
   static const fromJsonFactory =
-      _$UserTagPortraitAiToPortraitPost$ResponseFromJson;
+      _$UserServiceUserTagPortraitAiToPortraitPost$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is UserTagPortraitAiToPortraitPost$Response &&
+        (other is UserServiceUserTagPortraitAiToPortraitPost$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -6103,16 +6309,16 @@ class UserTagPortraitAiToPortraitPost$Response {
       runtimeType.hashCode;
 }
 
-extension $UserTagPortraitAiToPortraitPost$ResponseExtension
-    on UserTagPortraitAiToPortraitPost$Response {
-  UserTagPortraitAiToPortraitPost$Response copyWith({
+extension $UserServiceUserTagPortraitAiToPortraitPost$ResponseExtension
+    on UserServiceUserTagPortraitAiToPortraitPost$Response {
+  UserServiceUserTagPortraitAiToPortraitPost$Response copyWith({
     double? code,
     String? message,
-    UserTagPortraitAiToPortraitPost$Response$Data? data,
+    UserServiceUserTagPortraitAiToPortraitPost$Response$Data? data,
     String? traceId,
     bool? success,
   }) {
-    return UserTagPortraitAiToPortraitPost$Response(
+    return UserServiceUserTagPortraitAiToPortraitPost$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       data: data ?? this.data,
@@ -6121,14 +6327,14 @@ extension $UserTagPortraitAiToPortraitPost$ResponseExtension
     );
   }
 
-  UserTagPortraitAiToPortraitPost$Response copyWithWrapped({
+  UserServiceUserTagPortraitAiToPortraitPost$Response copyWithWrapped({
     Wrapped<double?>? code,
     Wrapped<String?>? message,
-    Wrapped<UserTagPortraitAiToPortraitPost$Response$Data?>? data,
+    Wrapped<UserServiceUserTagPortraitAiToPortraitPost$Response$Data?>? data,
     Wrapped<String?>? traceId,
     Wrapped<bool?>? success,
   }) {
-    return UserTagPortraitAiToPortraitPost$Response(
+    return UserServiceUserTagPortraitAiToPortraitPost$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
@@ -6139,8 +6345,8 @@ extension $UserTagPortraitAiToPortraitPost$ResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class UserTagPortraitAiToPortraitV2Post$Response {
-  const UserTagPortraitAiToPortraitV2Post$Response({
+class UserServiceUserTagPortraitAiToPortraitV2Post$Response {
+  const UserServiceUserTagPortraitAiToPortraitV2Post$Response({
     this.code,
     this.message,
     this.data,
@@ -6148,32 +6354,32 @@ class UserTagPortraitAiToPortraitV2Post$Response {
     this.success,
   });
 
-  factory UserTagPortraitAiToPortraitV2Post$Response.fromJson(
+  factory UserServiceUserTagPortraitAiToPortraitV2Post$Response.fromJson(
     Map<String, dynamic> json,
-  ) => _$UserTagPortraitAiToPortraitV2Post$ResponseFromJson(json);
+  ) => _$UserServiceUserTagPortraitAiToPortraitV2Post$ResponseFromJson(json);
 
   static const toJsonFactory =
-      _$UserTagPortraitAiToPortraitV2Post$ResponseToJson;
+      _$UserServiceUserTagPortraitAiToPortraitV2Post$ResponseToJson;
   Map<String, dynamic> toJson() =>
-      _$UserTagPortraitAiToPortraitV2Post$ResponseToJson(this);
+      _$UserServiceUserTagPortraitAiToPortraitV2Post$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final double? code;
   @JsonKey(name: 'message')
   final String? message;
   @JsonKey(name: 'data')
-  final UserTagPortraitAiToPortraitV2Post$Response$Data? data;
+  final UserServiceUserTagPortraitAiToPortraitV2Post$Response$Data? data;
   @JsonKey(name: 'traceId')
   final String? traceId;
   @JsonKey(name: 'success')
   final bool? success;
   static const fromJsonFactory =
-      _$UserTagPortraitAiToPortraitV2Post$ResponseFromJson;
+      _$UserServiceUserTagPortraitAiToPortraitV2Post$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is UserTagPortraitAiToPortraitV2Post$Response &&
+        (other is UserServiceUserTagPortraitAiToPortraitV2Post$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -6205,16 +6411,16 @@ class UserTagPortraitAiToPortraitV2Post$Response {
       runtimeType.hashCode;
 }
 
-extension $UserTagPortraitAiToPortraitV2Post$ResponseExtension
-    on UserTagPortraitAiToPortraitV2Post$Response {
-  UserTagPortraitAiToPortraitV2Post$Response copyWith({
+extension $UserServiceUserTagPortraitAiToPortraitV2Post$ResponseExtension
+    on UserServiceUserTagPortraitAiToPortraitV2Post$Response {
+  UserServiceUserTagPortraitAiToPortraitV2Post$Response copyWith({
     double? code,
     String? message,
-    UserTagPortraitAiToPortraitV2Post$Response$Data? data,
+    UserServiceUserTagPortraitAiToPortraitV2Post$Response$Data? data,
     String? traceId,
     bool? success,
   }) {
-    return UserTagPortraitAiToPortraitV2Post$Response(
+    return UserServiceUserTagPortraitAiToPortraitV2Post$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       data: data ?? this.data,
@@ -6223,14 +6429,14 @@ extension $UserTagPortraitAiToPortraitV2Post$ResponseExtension
     );
   }
 
-  UserTagPortraitAiToPortraitV2Post$Response copyWithWrapped({
+  UserServiceUserTagPortraitAiToPortraitV2Post$Response copyWithWrapped({
     Wrapped<double?>? code,
     Wrapped<String?>? message,
-    Wrapped<UserTagPortraitAiToPortraitV2Post$Response$Data?>? data,
+    Wrapped<UserServiceUserTagPortraitAiToPortraitV2Post$Response$Data?>? data,
     Wrapped<String?>? traceId,
     Wrapped<bool?>? success,
   }) {
-    return UserTagPortraitAiToPortraitV2Post$Response(
+    return UserServiceUserTagPortraitAiToPortraitV2Post$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
@@ -6241,8 +6447,8 @@ extension $UserTagPortraitAiToPortraitV2Post$ResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class UserTagPortraitUpdatePortraitPost$Response {
-  const UserTagPortraitUpdatePortraitPost$Response({
+class UserServiceUserTagPortraitUpdatePortraitPost$Response {
+  const UserServiceUserTagPortraitUpdatePortraitPost$Response({
     this.code,
     this.message,
     this.data,
@@ -6250,14 +6456,14 @@ class UserTagPortraitUpdatePortraitPost$Response {
     this.success,
   });
 
-  factory UserTagPortraitUpdatePortraitPost$Response.fromJson(
+  factory UserServiceUserTagPortraitUpdatePortraitPost$Response.fromJson(
     Map<String, dynamic> json,
-  ) => _$UserTagPortraitUpdatePortraitPost$ResponseFromJson(json);
+  ) => _$UserServiceUserTagPortraitUpdatePortraitPost$ResponseFromJson(json);
 
   static const toJsonFactory =
-      _$UserTagPortraitUpdatePortraitPost$ResponseToJson;
+      _$UserServiceUserTagPortraitUpdatePortraitPost$ResponseToJson;
   Map<String, dynamic> toJson() =>
-      _$UserTagPortraitUpdatePortraitPost$ResponseToJson(this);
+      _$UserServiceUserTagPortraitUpdatePortraitPost$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final double? code;
@@ -6270,12 +6476,12 @@ class UserTagPortraitUpdatePortraitPost$Response {
   @JsonKey(name: 'success')
   final bool? success;
   static const fromJsonFactory =
-      _$UserTagPortraitUpdatePortraitPost$ResponseFromJson;
+      _$UserServiceUserTagPortraitUpdatePortraitPost$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is UserTagPortraitUpdatePortraitPost$Response &&
+        (other is UserServiceUserTagPortraitUpdatePortraitPost$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -6307,16 +6513,16 @@ class UserTagPortraitUpdatePortraitPost$Response {
       runtimeType.hashCode;
 }
 
-extension $UserTagPortraitUpdatePortraitPost$ResponseExtension
-    on UserTagPortraitUpdatePortraitPost$Response {
-  UserTagPortraitUpdatePortraitPost$Response copyWith({
+extension $UserServiceUserTagPortraitUpdatePortraitPost$ResponseExtension
+    on UserServiceUserTagPortraitUpdatePortraitPost$Response {
+  UserServiceUserTagPortraitUpdatePortraitPost$Response copyWith({
     double? code,
     String? message,
     bool? data,
     String? traceId,
     bool? success,
   }) {
-    return UserTagPortraitUpdatePortraitPost$Response(
+    return UserServiceUserTagPortraitUpdatePortraitPost$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       data: data ?? this.data,
@@ -6325,14 +6531,14 @@ extension $UserTagPortraitUpdatePortraitPost$ResponseExtension
     );
   }
 
-  UserTagPortraitUpdatePortraitPost$Response copyWithWrapped({
+  UserServiceUserTagPortraitUpdatePortraitPost$Response copyWithWrapped({
     Wrapped<double?>? code,
     Wrapped<String?>? message,
     Wrapped<bool?>? data,
     Wrapped<String?>? traceId,
     Wrapped<bool?>? success,
   }) {
-    return UserTagPortraitUpdatePortraitPost$Response(
+    return UserServiceUserTagPortraitUpdatePortraitPost$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
@@ -6343,8 +6549,8 @@ extension $UserTagPortraitUpdatePortraitPost$ResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class UserTagPortraitGetPortraitGet$Response {
-  const UserTagPortraitGetPortraitGet$Response({
+class UserServiceUserTagPortraitGetPortraitGet$Response {
+  const UserServiceUserTagPortraitGetPortraitGet$Response({
     this.code,
     this.message,
     this.data,
@@ -6352,31 +6558,32 @@ class UserTagPortraitGetPortraitGet$Response {
     this.success,
   });
 
-  factory UserTagPortraitGetPortraitGet$Response.fromJson(
+  factory UserServiceUserTagPortraitGetPortraitGet$Response.fromJson(
     Map<String, dynamic> json,
-  ) => _$UserTagPortraitGetPortraitGet$ResponseFromJson(json);
+  ) => _$UserServiceUserTagPortraitGetPortraitGet$ResponseFromJson(json);
 
-  static const toJsonFactory = _$UserTagPortraitGetPortraitGet$ResponseToJson;
+  static const toJsonFactory =
+      _$UserServiceUserTagPortraitGetPortraitGet$ResponseToJson;
   Map<String, dynamic> toJson() =>
-      _$UserTagPortraitGetPortraitGet$ResponseToJson(this);
+      _$UserServiceUserTagPortraitGetPortraitGet$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final double? code;
   @JsonKey(name: 'message')
   final String? message;
   @JsonKey(name: 'data')
-  final UserTagPortraitGetPortraitGet$Response$Data? data;
+  final UserServiceUserTagPortraitGetPortraitGet$Response$Data? data;
   @JsonKey(name: 'traceId')
   final String? traceId;
   @JsonKey(name: 'success')
   final bool? success;
   static const fromJsonFactory =
-      _$UserTagPortraitGetPortraitGet$ResponseFromJson;
+      _$UserServiceUserTagPortraitGetPortraitGet$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is UserTagPortraitGetPortraitGet$Response &&
+        (other is UserServiceUserTagPortraitGetPortraitGet$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -6408,16 +6615,16 @@ class UserTagPortraitGetPortraitGet$Response {
       runtimeType.hashCode;
 }
 
-extension $UserTagPortraitGetPortraitGet$ResponseExtension
-    on UserTagPortraitGetPortraitGet$Response {
-  UserTagPortraitGetPortraitGet$Response copyWith({
+extension $UserServiceUserTagPortraitGetPortraitGet$ResponseExtension
+    on UserServiceUserTagPortraitGetPortraitGet$Response {
+  UserServiceUserTagPortraitGetPortraitGet$Response copyWith({
     double? code,
     String? message,
-    UserTagPortraitGetPortraitGet$Response$Data? data,
+    UserServiceUserTagPortraitGetPortraitGet$Response$Data? data,
     String? traceId,
     bool? success,
   }) {
-    return UserTagPortraitGetPortraitGet$Response(
+    return UserServiceUserTagPortraitGetPortraitGet$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       data: data ?? this.data,
@@ -6426,14 +6633,14 @@ extension $UserTagPortraitGetPortraitGet$ResponseExtension
     );
   }
 
-  UserTagPortraitGetPortraitGet$Response copyWithWrapped({
+  UserServiceUserTagPortraitGetPortraitGet$Response copyWithWrapped({
     Wrapped<double?>? code,
     Wrapped<String?>? message,
-    Wrapped<UserTagPortraitGetPortraitGet$Response$Data?>? data,
+    Wrapped<UserServiceUserTagPortraitGetPortraitGet$Response$Data?>? data,
     Wrapped<String?>? traceId,
     Wrapped<bool?>? success,
   }) {
-    return UserTagPortraitGetPortraitGet$Response(
+    return UserServiceUserTagPortraitGetPortraitGet$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
@@ -6444,8 +6651,8 @@ extension $UserTagPortraitGetPortraitGet$ResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class UserCouponAppHomeActivityPost$Response {
-  const UserCouponAppHomeActivityPost$Response({
+class UserServiceUserCouponAppHomeActivityPost$Response {
+  const UserServiceUserCouponAppHomeActivityPost$Response({
     this.code,
     this.message,
     this.data,
@@ -6454,20 +6661,21 @@ class UserCouponAppHomeActivityPost$Response {
     this.success,
   });
 
-  factory UserCouponAppHomeActivityPost$Response.fromJson(
+  factory UserServiceUserCouponAppHomeActivityPost$Response.fromJson(
     Map<String, dynamic> json,
-  ) => _$UserCouponAppHomeActivityPost$ResponseFromJson(json);
+  ) => _$UserServiceUserCouponAppHomeActivityPost$ResponseFromJson(json);
 
-  static const toJsonFactory = _$UserCouponAppHomeActivityPost$ResponseToJson;
+  static const toJsonFactory =
+      _$UserServiceUserCouponAppHomeActivityPost$ResponseToJson;
   Map<String, dynamic> toJson() =>
-      _$UserCouponAppHomeActivityPost$ResponseToJson(this);
+      _$UserServiceUserCouponAppHomeActivityPost$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final double? code;
   @JsonKey(name: 'message')
   final String? message;
   @JsonKey(name: 'data')
-  final List<UserCouponAppHomeActivityPost$Response$Data$Item>? data;
+  final List<UserServiceUserCouponAppHomeActivityPost$Response$Data$Item>? data;
   @JsonKey(name: 'traceId')
   final String? traceId;
   @JsonKey(name: 'placeholder')
@@ -6475,12 +6683,12 @@ class UserCouponAppHomeActivityPost$Response {
   @JsonKey(name: 'success')
   final bool? success;
   static const fromJsonFactory =
-      _$UserCouponAppHomeActivityPost$ResponseFromJson;
+      _$UserServiceUserCouponAppHomeActivityPost$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is UserCouponAppHomeActivityPost$Response &&
+        (other is UserServiceUserCouponAppHomeActivityPost$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -6518,17 +6726,17 @@ class UserCouponAppHomeActivityPost$Response {
       runtimeType.hashCode;
 }
 
-extension $UserCouponAppHomeActivityPost$ResponseExtension
-    on UserCouponAppHomeActivityPost$Response {
-  UserCouponAppHomeActivityPost$Response copyWith({
+extension $UserServiceUserCouponAppHomeActivityPost$ResponseExtension
+    on UserServiceUserCouponAppHomeActivityPost$Response {
+  UserServiceUserCouponAppHomeActivityPost$Response copyWith({
     double? code,
     String? message,
-    List<UserCouponAppHomeActivityPost$Response$Data$Item>? data,
+    List<UserServiceUserCouponAppHomeActivityPost$Response$Data$Item>? data,
     String? traceId,
     String? placeholder,
     bool? success,
   }) {
-    return UserCouponAppHomeActivityPost$Response(
+    return UserServiceUserCouponAppHomeActivityPost$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       data: data ?? this.data,
@@ -6538,15 +6746,16 @@ extension $UserCouponAppHomeActivityPost$ResponseExtension
     );
   }
 
-  UserCouponAppHomeActivityPost$Response copyWithWrapped({
+  UserServiceUserCouponAppHomeActivityPost$Response copyWithWrapped({
     Wrapped<double?>? code,
     Wrapped<String?>? message,
-    Wrapped<List<UserCouponAppHomeActivityPost$Response$Data$Item>?>? data,
+    Wrapped<List<UserServiceUserCouponAppHomeActivityPost$Response$Data$Item>?>?
+    data,
     Wrapped<String?>? traceId,
     Wrapped<String?>? placeholder,
     Wrapped<bool?>? success,
   }) {
-    return UserCouponAppHomeActivityPost$Response(
+    return UserServiceUserCouponAppHomeActivityPost$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
@@ -6558,8 +6767,8 @@ extension $UserCouponAppHomeActivityPost$ResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class AddressQueryGet$Response$Data$Item {
-  const AddressQueryGet$Response$Data$Item({
+class UserServiceAddressQueryGet$Response$Data$Item {
+  const UserServiceAddressQueryGet$Response$Data$Item({
     this.apartment,
     this.street,
     this.city,
@@ -6574,13 +6783,14 @@ class AddressQueryGet$Response$Data$Item {
     this.longitude,
   });
 
-  factory AddressQueryGet$Response$Data$Item.fromJson(
+  factory UserServiceAddressQueryGet$Response$Data$Item.fromJson(
     Map<String, dynamic> json,
-  ) => _$AddressQueryGet$Response$Data$ItemFromJson(json);
+  ) => _$UserServiceAddressQueryGet$Response$Data$ItemFromJson(json);
 
-  static const toJsonFactory = _$AddressQueryGet$Response$Data$ItemToJson;
+  static const toJsonFactory =
+      _$UserServiceAddressQueryGet$Response$Data$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$AddressQueryGet$Response$Data$ItemToJson(this);
+      _$UserServiceAddressQueryGet$Response$Data$ItemToJson(this);
 
   @JsonKey(name: 'apartment')
   final String? apartment;
@@ -6606,12 +6816,13 @@ class AddressQueryGet$Response$Data$Item {
   final double? latitude;
   @JsonKey(name: 'longitude')
   final double? longitude;
-  static const fromJsonFactory = _$AddressQueryGet$Response$Data$ItemFromJson;
+  static const fromJsonFactory =
+      _$UserServiceAddressQueryGet$Response$Data$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is AddressQueryGet$Response$Data$Item &&
+        (other is UserServiceAddressQueryGet$Response$Data$Item &&
             (identical(other.apartment, apartment) ||
                 const DeepCollectionEquality().equals(
                   other.apartment,
@@ -6685,9 +6896,9 @@ class AddressQueryGet$Response$Data$Item {
       runtimeType.hashCode;
 }
 
-extension $AddressQueryGet$Response$Data$ItemExtension
-    on AddressQueryGet$Response$Data$Item {
-  AddressQueryGet$Response$Data$Item copyWith({
+extension $UserServiceAddressQueryGet$Response$Data$ItemExtension
+    on UserServiceAddressQueryGet$Response$Data$Item {
+  UserServiceAddressQueryGet$Response$Data$Item copyWith({
     String? apartment,
     String? street,
     String? city,
@@ -6701,7 +6912,7 @@ extension $AddressQueryGet$Response$Data$ItemExtension
     double? latitude,
     double? longitude,
   }) {
-    return AddressQueryGet$Response$Data$Item(
+    return UserServiceAddressQueryGet$Response$Data$Item(
       apartment: apartment ?? this.apartment,
       street: street ?? this.street,
       city: city ?? this.city,
@@ -6717,7 +6928,7 @@ extension $AddressQueryGet$Response$Data$ItemExtension
     );
   }
 
-  AddressQueryGet$Response$Data$Item copyWithWrapped({
+  UserServiceAddressQueryGet$Response$Data$Item copyWithWrapped({
     Wrapped<String?>? apartment,
     Wrapped<String?>? street,
     Wrapped<String?>? city,
@@ -6731,7 +6942,7 @@ extension $AddressQueryGet$Response$Data$ItemExtension
     Wrapped<double?>? latitude,
     Wrapped<double?>? longitude,
   }) {
-    return AddressQueryGet$Response$Data$Item(
+    return UserServiceAddressQueryGet$Response$Data$Item(
       apartment: (apartment != null ? apartment.value : this.apartment),
       street: (street != null ? street.value : this.street),
       city: (city != null ? city.value : this.city),
@@ -6749,8 +6960,8 @@ extension $AddressQueryGet$Response$Data$ItemExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class AddressListGet$Response$Data$Item {
-  const AddressListGet$Response$Data$Item({
+class UserServiceAddressListGet$Response$Data$Item {
+  const UserServiceAddressListGet$Response$Data$Item({
     required this.id,
     required this.tenantCode,
     required this.userId,
@@ -6776,13 +6987,14 @@ class AddressListGet$Response$Data$Item {
     this.tin,
   });
 
-  factory AddressListGet$Response$Data$Item.fromJson(
+  factory UserServiceAddressListGet$Response$Data$Item.fromJson(
     Map<String, dynamic> json,
-  ) => _$AddressListGet$Response$Data$ItemFromJson(json);
+  ) => _$UserServiceAddressListGet$Response$Data$ItemFromJson(json);
 
-  static const toJsonFactory = _$AddressListGet$Response$Data$ItemToJson;
+  static const toJsonFactory =
+      _$UserServiceAddressListGet$Response$Data$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$AddressListGet$Response$Data$ItemToJson(this);
+      _$UserServiceAddressListGet$Response$Data$ItemToJson(this);
 
   @JsonKey(name: 'id')
   final double id;
@@ -6830,12 +7042,13 @@ class AddressListGet$Response$Data$Item {
   final String gmtUpdate;
   @JsonKey(name: 'tin')
   final String? tin;
-  static const fromJsonFactory = _$AddressListGet$Response$Data$ItemFromJson;
+  static const fromJsonFactory =
+      _$UserServiceAddressListGet$Response$Data$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is AddressListGet$Response$Data$Item &&
+        (other is UserServiceAddressListGet$Response$Data$Item &&
             (identical(other.id, id) ||
                 const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.tenantCode, tenantCode) ||
@@ -6966,9 +7179,9 @@ class AddressListGet$Response$Data$Item {
       runtimeType.hashCode;
 }
 
-extension $AddressListGet$Response$Data$ItemExtension
-    on AddressListGet$Response$Data$Item {
-  AddressListGet$Response$Data$Item copyWith({
+extension $UserServiceAddressListGet$Response$Data$ItemExtension
+    on UserServiceAddressListGet$Response$Data$Item {
+  UserServiceAddressListGet$Response$Data$Item copyWith({
     double? id,
     String? tenantCode,
     String? userId,
@@ -6993,7 +7206,7 @@ extension $AddressListGet$Response$Data$ItemExtension
     String? gmtUpdate,
     String? tin,
   }) {
-    return AddressListGet$Response$Data$Item(
+    return UserServiceAddressListGet$Response$Data$Item(
       id: id ?? this.id,
       tenantCode: tenantCode ?? this.tenantCode,
       userId: userId ?? this.userId,
@@ -7020,7 +7233,7 @@ extension $AddressListGet$Response$Data$ItemExtension
     );
   }
 
-  AddressListGet$Response$Data$Item copyWithWrapped({
+  UserServiceAddressListGet$Response$Data$Item copyWithWrapped({
     Wrapped<double>? id,
     Wrapped<String>? tenantCode,
     Wrapped<String>? userId,
@@ -7045,7 +7258,7 @@ extension $AddressListGet$Response$Data$ItemExtension
     Wrapped<String>? gmtUpdate,
     Wrapped<String?>? tin,
   }) {
-    return AddressListGet$Response$Data$Item(
+    return UserServiceAddressListGet$Response$Data$Item(
       id: (id != null ? id.value : this.id),
       tenantCode: (tenantCode != null ? tenantCode.value : this.tenantCode),
       userId: (userId != null ? userId.value : this.userId),
@@ -7074,8 +7287,8 @@ extension $AddressListGet$Response$Data$ItemExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class GetShippingAddressByCountryGet$Response$Data {
-  const GetShippingAddressByCountryGet$Response$Data({
+class UserServiceGetShippingAddressByCountryGet$Response$Data {
+  const UserServiceGetShippingAddressByCountryGet$Response$Data({
     required this.id,
     required this.isDefault,
     required this.country,
@@ -7093,14 +7306,14 @@ class GetShippingAddressByCountryGet$Response$Data {
     required this.phoneNumber,
   });
 
-  factory GetShippingAddressByCountryGet$Response$Data.fromJson(
+  factory UserServiceGetShippingAddressByCountryGet$Response$Data.fromJson(
     Map<String, dynamic> json,
-  ) => _$GetShippingAddressByCountryGet$Response$DataFromJson(json);
+  ) => _$UserServiceGetShippingAddressByCountryGet$Response$DataFromJson(json);
 
   static const toJsonFactory =
-      _$GetShippingAddressByCountryGet$Response$DataToJson;
+      _$UserServiceGetShippingAddressByCountryGet$Response$DataToJson;
   Map<String, dynamic> toJson() =>
-      _$GetShippingAddressByCountryGet$Response$DataToJson(this);
+      _$UserServiceGetShippingAddressByCountryGet$Response$DataToJson(this);
 
   @JsonKey(name: 'id')
   final String id;
@@ -7133,12 +7346,12 @@ class GetShippingAddressByCountryGet$Response$Data {
   @JsonKey(name: 'phoneNumber')
   final String phoneNumber;
   static const fromJsonFactory =
-      _$GetShippingAddressByCountryGet$Response$DataFromJson;
+      _$UserServiceGetShippingAddressByCountryGet$Response$DataFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is GetShippingAddressByCountryGet$Response$Data &&
+        (other is UserServiceGetShippingAddressByCountryGet$Response$Data &&
             (identical(other.id, id) ||
                 const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.isDefault, isDefault) ||
@@ -7230,9 +7443,9 @@ class GetShippingAddressByCountryGet$Response$Data {
       runtimeType.hashCode;
 }
 
-extension $GetShippingAddressByCountryGet$Response$DataExtension
-    on GetShippingAddressByCountryGet$Response$Data {
-  GetShippingAddressByCountryGet$Response$Data copyWith({
+extension $UserServiceGetShippingAddressByCountryGet$Response$DataExtension
+    on UserServiceGetShippingAddressByCountryGet$Response$Data {
+  UserServiceGetShippingAddressByCountryGet$Response$Data copyWith({
     String? id,
     bool? isDefault,
     String? country,
@@ -7249,7 +7462,7 @@ extension $GetShippingAddressByCountryGet$Response$DataExtension
     String? lastName,
     String? phoneNumber,
   }) {
-    return GetShippingAddressByCountryGet$Response$Data(
+    return UserServiceGetShippingAddressByCountryGet$Response$Data(
       id: id ?? this.id,
       isDefault: isDefault ?? this.isDefault,
       country: country ?? this.country,
@@ -7268,7 +7481,7 @@ extension $GetShippingAddressByCountryGet$Response$DataExtension
     );
   }
 
-  GetShippingAddressByCountryGet$Response$Data copyWithWrapped({
+  UserServiceGetShippingAddressByCountryGet$Response$Data copyWithWrapped({
     Wrapped<String>? id,
     Wrapped<bool>? isDefault,
     Wrapped<String>? country,
@@ -7285,7 +7498,7 @@ extension $GetShippingAddressByCountryGet$Response$DataExtension
     Wrapped<String>? lastName,
     Wrapped<String>? phoneNumber,
   }) {
-    return GetShippingAddressByCountryGet$Response$Data(
+    return UserServiceGetShippingAddressByCountryGet$Response$Data(
       id: (id != null ? id.value : this.id),
       isDefault: (isDefault != null ? isDefault.value : this.isDefault),
       country: (country != null ? country.value : this.country),
@@ -7308,8 +7521,8 @@ extension $GetShippingAddressByCountryGet$Response$DataExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class GetDefaultShippingAddressGet$Response$Data {
-  const GetDefaultShippingAddressGet$Response$Data({
+class UserServiceGetDefaultShippingAddressGet$Response$Data {
+  const UserServiceGetDefaultShippingAddressGet$Response$Data({
     required this.id,
     required this.isDefault,
     required this.country,
@@ -7330,14 +7543,14 @@ class GetDefaultShippingAddressGet$Response$Data {
     required this.email,
   });
 
-  factory GetDefaultShippingAddressGet$Response$Data.fromJson(
+  factory UserServiceGetDefaultShippingAddressGet$Response$Data.fromJson(
     Map<String, dynamic> json,
-  ) => _$GetDefaultShippingAddressGet$Response$DataFromJson(json);
+  ) => _$UserServiceGetDefaultShippingAddressGet$Response$DataFromJson(json);
 
   static const toJsonFactory =
-      _$GetDefaultShippingAddressGet$Response$DataToJson;
+      _$UserServiceGetDefaultShippingAddressGet$Response$DataToJson;
   Map<String, dynamic> toJson() =>
-      _$GetDefaultShippingAddressGet$Response$DataToJson(this);
+      _$UserServiceGetDefaultShippingAddressGet$Response$DataToJson(this);
 
   @JsonKey(name: 'id')
   final String id;
@@ -7376,12 +7589,12 @@ class GetDefaultShippingAddressGet$Response$Data {
   @JsonKey(name: 'email')
   final String email;
   static const fromJsonFactory =
-      _$GetDefaultShippingAddressGet$Response$DataFromJson;
+      _$UserServiceGetDefaultShippingAddressGet$Response$DataFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is GetDefaultShippingAddressGet$Response$Data &&
+        (other is UserServiceGetDefaultShippingAddressGet$Response$Data &&
             (identical(other.id, id) ||
                 const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.isDefault, isDefault) ||
@@ -7485,9 +7698,9 @@ class GetDefaultShippingAddressGet$Response$Data {
       runtimeType.hashCode;
 }
 
-extension $GetDefaultShippingAddressGet$Response$DataExtension
-    on GetDefaultShippingAddressGet$Response$Data {
-  GetDefaultShippingAddressGet$Response$Data copyWith({
+extension $UserServiceGetDefaultShippingAddressGet$Response$DataExtension
+    on UserServiceGetDefaultShippingAddressGet$Response$Data {
+  UserServiceGetDefaultShippingAddressGet$Response$Data copyWith({
     String? id,
     bool? isDefault,
     String? country,
@@ -7507,7 +7720,7 @@ extension $GetDefaultShippingAddressGet$Response$DataExtension
     String? zipCode,
     String? email,
   }) {
-    return GetDefaultShippingAddressGet$Response$Data(
+    return UserServiceGetDefaultShippingAddressGet$Response$Data(
       id: id ?? this.id,
       isDefault: isDefault ?? this.isDefault,
       country: country ?? this.country,
@@ -7529,7 +7742,7 @@ extension $GetDefaultShippingAddressGet$Response$DataExtension
     );
   }
 
-  GetDefaultShippingAddressGet$Response$Data copyWithWrapped({
+  UserServiceGetDefaultShippingAddressGet$Response$Data copyWithWrapped({
     Wrapped<String>? id,
     Wrapped<bool>? isDefault,
     Wrapped<String>? country,
@@ -7549,7 +7762,7 @@ extension $GetDefaultShippingAddressGet$Response$DataExtension
     Wrapped<String>? zipCode,
     Wrapped<String>? email,
   }) {
-    return GetDefaultShippingAddressGet$Response$Data(
+    return UserServiceGetDefaultShippingAddressGet$Response$Data(
       id: (id != null ? id.value : this.id),
       isDefault: (isDefault != null ? isDefault.value : this.isDefault),
       country: (country != null ? country.value : this.country),
@@ -7575,20 +7788,21 @@ extension $GetDefaultShippingAddressGet$Response$DataExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class AddressCountryGet$Response$Data$Item {
-  const AddressCountryGet$Response$Data$Item({
+class UserServiceAddressCountryGet$Response$Data$Item {
+  const UserServiceAddressCountryGet$Response$Data$Item({
     required this.areaCode,
     required this.icon,
     required this.name,
   });
 
-  factory AddressCountryGet$Response$Data$Item.fromJson(
+  factory UserServiceAddressCountryGet$Response$Data$Item.fromJson(
     Map<String, dynamic> json,
-  ) => _$AddressCountryGet$Response$Data$ItemFromJson(json);
+  ) => _$UserServiceAddressCountryGet$Response$Data$ItemFromJson(json);
 
-  static const toJsonFactory = _$AddressCountryGet$Response$Data$ItemToJson;
+  static const toJsonFactory =
+      _$UserServiceAddressCountryGet$Response$Data$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$AddressCountryGet$Response$Data$ItemToJson(this);
+      _$UserServiceAddressCountryGet$Response$Data$ItemToJson(this);
 
   @JsonKey(name: 'areaCode')
   final String areaCode;
@@ -7596,12 +7810,13 @@ class AddressCountryGet$Response$Data$Item {
   final String icon;
   @JsonKey(name: 'name')
   final String name;
-  static const fromJsonFactory = _$AddressCountryGet$Response$Data$ItemFromJson;
+  static const fromJsonFactory =
+      _$UserServiceAddressCountryGet$Response$Data$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is AddressCountryGet$Response$Data$Item &&
+        (other is UserServiceAddressCountryGet$Response$Data$Item &&
             (identical(other.areaCode, areaCode) ||
                 const DeepCollectionEquality().equals(
                   other.areaCode,
@@ -7624,26 +7839,26 @@ class AddressCountryGet$Response$Data$Item {
       runtimeType.hashCode;
 }
 
-extension $AddressCountryGet$Response$Data$ItemExtension
-    on AddressCountryGet$Response$Data$Item {
-  AddressCountryGet$Response$Data$Item copyWith({
+extension $UserServiceAddressCountryGet$Response$Data$ItemExtension
+    on UserServiceAddressCountryGet$Response$Data$Item {
+  UserServiceAddressCountryGet$Response$Data$Item copyWith({
     String? areaCode,
     String? icon,
     String? name,
   }) {
-    return AddressCountryGet$Response$Data$Item(
+    return UserServiceAddressCountryGet$Response$Data$Item(
       areaCode: areaCode ?? this.areaCode,
       icon: icon ?? this.icon,
       name: name ?? this.name,
     );
   }
 
-  AddressCountryGet$Response$Data$Item copyWithWrapped({
+  UserServiceAddressCountryGet$Response$Data$Item copyWithWrapped({
     Wrapped<String>? areaCode,
     Wrapped<String>? icon,
     Wrapped<String>? name,
   }) {
-    return AddressCountryGet$Response$Data$Item(
+    return UserServiceAddressCountryGet$Response$Data$Item(
       areaCode: (areaCode != null ? areaCode.value : this.areaCode),
       icon: (icon != null ? icon.value : this.icon),
       name: (name != null ? name.value : this.name),
@@ -7652,8 +7867,8 @@ extension $AddressCountryGet$Response$Data$ItemExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class AddressQueryByZipCodeGet$Response$Data$Item {
-  const AddressQueryByZipCodeGet$Response$Data$Item({
+class UserServiceAddressQueryByZipCodeGet$Response$Data$Item {
+  const UserServiceAddressQueryByZipCodeGet$Response$Data$Item({
     required this.apartment,
     required this.street,
     required this.city,
@@ -7668,14 +7883,14 @@ class AddressQueryByZipCodeGet$Response$Data$Item {
     required this.longitude,
   });
 
-  factory AddressQueryByZipCodeGet$Response$Data$Item.fromJson(
+  factory UserServiceAddressQueryByZipCodeGet$Response$Data$Item.fromJson(
     Map<String, dynamic> json,
-  ) => _$AddressQueryByZipCodeGet$Response$Data$ItemFromJson(json);
+  ) => _$UserServiceAddressQueryByZipCodeGet$Response$Data$ItemFromJson(json);
 
   static const toJsonFactory =
-      _$AddressQueryByZipCodeGet$Response$Data$ItemToJson;
+      _$UserServiceAddressQueryByZipCodeGet$Response$Data$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$AddressQueryByZipCodeGet$Response$Data$ItemToJson(this);
+      _$UserServiceAddressQueryByZipCodeGet$Response$Data$ItemToJson(this);
 
   @JsonKey(name: 'apartment')
   final Object apartment;
@@ -7702,12 +7917,12 @@ class AddressQueryByZipCodeGet$Response$Data$Item {
   @JsonKey(name: 'longitude')
   final Object longitude;
   static const fromJsonFactory =
-      _$AddressQueryByZipCodeGet$Response$Data$ItemFromJson;
+      _$UserServiceAddressQueryByZipCodeGet$Response$Data$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is AddressQueryByZipCodeGet$Response$Data$Item &&
+        (other is UserServiceAddressQueryByZipCodeGet$Response$Data$Item &&
             (identical(other.apartment, apartment) ||
                 const DeepCollectionEquality().equals(
                   other.apartment,
@@ -7781,9 +7996,9 @@ class AddressQueryByZipCodeGet$Response$Data$Item {
       runtimeType.hashCode;
 }
 
-extension $AddressQueryByZipCodeGet$Response$Data$ItemExtension
-    on AddressQueryByZipCodeGet$Response$Data$Item {
-  AddressQueryByZipCodeGet$Response$Data$Item copyWith({
+extension $UserServiceAddressQueryByZipCodeGet$Response$Data$ItemExtension
+    on UserServiceAddressQueryByZipCodeGet$Response$Data$Item {
+  UserServiceAddressQueryByZipCodeGet$Response$Data$Item copyWith({
     Object? apartment,
     String? street,
     String? city,
@@ -7797,7 +8012,7 @@ extension $AddressQueryByZipCodeGet$Response$Data$ItemExtension
     Object? latitude,
     Object? longitude,
   }) {
-    return AddressQueryByZipCodeGet$Response$Data$Item(
+    return UserServiceAddressQueryByZipCodeGet$Response$Data$Item(
       apartment: apartment ?? this.apartment,
       street: street ?? this.street,
       city: city ?? this.city,
@@ -7813,7 +8028,7 @@ extension $AddressQueryByZipCodeGet$Response$Data$ItemExtension
     );
   }
 
-  AddressQueryByZipCodeGet$Response$Data$Item copyWithWrapped({
+  UserServiceAddressQueryByZipCodeGet$Response$Data$Item copyWithWrapped({
     Wrapped<Object>? apartment,
     Wrapped<String>? street,
     Wrapped<String>? city,
@@ -7827,7 +8042,7 @@ extension $AddressQueryByZipCodeGet$Response$Data$ItemExtension
     Wrapped<Object>? latitude,
     Wrapped<Object>? longitude,
   }) {
-    return AddressQueryByZipCodeGet$Response$Data$Item(
+    return UserServiceAddressQueryByZipCodeGet$Response$Data$Item(
       apartment: (apartment != null ? apartment.value : this.apartment),
       street: (street != null ? street.value : this.street),
       city: (city != null ? city.value : this.city),
@@ -7845,8 +8060,8 @@ extension $AddressQueryByZipCodeGet$Response$Data$ItemExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class SigninSwitchPortalPost$Response$Data {
-  const SigninSwitchPortalPost$Response$Data({
+class UserServiceSigninSwitchPortalPost$Response$Data {
+  const UserServiceSigninSwitchPortalPost$Response$Data({
     this.tenantCode,
     this.userId,
     this.nickname,
@@ -7874,13 +8089,14 @@ class SigninSwitchPortalPost$Response$Data {
     this.currency,
   });
 
-  factory SigninSwitchPortalPost$Response$Data.fromJson(
+  factory UserServiceSigninSwitchPortalPost$Response$Data.fromJson(
     Map<String, dynamic> json,
-  ) => _$SigninSwitchPortalPost$Response$DataFromJson(json);
+  ) => _$UserServiceSigninSwitchPortalPost$Response$DataFromJson(json);
 
-  static const toJsonFactory = _$SigninSwitchPortalPost$Response$DataToJson;
+  static const toJsonFactory =
+      _$UserServiceSigninSwitchPortalPost$Response$DataToJson;
   Map<String, dynamic> toJson() =>
-      _$SigninSwitchPortalPost$Response$DataToJson(this);
+      _$UserServiceSigninSwitchPortalPost$Response$DataToJson(this);
 
   @JsonKey(name: 'tenantCode')
   final String? tenantCode;
@@ -7932,12 +8148,13 @@ class SigninSwitchPortalPost$Response$Data {
   final String? message;
   @JsonKey(name: 'currency')
   final String? currency;
-  static const fromJsonFactory = _$SigninSwitchPortalPost$Response$DataFromJson;
+  static const fromJsonFactory =
+      _$UserServiceSigninSwitchPortalPost$Response$DataFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is SigninSwitchPortalPost$Response$Data &&
+        (other is UserServiceSigninSwitchPortalPost$Response$Data &&
             (identical(other.tenantCode, tenantCode) ||
                 const DeepCollectionEquality().equals(
                   other.tenantCode,
@@ -8086,9 +8303,9 @@ class SigninSwitchPortalPost$Response$Data {
       runtimeType.hashCode;
 }
 
-extension $SigninSwitchPortalPost$Response$DataExtension
-    on SigninSwitchPortalPost$Response$Data {
-  SigninSwitchPortalPost$Response$Data copyWith({
+extension $UserServiceSigninSwitchPortalPost$Response$DataExtension
+    on UserServiceSigninSwitchPortalPost$Response$Data {
+  UserServiceSigninSwitchPortalPost$Response$Data copyWith({
     String? tenantCode,
     String? userId,
     String? nickname,
@@ -8115,7 +8332,7 @@ extension $SigninSwitchPortalPost$Response$DataExtension
     String? message,
     String? currency,
   }) {
-    return SigninSwitchPortalPost$Response$Data(
+    return UserServiceSigninSwitchPortalPost$Response$Data(
       tenantCode: tenantCode ?? this.tenantCode,
       userId: userId ?? this.userId,
       nickname: nickname ?? this.nickname,
@@ -8144,7 +8361,7 @@ extension $SigninSwitchPortalPost$Response$DataExtension
     );
   }
 
-  SigninSwitchPortalPost$Response$Data copyWithWrapped({
+  UserServiceSigninSwitchPortalPost$Response$Data copyWithWrapped({
     Wrapped<String?>? tenantCode,
     Wrapped<String?>? userId,
     Wrapped<String?>? nickname,
@@ -8171,7 +8388,7 @@ extension $SigninSwitchPortalPost$Response$DataExtension
     Wrapped<String?>? message,
     Wrapped<String?>? currency,
   }) {
-    return SigninSwitchPortalPost$Response$Data(
+    return UserServiceSigninSwitchPortalPost$Response$Data(
       tenantCode: (tenantCode != null ? tenantCode.value : this.tenantCode),
       userId: (userId != null ? userId.value : this.userId),
       nickname: (nickname != null ? nickname.value : this.nickname),
@@ -8206,18 +8423,20 @@ extension $SigninSwitchPortalPost$Response$DataExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class SignInInitPost$Response$Data {
-  const SignInInitPost$Response$Data({
+class UserServiceSignInInitPost$Response$Data {
+  const UserServiceSignInInitPost$Response$Data({
     required this.authWay,
     required this.code,
     required this.jumpUrl,
   });
 
-  factory SignInInitPost$Response$Data.fromJson(Map<String, dynamic> json) =>
-      _$SignInInitPost$Response$DataFromJson(json);
+  factory UserServiceSignInInitPost$Response$Data.fromJson(
+    Map<String, dynamic> json,
+  ) => _$UserServiceSignInInitPost$Response$DataFromJson(json);
 
-  static const toJsonFactory = _$SignInInitPost$Response$DataToJson;
-  Map<String, dynamic> toJson() => _$SignInInitPost$Response$DataToJson(this);
+  static const toJsonFactory = _$UserServiceSignInInitPost$Response$DataToJson;
+  Map<String, dynamic> toJson() =>
+      _$UserServiceSignInInitPost$Response$DataToJson(this);
 
   @JsonKey(name: 'authWay')
   final String authWay;
@@ -8225,12 +8444,13 @@ class SignInInitPost$Response$Data {
   final String code;
   @JsonKey(name: 'jumpUrl')
   final String jumpUrl;
-  static const fromJsonFactory = _$SignInInitPost$Response$DataFromJson;
+  static const fromJsonFactory =
+      _$UserServiceSignInInitPost$Response$DataFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is SignInInitPost$Response$Data &&
+        (other is UserServiceSignInInitPost$Response$Data &&
             (identical(other.authWay, authWay) ||
                 const DeepCollectionEquality().equals(
                   other.authWay,
@@ -8253,26 +8473,26 @@ class SignInInitPost$Response$Data {
       runtimeType.hashCode;
 }
 
-extension $SignInInitPost$Response$DataExtension
-    on SignInInitPost$Response$Data {
-  SignInInitPost$Response$Data copyWith({
+extension $UserServiceSignInInitPost$Response$DataExtension
+    on UserServiceSignInInitPost$Response$Data {
+  UserServiceSignInInitPost$Response$Data copyWith({
     String? authWay,
     String? code,
     String? jumpUrl,
   }) {
-    return SignInInitPost$Response$Data(
+    return UserServiceSignInInitPost$Response$Data(
       authWay: authWay ?? this.authWay,
       code: code ?? this.code,
       jumpUrl: jumpUrl ?? this.jumpUrl,
     );
   }
 
-  SignInInitPost$Response$Data copyWithWrapped({
+  UserServiceSignInInitPost$Response$Data copyWithWrapped({
     Wrapped<String>? authWay,
     Wrapped<String>? code,
     Wrapped<String>? jumpUrl,
   }) {
-    return SignInInitPost$Response$Data(
+    return UserServiceSignInInitPost$Response$Data(
       authWay: (authWay != null ? authWay.value : this.authWay),
       code: (code != null ? code.value : this.code),
       jumpUrl: (jumpUrl != null ? jumpUrl.value : this.jumpUrl),
@@ -8281,8 +8501,8 @@ extension $SignInInitPost$Response$DataExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class SignInVerifyPost$Response$Data {
-  const SignInVerifyPost$Response$Data({
+class UserServiceSignInVerifyPost$Response$Data {
+  const UserServiceSignInVerifyPost$Response$Data({
     this.tenantCode,
     this.userId,
     this.nickname,
@@ -8310,11 +8530,14 @@ class SignInVerifyPost$Response$Data {
     this.currency,
   });
 
-  factory SignInVerifyPost$Response$Data.fromJson(Map<String, dynamic> json) =>
-      _$SignInVerifyPost$Response$DataFromJson(json);
+  factory UserServiceSignInVerifyPost$Response$Data.fromJson(
+    Map<String, dynamic> json,
+  ) => _$UserServiceSignInVerifyPost$Response$DataFromJson(json);
 
-  static const toJsonFactory = _$SignInVerifyPost$Response$DataToJson;
-  Map<String, dynamic> toJson() => _$SignInVerifyPost$Response$DataToJson(this);
+  static const toJsonFactory =
+      _$UserServiceSignInVerifyPost$Response$DataToJson;
+  Map<String, dynamic> toJson() =>
+      _$UserServiceSignInVerifyPost$Response$DataToJson(this);
 
   @JsonKey(name: 'tenantCode')
   final String? tenantCode;
@@ -8366,12 +8589,13 @@ class SignInVerifyPost$Response$Data {
   final String? message;
   @JsonKey(name: 'currency')
   final String? currency;
-  static const fromJsonFactory = _$SignInVerifyPost$Response$DataFromJson;
+  static const fromJsonFactory =
+      _$UserServiceSignInVerifyPost$Response$DataFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is SignInVerifyPost$Response$Data &&
+        (other is UserServiceSignInVerifyPost$Response$Data &&
             (identical(other.tenantCode, tenantCode) ||
                 const DeepCollectionEquality().equals(
                   other.tenantCode,
@@ -8520,9 +8744,9 @@ class SignInVerifyPost$Response$Data {
       runtimeType.hashCode;
 }
 
-extension $SignInVerifyPost$Response$DataExtension
-    on SignInVerifyPost$Response$Data {
-  SignInVerifyPost$Response$Data copyWith({
+extension $UserServiceSignInVerifyPost$Response$DataExtension
+    on UserServiceSignInVerifyPost$Response$Data {
+  UserServiceSignInVerifyPost$Response$Data copyWith({
     String? tenantCode,
     String? userId,
     String? nickname,
@@ -8549,7 +8773,7 @@ extension $SignInVerifyPost$Response$DataExtension
     String? message,
     String? currency,
   }) {
-    return SignInVerifyPost$Response$Data(
+    return UserServiceSignInVerifyPost$Response$Data(
       tenantCode: tenantCode ?? this.tenantCode,
       userId: userId ?? this.userId,
       nickname: nickname ?? this.nickname,
@@ -8578,7 +8802,7 @@ extension $SignInVerifyPost$Response$DataExtension
     );
   }
 
-  SignInVerifyPost$Response$Data copyWithWrapped({
+  UserServiceSignInVerifyPost$Response$Data copyWithWrapped({
     Wrapped<String?>? tenantCode,
     Wrapped<String?>? userId,
     Wrapped<String?>? nickname,
@@ -8605,7 +8829,7 @@ extension $SignInVerifyPost$Response$DataExtension
     Wrapped<String?>? message,
     Wrapped<String?>? currency,
   }) {
-    return SignInVerifyPost$Response$Data(
+    return UserServiceSignInVerifyPost$Response$Data(
       tenantCode: (tenantCode != null ? tenantCode.value : this.tenantCode),
       userId: (userId != null ? userId.value : this.userId),
       nickname: (nickname != null ? nickname.value : this.nickname),
@@ -8640,8 +8864,8 @@ extension $SignInVerifyPost$Response$DataExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class SignInCallPost$Response$Data {
-  const SignInCallPost$Response$Data({
+class UserServiceSignInCallPost$Response$Data {
+  const UserServiceSignInCallPost$Response$Data({
     this.tenantCode,
     this.userId,
     this.nickname,
@@ -8668,11 +8892,13 @@ class SignInCallPost$Response$Data {
     this.message,
   });
 
-  factory SignInCallPost$Response$Data.fromJson(Map<String, dynamic> json) =>
-      _$SignInCallPost$Response$DataFromJson(json);
+  factory UserServiceSignInCallPost$Response$Data.fromJson(
+    Map<String, dynamic> json,
+  ) => _$UserServiceSignInCallPost$Response$DataFromJson(json);
 
-  static const toJsonFactory = _$SignInCallPost$Response$DataToJson;
-  Map<String, dynamic> toJson() => _$SignInCallPost$Response$DataToJson(this);
+  static const toJsonFactory = _$UserServiceSignInCallPost$Response$DataToJson;
+  Map<String, dynamic> toJson() =>
+      _$UserServiceSignInCallPost$Response$DataToJson(this);
 
   @JsonKey(name: 'tenantCode')
   final String? tenantCode;
@@ -8722,12 +8948,13 @@ class SignInCallPost$Response$Data {
   final double? finalSuccess;
   @JsonKey(name: 'message')
   final String? message;
-  static const fromJsonFactory = _$SignInCallPost$Response$DataFromJson;
+  static const fromJsonFactory =
+      _$UserServiceSignInCallPost$Response$DataFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is SignInCallPost$Response$Data &&
+        (other is UserServiceSignInCallPost$Response$Data &&
             (identical(other.tenantCode, tenantCode) ||
                 const DeepCollectionEquality().equals(
                   other.tenantCode,
@@ -8867,9 +9094,9 @@ class SignInCallPost$Response$Data {
       runtimeType.hashCode;
 }
 
-extension $SignInCallPost$Response$DataExtension
-    on SignInCallPost$Response$Data {
-  SignInCallPost$Response$Data copyWith({
+extension $UserServiceSignInCallPost$Response$DataExtension
+    on UserServiceSignInCallPost$Response$Data {
+  UserServiceSignInCallPost$Response$Data copyWith({
     String? tenantCode,
     String? userId,
     String? nickname,
@@ -8895,7 +9122,7 @@ extension $SignInCallPost$Response$DataExtension
     double? finalSuccess,
     String? message,
   }) {
-    return SignInCallPost$Response$Data(
+    return UserServiceSignInCallPost$Response$Data(
       tenantCode: tenantCode ?? this.tenantCode,
       userId: userId ?? this.userId,
       nickname: nickname ?? this.nickname,
@@ -8923,7 +9150,7 @@ extension $SignInCallPost$Response$DataExtension
     );
   }
 
-  SignInCallPost$Response$Data copyWithWrapped({
+  UserServiceSignInCallPost$Response$Data copyWithWrapped({
     Wrapped<String?>? tenantCode,
     Wrapped<String?>? userId,
     Wrapped<String?>? nickname,
@@ -8949,7 +9176,7 @@ extension $SignInCallPost$Response$DataExtension
     Wrapped<double?>? finalSuccess,
     Wrapped<String?>? message,
   }) {
-    return SignInCallPost$Response$Data(
+    return UserServiceSignInCallPost$Response$Data(
       tenantCode: (tenantCode != null ? tenantCode.value : this.tenantCode),
       userId: (userId != null ? userId.value : this.userId),
       nickname: (nickname != null ? nickname.value : this.nickname),
@@ -8983,8 +9210,8 @@ extension $SignInCallPost$Response$DataExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class NoAuthOtpVerifyPost$Response$Data {
-  const NoAuthOtpVerifyPost$Response$Data({
+class UserServiceNoAuthOtpVerifyPost$Response$Data {
+  const UserServiceNoAuthOtpVerifyPost$Response$Data({
     this.tenantCode,
     this.userId,
     this.nickname,
@@ -9012,13 +9239,14 @@ class NoAuthOtpVerifyPost$Response$Data {
     this.currency,
   });
 
-  factory NoAuthOtpVerifyPost$Response$Data.fromJson(
+  factory UserServiceNoAuthOtpVerifyPost$Response$Data.fromJson(
     Map<String, dynamic> json,
-  ) => _$NoAuthOtpVerifyPost$Response$DataFromJson(json);
+  ) => _$UserServiceNoAuthOtpVerifyPost$Response$DataFromJson(json);
 
-  static const toJsonFactory = _$NoAuthOtpVerifyPost$Response$DataToJson;
+  static const toJsonFactory =
+      _$UserServiceNoAuthOtpVerifyPost$Response$DataToJson;
   Map<String, dynamic> toJson() =>
-      _$NoAuthOtpVerifyPost$Response$DataToJson(this);
+      _$UserServiceNoAuthOtpVerifyPost$Response$DataToJson(this);
 
   @JsonKey(name: 'tenantCode')
   final String? tenantCode;
@@ -9070,12 +9298,13 @@ class NoAuthOtpVerifyPost$Response$Data {
   final String? message;
   @JsonKey(name: 'currency')
   final String? currency;
-  static const fromJsonFactory = _$NoAuthOtpVerifyPost$Response$DataFromJson;
+  static const fromJsonFactory =
+      _$UserServiceNoAuthOtpVerifyPost$Response$DataFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is NoAuthOtpVerifyPost$Response$Data &&
+        (other is UserServiceNoAuthOtpVerifyPost$Response$Data &&
             (identical(other.tenantCode, tenantCode) ||
                 const DeepCollectionEquality().equals(
                   other.tenantCode,
@@ -9224,9 +9453,9 @@ class NoAuthOtpVerifyPost$Response$Data {
       runtimeType.hashCode;
 }
 
-extension $NoAuthOtpVerifyPost$Response$DataExtension
-    on NoAuthOtpVerifyPost$Response$Data {
-  NoAuthOtpVerifyPost$Response$Data copyWith({
+extension $UserServiceNoAuthOtpVerifyPost$Response$DataExtension
+    on UserServiceNoAuthOtpVerifyPost$Response$Data {
+  UserServiceNoAuthOtpVerifyPost$Response$Data copyWith({
     String? tenantCode,
     String? userId,
     String? nickname,
@@ -9253,7 +9482,7 @@ extension $NoAuthOtpVerifyPost$Response$DataExtension
     String? message,
     String? currency,
   }) {
-    return NoAuthOtpVerifyPost$Response$Data(
+    return UserServiceNoAuthOtpVerifyPost$Response$Data(
       tenantCode: tenantCode ?? this.tenantCode,
       userId: userId ?? this.userId,
       nickname: nickname ?? this.nickname,
@@ -9282,7 +9511,7 @@ extension $NoAuthOtpVerifyPost$Response$DataExtension
     );
   }
 
-  NoAuthOtpVerifyPost$Response$Data copyWithWrapped({
+  UserServiceNoAuthOtpVerifyPost$Response$Data copyWithWrapped({
     Wrapped<String?>? tenantCode,
     Wrapped<String?>? userId,
     Wrapped<String?>? nickname,
@@ -9309,7 +9538,7 @@ extension $NoAuthOtpVerifyPost$Response$DataExtension
     Wrapped<String?>? message,
     Wrapped<String?>? currency,
   }) {
-    return NoAuthOtpVerifyPost$Response$Data(
+    return UserServiceNoAuthOtpVerifyPost$Response$Data(
       tenantCode: (tenantCode != null ? tenantCode.value : this.tenantCode),
       userId: (userId != null ? userId.value : this.userId),
       nickname: (nickname != null ? nickname.value : this.nickname),
@@ -9344,21 +9573,25 @@ extension $NoAuthOtpVerifyPost$Response$DataExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class NoAuthCommonConfigDefaultSettingGet$Response$Data {
-  const NoAuthCommonConfigDefaultSettingGet$Response$Data({
+class UserServiceNoAuthCommonConfigDefaultSettingGet$Response$Data {
+  const UserServiceNoAuthCommonConfigDefaultSettingGet$Response$Data({
     this.countryCode,
     this.lang,
     this.currency,
   });
 
-  factory NoAuthCommonConfigDefaultSettingGet$Response$Data.fromJson(
+  factory UserServiceNoAuthCommonConfigDefaultSettingGet$Response$Data.fromJson(
     Map<String, dynamic> json,
-  ) => _$NoAuthCommonConfigDefaultSettingGet$Response$DataFromJson(json);
+  ) => _$UserServiceNoAuthCommonConfigDefaultSettingGet$Response$DataFromJson(
+    json,
+  );
 
   static const toJsonFactory =
-      _$NoAuthCommonConfigDefaultSettingGet$Response$DataToJson;
+      _$UserServiceNoAuthCommonConfigDefaultSettingGet$Response$DataToJson;
   Map<String, dynamic> toJson() =>
-      _$NoAuthCommonConfigDefaultSettingGet$Response$DataToJson(this);
+      _$UserServiceNoAuthCommonConfigDefaultSettingGet$Response$DataToJson(
+        this,
+      );
 
   @JsonKey(name: 'countryCode')
   final String? countryCode;
@@ -9367,12 +9600,13 @@ class NoAuthCommonConfigDefaultSettingGet$Response$Data {
   @JsonKey(name: 'currency')
   final String? currency;
   static const fromJsonFactory =
-      _$NoAuthCommonConfigDefaultSettingGet$Response$DataFromJson;
+      _$UserServiceNoAuthCommonConfigDefaultSettingGet$Response$DataFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is NoAuthCommonConfigDefaultSettingGet$Response$Data &&
+        (other
+                is UserServiceNoAuthCommonConfigDefaultSettingGet$Response$Data &&
             (identical(other.countryCode, countryCode) ||
                 const DeepCollectionEquality().equals(
                   other.countryCode,
@@ -9398,26 +9632,26 @@ class NoAuthCommonConfigDefaultSettingGet$Response$Data {
       runtimeType.hashCode;
 }
 
-extension $NoAuthCommonConfigDefaultSettingGet$Response$DataExtension
-    on NoAuthCommonConfigDefaultSettingGet$Response$Data {
-  NoAuthCommonConfigDefaultSettingGet$Response$Data copyWith({
+extension $UserServiceNoAuthCommonConfigDefaultSettingGet$Response$DataExtension
+    on UserServiceNoAuthCommonConfigDefaultSettingGet$Response$Data {
+  UserServiceNoAuthCommonConfigDefaultSettingGet$Response$Data copyWith({
     String? countryCode,
     String? lang,
     String? currency,
   }) {
-    return NoAuthCommonConfigDefaultSettingGet$Response$Data(
+    return UserServiceNoAuthCommonConfigDefaultSettingGet$Response$Data(
       countryCode: countryCode ?? this.countryCode,
       lang: lang ?? this.lang,
       currency: currency ?? this.currency,
     );
   }
 
-  NoAuthCommonConfigDefaultSettingGet$Response$Data copyWithWrapped({
+  UserServiceNoAuthCommonConfigDefaultSettingGet$Response$Data copyWithWrapped({
     Wrapped<String?>? countryCode,
     Wrapped<String?>? lang,
     Wrapped<String?>? currency,
   }) {
-    return NoAuthCommonConfigDefaultSettingGet$Response$Data(
+    return UserServiceNoAuthCommonConfigDefaultSettingGet$Response$Data(
       countryCode: (countryCode != null ? countryCode.value : this.countryCode),
       lang: (lang != null ? lang.value : this.lang),
       currency: (currency != null ? currency.value : this.currency),
@@ -9426,30 +9660,32 @@ extension $NoAuthCommonConfigDefaultSettingGet$Response$DataExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class FileImUploadPost$Response$Data$Item {
-  const FileImUploadPost$Response$Data$Item({
+class UserServiceFileImUploadPost$Response$Data$Item {
+  const UserServiceFileImUploadPost$Response$Data$Item({
     required this.url,
     required this.fileId,
   });
 
-  factory FileImUploadPost$Response$Data$Item.fromJson(
+  factory UserServiceFileImUploadPost$Response$Data$Item.fromJson(
     Map<String, dynamic> json,
-  ) => _$FileImUploadPost$Response$Data$ItemFromJson(json);
+  ) => _$UserServiceFileImUploadPost$Response$Data$ItemFromJson(json);
 
-  static const toJsonFactory = _$FileImUploadPost$Response$Data$ItemToJson;
+  static const toJsonFactory =
+      _$UserServiceFileImUploadPost$Response$Data$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$FileImUploadPost$Response$Data$ItemToJson(this);
+      _$UserServiceFileImUploadPost$Response$Data$ItemToJson(this);
 
   @JsonKey(name: 'url')
   final String url;
   @JsonKey(name: 'fileId')
   final String fileId;
-  static const fromJsonFactory = _$FileImUploadPost$Response$Data$ItemFromJson;
+  static const fromJsonFactory =
+      _$UserServiceFileImUploadPost$Response$Data$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FileImUploadPost$Response$Data$Item &&
+        (other is UserServiceFileImUploadPost$Response$Data$Item &&
             (identical(other.url, url) ||
                 const DeepCollectionEquality().equals(other.url, url)) &&
             (identical(other.fileId, fileId) ||
@@ -9466,20 +9702,23 @@ class FileImUploadPost$Response$Data$Item {
       runtimeType.hashCode;
 }
 
-extension $FileImUploadPost$Response$Data$ItemExtension
-    on FileImUploadPost$Response$Data$Item {
-  FileImUploadPost$Response$Data$Item copyWith({String? url, String? fileId}) {
-    return FileImUploadPost$Response$Data$Item(
+extension $UserServiceFileImUploadPost$Response$Data$ItemExtension
+    on UserServiceFileImUploadPost$Response$Data$Item {
+  UserServiceFileImUploadPost$Response$Data$Item copyWith({
+    String? url,
+    String? fileId,
+  }) {
+    return UserServiceFileImUploadPost$Response$Data$Item(
       url: url ?? this.url,
       fileId: fileId ?? this.fileId,
     );
   }
 
-  FileImUploadPost$Response$Data$Item copyWithWrapped({
+  UserServiceFileImUploadPost$Response$Data$Item copyWithWrapped({
     Wrapped<String>? url,
     Wrapped<String>? fileId,
   }) {
-    return FileImUploadPost$Response$Data$Item(
+    return UserServiceFileImUploadPost$Response$Data$Item(
       url: (url != null ? url.value : this.url),
       fileId: (fileId != null ? fileId.value : this.fileId),
     );
@@ -9487,27 +9726,29 @@ extension $FileImUploadPost$Response$Data$ItemExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class FileLogoUploadPost$Response$Data {
-  const FileLogoUploadPost$Response$Data({this.url, this.fileId});
+class UserServiceFileLogoUploadPost$Response$Data {
+  const UserServiceFileLogoUploadPost$Response$Data({this.url, this.fileId});
 
-  factory FileLogoUploadPost$Response$Data.fromJson(
+  factory UserServiceFileLogoUploadPost$Response$Data.fromJson(
     Map<String, dynamic> json,
-  ) => _$FileLogoUploadPost$Response$DataFromJson(json);
+  ) => _$UserServiceFileLogoUploadPost$Response$DataFromJson(json);
 
-  static const toJsonFactory = _$FileLogoUploadPost$Response$DataToJson;
+  static const toJsonFactory =
+      _$UserServiceFileLogoUploadPost$Response$DataToJson;
   Map<String, dynamic> toJson() =>
-      _$FileLogoUploadPost$Response$DataToJson(this);
+      _$UserServiceFileLogoUploadPost$Response$DataToJson(this);
 
   @JsonKey(name: 'url')
   final String? url;
   @JsonKey(name: 'fileId')
   final String? fileId;
-  static const fromJsonFactory = _$FileLogoUploadPost$Response$DataFromJson;
+  static const fromJsonFactory =
+      _$UserServiceFileLogoUploadPost$Response$DataFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is FileLogoUploadPost$Response$Data &&
+        (other is UserServiceFileLogoUploadPost$Response$Data &&
             (identical(other.url, url) ||
                 const DeepCollectionEquality().equals(other.url, url)) &&
             (identical(other.fileId, fileId) ||
@@ -9524,20 +9765,23 @@ class FileLogoUploadPost$Response$Data {
       runtimeType.hashCode;
 }
 
-extension $FileLogoUploadPost$Response$DataExtension
-    on FileLogoUploadPost$Response$Data {
-  FileLogoUploadPost$Response$Data copyWith({String? url, String? fileId}) {
-    return FileLogoUploadPost$Response$Data(
+extension $UserServiceFileLogoUploadPost$Response$DataExtension
+    on UserServiceFileLogoUploadPost$Response$Data {
+  UserServiceFileLogoUploadPost$Response$Data copyWith({
+    String? url,
+    String? fileId,
+  }) {
+    return UserServiceFileLogoUploadPost$Response$Data(
       url: url ?? this.url,
       fileId: fileId ?? this.fileId,
     );
   }
 
-  FileLogoUploadPost$Response$Data copyWithWrapped({
+  UserServiceFileLogoUploadPost$Response$Data copyWithWrapped({
     Wrapped<String?>? url,
     Wrapped<String?>? fileId,
   }) {
-    return FileLogoUploadPost$Response$Data(
+    return UserServiceFileLogoUploadPost$Response$Data(
       url: (url != null ? url.value : this.url),
       fileId: (fileId != null ? fileId.value : this.fileId),
     );
@@ -9545,8 +9789,8 @@ extension $FileLogoUploadPost$Response$DataExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class UserCouponCountGet$Response$Data {
-  const UserCouponCountGet$Response$Data({
+class UserServiceUserCouponCountGet$Response$Data {
+  const UserServiceUserCouponCountGet$Response$Data({
     this.total,
     this.unUsed,
     this.locked,
@@ -9554,13 +9798,14 @@ class UserCouponCountGet$Response$Data {
     this.invalid,
   });
 
-  factory UserCouponCountGet$Response$Data.fromJson(
+  factory UserServiceUserCouponCountGet$Response$Data.fromJson(
     Map<String, dynamic> json,
-  ) => _$UserCouponCountGet$Response$DataFromJson(json);
+  ) => _$UserServiceUserCouponCountGet$Response$DataFromJson(json);
 
-  static const toJsonFactory = _$UserCouponCountGet$Response$DataToJson;
+  static const toJsonFactory =
+      _$UserServiceUserCouponCountGet$Response$DataToJson;
   Map<String, dynamic> toJson() =>
-      _$UserCouponCountGet$Response$DataToJson(this);
+      _$UserServiceUserCouponCountGet$Response$DataToJson(this);
 
   @JsonKey(name: 'total')
   final String? total;
@@ -9572,12 +9817,13 @@ class UserCouponCountGet$Response$Data {
   final String? used;
   @JsonKey(name: 'invalid')
   final String? invalid;
-  static const fromJsonFactory = _$UserCouponCountGet$Response$DataFromJson;
+  static const fromJsonFactory =
+      _$UserServiceUserCouponCountGet$Response$DataFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is UserCouponCountGet$Response$Data &&
+        (other is UserServiceUserCouponCountGet$Response$Data &&
             (identical(other.total, total) ||
                 const DeepCollectionEquality().equals(other.total, total)) &&
             (identical(other.unUsed, unUsed) ||
@@ -9603,16 +9849,16 @@ class UserCouponCountGet$Response$Data {
       runtimeType.hashCode;
 }
 
-extension $UserCouponCountGet$Response$DataExtension
-    on UserCouponCountGet$Response$Data {
-  UserCouponCountGet$Response$Data copyWith({
+extension $UserServiceUserCouponCountGet$Response$DataExtension
+    on UserServiceUserCouponCountGet$Response$Data {
+  UserServiceUserCouponCountGet$Response$Data copyWith({
     String? total,
     String? unUsed,
     String? locked,
     String? used,
     String? invalid,
   }) {
-    return UserCouponCountGet$Response$Data(
+    return UserServiceUserCouponCountGet$Response$Data(
       total: total ?? this.total,
       unUsed: unUsed ?? this.unUsed,
       locked: locked ?? this.locked,
@@ -9621,14 +9867,14 @@ extension $UserCouponCountGet$Response$DataExtension
     );
   }
 
-  UserCouponCountGet$Response$Data copyWithWrapped({
+  UserServiceUserCouponCountGet$Response$Data copyWithWrapped({
     Wrapped<String?>? total,
     Wrapped<String?>? unUsed,
     Wrapped<String?>? locked,
     Wrapped<String?>? used,
     Wrapped<String?>? invalid,
   }) {
-    return UserCouponCountGet$Response$Data(
+    return UserServiceUserCouponCountGet$Response$Data(
       total: (total != null ? total.value : this.total),
       unUsed: (unUsed != null ? unUsed.value : this.unUsed),
       locked: (locked != null ? locked.value : this.locked),
@@ -9639,32 +9885,35 @@ extension $UserCouponCountGet$Response$DataExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class UserCouponActivityInfoGet$Response$Data {
-  const UserCouponActivityInfoGet$Response$Data({
+class UserServiceUserCouponActivityInfoGet$Response$Data {
+  const UserServiceUserCouponActivityInfoGet$Response$Data({
     this.couponList,
     this.received,
   });
 
-  factory UserCouponActivityInfoGet$Response$Data.fromJson(
+  factory UserServiceUserCouponActivityInfoGet$Response$Data.fromJson(
     Map<String, dynamic> json,
-  ) => _$UserCouponActivityInfoGet$Response$DataFromJson(json);
+  ) => _$UserServiceUserCouponActivityInfoGet$Response$DataFromJson(json);
 
-  static const toJsonFactory = _$UserCouponActivityInfoGet$Response$DataToJson;
+  static const toJsonFactory =
+      _$UserServiceUserCouponActivityInfoGet$Response$DataToJson;
   Map<String, dynamic> toJson() =>
-      _$UserCouponActivityInfoGet$Response$DataToJson(this);
+      _$UserServiceUserCouponActivityInfoGet$Response$DataToJson(this);
 
   @JsonKey(name: 'couponList')
-  final List<UserCouponActivityInfoGet$Response$Data$CouponList$Item>?
+  final List<
+    UserServiceUserCouponActivityInfoGet$Response$Data$CouponList$Item
+  >?
   couponList;
   @JsonKey(name: 'received')
   final bool? received;
   static const fromJsonFactory =
-      _$UserCouponActivityInfoGet$Response$DataFromJson;
+      _$UserServiceUserCouponActivityInfoGet$Response$DataFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is UserCouponActivityInfoGet$Response$Data &&
+        (other is UserServiceUserCouponActivityInfoGet$Response$Data &&
             (identical(other.couponList, couponList) ||
                 const DeepCollectionEquality().equals(
                   other.couponList,
@@ -9687,24 +9936,27 @@ class UserCouponActivityInfoGet$Response$Data {
       runtimeType.hashCode;
 }
 
-extension $UserCouponActivityInfoGet$Response$DataExtension
-    on UserCouponActivityInfoGet$Response$Data {
-  UserCouponActivityInfoGet$Response$Data copyWith({
-    List<UserCouponActivityInfoGet$Response$Data$CouponList$Item>? couponList,
+extension $UserServiceUserCouponActivityInfoGet$Response$DataExtension
+    on UserServiceUserCouponActivityInfoGet$Response$Data {
+  UserServiceUserCouponActivityInfoGet$Response$Data copyWith({
+    List<UserServiceUserCouponActivityInfoGet$Response$Data$CouponList$Item>?
+    couponList,
     bool? received,
   }) {
-    return UserCouponActivityInfoGet$Response$Data(
+    return UserServiceUserCouponActivityInfoGet$Response$Data(
       couponList: couponList ?? this.couponList,
       received: received ?? this.received,
     );
   }
 
-  UserCouponActivityInfoGet$Response$Data copyWithWrapped({
-    Wrapped<List<UserCouponActivityInfoGet$Response$Data$CouponList$Item>?>?
+  UserServiceUserCouponActivityInfoGet$Response$Data copyWithWrapped({
+    Wrapped<
+      List<UserServiceUserCouponActivityInfoGet$Response$Data$CouponList$Item>?
+    >?
     couponList,
     Wrapped<bool?>? received,
   }) {
-    return UserCouponActivityInfoGet$Response$Data(
+    return UserServiceUserCouponActivityInfoGet$Response$Data(
       couponList: (couponList != null ? couponList.value : this.couponList),
       received: (received != null ? received.value : this.received),
     );
@@ -9712,8 +9964,8 @@ extension $UserCouponActivityInfoGet$Response$DataExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class UserCouponCode2CouponGet$Response$Data {
-  const UserCouponCode2CouponGet$Response$Data({
+class UserServiceUserCouponCode2CouponGet$Response$Data {
+  const UserServiceUserCouponCode2CouponGet$Response$Data({
     this.userId,
     this.tenantCode,
     this.couponCode,
@@ -9730,13 +9982,14 @@ class UserCouponCode2CouponGet$Response$Data {
     this.couponImage,
   });
 
-  factory UserCouponCode2CouponGet$Response$Data.fromJson(
+  factory UserServiceUserCouponCode2CouponGet$Response$Data.fromJson(
     Map<String, dynamic> json,
-  ) => _$UserCouponCode2CouponGet$Response$DataFromJson(json);
+  ) => _$UserServiceUserCouponCode2CouponGet$Response$DataFromJson(json);
 
-  static const toJsonFactory = _$UserCouponCode2CouponGet$Response$DataToJson;
+  static const toJsonFactory =
+      _$UserServiceUserCouponCode2CouponGet$Response$DataToJson;
   Map<String, dynamic> toJson() =>
-      _$UserCouponCode2CouponGet$Response$DataToJson(this);
+      _$UserServiceUserCouponCode2CouponGet$Response$DataToJson(this);
 
   @JsonKey(name: 'userId')
   final String? userId;
@@ -9767,12 +10020,12 @@ class UserCouponCode2CouponGet$Response$Data {
   @JsonKey(name: 'couponImage')
   final String? couponImage;
   static const fromJsonFactory =
-      _$UserCouponCode2CouponGet$Response$DataFromJson;
+      _$UserServiceUserCouponCode2CouponGet$Response$DataFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is UserCouponCode2CouponGet$Response$Data &&
+        (other is UserServiceUserCouponCode2CouponGet$Response$Data &&
             (identical(other.userId, userId) ||
                 const DeepCollectionEquality().equals(other.userId, userId)) &&
             (identical(other.tenantCode, tenantCode) ||
@@ -9858,9 +10111,9 @@ class UserCouponCode2CouponGet$Response$Data {
       runtimeType.hashCode;
 }
 
-extension $UserCouponCode2CouponGet$Response$DataExtension
-    on UserCouponCode2CouponGet$Response$Data {
-  UserCouponCode2CouponGet$Response$Data copyWith({
+extension $UserServiceUserCouponCode2CouponGet$Response$DataExtension
+    on UserServiceUserCouponCode2CouponGet$Response$Data {
+  UserServiceUserCouponCode2CouponGet$Response$Data copyWith({
     String? userId,
     String? tenantCode,
     String? couponCode,
@@ -9876,7 +10129,7 @@ extension $UserCouponCode2CouponGet$Response$DataExtension
     String? currencyTarget,
     String? couponImage,
   }) {
-    return UserCouponCode2CouponGet$Response$Data(
+    return UserServiceUserCouponCode2CouponGet$Response$Data(
       userId: userId ?? this.userId,
       tenantCode: tenantCode ?? this.tenantCode,
       couponCode: couponCode ?? this.couponCode,
@@ -9894,7 +10147,7 @@ extension $UserCouponCode2CouponGet$Response$DataExtension
     );
   }
 
-  UserCouponCode2CouponGet$Response$Data copyWithWrapped({
+  UserServiceUserCouponCode2CouponGet$Response$Data copyWithWrapped({
     Wrapped<String?>? userId,
     Wrapped<String?>? tenantCode,
     Wrapped<String?>? couponCode,
@@ -9910,7 +10163,7 @@ extension $UserCouponCode2CouponGet$Response$DataExtension
     Wrapped<String?>? currencyTarget,
     Wrapped<String?>? couponImage,
   }) {
-    return UserCouponCode2CouponGet$Response$Data(
+    return UserServiceUserCouponCode2CouponGet$Response$Data(
       userId: (userId != null ? userId.value : this.userId),
       tenantCode: (tenantCode != null ? tenantCode.value : this.tenantCode),
       couponCode: (couponCode != null ? couponCode.value : this.couponCode),
@@ -9936,36 +10189,38 @@ extension $UserCouponCode2CouponGet$Response$DataExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class UserCouponActivityInfosGet$Response$Data$Item {
-  const UserCouponActivityInfosGet$Response$Data$Item({
+class UserServiceUserCouponActivityInfosGet$Response$Data$Item {
+  const UserServiceUserCouponActivityInfosGet$Response$Data$Item({
     this.sourceCode,
     this.received,
     this.couponList,
   });
 
-  factory UserCouponActivityInfosGet$Response$Data$Item.fromJson(
+  factory UserServiceUserCouponActivityInfosGet$Response$Data$Item.fromJson(
     Map<String, dynamic> json,
-  ) => _$UserCouponActivityInfosGet$Response$Data$ItemFromJson(json);
+  ) => _$UserServiceUserCouponActivityInfosGet$Response$Data$ItemFromJson(json);
 
   static const toJsonFactory =
-      _$UserCouponActivityInfosGet$Response$Data$ItemToJson;
+      _$UserServiceUserCouponActivityInfosGet$Response$Data$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$UserCouponActivityInfosGet$Response$Data$ItemToJson(this);
+      _$UserServiceUserCouponActivityInfosGet$Response$Data$ItemToJson(this);
 
   @JsonKey(name: 'sourceCode')
   final String? sourceCode;
   @JsonKey(name: 'received')
   final bool? received;
   @JsonKey(name: 'couponList')
-  final List<UserCouponActivityInfosGet$Response$Data$Item$CouponList$Item>?
+  final List<
+    UserServiceUserCouponActivityInfosGet$Response$Data$Item$CouponList$Item
+  >?
   couponList;
   static const fromJsonFactory =
-      _$UserCouponActivityInfosGet$Response$Data$ItemFromJson;
+      _$UserServiceUserCouponActivityInfosGet$Response$Data$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is UserCouponActivityInfosGet$Response$Data$Item &&
+        (other is UserServiceUserCouponActivityInfosGet$Response$Data$Item &&
             (identical(other.sourceCode, sourceCode) ||
                 const DeepCollectionEquality().equals(
                   other.sourceCode,
@@ -9994,30 +10249,34 @@ class UserCouponActivityInfosGet$Response$Data$Item {
       runtimeType.hashCode;
 }
 
-extension $UserCouponActivityInfosGet$Response$Data$ItemExtension
-    on UserCouponActivityInfosGet$Response$Data$Item {
-  UserCouponActivityInfosGet$Response$Data$Item copyWith({
+extension $UserServiceUserCouponActivityInfosGet$Response$Data$ItemExtension
+    on UserServiceUserCouponActivityInfosGet$Response$Data$Item {
+  UserServiceUserCouponActivityInfosGet$Response$Data$Item copyWith({
     String? sourceCode,
     bool? received,
-    List<UserCouponActivityInfosGet$Response$Data$Item$CouponList$Item>?
+    List<
+      UserServiceUserCouponActivityInfosGet$Response$Data$Item$CouponList$Item
+    >?
     couponList,
   }) {
-    return UserCouponActivityInfosGet$Response$Data$Item(
+    return UserServiceUserCouponActivityInfosGet$Response$Data$Item(
       sourceCode: sourceCode ?? this.sourceCode,
       received: received ?? this.received,
       couponList: couponList ?? this.couponList,
     );
   }
 
-  UserCouponActivityInfosGet$Response$Data$Item copyWithWrapped({
+  UserServiceUserCouponActivityInfosGet$Response$Data$Item copyWithWrapped({
     Wrapped<String?>? sourceCode,
     Wrapped<bool?>? received,
     Wrapped<
-      List<UserCouponActivityInfosGet$Response$Data$Item$CouponList$Item>?
+      List<
+        UserServiceUserCouponActivityInfosGet$Response$Data$Item$CouponList$Item
+      >?
     >?
     couponList,
   }) {
-    return UserCouponActivityInfosGet$Response$Data$Item(
+    return UserServiceUserCouponActivityInfosGet$Response$Data$Item(
       sourceCode: (sourceCode != null ? sourceCode.value : this.sourceCode),
       received: (received != null ? received.value : this.received),
       couponList: (couponList != null ? couponList.value : this.couponList),
@@ -10026,32 +10285,35 @@ extension $UserCouponActivityInfosGet$Response$Data$ItemExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class UserCouponGetListGet$Response$Data$Item {
-  const UserCouponGetListGet$Response$Data$Item({
+class UserServiceUserCouponGetListGet$Response$Data$Item {
+  const UserServiceUserCouponGetListGet$Response$Data$Item({
     this.sourceCode,
     this.userCouponDtos,
   });
 
-  factory UserCouponGetListGet$Response$Data$Item.fromJson(
+  factory UserServiceUserCouponGetListGet$Response$Data$Item.fromJson(
     Map<String, dynamic> json,
-  ) => _$UserCouponGetListGet$Response$Data$ItemFromJson(json);
+  ) => _$UserServiceUserCouponGetListGet$Response$Data$ItemFromJson(json);
 
-  static const toJsonFactory = _$UserCouponGetListGet$Response$Data$ItemToJson;
+  static const toJsonFactory =
+      _$UserServiceUserCouponGetListGet$Response$Data$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$UserCouponGetListGet$Response$Data$ItemToJson(this);
+      _$UserServiceUserCouponGetListGet$Response$Data$ItemToJson(this);
 
   @JsonKey(name: 'sourceCode')
   final String? sourceCode;
   @JsonKey(name: 'userCouponDtos')
-  final List<UserCouponGetListGet$Response$Data$Item$UserCouponDtos$Item>?
+  final List<
+    UserServiceUserCouponGetListGet$Response$Data$Item$UserCouponDtos$Item
+  >?
   userCouponDtos;
   static const fromJsonFactory =
-      _$UserCouponGetListGet$Response$Data$ItemFromJson;
+      _$UserServiceUserCouponGetListGet$Response$Data$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is UserCouponGetListGet$Response$Data$Item &&
+        (other is UserServiceUserCouponGetListGet$Response$Data$Item &&
             (identical(other.sourceCode, sourceCode) ||
                 const DeepCollectionEquality().equals(
                   other.sourceCode,
@@ -10074,25 +10336,31 @@ class UserCouponGetListGet$Response$Data$Item {
       runtimeType.hashCode;
 }
 
-extension $UserCouponGetListGet$Response$Data$ItemExtension
-    on UserCouponGetListGet$Response$Data$Item {
-  UserCouponGetListGet$Response$Data$Item copyWith({
+extension $UserServiceUserCouponGetListGet$Response$Data$ItemExtension
+    on UserServiceUserCouponGetListGet$Response$Data$Item {
+  UserServiceUserCouponGetListGet$Response$Data$Item copyWith({
     String? sourceCode,
-    List<UserCouponGetListGet$Response$Data$Item$UserCouponDtos$Item>?
+    List<
+      UserServiceUserCouponGetListGet$Response$Data$Item$UserCouponDtos$Item
+    >?
     userCouponDtos,
   }) {
-    return UserCouponGetListGet$Response$Data$Item(
+    return UserServiceUserCouponGetListGet$Response$Data$Item(
       sourceCode: sourceCode ?? this.sourceCode,
       userCouponDtos: userCouponDtos ?? this.userCouponDtos,
     );
   }
 
-  UserCouponGetListGet$Response$Data$Item copyWithWrapped({
+  UserServiceUserCouponGetListGet$Response$Data$Item copyWithWrapped({
     Wrapped<String?>? sourceCode,
-    Wrapped<List<UserCouponGetListGet$Response$Data$Item$UserCouponDtos$Item>?>?
+    Wrapped<
+      List<
+        UserServiceUserCouponGetListGet$Response$Data$Item$UserCouponDtos$Item
+      >?
+    >?
     userCouponDtos,
   }) {
-    return UserCouponGetListGet$Response$Data$Item(
+    return UserServiceUserCouponGetListGet$Response$Data$Item(
       sourceCode: (sourceCode != null ? sourceCode.value : this.sourceCode),
       userCouponDtos: (userCouponDtos != null
           ? userCouponDtos.value
@@ -10102,33 +10370,35 @@ extension $UserCouponGetListGet$Response$Data$ItemExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class UserCouponNoAuthActivityInfoGet$Response$Data {
-  const UserCouponNoAuthActivityInfoGet$Response$Data({
+class UserServiceUserCouponNoAuthActivityInfoGet$Response$Data {
+  const UserServiceUserCouponNoAuthActivityInfoGet$Response$Data({
     this.couponList,
     this.received,
   });
 
-  factory UserCouponNoAuthActivityInfoGet$Response$Data.fromJson(
+  factory UserServiceUserCouponNoAuthActivityInfoGet$Response$Data.fromJson(
     Map<String, dynamic> json,
-  ) => _$UserCouponNoAuthActivityInfoGet$Response$DataFromJson(json);
+  ) => _$UserServiceUserCouponNoAuthActivityInfoGet$Response$DataFromJson(json);
 
   static const toJsonFactory =
-      _$UserCouponNoAuthActivityInfoGet$Response$DataToJson;
+      _$UserServiceUserCouponNoAuthActivityInfoGet$Response$DataToJson;
   Map<String, dynamic> toJson() =>
-      _$UserCouponNoAuthActivityInfoGet$Response$DataToJson(this);
+      _$UserServiceUserCouponNoAuthActivityInfoGet$Response$DataToJson(this);
 
   @JsonKey(name: 'couponList')
-  final List<UserCouponNoAuthActivityInfoGet$Response$Data$CouponList$Item>?
+  final List<
+    UserServiceUserCouponNoAuthActivityInfoGet$Response$Data$CouponList$Item
+  >?
   couponList;
   @JsonKey(name: 'received')
   final bool? received;
   static const fromJsonFactory =
-      _$UserCouponNoAuthActivityInfoGet$Response$DataFromJson;
+      _$UserServiceUserCouponNoAuthActivityInfoGet$Response$DataFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is UserCouponNoAuthActivityInfoGet$Response$Data &&
+        (other is UserServiceUserCouponNoAuthActivityInfoGet$Response$Data &&
             (identical(other.couponList, couponList) ||
                 const DeepCollectionEquality().equals(
                   other.couponList,
@@ -10151,27 +10421,31 @@ class UserCouponNoAuthActivityInfoGet$Response$Data {
       runtimeType.hashCode;
 }
 
-extension $UserCouponNoAuthActivityInfoGet$Response$DataExtension
-    on UserCouponNoAuthActivityInfoGet$Response$Data {
-  UserCouponNoAuthActivityInfoGet$Response$Data copyWith({
-    List<UserCouponNoAuthActivityInfoGet$Response$Data$CouponList$Item>?
+extension $UserServiceUserCouponNoAuthActivityInfoGet$Response$DataExtension
+    on UserServiceUserCouponNoAuthActivityInfoGet$Response$Data {
+  UserServiceUserCouponNoAuthActivityInfoGet$Response$Data copyWith({
+    List<
+      UserServiceUserCouponNoAuthActivityInfoGet$Response$Data$CouponList$Item
+    >?
     couponList,
     bool? received,
   }) {
-    return UserCouponNoAuthActivityInfoGet$Response$Data(
+    return UserServiceUserCouponNoAuthActivityInfoGet$Response$Data(
       couponList: couponList ?? this.couponList,
       received: received ?? this.received,
     );
   }
 
-  UserCouponNoAuthActivityInfoGet$Response$Data copyWithWrapped({
+  UserServiceUserCouponNoAuthActivityInfoGet$Response$Data copyWithWrapped({
     Wrapped<
-      List<UserCouponNoAuthActivityInfoGet$Response$Data$CouponList$Item>?
+      List<
+        UserServiceUserCouponNoAuthActivityInfoGet$Response$Data$CouponList$Item
+      >?
     >?
     couponList,
     Wrapped<bool?>? received,
   }) {
-    return UserCouponNoAuthActivityInfoGet$Response$Data(
+    return UserServiceUserCouponNoAuthActivityInfoGet$Response$Data(
       couponList: (couponList != null ? couponList.value : this.couponList),
       received: (received != null ? received.value : this.received),
     );
@@ -10179,8 +10453,8 @@ extension $UserCouponNoAuthActivityInfoGet$Response$DataExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class UserCouponGetCouponByActivityPost$Response$Data$Item {
-  const UserCouponGetCouponByActivityPost$Response$Data$Item({
+class UserServiceUserCouponGetCouponByActivityPost$Response$Data$Item {
+  const UserServiceUserCouponGetCouponByActivityPost$Response$Data$Item({
     this.userId,
     this.tenantCode,
     this.couponCode,
@@ -10197,14 +10471,19 @@ class UserCouponGetCouponByActivityPost$Response$Data$Item {
     this.couponImage,
   });
 
-  factory UserCouponGetCouponByActivityPost$Response$Data$Item.fromJson(
+  factory UserServiceUserCouponGetCouponByActivityPost$Response$Data$Item.fromJson(
     Map<String, dynamic> json,
-  ) => _$UserCouponGetCouponByActivityPost$Response$Data$ItemFromJson(json);
+  ) =>
+      _$UserServiceUserCouponGetCouponByActivityPost$Response$Data$ItemFromJson(
+        json,
+      );
 
   static const toJsonFactory =
-      _$UserCouponGetCouponByActivityPost$Response$Data$ItemToJson;
+      _$UserServiceUserCouponGetCouponByActivityPost$Response$Data$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$UserCouponGetCouponByActivityPost$Response$Data$ItemToJson(this);
+      _$UserServiceUserCouponGetCouponByActivityPost$Response$Data$ItemToJson(
+        this,
+      );
 
   @JsonKey(name: 'userId')
   final String? userId;
@@ -10235,12 +10514,13 @@ class UserCouponGetCouponByActivityPost$Response$Data$Item {
   @JsonKey(name: 'couponImage')
   final String? couponImage;
   static const fromJsonFactory =
-      _$UserCouponGetCouponByActivityPost$Response$Data$ItemFromJson;
+      _$UserServiceUserCouponGetCouponByActivityPost$Response$Data$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is UserCouponGetCouponByActivityPost$Response$Data$Item &&
+        (other
+                is UserServiceUserCouponGetCouponByActivityPost$Response$Data$Item &&
             (identical(other.userId, userId) ||
                 const DeepCollectionEquality().equals(other.userId, userId)) &&
             (identical(other.tenantCode, tenantCode) ||
@@ -10326,9 +10606,9 @@ class UserCouponGetCouponByActivityPost$Response$Data$Item {
       runtimeType.hashCode;
 }
 
-extension $UserCouponGetCouponByActivityPost$Response$Data$ItemExtension
-    on UserCouponGetCouponByActivityPost$Response$Data$Item {
-  UserCouponGetCouponByActivityPost$Response$Data$Item copyWith({
+extension $UserServiceUserCouponGetCouponByActivityPost$Response$Data$ItemExtension
+    on UserServiceUserCouponGetCouponByActivityPost$Response$Data$Item {
+  UserServiceUserCouponGetCouponByActivityPost$Response$Data$Item copyWith({
     String? userId,
     String? tenantCode,
     String? couponCode,
@@ -10344,7 +10624,7 @@ extension $UserCouponGetCouponByActivityPost$Response$Data$ItemExtension
     String? currencyTarget,
     String? couponImage,
   }) {
-    return UserCouponGetCouponByActivityPost$Response$Data$Item(
+    return UserServiceUserCouponGetCouponByActivityPost$Response$Data$Item(
       userId: userId ?? this.userId,
       tenantCode: tenantCode ?? this.tenantCode,
       couponCode: couponCode ?? this.couponCode,
@@ -10362,7 +10642,8 @@ extension $UserCouponGetCouponByActivityPost$Response$Data$ItemExtension
     );
   }
 
-  UserCouponGetCouponByActivityPost$Response$Data$Item copyWithWrapped({
+  UserServiceUserCouponGetCouponByActivityPost$Response$Data$Item
+  copyWithWrapped({
     Wrapped<String?>? userId,
     Wrapped<String?>? tenantCode,
     Wrapped<String?>? couponCode,
@@ -10378,7 +10659,7 @@ extension $UserCouponGetCouponByActivityPost$Response$Data$ItemExtension
     Wrapped<String?>? currencyTarget,
     Wrapped<String?>? couponImage,
   }) {
-    return UserCouponGetCouponByActivityPost$Response$Data$Item(
+    return UserServiceUserCouponGetCouponByActivityPost$Response$Data$Item(
       userId: (userId != null ? userId.value : this.userId),
       tenantCode: (tenantCode != null ? tenantCode.value : this.tenantCode),
       couponCode: (couponCode != null ? couponCode.value : this.couponCode),
@@ -10404,8 +10685,8 @@ extension $UserCouponGetCouponByActivityPost$Response$Data$ItemExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class UserCouponGetGet$Response$Data$Item {
-  const UserCouponGetGet$Response$Data$Item({
+class UserServiceUserCouponGetGet$Response$Data$Item {
+  const UserServiceUserCouponGetGet$Response$Data$Item({
     required this.userId,
     required this.tenantCode,
     required this.couponCode,
@@ -10424,13 +10705,14 @@ class UserCouponGetGet$Response$Data$Item {
     this.msgInfo,
   });
 
-  factory UserCouponGetGet$Response$Data$Item.fromJson(
+  factory UserServiceUserCouponGetGet$Response$Data$Item.fromJson(
     Map<String, dynamic> json,
-  ) => _$UserCouponGetGet$Response$Data$ItemFromJson(json);
+  ) => _$UserServiceUserCouponGetGet$Response$Data$ItemFromJson(json);
 
-  static const toJsonFactory = _$UserCouponGetGet$Response$Data$ItemToJson;
+  static const toJsonFactory =
+      _$UserServiceUserCouponGetGet$Response$Data$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$UserCouponGetGet$Response$Data$ItemToJson(this);
+      _$UserServiceUserCouponGetGet$Response$Data$ItemToJson(this);
 
   @JsonKey(name: 'userId')
   final String userId;
@@ -10463,13 +10745,14 @@ class UserCouponGetGet$Response$Data$Item {
   @JsonKey(name: 'couponStatus')
   final String couponStatus;
   @JsonKey(name: 'msgInfo')
-  final UserCouponGetGet$Response$Data$Item$MsgInfo? msgInfo;
-  static const fromJsonFactory = _$UserCouponGetGet$Response$Data$ItemFromJson;
+  final UserServiceUserCouponGetGet$Response$Data$Item$MsgInfo? msgInfo;
+  static const fromJsonFactory =
+      _$UserServiceUserCouponGetGet$Response$Data$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is UserCouponGetGet$Response$Data$Item &&
+        (other is UserServiceUserCouponGetGet$Response$Data$Item &&
             (identical(other.userId, userId) ||
                 const DeepCollectionEquality().equals(other.userId, userId)) &&
             (identical(other.tenantCode, tenantCode) ||
@@ -10564,9 +10847,9 @@ class UserCouponGetGet$Response$Data$Item {
       runtimeType.hashCode;
 }
 
-extension $UserCouponGetGet$Response$Data$ItemExtension
-    on UserCouponGetGet$Response$Data$Item {
-  UserCouponGetGet$Response$Data$Item copyWith({
+extension $UserServiceUserCouponGetGet$Response$Data$ItemExtension
+    on UserServiceUserCouponGetGet$Response$Data$Item {
+  UserServiceUserCouponGetGet$Response$Data$Item copyWith({
     String? userId,
     String? tenantCode,
     String? couponCode,
@@ -10582,9 +10865,9 @@ extension $UserCouponGetGet$Response$Data$ItemExtension
     String? currencyTarget,
     String? couponImage,
     String? couponStatus,
-    UserCouponGetGet$Response$Data$Item$MsgInfo? msgInfo,
+    UserServiceUserCouponGetGet$Response$Data$Item$MsgInfo? msgInfo,
   }) {
-    return UserCouponGetGet$Response$Data$Item(
+    return UserServiceUserCouponGetGet$Response$Data$Item(
       userId: userId ?? this.userId,
       tenantCode: tenantCode ?? this.tenantCode,
       couponCode: couponCode ?? this.couponCode,
@@ -10604,7 +10887,7 @@ extension $UserCouponGetGet$Response$Data$ItemExtension
     );
   }
 
-  UserCouponGetGet$Response$Data$Item copyWithWrapped({
+  UserServiceUserCouponGetGet$Response$Data$Item copyWithWrapped({
     Wrapped<String>? userId,
     Wrapped<String>? tenantCode,
     Wrapped<String>? couponCode,
@@ -10620,9 +10903,9 @@ extension $UserCouponGetGet$Response$Data$ItemExtension
     Wrapped<String?>? currencyTarget,
     Wrapped<String?>? couponImage,
     Wrapped<String>? couponStatus,
-    Wrapped<UserCouponGetGet$Response$Data$Item$MsgInfo?>? msgInfo,
+    Wrapped<UserServiceUserCouponGetGet$Response$Data$Item$MsgInfo?>? msgInfo,
   }) {
-    return UserCouponGetGet$Response$Data$Item(
+    return UserServiceUserCouponGetGet$Response$Data$Item(
       userId: (userId != null ? userId.value : this.userId),
       tenantCode: (tenantCode != null ? tenantCode.value : this.tenantCode),
       couponCode: (couponCode != null ? couponCode.value : this.couponCode),
@@ -10652,8 +10935,8 @@ extension $UserCouponGetGet$Response$Data$ItemExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ImGetInfoPost$Response$Data {
-  const ImGetInfoPost$Response$Data({
+class UserServiceImGetInfoPost$Response$Data {
+  const UserServiceImGetInfoPost$Response$Data({
     required this.api,
     required this.longConnectApi,
     required this.wsApi,
@@ -10679,11 +10962,13 @@ class ImGetInfoPost$Response$Data {
     required this.showStatus,
   });
 
-  factory ImGetInfoPost$Response$Data.fromJson(Map<String, dynamic> json) =>
-      _$ImGetInfoPost$Response$DataFromJson(json);
+  factory UserServiceImGetInfoPost$Response$Data.fromJson(
+    Map<String, dynamic> json,
+  ) => _$UserServiceImGetInfoPost$Response$DataFromJson(json);
 
-  static const toJsonFactory = _$ImGetInfoPost$Response$DataToJson;
-  Map<String, dynamic> toJson() => _$ImGetInfoPost$Response$DataToJson(this);
+  static const toJsonFactory = _$UserServiceImGetInfoPost$Response$DataToJson;
+  Map<String, dynamic> toJson() =>
+      _$UserServiceImGetInfoPost$Response$DataToJson(this);
 
   @JsonKey(name: 'api')
   final String api;
@@ -10694,7 +10979,7 @@ class ImGetInfoPost$Response$Data {
   @JsonKey(name: 'longConnectKeep')
   final bool longConnectKeep;
   @JsonKey(name: 'whiteList')
-  final List<ImGetInfoPost$Response$Data$WhiteList$Item> whiteList;
+  final List<UserServiceImGetInfoPost$Response$Data$WhiteList$Item> whiteList;
   @JsonKey(name: 'uid')
   final String uid;
   @JsonKey(name: 'app_id')
@@ -10722,7 +11007,7 @@ class ImGetInfoPost$Response$Data {
   @JsonKey(name: 'lock_after_minute')
   final double? lockAfterMinute;
   @JsonKey(name: 'setting')
-  final ImGetInfoPost$Response$Data$Setting? setting;
+  final UserServiceImGetInfoPost$Response$Data$Setting? setting;
   @JsonKey(name: 'rsa_public_key')
   final String? rsaPublicKey;
   @JsonKey(name: 'short_status')
@@ -10731,12 +11016,13 @@ class ImGetInfoPost$Response$Data {
   final double? msgExpireSecond;
   @JsonKey(name: 'showStatus')
   final double showStatus;
-  static const fromJsonFactory = _$ImGetInfoPost$Response$DataFromJson;
+  static const fromJsonFactory =
+      _$UserServiceImGetInfoPost$Response$DataFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ImGetInfoPost$Response$Data &&
+        (other is UserServiceImGetInfoPost$Response$Data &&
             (identical(other.api, api) ||
                 const DeepCollectionEquality().equals(other.api, api)) &&
             (identical(other.longConnectApi, longConnectApi) ||
@@ -10858,13 +11144,14 @@ class ImGetInfoPost$Response$Data {
       runtimeType.hashCode;
 }
 
-extension $ImGetInfoPost$Response$DataExtension on ImGetInfoPost$Response$Data {
-  ImGetInfoPost$Response$Data copyWith({
+extension $UserServiceImGetInfoPost$Response$DataExtension
+    on UserServiceImGetInfoPost$Response$Data {
+  UserServiceImGetInfoPost$Response$Data copyWith({
     String? api,
     String? longConnectApi,
     String? wsApi,
     bool? longConnectKeep,
-    List<ImGetInfoPost$Response$Data$WhiteList$Item>? whiteList,
+    List<UserServiceImGetInfoPost$Response$Data$WhiteList$Item>? whiteList,
     String? uid,
     String? appId,
     String? name,
@@ -10878,13 +11165,13 @@ extension $ImGetInfoPost$Response$DataExtension on ImGetInfoPost$Response$Data {
     String? chatPwd,
     String? lockScreenPwd,
     double? lockAfterMinute,
-    ImGetInfoPost$Response$Data$Setting? setting,
+    UserServiceImGetInfoPost$Response$Data$Setting? setting,
     String? rsaPublicKey,
     double? shortStatus,
     double? msgExpireSecond,
     double? showStatus,
   }) {
-    return ImGetInfoPost$Response$Data(
+    return UserServiceImGetInfoPost$Response$Data(
       api: api ?? this.api,
       longConnectApi: longConnectApi ?? this.longConnectApi,
       wsApi: wsApi ?? this.wsApi,
@@ -10911,12 +11198,13 @@ extension $ImGetInfoPost$Response$DataExtension on ImGetInfoPost$Response$Data {
     );
   }
 
-  ImGetInfoPost$Response$Data copyWithWrapped({
+  UserServiceImGetInfoPost$Response$Data copyWithWrapped({
     Wrapped<String>? api,
     Wrapped<String>? longConnectApi,
     Wrapped<String>? wsApi,
     Wrapped<bool>? longConnectKeep,
-    Wrapped<List<ImGetInfoPost$Response$Data$WhiteList$Item>>? whiteList,
+    Wrapped<List<UserServiceImGetInfoPost$Response$Data$WhiteList$Item>>?
+    whiteList,
     Wrapped<String>? uid,
     Wrapped<String?>? appId,
     Wrapped<String?>? name,
@@ -10930,13 +11218,13 @@ extension $ImGetInfoPost$Response$DataExtension on ImGetInfoPost$Response$Data {
     Wrapped<String?>? chatPwd,
     Wrapped<String?>? lockScreenPwd,
     Wrapped<double?>? lockAfterMinute,
-    Wrapped<ImGetInfoPost$Response$Data$Setting?>? setting,
+    Wrapped<UserServiceImGetInfoPost$Response$Data$Setting?>? setting,
     Wrapped<String?>? rsaPublicKey,
     Wrapped<double?>? shortStatus,
     Wrapped<double?>? msgExpireSecond,
     Wrapped<double>? showStatus,
   }) {
-    return ImGetInfoPost$Response$Data(
+    return UserServiceImGetInfoPost$Response$Data(
       api: (api != null ? api.value : this.api),
       longConnectApi: (longConnectApi != null
           ? longConnectApi.value
@@ -10977,8 +11265,8 @@ extension $ImGetInfoPost$Response$DataExtension on ImGetInfoPost$Response$Data {
 }
 
 @JsonSerializable(explicitToJson: true)
-class UserShareListGet$Response$Data$Item {
-  const UserShareListGet$Response$Data$Item({
+class UserServiceUserShareListGet$Response$Data$Item {
+  const UserServiceUserShareListGet$Response$Data$Item({
     this.rewardId,
     this.tenantCode,
     this.userId,
@@ -10990,13 +11278,14 @@ class UserShareListGet$Response$Data$Item {
     this.rewardType,
   });
 
-  factory UserShareListGet$Response$Data$Item.fromJson(
+  factory UserServiceUserShareListGet$Response$Data$Item.fromJson(
     Map<String, dynamic> json,
-  ) => _$UserShareListGet$Response$Data$ItemFromJson(json);
+  ) => _$UserServiceUserShareListGet$Response$Data$ItemFromJson(json);
 
-  static const toJsonFactory = _$UserShareListGet$Response$Data$ItemToJson;
+  static const toJsonFactory =
+      _$UserServiceUserShareListGet$Response$Data$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$UserShareListGet$Response$Data$ItemToJson(this);
+      _$UserServiceUserShareListGet$Response$Data$ItemToJson(this);
 
   @JsonKey(name: 'rewardId')
   final String? rewardId;
@@ -11016,12 +11305,13 @@ class UserShareListGet$Response$Data$Item {
   final String? currency;
   @JsonKey(name: 'rewardType')
   final int? rewardType;
-  static const fromJsonFactory = _$UserShareListGet$Response$Data$ItemFromJson;
+  static const fromJsonFactory =
+      _$UserServiceUserShareListGet$Response$Data$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is UserShareListGet$Response$Data$Item &&
+        (other is UserServiceUserShareListGet$Response$Data$Item &&
             (identical(other.rewardId, rewardId) ||
                 const DeepCollectionEquality().equals(
                   other.rewardId,
@@ -11083,9 +11373,9 @@ class UserShareListGet$Response$Data$Item {
       runtimeType.hashCode;
 }
 
-extension $UserShareListGet$Response$Data$ItemExtension
-    on UserShareListGet$Response$Data$Item {
-  UserShareListGet$Response$Data$Item copyWith({
+extension $UserServiceUserShareListGet$Response$Data$ItemExtension
+    on UserServiceUserShareListGet$Response$Data$Item {
+  UserServiceUserShareListGet$Response$Data$Item copyWith({
     String? rewardId,
     String? tenantCode,
     String? userId,
@@ -11096,7 +11386,7 @@ extension $UserShareListGet$Response$Data$ItemExtension
     String? currency,
     int? rewardType,
   }) {
-    return UserShareListGet$Response$Data$Item(
+    return UserServiceUserShareListGet$Response$Data$Item(
       rewardId: rewardId ?? this.rewardId,
       tenantCode: tenantCode ?? this.tenantCode,
       userId: userId ?? this.userId,
@@ -11109,7 +11399,7 @@ extension $UserShareListGet$Response$Data$ItemExtension
     );
   }
 
-  UserShareListGet$Response$Data$Item copyWithWrapped({
+  UserServiceUserShareListGet$Response$Data$Item copyWithWrapped({
     Wrapped<String?>? rewardId,
     Wrapped<String?>? tenantCode,
     Wrapped<String?>? userId,
@@ -11120,7 +11410,7 @@ extension $UserShareListGet$Response$Data$ItemExtension
     Wrapped<String?>? currency,
     Wrapped<int?>? rewardType,
   }) {
-    return UserShareListGet$Response$Data$Item(
+    return UserServiceUserShareListGet$Response$Data$Item(
       rewardId: (rewardId != null ? rewardId.value : this.rewardId),
       tenantCode: (tenantCode != null ? tenantCode.value : this.tenantCode),
       userId: (userId != null ? userId.value : this.userId),
@@ -11137,8 +11427,8 @@ extension $UserShareListGet$Response$Data$ItemExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class UserShareRewardInfoGet$Response$Data {
-  const UserShareRewardInfoGet$Response$Data({
+class UserServiceUserShareRewardInfoGet$Response$Data {
+  const UserServiceUserShareRewardInfoGet$Response$Data({
     this.rewardId,
     this.tenantCode,
     this.userId,
@@ -11150,13 +11440,14 @@ class UserShareRewardInfoGet$Response$Data {
     this.rewardType,
   });
 
-  factory UserShareRewardInfoGet$Response$Data.fromJson(
+  factory UserServiceUserShareRewardInfoGet$Response$Data.fromJson(
     Map<String, dynamic> json,
-  ) => _$UserShareRewardInfoGet$Response$DataFromJson(json);
+  ) => _$UserServiceUserShareRewardInfoGet$Response$DataFromJson(json);
 
-  static const toJsonFactory = _$UserShareRewardInfoGet$Response$DataToJson;
+  static const toJsonFactory =
+      _$UserServiceUserShareRewardInfoGet$Response$DataToJson;
   Map<String, dynamic> toJson() =>
-      _$UserShareRewardInfoGet$Response$DataToJson(this);
+      _$UserServiceUserShareRewardInfoGet$Response$DataToJson(this);
 
   @JsonKey(name: 'rewardId')
   final String? rewardId;
@@ -11176,12 +11467,13 @@ class UserShareRewardInfoGet$Response$Data {
   final String? currency;
   @JsonKey(name: 'rewardType')
   final int? rewardType;
-  static const fromJsonFactory = _$UserShareRewardInfoGet$Response$DataFromJson;
+  static const fromJsonFactory =
+      _$UserServiceUserShareRewardInfoGet$Response$DataFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is UserShareRewardInfoGet$Response$Data &&
+        (other is UserServiceUserShareRewardInfoGet$Response$Data &&
             (identical(other.rewardId, rewardId) ||
                 const DeepCollectionEquality().equals(
                   other.rewardId,
@@ -11243,9 +11535,9 @@ class UserShareRewardInfoGet$Response$Data {
       runtimeType.hashCode;
 }
 
-extension $UserShareRewardInfoGet$Response$DataExtension
-    on UserShareRewardInfoGet$Response$Data {
-  UserShareRewardInfoGet$Response$Data copyWith({
+extension $UserServiceUserShareRewardInfoGet$Response$DataExtension
+    on UserServiceUserShareRewardInfoGet$Response$Data {
+  UserServiceUserShareRewardInfoGet$Response$Data copyWith({
     String? rewardId,
     String? tenantCode,
     String? userId,
@@ -11256,7 +11548,7 @@ extension $UserShareRewardInfoGet$Response$DataExtension
     String? currency,
     int? rewardType,
   }) {
-    return UserShareRewardInfoGet$Response$Data(
+    return UserServiceUserShareRewardInfoGet$Response$Data(
       rewardId: rewardId ?? this.rewardId,
       tenantCode: tenantCode ?? this.tenantCode,
       userId: userId ?? this.userId,
@@ -11269,7 +11561,7 @@ extension $UserShareRewardInfoGet$Response$DataExtension
     );
   }
 
-  UserShareRewardInfoGet$Response$Data copyWithWrapped({
+  UserServiceUserShareRewardInfoGet$Response$Data copyWithWrapped({
     Wrapped<String?>? rewardId,
     Wrapped<String?>? tenantCode,
     Wrapped<String?>? userId,
@@ -11280,7 +11572,7 @@ extension $UserShareRewardInfoGet$Response$DataExtension
     Wrapped<String?>? currency,
     Wrapped<int?>? rewardType,
   }) {
-    return UserShareRewardInfoGet$Response$Data(
+    return UserServiceUserShareRewardInfoGet$Response$Data(
       rewardId: (rewardId != null ? rewardId.value : this.rewardId),
       tenantCode: (tenantCode != null ? tenantCode.value : this.tenantCode),
       userId: (userId != null ? userId.value : this.userId),
@@ -11297,23 +11589,26 @@ extension $UserShareRewardInfoGet$Response$DataExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class UserDeleteGet$Response$Data {
-  const UserDeleteGet$Response$Data({this.authWay});
+class UserServiceUserDeleteGet$Response$Data {
+  const UserServiceUserDeleteGet$Response$Data({this.authWay});
 
-  factory UserDeleteGet$Response$Data.fromJson(Map<String, dynamic> json) =>
-      _$UserDeleteGet$Response$DataFromJson(json);
+  factory UserServiceUserDeleteGet$Response$Data.fromJson(
+    Map<String, dynamic> json,
+  ) => _$UserServiceUserDeleteGet$Response$DataFromJson(json);
 
-  static const toJsonFactory = _$UserDeleteGet$Response$DataToJson;
-  Map<String, dynamic> toJson() => _$UserDeleteGet$Response$DataToJson(this);
+  static const toJsonFactory = _$UserServiceUserDeleteGet$Response$DataToJson;
+  Map<String, dynamic> toJson() =>
+      _$UserServiceUserDeleteGet$Response$DataToJson(this);
 
   @JsonKey(name: 'authWay')
   final String? authWay;
-  static const fromJsonFactory = _$UserDeleteGet$Response$DataFromJson;
+  static const fromJsonFactory =
+      _$UserServiceUserDeleteGet$Response$DataFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is UserDeleteGet$Response$Data &&
+        (other is UserServiceUserDeleteGet$Response$Data &&
             (identical(other.authWay, authWay) ||
                 const DeepCollectionEquality().equals(other.authWay, authWay)));
   }
@@ -11326,21 +11621,26 @@ class UserDeleteGet$Response$Data {
       const DeepCollectionEquality().hash(authWay) ^ runtimeType.hashCode;
 }
 
-extension $UserDeleteGet$Response$DataExtension on UserDeleteGet$Response$Data {
-  UserDeleteGet$Response$Data copyWith({String? authWay}) {
-    return UserDeleteGet$Response$Data(authWay: authWay ?? this.authWay);
+extension $UserServiceUserDeleteGet$Response$DataExtension
+    on UserServiceUserDeleteGet$Response$Data {
+  UserServiceUserDeleteGet$Response$Data copyWith({String? authWay}) {
+    return UserServiceUserDeleteGet$Response$Data(
+      authWay: authWay ?? this.authWay,
+    );
   }
 
-  UserDeleteGet$Response$Data copyWithWrapped({Wrapped<String?>? authWay}) {
-    return UserDeleteGet$Response$Data(
+  UserServiceUserDeleteGet$Response$Data copyWithWrapped({
+    Wrapped<String?>? authWay,
+  }) {
+    return UserServiceUserDeleteGet$Response$Data(
       authWay: (authWay != null ? authWay.value : this.authWay),
     );
   }
 }
 
 @JsonSerializable(explicitToJson: true)
-class UserGetGet$Response$Data {
-  const UserGetGet$Response$Data({
+class UserServiceUserGetGet$Response$Data {
+  const UserServiceUserGetGet$Response$Data({
     this.userId,
     this.nickname,
     this.description,
@@ -11361,11 +11661,13 @@ class UserGetGet$Response$Data {
     this.imUsername,
   });
 
-  factory UserGetGet$Response$Data.fromJson(Map<String, dynamic> json) =>
-      _$UserGetGet$Response$DataFromJson(json);
+  factory UserServiceUserGetGet$Response$Data.fromJson(
+    Map<String, dynamic> json,
+  ) => _$UserServiceUserGetGet$Response$DataFromJson(json);
 
-  static const toJsonFactory = _$UserGetGet$Response$DataToJson;
-  Map<String, dynamic> toJson() => _$UserGetGet$Response$DataToJson(this);
+  static const toJsonFactory = _$UserServiceUserGetGet$Response$DataToJson;
+  Map<String, dynamic> toJson() =>
+      _$UserServiceUserGetGet$Response$DataToJson(this);
 
   @JsonKey(name: 'userId')
   final String? userId;
@@ -11403,12 +11705,12 @@ class UserGetGet$Response$Data {
   final String? imUid;
   @JsonKey(name: 'imUsername')
   final String? imUsername;
-  static const fromJsonFactory = _$UserGetGet$Response$DataFromJson;
+  static const fromJsonFactory = _$UserServiceUserGetGet$Response$DataFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is UserGetGet$Response$Data &&
+        (other is UserServiceUserGetGet$Response$Data &&
             (identical(other.userId, userId) ||
                 const DeepCollectionEquality().equals(other.userId, userId)) &&
             (identical(other.nickname, nickname) ||
@@ -11512,8 +11814,9 @@ class UserGetGet$Response$Data {
       runtimeType.hashCode;
 }
 
-extension $UserGetGet$Response$DataExtension on UserGetGet$Response$Data {
-  UserGetGet$Response$Data copyWith({
+extension $UserServiceUserGetGet$Response$DataExtension
+    on UserServiceUserGetGet$Response$Data {
+  UserServiceUserGetGet$Response$Data copyWith({
     String? userId,
     String? nickname,
     String? description,
@@ -11533,7 +11836,7 @@ extension $UserGetGet$Response$DataExtension on UserGetGet$Response$Data {
     String? imUid,
     String? imUsername,
   }) {
-    return UserGetGet$Response$Data(
+    return UserServiceUserGetGet$Response$Data(
       userId: userId ?? this.userId,
       nickname: nickname ?? this.nickname,
       description: description ?? this.description,
@@ -11555,7 +11858,7 @@ extension $UserGetGet$Response$DataExtension on UserGetGet$Response$Data {
     );
   }
 
-  UserGetGet$Response$Data copyWithWrapped({
+  UserServiceUserGetGet$Response$Data copyWithWrapped({
     Wrapped<String?>? userId,
     Wrapped<String?>? nickname,
     Wrapped<String?>? description,
@@ -11575,7 +11878,7 @@ extension $UserGetGet$Response$DataExtension on UserGetGet$Response$Data {
     Wrapped<String?>? imUid,
     Wrapped<String?>? imUsername,
   }) {
-    return UserGetGet$Response$Data(
+    return UserServiceUserGetGet$Response$Data(
       userId: (userId != null ? userId.value : this.userId),
       nickname: (nickname != null ? nickname.value : this.nickname),
       description: (description != null ? description.value : this.description),
@@ -11601,20 +11904,21 @@ extension $UserGetGet$Response$DataExtension on UserGetGet$Response$Data {
 }
 
 @JsonSerializable(explicitToJson: true)
-class UserUserCommissionGet$Response$Data {
-  const UserUserCommissionGet$Response$Data({
+class UserServiceUserUserCommissionGet$Response$Data {
+  const UserServiceUserUserCommissionGet$Response$Data({
     this.currentUserLevel,
     this.nextUserLevel,
     this.nextUserLevelPoints,
   });
 
-  factory UserUserCommissionGet$Response$Data.fromJson(
+  factory UserServiceUserUserCommissionGet$Response$Data.fromJson(
     Map<String, dynamic> json,
-  ) => _$UserUserCommissionGet$Response$DataFromJson(json);
+  ) => _$UserServiceUserUserCommissionGet$Response$DataFromJson(json);
 
-  static const toJsonFactory = _$UserUserCommissionGet$Response$DataToJson;
+  static const toJsonFactory =
+      _$UserServiceUserUserCommissionGet$Response$DataToJson;
   Map<String, dynamic> toJson() =>
-      _$UserUserCommissionGet$Response$DataToJson(this);
+      _$UserServiceUserUserCommissionGet$Response$DataToJson(this);
 
   @JsonKey(name: 'currentUserLevel')
   final int? currentUserLevel;
@@ -11622,12 +11926,13 @@ class UserUserCommissionGet$Response$Data {
   final int? nextUserLevel;
   @JsonKey(name: 'nextUserLevelPoints')
   final int? nextUserLevelPoints;
-  static const fromJsonFactory = _$UserUserCommissionGet$Response$DataFromJson;
+  static const fromJsonFactory =
+      _$UserServiceUserUserCommissionGet$Response$DataFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is UserUserCommissionGet$Response$Data &&
+        (other is UserServiceUserUserCommissionGet$Response$Data &&
             (identical(other.currentUserLevel, currentUserLevel) ||
                 const DeepCollectionEquality().equals(
                   other.currentUserLevel,
@@ -11656,26 +11961,26 @@ class UserUserCommissionGet$Response$Data {
       runtimeType.hashCode;
 }
 
-extension $UserUserCommissionGet$Response$DataExtension
-    on UserUserCommissionGet$Response$Data {
-  UserUserCommissionGet$Response$Data copyWith({
+extension $UserServiceUserUserCommissionGet$Response$DataExtension
+    on UserServiceUserUserCommissionGet$Response$Data {
+  UserServiceUserUserCommissionGet$Response$Data copyWith({
     int? currentUserLevel,
     int? nextUserLevel,
     int? nextUserLevelPoints,
   }) {
-    return UserUserCommissionGet$Response$Data(
+    return UserServiceUserUserCommissionGet$Response$Data(
       currentUserLevel: currentUserLevel ?? this.currentUserLevel,
       nextUserLevel: nextUserLevel ?? this.nextUserLevel,
       nextUserLevelPoints: nextUserLevelPoints ?? this.nextUserLevelPoints,
     );
   }
 
-  UserUserCommissionGet$Response$Data copyWithWrapped({
+  UserServiceUserUserCommissionGet$Response$Data copyWithWrapped({
     Wrapped<int?>? currentUserLevel,
     Wrapped<int?>? nextUserLevel,
     Wrapped<int?>? nextUserLevelPoints,
   }) {
-    return UserUserCommissionGet$Response$Data(
+    return UserServiceUserUserCommissionGet$Response$Data(
       currentUserLevel: (currentUserLevel != null
           ? currentUserLevel.value
           : this.currentUserLevel),
@@ -11690,26 +11995,29 @@ extension $UserUserCommissionGet$Response$DataExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class UserConfigureSettingGet$Response$Data {
-  const UserConfigureSettingGet$Response$Data({this.showGiveawayGift});
+class UserServiceUserConfigureSettingGet$Response$Data {
+  const UserServiceUserConfigureSettingGet$Response$Data({
+    this.showGiveawayGift,
+  });
 
-  factory UserConfigureSettingGet$Response$Data.fromJson(
+  factory UserServiceUserConfigureSettingGet$Response$Data.fromJson(
     Map<String, dynamic> json,
-  ) => _$UserConfigureSettingGet$Response$DataFromJson(json);
+  ) => _$UserServiceUserConfigureSettingGet$Response$DataFromJson(json);
 
-  static const toJsonFactory = _$UserConfigureSettingGet$Response$DataToJson;
+  static const toJsonFactory =
+      _$UserServiceUserConfigureSettingGet$Response$DataToJson;
   Map<String, dynamic> toJson() =>
-      _$UserConfigureSettingGet$Response$DataToJson(this);
+      _$UserServiceUserConfigureSettingGet$Response$DataToJson(this);
 
   @JsonKey(name: 'showGiveawayGift')
   final int? showGiveawayGift;
   static const fromJsonFactory =
-      _$UserConfigureSettingGet$Response$DataFromJson;
+      _$UserServiceUserConfigureSettingGet$Response$DataFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is UserConfigureSettingGet$Response$Data &&
+        (other is UserServiceUserConfigureSettingGet$Response$Data &&
             (identical(other.showGiveawayGift, showGiveawayGift) ||
                 const DeepCollectionEquality().equals(
                   other.showGiveawayGift,
@@ -11726,18 +12034,20 @@ class UserConfigureSettingGet$Response$Data {
       runtimeType.hashCode;
 }
 
-extension $UserConfigureSettingGet$Response$DataExtension
-    on UserConfigureSettingGet$Response$Data {
-  UserConfigureSettingGet$Response$Data copyWith({int? showGiveawayGift}) {
-    return UserConfigureSettingGet$Response$Data(
+extension $UserServiceUserConfigureSettingGet$Response$DataExtension
+    on UserServiceUserConfigureSettingGet$Response$Data {
+  UserServiceUserConfigureSettingGet$Response$Data copyWith({
+    int? showGiveawayGift,
+  }) {
+    return UserServiceUserConfigureSettingGet$Response$Data(
       showGiveawayGift: showGiveawayGift ?? this.showGiveawayGift,
     );
   }
 
-  UserConfigureSettingGet$Response$Data copyWithWrapped({
+  UserServiceUserConfigureSettingGet$Response$Data copyWithWrapped({
     Wrapped<int?>? showGiveawayGift,
   }) {
-    return UserConfigureSettingGet$Response$Data(
+    return UserServiceUserConfigureSettingGet$Response$Data(
       showGiveawayGift: (showGiveawayGift != null
           ? showGiveawayGift.value
           : this.showGiveawayGift),
@@ -11746,18 +12056,21 @@ extension $UserConfigureSettingGet$Response$DataExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class UserInviteNumGet$Response$Data {
-  const UserInviteNumGet$Response$Data({
+class UserServiceUserInviteNumGet$Response$Data {
+  const UserServiceUserInviteNumGet$Response$Data({
     this.inviteTotalNum,
     this.inviteNum,
     this.subInviteNum,
   });
 
-  factory UserInviteNumGet$Response$Data.fromJson(Map<String, dynamic> json) =>
-      _$UserInviteNumGet$Response$DataFromJson(json);
+  factory UserServiceUserInviteNumGet$Response$Data.fromJson(
+    Map<String, dynamic> json,
+  ) => _$UserServiceUserInviteNumGet$Response$DataFromJson(json);
 
-  static const toJsonFactory = _$UserInviteNumGet$Response$DataToJson;
-  Map<String, dynamic> toJson() => _$UserInviteNumGet$Response$DataToJson(this);
+  static const toJsonFactory =
+      _$UserServiceUserInviteNumGet$Response$DataToJson;
+  Map<String, dynamic> toJson() =>
+      _$UserServiceUserInviteNumGet$Response$DataToJson(this);
 
   @JsonKey(name: 'inviteTotalNum')
   final double? inviteTotalNum;
@@ -11765,12 +12078,13 @@ class UserInviteNumGet$Response$Data {
   final double? inviteNum;
   @JsonKey(name: 'subInviteNum')
   final double? subInviteNum;
-  static const fromJsonFactory = _$UserInviteNumGet$Response$DataFromJson;
+  static const fromJsonFactory =
+      _$UserServiceUserInviteNumGet$Response$DataFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is UserInviteNumGet$Response$Data &&
+        (other is UserServiceUserInviteNumGet$Response$Data &&
             (identical(other.inviteTotalNum, inviteTotalNum) ||
                 const DeepCollectionEquality().equals(
                   other.inviteTotalNum,
@@ -11799,26 +12113,26 @@ class UserInviteNumGet$Response$Data {
       runtimeType.hashCode;
 }
 
-extension $UserInviteNumGet$Response$DataExtension
-    on UserInviteNumGet$Response$Data {
-  UserInviteNumGet$Response$Data copyWith({
+extension $UserServiceUserInviteNumGet$Response$DataExtension
+    on UserServiceUserInviteNumGet$Response$Data {
+  UserServiceUserInviteNumGet$Response$Data copyWith({
     double? inviteTotalNum,
     double? inviteNum,
     double? subInviteNum,
   }) {
-    return UserInviteNumGet$Response$Data(
+    return UserServiceUserInviteNumGet$Response$Data(
       inviteTotalNum: inviteTotalNum ?? this.inviteTotalNum,
       inviteNum: inviteNum ?? this.inviteNum,
       subInviteNum: subInviteNum ?? this.subInviteNum,
     );
   }
 
-  UserInviteNumGet$Response$Data copyWithWrapped({
+  UserServiceUserInviteNumGet$Response$Data copyWithWrapped({
     Wrapped<double?>? inviteTotalNum,
     Wrapped<double?>? inviteNum,
     Wrapped<double?>? subInviteNum,
   }) {
-    return UserInviteNumGet$Response$Data(
+    return UserServiceUserInviteNumGet$Response$Data(
       inviteTotalNum: (inviteTotalNum != null
           ? inviteTotalNum.value
           : this.inviteTotalNum),
@@ -11831,8 +12145,8 @@ extension $UserInviteNumGet$Response$DataExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class UserTagPortraitAiToPortraitPost$Response$Data {
-  const UserTagPortraitAiToPortraitPost$Response$Data({
+class UserServiceUserTagPortraitAiToPortraitPost$Response$Data {
+  const UserServiceUserTagPortraitAiToPortraitPost$Response$Data({
     this.age,
     this.sex,
     this.birthday,
@@ -11841,14 +12155,14 @@ class UserTagPortraitAiToPortraitPost$Response$Data {
     this.favoriteBrands,
   });
 
-  factory UserTagPortraitAiToPortraitPost$Response$Data.fromJson(
+  factory UserServiceUserTagPortraitAiToPortraitPost$Response$Data.fromJson(
     Map<String, dynamic> json,
-  ) => _$UserTagPortraitAiToPortraitPost$Response$DataFromJson(json);
+  ) => _$UserServiceUserTagPortraitAiToPortraitPost$Response$DataFromJson(json);
 
   static const toJsonFactory =
-      _$UserTagPortraitAiToPortraitPost$Response$DataToJson;
+      _$UserServiceUserTagPortraitAiToPortraitPost$Response$DataToJson;
   Map<String, dynamic> toJson() =>
-      _$UserTagPortraitAiToPortraitPost$Response$DataToJson(this);
+      _$UserServiceUserTagPortraitAiToPortraitPost$Response$DataToJson(this);
 
   @JsonKey(name: 'age')
   final double? age;
@@ -11863,12 +12177,12 @@ class UserTagPortraitAiToPortraitPost$Response$Data {
   @JsonKey(name: 'favoriteBrands')
   final String? favoriteBrands;
   static const fromJsonFactory =
-      _$UserTagPortraitAiToPortraitPost$Response$DataFromJson;
+      _$UserServiceUserTagPortraitAiToPortraitPost$Response$DataFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is UserTagPortraitAiToPortraitPost$Response$Data &&
+        (other is UserServiceUserTagPortraitAiToPortraitPost$Response$Data &&
             (identical(other.age, age) ||
                 const DeepCollectionEquality().equals(other.age, age)) &&
             (identical(other.sex, sex) ||
@@ -11912,9 +12226,9 @@ class UserTagPortraitAiToPortraitPost$Response$Data {
       runtimeType.hashCode;
 }
 
-extension $UserTagPortraitAiToPortraitPost$Response$DataExtension
-    on UserTagPortraitAiToPortraitPost$Response$Data {
-  UserTagPortraitAiToPortraitPost$Response$Data copyWith({
+extension $UserServiceUserTagPortraitAiToPortraitPost$Response$DataExtension
+    on UserServiceUserTagPortraitAiToPortraitPost$Response$Data {
+  UserServiceUserTagPortraitAiToPortraitPost$Response$Data copyWith({
     double? age,
     double? sex,
     double? birthday,
@@ -11922,7 +12236,7 @@ extension $UserTagPortraitAiToPortraitPost$Response$DataExtension
     List<String>? favoriteShoppingPlatforms,
     String? favoriteBrands,
   }) {
-    return UserTagPortraitAiToPortraitPost$Response$Data(
+    return UserServiceUserTagPortraitAiToPortraitPost$Response$Data(
       age: age ?? this.age,
       sex: sex ?? this.sex,
       birthday: birthday ?? this.birthday,
@@ -11933,7 +12247,7 @@ extension $UserTagPortraitAiToPortraitPost$Response$DataExtension
     );
   }
 
-  UserTagPortraitAiToPortraitPost$Response$Data copyWithWrapped({
+  UserServiceUserTagPortraitAiToPortraitPost$Response$Data copyWithWrapped({
     Wrapped<double?>? age,
     Wrapped<double?>? sex,
     Wrapped<double?>? birthday,
@@ -11941,7 +12255,7 @@ extension $UserTagPortraitAiToPortraitPost$Response$DataExtension
     Wrapped<List<String>?>? favoriteShoppingPlatforms,
     Wrapped<String?>? favoriteBrands,
   }) {
-    return UserTagPortraitAiToPortraitPost$Response$Data(
+    return UserServiceUserTagPortraitAiToPortraitPost$Response$Data(
       age: (age != null ? age.value : this.age),
       sex: (sex != null ? sex.value : this.sex),
       birthday: (birthday != null ? birthday.value : this.birthday),
@@ -11957,8 +12271,8 @@ extension $UserTagPortraitAiToPortraitPost$Response$DataExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class UserTagPortraitAiToPortraitV2Post$Response$Data {
-  const UserTagPortraitAiToPortraitV2Post$Response$Data({
+class UserServiceUserTagPortraitAiToPortraitV2Post$Response$Data {
+  const UserServiceUserTagPortraitAiToPortraitV2Post$Response$Data({
     this.age,
     this.sex,
     this.birthday,
@@ -11967,14 +12281,16 @@ class UserTagPortraitAiToPortraitV2Post$Response$Data {
     this.favoriteBrands,
   });
 
-  factory UserTagPortraitAiToPortraitV2Post$Response$Data.fromJson(
+  factory UserServiceUserTagPortraitAiToPortraitV2Post$Response$Data.fromJson(
     Map<String, dynamic> json,
-  ) => _$UserTagPortraitAiToPortraitV2Post$Response$DataFromJson(json);
+  ) => _$UserServiceUserTagPortraitAiToPortraitV2Post$Response$DataFromJson(
+    json,
+  );
 
   static const toJsonFactory =
-      _$UserTagPortraitAiToPortraitV2Post$Response$DataToJson;
+      _$UserServiceUserTagPortraitAiToPortraitV2Post$Response$DataToJson;
   Map<String, dynamic> toJson() =>
-      _$UserTagPortraitAiToPortraitV2Post$Response$DataToJson(this);
+      _$UserServiceUserTagPortraitAiToPortraitV2Post$Response$DataToJson(this);
 
   @JsonKey(name: 'age')
   final double? age;
@@ -11989,12 +12305,12 @@ class UserTagPortraitAiToPortraitV2Post$Response$Data {
   @JsonKey(name: 'favoriteBrands')
   final String? favoriteBrands;
   static const fromJsonFactory =
-      _$UserTagPortraitAiToPortraitV2Post$Response$DataFromJson;
+      _$UserServiceUserTagPortraitAiToPortraitV2Post$Response$DataFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is UserTagPortraitAiToPortraitV2Post$Response$Data &&
+        (other is UserServiceUserTagPortraitAiToPortraitV2Post$Response$Data &&
             (identical(other.age, age) ||
                 const DeepCollectionEquality().equals(other.age, age)) &&
             (identical(other.sex, sex) ||
@@ -12038,9 +12354,9 @@ class UserTagPortraitAiToPortraitV2Post$Response$Data {
       runtimeType.hashCode;
 }
 
-extension $UserTagPortraitAiToPortraitV2Post$Response$DataExtension
-    on UserTagPortraitAiToPortraitV2Post$Response$Data {
-  UserTagPortraitAiToPortraitV2Post$Response$Data copyWith({
+extension $UserServiceUserTagPortraitAiToPortraitV2Post$Response$DataExtension
+    on UserServiceUserTagPortraitAiToPortraitV2Post$Response$Data {
+  UserServiceUserTagPortraitAiToPortraitV2Post$Response$Data copyWith({
     double? age,
     double? sex,
     double? birthday,
@@ -12048,7 +12364,7 @@ extension $UserTagPortraitAiToPortraitV2Post$Response$DataExtension
     List<String>? favoriteShoppingPlatforms,
     String? favoriteBrands,
   }) {
-    return UserTagPortraitAiToPortraitV2Post$Response$Data(
+    return UserServiceUserTagPortraitAiToPortraitV2Post$Response$Data(
       age: age ?? this.age,
       sex: sex ?? this.sex,
       birthday: birthday ?? this.birthday,
@@ -12059,7 +12375,7 @@ extension $UserTagPortraitAiToPortraitV2Post$Response$DataExtension
     );
   }
 
-  UserTagPortraitAiToPortraitV2Post$Response$Data copyWithWrapped({
+  UserServiceUserTagPortraitAiToPortraitV2Post$Response$Data copyWithWrapped({
     Wrapped<double?>? age,
     Wrapped<double?>? sex,
     Wrapped<double?>? birthday,
@@ -12067,7 +12383,7 @@ extension $UserTagPortraitAiToPortraitV2Post$Response$DataExtension
     Wrapped<List<String>?>? favoriteShoppingPlatforms,
     Wrapped<String?>? favoriteBrands,
   }) {
-    return UserTagPortraitAiToPortraitV2Post$Response$Data(
+    return UserServiceUserTagPortraitAiToPortraitV2Post$Response$Data(
       age: (age != null ? age.value : this.age),
       sex: (sex != null ? sex.value : this.sex),
       birthday: (birthday != null ? birthday.value : this.birthday),
@@ -12083,8 +12399,8 @@ extension $UserTagPortraitAiToPortraitV2Post$Response$DataExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class UserTagPortraitGetPortraitGet$Response$Data {
-  const UserTagPortraitGetPortraitGet$Response$Data({
+class UserServiceUserTagPortraitGetPortraitGet$Response$Data {
+  const UserServiceUserTagPortraitGetPortraitGet$Response$Data({
     this.age,
     this.sex,
     this.birthday,
@@ -12094,14 +12410,14 @@ class UserTagPortraitGetPortraitGet$Response$Data {
     this.favoriteBrands,
   });
 
-  factory UserTagPortraitGetPortraitGet$Response$Data.fromJson(
+  factory UserServiceUserTagPortraitGetPortraitGet$Response$Data.fromJson(
     Map<String, dynamic> json,
-  ) => _$UserTagPortraitGetPortraitGet$Response$DataFromJson(json);
+  ) => _$UserServiceUserTagPortraitGetPortraitGet$Response$DataFromJson(json);
 
   static const toJsonFactory =
-      _$UserTagPortraitGetPortraitGet$Response$DataToJson;
+      _$UserServiceUserTagPortraitGetPortraitGet$Response$DataToJson;
   Map<String, dynamic> toJson() =>
-      _$UserTagPortraitGetPortraitGet$Response$DataToJson(this);
+      _$UserServiceUserTagPortraitGetPortraitGet$Response$DataToJson(this);
 
   @JsonKey(name: 'age')
   final double? age;
@@ -12118,12 +12434,12 @@ class UserTagPortraitGetPortraitGet$Response$Data {
   @JsonKey(name: 'favoriteBrands')
   final String? favoriteBrands;
   static const fromJsonFactory =
-      _$UserTagPortraitGetPortraitGet$Response$DataFromJson;
+      _$UserServiceUserTagPortraitGetPortraitGet$Response$DataFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is UserTagPortraitGetPortraitGet$Response$Data &&
+        (other is UserServiceUserTagPortraitGetPortraitGet$Response$Data &&
             (identical(other.age, age) ||
                 const DeepCollectionEquality().equals(other.age, age)) &&
             (identical(other.sex, sex) ||
@@ -12173,9 +12489,9 @@ class UserTagPortraitGetPortraitGet$Response$Data {
       runtimeType.hashCode;
 }
 
-extension $UserTagPortraitGetPortraitGet$Response$DataExtension
-    on UserTagPortraitGetPortraitGet$Response$Data {
-  UserTagPortraitGetPortraitGet$Response$Data copyWith({
+extension $UserServiceUserTagPortraitGetPortraitGet$Response$DataExtension
+    on UserServiceUserTagPortraitGetPortraitGet$Response$Data {
+  UserServiceUserTagPortraitGetPortraitGet$Response$Data copyWith({
     double? age,
     double? sex,
     double? birthday,
@@ -12184,7 +12500,7 @@ extension $UserTagPortraitGetPortraitGet$Response$DataExtension
     List<String>? favoriteShoppingPlatforms,
     String? favoriteBrands,
   }) {
-    return UserTagPortraitGetPortraitGet$Response$Data(
+    return UserServiceUserTagPortraitGetPortraitGet$Response$Data(
       age: age ?? this.age,
       sex: sex ?? this.sex,
       birthday: birthday ?? this.birthday,
@@ -12196,7 +12512,7 @@ extension $UserTagPortraitGetPortraitGet$Response$DataExtension
     );
   }
 
-  UserTagPortraitGetPortraitGet$Response$Data copyWithWrapped({
+  UserServiceUserTagPortraitGetPortraitGet$Response$Data copyWithWrapped({
     Wrapped<double?>? age,
     Wrapped<double?>? sex,
     Wrapped<double?>? birthday,
@@ -12205,7 +12521,7 @@ extension $UserTagPortraitGetPortraitGet$Response$DataExtension
     Wrapped<List<String>?>? favoriteShoppingPlatforms,
     Wrapped<String?>? favoriteBrands,
   }) {
-    return UserTagPortraitGetPortraitGet$Response$Data(
+    return UserServiceUserTagPortraitGetPortraitGet$Response$Data(
       age: (age != null ? age.value : this.age),
       sex: (sex != null ? sex.value : this.sex),
       birthday: (birthday != null ? birthday.value : this.birthday),
@@ -12222,8 +12538,8 @@ extension $UserTagPortraitGetPortraitGet$Response$DataExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class UserCouponAppHomeActivityPost$Response$Data$Item {
-  const UserCouponAppHomeActivityPost$Response$Data$Item({
+class UserServiceUserCouponAppHomeActivityPost$Response$Data$Item {
+  const UserServiceUserCouponAppHomeActivityPost$Response$Data$Item({
     this.userId,
     this.tenantCode,
     this.couponCode,
@@ -12241,14 +12557,16 @@ class UserCouponAppHomeActivityPost$Response$Data$Item {
     this.msgInfo,
   });
 
-  factory UserCouponAppHomeActivityPost$Response$Data$Item.fromJson(
+  factory UserServiceUserCouponAppHomeActivityPost$Response$Data$Item.fromJson(
     Map<String, dynamic> json,
-  ) => _$UserCouponAppHomeActivityPost$Response$Data$ItemFromJson(json);
+  ) => _$UserServiceUserCouponAppHomeActivityPost$Response$Data$ItemFromJson(
+    json,
+  );
 
   static const toJsonFactory =
-      _$UserCouponAppHomeActivityPost$Response$Data$ItemToJson;
+      _$UserServiceUserCouponAppHomeActivityPost$Response$Data$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$UserCouponAppHomeActivityPost$Response$Data$ItemToJson(this);
+      _$UserServiceUserCouponAppHomeActivityPost$Response$Data$ItemToJson(this);
 
   @JsonKey(name: 'userId')
   final String? userId;
@@ -12279,14 +12597,15 @@ class UserCouponAppHomeActivityPost$Response$Data$Item {
   @JsonKey(name: 'couponImage')
   final String? couponImage;
   @JsonKey(name: 'msgInfo')
-  final UserCouponAppHomeActivityPost$Response$Data$Item$MsgInfo? msgInfo;
+  final UserServiceUserCouponAppHomeActivityPost$Response$Data$Item$MsgInfo?
+  msgInfo;
   static const fromJsonFactory =
-      _$UserCouponAppHomeActivityPost$Response$Data$ItemFromJson;
+      _$UserServiceUserCouponAppHomeActivityPost$Response$Data$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is UserCouponAppHomeActivityPost$Response$Data$Item &&
+        (other is UserServiceUserCouponAppHomeActivityPost$Response$Data$Item &&
             (identical(other.userId, userId) ||
                 const DeepCollectionEquality().equals(other.userId, userId)) &&
             (identical(other.tenantCode, tenantCode) ||
@@ -12375,9 +12694,9 @@ class UserCouponAppHomeActivityPost$Response$Data$Item {
       runtimeType.hashCode;
 }
 
-extension $UserCouponAppHomeActivityPost$Response$Data$ItemExtension
-    on UserCouponAppHomeActivityPost$Response$Data$Item {
-  UserCouponAppHomeActivityPost$Response$Data$Item copyWith({
+extension $UserServiceUserCouponAppHomeActivityPost$Response$Data$ItemExtension
+    on UserServiceUserCouponAppHomeActivityPost$Response$Data$Item {
+  UserServiceUserCouponAppHomeActivityPost$Response$Data$Item copyWith({
     String? userId,
     String? tenantCode,
     String? couponCode,
@@ -12392,9 +12711,10 @@ extension $UserCouponAppHomeActivityPost$Response$Data$ItemExtension
     String? limitAmountTarget,
     String? currencyTarget,
     String? couponImage,
-    UserCouponAppHomeActivityPost$Response$Data$Item$MsgInfo? msgInfo,
+    UserServiceUserCouponAppHomeActivityPost$Response$Data$Item$MsgInfo?
+    msgInfo,
   }) {
-    return UserCouponAppHomeActivityPost$Response$Data$Item(
+    return UserServiceUserCouponAppHomeActivityPost$Response$Data$Item(
       userId: userId ?? this.userId,
       tenantCode: tenantCode ?? this.tenantCode,
       couponCode: couponCode ?? this.couponCode,
@@ -12413,7 +12733,7 @@ extension $UserCouponAppHomeActivityPost$Response$Data$ItemExtension
     );
   }
 
-  UserCouponAppHomeActivityPost$Response$Data$Item copyWithWrapped({
+  UserServiceUserCouponAppHomeActivityPost$Response$Data$Item copyWithWrapped({
     Wrapped<String?>? userId,
     Wrapped<String?>? tenantCode,
     Wrapped<String?>? couponCode,
@@ -12428,9 +12748,12 @@ extension $UserCouponAppHomeActivityPost$Response$Data$ItemExtension
     Wrapped<String?>? limitAmountTarget,
     Wrapped<String?>? currencyTarget,
     Wrapped<String?>? couponImage,
-    Wrapped<UserCouponAppHomeActivityPost$Response$Data$Item$MsgInfo?>? msgInfo,
+    Wrapped<
+      UserServiceUserCouponAppHomeActivityPost$Response$Data$Item$MsgInfo?
+    >?
+    msgInfo,
   }) {
-    return UserCouponAppHomeActivityPost$Response$Data$Item(
+    return UserServiceUserCouponAppHomeActivityPost$Response$Data$Item(
       userId: (userId != null ? userId.value : this.userId),
       tenantCode: (tenantCode != null ? tenantCode.value : this.tenantCode),
       couponCode: (couponCode != null ? couponCode.value : this.couponCode),
@@ -12457,8 +12780,8 @@ extension $UserCouponAppHomeActivityPost$Response$Data$ItemExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class UserCouponActivityInfoGet$Response$Data$CouponList$Item {
-  const UserCouponActivityInfoGet$Response$Data$CouponList$Item({
+class UserServiceUserCouponActivityInfoGet$Response$Data$CouponList$Item {
+  const UserServiceUserCouponActivityInfoGet$Response$Data$CouponList$Item({
     required this.currencySymbol,
     required this.discountType,
     required this.discountInfo,
@@ -12467,14 +12790,19 @@ class UserCouponActivityInfoGet$Response$Data$CouponList$Item {
     this.userCouponCode,
   });
 
-  factory UserCouponActivityInfoGet$Response$Data$CouponList$Item.fromJson(
+  factory UserServiceUserCouponActivityInfoGet$Response$Data$CouponList$Item.fromJson(
     Map<String, dynamic> json,
-  ) => _$UserCouponActivityInfoGet$Response$Data$CouponList$ItemFromJson(json);
+  ) =>
+      _$UserServiceUserCouponActivityInfoGet$Response$Data$CouponList$ItemFromJson(
+        json,
+      );
 
   static const toJsonFactory =
-      _$UserCouponActivityInfoGet$Response$Data$CouponList$ItemToJson;
+      _$UserServiceUserCouponActivityInfoGet$Response$Data$CouponList$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$UserCouponActivityInfoGet$Response$Data$CouponList$ItemToJson(this);
+      _$UserServiceUserCouponActivityInfoGet$Response$Data$CouponList$ItemToJson(
+        this,
+      );
 
   @JsonKey(name: 'currencySymbol')
   final String currencySymbol;
@@ -12489,12 +12817,13 @@ class UserCouponActivityInfoGet$Response$Data$CouponList$Item {
   @JsonKey(name: 'userCouponCode')
   final String? userCouponCode;
   static const fromJsonFactory =
-      _$UserCouponActivityInfoGet$Response$Data$CouponList$ItemFromJson;
+      _$UserServiceUserCouponActivityInfoGet$Response$Data$CouponList$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is UserCouponActivityInfoGet$Response$Data$CouponList$Item &&
+        (other
+                is UserServiceUserCouponActivityInfoGet$Response$Data$CouponList$Item &&
             (identical(other.currencySymbol, currencySymbol) ||
                 const DeepCollectionEquality().equals(
                   other.currencySymbol,
@@ -12541,9 +12870,9 @@ class UserCouponActivityInfoGet$Response$Data$CouponList$Item {
       runtimeType.hashCode;
 }
 
-extension $UserCouponActivityInfoGet$Response$Data$CouponList$ItemExtension
-    on UserCouponActivityInfoGet$Response$Data$CouponList$Item {
-  UserCouponActivityInfoGet$Response$Data$CouponList$Item copyWith({
+extension $UserServiceUserCouponActivityInfoGet$Response$Data$CouponList$ItemExtension
+    on UserServiceUserCouponActivityInfoGet$Response$Data$CouponList$Item {
+  UserServiceUserCouponActivityInfoGet$Response$Data$CouponList$Item copyWith({
     String? currencySymbol,
     double? discountType,
     double? discountInfo,
@@ -12551,7 +12880,7 @@ extension $UserCouponActivityInfoGet$Response$Data$CouponList$ItemExtension
     double? invalidPeriod,
     String? userCouponCode,
   }) {
-    return UserCouponActivityInfoGet$Response$Data$CouponList$Item(
+    return UserServiceUserCouponActivityInfoGet$Response$Data$CouponList$Item(
       currencySymbol: currencySymbol ?? this.currencySymbol,
       discountType: discountType ?? this.discountType,
       discountInfo: discountInfo ?? this.discountInfo,
@@ -12561,7 +12890,8 @@ extension $UserCouponActivityInfoGet$Response$Data$CouponList$ItemExtension
     );
   }
 
-  UserCouponActivityInfoGet$Response$Data$CouponList$Item copyWithWrapped({
+  UserServiceUserCouponActivityInfoGet$Response$Data$CouponList$Item
+  copyWithWrapped({
     Wrapped<String>? currencySymbol,
     Wrapped<double>? discountType,
     Wrapped<double>? discountInfo,
@@ -12569,7 +12899,7 @@ extension $UserCouponActivityInfoGet$Response$Data$CouponList$ItemExtension
     Wrapped<double?>? invalidPeriod,
     Wrapped<String?>? userCouponCode,
   }) {
-    return UserCouponActivityInfoGet$Response$Data$CouponList$Item(
+    return UserServiceUserCouponActivityInfoGet$Response$Data$CouponList$Item(
       currencySymbol: (currencySymbol != null
           ? currencySymbol.value
           : this.currencySymbol),
@@ -12591,8 +12921,8 @@ extension $UserCouponActivityInfoGet$Response$Data$CouponList$ItemExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class UserCouponActivityInfosGet$Response$Data$Item$CouponList$Item {
-  const UserCouponActivityInfosGet$Response$Data$Item$CouponList$Item({
+class UserServiceUserCouponActivityInfosGet$Response$Data$Item$CouponList$Item {
+  const UserServiceUserCouponActivityInfosGet$Response$Data$Item$CouponList$Item({
     this.couponCode,
     this.invalidPeriod,
     this.currencySymbol,
@@ -12601,16 +12931,17 @@ class UserCouponActivityInfosGet$Response$Data$Item$CouponList$Item {
     this.limitAmount,
   });
 
-  factory UserCouponActivityInfosGet$Response$Data$Item$CouponList$Item.fromJson(
+  factory UserServiceUserCouponActivityInfosGet$Response$Data$Item$CouponList$Item.fromJson(
     Map<String, dynamic> json,
-  ) => _$UserCouponActivityInfosGet$Response$Data$Item$CouponList$ItemFromJson(
-    json,
-  );
+  ) =>
+      _$UserServiceUserCouponActivityInfosGet$Response$Data$Item$CouponList$ItemFromJson(
+        json,
+      );
 
   static const toJsonFactory =
-      _$UserCouponActivityInfosGet$Response$Data$Item$CouponList$ItemToJson;
+      _$UserServiceUserCouponActivityInfosGet$Response$Data$Item$CouponList$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$UserCouponActivityInfosGet$Response$Data$Item$CouponList$ItemToJson(
+      _$UserServiceUserCouponActivityInfosGet$Response$Data$Item$CouponList$ItemToJson(
         this,
       );
 
@@ -12627,13 +12958,13 @@ class UserCouponActivityInfosGet$Response$Data$Item$CouponList$Item {
   @JsonKey(name: 'limitAmount')
   final double? limitAmount;
   static const fromJsonFactory =
-      _$UserCouponActivityInfosGet$Response$Data$Item$CouponList$ItemFromJson;
+      _$UserServiceUserCouponActivityInfosGet$Response$Data$Item$CouponList$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is UserCouponActivityInfosGet$Response$Data$Item$CouponList$Item &&
+                is UserServiceUserCouponActivityInfosGet$Response$Data$Item$CouponList$Item &&
             (identical(other.couponCode, couponCode) ||
                 const DeepCollectionEquality().equals(
                   other.couponCode,
@@ -12680,9 +13011,10 @@ class UserCouponActivityInfosGet$Response$Data$Item$CouponList$Item {
       runtimeType.hashCode;
 }
 
-extension $UserCouponActivityInfosGet$Response$Data$Item$CouponList$ItemExtension
-    on UserCouponActivityInfosGet$Response$Data$Item$CouponList$Item {
-  UserCouponActivityInfosGet$Response$Data$Item$CouponList$Item copyWith({
+extension $UserServiceUserCouponActivityInfosGet$Response$Data$Item$CouponList$ItemExtension
+    on UserServiceUserCouponActivityInfosGet$Response$Data$Item$CouponList$Item {
+  UserServiceUserCouponActivityInfosGet$Response$Data$Item$CouponList$Item
+  copyWith({
     String? couponCode,
     double? invalidPeriod,
     String? currencySymbol,
@@ -12690,7 +13022,7 @@ extension $UserCouponActivityInfosGet$Response$Data$Item$CouponList$ItemExtensio
     double? discountInfo,
     double? limitAmount,
   }) {
-    return UserCouponActivityInfosGet$Response$Data$Item$CouponList$Item(
+    return UserServiceUserCouponActivityInfosGet$Response$Data$Item$CouponList$Item(
       couponCode: couponCode ?? this.couponCode,
       invalidPeriod: invalidPeriod ?? this.invalidPeriod,
       currencySymbol: currencySymbol ?? this.currencySymbol,
@@ -12700,7 +13032,7 @@ extension $UserCouponActivityInfosGet$Response$Data$Item$CouponList$ItemExtensio
     );
   }
 
-  UserCouponActivityInfosGet$Response$Data$Item$CouponList$Item
+  UserServiceUserCouponActivityInfosGet$Response$Data$Item$CouponList$Item
   copyWithWrapped({
     Wrapped<String?>? couponCode,
     Wrapped<double?>? invalidPeriod,
@@ -12709,7 +13041,7 @@ extension $UserCouponActivityInfosGet$Response$Data$Item$CouponList$ItemExtensio
     Wrapped<double?>? discountInfo,
     Wrapped<double?>? limitAmount,
   }) {
-    return UserCouponActivityInfosGet$Response$Data$Item$CouponList$Item(
+    return UserServiceUserCouponActivityInfosGet$Response$Data$Item$CouponList$Item(
       couponCode: (couponCode != null ? couponCode.value : this.couponCode),
       invalidPeriod: (invalidPeriod != null
           ? invalidPeriod.value
@@ -12729,8 +13061,8 @@ extension $UserCouponActivityInfosGet$Response$Data$Item$CouponList$ItemExtensio
 }
 
 @JsonSerializable(explicitToJson: true)
-class UserCouponGetListGet$Response$Data$Item$UserCouponDtos$Item {
-  const UserCouponGetListGet$Response$Data$Item$UserCouponDtos$Item({
+class UserServiceUserCouponGetListGet$Response$Data$Item$UserCouponDtos$Item {
+  const UserServiceUserCouponGetListGet$Response$Data$Item$UserCouponDtos$Item({
     this.userId,
     this.tenantCode,
     this.couponCode,
@@ -12748,16 +13080,19 @@ class UserCouponGetListGet$Response$Data$Item$UserCouponDtos$Item {
     this.invalidPeriod,
   });
 
-  factory UserCouponGetListGet$Response$Data$Item$UserCouponDtos$Item.fromJson(
+  factory UserServiceUserCouponGetListGet$Response$Data$Item$UserCouponDtos$Item.fromJson(
     Map<String, dynamic> json,
-  ) => _$UserCouponGetListGet$Response$Data$Item$UserCouponDtos$ItemFromJson(
-    json,
-  );
+  ) =>
+      _$UserServiceUserCouponGetListGet$Response$Data$Item$UserCouponDtos$ItemFromJson(
+        json,
+      );
 
   static const toJsonFactory =
-      _$UserCouponGetListGet$Response$Data$Item$UserCouponDtos$ItemToJson;
+      _$UserServiceUserCouponGetListGet$Response$Data$Item$UserCouponDtos$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$UserCouponGetListGet$Response$Data$Item$UserCouponDtos$ItemToJson(this);
+      _$UserServiceUserCouponGetListGet$Response$Data$Item$UserCouponDtos$ItemToJson(
+        this,
+      );
 
   @JsonKey(name: 'userId')
   final String? userId;
@@ -12790,12 +13125,13 @@ class UserCouponGetListGet$Response$Data$Item$UserCouponDtos$Item {
   @JsonKey(name: 'invalidPeriod')
   final double? invalidPeriod;
   static const fromJsonFactory =
-      _$UserCouponGetListGet$Response$Data$Item$UserCouponDtos$ItemFromJson;
+      _$UserServiceUserCouponGetListGet$Response$Data$Item$UserCouponDtos$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is UserCouponGetListGet$Response$Data$Item$UserCouponDtos$Item &&
+        (other
+                is UserServiceUserCouponGetListGet$Response$Data$Item$UserCouponDtos$Item &&
             (identical(other.userId, userId) ||
                 const DeepCollectionEquality().equals(other.userId, userId)) &&
             (identical(other.tenantCode, tenantCode) ||
@@ -12887,9 +13223,10 @@ class UserCouponGetListGet$Response$Data$Item$UserCouponDtos$Item {
       runtimeType.hashCode;
 }
 
-extension $UserCouponGetListGet$Response$Data$Item$UserCouponDtos$ItemExtension
-    on UserCouponGetListGet$Response$Data$Item$UserCouponDtos$Item {
-  UserCouponGetListGet$Response$Data$Item$UserCouponDtos$Item copyWith({
+extension $UserServiceUserCouponGetListGet$Response$Data$Item$UserCouponDtos$ItemExtension
+    on UserServiceUserCouponGetListGet$Response$Data$Item$UserCouponDtos$Item {
+  UserServiceUserCouponGetListGet$Response$Data$Item$UserCouponDtos$Item
+  copyWith({
     String? userId,
     String? tenantCode,
     String? couponCode,
@@ -12906,7 +13243,7 @@ extension $UserCouponGetListGet$Response$Data$Item$UserCouponDtos$ItemExtension
     String? couponImage,
     double? invalidPeriod,
   }) {
-    return UserCouponGetListGet$Response$Data$Item$UserCouponDtos$Item(
+    return UserServiceUserCouponGetListGet$Response$Data$Item$UserCouponDtos$Item(
       userId: userId ?? this.userId,
       tenantCode: tenantCode ?? this.tenantCode,
       couponCode: couponCode ?? this.couponCode,
@@ -12925,7 +13262,8 @@ extension $UserCouponGetListGet$Response$Data$Item$UserCouponDtos$ItemExtension
     );
   }
 
-  UserCouponGetListGet$Response$Data$Item$UserCouponDtos$Item copyWithWrapped({
+  UserServiceUserCouponGetListGet$Response$Data$Item$UserCouponDtos$Item
+  copyWithWrapped({
     Wrapped<String?>? userId,
     Wrapped<String?>? tenantCode,
     Wrapped<String?>? couponCode,
@@ -12942,7 +13280,7 @@ extension $UserCouponGetListGet$Response$Data$Item$UserCouponDtos$ItemExtension
     Wrapped<String?>? couponImage,
     Wrapped<double?>? invalidPeriod,
   }) {
-    return UserCouponGetListGet$Response$Data$Item$UserCouponDtos$Item(
+    return UserServiceUserCouponGetListGet$Response$Data$Item$UserCouponDtos$Item(
       userId: (userId != null ? userId.value : this.userId),
       tenantCode: (tenantCode != null ? tenantCode.value : this.tenantCode),
       couponCode: (couponCode != null ? couponCode.value : this.couponCode),
@@ -12971,24 +13309,25 @@ extension $UserCouponGetListGet$Response$Data$Item$UserCouponDtos$ItemExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class UserCouponNoAuthActivityInfoGet$Response$Data$CouponList$Item {
-  const UserCouponNoAuthActivityInfoGet$Response$Data$CouponList$Item({
+class UserServiceUserCouponNoAuthActivityInfoGet$Response$Data$CouponList$Item {
+  const UserServiceUserCouponNoAuthActivityInfoGet$Response$Data$CouponList$Item({
     required this.currencySymbol,
     required this.discountType,
     required this.discountInfo,
     required this.limitAmount,
   });
 
-  factory UserCouponNoAuthActivityInfoGet$Response$Data$CouponList$Item.fromJson(
+  factory UserServiceUserCouponNoAuthActivityInfoGet$Response$Data$CouponList$Item.fromJson(
     Map<String, dynamic> json,
-  ) => _$UserCouponNoAuthActivityInfoGet$Response$Data$CouponList$ItemFromJson(
-    json,
-  );
+  ) =>
+      _$UserServiceUserCouponNoAuthActivityInfoGet$Response$Data$CouponList$ItemFromJson(
+        json,
+      );
 
   static const toJsonFactory =
-      _$UserCouponNoAuthActivityInfoGet$Response$Data$CouponList$ItemToJson;
+      _$UserServiceUserCouponNoAuthActivityInfoGet$Response$Data$CouponList$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$UserCouponNoAuthActivityInfoGet$Response$Data$CouponList$ItemToJson(
+      _$UserServiceUserCouponNoAuthActivityInfoGet$Response$Data$CouponList$ItemToJson(
         this,
       );
 
@@ -13001,13 +13340,13 @@ class UserCouponNoAuthActivityInfoGet$Response$Data$CouponList$Item {
   @JsonKey(name: 'limitAmount')
   final double limitAmount;
   static const fromJsonFactory =
-      _$UserCouponNoAuthActivityInfoGet$Response$Data$CouponList$ItemFromJson;
+      _$UserServiceUserCouponNoAuthActivityInfoGet$Response$Data$CouponList$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is UserCouponNoAuthActivityInfoGet$Response$Data$CouponList$Item &&
+                is UserServiceUserCouponNoAuthActivityInfoGet$Response$Data$CouponList$Item &&
             (identical(other.currencySymbol, currencySymbol) ||
                 const DeepCollectionEquality().equals(
                   other.currencySymbol,
@@ -13042,15 +13381,16 @@ class UserCouponNoAuthActivityInfoGet$Response$Data$CouponList$Item {
       runtimeType.hashCode;
 }
 
-extension $UserCouponNoAuthActivityInfoGet$Response$Data$CouponList$ItemExtension
-    on UserCouponNoAuthActivityInfoGet$Response$Data$CouponList$Item {
-  UserCouponNoAuthActivityInfoGet$Response$Data$CouponList$Item copyWith({
+extension $UserServiceUserCouponNoAuthActivityInfoGet$Response$Data$CouponList$ItemExtension
+    on UserServiceUserCouponNoAuthActivityInfoGet$Response$Data$CouponList$Item {
+  UserServiceUserCouponNoAuthActivityInfoGet$Response$Data$CouponList$Item
+  copyWith({
     String? currencySymbol,
     double? discountType,
     double? discountInfo,
     double? limitAmount,
   }) {
-    return UserCouponNoAuthActivityInfoGet$Response$Data$CouponList$Item(
+    return UserServiceUserCouponNoAuthActivityInfoGet$Response$Data$CouponList$Item(
       currencySymbol: currencySymbol ?? this.currencySymbol,
       discountType: discountType ?? this.discountType,
       discountInfo: discountInfo ?? this.discountInfo,
@@ -13058,14 +13398,14 @@ extension $UserCouponNoAuthActivityInfoGet$Response$Data$CouponList$ItemExtensio
     );
   }
 
-  UserCouponNoAuthActivityInfoGet$Response$Data$CouponList$Item
+  UserServiceUserCouponNoAuthActivityInfoGet$Response$Data$CouponList$Item
   copyWithWrapped({
     Wrapped<String>? currencySymbol,
     Wrapped<double>? discountType,
     Wrapped<double>? discountInfo,
     Wrapped<double>? limitAmount,
   }) {
-    return UserCouponNoAuthActivityInfoGet$Response$Data$CouponList$Item(
+    return UserServiceUserCouponNoAuthActivityInfoGet$Response$Data$CouponList$Item(
       currencySymbol: (currencySymbol != null
           ? currencySymbol.value
           : this.currencySymbol),
@@ -13081,8 +13421,8 @@ extension $UserCouponNoAuthActivityInfoGet$Response$Data$CouponList$ItemExtensio
 }
 
 @JsonSerializable(explicitToJson: true)
-class UserCouponGetGet$Response$Data$Item$MsgInfo {
-  const UserCouponGetGet$Response$Data$Item$MsgInfo({
+class UserServiceUserCouponGetGet$Response$Data$Item$MsgInfo {
+  const UserServiceUserCouponGetGet$Response$Data$Item$MsgInfo({
     this.name,
     this.limit,
     this.usage,
@@ -13090,14 +13430,14 @@ class UserCouponGetGet$Response$Data$Item$MsgInfo {
     required this.discountUnit,
   });
 
-  factory UserCouponGetGet$Response$Data$Item$MsgInfo.fromJson(
+  factory UserServiceUserCouponGetGet$Response$Data$Item$MsgInfo.fromJson(
     Map<String, dynamic> json,
-  ) => _$UserCouponGetGet$Response$Data$Item$MsgInfoFromJson(json);
+  ) => _$UserServiceUserCouponGetGet$Response$Data$Item$MsgInfoFromJson(json);
 
   static const toJsonFactory =
-      _$UserCouponGetGet$Response$Data$Item$MsgInfoToJson;
+      _$UserServiceUserCouponGetGet$Response$Data$Item$MsgInfoToJson;
   Map<String, dynamic> toJson() =>
-      _$UserCouponGetGet$Response$Data$Item$MsgInfoToJson(this);
+      _$UserServiceUserCouponGetGet$Response$Data$Item$MsgInfoToJson(this);
 
   @JsonKey(name: 'name')
   final String? name;
@@ -13110,12 +13450,12 @@ class UserCouponGetGet$Response$Data$Item$MsgInfo {
   @JsonKey(name: 'discountUnit')
   final String discountUnit;
   static const fromJsonFactory =
-      _$UserCouponGetGet$Response$Data$Item$MsgInfoFromJson;
+      _$UserServiceUserCouponGetGet$Response$Data$Item$MsgInfoFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is UserCouponGetGet$Response$Data$Item$MsgInfo &&
+        (other is UserServiceUserCouponGetGet$Response$Data$Item$MsgInfo &&
             (identical(other.name, name) ||
                 const DeepCollectionEquality().equals(other.name, name)) &&
             (identical(other.limit, limit) ||
@@ -13147,16 +13487,16 @@ class UserCouponGetGet$Response$Data$Item$MsgInfo {
       runtimeType.hashCode;
 }
 
-extension $UserCouponGetGet$Response$Data$Item$MsgInfoExtension
-    on UserCouponGetGet$Response$Data$Item$MsgInfo {
-  UserCouponGetGet$Response$Data$Item$MsgInfo copyWith({
+extension $UserServiceUserCouponGetGet$Response$Data$Item$MsgInfoExtension
+    on UserServiceUserCouponGetGet$Response$Data$Item$MsgInfo {
+  UserServiceUserCouponGetGet$Response$Data$Item$MsgInfo copyWith({
     String? name,
     String? limit,
     String? usage,
     String? discountStr,
     String? discountUnit,
   }) {
-    return UserCouponGetGet$Response$Data$Item$MsgInfo(
+    return UserServiceUserCouponGetGet$Response$Data$Item$MsgInfo(
       name: name ?? this.name,
       limit: limit ?? this.limit,
       usage: usage ?? this.usage,
@@ -13165,14 +13505,14 @@ extension $UserCouponGetGet$Response$Data$Item$MsgInfoExtension
     );
   }
 
-  UserCouponGetGet$Response$Data$Item$MsgInfo copyWithWrapped({
+  UserServiceUserCouponGetGet$Response$Data$Item$MsgInfo copyWithWrapped({
     Wrapped<String?>? name,
     Wrapped<String?>? limit,
     Wrapped<String?>? usage,
     Wrapped<String>? discountStr,
     Wrapped<String>? discountUnit,
   }) {
-    return UserCouponGetGet$Response$Data$Item$MsgInfo(
+    return UserServiceUserCouponGetGet$Response$Data$Item$MsgInfo(
       name: (name != null ? name.value : this.name),
       limit: (limit != null ? limit.value : this.limit),
       usage: (usage != null ? usage.value : this.usage),
@@ -13185,32 +13525,32 @@ extension $UserCouponGetGet$Response$Data$Item$MsgInfoExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ImGetInfoPost$Response$Data$WhiteList$Item {
-  const ImGetInfoPost$Response$Data$WhiteList$Item({
+class UserServiceImGetInfoPost$Response$Data$WhiteList$Item {
+  const UserServiceImGetInfoPost$Response$Data$WhiteList$Item({
     required this.channelId,
     required this.channelType,
   });
 
-  factory ImGetInfoPost$Response$Data$WhiteList$Item.fromJson(
+  factory UserServiceImGetInfoPost$Response$Data$WhiteList$Item.fromJson(
     Map<String, dynamic> json,
-  ) => _$ImGetInfoPost$Response$Data$WhiteList$ItemFromJson(json);
+  ) => _$UserServiceImGetInfoPost$Response$Data$WhiteList$ItemFromJson(json);
 
   static const toJsonFactory =
-      _$ImGetInfoPost$Response$Data$WhiteList$ItemToJson;
+      _$UserServiceImGetInfoPost$Response$Data$WhiteList$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ImGetInfoPost$Response$Data$WhiteList$ItemToJson(this);
+      _$UserServiceImGetInfoPost$Response$Data$WhiteList$ItemToJson(this);
 
   @JsonKey(name: 'channelId')
   final String channelId;
   @JsonKey(name: 'channelType')
   final String channelType;
   static const fromJsonFactory =
-      _$ImGetInfoPost$Response$Data$WhiteList$ItemFromJson;
+      _$UserServiceImGetInfoPost$Response$Data$WhiteList$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ImGetInfoPost$Response$Data$WhiteList$Item &&
+        (other is UserServiceImGetInfoPost$Response$Data$WhiteList$Item &&
             (identical(other.channelId, channelId) ||
                 const DeepCollectionEquality().equals(
                   other.channelId,
@@ -13233,23 +13573,23 @@ class ImGetInfoPost$Response$Data$WhiteList$Item {
       runtimeType.hashCode;
 }
 
-extension $ImGetInfoPost$Response$Data$WhiteList$ItemExtension
-    on ImGetInfoPost$Response$Data$WhiteList$Item {
-  ImGetInfoPost$Response$Data$WhiteList$Item copyWith({
+extension $UserServiceImGetInfoPost$Response$Data$WhiteList$ItemExtension
+    on UserServiceImGetInfoPost$Response$Data$WhiteList$Item {
+  UserServiceImGetInfoPost$Response$Data$WhiteList$Item copyWith({
     String? channelId,
     String? channelType,
   }) {
-    return ImGetInfoPost$Response$Data$WhiteList$Item(
+    return UserServiceImGetInfoPost$Response$Data$WhiteList$Item(
       channelId: channelId ?? this.channelId,
       channelType: channelType ?? this.channelType,
     );
   }
 
-  ImGetInfoPost$Response$Data$WhiteList$Item copyWithWrapped({
+  UserServiceImGetInfoPost$Response$Data$WhiteList$Item copyWithWrapped({
     Wrapped<String>? channelId,
     Wrapped<String>? channelType,
   }) {
-    return ImGetInfoPost$Response$Data$WhiteList$Item(
+    return UserServiceImGetInfoPost$Response$Data$WhiteList$Item(
       channelId: (channelId != null ? channelId.value : this.channelId),
       channelType: (channelType != null ? channelType.value : this.channelType),
     );
@@ -13257,8 +13597,8 @@ extension $ImGetInfoPost$Response$Data$WhiteList$ItemExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ImGetInfoPost$Response$Data$Setting {
-  const ImGetInfoPost$Response$Data$Setting({
+class UserServiceImGetInfoPost$Response$Data$Setting {
+  const UserServiceImGetInfoPost$Response$Data$Setting({
     this.searchByPhone,
     this.searchByShort,
     this.newMsgNotice,
@@ -13270,13 +13610,14 @@ class ImGetInfoPost$Response$Data$Setting {
     this.muteOfApp,
   });
 
-  factory ImGetInfoPost$Response$Data$Setting.fromJson(
+  factory UserServiceImGetInfoPost$Response$Data$Setting.fromJson(
     Map<String, dynamic> json,
-  ) => _$ImGetInfoPost$Response$Data$SettingFromJson(json);
+  ) => _$UserServiceImGetInfoPost$Response$Data$SettingFromJson(json);
 
-  static const toJsonFactory = _$ImGetInfoPost$Response$Data$SettingToJson;
+  static const toJsonFactory =
+      _$UserServiceImGetInfoPost$Response$Data$SettingToJson;
   Map<String, dynamic> toJson() =>
-      _$ImGetInfoPost$Response$Data$SettingToJson(this);
+      _$UserServiceImGetInfoPost$Response$Data$SettingToJson(this);
 
   @JsonKey(name: 'search_by_phone')
   final double? searchByPhone;
@@ -13296,12 +13637,13 @@ class ImGetInfoPost$Response$Data$Setting {
   final double? deviceLock;
   @JsonKey(name: 'mute_of_app')
   final double? muteOfApp;
-  static const fromJsonFactory = _$ImGetInfoPost$Response$Data$SettingFromJson;
+  static const fromJsonFactory =
+      _$UserServiceImGetInfoPost$Response$Data$SettingFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ImGetInfoPost$Response$Data$Setting &&
+        (other is UserServiceImGetInfoPost$Response$Data$Setting &&
             (identical(other.searchByPhone, searchByPhone) ||
                 const DeepCollectionEquality().equals(
                   other.searchByPhone,
@@ -13366,9 +13708,9 @@ class ImGetInfoPost$Response$Data$Setting {
       runtimeType.hashCode;
 }
 
-extension $ImGetInfoPost$Response$Data$SettingExtension
-    on ImGetInfoPost$Response$Data$Setting {
-  ImGetInfoPost$Response$Data$Setting copyWith({
+extension $UserServiceImGetInfoPost$Response$Data$SettingExtension
+    on UserServiceImGetInfoPost$Response$Data$Setting {
+  UserServiceImGetInfoPost$Response$Data$Setting copyWith({
     double? searchByPhone,
     double? searchByShort,
     double? newMsgNotice,
@@ -13379,7 +13721,7 @@ extension $ImGetInfoPost$Response$Data$SettingExtension
     double? deviceLock,
     double? muteOfApp,
   }) {
-    return ImGetInfoPost$Response$Data$Setting(
+    return UserServiceImGetInfoPost$Response$Data$Setting(
       searchByPhone: searchByPhone ?? this.searchByPhone,
       searchByShort: searchByShort ?? this.searchByShort,
       newMsgNotice: newMsgNotice ?? this.newMsgNotice,
@@ -13392,7 +13734,7 @@ extension $ImGetInfoPost$Response$Data$SettingExtension
     );
   }
 
-  ImGetInfoPost$Response$Data$Setting copyWithWrapped({
+  UserServiceImGetInfoPost$Response$Data$Setting copyWithWrapped({
     Wrapped<double?>? searchByPhone,
     Wrapped<double?>? searchByShort,
     Wrapped<double?>? newMsgNotice,
@@ -13403,7 +13745,7 @@ extension $ImGetInfoPost$Response$Data$SettingExtension
     Wrapped<double?>? deviceLock,
     Wrapped<double?>? muteOfApp,
   }) {
-    return ImGetInfoPost$Response$Data$Setting(
+    return UserServiceImGetInfoPost$Response$Data$Setting(
       searchByPhone: (searchByPhone != null
           ? searchByPhone.value
           : this.searchByPhone),
@@ -13428,32 +13770,37 @@ extension $ImGetInfoPost$Response$Data$SettingExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class UserCouponAppHomeActivityPost$Response$Data$Item$MsgInfo {
-  const UserCouponAppHomeActivityPost$Response$Data$Item$MsgInfo({
+class UserServiceUserCouponAppHomeActivityPost$Response$Data$Item$MsgInfo {
+  const UserServiceUserCouponAppHomeActivityPost$Response$Data$Item$MsgInfo({
     this.name,
     this.usage,
   });
 
-  factory UserCouponAppHomeActivityPost$Response$Data$Item$MsgInfo.fromJson(
+  factory UserServiceUserCouponAppHomeActivityPost$Response$Data$Item$MsgInfo.fromJson(
     Map<String, dynamic> json,
-  ) => _$UserCouponAppHomeActivityPost$Response$Data$Item$MsgInfoFromJson(json);
+  ) =>
+      _$UserServiceUserCouponAppHomeActivityPost$Response$Data$Item$MsgInfoFromJson(
+        json,
+      );
 
   static const toJsonFactory =
-      _$UserCouponAppHomeActivityPost$Response$Data$Item$MsgInfoToJson;
+      _$UserServiceUserCouponAppHomeActivityPost$Response$Data$Item$MsgInfoToJson;
   Map<String, dynamic> toJson() =>
-      _$UserCouponAppHomeActivityPost$Response$Data$Item$MsgInfoToJson(this);
+      _$UserServiceUserCouponAppHomeActivityPost$Response$Data$Item$MsgInfoToJson(
+        this,
+      );
 
   @JsonKey(name: 'name')
   final String? name;
   @JsonKey(name: 'usage')
   final String? usage;
   static const fromJsonFactory =
-      _$UserCouponAppHomeActivityPost$Response$Data$Item$MsgInfoFromJson;
+      _$UserServiceUserCouponAppHomeActivityPost$Response$Data$Item$MsgInfoFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is UserCouponAppHomeActivityPost$Response$Data$Item$MsgInfo &&
+        (other is UserServiceUserCouponAppHomeActivityPost$Response$Data$Item$MsgInfo &&
             (identical(other.name, name) ||
                 const DeepCollectionEquality().equals(other.name, name)) &&
             (identical(other.usage, usage) ||
@@ -13470,23 +13817,21 @@ class UserCouponAppHomeActivityPost$Response$Data$Item$MsgInfo {
       runtimeType.hashCode;
 }
 
-extension $UserCouponAppHomeActivityPost$Response$Data$Item$MsgInfoExtension
-    on UserCouponAppHomeActivityPost$Response$Data$Item$MsgInfo {
-  UserCouponAppHomeActivityPost$Response$Data$Item$MsgInfo copyWith({
+extension $UserServiceUserCouponAppHomeActivityPost$Response$Data$Item$MsgInfoExtension
+    on UserServiceUserCouponAppHomeActivityPost$Response$Data$Item$MsgInfo {
+  UserServiceUserCouponAppHomeActivityPost$Response$Data$Item$MsgInfo copyWith({
     String? name,
     String? usage,
   }) {
-    return UserCouponAppHomeActivityPost$Response$Data$Item$MsgInfo(
+    return UserServiceUserCouponAppHomeActivityPost$Response$Data$Item$MsgInfo(
       name: name ?? this.name,
       usage: usage ?? this.usage,
     );
   }
 
-  UserCouponAppHomeActivityPost$Response$Data$Item$MsgInfo copyWithWrapped({
-    Wrapped<String?>? name,
-    Wrapped<String?>? usage,
-  }) {
-    return UserCouponAppHomeActivityPost$Response$Data$Item$MsgInfo(
+  UserServiceUserCouponAppHomeActivityPost$Response$Data$Item$MsgInfo
+  copyWithWrapped({Wrapped<String?>? name, Wrapped<String?>? usage}) {
+    return UserServiceUserCouponAppHomeActivityPost$Response$Data$Item$MsgInfo(
       name: (name != null ? name.value : this.name),
       usage: (usage != null ? usage.value : this.usage),
     );

@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../core/portal/portals.dart';
 import '../../core/error/api_error.dart';
 import '../api/swagger_client.dart';
 
@@ -27,7 +28,10 @@ class HomeRepository {
 
   Future<Map<String, dynamic>> _getConfig(String key) async {
     final api = _ref.read(swaggerConfigApiProvider);
-    final response = await api.userConfigNoAuthInstanceGet(configKey: key);
+    final response = await api.configServiceUserConfigNoAuthInstanceGet(
+      configKey: key,
+      instanceId: defaultPortal.id.toString(),
+    );
 
     final body = _toMap(response.body);
     final code = _parseInt(body?['code']);

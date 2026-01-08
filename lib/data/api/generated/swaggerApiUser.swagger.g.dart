@@ -6,18 +6,18 @@ part of 'swaggerApiUser.swagger.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-AddressUpdatePost$Response _$AddressUpdatePost$ResponseFromJson(
-  Map<String, dynamic> json,
-) => AddressUpdatePost$Response(
-  code: (json['code'] as num?)?.toDouble(),
-  message: json['message'] as String?,
-  data: (json['data'] as num?)?.toDouble(),
-  traceId: json['traceId'] as String?,
-  success: json['success'] as bool?,
-);
+UserServiceAddressUpdatePost$Response
+_$UserServiceAddressUpdatePost$ResponseFromJson(Map<String, dynamic> json) =>
+    UserServiceAddressUpdatePost$Response(
+      code: (json['code'] as num?)?.toDouble(),
+      message: json['message'] as String?,
+      data: (json['data'] as num?)?.toDouble(),
+      traceId: json['traceId'] as String?,
+      success: json['success'] as bool?,
+    );
 
-Map<String, dynamic> _$AddressUpdatePost$ResponseToJson(
-  AddressUpdatePost$Response instance,
+Map<String, dynamic> _$UserServiceAddressUpdatePost$ResponseToJson(
+  UserServiceAddressUpdatePost$Response instance,
 ) => <String, dynamic>{
   'code': instance.code,
   'message': instance.message,
@@ -26,18 +26,18 @@ Map<String, dynamic> _$AddressUpdatePost$ResponseToJson(
   'success': instance.success,
 };
 
-AddressDeleteDelete$Response _$AddressDeleteDelete$ResponseFromJson(
-  Map<String, dynamic> json,
-) => AddressDeleteDelete$Response(
-  code: (json['code'] as num?)?.toDouble(),
-  message: json['message'] as String?,
-  data: (json['data'] as num?)?.toDouble(),
-  traceId: json['traceId'] as String?,
-  success: json['success'] as bool?,
-);
+UserServiceAddressDeleteDelete$Response
+_$UserServiceAddressDeleteDelete$ResponseFromJson(Map<String, dynamic> json) =>
+    UserServiceAddressDeleteDelete$Response(
+      code: (json['code'] as num?)?.toDouble(),
+      message: json['message'] as String?,
+      data: (json['data'] as num?)?.toDouble(),
+      traceId: json['traceId'] as String?,
+      success: json['success'] as bool?,
+    );
 
-Map<String, dynamic> _$AddressDeleteDelete$ResponseToJson(
-  AddressDeleteDelete$Response instance,
+Map<String, dynamic> _$UserServiceAddressDeleteDelete$ResponseToJson(
+  UserServiceAddressDeleteDelete$Response instance,
 ) => <String, dynamic>{
   'code': instance.code,
   'message': instance.message,
@@ -46,25 +46,25 @@ Map<String, dynamic> _$AddressDeleteDelete$ResponseToJson(
   'success': instance.success,
 };
 
-AddressQueryGet$Response _$AddressQueryGet$ResponseFromJson(
-  Map<String, dynamic> json,
-) => AddressQueryGet$Response(
-  code: (json['code'] as num?)?.toDouble(),
-  message: json['message'] as String?,
-  data: (json['data'] as List<dynamic>?)
-      ?.map(
-        (e) => AddressQueryGet$Response$Data$Item.fromJson(
-          e as Map<String, dynamic>,
-        ),
-      )
-      .toList(),
-  traceId: json['traceId'] as String?,
-  placeholder: json['placeholder'] as String?,
-  success: json['success'] as bool?,
-);
+UserServiceAddressQueryGet$Response
+_$UserServiceAddressQueryGet$ResponseFromJson(Map<String, dynamic> json) =>
+    UserServiceAddressQueryGet$Response(
+      code: (json['code'] as num?)?.toDouble(),
+      message: json['message'] as String?,
+      data: (json['data'] as List<dynamic>?)
+          ?.map(
+            (e) => UserServiceAddressQueryGet$Response$Data$Item.fromJson(
+              e as Map<String, dynamic>,
+            ),
+          )
+          .toList(),
+      traceId: json['traceId'] as String?,
+      placeholder: json['placeholder'] as String?,
+      success: json['success'] as bool?,
+    );
 
-Map<String, dynamic> _$AddressQueryGet$ResponseToJson(
-  AddressQueryGet$Response instance,
+Map<String, dynamic> _$UserServiceAddressQueryGet$ResponseToJson(
+  UserServiceAddressQueryGet$Response instance,
 ) => <String, dynamic>{
   'code': instance.code,
   'message': instance.message,
@@ -74,9 +74,10 @@ Map<String, dynamic> _$AddressQueryGet$ResponseToJson(
   'success': instance.success,
 };
 
-NoAuthSupportCountryGet$Response _$NoAuthSupportCountryGet$ResponseFromJson(
+UserServiceNoAuthSupportCountryGet$Response
+_$UserServiceNoAuthSupportCountryGet$ResponseFromJson(
   Map<String, dynamic> json,
-) => NoAuthSupportCountryGet$Response(
+) => UserServiceNoAuthSupportCountryGet$Response(
   code: (json['code'] as num?)?.toDouble(),
   message: json['message'] as String?,
   data:
@@ -85,8 +86,8 @@ NoAuthSupportCountryGet$Response _$NoAuthSupportCountryGet$ResponseFromJson(
   traceId: json['traceId'] as String?,
 );
 
-Map<String, dynamic> _$NoAuthSupportCountryGet$ResponseToJson(
-  NoAuthSupportCountryGet$Response instance,
+Map<String, dynamic> _$UserServiceNoAuthSupportCountryGet$ResponseToJson(
+  UserServiceNoAuthSupportCountryGet$Response instance,
 ) => <String, dynamic>{
   'code': instance.code,
   'message': instance.message,
@@ -95,14 +96,14 @@ Map<String, dynamic> _$NoAuthSupportCountryGet$ResponseToJson(
   'traceId': instance.traceId,
 };
 
-AddressListGet$Response _$AddressListGet$ResponseFromJson(
+UserServiceAddressListGet$Response _$UserServiceAddressListGet$ResponseFromJson(
   Map<String, dynamic> json,
-) => AddressListGet$Response(
+) => UserServiceAddressListGet$Response(
   code: (json['code'] as num?)?.toDouble(),
   message: json['message'] as String?,
   data: (json['data'] as List<dynamic>?)
       ?.map(
-        (e) => AddressListGet$Response$Data$Item.fromJson(
+        (e) => UserServiceAddressListGet$Response$Data$Item.fromJson(
           e as Map<String, dynamic>,
         ),
       )
@@ -112,8 +113,8 @@ AddressListGet$Response _$AddressListGet$ResponseFromJson(
   success: json['success'] as bool?,
 );
 
-Map<String, dynamic> _$AddressListGet$ResponseToJson(
-  AddressListGet$Response instance,
+Map<String, dynamic> _$UserServiceAddressListGet$ResponseToJson(
+  UserServiceAddressListGet$Response instance,
 ) => <String, dynamic>{
   'code': instance.code,
   'message': instance.message,
@@ -123,22 +124,23 @@ Map<String, dynamic> _$AddressListGet$ResponseToJson(
   'success': instance.success,
 };
 
-GetShippingAddressByCountryGet$Response
-_$GetShippingAddressByCountryGet$ResponseFromJson(Map<String, dynamic> json) =>
-    GetShippingAddressByCountryGet$Response(
-      code: (json['code'] as num?)?.toDouble(),
-      message: json['message'] as String?,
-      data: json['data'] == null
-          ? null
-          : GetShippingAddressByCountryGet$Response$Data.fromJson(
-              json['data'] as Map<String, dynamic>,
-            ),
-      placeholder: json['placeholder'],
-      traceId: json['traceId'] as String?,
-    );
+UserServiceGetShippingAddressByCountryGet$Response
+_$UserServiceGetShippingAddressByCountryGet$ResponseFromJson(
+  Map<String, dynamic> json,
+) => UserServiceGetShippingAddressByCountryGet$Response(
+  code: (json['code'] as num?)?.toDouble(),
+  message: json['message'] as String?,
+  data: json['data'] == null
+      ? null
+      : UserServiceGetShippingAddressByCountryGet$Response$Data.fromJson(
+          json['data'] as Map<String, dynamic>,
+        ),
+  placeholder: json['placeholder'],
+  traceId: json['traceId'] as String?,
+);
 
-Map<String, dynamic> _$GetShippingAddressByCountryGet$ResponseToJson(
-  GetShippingAddressByCountryGet$Response instance,
+Map<String, dynamic> _$UserServiceGetShippingAddressByCountryGet$ResponseToJson(
+  UserServiceGetShippingAddressByCountryGet$Response instance,
 ) => <String, dynamic>{
   'code': instance.code,
   'message': instance.message,
@@ -147,9 +149,9 @@ Map<String, dynamic> _$GetShippingAddressByCountryGet$ResponseToJson(
   'traceId': instance.traceId,
 };
 
-AddressAddPost$Response _$AddressAddPost$ResponseFromJson(
+UserServiceAddressAddPost$Response _$UserServiceAddressAddPost$ResponseFromJson(
   Map<String, dynamic> json,
-) => AddressAddPost$Response(
+) => UserServiceAddressAddPost$Response(
   code: (json['code'] as num?)?.toDouble(),
   message: json['message'] as String?,
   data: (json['data'] as num?)?.toDouble(),
@@ -157,8 +159,8 @@ AddressAddPost$Response _$AddressAddPost$ResponseFromJson(
   success: json['success'] as bool?,
 );
 
-Map<String, dynamic> _$AddressAddPost$ResponseToJson(
-  AddressAddPost$Response instance,
+Map<String, dynamic> _$UserServiceAddressAddPost$ResponseToJson(
+  UserServiceAddressAddPost$Response instance,
 ) => <String, dynamic>{
   'code': instance.code,
   'message': instance.message,
@@ -167,22 +169,23 @@ Map<String, dynamic> _$AddressAddPost$ResponseToJson(
   'success': instance.success,
 };
 
-GetDefaultShippingAddressGet$Response
-_$GetDefaultShippingAddressGet$ResponseFromJson(Map<String, dynamic> json) =>
-    GetDefaultShippingAddressGet$Response(
-      code: (json['code'] as num?)?.toDouble(),
-      message: json['message'] as String?,
-      data: json['data'] == null
-          ? null
-          : GetDefaultShippingAddressGet$Response$Data.fromJson(
-              json['data'] as Map<String, dynamic>,
-            ),
-      placeholder: json['placeholder'],
-      traceId: json['traceId'] as String?,
-    );
+UserServiceGetDefaultShippingAddressGet$Response
+_$UserServiceGetDefaultShippingAddressGet$ResponseFromJson(
+  Map<String, dynamic> json,
+) => UserServiceGetDefaultShippingAddressGet$Response(
+  code: (json['code'] as num?)?.toDouble(),
+  message: json['message'] as String?,
+  data: json['data'] == null
+      ? null
+      : UserServiceGetDefaultShippingAddressGet$Response$Data.fromJson(
+          json['data'] as Map<String, dynamic>,
+        ),
+  placeholder: json['placeholder'],
+  traceId: json['traceId'] as String?,
+);
 
-Map<String, dynamic> _$GetDefaultShippingAddressGet$ResponseToJson(
-  GetDefaultShippingAddressGet$Response instance,
+Map<String, dynamic> _$UserServiceGetDefaultShippingAddressGet$ResponseToJson(
+  UserServiceGetDefaultShippingAddressGet$Response instance,
 ) => <String, dynamic>{
   'code': instance.code,
   'message': instance.message,
@@ -191,24 +194,24 @@ Map<String, dynamic> _$GetDefaultShippingAddressGet$ResponseToJson(
   'traceId': instance.traceId,
 };
 
-AddressCountryGet$Response _$AddressCountryGet$ResponseFromJson(
-  Map<String, dynamic> json,
-) => AddressCountryGet$Response(
-  code: (json['code'] as num?)?.toDouble(),
-  message: json['message'] as String?,
-  data: (json['data'] as List<dynamic>?)
-      ?.map(
-        (e) => AddressCountryGet$Response$Data$Item.fromJson(
-          e as Map<String, dynamic>,
-        ),
-      )
-      .toList(),
-  placeholder: json['placeholder'],
-  traceId: json['traceId'] as String?,
-);
+UserServiceAddressCountryGet$Response
+_$UserServiceAddressCountryGet$ResponseFromJson(Map<String, dynamic> json) =>
+    UserServiceAddressCountryGet$Response(
+      code: (json['code'] as num?)?.toDouble(),
+      message: json['message'] as String?,
+      data: (json['data'] as List<dynamic>?)
+          ?.map(
+            (e) => UserServiceAddressCountryGet$Response$Data$Item.fromJson(
+              e as Map<String, dynamic>,
+            ),
+          )
+          .toList(),
+      placeholder: json['placeholder'],
+      traceId: json['traceId'] as String?,
+    );
 
-Map<String, dynamic> _$AddressCountryGet$ResponseToJson(
-  AddressCountryGet$Response instance,
+Map<String, dynamic> _$UserServiceAddressCountryGet$ResponseToJson(
+  UserServiceAddressCountryGet$Response instance,
 ) => <String, dynamic>{
   'code': instance.code,
   'message': instance.message,
@@ -217,14 +220,15 @@ Map<String, dynamic> _$AddressCountryGet$ResponseToJson(
   'traceId': instance.traceId,
 };
 
-AddressQueryByZipCodeGet$Response _$AddressQueryByZipCodeGet$ResponseFromJson(
+UserServiceAddressQueryByZipCodeGet$Response
+_$UserServiceAddressQueryByZipCodeGet$ResponseFromJson(
   Map<String, dynamic> json,
-) => AddressQueryByZipCodeGet$Response(
+) => UserServiceAddressQueryByZipCodeGet$Response(
   code: (json['code'] as num?)?.toDouble(),
   message: json['message'] as String?,
   data: (json['data'] as List<dynamic>?)
       ?.map(
-        (e) => AddressQueryByZipCodeGet$Response$Data$Item.fromJson(
+        (e) => UserServiceAddressQueryByZipCodeGet$Response$Data$Item.fromJson(
           e as Map<String, dynamic>,
         ),
       )
@@ -234,8 +238,8 @@ AddressQueryByZipCodeGet$Response _$AddressQueryByZipCodeGet$ResponseFromJson(
   success: json['success'] as bool?,
 );
 
-Map<String, dynamic> _$AddressQueryByZipCodeGet$ResponseToJson(
-  AddressQueryByZipCodeGet$Response instance,
+Map<String, dynamic> _$UserServiceAddressQueryByZipCodeGet$ResponseToJson(
+  UserServiceAddressQueryByZipCodeGet$Response instance,
 ) => <String, dynamic>{
   'code': instance.code,
   'message': instance.message,
@@ -245,9 +249,10 @@ Map<String, dynamic> _$AddressQueryByZipCodeGet$ResponseToJson(
   'success': instance.success,
 };
 
-UserInnerUpdUserLevelPost$Response _$UserInnerUpdUserLevelPost$ResponseFromJson(
+UserServiceUserInnerUpdUserLevelPost$Response
+_$UserServiceUserInnerUpdUserLevelPost$ResponseFromJson(
   Map<String, dynamic> json,
-) => UserInnerUpdUserLevelPost$Response(
+) => UserServiceUserInnerUpdUserLevelPost$Response(
   code: (json['code'] as num?)?.toDouble(),
   message: json['message'] as String?,
   data: json['data'],
@@ -255,8 +260,8 @@ UserInnerUpdUserLevelPost$Response _$UserInnerUpdUserLevelPost$ResponseFromJson(
   success: json['success'] as bool?,
 );
 
-Map<String, dynamic> _$UserInnerUpdUserLevelPost$ResponseToJson(
-  UserInnerUpdUserLevelPost$Response instance,
+Map<String, dynamic> _$UserServiceUserInnerUpdUserLevelPost$ResponseToJson(
+  UserServiceUserInnerUpdUserLevelPost$Response instance,
 ) => <String, dynamic>{
   'code': instance.code,
   'message': instance.message,
@@ -265,14 +270,15 @@ Map<String, dynamic> _$UserInnerUpdUserLevelPost$ResponseToJson(
   'success': instance.success,
 };
 
-SigninSwitchPortalPost$Response _$SigninSwitchPortalPost$ResponseFromJson(
+UserServiceSigninSwitchPortalPost$Response
+_$UserServiceSigninSwitchPortalPost$ResponseFromJson(
   Map<String, dynamic> json,
-) => SigninSwitchPortalPost$Response(
+) => UserServiceSigninSwitchPortalPost$Response(
   code: (json['code'] as num?)?.toDouble(),
   message: json['message'] as String?,
   data: json['data'] == null
       ? null
-      : SigninSwitchPortalPost$Response$Data.fromJson(
+      : UserServiceSigninSwitchPortalPost$Response$Data.fromJson(
           json['data'] as Map<String, dynamic>,
         ),
   traceId: json['traceId'] as String?,
@@ -281,8 +287,8 @@ SigninSwitchPortalPost$Response _$SigninSwitchPortalPost$ResponseFromJson(
   url: json['url'] as String?,
 );
 
-Map<String, dynamic> _$SigninSwitchPortalPost$ResponseToJson(
-  SigninSwitchPortalPost$Response instance,
+Map<String, dynamic> _$UserServiceSigninSwitchPortalPost$ResponseToJson(
+  UserServiceSigninSwitchPortalPost$Response instance,
 ) => <String, dynamic>{
   'code': instance.code,
   'message': instance.message,
@@ -293,21 +299,21 @@ Map<String, dynamic> _$SigninSwitchPortalPost$ResponseToJson(
   'url': instance.url,
 };
 
-SignInInitPost$Response _$SignInInitPost$ResponseFromJson(
+UserServiceSignInInitPost$Response _$UserServiceSignInInitPost$ResponseFromJson(
   Map<String, dynamic> json,
-) => SignInInitPost$Response(
+) => UserServiceSignInInitPost$Response(
   code: (json['code'] as num?)?.toDouble(),
   message: json['message'] as String?,
   data: json['data'] == null
       ? null
-      : SignInInitPost$Response$Data.fromJson(
+      : UserServiceSignInInitPost$Response$Data.fromJson(
           json['data'] as Map<String, dynamic>,
         ),
   traceId: json['traceId'],
 );
 
-Map<String, dynamic> _$SignInInitPost$ResponseToJson(
-  SignInInitPost$Response instance,
+Map<String, dynamic> _$UserServiceSignInInitPost$ResponseToJson(
+  UserServiceSignInInitPost$Response instance,
 ) => <String, dynamic>{
   'code': instance.code,
   'message': instance.message,
@@ -315,17 +321,17 @@ Map<String, dynamic> _$SignInInitPost$ResponseToJson(
   'traceId': instance.traceId,
 };
 
-OtpApplyPost$Response _$OtpApplyPost$ResponseFromJson(
+UserServiceOtpApplyPost$Response _$UserServiceOtpApplyPost$ResponseFromJson(
   Map<String, dynamic> json,
-) => OtpApplyPost$Response(
+) => UserServiceOtpApplyPost$Response(
   code: (json['code'] as num?)?.toDouble(),
   message: json['message'] as String?,
   data: json['data'] as String?,
   traceId: json['traceId'],
 );
 
-Map<String, dynamic> _$OtpApplyPost$ResponseToJson(
-  OtpApplyPost$Response instance,
+Map<String, dynamic> _$UserServiceOtpApplyPost$ResponseToJson(
+  UserServiceOtpApplyPost$Response instance,
 ) => <String, dynamic>{
   'code': instance.code,
   'message': instance.message,
@@ -333,24 +339,24 @@ Map<String, dynamic> _$OtpApplyPost$ResponseToJson(
   'traceId': instance.traceId,
 };
 
-SignInVerifyPost$Response _$SignInVerifyPost$ResponseFromJson(
-  Map<String, dynamic> json,
-) => SignInVerifyPost$Response(
-  code: (json['code'] as num?)?.toDouble(),
-  message: json['message'] as String?,
-  data: json['data'] == null
-      ? null
-      : SignInVerifyPost$Response$Data.fromJson(
-          json['data'] as Map<String, dynamic>,
-        ),
-  traceId: json['traceId'] as String?,
-  placeholder: json['placeholder'] as String?,
-  success: json['success'] as bool?,
-  url: json['url'] as String?,
-);
+UserServiceSignInVerifyPost$Response
+_$UserServiceSignInVerifyPost$ResponseFromJson(Map<String, dynamic> json) =>
+    UserServiceSignInVerifyPost$Response(
+      code: (json['code'] as num?)?.toDouble(),
+      message: json['message'] as String?,
+      data: json['data'] == null
+          ? null
+          : UserServiceSignInVerifyPost$Response$Data.fromJson(
+              json['data'] as Map<String, dynamic>,
+            ),
+      traceId: json['traceId'] as String?,
+      placeholder: json['placeholder'] as String?,
+      success: json['success'] as bool?,
+      url: json['url'] as String?,
+    );
 
-Map<String, dynamic> _$SignInVerifyPost$ResponseToJson(
-  SignInVerifyPost$Response instance,
+Map<String, dynamic> _$UserServiceSignInVerifyPost$ResponseToJson(
+  UserServiceSignInVerifyPost$Response instance,
 ) => <String, dynamic>{
   'code': instance.code,
   'message': instance.message,
@@ -361,14 +367,14 @@ Map<String, dynamic> _$SignInVerifyPost$ResponseToJson(
   'url': instance.url,
 };
 
-SignInCallPost$Response _$SignInCallPost$ResponseFromJson(
+UserServiceSignInCallPost$Response _$UserServiceSignInCallPost$ResponseFromJson(
   Map<String, dynamic> json,
-) => SignInCallPost$Response(
+) => UserServiceSignInCallPost$Response(
   code: (json['code'] as num?)?.toDouble(),
   message: json['message'] as String?,
   data: json['data'] == null
       ? null
-      : SignInCallPost$Response$Data.fromJson(
+      : UserServiceSignInCallPost$Response$Data.fromJson(
           json['data'] as Map<String, dynamic>,
         ),
   traceId: json['traceId'] as String?,
@@ -377,8 +383,8 @@ SignInCallPost$Response _$SignInCallPost$ResponseFromJson(
   url: json['url'] as String?,
 );
 
-Map<String, dynamic> _$SignInCallPost$ResponseToJson(
-  SignInCallPost$Response instance,
+Map<String, dynamic> _$UserServiceSignInCallPost$ResponseToJson(
+  UserServiceSignInCallPost$Response instance,
 ) => <String, dynamic>{
   'code': instance.code,
   'message': instance.message,
@@ -389,24 +395,24 @@ Map<String, dynamic> _$SignInCallPost$ResponseToJson(
   'url': instance.url,
 };
 
-NoAuthOtpVerifyPost$Response _$NoAuthOtpVerifyPost$ResponseFromJson(
-  Map<String, dynamic> json,
-) => NoAuthOtpVerifyPost$Response(
-  code: (json['code'] as num?)?.toDouble(),
-  message: json['message'] as String?,
-  data: json['data'] == null
-      ? null
-      : NoAuthOtpVerifyPost$Response$Data.fromJson(
-          json['data'] as Map<String, dynamic>,
-        ),
-  traceId: json['traceId'] as String?,
-  placeholder: json['placeholder'] as String?,
-  success: json['success'] as bool?,
-  url: json['url'] as String?,
-);
+UserServiceNoAuthOtpVerifyPost$Response
+_$UserServiceNoAuthOtpVerifyPost$ResponseFromJson(Map<String, dynamic> json) =>
+    UserServiceNoAuthOtpVerifyPost$Response(
+      code: (json['code'] as num?)?.toDouble(),
+      message: json['message'] as String?,
+      data: json['data'] == null
+          ? null
+          : UserServiceNoAuthOtpVerifyPost$Response$Data.fromJson(
+              json['data'] as Map<String, dynamic>,
+            ),
+      traceId: json['traceId'] as String?,
+      placeholder: json['placeholder'] as String?,
+      success: json['success'] as bool?,
+      url: json['url'] as String?,
+    );
 
-Map<String, dynamic> _$NoAuthOtpVerifyPost$ResponseToJson(
-  NoAuthOtpVerifyPost$Response instance,
+Map<String, dynamic> _$UserServiceNoAuthOtpVerifyPost$ResponseToJson(
+  UserServiceNoAuthOtpVerifyPost$Response instance,
 ) => <String, dynamic>{
   'code': instance.code,
   'message': instance.message,
@@ -417,23 +423,24 @@ Map<String, dynamic> _$NoAuthOtpVerifyPost$ResponseToJson(
   'url': instance.url,
 };
 
-NoAuthCommonConfigDefaultSettingGet$Response
-_$NoAuthCommonConfigDefaultSettingGet$ResponseFromJson(
+UserServiceNoAuthCommonConfigDefaultSettingGet$Response
+_$UserServiceNoAuthCommonConfigDefaultSettingGet$ResponseFromJson(
   Map<String, dynamic> json,
-) => NoAuthCommonConfigDefaultSettingGet$Response(
+) => UserServiceNoAuthCommonConfigDefaultSettingGet$Response(
   code: (json['code'] as num?)?.toDouble(),
   message: json['message'] as String?,
   data: json['data'] == null
       ? null
-      : NoAuthCommonConfigDefaultSettingGet$Response$Data.fromJson(
+      : UserServiceNoAuthCommonConfigDefaultSettingGet$Response$Data.fromJson(
           json['data'] as Map<String, dynamic>,
         ),
   placeholder: json['placeholder'],
   traceId: json['traceId'] as String?,
 );
 
-Map<String, dynamic> _$NoAuthCommonConfigDefaultSettingGet$ResponseToJson(
-  NoAuthCommonConfigDefaultSettingGet$Response instance,
+Map<String, dynamic>
+_$UserServiceNoAuthCommonConfigDefaultSettingGet$ResponseToJson(
+  UserServiceNoAuthCommonConfigDefaultSettingGet$Response instance,
 ) => <String, dynamic>{
   'code': instance.code,
   'message': instance.message,
@@ -442,226 +449,157 @@ Map<String, dynamic> _$NoAuthCommonConfigDefaultSettingGet$ResponseToJson(
   'traceId': instance.traceId,
 };
 
-FileImUploadPost$Response _$FileImUploadPost$ResponseFromJson(
-  Map<String, dynamic> json,
-) => FileImUploadPost$Response(
-  code: (json['code'] as num).toInt(),
-  message: json['message'] as String,
-  data: (json['data'] as List<dynamic>)
-      .map(
-        (e) => FileImUploadPost$Response$Data$Item.fromJson(
-          e as Map<String, dynamic>,
-        ),
-      )
-      .toList(),
-);
+UserServiceFileImUploadPost$Response
+_$UserServiceFileImUploadPost$ResponseFromJson(Map<String, dynamic> json) =>
+    UserServiceFileImUploadPost$Response(
+      code: (json['code'] as num).toInt(),
+      message: json['message'] as String,
+      data: (json['data'] as List<dynamic>)
+          .map(
+            (e) => UserServiceFileImUploadPost$Response$Data$Item.fromJson(
+              e as Map<String, dynamic>,
+            ),
+          )
+          .toList(),
+    );
 
-Map<String, dynamic> _$FileImUploadPost$ResponseToJson(
-  FileImUploadPost$Response instance,
+Map<String, dynamic> _$UserServiceFileImUploadPost$ResponseToJson(
+  UserServiceFileImUploadPost$Response instance,
 ) => <String, dynamic>{
   'code': instance.code,
   'message': instance.message,
   'data': instance.data.map((e) => e.toJson()).toList(),
 };
 
-FileLogoUploadPost$Response _$FileLogoUploadPost$ResponseFromJson(
-  Map<String, dynamic> json,
-) => FileLogoUploadPost$Response(
-  code: json['code'] as String?,
-  message: json['message'] as String?,
-  data: json['data'] == null
-      ? null
-      : FileLogoUploadPost$Response$Data.fromJson(
-          json['data'] as Map<String, dynamic>,
-        ),
-);
-
-Map<String, dynamic> _$FileLogoUploadPost$ResponseToJson(
-  FileLogoUploadPost$Response instance,
-) => <String, dynamic>{
-  'code': instance.code,
-  'message': instance.message,
-  'data': instance.data?.toJson(),
-};
-
-UserCouponCountGet$Response _$UserCouponCountGet$ResponseFromJson(
-  Map<String, dynamic> json,
-) => UserCouponCountGet$Response(
-  code: (json['code'] as num?)?.toDouble(),
-  message: json['message'] as String?,
-  data: json['data'] == null
-      ? null
-      : UserCouponCountGet$Response$Data.fromJson(
-          json['data'] as Map<String, dynamic>,
-        ),
-  traceId: json['traceId'] as String?,
-  placeholder: json['placeholder'] as String?,
-  success: json['success'] as bool?,
-);
-
-Map<String, dynamic> _$UserCouponCountGet$ResponseToJson(
-  UserCouponCountGet$Response instance,
-) => <String, dynamic>{
-  'code': instance.code,
-  'message': instance.message,
-  'data': instance.data?.toJson(),
-  'traceId': instance.traceId,
-  'placeholder': instance.placeholder,
-  'success': instance.success,
-};
-
-UserCouponActivityInfoGet$Response _$UserCouponActivityInfoGet$ResponseFromJson(
-  Map<String, dynamic> json,
-) => UserCouponActivityInfoGet$Response(
-  success: json['success'] as bool?,
-  data: json['data'] == null
-      ? null
-      : UserCouponActivityInfoGet$Response$Data.fromJson(
-          json['data'] as Map<String, dynamic>,
-        ),
-);
-
-Map<String, dynamic> _$UserCouponActivityInfoGet$ResponseToJson(
-  UserCouponActivityInfoGet$Response instance,
-) => <String, dynamic>{
-  'success': instance.success,
-  'data': instance.data?.toJson(),
-};
-
-UserCouponCode2CouponGet$Response _$UserCouponCode2CouponGet$ResponseFromJson(
-  Map<String, dynamic> json,
-) => UserCouponCode2CouponGet$Response(
-  code: (json['code'] as num?)?.toDouble(),
-  message: json['message'] as String?,
-  data: json['data'] == null
-      ? null
-      : UserCouponCode2CouponGet$Response$Data.fromJson(
-          json['data'] as Map<String, dynamic>,
-        ),
-  traceId: json['traceId'] as String?,
-  placeholder: json['placeholder'] as String?,
-  success: json['success'] as bool?,
-);
-
-Map<String, dynamic> _$UserCouponCode2CouponGet$ResponseToJson(
-  UserCouponCode2CouponGet$Response instance,
-) => <String, dynamic>{
-  'code': instance.code,
-  'message': instance.message,
-  'data': instance.data?.toJson(),
-  'traceId': instance.traceId,
-  'placeholder': instance.placeholder,
-  'success': instance.success,
-};
-
-UserCouponActivityInfosGet$Response
-_$UserCouponActivityInfosGet$ResponseFromJson(Map<String, dynamic> json) =>
-    UserCouponActivityInfosGet$Response(
-      success: json['success'] as bool?,
-      data: (json['data'] as List<dynamic>?)
-          ?.map(
-            (e) => UserCouponActivityInfosGet$Response$Data$Item.fromJson(
-              e as Map<String, dynamic>,
+UserServiceFileLogoUploadPost$Response
+_$UserServiceFileLogoUploadPost$ResponseFromJson(Map<String, dynamic> json) =>
+    UserServiceFileLogoUploadPost$Response(
+      code: json['code'] as String?,
+      message: json['message'] as String?,
+      data: json['data'] == null
+          ? null
+          : UserServiceFileLogoUploadPost$Response$Data.fromJson(
+              json['data'] as Map<String, dynamic>,
             ),
-          )
-          .toList(),
     );
 
-Map<String, dynamic> _$UserCouponActivityInfosGet$ResponseToJson(
-  UserCouponActivityInfosGet$Response instance,
+Map<String, dynamic> _$UserServiceFileLogoUploadPost$ResponseToJson(
+  UserServiceFileLogoUploadPost$Response instance,
 ) => <String, dynamic>{
-  'success': instance.success,
-  'data': instance.data?.map((e) => e.toJson()).toList(),
+  'code': instance.code,
+  'message': instance.message,
+  'data': instance.data?.toJson(),
 };
 
-UserCouponGetActivitiesGet$Response
-_$UserCouponGetActivitiesGet$ResponseFromJson(Map<String, dynamic> json) =>
-    UserCouponGetActivitiesGet$Response(
+UserServiceUserCouponCountGet$Response
+_$UserServiceUserCouponCountGet$ResponseFromJson(Map<String, dynamic> json) =>
+    UserServiceUserCouponCountGet$Response(
       code: (json['code'] as num?)?.toDouble(),
       message: json['message'] as String?,
-      data:
-          (json['data'] as List<dynamic>?)?.map((e) => e as String).toList() ??
-          [],
+      data: json['data'] == null
+          ? null
+          : UserServiceUserCouponCountGet$Response$Data.fromJson(
+              json['data'] as Map<String, dynamic>,
+            ),
       traceId: json['traceId'] as String?,
       placeholder: json['placeholder'] as String?,
       success: json['success'] as bool?,
     );
 
-Map<String, dynamic> _$UserCouponGetActivitiesGet$ResponseToJson(
-  UserCouponGetActivitiesGet$Response instance,
+Map<String, dynamic> _$UserServiceUserCouponCountGet$ResponseToJson(
+  UserServiceUserCouponCountGet$Response instance,
 ) => <String, dynamic>{
   'code': instance.code,
   'message': instance.message,
-  'data': instance.data,
+  'data': instance.data?.toJson(),
   'traceId': instance.traceId,
   'placeholder': instance.placeholder,
   'success': instance.success,
 };
 
-UserCouponGetListGet$Response _$UserCouponGetListGet$ResponseFromJson(
+UserServiceUserCouponActivityInfoGet$Response
+_$UserServiceUserCouponActivityInfoGet$ResponseFromJson(
   Map<String, dynamic> json,
-) => UserCouponGetListGet$Response(
+) => UserServiceUserCouponActivityInfoGet$Response(
+  success: json['success'] as bool?,
+  data: json['data'] == null
+      ? null
+      : UserServiceUserCouponActivityInfoGet$Response$Data.fromJson(
+          json['data'] as Map<String, dynamic>,
+        ),
+);
+
+Map<String, dynamic> _$UserServiceUserCouponActivityInfoGet$ResponseToJson(
+  UserServiceUserCouponActivityInfoGet$Response instance,
+) => <String, dynamic>{
+  'success': instance.success,
+  'data': instance.data?.toJson(),
+};
+
+UserServiceUserCouponCode2CouponGet$Response
+_$UserServiceUserCouponCode2CouponGet$ResponseFromJson(
+  Map<String, dynamic> json,
+) => UserServiceUserCouponCode2CouponGet$Response(
   code: (json['code'] as num?)?.toDouble(),
   message: json['message'] as String?,
+  data: json['data'] == null
+      ? null
+      : UserServiceUserCouponCode2CouponGet$Response$Data.fromJson(
+          json['data'] as Map<String, dynamic>,
+        ),
+  traceId: json['traceId'] as String?,
+  placeholder: json['placeholder'] as String?,
+  success: json['success'] as bool?,
+);
+
+Map<String, dynamic> _$UserServiceUserCouponCode2CouponGet$ResponseToJson(
+  UserServiceUserCouponCode2CouponGet$Response instance,
+) => <String, dynamic>{
+  'code': instance.code,
+  'message': instance.message,
+  'data': instance.data?.toJson(),
+  'traceId': instance.traceId,
+  'placeholder': instance.placeholder,
+  'success': instance.success,
+};
+
+UserServiceUserCouponActivityInfosGet$Response
+_$UserServiceUserCouponActivityInfosGet$ResponseFromJson(
+  Map<String, dynamic> json,
+) => UserServiceUserCouponActivityInfosGet$Response(
+  success: json['success'] as bool?,
   data: (json['data'] as List<dynamic>?)
       ?.map(
-        (e) => UserCouponGetListGet$Response$Data$Item.fromJson(
-          e as Map<String, dynamic>,
-        ),
+        (e) =>
+            UserServiceUserCouponActivityInfosGet$Response$Data$Item.fromJson(
+              e as Map<String, dynamic>,
+            ),
       )
       .toList(),
-  traceId: json['traceId'] as String?,
-  placeholder: json['placeholder'] as String?,
-  success: json['success'] as bool?,
 );
 
-Map<String, dynamic> _$UserCouponGetListGet$ResponseToJson(
-  UserCouponGetListGet$Response instance,
+Map<String, dynamic> _$UserServiceUserCouponActivityInfosGet$ResponseToJson(
+  UserServiceUserCouponActivityInfosGet$Response instance,
 ) => <String, dynamic>{
-  'code': instance.code,
-  'message': instance.message,
+  'success': instance.success,
   'data': instance.data?.map((e) => e.toJson()).toList(),
-  'traceId': instance.traceId,
-  'placeholder': instance.placeholder,
-  'success': instance.success,
 };
 
-UserCouponGetUserCouponByActivityPost$Response
-_$UserCouponGetUserCouponByActivityPost$ResponseFromJson(
+UserServiceUserCouponGetActivitiesGet$Response
+_$UserServiceUserCouponGetActivitiesGet$ResponseFromJson(
   Map<String, dynamic> json,
-) => UserCouponGetUserCouponByActivityPost$Response(
+) => UserServiceUserCouponGetActivitiesGet$Response(
   code: (json['code'] as num?)?.toDouble(),
   message: json['message'] as String?,
-  data: json['data'] as bool?,
-  traceId: json['traceId'] as String?,
-  placeholder: json['placeholder'],
-  success: json['success'] as bool?,
-);
-
-Map<String, dynamic> _$UserCouponGetUserCouponByActivityPost$ResponseToJson(
-  UserCouponGetUserCouponByActivityPost$Response instance,
-) => <String, dynamic>{
-  'code': instance.code,
-  'message': instance.message,
-  'data': instance.data,
-  'traceId': instance.traceId,
-  'placeholder': instance.placeholder,
-  'success': instance.success,
-};
-
-UserCouponSaveGet$Response _$UserCouponSaveGet$ResponseFromJson(
-  Map<String, dynamic> json,
-) => UserCouponSaveGet$Response(
-  code: (json['code'] as num?)?.toDouble(),
-  message: json['message'] as String?,
-  data: json['data'] as String?,
+  data:
+      (json['data'] as List<dynamic>?)?.map((e) => e as String).toList() ?? [],
   traceId: json['traceId'] as String?,
   placeholder: json['placeholder'] as String?,
   success: json['success'] as bool?,
 );
 
-Map<String, dynamic> _$UserCouponSaveGet$ResponseToJson(
-  UserCouponSaveGet$Response instance,
+Map<String, dynamic> _$UserServiceUserCouponGetActivitiesGet$ResponseToJson(
+  UserServiceUserCouponGetActivitiesGet$Response instance,
 ) => <String, dynamic>{
   'code': instance.code,
   'message': instance.message,
@@ -671,44 +609,25 @@ Map<String, dynamic> _$UserCouponSaveGet$ResponseToJson(
   'success': instance.success,
 };
 
-UserCouponNoAuthActivityInfoGet$Response
-_$UserCouponNoAuthActivityInfoGet$ResponseFromJson(Map<String, dynamic> json) =>
-    UserCouponNoAuthActivityInfoGet$Response(
-      success: json['success'] as bool?,
-      data: json['data'] == null
-          ? null
-          : UserCouponNoAuthActivityInfoGet$Response$Data.fromJson(
-              json['data'] as Map<String, dynamic>,
+UserServiceUserCouponGetListGet$Response
+_$UserServiceUserCouponGetListGet$ResponseFromJson(Map<String, dynamic> json) =>
+    UserServiceUserCouponGetListGet$Response(
+      code: (json['code'] as num?)?.toDouble(),
+      message: json['message'] as String?,
+      data: (json['data'] as List<dynamic>?)
+          ?.map(
+            (e) => UserServiceUserCouponGetListGet$Response$Data$Item.fromJson(
+              e as Map<String, dynamic>,
             ),
+          )
+          .toList(),
+      traceId: json['traceId'] as String?,
+      placeholder: json['placeholder'] as String?,
+      success: json['success'] as bool?,
     );
 
-Map<String, dynamic> _$UserCouponNoAuthActivityInfoGet$ResponseToJson(
-  UserCouponNoAuthActivityInfoGet$Response instance,
-) => <String, dynamic>{
-  'success': instance.success,
-  'data': instance.data?.toJson(),
-};
-
-UserCouponGetCouponByActivityPost$Response
-_$UserCouponGetCouponByActivityPost$ResponseFromJson(
-  Map<String, dynamic> json,
-) => UserCouponGetCouponByActivityPost$Response(
-  code: (json['code'] as num?)?.toDouble(),
-  message: json['message'] as String?,
-  data: (json['data'] as List<dynamic>?)
-      ?.map(
-        (e) => UserCouponGetCouponByActivityPost$Response$Data$Item.fromJson(
-          e as Map<String, dynamic>,
-        ),
-      )
-      .toList(),
-  traceId: json['traceId'] as String?,
-  placeholder: json['placeholder'] as String?,
-  success: json['success'] as bool?,
-);
-
-Map<String, dynamic> _$UserCouponGetCouponByActivityPost$ResponseToJson(
-  UserCouponGetCouponByActivityPost$Response instance,
+Map<String, dynamic> _$UserServiceUserCouponGetListGet$ResponseToJson(
+  UserServiceUserCouponGetListGet$Response instance,
 ) => <String, dynamic>{
   'code': instance.code,
   'message': instance.message,
@@ -718,160 +637,214 @@ Map<String, dynamic> _$UserCouponGetCouponByActivityPost$ResponseToJson(
   'success': instance.success,
 };
 
-UserCouponGetGet$Response _$UserCouponGetGet$ResponseFromJson(
+UserServiceUserCouponGetUserCouponByActivityPost$Response
+_$UserServiceUserCouponGetUserCouponByActivityPost$ResponseFromJson(
   Map<String, dynamic> json,
-) => UserCouponGetGet$Response(
-  code: (json['code'] as num?)?.toDouble(),
-  message: json['message'] as String?,
-  data: (json['data'] as List<dynamic>?)
-      ?.map(
-        (e) => UserCouponGetGet$Response$Data$Item.fromJson(
-          e as Map<String, dynamic>,
-        ),
-      )
-      .toList(),
-  traceId: json['traceId'] as String?,
-  placeholder: json['placeholder'] as String?,
-  success: json['success'] as bool?,
-);
-
-Map<String, dynamic> _$UserCouponGetGet$ResponseToJson(
-  UserCouponGetGet$Response instance,
-) => <String, dynamic>{
-  'code': instance.code,
-  'message': instance.message,
-  'data': instance.data?.map((e) => e.toJson()).toList(),
-  'traceId': instance.traceId,
-  'placeholder': instance.placeholder,
-  'success': instance.success,
-};
-
-ImGetInfoPost$Response _$ImGetInfoPost$ResponseFromJson(
-  Map<String, dynamic> json,
-) => ImGetInfoPost$Response(
-  data: json['data'] == null
-      ? null
-      : ImGetInfoPost$Response$Data.fromJson(
-          json['data'] as Map<String, dynamic>,
-        ),
-  message: json['message'] as String?,
-  traceId: json['traceId'] as String?,
-);
-
-Map<String, dynamic> _$ImGetInfoPost$ResponseToJson(
-  ImGetInfoPost$Response instance,
-) => <String, dynamic>{
-  'data': instance.data?.toJson(),
-  'message': instance.message,
-  'traceId': instance.traceId,
-};
-
-UserShareListGet$Response _$UserShareListGet$ResponseFromJson(
-  Map<String, dynamic> json,
-) => UserShareListGet$Response(
-  code: (json['code'] as num?)?.toDouble(),
-  message: json['message'] as String?,
-  data: (json['data'] as List<dynamic>?)
-      ?.map(
-        (e) => UserShareListGet$Response$Data$Item.fromJson(
-          e as Map<String, dynamic>,
-        ),
-      )
-      .toList(),
-  placeholder: json['placeholder'],
-  traceId: json['traceId'] as String?,
-);
-
-Map<String, dynamic> _$UserShareListGet$ResponseToJson(
-  UserShareListGet$Response instance,
-) => <String, dynamic>{
-  'code': instance.code,
-  'message': instance.message,
-  'data': instance.data?.map((e) => e.toJson()).toList(),
-  'placeholder': instance.placeholder,
-  'traceId': instance.traceId,
-};
-
-UserShareRewardInfoGet$Response _$UserShareRewardInfoGet$ResponseFromJson(
-  Map<String, dynamic> json,
-) => UserShareRewardInfoGet$Response(
-  code: (json['code'] as num?)?.toDouble(),
-  message: json['message'] as String?,
-  data: json['data'] == null
-      ? null
-      : UserShareRewardInfoGet$Response$Data.fromJson(
-          json['data'] as Map<String, dynamic>,
-        ),
-  placeholder: json['placeholder'],
-  traceId: json['traceId'] as String?,
-);
-
-Map<String, dynamic> _$UserShareRewardInfoGet$ResponseToJson(
-  UserShareRewardInfoGet$Response instance,
-) => <String, dynamic>{
-  'code': instance.code,
-  'message': instance.message,
-  'data': instance.data?.toJson(),
-  'placeholder': instance.placeholder,
-  'traceId': instance.traceId,
-};
-
-UserShareSubmitPost$Response _$UserShareSubmitPost$ResponseFromJson(
-  Map<String, dynamic> json,
-) => UserShareSubmitPost$Response(
-  code: (json['code'] as num?)?.toDouble(),
-  message: json['message'] as String?,
-  data: json['data'] as String?,
-  placeholder: json['placeholder'],
-  traceId: json['traceId'] as String?,
-);
-
-Map<String, dynamic> _$UserShareSubmitPost$ResponseToJson(
-  UserShareSubmitPost$Response instance,
-) => <String, dynamic>{
-  'code': instance.code,
-  'message': instance.message,
-  'data': instance.data,
-  'placeholder': instance.placeholder,
-  'traceId': instance.traceId,
-};
-
-UserDeleteGet$Response _$UserDeleteGet$ResponseFromJson(
-  Map<String, dynamic> json,
-) => UserDeleteGet$Response(
-  code: (json['code'] as num?)?.toDouble(),
-  message: json['message'] as String?,
-  data: json['data'] == null
-      ? null
-      : UserDeleteGet$Response$Data.fromJson(
-          json['data'] as Map<String, dynamic>,
-        ),
-  placeholder: json['placeholder'],
-  traceId: json['traceId'] as String?,
-);
-
-Map<String, dynamic> _$UserDeleteGet$ResponseToJson(
-  UserDeleteGet$Response instance,
-) => <String, dynamic>{
-  'code': instance.code,
-  'message': instance.message,
-  'data': instance.data?.toJson(),
-  'placeholder': instance.placeholder,
-  'traceId': instance.traceId,
-};
-
-UserDeleteConfirmGet$Response _$UserDeleteConfirmGet$ResponseFromJson(
-  Map<String, dynamic> json,
-) => UserDeleteConfirmGet$Response(
+) => UserServiceUserCouponGetUserCouponByActivityPost$Response(
   code: (json['code'] as num?)?.toDouble(),
   message: json['message'] as String?,
   data: json['data'] as bool?,
+  traceId: json['traceId'] as String?,
+  placeholder: json['placeholder'],
+  success: json['success'] as bool?,
+);
+
+Map<String, dynamic>
+_$UserServiceUserCouponGetUserCouponByActivityPost$ResponseToJson(
+  UserServiceUserCouponGetUserCouponByActivityPost$Response instance,
+) => <String, dynamic>{
+  'code': instance.code,
+  'message': instance.message,
+  'data': instance.data,
+  'traceId': instance.traceId,
+  'placeholder': instance.placeholder,
+  'success': instance.success,
+};
+
+UserServiceUserCouponSaveGet$Response
+_$UserServiceUserCouponSaveGet$ResponseFromJson(Map<String, dynamic> json) =>
+    UserServiceUserCouponSaveGet$Response(
+      code: (json['code'] as num?)?.toDouble(),
+      message: json['message'] as String?,
+      data: json['data'] as String?,
+      traceId: json['traceId'] as String?,
+      placeholder: json['placeholder'] as String?,
+      success: json['success'] as bool?,
+    );
+
+Map<String, dynamic> _$UserServiceUserCouponSaveGet$ResponseToJson(
+  UserServiceUserCouponSaveGet$Response instance,
+) => <String, dynamic>{
+  'code': instance.code,
+  'message': instance.message,
+  'data': instance.data,
+  'traceId': instance.traceId,
+  'placeholder': instance.placeholder,
+  'success': instance.success,
+};
+
+UserServiceUserCouponNoAuthActivityInfoGet$Response
+_$UserServiceUserCouponNoAuthActivityInfoGet$ResponseFromJson(
+  Map<String, dynamic> json,
+) => UserServiceUserCouponNoAuthActivityInfoGet$Response(
+  success: json['success'] as bool?,
+  data: json['data'] == null
+      ? null
+      : UserServiceUserCouponNoAuthActivityInfoGet$Response$Data.fromJson(
+          json['data'] as Map<String, dynamic>,
+        ),
+);
+
+Map<String, dynamic>
+_$UserServiceUserCouponNoAuthActivityInfoGet$ResponseToJson(
+  UserServiceUserCouponNoAuthActivityInfoGet$Response instance,
+) => <String, dynamic>{
+  'success': instance.success,
+  'data': instance.data?.toJson(),
+};
+
+UserServiceUserCouponGetCouponByActivityPost$Response
+_$UserServiceUserCouponGetCouponByActivityPost$ResponseFromJson(
+  Map<String, dynamic> json,
+) => UserServiceUserCouponGetCouponByActivityPost$Response(
+  code: (json['code'] as num?)?.toDouble(),
+  message: json['message'] as String?,
+  data: (json['data'] as List<dynamic>?)
+      ?.map(
+        (e) =>
+            UserServiceUserCouponGetCouponByActivityPost$Response$Data$Item.fromJson(
+              e as Map<String, dynamic>,
+            ),
+      )
+      .toList(),
+  traceId: json['traceId'] as String?,
+  placeholder: json['placeholder'] as String?,
+  success: json['success'] as bool?,
+);
+
+Map<String, dynamic>
+_$UserServiceUserCouponGetCouponByActivityPost$ResponseToJson(
+  UserServiceUserCouponGetCouponByActivityPost$Response instance,
+) => <String, dynamic>{
+  'code': instance.code,
+  'message': instance.message,
+  'data': instance.data?.map((e) => e.toJson()).toList(),
+  'traceId': instance.traceId,
+  'placeholder': instance.placeholder,
+  'success': instance.success,
+};
+
+UserServiceUserCouponGetGet$Response
+_$UserServiceUserCouponGetGet$ResponseFromJson(Map<String, dynamic> json) =>
+    UserServiceUserCouponGetGet$Response(
+      code: (json['code'] as num?)?.toDouble(),
+      message: json['message'] as String?,
+      data: (json['data'] as List<dynamic>?)
+          ?.map(
+            (e) => UserServiceUserCouponGetGet$Response$Data$Item.fromJson(
+              e as Map<String, dynamic>,
+            ),
+          )
+          .toList(),
+      traceId: json['traceId'] as String?,
+      placeholder: json['placeholder'] as String?,
+      success: json['success'] as bool?,
+    );
+
+Map<String, dynamic> _$UserServiceUserCouponGetGet$ResponseToJson(
+  UserServiceUserCouponGetGet$Response instance,
+) => <String, dynamic>{
+  'code': instance.code,
+  'message': instance.message,
+  'data': instance.data?.map((e) => e.toJson()).toList(),
+  'traceId': instance.traceId,
+  'placeholder': instance.placeholder,
+  'success': instance.success,
+};
+
+UserServiceImGetInfoPost$Response _$UserServiceImGetInfoPost$ResponseFromJson(
+  Map<String, dynamic> json,
+) => UserServiceImGetInfoPost$Response(
+  data: json['data'] == null
+      ? null
+      : UserServiceImGetInfoPost$Response$Data.fromJson(
+          json['data'] as Map<String, dynamic>,
+        ),
+  message: json['message'] as String?,
+  traceId: json['traceId'] as String?,
+);
+
+Map<String, dynamic> _$UserServiceImGetInfoPost$ResponseToJson(
+  UserServiceImGetInfoPost$Response instance,
+) => <String, dynamic>{
+  'data': instance.data?.toJson(),
+  'message': instance.message,
+  'traceId': instance.traceId,
+};
+
+UserServiceUserShareListGet$Response
+_$UserServiceUserShareListGet$ResponseFromJson(Map<String, dynamic> json) =>
+    UserServiceUserShareListGet$Response(
+      code: (json['code'] as num?)?.toDouble(),
+      message: json['message'] as String?,
+      data: (json['data'] as List<dynamic>?)
+          ?.map(
+            (e) => UserServiceUserShareListGet$Response$Data$Item.fromJson(
+              e as Map<String, dynamic>,
+            ),
+          )
+          .toList(),
+      placeholder: json['placeholder'],
+      traceId: json['traceId'] as String?,
+    );
+
+Map<String, dynamic> _$UserServiceUserShareListGet$ResponseToJson(
+  UserServiceUserShareListGet$Response instance,
+) => <String, dynamic>{
+  'code': instance.code,
+  'message': instance.message,
+  'data': instance.data?.map((e) => e.toJson()).toList(),
+  'placeholder': instance.placeholder,
+  'traceId': instance.traceId,
+};
+
+UserServiceUserShareRewardInfoGet$Response
+_$UserServiceUserShareRewardInfoGet$ResponseFromJson(
+  Map<String, dynamic> json,
+) => UserServiceUserShareRewardInfoGet$Response(
+  code: (json['code'] as num?)?.toDouble(),
+  message: json['message'] as String?,
+  data: json['data'] == null
+      ? null
+      : UserServiceUserShareRewardInfoGet$Response$Data.fromJson(
+          json['data'] as Map<String, dynamic>,
+        ),
   placeholder: json['placeholder'],
   traceId: json['traceId'] as String?,
 );
 
-Map<String, dynamic> _$UserDeleteConfirmGet$ResponseToJson(
-  UserDeleteConfirmGet$Response instance,
+Map<String, dynamic> _$UserServiceUserShareRewardInfoGet$ResponseToJson(
+  UserServiceUserShareRewardInfoGet$Response instance,
+) => <String, dynamic>{
+  'code': instance.code,
+  'message': instance.message,
+  'data': instance.data?.toJson(),
+  'placeholder': instance.placeholder,
+  'traceId': instance.traceId,
+};
+
+UserServiceUserShareSubmitPost$Response
+_$UserServiceUserShareSubmitPost$ResponseFromJson(Map<String, dynamic> json) =>
+    UserServiceUserShareSubmitPost$Response(
+      code: (json['code'] as num?)?.toDouble(),
+      message: json['message'] as String?,
+      data: json['data'] as String?,
+      placeholder: json['placeholder'],
+      traceId: json['traceId'] as String?,
+    );
+
+Map<String, dynamic> _$UserServiceUserShareSubmitPost$ResponseToJson(
+  UserServiceUserShareSubmitPost$Response instance,
 ) => <String, dynamic>{
   'code': instance.code,
   'message': instance.message,
@@ -880,21 +853,160 @@ Map<String, dynamic> _$UserDeleteConfirmGet$ResponseToJson(
   'traceId': instance.traceId,
 };
 
-UserGetGet$Response _$UserGetGet$ResponseFromJson(Map<String, dynamic> json) =>
-    UserGetGet$Response(
+UserServiceUserDeleteGet$Response _$UserServiceUserDeleteGet$ResponseFromJson(
+  Map<String, dynamic> json,
+) => UserServiceUserDeleteGet$Response(
+  code: (json['code'] as num?)?.toDouble(),
+  message: json['message'] as String?,
+  data: json['data'] == null
+      ? null
+      : UserServiceUserDeleteGet$Response$Data.fromJson(
+          json['data'] as Map<String, dynamic>,
+        ),
+  placeholder: json['placeholder'],
+  traceId: json['traceId'] as String?,
+);
+
+Map<String, dynamic> _$UserServiceUserDeleteGet$ResponseToJson(
+  UserServiceUserDeleteGet$Response instance,
+) => <String, dynamic>{
+  'code': instance.code,
+  'message': instance.message,
+  'data': instance.data?.toJson(),
+  'placeholder': instance.placeholder,
+  'traceId': instance.traceId,
+};
+
+UserServiceUserDeleteConfirmGet$Response
+_$UserServiceUserDeleteConfirmGet$ResponseFromJson(Map<String, dynamic> json) =>
+    UserServiceUserDeleteConfirmGet$Response(
+      code: (json['code'] as num?)?.toDouble(),
+      message: json['message'] as String?,
+      data: json['data'] as bool?,
+      placeholder: json['placeholder'],
+      traceId: json['traceId'] as String?,
+    );
+
+Map<String, dynamic> _$UserServiceUserDeleteConfirmGet$ResponseToJson(
+  UserServiceUserDeleteConfirmGet$Response instance,
+) => <String, dynamic>{
+  'code': instance.code,
+  'message': instance.message,
+  'data': instance.data,
+  'placeholder': instance.placeholder,
+  'traceId': instance.traceId,
+};
+
+UserServiceUserGetGet$Response _$UserServiceUserGetGet$ResponseFromJson(
+  Map<String, dynamic> json,
+) => UserServiceUserGetGet$Response(
+  code: (json['code'] as num?)?.toDouble(),
+  message: json['message'] as String?,
+  data: json['data'] == null
+      ? null
+      : UserServiceUserGetGet$Response$Data.fromJson(
+          json['data'] as Map<String, dynamic>,
+        ),
+  placeholder: json['placeholder'],
+  traceId: json['traceId'] as String?,
+);
+
+Map<String, dynamic> _$UserServiceUserGetGet$ResponseToJson(
+  UserServiceUserGetGet$Response instance,
+) => <String, dynamic>{
+  'code': instance.code,
+  'message': instance.message,
+  'data': instance.data?.toJson(),
+  'placeholder': instance.placeholder,
+  'traceId': instance.traceId,
+};
+
+UserServiceUserUserCommissionGet$Response
+_$UserServiceUserUserCommissionGet$ResponseFromJson(
+  Map<String, dynamic> json,
+) => UserServiceUserUserCommissionGet$Response(
+  code: (json['code'] as num?)?.toDouble(),
+  message: json['message'] as String?,
+  data: json['data'] == null
+      ? null
+      : UserServiceUserUserCommissionGet$Response$Data.fromJson(
+          json['data'] as Map<String, dynamic>,
+        ),
+  placeholder: json['placeholder'],
+  traceId: json['traceId'] as String?,
+);
+
+Map<String, dynamic> _$UserServiceUserUserCommissionGet$ResponseToJson(
+  UserServiceUserUserCommissionGet$Response instance,
+) => <String, dynamic>{
+  'code': instance.code,
+  'message': instance.message,
+  'data': instance.data?.toJson(),
+  'placeholder': instance.placeholder,
+  'traceId': instance.traceId,
+};
+
+UserServiceUserConfigureSettingGet$Response
+_$UserServiceUserConfigureSettingGet$ResponseFromJson(
+  Map<String, dynamic> json,
+) => UserServiceUserConfigureSettingGet$Response(
+  code: (json['code'] as num?)?.toDouble(),
+  message: json['message'] as String?,
+  data: json['data'] == null
+      ? null
+      : UserServiceUserConfigureSettingGet$Response$Data.fromJson(
+          json['data'] as Map<String, dynamic>,
+        ),
+  placeholder: json['placeholder'],
+  traceId: json['traceId'] as String?,
+);
+
+Map<String, dynamic> _$UserServiceUserConfigureSettingGet$ResponseToJson(
+  UserServiceUserConfigureSettingGet$Response instance,
+) => <String, dynamic>{
+  'code': instance.code,
+  'message': instance.message,
+  'data': instance.data?.toJson(),
+  'placeholder': instance.placeholder,
+  'traceId': instance.traceId,
+};
+
+UserServiceUserInviteCountGet$Response
+_$UserServiceUserInviteCountGet$ResponseFromJson(Map<String, dynamic> json) =>
+    UserServiceUserInviteCountGet$Response(
+      code: (json['code'] as num?)?.toDouble(),
+      message: json['message'] as String?,
+      data: (json['data'] as num?)?.toInt(),
+      placeholder: json['placeholder'],
+      traceId: json['traceId'] as String?,
+    );
+
+Map<String, dynamic> _$UserServiceUserInviteCountGet$ResponseToJson(
+  UserServiceUserInviteCountGet$Response instance,
+) => <String, dynamic>{
+  'code': instance.code,
+  'message': instance.message,
+  'data': instance.data,
+  'placeholder': instance.placeholder,
+  'traceId': instance.traceId,
+};
+
+UserServiceUserInviteNumGet$Response
+_$UserServiceUserInviteNumGet$ResponseFromJson(Map<String, dynamic> json) =>
+    UserServiceUserInviteNumGet$Response(
       code: (json['code'] as num?)?.toDouble(),
       message: json['message'] as String?,
       data: json['data'] == null
           ? null
-          : UserGetGet$Response$Data.fromJson(
+          : UserServiceUserInviteNumGet$Response$Data.fromJson(
               json['data'] as Map<String, dynamic>,
             ),
       placeholder: json['placeholder'],
       traceId: json['traceId'] as String?,
     );
 
-Map<String, dynamic> _$UserGetGet$ResponseToJson(
-  UserGetGet$Response instance,
+Map<String, dynamic> _$UserServiceUserInviteNumGet$ResponseToJson(
+  UserServiceUserInviteNumGet$Response instance,
 ) => <String, dynamic>{
   'code': instance.code,
   'message': instance.message,
@@ -903,179 +1015,64 @@ Map<String, dynamic> _$UserGetGet$ResponseToJson(
   'traceId': instance.traceId,
 };
 
-UserUserCommissionGet$Response _$UserUserCommissionGet$ResponseFromJson(
-  Map<String, dynamic> json,
-) => UserUserCommissionGet$Response(
-  code: (json['code'] as num?)?.toDouble(),
-  message: json['message'] as String?,
-  data: json['data'] == null
-      ? null
-      : UserUserCommissionGet$Response$Data.fromJson(
-          json['data'] as Map<String, dynamic>,
-        ),
-  placeholder: json['placeholder'],
-  traceId: json['traceId'] as String?,
-);
-
-Map<String, dynamic> _$UserUserCommissionGet$ResponseToJson(
-  UserUserCommissionGet$Response instance,
-) => <String, dynamic>{
-  'code': instance.code,
-  'message': instance.message,
-  'data': instance.data?.toJson(),
-  'placeholder': instance.placeholder,
-  'traceId': instance.traceId,
-};
-
-UserConfigureSettingGet$Response _$UserConfigureSettingGet$ResponseFromJson(
-  Map<String, dynamic> json,
-) => UserConfigureSettingGet$Response(
-  code: (json['code'] as num?)?.toDouble(),
-  message: json['message'] as String?,
-  data: json['data'] == null
-      ? null
-      : UserConfigureSettingGet$Response$Data.fromJson(
-          json['data'] as Map<String, dynamic>,
-        ),
-  placeholder: json['placeholder'],
-  traceId: json['traceId'] as String?,
-);
-
-Map<String, dynamic> _$UserConfigureSettingGet$ResponseToJson(
-  UserConfigureSettingGet$Response instance,
-) => <String, dynamic>{
-  'code': instance.code,
-  'message': instance.message,
-  'data': instance.data?.toJson(),
-  'placeholder': instance.placeholder,
-  'traceId': instance.traceId,
-};
-
-UserInviteCountGet$Response _$UserInviteCountGet$ResponseFromJson(
-  Map<String, dynamic> json,
-) => UserInviteCountGet$Response(
-  code: (json['code'] as num?)?.toDouble(),
-  message: json['message'] as String?,
-  data: (json['data'] as num?)?.toInt(),
-  placeholder: json['placeholder'],
-  traceId: json['traceId'] as String?,
-);
-
-Map<String, dynamic> _$UserInviteCountGet$ResponseToJson(
-  UserInviteCountGet$Response instance,
-) => <String, dynamic>{
-  'code': instance.code,
-  'message': instance.message,
-  'data': instance.data,
-  'placeholder': instance.placeholder,
-  'traceId': instance.traceId,
-};
-
-UserInviteNumGet$Response _$UserInviteNumGet$ResponseFromJson(
-  Map<String, dynamic> json,
-) => UserInviteNumGet$Response(
-  code: (json['code'] as num?)?.toDouble(),
-  message: json['message'] as String?,
-  data: json['data'] == null
-      ? null
-      : UserInviteNumGet$Response$Data.fromJson(
-          json['data'] as Map<String, dynamic>,
-        ),
-  placeholder: json['placeholder'],
-  traceId: json['traceId'] as String?,
-);
-
-Map<String, dynamic> _$UserInviteNumGet$ResponseToJson(
-  UserInviteNumGet$Response instance,
-) => <String, dynamic>{
-  'code': instance.code,
-  'message': instance.message,
-  'data': instance.data?.toJson(),
-  'placeholder': instance.placeholder,
-  'traceId': instance.traceId,
-};
-
-UserShareUpdatePost$Response _$UserShareUpdatePost$ResponseFromJson(
-  Map<String, dynamic> json,
-) => UserShareUpdatePost$Response(
-  code: (json['code'] as num?)?.toDouble(),
-  message: json['message'] as String?,
-  data: json['data'] as String?,
-  placeholder: json['placeholder'],
-  traceId: json['traceId'] as String?,
-);
-
-Map<String, dynamic> _$UserShareUpdatePost$ResponseToJson(
-  UserShareUpdatePost$Response instance,
-) => <String, dynamic>{
-  'code': instance.code,
-  'message': instance.message,
-  'data': instance.data,
-  'placeholder': instance.placeholder,
-  'traceId': instance.traceId,
-};
-
-UserUserRewardGet$Response _$UserUserRewardGet$ResponseFromJson(
-  Map<String, dynamic> json,
-) => UserUserRewardGet$Response(
-  code: (json['code'] as num?)?.toDouble(),
-  message: json['message'] as String?,
-  data: json['data'] as bool?,
-  placeholder: json['placeholder'],
-  traceId: json['traceId'] as String?,
-);
-
-Map<String, dynamic> _$UserUserRewardGet$ResponseToJson(
-  UserUserRewardGet$Response instance,
-) => <String, dynamic>{
-  'code': instance.code,
-  'message': instance.message,
-  'data': instance.data,
-  'placeholder': instance.placeholder,
-  'traceId': instance.traceId,
-};
-
-UserTagPortraitAiToPortraitPost$Response
-_$UserTagPortraitAiToPortraitPost$ResponseFromJson(Map<String, dynamic> json) =>
-    UserTagPortraitAiToPortraitPost$Response(
+UserServiceUserShareUpdatePost$Response
+_$UserServiceUserShareUpdatePost$ResponseFromJson(Map<String, dynamic> json) =>
+    UserServiceUserShareUpdatePost$Response(
       code: (json['code'] as num?)?.toDouble(),
       message: json['message'] as String?,
-      data: json['data'] == null
-          ? null
-          : UserTagPortraitAiToPortraitPost$Response$Data.fromJson(
-              json['data'] as Map<String, dynamic>,
-            ),
+      data: json['data'] as String?,
+      placeholder: json['placeholder'],
       traceId: json['traceId'] as String?,
-      success: json['success'] as bool?,
     );
 
-Map<String, dynamic> _$UserTagPortraitAiToPortraitPost$ResponseToJson(
-  UserTagPortraitAiToPortraitPost$Response instance,
+Map<String, dynamic> _$UserServiceUserShareUpdatePost$ResponseToJson(
+  UserServiceUserShareUpdatePost$Response instance,
 ) => <String, dynamic>{
   'code': instance.code,
   'message': instance.message,
-  'data': instance.data?.toJson(),
+  'data': instance.data,
+  'placeholder': instance.placeholder,
   'traceId': instance.traceId,
-  'success': instance.success,
 };
 
-UserTagPortraitAiToPortraitV2Post$Response
-_$UserTagPortraitAiToPortraitV2Post$ResponseFromJson(
+UserServiceUserUserRewardGet$Response
+_$UserServiceUserUserRewardGet$ResponseFromJson(Map<String, dynamic> json) =>
+    UserServiceUserUserRewardGet$Response(
+      code: (json['code'] as num?)?.toDouble(),
+      message: json['message'] as String?,
+      data: json['data'] as bool?,
+      placeholder: json['placeholder'],
+      traceId: json['traceId'] as String?,
+    );
+
+Map<String, dynamic> _$UserServiceUserUserRewardGet$ResponseToJson(
+  UserServiceUserUserRewardGet$Response instance,
+) => <String, dynamic>{
+  'code': instance.code,
+  'message': instance.message,
+  'data': instance.data,
+  'placeholder': instance.placeholder,
+  'traceId': instance.traceId,
+};
+
+UserServiceUserTagPortraitAiToPortraitPost$Response
+_$UserServiceUserTagPortraitAiToPortraitPost$ResponseFromJson(
   Map<String, dynamic> json,
-) => UserTagPortraitAiToPortraitV2Post$Response(
+) => UserServiceUserTagPortraitAiToPortraitPost$Response(
   code: (json['code'] as num?)?.toDouble(),
   message: json['message'] as String?,
   data: json['data'] == null
       ? null
-      : UserTagPortraitAiToPortraitV2Post$Response$Data.fromJson(
+      : UserServiceUserTagPortraitAiToPortraitPost$Response$Data.fromJson(
           json['data'] as Map<String, dynamic>,
         ),
   traceId: json['traceId'] as String?,
   success: json['success'] as bool?,
 );
 
-Map<String, dynamic> _$UserTagPortraitAiToPortraitV2Post$ResponseToJson(
-  UserTagPortraitAiToPortraitV2Post$Response instance,
+Map<String, dynamic>
+_$UserServiceUserTagPortraitAiToPortraitPost$ResponseToJson(
+  UserServiceUserTagPortraitAiToPortraitPost$Response instance,
 ) => <String, dynamic>{
   'code': instance.code,
   'message': instance.message,
@@ -1084,10 +1081,36 @@ Map<String, dynamic> _$UserTagPortraitAiToPortraitV2Post$ResponseToJson(
   'success': instance.success,
 };
 
-UserTagPortraitUpdatePortraitPost$Response
-_$UserTagPortraitUpdatePortraitPost$ResponseFromJson(
+UserServiceUserTagPortraitAiToPortraitV2Post$Response
+_$UserServiceUserTagPortraitAiToPortraitV2Post$ResponseFromJson(
   Map<String, dynamic> json,
-) => UserTagPortraitUpdatePortraitPost$Response(
+) => UserServiceUserTagPortraitAiToPortraitV2Post$Response(
+  code: (json['code'] as num?)?.toDouble(),
+  message: json['message'] as String?,
+  data: json['data'] == null
+      ? null
+      : UserServiceUserTagPortraitAiToPortraitV2Post$Response$Data.fromJson(
+          json['data'] as Map<String, dynamic>,
+        ),
+  traceId: json['traceId'] as String?,
+  success: json['success'] as bool?,
+);
+
+Map<String, dynamic>
+_$UserServiceUserTagPortraitAiToPortraitV2Post$ResponseToJson(
+  UserServiceUserTagPortraitAiToPortraitV2Post$Response instance,
+) => <String, dynamic>{
+  'code': instance.code,
+  'message': instance.message,
+  'data': instance.data?.toJson(),
+  'traceId': instance.traceId,
+  'success': instance.success,
+};
+
+UserServiceUserTagPortraitUpdatePortraitPost$Response
+_$UserServiceUserTagPortraitUpdatePortraitPost$ResponseFromJson(
+  Map<String, dynamic> json,
+) => UserServiceUserTagPortraitUpdatePortraitPost$Response(
   code: (json['code'] as num?)?.toDouble(),
   message: json['message'] as String?,
   data: json['data'] as bool?,
@@ -1095,8 +1118,9 @@ _$UserTagPortraitUpdatePortraitPost$ResponseFromJson(
   success: json['success'] as bool?,
 );
 
-Map<String, dynamic> _$UserTagPortraitUpdatePortraitPost$ResponseToJson(
-  UserTagPortraitUpdatePortraitPost$Response instance,
+Map<String, dynamic>
+_$UserServiceUserTagPortraitUpdatePortraitPost$ResponseToJson(
+  UserServiceUserTagPortraitUpdatePortraitPost$Response instance,
 ) => <String, dynamic>{
   'code': instance.code,
   'message': instance.message,
@@ -1105,22 +1129,23 @@ Map<String, dynamic> _$UserTagPortraitUpdatePortraitPost$ResponseToJson(
   'success': instance.success,
 };
 
-UserTagPortraitGetPortraitGet$Response
-_$UserTagPortraitGetPortraitGet$ResponseFromJson(Map<String, dynamic> json) =>
-    UserTagPortraitGetPortraitGet$Response(
-      code: (json['code'] as num?)?.toDouble(),
-      message: json['message'] as String?,
-      data: json['data'] == null
-          ? null
-          : UserTagPortraitGetPortraitGet$Response$Data.fromJson(
-              json['data'] as Map<String, dynamic>,
-            ),
-      traceId: json['traceId'] as String?,
-      success: json['success'] as bool?,
-    );
+UserServiceUserTagPortraitGetPortraitGet$Response
+_$UserServiceUserTagPortraitGetPortraitGet$ResponseFromJson(
+  Map<String, dynamic> json,
+) => UserServiceUserTagPortraitGetPortraitGet$Response(
+  code: (json['code'] as num?)?.toDouble(),
+  message: json['message'] as String?,
+  data: json['data'] == null
+      ? null
+      : UserServiceUserTagPortraitGetPortraitGet$Response$Data.fromJson(
+          json['data'] as Map<String, dynamic>,
+        ),
+  traceId: json['traceId'] as String?,
+  success: json['success'] as bool?,
+);
 
-Map<String, dynamic> _$UserTagPortraitGetPortraitGet$ResponseToJson(
-  UserTagPortraitGetPortraitGet$Response instance,
+Map<String, dynamic> _$UserServiceUserTagPortraitGetPortraitGet$ResponseToJson(
+  UserServiceUserTagPortraitGetPortraitGet$Response instance,
 ) => <String, dynamic>{
   'code': instance.code,
   'message': instance.message,
@@ -1129,25 +1154,27 @@ Map<String, dynamic> _$UserTagPortraitGetPortraitGet$ResponseToJson(
   'success': instance.success,
 };
 
-UserCouponAppHomeActivityPost$Response
-_$UserCouponAppHomeActivityPost$ResponseFromJson(Map<String, dynamic> json) =>
-    UserCouponAppHomeActivityPost$Response(
-      code: (json['code'] as num?)?.toDouble(),
-      message: json['message'] as String?,
-      data: (json['data'] as List<dynamic>?)
-          ?.map(
-            (e) => UserCouponAppHomeActivityPost$Response$Data$Item.fromJson(
+UserServiceUserCouponAppHomeActivityPost$Response
+_$UserServiceUserCouponAppHomeActivityPost$ResponseFromJson(
+  Map<String, dynamic> json,
+) => UserServiceUserCouponAppHomeActivityPost$Response(
+  code: (json['code'] as num?)?.toDouble(),
+  message: json['message'] as String?,
+  data: (json['data'] as List<dynamic>?)
+      ?.map(
+        (e) =>
+            UserServiceUserCouponAppHomeActivityPost$Response$Data$Item.fromJson(
               e as Map<String, dynamic>,
             ),
-          )
-          .toList(),
-      traceId: json['traceId'] as String?,
-      placeholder: json['placeholder'] as String?,
-      success: json['success'] as bool?,
-    );
+      )
+      .toList(),
+  traceId: json['traceId'] as String?,
+  placeholder: json['placeholder'] as String?,
+  success: json['success'] as bool?,
+);
 
-Map<String, dynamic> _$UserCouponAppHomeActivityPost$ResponseToJson(
-  UserCouponAppHomeActivityPost$Response instance,
+Map<String, dynamic> _$UserServiceUserCouponAppHomeActivityPost$ResponseToJson(
+  UserServiceUserCouponAppHomeActivityPost$Response instance,
 ) => <String, dynamic>{
   'code': instance.code,
   'message': instance.message,
@@ -1157,9 +1184,10 @@ Map<String, dynamic> _$UserCouponAppHomeActivityPost$ResponseToJson(
   'success': instance.success,
 };
 
-AddressQueryGet$Response$Data$Item _$AddressQueryGet$Response$Data$ItemFromJson(
+UserServiceAddressQueryGet$Response$Data$Item
+_$UserServiceAddressQueryGet$Response$Data$ItemFromJson(
   Map<String, dynamic> json,
-) => AddressQueryGet$Response$Data$Item(
+) => UserServiceAddressQueryGet$Response$Data$Item(
   apartment: json['apartment'] as String?,
   street: json['street'] as String?,
   city: json['city'] as String?,
@@ -1174,8 +1202,8 @@ AddressQueryGet$Response$Data$Item _$AddressQueryGet$Response$Data$ItemFromJson(
   longitude: (json['longitude'] as num?)?.toDouble(),
 );
 
-Map<String, dynamic> _$AddressQueryGet$Response$Data$ItemToJson(
-  AddressQueryGet$Response$Data$Item instance,
+Map<String, dynamic> _$UserServiceAddressQueryGet$Response$Data$ItemToJson(
+  UserServiceAddressQueryGet$Response$Data$Item instance,
 ) => <String, dynamic>{
   'apartment': instance.apartment,
   'street': instance.street,
@@ -1191,9 +1219,10 @@ Map<String, dynamic> _$AddressQueryGet$Response$Data$ItemToJson(
   'longitude': instance.longitude,
 };
 
-AddressListGet$Response$Data$Item _$AddressListGet$Response$Data$ItemFromJson(
+UserServiceAddressListGet$Response$Data$Item
+_$UserServiceAddressListGet$Response$Data$ItemFromJson(
   Map<String, dynamic> json,
-) => AddressListGet$Response$Data$Item(
+) => UserServiceAddressListGet$Response$Data$Item(
   id: (json['id'] as num).toDouble(),
   tenantCode: json['tenantCode'] as String,
   userId: json['userId'] as String,
@@ -1219,8 +1248,8 @@ AddressListGet$Response$Data$Item _$AddressListGet$Response$Data$ItemFromJson(
   tin: json['tin'] as String?,
 );
 
-Map<String, dynamic> _$AddressListGet$Response$Data$ItemToJson(
-  AddressListGet$Response$Data$Item instance,
+Map<String, dynamic> _$UserServiceAddressListGet$Response$Data$ItemToJson(
+  UserServiceAddressListGet$Response$Data$Item instance,
 ) => <String, dynamic>{
   'id': instance.id,
   'tenantCode': instance.tenantCode,
@@ -1247,10 +1276,10 @@ Map<String, dynamic> _$AddressListGet$Response$Data$ItemToJson(
   'tin': instance.tin,
 };
 
-GetShippingAddressByCountryGet$Response$Data
-_$GetShippingAddressByCountryGet$Response$DataFromJson(
+UserServiceGetShippingAddressByCountryGet$Response$Data
+_$UserServiceGetShippingAddressByCountryGet$Response$DataFromJson(
   Map<String, dynamic> json,
-) => GetShippingAddressByCountryGet$Response$Data(
+) => UserServiceGetShippingAddressByCountryGet$Response$Data(
   id: json['id'] as String,
   isDefault: json['isDefault'] as bool,
   country: json['country'] as String,
@@ -1268,8 +1297,9 @@ _$GetShippingAddressByCountryGet$Response$DataFromJson(
   phoneNumber: json['phoneNumber'] as String,
 );
 
-Map<String, dynamic> _$GetShippingAddressByCountryGet$Response$DataToJson(
-  GetShippingAddressByCountryGet$Response$Data instance,
+Map<String, dynamic>
+_$UserServiceGetShippingAddressByCountryGet$Response$DataToJson(
+  UserServiceGetShippingAddressByCountryGet$Response$Data instance,
 ) => <String, dynamic>{
   'id': instance.id,
   'isDefault': instance.isDefault,
@@ -1288,10 +1318,10 @@ Map<String, dynamic> _$GetShippingAddressByCountryGet$Response$DataToJson(
   'phoneNumber': instance.phoneNumber,
 };
 
-GetDefaultShippingAddressGet$Response$Data
-_$GetDefaultShippingAddressGet$Response$DataFromJson(
+UserServiceGetDefaultShippingAddressGet$Response$Data
+_$UserServiceGetDefaultShippingAddressGet$Response$DataFromJson(
   Map<String, dynamic> json,
-) => GetDefaultShippingAddressGet$Response$Data(
+) => UserServiceGetDefaultShippingAddressGet$Response$Data(
   id: json['id'] as String,
   isDefault: json['isDefault'] as bool,
   country: json['country'] as String,
@@ -1312,8 +1342,9 @@ _$GetDefaultShippingAddressGet$Response$DataFromJson(
   email: json['email'] as String,
 );
 
-Map<String, dynamic> _$GetDefaultShippingAddressGet$Response$DataToJson(
-  GetDefaultShippingAddressGet$Response$Data instance,
+Map<String, dynamic>
+_$UserServiceGetDefaultShippingAddressGet$Response$DataToJson(
+  UserServiceGetDefaultShippingAddressGet$Response$Data instance,
 ) => <String, dynamic>{
   'id': instance.id,
   'isDefault': instance.isDefault,
@@ -1335,26 +1366,27 @@ Map<String, dynamic> _$GetDefaultShippingAddressGet$Response$DataToJson(
   'email': instance.email,
 };
 
-AddressCountryGet$Response$Data$Item
-_$AddressCountryGet$Response$Data$ItemFromJson(Map<String, dynamic> json) =>
-    AddressCountryGet$Response$Data$Item(
-      areaCode: json['areaCode'] as String,
-      icon: json['icon'] as String,
-      name: json['name'] as String,
-    );
+UserServiceAddressCountryGet$Response$Data$Item
+_$UserServiceAddressCountryGet$Response$Data$ItemFromJson(
+  Map<String, dynamic> json,
+) => UserServiceAddressCountryGet$Response$Data$Item(
+  areaCode: json['areaCode'] as String,
+  icon: json['icon'] as String,
+  name: json['name'] as String,
+);
 
-Map<String, dynamic> _$AddressCountryGet$Response$Data$ItemToJson(
-  AddressCountryGet$Response$Data$Item instance,
+Map<String, dynamic> _$UserServiceAddressCountryGet$Response$Data$ItemToJson(
+  UserServiceAddressCountryGet$Response$Data$Item instance,
 ) => <String, dynamic>{
   'areaCode': instance.areaCode,
   'icon': instance.icon,
   'name': instance.name,
 };
 
-AddressQueryByZipCodeGet$Response$Data$Item
-_$AddressQueryByZipCodeGet$Response$Data$ItemFromJson(
+UserServiceAddressQueryByZipCodeGet$Response$Data$Item
+_$UserServiceAddressQueryByZipCodeGet$Response$Data$ItemFromJson(
   Map<String, dynamic> json,
-) => AddressQueryByZipCodeGet$Response$Data$Item(
+) => UserServiceAddressQueryByZipCodeGet$Response$Data$Item(
   apartment: json['apartment'] as Object,
   street: json['street'] as String,
   city: json['city'] as String,
@@ -1369,8 +1401,9 @@ _$AddressQueryByZipCodeGet$Response$Data$ItemFromJson(
   longitude: json['longitude'] as Object,
 );
 
-Map<String, dynamic> _$AddressQueryByZipCodeGet$Response$Data$ItemToJson(
-  AddressQueryByZipCodeGet$Response$Data$Item instance,
+Map<String, dynamic>
+_$UserServiceAddressQueryByZipCodeGet$Response$Data$ItemToJson(
+  UserServiceAddressQueryByZipCodeGet$Response$Data$Item instance,
 ) => <String, dynamic>{
   'apartment': instance.apartment,
   'street': instance.street,
@@ -1386,9 +1419,147 @@ Map<String, dynamic> _$AddressQueryByZipCodeGet$Response$Data$ItemToJson(
   'longitude': instance.longitude,
 };
 
-SigninSwitchPortalPost$Response$Data
-_$SigninSwitchPortalPost$Response$DataFromJson(Map<String, dynamic> json) =>
-    SigninSwitchPortalPost$Response$Data(
+UserServiceSigninSwitchPortalPost$Response$Data
+_$UserServiceSigninSwitchPortalPost$Response$DataFromJson(
+  Map<String, dynamic> json,
+) => UserServiceSigninSwitchPortalPost$Response$Data(
+  tenantCode: json['tenantCode'] as String?,
+  userId: json['userId'] as String?,
+  nickname: json['nickname'] as String?,
+  email: json['email'] as String?,
+  photo: json['photo'] as String?,
+  phoneNumber: json['phoneNumber'] as String?,
+  signUpType: json['signUpType'] as String?,
+  signUpName: json['signUpName'] as String?,
+  accessToken: json['accessToken'] as String?,
+  refreshToken: json['refreshToken'] as String?,
+  expiresIn: (json['expiresIn'] as num?)?.toDouble(),
+  tokenType: json['tokenType'] as String?,
+  authWay: json['authWay'] as String?,
+  remainTimes: json['remainTimes'] as String?,
+  lockTime: json['lockTime'] as String?,
+  loginStatus: (json['loginStatus'] as num?)?.toDouble(),
+  timestamp: (json['timestamp'] as num?)?.toDouble(),
+  success: json['success'] as bool?,
+  portalCode: json['portalCode'] as String?,
+  source: json['source'] as String?,
+  newUser: json['newUser'] as bool?,
+  compliance: json['compliance'] as String?,
+  finalSuccess: (json['finalSuccess'] as num?)?.toDouble(),
+  message: json['message'] as String?,
+  currency: json['currency'] as String?,
+);
+
+Map<String, dynamic> _$UserServiceSigninSwitchPortalPost$Response$DataToJson(
+  UserServiceSigninSwitchPortalPost$Response$Data instance,
+) => <String, dynamic>{
+  'tenantCode': instance.tenantCode,
+  'userId': instance.userId,
+  'nickname': instance.nickname,
+  'email': instance.email,
+  'photo': instance.photo,
+  'phoneNumber': instance.phoneNumber,
+  'signUpType': instance.signUpType,
+  'signUpName': instance.signUpName,
+  'accessToken': instance.accessToken,
+  'refreshToken': instance.refreshToken,
+  'expiresIn': instance.expiresIn,
+  'tokenType': instance.tokenType,
+  'authWay': instance.authWay,
+  'remainTimes': instance.remainTimes,
+  'lockTime': instance.lockTime,
+  'loginStatus': instance.loginStatus,
+  'timestamp': instance.timestamp,
+  'success': instance.success,
+  'portalCode': instance.portalCode,
+  'source': instance.source,
+  'newUser': instance.newUser,
+  'compliance': instance.compliance,
+  'finalSuccess': instance.finalSuccess,
+  'message': instance.message,
+  'currency': instance.currency,
+};
+
+UserServiceSignInInitPost$Response$Data
+_$UserServiceSignInInitPost$Response$DataFromJson(Map<String, dynamic> json) =>
+    UserServiceSignInInitPost$Response$Data(
+      authWay: json['authWay'] as String,
+      code: json['code'] as String,
+      jumpUrl: json['jumpUrl'] as String,
+    );
+
+Map<String, dynamic> _$UserServiceSignInInitPost$Response$DataToJson(
+  UserServiceSignInInitPost$Response$Data instance,
+) => <String, dynamic>{
+  'authWay': instance.authWay,
+  'code': instance.code,
+  'jumpUrl': instance.jumpUrl,
+};
+
+UserServiceSignInVerifyPost$Response$Data
+_$UserServiceSignInVerifyPost$Response$DataFromJson(
+  Map<String, dynamic> json,
+) => UserServiceSignInVerifyPost$Response$Data(
+  tenantCode: json['tenantCode'] as String?,
+  userId: json['userId'] as String?,
+  nickname: json['nickname'] as String?,
+  email: json['email'] as String?,
+  photo: json['photo'] as String?,
+  phoneNumber: json['phoneNumber'] as String?,
+  signUpType: json['signUpType'] as String?,
+  signUpName: json['signUpName'] as String?,
+  accessToken: json['accessToken'] as String?,
+  refreshToken: json['refreshToken'] as String?,
+  expiresIn: (json['expiresIn'] as num?)?.toDouble(),
+  tokenType: json['tokenType'] as String?,
+  authWay: json['authWay'] as String?,
+  remainTimes: json['remainTimes'] as String?,
+  lockTime: json['lockTime'] as String?,
+  loginStatus: (json['loginStatus'] as num?)?.toDouble(),
+  timestamp: (json['timestamp'] as num?)?.toDouble(),
+  success: json['success'] as bool?,
+  portalCode: json['portalCode'] as String?,
+  source: json['source'] as String?,
+  newUser: json['newUser'] as bool?,
+  compliance: json['compliance'] as String?,
+  finalSuccess: (json['finalSuccess'] as num?)?.toDouble(),
+  message: json['message'] as String?,
+  currency: json['currency'] as String?,
+);
+
+Map<String, dynamic> _$UserServiceSignInVerifyPost$Response$DataToJson(
+  UserServiceSignInVerifyPost$Response$Data instance,
+) => <String, dynamic>{
+  'tenantCode': instance.tenantCode,
+  'userId': instance.userId,
+  'nickname': instance.nickname,
+  'email': instance.email,
+  'photo': instance.photo,
+  'phoneNumber': instance.phoneNumber,
+  'signUpType': instance.signUpType,
+  'signUpName': instance.signUpName,
+  'accessToken': instance.accessToken,
+  'refreshToken': instance.refreshToken,
+  'expiresIn': instance.expiresIn,
+  'tokenType': instance.tokenType,
+  'authWay': instance.authWay,
+  'remainTimes': instance.remainTimes,
+  'lockTime': instance.lockTime,
+  'loginStatus': instance.loginStatus,
+  'timestamp': instance.timestamp,
+  'success': instance.success,
+  'portalCode': instance.portalCode,
+  'source': instance.source,
+  'newUser': instance.newUser,
+  'compliance': instance.compliance,
+  'finalSuccess': instance.finalSuccess,
+  'message': instance.message,
+  'currency': instance.currency,
+};
+
+UserServiceSignInCallPost$Response$Data
+_$UserServiceSignInCallPost$Response$DataFromJson(Map<String, dynamic> json) =>
+    UserServiceSignInCallPost$Response$Data(
       tenantCode: json['tenantCode'] as String?,
       userId: json['userId'] as String?,
       nickname: json['nickname'] as String?,
@@ -1413,11 +1584,10 @@ _$SigninSwitchPortalPost$Response$DataFromJson(Map<String, dynamic> json) =>
       compliance: json['compliance'] as String?,
       finalSuccess: (json['finalSuccess'] as num?)?.toDouble(),
       message: json['message'] as String?,
-      currency: json['currency'] as String?,
     );
 
-Map<String, dynamic> _$SigninSwitchPortalPost$Response$DataToJson(
-  SigninSwitchPortalPost$Response$Data instance,
+Map<String, dynamic> _$UserServiceSignInCallPost$Response$DataToJson(
+  UserServiceSignInCallPost$Response$Data instance,
 ) => <String, dynamic>{
   'tenantCode': instance.tenantCode,
   'userId': instance.userId,
@@ -1443,28 +1613,12 @@ Map<String, dynamic> _$SigninSwitchPortalPost$Response$DataToJson(
   'compliance': instance.compliance,
   'finalSuccess': instance.finalSuccess,
   'message': instance.message,
-  'currency': instance.currency,
 };
 
-SignInInitPost$Response$Data _$SignInInitPost$Response$DataFromJson(
+UserServiceNoAuthOtpVerifyPost$Response$Data
+_$UserServiceNoAuthOtpVerifyPost$Response$DataFromJson(
   Map<String, dynamic> json,
-) => SignInInitPost$Response$Data(
-  authWay: json['authWay'] as String,
-  code: json['code'] as String,
-  jumpUrl: json['jumpUrl'] as String,
-);
-
-Map<String, dynamic> _$SignInInitPost$Response$DataToJson(
-  SignInInitPost$Response$Data instance,
-) => <String, dynamic>{
-  'authWay': instance.authWay,
-  'code': instance.code,
-  'jumpUrl': instance.jumpUrl,
-};
-
-SignInVerifyPost$Response$Data _$SignInVerifyPost$Response$DataFromJson(
-  Map<String, dynamic> json,
-) => SignInVerifyPost$Response$Data(
+) => UserServiceNoAuthOtpVerifyPost$Response$Data(
   tenantCode: json['tenantCode'] as String?,
   userId: json['userId'] as String?,
   nickname: json['nickname'] as String?,
@@ -1492,8 +1646,8 @@ SignInVerifyPost$Response$Data _$SignInVerifyPost$Response$DataFromJson(
   currency: json['currency'] as String?,
 );
 
-Map<String, dynamic> _$SignInVerifyPost$Response$DataToJson(
-  SignInVerifyPost$Response$Data instance,
+Map<String, dynamic> _$UserServiceNoAuthOtpVerifyPost$Response$DataToJson(
+  UserServiceNoAuthOtpVerifyPost$Response$Data instance,
 ) => <String, dynamic>{
   'tenantCode': instance.tenantCode,
   'userId': instance.userId,
@@ -1522,166 +1676,52 @@ Map<String, dynamic> _$SignInVerifyPost$Response$DataToJson(
   'currency': instance.currency,
 };
 
-SignInCallPost$Response$Data _$SignInCallPost$Response$DataFromJson(
+UserServiceNoAuthCommonConfigDefaultSettingGet$Response$Data
+_$UserServiceNoAuthCommonConfigDefaultSettingGet$Response$DataFromJson(
   Map<String, dynamic> json,
-) => SignInCallPost$Response$Data(
-  tenantCode: json['tenantCode'] as String?,
-  userId: json['userId'] as String?,
-  nickname: json['nickname'] as String?,
-  email: json['email'] as String?,
-  photo: json['photo'] as String?,
-  phoneNumber: json['phoneNumber'] as String?,
-  signUpType: json['signUpType'] as String?,
-  signUpName: json['signUpName'] as String?,
-  accessToken: json['accessToken'] as String?,
-  refreshToken: json['refreshToken'] as String?,
-  expiresIn: (json['expiresIn'] as num?)?.toDouble(),
-  tokenType: json['tokenType'] as String?,
-  authWay: json['authWay'] as String?,
-  remainTimes: json['remainTimes'] as String?,
-  lockTime: json['lockTime'] as String?,
-  loginStatus: (json['loginStatus'] as num?)?.toDouble(),
-  timestamp: (json['timestamp'] as num?)?.toDouble(),
-  success: json['success'] as bool?,
-  portalCode: json['portalCode'] as String?,
-  source: json['source'] as String?,
-  newUser: json['newUser'] as bool?,
-  compliance: json['compliance'] as String?,
-  finalSuccess: (json['finalSuccess'] as num?)?.toDouble(),
-  message: json['message'] as String?,
-);
-
-Map<String, dynamic> _$SignInCallPost$Response$DataToJson(
-  SignInCallPost$Response$Data instance,
-) => <String, dynamic>{
-  'tenantCode': instance.tenantCode,
-  'userId': instance.userId,
-  'nickname': instance.nickname,
-  'email': instance.email,
-  'photo': instance.photo,
-  'phoneNumber': instance.phoneNumber,
-  'signUpType': instance.signUpType,
-  'signUpName': instance.signUpName,
-  'accessToken': instance.accessToken,
-  'refreshToken': instance.refreshToken,
-  'expiresIn': instance.expiresIn,
-  'tokenType': instance.tokenType,
-  'authWay': instance.authWay,
-  'remainTimes': instance.remainTimes,
-  'lockTime': instance.lockTime,
-  'loginStatus': instance.loginStatus,
-  'timestamp': instance.timestamp,
-  'success': instance.success,
-  'portalCode': instance.portalCode,
-  'source': instance.source,
-  'newUser': instance.newUser,
-  'compliance': instance.compliance,
-  'finalSuccess': instance.finalSuccess,
-  'message': instance.message,
-};
-
-NoAuthOtpVerifyPost$Response$Data _$NoAuthOtpVerifyPost$Response$DataFromJson(
-  Map<String, dynamic> json,
-) => NoAuthOtpVerifyPost$Response$Data(
-  tenantCode: json['tenantCode'] as String?,
-  userId: json['userId'] as String?,
-  nickname: json['nickname'] as String?,
-  email: json['email'] as String?,
-  photo: json['photo'] as String?,
-  phoneNumber: json['phoneNumber'] as String?,
-  signUpType: json['signUpType'] as String?,
-  signUpName: json['signUpName'] as String?,
-  accessToken: json['accessToken'] as String?,
-  refreshToken: json['refreshToken'] as String?,
-  expiresIn: (json['expiresIn'] as num?)?.toDouble(),
-  tokenType: json['tokenType'] as String?,
-  authWay: json['authWay'] as String?,
-  remainTimes: json['remainTimes'] as String?,
-  lockTime: json['lockTime'] as String?,
-  loginStatus: (json['loginStatus'] as num?)?.toDouble(),
-  timestamp: (json['timestamp'] as num?)?.toDouble(),
-  success: json['success'] as bool?,
-  portalCode: json['portalCode'] as String?,
-  source: json['source'] as String?,
-  newUser: json['newUser'] as bool?,
-  compliance: json['compliance'] as String?,
-  finalSuccess: (json['finalSuccess'] as num?)?.toDouble(),
-  message: json['message'] as String?,
-  currency: json['currency'] as String?,
-);
-
-Map<String, dynamic> _$NoAuthOtpVerifyPost$Response$DataToJson(
-  NoAuthOtpVerifyPost$Response$Data instance,
-) => <String, dynamic>{
-  'tenantCode': instance.tenantCode,
-  'userId': instance.userId,
-  'nickname': instance.nickname,
-  'email': instance.email,
-  'photo': instance.photo,
-  'phoneNumber': instance.phoneNumber,
-  'signUpType': instance.signUpType,
-  'signUpName': instance.signUpName,
-  'accessToken': instance.accessToken,
-  'refreshToken': instance.refreshToken,
-  'expiresIn': instance.expiresIn,
-  'tokenType': instance.tokenType,
-  'authWay': instance.authWay,
-  'remainTimes': instance.remainTimes,
-  'lockTime': instance.lockTime,
-  'loginStatus': instance.loginStatus,
-  'timestamp': instance.timestamp,
-  'success': instance.success,
-  'portalCode': instance.portalCode,
-  'source': instance.source,
-  'newUser': instance.newUser,
-  'compliance': instance.compliance,
-  'finalSuccess': instance.finalSuccess,
-  'message': instance.message,
-  'currency': instance.currency,
-};
-
-NoAuthCommonConfigDefaultSettingGet$Response$Data
-_$NoAuthCommonConfigDefaultSettingGet$Response$DataFromJson(
-  Map<String, dynamic> json,
-) => NoAuthCommonConfigDefaultSettingGet$Response$Data(
+) => UserServiceNoAuthCommonConfigDefaultSettingGet$Response$Data(
   countryCode: json['countryCode'] as String?,
   lang: json['lang'] as String?,
   currency: json['currency'] as String?,
 );
 
-Map<String, dynamic> _$NoAuthCommonConfigDefaultSettingGet$Response$DataToJson(
-  NoAuthCommonConfigDefaultSettingGet$Response$Data instance,
+Map<String, dynamic>
+_$UserServiceNoAuthCommonConfigDefaultSettingGet$Response$DataToJson(
+  UserServiceNoAuthCommonConfigDefaultSettingGet$Response$Data instance,
 ) => <String, dynamic>{
   'countryCode': instance.countryCode,
   'lang': instance.lang,
   'currency': instance.currency,
 };
 
-FileImUploadPost$Response$Data$Item
-_$FileImUploadPost$Response$Data$ItemFromJson(Map<String, dynamic> json) =>
-    FileImUploadPost$Response$Data$Item(
-      url: json['url'] as String,
-      fileId: json['fileId'] as String,
-    );
+UserServiceFileImUploadPost$Response$Data$Item
+_$UserServiceFileImUploadPost$Response$Data$ItemFromJson(
+  Map<String, dynamic> json,
+) => UserServiceFileImUploadPost$Response$Data$Item(
+  url: json['url'] as String,
+  fileId: json['fileId'] as String,
+);
 
-Map<String, dynamic> _$FileImUploadPost$Response$Data$ItemToJson(
-  FileImUploadPost$Response$Data$Item instance,
+Map<String, dynamic> _$UserServiceFileImUploadPost$Response$Data$ItemToJson(
+  UserServiceFileImUploadPost$Response$Data$Item instance,
 ) => <String, dynamic>{'url': instance.url, 'fileId': instance.fileId};
 
-FileLogoUploadPost$Response$Data _$FileLogoUploadPost$Response$DataFromJson(
+UserServiceFileLogoUploadPost$Response$Data
+_$UserServiceFileLogoUploadPost$Response$DataFromJson(
   Map<String, dynamic> json,
-) => FileLogoUploadPost$Response$Data(
+) => UserServiceFileLogoUploadPost$Response$Data(
   url: json['url'] as String?,
   fileId: json['fileId'] as String?,
 );
 
-Map<String, dynamic> _$FileLogoUploadPost$Response$DataToJson(
-  FileLogoUploadPost$Response$Data instance,
+Map<String, dynamic> _$UserServiceFileLogoUploadPost$Response$DataToJson(
+  UserServiceFileLogoUploadPost$Response$Data instance,
 ) => <String, dynamic>{'url': instance.url, 'fileId': instance.fileId};
 
-UserCouponCountGet$Response$Data _$UserCouponCountGet$Response$DataFromJson(
+UserServiceUserCouponCountGet$Response$Data
+_$UserServiceUserCouponCountGet$Response$DataFromJson(
   Map<String, dynamic> json,
-) => UserCouponCountGet$Response$Data(
+) => UserServiceUserCouponCountGet$Response$Data(
   total: json['total'] as String?,
   unUsed: json['unUsed'] as String?,
   locked: json['locked'] as String?,
@@ -1689,8 +1729,8 @@ UserCouponCountGet$Response$Data _$UserCouponCountGet$Response$DataFromJson(
   invalid: json['invalid'] as String?,
 );
 
-Map<String, dynamic> _$UserCouponCountGet$Response$DataToJson(
-  UserCouponCountGet$Response$Data instance,
+Map<String, dynamic> _$UserServiceUserCouponCountGet$Response$DataToJson(
+  UserServiceUserCouponCountGet$Response$Data instance,
 ) => <String, dynamic>{
   'total': instance.total,
   'unUsed': instance.unUsed,
@@ -1699,48 +1739,50 @@ Map<String, dynamic> _$UserCouponCountGet$Response$DataToJson(
   'invalid': instance.invalid,
 };
 
-UserCouponActivityInfoGet$Response$Data
-_$UserCouponActivityInfoGet$Response$DataFromJson(
+UserServiceUserCouponActivityInfoGet$Response$Data
+_$UserServiceUserCouponActivityInfoGet$Response$DataFromJson(
   Map<String, dynamic> json,
-) => UserCouponActivityInfoGet$Response$Data(
+) => UserServiceUserCouponActivityInfoGet$Response$Data(
   couponList: (json['couponList'] as List<dynamic>?)
       ?.map(
-        (e) => UserCouponActivityInfoGet$Response$Data$CouponList$Item.fromJson(
-          e as Map<String, dynamic>,
-        ),
+        (e) =>
+            UserServiceUserCouponActivityInfoGet$Response$Data$CouponList$Item.fromJson(
+              e as Map<String, dynamic>,
+            ),
       )
       .toList(),
   received: json['received'] as bool?,
 );
 
-Map<String, dynamic> _$UserCouponActivityInfoGet$Response$DataToJson(
-  UserCouponActivityInfoGet$Response$Data instance,
+Map<String, dynamic> _$UserServiceUserCouponActivityInfoGet$Response$DataToJson(
+  UserServiceUserCouponActivityInfoGet$Response$Data instance,
 ) => <String, dynamic>{
   'couponList': instance.couponList?.map((e) => e.toJson()).toList(),
   'received': instance.received,
 };
 
-UserCouponCode2CouponGet$Response$Data
-_$UserCouponCode2CouponGet$Response$DataFromJson(Map<String, dynamic> json) =>
-    UserCouponCode2CouponGet$Response$Data(
-      userId: json['userId'] as String?,
-      tenantCode: json['tenantCode'] as String?,
-      couponCode: json['couponCode'] as String?,
-      couponTitle: json['couponTitle'] as String?,
-      isUsed: (json['isUsed'] as num?)?.toDouble(),
-      gmtInvalid: json['gmtInvalid'] as String?,
-      type: (json['type'] as num?)?.toDouble(),
-      discount: json['discount'] as String?,
-      limitAmount: json['limitAmount'] as String?,
-      currency: json['currency'] as String?,
-      discountTarget: json['discountTarget'] as String?,
-      limitAmountTarget: json['limitAmountTarget'] as String?,
-      currencyTarget: json['currencyTarget'] as String?,
-      couponImage: json['couponImage'] as String?,
-    );
+UserServiceUserCouponCode2CouponGet$Response$Data
+_$UserServiceUserCouponCode2CouponGet$Response$DataFromJson(
+  Map<String, dynamic> json,
+) => UserServiceUserCouponCode2CouponGet$Response$Data(
+  userId: json['userId'] as String?,
+  tenantCode: json['tenantCode'] as String?,
+  couponCode: json['couponCode'] as String?,
+  couponTitle: json['couponTitle'] as String?,
+  isUsed: (json['isUsed'] as num?)?.toDouble(),
+  gmtInvalid: json['gmtInvalid'] as String?,
+  type: (json['type'] as num?)?.toDouble(),
+  discount: json['discount'] as String?,
+  limitAmount: json['limitAmount'] as String?,
+  currency: json['currency'] as String?,
+  discountTarget: json['discountTarget'] as String?,
+  limitAmountTarget: json['limitAmountTarget'] as String?,
+  currencyTarget: json['currencyTarget'] as String?,
+  couponImage: json['couponImage'] as String?,
+);
 
-Map<String, dynamic> _$UserCouponCode2CouponGet$Response$DataToJson(
-  UserCouponCode2CouponGet$Response$Data instance,
+Map<String, dynamic> _$UserServiceUserCouponCode2CouponGet$Response$DataToJson(
+  UserServiceUserCouponCode2CouponGet$Response$Data instance,
 ) => <String, dynamic>{
   'userId': instance.userId,
   'tenantCode': instance.tenantCode,
@@ -1758,60 +1800,61 @@ Map<String, dynamic> _$UserCouponCode2CouponGet$Response$DataToJson(
   'couponImage': instance.couponImage,
 };
 
-UserCouponActivityInfosGet$Response$Data$Item
-_$UserCouponActivityInfosGet$Response$Data$ItemFromJson(
+UserServiceUserCouponActivityInfosGet$Response$Data$Item
+_$UserServiceUserCouponActivityInfosGet$Response$Data$ItemFromJson(
   Map<String, dynamic> json,
-) => UserCouponActivityInfosGet$Response$Data$Item(
+) => UserServiceUserCouponActivityInfosGet$Response$Data$Item(
   sourceCode: json['sourceCode'] as String?,
   received: json['received'] as bool?,
   couponList: (json['couponList'] as List<dynamic>?)
       ?.map(
         (e) =>
-            UserCouponActivityInfosGet$Response$Data$Item$CouponList$Item.fromJson(
+            UserServiceUserCouponActivityInfosGet$Response$Data$Item$CouponList$Item.fromJson(
               e as Map<String, dynamic>,
             ),
       )
       .toList(),
 );
 
-Map<String, dynamic> _$UserCouponActivityInfosGet$Response$Data$ItemToJson(
-  UserCouponActivityInfosGet$Response$Data$Item instance,
+Map<String, dynamic>
+_$UserServiceUserCouponActivityInfosGet$Response$Data$ItemToJson(
+  UserServiceUserCouponActivityInfosGet$Response$Data$Item instance,
 ) => <String, dynamic>{
   'sourceCode': instance.sourceCode,
   'received': instance.received,
   'couponList': instance.couponList?.map((e) => e.toJson()).toList(),
 };
 
-UserCouponGetListGet$Response$Data$Item
-_$UserCouponGetListGet$Response$Data$ItemFromJson(
+UserServiceUserCouponGetListGet$Response$Data$Item
+_$UserServiceUserCouponGetListGet$Response$Data$ItemFromJson(
   Map<String, dynamic> json,
-) => UserCouponGetListGet$Response$Data$Item(
+) => UserServiceUserCouponGetListGet$Response$Data$Item(
   sourceCode: json['sourceCode'] as String?,
   userCouponDtos: (json['userCouponDtos'] as List<dynamic>?)
       ?.map(
         (e) =>
-            UserCouponGetListGet$Response$Data$Item$UserCouponDtos$Item.fromJson(
+            UserServiceUserCouponGetListGet$Response$Data$Item$UserCouponDtos$Item.fromJson(
               e as Map<String, dynamic>,
             ),
       )
       .toList(),
 );
 
-Map<String, dynamic> _$UserCouponGetListGet$Response$Data$ItemToJson(
-  UserCouponGetListGet$Response$Data$Item instance,
+Map<String, dynamic> _$UserServiceUserCouponGetListGet$Response$Data$ItemToJson(
+  UserServiceUserCouponGetListGet$Response$Data$Item instance,
 ) => <String, dynamic>{
   'sourceCode': instance.sourceCode,
   'userCouponDtos': instance.userCouponDtos?.map((e) => e.toJson()).toList(),
 };
 
-UserCouponNoAuthActivityInfoGet$Response$Data
-_$UserCouponNoAuthActivityInfoGet$Response$DataFromJson(
+UserServiceUserCouponNoAuthActivityInfoGet$Response$Data
+_$UserServiceUserCouponNoAuthActivityInfoGet$Response$DataFromJson(
   Map<String, dynamic> json,
-) => UserCouponNoAuthActivityInfoGet$Response$Data(
+) => UserServiceUserCouponNoAuthActivityInfoGet$Response$Data(
   couponList: (json['couponList'] as List<dynamic>?)
       ?.map(
         (e) =>
-            UserCouponNoAuthActivityInfoGet$Response$Data$CouponList$Item.fromJson(
+            UserServiceUserCouponNoAuthActivityInfoGet$Response$Data$CouponList$Item.fromJson(
               e as Map<String, dynamic>,
             ),
       )
@@ -1819,17 +1862,18 @@ _$UserCouponNoAuthActivityInfoGet$Response$DataFromJson(
   received: json['received'] as bool?,
 );
 
-Map<String, dynamic> _$UserCouponNoAuthActivityInfoGet$Response$DataToJson(
-  UserCouponNoAuthActivityInfoGet$Response$Data instance,
+Map<String, dynamic>
+_$UserServiceUserCouponNoAuthActivityInfoGet$Response$DataToJson(
+  UserServiceUserCouponNoAuthActivityInfoGet$Response$Data instance,
 ) => <String, dynamic>{
   'couponList': instance.couponList?.map((e) => e.toJson()).toList(),
   'received': instance.received,
 };
 
-UserCouponGetCouponByActivityPost$Response$Data$Item
-_$UserCouponGetCouponByActivityPost$Response$Data$ItemFromJson(
+UserServiceUserCouponGetCouponByActivityPost$Response$Data$Item
+_$UserServiceUserCouponGetCouponByActivityPost$Response$Data$ItemFromJson(
   Map<String, dynamic> json,
-) => UserCouponGetCouponByActivityPost$Response$Data$Item(
+) => UserServiceUserCouponGetCouponByActivityPost$Response$Data$Item(
   userId: json['userId'] as String?,
   tenantCode: json['tenantCode'] as String?,
   couponCode: json['couponCode'] as String?,
@@ -1847,8 +1891,8 @@ _$UserCouponGetCouponByActivityPost$Response$Data$ItemFromJson(
 );
 
 Map<String, dynamic>
-_$UserCouponGetCouponByActivityPost$Response$Data$ItemToJson(
-  UserCouponGetCouponByActivityPost$Response$Data$Item instance,
+_$UserServiceUserCouponGetCouponByActivityPost$Response$Data$ItemToJson(
+  UserServiceUserCouponGetCouponByActivityPost$Response$Data$Item instance,
 ) => <String, dynamic>{
   'userId': instance.userId,
   'tenantCode': instance.tenantCode,
@@ -1866,33 +1910,34 @@ _$UserCouponGetCouponByActivityPost$Response$Data$ItemToJson(
   'couponImage': instance.couponImage,
 };
 
-UserCouponGetGet$Response$Data$Item
-_$UserCouponGetGet$Response$Data$ItemFromJson(Map<String, dynamic> json) =>
-    UserCouponGetGet$Response$Data$Item(
-      userId: json['userId'] as String,
-      tenantCode: json['tenantCode'] as String,
-      couponCode: json['couponCode'] as String,
-      couponTitle: json['couponTitle'] as String?,
-      isUsed: (json['isUsed'] as num?)?.toDouble(),
-      gmtInvalid: json['gmtInvalid'] as String?,
-      type: (json['type'] as num?)?.toDouble(),
-      discount: json['discount'] as String?,
-      limitAmount: json['limitAmount'] as String?,
-      currency: json['currency'] as String?,
-      discountTarget: json['discountTarget'] as String?,
-      limitAmountTarget: json['limitAmountTarget'] as String?,
-      currencyTarget: json['currencyTarget'] as String?,
-      couponImage: json['couponImage'] as String?,
-      couponStatus: json['couponStatus'] as String,
-      msgInfo: json['msgInfo'] == null
-          ? null
-          : UserCouponGetGet$Response$Data$Item$MsgInfo.fromJson(
-              json['msgInfo'] as Map<String, dynamic>,
-            ),
-    );
+UserServiceUserCouponGetGet$Response$Data$Item
+_$UserServiceUserCouponGetGet$Response$Data$ItemFromJson(
+  Map<String, dynamic> json,
+) => UserServiceUserCouponGetGet$Response$Data$Item(
+  userId: json['userId'] as String,
+  tenantCode: json['tenantCode'] as String,
+  couponCode: json['couponCode'] as String,
+  couponTitle: json['couponTitle'] as String?,
+  isUsed: (json['isUsed'] as num?)?.toDouble(),
+  gmtInvalid: json['gmtInvalid'] as String?,
+  type: (json['type'] as num?)?.toDouble(),
+  discount: json['discount'] as String?,
+  limitAmount: json['limitAmount'] as String?,
+  currency: json['currency'] as String?,
+  discountTarget: json['discountTarget'] as String?,
+  limitAmountTarget: json['limitAmountTarget'] as String?,
+  currencyTarget: json['currencyTarget'] as String?,
+  couponImage: json['couponImage'] as String?,
+  couponStatus: json['couponStatus'] as String,
+  msgInfo: json['msgInfo'] == null
+      ? null
+      : UserServiceUserCouponGetGet$Response$Data$Item$MsgInfo.fromJson(
+          json['msgInfo'] as Map<String, dynamic>,
+        ),
+);
 
-Map<String, dynamic> _$UserCouponGetGet$Response$Data$ItemToJson(
-  UserCouponGetGet$Response$Data$Item instance,
+Map<String, dynamic> _$UserServiceUserCouponGetGet$Response$Data$ItemToJson(
+  UserServiceUserCouponGetGet$Response$Data$Item instance,
 ) => <String, dynamic>{
   'userId': instance.userId,
   'tenantCode': instance.tenantCode,
@@ -1912,46 +1957,47 @@ Map<String, dynamic> _$UserCouponGetGet$Response$Data$ItemToJson(
   'msgInfo': instance.msgInfo?.toJson(),
 };
 
-ImGetInfoPost$Response$Data _$ImGetInfoPost$Response$DataFromJson(
-  Map<String, dynamic> json,
-) => ImGetInfoPost$Response$Data(
-  api: json['api'] as String,
-  longConnectApi: json['longConnectApi'] as String,
-  wsApi: json['wsApi'] as String,
-  longConnectKeep: json['longConnectKeep'] as bool,
-  whiteList: (json['whiteList'] as List<dynamic>)
-      .map(
-        (e) => ImGetInfoPost$Response$Data$WhiteList$Item.fromJson(
-          e as Map<String, dynamic>,
-        ),
-      )
-      .toList(),
-  uid: json['uid'] as String,
-  appId: json['app_id'] as String?,
-  name: json['name'] as String?,
-  username: json['username'] as String?,
-  sex: (json['sex'] as num?)?.toDouble(),
-  category: json['category'] as String?,
-  shortNo: json['short_no'] as String?,
-  zone: json['zone'] as String?,
-  phone: json['phone'] as String?,
-  token: json['token'] as String,
-  chatPwd: json['chat_pwd'] as String?,
-  lockScreenPwd: json['lock_screen_pwd'] as String?,
-  lockAfterMinute: (json['lock_after_minute'] as num?)?.toDouble(),
-  setting: json['setting'] == null
-      ? null
-      : ImGetInfoPost$Response$Data$Setting.fromJson(
-          json['setting'] as Map<String, dynamic>,
-        ),
-  rsaPublicKey: json['rsa_public_key'] as String?,
-  shortStatus: (json['short_status'] as num?)?.toDouble(),
-  msgExpireSecond: (json['msg_expire_second'] as num?)?.toDouble(),
-  showStatus: (json['showStatus'] as num).toDouble(),
-);
+UserServiceImGetInfoPost$Response$Data
+_$UserServiceImGetInfoPost$Response$DataFromJson(Map<String, dynamic> json) =>
+    UserServiceImGetInfoPost$Response$Data(
+      api: json['api'] as String,
+      longConnectApi: json['longConnectApi'] as String,
+      wsApi: json['wsApi'] as String,
+      longConnectKeep: json['longConnectKeep'] as bool,
+      whiteList: (json['whiteList'] as List<dynamic>)
+          .map(
+            (e) =>
+                UserServiceImGetInfoPost$Response$Data$WhiteList$Item.fromJson(
+                  e as Map<String, dynamic>,
+                ),
+          )
+          .toList(),
+      uid: json['uid'] as String,
+      appId: json['app_id'] as String?,
+      name: json['name'] as String?,
+      username: json['username'] as String?,
+      sex: (json['sex'] as num?)?.toDouble(),
+      category: json['category'] as String?,
+      shortNo: json['short_no'] as String?,
+      zone: json['zone'] as String?,
+      phone: json['phone'] as String?,
+      token: json['token'] as String,
+      chatPwd: json['chat_pwd'] as String?,
+      lockScreenPwd: json['lock_screen_pwd'] as String?,
+      lockAfterMinute: (json['lock_after_minute'] as num?)?.toDouble(),
+      setting: json['setting'] == null
+          ? null
+          : UserServiceImGetInfoPost$Response$Data$Setting.fromJson(
+              json['setting'] as Map<String, dynamic>,
+            ),
+      rsaPublicKey: json['rsa_public_key'] as String?,
+      shortStatus: (json['short_status'] as num?)?.toDouble(),
+      msgExpireSecond: (json['msg_expire_second'] as num?)?.toDouble(),
+      showStatus: (json['showStatus'] as num).toDouble(),
+    );
 
-Map<String, dynamic> _$ImGetInfoPost$Response$DataToJson(
-  ImGetInfoPost$Response$Data instance,
+Map<String, dynamic> _$UserServiceImGetInfoPost$Response$DataToJson(
+  UserServiceImGetInfoPost$Response$Data instance,
 ) => <String, dynamic>{
   'api': instance.api,
   'longConnectApi': instance.longConnectApi,
@@ -1978,95 +2024,97 @@ Map<String, dynamic> _$ImGetInfoPost$Response$DataToJson(
   'showStatus': instance.showStatus,
 };
 
-UserShareListGet$Response$Data$Item
-_$UserShareListGet$Response$Data$ItemFromJson(Map<String, dynamic> json) =>
-    UserShareListGet$Response$Data$Item(
-      rewardId: json['rewardId'] as String?,
-      tenantCode: json['tenantCode'] as String?,
-      userId: json['userId'] as String?,
-      content: json['content'] as String?,
-      auditStatus: (json['auditStatus'] as num?)?.toInt(),
-      auditTime: json['auditTime'] as String?,
-      rewardAmount: (json['rewardAmount'] as num?)?.toDouble(),
-      currency: json['currency'] as String?,
-      rewardType: (json['rewardType'] as num?)?.toInt(),
-    );
-
-Map<String, dynamic> _$UserShareListGet$Response$Data$ItemToJson(
-  UserShareListGet$Response$Data$Item instance,
-) => <String, dynamic>{
-  'rewardId': instance.rewardId,
-  'tenantCode': instance.tenantCode,
-  'userId': instance.userId,
-  'content': instance.content,
-  'auditStatus': instance.auditStatus,
-  'auditTime': instance.auditTime,
-  'rewardAmount': instance.rewardAmount,
-  'currency': instance.currency,
-  'rewardType': instance.rewardType,
-};
-
-UserShareRewardInfoGet$Response$Data
-_$UserShareRewardInfoGet$Response$DataFromJson(Map<String, dynamic> json) =>
-    UserShareRewardInfoGet$Response$Data(
-      rewardId: json['rewardId'] as String?,
-      tenantCode: json['tenantCode'] as String?,
-      userId: json['userId'] as String?,
-      content: json['content'] as String?,
-      auditStatus: (json['auditStatus'] as num?)?.toInt(),
-      auditTime: json['auditTime'] as String?,
-      rewardAmount: (json['rewardAmount'] as num?)?.toDouble(),
-      currency: json['currency'] as String?,
-      rewardType: (json['rewardType'] as num?)?.toInt(),
-    );
-
-Map<String, dynamic> _$UserShareRewardInfoGet$Response$DataToJson(
-  UserShareRewardInfoGet$Response$Data instance,
-) => <String, dynamic>{
-  'rewardId': instance.rewardId,
-  'tenantCode': instance.tenantCode,
-  'userId': instance.userId,
-  'content': instance.content,
-  'auditStatus': instance.auditStatus,
-  'auditTime': instance.auditTime,
-  'rewardAmount': instance.rewardAmount,
-  'currency': instance.currency,
-  'rewardType': instance.rewardType,
-};
-
-UserDeleteGet$Response$Data _$UserDeleteGet$Response$DataFromJson(
+UserServiceUserShareListGet$Response$Data$Item
+_$UserServiceUserShareListGet$Response$Data$ItemFromJson(
   Map<String, dynamic> json,
-) => UserDeleteGet$Response$Data(authWay: json['authWay'] as String?);
-
-Map<String, dynamic> _$UserDeleteGet$Response$DataToJson(
-  UserDeleteGet$Response$Data instance,
-) => <String, dynamic>{'authWay': instance.authWay};
-
-UserGetGet$Response$Data _$UserGetGet$Response$DataFromJson(
-  Map<String, dynamic> json,
-) => UserGetGet$Response$Data(
+) => UserServiceUserShareListGet$Response$Data$Item(
+  rewardId: json['rewardId'] as String?,
+  tenantCode: json['tenantCode'] as String?,
   userId: json['userId'] as String?,
-  nickname: json['nickname'] as String?,
-  description: json['description'] as String?,
-  gender: (json['gender'] as num?)?.toDouble(),
-  birthday: json['birthday'] as String?,
-  photo: json['photo'] as String?,
-  phoneNumber: json['phoneNumber'] as String?,
-  email: json['email'] as String?,
-  signUpType: (json['signUpType'] as num?)?.toDouble(),
-  platform: json['platform'] as String?,
-  createTime: json['createTime'] as String?,
-  inviteCode: json['inviteCode'] as String?,
-  inviteCount: json['inviteCount'] as String?,
-  portalCode: json['portalCode'] as String?,
+  content: json['content'] as String?,
+  auditStatus: (json['auditStatus'] as num?)?.toInt(),
+  auditTime: json['auditTime'] as String?,
+  rewardAmount: (json['rewardAmount'] as num?)?.toDouble(),
   currency: json['currency'] as String?,
-  thirdAccount: json['thirdAccount'] as String?,
-  imUid: json['imUid'] as String?,
-  imUsername: json['imUsername'] as String?,
+  rewardType: (json['rewardType'] as num?)?.toInt(),
 );
 
-Map<String, dynamic> _$UserGetGet$Response$DataToJson(
-  UserGetGet$Response$Data instance,
+Map<String, dynamic> _$UserServiceUserShareListGet$Response$Data$ItemToJson(
+  UserServiceUserShareListGet$Response$Data$Item instance,
+) => <String, dynamic>{
+  'rewardId': instance.rewardId,
+  'tenantCode': instance.tenantCode,
+  'userId': instance.userId,
+  'content': instance.content,
+  'auditStatus': instance.auditStatus,
+  'auditTime': instance.auditTime,
+  'rewardAmount': instance.rewardAmount,
+  'currency': instance.currency,
+  'rewardType': instance.rewardType,
+};
+
+UserServiceUserShareRewardInfoGet$Response$Data
+_$UserServiceUserShareRewardInfoGet$Response$DataFromJson(
+  Map<String, dynamic> json,
+) => UserServiceUserShareRewardInfoGet$Response$Data(
+  rewardId: json['rewardId'] as String?,
+  tenantCode: json['tenantCode'] as String?,
+  userId: json['userId'] as String?,
+  content: json['content'] as String?,
+  auditStatus: (json['auditStatus'] as num?)?.toInt(),
+  auditTime: json['auditTime'] as String?,
+  rewardAmount: (json['rewardAmount'] as num?)?.toDouble(),
+  currency: json['currency'] as String?,
+  rewardType: (json['rewardType'] as num?)?.toInt(),
+);
+
+Map<String, dynamic> _$UserServiceUserShareRewardInfoGet$Response$DataToJson(
+  UserServiceUserShareRewardInfoGet$Response$Data instance,
+) => <String, dynamic>{
+  'rewardId': instance.rewardId,
+  'tenantCode': instance.tenantCode,
+  'userId': instance.userId,
+  'content': instance.content,
+  'auditStatus': instance.auditStatus,
+  'auditTime': instance.auditTime,
+  'rewardAmount': instance.rewardAmount,
+  'currency': instance.currency,
+  'rewardType': instance.rewardType,
+};
+
+UserServiceUserDeleteGet$Response$Data
+_$UserServiceUserDeleteGet$Response$DataFromJson(Map<String, dynamic> json) =>
+    UserServiceUserDeleteGet$Response$Data(authWay: json['authWay'] as String?);
+
+Map<String, dynamic> _$UserServiceUserDeleteGet$Response$DataToJson(
+  UserServiceUserDeleteGet$Response$Data instance,
+) => <String, dynamic>{'authWay': instance.authWay};
+
+UserServiceUserGetGet$Response$Data
+_$UserServiceUserGetGet$Response$DataFromJson(Map<String, dynamic> json) =>
+    UserServiceUserGetGet$Response$Data(
+      userId: json['userId'] as String?,
+      nickname: json['nickname'] as String?,
+      description: json['description'] as String?,
+      gender: (json['gender'] as num?)?.toDouble(),
+      birthday: json['birthday'] as String?,
+      photo: json['photo'] as String?,
+      phoneNumber: json['phoneNumber'] as String?,
+      email: json['email'] as String?,
+      signUpType: (json['signUpType'] as num?)?.toDouble(),
+      platform: json['platform'] as String?,
+      createTime: json['createTime'] as String?,
+      inviteCode: json['inviteCode'] as String?,
+      inviteCount: json['inviteCount'] as String?,
+      portalCode: json['portalCode'] as String?,
+      currency: json['currency'] as String?,
+      thirdAccount: json['thirdAccount'] as String?,
+      imUid: json['imUid'] as String?,
+      imUsername: json['imUsername'] as String?,
+    );
+
+Map<String, dynamic> _$UserServiceUserGetGet$Response$DataToJson(
+  UserServiceUserGetGet$Response$Data instance,
 ) => <String, dynamic>{
   'userId': instance.userId,
   'nickname': instance.nickname,
@@ -2088,52 +2136,55 @@ Map<String, dynamic> _$UserGetGet$Response$DataToJson(
   'imUsername': instance.imUsername,
 };
 
-UserUserCommissionGet$Response$Data
-_$UserUserCommissionGet$Response$DataFromJson(Map<String, dynamic> json) =>
-    UserUserCommissionGet$Response$Data(
-      currentUserLevel: (json['currentUserLevel'] as num?)?.toInt(),
-      nextUserLevel: (json['nextUserLevel'] as num?)?.toInt(),
-      nextUserLevelPoints: (json['nextUserLevelPoints'] as num?)?.toInt(),
-    );
+UserServiceUserUserCommissionGet$Response$Data
+_$UserServiceUserUserCommissionGet$Response$DataFromJson(
+  Map<String, dynamic> json,
+) => UserServiceUserUserCommissionGet$Response$Data(
+  currentUserLevel: (json['currentUserLevel'] as num?)?.toInt(),
+  nextUserLevel: (json['nextUserLevel'] as num?)?.toInt(),
+  nextUserLevelPoints: (json['nextUserLevelPoints'] as num?)?.toInt(),
+);
 
-Map<String, dynamic> _$UserUserCommissionGet$Response$DataToJson(
-  UserUserCommissionGet$Response$Data instance,
+Map<String, dynamic> _$UserServiceUserUserCommissionGet$Response$DataToJson(
+  UserServiceUserUserCommissionGet$Response$Data instance,
 ) => <String, dynamic>{
   'currentUserLevel': instance.currentUserLevel,
   'nextUserLevel': instance.nextUserLevel,
   'nextUserLevelPoints': instance.nextUserLevelPoints,
 };
 
-UserConfigureSettingGet$Response$Data
-_$UserConfigureSettingGet$Response$DataFromJson(Map<String, dynamic> json) =>
-    UserConfigureSettingGet$Response$Data(
-      showGiveawayGift: (json['showGiveawayGift'] as num?)?.toInt(),
-    );
+UserServiceUserConfigureSettingGet$Response$Data
+_$UserServiceUserConfigureSettingGet$Response$DataFromJson(
+  Map<String, dynamic> json,
+) => UserServiceUserConfigureSettingGet$Response$Data(
+  showGiveawayGift: (json['showGiveawayGift'] as num?)?.toInt(),
+);
 
-Map<String, dynamic> _$UserConfigureSettingGet$Response$DataToJson(
-  UserConfigureSettingGet$Response$Data instance,
+Map<String, dynamic> _$UserServiceUserConfigureSettingGet$Response$DataToJson(
+  UserServiceUserConfigureSettingGet$Response$Data instance,
 ) => <String, dynamic>{'showGiveawayGift': instance.showGiveawayGift};
 
-UserInviteNumGet$Response$Data _$UserInviteNumGet$Response$DataFromJson(
+UserServiceUserInviteNumGet$Response$Data
+_$UserServiceUserInviteNumGet$Response$DataFromJson(
   Map<String, dynamic> json,
-) => UserInviteNumGet$Response$Data(
+) => UserServiceUserInviteNumGet$Response$Data(
   inviteTotalNum: (json['inviteTotalNum'] as num?)?.toDouble(),
   inviteNum: (json['inviteNum'] as num?)?.toDouble(),
   subInviteNum: (json['subInviteNum'] as num?)?.toDouble(),
 );
 
-Map<String, dynamic> _$UserInviteNumGet$Response$DataToJson(
-  UserInviteNumGet$Response$Data instance,
+Map<String, dynamic> _$UserServiceUserInviteNumGet$Response$DataToJson(
+  UserServiceUserInviteNumGet$Response$Data instance,
 ) => <String, dynamic>{
   'inviteTotalNum': instance.inviteTotalNum,
   'inviteNum': instance.inviteNum,
   'subInviteNum': instance.subInviteNum,
 };
 
-UserTagPortraitAiToPortraitPost$Response$Data
-_$UserTagPortraitAiToPortraitPost$Response$DataFromJson(
+UserServiceUserTagPortraitAiToPortraitPost$Response$Data
+_$UserServiceUserTagPortraitAiToPortraitPost$Response$DataFromJson(
   Map<String, dynamic> json,
-) => UserTagPortraitAiToPortraitPost$Response$Data(
+) => UserServiceUserTagPortraitAiToPortraitPost$Response$Data(
   age: (json['age'] as num?)?.toDouble(),
   sex: (json['sex'] as num?)?.toDouble(),
   birthday: (json['birthday'] as num?)?.toDouble(),
@@ -2146,8 +2197,9 @@ _$UserTagPortraitAiToPortraitPost$Response$DataFromJson(
   favoriteBrands: json['favoriteBrands'] as String?,
 );
 
-Map<String, dynamic> _$UserTagPortraitAiToPortraitPost$Response$DataToJson(
-  UserTagPortraitAiToPortraitPost$Response$Data instance,
+Map<String, dynamic>
+_$UserServiceUserTagPortraitAiToPortraitPost$Response$DataToJson(
+  UserServiceUserTagPortraitAiToPortraitPost$Response$Data instance,
 ) => <String, dynamic>{
   'age': instance.age,
   'sex': instance.sex,
@@ -2157,10 +2209,10 @@ Map<String, dynamic> _$UserTagPortraitAiToPortraitPost$Response$DataToJson(
   'favoriteBrands': instance.favoriteBrands,
 };
 
-UserTagPortraitAiToPortraitV2Post$Response$Data
-_$UserTagPortraitAiToPortraitV2Post$Response$DataFromJson(
+UserServiceUserTagPortraitAiToPortraitV2Post$Response$Data
+_$UserServiceUserTagPortraitAiToPortraitV2Post$Response$DataFromJson(
   Map<String, dynamic> json,
-) => UserTagPortraitAiToPortraitV2Post$Response$Data(
+) => UserServiceUserTagPortraitAiToPortraitV2Post$Response$Data(
   age: (json['age'] as num?)?.toDouble(),
   sex: (json['sex'] as num?)?.toDouble(),
   birthday: (json['birthday'] as num?)?.toDouble(),
@@ -2173,8 +2225,9 @@ _$UserTagPortraitAiToPortraitV2Post$Response$DataFromJson(
   favoriteBrands: json['favoriteBrands'] as String?,
 );
 
-Map<String, dynamic> _$UserTagPortraitAiToPortraitV2Post$Response$DataToJson(
-  UserTagPortraitAiToPortraitV2Post$Response$Data instance,
+Map<String, dynamic>
+_$UserServiceUserTagPortraitAiToPortraitV2Post$Response$DataToJson(
+  UserServiceUserTagPortraitAiToPortraitV2Post$Response$Data instance,
 ) => <String, dynamic>{
   'age': instance.age,
   'sex': instance.sex,
@@ -2184,10 +2237,10 @@ Map<String, dynamic> _$UserTagPortraitAiToPortraitV2Post$Response$DataToJson(
   'favoriteBrands': instance.favoriteBrands,
 };
 
-UserTagPortraitGetPortraitGet$Response$Data
-_$UserTagPortraitGetPortraitGet$Response$DataFromJson(
+UserServiceUserTagPortraitGetPortraitGet$Response$Data
+_$UserServiceUserTagPortraitGetPortraitGet$Response$DataFromJson(
   Map<String, dynamic> json,
-) => UserTagPortraitGetPortraitGet$Response$Data(
+) => UserServiceUserTagPortraitGetPortraitGet$Response$Data(
   age: (json['age'] as num?)?.toDouble(),
   sex: (json['sex'] as num?)?.toDouble(),
   birthday: (json['birthday'] as num?)?.toDouble(),
@@ -2201,8 +2254,9 @@ _$UserTagPortraitGetPortraitGet$Response$DataFromJson(
   favoriteBrands: json['favoriteBrands'] as String?,
 );
 
-Map<String, dynamic> _$UserTagPortraitGetPortraitGet$Response$DataToJson(
-  UserTagPortraitGetPortraitGet$Response$Data instance,
+Map<String, dynamic>
+_$UserServiceUserTagPortraitGetPortraitGet$Response$DataToJson(
+  UserServiceUserTagPortraitGetPortraitGet$Response$Data instance,
 ) => <String, dynamic>{
   'age': instance.age,
   'sex': instance.sex,
@@ -2213,10 +2267,10 @@ Map<String, dynamic> _$UserTagPortraitGetPortraitGet$Response$DataToJson(
   'favoriteBrands': instance.favoriteBrands,
 };
 
-UserCouponAppHomeActivityPost$Response$Data$Item
-_$UserCouponAppHomeActivityPost$Response$Data$ItemFromJson(
+UserServiceUserCouponAppHomeActivityPost$Response$Data$Item
+_$UserServiceUserCouponAppHomeActivityPost$Response$Data$ItemFromJson(
   Map<String, dynamic> json,
-) => UserCouponAppHomeActivityPost$Response$Data$Item(
+) => UserServiceUserCouponAppHomeActivityPost$Response$Data$Item(
   userId: json['userId'] as String?,
   tenantCode: json['tenantCode'] as String?,
   couponCode: json['couponCode'] as String?,
@@ -2233,13 +2287,14 @@ _$UserCouponAppHomeActivityPost$Response$Data$ItemFromJson(
   couponImage: json['couponImage'] as String?,
   msgInfo: json['msgInfo'] == null
       ? null
-      : UserCouponAppHomeActivityPost$Response$Data$Item$MsgInfo.fromJson(
+      : UserServiceUserCouponAppHomeActivityPost$Response$Data$Item$MsgInfo.fromJson(
           json['msgInfo'] as Map<String, dynamic>,
         ),
 );
 
-Map<String, dynamic> _$UserCouponAppHomeActivityPost$Response$Data$ItemToJson(
-  UserCouponAppHomeActivityPost$Response$Data$Item instance,
+Map<String, dynamic>
+_$UserServiceUserCouponAppHomeActivityPost$Response$Data$ItemToJson(
+  UserServiceUserCouponAppHomeActivityPost$Response$Data$Item instance,
 ) => <String, dynamic>{
   'userId': instance.userId,
   'tenantCode': instance.tenantCode,
@@ -2258,10 +2313,10 @@ Map<String, dynamic> _$UserCouponAppHomeActivityPost$Response$Data$ItemToJson(
   'msgInfo': instance.msgInfo?.toJson(),
 };
 
-UserCouponActivityInfoGet$Response$Data$CouponList$Item
-_$UserCouponActivityInfoGet$Response$Data$CouponList$ItemFromJson(
+UserServiceUserCouponActivityInfoGet$Response$Data$CouponList$Item
+_$UserServiceUserCouponActivityInfoGet$Response$Data$CouponList$ItemFromJson(
   Map<String, dynamic> json,
-) => UserCouponActivityInfoGet$Response$Data$CouponList$Item(
+) => UserServiceUserCouponActivityInfoGet$Response$Data$CouponList$Item(
   currencySymbol: json['currencySymbol'] as String,
   discountType: (json['discountType'] as num).toDouble(),
   discountInfo: (json['discountInfo'] as num).toDouble(),
@@ -2271,8 +2326,8 @@ _$UserCouponActivityInfoGet$Response$Data$CouponList$ItemFromJson(
 );
 
 Map<String, dynamic>
-_$UserCouponActivityInfoGet$Response$Data$CouponList$ItemToJson(
-  UserCouponActivityInfoGet$Response$Data$CouponList$Item instance,
+_$UserServiceUserCouponActivityInfoGet$Response$Data$CouponList$ItemToJson(
+  UserServiceUserCouponActivityInfoGet$Response$Data$CouponList$Item instance,
 ) => <String, dynamic>{
   'currencySymbol': instance.currencySymbol,
   'discountType': instance.discountType,
@@ -2282,10 +2337,10 @@ _$UserCouponActivityInfoGet$Response$Data$CouponList$ItemToJson(
   'userCouponCode': instance.userCouponCode,
 };
 
-UserCouponActivityInfosGet$Response$Data$Item$CouponList$Item
-_$UserCouponActivityInfosGet$Response$Data$Item$CouponList$ItemFromJson(
+UserServiceUserCouponActivityInfosGet$Response$Data$Item$CouponList$Item
+_$UserServiceUserCouponActivityInfosGet$Response$Data$Item$CouponList$ItemFromJson(
   Map<String, dynamic> json,
-) => UserCouponActivityInfosGet$Response$Data$Item$CouponList$Item(
+) => UserServiceUserCouponActivityInfosGet$Response$Data$Item$CouponList$Item(
   couponCode: json['couponCode'] as String?,
   invalidPeriod: (json['invalidPeriod'] as num?)?.toDouble(),
   currencySymbol: json['currencySymbol'] as String?,
@@ -2295,8 +2350,9 @@ _$UserCouponActivityInfosGet$Response$Data$Item$CouponList$ItemFromJson(
 );
 
 Map<String, dynamic>
-_$UserCouponActivityInfosGet$Response$Data$Item$CouponList$ItemToJson(
-  UserCouponActivityInfosGet$Response$Data$Item$CouponList$Item instance,
+_$UserServiceUserCouponActivityInfosGet$Response$Data$Item$CouponList$ItemToJson(
+  UserServiceUserCouponActivityInfosGet$Response$Data$Item$CouponList$Item
+  instance,
 ) => <String, dynamic>{
   'couponCode': instance.couponCode,
   'invalidPeriod': instance.invalidPeriod,
@@ -2306,10 +2362,10 @@ _$UserCouponActivityInfosGet$Response$Data$Item$CouponList$ItemToJson(
   'limitAmount': instance.limitAmount,
 };
 
-UserCouponGetListGet$Response$Data$Item$UserCouponDtos$Item
-_$UserCouponGetListGet$Response$Data$Item$UserCouponDtos$ItemFromJson(
+UserServiceUserCouponGetListGet$Response$Data$Item$UserCouponDtos$Item
+_$UserServiceUserCouponGetListGet$Response$Data$Item$UserCouponDtos$ItemFromJson(
   Map<String, dynamic> json,
-) => UserCouponGetListGet$Response$Data$Item$UserCouponDtos$Item(
+) => UserServiceUserCouponGetListGet$Response$Data$Item$UserCouponDtos$Item(
   userId: json['userId'] as String?,
   tenantCode: json['tenantCode'] as String?,
   couponCode: json['couponCode'] as String?,
@@ -2328,8 +2384,9 @@ _$UserCouponGetListGet$Response$Data$Item$UserCouponDtos$ItemFromJson(
 );
 
 Map<String, dynamic>
-_$UserCouponGetListGet$Response$Data$Item$UserCouponDtos$ItemToJson(
-  UserCouponGetListGet$Response$Data$Item$UserCouponDtos$Item instance,
+_$UserServiceUserCouponGetListGet$Response$Data$Item$UserCouponDtos$ItemToJson(
+  UserServiceUserCouponGetListGet$Response$Data$Item$UserCouponDtos$Item
+  instance,
 ) => <String, dynamic>{
   'userId': instance.userId,
   'tenantCode': instance.tenantCode,
@@ -2348,10 +2405,10 @@ _$UserCouponGetListGet$Response$Data$Item$UserCouponDtos$ItemToJson(
   'invalidPeriod': instance.invalidPeriod,
 };
 
-UserCouponNoAuthActivityInfoGet$Response$Data$CouponList$Item
-_$UserCouponNoAuthActivityInfoGet$Response$Data$CouponList$ItemFromJson(
+UserServiceUserCouponNoAuthActivityInfoGet$Response$Data$CouponList$Item
+_$UserServiceUserCouponNoAuthActivityInfoGet$Response$Data$CouponList$ItemFromJson(
   Map<String, dynamic> json,
-) => UserCouponNoAuthActivityInfoGet$Response$Data$CouponList$Item(
+) => UserServiceUserCouponNoAuthActivityInfoGet$Response$Data$CouponList$Item(
   currencySymbol: json['currencySymbol'] as String,
   discountType: (json['discountType'] as num).toDouble(),
   discountInfo: (json['discountInfo'] as num).toDouble(),
@@ -2359,8 +2416,9 @@ _$UserCouponNoAuthActivityInfoGet$Response$Data$CouponList$ItemFromJson(
 );
 
 Map<String, dynamic>
-_$UserCouponNoAuthActivityInfoGet$Response$Data$CouponList$ItemToJson(
-  UserCouponNoAuthActivityInfoGet$Response$Data$CouponList$Item instance,
+_$UserServiceUserCouponNoAuthActivityInfoGet$Response$Data$CouponList$ItemToJson(
+  UserServiceUserCouponNoAuthActivityInfoGet$Response$Data$CouponList$Item
+  instance,
 ) => <String, dynamic>{
   'currencySymbol': instance.currencySymbol,
   'discountType': instance.discountType,
@@ -2368,10 +2426,10 @@ _$UserCouponNoAuthActivityInfoGet$Response$Data$CouponList$ItemToJson(
   'limitAmount': instance.limitAmount,
 };
 
-UserCouponGetGet$Response$Data$Item$MsgInfo
-_$UserCouponGetGet$Response$Data$Item$MsgInfoFromJson(
+UserServiceUserCouponGetGet$Response$Data$Item$MsgInfo
+_$UserServiceUserCouponGetGet$Response$Data$Item$MsgInfoFromJson(
   Map<String, dynamic> json,
-) => UserCouponGetGet$Response$Data$Item$MsgInfo(
+) => UserServiceUserCouponGetGet$Response$Data$Item$MsgInfo(
   name: json['name'] as String?,
   limit: json['limit'] as String?,
   usage: json['usage'] as String?,
@@ -2379,8 +2437,9 @@ _$UserCouponGetGet$Response$Data$Item$MsgInfoFromJson(
   discountUnit: json['discountUnit'] as String,
 );
 
-Map<String, dynamic> _$UserCouponGetGet$Response$Data$Item$MsgInfoToJson(
-  UserCouponGetGet$Response$Data$Item$MsgInfo instance,
+Map<String, dynamic>
+_$UserServiceUserCouponGetGet$Response$Data$Item$MsgInfoToJson(
+  UserServiceUserCouponGetGet$Response$Data$Item$MsgInfo instance,
 ) => <String, dynamic>{
   'name': instance.name,
   'limit': instance.limit,
@@ -2389,37 +2448,39 @@ Map<String, dynamic> _$UserCouponGetGet$Response$Data$Item$MsgInfoToJson(
   'discountUnit': instance.discountUnit,
 };
 
-ImGetInfoPost$Response$Data$WhiteList$Item
-_$ImGetInfoPost$Response$Data$WhiteList$ItemFromJson(
+UserServiceImGetInfoPost$Response$Data$WhiteList$Item
+_$UserServiceImGetInfoPost$Response$Data$WhiteList$ItemFromJson(
   Map<String, dynamic> json,
-) => ImGetInfoPost$Response$Data$WhiteList$Item(
+) => UserServiceImGetInfoPost$Response$Data$WhiteList$Item(
   channelId: json['channelId'] as String,
   channelType: json['channelType'] as String,
 );
 
-Map<String, dynamic> _$ImGetInfoPost$Response$Data$WhiteList$ItemToJson(
-  ImGetInfoPost$Response$Data$WhiteList$Item instance,
+Map<String, dynamic>
+_$UserServiceImGetInfoPost$Response$Data$WhiteList$ItemToJson(
+  UserServiceImGetInfoPost$Response$Data$WhiteList$Item instance,
 ) => <String, dynamic>{
   'channelId': instance.channelId,
   'channelType': instance.channelType,
 };
 
-ImGetInfoPost$Response$Data$Setting
-_$ImGetInfoPost$Response$Data$SettingFromJson(Map<String, dynamic> json) =>
-    ImGetInfoPost$Response$Data$Setting(
-      searchByPhone: (json['search_by_phone'] as num?)?.toDouble(),
-      searchByShort: (json['search_by_short'] as num?)?.toDouble(),
-      newMsgNotice: (json['new_msg_notice'] as num?)?.toDouble(),
-      msgShowDetail: (json['msg_show_detail'] as num?)?.toDouble(),
-      voiceOn: (json['voice_on'] as num?)?.toDouble(),
-      shockOn: (json['shock_on'] as num?)?.toDouble(),
-      offlineProtection: (json['offline_protection'] as num?)?.toDouble(),
-      deviceLock: (json['device_lock'] as num?)?.toDouble(),
-      muteOfApp: (json['mute_of_app'] as num?)?.toDouble(),
-    );
+UserServiceImGetInfoPost$Response$Data$Setting
+_$UserServiceImGetInfoPost$Response$Data$SettingFromJson(
+  Map<String, dynamic> json,
+) => UserServiceImGetInfoPost$Response$Data$Setting(
+  searchByPhone: (json['search_by_phone'] as num?)?.toDouble(),
+  searchByShort: (json['search_by_short'] as num?)?.toDouble(),
+  newMsgNotice: (json['new_msg_notice'] as num?)?.toDouble(),
+  msgShowDetail: (json['msg_show_detail'] as num?)?.toDouble(),
+  voiceOn: (json['voice_on'] as num?)?.toDouble(),
+  shockOn: (json['shock_on'] as num?)?.toDouble(),
+  offlineProtection: (json['offline_protection'] as num?)?.toDouble(),
+  deviceLock: (json['device_lock'] as num?)?.toDouble(),
+  muteOfApp: (json['mute_of_app'] as num?)?.toDouble(),
+);
 
-Map<String, dynamic> _$ImGetInfoPost$Response$Data$SettingToJson(
-  ImGetInfoPost$Response$Data$Setting instance,
+Map<String, dynamic> _$UserServiceImGetInfoPost$Response$Data$SettingToJson(
+  UserServiceImGetInfoPost$Response$Data$Setting instance,
 ) => <String, dynamic>{
   'search_by_phone': instance.searchByPhone,
   'search_by_short': instance.searchByShort,
@@ -2432,15 +2493,15 @@ Map<String, dynamic> _$ImGetInfoPost$Response$Data$SettingToJson(
   'mute_of_app': instance.muteOfApp,
 };
 
-UserCouponAppHomeActivityPost$Response$Data$Item$MsgInfo
-_$UserCouponAppHomeActivityPost$Response$Data$Item$MsgInfoFromJson(
+UserServiceUserCouponAppHomeActivityPost$Response$Data$Item$MsgInfo
+_$UserServiceUserCouponAppHomeActivityPost$Response$Data$Item$MsgInfoFromJson(
   Map<String, dynamic> json,
-) => UserCouponAppHomeActivityPost$Response$Data$Item$MsgInfo(
+) => UserServiceUserCouponAppHomeActivityPost$Response$Data$Item$MsgInfo(
   name: json['name'] as String?,
   usage: json['usage'] as String?,
 );
 
 Map<String, dynamic>
-_$UserCouponAppHomeActivityPost$Response$Data$Item$MsgInfoToJson(
-  UserCouponAppHomeActivityPost$Response$Data$Item$MsgInfo instance,
+_$UserServiceUserCouponAppHomeActivityPost$Response$Data$Item$MsgInfoToJson(
+  UserServiceUserCouponAppHomeActivityPost$Response$Data$Item$MsgInfo instance,
 ) => <String, dynamic>{'name': instance.name, 'usage': instance.usage};

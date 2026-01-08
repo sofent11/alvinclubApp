@@ -45,7 +45,7 @@ abstract class SwaggerApiOrder extends ChopperService {
       client: httpClient,
       authenticator: authenticator,
       errorConverter: errorConverter,
-      baseUrl: baseUrl ?? Uri.parse('http:///'),
+      baseUrl: baseUrl ?? Uri.parse('http://'),
     );
     return _$SwaggerApiOrder(newClient);
   }

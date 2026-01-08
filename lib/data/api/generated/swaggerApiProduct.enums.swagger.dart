@@ -4,7 +4,7 @@
 import 'package:json_annotation/json_annotation.dart';
 import 'package:collection/collection.dart';
 
-enum ProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSort {
+enum ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSort {
   @JsonValue(null)
   swaggerGeneratedUnknown(null),
 
@@ -17,12 +17,12 @@ enum ProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSort {
 
   final String? value;
 
-  const ProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSort(
+  const ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSort(
     this.value,
   );
 }
 
-enum ProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrder {
+enum ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrder {
   @JsonValue(null)
   swaggerGeneratedUnknown(null),
 
@@ -33,7 +33,7 @@ enum ProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrder {
 
   final String? value;
 
-  const ProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrder(
+  const ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrder(
     this.value,
   );
 }

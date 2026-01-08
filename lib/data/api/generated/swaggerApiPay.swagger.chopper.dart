@@ -19,7 +19,8 @@ final class _$SwaggerApiPay extends SwaggerApiPay {
   final Type definitionType = SwaggerApiPay;
 
   @override
-  Future<Response<WithdrawOrdersGet$Response>> _withdrawOrdersGet({
+  Future<Response<PayServiceWithdrawOrdersGet$Response>>
+  _payServiceWithdrawOrdersGet({
     required String? current,
     required String? pageSize,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -33,7 +34,7 @@ final class _$SwaggerApiPay extends SwaggerApiPay {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/withdraw/orders');
+    final Uri $url = Uri.parse('/pay-service/withdraw/orders');
     final Map<String, dynamic> $params = <String, dynamic>{
       'current': current,
       'pageSize': pageSize,
@@ -45,13 +46,15 @@ final class _$SwaggerApiPay extends SwaggerApiPay {
       parameters: $params,
       tag: swaggerMetaData,
     );
-    return client.send<WithdrawOrdersGet$Response, WithdrawOrdersGet$Response>(
-      $request,
-    );
+    return client.send<
+      PayServiceWithdrawOrdersGet$Response,
+      PayServiceWithdrawOrdersGet$Response
+    >($request);
   }
 
   @override
-  Future<Response<WithdrawApplyPost$Response>> _withdrawApplyPost({
+  Future<Response<PayServiceWithdrawApplyPost$Response>>
+  _payServiceWithdrawApplyPost({
     Object? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -64,7 +67,7 @@ final class _$SwaggerApiPay extends SwaggerApiPay {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/withdraw/apply');
+    final Uri $url = Uri.parse('/pay-service/withdraw/apply');
     final $body = root;
     final Request $request = Request(
       'POST',
@@ -73,13 +76,15 @@ final class _$SwaggerApiPay extends SwaggerApiPay {
       body: $body,
       tag: swaggerMetaData,
     );
-    return client.send<WithdrawApplyPost$Response, WithdrawApplyPost$Response>(
-      $request,
-    );
+    return client.send<
+      PayServiceWithdrawApplyPost$Response,
+      PayServiceWithdrawApplyPost$Response
+    >($request);
   }
 
   @override
-  Future<Response<CommissionSummaryGet$Response>> _commissionSummaryGet({
+  Future<Response<PayServiceCommissionSummaryGet$Response>>
+  _payServiceCommissionSummaryGet({
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '获取佣金总体信息接口',
@@ -91,22 +96,22 @@ final class _$SwaggerApiPay extends SwaggerApiPay {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/commission/summary');
+    final Uri $url = Uri.parse('/pay-service/commission/summary');
     final Request $request = Request(
       'GET',
       $url,
       client.baseUrl,
       tag: swaggerMetaData,
     );
-    return client
-        .send<CommissionSummaryGet$Response, CommissionSummaryGet$Response>(
-          $request,
-        );
+    return client.send<
+      PayServiceCommissionSummaryGet$Response,
+      PayServiceCommissionSummaryGet$Response
+    >($request);
   }
 
   @override
-  Future<Response<CommissionTransactionGet$Response>>
-  _commissionTransactionGet({
+  Future<Response<PayServiceCommissionTransactionGet$Response>>
+  _payServiceCommissionTransactionGet({
     required String? current,
     required String? pageSize,
     required String? type,
@@ -121,7 +126,7 @@ final class _$SwaggerApiPay extends SwaggerApiPay {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/commission/transaction');
+    final Uri $url = Uri.parse('/pay-service/commission/transaction');
     final Map<String, dynamic> $params = <String, dynamic>{
       'current': current,
       'pageSize': pageSize,
@@ -135,13 +140,14 @@ final class _$SwaggerApiPay extends SwaggerApiPay {
       tag: swaggerMetaData,
     );
     return client.send<
-      CommissionTransactionGet$Response,
-      CommissionTransactionGet$Response
+      PayServiceCommissionTransactionGet$Response,
+      PayServiceCommissionTransactionGet$Response
     >($request);
   }
 
   @override
-  Future<Response<RechargeBalanceGet$Response>> _rechargeBalanceGet({
+  Future<Response<PayServiceRechargeBalanceGet$Response>>
+  _payServiceRechargeBalanceGet({
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '充值卡余额接口',
@@ -153,21 +159,22 @@ final class _$SwaggerApiPay extends SwaggerApiPay {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/recharge/balance');
+    final Uri $url = Uri.parse('/pay-service/recharge/balance');
     final Request $request = Request(
       'GET',
       $url,
       client.baseUrl,
       tag: swaggerMetaData,
     );
-    return client
-        .send<RechargeBalanceGet$Response, RechargeBalanceGet$Response>(
-          $request,
-        );
+    return client.send<
+      PayServiceRechargeBalanceGet$Response,
+      PayServiceRechargeBalanceGet$Response
+    >($request);
   }
 
   @override
-  Future<Response<RechargeOrdersGet$Response>> _rechargeOrdersGet({
+  Future<Response<PayServiceRechargeOrdersGet$Response>>
+  _payServiceRechargeOrdersGet({
     required String? current,
     required String? pageSize,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -181,7 +188,7 @@ final class _$SwaggerApiPay extends SwaggerApiPay {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/recharge/orders');
+    final Uri $url = Uri.parse('/pay-service/recharge/orders');
     final Map<String, dynamic> $params = <String, dynamic>{
       'current': current,
       'pageSize': pageSize,
@@ -193,13 +200,14 @@ final class _$SwaggerApiPay extends SwaggerApiPay {
       parameters: $params,
       tag: swaggerMetaData,
     );
-    return client.send<RechargeOrdersGet$Response, RechargeOrdersGet$Response>(
-      $request,
-    );
+    return client.send<
+      PayServiceRechargeOrdersGet$Response,
+      PayServiceRechargeOrdersGet$Response
+    >($request);
   }
 
   @override
-  Future<Response<Object>> _rechargeLogGet({
+  Future<Response<Object>> _payServiceRechargeLogGet({
     required String? current,
     required String? pageSize,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -213,7 +221,7 @@ final class _$SwaggerApiPay extends SwaggerApiPay {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/recharge/log');
+    final Uri $url = Uri.parse('/pay-service/recharge/log');
     final Map<String, dynamic> $params = <String, dynamic>{
       'current': current,
       'pageSize': pageSize,
@@ -229,7 +237,8 @@ final class _$SwaggerApiPay extends SwaggerApiPay {
   }
 
   @override
-  Future<Response<RechargeCreateOrderPost$Response>> _rechargeCreateOrderPost({
+  Future<Response<PayServiceRechargeCreateOrderPost$Response>>
+  _payServiceRechargeCreateOrderPost({
     Object? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -242,7 +251,7 @@ final class _$SwaggerApiPay extends SwaggerApiPay {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/recharge/createOrder');
+    final Uri $url = Uri.parse('/pay-service/recharge/createOrder');
     final $body = root;
     final Request $request = Request(
       'POST',
@@ -252,13 +261,13 @@ final class _$SwaggerApiPay extends SwaggerApiPay {
       tag: swaggerMetaData,
     );
     return client.send<
-      RechargeCreateOrderPost$Response,
-      RechargeCreateOrderPost$Response
+      PayServiceRechargeCreateOrderPost$Response,
+      PayServiceRechargeCreateOrderPost$Response
     >($request);
   }
 
   @override
-  Future<Response<PayPayPost$Response>> _payPayPost({
+  Future<Response<PayServicePayPayPost$Response>> _payServicePayPayPost({
     Object? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -271,7 +280,7 @@ final class _$SwaggerApiPay extends SwaggerApiPay {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/pay/pay');
+    final Uri $url = Uri.parse('/pay-service/pay/pay');
     final $body = root;
     final Request $request = Request(
       'POST',
@@ -280,11 +289,15 @@ final class _$SwaggerApiPay extends SwaggerApiPay {
       body: $body,
       tag: swaggerMetaData,
     );
-    return client.send<PayPayPost$Response, PayPayPost$Response>($request);
+    return client
+        .send<PayServicePayPayPost$Response, PayServicePayPayPost$Response>(
+          $request,
+        );
   }
 
   @override
-  Future<Response<PayPayResultGet$Response>> _payPayResultGet({
+  Future<Response<PayServicePayPayResultGet$Response>>
+  _payServicePayPayResultGet({
     required String? orderId,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -297,7 +310,7 @@ final class _$SwaggerApiPay extends SwaggerApiPay {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/pay/payResult');
+    final Uri $url = Uri.parse('/pay-service/pay/payResult');
     final Map<String, dynamic> $params = <String, dynamic>{'orderId': orderId};
     final Request $request = Request(
       'GET',
@@ -306,13 +319,14 @@ final class _$SwaggerApiPay extends SwaggerApiPay {
       parameters: $params,
       tag: swaggerMetaData,
     );
-    return client.send<PayPayResultGet$Response, PayPayResultGet$Response>(
-      $request,
-    );
+    return client.send<
+      PayServicePayPayResultGet$Response,
+      PayServicePayPayResultGet$Response
+    >($request);
   }
 
   @override
-  Future<Response<PayPayTypeGet$Response>> _payPayTypeGet({
+  Future<Response<PayServicePayPayTypeGet$Response>> _payServicePayPayTypeGet({
     required String? orderId,
     String? orderType,
     String? orderAmount,
@@ -328,7 +342,7 @@ final class _$SwaggerApiPay extends SwaggerApiPay {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/pay/payType');
+    final Uri $url = Uri.parse('/pay-service/pay/payType');
     final Map<String, dynamic> $params = <String, dynamic>{
       'orderId': orderId,
       'orderType': orderType,
@@ -342,13 +356,14 @@ final class _$SwaggerApiPay extends SwaggerApiPay {
       parameters: $params,
       tag: swaggerMetaData,
     );
-    return client.send<PayPayTypeGet$Response, PayPayTypeGet$Response>(
-      $request,
-    );
+    return client.send<
+      PayServicePayPayTypeGet$Response,
+      PayServicePayPayTypeGet$Response
+    >($request);
   }
 
   @override
-  Future<Response<Object>> _echoooCoinAddBalanceGet({
+  Future<Response<Object>> _payServiceEchoooCoinAddBalanceGet({
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: 'RPC-回想币增加',
@@ -360,7 +375,7 @@ final class _$SwaggerApiPay extends SwaggerApiPay {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/echoooCoin/addBalance');
+    final Uri $url = Uri.parse('/pay-service/echoooCoin/addBalance');
     final Request $request = Request(
       'GET',
       $url,
@@ -371,7 +386,7 @@ final class _$SwaggerApiPay extends SwaggerApiPay {
   }
 
   @override
-  Future<Response<dynamic>> _echoooCoinSubBalanceGet({
+  Future<Response<dynamic>> _payServiceEchoooCoinSubBalanceGet({
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: 'RPC-回想币扣减',
@@ -383,7 +398,7 @@ final class _$SwaggerApiPay extends SwaggerApiPay {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/echoooCoin/subBalance');
+    final Uri $url = Uri.parse('/pay-service/echoooCoin/subBalance');
     final Request $request = Request(
       'GET',
       $url,
@@ -394,7 +409,8 @@ final class _$SwaggerApiPay extends SwaggerApiPay {
   }
 
   @override
-  Future<Response<EchoooCoinTypeGet$Response>> _echoooCoinTypeGet({
+  Future<Response<PayServiceEchoooCoinTypeGet$Response>>
+  _payServiceEchoooCoinTypeGet({
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '回响币所有类型查询',
@@ -406,20 +422,22 @@ final class _$SwaggerApiPay extends SwaggerApiPay {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/echoooCoin/type');
+    final Uri $url = Uri.parse('/pay-service/echoooCoin/type');
     final Request $request = Request(
       'GET',
       $url,
       client.baseUrl,
       tag: swaggerMetaData,
     );
-    return client.send<EchoooCoinTypeGet$Response, EchoooCoinTypeGet$Response>(
-      $request,
-    );
+    return client.send<
+      PayServiceEchoooCoinTypeGet$Response,
+      PayServiceEchoooCoinTypeGet$Response
+    >($request);
   }
 
   @override
-  Future<Response<EchoooCoinInfoGet$Response>> _echoooCoinInfoGet({
+  Future<Response<PayServiceEchoooCoinInfoGet$Response>>
+  _payServiceEchoooCoinInfoGet({
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '回想币余额',
@@ -431,20 +449,22 @@ final class _$SwaggerApiPay extends SwaggerApiPay {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/echoooCoin/info');
+    final Uri $url = Uri.parse('/pay-service/echoooCoin/info');
     final Request $request = Request(
       'GET',
       $url,
       client.baseUrl,
       tag: swaggerMetaData,
     );
-    return client.send<EchoooCoinInfoGet$Response, EchoooCoinInfoGet$Response>(
-      $request,
-    );
+    return client.send<
+      PayServiceEchoooCoinInfoGet$Response,
+      PayServiceEchoooCoinInfoGet$Response
+    >($request);
   }
 
   @override
-  Future<Response<EchoooCoinLogGet$Response>> _echoooCoinLogGet({
+  Future<Response<PayServiceEchoooCoinLogGet$Response>>
+  _payServiceEchoooCoinLogGet({
     required String? current,
     required String? pageSize,
     String? type,
@@ -459,7 +479,7 @@ final class _$SwaggerApiPay extends SwaggerApiPay {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/echoooCoin/log');
+    final Uri $url = Uri.parse('/pay-service/echoooCoin/log');
     final Map<String, dynamic> $params = <String, dynamic>{
       'current': current,
       'pageSize': pageSize,
@@ -472,8 +492,9 @@ final class _$SwaggerApiPay extends SwaggerApiPay {
       parameters: $params,
       tag: swaggerMetaData,
     );
-    return client.send<EchoooCoinLogGet$Response, EchoooCoinLogGet$Response>(
-      $request,
-    );
+    return client.send<
+      PayServiceEchoooCoinLogGet$Response,
+      PayServiceEchoooCoinLogGet$Response
+    >($request);
   }
 }

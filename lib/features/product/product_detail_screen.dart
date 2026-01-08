@@ -1,11 +1,14 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../core/navigation/route_paths.dart';
+import '../../core/storage/favorites_store.dart';
 import '../../core/theme/app_theme.dart';
 import '../../data/repositories/product_repository.dart';
+import '../../shared/widgets/product_card.dart';
 import '../../shared/widgets/themed_button.dart';
 import '../../shared/widgets/themed_text.dart';
 import 'product_detail_controller.dart';
@@ -59,12 +62,30 @@ class _ProductDetailContentState extends ConsumerState<_ProductDetailContent> {
     });
   }
 
+  Future<void> _toggleFavorite() async {
+    final detail = widget.detail;
+    final store = ref.read(favoritesStoreProvider);
+    
+    // We use detail image if available, otherwise first main image
+    final imageUrl = detail.images.isNotEmpty ? detail.images.first : '';
+    
+    await store.toggleFavorite(
+      productCode: detail.id,
+      productName: detail.name,
+      imageUrl: imageUrl,
+      price: detail.price,
+      currency: detail.currency,
+    );
+    ref.invalidate(isFavoriteProvider(detail.id));
+  }
+
   @override
   Widget build(BuildContext context) {
     final state = ref.watch(productDetailControllerProvider);
     final selectedSku = state.selectedSku;
     final currentPrice = selectedSku?.price ?? widget.detail.price;
     final currency = selectedSku?.currency ?? widget.detail.currency ?? 'USD';
+    final isFavoriteAsync = ref.watch(isFavoriteProvider(widget.detail.id));
 
     // Image logic: Sku Image -> Product Detail Main Image
     final mainImage = selectedSku?.imageUrl ?? (widget.detail.images.isNotEmpty ? widget.detail.images.first : '');
@@ -88,6 +109,22 @@ class _ProductDetailContentState extends ConsumerState<_ProductDetailContent> {
                     onPressed: () => context.pop(),
                   ),
                 ),
+                actions: [
+                  Container(
+                    margin: const EdgeInsets.only(right: 8),
+                    decoration: const BoxDecoration(
+                      color: Colors.white54,
+                      shape: BoxShape.circle,
+                    ),
+                    child: IconButton(
+                      icon: Icon(
+                        isFavoriteAsync.valueOrNull == true ? Icons.favorite : Icons.favorite_border,
+                        color: isFavoriteAsync.valueOrNull == true ? Colors.red : Colors.black,
+                      ),
+                      onPressed: _toggleFavorite,
+                    ),
+                  ),
+                ],
                 flexibleSpace: FlexibleSpaceBar(
                   background: mainImage.isNotEmpty
                       ? CachedNetworkImage(
@@ -128,11 +165,55 @@ class _ProductDetailContentState extends ConsumerState<_ProductDetailContent> {
                   ),
                 ),
               ),
+              const SliverToBoxAdapter(
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                  child: ThemedText('You May Also Like', type: ThemedTextType.subtitle),
+                ),
+              ),
+              _buildSimilarProducts(),
+              const SliverToBoxAdapter(child: SizedBox(height: 20)),
             ],
           ),
         ),
         _buildBottomBar(context, selectedSku),
       ],
+    );
+  }
+
+  Widget _buildSimilarProducts() {
+    final similarAsync = ref.watch(similarProductsProvider(widget.detail.id));
+
+    return similarAsync.when(
+      data: (products) {
+        if (products.isEmpty) return const SliverToBoxAdapter(child: SizedBox.shrink());
+        return SliverPadding(
+          padding: const EdgeInsets.symmetric(horizontal: 10),
+          sliver: SliverMasonryGrid.count(
+            crossAxisCount: 2,
+            mainAxisSpacing: 10,
+            crossAxisSpacing: 10,
+            childCount: products.length,
+            itemBuilder: (context, index) {
+              final product = products[index];
+              return ProductCard(
+                product: product,
+                onTap: () => context.pushNamed(
+                  RoutePaths.productDetail,
+                  pathParameters: {'productCode': product.id},
+                ),
+              );
+            },
+          ),
+        );
+      },
+      loading: () => const SliverToBoxAdapter(
+        child: Padding(
+          padding: EdgeInsets.all(20),
+          child: Center(child: CircularProgressIndicator()),
+        ),
+      ),
+      error: (e, s) => const SliverToBoxAdapter(child: SizedBox.shrink()),
     );
   }
 
@@ -181,7 +262,7 @@ class _ProductDetailContentState extends ConsumerState<_ProductDetailContent> {
         color: Colors.white,
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.05),
+            color: Colors.black.withValues(alpha: 0.05),
             offset: const Offset(0, -2),
             blurRadius: 10,
           ),

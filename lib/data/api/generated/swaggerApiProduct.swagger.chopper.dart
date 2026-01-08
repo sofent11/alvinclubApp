@@ -19,8 +19,8 @@ final class _$SwaggerApiProduct extends SwaggerApiProduct {
   final Type definitionType = SwaggerApiProduct;
 
   @override
-  Future<Response<ProductReviewNoAuthPageGet$Response>>
-  _productReviewNoAuthPageGet({
+  Future<Response<ProductServiceProductReviewNoAuthPageGet$Response>>
+  _productServiceProductReviewNoAuthPageGet({
     required String? productCode,
     required String? current,
     required String? size,
@@ -36,7 +36,7 @@ final class _$SwaggerApiProduct extends SwaggerApiProduct {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/product-review/no-auth/page');
+    final Uri $url = Uri.parse('/product-service/product-review/no-auth/page');
     final Map<String, dynamic> $params = <String, dynamic>{
       'productCode': productCode,
       'current': current,
@@ -52,14 +52,14 @@ final class _$SwaggerApiProduct extends SwaggerApiProduct {
       tag: swaggerMetaData,
     );
     return client.send<
-      ProductReviewNoAuthPageGet$Response,
-      ProductReviewNoAuthPageGet$Response
+      ProductServiceProductReviewNoAuthPageGet$Response,
+      ProductServiceProductReviewNoAuthPageGet$Response
     >($request);
   }
 
   @override
-  Future<Response<ProductReviewNoAuthSummaryGet$Response>>
-  _productReviewNoAuthSummaryGet({
+  Future<Response<ProductServiceProductReviewNoAuthSummaryGet$Response>>
+  _productServiceProductReviewNoAuthSummaryGet({
     required String? productCode,
     Object? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -73,7 +73,9 @@ final class _$SwaggerApiProduct extends SwaggerApiProduct {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/product-review/no-auth/summary');
+    final Uri $url = Uri.parse(
+      '/product-service/product-review/no-auth/summary',
+    );
     final Map<String, dynamic> $params = <String, dynamic>{
       'productCode': productCode,
     };
@@ -87,13 +89,14 @@ final class _$SwaggerApiProduct extends SwaggerApiProduct {
       tag: swaggerMetaData,
     );
     return client.send<
-      ProductReviewNoAuthSummaryGet$Response,
-      ProductReviewNoAuthSummaryGet$Response
+      ProductServiceProductReviewNoAuthSummaryGet$Response,
+      ProductServiceProductReviewNoAuthSummaryGet$Response
     >($request);
   }
 
   @override
-  Future<Response<CategoryNoAuthTreeGet$Response>> _categoryNoAuthTreeGet({
+  Future<Response<ProductServiceCategoryNoAuthTreeGet$Response>>
+  _productServiceCategoryNoAuthTreeGet({
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '查询商品品类',
@@ -105,22 +108,22 @@ final class _$SwaggerApiProduct extends SwaggerApiProduct {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/category/no-auth/tree');
+    final Uri $url = Uri.parse('/product-service/category/no-auth/tree');
     final Request $request = Request(
       'GET',
       $url,
       client.baseUrl,
       tag: swaggerMetaData,
     );
-    return client
-        .send<CategoryNoAuthTreeGet$Response, CategoryNoAuthTreeGet$Response>(
-          $request,
-        );
+    return client.send<
+      ProductServiceCategoryNoAuthTreeGet$Response,
+      ProductServiceCategoryNoAuthTreeGet$Response
+    >($request);
   }
 
   @override
-  Future<Response<ActivityNoAuthFlashSaleActivityGet$Response>>
-  _activityNoAuthFlashSaleActivityGet({
+  Future<Response<ProductServiceActivityNoAuthFlashSaleActivityGet$Response>>
+  _productServiceActivityNoAuthFlashSaleActivityGet({
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '查询FlashSale活动列表',
@@ -132,7 +135,9 @@ final class _$SwaggerApiProduct extends SwaggerApiProduct {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/activity/no-auth/flash-sale-activity');
+    final Uri $url = Uri.parse(
+      '/product-service/activity/no-auth/flash-sale-activity',
+    );
     final Request $request = Request(
       'GET',
       $url,
@@ -140,14 +145,16 @@ final class _$SwaggerApiProduct extends SwaggerApiProduct {
       tag: swaggerMetaData,
     );
     return client.send<
-      ActivityNoAuthFlashSaleActivityGet$Response,
-      ActivityNoAuthFlashSaleActivityGet$Response
+      ProductServiceActivityNoAuthFlashSaleActivityGet$Response,
+      ProductServiceActivityNoAuthFlashSaleActivityGet$Response
     >($request);
   }
 
   @override
-  Future<Response<ActivityNoAuthFlashSaleActivityProductGet$Response>>
-  _activityNoAuthFlashSaleActivityProductGet({
+  Future<
+    Response<ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response>
+  >
+  _productServiceActivityNoAuthFlashSaleActivityProductGet({
     required String? activityCode,
     required String? name,
     String? current,
@@ -164,7 +171,9 @@ final class _$SwaggerApiProduct extends SwaggerApiProduct {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/activity/no-auth/flash-sale-activity/product');
+    final Uri $url = Uri.parse(
+      '/product-service/activity/no-auth/flash-sale-activity/product',
+    );
     final Map<String, dynamic> $params = <String, dynamic>{
       'activityCode': activityCode,
       'name': name,
@@ -180,14 +189,14 @@ final class _$SwaggerApiProduct extends SwaggerApiProduct {
       tag: swaggerMetaData,
     );
     return client.send<
-      ActivityNoAuthFlashSaleActivityProductGet$Response,
-      ActivityNoAuthFlashSaleActivityProductGet$Response
+      ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response,
+      ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response
     >($request);
   }
 
   @override
-  Future<Response<ProductPremiumDupeNoAuthPagePost$Response>>
-  _productPremiumDupeNoAuthPagePost({
+  Future<Response<ProductServiceProductPremiumDupeNoAuthPagePost$Response>>
+  _productServiceProductPremiumDupeNoAuthPagePost({
     Object? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '分页获取大牌平替商品列表，支持按分类过滤和多种排序方式。无需登录认证。',
@@ -200,7 +209,9 @@ final class _$SwaggerApiProduct extends SwaggerApiProduct {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/product/premium-dupe/no-auth/page');
+    final Uri $url = Uri.parse(
+      '/product-service/product/premium-dupe/no-auth/page',
+    );
     final $body = root;
     final Request $request = Request(
       'POST',
@@ -210,14 +221,14 @@ final class _$SwaggerApiProduct extends SwaggerApiProduct {
       tag: swaggerMetaData,
     );
     return client.send<
-      ProductPremiumDupeNoAuthPagePost$Response,
-      ProductPremiumDupeNoAuthPagePost$Response
+      ProductServiceProductPremiumDupeNoAuthPagePost$Response,
+      ProductServiceProductPremiumDupeNoAuthPagePost$Response
     >($request);
   }
 
   @override
-  Future<Response<ProductPremiumDupeNoAuthMetaGet$Response>>
-  _productPremiumDupeNoAuthMetaGet({
+  Future<Response<ProductServiceProductPremiumDupeNoAuthMetaGet$Response>>
+  _productServiceProductPremiumDupeNoAuthMetaGet({
     String? raw,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '获取大牌平替模块的元数据信息，包括可用分类列表和排序选项。无需登录认证。',
@@ -230,7 +241,9 @@ final class _$SwaggerApiProduct extends SwaggerApiProduct {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/product/premium-dupe/no-auth/meta');
+    final Uri $url = Uri.parse(
+      '/product-service/product/premium-dupe/no-auth/meta',
+    );
     final $body = raw;
     final Request $request = Request(
       'GET',
@@ -240,14 +253,14 @@ final class _$SwaggerApiProduct extends SwaggerApiProduct {
       tag: swaggerMetaData,
     );
     return client.send<
-      ProductPremiumDupeNoAuthMetaGet$Response,
-      ProductPremiumDupeNoAuthMetaGet$Response
+      ProductServiceProductPremiumDupeNoAuthMetaGet$Response,
+      ProductServiceProductPremiumDupeNoAuthMetaGet$Response
     >($request);
   }
 
   @override
-  Future<Response<ProductPremiumDupeNoAuthSelectionGet$Response>>
-  _productPremiumDupeNoAuthSelectionGet({
+  Future<Response<ProductServiceProductPremiumDupeNoAuthSelectionGet$Response>>
+  _productServiceProductPremiumDupeNoAuthSelectionGet({
     String? deviceId,
     String? raw,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -261,7 +274,9 @@ final class _$SwaggerApiProduct extends SwaggerApiProduct {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/product/premium-dupe/no-auth/selection');
+    final Uri $url = Uri.parse(
+      '/product-service/product/premium-dupe/no-auth/selection',
+    );
     final Map<String, dynamic> $params = <String, dynamic>{
       'deviceId': deviceId,
     };
@@ -275,14 +290,14 @@ final class _$SwaggerApiProduct extends SwaggerApiProduct {
       tag: swaggerMetaData,
     );
     return client.send<
-      ProductPremiumDupeNoAuthSelectionGet$Response,
-      ProductPremiumDupeNoAuthSelectionGet$Response
+      ProductServiceProductPremiumDupeNoAuthSelectionGet$Response,
+      ProductServiceProductPremiumDupeNoAuthSelectionGet$Response
     >($request);
   }
 
   @override
-  Future<Response<ExternalPurchaseRecordPost$Response>>
-  _externalPurchaseRecordPost({
+  Future<Response<ProductServiceExternalPurchaseRecordPost$Response>>
+  _productServiceExternalPurchaseRecordPost({
     List<Object>? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -295,7 +310,7 @@ final class _$SwaggerApiProduct extends SwaggerApiProduct {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/external-purchase-record');
+    final Uri $url = Uri.parse('/product-service/external-purchase-record');
     final $body = root;
     final Request $request = Request(
       'POST',
@@ -305,14 +320,14 @@ final class _$SwaggerApiProduct extends SwaggerApiProduct {
       tag: swaggerMetaData,
     );
     return client.send<
-      ExternalPurchaseRecordPost$Response,
-      ExternalPurchaseRecordPost$Response
+      ProductServiceExternalPurchaseRecordPost$Response,
+      ProductServiceExternalPurchaseRecordPost$Response
     >($request);
   }
 
   @override
-  Future<Response<ProductNoAuthPushProductGet$Response>>
-  _productNoAuthPushProductGet({
+  Future<Response<ProductServiceProductNoAuthPushProductGet$Response>>
+  _productServiceProductNoAuthPushProductGet({
     String? current,
     String? size,
     required String? productCode,
@@ -327,7 +342,7 @@ final class _$SwaggerApiProduct extends SwaggerApiProduct {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/product/no-auth/pushProduct');
+    final Uri $url = Uri.parse('/product-service/product/no-auth/pushProduct');
     final Map<String, dynamic> $params = <String, dynamic>{
       'current': current,
       'size': size,
@@ -341,13 +356,14 @@ final class _$SwaggerApiProduct extends SwaggerApiProduct {
       tag: swaggerMetaData,
     );
     return client.send<
-      ProductNoAuthPushProductGet$Response,
-      ProductNoAuthPushProductGet$Response
+      ProductServiceProductNoAuthPushProductGet$Response,
+      ProductServiceProductNoAuthPushProductGet$Response
     >($request);
   }
 
   @override
-  Future<Response<ProductNoAuthSearchGet$Response>> _productNoAuthSearchGet({
+  Future<Response<ProductServiceProductNoAuthSearchGet$Response>>
+  _productServiceProductNoAuthSearchGet({
     required String? query,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -360,7 +376,7 @@ final class _$SwaggerApiProduct extends SwaggerApiProduct {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/product/no-auth/search');
+    final Uri $url = Uri.parse('/product-service/product/no-auth/search');
     final Map<String, dynamic> $params = <String, dynamic>{'query': query};
     final Request $request = Request(
       'GET',
@@ -369,15 +385,15 @@ final class _$SwaggerApiProduct extends SwaggerApiProduct {
       parameters: $params,
       tag: swaggerMetaData,
     );
-    return client
-        .send<ProductNoAuthSearchGet$Response, ProductNoAuthSearchGet$Response>(
-          $request,
-        );
+    return client.send<
+      ProductServiceProductNoAuthSearchGet$Response,
+      ProductServiceProductNoAuthSearchGet$Response
+    >($request);
   }
 
   @override
-  Future<Response<ProductNoAuthCombineSearchGet$Response>>
-  _productNoAuthCombineSearchGet({
+  Future<Response<ProductServiceProductNoAuthCombineSearchGet$Response>>
+  _productServiceProductNoAuthCombineSearchGet({
     String? referer,
     String? currency,
     String? query,
@@ -404,7 +420,9 @@ final class _$SwaggerApiProduct extends SwaggerApiProduct {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/product/no-auth/combineSearch');
+    final Uri $url = Uri.parse(
+      '/product-service/product/no-auth/combineSearch',
+    );
     final Map<String, dynamic> $params = <String, dynamic>{
       'query': query,
       'current': current,
@@ -433,14 +451,14 @@ final class _$SwaggerApiProduct extends SwaggerApiProduct {
       tag: swaggerMetaData,
     );
     return client.send<
-      ProductNoAuthCombineSearchGet$Response,
-      ProductNoAuthCombineSearchGet$Response
+      ProductServiceProductNoAuthCombineSearchGet$Response,
+      ProductServiceProductNoAuthCombineSearchGet$Response
     >($request);
   }
 
   @override
-  Future<Response<ProductNoAuthNewArrivalProductGet$Response>>
-  _productNoAuthNewArrivalProductGet({
+  Future<Response<ProductServiceProductNoAuthNewArrivalProductGet$Response>>
+  _productServiceProductNoAuthNewArrivalProductGet({
     required String? pageNum,
     required String? pageSize,
     String? brandName,
@@ -455,7 +473,9 @@ final class _$SwaggerApiProduct extends SwaggerApiProduct {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/product/no-auth/newArrivalProduct');
+    final Uri $url = Uri.parse(
+      '/product-service/product/no-auth/newArrivalProduct',
+    );
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageNum': pageNum,
       'pageSize': pageSize,
@@ -469,14 +489,16 @@ final class _$SwaggerApiProduct extends SwaggerApiProduct {
       tag: swaggerMetaData,
     );
     return client.send<
-      ProductNoAuthNewArrivalProductGet$Response,
-      ProductNoAuthNewArrivalProductGet$Response
+      ProductServiceProductNoAuthNewArrivalProductGet$Response,
+      ProductServiceProductNoAuthNewArrivalProductGet$Response
     >($request);
   }
 
   @override
-  Future<Response<ProductNoAuthNewArrivalProductBrandGet$Response>>
-  _productNoAuthNewArrivalProductBrandGet({
+  Future<
+    Response<ProductServiceProductNoAuthNewArrivalProductBrandGet$Response>
+  >
+  _productServiceProductNoAuthNewArrivalProductBrandGet({
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '新品专区商品品牌',
@@ -488,7 +510,9 @@ final class _$SwaggerApiProduct extends SwaggerApiProduct {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/product/no-auth/newArrivalProductBrand');
+    final Uri $url = Uri.parse(
+      '/product-service/product/no-auth/newArrivalProductBrand',
+    );
     final Request $request = Request(
       'GET',
       $url,
@@ -496,13 +520,14 @@ final class _$SwaggerApiProduct extends SwaggerApiProduct {
       tag: swaggerMetaData,
     );
     return client.send<
-      ProductNoAuthNewArrivalProductBrandGet$Response,
-      ProductNoAuthNewArrivalProductBrandGet$Response
+      ProductServiceProductNoAuthNewArrivalProductBrandGet$Response,
+      ProductServiceProductNoAuthNewArrivalProductBrandGet$Response
     >($request);
   }
 
   @override
-  Future<Response<ProductNoAuthSkuListGet$Response>> _productNoAuthSkuListGet({
+  Future<Response<ProductServiceProductNoAuthSkuListGet$Response>>
+  _productServiceProductNoAuthSkuListGet({
     String? productCode,
     String? platformProductId,
     String? sourcePlatform,
@@ -517,7 +542,7 @@ final class _$SwaggerApiProduct extends SwaggerApiProduct {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/product/no-auth/skuList');
+    final Uri $url = Uri.parse('/product-service/product/no-auth/skuList');
     final Map<String, dynamic> $params = <String, dynamic>{
       'productCode': productCode,
       'platformProductId': platformProductId,
@@ -531,14 +556,14 @@ final class _$SwaggerApiProduct extends SwaggerApiProduct {
       tag: swaggerMetaData,
     );
     return client.send<
-      ProductNoAuthSkuListGet$Response,
-      ProductNoAuthSkuListGet$Response
+      ProductServiceProductNoAuthSkuListGet$Response,
+      ProductServiceProductNoAuthSkuListGet$Response
     >($request);
   }
 
   @override
-  Future<Response<ProductNoAuthGetProductInfoGet$Response>>
-  _productNoAuthGetProductInfoGet({
+  Future<Response<ProductServiceProductNoAuthGetProductInfoGet$Response>>
+  _productServiceProductNoAuthGetProductInfoGet({
     String? productCode,
     String? sourcePlatform,
     String? platformProductId,
@@ -553,7 +578,9 @@ final class _$SwaggerApiProduct extends SwaggerApiProduct {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/product/no-auth/getProductInfo');
+    final Uri $url = Uri.parse(
+      '/product-service/product/no-auth/getProductInfo',
+    );
     final Map<String, dynamic> $params = <String, dynamic>{
       'productCode': productCode,
       'sourcePlatform': sourcePlatform,
@@ -567,14 +594,16 @@ final class _$SwaggerApiProduct extends SwaggerApiProduct {
       tag: swaggerMetaData,
     );
     return client.send<
-      ProductNoAuthGetProductInfoGet$Response,
-      ProductNoAuthGetProductInfoGet$Response
+      ProductServiceProductNoAuthGetProductInfoGet$Response,
+      ProductServiceProductNoAuthGetProductInfoGet$Response
     >($request);
   }
 
   @override
-  Future<Response<ProductNoAuthPremierProductCategoryGet$Response>>
-  _productNoAuthPremierProductCategoryGet({
+  Future<
+    Response<ProductServiceProductNoAuthPremierProductCategoryGet$Response>
+  >
+  _productServiceProductNoAuthPremierProductCategoryGet({
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '查询首选商品品类',
@@ -586,7 +615,9 @@ final class _$SwaggerApiProduct extends SwaggerApiProduct {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/product/no-auth/premierProductCategory');
+    final Uri $url = Uri.parse(
+      '/product-service/product/no-auth/premierProductCategory',
+    );
     final Request $request = Request(
       'GET',
       $url,
@@ -594,14 +625,14 @@ final class _$SwaggerApiProduct extends SwaggerApiProduct {
       tag: swaggerMetaData,
     );
     return client.send<
-      ProductNoAuthPremierProductCategoryGet$Response,
-      ProductNoAuthPremierProductCategoryGet$Response
+      ProductServiceProductNoAuthPremierProductCategoryGet$Response,
+      ProductServiceProductNoAuthPremierProductCategoryGet$Response
     >($request);
   }
 
   @override
-  Future<Response<ProductNoAuthHotProductGet$Response>>
-  _productNoAuthHotProductGet({
+  Future<Response<ProductServiceProductNoAuthHotProductGet$Response>>
+  _productServiceProductNoAuthHotProductGet({
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '热门商品',
@@ -613,7 +644,7 @@ final class _$SwaggerApiProduct extends SwaggerApiProduct {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/product/no-auth/hotProduct');
+    final Uri $url = Uri.parse('/product-service/product/no-auth/hotProduct');
     final Request $request = Request(
       'GET',
       $url,
@@ -621,14 +652,14 @@ final class _$SwaggerApiProduct extends SwaggerApiProduct {
       tag: swaggerMetaData,
     );
     return client.send<
-      ProductNoAuthHotProductGet$Response,
-      ProductNoAuthHotProductGet$Response
+      ProductServiceProductNoAuthHotProductGet$Response,
+      ProductServiceProductNoAuthHotProductGet$Response
     >($request);
   }
 
   @override
-  Future<Response<ProductNoAuthHotProductV2Get$Response>>
-  _productNoAuthHotProductV2Get({
+  Future<Response<ProductServiceProductNoAuthHotProductV2Get$Response>>
+  _productServiceProductNoAuthHotProductV2Get({
     String? current,
     String? size,
     String? productCode,
@@ -644,7 +675,9 @@ final class _$SwaggerApiProduct extends SwaggerApiProduct {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/product/no-auth/hotProduct/v2');
+    final Uri $url = Uri.parse(
+      '/product-service/product/no-auth/hotProduct/v2',
+    );
     final Map<String, dynamic> $params = <String, dynamic>{
       'current': current,
       'size': size,
@@ -659,14 +692,14 @@ final class _$SwaggerApiProduct extends SwaggerApiProduct {
       tag: swaggerMetaData,
     );
     return client.send<
-      ProductNoAuthHotProductV2Get$Response,
-      ProductNoAuthHotProductV2Get$Response
+      ProductServiceProductNoAuthHotProductV2Get$Response,
+      ProductServiceProductNoAuthHotProductV2Get$Response
     >($request);
   }
 
   @override
-  Future<Response<ProductNoAuthHotProductV3Get$Response>>
-  _productNoAuthHotProductV3Get({
+  Future<Response<ProductServiceProductNoAuthHotProductV3Get$Response>>
+  _productServiceProductNoAuthHotProductV3Get({
     String? current,
     String? size,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -680,7 +713,9 @@ final class _$SwaggerApiProduct extends SwaggerApiProduct {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/product/no-auth/hotProduct/v3');
+    final Uri $url = Uri.parse(
+      '/product-service/product/no-auth/hotProduct/v3',
+    );
     final Map<String, dynamic> $params = <String, dynamic>{
       'current': current,
       'size': size,
@@ -693,14 +728,14 @@ final class _$SwaggerApiProduct extends SwaggerApiProduct {
       tag: swaggerMetaData,
     );
     return client.send<
-      ProductNoAuthHotProductV3Get$Response,
-      ProductNoAuthHotProductV3Get$Response
+      ProductServiceProductNoAuthHotProductV3Get$Response,
+      ProductServiceProductNoAuthHotProductV3Get$Response
     >($request);
   }
 
   @override
-  Future<Response<ProductNoAuthFlashSaleProductGet$Response>>
-  _productNoAuthFlashSaleProductGet({
+  Future<Response<ProductServiceProductNoAuthFlashSaleProductGet$Response>>
+  _productServiceProductNoAuthFlashSaleProductGet({
     String? current,
     String? size,
     String? productCode,
@@ -715,7 +750,9 @@ final class _$SwaggerApiProduct extends SwaggerApiProduct {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/product/no-auth/flashSaleProduct');
+    final Uri $url = Uri.parse(
+      '/product-service/product/no-auth/flashSaleProduct',
+    );
     final Map<String, dynamic> $params = <String, dynamic>{
       'current': current,
       'size': size,
@@ -729,14 +766,14 @@ final class _$SwaggerApiProduct extends SwaggerApiProduct {
       tag: swaggerMetaData,
     );
     return client.send<
-      ProductNoAuthFlashSaleProductGet$Response,
-      ProductNoAuthFlashSaleProductGet$Response
+      ProductServiceProductNoAuthFlashSaleProductGet$Response,
+      ProductServiceProductNoAuthFlashSaleProductGet$Response
     >($request);
   }
 
   @override
-  Future<Response<ProductNoAuthAlbumProductGet$Response>>
-  _productNoAuthAlbumProductGet({
+  Future<Response<ProductServiceProductNoAuthAlbumProductGet$Response>>
+  _productServiceProductNoAuthAlbumProductGet({
     required String? pageNum,
     required String? pageSize,
     required String? albumCode,
@@ -757,7 +794,7 @@ final class _$SwaggerApiProduct extends SwaggerApiProduct {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/product/no-auth/albumProduct');
+    final Uri $url = Uri.parse('/product-service/product/no-auth/albumProduct');
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageNum': pageNum,
       'pageSize': pageSize,
@@ -777,14 +814,14 @@ final class _$SwaggerApiProduct extends SwaggerApiProduct {
       tag: swaggerMetaData,
     );
     return client.send<
-      ProductNoAuthAlbumProductGet$Response,
-      ProductNoAuthAlbumProductGet$Response
+      ProductServiceProductNoAuthAlbumProductGet$Response,
+      ProductServiceProductNoAuthAlbumProductGet$Response
     >($request);
   }
 
   @override
-  Future<Response<ShopNoAuthGetThirdShopGet$Response>>
-  _shopNoAuthGetThirdShopGet({
+  Future<Response<ProductServiceShopNoAuthGetThirdShopGet$Response>>
+  _productServiceShopNoAuthGetThirdShopGet({
     required String? shopCode,
     required String? sourcePlatform,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -798,7 +835,7 @@ final class _$SwaggerApiProduct extends SwaggerApiProduct {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/shop/no-auth/getThirdShop');
+    final Uri $url = Uri.parse('/product-service/shop/no-auth/getThirdShop');
     final Map<String, dynamic> $params = <String, dynamic>{
       'shopCode': shopCode,
       'sourcePlatform': sourcePlatform,
@@ -811,14 +848,14 @@ final class _$SwaggerApiProduct extends SwaggerApiProduct {
       tag: swaggerMetaData,
     );
     return client.send<
-      ShopNoAuthGetThirdShopGet$Response,
-      ShopNoAuthGetThirdShopGet$Response
+      ProductServiceShopNoAuthGetThirdShopGet$Response,
+      ProductServiceShopNoAuthGetThirdShopGet$Response
     >($request);
   }
 
   @override
-  Future<Response<ProductNoAuthKolProductGet$Response>>
-  _productNoAuthKolProductGet({
+  Future<Response<ProductServiceProductNoAuthKolProductGet$Response>>
+  _productServiceProductNoAuthKolProductGet({
     required String? code,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -831,7 +868,7 @@ final class _$SwaggerApiProduct extends SwaggerApiProduct {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/product/no-auth/kolProduct');
+    final Uri $url = Uri.parse('/product-service/product/no-auth/kolProduct');
     final Map<String, dynamic> $params = <String, dynamic>{'code': code};
     final Request $request = Request(
       'GET',
@@ -841,14 +878,14 @@ final class _$SwaggerApiProduct extends SwaggerApiProduct {
       tag: swaggerMetaData,
     );
     return client.send<
-      ProductNoAuthKolProductGet$Response,
-      ProductNoAuthKolProductGet$Response
+      ProductServiceProductNoAuthKolProductGet$Response,
+      ProductServiceProductNoAuthKolProductGet$Response
     >($request);
   }
 
   @override
-  Future<Response<ProductNoAuthPremierProductGet$Response>>
-  _productNoAuthPremierProductGet({
+  Future<Response<ProductServiceProductNoAuthPremierProductGet$Response>>
+  _productServiceProductNoAuthPremierProductGet({
     required String? pageNum,
     required String? pageSize,
     String? brandName,
@@ -865,7 +902,9 @@ final class _$SwaggerApiProduct extends SwaggerApiProduct {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/product/no-auth/premierProduct');
+    final Uri $url = Uri.parse(
+      '/product-service/product/no-auth/premierProduct',
+    );
     final Map<String, dynamic> $params = <String, dynamic>{
       'pageNum': pageNum,
       'pageSize': pageSize,
@@ -881,14 +920,14 @@ final class _$SwaggerApiProduct extends SwaggerApiProduct {
       tag: swaggerMetaData,
     );
     return client.send<
-      ProductNoAuthPremierProductGet$Response,
-      ProductNoAuthPremierProductGet$Response
+      ProductServiceProductNoAuthPremierProductGet$Response,
+      ProductServiceProductNoAuthPremierProductGet$Response
     >($request);
   }
 
   @override
-  Future<Response<ProductNoAuthPremierProductBrandGet$Response>>
-  _productNoAuthPremierProductBrandGet({
+  Future<Response<ProductServiceProductNoAuthPremierProductBrandGet$Response>>
+  _productServiceProductNoAuthPremierProductBrandGet({
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '首选商品品牌',
@@ -900,7 +939,9 @@ final class _$SwaggerApiProduct extends SwaggerApiProduct {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/product/no-auth/premierProductBrand');
+    final Uri $url = Uri.parse(
+      '/product-service/product/no-auth/premierProductBrand',
+    );
     final Request $request = Request(
       'GET',
       $url,
@@ -908,14 +949,16 @@ final class _$SwaggerApiProduct extends SwaggerApiProduct {
       tag: swaggerMetaData,
     );
     return client.send<
-      ProductNoAuthPremierProductBrandGet$Response,
-      ProductNoAuthPremierProductBrandGet$Response
+      ProductServiceProductNoAuthPremierProductBrandGet$Response,
+      ProductServiceProductNoAuthPremierProductBrandGet$Response
     >($request);
   }
 
   @override
-  Future<Response<RecommendNoAuthCategoryRecommendationGet$Response>>
-  _recommendNoAuthCategoryRecommendationGet({
+  Future<
+    Response<ProductServiceRecommendNoAuthCategoryRecommendationGet$Response>
+  >
+  _productServiceRecommendNoAuthCategoryRecommendationGet({
     Object? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -928,7 +971,9 @@ final class _$SwaggerApiProduct extends SwaggerApiProduct {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/recommend/no-auth/categoryRecommendation');
+    final Uri $url = Uri.parse(
+      '/product-service/recommend/no-auth/categoryRecommendation',
+    );
     final $body = root;
     final Request $request = Request(
       'GET',
@@ -938,14 +983,14 @@ final class _$SwaggerApiProduct extends SwaggerApiProduct {
       tag: swaggerMetaData,
     );
     return client.send<
-      RecommendNoAuthCategoryRecommendationGet$Response,
-      RecommendNoAuthCategoryRecommendationGet$Response
+      ProductServiceRecommendNoAuthCategoryRecommendationGet$Response,
+      ProductServiceRecommendNoAuthCategoryRecommendationGet$Response
     >($request);
   }
 
   @override
-  Future<Response<RecommendNoAuthCategoryPost$Response>>
-  _recommendNoAuthCategoryPost({
+  Future<Response<ProductServiceRecommendNoAuthCategoryPost$Response>>
+  _productServiceRecommendNoAuthCategoryPost({
     Object? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -958,7 +1003,7 @@ final class _$SwaggerApiProduct extends SwaggerApiProduct {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/recommend/no-auth/category');
+    final Uri $url = Uri.parse('/product-service/recommend/no-auth/category');
     final $body = root;
     final Request $request = Request(
       'POST',
@@ -968,13 +1013,14 @@ final class _$SwaggerApiProduct extends SwaggerApiProduct {
       tag: swaggerMetaData,
     );
     return client.send<
-      RecommendNoAuthCategoryPost$Response,
-      RecommendNoAuthCategoryPost$Response
+      ProductServiceRecommendNoAuthCategoryPost$Response,
+      ProductServiceRecommendNoAuthCategoryPost$Response
     >($request);
   }
 
   @override
-  Future<Response<RecommendNoAuthShopPost$Response>> _recommendNoAuthShopPost({
+  Future<Response<ProductServiceRecommendNoAuthShopPost$Response>>
+  _productServiceRecommendNoAuthShopPost({
     Object? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -987,7 +1033,7 @@ final class _$SwaggerApiProduct extends SwaggerApiProduct {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/recommend/no-auth/shop');
+    final Uri $url = Uri.parse('/product-service/recommend/no-auth/shop');
     final $body = root;
     final Request $request = Request(
       'POST',
@@ -997,14 +1043,14 @@ final class _$SwaggerApiProduct extends SwaggerApiProduct {
       tag: swaggerMetaData,
     );
     return client.send<
-      RecommendNoAuthShopPost$Response,
-      RecommendNoAuthShopPost$Response
+      ProductServiceRecommendNoAuthShopPost$Response,
+      ProductServiceRecommendNoAuthShopPost$Response
     >($request);
   }
 
   @override
-  Future<Response<RecommendNoAuthSimilarProductPost$Response>>
-  _recommendNoAuthSimilarProductPost({
+  Future<Response<ProductServiceRecommendNoAuthSimilarProductPost$Response>>
+  _productServiceRecommendNoAuthSimilarProductPost({
     Object? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -1017,7 +1063,9 @@ final class _$SwaggerApiProduct extends SwaggerApiProduct {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/recommend/no-auth/similarProduct');
+    final Uri $url = Uri.parse(
+      '/product-service/recommend/no-auth/similarProduct',
+    );
     final $body = root;
     final Request $request = Request(
       'POST',
@@ -1027,8 +1075,8 @@ final class _$SwaggerApiProduct extends SwaggerApiProduct {
       tag: swaggerMetaData,
     );
     return client.send<
-      RecommendNoAuthSimilarProductPost$Response,
-      RecommendNoAuthSimilarProductPost$Response
+      ProductServiceRecommendNoAuthSimilarProductPost$Response,
+      ProductServiceRecommendNoAuthSimilarProductPost$Response
     >($request);
   }
 }

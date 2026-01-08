@@ -4,7 +4,6 @@
     "title": "pay-service",
     "version": "last"
   },
-  "basePath": "/pay-service",
   "tags": [
     {
       "name": "返佣",
@@ -23,7 +22,7 @@
     "http"
   ],
   "paths": {
-    "/withdraw/orders": {
+    "/pay-service/withdraw/orders": {
       "get": {
         "tags": [
           "返佣"
@@ -127,7 +126,7 @@
         }
       }
     },
-    "/withdraw/apply": {
+    "/pay-service/withdraw/apply": {
       "post": {
         "tags": [
           "返佣"
@@ -212,7 +211,7 @@
         }
       }
     },
-    "/commission/summary": {
+    "/pay-service/commission/summary": {
       "get": {
         "tags": [
           "返佣"
@@ -286,7 +285,7 @@
         }
       }
     },
-    "/commission/transaction": {
+    "/pay-service/commission/transaction": {
       "get": {
         "tags": [
           "返佣"
@@ -391,7 +390,7 @@
         }
       }
     },
-    "/recharge/balance": {
+    "/pay-service/recharge/balance": {
       "get": {
         "tags": [
           "公共分类"
@@ -489,7 +488,7 @@
         }
       }
     },
-    "/recharge/orders": {
+    "/pay-service/recharge/orders": {
       "get": {
         "tags": [
           "公共分类"
@@ -604,7 +603,7 @@
         }
       }
     },
-    "/recharge/log": {
+    "/pay-service/recharge/log": {
       "get": {
         "tags": [
           "公共分类"
@@ -639,7 +638,7 @@
         }
       }
     },
-    "/recharge/createOrder": {
+    "/pay-service/recharge/createOrder": {
       "post": {
         "tags": [
           "公共分类"
@@ -713,7 +712,7 @@
         }
       }
     },
-    "/pay/pay": {
+    "/pay-service/pay/pay": {
       "post": {
         "tags": [
           "公共分类"
@@ -810,7 +809,7 @@
         }
       }
     },
-    "/pay/payResult": {
+    "/pay-service/pay/payResult": {
       "get": {
         "tags": [
           "公共分类"
@@ -879,7 +878,7 @@
         }
       }
     },
-    "/pay/payType": {
+    "/pay-service/pay/payType": {
       "get": {
         "tags": [
           "公共分类"
@@ -999,7 +998,7 @@
         }
       }
     },
-    "/echoooCoin/addBalance": {
+    "/pay-service/echoooCoin/addBalance": {
       "get": {
         "tags": [
           "回想币"
@@ -1019,7 +1018,7 @@
         }
       }
     },
-    "/echoooCoin/subBalance": {
+    "/pay-service/echoooCoin/subBalance": {
       "get": {
         "tags": [
           "回想币"
@@ -1035,7 +1034,7 @@
         }
       }
     },
-    "/echoooCoin/type": {
+    "/pay-service/echoooCoin/type": {
       "get": {
         "tags": [
           "回想币"
@@ -1091,7 +1090,7 @@
         }
       }
     },
-    "/echoooCoin/info": {
+    "/pay-service/echoooCoin/info": {
       "get": {
         "tags": [
           "回想币"
@@ -1171,7 +1170,7 @@
         }
       }
     },
-    "/echoooCoin/log": {
+    "/pay-service/echoooCoin/log": {
       "get": {
         "tags": [
           "回想币"

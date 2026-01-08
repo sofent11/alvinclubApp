@@ -19,7 +19,8 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
   final Type definitionType = SwaggerApiUser;
 
   @override
-  Future<Response<AddressUpdatePost$Response>> _addressUpdatePost({
+  Future<Response<UserServiceAddressUpdatePost$Response>>
+  _userServiceAddressUpdatePost({
     Object? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -32,7 +33,7 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/address/update');
+    final Uri $url = Uri.parse('/user-service/address/update');
     final $body = root;
     final Request $request = Request(
       'POST',
@@ -41,13 +42,15 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       body: $body,
       tag: swaggerMetaData,
     );
-    return client.send<AddressUpdatePost$Response, AddressUpdatePost$Response>(
-      $request,
-    );
+    return client.send<
+      UserServiceAddressUpdatePost$Response,
+      UserServiceAddressUpdatePost$Response
+    >($request);
   }
 
   @override
-  Future<Response<AddressDeleteDelete$Response>> _addressDeleteDelete({
+  Future<Response<UserServiceAddressDeleteDelete$Response>>
+  _userServiceAddressDeleteDelete({
     required String? id,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -60,7 +63,7 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/address/delete');
+    final Uri $url = Uri.parse('/user-service/address/delete');
     final Map<String, dynamic> $params = <String, dynamic>{'id': id};
     final Request $request = Request(
       'DELETE',
@@ -69,14 +72,15 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       parameters: $params,
       tag: swaggerMetaData,
     );
-    return client
-        .send<AddressDeleteDelete$Response, AddressDeleteDelete$Response>(
-          $request,
-        );
+    return client.send<
+      UserServiceAddressDeleteDelete$Response,
+      UserServiceAddressDeleteDelete$Response
+    >($request);
   }
 
   @override
-  Future<Response<AddressQueryGet$Response>> _addressQueryGet({
+  Future<Response<UserServiceAddressQueryGet$Response>>
+  _userServiceAddressQueryGet({
     String? searchAddress,
     required String? portalCode,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -90,7 +94,7 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/address/query');
+    final Uri $url = Uri.parse('/user-service/address/query');
     final Map<String, dynamic> $params = <String, dynamic>{
       'searchAddress': searchAddress,
       'portalCode': portalCode,
@@ -102,13 +106,15 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       parameters: $params,
       tag: swaggerMetaData,
     );
-    return client.send<AddressQueryGet$Response, AddressQueryGet$Response>(
-      $request,
-    );
+    return client.send<
+      UserServiceAddressQueryGet$Response,
+      UserServiceAddressQueryGet$Response
+    >($request);
   }
 
   @override
-  Future<Response<NoAuthSupportCountryGet$Response>> _noAuthSupportCountryGet({
+  Future<Response<UserServiceNoAuthSupportCountryGet$Response>>
+  _userServiceNoAuthSupportCountryGet({
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '支持国家',
@@ -120,7 +126,7 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/no-auth/support/country');
+    final Uri $url = Uri.parse('/user-service/no-auth/support/country');
     final Request $request = Request(
       'GET',
       $url,
@@ -128,13 +134,14 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       tag: swaggerMetaData,
     );
     return client.send<
-      NoAuthSupportCountryGet$Response,
-      NoAuthSupportCountryGet$Response
+      UserServiceNoAuthSupportCountryGet$Response,
+      UserServiceNoAuthSupportCountryGet$Response
     >($request);
   }
 
   @override
-  Future<Response<AddressListGet$Response>> _addressListGet({
+  Future<Response<UserServiceAddressListGet$Response>>
+  _userServiceAddressListGet({
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '收货地址列表',
@@ -146,21 +153,22 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/address/list');
+    final Uri $url = Uri.parse('/user-service/address/list');
     final Request $request = Request(
       'GET',
       $url,
       client.baseUrl,
       tag: swaggerMetaData,
     );
-    return client.send<AddressListGet$Response, AddressListGet$Response>(
-      $request,
-    );
+    return client.send<
+      UserServiceAddressListGet$Response,
+      UserServiceAddressListGet$Response
+    >($request);
   }
 
   @override
-  Future<Response<GetShippingAddressByCountryGet$Response>>
-  _getShippingAddressByCountryGet({
+  Future<Response<UserServiceGetShippingAddressByCountryGet$Response>>
+  _userServiceGetShippingAddressByCountryGet({
     required String? country,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -173,7 +181,7 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/getShippingAddressByCountry');
+    final Uri $url = Uri.parse('/user-service/getShippingAddressByCountry');
     final Map<String, dynamic> $params = <String, dynamic>{'country': country};
     final Request $request = Request(
       'GET',
@@ -183,13 +191,14 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       tag: swaggerMetaData,
     );
     return client.send<
-      GetShippingAddressByCountryGet$Response,
-      GetShippingAddressByCountryGet$Response
+      UserServiceGetShippingAddressByCountryGet$Response,
+      UserServiceGetShippingAddressByCountryGet$Response
     >($request);
   }
 
   @override
-  Future<Response<AddressAddPost$Response>> _addressAddPost({
+  Future<Response<UserServiceAddressAddPost$Response>>
+  _userServiceAddressAddPost({
     Object? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -202,7 +211,7 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/address/add');
+    final Uri $url = Uri.parse('/user-service/address/add');
     final $body = root;
     final Request $request = Request(
       'POST',
@@ -211,14 +220,15 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       body: $body,
       tag: swaggerMetaData,
     );
-    return client.send<AddressAddPost$Response, AddressAddPost$Response>(
-      $request,
-    );
+    return client.send<
+      UserServiceAddressAddPost$Response,
+      UserServiceAddressAddPost$Response
+    >($request);
   }
 
   @override
-  Future<Response<GetDefaultShippingAddressGet$Response>>
-  _getDefaultShippingAddressGet({
+  Future<Response<UserServiceGetDefaultShippingAddressGet$Response>>
+  _userServiceGetDefaultShippingAddressGet({
     String? authorization,
     String? userId,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -232,7 +242,7 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/getDefaultShippingAddress');
+    final Uri $url = Uri.parse('/user-service/getDefaultShippingAddress');
     final Map<String, dynamic> $params = <String, dynamic>{'userId': userId};
     final Map<String, String> $headers = {
       if (authorization != null) 'Authorization': authorization,
@@ -246,13 +256,14 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       tag: swaggerMetaData,
     );
     return client.send<
-      GetDefaultShippingAddressGet$Response,
-      GetDefaultShippingAddressGet$Response
+      UserServiceGetDefaultShippingAddressGet$Response,
+      UserServiceGetDefaultShippingAddressGet$Response
     >($request);
   }
 
   @override
-  Future<Response<AddressCountryGet$Response>> _addressCountryGet({
+  Future<Response<UserServiceAddressCountryGet$Response>>
+  _userServiceAddressCountryGet({
     String? areaCode,
     required String? portalCode,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -266,7 +277,7 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/address/country');
+    final Uri $url = Uri.parse('/user-service/address/country');
     final Map<String, dynamic> $params = <String, dynamic>{
       'areaCode': areaCode,
       'portalCode': portalCode,
@@ -278,14 +289,15 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       parameters: $params,
       tag: swaggerMetaData,
     );
-    return client.send<AddressCountryGet$Response, AddressCountryGet$Response>(
-      $request,
-    );
+    return client.send<
+      UserServiceAddressCountryGet$Response,
+      UserServiceAddressCountryGet$Response
+    >($request);
   }
 
   @override
-  Future<Response<AddressQueryByZipCodeGet$Response>>
-  _addressQueryByZipCodeGet({
+  Future<Response<UserServiceAddressQueryByZipCodeGet$Response>>
+  _userServiceAddressQueryByZipCodeGet({
     required String? zipCode,
     required String? portalCode,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -299,7 +311,7 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/address/queryByZipCode');
+    final Uri $url = Uri.parse('/user-service/address/queryByZipCode');
     final Map<String, dynamic> $params = <String, dynamic>{
       'zipCode': zipCode,
       'portalCode': portalCode,
@@ -312,14 +324,14 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       tag: swaggerMetaData,
     );
     return client.send<
-      AddressQueryByZipCodeGet$Response,
-      AddressQueryByZipCodeGet$Response
+      UserServiceAddressQueryByZipCodeGet$Response,
+      UserServiceAddressQueryByZipCodeGet$Response
     >($request);
   }
 
   @override
-  Future<Response<UserInnerUpdUserLevelPost$Response>>
-  _userInnerUpdUserLevelPost({
+  Future<Response<UserServiceUserInnerUpdUserLevelPost$Response>>
+  _userServiceUserInnerUpdUserLevelPost({
     Object? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -332,7 +344,7 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/user/inner/upd/user-level');
+    final Uri $url = Uri.parse('/user-service/user/inner/upd/user-level');
     final $body = root;
     final Request $request = Request(
       'POST',
@@ -342,13 +354,14 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       tag: swaggerMetaData,
     );
     return client.send<
-      UserInnerUpdUserLevelPost$Response,
-      UserInnerUpdUserLevelPost$Response
+      UserServiceUserInnerUpdUserLevelPost$Response,
+      UserServiceUserInnerUpdUserLevelPost$Response
     >($request);
   }
 
   @override
-  Future<Response<SigninSwitchPortalPost$Response>> _signinSwitchPortalPost({
+  Future<Response<UserServiceSigninSwitchPortalPost$Response>>
+  _userServiceSigninSwitchPortalPost({
     Object? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -361,7 +374,7 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/signin/switchPortal');
+    final Uri $url = Uri.parse('/user-service/signin/switchPortal');
     final $body = root;
     final Request $request = Request(
       'POST',
@@ -370,14 +383,15 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       body: $body,
       tag: swaggerMetaData,
     );
-    return client
-        .send<SigninSwitchPortalPost$Response, SigninSwitchPortalPost$Response>(
-          $request,
-        );
+    return client.send<
+      UserServiceSigninSwitchPortalPost$Response,
+      UserServiceSigninSwitchPortalPost$Response
+    >($request);
   }
 
   @override
-  Future<Response<SignInInitPost$Response>> _signInInitPost({
+  Future<Response<UserServiceSignInInitPost$Response>>
+  _userServiceSignInInitPost({
     Object? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -390,7 +404,7 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/signIn/init');
+    final Uri $url = Uri.parse('/user-service/signIn/init');
     final $body = root;
     final Request $request = Request(
       'POST',
@@ -399,13 +413,14 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       body: $body,
       tag: swaggerMetaData,
     );
-    return client.send<SignInInitPost$Response, SignInInitPost$Response>(
-      $request,
-    );
+    return client.send<
+      UserServiceSignInInitPost$Response,
+      UserServiceSignInInitPost$Response
+    >($request);
   }
 
   @override
-  Future<Response<OtpApplyPost$Response>> _otpApplyPost({
+  Future<Response<UserServiceOtpApplyPost$Response>> _userServiceOtpApplyPost({
     Object? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -418,7 +433,7 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/otp/apply');
+    final Uri $url = Uri.parse('/user-service/otp/apply');
     final $body = root;
     final Request $request = Request(
       'POST',
@@ -427,11 +442,14 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       body: $body,
       tag: swaggerMetaData,
     );
-    return client.send<OtpApplyPost$Response, OtpApplyPost$Response>($request);
+    return client.send<
+      UserServiceOtpApplyPost$Response,
+      UserServiceOtpApplyPost$Response
+    >($request);
   }
 
   @override
-  Future<Response<String>> _signOutPost({
+  Future<Response<String>> _userServiceSignOutPost({
     String? authorization,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -444,7 +462,7 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/signOut');
+    final Uri $url = Uri.parse('/user-service/signOut');
     final Map<String, String> $headers = {
       if (authorization != null) 'Authorization': authorization,
     };
@@ -459,7 +477,8 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
   }
 
   @override
-  Future<Response<SignInVerifyPost$Response>> _signInVerifyPost({
+  Future<Response<UserServiceSignInVerifyPost$Response>>
+  _userServiceSignInVerifyPost({
     Object? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -472,7 +491,7 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/signIn/verify');
+    final Uri $url = Uri.parse('/user-service/signIn/verify');
     final $body = root;
     final Request $request = Request(
       'POST',
@@ -481,13 +500,15 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       body: $body,
       tag: swaggerMetaData,
     );
-    return client.send<SignInVerifyPost$Response, SignInVerifyPost$Response>(
-      $request,
-    );
+    return client.send<
+      UserServiceSignInVerifyPost$Response,
+      UserServiceSignInVerifyPost$Response
+    >($request);
   }
 
   @override
-  Future<Response<SignInCallPost$Response>> _signInCallPost({
+  Future<Response<UserServiceSignInCallPost$Response>>
+  _userServiceSignInCallPost({
     Object? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -500,7 +521,7 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/signIn/call');
+    final Uri $url = Uri.parse('/user-service/signIn/call');
     final $body = root;
     final Request $request = Request(
       'POST',
@@ -509,13 +530,15 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       body: $body,
       tag: swaggerMetaData,
     );
-    return client.send<SignInCallPost$Response, SignInCallPost$Response>(
-      $request,
-    );
+    return client.send<
+      UserServiceSignInCallPost$Response,
+      UserServiceSignInCallPost$Response
+    >($request);
   }
 
   @override
-  Future<Response<NoAuthOtpVerifyPost$Response>> _noAuthOtpVerifyPost({
+  Future<Response<UserServiceNoAuthOtpVerifyPost$Response>>
+  _userServiceNoAuthOtpVerifyPost({
     Object? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -528,7 +551,7 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/no-auth/otp/verify');
+    final Uri $url = Uri.parse('/user-service/no-auth/otp/verify');
     final $body = root;
     final Request $request = Request(
       'POST',
@@ -537,14 +560,14 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       body: $body,
       tag: swaggerMetaData,
     );
-    return client
-        .send<NoAuthOtpVerifyPost$Response, NoAuthOtpVerifyPost$Response>(
-          $request,
-        );
+    return client.send<
+      UserServiceNoAuthOtpVerifyPost$Response,
+      UserServiceNoAuthOtpVerifyPost$Response
+    >($request);
   }
 
   @override
-  Future<Response<Object>> _noAuthEmailUnsubscribePost({
+  Future<Response<Object>> _userServiceNoAuthEmailUnsubscribePost({
     Object? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -557,7 +580,7 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/no-auth/email/unsubscribe');
+    final Uri $url = Uri.parse('/user-service/no-auth/email/unsubscribe');
     final $body = root;
     final Request $request = Request(
       'POST',
@@ -570,8 +593,8 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
   }
 
   @override
-  Future<Response<NoAuthCommonConfigDefaultSettingGet$Response>>
-  _noAuthCommonConfigDefaultSettingGet({
+  Future<Response<UserServiceNoAuthCommonConfigDefaultSettingGet$Response>>
+  _userServiceNoAuthCommonConfigDefaultSettingGet({
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '默认国家和语言',
@@ -583,7 +606,9 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/no-auth/common-config/default-setting');
+    final Uri $url = Uri.parse(
+      '/user-service/no-auth/common-config/default-setting',
+    );
     final Request $request = Request(
       'GET',
       $url,
@@ -591,13 +616,14 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       tag: swaggerMetaData,
     );
     return client.send<
-      NoAuthCommonConfigDefaultSettingGet$Response,
-      NoAuthCommonConfigDefaultSettingGet$Response
+      UserServiceNoAuthCommonConfigDefaultSettingGet$Response,
+      UserServiceNoAuthCommonConfigDefaultSettingGet$Response
     >($request);
   }
 
   @override
-  Future<Response<FileImUploadPost$Response>> _fileImUploadPost({
+  Future<Response<UserServiceFileImUploadPost$Response>>
+  _userServiceFileImUploadPost({
     required List<int>? files,
     required List<int>? files$,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -611,7 +637,7 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/file/im/upload');
+    final Uri $url = Uri.parse('/user-service/file/im/upload');
     final $body = <String, dynamic>{'files': files$};
     final Request $request = Request(
       'POST',
@@ -620,13 +646,15 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       body: $body,
       tag: swaggerMetaData,
     );
-    return client.send<FileImUploadPost$Response, FileImUploadPost$Response>(
-      $request,
-    );
+    return client.send<
+      UserServiceFileImUploadPost$Response,
+      UserServiceFileImUploadPost$Response
+    >($request);
   }
 
   @override
-  Future<Response<FileLogoUploadPost$Response>> _fileLogoUploadPost({
+  Future<Response<UserServiceFileLogoUploadPost$Response>>
+  _userServiceFileLogoUploadPost({
     required List<int>? file,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -639,7 +667,7 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/file/logo/upload');
+    final Uri $url = Uri.parse('/user-service/file/logo/upload');
     final $body = <String, dynamic>{'file': file};
     final Request $request = Request(
       'POST',
@@ -648,14 +676,15 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       body: $body,
       tag: swaggerMetaData,
     );
-    return client
-        .send<FileLogoUploadPost$Response, FileLogoUploadPost$Response>(
-          $request,
-        );
+    return client.send<
+      UserServiceFileLogoUploadPost$Response,
+      UserServiceFileLogoUploadPost$Response
+    >($request);
   }
 
   @override
-  Future<Response<UserCouponCountGet$Response>> _userCouponCountGet({
+  Future<Response<UserServiceUserCouponCountGet$Response>>
+  _userServiceUserCouponCountGet({
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '优惠券数量列表',
@@ -667,22 +696,22 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/user/coupon/count');
+    final Uri $url = Uri.parse('/user-service/user/coupon/count');
     final Request $request = Request(
       'GET',
       $url,
       client.baseUrl,
       tag: swaggerMetaData,
     );
-    return client
-        .send<UserCouponCountGet$Response, UserCouponCountGet$Response>(
-          $request,
-        );
+    return client.send<
+      UserServiceUserCouponCountGet$Response,
+      UserServiceUserCouponCountGet$Response
+    >($request);
   }
 
   @override
-  Future<Response<UserCouponActivityInfoGet$Response>>
-  _userCouponActivityInfoGet({
+  Future<Response<UserServiceUserCouponActivityInfoGet$Response>>
+  _userServiceUserCouponActivityInfoGet({
     required String? couponActivityCode,
     String? received,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -696,7 +725,7 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/user/coupon/activityInfo');
+    final Uri $url = Uri.parse('/user-service/user/coupon/activityInfo');
     final Map<String, dynamic> $params = <String, dynamic>{
       'couponActivityCode': couponActivityCode,
       'received': received,
@@ -709,14 +738,14 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       tag: swaggerMetaData,
     );
     return client.send<
-      UserCouponActivityInfoGet$Response,
-      UserCouponActivityInfoGet$Response
+      UserServiceUserCouponActivityInfoGet$Response,
+      UserServiceUserCouponActivityInfoGet$Response
     >($request);
   }
 
   @override
-  Future<Response<UserCouponCode2CouponGet$Response>>
-  _userCouponCode2CouponGet({
+  Future<Response<UserServiceUserCouponCode2CouponGet$Response>>
+  _userServiceUserCouponCode2CouponGet({
     required String? code,
     String? isDiscount,
     Object? root,
@@ -731,7 +760,7 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/user/coupon/code2Coupon');
+    final Uri $url = Uri.parse('/user-service/user/coupon/code2Coupon');
     final Map<String, dynamic> $params = <String, dynamic>{
       'code': code,
       'isDiscount': isDiscount,
@@ -746,14 +775,14 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       tag: swaggerMetaData,
     );
     return client.send<
-      UserCouponCode2CouponGet$Response,
-      UserCouponCode2CouponGet$Response
+      UserServiceUserCouponCode2CouponGet$Response,
+      UserServiceUserCouponCode2CouponGet$Response
     >($request);
   }
 
   @override
-  Future<Response<UserCouponActivityInfosGet$Response>>
-  _userCouponActivityInfosGet({
+  Future<Response<UserServiceUserCouponActivityInfosGet$Response>>
+  _userServiceUserCouponActivityInfosGet({
     String? couponActivityCodes,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -766,7 +795,7 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/user/coupon/activityInfos');
+    final Uri $url = Uri.parse('/user-service/user/coupon/activityInfos');
     final Map<String, dynamic> $params = <String, dynamic>{
       'couponActivityCodes': couponActivityCodes,
     };
@@ -778,14 +807,14 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       tag: swaggerMetaData,
     );
     return client.send<
-      UserCouponActivityInfosGet$Response,
-      UserCouponActivityInfosGet$Response
+      UserServiceUserCouponActivityInfosGet$Response,
+      UserServiceUserCouponActivityInfosGet$Response
     >($request);
   }
 
   @override
-  Future<Response<UserCouponGetActivitiesGet$Response>>
-  _userCouponGetActivitiesGet({
+  Future<Response<UserServiceUserCouponGetActivitiesGet$Response>>
+  _userServiceUserCouponGetActivitiesGet({
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '用户优惠券ActivityCodes',
@@ -797,7 +826,7 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/user/coupon/getActivities');
+    final Uri $url = Uri.parse('/user-service/user/coupon/getActivities');
     final Request $request = Request(
       'GET',
       $url,
@@ -805,13 +834,14 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       tag: swaggerMetaData,
     );
     return client.send<
-      UserCouponGetActivitiesGet$Response,
-      UserCouponGetActivitiesGet$Response
+      UserServiceUserCouponGetActivitiesGet$Response,
+      UserServiceUserCouponGetActivitiesGet$Response
     >($request);
   }
 
   @override
-  Future<Response<UserCouponGetListGet$Response>> _userCouponGetListGet({
+  Future<Response<UserServiceUserCouponGetListGet$Response>>
+  _userServiceUserCouponGetListGet({
     required String? userCouponState,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -824,7 +854,7 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/user/coupon/getList');
+    final Uri $url = Uri.parse('/user-service/user/coupon/getList');
     final Map<String, dynamic> $params = <String, dynamic>{
       'userCouponState': userCouponState,
     };
@@ -835,15 +865,15 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       parameters: $params,
       tag: swaggerMetaData,
     );
-    return client
-        .send<UserCouponGetListGet$Response, UserCouponGetListGet$Response>(
-          $request,
-        );
+    return client.send<
+      UserServiceUserCouponGetListGet$Response,
+      UserServiceUserCouponGetListGet$Response
+    >($request);
   }
 
   @override
-  Future<Response<UserCouponGetUserCouponByActivityPost$Response>>
-  _userCouponGetUserCouponByActivityPost({
+  Future<Response<UserServiceUserCouponGetUserCouponByActivityPost$Response>>
+  _userServiceUserCouponGetUserCouponByActivityPost({
     Object? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -856,7 +886,9 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/user/coupon/getUserCouponByActivity');
+    final Uri $url = Uri.parse(
+      '/user-service/user/coupon/getUserCouponByActivity',
+    );
     final $body = root;
     final Request $request = Request(
       'POST',
@@ -866,13 +898,14 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       tag: swaggerMetaData,
     );
     return client.send<
-      UserCouponGetUserCouponByActivityPost$Response,
-      UserCouponGetUserCouponByActivityPost$Response
+      UserServiceUserCouponGetUserCouponByActivityPost$Response,
+      UserServiceUserCouponGetUserCouponByActivityPost$Response
     >($request);
   }
 
   @override
-  Future<Response<UserCouponSaveGet$Response>> _userCouponSaveGet({
+  Future<Response<UserServiceUserCouponSaveGet$Response>>
+  _userServiceUserCouponSaveGet({
     required String? couponActivityCode,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -885,7 +918,7 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/user/coupon/save');
+    final Uri $url = Uri.parse('/user-service/user/coupon/save');
     final Map<String, dynamic> $params = <String, dynamic>{
       'couponActivityCode': couponActivityCode,
     };
@@ -896,14 +929,15 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       parameters: $params,
       tag: swaggerMetaData,
     );
-    return client.send<UserCouponSaveGet$Response, UserCouponSaveGet$Response>(
-      $request,
-    );
+    return client.send<
+      UserServiceUserCouponSaveGet$Response,
+      UserServiceUserCouponSaveGet$Response
+    >($request);
   }
 
   @override
-  Future<Response<UserCouponNoAuthActivityInfoGet$Response>>
-  _userCouponNoAuthActivityInfoGet({
+  Future<Response<UserServiceUserCouponNoAuthActivityInfoGet$Response>>
+  _userServiceUserCouponNoAuthActivityInfoGet({
     required String? couponActivityCode,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -916,7 +950,9 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/user/coupon/no-auth/activityInfo');
+    final Uri $url = Uri.parse(
+      '/user-service/user/coupon/no-auth/activityInfo',
+    );
     final Map<String, dynamic> $params = <String, dynamic>{
       'couponActivityCode': couponActivityCode,
     };
@@ -928,14 +964,14 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       tag: swaggerMetaData,
     );
     return client.send<
-      UserCouponNoAuthActivityInfoGet$Response,
-      UserCouponNoAuthActivityInfoGet$Response
+      UserServiceUserCouponNoAuthActivityInfoGet$Response,
+      UserServiceUserCouponNoAuthActivityInfoGet$Response
     >($request);
   }
 
   @override
-  Future<Response<UserCouponGetCouponByActivityPost$Response>>
-  _userCouponGetCouponByActivityPost({
+  Future<Response<UserServiceUserCouponGetCouponByActivityPost$Response>>
+  _userServiceUserCouponGetCouponByActivityPost({
     required String? couponActivityCode,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -948,7 +984,7 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/user/coupon/getCouponByActivity');
+    final Uri $url = Uri.parse('/user-service/user/coupon/getCouponByActivity');
     final $body = <String, dynamic>{'couponActivityCode': couponActivityCode};
     final Request $request = Request(
       'POST',
@@ -958,13 +994,14 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       tag: swaggerMetaData,
     );
     return client.send<
-      UserCouponGetCouponByActivityPost$Response,
-      UserCouponGetCouponByActivityPost$Response
+      UserServiceUserCouponGetCouponByActivityPost$Response,
+      UserServiceUserCouponGetCouponByActivityPost$Response
     >($request);
   }
 
   @override
-  Future<Response<UserCouponGetGet$Response>> _userCouponGetGet({
+  Future<Response<UserServiceUserCouponGetGet$Response>>
+  _userServiceUserCouponGetGet({
     required String? userCouponState,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -977,7 +1014,7 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/user/coupon/get');
+    final Uri $url = Uri.parse('/user-service/user/coupon/get');
     final Map<String, dynamic> $params = <String, dynamic>{
       'userCouponState': userCouponState,
     };
@@ -988,13 +1025,15 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       parameters: $params,
       tag: swaggerMetaData,
     );
-    return client.send<UserCouponGetGet$Response, UserCouponGetGet$Response>(
-      $request,
-    );
+    return client.send<
+      UserServiceUserCouponGetGet$Response,
+      UserServiceUserCouponGetGet$Response
+    >($request);
   }
 
   @override
-  Future<Response<ImGetInfoPost$Response>> _imGetInfoPost({
+  Future<Response<UserServiceImGetInfoPost$Response>>
+  _userServiceImGetInfoPost({
     Object? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -1007,7 +1046,7 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/im/getInfo');
+    final Uri $url = Uri.parse('/user-service/im/getInfo');
     final $body = root;
     final Request $request = Request(
       'POST',
@@ -1016,13 +1055,15 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       body: $body,
       tag: swaggerMetaData,
     );
-    return client.send<ImGetInfoPost$Response, ImGetInfoPost$Response>(
-      $request,
-    );
+    return client.send<
+      UserServiceImGetInfoPost$Response,
+      UserServiceImGetInfoPost$Response
+    >($request);
   }
 
   @override
-  Future<Response<UserShareListGet$Response>> _userShareListGet({
+  Future<Response<UserServiceUserShareListGet$Response>>
+  _userServiceUserShareListGet({
     Object? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -1035,7 +1076,7 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/user/share/list');
+    final Uri $url = Uri.parse('/user-service/user/share/list');
     final $body = root;
     final Request $request = Request(
       'GET',
@@ -1044,13 +1085,15 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       body: $body,
       tag: swaggerMetaData,
     );
-    return client.send<UserShareListGet$Response, UserShareListGet$Response>(
-      $request,
-    );
+    return client.send<
+      UserServiceUserShareListGet$Response,
+      UserServiceUserShareListGet$Response
+    >($request);
   }
 
   @override
-  Future<Response<UserShareRewardInfoGet$Response>> _userShareRewardInfoGet({
+  Future<Response<UserServiceUserShareRewardInfoGet$Response>>
+  _userServiceUserShareRewardInfoGet({
     required String? orderId,
     Object? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -1064,7 +1107,7 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/user/share/rewardInfo');
+    final Uri $url = Uri.parse('/user-service/user/share/rewardInfo');
     final Map<String, dynamic> $params = <String, dynamic>{'orderId': orderId};
     final $body = root;
     final Request $request = Request(
@@ -1075,14 +1118,15 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       parameters: $params,
       tag: swaggerMetaData,
     );
-    return client
-        .send<UserShareRewardInfoGet$Response, UserShareRewardInfoGet$Response>(
-          $request,
-        );
+    return client.send<
+      UserServiceUserShareRewardInfoGet$Response,
+      UserServiceUserShareRewardInfoGet$Response
+    >($request);
   }
 
   @override
-  Future<Response<UserShareSubmitPost$Response>> _userShareSubmitPost({
+  Future<Response<UserServiceUserShareSubmitPost$Response>>
+  _userServiceUserShareSubmitPost({
     Object? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -1095,7 +1139,7 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/user/share/submit');
+    final Uri $url = Uri.parse('/user-service/user/share/submit');
     final $body = root;
     final Request $request = Request(
       'POST',
@@ -1104,14 +1148,15 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       body: $body,
       tag: swaggerMetaData,
     );
-    return client
-        .send<UserShareSubmitPost$Response, UserShareSubmitPost$Response>(
-          $request,
-        );
+    return client.send<
+      UserServiceUserShareSubmitPost$Response,
+      UserServiceUserShareSubmitPost$Response
+    >($request);
   }
 
   @override
-  Future<Response<UserDeleteGet$Response>> _userDeleteGet({
+  Future<Response<UserServiceUserDeleteGet$Response>>
+  _userServiceUserDeleteGet({
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '注销发送验证码',
@@ -1123,20 +1168,22 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/user/delete');
+    final Uri $url = Uri.parse('/user-service/user/delete');
     final Request $request = Request(
       'GET',
       $url,
       client.baseUrl,
       tag: swaggerMetaData,
     );
-    return client.send<UserDeleteGet$Response, UserDeleteGet$Response>(
-      $request,
-    );
+    return client.send<
+      UserServiceUserDeleteGet$Response,
+      UserServiceUserDeleteGet$Response
+    >($request);
   }
 
   @override
-  Future<Response<UserDeleteConfirmGet$Response>> _userDeleteConfirmGet({
+  Future<Response<UserServiceUserDeleteConfirmGet$Response>>
+  _userServiceUserDeleteConfirmGet({
     required String? code,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -1149,7 +1196,7 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/user/delete/confirm');
+    final Uri $url = Uri.parse('/user-service/user/delete/confirm');
     final Map<String, dynamic> $params = <String, dynamic>{'code': code};
     final Request $request = Request(
       'GET',
@@ -1158,14 +1205,14 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       parameters: $params,
       tag: swaggerMetaData,
     );
-    return client
-        .send<UserDeleteConfirmGet$Response, UserDeleteConfirmGet$Response>(
-          $request,
-        );
+    return client.send<
+      UserServiceUserDeleteConfirmGet$Response,
+      UserServiceUserDeleteConfirmGet$Response
+    >($request);
   }
 
   @override
-  Future<Response<Object>> _userUpdatePost({
+  Future<Response<Object>> _userServiceUserUpdatePost({
     String? authorization,
     Object? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -1179,7 +1226,7 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/user/update');
+    final Uri $url = Uri.parse('/user-service/user/update');
     final Map<String, String> $headers = {
       if (authorization != null) 'Authorization': authorization,
     };
@@ -1196,7 +1243,7 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
   }
 
   @override
-  Future<Response<UserGetGet$Response>> _userGetGet({
+  Future<Response<UserServiceUserGetGet$Response>> _userServiceUserGetGet({
     String? authorization,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -1209,7 +1256,7 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/user/get');
+    final Uri $url = Uri.parse('/user-service/user/get');
     final Map<String, String> $headers = {
       if (authorization != null) 'Authorization': authorization,
     };
@@ -1220,11 +1267,15 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       headers: $headers,
       tag: swaggerMetaData,
     );
-    return client.send<UserGetGet$Response, UserGetGet$Response>($request);
+    return client
+        .send<UserServiceUserGetGet$Response, UserServiceUserGetGet$Response>(
+          $request,
+        );
   }
 
   @override
-  Future<Response<UserUserCommissionGet$Response>> _userUserCommissionGet({
+  Future<Response<UserServiceUserUserCommissionGet$Response>>
+  _userServiceUserUserCommissionGet({
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '用户积分信息',
@@ -1236,21 +1287,22 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/user/user-commission');
+    final Uri $url = Uri.parse('/user-service/user/user-commission');
     final Request $request = Request(
       'GET',
       $url,
       client.baseUrl,
       tag: swaggerMetaData,
     );
-    return client
-        .send<UserUserCommissionGet$Response, UserUserCommissionGet$Response>(
-          $request,
-        );
+    return client.send<
+      UserServiceUserUserCommissionGet$Response,
+      UserServiceUserUserCommissionGet$Response
+    >($request);
   }
 
   @override
-  Future<Response<UserConfigureSettingGet$Response>> _userConfigureSettingGet({
+  Future<Response<UserServiceUserConfigureSettingGet$Response>>
+  _userServiceUserConfigureSettingGet({
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '用户配置',
@@ -1262,7 +1314,7 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/user/configure-setting');
+    final Uri $url = Uri.parse('/user-service/user/configure-setting');
     final Request $request = Request(
       'GET',
       $url,
@@ -1270,13 +1322,14 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       tag: swaggerMetaData,
     );
     return client.send<
-      UserConfigureSettingGet$Response,
-      UserConfigureSettingGet$Response
+      UserServiceUserConfigureSettingGet$Response,
+      UserServiceUserConfigureSettingGet$Response
     >($request);
   }
 
   @override
-  Future<Response<UserInviteCountGet$Response>> _userInviteCountGet({
+  Future<Response<UserServiceUserInviteCountGet$Response>>
+  _userServiceUserInviteCountGet({
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '邀请数量',
@@ -1288,21 +1341,22 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/user/invite/count');
+    final Uri $url = Uri.parse('/user-service/user/invite/count');
     final Request $request = Request(
       'GET',
       $url,
       client.baseUrl,
       tag: swaggerMetaData,
     );
-    return client
-        .send<UserInviteCountGet$Response, UserInviteCountGet$Response>(
-          $request,
-        );
+    return client.send<
+      UserServiceUserInviteCountGet$Response,
+      UserServiceUserInviteCountGet$Response
+    >($request);
   }
 
   @override
-  Future<Response<UserInviteNumGet$Response>> _userInviteNumGet({
+  Future<Response<UserServiceUserInviteNumGet$Response>>
+  _userServiceUserInviteNumGet({
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '邀请统计',
@@ -1314,20 +1368,22 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/user/invite/num');
+    final Uri $url = Uri.parse('/user-service/user/invite/num');
     final Request $request = Request(
       'GET',
       $url,
       client.baseUrl,
       tag: swaggerMetaData,
     );
-    return client.send<UserInviteNumGet$Response, UserInviteNumGet$Response>(
-      $request,
-    );
+    return client.send<
+      UserServiceUserInviteNumGet$Response,
+      UserServiceUserInviteNumGet$Response
+    >($request);
   }
 
   @override
-  Future<Response<UserShareUpdatePost$Response>> _userShareUpdatePost({
+  Future<Response<UserServiceUserShareUpdatePost$Response>>
+  _userServiceUserShareUpdatePost({
     Object? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -1340,7 +1396,7 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/user/share/update');
+    final Uri $url = Uri.parse('/user-service/user/share/update');
     final $body = root;
     final Request $request = Request(
       'POST',
@@ -1349,14 +1405,15 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       body: $body,
       tag: swaggerMetaData,
     );
-    return client
-        .send<UserShareUpdatePost$Response, UserShareUpdatePost$Response>(
-          $request,
-        );
+    return client.send<
+      UserServiceUserShareUpdatePost$Response,
+      UserServiceUserShareUpdatePost$Response
+    >($request);
   }
 
   @override
-  Future<Response<UserUserRewardGet$Response>> _userUserRewardGet({
+  Future<Response<UserServiceUserUserRewardGet$Response>>
+  _userServiceUserUserRewardGet({
     required String? rewardType,
     String? expire,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -1370,7 +1427,7 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/user/user-reward');
+    final Uri $url = Uri.parse('/user-service/user/user-reward');
     final Map<String, dynamic> $params = <String, dynamic>{
       'rewardType': rewardType,
       'expire': expire,
@@ -1382,14 +1439,15 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       parameters: $params,
       tag: swaggerMetaData,
     );
-    return client.send<UserUserRewardGet$Response, UserUserRewardGet$Response>(
-      $request,
-    );
+    return client.send<
+      UserServiceUserUserRewardGet$Response,
+      UserServiceUserUserRewardGet$Response
+    >($request);
   }
 
   @override
-  Future<Response<UserTagPortraitAiToPortraitPost$Response>>
-  _userTagPortraitAiToPortraitPost({
+  Future<Response<UserServiceUserTagPortraitAiToPortraitPost$Response>>
+  _userServiceUserTagPortraitAiToPortraitPost({
     List<String>? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -1402,7 +1460,9 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/user-tag-portrait/ai-to-portrait');
+    final Uri $url = Uri.parse(
+      '/user-service/user-tag-portrait/ai-to-portrait',
+    );
     final $body = root;
     final Request $request = Request(
       'POST',
@@ -1412,14 +1472,14 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       tag: swaggerMetaData,
     );
     return client.send<
-      UserTagPortraitAiToPortraitPost$Response,
-      UserTagPortraitAiToPortraitPost$Response
+      UserServiceUserTagPortraitAiToPortraitPost$Response,
+      UserServiceUserTagPortraitAiToPortraitPost$Response
     >($request);
   }
 
   @override
-  Future<Response<UserTagPortraitAiToPortraitV2Post$Response>>
-  _userTagPortraitAiToPortraitV2Post({
+  Future<Response<UserServiceUserTagPortraitAiToPortraitV2Post$Response>>
+  _userServiceUserTagPortraitAiToPortraitV2Post({
     Object? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -1432,7 +1492,9 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/user-tag-portrait/ai-to-portrait-v2');
+    final Uri $url = Uri.parse(
+      '/user-service/user-tag-portrait/ai-to-portrait-v2',
+    );
     final $body = root;
     final Request $request = Request(
       'POST',
@@ -1442,14 +1504,14 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       tag: swaggerMetaData,
     );
     return client.send<
-      UserTagPortraitAiToPortraitV2Post$Response,
-      UserTagPortraitAiToPortraitV2Post$Response
+      UserServiceUserTagPortraitAiToPortraitV2Post$Response,
+      UserServiceUserTagPortraitAiToPortraitV2Post$Response
     >($request);
   }
 
   @override
-  Future<Response<UserTagPortraitUpdatePortraitPost$Response>>
-  _userTagPortraitUpdatePortraitPost({
+  Future<Response<UserServiceUserTagPortraitUpdatePortraitPost$Response>>
+  _userServiceUserTagPortraitUpdatePortraitPost({
     Object? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -1462,7 +1524,9 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/user-tag-portrait/update-portrait');
+    final Uri $url = Uri.parse(
+      '/user-service/user-tag-portrait/update-portrait',
+    );
     final $body = root;
     final Request $request = Request(
       'POST',
@@ -1472,14 +1536,14 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       tag: swaggerMetaData,
     );
     return client.send<
-      UserTagPortraitUpdatePortraitPost$Response,
-      UserTagPortraitUpdatePortraitPost$Response
+      UserServiceUserTagPortraitUpdatePortraitPost$Response,
+      UserServiceUserTagPortraitUpdatePortraitPost$Response
     >($request);
   }
 
   @override
-  Future<Response<UserTagPortraitGetPortraitGet$Response>>
-  _userTagPortraitGetPortraitGet({
+  Future<Response<UserServiceUserTagPortraitGetPortraitGet$Response>>
+  _userServiceUserTagPortraitGetPortraitGet({
     Object? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -1492,7 +1556,7 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/user-tag-portrait/get-portrait');
+    final Uri $url = Uri.parse('/user-service/user-tag-portrait/get-portrait');
     final $body = root;
     final Request $request = Request(
       'GET',
@@ -1502,14 +1566,14 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       tag: swaggerMetaData,
     );
     return client.send<
-      UserTagPortraitGetPortraitGet$Response,
-      UserTagPortraitGetPortraitGet$Response
+      UserServiceUserTagPortraitGetPortraitGet$Response,
+      UserServiceUserTagPortraitGetPortraitGet$Response
     >($request);
   }
 
   @override
-  Future<Response<UserCouponAppHomeActivityPost$Response>>
-  _userCouponAppHomeActivityPost({
+  Future<Response<UserServiceUserCouponAppHomeActivityPost$Response>>
+  _userServiceUserCouponAppHomeActivityPost({
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '首页活动',
@@ -1521,7 +1585,7 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/user/coupon/app/homeActivity');
+    final Uri $url = Uri.parse('/user-service/user/coupon/app/homeActivity');
     final Request $request = Request(
       'POST',
       $url,
@@ -1529,8 +1593,8 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
       tag: swaggerMetaData,
     );
     return client.send<
-      UserCouponAppHomeActivityPost$Response,
-      UserCouponAppHomeActivityPost$Response
+      UserServiceUserCouponAppHomeActivityPost$Response,
+      UserServiceUserCouponAppHomeActivityPost$Response
     >($request);
   }
 }

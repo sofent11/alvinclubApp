@@ -6,19 +6,19 @@ part of 'swaggerApiConfig.swagger.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-UserConfigPost$Response _$UserConfigPost$ResponseFromJson(
-  Map<String, dynamic> json,
-) => UserConfigPost$Response(
-  code: (json['code'] as num?)?.toDouble(),
-  message: json['message'] as String?,
-  data: json['data'] as bool?,
-  traceId: json['traceId'] as String?,
-  placeholder: json['placeholder'],
-  success: json['success'] as bool?,
-);
+ConfigServiceUserConfigPost$Response
+_$ConfigServiceUserConfigPost$ResponseFromJson(Map<String, dynamic> json) =>
+    ConfigServiceUserConfigPost$Response(
+      code: (json['code'] as num?)?.toDouble(),
+      message: json['message'] as String?,
+      data: json['data'] as bool?,
+      traceId: json['traceId'] as String?,
+      placeholder: json['placeholder'],
+      success: json['success'] as bool?,
+    );
 
-Map<String, dynamic> _$UserConfigPost$ResponseToJson(
-  UserConfigPost$Response instance,
+Map<String, dynamic> _$ConfigServiceUserConfigPost$ResponseToJson(
+  ConfigServiceUserConfigPost$Response instance,
 ) => <String, dynamic>{
   'code': instance.code,
   'message': instance.message,
@@ -28,23 +28,23 @@ Map<String, dynamic> _$UserConfigPost$ResponseToJson(
   'success': instance.success,
 };
 
-UserConfigGet$Response _$UserConfigGet$ResponseFromJson(
-  Map<String, dynamic> json,
-) => UserConfigGet$Response(
-  code: (json['code'] as num?)?.toDouble(),
-  message: json['message'] as String?,
-  data: json['data'] == null
-      ? null
-      : UserConfigGet$Response$Data.fromJson(
-          json['data'] as Map<String, dynamic>,
-        ),
-  traceId: json['traceId'] as String?,
-  placeholder: json['placeholder'],
-  success: json['success'] as bool?,
-);
+ConfigServiceUserConfigGet$Response
+_$ConfigServiceUserConfigGet$ResponseFromJson(Map<String, dynamic> json) =>
+    ConfigServiceUserConfigGet$Response(
+      code: (json['code'] as num?)?.toDouble(),
+      message: json['message'] as String?,
+      data: json['data'] == null
+          ? null
+          : ConfigServiceUserConfigGet$Response$Data.fromJson(
+              json['data'] as Map<String, dynamic>,
+            ),
+      traceId: json['traceId'] as String?,
+      placeholder: json['placeholder'],
+      success: json['success'] as bool?,
+    );
 
-Map<String, dynamic> _$UserConfigGet$ResponseToJson(
-  UserConfigGet$Response instance,
+Map<String, dynamic> _$ConfigServiceUserConfigGet$ResponseToJson(
+  ConfigServiceUserConfigGet$Response instance,
 ) => <String, dynamic>{
   'code': instance.code,
   'message': instance.message,
@@ -54,18 +54,19 @@ Map<String, dynamic> _$UserConfigGet$ResponseToJson(
   'success': instance.success,
 };
 
-UserConfigNoAuthInstanceGet$Response
-_$UserConfigNoAuthInstanceGet$ResponseFromJson(Map<String, dynamic> json) =>
-    UserConfigNoAuthInstanceGet$Response(
-      code: (json['code'] as num?)?.toDouble(),
-      data: json['data'] as String?,
-      message: json['message'] as String?,
-      success: json['success'] as bool?,
-      traceId: json['traceId'] as String?,
-    );
+ConfigServiceUserConfigNoAuthInstanceGet$Response
+_$ConfigServiceUserConfigNoAuthInstanceGet$ResponseFromJson(
+  Map<String, dynamic> json,
+) => ConfigServiceUserConfigNoAuthInstanceGet$Response(
+  code: (json['code'] as num?)?.toDouble(),
+  data: json['data'] as String?,
+  message: json['message'] as String?,
+  success: json['success'] as bool?,
+  traceId: json['traceId'] as String?,
+);
 
-Map<String, dynamic> _$UserConfigNoAuthInstanceGet$ResponseToJson(
-  UserConfigNoAuthInstanceGet$Response instance,
+Map<String, dynamic> _$ConfigServiceUserConfigNoAuthInstanceGet$ResponseToJson(
+  ConfigServiceUserConfigNoAuthInstanceGet$Response instance,
 ) => <String, dynamic>{
   'code': instance.code,
   'data': instance.data,
@@ -74,13 +75,13 @@ Map<String, dynamic> _$UserConfigNoAuthInstanceGet$ResponseToJson(
   'traceId': instance.traceId,
 };
 
-UserConfigGet$Response$Data _$UserConfigGet$Response$DataFromJson(
-  Map<String, dynamic> json,
-) => UserConfigGet$Response$Data(
-  key: json['key'] as String?,
-  value: json['value'] as String?,
-);
+ConfigServiceUserConfigGet$Response$Data
+_$ConfigServiceUserConfigGet$Response$DataFromJson(Map<String, dynamic> json) =>
+    ConfigServiceUserConfigGet$Response$Data(
+      key: json['key'] as String?,
+      value: json['value'] as String?,
+    );
 
-Map<String, dynamic> _$UserConfigGet$Response$DataToJson(
-  UserConfigGet$Response$Data instance,
+Map<String, dynamic> _$ConfigServiceUserConfigGet$Response$DataToJson(
+  ConfigServiceUserConfigGet$Response$Data instance,
 ) => <String, dynamic>{'key': instance.key, 'value': instance.value};

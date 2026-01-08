@@ -45,7 +45,7 @@ abstract class SwaggerApiPay extends ChopperService {
       client: httpClient,
       authenticator: authenticator,
       errorConverter: errorConverter,
-      baseUrl: baseUrl ?? Uri.parse('http:///pay-service'),
+      baseUrl: baseUrl ?? Uri.parse('http://'),
     );
     return _$SwaggerApiPay(newClient);
   }
@@ -53,23 +53,25 @@ abstract class SwaggerApiPay extends ChopperService {
   ///提现记录
   ///@param current
   ///@param pageSize
-  Future<chopper.Response<WithdrawOrdersGet$Response>> withdrawOrdersGet({
+  Future<chopper.Response<PayServiceWithdrawOrdersGet$Response>>
+  payServiceWithdrawOrdersGet({
     required String? current,
     required String? pageSize,
   }) {
     generatedMapping.putIfAbsent(
-      WithdrawOrdersGet$Response,
-      () => WithdrawOrdersGet$Response.fromJsonFactory,
+      PayServiceWithdrawOrdersGet$Response,
+      () => PayServiceWithdrawOrdersGet$Response.fromJsonFactory,
     );
 
-    return _withdrawOrdersGet(current: current, pageSize: pageSize);
+    return _payServiceWithdrawOrdersGet(current: current, pageSize: pageSize);
   }
 
   ///提现记录
   ///@param current
   ///@param pageSize
-  @GET(path: '/withdraw/orders')
-  Future<chopper.Response<WithdrawOrdersGet$Response>> _withdrawOrdersGet({
+  @GET(path: '/pay-service/withdraw/orders')
+  Future<chopper.Response<PayServiceWithdrawOrdersGet$Response>>
+  _payServiceWithdrawOrdersGet({
     @Query('current') required String? current,
     @Query('pageSize') required String? pageSize,
     @chopper.Tag()
@@ -87,21 +89,21 @@ abstract class SwaggerApiPay extends ChopperService {
 
   ///申请提现
   ///@param root
-  Future<chopper.Response<WithdrawApplyPost$Response>> withdrawApplyPost({
-    Object? root,
-  }) {
+  Future<chopper.Response<PayServiceWithdrawApplyPost$Response>>
+  payServiceWithdrawApplyPost({Object? root}) {
     generatedMapping.putIfAbsent(
-      WithdrawApplyPost$Response,
-      () => WithdrawApplyPost$Response.fromJsonFactory,
+      PayServiceWithdrawApplyPost$Response,
+      () => PayServiceWithdrawApplyPost$Response.fromJsonFactory,
     );
 
-    return _withdrawApplyPost(root: root);
+    return _payServiceWithdrawApplyPost(root: root);
   }
 
   ///申请提现
   ///@param root
-  @POST(path: '/withdraw/apply')
-  Future<chopper.Response<WithdrawApplyPost$Response>> _withdrawApplyPost({
+  @POST(path: '/pay-service/withdraw/apply')
+  Future<chopper.Response<PayServiceWithdrawApplyPost$Response>>
+  _payServiceWithdrawApplyPost({
     @Body() Object? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -117,20 +119,20 @@ abstract class SwaggerApiPay extends ChopperService {
   });
 
   ///获取佣金总体信息接口
-  Future<chopper.Response<CommissionSummaryGet$Response>>
-  commissionSummaryGet() {
+  Future<chopper.Response<PayServiceCommissionSummaryGet$Response>>
+  payServiceCommissionSummaryGet() {
     generatedMapping.putIfAbsent(
-      CommissionSummaryGet$Response,
-      () => CommissionSummaryGet$Response.fromJsonFactory,
+      PayServiceCommissionSummaryGet$Response,
+      () => PayServiceCommissionSummaryGet$Response.fromJsonFactory,
     );
 
-    return _commissionSummaryGet();
+    return _payServiceCommissionSummaryGet();
   }
 
   ///获取佣金总体信息接口
-  @GET(path: '/commission/summary')
-  Future<chopper.Response<CommissionSummaryGet$Response>>
-  _commissionSummaryGet({
+  @GET(path: '/pay-service/commission/summary')
+  Future<chopper.Response<PayServiceCommissionSummaryGet$Response>>
+  _payServiceCommissionSummaryGet({
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -148,18 +150,18 @@ abstract class SwaggerApiPay extends ChopperService {
   ///@param current
   ///@param pageSize
   ///@param type 0或者不传全部 1佣金明细 2 提现明细
-  Future<chopper.Response<CommissionTransactionGet$Response>>
-  commissionTransactionGet({
+  Future<chopper.Response<PayServiceCommissionTransactionGet$Response>>
+  payServiceCommissionTransactionGet({
     required String? current,
     required String? pageSize,
     required String? type,
   }) {
     generatedMapping.putIfAbsent(
-      CommissionTransactionGet$Response,
-      () => CommissionTransactionGet$Response.fromJsonFactory,
+      PayServiceCommissionTransactionGet$Response,
+      () => PayServiceCommissionTransactionGet$Response.fromJsonFactory,
     );
 
-    return _commissionTransactionGet(
+    return _payServiceCommissionTransactionGet(
       current: current,
       pageSize: pageSize,
       type: type,
@@ -170,9 +172,9 @@ abstract class SwaggerApiPay extends ChopperService {
   ///@param current
   ///@param pageSize
   ///@param type 0或者不传全部 1佣金明细 2 提现明细
-  @GET(path: '/commission/transaction')
-  Future<chopper.Response<CommissionTransactionGet$Response>>
-  _commissionTransactionGet({
+  @GET(path: '/pay-service/commission/transaction')
+  Future<chopper.Response<PayServiceCommissionTransactionGet$Response>>
+  _payServiceCommissionTransactionGet({
     @Query('current') required String? current,
     @Query('pageSize') required String? pageSize,
     @Query('type') required String? type,
@@ -190,18 +192,20 @@ abstract class SwaggerApiPay extends ChopperService {
   });
 
   ///充值卡余额接口
-  Future<chopper.Response<RechargeBalanceGet$Response>> rechargeBalanceGet() {
+  Future<chopper.Response<PayServiceRechargeBalanceGet$Response>>
+  payServiceRechargeBalanceGet() {
     generatedMapping.putIfAbsent(
-      RechargeBalanceGet$Response,
-      () => RechargeBalanceGet$Response.fromJsonFactory,
+      PayServiceRechargeBalanceGet$Response,
+      () => PayServiceRechargeBalanceGet$Response.fromJsonFactory,
     );
 
-    return _rechargeBalanceGet();
+    return _payServiceRechargeBalanceGet();
   }
 
   ///充值卡余额接口
-  @GET(path: '/recharge/balance')
-  Future<chopper.Response<RechargeBalanceGet$Response>> _rechargeBalanceGet({
+  @GET(path: '/pay-service/recharge/balance')
+  Future<chopper.Response<PayServiceRechargeBalanceGet$Response>>
+  _payServiceRechargeBalanceGet({
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -218,23 +222,25 @@ abstract class SwaggerApiPay extends ChopperService {
   ///充值卡订单接口
   ///@param current
   ///@param pageSize
-  Future<chopper.Response<RechargeOrdersGet$Response>> rechargeOrdersGet({
+  Future<chopper.Response<PayServiceRechargeOrdersGet$Response>>
+  payServiceRechargeOrdersGet({
     required String? current,
     required String? pageSize,
   }) {
     generatedMapping.putIfAbsent(
-      RechargeOrdersGet$Response,
-      () => RechargeOrdersGet$Response.fromJsonFactory,
+      PayServiceRechargeOrdersGet$Response,
+      () => PayServiceRechargeOrdersGet$Response.fromJsonFactory,
     );
 
-    return _rechargeOrdersGet(current: current, pageSize: pageSize);
+    return _payServiceRechargeOrdersGet(current: current, pageSize: pageSize);
   }
 
   ///充值卡订单接口
   ///@param current
   ///@param pageSize
-  @GET(path: '/recharge/orders')
-  Future<chopper.Response<RechargeOrdersGet$Response>> _rechargeOrdersGet({
+  @GET(path: '/pay-service/recharge/orders')
+  Future<chopper.Response<PayServiceRechargeOrdersGet$Response>>
+  _payServiceRechargeOrdersGet({
     @Query('current') required String? current,
     @Query('pageSize') required String? pageSize,
     @chopper.Tag()
@@ -253,18 +259,18 @@ abstract class SwaggerApiPay extends ChopperService {
   ///充值记录接口
   ///@param current
   ///@param pageSize
-  Future<chopper.Response<Object>> rechargeLogGet({
+  Future<chopper.Response<Object>> payServiceRechargeLogGet({
     required String? current,
     required String? pageSize,
   }) {
-    return _rechargeLogGet(current: current, pageSize: pageSize);
+    return _payServiceRechargeLogGet(current: current, pageSize: pageSize);
   }
 
   ///充值记录接口
   ///@param current
   ///@param pageSize
-  @GET(path: '/recharge/log')
-  Future<chopper.Response<Object>> _rechargeLogGet({
+  @GET(path: '/pay-service/recharge/log')
+  Future<chopper.Response<Object>> _payServiceRechargeLogGet({
     @Query('current') required String? current,
     @Query('pageSize') required String? pageSize,
     @chopper.Tag()
@@ -282,21 +288,21 @@ abstract class SwaggerApiPay extends ChopperService {
 
   ///发起充值接口
   ///@param root
-  Future<chopper.Response<RechargeCreateOrderPost$Response>>
-  rechargeCreateOrderPost({Object? root}) {
+  Future<chopper.Response<PayServiceRechargeCreateOrderPost$Response>>
+  payServiceRechargeCreateOrderPost({Object? root}) {
     generatedMapping.putIfAbsent(
-      RechargeCreateOrderPost$Response,
-      () => RechargeCreateOrderPost$Response.fromJsonFactory,
+      PayServiceRechargeCreateOrderPost$Response,
+      () => PayServiceRechargeCreateOrderPost$Response.fromJsonFactory,
     );
 
-    return _rechargeCreateOrderPost(root: root);
+    return _payServiceRechargeCreateOrderPost(root: root);
   }
 
   ///发起充值接口
   ///@param root
-  @POST(path: '/recharge/createOrder')
-  Future<chopper.Response<RechargeCreateOrderPost$Response>>
-  _rechargeCreateOrderPost({
+  @POST(path: '/pay-service/recharge/createOrder')
+  Future<chopper.Response<PayServiceRechargeCreateOrderPost$Response>>
+  _payServiceRechargeCreateOrderPost({
     @Body() Object? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -313,19 +319,22 @@ abstract class SwaggerApiPay extends ChopperService {
 
   ///发起支付
   ///@param root
-  Future<chopper.Response<PayPayPost$Response>> payPayPost({Object? root}) {
+  Future<chopper.Response<PayServicePayPayPost$Response>> payServicePayPayPost({
+    Object? root,
+  }) {
     generatedMapping.putIfAbsent(
-      PayPayPost$Response,
-      () => PayPayPost$Response.fromJsonFactory,
+      PayServicePayPayPost$Response,
+      () => PayServicePayPayPost$Response.fromJsonFactory,
     );
 
-    return _payPayPost(root: root);
+    return _payServicePayPayPost(root: root);
   }
 
   ///发起支付
   ///@param root
-  @POST(path: '/pay/pay')
-  Future<chopper.Response<PayPayPost$Response>> _payPayPost({
+  @POST(path: '/pay-service/pay/pay')
+  Future<chopper.Response<PayServicePayPayPost$Response>>
+  _payServicePayPayPost({
     @Body() Object? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -342,21 +351,21 @@ abstract class SwaggerApiPay extends ChopperService {
 
   ///支付结果
   ///@param orderId
-  Future<chopper.Response<PayPayResultGet$Response>> payPayResultGet({
-    required String? orderId,
-  }) {
+  Future<chopper.Response<PayServicePayPayResultGet$Response>>
+  payServicePayPayResultGet({required String? orderId}) {
     generatedMapping.putIfAbsent(
-      PayPayResultGet$Response,
-      () => PayPayResultGet$Response.fromJsonFactory,
+      PayServicePayPayResultGet$Response,
+      () => PayServicePayPayResultGet$Response.fromJsonFactory,
     );
 
-    return _payPayResultGet(orderId: orderId);
+    return _payServicePayPayResultGet(orderId: orderId);
   }
 
   ///支付结果
   ///@param orderId
-  @GET(path: '/pay/payResult')
-  Future<chopper.Response<PayPayResultGet$Response>> _payPayResultGet({
+  @GET(path: '/pay-service/pay/payResult')
+  Future<chopper.Response<PayServicePayPayResultGet$Response>>
+  _payServicePayPayResultGet({
     @Query('orderId') required String? orderId,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -376,18 +385,19 @@ abstract class SwaggerApiPay extends ChopperService {
   ///@param orderType 0为商品订单，1为充值订单，2为包裹订单
   ///@param orderAmount
   ///@param currency
-  Future<chopper.Response<PayPayTypeGet$Response>> payPayTypeGet({
+  Future<chopper.Response<PayServicePayPayTypeGet$Response>>
+  payServicePayPayTypeGet({
     required String? orderId,
     String? orderType,
     String? orderAmount,
     String? currency,
   }) {
     generatedMapping.putIfAbsent(
-      PayPayTypeGet$Response,
-      () => PayPayTypeGet$Response.fromJsonFactory,
+      PayServicePayPayTypeGet$Response,
+      () => PayServicePayPayTypeGet$Response.fromJsonFactory,
     );
 
-    return _payPayTypeGet(
+    return _payServicePayPayTypeGet(
       orderId: orderId,
       orderType: orderType,
       orderAmount: orderAmount,
@@ -400,8 +410,9 @@ abstract class SwaggerApiPay extends ChopperService {
   ///@param orderType 0为商品订单，1为充值订单，2为包裹订单
   ///@param orderAmount
   ///@param currency
-  @GET(path: '/pay/payType')
-  Future<chopper.Response<PayPayTypeGet$Response>> _payPayTypeGet({
+  @GET(path: '/pay-service/pay/payType')
+  Future<chopper.Response<PayServicePayPayTypeGet$Response>>
+  _payServicePayPayTypeGet({
     @Query('orderId') required String? orderId,
     @Query('orderType') String? orderType,
     @Query('orderAmount') String? orderAmount,
@@ -420,13 +431,13 @@ abstract class SwaggerApiPay extends ChopperService {
   });
 
   ///RPC-回想币增加
-  Future<chopper.Response<Object>> echoooCoinAddBalanceGet() {
-    return _echoooCoinAddBalanceGet();
+  Future<chopper.Response<Object>> payServiceEchoooCoinAddBalanceGet() {
+    return _payServiceEchoooCoinAddBalanceGet();
   }
 
   ///RPC-回想币增加
-  @GET(path: '/echoooCoin/addBalance')
-  Future<chopper.Response<Object>> _echoooCoinAddBalanceGet({
+  @GET(path: '/pay-service/echoooCoin/addBalance')
+  Future<chopper.Response<Object>> _payServiceEchoooCoinAddBalanceGet({
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -441,13 +452,13 @@ abstract class SwaggerApiPay extends ChopperService {
   });
 
   ///RPC-回想币扣减
-  Future<chopper.Response> echoooCoinSubBalanceGet() {
-    return _echoooCoinSubBalanceGet();
+  Future<chopper.Response> payServiceEchoooCoinSubBalanceGet() {
+    return _payServiceEchoooCoinSubBalanceGet();
   }
 
   ///RPC-回想币扣减
-  @GET(path: '/echoooCoin/subBalance')
-  Future<chopper.Response> _echoooCoinSubBalanceGet({
+  @GET(path: '/pay-service/echoooCoin/subBalance')
+  Future<chopper.Response> _payServiceEchoooCoinSubBalanceGet({
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -462,18 +473,20 @@ abstract class SwaggerApiPay extends ChopperService {
   });
 
   ///回响币所有类型查询
-  Future<chopper.Response<EchoooCoinTypeGet$Response>> echoooCoinTypeGet() {
+  Future<chopper.Response<PayServiceEchoooCoinTypeGet$Response>>
+  payServiceEchoooCoinTypeGet() {
     generatedMapping.putIfAbsent(
-      EchoooCoinTypeGet$Response,
-      () => EchoooCoinTypeGet$Response.fromJsonFactory,
+      PayServiceEchoooCoinTypeGet$Response,
+      () => PayServiceEchoooCoinTypeGet$Response.fromJsonFactory,
     );
 
-    return _echoooCoinTypeGet();
+    return _payServiceEchoooCoinTypeGet();
   }
 
   ///回响币所有类型查询
-  @GET(path: '/echoooCoin/type')
-  Future<chopper.Response<EchoooCoinTypeGet$Response>> _echoooCoinTypeGet({
+  @GET(path: '/pay-service/echoooCoin/type')
+  Future<chopper.Response<PayServiceEchoooCoinTypeGet$Response>>
+  _payServiceEchoooCoinTypeGet({
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -488,18 +501,20 @@ abstract class SwaggerApiPay extends ChopperService {
   });
 
   ///回想币余额
-  Future<chopper.Response<EchoooCoinInfoGet$Response>> echoooCoinInfoGet() {
+  Future<chopper.Response<PayServiceEchoooCoinInfoGet$Response>>
+  payServiceEchoooCoinInfoGet() {
     generatedMapping.putIfAbsent(
-      EchoooCoinInfoGet$Response,
-      () => EchoooCoinInfoGet$Response.fromJsonFactory,
+      PayServiceEchoooCoinInfoGet$Response,
+      () => PayServiceEchoooCoinInfoGet$Response.fromJsonFactory,
     );
 
-    return _echoooCoinInfoGet();
+    return _payServiceEchoooCoinInfoGet();
   }
 
   ///回想币余额
-  @GET(path: '/echoooCoin/info')
-  Future<chopper.Response<EchoooCoinInfoGet$Response>> _echoooCoinInfoGet({
+  @GET(path: '/pay-service/echoooCoin/info')
+  Future<chopper.Response<PayServiceEchoooCoinInfoGet$Response>>
+  _payServiceEchoooCoinInfoGet({
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -517,25 +532,31 @@ abstract class SwaggerApiPay extends ChopperService {
   ///@param current
   ///@param pageSize
   ///@param type 不填为查询全部, 充值卡收益填 14
-  Future<chopper.Response<EchoooCoinLogGet$Response>> echoooCoinLogGet({
+  Future<chopper.Response<PayServiceEchoooCoinLogGet$Response>>
+  payServiceEchoooCoinLogGet({
     required String? current,
     required String? pageSize,
     String? type,
   }) {
     generatedMapping.putIfAbsent(
-      EchoooCoinLogGet$Response,
-      () => EchoooCoinLogGet$Response.fromJsonFactory,
+      PayServiceEchoooCoinLogGet$Response,
+      () => PayServiceEchoooCoinLogGet$Response.fromJsonFactory,
     );
 
-    return _echoooCoinLogGet(current: current, pageSize: pageSize, type: type);
+    return _payServiceEchoooCoinLogGet(
+      current: current,
+      pageSize: pageSize,
+      type: type,
+    );
   }
 
   ///回想币明细接口
   ///@param current
   ///@param pageSize
   ///@param type 不填为查询全部, 充值卡收益填 14
-  @GET(path: '/echoooCoin/log')
-  Future<chopper.Response<EchoooCoinLogGet$Response>> _echoooCoinLogGet({
+  @GET(path: '/pay-service/echoooCoin/log')
+  Future<chopper.Response<PayServiceEchoooCoinLogGet$Response>>
+  _payServiceEchoooCoinLogGet({
     @Query('current') required String? current,
     @Query('pageSize') required String? pageSize,
     @Query('type') String? type,
@@ -554,8 +575,8 @@ abstract class SwaggerApiPay extends ChopperService {
 }
 
 @JsonSerializable(explicitToJson: true)
-class WithdrawOrdersGet$Response {
-  const WithdrawOrdersGet$Response({
+class PayServiceWithdrawOrdersGet$Response {
+  const PayServiceWithdrawOrdersGet$Response({
     this.code,
     this.message,
     this.data,
@@ -563,28 +584,30 @@ class WithdrawOrdersGet$Response {
     this.success,
   });
 
-  factory WithdrawOrdersGet$Response.fromJson(Map<String, dynamic> json) =>
-      _$WithdrawOrdersGet$ResponseFromJson(json);
+  factory PayServiceWithdrawOrdersGet$Response.fromJson(
+    Map<String, dynamic> json,
+  ) => _$PayServiceWithdrawOrdersGet$ResponseFromJson(json);
 
-  static const toJsonFactory = _$WithdrawOrdersGet$ResponseToJson;
-  Map<String, dynamic> toJson() => _$WithdrawOrdersGet$ResponseToJson(this);
+  static const toJsonFactory = _$PayServiceWithdrawOrdersGet$ResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$PayServiceWithdrawOrdersGet$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final double? code;
   @JsonKey(name: 'message')
   final String? message;
   @JsonKey(name: 'data')
-  final WithdrawOrdersGet$Response$Data? data;
+  final PayServiceWithdrawOrdersGet$Response$Data? data;
   @JsonKey(name: 'traceId')
   final String? traceId;
   @JsonKey(name: 'success')
   final bool? success;
-  static const fromJsonFactory = _$WithdrawOrdersGet$ResponseFromJson;
+  static const fromJsonFactory = _$PayServiceWithdrawOrdersGet$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is WithdrawOrdersGet$Response &&
+        (other is PayServiceWithdrawOrdersGet$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -616,15 +639,16 @@ class WithdrawOrdersGet$Response {
       runtimeType.hashCode;
 }
 
-extension $WithdrawOrdersGet$ResponseExtension on WithdrawOrdersGet$Response {
-  WithdrawOrdersGet$Response copyWith({
+extension $PayServiceWithdrawOrdersGet$ResponseExtension
+    on PayServiceWithdrawOrdersGet$Response {
+  PayServiceWithdrawOrdersGet$Response copyWith({
     double? code,
     String? message,
-    WithdrawOrdersGet$Response$Data? data,
+    PayServiceWithdrawOrdersGet$Response$Data? data,
     String? traceId,
     bool? success,
   }) {
-    return WithdrawOrdersGet$Response(
+    return PayServiceWithdrawOrdersGet$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       data: data ?? this.data,
@@ -633,14 +657,14 @@ extension $WithdrawOrdersGet$ResponseExtension on WithdrawOrdersGet$Response {
     );
   }
 
-  WithdrawOrdersGet$Response copyWithWrapped({
+  PayServiceWithdrawOrdersGet$Response copyWithWrapped({
     Wrapped<double?>? code,
     Wrapped<String?>? message,
-    Wrapped<WithdrawOrdersGet$Response$Data?>? data,
+    Wrapped<PayServiceWithdrawOrdersGet$Response$Data?>? data,
     Wrapped<String?>? traceId,
     Wrapped<bool?>? success,
   }) {
-    return WithdrawOrdersGet$Response(
+    return PayServiceWithdrawOrdersGet$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
@@ -651,8 +675,8 @@ extension $WithdrawOrdersGet$ResponseExtension on WithdrawOrdersGet$Response {
 }
 
 @JsonSerializable(explicitToJson: true)
-class WithdrawApplyPost$Response {
-  const WithdrawApplyPost$Response({
+class PayServiceWithdrawApplyPost$Response {
+  const PayServiceWithdrawApplyPost$Response({
     this.code,
     this.message,
     this.data,
@@ -660,28 +684,30 @@ class WithdrawApplyPost$Response {
     this.success,
   });
 
-  factory WithdrawApplyPost$Response.fromJson(Map<String, dynamic> json) =>
-      _$WithdrawApplyPost$ResponseFromJson(json);
+  factory PayServiceWithdrawApplyPost$Response.fromJson(
+    Map<String, dynamic> json,
+  ) => _$PayServiceWithdrawApplyPost$ResponseFromJson(json);
 
-  static const toJsonFactory = _$WithdrawApplyPost$ResponseToJson;
-  Map<String, dynamic> toJson() => _$WithdrawApplyPost$ResponseToJson(this);
+  static const toJsonFactory = _$PayServiceWithdrawApplyPost$ResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$PayServiceWithdrawApplyPost$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final double? code;
   @JsonKey(name: 'message')
   final String? message;
   @JsonKey(name: 'data')
-  final WithdrawApplyPost$Response$Data? data;
+  final PayServiceWithdrawApplyPost$Response$Data? data;
   @JsonKey(name: 'traceId')
   final String? traceId;
   @JsonKey(name: 'success')
   final bool? success;
-  static const fromJsonFactory = _$WithdrawApplyPost$ResponseFromJson;
+  static const fromJsonFactory = _$PayServiceWithdrawApplyPost$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is WithdrawApplyPost$Response &&
+        (other is PayServiceWithdrawApplyPost$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -713,15 +739,16 @@ class WithdrawApplyPost$Response {
       runtimeType.hashCode;
 }
 
-extension $WithdrawApplyPost$ResponseExtension on WithdrawApplyPost$Response {
-  WithdrawApplyPost$Response copyWith({
+extension $PayServiceWithdrawApplyPost$ResponseExtension
+    on PayServiceWithdrawApplyPost$Response {
+  PayServiceWithdrawApplyPost$Response copyWith({
     double? code,
     String? message,
-    WithdrawApplyPost$Response$Data? data,
+    PayServiceWithdrawApplyPost$Response$Data? data,
     String? traceId,
     bool? success,
   }) {
-    return WithdrawApplyPost$Response(
+    return PayServiceWithdrawApplyPost$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       data: data ?? this.data,
@@ -730,14 +757,14 @@ extension $WithdrawApplyPost$ResponseExtension on WithdrawApplyPost$Response {
     );
   }
 
-  WithdrawApplyPost$Response copyWithWrapped({
+  PayServiceWithdrawApplyPost$Response copyWithWrapped({
     Wrapped<double?>? code,
     Wrapped<String?>? message,
-    Wrapped<WithdrawApplyPost$Response$Data?>? data,
+    Wrapped<PayServiceWithdrawApplyPost$Response$Data?>? data,
     Wrapped<String?>? traceId,
     Wrapped<bool?>? success,
   }) {
-    return WithdrawApplyPost$Response(
+    return PayServiceWithdrawApplyPost$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
@@ -748,31 +775,34 @@ extension $WithdrawApplyPost$ResponseExtension on WithdrawApplyPost$Response {
 }
 
 @JsonSerializable(explicitToJson: true)
-class CommissionSummaryGet$Response {
-  const CommissionSummaryGet$Response({
+class PayServiceCommissionSummaryGet$Response {
+  const PayServiceCommissionSummaryGet$Response({
     required this.code,
     required this.message,
     required this.data,
   });
 
-  factory CommissionSummaryGet$Response.fromJson(Map<String, dynamic> json) =>
-      _$CommissionSummaryGet$ResponseFromJson(json);
+  factory PayServiceCommissionSummaryGet$Response.fromJson(
+    Map<String, dynamic> json,
+  ) => _$PayServiceCommissionSummaryGet$ResponseFromJson(json);
 
-  static const toJsonFactory = _$CommissionSummaryGet$ResponseToJson;
-  Map<String, dynamic> toJson() => _$CommissionSummaryGet$ResponseToJson(this);
+  static const toJsonFactory = _$PayServiceCommissionSummaryGet$ResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$PayServiceCommissionSummaryGet$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final double code;
   @JsonKey(name: 'message')
   final String message;
   @JsonKey(name: 'data')
-  final CommissionSummaryGet$Response$Data data;
-  static const fromJsonFactory = _$CommissionSummaryGet$ResponseFromJson;
+  final PayServiceCommissionSummaryGet$Response$Data data;
+  static const fromJsonFactory =
+      _$PayServiceCommissionSummaryGet$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is CommissionSummaryGet$Response &&
+        (other is PayServiceCommissionSummaryGet$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -795,26 +825,26 @@ class CommissionSummaryGet$Response {
       runtimeType.hashCode;
 }
 
-extension $CommissionSummaryGet$ResponseExtension
-    on CommissionSummaryGet$Response {
-  CommissionSummaryGet$Response copyWith({
+extension $PayServiceCommissionSummaryGet$ResponseExtension
+    on PayServiceCommissionSummaryGet$Response {
+  PayServiceCommissionSummaryGet$Response copyWith({
     double? code,
     String? message,
-    CommissionSummaryGet$Response$Data? data,
+    PayServiceCommissionSummaryGet$Response$Data? data,
   }) {
-    return CommissionSummaryGet$Response(
+    return PayServiceCommissionSummaryGet$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       data: data ?? this.data,
     );
   }
 
-  CommissionSummaryGet$Response copyWithWrapped({
+  PayServiceCommissionSummaryGet$Response copyWithWrapped({
     Wrapped<double>? code,
     Wrapped<String>? message,
-    Wrapped<CommissionSummaryGet$Response$Data>? data,
+    Wrapped<PayServiceCommissionSummaryGet$Response$Data>? data,
   }) {
-    return CommissionSummaryGet$Response(
+    return PayServiceCommissionSummaryGet$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
@@ -823,8 +853,8 @@ extension $CommissionSummaryGet$ResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class CommissionTransactionGet$Response {
-  const CommissionTransactionGet$Response({
+class PayServiceCommissionTransactionGet$Response {
+  const PayServiceCommissionTransactionGet$Response({
     this.code,
     this.message,
     this.data,
@@ -833,32 +863,34 @@ class CommissionTransactionGet$Response {
     this.success,
   });
 
-  factory CommissionTransactionGet$Response.fromJson(
+  factory PayServiceCommissionTransactionGet$Response.fromJson(
     Map<String, dynamic> json,
-  ) => _$CommissionTransactionGet$ResponseFromJson(json);
+  ) => _$PayServiceCommissionTransactionGet$ResponseFromJson(json);
 
-  static const toJsonFactory = _$CommissionTransactionGet$ResponseToJson;
+  static const toJsonFactory =
+      _$PayServiceCommissionTransactionGet$ResponseToJson;
   Map<String, dynamic> toJson() =>
-      _$CommissionTransactionGet$ResponseToJson(this);
+      _$PayServiceCommissionTransactionGet$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final double? code;
   @JsonKey(name: 'message')
   final String? message;
   @JsonKey(name: 'data')
-  final CommissionTransactionGet$Response$Data? data;
+  final PayServiceCommissionTransactionGet$Response$Data? data;
   @JsonKey(name: 'traceId')
   final String? traceId;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
   @JsonKey(name: 'success')
   final bool? success;
-  static const fromJsonFactory = _$CommissionTransactionGet$ResponseFromJson;
+  static const fromJsonFactory =
+      _$PayServiceCommissionTransactionGet$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is CommissionTransactionGet$Response &&
+        (other is PayServiceCommissionTransactionGet$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -896,17 +928,17 @@ class CommissionTransactionGet$Response {
       runtimeType.hashCode;
 }
 
-extension $CommissionTransactionGet$ResponseExtension
-    on CommissionTransactionGet$Response {
-  CommissionTransactionGet$Response copyWith({
+extension $PayServiceCommissionTransactionGet$ResponseExtension
+    on PayServiceCommissionTransactionGet$Response {
+  PayServiceCommissionTransactionGet$Response copyWith({
     double? code,
     String? message,
-    CommissionTransactionGet$Response$Data? data,
+    PayServiceCommissionTransactionGet$Response$Data? data,
     String? traceId,
     Object? placeholder,
     bool? success,
   }) {
-    return CommissionTransactionGet$Response(
+    return PayServiceCommissionTransactionGet$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       data: data ?? this.data,
@@ -916,15 +948,15 @@ extension $CommissionTransactionGet$ResponseExtension
     );
   }
 
-  CommissionTransactionGet$Response copyWithWrapped({
+  PayServiceCommissionTransactionGet$Response copyWithWrapped({
     Wrapped<double?>? code,
     Wrapped<String?>? message,
-    Wrapped<CommissionTransactionGet$Response$Data?>? data,
+    Wrapped<PayServiceCommissionTransactionGet$Response$Data?>? data,
     Wrapped<String?>? traceId,
     Wrapped<Object?>? placeholder,
     Wrapped<bool?>? success,
   }) {
-    return CommissionTransactionGet$Response(
+    return PayServiceCommissionTransactionGet$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
@@ -936,8 +968,8 @@ extension $CommissionTransactionGet$ResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class RechargeBalanceGet$Response {
-  const RechargeBalanceGet$Response({
+class PayServiceRechargeBalanceGet$Response {
+  const PayServiceRechargeBalanceGet$Response({
     this.code,
     this.message,
     this.data,
@@ -946,239 +978,33 @@ class RechargeBalanceGet$Response {
     this.success,
   });
 
-  factory RechargeBalanceGet$Response.fromJson(Map<String, dynamic> json) =>
-      _$RechargeBalanceGet$ResponseFromJson(json);
-
-  static const toJsonFactory = _$RechargeBalanceGet$ResponseToJson;
-  Map<String, dynamic> toJson() => _$RechargeBalanceGet$ResponseToJson(this);
-
-  @JsonKey(name: 'code')
-  final double? code;
-  @JsonKey(name: 'message')
-  final String? message;
-  @JsonKey(name: 'data')
-  final RechargeBalanceGet$Response$Data? data;
-  @JsonKey(name: 'traceId')
-  final String? traceId;
-  @JsonKey(name: 'placeholder')
-  final Object? placeholder;
-  @JsonKey(name: 'success')
-  final bool? success;
-  static const fromJsonFactory = _$RechargeBalanceGet$ResponseFromJson;
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other is RechargeBalanceGet$Response &&
-            (identical(other.code, code) ||
-                const DeepCollectionEquality().equals(other.code, code)) &&
-            (identical(other.message, message) ||
-                const DeepCollectionEquality().equals(
-                  other.message,
-                  message,
-                )) &&
-            (identical(other.data, data) ||
-                const DeepCollectionEquality().equals(other.data, data)) &&
-            (identical(other.traceId, traceId) ||
-                const DeepCollectionEquality().equals(
-                  other.traceId,
-                  traceId,
-                )) &&
-            (identical(other.placeholder, placeholder) ||
-                const DeepCollectionEquality().equals(
-                  other.placeholder,
-                  placeholder,
-                )) &&
-            (identical(other.success, success) ||
-                const DeepCollectionEquality().equals(other.success, success)));
-  }
-
-  @override
-  String toString() => jsonEncode(this);
-
-  @override
-  int get hashCode =>
-      const DeepCollectionEquality().hash(code) ^
-      const DeepCollectionEquality().hash(message) ^
-      const DeepCollectionEquality().hash(data) ^
-      const DeepCollectionEquality().hash(traceId) ^
-      const DeepCollectionEquality().hash(placeholder) ^
-      const DeepCollectionEquality().hash(success) ^
-      runtimeType.hashCode;
-}
-
-extension $RechargeBalanceGet$ResponseExtension on RechargeBalanceGet$Response {
-  RechargeBalanceGet$Response copyWith({
-    double? code,
-    String? message,
-    RechargeBalanceGet$Response$Data? data,
-    String? traceId,
-    Object? placeholder,
-    bool? success,
-  }) {
-    return RechargeBalanceGet$Response(
-      code: code ?? this.code,
-      message: message ?? this.message,
-      data: data ?? this.data,
-      traceId: traceId ?? this.traceId,
-      placeholder: placeholder ?? this.placeholder,
-      success: success ?? this.success,
-    );
-  }
-
-  RechargeBalanceGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
-    Wrapped<String?>? message,
-    Wrapped<RechargeBalanceGet$Response$Data?>? data,
-    Wrapped<String?>? traceId,
-    Wrapped<Object?>? placeholder,
-    Wrapped<bool?>? success,
-  }) {
-    return RechargeBalanceGet$Response(
-      code: (code != null ? code.value : this.code),
-      message: (message != null ? message.value : this.message),
-      data: (data != null ? data.value : this.data),
-      traceId: (traceId != null ? traceId.value : this.traceId),
-      placeholder: (placeholder != null ? placeholder.value : this.placeholder),
-      success: (success != null ? success.value : this.success),
-    );
-  }
-}
-
-@JsonSerializable(explicitToJson: true)
-class RechargeOrdersGet$Response {
-  const RechargeOrdersGet$Response({
-    this.code,
-    this.message,
-    this.data,
-    this.traceId,
-    this.success,
-  });
-
-  factory RechargeOrdersGet$Response.fromJson(Map<String, dynamic> json) =>
-      _$RechargeOrdersGet$ResponseFromJson(json);
-
-  static const toJsonFactory = _$RechargeOrdersGet$ResponseToJson;
-  Map<String, dynamic> toJson() => _$RechargeOrdersGet$ResponseToJson(this);
-
-  @JsonKey(name: 'code')
-  final double? code;
-  @JsonKey(name: 'message')
-  final String? message;
-  @JsonKey(name: 'data')
-  final RechargeOrdersGet$Response$Data? data;
-  @JsonKey(name: 'traceId')
-  final String? traceId;
-  @JsonKey(name: 'success')
-  final bool? success;
-  static const fromJsonFactory = _$RechargeOrdersGet$ResponseFromJson;
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other is RechargeOrdersGet$Response &&
-            (identical(other.code, code) ||
-                const DeepCollectionEquality().equals(other.code, code)) &&
-            (identical(other.message, message) ||
-                const DeepCollectionEquality().equals(
-                  other.message,
-                  message,
-                )) &&
-            (identical(other.data, data) ||
-                const DeepCollectionEquality().equals(other.data, data)) &&
-            (identical(other.traceId, traceId) ||
-                const DeepCollectionEquality().equals(
-                  other.traceId,
-                  traceId,
-                )) &&
-            (identical(other.success, success) ||
-                const DeepCollectionEquality().equals(other.success, success)));
-  }
-
-  @override
-  String toString() => jsonEncode(this);
-
-  @override
-  int get hashCode =>
-      const DeepCollectionEquality().hash(code) ^
-      const DeepCollectionEquality().hash(message) ^
-      const DeepCollectionEquality().hash(data) ^
-      const DeepCollectionEquality().hash(traceId) ^
-      const DeepCollectionEquality().hash(success) ^
-      runtimeType.hashCode;
-}
-
-extension $RechargeOrdersGet$ResponseExtension on RechargeOrdersGet$Response {
-  RechargeOrdersGet$Response copyWith({
-    double? code,
-    String? message,
-    RechargeOrdersGet$Response$Data? data,
-    String? traceId,
-    bool? success,
-  }) {
-    return RechargeOrdersGet$Response(
-      code: code ?? this.code,
-      message: message ?? this.message,
-      data: data ?? this.data,
-      traceId: traceId ?? this.traceId,
-      success: success ?? this.success,
-    );
-  }
-
-  RechargeOrdersGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
-    Wrapped<String?>? message,
-    Wrapped<RechargeOrdersGet$Response$Data?>? data,
-    Wrapped<String?>? traceId,
-    Wrapped<bool?>? success,
-  }) {
-    return RechargeOrdersGet$Response(
-      code: (code != null ? code.value : this.code),
-      message: (message != null ? message.value : this.message),
-      data: (data != null ? data.value : this.data),
-      traceId: (traceId != null ? traceId.value : this.traceId),
-      success: (success != null ? success.value : this.success),
-    );
-  }
-}
-
-@JsonSerializable(explicitToJson: true)
-class RechargeCreateOrderPost$Response {
-  const RechargeCreateOrderPost$Response({
-    this.code,
-    this.message,
-    this.data,
-    this.traceId,
-    this.placeholder,
-    this.success,
-  });
-
-  factory RechargeCreateOrderPost$Response.fromJson(
+  factory PayServiceRechargeBalanceGet$Response.fromJson(
     Map<String, dynamic> json,
-  ) => _$RechargeCreateOrderPost$ResponseFromJson(json);
+  ) => _$PayServiceRechargeBalanceGet$ResponseFromJson(json);
 
-  static const toJsonFactory = _$RechargeCreateOrderPost$ResponseToJson;
+  static const toJsonFactory = _$PayServiceRechargeBalanceGet$ResponseToJson;
   Map<String, dynamic> toJson() =>
-      _$RechargeCreateOrderPost$ResponseToJson(this);
+      _$PayServiceRechargeBalanceGet$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final double? code;
   @JsonKey(name: 'message')
   final String? message;
   @JsonKey(name: 'data')
-  final RechargeCreateOrderPost$Response$Data? data;
+  final PayServiceRechargeBalanceGet$Response$Data? data;
   @JsonKey(name: 'traceId')
   final String? traceId;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
   @JsonKey(name: 'success')
   final bool? success;
-  static const fromJsonFactory = _$RechargeCreateOrderPost$ResponseFromJson;
+  static const fromJsonFactory =
+      _$PayServiceRechargeBalanceGet$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is RechargeCreateOrderPost$Response &&
+        (other is PayServiceRechargeBalanceGet$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -1216,17 +1042,17 @@ class RechargeCreateOrderPost$Response {
       runtimeType.hashCode;
 }
 
-extension $RechargeCreateOrderPost$ResponseExtension
-    on RechargeCreateOrderPost$Response {
-  RechargeCreateOrderPost$Response copyWith({
+extension $PayServiceRechargeBalanceGet$ResponseExtension
+    on PayServiceRechargeBalanceGet$Response {
+  PayServiceRechargeBalanceGet$Response copyWith({
     double? code,
     String? message,
-    RechargeCreateOrderPost$Response$Data? data,
+    PayServiceRechargeBalanceGet$Response$Data? data,
     String? traceId,
     Object? placeholder,
     bool? success,
   }) {
-    return RechargeCreateOrderPost$Response(
+    return PayServiceRechargeBalanceGet$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       data: data ?? this.data,
@@ -1236,15 +1062,15 @@ extension $RechargeCreateOrderPost$ResponseExtension
     );
   }
 
-  RechargeCreateOrderPost$Response copyWithWrapped({
+  PayServiceRechargeBalanceGet$Response copyWithWrapped({
     Wrapped<double?>? code,
     Wrapped<String?>? message,
-    Wrapped<RechargeCreateOrderPost$Response$Data?>? data,
+    Wrapped<PayServiceRechargeBalanceGet$Response$Data?>? data,
     Wrapped<String?>? traceId,
     Wrapped<Object?>? placeholder,
     Wrapped<bool?>? success,
   }) {
-    return RechargeCreateOrderPost$Response(
+    return PayServiceRechargeBalanceGet$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
@@ -1256,8 +1082,108 @@ extension $RechargeCreateOrderPost$ResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class PayPayPost$Response {
-  const PayPayPost$Response({
+class PayServiceRechargeOrdersGet$Response {
+  const PayServiceRechargeOrdersGet$Response({
+    this.code,
+    this.message,
+    this.data,
+    this.traceId,
+    this.success,
+  });
+
+  factory PayServiceRechargeOrdersGet$Response.fromJson(
+    Map<String, dynamic> json,
+  ) => _$PayServiceRechargeOrdersGet$ResponseFromJson(json);
+
+  static const toJsonFactory = _$PayServiceRechargeOrdersGet$ResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$PayServiceRechargeOrdersGet$ResponseToJson(this);
+
+  @JsonKey(name: 'code')
+  final double? code;
+  @JsonKey(name: 'message')
+  final String? message;
+  @JsonKey(name: 'data')
+  final PayServiceRechargeOrdersGet$Response$Data? data;
+  @JsonKey(name: 'traceId')
+  final String? traceId;
+  @JsonKey(name: 'success')
+  final bool? success;
+  static const fromJsonFactory = _$PayServiceRechargeOrdersGet$ResponseFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is PayServiceRechargeOrdersGet$Response &&
+            (identical(other.code, code) ||
+                const DeepCollectionEquality().equals(other.code, code)) &&
+            (identical(other.message, message) ||
+                const DeepCollectionEquality().equals(
+                  other.message,
+                  message,
+                )) &&
+            (identical(other.data, data) ||
+                const DeepCollectionEquality().equals(other.data, data)) &&
+            (identical(other.traceId, traceId) ||
+                const DeepCollectionEquality().equals(
+                  other.traceId,
+                  traceId,
+                )) &&
+            (identical(other.success, success) ||
+                const DeepCollectionEquality().equals(other.success, success)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(code) ^
+      const DeepCollectionEquality().hash(message) ^
+      const DeepCollectionEquality().hash(data) ^
+      const DeepCollectionEquality().hash(traceId) ^
+      const DeepCollectionEquality().hash(success) ^
+      runtimeType.hashCode;
+}
+
+extension $PayServiceRechargeOrdersGet$ResponseExtension
+    on PayServiceRechargeOrdersGet$Response {
+  PayServiceRechargeOrdersGet$Response copyWith({
+    double? code,
+    String? message,
+    PayServiceRechargeOrdersGet$Response$Data? data,
+    String? traceId,
+    bool? success,
+  }) {
+    return PayServiceRechargeOrdersGet$Response(
+      code: code ?? this.code,
+      message: message ?? this.message,
+      data: data ?? this.data,
+      traceId: traceId ?? this.traceId,
+      success: success ?? this.success,
+    );
+  }
+
+  PayServiceRechargeOrdersGet$Response copyWithWrapped({
+    Wrapped<double?>? code,
+    Wrapped<String?>? message,
+    Wrapped<PayServiceRechargeOrdersGet$Response$Data?>? data,
+    Wrapped<String?>? traceId,
+    Wrapped<bool?>? success,
+  }) {
+    return PayServiceRechargeOrdersGet$Response(
+      code: (code != null ? code.value : this.code),
+      message: (message != null ? message.value : this.message),
+      data: (data != null ? data.value : this.data),
+      traceId: (traceId != null ? traceId.value : this.traceId),
+      success: (success != null ? success.value : this.success),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class PayServiceRechargeCreateOrderPost$Response {
+  const PayServiceRechargeCreateOrderPost$Response({
     this.code,
     this.message,
     this.data,
@@ -1266,30 +1192,34 @@ class PayPayPost$Response {
     this.success,
   });
 
-  factory PayPayPost$Response.fromJson(Map<String, dynamic> json) =>
-      _$PayPayPost$ResponseFromJson(json);
+  factory PayServiceRechargeCreateOrderPost$Response.fromJson(
+    Map<String, dynamic> json,
+  ) => _$PayServiceRechargeCreateOrderPost$ResponseFromJson(json);
 
-  static const toJsonFactory = _$PayPayPost$ResponseToJson;
-  Map<String, dynamic> toJson() => _$PayPayPost$ResponseToJson(this);
+  static const toJsonFactory =
+      _$PayServiceRechargeCreateOrderPost$ResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$PayServiceRechargeCreateOrderPost$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final double? code;
   @JsonKey(name: 'message')
   final String? message;
   @JsonKey(name: 'data')
-  final PayPayPost$Response$Data? data;
+  final PayServiceRechargeCreateOrderPost$Response$Data? data;
   @JsonKey(name: 'traceId')
   final String? traceId;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
   @JsonKey(name: 'success')
   final bool? success;
-  static const fromJsonFactory = _$PayPayPost$ResponseFromJson;
+  static const fromJsonFactory =
+      _$PayServiceRechargeCreateOrderPost$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is PayPayPost$Response &&
+        (other is PayServiceRechargeCreateOrderPost$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -1327,16 +1257,17 @@ class PayPayPost$Response {
       runtimeType.hashCode;
 }
 
-extension $PayPayPost$ResponseExtension on PayPayPost$Response {
-  PayPayPost$Response copyWith({
+extension $PayServiceRechargeCreateOrderPost$ResponseExtension
+    on PayServiceRechargeCreateOrderPost$Response {
+  PayServiceRechargeCreateOrderPost$Response copyWith({
     double? code,
     String? message,
-    PayPayPost$Response$Data? data,
+    PayServiceRechargeCreateOrderPost$Response$Data? data,
     String? traceId,
     Object? placeholder,
     bool? success,
   }) {
-    return PayPayPost$Response(
+    return PayServiceRechargeCreateOrderPost$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       data: data ?? this.data,
@@ -1346,15 +1277,15 @@ extension $PayPayPost$ResponseExtension on PayPayPost$Response {
     );
   }
 
-  PayPayPost$Response copyWithWrapped({
+  PayServiceRechargeCreateOrderPost$Response copyWithWrapped({
     Wrapped<double?>? code,
     Wrapped<String?>? message,
-    Wrapped<PayPayPost$Response$Data?>? data,
+    Wrapped<PayServiceRechargeCreateOrderPost$Response$Data?>? data,
     Wrapped<String?>? traceId,
     Wrapped<Object?>? placeholder,
     Wrapped<bool?>? success,
   }) {
-    return PayPayPost$Response(
+    return PayServiceRechargeCreateOrderPost$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
@@ -1366,8 +1297,8 @@ extension $PayPayPost$ResponseExtension on PayPayPost$Response {
 }
 
 @JsonSerializable(explicitToJson: true)
-class PayPayResultGet$Response {
-  const PayPayResultGet$Response({
+class PayServicePayPayPost$Response {
+  const PayServicePayPayPost$Response({
     this.code,
     this.message,
     this.data,
@@ -1376,30 +1307,30 @@ class PayPayResultGet$Response {
     this.success,
   });
 
-  factory PayPayResultGet$Response.fromJson(Map<String, dynamic> json) =>
-      _$PayPayResultGet$ResponseFromJson(json);
+  factory PayServicePayPayPost$Response.fromJson(Map<String, dynamic> json) =>
+      _$PayServicePayPayPost$ResponseFromJson(json);
 
-  static const toJsonFactory = _$PayPayResultGet$ResponseToJson;
-  Map<String, dynamic> toJson() => _$PayPayResultGet$ResponseToJson(this);
+  static const toJsonFactory = _$PayServicePayPayPost$ResponseToJson;
+  Map<String, dynamic> toJson() => _$PayServicePayPayPost$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final double? code;
   @JsonKey(name: 'message')
   final String? message;
   @JsonKey(name: 'data')
-  final PayPayResultGet$Response$Data? data;
+  final PayServicePayPayPost$Response$Data? data;
   @JsonKey(name: 'traceId')
   final String? traceId;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
   @JsonKey(name: 'success')
   final bool? success;
-  static const fromJsonFactory = _$PayPayResultGet$ResponseFromJson;
+  static const fromJsonFactory = _$PayServicePayPayPost$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is PayPayResultGet$Response &&
+        (other is PayServicePayPayPost$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -1437,16 +1368,17 @@ class PayPayResultGet$Response {
       runtimeType.hashCode;
 }
 
-extension $PayPayResultGet$ResponseExtension on PayPayResultGet$Response {
-  PayPayResultGet$Response copyWith({
+extension $PayServicePayPayPost$ResponseExtension
+    on PayServicePayPayPost$Response {
+  PayServicePayPayPost$Response copyWith({
     double? code,
     String? message,
-    PayPayResultGet$Response$Data? data,
+    PayServicePayPayPost$Response$Data? data,
     String? traceId,
     Object? placeholder,
     bool? success,
   }) {
-    return PayPayResultGet$Response(
+    return PayServicePayPayPost$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       data: data ?? this.data,
@@ -1456,15 +1388,15 @@ extension $PayPayResultGet$ResponseExtension on PayPayResultGet$Response {
     );
   }
 
-  PayPayResultGet$Response copyWithWrapped({
+  PayServicePayPayPost$Response copyWithWrapped({
     Wrapped<double?>? code,
     Wrapped<String?>? message,
-    Wrapped<PayPayResultGet$Response$Data?>? data,
+    Wrapped<PayServicePayPayPost$Response$Data?>? data,
     Wrapped<String?>? traceId,
     Wrapped<Object?>? placeholder,
     Wrapped<bool?>? success,
   }) {
-    return PayPayResultGet$Response(
+    return PayServicePayPayPost$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
@@ -1476,8 +1408,8 @@ extension $PayPayResultGet$ResponseExtension on PayPayResultGet$Response {
 }
 
 @JsonSerializable(explicitToJson: true)
-class PayPayTypeGet$Response {
-  const PayPayTypeGet$Response({
+class PayServicePayPayResultGet$Response {
+  const PayServicePayPayResultGet$Response({
     this.code,
     this.message,
     this.data,
@@ -1486,30 +1418,32 @@ class PayPayTypeGet$Response {
     this.success,
   });
 
-  factory PayPayTypeGet$Response.fromJson(Map<String, dynamic> json) =>
-      _$PayPayTypeGet$ResponseFromJson(json);
+  factory PayServicePayPayResultGet$Response.fromJson(
+    Map<String, dynamic> json,
+  ) => _$PayServicePayPayResultGet$ResponseFromJson(json);
 
-  static const toJsonFactory = _$PayPayTypeGet$ResponseToJson;
-  Map<String, dynamic> toJson() => _$PayPayTypeGet$ResponseToJson(this);
+  static const toJsonFactory = _$PayServicePayPayResultGet$ResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$PayServicePayPayResultGet$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final double? code;
   @JsonKey(name: 'message')
   final String? message;
   @JsonKey(name: 'data')
-  final PayPayTypeGet$Response$Data? data;
+  final PayServicePayPayResultGet$Response$Data? data;
   @JsonKey(name: 'traceId')
   final String? traceId;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
   @JsonKey(name: 'success')
   final bool? success;
-  static const fromJsonFactory = _$PayPayTypeGet$ResponseFromJson;
+  static const fromJsonFactory = _$PayServicePayPayResultGet$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is PayPayTypeGet$Response &&
+        (other is PayServicePayPayResultGet$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -1547,16 +1481,17 @@ class PayPayTypeGet$Response {
       runtimeType.hashCode;
 }
 
-extension $PayPayTypeGet$ResponseExtension on PayPayTypeGet$Response {
-  PayPayTypeGet$Response copyWith({
+extension $PayServicePayPayResultGet$ResponseExtension
+    on PayServicePayPayResultGet$Response {
+  PayServicePayPayResultGet$Response copyWith({
     double? code,
     String? message,
-    PayPayTypeGet$Response$Data? data,
+    PayServicePayPayResultGet$Response$Data? data,
     String? traceId,
     Object? placeholder,
     bool? success,
   }) {
-    return PayPayTypeGet$Response(
+    return PayServicePayPayResultGet$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       data: data ?? this.data,
@@ -1566,15 +1501,15 @@ extension $PayPayTypeGet$ResponseExtension on PayPayTypeGet$Response {
     );
   }
 
-  PayPayTypeGet$Response copyWithWrapped({
+  PayServicePayPayResultGet$Response copyWithWrapped({
     Wrapped<double?>? code,
     Wrapped<String?>? message,
-    Wrapped<PayPayTypeGet$Response$Data?>? data,
+    Wrapped<PayServicePayPayResultGet$Response$Data?>? data,
     Wrapped<String?>? traceId,
     Wrapped<Object?>? placeholder,
     Wrapped<bool?>? success,
   }) {
-    return PayPayTypeGet$Response(
+    return PayServicePayPayResultGet$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
@@ -1586,8 +1521,8 @@ extension $PayPayTypeGet$ResponseExtension on PayPayTypeGet$Response {
 }
 
 @JsonSerializable(explicitToJson: true)
-class EchoooCoinTypeGet$Response {
-  const EchoooCoinTypeGet$Response({
+class PayServicePayPayTypeGet$Response {
+  const PayServicePayPayTypeGet$Response({
     this.code,
     this.message,
     this.data,
@@ -1596,30 +1531,32 @@ class EchoooCoinTypeGet$Response {
     this.success,
   });
 
-  factory EchoooCoinTypeGet$Response.fromJson(Map<String, dynamic> json) =>
-      _$EchoooCoinTypeGet$ResponseFromJson(json);
+  factory PayServicePayPayTypeGet$Response.fromJson(
+    Map<String, dynamic> json,
+  ) => _$PayServicePayPayTypeGet$ResponseFromJson(json);
 
-  static const toJsonFactory = _$EchoooCoinTypeGet$ResponseToJson;
-  Map<String, dynamic> toJson() => _$EchoooCoinTypeGet$ResponseToJson(this);
+  static const toJsonFactory = _$PayServicePayPayTypeGet$ResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$PayServicePayPayTypeGet$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final double? code;
   @JsonKey(name: 'message')
   final String? message;
   @JsonKey(name: 'data')
-  final List<EchoooCoinTypeGet$Response$Data$Item>? data;
+  final PayServicePayPayTypeGet$Response$Data? data;
   @JsonKey(name: 'traceId')
   final String? traceId;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
   @JsonKey(name: 'success')
   final bool? success;
-  static const fromJsonFactory = _$EchoooCoinTypeGet$ResponseFromJson;
+  static const fromJsonFactory = _$PayServicePayPayTypeGet$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is EchoooCoinTypeGet$Response &&
+        (other is PayServicePayPayTypeGet$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -1657,16 +1594,17 @@ class EchoooCoinTypeGet$Response {
       runtimeType.hashCode;
 }
 
-extension $EchoooCoinTypeGet$ResponseExtension on EchoooCoinTypeGet$Response {
-  EchoooCoinTypeGet$Response copyWith({
+extension $PayServicePayPayTypeGet$ResponseExtension
+    on PayServicePayPayTypeGet$Response {
+  PayServicePayPayTypeGet$Response copyWith({
     double? code,
     String? message,
-    List<EchoooCoinTypeGet$Response$Data$Item>? data,
+    PayServicePayPayTypeGet$Response$Data? data,
     String? traceId,
     Object? placeholder,
     bool? success,
   }) {
-    return EchoooCoinTypeGet$Response(
+    return PayServicePayPayTypeGet$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       data: data ?? this.data,
@@ -1676,15 +1614,15 @@ extension $EchoooCoinTypeGet$ResponseExtension on EchoooCoinTypeGet$Response {
     );
   }
 
-  EchoooCoinTypeGet$Response copyWithWrapped({
+  PayServicePayPayTypeGet$Response copyWithWrapped({
     Wrapped<double?>? code,
     Wrapped<String?>? message,
-    Wrapped<List<EchoooCoinTypeGet$Response$Data$Item>?>? data,
+    Wrapped<PayServicePayPayTypeGet$Response$Data?>? data,
     Wrapped<String?>? traceId,
     Wrapped<Object?>? placeholder,
     Wrapped<bool?>? success,
   }) {
-    return EchoooCoinTypeGet$Response(
+    return PayServicePayPayTypeGet$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
@@ -1696,8 +1634,8 @@ extension $EchoooCoinTypeGet$ResponseExtension on EchoooCoinTypeGet$Response {
 }
 
 @JsonSerializable(explicitToJson: true)
-class EchoooCoinInfoGet$Response {
-  const EchoooCoinInfoGet$Response({
+class PayServiceEchoooCoinTypeGet$Response {
+  const PayServiceEchoooCoinTypeGet$Response({
     this.code,
     this.message,
     this.data,
@@ -1706,30 +1644,32 @@ class EchoooCoinInfoGet$Response {
     this.success,
   });
 
-  factory EchoooCoinInfoGet$Response.fromJson(Map<String, dynamic> json) =>
-      _$EchoooCoinInfoGet$ResponseFromJson(json);
+  factory PayServiceEchoooCoinTypeGet$Response.fromJson(
+    Map<String, dynamic> json,
+  ) => _$PayServiceEchoooCoinTypeGet$ResponseFromJson(json);
 
-  static const toJsonFactory = _$EchoooCoinInfoGet$ResponseToJson;
-  Map<String, dynamic> toJson() => _$EchoooCoinInfoGet$ResponseToJson(this);
+  static const toJsonFactory = _$PayServiceEchoooCoinTypeGet$ResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$PayServiceEchoooCoinTypeGet$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final double? code;
   @JsonKey(name: 'message')
   final String? message;
   @JsonKey(name: 'data')
-  final EchoooCoinInfoGet$Response$Data? data;
+  final List<PayServiceEchoooCoinTypeGet$Response$Data$Item>? data;
   @JsonKey(name: 'traceId')
   final String? traceId;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
   @JsonKey(name: 'success')
   final bool? success;
-  static const fromJsonFactory = _$EchoooCoinInfoGet$ResponseFromJson;
+  static const fromJsonFactory = _$PayServiceEchoooCoinTypeGet$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is EchoooCoinInfoGet$Response &&
+        (other is PayServiceEchoooCoinTypeGet$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -1767,16 +1707,17 @@ class EchoooCoinInfoGet$Response {
       runtimeType.hashCode;
 }
 
-extension $EchoooCoinInfoGet$ResponseExtension on EchoooCoinInfoGet$Response {
-  EchoooCoinInfoGet$Response copyWith({
+extension $PayServiceEchoooCoinTypeGet$ResponseExtension
+    on PayServiceEchoooCoinTypeGet$Response {
+  PayServiceEchoooCoinTypeGet$Response copyWith({
     double? code,
     String? message,
-    EchoooCoinInfoGet$Response$Data? data,
+    List<PayServiceEchoooCoinTypeGet$Response$Data$Item>? data,
     String? traceId,
     Object? placeholder,
     bool? success,
   }) {
-    return EchoooCoinInfoGet$Response(
+    return PayServiceEchoooCoinTypeGet$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       data: data ?? this.data,
@@ -1786,15 +1727,15 @@ extension $EchoooCoinInfoGet$ResponseExtension on EchoooCoinInfoGet$Response {
     );
   }
 
-  EchoooCoinInfoGet$Response copyWithWrapped({
+  PayServiceEchoooCoinTypeGet$Response copyWithWrapped({
     Wrapped<double?>? code,
     Wrapped<String?>? message,
-    Wrapped<EchoooCoinInfoGet$Response$Data?>? data,
+    Wrapped<List<PayServiceEchoooCoinTypeGet$Response$Data$Item>?>? data,
     Wrapped<String?>? traceId,
     Wrapped<Object?>? placeholder,
     Wrapped<bool?>? success,
   }) {
-    return EchoooCoinInfoGet$Response(
+    return PayServiceEchoooCoinTypeGet$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
@@ -1806,8 +1747,8 @@ extension $EchoooCoinInfoGet$ResponseExtension on EchoooCoinInfoGet$Response {
 }
 
 @JsonSerializable(explicitToJson: true)
-class EchoooCoinLogGet$Response {
-  const EchoooCoinLogGet$Response({
+class PayServiceEchoooCoinInfoGet$Response {
+  const PayServiceEchoooCoinInfoGet$Response({
     this.code,
     this.message,
     this.data,
@@ -1816,30 +1757,32 @@ class EchoooCoinLogGet$Response {
     this.success,
   });
 
-  factory EchoooCoinLogGet$Response.fromJson(Map<String, dynamic> json) =>
-      _$EchoooCoinLogGet$ResponseFromJson(json);
+  factory PayServiceEchoooCoinInfoGet$Response.fromJson(
+    Map<String, dynamic> json,
+  ) => _$PayServiceEchoooCoinInfoGet$ResponseFromJson(json);
 
-  static const toJsonFactory = _$EchoooCoinLogGet$ResponseToJson;
-  Map<String, dynamic> toJson() => _$EchoooCoinLogGet$ResponseToJson(this);
+  static const toJsonFactory = _$PayServiceEchoooCoinInfoGet$ResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$PayServiceEchoooCoinInfoGet$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final double? code;
   @JsonKey(name: 'message')
   final String? message;
   @JsonKey(name: 'data')
-  final EchoooCoinLogGet$Response$Data? data;
+  final PayServiceEchoooCoinInfoGet$Response$Data? data;
   @JsonKey(name: 'traceId')
   final String? traceId;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
   @JsonKey(name: 'success')
   final bool? success;
-  static const fromJsonFactory = _$EchoooCoinLogGet$ResponseFromJson;
+  static const fromJsonFactory = _$PayServiceEchoooCoinInfoGet$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is EchoooCoinLogGet$Response &&
+        (other is PayServiceEchoooCoinInfoGet$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -1877,16 +1820,17 @@ class EchoooCoinLogGet$Response {
       runtimeType.hashCode;
 }
 
-extension $EchoooCoinLogGet$ResponseExtension on EchoooCoinLogGet$Response {
-  EchoooCoinLogGet$Response copyWith({
+extension $PayServiceEchoooCoinInfoGet$ResponseExtension
+    on PayServiceEchoooCoinInfoGet$Response {
+  PayServiceEchoooCoinInfoGet$Response copyWith({
     double? code,
     String? message,
-    EchoooCoinLogGet$Response$Data? data,
+    PayServiceEchoooCoinInfoGet$Response$Data? data,
     String? traceId,
     Object? placeholder,
     bool? success,
   }) {
-    return EchoooCoinLogGet$Response(
+    return PayServiceEchoooCoinInfoGet$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       data: data ?? this.data,
@@ -1896,15 +1840,15 @@ extension $EchoooCoinLogGet$ResponseExtension on EchoooCoinLogGet$Response {
     );
   }
 
-  EchoooCoinLogGet$Response copyWithWrapped({
+  PayServiceEchoooCoinInfoGet$Response copyWithWrapped({
     Wrapped<double?>? code,
     Wrapped<String?>? message,
-    Wrapped<EchoooCoinLogGet$Response$Data?>? data,
+    Wrapped<PayServiceEchoooCoinInfoGet$Response$Data?>? data,
     Wrapped<String?>? traceId,
     Wrapped<Object?>? placeholder,
     Wrapped<bool?>? success,
   }) {
-    return EchoooCoinLogGet$Response(
+    return PayServiceEchoooCoinInfoGet$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
@@ -1916,8 +1860,121 @@ extension $EchoooCoinLogGet$ResponseExtension on EchoooCoinLogGet$Response {
 }
 
 @JsonSerializable(explicitToJson: true)
-class WithdrawOrdersGet$Response$Data {
-  const WithdrawOrdersGet$Response$Data({
+class PayServiceEchoooCoinLogGet$Response {
+  const PayServiceEchoooCoinLogGet$Response({
+    this.code,
+    this.message,
+    this.data,
+    this.traceId,
+    this.placeholder,
+    this.success,
+  });
+
+  factory PayServiceEchoooCoinLogGet$Response.fromJson(
+    Map<String, dynamic> json,
+  ) => _$PayServiceEchoooCoinLogGet$ResponseFromJson(json);
+
+  static const toJsonFactory = _$PayServiceEchoooCoinLogGet$ResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$PayServiceEchoooCoinLogGet$ResponseToJson(this);
+
+  @JsonKey(name: 'code')
+  final double? code;
+  @JsonKey(name: 'message')
+  final String? message;
+  @JsonKey(name: 'data')
+  final PayServiceEchoooCoinLogGet$Response$Data? data;
+  @JsonKey(name: 'traceId')
+  final String? traceId;
+  @JsonKey(name: 'placeholder')
+  final Object? placeholder;
+  @JsonKey(name: 'success')
+  final bool? success;
+  static const fromJsonFactory = _$PayServiceEchoooCoinLogGet$ResponseFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is PayServiceEchoooCoinLogGet$Response &&
+            (identical(other.code, code) ||
+                const DeepCollectionEquality().equals(other.code, code)) &&
+            (identical(other.message, message) ||
+                const DeepCollectionEquality().equals(
+                  other.message,
+                  message,
+                )) &&
+            (identical(other.data, data) ||
+                const DeepCollectionEquality().equals(other.data, data)) &&
+            (identical(other.traceId, traceId) ||
+                const DeepCollectionEquality().equals(
+                  other.traceId,
+                  traceId,
+                )) &&
+            (identical(other.placeholder, placeholder) ||
+                const DeepCollectionEquality().equals(
+                  other.placeholder,
+                  placeholder,
+                )) &&
+            (identical(other.success, success) ||
+                const DeepCollectionEquality().equals(other.success, success)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(code) ^
+      const DeepCollectionEquality().hash(message) ^
+      const DeepCollectionEquality().hash(data) ^
+      const DeepCollectionEquality().hash(traceId) ^
+      const DeepCollectionEquality().hash(placeholder) ^
+      const DeepCollectionEquality().hash(success) ^
+      runtimeType.hashCode;
+}
+
+extension $PayServiceEchoooCoinLogGet$ResponseExtension
+    on PayServiceEchoooCoinLogGet$Response {
+  PayServiceEchoooCoinLogGet$Response copyWith({
+    double? code,
+    String? message,
+    PayServiceEchoooCoinLogGet$Response$Data? data,
+    String? traceId,
+    Object? placeholder,
+    bool? success,
+  }) {
+    return PayServiceEchoooCoinLogGet$Response(
+      code: code ?? this.code,
+      message: message ?? this.message,
+      data: data ?? this.data,
+      traceId: traceId ?? this.traceId,
+      placeholder: placeholder ?? this.placeholder,
+      success: success ?? this.success,
+    );
+  }
+
+  PayServiceEchoooCoinLogGet$Response copyWithWrapped({
+    Wrapped<double?>? code,
+    Wrapped<String?>? message,
+    Wrapped<PayServiceEchoooCoinLogGet$Response$Data?>? data,
+    Wrapped<String?>? traceId,
+    Wrapped<Object?>? placeholder,
+    Wrapped<bool?>? success,
+  }) {
+    return PayServiceEchoooCoinLogGet$Response(
+      code: (code != null ? code.value : this.code),
+      message: (message != null ? message.value : this.message),
+      data: (data != null ? data.value : this.data),
+      traceId: (traceId != null ? traceId.value : this.traceId),
+      placeholder: (placeholder != null ? placeholder.value : this.placeholder),
+      success: (success != null ? success.value : this.success),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class PayServiceWithdrawOrdersGet$Response$Data {
+  const PayServiceWithdrawOrdersGet$Response$Data({
     this.records,
     this.total,
     this.size,
@@ -1925,15 +1982,17 @@ class WithdrawOrdersGet$Response$Data {
     this.pages,
   });
 
-  factory WithdrawOrdersGet$Response$Data.fromJson(Map<String, dynamic> json) =>
-      _$WithdrawOrdersGet$Response$DataFromJson(json);
+  factory PayServiceWithdrawOrdersGet$Response$Data.fromJson(
+    Map<String, dynamic> json,
+  ) => _$PayServiceWithdrawOrdersGet$Response$DataFromJson(json);
 
-  static const toJsonFactory = _$WithdrawOrdersGet$Response$DataToJson;
+  static const toJsonFactory =
+      _$PayServiceWithdrawOrdersGet$Response$DataToJson;
   Map<String, dynamic> toJson() =>
-      _$WithdrawOrdersGet$Response$DataToJson(this);
+      _$PayServiceWithdrawOrdersGet$Response$DataToJson(this);
 
   @JsonKey(name: 'records')
-  final List<WithdrawOrdersGet$Response$Data$Records$Item>? records;
+  final List<PayServiceWithdrawOrdersGet$Response$Data$Records$Item>? records;
   @JsonKey(name: 'total')
   final double? total;
   @JsonKey(name: 'size')
@@ -1942,12 +2001,13 @@ class WithdrawOrdersGet$Response$Data {
   final double? current;
   @JsonKey(name: 'pages')
   final double? pages;
-  static const fromJsonFactory = _$WithdrawOrdersGet$Response$DataFromJson;
+  static const fromJsonFactory =
+      _$PayServiceWithdrawOrdersGet$Response$DataFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is WithdrawOrdersGet$Response$Data &&
+        (other is PayServiceWithdrawOrdersGet$Response$Data &&
             (identical(other.records, records) ||
                 const DeepCollectionEquality().equals(
                   other.records,
@@ -1979,16 +2039,16 @@ class WithdrawOrdersGet$Response$Data {
       runtimeType.hashCode;
 }
 
-extension $WithdrawOrdersGet$Response$DataExtension
-    on WithdrawOrdersGet$Response$Data {
-  WithdrawOrdersGet$Response$Data copyWith({
-    List<WithdrawOrdersGet$Response$Data$Records$Item>? records,
+extension $PayServiceWithdrawOrdersGet$Response$DataExtension
+    on PayServiceWithdrawOrdersGet$Response$Data {
+  PayServiceWithdrawOrdersGet$Response$Data copyWith({
+    List<PayServiceWithdrawOrdersGet$Response$Data$Records$Item>? records,
     double? total,
     double? size,
     double? current,
     double? pages,
   }) {
-    return WithdrawOrdersGet$Response$Data(
+    return PayServiceWithdrawOrdersGet$Response$Data(
       records: records ?? this.records,
       total: total ?? this.total,
       size: size ?? this.size,
@@ -1997,14 +2057,15 @@ extension $WithdrawOrdersGet$Response$DataExtension
     );
   }
 
-  WithdrawOrdersGet$Response$Data copyWithWrapped({
-    Wrapped<List<WithdrawOrdersGet$Response$Data$Records$Item>?>? records,
+  PayServiceWithdrawOrdersGet$Response$Data copyWithWrapped({
+    Wrapped<List<PayServiceWithdrawOrdersGet$Response$Data$Records$Item>?>?
+    records,
     Wrapped<double?>? total,
     Wrapped<double?>? size,
     Wrapped<double?>? current,
     Wrapped<double?>? pages,
   }) {
-    return WithdrawOrdersGet$Response$Data(
+    return PayServiceWithdrawOrdersGet$Response$Data(
       records: (records != null ? records.value : this.records),
       total: (total != null ? total.value : this.total),
       size: (size != null ? size.value : this.size),
@@ -2015,8 +2076,8 @@ extension $WithdrawOrdersGet$Response$DataExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class WithdrawApplyPost$Response$Data {
-  const WithdrawApplyPost$Response$Data({
+class PayServiceWithdrawApplyPost$Response$Data {
+  const PayServiceWithdrawApplyPost$Response$Data({
     this.orderNo,
     this.amount,
     this.currency,
@@ -2026,12 +2087,14 @@ class WithdrawApplyPost$Response$Data {
     this.completedTime,
   });
 
-  factory WithdrawApplyPost$Response$Data.fromJson(Map<String, dynamic> json) =>
-      _$WithdrawApplyPost$Response$DataFromJson(json);
+  factory PayServiceWithdrawApplyPost$Response$Data.fromJson(
+    Map<String, dynamic> json,
+  ) => _$PayServiceWithdrawApplyPost$Response$DataFromJson(json);
 
-  static const toJsonFactory = _$WithdrawApplyPost$Response$DataToJson;
+  static const toJsonFactory =
+      _$PayServiceWithdrawApplyPost$Response$DataToJson;
   Map<String, dynamic> toJson() =>
-      _$WithdrawApplyPost$Response$DataToJson(this);
+      _$PayServiceWithdrawApplyPost$Response$DataToJson(this);
 
   @JsonKey(name: 'orderNo')
   final String? orderNo;
@@ -2047,12 +2110,13 @@ class WithdrawApplyPost$Response$Data {
   final String? createTime;
   @JsonKey(name: 'completedTime')
   final String? completedTime;
-  static const fromJsonFactory = _$WithdrawApplyPost$Response$DataFromJson;
+  static const fromJsonFactory =
+      _$PayServiceWithdrawApplyPost$Response$DataFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is WithdrawApplyPost$Response$Data &&
+        (other is PayServiceWithdrawApplyPost$Response$Data &&
             (identical(other.orderNo, orderNo) ||
                 const DeepCollectionEquality().equals(
                   other.orderNo,
@@ -2099,9 +2163,9 @@ class WithdrawApplyPost$Response$Data {
       runtimeType.hashCode;
 }
 
-extension $WithdrawApplyPost$Response$DataExtension
-    on WithdrawApplyPost$Response$Data {
-  WithdrawApplyPost$Response$Data copyWith({
+extension $PayServiceWithdrawApplyPost$Response$DataExtension
+    on PayServiceWithdrawApplyPost$Response$Data {
+  PayServiceWithdrawApplyPost$Response$Data copyWith({
     String? orderNo,
     String? amount,
     String? currency,
@@ -2110,7 +2174,7 @@ extension $WithdrawApplyPost$Response$DataExtension
     String? createTime,
     String? completedTime,
   }) {
-    return WithdrawApplyPost$Response$Data(
+    return PayServiceWithdrawApplyPost$Response$Data(
       orderNo: orderNo ?? this.orderNo,
       amount: amount ?? this.amount,
       currency: currency ?? this.currency,
@@ -2121,7 +2185,7 @@ extension $WithdrawApplyPost$Response$DataExtension
     );
   }
 
-  WithdrawApplyPost$Response$Data copyWithWrapped({
+  PayServiceWithdrawApplyPost$Response$Data copyWithWrapped({
     Wrapped<String?>? orderNo,
     Wrapped<String?>? amount,
     Wrapped<String?>? currency,
@@ -2130,7 +2194,7 @@ extension $WithdrawApplyPost$Response$DataExtension
     Wrapped<String?>? createTime,
     Wrapped<String?>? completedTime,
   }) {
-    return WithdrawApplyPost$Response$Data(
+    return PayServiceWithdrawApplyPost$Response$Data(
       orderNo: (orderNo != null ? orderNo.value : this.orderNo),
       amount: (amount != null ? amount.value : this.amount),
       currency: (currency != null ? currency.value : this.currency),
@@ -2147,8 +2211,8 @@ extension $WithdrawApplyPost$Response$DataExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class CommissionSummaryGet$Response$Data {
-  const CommissionSummaryGet$Response$Data({
+class PayServiceCommissionSummaryGet$Response$Data {
+  const PayServiceCommissionSummaryGet$Response$Data({
     required this.commissionTotal,
     required this.targetCurrencyTotal,
     required this.withdrawAmount,
@@ -2158,13 +2222,14 @@ class CommissionSummaryGet$Response$Data {
     required this.pendingWithdrawAmount,
   });
 
-  factory CommissionSummaryGet$Response$Data.fromJson(
+  factory PayServiceCommissionSummaryGet$Response$Data.fromJson(
     Map<String, dynamic> json,
-  ) => _$CommissionSummaryGet$Response$DataFromJson(json);
+  ) => _$PayServiceCommissionSummaryGet$Response$DataFromJson(json);
 
-  static const toJsonFactory = _$CommissionSummaryGet$Response$DataToJson;
+  static const toJsonFactory =
+      _$PayServiceCommissionSummaryGet$Response$DataToJson;
   Map<String, dynamic> toJson() =>
-      _$CommissionSummaryGet$Response$DataToJson(this);
+      _$PayServiceCommissionSummaryGet$Response$DataToJson(this);
 
   @JsonKey(name: 'commissionTotal')
   final String commissionTotal;
@@ -2180,12 +2245,13 @@ class CommissionSummaryGet$Response$Data {
   final double totalPoints;
   @JsonKey(name: 'pendingWithdrawAmount')
   final String pendingWithdrawAmount;
-  static const fromJsonFactory = _$CommissionSummaryGet$Response$DataFromJson;
+  static const fromJsonFactory =
+      _$PayServiceCommissionSummaryGet$Response$DataFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is CommissionSummaryGet$Response$Data &&
+        (other is PayServiceCommissionSummaryGet$Response$Data &&
             (identical(other.commissionTotal, commissionTotal) ||
                 const DeepCollectionEquality().equals(
                   other.commissionTotal,
@@ -2238,9 +2304,9 @@ class CommissionSummaryGet$Response$Data {
       runtimeType.hashCode;
 }
 
-extension $CommissionSummaryGet$Response$DataExtension
-    on CommissionSummaryGet$Response$Data {
-  CommissionSummaryGet$Response$Data copyWith({
+extension $PayServiceCommissionSummaryGet$Response$DataExtension
+    on PayServiceCommissionSummaryGet$Response$Data {
+  PayServiceCommissionSummaryGet$Response$Data copyWith({
     String? commissionTotal,
     String? targetCurrencyTotal,
     String? withdrawAmount,
@@ -2249,7 +2315,7 @@ extension $CommissionSummaryGet$Response$DataExtension
     double? totalPoints,
     String? pendingWithdrawAmount,
   }) {
-    return CommissionSummaryGet$Response$Data(
+    return PayServiceCommissionSummaryGet$Response$Data(
       commissionTotal: commissionTotal ?? this.commissionTotal,
       targetCurrencyTotal: targetCurrencyTotal ?? this.targetCurrencyTotal,
       withdrawAmount: withdrawAmount ?? this.withdrawAmount,
@@ -2261,7 +2327,7 @@ extension $CommissionSummaryGet$Response$DataExtension
     );
   }
 
-  CommissionSummaryGet$Response$Data copyWithWrapped({
+  PayServiceCommissionSummaryGet$Response$Data copyWithWrapped({
     Wrapped<String>? commissionTotal,
     Wrapped<String>? targetCurrencyTotal,
     Wrapped<String>? withdrawAmount,
@@ -2270,7 +2336,7 @@ extension $CommissionSummaryGet$Response$DataExtension
     Wrapped<double>? totalPoints,
     Wrapped<String>? pendingWithdrawAmount,
   }) {
-    return CommissionSummaryGet$Response$Data(
+    return PayServiceCommissionSummaryGet$Response$Data(
       commissionTotal: (commissionTotal != null
           ? commissionTotal.value
           : this.commissionTotal),
@@ -2295,8 +2361,8 @@ extension $CommissionSummaryGet$Response$DataExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class CommissionTransactionGet$Response$Data {
-  const CommissionTransactionGet$Response$Data({
+class PayServiceCommissionTransactionGet$Response$Data {
+  const PayServiceCommissionTransactionGet$Response$Data({
     this.total,
     this.pageSize,
     this.totalPages,
@@ -2304,13 +2370,14 @@ class CommissionTransactionGet$Response$Data {
     this.records,
   });
 
-  factory CommissionTransactionGet$Response$Data.fromJson(
+  factory PayServiceCommissionTransactionGet$Response$Data.fromJson(
     Map<String, dynamic> json,
-  ) => _$CommissionTransactionGet$Response$DataFromJson(json);
+  ) => _$PayServiceCommissionTransactionGet$Response$DataFromJson(json);
 
-  static const toJsonFactory = _$CommissionTransactionGet$Response$DataToJson;
+  static const toJsonFactory =
+      _$PayServiceCommissionTransactionGet$Response$DataToJson;
   Map<String, dynamic> toJson() =>
-      _$CommissionTransactionGet$Response$DataToJson(this);
+      _$PayServiceCommissionTransactionGet$Response$DataToJson(this);
 
   @JsonKey(name: 'total')
   final double? total;
@@ -2321,14 +2388,15 @@ class CommissionTransactionGet$Response$Data {
   @JsonKey(name: 'current')
   final double? current;
   @JsonKey(name: 'records')
-  final List<CommissionTransactionGet$Response$Data$Records$Item>? records;
+  final List<PayServiceCommissionTransactionGet$Response$Data$Records$Item>?
+  records;
   static const fromJsonFactory =
-      _$CommissionTransactionGet$Response$DataFromJson;
+      _$PayServiceCommissionTransactionGet$Response$DataFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is CommissionTransactionGet$Response$Data &&
+        (other is PayServiceCommissionTransactionGet$Response$Data &&
             (identical(other.total, total) ||
                 const DeepCollectionEquality().equals(other.total, total)) &&
             (identical(other.pageSize, pageSize) ||
@@ -2363,16 +2431,17 @@ class CommissionTransactionGet$Response$Data {
       runtimeType.hashCode;
 }
 
-extension $CommissionTransactionGet$Response$DataExtension
-    on CommissionTransactionGet$Response$Data {
-  CommissionTransactionGet$Response$Data copyWith({
+extension $PayServiceCommissionTransactionGet$Response$DataExtension
+    on PayServiceCommissionTransactionGet$Response$Data {
+  PayServiceCommissionTransactionGet$Response$Data copyWith({
     double? total,
     double? pageSize,
     double? totalPages,
     double? current,
-    List<CommissionTransactionGet$Response$Data$Records$Item>? records,
+    List<PayServiceCommissionTransactionGet$Response$Data$Records$Item>?
+    records,
   }) {
-    return CommissionTransactionGet$Response$Data(
+    return PayServiceCommissionTransactionGet$Response$Data(
       total: total ?? this.total,
       pageSize: pageSize ?? this.pageSize,
       totalPages: totalPages ?? this.totalPages,
@@ -2381,15 +2450,17 @@ extension $CommissionTransactionGet$Response$DataExtension
     );
   }
 
-  CommissionTransactionGet$Response$Data copyWithWrapped({
+  PayServiceCommissionTransactionGet$Response$Data copyWithWrapped({
     Wrapped<double?>? total,
     Wrapped<double?>? pageSize,
     Wrapped<double?>? totalPages,
     Wrapped<double?>? current,
-    Wrapped<List<CommissionTransactionGet$Response$Data$Records$Item>?>?
+    Wrapped<
+      List<PayServiceCommissionTransactionGet$Response$Data$Records$Item>?
+    >?
     records,
   }) {
-    return CommissionTransactionGet$Response$Data(
+    return PayServiceCommissionTransactionGet$Response$Data(
       total: (total != null ? total.value : this.total),
       pageSize: (pageSize != null ? pageSize.value : this.pageSize),
       totalPages: (totalPages != null ? totalPages.value : this.totalPages),
@@ -2400,8 +2471,8 @@ extension $CommissionTransactionGet$Response$DataExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class RechargeBalanceGet$Response$Data {
-  const RechargeBalanceGet$Response$Data({
+class PayServiceRechargeBalanceGet$Response$Data {
+  const PayServiceRechargeBalanceGet$Response$Data({
     this.balance,
     this.currency,
     this.yesterdayProfit,
@@ -2415,18 +2486,19 @@ class RechargeBalanceGet$Response$Data {
     this.targetCurrency,
   });
 
-  factory RechargeBalanceGet$Response$Data.fromJson(
+  factory PayServiceRechargeBalanceGet$Response$Data.fromJson(
     Map<String, dynamic> json,
-  ) => _$RechargeBalanceGet$Response$DataFromJson(json);
+  ) => _$PayServiceRechargeBalanceGet$Response$DataFromJson(json);
 
-  static const toJsonFactory = _$RechargeBalanceGet$Response$DataToJson;
+  static const toJsonFactory =
+      _$PayServiceRechargeBalanceGet$Response$DataToJson;
   Map<String, dynamic> toJson() =>
-      _$RechargeBalanceGet$Response$DataToJson(this);
+      _$PayServiceRechargeBalanceGet$Response$DataToJson(this);
 
   @JsonKey(name: 'balance')
   final String? balance;
   @JsonKey(name: 'currency')
-  final RechargeBalanceGet$Response$Data$Currency? currency;
+  final PayServiceRechargeBalanceGet$Response$Data$Currency? currency;
   @JsonKey(name: 'yesterdayProfit')
   final String? yesterdayProfit;
   @JsonKey(name: 'totalProfit')
@@ -2442,15 +2514,18 @@ class RechargeBalanceGet$Response$Data {
   @JsonKey(name: 'targetBalance')
   final String? targetBalance;
   @JsonKey(name: 'rechargeReward')
-  final RechargeBalanceGet$Response$Data$RechargeReward? rechargeReward;
+  final PayServiceRechargeBalanceGet$Response$Data$RechargeReward?
+  rechargeReward;
   @JsonKey(name: 'targetCurrency')
-  final RechargeBalanceGet$Response$Data$TargetCurrency? targetCurrency;
-  static const fromJsonFactory = _$RechargeBalanceGet$Response$DataFromJson;
+  final PayServiceRechargeBalanceGet$Response$Data$TargetCurrency?
+  targetCurrency;
+  static const fromJsonFactory =
+      _$PayServiceRechargeBalanceGet$Response$DataFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is RechargeBalanceGet$Response$Data &&
+        (other is PayServiceRechargeBalanceGet$Response$Data &&
             (identical(other.balance, balance) ||
                 const DeepCollectionEquality().equals(
                   other.balance,
@@ -2527,11 +2602,11 @@ class RechargeBalanceGet$Response$Data {
       runtimeType.hashCode;
 }
 
-extension $RechargeBalanceGet$Response$DataExtension
-    on RechargeBalanceGet$Response$Data {
-  RechargeBalanceGet$Response$Data copyWith({
+extension $PayServiceRechargeBalanceGet$Response$DataExtension
+    on PayServiceRechargeBalanceGet$Response$Data {
+  PayServiceRechargeBalanceGet$Response$Data copyWith({
     String? balance,
-    RechargeBalanceGet$Response$Data$Currency? currency,
+    PayServiceRechargeBalanceGet$Response$Data$Currency? currency,
     String? yesterdayProfit,
     String? totalProfit,
     String? rechargeAmounts,
@@ -2539,10 +2614,10 @@ extension $RechargeBalanceGet$Response$DataExtension
     String? rechargeRuleText,
     String? rechargeRuleTitle,
     String? targetBalance,
-    RechargeBalanceGet$Response$Data$RechargeReward? rechargeReward,
-    RechargeBalanceGet$Response$Data$TargetCurrency? targetCurrency,
+    PayServiceRechargeBalanceGet$Response$Data$RechargeReward? rechargeReward,
+    PayServiceRechargeBalanceGet$Response$Data$TargetCurrency? targetCurrency,
   }) {
-    return RechargeBalanceGet$Response$Data(
+    return PayServiceRechargeBalanceGet$Response$Data(
       balance: balance ?? this.balance,
       currency: currency ?? this.currency,
       yesterdayProfit: yesterdayProfit ?? this.yesterdayProfit,
@@ -2557,9 +2632,9 @@ extension $RechargeBalanceGet$Response$DataExtension
     );
   }
 
-  RechargeBalanceGet$Response$Data copyWithWrapped({
+  PayServiceRechargeBalanceGet$Response$Data copyWithWrapped({
     Wrapped<String?>? balance,
-    Wrapped<RechargeBalanceGet$Response$Data$Currency?>? currency,
+    Wrapped<PayServiceRechargeBalanceGet$Response$Data$Currency?>? currency,
     Wrapped<String?>? yesterdayProfit,
     Wrapped<String?>? totalProfit,
     Wrapped<String?>? rechargeAmounts,
@@ -2567,10 +2642,12 @@ extension $RechargeBalanceGet$Response$DataExtension
     Wrapped<String?>? rechargeRuleText,
     Wrapped<String?>? rechargeRuleTitle,
     Wrapped<String?>? targetBalance,
-    Wrapped<RechargeBalanceGet$Response$Data$RechargeReward?>? rechargeReward,
-    Wrapped<RechargeBalanceGet$Response$Data$TargetCurrency?>? targetCurrency,
+    Wrapped<PayServiceRechargeBalanceGet$Response$Data$RechargeReward?>?
+    rechargeReward,
+    Wrapped<PayServiceRechargeBalanceGet$Response$Data$TargetCurrency?>?
+    targetCurrency,
   }) {
-    return RechargeBalanceGet$Response$Data(
+    return PayServiceRechargeBalanceGet$Response$Data(
       balance: (balance != null ? balance.value : this.balance),
       currency: (currency != null ? currency.value : this.currency),
       yesterdayProfit: (yesterdayProfit != null
@@ -2603,8 +2680,8 @@ extension $RechargeBalanceGet$Response$DataExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class RechargeOrdersGet$Response$Data {
-  const RechargeOrdersGet$Response$Data({
+class PayServiceRechargeOrdersGet$Response$Data {
+  const PayServiceRechargeOrdersGet$Response$Data({
     this.records,
     this.total,
     this.size,
@@ -2612,15 +2689,17 @@ class RechargeOrdersGet$Response$Data {
     this.pages,
   });
 
-  factory RechargeOrdersGet$Response$Data.fromJson(Map<String, dynamic> json) =>
-      _$RechargeOrdersGet$Response$DataFromJson(json);
+  factory PayServiceRechargeOrdersGet$Response$Data.fromJson(
+    Map<String, dynamic> json,
+  ) => _$PayServiceRechargeOrdersGet$Response$DataFromJson(json);
 
-  static const toJsonFactory = _$RechargeOrdersGet$Response$DataToJson;
+  static const toJsonFactory =
+      _$PayServiceRechargeOrdersGet$Response$DataToJson;
   Map<String, dynamic> toJson() =>
-      _$RechargeOrdersGet$Response$DataToJson(this);
+      _$PayServiceRechargeOrdersGet$Response$DataToJson(this);
 
   @JsonKey(name: 'records')
-  final List<RechargeOrdersGet$Response$Data$Records$Item>? records;
+  final List<PayServiceRechargeOrdersGet$Response$Data$Records$Item>? records;
   @JsonKey(name: 'total')
   final double? total;
   @JsonKey(name: 'size')
@@ -2629,12 +2708,13 @@ class RechargeOrdersGet$Response$Data {
   final double? current;
   @JsonKey(name: 'pages')
   final double? pages;
-  static const fromJsonFactory = _$RechargeOrdersGet$Response$DataFromJson;
+  static const fromJsonFactory =
+      _$PayServiceRechargeOrdersGet$Response$DataFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is RechargeOrdersGet$Response$Data &&
+        (other is PayServiceRechargeOrdersGet$Response$Data &&
             (identical(other.records, records) ||
                 const DeepCollectionEquality().equals(
                   other.records,
@@ -2666,16 +2746,16 @@ class RechargeOrdersGet$Response$Data {
       runtimeType.hashCode;
 }
 
-extension $RechargeOrdersGet$Response$DataExtension
-    on RechargeOrdersGet$Response$Data {
-  RechargeOrdersGet$Response$Data copyWith({
-    List<RechargeOrdersGet$Response$Data$Records$Item>? records,
+extension $PayServiceRechargeOrdersGet$Response$DataExtension
+    on PayServiceRechargeOrdersGet$Response$Data {
+  PayServiceRechargeOrdersGet$Response$Data copyWith({
+    List<PayServiceRechargeOrdersGet$Response$Data$Records$Item>? records,
     double? total,
     double? size,
     double? current,
     double? pages,
   }) {
-    return RechargeOrdersGet$Response$Data(
+    return PayServiceRechargeOrdersGet$Response$Data(
       records: records ?? this.records,
       total: total ?? this.total,
       size: size ?? this.size,
@@ -2684,14 +2764,15 @@ extension $RechargeOrdersGet$Response$DataExtension
     );
   }
 
-  RechargeOrdersGet$Response$Data copyWithWrapped({
-    Wrapped<List<RechargeOrdersGet$Response$Data$Records$Item>?>? records,
+  PayServiceRechargeOrdersGet$Response$Data copyWithWrapped({
+    Wrapped<List<PayServiceRechargeOrdersGet$Response$Data$Records$Item>?>?
+    records,
     Wrapped<double?>? total,
     Wrapped<double?>? size,
     Wrapped<double?>? current,
     Wrapped<double?>? pages,
   }) {
-    return RechargeOrdersGet$Response$Data(
+    return PayServiceRechargeOrdersGet$Response$Data(
       records: (records != null ? records.value : this.records),
       total: (total != null ? total.value : this.total),
       size: (size != null ? size.value : this.size),
@@ -2702,26 +2783,27 @@ extension $RechargeOrdersGet$Response$DataExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class RechargeCreateOrderPost$Response$Data {
-  const RechargeCreateOrderPost$Response$Data({this.orderId});
+class PayServiceRechargeCreateOrderPost$Response$Data {
+  const PayServiceRechargeCreateOrderPost$Response$Data({this.orderId});
 
-  factory RechargeCreateOrderPost$Response$Data.fromJson(
+  factory PayServiceRechargeCreateOrderPost$Response$Data.fromJson(
     Map<String, dynamic> json,
-  ) => _$RechargeCreateOrderPost$Response$DataFromJson(json);
+  ) => _$PayServiceRechargeCreateOrderPost$Response$DataFromJson(json);
 
-  static const toJsonFactory = _$RechargeCreateOrderPost$Response$DataToJson;
+  static const toJsonFactory =
+      _$PayServiceRechargeCreateOrderPost$Response$DataToJson;
   Map<String, dynamic> toJson() =>
-      _$RechargeCreateOrderPost$Response$DataToJson(this);
+      _$PayServiceRechargeCreateOrderPost$Response$DataToJson(this);
 
   @JsonKey(name: 'orderId')
   final String? orderId;
   static const fromJsonFactory =
-      _$RechargeCreateOrderPost$Response$DataFromJson;
+      _$PayServiceRechargeCreateOrderPost$Response$DataFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is RechargeCreateOrderPost$Response$Data &&
+        (other is PayServiceRechargeCreateOrderPost$Response$Data &&
             (identical(other.orderId, orderId) ||
                 const DeepCollectionEquality().equals(other.orderId, orderId)));
   }
@@ -2734,46 +2816,48 @@ class RechargeCreateOrderPost$Response$Data {
       const DeepCollectionEquality().hash(orderId) ^ runtimeType.hashCode;
 }
 
-extension $RechargeCreateOrderPost$Response$DataExtension
-    on RechargeCreateOrderPost$Response$Data {
-  RechargeCreateOrderPost$Response$Data copyWith({String? orderId}) {
-    return RechargeCreateOrderPost$Response$Data(
+extension $PayServiceRechargeCreateOrderPost$Response$DataExtension
+    on PayServiceRechargeCreateOrderPost$Response$Data {
+  PayServiceRechargeCreateOrderPost$Response$Data copyWith({String? orderId}) {
+    return PayServiceRechargeCreateOrderPost$Response$Data(
       orderId: orderId ?? this.orderId,
     );
   }
 
-  RechargeCreateOrderPost$Response$Data copyWithWrapped({
+  PayServiceRechargeCreateOrderPost$Response$Data copyWithWrapped({
     Wrapped<String?>? orderId,
   }) {
-    return RechargeCreateOrderPost$Response$Data(
+    return PayServiceRechargeCreateOrderPost$Response$Data(
       orderId: (orderId != null ? orderId.value : this.orderId),
     );
   }
 }
 
 @JsonSerializable(explicitToJson: true)
-class PayPayPost$Response$Data {
-  const PayPayPost$Response$Data({
+class PayServicePayPayPost$Response$Data {
+  const PayServicePayPayPost$Response$Data({
     this.thirdPayParam,
     required this.receiptAddress,
   });
 
-  factory PayPayPost$Response$Data.fromJson(Map<String, dynamic> json) =>
-      _$PayPayPost$Response$DataFromJson(json);
+  factory PayServicePayPayPost$Response$Data.fromJson(
+    Map<String, dynamic> json,
+  ) => _$PayServicePayPayPost$Response$DataFromJson(json);
 
-  static const toJsonFactory = _$PayPayPost$Response$DataToJson;
-  Map<String, dynamic> toJson() => _$PayPayPost$Response$DataToJson(this);
+  static const toJsonFactory = _$PayServicePayPayPost$Response$DataToJson;
+  Map<String, dynamic> toJson() =>
+      _$PayServicePayPayPost$Response$DataToJson(this);
 
   @JsonKey(name: 'thirdPayParam')
   final String? thirdPayParam;
   @JsonKey(name: 'receiptAddress')
   final String receiptAddress;
-  static const fromJsonFactory = _$PayPayPost$Response$DataFromJson;
+  static const fromJsonFactory = _$PayServicePayPayPost$Response$DataFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is PayPayPost$Response$Data &&
+        (other is PayServicePayPayPost$Response$Data &&
             (identical(other.thirdPayParam, thirdPayParam) ||
                 const DeepCollectionEquality().equals(
                   other.thirdPayParam,
@@ -2796,22 +2880,23 @@ class PayPayPost$Response$Data {
       runtimeType.hashCode;
 }
 
-extension $PayPayPost$Response$DataExtension on PayPayPost$Response$Data {
-  PayPayPost$Response$Data copyWith({
+extension $PayServicePayPayPost$Response$DataExtension
+    on PayServicePayPayPost$Response$Data {
+  PayServicePayPayPost$Response$Data copyWith({
     String? thirdPayParam,
     String? receiptAddress,
   }) {
-    return PayPayPost$Response$Data(
+    return PayServicePayPayPost$Response$Data(
       thirdPayParam: thirdPayParam ?? this.thirdPayParam,
       receiptAddress: receiptAddress ?? this.receiptAddress,
     );
   }
 
-  PayPayPost$Response$Data copyWithWrapped({
+  PayServicePayPayPost$Response$Data copyWithWrapped({
     Wrapped<String?>? thirdPayParam,
     Wrapped<String>? receiptAddress,
   }) {
-    return PayPayPost$Response$Data(
+    return PayServicePayPayPost$Response$Data(
       thirdPayParam: (thirdPayParam != null
           ? thirdPayParam.value
           : this.thirdPayParam),
@@ -2823,34 +2908,37 @@ extension $PayPayPost$Response$DataExtension on PayPayPost$Response$Data {
 }
 
 @JsonSerializable(explicitToJson: true)
-class PayPayResultGet$Response$Data {
-  const PayPayResultGet$Response$Data({
+class PayServicePayPayResultGet$Response$Data {
+  const PayServicePayPayResultGet$Response$Data({
     this.payStatus,
     this.orderType,
     this.currency,
     this.payAmount,
   });
 
-  factory PayPayResultGet$Response$Data.fromJson(Map<String, dynamic> json) =>
-      _$PayPayResultGet$Response$DataFromJson(json);
+  factory PayServicePayPayResultGet$Response$Data.fromJson(
+    Map<String, dynamic> json,
+  ) => _$PayServicePayPayResultGet$Response$DataFromJson(json);
 
-  static const toJsonFactory = _$PayPayResultGet$Response$DataToJson;
-  Map<String, dynamic> toJson() => _$PayPayResultGet$Response$DataToJson(this);
+  static const toJsonFactory = _$PayServicePayPayResultGet$Response$DataToJson;
+  Map<String, dynamic> toJson() =>
+      _$PayServicePayPayResultGet$Response$DataToJson(this);
 
   @JsonKey(name: 'payStatus')
   final double? payStatus;
   @JsonKey(name: 'orderType')
   final double? orderType;
   @JsonKey(name: 'currency')
-  final PayPayResultGet$Response$Data$Currency? currency;
+  final PayServicePayPayResultGet$Response$Data$Currency? currency;
   @JsonKey(name: 'payAmount')
   final String? payAmount;
-  static const fromJsonFactory = _$PayPayResultGet$Response$DataFromJson;
+  static const fromJsonFactory =
+      _$PayServicePayPayResultGet$Response$DataFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is PayPayResultGet$Response$Data &&
+        (other is PayServicePayPayResultGet$Response$Data &&
             (identical(other.payStatus, payStatus) ||
                 const DeepCollectionEquality().equals(
                   other.payStatus,
@@ -2885,15 +2973,15 @@ class PayPayResultGet$Response$Data {
       runtimeType.hashCode;
 }
 
-extension $PayPayResultGet$Response$DataExtension
-    on PayPayResultGet$Response$Data {
-  PayPayResultGet$Response$Data copyWith({
+extension $PayServicePayPayResultGet$Response$DataExtension
+    on PayServicePayPayResultGet$Response$Data {
+  PayServicePayPayResultGet$Response$Data copyWith({
     double? payStatus,
     double? orderType,
-    PayPayResultGet$Response$Data$Currency? currency,
+    PayServicePayPayResultGet$Response$Data$Currency? currency,
     String? payAmount,
   }) {
-    return PayPayResultGet$Response$Data(
+    return PayServicePayPayResultGet$Response$Data(
       payStatus: payStatus ?? this.payStatus,
       orderType: orderType ?? this.orderType,
       currency: currency ?? this.currency,
@@ -2901,13 +2989,13 @@ extension $PayPayResultGet$Response$DataExtension
     );
   }
 
-  PayPayResultGet$Response$Data copyWithWrapped({
+  PayServicePayPayResultGet$Response$Data copyWithWrapped({
     Wrapped<double?>? payStatus,
     Wrapped<double?>? orderType,
-    Wrapped<PayPayResultGet$Response$Data$Currency?>? currency,
+    Wrapped<PayServicePayPayResultGet$Response$Data$Currency?>? currency,
     Wrapped<String?>? payAmount,
   }) {
-    return PayPayResultGet$Response$Data(
+    return PayServicePayPayResultGet$Response$Data(
       payStatus: (payStatus != null ? payStatus.value : this.payStatus),
       orderType: (orderType != null ? orderType.value : this.orderType),
       currency: (currency != null ? currency.value : this.currency),
@@ -2917,23 +3005,26 @@ extension $PayPayResultGet$Response$DataExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class PayPayTypeGet$Response$Data {
-  const PayPayTypeGet$Response$Data({this.list});
+class PayServicePayPayTypeGet$Response$Data {
+  const PayServicePayPayTypeGet$Response$Data({this.list});
 
-  factory PayPayTypeGet$Response$Data.fromJson(Map<String, dynamic> json) =>
-      _$PayPayTypeGet$Response$DataFromJson(json);
+  factory PayServicePayPayTypeGet$Response$Data.fromJson(
+    Map<String, dynamic> json,
+  ) => _$PayServicePayPayTypeGet$Response$DataFromJson(json);
 
-  static const toJsonFactory = _$PayPayTypeGet$Response$DataToJson;
-  Map<String, dynamic> toJson() => _$PayPayTypeGet$Response$DataToJson(this);
+  static const toJsonFactory = _$PayServicePayPayTypeGet$Response$DataToJson;
+  Map<String, dynamic> toJson() =>
+      _$PayServicePayPayTypeGet$Response$DataToJson(this);
 
   @JsonKey(name: 'list')
-  final List<PayPayTypeGet$Response$Data$List$Item>? list;
-  static const fromJsonFactory = _$PayPayTypeGet$Response$DataFromJson;
+  final List<PayServicePayPayTypeGet$Response$Data$List$Item>? list;
+  static const fromJsonFactory =
+      _$PayServicePayPayTypeGet$Response$DataFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is PayPayTypeGet$Response$Data &&
+        (other is PayServicePayPayTypeGet$Response$Data &&
             (identical(other.list, list) ||
                 const DeepCollectionEquality().equals(other.list, list)));
   }
@@ -2946,47 +3037,50 @@ class PayPayTypeGet$Response$Data {
       const DeepCollectionEquality().hash(list) ^ runtimeType.hashCode;
 }
 
-extension $PayPayTypeGet$Response$DataExtension on PayPayTypeGet$Response$Data {
-  PayPayTypeGet$Response$Data copyWith({
-    List<PayPayTypeGet$Response$Data$List$Item>? list,
+extension $PayServicePayPayTypeGet$Response$DataExtension
+    on PayServicePayPayTypeGet$Response$Data {
+  PayServicePayPayTypeGet$Response$Data copyWith({
+    List<PayServicePayPayTypeGet$Response$Data$List$Item>? list,
   }) {
-    return PayPayTypeGet$Response$Data(list: list ?? this.list);
+    return PayServicePayPayTypeGet$Response$Data(list: list ?? this.list);
   }
 
-  PayPayTypeGet$Response$Data copyWithWrapped({
-    Wrapped<List<PayPayTypeGet$Response$Data$List$Item>?>? list,
+  PayServicePayPayTypeGet$Response$Data copyWithWrapped({
+    Wrapped<List<PayServicePayPayTypeGet$Response$Data$List$Item>?>? list,
   }) {
-    return PayPayTypeGet$Response$Data(
+    return PayServicePayPayTypeGet$Response$Data(
       list: (list != null ? list.value : this.list),
     );
   }
 }
 
 @JsonSerializable(explicitToJson: true)
-class EchoooCoinTypeGet$Response$Data$Item {
-  const EchoooCoinTypeGet$Response$Data$Item({
+class PayServiceEchoooCoinTypeGet$Response$Data$Item {
+  const PayServiceEchoooCoinTypeGet$Response$Data$Item({
     required this.type,
     required this.name,
   });
 
-  factory EchoooCoinTypeGet$Response$Data$Item.fromJson(
+  factory PayServiceEchoooCoinTypeGet$Response$Data$Item.fromJson(
     Map<String, dynamic> json,
-  ) => _$EchoooCoinTypeGet$Response$Data$ItemFromJson(json);
+  ) => _$PayServiceEchoooCoinTypeGet$Response$Data$ItemFromJson(json);
 
-  static const toJsonFactory = _$EchoooCoinTypeGet$Response$Data$ItemToJson;
+  static const toJsonFactory =
+      _$PayServiceEchoooCoinTypeGet$Response$Data$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$EchoooCoinTypeGet$Response$Data$ItemToJson(this);
+      _$PayServiceEchoooCoinTypeGet$Response$Data$ItemToJson(this);
 
   @JsonKey(name: 'type')
   final double type;
   @JsonKey(name: 'name')
   final String name;
-  static const fromJsonFactory = _$EchoooCoinTypeGet$Response$Data$ItemFromJson;
+  static const fromJsonFactory =
+      _$PayServiceEchoooCoinTypeGet$Response$Data$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is EchoooCoinTypeGet$Response$Data$Item &&
+        (other is PayServiceEchoooCoinTypeGet$Response$Data$Item &&
             (identical(other.type, type) ||
                 const DeepCollectionEquality().equals(other.type, type)) &&
             (identical(other.name, name) ||
@@ -3003,20 +3097,23 @@ class EchoooCoinTypeGet$Response$Data$Item {
       runtimeType.hashCode;
 }
 
-extension $EchoooCoinTypeGet$Response$Data$ItemExtension
-    on EchoooCoinTypeGet$Response$Data$Item {
-  EchoooCoinTypeGet$Response$Data$Item copyWith({double? type, String? name}) {
-    return EchoooCoinTypeGet$Response$Data$Item(
+extension $PayServiceEchoooCoinTypeGet$Response$Data$ItemExtension
+    on PayServiceEchoooCoinTypeGet$Response$Data$Item {
+  PayServiceEchoooCoinTypeGet$Response$Data$Item copyWith({
+    double? type,
+    String? name,
+  }) {
+    return PayServiceEchoooCoinTypeGet$Response$Data$Item(
       type: type ?? this.type,
       name: name ?? this.name,
     );
   }
 
-  EchoooCoinTypeGet$Response$Data$Item copyWithWrapped({
+  PayServiceEchoooCoinTypeGet$Response$Data$Item copyWithWrapped({
     Wrapped<double>? type,
     Wrapped<String>? name,
   }) {
-    return EchoooCoinTypeGet$Response$Data$Item(
+    return PayServiceEchoooCoinTypeGet$Response$Data$Item(
       type: (type != null ? type.value : this.type),
       name: (name != null ? name.value : this.name),
     );
@@ -3024,8 +3121,8 @@ extension $EchoooCoinTypeGet$Response$Data$ItemExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class EchoooCoinInfoGet$Response$Data {
-  const EchoooCoinInfoGet$Response$Data({
+class PayServiceEchoooCoinInfoGet$Response$Data {
+  const PayServiceEchoooCoinInfoGet$Response$Data({
     required this.balance,
     required this.percentage,
     required this.deductibleAmount,
@@ -3033,12 +3130,14 @@ class EchoooCoinInfoGet$Response$Data {
     required this.currency,
   });
 
-  factory EchoooCoinInfoGet$Response$Data.fromJson(Map<String, dynamic> json) =>
-      _$EchoooCoinInfoGet$Response$DataFromJson(json);
+  factory PayServiceEchoooCoinInfoGet$Response$Data.fromJson(
+    Map<String, dynamic> json,
+  ) => _$PayServiceEchoooCoinInfoGet$Response$DataFromJson(json);
 
-  static const toJsonFactory = _$EchoooCoinInfoGet$Response$DataToJson;
+  static const toJsonFactory =
+      _$PayServiceEchoooCoinInfoGet$Response$DataToJson;
   Map<String, dynamic> toJson() =>
-      _$EchoooCoinInfoGet$Response$DataToJson(this);
+      _$PayServiceEchoooCoinInfoGet$Response$DataToJson(this);
 
   @JsonKey(name: 'balance')
   final double balance;
@@ -3049,13 +3148,14 @@ class EchoooCoinInfoGet$Response$Data {
   @JsonKey(name: 'accumulateAmount')
   final String accumulateAmount;
   @JsonKey(name: 'currency')
-  final EchoooCoinInfoGet$Response$Data$Currency currency;
-  static const fromJsonFactory = _$EchoooCoinInfoGet$Response$DataFromJson;
+  final PayServiceEchoooCoinInfoGet$Response$Data$Currency currency;
+  static const fromJsonFactory =
+      _$PayServiceEchoooCoinInfoGet$Response$DataFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is EchoooCoinInfoGet$Response$Data &&
+        (other is PayServiceEchoooCoinInfoGet$Response$Data &&
             (identical(other.balance, balance) ||
                 const DeepCollectionEquality().equals(
                   other.balance,
@@ -3096,16 +3196,16 @@ class EchoooCoinInfoGet$Response$Data {
       runtimeType.hashCode;
 }
 
-extension $EchoooCoinInfoGet$Response$DataExtension
-    on EchoooCoinInfoGet$Response$Data {
-  EchoooCoinInfoGet$Response$Data copyWith({
+extension $PayServiceEchoooCoinInfoGet$Response$DataExtension
+    on PayServiceEchoooCoinInfoGet$Response$Data {
+  PayServiceEchoooCoinInfoGet$Response$Data copyWith({
     double? balance,
     String? percentage,
     String? deductibleAmount,
     String? accumulateAmount,
-    EchoooCoinInfoGet$Response$Data$Currency? currency,
+    PayServiceEchoooCoinInfoGet$Response$Data$Currency? currency,
   }) {
-    return EchoooCoinInfoGet$Response$Data(
+    return PayServiceEchoooCoinInfoGet$Response$Data(
       balance: balance ?? this.balance,
       percentage: percentage ?? this.percentage,
       deductibleAmount: deductibleAmount ?? this.deductibleAmount,
@@ -3114,14 +3214,14 @@ extension $EchoooCoinInfoGet$Response$DataExtension
     );
   }
 
-  EchoooCoinInfoGet$Response$Data copyWithWrapped({
+  PayServiceEchoooCoinInfoGet$Response$Data copyWithWrapped({
     Wrapped<double>? balance,
     Wrapped<String>? percentage,
     Wrapped<String>? deductibleAmount,
     Wrapped<String>? accumulateAmount,
-    Wrapped<EchoooCoinInfoGet$Response$Data$Currency>? currency,
+    Wrapped<PayServiceEchoooCoinInfoGet$Response$Data$Currency>? currency,
   }) {
-    return EchoooCoinInfoGet$Response$Data(
+    return PayServiceEchoooCoinInfoGet$Response$Data(
       balance: (balance != null ? balance.value : this.balance),
       percentage: (percentage != null ? percentage.value : this.percentage),
       deductibleAmount: (deductibleAmount != null
@@ -3136,8 +3236,8 @@ extension $EchoooCoinInfoGet$Response$DataExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class EchoooCoinLogGet$Response$Data {
-  const EchoooCoinLogGet$Response$Data({
+class PayServiceEchoooCoinLogGet$Response$Data {
+  const PayServiceEchoooCoinLogGet$Response$Data({
     this.total,
     this.pageSize,
     this.totalPages,
@@ -3145,11 +3245,13 @@ class EchoooCoinLogGet$Response$Data {
     this.records,
   });
 
-  factory EchoooCoinLogGet$Response$Data.fromJson(Map<String, dynamic> json) =>
-      _$EchoooCoinLogGet$Response$DataFromJson(json);
+  factory PayServiceEchoooCoinLogGet$Response$Data.fromJson(
+    Map<String, dynamic> json,
+  ) => _$PayServiceEchoooCoinLogGet$Response$DataFromJson(json);
 
-  static const toJsonFactory = _$EchoooCoinLogGet$Response$DataToJson;
-  Map<String, dynamic> toJson() => _$EchoooCoinLogGet$Response$DataToJson(this);
+  static const toJsonFactory = _$PayServiceEchoooCoinLogGet$Response$DataToJson;
+  Map<String, dynamic> toJson() =>
+      _$PayServiceEchoooCoinLogGet$Response$DataToJson(this);
 
   @JsonKey(name: 'total')
   final double? total;
@@ -3160,13 +3262,14 @@ class EchoooCoinLogGet$Response$Data {
   @JsonKey(name: 'current')
   final double? current;
   @JsonKey(name: 'records')
-  final List<EchoooCoinLogGet$Response$Data$Records$Item>? records;
-  static const fromJsonFactory = _$EchoooCoinLogGet$Response$DataFromJson;
+  final List<PayServiceEchoooCoinLogGet$Response$Data$Records$Item>? records;
+  static const fromJsonFactory =
+      _$PayServiceEchoooCoinLogGet$Response$DataFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is EchoooCoinLogGet$Response$Data &&
+        (other is PayServiceEchoooCoinLogGet$Response$Data &&
             (identical(other.total, total) ||
                 const DeepCollectionEquality().equals(other.total, total)) &&
             (identical(other.pageSize, pageSize) ||
@@ -3201,16 +3304,16 @@ class EchoooCoinLogGet$Response$Data {
       runtimeType.hashCode;
 }
 
-extension $EchoooCoinLogGet$Response$DataExtension
-    on EchoooCoinLogGet$Response$Data {
-  EchoooCoinLogGet$Response$Data copyWith({
+extension $PayServiceEchoooCoinLogGet$Response$DataExtension
+    on PayServiceEchoooCoinLogGet$Response$Data {
+  PayServiceEchoooCoinLogGet$Response$Data copyWith({
     double? total,
     double? pageSize,
     double? totalPages,
     double? current,
-    List<EchoooCoinLogGet$Response$Data$Records$Item>? records,
+    List<PayServiceEchoooCoinLogGet$Response$Data$Records$Item>? records,
   }) {
-    return EchoooCoinLogGet$Response$Data(
+    return PayServiceEchoooCoinLogGet$Response$Data(
       total: total ?? this.total,
       pageSize: pageSize ?? this.pageSize,
       totalPages: totalPages ?? this.totalPages,
@@ -3219,14 +3322,15 @@ extension $EchoooCoinLogGet$Response$DataExtension
     );
   }
 
-  EchoooCoinLogGet$Response$Data copyWithWrapped({
+  PayServiceEchoooCoinLogGet$Response$Data copyWithWrapped({
     Wrapped<double?>? total,
     Wrapped<double?>? pageSize,
     Wrapped<double?>? totalPages,
     Wrapped<double?>? current,
-    Wrapped<List<EchoooCoinLogGet$Response$Data$Records$Item>?>? records,
+    Wrapped<List<PayServiceEchoooCoinLogGet$Response$Data$Records$Item>?>?
+    records,
   }) {
-    return EchoooCoinLogGet$Response$Data(
+    return PayServiceEchoooCoinLogGet$Response$Data(
       total: (total != null ? total.value : this.total),
       pageSize: (pageSize != null ? pageSize.value : this.pageSize),
       totalPages: (totalPages != null ? totalPages.value : this.totalPages),
@@ -3237,8 +3341,8 @@ extension $EchoooCoinLogGet$Response$DataExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class WithdrawOrdersGet$Response$Data$Records$Item {
-  const WithdrawOrdersGet$Response$Data$Records$Item({
+class PayServiceWithdrawOrdersGet$Response$Data$Records$Item {
+  const PayServiceWithdrawOrdersGet$Response$Data$Records$Item({
     this.orderNo,
     this.amount,
     this.currency,
@@ -3251,14 +3355,14 @@ class WithdrawOrdersGet$Response$Data$Records$Item {
     this.accountNo,
   });
 
-  factory WithdrawOrdersGet$Response$Data$Records$Item.fromJson(
+  factory PayServiceWithdrawOrdersGet$Response$Data$Records$Item.fromJson(
     Map<String, dynamic> json,
-  ) => _$WithdrawOrdersGet$Response$Data$Records$ItemFromJson(json);
+  ) => _$PayServiceWithdrawOrdersGet$Response$Data$Records$ItemFromJson(json);
 
   static const toJsonFactory =
-      _$WithdrawOrdersGet$Response$Data$Records$ItemToJson;
+      _$PayServiceWithdrawOrdersGet$Response$Data$Records$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$WithdrawOrdersGet$Response$Data$Records$ItemToJson(this);
+      _$PayServiceWithdrawOrdersGet$Response$Data$Records$ItemToJson(this);
 
   @JsonKey(name: 'orderNo')
   final String? orderNo;
@@ -3281,12 +3385,12 @@ class WithdrawOrdersGet$Response$Data$Records$Item {
   @JsonKey(name: 'accountNo')
   final String? accountNo;
   static const fromJsonFactory =
-      _$WithdrawOrdersGet$Response$Data$Records$ItemFromJson;
+      _$PayServiceWithdrawOrdersGet$Response$Data$Records$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is WithdrawOrdersGet$Response$Data$Records$Item &&
+        (other is PayServiceWithdrawOrdersGet$Response$Data$Records$Item &&
             (identical(other.orderNo, orderNo) ||
                 const DeepCollectionEquality().equals(
                   other.orderNo,
@@ -3345,9 +3449,9 @@ class WithdrawOrdersGet$Response$Data$Records$Item {
       runtimeType.hashCode;
 }
 
-extension $WithdrawOrdersGet$Response$Data$Records$ItemExtension
-    on WithdrawOrdersGet$Response$Data$Records$Item {
-  WithdrawOrdersGet$Response$Data$Records$Item copyWith({
+extension $PayServiceWithdrawOrdersGet$Response$Data$Records$ItemExtension
+    on PayServiceWithdrawOrdersGet$Response$Data$Records$Item {
+  PayServiceWithdrawOrdersGet$Response$Data$Records$Item copyWith({
     String? orderNo,
     String? amount,
     String? currency,
@@ -3359,7 +3463,7 @@ extension $WithdrawOrdersGet$Response$Data$Records$ItemExtension
     String? accountType,
     String? accountNo,
   }) {
-    return WithdrawOrdersGet$Response$Data$Records$Item(
+    return PayServiceWithdrawOrdersGet$Response$Data$Records$Item(
       orderNo: orderNo ?? this.orderNo,
       amount: amount ?? this.amount,
       currency: currency ?? this.currency,
@@ -3373,7 +3477,7 @@ extension $WithdrawOrdersGet$Response$Data$Records$ItemExtension
     );
   }
 
-  WithdrawOrdersGet$Response$Data$Records$Item copyWithWrapped({
+  PayServiceWithdrawOrdersGet$Response$Data$Records$Item copyWithWrapped({
     Wrapped<String?>? orderNo,
     Wrapped<String?>? amount,
     Wrapped<String?>? currency,
@@ -3385,7 +3489,7 @@ extension $WithdrawOrdersGet$Response$Data$Records$ItemExtension
     Wrapped<String?>? accountType,
     Wrapped<String?>? accountNo,
   }) {
-    return WithdrawOrdersGet$Response$Data$Records$Item(
+    return PayServiceWithdrawOrdersGet$Response$Data$Records$Item(
       orderNo: (orderNo != null ? orderNo.value : this.orderNo),
       amount: (amount != null ? amount.value : this.amount),
       currency: (currency != null ? currency.value : this.currency),
@@ -3403,22 +3507,26 @@ extension $WithdrawOrdersGet$Response$Data$Records$ItemExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class CommissionTransactionGet$Response$Data$Records$Item {
-  const CommissionTransactionGet$Response$Data$Records$Item({
+class PayServiceCommissionTransactionGet$Response$Data$Records$Item {
+  const PayServiceCommissionTransactionGet$Response$Data$Records$Item({
     required this.amount,
     required this.time,
     required this.typeName,
     required this.currency,
   });
 
-  factory CommissionTransactionGet$Response$Data$Records$Item.fromJson(
+  factory PayServiceCommissionTransactionGet$Response$Data$Records$Item.fromJson(
     Map<String, dynamic> json,
-  ) => _$CommissionTransactionGet$Response$Data$Records$ItemFromJson(json);
+  ) => _$PayServiceCommissionTransactionGet$Response$Data$Records$ItemFromJson(
+    json,
+  );
 
   static const toJsonFactory =
-      _$CommissionTransactionGet$Response$Data$Records$ItemToJson;
+      _$PayServiceCommissionTransactionGet$Response$Data$Records$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$CommissionTransactionGet$Response$Data$Records$ItemToJson(this);
+      _$PayServiceCommissionTransactionGet$Response$Data$Records$ItemToJson(
+        this,
+      );
 
   @JsonKey(name: 'amount')
   final String amount;
@@ -3429,12 +3537,13 @@ class CommissionTransactionGet$Response$Data$Records$Item {
   @JsonKey(name: 'currency')
   final String currency;
   static const fromJsonFactory =
-      _$CommissionTransactionGet$Response$Data$Records$ItemFromJson;
+      _$PayServiceCommissionTransactionGet$Response$Data$Records$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is CommissionTransactionGet$Response$Data$Records$Item &&
+        (other
+                is PayServiceCommissionTransactionGet$Response$Data$Records$Item &&
             (identical(other.amount, amount) ||
                 const DeepCollectionEquality().equals(other.amount, amount)) &&
             (identical(other.time, time) ||
@@ -3463,15 +3572,15 @@ class CommissionTransactionGet$Response$Data$Records$Item {
       runtimeType.hashCode;
 }
 
-extension $CommissionTransactionGet$Response$Data$Records$ItemExtension
-    on CommissionTransactionGet$Response$Data$Records$Item {
-  CommissionTransactionGet$Response$Data$Records$Item copyWith({
+extension $PayServiceCommissionTransactionGet$Response$Data$Records$ItemExtension
+    on PayServiceCommissionTransactionGet$Response$Data$Records$Item {
+  PayServiceCommissionTransactionGet$Response$Data$Records$Item copyWith({
     String? amount,
     String? time,
     String? typeName,
     String? currency,
   }) {
-    return CommissionTransactionGet$Response$Data$Records$Item(
+    return PayServiceCommissionTransactionGet$Response$Data$Records$Item(
       amount: amount ?? this.amount,
       time: time ?? this.time,
       typeName: typeName ?? this.typeName,
@@ -3479,13 +3588,14 @@ extension $CommissionTransactionGet$Response$Data$Records$ItemExtension
     );
   }
 
-  CommissionTransactionGet$Response$Data$Records$Item copyWithWrapped({
+  PayServiceCommissionTransactionGet$Response$Data$Records$Item
+  copyWithWrapped({
     Wrapped<String>? amount,
     Wrapped<String>? time,
     Wrapped<String>? typeName,
     Wrapped<String>? currency,
   }) {
-    return CommissionTransactionGet$Response$Data$Records$Item(
+    return PayServiceCommissionTransactionGet$Response$Data$Records$Item(
       amount: (amount != null ? amount.value : this.amount),
       time: (time != null ? time.value : this.time),
       typeName: (typeName != null ? typeName.value : this.typeName),
@@ -3495,29 +3605,32 @@ extension $CommissionTransactionGet$Response$Data$Records$ItemExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class RechargeBalanceGet$Response$Data$Currency {
-  const RechargeBalanceGet$Response$Data$Currency({this.name, this.symbol});
+class PayServiceRechargeBalanceGet$Response$Data$Currency {
+  const PayServiceRechargeBalanceGet$Response$Data$Currency({
+    this.name,
+    this.symbol,
+  });
 
-  factory RechargeBalanceGet$Response$Data$Currency.fromJson(
+  factory PayServiceRechargeBalanceGet$Response$Data$Currency.fromJson(
     Map<String, dynamic> json,
-  ) => _$RechargeBalanceGet$Response$Data$CurrencyFromJson(json);
+  ) => _$PayServiceRechargeBalanceGet$Response$Data$CurrencyFromJson(json);
 
   static const toJsonFactory =
-      _$RechargeBalanceGet$Response$Data$CurrencyToJson;
+      _$PayServiceRechargeBalanceGet$Response$Data$CurrencyToJson;
   Map<String, dynamic> toJson() =>
-      _$RechargeBalanceGet$Response$Data$CurrencyToJson(this);
+      _$PayServiceRechargeBalanceGet$Response$Data$CurrencyToJson(this);
 
   @JsonKey(name: 'name')
   final String? name;
   @JsonKey(name: 'symbol')
   final String? symbol;
   static const fromJsonFactory =
-      _$RechargeBalanceGet$Response$Data$CurrencyFromJson;
+      _$PayServiceRechargeBalanceGet$Response$Data$CurrencyFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is RechargeBalanceGet$Response$Data$Currency &&
+        (other is PayServiceRechargeBalanceGet$Response$Data$Currency &&
             (identical(other.name, name) ||
                 const DeepCollectionEquality().equals(other.name, name)) &&
             (identical(other.symbol, symbol) ||
@@ -3534,23 +3647,23 @@ class RechargeBalanceGet$Response$Data$Currency {
       runtimeType.hashCode;
 }
 
-extension $RechargeBalanceGet$Response$Data$CurrencyExtension
-    on RechargeBalanceGet$Response$Data$Currency {
-  RechargeBalanceGet$Response$Data$Currency copyWith({
+extension $PayServiceRechargeBalanceGet$Response$Data$CurrencyExtension
+    on PayServiceRechargeBalanceGet$Response$Data$Currency {
+  PayServiceRechargeBalanceGet$Response$Data$Currency copyWith({
     String? name,
     String? symbol,
   }) {
-    return RechargeBalanceGet$Response$Data$Currency(
+    return PayServiceRechargeBalanceGet$Response$Data$Currency(
       name: name ?? this.name,
       symbol: symbol ?? this.symbol,
     );
   }
 
-  RechargeBalanceGet$Response$Data$Currency copyWithWrapped({
+  PayServiceRechargeBalanceGet$Response$Data$Currency copyWithWrapped({
     Wrapped<String?>? name,
     Wrapped<String?>? symbol,
   }) {
-    return RechargeBalanceGet$Response$Data$Currency(
+    return PayServiceRechargeBalanceGet$Response$Data$Currency(
       name: (name != null ? name.value : this.name),
       symbol: (symbol != null ? symbol.value : this.symbol),
     );
@@ -3558,32 +3671,33 @@ extension $RechargeBalanceGet$Response$Data$CurrencyExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class RechargeBalanceGet$Response$Data$RechargeReward {
-  const RechargeBalanceGet$Response$Data$RechargeReward({
+class PayServiceRechargeBalanceGet$Response$Data$RechargeReward {
+  const PayServiceRechargeBalanceGet$Response$Data$RechargeReward({
     this.amount,
     this.expireAt,
   });
 
-  factory RechargeBalanceGet$Response$Data$RechargeReward.fromJson(
+  factory PayServiceRechargeBalanceGet$Response$Data$RechargeReward.fromJson(
     Map<String, dynamic> json,
-  ) => _$RechargeBalanceGet$Response$Data$RechargeRewardFromJson(json);
+  ) =>
+      _$PayServiceRechargeBalanceGet$Response$Data$RechargeRewardFromJson(json);
 
   static const toJsonFactory =
-      _$RechargeBalanceGet$Response$Data$RechargeRewardToJson;
+      _$PayServiceRechargeBalanceGet$Response$Data$RechargeRewardToJson;
   Map<String, dynamic> toJson() =>
-      _$RechargeBalanceGet$Response$Data$RechargeRewardToJson(this);
+      _$PayServiceRechargeBalanceGet$Response$Data$RechargeRewardToJson(this);
 
   @JsonKey(name: 'amount')
   final String? amount;
   @JsonKey(name: 'expireAt')
   final double? expireAt;
   static const fromJsonFactory =
-      _$RechargeBalanceGet$Response$Data$RechargeRewardFromJson;
+      _$PayServiceRechargeBalanceGet$Response$Data$RechargeRewardFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is RechargeBalanceGet$Response$Data$RechargeReward &&
+        (other is PayServiceRechargeBalanceGet$Response$Data$RechargeReward &&
             (identical(other.amount, amount) ||
                 const DeepCollectionEquality().equals(other.amount, amount)) &&
             (identical(other.expireAt, expireAt) ||
@@ -3603,23 +3717,23 @@ class RechargeBalanceGet$Response$Data$RechargeReward {
       runtimeType.hashCode;
 }
 
-extension $RechargeBalanceGet$Response$Data$RechargeRewardExtension
-    on RechargeBalanceGet$Response$Data$RechargeReward {
-  RechargeBalanceGet$Response$Data$RechargeReward copyWith({
+extension $PayServiceRechargeBalanceGet$Response$Data$RechargeRewardExtension
+    on PayServiceRechargeBalanceGet$Response$Data$RechargeReward {
+  PayServiceRechargeBalanceGet$Response$Data$RechargeReward copyWith({
     String? amount,
     double? expireAt,
   }) {
-    return RechargeBalanceGet$Response$Data$RechargeReward(
+    return PayServiceRechargeBalanceGet$Response$Data$RechargeReward(
       amount: amount ?? this.amount,
       expireAt: expireAt ?? this.expireAt,
     );
   }
 
-  RechargeBalanceGet$Response$Data$RechargeReward copyWithWrapped({
+  PayServiceRechargeBalanceGet$Response$Data$RechargeReward copyWithWrapped({
     Wrapped<String?>? amount,
     Wrapped<double?>? expireAt,
   }) {
-    return RechargeBalanceGet$Response$Data$RechargeReward(
+    return PayServiceRechargeBalanceGet$Response$Data$RechargeReward(
       amount: (amount != null ? amount.value : this.amount),
       expireAt: (expireAt != null ? expireAt.value : this.expireAt),
     );
@@ -3627,32 +3741,33 @@ extension $RechargeBalanceGet$Response$Data$RechargeRewardExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class RechargeBalanceGet$Response$Data$TargetCurrency {
-  const RechargeBalanceGet$Response$Data$TargetCurrency({
+class PayServiceRechargeBalanceGet$Response$Data$TargetCurrency {
+  const PayServiceRechargeBalanceGet$Response$Data$TargetCurrency({
     this.name,
     this.symbol,
   });
 
-  factory RechargeBalanceGet$Response$Data$TargetCurrency.fromJson(
+  factory PayServiceRechargeBalanceGet$Response$Data$TargetCurrency.fromJson(
     Map<String, dynamic> json,
-  ) => _$RechargeBalanceGet$Response$Data$TargetCurrencyFromJson(json);
+  ) =>
+      _$PayServiceRechargeBalanceGet$Response$Data$TargetCurrencyFromJson(json);
 
   static const toJsonFactory =
-      _$RechargeBalanceGet$Response$Data$TargetCurrencyToJson;
+      _$PayServiceRechargeBalanceGet$Response$Data$TargetCurrencyToJson;
   Map<String, dynamic> toJson() =>
-      _$RechargeBalanceGet$Response$Data$TargetCurrencyToJson(this);
+      _$PayServiceRechargeBalanceGet$Response$Data$TargetCurrencyToJson(this);
 
   @JsonKey(name: 'name')
   final String? name;
   @JsonKey(name: 'symbol')
   final String? symbol;
   static const fromJsonFactory =
-      _$RechargeBalanceGet$Response$Data$TargetCurrencyFromJson;
+      _$PayServiceRechargeBalanceGet$Response$Data$TargetCurrencyFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is RechargeBalanceGet$Response$Data$TargetCurrency &&
+        (other is PayServiceRechargeBalanceGet$Response$Data$TargetCurrency &&
             (identical(other.name, name) ||
                 const DeepCollectionEquality().equals(other.name, name)) &&
             (identical(other.symbol, symbol) ||
@@ -3669,23 +3784,23 @@ class RechargeBalanceGet$Response$Data$TargetCurrency {
       runtimeType.hashCode;
 }
 
-extension $RechargeBalanceGet$Response$Data$TargetCurrencyExtension
-    on RechargeBalanceGet$Response$Data$TargetCurrency {
-  RechargeBalanceGet$Response$Data$TargetCurrency copyWith({
+extension $PayServiceRechargeBalanceGet$Response$Data$TargetCurrencyExtension
+    on PayServiceRechargeBalanceGet$Response$Data$TargetCurrency {
+  PayServiceRechargeBalanceGet$Response$Data$TargetCurrency copyWith({
     String? name,
     String? symbol,
   }) {
-    return RechargeBalanceGet$Response$Data$TargetCurrency(
+    return PayServiceRechargeBalanceGet$Response$Data$TargetCurrency(
       name: name ?? this.name,
       symbol: symbol ?? this.symbol,
     );
   }
 
-  RechargeBalanceGet$Response$Data$TargetCurrency copyWithWrapped({
+  PayServiceRechargeBalanceGet$Response$Data$TargetCurrency copyWithWrapped({
     Wrapped<String?>? name,
     Wrapped<String?>? symbol,
   }) {
-    return RechargeBalanceGet$Response$Data$TargetCurrency(
+    return PayServiceRechargeBalanceGet$Response$Data$TargetCurrency(
       name: (name != null ? name.value : this.name),
       symbol: (symbol != null ? symbol.value : this.symbol),
     );
@@ -3693,8 +3808,8 @@ extension $RechargeBalanceGet$Response$Data$TargetCurrencyExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class RechargeOrdersGet$Response$Data$Records$Item {
-  const RechargeOrdersGet$Response$Data$Records$Item({
+class PayServiceRechargeOrdersGet$Response$Data$Records$Item {
+  const PayServiceRechargeOrdersGet$Response$Data$Records$Item({
     this.id,
     this.userId,
     this.tenantCode,
@@ -3711,14 +3826,14 @@ class RechargeOrdersGet$Response$Data$Records$Item {
     this.payOrderId,
   });
 
-  factory RechargeOrdersGet$Response$Data$Records$Item.fromJson(
+  factory PayServiceRechargeOrdersGet$Response$Data$Records$Item.fromJson(
     Map<String, dynamic> json,
-  ) => _$RechargeOrdersGet$Response$Data$Records$ItemFromJson(json);
+  ) => _$PayServiceRechargeOrdersGet$Response$Data$Records$ItemFromJson(json);
 
   static const toJsonFactory =
-      _$RechargeOrdersGet$Response$Data$Records$ItemToJson;
+      _$PayServiceRechargeOrdersGet$Response$Data$Records$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$RechargeOrdersGet$Response$Data$Records$ItemToJson(this);
+      _$PayServiceRechargeOrdersGet$Response$Data$Records$ItemToJson(this);
 
   @JsonKey(name: 'id')
   final double? id;
@@ -3749,12 +3864,12 @@ class RechargeOrdersGet$Response$Data$Records$Item {
   @JsonKey(name: 'payOrderId')
   final String? payOrderId;
   static const fromJsonFactory =
-      _$RechargeOrdersGet$Response$Data$Records$ItemFromJson;
+      _$PayServiceRechargeOrdersGet$Response$Data$Records$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is RechargeOrdersGet$Response$Data$Records$Item &&
+        (other is PayServiceRechargeOrdersGet$Response$Data$Records$Item &&
             (identical(other.id, id) ||
                 const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.userId, userId) ||
@@ -3834,9 +3949,9 @@ class RechargeOrdersGet$Response$Data$Records$Item {
       runtimeType.hashCode;
 }
 
-extension $RechargeOrdersGet$Response$Data$Records$ItemExtension
-    on RechargeOrdersGet$Response$Data$Records$Item {
-  RechargeOrdersGet$Response$Data$Records$Item copyWith({
+extension $PayServiceRechargeOrdersGet$Response$Data$Records$ItemExtension
+    on PayServiceRechargeOrdersGet$Response$Data$Records$Item {
+  PayServiceRechargeOrdersGet$Response$Data$Records$Item copyWith({
     double? id,
     String? userId,
     String? tenantCode,
@@ -3852,7 +3967,7 @@ extension $RechargeOrdersGet$Response$Data$Records$ItemExtension
     String? payFee,
     String? payOrderId,
   }) {
-    return RechargeOrdersGet$Response$Data$Records$Item(
+    return PayServiceRechargeOrdersGet$Response$Data$Records$Item(
       id: id ?? this.id,
       userId: userId ?? this.userId,
       tenantCode: tenantCode ?? this.tenantCode,
@@ -3870,7 +3985,7 @@ extension $RechargeOrdersGet$Response$Data$Records$ItemExtension
     );
   }
 
-  RechargeOrdersGet$Response$Data$Records$Item copyWithWrapped({
+  PayServiceRechargeOrdersGet$Response$Data$Records$Item copyWithWrapped({
     Wrapped<double?>? id,
     Wrapped<String?>? userId,
     Wrapped<String?>? tenantCode,
@@ -3886,7 +4001,7 @@ extension $RechargeOrdersGet$Response$Data$Records$ItemExtension
     Wrapped<String?>? payFee,
     Wrapped<String?>? payOrderId,
   }) {
-    return RechargeOrdersGet$Response$Data$Records$Item(
+    return PayServiceRechargeOrdersGet$Response$Data$Records$Item(
       id: (id != null ? id.value : this.id),
       userId: (userId != null ? userId.value : this.userId),
       tenantCode: (tenantCode != null ? tenantCode.value : this.tenantCode),
@@ -3910,28 +4025,32 @@ extension $RechargeOrdersGet$Response$Data$Records$ItemExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class PayPayResultGet$Response$Data$Currency {
-  const PayPayResultGet$Response$Data$Currency({this.name, this.symbol});
+class PayServicePayPayResultGet$Response$Data$Currency {
+  const PayServicePayPayResultGet$Response$Data$Currency({
+    this.name,
+    this.symbol,
+  });
 
-  factory PayPayResultGet$Response$Data$Currency.fromJson(
+  factory PayServicePayPayResultGet$Response$Data$Currency.fromJson(
     Map<String, dynamic> json,
-  ) => _$PayPayResultGet$Response$Data$CurrencyFromJson(json);
+  ) => _$PayServicePayPayResultGet$Response$Data$CurrencyFromJson(json);
 
-  static const toJsonFactory = _$PayPayResultGet$Response$Data$CurrencyToJson;
+  static const toJsonFactory =
+      _$PayServicePayPayResultGet$Response$Data$CurrencyToJson;
   Map<String, dynamic> toJson() =>
-      _$PayPayResultGet$Response$Data$CurrencyToJson(this);
+      _$PayServicePayPayResultGet$Response$Data$CurrencyToJson(this);
 
   @JsonKey(name: 'name')
   final String? name;
   @JsonKey(name: 'symbol')
   final String? symbol;
   static const fromJsonFactory =
-      _$PayPayResultGet$Response$Data$CurrencyFromJson;
+      _$PayServicePayPayResultGet$Response$Data$CurrencyFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is PayPayResultGet$Response$Data$Currency &&
+        (other is PayServicePayPayResultGet$Response$Data$Currency &&
             (identical(other.name, name) ||
                 const DeepCollectionEquality().equals(other.name, name)) &&
             (identical(other.symbol, symbol) ||
@@ -3948,23 +4067,23 @@ class PayPayResultGet$Response$Data$Currency {
       runtimeType.hashCode;
 }
 
-extension $PayPayResultGet$Response$Data$CurrencyExtension
-    on PayPayResultGet$Response$Data$Currency {
-  PayPayResultGet$Response$Data$Currency copyWith({
+extension $PayServicePayPayResultGet$Response$Data$CurrencyExtension
+    on PayServicePayPayResultGet$Response$Data$Currency {
+  PayServicePayPayResultGet$Response$Data$Currency copyWith({
     String? name,
     String? symbol,
   }) {
-    return PayPayResultGet$Response$Data$Currency(
+    return PayServicePayPayResultGet$Response$Data$Currency(
       name: name ?? this.name,
       symbol: symbol ?? this.symbol,
     );
   }
 
-  PayPayResultGet$Response$Data$Currency copyWithWrapped({
+  PayServicePayPayResultGet$Response$Data$Currency copyWithWrapped({
     Wrapped<String?>? name,
     Wrapped<String?>? symbol,
   }) {
-    return PayPayResultGet$Response$Data$Currency(
+    return PayServicePayPayResultGet$Response$Data$Currency(
       name: (name != null ? name.value : this.name),
       symbol: (symbol != null ? symbol.value : this.symbol),
     );
@@ -3972,8 +4091,8 @@ extension $PayPayResultGet$Response$Data$CurrencyExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class PayPayTypeGet$Response$Data$List$Item {
-  const PayPayTypeGet$Response$Data$List$Item({
+class PayServicePayPayTypeGet$Response$Data$List$Item {
+  const PayServicePayPayTypeGet$Response$Data$List$Item({
     this.payType,
     this.payAmount,
     this.currency,
@@ -3986,20 +4105,21 @@ class PayPayTypeGet$Response$Data$List$Item {
     this.isDefault,
   });
 
-  factory PayPayTypeGet$Response$Data$List$Item.fromJson(
+  factory PayServicePayPayTypeGet$Response$Data$List$Item.fromJson(
     Map<String, dynamic> json,
-  ) => _$PayPayTypeGet$Response$Data$List$ItemFromJson(json);
+  ) => _$PayServicePayPayTypeGet$Response$Data$List$ItemFromJson(json);
 
-  static const toJsonFactory = _$PayPayTypeGet$Response$Data$List$ItemToJson;
+  static const toJsonFactory =
+      _$PayServicePayPayTypeGet$Response$Data$List$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$PayPayTypeGet$Response$Data$List$ItemToJson(this);
+      _$PayServicePayPayTypeGet$Response$Data$List$ItemToJson(this);
 
   @JsonKey(name: 'payType')
   final String? payType;
   @JsonKey(name: 'payAmount')
   final String? payAmount;
   @JsonKey(name: 'currency')
-  final PayPayTypeGet$Response$Data$List$Item$Currency? currency;
+  final PayServicePayPayTypeGet$Response$Data$List$Item$Currency? currency;
   @JsonKey(name: 'payTypeName')
   final String? payTypeName;
   @JsonKey(name: 'payTypeIcon')
@@ -4015,12 +4135,12 @@ class PayPayTypeGet$Response$Data$List$Item {
   @JsonKey(name: 'isDefault')
   final bool? isDefault;
   static const fromJsonFactory =
-      _$PayPayTypeGet$Response$Data$List$ItemFromJson;
+      _$PayServicePayPayTypeGet$Response$Data$List$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is PayPayTypeGet$Response$Data$List$Item &&
+        (other is PayServicePayPayTypeGet$Response$Data$List$Item &&
             (identical(other.payType, payType) ||
                 const DeepCollectionEquality().equals(
                   other.payType,
@@ -4088,12 +4208,12 @@ class PayPayTypeGet$Response$Data$List$Item {
       runtimeType.hashCode;
 }
 
-extension $PayPayTypeGet$Response$Data$List$ItemExtension
-    on PayPayTypeGet$Response$Data$List$Item {
-  PayPayTypeGet$Response$Data$List$Item copyWith({
+extension $PayServicePayPayTypeGet$Response$Data$List$ItemExtension
+    on PayServicePayPayTypeGet$Response$Data$List$Item {
+  PayServicePayPayTypeGet$Response$Data$List$Item copyWith({
     String? payType,
     String? payAmount,
-    PayPayTypeGet$Response$Data$List$Item$Currency? currency,
+    PayServicePayPayTypeGet$Response$Data$List$Item$Currency? currency,
     String? payTypeName,
     String? payTypeIcon,
     String? payTypeDesc,
@@ -4102,7 +4222,7 @@ extension $PayPayTypeGet$Response$Data$List$ItemExtension
     String? rechargeDifference,
     bool? isDefault,
   }) {
-    return PayPayTypeGet$Response$Data$List$Item(
+    return PayServicePayPayTypeGet$Response$Data$List$Item(
       payType: payType ?? this.payType,
       payAmount: payAmount ?? this.payAmount,
       currency: currency ?? this.currency,
@@ -4116,10 +4236,11 @@ extension $PayPayTypeGet$Response$Data$List$ItemExtension
     );
   }
 
-  PayPayTypeGet$Response$Data$List$Item copyWithWrapped({
+  PayServicePayPayTypeGet$Response$Data$List$Item copyWithWrapped({
     Wrapped<String?>? payType,
     Wrapped<String?>? payAmount,
-    Wrapped<PayPayTypeGet$Response$Data$List$Item$Currency?>? currency,
+    Wrapped<PayServicePayPayTypeGet$Response$Data$List$Item$Currency?>?
+    currency,
     Wrapped<String?>? payTypeName,
     Wrapped<String?>? payTypeIcon,
     Wrapped<String?>? payTypeDesc,
@@ -4128,7 +4249,7 @@ extension $PayPayTypeGet$Response$Data$List$ItemExtension
     Wrapped<String?>? rechargeDifference,
     Wrapped<bool?>? isDefault,
   }) {
-    return PayPayTypeGet$Response$Data$List$Item(
+    return PayServicePayPayTypeGet$Response$Data$List$Item(
       payType: (payType != null ? payType.value : this.payType),
       payAmount: (payAmount != null ? payAmount.value : this.payAmount),
       currency: (currency != null ? currency.value : this.currency),
@@ -4148,31 +4269,32 @@ extension $PayPayTypeGet$Response$Data$List$ItemExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class EchoooCoinInfoGet$Response$Data$Currency {
-  const EchoooCoinInfoGet$Response$Data$Currency({
+class PayServiceEchoooCoinInfoGet$Response$Data$Currency {
+  const PayServiceEchoooCoinInfoGet$Response$Data$Currency({
     required this.name,
     required this.symbol,
   });
 
-  factory EchoooCoinInfoGet$Response$Data$Currency.fromJson(
+  factory PayServiceEchoooCoinInfoGet$Response$Data$Currency.fromJson(
     Map<String, dynamic> json,
-  ) => _$EchoooCoinInfoGet$Response$Data$CurrencyFromJson(json);
+  ) => _$PayServiceEchoooCoinInfoGet$Response$Data$CurrencyFromJson(json);
 
-  static const toJsonFactory = _$EchoooCoinInfoGet$Response$Data$CurrencyToJson;
+  static const toJsonFactory =
+      _$PayServiceEchoooCoinInfoGet$Response$Data$CurrencyToJson;
   Map<String, dynamic> toJson() =>
-      _$EchoooCoinInfoGet$Response$Data$CurrencyToJson(this);
+      _$PayServiceEchoooCoinInfoGet$Response$Data$CurrencyToJson(this);
 
   @JsonKey(name: 'name')
   final String name;
   @JsonKey(name: 'symbol')
   final String symbol;
   static const fromJsonFactory =
-      _$EchoooCoinInfoGet$Response$Data$CurrencyFromJson;
+      _$PayServiceEchoooCoinInfoGet$Response$Data$CurrencyFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is EchoooCoinInfoGet$Response$Data$Currency &&
+        (other is PayServiceEchoooCoinInfoGet$Response$Data$Currency &&
             (identical(other.name, name) ||
                 const DeepCollectionEquality().equals(other.name, name)) &&
             (identical(other.symbol, symbol) ||
@@ -4189,23 +4311,23 @@ class EchoooCoinInfoGet$Response$Data$Currency {
       runtimeType.hashCode;
 }
 
-extension $EchoooCoinInfoGet$Response$Data$CurrencyExtension
-    on EchoooCoinInfoGet$Response$Data$Currency {
-  EchoooCoinInfoGet$Response$Data$Currency copyWith({
+extension $PayServiceEchoooCoinInfoGet$Response$Data$CurrencyExtension
+    on PayServiceEchoooCoinInfoGet$Response$Data$Currency {
+  PayServiceEchoooCoinInfoGet$Response$Data$Currency copyWith({
     String? name,
     String? symbol,
   }) {
-    return EchoooCoinInfoGet$Response$Data$Currency(
+    return PayServiceEchoooCoinInfoGet$Response$Data$Currency(
       name: name ?? this.name,
       symbol: symbol ?? this.symbol,
     );
   }
 
-  EchoooCoinInfoGet$Response$Data$Currency copyWithWrapped({
+  PayServiceEchoooCoinInfoGet$Response$Data$Currency copyWithWrapped({
     Wrapped<String>? name,
     Wrapped<String>? symbol,
   }) {
-    return EchoooCoinInfoGet$Response$Data$Currency(
+    return PayServiceEchoooCoinInfoGet$Response$Data$Currency(
       name: (name != null ? name.value : this.name),
       symbol: (symbol != null ? symbol.value : this.symbol),
     );
@@ -4213,22 +4335,22 @@ extension $EchoooCoinInfoGet$Response$Data$CurrencyExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class EchoooCoinLogGet$Response$Data$Records$Item {
-  const EchoooCoinLogGet$Response$Data$Records$Item({
+class PayServiceEchoooCoinLogGet$Response$Data$Records$Item {
+  const PayServiceEchoooCoinLogGet$Response$Data$Records$Item({
     required this.actualAmount,
     required this.gmtCreate,
     required this.type,
     required this.name,
   });
 
-  factory EchoooCoinLogGet$Response$Data$Records$Item.fromJson(
+  factory PayServiceEchoooCoinLogGet$Response$Data$Records$Item.fromJson(
     Map<String, dynamic> json,
-  ) => _$EchoooCoinLogGet$Response$Data$Records$ItemFromJson(json);
+  ) => _$PayServiceEchoooCoinLogGet$Response$Data$Records$ItemFromJson(json);
 
   static const toJsonFactory =
-      _$EchoooCoinLogGet$Response$Data$Records$ItemToJson;
+      _$PayServiceEchoooCoinLogGet$Response$Data$Records$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$EchoooCoinLogGet$Response$Data$Records$ItemToJson(this);
+      _$PayServiceEchoooCoinLogGet$Response$Data$Records$ItemToJson(this);
 
   @JsonKey(name: 'actualAmount')
   final double actualAmount;
@@ -4239,12 +4361,12 @@ class EchoooCoinLogGet$Response$Data$Records$Item {
   @JsonKey(name: 'name')
   final String name;
   static const fromJsonFactory =
-      _$EchoooCoinLogGet$Response$Data$Records$ItemFromJson;
+      _$PayServiceEchoooCoinLogGet$Response$Data$Records$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is EchoooCoinLogGet$Response$Data$Records$Item &&
+        (other is PayServiceEchoooCoinLogGet$Response$Data$Records$Item &&
             (identical(other.actualAmount, actualAmount) ||
                 const DeepCollectionEquality().equals(
                   other.actualAmount,
@@ -4273,15 +4395,15 @@ class EchoooCoinLogGet$Response$Data$Records$Item {
       runtimeType.hashCode;
 }
 
-extension $EchoooCoinLogGet$Response$Data$Records$ItemExtension
-    on EchoooCoinLogGet$Response$Data$Records$Item {
-  EchoooCoinLogGet$Response$Data$Records$Item copyWith({
+extension $PayServiceEchoooCoinLogGet$Response$Data$Records$ItemExtension
+    on PayServiceEchoooCoinLogGet$Response$Data$Records$Item {
+  PayServiceEchoooCoinLogGet$Response$Data$Records$Item copyWith({
     double? actualAmount,
     double? gmtCreate,
     double? type,
     String? name,
   }) {
-    return EchoooCoinLogGet$Response$Data$Records$Item(
+    return PayServiceEchoooCoinLogGet$Response$Data$Records$Item(
       actualAmount: actualAmount ?? this.actualAmount,
       gmtCreate: gmtCreate ?? this.gmtCreate,
       type: type ?? this.type,
@@ -4289,13 +4411,13 @@ extension $EchoooCoinLogGet$Response$Data$Records$ItemExtension
     );
   }
 
-  EchoooCoinLogGet$Response$Data$Records$Item copyWithWrapped({
+  PayServiceEchoooCoinLogGet$Response$Data$Records$Item copyWithWrapped({
     Wrapped<double>? actualAmount,
     Wrapped<double>? gmtCreate,
     Wrapped<double>? type,
     Wrapped<String>? name,
   }) {
-    return EchoooCoinLogGet$Response$Data$Records$Item(
+    return PayServiceEchoooCoinLogGet$Response$Data$Records$Item(
       actualAmount: (actualAmount != null
           ? actualAmount.value
           : this.actualAmount),
@@ -4307,32 +4429,32 @@ extension $EchoooCoinLogGet$Response$Data$Records$ItemExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class PayPayTypeGet$Response$Data$List$Item$Currency {
-  const PayPayTypeGet$Response$Data$List$Item$Currency({
+class PayServicePayPayTypeGet$Response$Data$List$Item$Currency {
+  const PayServicePayPayTypeGet$Response$Data$List$Item$Currency({
     this.name,
     this.symbol,
   });
 
-  factory PayPayTypeGet$Response$Data$List$Item$Currency.fromJson(
+  factory PayServicePayPayTypeGet$Response$Data$List$Item$Currency.fromJson(
     Map<String, dynamic> json,
-  ) => _$PayPayTypeGet$Response$Data$List$Item$CurrencyFromJson(json);
+  ) => _$PayServicePayPayTypeGet$Response$Data$List$Item$CurrencyFromJson(json);
 
   static const toJsonFactory =
-      _$PayPayTypeGet$Response$Data$List$Item$CurrencyToJson;
+      _$PayServicePayPayTypeGet$Response$Data$List$Item$CurrencyToJson;
   Map<String, dynamic> toJson() =>
-      _$PayPayTypeGet$Response$Data$List$Item$CurrencyToJson(this);
+      _$PayServicePayPayTypeGet$Response$Data$List$Item$CurrencyToJson(this);
 
   @JsonKey(name: 'name')
   final String? name;
   @JsonKey(name: 'symbol')
   final String? symbol;
   static const fromJsonFactory =
-      _$PayPayTypeGet$Response$Data$List$Item$CurrencyFromJson;
+      _$PayServicePayPayTypeGet$Response$Data$List$Item$CurrencyFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is PayPayTypeGet$Response$Data$List$Item$Currency &&
+        (other is PayServicePayPayTypeGet$Response$Data$List$Item$Currency &&
             (identical(other.name, name) ||
                 const DeepCollectionEquality().equals(other.name, name)) &&
             (identical(other.symbol, symbol) ||
@@ -4349,23 +4471,23 @@ class PayPayTypeGet$Response$Data$List$Item$Currency {
       runtimeType.hashCode;
 }
 
-extension $PayPayTypeGet$Response$Data$List$Item$CurrencyExtension
-    on PayPayTypeGet$Response$Data$List$Item$Currency {
-  PayPayTypeGet$Response$Data$List$Item$Currency copyWith({
+extension $PayServicePayPayTypeGet$Response$Data$List$Item$CurrencyExtension
+    on PayServicePayPayTypeGet$Response$Data$List$Item$Currency {
+  PayServicePayPayTypeGet$Response$Data$List$Item$Currency copyWith({
     String? name,
     String? symbol,
   }) {
-    return PayPayTypeGet$Response$Data$List$Item$Currency(
+    return PayServicePayPayTypeGet$Response$Data$List$Item$Currency(
       name: name ?? this.name,
       symbol: symbol ?? this.symbol,
     );
   }
 
-  PayPayTypeGet$Response$Data$List$Item$Currency copyWithWrapped({
+  PayServicePayPayTypeGet$Response$Data$List$Item$Currency copyWithWrapped({
     Wrapped<String?>? name,
     Wrapped<String?>? symbol,
   }) {
-    return PayPayTypeGet$Response$Data$List$Item$Currency(
+    return PayServicePayPayTypeGet$Response$Data$List$Item$Currency(
       name: (name != null ? name.value : this.name),
       symbol: (symbol != null ? symbol.value : this.symbol),
     );

@@ -45,6 +45,24 @@ def main() -> int:
     output_path = Path(sys.argv[2])
 
     data = json.loads(input_path.read_text(encoding='utf-8'))
+
+    # Flatten basePath into paths if present
+    base_path = data.get('basePath', '')
+    if base_path and 'paths' in data:
+        new_paths = {}
+        for path, path_item in data['paths'].items():
+            # Ensure we don't create double slashes if basePath ends with / and path starts with /
+            if base_path.endswith('/') and path.startswith('/'):
+                new_key = base_path + path[1:]
+            elif not base_path.endswith('/') and not path.startswith('/'):
+                 new_key = base_path + '/' + path
+            else:
+                new_key = base_path + path
+            new_paths[new_key] = path_item
+        data['paths'] = new_paths
+        # Remove basePath to avoid potential double application if tools change behavior
+        del data['basePath']
+
     sanitized = sanitize(data)
 
     output_path.parent.mkdir(parents=True, exist_ok=True)

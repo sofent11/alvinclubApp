@@ -19,7 +19,8 @@ final class _$SwaggerApiConfig extends SwaggerApiConfig {
   final Type definitionType = SwaggerApiConfig;
 
   @override
-  Future<Response<UserConfigPost$Response>> _userConfigPost({
+  Future<Response<ConfigServiceUserConfigPost$Response>>
+  _configServiceUserConfigPost({
     Object? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -32,7 +33,7 @@ final class _$SwaggerApiConfig extends SwaggerApiConfig {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/user/config');
+    final Uri $url = Uri.parse('/config-service/user/config');
     final $body = root;
     final Request $request = Request(
       'POST',
@@ -41,13 +42,15 @@ final class _$SwaggerApiConfig extends SwaggerApiConfig {
       body: $body,
       tag: swaggerMetaData,
     );
-    return client.send<UserConfigPost$Response, UserConfigPost$Response>(
-      $request,
-    );
+    return client.send<
+      ConfigServiceUserConfigPost$Response,
+      ConfigServiceUserConfigPost$Response
+    >($request);
   }
 
   @override
-  Future<Response<UserConfigGet$Response>> _userConfigGet({
+  Future<Response<ConfigServiceUserConfigGet$Response>>
+  _configServiceUserConfigGet({
     required String? key,
     Object? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -61,7 +64,7 @@ final class _$SwaggerApiConfig extends SwaggerApiConfig {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/user/config');
+    final Uri $url = Uri.parse('/config-service/user/config');
     final Map<String, dynamic> $params = <String, dynamic>{'key': key};
     final $body = root;
     final Request $request = Request(
@@ -72,14 +75,15 @@ final class _$SwaggerApiConfig extends SwaggerApiConfig {
       parameters: $params,
       tag: swaggerMetaData,
     );
-    return client.send<UserConfigGet$Response, UserConfigGet$Response>(
-      $request,
-    );
+    return client.send<
+      ConfigServiceUserConfigGet$Response,
+      ConfigServiceUserConfigGet$Response
+    >($request);
   }
 
   @override
-  Future<Response<UserConfigNoAuthInstanceGet$Response>>
-  _userConfigNoAuthInstanceGet({
+  Future<Response<ConfigServiceUserConfigNoAuthInstanceGet$Response>>
+  _configServiceUserConfigNoAuthInstanceGet({
     String? configKey,
     required String? instanceId,
     Object? root,
@@ -94,7 +98,7 @@ final class _$SwaggerApiConfig extends SwaggerApiConfig {
       deprecated: false,
     ),
   }) {
-    final Uri $url = Uri.parse('/user/config/no-auth/instance');
+    final Uri $url = Uri.parse('/config-service/user/config/no-auth/instance');
     final Map<String, dynamic> $params = <String, dynamic>{
       'configKey': configKey,
       'instanceId': instanceId,
@@ -109,8 +113,8 @@ final class _$SwaggerApiConfig extends SwaggerApiConfig {
       tag: swaggerMetaData,
     );
     return client.send<
-      UserConfigNoAuthInstanceGet$Response,
-      UserConfigNoAuthInstanceGet$Response
+      ConfigServiceUserConfigNoAuthInstanceGet$Response,
+      ConfigServiceUserConfigNoAuthInstanceGet$Response
     >($request);
   }
 }

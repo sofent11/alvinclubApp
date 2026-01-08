@@ -80,7 +80,7 @@ class AuthRepository {
 
   Future<SignInInitResponse> initSignIn(SignInInitPayload payload) async {
     final api = _ref.read(swaggerUserApiProvider);
-    final response = await api.signInInitPost(
+    final response = await api.userServiceSignInInitPost(
       root: {
         'loginName': payload.email,
         'authWay': _emailAuthWay,
@@ -102,7 +102,7 @@ class AuthRepository {
 
   Future<SignInVerifyResponse> verifySignIn(SignInVerifyPayload payload) async {
     final api = _ref.read(swaggerUserApiProvider);
-    final response = await api.signInVerifyPost(
+    final response = await api.userServiceSignInVerifyPost(
       root: {
         'loginName': payload.email,
         'authWay': _emailAuthWayString,
@@ -144,7 +144,7 @@ class AuthRepository {
 
   Future<SignInVerifyResponse> verifyGoogleSignIn(GoogleSignInPayload payload) async {
     final api = _ref.read(swaggerUserApiProvider);
-    final response = await api.signInVerifyPost(
+    final response = await api.userServiceSignInVerifyPost(
       root: {
         'loginName': payload.email,
         'authWay': _googleAuthWayString,
@@ -186,7 +186,7 @@ class AuthRepository {
 
   Future<void> signOut() async {
     final api = _ref.read(swaggerUserApiProvider);
-    await api.signOutPost();
+    await api.userServiceSignOutPost();
   }
 }
 

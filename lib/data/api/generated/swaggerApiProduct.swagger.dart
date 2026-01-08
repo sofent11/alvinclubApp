@@ -47,7 +47,7 @@ abstract class SwaggerApiProduct extends ChopperService {
       client: httpClient,
       authenticator: authenticator,
       errorConverter: errorConverter,
-      baseUrl: baseUrl ?? Uri.parse('http:///product-service'),
+      baseUrl: baseUrl ?? Uri.parse('http://'),
     );
     return _$SwaggerApiProduct(newClient);
   }
@@ -57,19 +57,19 @@ abstract class SwaggerApiProduct extends ChopperService {
   ///@param current
   ///@param size
   ///@param root
-  Future<chopper.Response<ProductReviewNoAuthPageGet$Response>>
-  productReviewNoAuthPageGet({
+  Future<chopper.Response<ProductServiceProductReviewNoAuthPageGet$Response>>
+  productServiceProductReviewNoAuthPageGet({
     required String? productCode,
     required String? current,
     required String? size,
     Object? root,
   }) {
     generatedMapping.putIfAbsent(
-      ProductReviewNoAuthPageGet$Response,
-      () => ProductReviewNoAuthPageGet$Response.fromJsonFactory,
+      ProductServiceProductReviewNoAuthPageGet$Response,
+      () => ProductServiceProductReviewNoAuthPageGet$Response.fromJsonFactory,
     );
 
-    return _productReviewNoAuthPageGet(
+    return _productServiceProductReviewNoAuthPageGet(
       productCode: productCode,
       current: current,
       size: size,
@@ -82,9 +82,9 @@ abstract class SwaggerApiProduct extends ChopperService {
   ///@param current
   ///@param size
   ///@param root
-  @GET(path: '/product-review/no-auth/page')
-  Future<chopper.Response<ProductReviewNoAuthPageGet$Response>>
-  _productReviewNoAuthPageGet({
+  @GET(path: '/product-service/product-review/no-auth/page')
+  Future<chopper.Response<ProductServiceProductReviewNoAuthPageGet$Response>>
+  _productServiceProductReviewNoAuthPageGet({
     @Query('productCode') required String? productCode,
     @Query('current') required String? current,
     @Query('size') required String? size,
@@ -105,22 +105,29 @@ abstract class SwaggerApiProduct extends ChopperService {
   ///拉取商品精选评论
   ///@param productCode
   ///@param root
-  Future<chopper.Response<ProductReviewNoAuthSummaryGet$Response>>
-  productReviewNoAuthSummaryGet({required String? productCode, Object? root}) {
+  Future<chopper.Response<ProductServiceProductReviewNoAuthSummaryGet$Response>>
+  productServiceProductReviewNoAuthSummaryGet({
+    required String? productCode,
+    Object? root,
+  }) {
     generatedMapping.putIfAbsent(
-      ProductReviewNoAuthSummaryGet$Response,
-      () => ProductReviewNoAuthSummaryGet$Response.fromJsonFactory,
+      ProductServiceProductReviewNoAuthSummaryGet$Response,
+      () =>
+          ProductServiceProductReviewNoAuthSummaryGet$Response.fromJsonFactory,
     );
 
-    return _productReviewNoAuthSummaryGet(productCode: productCode, root: root);
+    return _productServiceProductReviewNoAuthSummaryGet(
+      productCode: productCode,
+      root: root,
+    );
   }
 
   ///拉取商品精选评论
   ///@param productCode
   ///@param root
-  @GET(path: '/product-review/no-auth/summary')
-  Future<chopper.Response<ProductReviewNoAuthSummaryGet$Response>>
-  _productReviewNoAuthSummaryGet({
+  @GET(path: '/product-service/product-review/no-auth/summary')
+  Future<chopper.Response<ProductServiceProductReviewNoAuthSummaryGet$Response>>
+  _productServiceProductReviewNoAuthSummaryGet({
     @Query('productCode') required String? productCode,
     @Body() Object? root,
     @chopper.Tag()
@@ -137,20 +144,20 @@ abstract class SwaggerApiProduct extends ChopperService {
   });
 
   ///查询商品品类
-  Future<chopper.Response<CategoryNoAuthTreeGet$Response>>
-  categoryNoAuthTreeGet() {
+  Future<chopper.Response<ProductServiceCategoryNoAuthTreeGet$Response>>
+  productServiceCategoryNoAuthTreeGet() {
     generatedMapping.putIfAbsent(
-      CategoryNoAuthTreeGet$Response,
-      () => CategoryNoAuthTreeGet$Response.fromJsonFactory,
+      ProductServiceCategoryNoAuthTreeGet$Response,
+      () => ProductServiceCategoryNoAuthTreeGet$Response.fromJsonFactory,
     );
 
-    return _categoryNoAuthTreeGet();
+    return _productServiceCategoryNoAuthTreeGet();
   }
 
   ///查询商品品类
-  @GET(path: '/category/no-auth/tree')
-  Future<chopper.Response<CategoryNoAuthTreeGet$Response>>
-  _categoryNoAuthTreeGet({
+  @GET(path: '/product-service/category/no-auth/tree')
+  Future<chopper.Response<ProductServiceCategoryNoAuthTreeGet$Response>>
+  _productServiceCategoryNoAuthTreeGet({
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -165,20 +172,25 @@ abstract class SwaggerApiProduct extends ChopperService {
   });
 
   ///查询FlashSale活动列表
-  Future<chopper.Response<ActivityNoAuthFlashSaleActivityGet$Response>>
-  activityNoAuthFlashSaleActivityGet() {
+  Future<
+    chopper.Response<ProductServiceActivityNoAuthFlashSaleActivityGet$Response>
+  >
+  productServiceActivityNoAuthFlashSaleActivityGet() {
     generatedMapping.putIfAbsent(
-      ActivityNoAuthFlashSaleActivityGet$Response,
-      () => ActivityNoAuthFlashSaleActivityGet$Response.fromJsonFactory,
+      ProductServiceActivityNoAuthFlashSaleActivityGet$Response,
+      () => ProductServiceActivityNoAuthFlashSaleActivityGet$Response
+          .fromJsonFactory,
     );
 
-    return _activityNoAuthFlashSaleActivityGet();
+    return _productServiceActivityNoAuthFlashSaleActivityGet();
   }
 
   ///查询FlashSale活动列表
-  @GET(path: '/activity/no-auth/flash-sale-activity')
-  Future<chopper.Response<ActivityNoAuthFlashSaleActivityGet$Response>>
-  _activityNoAuthFlashSaleActivityGet({
+  @GET(path: '/product-service/activity/no-auth/flash-sale-activity')
+  Future<
+    chopper.Response<ProductServiceActivityNoAuthFlashSaleActivityGet$Response>
+  >
+  _productServiceActivityNoAuthFlashSaleActivityGet({
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -198,8 +210,12 @@ abstract class SwaggerApiProduct extends ChopperService {
   ///@param current 默认第1页
   ///@param size 默认20条
   ///@param productCode 置顶商品
-  Future<chopper.Response<ActivityNoAuthFlashSaleActivityProductGet$Response>>
-  activityNoAuthFlashSaleActivityProductGet({
+  Future<
+    chopper.Response<
+      ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response
+    >
+  >
+  productServiceActivityNoAuthFlashSaleActivityProductGet({
     required String? activityCode,
     required String? name,
     String? current,
@@ -207,11 +223,12 @@ abstract class SwaggerApiProduct extends ChopperService {
     String? productCode,
   }) {
     generatedMapping.putIfAbsent(
-      ActivityNoAuthFlashSaleActivityProductGet$Response,
-      () => ActivityNoAuthFlashSaleActivityProductGet$Response.fromJsonFactory,
+      ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response,
+      () => ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response
+          .fromJsonFactory,
     );
 
-    return _activityNoAuthFlashSaleActivityProductGet(
+    return _productServiceActivityNoAuthFlashSaleActivityProductGet(
       activityCode: activityCode,
       name: name,
       current: current,
@@ -226,9 +243,13 @@ abstract class SwaggerApiProduct extends ChopperService {
   ///@param current 默认第1页
   ///@param size 默认20条
   ///@param productCode 置顶商品
-  @GET(path: '/activity/no-auth/flash-sale-activity/product')
-  Future<chopper.Response<ActivityNoAuthFlashSaleActivityProductGet$Response>>
-  _activityNoAuthFlashSaleActivityProductGet({
+  @GET(path: '/product-service/activity/no-auth/flash-sale-activity/product')
+  Future<
+    chopper.Response<
+      ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response
+    >
+  >
+  _productServiceActivityNoAuthFlashSaleActivityProductGet({
     @Query('activityCode') required String? activityCode,
     @Query('name') required String? name,
     @Query('current') String? current,
@@ -249,21 +270,26 @@ abstract class SwaggerApiProduct extends ChopperService {
 
   ///分页查询大牌平替商品
   ///@param root 大牌平替商品分页查询请求
-  Future<chopper.Response<ProductPremiumDupeNoAuthPagePost$Response>>
-  productPremiumDupeNoAuthPagePost({Object? root}) {
+  Future<
+    chopper.Response<ProductServiceProductPremiumDupeNoAuthPagePost$Response>
+  >
+  productServiceProductPremiumDupeNoAuthPagePost({Object? root}) {
     generatedMapping.putIfAbsent(
-      ProductPremiumDupeNoAuthPagePost$Response,
-      () => ProductPremiumDupeNoAuthPagePost$Response.fromJsonFactory,
+      ProductServiceProductPremiumDupeNoAuthPagePost$Response,
+      () => ProductServiceProductPremiumDupeNoAuthPagePost$Response
+          .fromJsonFactory,
     );
 
-    return _productPremiumDupeNoAuthPagePost(root: root);
+    return _productServiceProductPremiumDupeNoAuthPagePost(root: root);
   }
 
   ///分页查询大牌平替商品
   ///@param root 大牌平替商品分页查询请求
-  @POST(path: '/product/premium-dupe/no-auth/page')
-  Future<chopper.Response<ProductPremiumDupeNoAuthPagePost$Response>>
-  _productPremiumDupeNoAuthPagePost({
+  @POST(path: '/product-service/product/premium-dupe/no-auth/page')
+  Future<
+    chopper.Response<ProductServiceProductPremiumDupeNoAuthPagePost$Response>
+  >
+  _productServiceProductPremiumDupeNoAuthPagePost({
     @Body() Object? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -280,21 +306,26 @@ abstract class SwaggerApiProduct extends ChopperService {
 
   ///获取大牌平替元数据
   ///@param raw raw paramter
-  Future<chopper.Response<ProductPremiumDupeNoAuthMetaGet$Response>>
-  productPremiumDupeNoAuthMetaGet({String? raw}) {
+  Future<
+    chopper.Response<ProductServiceProductPremiumDupeNoAuthMetaGet$Response>
+  >
+  productServiceProductPremiumDupeNoAuthMetaGet({String? raw}) {
     generatedMapping.putIfAbsent(
-      ProductPremiumDupeNoAuthMetaGet$Response,
-      () => ProductPremiumDupeNoAuthMetaGet$Response.fromJsonFactory,
+      ProductServiceProductPremiumDupeNoAuthMetaGet$Response,
+      () => ProductServiceProductPremiumDupeNoAuthMetaGet$Response
+          .fromJsonFactory,
     );
 
-    return _productPremiumDupeNoAuthMetaGet(raw: raw);
+    return _productServiceProductPremiumDupeNoAuthMetaGet(raw: raw);
   }
 
   ///获取大牌平替元数据
   ///@param raw raw paramter
-  @GET(path: '/product/premium-dupe/no-auth/meta')
-  Future<chopper.Response<ProductPremiumDupeNoAuthMetaGet$Response>>
-  _productPremiumDupeNoAuthMetaGet({
+  @GET(path: '/product-service/product/premium-dupe/no-auth/meta')
+  Future<
+    chopper.Response<ProductServiceProductPremiumDupeNoAuthMetaGet$Response>
+  >
+  _productServiceProductPremiumDupeNoAuthMetaGet({
     @Body() String? raw,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -312,22 +343,37 @@ abstract class SwaggerApiProduct extends ChopperService {
   ///获取精选推荐商品
   ///@param deviceId 设备ID，用于个性化推荐
   ///@param raw raw paramter
-  Future<chopper.Response<ProductPremiumDupeNoAuthSelectionGet$Response>>
-  productPremiumDupeNoAuthSelectionGet({String? deviceId, String? raw}) {
+  Future<
+    chopper.Response<
+      ProductServiceProductPremiumDupeNoAuthSelectionGet$Response
+    >
+  >
+  productServiceProductPremiumDupeNoAuthSelectionGet({
+    String? deviceId,
+    String? raw,
+  }) {
     generatedMapping.putIfAbsent(
-      ProductPremiumDupeNoAuthSelectionGet$Response,
-      () => ProductPremiumDupeNoAuthSelectionGet$Response.fromJsonFactory,
+      ProductServiceProductPremiumDupeNoAuthSelectionGet$Response,
+      () => ProductServiceProductPremiumDupeNoAuthSelectionGet$Response
+          .fromJsonFactory,
     );
 
-    return _productPremiumDupeNoAuthSelectionGet(deviceId: deviceId, raw: raw);
+    return _productServiceProductPremiumDupeNoAuthSelectionGet(
+      deviceId: deviceId,
+      raw: raw,
+    );
   }
 
   ///获取精选推荐商品
   ///@param deviceId 设备ID，用于个性化推荐
   ///@param raw raw paramter
-  @GET(path: '/product/premium-dupe/no-auth/selection')
-  Future<chopper.Response<ProductPremiumDupeNoAuthSelectionGet$Response>>
-  _productPremiumDupeNoAuthSelectionGet({
+  @GET(path: '/product-service/product/premium-dupe/no-auth/selection')
+  Future<
+    chopper.Response<
+      ProductServiceProductPremiumDupeNoAuthSelectionGet$Response
+    >
+  >
+  _productServiceProductPremiumDupeNoAuthSelectionGet({
     @Query('deviceId') String? deviceId,
     @Body() String? raw,
     @chopper.Tag()
@@ -345,21 +391,21 @@ abstract class SwaggerApiProduct extends ChopperService {
 
   ///导入外部购物记录
   ///@param root
-  Future<chopper.Response<ExternalPurchaseRecordPost$Response>>
-  externalPurchaseRecordPost({List<Object>? root}) {
+  Future<chopper.Response<ProductServiceExternalPurchaseRecordPost$Response>>
+  productServiceExternalPurchaseRecordPost({List<Object>? root}) {
     generatedMapping.putIfAbsent(
-      ExternalPurchaseRecordPost$Response,
-      () => ExternalPurchaseRecordPost$Response.fromJsonFactory,
+      ProductServiceExternalPurchaseRecordPost$Response,
+      () => ProductServiceExternalPurchaseRecordPost$Response.fromJsonFactory,
     );
 
-    return _externalPurchaseRecordPost(root: root);
+    return _productServiceExternalPurchaseRecordPost(root: root);
   }
 
   ///导入外部购物记录
   ///@param root
-  @POST(path: '/external-purchase-record')
-  Future<chopper.Response<ExternalPurchaseRecordPost$Response>>
-  _externalPurchaseRecordPost({
+  @POST(path: '/product-service/external-purchase-record')
+  Future<chopper.Response<ProductServiceExternalPurchaseRecordPost$Response>>
+  _productServiceExternalPurchaseRecordPost({
     @Body() List<Object>? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -378,18 +424,18 @@ abstract class SwaggerApiProduct extends ChopperService {
   ///@param current 当前页码，默认为1
   ///@param size 分页大小，默认为10
   ///@param productCode
-  Future<chopper.Response<ProductNoAuthPushProductGet$Response>>
-  productNoAuthPushProductGet({
+  Future<chopper.Response<ProductServiceProductNoAuthPushProductGet$Response>>
+  productServiceProductNoAuthPushProductGet({
     String? current,
     String? size,
     required String? productCode,
   }) {
     generatedMapping.putIfAbsent(
-      ProductNoAuthPushProductGet$Response,
-      () => ProductNoAuthPushProductGet$Response.fromJsonFactory,
+      ProductServiceProductNoAuthPushProductGet$Response,
+      () => ProductServiceProductNoAuthPushProductGet$Response.fromJsonFactory,
     );
 
-    return _productNoAuthPushProductGet(
+    return _productServiceProductNoAuthPushProductGet(
       current: current,
       size: size,
       productCode: productCode,
@@ -400,9 +446,9 @@ abstract class SwaggerApiProduct extends ChopperService {
   ///@param current 当前页码，默认为1
   ///@param size 分页大小，默认为10
   ///@param productCode
-  @GET(path: '/product/no-auth/pushProduct')
-  Future<chopper.Response<ProductNoAuthPushProductGet$Response>>
-  _productNoAuthPushProductGet({
+  @GET(path: '/product-service/product/no-auth/pushProduct')
+  Future<chopper.Response<ProductServiceProductNoAuthPushProductGet$Response>>
+  _productServiceProductNoAuthPushProductGet({
     @Query('current') String? current,
     @Query('size') String? size,
     @Query('productCode') required String? productCode,
@@ -421,21 +467,21 @@ abstract class SwaggerApiProduct extends ChopperService {
 
   ///搜索商品或提交URL
   ///@param query 电商商品URL 或商品搜索关键词
-  Future<chopper.Response<ProductNoAuthSearchGet$Response>>
-  productNoAuthSearchGet({required String? query}) {
+  Future<chopper.Response<ProductServiceProductNoAuthSearchGet$Response>>
+  productServiceProductNoAuthSearchGet({required String? query}) {
     generatedMapping.putIfAbsent(
-      ProductNoAuthSearchGet$Response,
-      () => ProductNoAuthSearchGet$Response.fromJsonFactory,
+      ProductServiceProductNoAuthSearchGet$Response,
+      () => ProductServiceProductNoAuthSearchGet$Response.fromJsonFactory,
     );
 
-    return _productNoAuthSearchGet(query: query);
+    return _productServiceProductNoAuthSearchGet(query: query);
   }
 
   ///搜索商品或提交URL
   ///@param query 电商商品URL 或商品搜索关键词
-  @GET(path: '/product/no-auth/search')
-  Future<chopper.Response<ProductNoAuthSearchGet$Response>>
-  _productNoAuthSearchGet({
+  @GET(path: '/product-service/product/no-auth/search')
+  Future<chopper.Response<ProductServiceProductNoAuthSearchGet$Response>>
+  _productServiceProductNoAuthSearchGet({
     @Query('query') required String? query,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -466,8 +512,8 @@ abstract class SwaggerApiProduct extends ChopperService {
   ///@param excludeKeywords 从query中排除包含特定关键词的结果
   ///@param category_id 分类ID
   ///@param category_ids 分类ID列表
-  Future<chopper.Response<ProductNoAuthCombineSearchGet$Response>>
-  productNoAuthCombineSearchGet({
+  Future<chopper.Response<ProductServiceProductNoAuthCombineSearchGet$Response>>
+  productServiceProductNoAuthCombineSearchGet({
     String? referer,
     String? currency,
     String? query,
@@ -485,11 +531,12 @@ abstract class SwaggerApiProduct extends ChopperService {
     String? categoryIds,
   }) {
     generatedMapping.putIfAbsent(
-      ProductNoAuthCombineSearchGet$Response,
-      () => ProductNoAuthCombineSearchGet$Response.fromJsonFactory,
+      ProductServiceProductNoAuthCombineSearchGet$Response,
+      () =>
+          ProductServiceProductNoAuthCombineSearchGet$Response.fromJsonFactory,
     );
 
-    return _productNoAuthCombineSearchGet(
+    return _productServiceProductNoAuthCombineSearchGet(
       referer: referer?.toString(),
       currency: currency?.toString(),
       query: query,
@@ -524,9 +571,9 @@ abstract class SwaggerApiProduct extends ChopperService {
   ///@param excludeKeywords 从query中排除包含特定关键词的结果
   ///@param category_id 分类ID
   ///@param category_ids 分类ID列表
-  @GET(path: '/product/no-auth/combineSearch')
-  Future<chopper.Response<ProductNoAuthCombineSearchGet$Response>>
-  _productNoAuthCombineSearchGet({
+  @GET(path: '/product-service/product/no-auth/combineSearch')
+  Future<chopper.Response<ProductServiceProductNoAuthCombineSearchGet$Response>>
+  _productServiceProductNoAuthCombineSearchGet({
     @Header('referer') String? referer,
     @Header('currency') String? currency,
     @Query('query') String? query,
@@ -559,18 +606,21 @@ abstract class SwaggerApiProduct extends ChopperService {
   ///@param pageNum
   ///@param pageSize
   ///@param brandName
-  Future<chopper.Response<ProductNoAuthNewArrivalProductGet$Response>>
-  productNoAuthNewArrivalProductGet({
+  Future<
+    chopper.Response<ProductServiceProductNoAuthNewArrivalProductGet$Response>
+  >
+  productServiceProductNoAuthNewArrivalProductGet({
     required String? pageNum,
     required String? pageSize,
     String? brandName,
   }) {
     generatedMapping.putIfAbsent(
-      ProductNoAuthNewArrivalProductGet$Response,
-      () => ProductNoAuthNewArrivalProductGet$Response.fromJsonFactory,
+      ProductServiceProductNoAuthNewArrivalProductGet$Response,
+      () => ProductServiceProductNoAuthNewArrivalProductGet$Response
+          .fromJsonFactory,
     );
 
-    return _productNoAuthNewArrivalProductGet(
+    return _productServiceProductNoAuthNewArrivalProductGet(
       pageNum: pageNum,
       pageSize: pageSize,
       brandName: brandName,
@@ -581,9 +631,11 @@ abstract class SwaggerApiProduct extends ChopperService {
   ///@param pageNum
   ///@param pageSize
   ///@param brandName
-  @GET(path: '/product/no-auth/newArrivalProduct')
-  Future<chopper.Response<ProductNoAuthNewArrivalProductGet$Response>>
-  _productNoAuthNewArrivalProductGet({
+  @GET(path: '/product-service/product/no-auth/newArrivalProduct')
+  Future<
+    chopper.Response<ProductServiceProductNoAuthNewArrivalProductGet$Response>
+  >
+  _productServiceProductNoAuthNewArrivalProductGet({
     @Query('pageNum') required String? pageNum,
     @Query('pageSize') required String? pageSize,
     @Query('brandName') String? brandName,
@@ -601,20 +653,29 @@ abstract class SwaggerApiProduct extends ChopperService {
   });
 
   ///新品专区商品品牌
-  Future<chopper.Response<ProductNoAuthNewArrivalProductBrandGet$Response>>
-  productNoAuthNewArrivalProductBrandGet() {
+  Future<
+    chopper.Response<
+      ProductServiceProductNoAuthNewArrivalProductBrandGet$Response
+    >
+  >
+  productServiceProductNoAuthNewArrivalProductBrandGet() {
     generatedMapping.putIfAbsent(
-      ProductNoAuthNewArrivalProductBrandGet$Response,
-      () => ProductNoAuthNewArrivalProductBrandGet$Response.fromJsonFactory,
+      ProductServiceProductNoAuthNewArrivalProductBrandGet$Response,
+      () => ProductServiceProductNoAuthNewArrivalProductBrandGet$Response
+          .fromJsonFactory,
     );
 
-    return _productNoAuthNewArrivalProductBrandGet();
+    return _productServiceProductNoAuthNewArrivalProductBrandGet();
   }
 
   ///新品专区商品品牌
-  @GET(path: '/product/no-auth/newArrivalProductBrand')
-  Future<chopper.Response<ProductNoAuthNewArrivalProductBrandGet$Response>>
-  _productNoAuthNewArrivalProductBrandGet({
+  @GET(path: '/product-service/product/no-auth/newArrivalProductBrand')
+  Future<
+    chopper.Response<
+      ProductServiceProductNoAuthNewArrivalProductBrandGet$Response
+    >
+  >
+  _productServiceProductNoAuthNewArrivalProductBrandGet({
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -632,18 +693,18 @@ abstract class SwaggerApiProduct extends ChopperService {
   ///@param productCode
   ///@param platformProductId
   ///@param sourcePlatform
-  Future<chopper.Response<ProductNoAuthSkuListGet$Response>>
-  productNoAuthSkuListGet({
+  Future<chopper.Response<ProductServiceProductNoAuthSkuListGet$Response>>
+  productServiceProductNoAuthSkuListGet({
     String? productCode,
     String? platformProductId,
     String? sourcePlatform,
   }) {
     generatedMapping.putIfAbsent(
-      ProductNoAuthSkuListGet$Response,
-      () => ProductNoAuthSkuListGet$Response.fromJsonFactory,
+      ProductServiceProductNoAuthSkuListGet$Response,
+      () => ProductServiceProductNoAuthSkuListGet$Response.fromJsonFactory,
     );
 
-    return _productNoAuthSkuListGet(
+    return _productServiceProductNoAuthSkuListGet(
       productCode: productCode,
       platformProductId: platformProductId,
       sourcePlatform: sourcePlatform,
@@ -654,9 +715,9 @@ abstract class SwaggerApiProduct extends ChopperService {
   ///@param productCode
   ///@param platformProductId
   ///@param sourcePlatform
-  @GET(path: '/product/no-auth/skuList')
-  Future<chopper.Response<ProductNoAuthSkuListGet$Response>>
-  _productNoAuthSkuListGet({
+  @GET(path: '/product-service/product/no-auth/skuList')
+  Future<chopper.Response<ProductServiceProductNoAuthSkuListGet$Response>>
+  _productServiceProductNoAuthSkuListGet({
     @Query('productCode') String? productCode,
     @Query('platformProductId') String? platformProductId,
     @Query('sourcePlatform') String? sourcePlatform,
@@ -677,18 +738,21 @@ abstract class SwaggerApiProduct extends ChopperService {
   ///@param productCode productCode  或 (sourcePlatform,platformProductId)  ，优先用productCode，productCode为空则用sourcePlatform和platformProductId组合
   ///@param sourcePlatform 平台： 枚举值为：taobao、 tmall、 weidian、 1688  不区分大小写
   ///@param platformProductId 平台商品ID
-  Future<chopper.Response<ProductNoAuthGetProductInfoGet$Response>>
-  productNoAuthGetProductInfoGet({
+  Future<
+    chopper.Response<ProductServiceProductNoAuthGetProductInfoGet$Response>
+  >
+  productServiceProductNoAuthGetProductInfoGet({
     String? productCode,
     String? sourcePlatform,
     String? platformProductId,
   }) {
     generatedMapping.putIfAbsent(
-      ProductNoAuthGetProductInfoGet$Response,
-      () => ProductNoAuthGetProductInfoGet$Response.fromJsonFactory,
+      ProductServiceProductNoAuthGetProductInfoGet$Response,
+      () =>
+          ProductServiceProductNoAuthGetProductInfoGet$Response.fromJsonFactory,
     );
 
-    return _productNoAuthGetProductInfoGet(
+    return _productServiceProductNoAuthGetProductInfoGet(
       productCode: productCode,
       sourcePlatform: sourcePlatform,
       platformProductId: platformProductId,
@@ -699,9 +763,11 @@ abstract class SwaggerApiProduct extends ChopperService {
   ///@param productCode productCode  或 (sourcePlatform,platformProductId)  ，优先用productCode，productCode为空则用sourcePlatform和platformProductId组合
   ///@param sourcePlatform 平台： 枚举值为：taobao、 tmall、 weidian、 1688  不区分大小写
   ///@param platformProductId 平台商品ID
-  @GET(path: '/product/no-auth/getProductInfo')
-  Future<chopper.Response<ProductNoAuthGetProductInfoGet$Response>>
-  _productNoAuthGetProductInfoGet({
+  @GET(path: '/product-service/product/no-auth/getProductInfo')
+  Future<
+    chopper.Response<ProductServiceProductNoAuthGetProductInfoGet$Response>
+  >
+  _productServiceProductNoAuthGetProductInfoGet({
     @Query('productCode') String? productCode,
     @Query('sourcePlatform') String? sourcePlatform,
     @Query('platformProductId') String? platformProductId,
@@ -719,20 +785,29 @@ abstract class SwaggerApiProduct extends ChopperService {
   });
 
   ///查询首选商品品类
-  Future<chopper.Response<ProductNoAuthPremierProductCategoryGet$Response>>
-  productNoAuthPremierProductCategoryGet() {
+  Future<
+    chopper.Response<
+      ProductServiceProductNoAuthPremierProductCategoryGet$Response
+    >
+  >
+  productServiceProductNoAuthPremierProductCategoryGet() {
     generatedMapping.putIfAbsent(
-      ProductNoAuthPremierProductCategoryGet$Response,
-      () => ProductNoAuthPremierProductCategoryGet$Response.fromJsonFactory,
+      ProductServiceProductNoAuthPremierProductCategoryGet$Response,
+      () => ProductServiceProductNoAuthPremierProductCategoryGet$Response
+          .fromJsonFactory,
     );
 
-    return _productNoAuthPremierProductCategoryGet();
+    return _productServiceProductNoAuthPremierProductCategoryGet();
   }
 
   ///查询首选商品品类
-  @GET(path: '/product/no-auth/premierProductCategory')
-  Future<chopper.Response<ProductNoAuthPremierProductCategoryGet$Response>>
-  _productNoAuthPremierProductCategoryGet({
+  @GET(path: '/product-service/product/no-auth/premierProductCategory')
+  Future<
+    chopper.Response<
+      ProductServiceProductNoAuthPremierProductCategoryGet$Response
+    >
+  >
+  _productServiceProductNoAuthPremierProductCategoryGet({
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -747,20 +822,20 @@ abstract class SwaggerApiProduct extends ChopperService {
   });
 
   ///热门商品
-  Future<chopper.Response<ProductNoAuthHotProductGet$Response>>
-  productNoAuthHotProductGet() {
+  Future<chopper.Response<ProductServiceProductNoAuthHotProductGet$Response>>
+  productServiceProductNoAuthHotProductGet() {
     generatedMapping.putIfAbsent(
-      ProductNoAuthHotProductGet$Response,
-      () => ProductNoAuthHotProductGet$Response.fromJsonFactory,
+      ProductServiceProductNoAuthHotProductGet$Response,
+      () => ProductServiceProductNoAuthHotProductGet$Response.fromJsonFactory,
     );
 
-    return _productNoAuthHotProductGet();
+    return _productServiceProductNoAuthHotProductGet();
   }
 
   ///热门商品
-  @GET(path: '/product/no-auth/hotProduct')
-  Future<chopper.Response<ProductNoAuthHotProductGet$Response>>
-  _productNoAuthHotProductGet({
+  @GET(path: '/product-service/product/no-auth/hotProduct')
+  Future<chopper.Response<ProductServiceProductNoAuthHotProductGet$Response>>
+  _productServiceProductNoAuthHotProductGet({
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -779,19 +854,19 @@ abstract class SwaggerApiProduct extends ChopperService {
   ///@param size 分页大小，默认为10
   ///@param productCode
   ///@param categoryId 分类 ID
-  Future<chopper.Response<ProductNoAuthHotProductV2Get$Response>>
-  productNoAuthHotProductV2Get({
+  Future<chopper.Response<ProductServiceProductNoAuthHotProductV2Get$Response>>
+  productServiceProductNoAuthHotProductV2Get({
     String? current,
     String? size,
     String? productCode,
     String? categoryId,
   }) {
     generatedMapping.putIfAbsent(
-      ProductNoAuthHotProductV2Get$Response,
-      () => ProductNoAuthHotProductV2Get$Response.fromJsonFactory,
+      ProductServiceProductNoAuthHotProductV2Get$Response,
+      () => ProductServiceProductNoAuthHotProductV2Get$Response.fromJsonFactory,
     );
 
-    return _productNoAuthHotProductV2Get(
+    return _productServiceProductNoAuthHotProductV2Get(
       current: current,
       size: size,
       productCode: productCode,
@@ -804,9 +879,9 @@ abstract class SwaggerApiProduct extends ChopperService {
   ///@param size 分页大小，默认为10
   ///@param productCode
   ///@param categoryId 分类 ID
-  @GET(path: '/product/no-auth/hotProduct/v2')
-  Future<chopper.Response<ProductNoAuthHotProductV2Get$Response>>
-  _productNoAuthHotProductV2Get({
+  @GET(path: '/product-service/product/no-auth/hotProduct/v2')
+  Future<chopper.Response<ProductServiceProductNoAuthHotProductV2Get$Response>>
+  _productServiceProductNoAuthHotProductV2Get({
     @Query('current') String? current,
     @Query('size') String? size,
     @Query('productCode') String? productCode,
@@ -827,22 +902,25 @@ abstract class SwaggerApiProduct extends ChopperService {
   ///热门商品-V3
   ///@param current 当前页码，默认为1
   ///@param size 分页大小，默认为10
-  Future<chopper.Response<ProductNoAuthHotProductV3Get$Response>>
-  productNoAuthHotProductV3Get({String? current, String? size}) {
+  Future<chopper.Response<ProductServiceProductNoAuthHotProductV3Get$Response>>
+  productServiceProductNoAuthHotProductV3Get({String? current, String? size}) {
     generatedMapping.putIfAbsent(
-      ProductNoAuthHotProductV3Get$Response,
-      () => ProductNoAuthHotProductV3Get$Response.fromJsonFactory,
+      ProductServiceProductNoAuthHotProductV3Get$Response,
+      () => ProductServiceProductNoAuthHotProductV3Get$Response.fromJsonFactory,
     );
 
-    return _productNoAuthHotProductV3Get(current: current, size: size);
+    return _productServiceProductNoAuthHotProductV3Get(
+      current: current,
+      size: size,
+    );
   }
 
   ///热门商品-V3
   ///@param current 当前页码，默认为1
   ///@param size 分页大小，默认为10
-  @GET(path: '/product/no-auth/hotProduct/v3')
-  Future<chopper.Response<ProductNoAuthHotProductV3Get$Response>>
-  _productNoAuthHotProductV3Get({
+  @GET(path: '/product-service/product/no-auth/hotProduct/v3')
+  Future<chopper.Response<ProductServiceProductNoAuthHotProductV3Get$Response>>
+  _productServiceProductNoAuthHotProductV3Get({
     @Query('current') String? current,
     @Query('size') String? size,
     @chopper.Tag()
@@ -862,18 +940,21 @@ abstract class SwaggerApiProduct extends ChopperService {
   ///@param current
   ///@param size
   ///@param productCode
-  Future<chopper.Response<ProductNoAuthFlashSaleProductGet$Response>>
-  productNoAuthFlashSaleProductGet({
+  Future<
+    chopper.Response<ProductServiceProductNoAuthFlashSaleProductGet$Response>
+  >
+  productServiceProductNoAuthFlashSaleProductGet({
     String? current,
     String? size,
     String? productCode,
   }) {
     generatedMapping.putIfAbsent(
-      ProductNoAuthFlashSaleProductGet$Response,
-      () => ProductNoAuthFlashSaleProductGet$Response.fromJsonFactory,
+      ProductServiceProductNoAuthFlashSaleProductGet$Response,
+      () => ProductServiceProductNoAuthFlashSaleProductGet$Response
+          .fromJsonFactory,
     );
 
-    return _productNoAuthFlashSaleProductGet(
+    return _productServiceProductNoAuthFlashSaleProductGet(
       current: current,
       size: size,
       productCode: productCode,
@@ -884,9 +965,11 @@ abstract class SwaggerApiProduct extends ChopperService {
   ///@param current
   ///@param size
   ///@param productCode
-  @GET(path: '/product/no-auth/flashSaleProduct')
-  Future<chopper.Response<ProductNoAuthFlashSaleProductGet$Response>>
-  _productNoAuthFlashSaleProductGet({
+  @GET(path: '/product-service/product/no-auth/flashSaleProduct')
+  Future<
+    chopper.Response<ProductServiceProductNoAuthFlashSaleProductGet$Response>
+  >
+  _productServiceProductNoAuthFlashSaleProductGet({
     @Query('current') String? current,
     @Query('size') String? size,
     @Query('productCode') String? productCode,
@@ -913,8 +996,8 @@ abstract class SwaggerApiProduct extends ChopperService {
   ///@param categoryId
   ///@param minPrice
   ///@param maxPrice
-  Future<chopper.Response<ProductNoAuthAlbumProductGet$Response>>
-  productNoAuthAlbumProductGet({
+  Future<chopper.Response<ProductServiceProductNoAuthAlbumProductGet$Response>>
+  productServiceProductNoAuthAlbumProductGet({
     required String? pageNum,
     required String? pageSize,
     required String? albumCode,
@@ -926,11 +1009,11 @@ abstract class SwaggerApiProduct extends ChopperService {
     String? maxPrice,
   }) {
     generatedMapping.putIfAbsent(
-      ProductNoAuthAlbumProductGet$Response,
-      () => ProductNoAuthAlbumProductGet$Response.fromJsonFactory,
+      ProductServiceProductNoAuthAlbumProductGet$Response,
+      () => ProductServiceProductNoAuthAlbumProductGet$Response.fromJsonFactory,
     );
 
-    return _productNoAuthAlbumProductGet(
+    return _productServiceProductNoAuthAlbumProductGet(
       pageNum: pageNum,
       pageSize: pageSize,
       albumCode: albumCode,
@@ -953,9 +1036,9 @@ abstract class SwaggerApiProduct extends ChopperService {
   ///@param categoryId
   ///@param minPrice
   ///@param maxPrice
-  @GET(path: '/product/no-auth/albumProduct')
-  Future<chopper.Response<ProductNoAuthAlbumProductGet$Response>>
-  _productNoAuthAlbumProductGet({
+  @GET(path: '/product-service/product/no-auth/albumProduct')
+  Future<chopper.Response<ProductServiceProductNoAuthAlbumProductGet$Response>>
+  _productServiceProductNoAuthAlbumProductGet({
     @Query('pageNum') required String? pageNum,
     @Query('pageSize') required String? pageSize,
     @Query('albumCode') required String? albumCode,
@@ -981,17 +1064,17 @@ abstract class SwaggerApiProduct extends ChopperService {
   ///第三方店铺信息和TopN商品
   ///@param shopCode
   ///@param sourcePlatform 来源平台
-  Future<chopper.Response<ShopNoAuthGetThirdShopGet$Response>>
-  shopNoAuthGetThirdShopGet({
+  Future<chopper.Response<ProductServiceShopNoAuthGetThirdShopGet$Response>>
+  productServiceShopNoAuthGetThirdShopGet({
     required String? shopCode,
     required String? sourcePlatform,
   }) {
     generatedMapping.putIfAbsent(
-      ShopNoAuthGetThirdShopGet$Response,
-      () => ShopNoAuthGetThirdShopGet$Response.fromJsonFactory,
+      ProductServiceShopNoAuthGetThirdShopGet$Response,
+      () => ProductServiceShopNoAuthGetThirdShopGet$Response.fromJsonFactory,
     );
 
-    return _shopNoAuthGetThirdShopGet(
+    return _productServiceShopNoAuthGetThirdShopGet(
       shopCode: shopCode,
       sourcePlatform: sourcePlatform,
     );
@@ -1000,9 +1083,9 @@ abstract class SwaggerApiProduct extends ChopperService {
   ///第三方店铺信息和TopN商品
   ///@param shopCode
   ///@param sourcePlatform 来源平台
-  @GET(path: '/shop/no-auth/getThirdShop')
-  Future<chopper.Response<ShopNoAuthGetThirdShopGet$Response>>
-  _shopNoAuthGetThirdShopGet({
+  @GET(path: '/product-service/shop/no-auth/getThirdShop')
+  Future<chopper.Response<ProductServiceShopNoAuthGetThirdShopGet$Response>>
+  _productServiceShopNoAuthGetThirdShopGet({
     @Query('shopCode') required String? shopCode,
     @Query('sourcePlatform') required String? sourcePlatform,
     @chopper.Tag()
@@ -1020,21 +1103,21 @@ abstract class SwaggerApiProduct extends ChopperService {
 
   ///红人商品
   ///@param code
-  Future<chopper.Response<ProductNoAuthKolProductGet$Response>>
-  productNoAuthKolProductGet({required String? code}) {
+  Future<chopper.Response<ProductServiceProductNoAuthKolProductGet$Response>>
+  productServiceProductNoAuthKolProductGet({required String? code}) {
     generatedMapping.putIfAbsent(
-      ProductNoAuthKolProductGet$Response,
-      () => ProductNoAuthKolProductGet$Response.fromJsonFactory,
+      ProductServiceProductNoAuthKolProductGet$Response,
+      () => ProductServiceProductNoAuthKolProductGet$Response.fromJsonFactory,
     );
 
-    return _productNoAuthKolProductGet(code: code);
+    return _productServiceProductNoAuthKolProductGet(code: code);
   }
 
   ///红人商品
   ///@param code
-  @GET(path: '/product/no-auth/kolProduct')
-  Future<chopper.Response<ProductNoAuthKolProductGet$Response>>
-  _productNoAuthKolProductGet({
+  @GET(path: '/product-service/product/no-auth/kolProduct')
+  Future<chopper.Response<ProductServiceProductNoAuthKolProductGet$Response>>
+  _productServiceProductNoAuthKolProductGet({
     @Query('code') required String? code,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -1055,8 +1138,10 @@ abstract class SwaggerApiProduct extends ChopperService {
   ///@param brandName
   ///@param categoryId
   ///@param productCode
-  Future<chopper.Response<ProductNoAuthPremierProductGet$Response>>
-  productNoAuthPremierProductGet({
+  Future<
+    chopper.Response<ProductServiceProductNoAuthPremierProductGet$Response>
+  >
+  productServiceProductNoAuthPremierProductGet({
     required String? pageNum,
     required String? pageSize,
     String? brandName,
@@ -1064,11 +1149,12 @@ abstract class SwaggerApiProduct extends ChopperService {
     String? productCode,
   }) {
     generatedMapping.putIfAbsent(
-      ProductNoAuthPremierProductGet$Response,
-      () => ProductNoAuthPremierProductGet$Response.fromJsonFactory,
+      ProductServiceProductNoAuthPremierProductGet$Response,
+      () =>
+          ProductServiceProductNoAuthPremierProductGet$Response.fromJsonFactory,
     );
 
-    return _productNoAuthPremierProductGet(
+    return _productServiceProductNoAuthPremierProductGet(
       pageNum: pageNum,
       pageSize: pageSize,
       brandName: brandName,
@@ -1083,9 +1169,11 @@ abstract class SwaggerApiProduct extends ChopperService {
   ///@param brandName
   ///@param categoryId
   ///@param productCode
-  @GET(path: '/product/no-auth/premierProduct')
-  Future<chopper.Response<ProductNoAuthPremierProductGet$Response>>
-  _productNoAuthPremierProductGet({
+  @GET(path: '/product-service/product/no-auth/premierProduct')
+  Future<
+    chopper.Response<ProductServiceProductNoAuthPremierProductGet$Response>
+  >
+  _productServiceProductNoAuthPremierProductGet({
     @Query('pageNum') required String? pageNum,
     @Query('pageSize') required String? pageSize,
     @Query('brandName') String? brandName,
@@ -1105,20 +1193,25 @@ abstract class SwaggerApiProduct extends ChopperService {
   });
 
   ///首选商品品牌
-  Future<chopper.Response<ProductNoAuthPremierProductBrandGet$Response>>
-  productNoAuthPremierProductBrandGet() {
+  Future<
+    chopper.Response<ProductServiceProductNoAuthPremierProductBrandGet$Response>
+  >
+  productServiceProductNoAuthPremierProductBrandGet() {
     generatedMapping.putIfAbsent(
-      ProductNoAuthPremierProductBrandGet$Response,
-      () => ProductNoAuthPremierProductBrandGet$Response.fromJsonFactory,
+      ProductServiceProductNoAuthPremierProductBrandGet$Response,
+      () => ProductServiceProductNoAuthPremierProductBrandGet$Response
+          .fromJsonFactory,
     );
 
-    return _productNoAuthPremierProductBrandGet();
+    return _productServiceProductNoAuthPremierProductBrandGet();
   }
 
   ///首选商品品牌
-  @GET(path: '/product/no-auth/premierProductBrand')
-  Future<chopper.Response<ProductNoAuthPremierProductBrandGet$Response>>
-  _productNoAuthPremierProductBrandGet({
+  @GET(path: '/product-service/product/no-auth/premierProductBrand')
+  Future<
+    chopper.Response<ProductServiceProductNoAuthPremierProductBrandGet$Response>
+  >
+  _productServiceProductNoAuthPremierProductBrandGet({
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -1134,21 +1227,30 @@ abstract class SwaggerApiProduct extends ChopperService {
 
   ///分类热门商品推荐
   ///@param root
-  Future<chopper.Response<RecommendNoAuthCategoryRecommendationGet$Response>>
-  recommendNoAuthCategoryRecommendationGet({Object? root}) {
+  Future<
+    chopper.Response<
+      ProductServiceRecommendNoAuthCategoryRecommendationGet$Response
+    >
+  >
+  productServiceRecommendNoAuthCategoryRecommendationGet({Object? root}) {
     generatedMapping.putIfAbsent(
-      RecommendNoAuthCategoryRecommendationGet$Response,
-      () => RecommendNoAuthCategoryRecommendationGet$Response.fromJsonFactory,
+      ProductServiceRecommendNoAuthCategoryRecommendationGet$Response,
+      () => ProductServiceRecommendNoAuthCategoryRecommendationGet$Response
+          .fromJsonFactory,
     );
 
-    return _recommendNoAuthCategoryRecommendationGet(root: root);
+    return _productServiceRecommendNoAuthCategoryRecommendationGet(root: root);
   }
 
   ///分类热门商品推荐
   ///@param root
-  @GET(path: '/recommend/no-auth/categoryRecommendation')
-  Future<chopper.Response<RecommendNoAuthCategoryRecommendationGet$Response>>
-  _recommendNoAuthCategoryRecommendationGet({
+  @GET(path: '/product-service/recommend/no-auth/categoryRecommendation')
+  Future<
+    chopper.Response<
+      ProductServiceRecommendNoAuthCategoryRecommendationGet$Response
+    >
+  >
+  _productServiceRecommendNoAuthCategoryRecommendationGet({
     @Body() Object? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -1165,21 +1267,21 @@ abstract class SwaggerApiProduct extends ChopperService {
 
   ///分类页商品
   ///@param root
-  Future<chopper.Response<RecommendNoAuthCategoryPost$Response>>
-  recommendNoAuthCategoryPost({Object? root}) {
+  Future<chopper.Response<ProductServiceRecommendNoAuthCategoryPost$Response>>
+  productServiceRecommendNoAuthCategoryPost({Object? root}) {
     generatedMapping.putIfAbsent(
-      RecommendNoAuthCategoryPost$Response,
-      () => RecommendNoAuthCategoryPost$Response.fromJsonFactory,
+      ProductServiceRecommendNoAuthCategoryPost$Response,
+      () => ProductServiceRecommendNoAuthCategoryPost$Response.fromJsonFactory,
     );
 
-    return _recommendNoAuthCategoryPost(root: root);
+    return _productServiceRecommendNoAuthCategoryPost(root: root);
   }
 
   ///分类页商品
   ///@param root
-  @POST(path: '/recommend/no-auth/category')
-  Future<chopper.Response<RecommendNoAuthCategoryPost$Response>>
-  _recommendNoAuthCategoryPost({
+  @POST(path: '/product-service/recommend/no-auth/category')
+  Future<chopper.Response<ProductServiceRecommendNoAuthCategoryPost$Response>>
+  _productServiceRecommendNoAuthCategoryPost({
     @Body() Object? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -1196,21 +1298,21 @@ abstract class SwaggerApiProduct extends ChopperService {
 
   ///店铺页商品
   ///@param root
-  Future<chopper.Response<RecommendNoAuthShopPost$Response>>
-  recommendNoAuthShopPost({Object? root}) {
+  Future<chopper.Response<ProductServiceRecommendNoAuthShopPost$Response>>
+  productServiceRecommendNoAuthShopPost({Object? root}) {
     generatedMapping.putIfAbsent(
-      RecommendNoAuthShopPost$Response,
-      () => RecommendNoAuthShopPost$Response.fromJsonFactory,
+      ProductServiceRecommendNoAuthShopPost$Response,
+      () => ProductServiceRecommendNoAuthShopPost$Response.fromJsonFactory,
     );
 
-    return _recommendNoAuthShopPost(root: root);
+    return _productServiceRecommendNoAuthShopPost(root: root);
   }
 
   ///店铺页商品
   ///@param root
-  @POST(path: '/recommend/no-auth/shop')
-  Future<chopper.Response<RecommendNoAuthShopPost$Response>>
-  _recommendNoAuthShopPost({
+  @POST(path: '/product-service/recommend/no-auth/shop')
+  Future<chopper.Response<ProductServiceRecommendNoAuthShopPost$Response>>
+  _productServiceRecommendNoAuthShopPost({
     @Body() Object? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -1227,21 +1329,26 @@ abstract class SwaggerApiProduct extends ChopperService {
 
   ///相关商品【后续可能会有换一批之类，用分页接口】
   ///@param root
-  Future<chopper.Response<RecommendNoAuthSimilarProductPost$Response>>
-  recommendNoAuthSimilarProductPost({Object? root}) {
+  Future<
+    chopper.Response<ProductServiceRecommendNoAuthSimilarProductPost$Response>
+  >
+  productServiceRecommendNoAuthSimilarProductPost({Object? root}) {
     generatedMapping.putIfAbsent(
-      RecommendNoAuthSimilarProductPost$Response,
-      () => RecommendNoAuthSimilarProductPost$Response.fromJsonFactory,
+      ProductServiceRecommendNoAuthSimilarProductPost$Response,
+      () => ProductServiceRecommendNoAuthSimilarProductPost$Response
+          .fromJsonFactory,
     );
 
-    return _recommendNoAuthSimilarProductPost(root: root);
+    return _productServiceRecommendNoAuthSimilarProductPost(root: root);
   }
 
   ///相关商品【后续可能会有换一批之类，用分页接口】
   ///@param root
-  @POST(path: '/recommend/no-auth/similarProduct')
-  Future<chopper.Response<RecommendNoAuthSimilarProductPost$Response>>
-  _recommendNoAuthSimilarProductPost({
+  @POST(path: '/product-service/recommend/no-auth/similarProduct')
+  Future<
+    chopper.Response<ProductServiceRecommendNoAuthSimilarProductPost$Response>
+  >
+  _productServiceRecommendNoAuthSimilarProductPost({
     @Body() Object? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -1258,111 +1365,35 @@ abstract class SwaggerApiProduct extends ChopperService {
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductReviewNoAuthPageGet$Response {
-  const ProductReviewNoAuthPageGet$Response({
+class ProductServiceProductReviewNoAuthPageGet$Response {
+  const ProductServiceProductReviewNoAuthPageGet$Response({
     this.code,
     this.message,
     this.data,
   });
 
-  factory ProductReviewNoAuthPageGet$Response.fromJson(
+  factory ProductServiceProductReviewNoAuthPageGet$Response.fromJson(
     Map<String, dynamic> json,
-  ) => _$ProductReviewNoAuthPageGet$ResponseFromJson(json);
+  ) => _$ProductServiceProductReviewNoAuthPageGet$ResponseFromJson(json);
 
-  static const toJsonFactory = _$ProductReviewNoAuthPageGet$ResponseToJson;
+  static const toJsonFactory =
+      _$ProductServiceProductReviewNoAuthPageGet$ResponseToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductReviewNoAuthPageGet$ResponseToJson(this);
+      _$ProductServiceProductReviewNoAuthPageGet$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final double? code;
   @JsonKey(name: 'message')
   final String? message;
   @JsonKey(name: 'data')
-  final ProductReviewNoAuthPageGet$Response$Data? data;
-  static const fromJsonFactory = _$ProductReviewNoAuthPageGet$ResponseFromJson;
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other is ProductReviewNoAuthPageGet$Response &&
-            (identical(other.code, code) ||
-                const DeepCollectionEquality().equals(other.code, code)) &&
-            (identical(other.message, message) ||
-                const DeepCollectionEquality().equals(
-                  other.message,
-                  message,
-                )) &&
-            (identical(other.data, data) ||
-                const DeepCollectionEquality().equals(other.data, data)));
-  }
-
-  @override
-  String toString() => jsonEncode(this);
-
-  @override
-  int get hashCode =>
-      const DeepCollectionEquality().hash(code) ^
-      const DeepCollectionEquality().hash(message) ^
-      const DeepCollectionEquality().hash(data) ^
-      runtimeType.hashCode;
-}
-
-extension $ProductReviewNoAuthPageGet$ResponseExtension
-    on ProductReviewNoAuthPageGet$Response {
-  ProductReviewNoAuthPageGet$Response copyWith({
-    double? code,
-    String? message,
-    ProductReviewNoAuthPageGet$Response$Data? data,
-  }) {
-    return ProductReviewNoAuthPageGet$Response(
-      code: code ?? this.code,
-      message: message ?? this.message,
-      data: data ?? this.data,
-    );
-  }
-
-  ProductReviewNoAuthPageGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
-    Wrapped<String?>? message,
-    Wrapped<ProductReviewNoAuthPageGet$Response$Data?>? data,
-  }) {
-    return ProductReviewNoAuthPageGet$Response(
-      code: (code != null ? code.value : this.code),
-      message: (message != null ? message.value : this.message),
-      data: (data != null ? data.value : this.data),
-    );
-  }
-}
-
-@JsonSerializable(explicitToJson: true)
-class ProductReviewNoAuthSummaryGet$Response {
-  const ProductReviewNoAuthSummaryGet$Response({
-    this.code,
-    this.message,
-    this.data,
-  });
-
-  factory ProductReviewNoAuthSummaryGet$Response.fromJson(
-    Map<String, dynamic> json,
-  ) => _$ProductReviewNoAuthSummaryGet$ResponseFromJson(json);
-
-  static const toJsonFactory = _$ProductReviewNoAuthSummaryGet$ResponseToJson;
-  Map<String, dynamic> toJson() =>
-      _$ProductReviewNoAuthSummaryGet$ResponseToJson(this);
-
-  @JsonKey(name: 'code')
-  final double? code;
-  @JsonKey(name: 'message')
-  final String? message;
-  @JsonKey(name: 'data')
-  final ProductReviewNoAuthSummaryGet$Response$Data? data;
+  final ProductServiceProductReviewNoAuthPageGet$Response$Data? data;
   static const fromJsonFactory =
-      _$ProductReviewNoAuthSummaryGet$ResponseFromJson;
+      _$ProductServiceProductReviewNoAuthPageGet$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ProductReviewNoAuthSummaryGet$Response &&
+        (other is ProductServiceProductReviewNoAuthPageGet$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -1385,26 +1416,26 @@ class ProductReviewNoAuthSummaryGet$Response {
       runtimeType.hashCode;
 }
 
-extension $ProductReviewNoAuthSummaryGet$ResponseExtension
-    on ProductReviewNoAuthSummaryGet$Response {
-  ProductReviewNoAuthSummaryGet$Response copyWith({
+extension $ProductServiceProductReviewNoAuthPageGet$ResponseExtension
+    on ProductServiceProductReviewNoAuthPageGet$Response {
+  ProductServiceProductReviewNoAuthPageGet$Response copyWith({
     double? code,
     String? message,
-    ProductReviewNoAuthSummaryGet$Response$Data? data,
+    ProductServiceProductReviewNoAuthPageGet$Response$Data? data,
   }) {
-    return ProductReviewNoAuthSummaryGet$Response(
+    return ProductServiceProductReviewNoAuthPageGet$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       data: data ?? this.data,
     );
   }
 
-  ProductReviewNoAuthSummaryGet$Response copyWithWrapped({
+  ProductServiceProductReviewNoAuthPageGet$Response copyWithWrapped({
     Wrapped<double?>? code,
     Wrapped<String?>? message,
-    Wrapped<ProductReviewNoAuthSummaryGet$Response$Data?>? data,
+    Wrapped<ProductServiceProductReviewNoAuthPageGet$Response$Data?>? data,
   }) {
-    return ProductReviewNoAuthSummaryGet$Response(
+    return ProductServiceProductReviewNoAuthPageGet$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
@@ -1413,8 +1444,87 @@ extension $ProductReviewNoAuthSummaryGet$ResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class CategoryNoAuthTreeGet$Response {
-  const CategoryNoAuthTreeGet$Response({
+class ProductServiceProductReviewNoAuthSummaryGet$Response {
+  const ProductServiceProductReviewNoAuthSummaryGet$Response({
+    this.code,
+    this.message,
+    this.data,
+  });
+
+  factory ProductServiceProductReviewNoAuthSummaryGet$Response.fromJson(
+    Map<String, dynamic> json,
+  ) => _$ProductServiceProductReviewNoAuthSummaryGet$ResponseFromJson(json);
+
+  static const toJsonFactory =
+      _$ProductServiceProductReviewNoAuthSummaryGet$ResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$ProductServiceProductReviewNoAuthSummaryGet$ResponseToJson(this);
+
+  @JsonKey(name: 'code')
+  final double? code;
+  @JsonKey(name: 'message')
+  final String? message;
+  @JsonKey(name: 'data')
+  final ProductServiceProductReviewNoAuthSummaryGet$Response$Data? data;
+  static const fromJsonFactory =
+      _$ProductServiceProductReviewNoAuthSummaryGet$ResponseFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is ProductServiceProductReviewNoAuthSummaryGet$Response &&
+            (identical(other.code, code) ||
+                const DeepCollectionEquality().equals(other.code, code)) &&
+            (identical(other.message, message) ||
+                const DeepCollectionEquality().equals(
+                  other.message,
+                  message,
+                )) &&
+            (identical(other.data, data) ||
+                const DeepCollectionEquality().equals(other.data, data)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(code) ^
+      const DeepCollectionEquality().hash(message) ^
+      const DeepCollectionEquality().hash(data) ^
+      runtimeType.hashCode;
+}
+
+extension $ProductServiceProductReviewNoAuthSummaryGet$ResponseExtension
+    on ProductServiceProductReviewNoAuthSummaryGet$Response {
+  ProductServiceProductReviewNoAuthSummaryGet$Response copyWith({
+    double? code,
+    String? message,
+    ProductServiceProductReviewNoAuthSummaryGet$Response$Data? data,
+  }) {
+    return ProductServiceProductReviewNoAuthSummaryGet$Response(
+      code: code ?? this.code,
+      message: message ?? this.message,
+      data: data ?? this.data,
+    );
+  }
+
+  ProductServiceProductReviewNoAuthSummaryGet$Response copyWithWrapped({
+    Wrapped<double?>? code,
+    Wrapped<String?>? message,
+    Wrapped<ProductServiceProductReviewNoAuthSummaryGet$Response$Data?>? data,
+  }) {
+    return ProductServiceProductReviewNoAuthSummaryGet$Response(
+      code: (code != null ? code.value : this.code),
+      message: (message != null ? message.value : this.message),
+      data: (data != null ? data.value : this.data),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class ProductServiceCategoryNoAuthTreeGet$Response {
+  const ProductServiceCategoryNoAuthTreeGet$Response({
     this.code,
     this.message,
     this.data,
@@ -1423,30 +1533,34 @@ class CategoryNoAuthTreeGet$Response {
     this.success,
   });
 
-  factory CategoryNoAuthTreeGet$Response.fromJson(Map<String, dynamic> json) =>
-      _$CategoryNoAuthTreeGet$ResponseFromJson(json);
+  factory ProductServiceCategoryNoAuthTreeGet$Response.fromJson(
+    Map<String, dynamic> json,
+  ) => _$ProductServiceCategoryNoAuthTreeGet$ResponseFromJson(json);
 
-  static const toJsonFactory = _$CategoryNoAuthTreeGet$ResponseToJson;
-  Map<String, dynamic> toJson() => _$CategoryNoAuthTreeGet$ResponseToJson(this);
+  static const toJsonFactory =
+      _$ProductServiceCategoryNoAuthTreeGet$ResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$ProductServiceCategoryNoAuthTreeGet$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final double? code;
   @JsonKey(name: 'message')
   final String? message;
   @JsonKey(name: 'data')
-  final CategoryNoAuthTreeGet$Response$Data? data;
+  final ProductServiceCategoryNoAuthTreeGet$Response$Data? data;
   @JsonKey(name: 'traceId')
   final String? traceId;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
   @JsonKey(name: 'success')
   final bool? success;
-  static const fromJsonFactory = _$CategoryNoAuthTreeGet$ResponseFromJson;
+  static const fromJsonFactory =
+      _$ProductServiceCategoryNoAuthTreeGet$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is CategoryNoAuthTreeGet$Response &&
+        (other is ProductServiceCategoryNoAuthTreeGet$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -1484,17 +1598,17 @@ class CategoryNoAuthTreeGet$Response {
       runtimeType.hashCode;
 }
 
-extension $CategoryNoAuthTreeGet$ResponseExtension
-    on CategoryNoAuthTreeGet$Response {
-  CategoryNoAuthTreeGet$Response copyWith({
+extension $ProductServiceCategoryNoAuthTreeGet$ResponseExtension
+    on ProductServiceCategoryNoAuthTreeGet$Response {
+  ProductServiceCategoryNoAuthTreeGet$Response copyWith({
     double? code,
     String? message,
-    CategoryNoAuthTreeGet$Response$Data? data,
+    ProductServiceCategoryNoAuthTreeGet$Response$Data? data,
     String? traceId,
     Object? placeholder,
     bool? success,
   }) {
-    return CategoryNoAuthTreeGet$Response(
+    return ProductServiceCategoryNoAuthTreeGet$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       data: data ?? this.data,
@@ -1504,15 +1618,15 @@ extension $CategoryNoAuthTreeGet$ResponseExtension
     );
   }
 
-  CategoryNoAuthTreeGet$Response copyWithWrapped({
+  ProductServiceCategoryNoAuthTreeGet$Response copyWithWrapped({
     Wrapped<double?>? code,
     Wrapped<String?>? message,
-    Wrapped<CategoryNoAuthTreeGet$Response$Data?>? data,
+    Wrapped<ProductServiceCategoryNoAuthTreeGet$Response$Data?>? data,
     Wrapped<String?>? traceId,
     Wrapped<Object?>? placeholder,
     Wrapped<bool?>? success,
   }) {
-    return CategoryNoAuthTreeGet$Response(
+    return ProductServiceCategoryNoAuthTreeGet$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
@@ -1524,8 +1638,8 @@ extension $CategoryNoAuthTreeGet$ResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ActivityNoAuthFlashSaleActivityGet$Response {
-  const ActivityNoAuthFlashSaleActivityGet$Response({
+class ProductServiceActivityNoAuthFlashSaleActivityGet$Response {
+  const ProductServiceActivityNoAuthFlashSaleActivityGet$Response({
     this.code,
     this.message,
     this.data,
@@ -1533,32 +1647,33 @@ class ActivityNoAuthFlashSaleActivityGet$Response {
     this.success,
   });
 
-  factory ActivityNoAuthFlashSaleActivityGet$Response.fromJson(
+  factory ProductServiceActivityNoAuthFlashSaleActivityGet$Response.fromJson(
     Map<String, dynamic> json,
-  ) => _$ActivityNoAuthFlashSaleActivityGet$ResponseFromJson(json);
+  ) =>
+      _$ProductServiceActivityNoAuthFlashSaleActivityGet$ResponseFromJson(json);
 
   static const toJsonFactory =
-      _$ActivityNoAuthFlashSaleActivityGet$ResponseToJson;
+      _$ProductServiceActivityNoAuthFlashSaleActivityGet$ResponseToJson;
   Map<String, dynamic> toJson() =>
-      _$ActivityNoAuthFlashSaleActivityGet$ResponseToJson(this);
+      _$ProductServiceActivityNoAuthFlashSaleActivityGet$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final double? code;
   @JsonKey(name: 'message')
   final String? message;
   @JsonKey(name: 'data')
-  final ActivityNoAuthFlashSaleActivityGet$Response$Data? data;
+  final ProductServiceActivityNoAuthFlashSaleActivityGet$Response$Data? data;
   @JsonKey(name: 'traceId')
   final String? traceId;
   @JsonKey(name: 'success')
   final bool? success;
   static const fromJsonFactory =
-      _$ActivityNoAuthFlashSaleActivityGet$ResponseFromJson;
+      _$ProductServiceActivityNoAuthFlashSaleActivityGet$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ActivityNoAuthFlashSaleActivityGet$Response &&
+        (other is ProductServiceActivityNoAuthFlashSaleActivityGet$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -1590,16 +1705,16 @@ class ActivityNoAuthFlashSaleActivityGet$Response {
       runtimeType.hashCode;
 }
 
-extension $ActivityNoAuthFlashSaleActivityGet$ResponseExtension
-    on ActivityNoAuthFlashSaleActivityGet$Response {
-  ActivityNoAuthFlashSaleActivityGet$Response copyWith({
+extension $ProductServiceActivityNoAuthFlashSaleActivityGet$ResponseExtension
+    on ProductServiceActivityNoAuthFlashSaleActivityGet$Response {
+  ProductServiceActivityNoAuthFlashSaleActivityGet$Response copyWith({
     double? code,
     String? message,
-    ActivityNoAuthFlashSaleActivityGet$Response$Data? data,
+    ProductServiceActivityNoAuthFlashSaleActivityGet$Response$Data? data,
     String? traceId,
     bool? success,
   }) {
-    return ActivityNoAuthFlashSaleActivityGet$Response(
+    return ProductServiceActivityNoAuthFlashSaleActivityGet$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       data: data ?? this.data,
@@ -1608,14 +1723,15 @@ extension $ActivityNoAuthFlashSaleActivityGet$ResponseExtension
     );
   }
 
-  ActivityNoAuthFlashSaleActivityGet$Response copyWithWrapped({
+  ProductServiceActivityNoAuthFlashSaleActivityGet$Response copyWithWrapped({
     Wrapped<double?>? code,
     Wrapped<String?>? message,
-    Wrapped<ActivityNoAuthFlashSaleActivityGet$Response$Data?>? data,
+    Wrapped<ProductServiceActivityNoAuthFlashSaleActivityGet$Response$Data?>?
+    data,
     Wrapped<String?>? traceId,
     Wrapped<bool?>? success,
   }) {
-    return ActivityNoAuthFlashSaleActivityGet$Response(
+    return ProductServiceActivityNoAuthFlashSaleActivityGet$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
@@ -1626,38 +1742,44 @@ extension $ActivityNoAuthFlashSaleActivityGet$ResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ActivityNoAuthFlashSaleActivityProductGet$Response {
-  const ActivityNoAuthFlashSaleActivityProductGet$Response({
+class ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response {
+  const ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response({
     required this.code,
     required this.message,
     required this.data,
     required this.traceId,
   });
 
-  factory ActivityNoAuthFlashSaleActivityProductGet$Response.fromJson(
+  factory ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response.fromJson(
     Map<String, dynamic> json,
-  ) => _$ActivityNoAuthFlashSaleActivityProductGet$ResponseFromJson(json);
+  ) =>
+      _$ProductServiceActivityNoAuthFlashSaleActivityProductGet$ResponseFromJson(
+        json,
+      );
 
   static const toJsonFactory =
-      _$ActivityNoAuthFlashSaleActivityProductGet$ResponseToJson;
+      _$ProductServiceActivityNoAuthFlashSaleActivityProductGet$ResponseToJson;
   Map<String, dynamic> toJson() =>
-      _$ActivityNoAuthFlashSaleActivityProductGet$ResponseToJson(this);
+      _$ProductServiceActivityNoAuthFlashSaleActivityProductGet$ResponseToJson(
+        this,
+      );
 
   @JsonKey(name: 'code')
   final String code;
   @JsonKey(name: 'message')
   final String message;
   @JsonKey(name: 'data')
-  final ActivityNoAuthFlashSaleActivityProductGet$Response$Data data;
+  final ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data
+  data;
   @JsonKey(name: 'traceId')
   final String traceId;
   static const fromJsonFactory =
-      _$ActivityNoAuthFlashSaleActivityProductGet$ResponseFromJson;
+      _$ProductServiceActivityNoAuthFlashSaleActivityProductGet$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ActivityNoAuthFlashSaleActivityProductGet$Response &&
+        (other is ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -1683,15 +1805,15 @@ class ActivityNoAuthFlashSaleActivityProductGet$Response {
       runtimeType.hashCode;
 }
 
-extension $ActivityNoAuthFlashSaleActivityProductGet$ResponseExtension
-    on ActivityNoAuthFlashSaleActivityProductGet$Response {
-  ActivityNoAuthFlashSaleActivityProductGet$Response copyWith({
+extension $ProductServiceActivityNoAuthFlashSaleActivityProductGet$ResponseExtension
+    on ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response {
+  ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response copyWith({
     String? code,
     String? message,
-    ActivityNoAuthFlashSaleActivityProductGet$Response$Data? data,
+    ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data? data,
     String? traceId,
   }) {
-    return ActivityNoAuthFlashSaleActivityProductGet$Response(
+    return ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       data: data ?? this.data,
@@ -1699,13 +1821,17 @@ extension $ActivityNoAuthFlashSaleActivityProductGet$ResponseExtension
     );
   }
 
-  ActivityNoAuthFlashSaleActivityProductGet$Response copyWithWrapped({
+  ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response
+  copyWithWrapped({
     Wrapped<String>? code,
     Wrapped<String>? message,
-    Wrapped<ActivityNoAuthFlashSaleActivityProductGet$Response$Data>? data,
+    Wrapped<
+      ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data
+    >?
+    data,
     Wrapped<String>? traceId,
   }) {
-    return ActivityNoAuthFlashSaleActivityProductGet$Response(
+    return ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
@@ -1715,38 +1841,38 @@ extension $ActivityNoAuthFlashSaleActivityProductGet$ResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductPremiumDupeNoAuthPagePost$Response {
-  const ProductPremiumDupeNoAuthPagePost$Response({
+class ProductServiceProductPremiumDupeNoAuthPagePost$Response {
+  const ProductServiceProductPremiumDupeNoAuthPagePost$Response({
     this.code,
     this.message,
     this.data,
     this.traceId,
   });
 
-  factory ProductPremiumDupeNoAuthPagePost$Response.fromJson(
+  factory ProductServiceProductPremiumDupeNoAuthPagePost$Response.fromJson(
     Map<String, dynamic> json,
-  ) => _$ProductPremiumDupeNoAuthPagePost$ResponseFromJson(json);
+  ) => _$ProductServiceProductPremiumDupeNoAuthPagePost$ResponseFromJson(json);
 
   static const toJsonFactory =
-      _$ProductPremiumDupeNoAuthPagePost$ResponseToJson;
+      _$ProductServiceProductPremiumDupeNoAuthPagePost$ResponseToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductPremiumDupeNoAuthPagePost$ResponseToJson(this);
+      _$ProductServiceProductPremiumDupeNoAuthPagePost$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final int? code;
   @JsonKey(name: 'message')
   final String? message;
   @JsonKey(name: 'data')
-  final ProductPremiumDupeNoAuthPagePost$Response$Data? data;
+  final ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data? data;
   @JsonKey(name: 'traceId')
   final String? traceId;
   static const fromJsonFactory =
-      _$ProductPremiumDupeNoAuthPagePost$ResponseFromJson;
+      _$ProductServiceProductPremiumDupeNoAuthPagePost$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ProductPremiumDupeNoAuthPagePost$Response &&
+        (other is ProductServiceProductPremiumDupeNoAuthPagePost$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -1772,15 +1898,15 @@ class ProductPremiumDupeNoAuthPagePost$Response {
       runtimeType.hashCode;
 }
 
-extension $ProductPremiumDupeNoAuthPagePost$ResponseExtension
-    on ProductPremiumDupeNoAuthPagePost$Response {
-  ProductPremiumDupeNoAuthPagePost$Response copyWith({
+extension $ProductServiceProductPremiumDupeNoAuthPagePost$ResponseExtension
+    on ProductServiceProductPremiumDupeNoAuthPagePost$Response {
+  ProductServiceProductPremiumDupeNoAuthPagePost$Response copyWith({
     int? code,
     String? message,
-    ProductPremiumDupeNoAuthPagePost$Response$Data? data,
+    ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data? data,
     String? traceId,
   }) {
-    return ProductPremiumDupeNoAuthPagePost$Response(
+    return ProductServiceProductPremiumDupeNoAuthPagePost$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       data: data ?? this.data,
@@ -1788,191 +1914,14 @@ extension $ProductPremiumDupeNoAuthPagePost$ResponseExtension
     );
   }
 
-  ProductPremiumDupeNoAuthPagePost$Response copyWithWrapped({
+  ProductServiceProductPremiumDupeNoAuthPagePost$Response copyWithWrapped({
     Wrapped<int?>? code,
     Wrapped<String?>? message,
-    Wrapped<ProductPremiumDupeNoAuthPagePost$Response$Data?>? data,
-    Wrapped<String?>? traceId,
-  }) {
-    return ProductPremiumDupeNoAuthPagePost$Response(
-      code: (code != null ? code.value : this.code),
-      message: (message != null ? message.value : this.message),
-      data: (data != null ? data.value : this.data),
-      traceId: (traceId != null ? traceId.value : this.traceId),
-    );
-  }
-}
-
-@JsonSerializable(explicitToJson: true)
-class ProductPremiumDupeNoAuthMetaGet$Response {
-  const ProductPremiumDupeNoAuthMetaGet$Response({
-    this.code,
-    this.message,
-    this.data,
-    this.traceId,
-  });
-
-  factory ProductPremiumDupeNoAuthMetaGet$Response.fromJson(
-    Map<String, dynamic> json,
-  ) => _$ProductPremiumDupeNoAuthMetaGet$ResponseFromJson(json);
-
-  static const toJsonFactory = _$ProductPremiumDupeNoAuthMetaGet$ResponseToJson;
-  Map<String, dynamic> toJson() =>
-      _$ProductPremiumDupeNoAuthMetaGet$ResponseToJson(this);
-
-  @JsonKey(name: 'code')
-  final int? code;
-  @JsonKey(name: 'message')
-  final String? message;
-  @JsonKey(name: 'data')
-  final ProductPremiumDupeNoAuthMetaGet$Response$Data? data;
-  @JsonKey(name: 'traceId')
-  final String? traceId;
-  static const fromJsonFactory =
-      _$ProductPremiumDupeNoAuthMetaGet$ResponseFromJson;
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other is ProductPremiumDupeNoAuthMetaGet$Response &&
-            (identical(other.code, code) ||
-                const DeepCollectionEquality().equals(other.code, code)) &&
-            (identical(other.message, message) ||
-                const DeepCollectionEquality().equals(
-                  other.message,
-                  message,
-                )) &&
-            (identical(other.data, data) ||
-                const DeepCollectionEquality().equals(other.data, data)) &&
-            (identical(other.traceId, traceId) ||
-                const DeepCollectionEquality().equals(other.traceId, traceId)));
-  }
-
-  @override
-  String toString() => jsonEncode(this);
-
-  @override
-  int get hashCode =>
-      const DeepCollectionEquality().hash(code) ^
-      const DeepCollectionEquality().hash(message) ^
-      const DeepCollectionEquality().hash(data) ^
-      const DeepCollectionEquality().hash(traceId) ^
-      runtimeType.hashCode;
-}
-
-extension $ProductPremiumDupeNoAuthMetaGet$ResponseExtension
-    on ProductPremiumDupeNoAuthMetaGet$Response {
-  ProductPremiumDupeNoAuthMetaGet$Response copyWith({
-    int? code,
-    String? message,
-    ProductPremiumDupeNoAuthMetaGet$Response$Data? data,
-    String? traceId,
-  }) {
-    return ProductPremiumDupeNoAuthMetaGet$Response(
-      code: code ?? this.code,
-      message: message ?? this.message,
-      data: data ?? this.data,
-      traceId: traceId ?? this.traceId,
-    );
-  }
-
-  ProductPremiumDupeNoAuthMetaGet$Response copyWithWrapped({
-    Wrapped<int?>? code,
-    Wrapped<String?>? message,
-    Wrapped<ProductPremiumDupeNoAuthMetaGet$Response$Data?>? data,
-    Wrapped<String?>? traceId,
-  }) {
-    return ProductPremiumDupeNoAuthMetaGet$Response(
-      code: (code != null ? code.value : this.code),
-      message: (message != null ? message.value : this.message),
-      data: (data != null ? data.value : this.data),
-      traceId: (traceId != null ? traceId.value : this.traceId),
-    );
-  }
-}
-
-@JsonSerializable(explicitToJson: true)
-class ProductPremiumDupeNoAuthSelectionGet$Response {
-  const ProductPremiumDupeNoAuthSelectionGet$Response({
-    this.code,
-    this.message,
-    this.data,
-    this.traceId,
-  });
-
-  factory ProductPremiumDupeNoAuthSelectionGet$Response.fromJson(
-    Map<String, dynamic> json,
-  ) => _$ProductPremiumDupeNoAuthSelectionGet$ResponseFromJson(json);
-
-  static const toJsonFactory =
-      _$ProductPremiumDupeNoAuthSelectionGet$ResponseToJson;
-  Map<String, dynamic> toJson() =>
-      _$ProductPremiumDupeNoAuthSelectionGet$ResponseToJson(this);
-
-  @JsonKey(name: 'code')
-  final int? code;
-  @JsonKey(name: 'message')
-  final String? message;
-  @JsonKey(name: 'data')
-  final List<ProductPremiumDupeNoAuthSelectionGet$Response$Data$Item>? data;
-  @JsonKey(name: 'traceId')
-  final String? traceId;
-  static const fromJsonFactory =
-      _$ProductPremiumDupeNoAuthSelectionGet$ResponseFromJson;
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other is ProductPremiumDupeNoAuthSelectionGet$Response &&
-            (identical(other.code, code) ||
-                const DeepCollectionEquality().equals(other.code, code)) &&
-            (identical(other.message, message) ||
-                const DeepCollectionEquality().equals(
-                  other.message,
-                  message,
-                )) &&
-            (identical(other.data, data) ||
-                const DeepCollectionEquality().equals(other.data, data)) &&
-            (identical(other.traceId, traceId) ||
-                const DeepCollectionEquality().equals(other.traceId, traceId)));
-  }
-
-  @override
-  String toString() => jsonEncode(this);
-
-  @override
-  int get hashCode =>
-      const DeepCollectionEquality().hash(code) ^
-      const DeepCollectionEquality().hash(message) ^
-      const DeepCollectionEquality().hash(data) ^
-      const DeepCollectionEquality().hash(traceId) ^
-      runtimeType.hashCode;
-}
-
-extension $ProductPremiumDupeNoAuthSelectionGet$ResponseExtension
-    on ProductPremiumDupeNoAuthSelectionGet$Response {
-  ProductPremiumDupeNoAuthSelectionGet$Response copyWith({
-    int? code,
-    String? message,
-    List<ProductPremiumDupeNoAuthSelectionGet$Response$Data$Item>? data,
-    String? traceId,
-  }) {
-    return ProductPremiumDupeNoAuthSelectionGet$Response(
-      code: code ?? this.code,
-      message: message ?? this.message,
-      data: data ?? this.data,
-      traceId: traceId ?? this.traceId,
-    );
-  }
-
-  ProductPremiumDupeNoAuthSelectionGet$Response copyWithWrapped({
-    Wrapped<int?>? code,
-    Wrapped<String?>? message,
-    Wrapped<List<ProductPremiumDupeNoAuthSelectionGet$Response$Data$Item>?>?
+    Wrapped<ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data?>?
     data,
     Wrapped<String?>? traceId,
   }) {
-    return ProductPremiumDupeNoAuthSelectionGet$Response(
+    return ProductServiceProductPremiumDupeNoAuthPagePost$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
@@ -1982,20 +1931,210 @@ extension $ProductPremiumDupeNoAuthSelectionGet$ResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ExternalPurchaseRecordPost$Response {
-  const ExternalPurchaseRecordPost$Response({
+class ProductServiceProductPremiumDupeNoAuthMetaGet$Response {
+  const ProductServiceProductPremiumDupeNoAuthMetaGet$Response({
+    this.code,
+    this.message,
+    this.data,
+    this.traceId,
+  });
+
+  factory ProductServiceProductPremiumDupeNoAuthMetaGet$Response.fromJson(
+    Map<String, dynamic> json,
+  ) => _$ProductServiceProductPremiumDupeNoAuthMetaGet$ResponseFromJson(json);
+
+  static const toJsonFactory =
+      _$ProductServiceProductPremiumDupeNoAuthMetaGet$ResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$ProductServiceProductPremiumDupeNoAuthMetaGet$ResponseToJson(this);
+
+  @JsonKey(name: 'code')
+  final int? code;
+  @JsonKey(name: 'message')
+  final String? message;
+  @JsonKey(name: 'data')
+  final ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data? data;
+  @JsonKey(name: 'traceId')
+  final String? traceId;
+  static const fromJsonFactory =
+      _$ProductServiceProductPremiumDupeNoAuthMetaGet$ResponseFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is ProductServiceProductPremiumDupeNoAuthMetaGet$Response &&
+            (identical(other.code, code) ||
+                const DeepCollectionEquality().equals(other.code, code)) &&
+            (identical(other.message, message) ||
+                const DeepCollectionEquality().equals(
+                  other.message,
+                  message,
+                )) &&
+            (identical(other.data, data) ||
+                const DeepCollectionEquality().equals(other.data, data)) &&
+            (identical(other.traceId, traceId) ||
+                const DeepCollectionEquality().equals(other.traceId, traceId)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(code) ^
+      const DeepCollectionEquality().hash(message) ^
+      const DeepCollectionEquality().hash(data) ^
+      const DeepCollectionEquality().hash(traceId) ^
+      runtimeType.hashCode;
+}
+
+extension $ProductServiceProductPremiumDupeNoAuthMetaGet$ResponseExtension
+    on ProductServiceProductPremiumDupeNoAuthMetaGet$Response {
+  ProductServiceProductPremiumDupeNoAuthMetaGet$Response copyWith({
+    int? code,
+    String? message,
+    ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data? data,
+    String? traceId,
+  }) {
+    return ProductServiceProductPremiumDupeNoAuthMetaGet$Response(
+      code: code ?? this.code,
+      message: message ?? this.message,
+      data: data ?? this.data,
+      traceId: traceId ?? this.traceId,
+    );
+  }
+
+  ProductServiceProductPremiumDupeNoAuthMetaGet$Response copyWithWrapped({
+    Wrapped<int?>? code,
+    Wrapped<String?>? message,
+    Wrapped<ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data?>? data,
+    Wrapped<String?>? traceId,
+  }) {
+    return ProductServiceProductPremiumDupeNoAuthMetaGet$Response(
+      code: (code != null ? code.value : this.code),
+      message: (message != null ? message.value : this.message),
+      data: (data != null ? data.value : this.data),
+      traceId: (traceId != null ? traceId.value : this.traceId),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class ProductServiceProductPremiumDupeNoAuthSelectionGet$Response {
+  const ProductServiceProductPremiumDupeNoAuthSelectionGet$Response({
+    this.code,
+    this.message,
+    this.data,
+    this.traceId,
+  });
+
+  factory ProductServiceProductPremiumDupeNoAuthSelectionGet$Response.fromJson(
+    Map<String, dynamic> json,
+  ) => _$ProductServiceProductPremiumDupeNoAuthSelectionGet$ResponseFromJson(
+    json,
+  );
+
+  static const toJsonFactory =
+      _$ProductServiceProductPremiumDupeNoAuthSelectionGet$ResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$ProductServiceProductPremiumDupeNoAuthSelectionGet$ResponseToJson(this);
+
+  @JsonKey(name: 'code')
+  final int? code;
+  @JsonKey(name: 'message')
+  final String? message;
+  @JsonKey(name: 'data')
+  final List<
+    ProductServiceProductPremiumDupeNoAuthSelectionGet$Response$Data$Item
+  >?
+  data;
+  @JsonKey(name: 'traceId')
+  final String? traceId;
+  static const fromJsonFactory =
+      _$ProductServiceProductPremiumDupeNoAuthSelectionGet$ResponseFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is ProductServiceProductPremiumDupeNoAuthSelectionGet$Response &&
+            (identical(other.code, code) ||
+                const DeepCollectionEquality().equals(other.code, code)) &&
+            (identical(other.message, message) ||
+                const DeepCollectionEquality().equals(
+                  other.message,
+                  message,
+                )) &&
+            (identical(other.data, data) ||
+                const DeepCollectionEquality().equals(other.data, data)) &&
+            (identical(other.traceId, traceId) ||
+                const DeepCollectionEquality().equals(other.traceId, traceId)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(code) ^
+      const DeepCollectionEquality().hash(message) ^
+      const DeepCollectionEquality().hash(data) ^
+      const DeepCollectionEquality().hash(traceId) ^
+      runtimeType.hashCode;
+}
+
+extension $ProductServiceProductPremiumDupeNoAuthSelectionGet$ResponseExtension
+    on ProductServiceProductPremiumDupeNoAuthSelectionGet$Response {
+  ProductServiceProductPremiumDupeNoAuthSelectionGet$Response copyWith({
+    int? code,
+    String? message,
+    List<ProductServiceProductPremiumDupeNoAuthSelectionGet$Response$Data$Item>?
+    data,
+    String? traceId,
+  }) {
+    return ProductServiceProductPremiumDupeNoAuthSelectionGet$Response(
+      code: code ?? this.code,
+      message: message ?? this.message,
+      data: data ?? this.data,
+      traceId: traceId ?? this.traceId,
+    );
+  }
+
+  ProductServiceProductPremiumDupeNoAuthSelectionGet$Response copyWithWrapped({
+    Wrapped<int?>? code,
+    Wrapped<String?>? message,
+    Wrapped<
+      List<
+        ProductServiceProductPremiumDupeNoAuthSelectionGet$Response$Data$Item
+      >?
+    >?
+    data,
+    Wrapped<String?>? traceId,
+  }) {
+    return ProductServiceProductPremiumDupeNoAuthSelectionGet$Response(
+      code: (code != null ? code.value : this.code),
+      message: (message != null ? message.value : this.message),
+      data: (data != null ? data.value : this.data),
+      traceId: (traceId != null ? traceId.value : this.traceId),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class ProductServiceExternalPurchaseRecordPost$Response {
+  const ProductServiceExternalPurchaseRecordPost$Response({
     this.code,
     this.message,
     this.data,
   });
 
-  factory ExternalPurchaseRecordPost$Response.fromJson(
+  factory ProductServiceExternalPurchaseRecordPost$Response.fromJson(
     Map<String, dynamic> json,
-  ) => _$ExternalPurchaseRecordPost$ResponseFromJson(json);
+  ) => _$ProductServiceExternalPurchaseRecordPost$ResponseFromJson(json);
 
-  static const toJsonFactory = _$ExternalPurchaseRecordPost$ResponseToJson;
+  static const toJsonFactory =
+      _$ProductServiceExternalPurchaseRecordPost$ResponseToJson;
   Map<String, dynamic> toJson() =>
-      _$ExternalPurchaseRecordPost$ResponseToJson(this);
+      _$ProductServiceExternalPurchaseRecordPost$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final double? code;
@@ -2003,12 +2142,13 @@ class ExternalPurchaseRecordPost$Response {
   final String? message;
   @JsonKey(name: 'data')
   final bool? data;
-  static const fromJsonFactory = _$ExternalPurchaseRecordPost$ResponseFromJson;
+  static const fromJsonFactory =
+      _$ProductServiceExternalPurchaseRecordPost$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ExternalPurchaseRecordPost$Response &&
+        (other is ProductServiceExternalPurchaseRecordPost$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -2031,26 +2171,26 @@ class ExternalPurchaseRecordPost$Response {
       runtimeType.hashCode;
 }
 
-extension $ExternalPurchaseRecordPost$ResponseExtension
-    on ExternalPurchaseRecordPost$Response {
-  ExternalPurchaseRecordPost$Response copyWith({
+extension $ProductServiceExternalPurchaseRecordPost$ResponseExtension
+    on ProductServiceExternalPurchaseRecordPost$Response {
+  ProductServiceExternalPurchaseRecordPost$Response copyWith({
     double? code,
     String? message,
     bool? data,
   }) {
-    return ExternalPurchaseRecordPost$Response(
+    return ProductServiceExternalPurchaseRecordPost$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       data: data ?? this.data,
     );
   }
 
-  ExternalPurchaseRecordPost$Response copyWithWrapped({
+  ProductServiceExternalPurchaseRecordPost$Response copyWithWrapped({
     Wrapped<double?>? code,
     Wrapped<String?>? message,
     Wrapped<bool?>? data,
   }) {
-    return ExternalPurchaseRecordPost$Response(
+    return ProductServiceExternalPurchaseRecordPost$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
@@ -2059,36 +2199,38 @@ extension $ExternalPurchaseRecordPost$ResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthPushProductGet$Response {
-  const ProductNoAuthPushProductGet$Response({
+class ProductServiceProductNoAuthPushProductGet$Response {
+  const ProductServiceProductNoAuthPushProductGet$Response({
     required this.code,
     required this.message,
     required this.data,
     required this.traceId,
   });
 
-  factory ProductNoAuthPushProductGet$Response.fromJson(
+  factory ProductServiceProductNoAuthPushProductGet$Response.fromJson(
     Map<String, dynamic> json,
-  ) => _$ProductNoAuthPushProductGet$ResponseFromJson(json);
+  ) => _$ProductServiceProductNoAuthPushProductGet$ResponseFromJson(json);
 
-  static const toJsonFactory = _$ProductNoAuthPushProductGet$ResponseToJson;
+  static const toJsonFactory =
+      _$ProductServiceProductNoAuthPushProductGet$ResponseToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthPushProductGet$ResponseToJson(this);
+      _$ProductServiceProductNoAuthPushProductGet$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final int code;
   @JsonKey(name: 'message')
   final String message;
   @JsonKey(name: 'data')
-  final ProductNoAuthPushProductGet$Response$Data data;
+  final ProductServiceProductNoAuthPushProductGet$Response$Data data;
   @JsonKey(name: 'traceId')
   final String traceId;
-  static const fromJsonFactory = _$ProductNoAuthPushProductGet$ResponseFromJson;
+  static const fromJsonFactory =
+      _$ProductServiceProductNoAuthPushProductGet$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ProductNoAuthPushProductGet$Response &&
+        (other is ProductServiceProductNoAuthPushProductGet$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -2114,15 +2256,15 @@ class ProductNoAuthPushProductGet$Response {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthPushProductGet$ResponseExtension
-    on ProductNoAuthPushProductGet$Response {
-  ProductNoAuthPushProductGet$Response copyWith({
+extension $ProductServiceProductNoAuthPushProductGet$ResponseExtension
+    on ProductServiceProductNoAuthPushProductGet$Response {
+  ProductServiceProductNoAuthPushProductGet$Response copyWith({
     int? code,
     String? message,
-    ProductNoAuthPushProductGet$Response$Data? data,
+    ProductServiceProductNoAuthPushProductGet$Response$Data? data,
     String? traceId,
   }) {
-    return ProductNoAuthPushProductGet$Response(
+    return ProductServiceProductNoAuthPushProductGet$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       data: data ?? this.data,
@@ -2130,13 +2272,13 @@ extension $ProductNoAuthPushProductGet$ResponseExtension
     );
   }
 
-  ProductNoAuthPushProductGet$Response copyWithWrapped({
+  ProductServiceProductNoAuthPushProductGet$Response copyWithWrapped({
     Wrapped<int>? code,
     Wrapped<String>? message,
-    Wrapped<ProductNoAuthPushProductGet$Response$Data>? data,
+    Wrapped<ProductServiceProductNoAuthPushProductGet$Response$Data>? data,
     Wrapped<String>? traceId,
   }) {
-    return ProductNoAuthPushProductGet$Response(
+    return ProductServiceProductNoAuthPushProductGet$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
@@ -2146,35 +2288,38 @@ extension $ProductNoAuthPushProductGet$ResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthSearchGet$Response {
-  const ProductNoAuthSearchGet$Response({
+class ProductServiceProductNoAuthSearchGet$Response {
+  const ProductServiceProductNoAuthSearchGet$Response({
     required this.code,
     required this.message,
     required this.data,
     required this.traceId,
   });
 
-  factory ProductNoAuthSearchGet$Response.fromJson(Map<String, dynamic> json) =>
-      _$ProductNoAuthSearchGet$ResponseFromJson(json);
+  factory ProductServiceProductNoAuthSearchGet$Response.fromJson(
+    Map<String, dynamic> json,
+  ) => _$ProductServiceProductNoAuthSearchGet$ResponseFromJson(json);
 
-  static const toJsonFactory = _$ProductNoAuthSearchGet$ResponseToJson;
+  static const toJsonFactory =
+      _$ProductServiceProductNoAuthSearchGet$ResponseToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthSearchGet$ResponseToJson(this);
+      _$ProductServiceProductNoAuthSearchGet$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final int code;
   @JsonKey(name: 'message')
   final String message;
   @JsonKey(name: 'data')
-  final List<ProductNoAuthSearchGet$Response$Data$Item> data;
+  final List<ProductServiceProductNoAuthSearchGet$Response$Data$Item> data;
   @JsonKey(name: 'traceId')
   final String traceId;
-  static const fromJsonFactory = _$ProductNoAuthSearchGet$ResponseFromJson;
+  static const fromJsonFactory =
+      _$ProductServiceProductNoAuthSearchGet$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ProductNoAuthSearchGet$Response &&
+        (other is ProductServiceProductNoAuthSearchGet$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -2200,15 +2345,15 @@ class ProductNoAuthSearchGet$Response {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthSearchGet$ResponseExtension
-    on ProductNoAuthSearchGet$Response {
-  ProductNoAuthSearchGet$Response copyWith({
+extension $ProductServiceProductNoAuthSearchGet$ResponseExtension
+    on ProductServiceProductNoAuthSearchGet$Response {
+  ProductServiceProductNoAuthSearchGet$Response copyWith({
     int? code,
     String? message,
-    List<ProductNoAuthSearchGet$Response$Data$Item>? data,
+    List<ProductServiceProductNoAuthSearchGet$Response$Data$Item>? data,
     String? traceId,
   }) {
-    return ProductNoAuthSearchGet$Response(
+    return ProductServiceProductNoAuthSearchGet$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       data: data ?? this.data,
@@ -2216,13 +2361,14 @@ extension $ProductNoAuthSearchGet$ResponseExtension
     );
   }
 
-  ProductNoAuthSearchGet$Response copyWithWrapped({
+  ProductServiceProductNoAuthSearchGet$Response copyWithWrapped({
     Wrapped<int>? code,
     Wrapped<String>? message,
-    Wrapped<List<ProductNoAuthSearchGet$Response$Data$Item>>? data,
+    Wrapped<List<ProductServiceProductNoAuthSearchGet$Response$Data$Item>>?
+    data,
     Wrapped<String>? traceId,
   }) {
-    return ProductNoAuthSearchGet$Response(
+    return ProductServiceProductNoAuthSearchGet$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
@@ -2232,8 +2378,8 @@ extension $ProductNoAuthSearchGet$ResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthCombineSearchGet$Response {
-  const ProductNoAuthCombineSearchGet$Response({
+class ProductServiceProductNoAuthCombineSearchGet$Response {
+  const ProductServiceProductNoAuthCombineSearchGet$Response({
     this.code,
     this.message,
     this.data,
@@ -2242,20 +2388,21 @@ class ProductNoAuthCombineSearchGet$Response {
     this.success,
   });
 
-  factory ProductNoAuthCombineSearchGet$Response.fromJson(
+  factory ProductServiceProductNoAuthCombineSearchGet$Response.fromJson(
     Map<String, dynamic> json,
-  ) => _$ProductNoAuthCombineSearchGet$ResponseFromJson(json);
+  ) => _$ProductServiceProductNoAuthCombineSearchGet$ResponseFromJson(json);
 
-  static const toJsonFactory = _$ProductNoAuthCombineSearchGet$ResponseToJson;
+  static const toJsonFactory =
+      _$ProductServiceProductNoAuthCombineSearchGet$ResponseToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthCombineSearchGet$ResponseToJson(this);
+      _$ProductServiceProductNoAuthCombineSearchGet$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final double? code;
   @JsonKey(name: 'message')
   final String? message;
   @JsonKey(name: 'data')
-  final ProductNoAuthCombineSearchGet$Response$Data? data;
+  final ProductServiceProductNoAuthCombineSearchGet$Response$Data? data;
   @JsonKey(name: 'traceId')
   final String? traceId;
   @JsonKey(name: 'placeholder')
@@ -2263,12 +2410,12 @@ class ProductNoAuthCombineSearchGet$Response {
   @JsonKey(name: 'success')
   final bool? success;
   static const fromJsonFactory =
-      _$ProductNoAuthCombineSearchGet$ResponseFromJson;
+      _$ProductServiceProductNoAuthCombineSearchGet$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ProductNoAuthCombineSearchGet$Response &&
+        (other is ProductServiceProductNoAuthCombineSearchGet$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -2306,17 +2453,17 @@ class ProductNoAuthCombineSearchGet$Response {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthCombineSearchGet$ResponseExtension
-    on ProductNoAuthCombineSearchGet$Response {
-  ProductNoAuthCombineSearchGet$Response copyWith({
+extension $ProductServiceProductNoAuthCombineSearchGet$ResponseExtension
+    on ProductServiceProductNoAuthCombineSearchGet$Response {
+  ProductServiceProductNoAuthCombineSearchGet$Response copyWith({
     double? code,
     String? message,
-    ProductNoAuthCombineSearchGet$Response$Data? data,
+    ProductServiceProductNoAuthCombineSearchGet$Response$Data? data,
     String? traceId,
     Object? placeholder,
     bool? success,
   }) {
-    return ProductNoAuthCombineSearchGet$Response(
+    return ProductServiceProductNoAuthCombineSearchGet$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       data: data ?? this.data,
@@ -2326,15 +2473,15 @@ extension $ProductNoAuthCombineSearchGet$ResponseExtension
     );
   }
 
-  ProductNoAuthCombineSearchGet$Response copyWithWrapped({
+  ProductServiceProductNoAuthCombineSearchGet$Response copyWithWrapped({
     Wrapped<double?>? code,
     Wrapped<String?>? message,
-    Wrapped<ProductNoAuthCombineSearchGet$Response$Data?>? data,
+    Wrapped<ProductServiceProductNoAuthCombineSearchGet$Response$Data?>? data,
     Wrapped<String?>? traceId,
     Wrapped<Object?>? placeholder,
     Wrapped<bool?>? success,
   }) {
-    return ProductNoAuthCombineSearchGet$Response(
+    return ProductServiceProductNoAuthCombineSearchGet$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
@@ -2346,8 +2493,8 @@ extension $ProductNoAuthCombineSearchGet$ResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthNewArrivalProductGet$Response {
-  const ProductNoAuthNewArrivalProductGet$Response({
+class ProductServiceProductNoAuthNewArrivalProductGet$Response {
+  const ProductServiceProductNoAuthNewArrivalProductGet$Response({
     this.code,
     this.message,
     this.data,
@@ -2356,21 +2503,21 @@ class ProductNoAuthNewArrivalProductGet$Response {
     this.success,
   });
 
-  factory ProductNoAuthNewArrivalProductGet$Response.fromJson(
+  factory ProductServiceProductNoAuthNewArrivalProductGet$Response.fromJson(
     Map<String, dynamic> json,
-  ) => _$ProductNoAuthNewArrivalProductGet$ResponseFromJson(json);
+  ) => _$ProductServiceProductNoAuthNewArrivalProductGet$ResponseFromJson(json);
 
   static const toJsonFactory =
-      _$ProductNoAuthNewArrivalProductGet$ResponseToJson;
+      _$ProductServiceProductNoAuthNewArrivalProductGet$ResponseToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthNewArrivalProductGet$ResponseToJson(this);
+      _$ProductServiceProductNoAuthNewArrivalProductGet$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final double? code;
   @JsonKey(name: 'message')
   final String? message;
   @JsonKey(name: 'data')
-  final ProductNoAuthNewArrivalProductGet$Response$Data? data;
+  final ProductServiceProductNoAuthNewArrivalProductGet$Response$Data? data;
   @JsonKey(name: 'traceId')
   final String? traceId;
   @JsonKey(name: 'placeholder')
@@ -2378,12 +2525,12 @@ class ProductNoAuthNewArrivalProductGet$Response {
   @JsonKey(name: 'success')
   final bool? success;
   static const fromJsonFactory =
-      _$ProductNoAuthNewArrivalProductGet$ResponseFromJson;
+      _$ProductServiceProductNoAuthNewArrivalProductGet$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ProductNoAuthNewArrivalProductGet$Response &&
+        (other is ProductServiceProductNoAuthNewArrivalProductGet$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -2421,17 +2568,17 @@ class ProductNoAuthNewArrivalProductGet$Response {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthNewArrivalProductGet$ResponseExtension
-    on ProductNoAuthNewArrivalProductGet$Response {
-  ProductNoAuthNewArrivalProductGet$Response copyWith({
+extension $ProductServiceProductNoAuthNewArrivalProductGet$ResponseExtension
+    on ProductServiceProductNoAuthNewArrivalProductGet$Response {
+  ProductServiceProductNoAuthNewArrivalProductGet$Response copyWith({
     double? code,
     String? message,
-    ProductNoAuthNewArrivalProductGet$Response$Data? data,
+    ProductServiceProductNoAuthNewArrivalProductGet$Response$Data? data,
     String? traceId,
     Object? placeholder,
     bool? success,
   }) {
-    return ProductNoAuthNewArrivalProductGet$Response(
+    return ProductServiceProductNoAuthNewArrivalProductGet$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       data: data ?? this.data,
@@ -2441,15 +2588,16 @@ extension $ProductNoAuthNewArrivalProductGet$ResponseExtension
     );
   }
 
-  ProductNoAuthNewArrivalProductGet$Response copyWithWrapped({
+  ProductServiceProductNoAuthNewArrivalProductGet$Response copyWithWrapped({
     Wrapped<double?>? code,
     Wrapped<String?>? message,
-    Wrapped<ProductNoAuthNewArrivalProductGet$Response$Data?>? data,
+    Wrapped<ProductServiceProductNoAuthNewArrivalProductGet$Response$Data?>?
+    data,
     Wrapped<String?>? traceId,
     Wrapped<Object?>? placeholder,
     Wrapped<bool?>? success,
   }) {
-    return ProductNoAuthNewArrivalProductGet$Response(
+    return ProductServiceProductNoAuthNewArrivalProductGet$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
@@ -2461,8 +2609,8 @@ extension $ProductNoAuthNewArrivalProductGet$ResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthNewArrivalProductBrandGet$Response {
-  const ProductNoAuthNewArrivalProductBrandGet$Response({
+class ProductServiceProductNoAuthNewArrivalProductBrandGet$Response {
+  const ProductServiceProductNoAuthNewArrivalProductBrandGet$Response({
     this.code,
     this.message,
     this.data,
@@ -2471,14 +2619,18 @@ class ProductNoAuthNewArrivalProductBrandGet$Response {
     this.success,
   });
 
-  factory ProductNoAuthNewArrivalProductBrandGet$Response.fromJson(
+  factory ProductServiceProductNoAuthNewArrivalProductBrandGet$Response.fromJson(
     Map<String, dynamic> json,
-  ) => _$ProductNoAuthNewArrivalProductBrandGet$ResponseFromJson(json);
+  ) => _$ProductServiceProductNoAuthNewArrivalProductBrandGet$ResponseFromJson(
+    json,
+  );
 
   static const toJsonFactory =
-      _$ProductNoAuthNewArrivalProductBrandGet$ResponseToJson;
+      _$ProductServiceProductNoAuthNewArrivalProductBrandGet$ResponseToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthNewArrivalProductBrandGet$ResponseToJson(this);
+      _$ProductServiceProductNoAuthNewArrivalProductBrandGet$ResponseToJson(
+        this,
+      );
 
   @JsonKey(name: 'code')
   final double? code;
@@ -2493,12 +2645,12 @@ class ProductNoAuthNewArrivalProductBrandGet$Response {
   @JsonKey(name: 'success')
   final bool? success;
   static const fromJsonFactory =
-      _$ProductNoAuthNewArrivalProductBrandGet$ResponseFromJson;
+      _$ProductServiceProductNoAuthNewArrivalProductBrandGet$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ProductNoAuthNewArrivalProductBrandGet$Response &&
+        (other is ProductServiceProductNoAuthNewArrivalProductBrandGet$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -2536,9 +2688,9 @@ class ProductNoAuthNewArrivalProductBrandGet$Response {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthNewArrivalProductBrandGet$ResponseExtension
-    on ProductNoAuthNewArrivalProductBrandGet$Response {
-  ProductNoAuthNewArrivalProductBrandGet$Response copyWith({
+extension $ProductServiceProductNoAuthNewArrivalProductBrandGet$ResponseExtension
+    on ProductServiceProductNoAuthNewArrivalProductBrandGet$Response {
+  ProductServiceProductNoAuthNewArrivalProductBrandGet$Response copyWith({
     double? code,
     String? message,
     List<String>? data,
@@ -2546,7 +2698,7 @@ extension $ProductNoAuthNewArrivalProductBrandGet$ResponseExtension
     Object? placeholder,
     bool? success,
   }) {
-    return ProductNoAuthNewArrivalProductBrandGet$Response(
+    return ProductServiceProductNoAuthNewArrivalProductBrandGet$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       data: data ?? this.data,
@@ -2556,7 +2708,8 @@ extension $ProductNoAuthNewArrivalProductBrandGet$ResponseExtension
     );
   }
 
-  ProductNoAuthNewArrivalProductBrandGet$Response copyWithWrapped({
+  ProductServiceProductNoAuthNewArrivalProductBrandGet$Response
+  copyWithWrapped({
     Wrapped<double?>? code,
     Wrapped<String?>? message,
     Wrapped<List<String>?>? data,
@@ -2564,7 +2717,7 @@ extension $ProductNoAuthNewArrivalProductBrandGet$ResponseExtension
     Wrapped<Object?>? placeholder,
     Wrapped<bool?>? success,
   }) {
-    return ProductNoAuthNewArrivalProductBrandGet$Response(
+    return ProductServiceProductNoAuthNewArrivalProductBrandGet$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
@@ -2576,352 +2729,38 @@ extension $ProductNoAuthNewArrivalProductBrandGet$ResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthSkuListGet$Response {
-  const ProductNoAuthSkuListGet$Response({
+class ProductServiceProductNoAuthSkuListGet$Response {
+  const ProductServiceProductNoAuthSkuListGet$Response({
     required this.code,
     required this.message,
     required this.data,
     required this.traceId,
   });
 
-  factory ProductNoAuthSkuListGet$Response.fromJson(
+  factory ProductServiceProductNoAuthSkuListGet$Response.fromJson(
     Map<String, dynamic> json,
-  ) => _$ProductNoAuthSkuListGet$ResponseFromJson(json);
-
-  static const toJsonFactory = _$ProductNoAuthSkuListGet$ResponseToJson;
-  Map<String, dynamic> toJson() =>
-      _$ProductNoAuthSkuListGet$ResponseToJson(this);
-
-  @JsonKey(name: 'code')
-  final int code;
-  @JsonKey(name: 'message')
-  final String message;
-  @JsonKey(name: 'data')
-  final List<ProductNoAuthSkuListGet$Response$Data$Item> data;
-  @JsonKey(name: 'traceId')
-  final String traceId;
-  static const fromJsonFactory = _$ProductNoAuthSkuListGet$ResponseFromJson;
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other is ProductNoAuthSkuListGet$Response &&
-            (identical(other.code, code) ||
-                const DeepCollectionEquality().equals(other.code, code)) &&
-            (identical(other.message, message) ||
-                const DeepCollectionEquality().equals(
-                  other.message,
-                  message,
-                )) &&
-            (identical(other.data, data) ||
-                const DeepCollectionEquality().equals(other.data, data)) &&
-            (identical(other.traceId, traceId) ||
-                const DeepCollectionEquality().equals(other.traceId, traceId)));
-  }
-
-  @override
-  String toString() => jsonEncode(this);
-
-  @override
-  int get hashCode =>
-      const DeepCollectionEquality().hash(code) ^
-      const DeepCollectionEquality().hash(message) ^
-      const DeepCollectionEquality().hash(data) ^
-      const DeepCollectionEquality().hash(traceId) ^
-      runtimeType.hashCode;
-}
-
-extension $ProductNoAuthSkuListGet$ResponseExtension
-    on ProductNoAuthSkuListGet$Response {
-  ProductNoAuthSkuListGet$Response copyWith({
-    int? code,
-    String? message,
-    List<ProductNoAuthSkuListGet$Response$Data$Item>? data,
-    String? traceId,
-  }) {
-    return ProductNoAuthSkuListGet$Response(
-      code: code ?? this.code,
-      message: message ?? this.message,
-      data: data ?? this.data,
-      traceId: traceId ?? this.traceId,
-    );
-  }
-
-  ProductNoAuthSkuListGet$Response copyWithWrapped({
-    Wrapped<int>? code,
-    Wrapped<String>? message,
-    Wrapped<List<ProductNoAuthSkuListGet$Response$Data$Item>>? data,
-    Wrapped<String>? traceId,
-  }) {
-    return ProductNoAuthSkuListGet$Response(
-      code: (code != null ? code.value : this.code),
-      message: (message != null ? message.value : this.message),
-      data: (data != null ? data.value : this.data),
-      traceId: (traceId != null ? traceId.value : this.traceId),
-    );
-  }
-}
-
-@JsonSerializable(explicitToJson: true)
-class ProductNoAuthGetProductInfoGet$Response {
-  const ProductNoAuthGetProductInfoGet$Response({
-    this.code,
-    this.message,
-    this.data,
-    this.traceId,
-    this.placeholder,
-    this.success,
-  });
-
-  factory ProductNoAuthGetProductInfoGet$Response.fromJson(
-    Map<String, dynamic> json,
-  ) => _$ProductNoAuthGetProductInfoGet$ResponseFromJson(json);
-
-  static const toJsonFactory = _$ProductNoAuthGetProductInfoGet$ResponseToJson;
-  Map<String, dynamic> toJson() =>
-      _$ProductNoAuthGetProductInfoGet$ResponseToJson(this);
-
-  @JsonKey(name: 'code')
-  final double? code;
-  @JsonKey(name: 'message')
-  final String? message;
-  @JsonKey(name: 'data')
-  final ProductNoAuthGetProductInfoGet$Response$Data? data;
-  @JsonKey(name: 'traceId')
-  final String? traceId;
-  @JsonKey(name: 'placeholder')
-  final Object? placeholder;
-  @JsonKey(name: 'success')
-  final bool? success;
-  static const fromJsonFactory =
-      _$ProductNoAuthGetProductInfoGet$ResponseFromJson;
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other is ProductNoAuthGetProductInfoGet$Response &&
-            (identical(other.code, code) ||
-                const DeepCollectionEquality().equals(other.code, code)) &&
-            (identical(other.message, message) ||
-                const DeepCollectionEquality().equals(
-                  other.message,
-                  message,
-                )) &&
-            (identical(other.data, data) ||
-                const DeepCollectionEquality().equals(other.data, data)) &&
-            (identical(other.traceId, traceId) ||
-                const DeepCollectionEquality().equals(
-                  other.traceId,
-                  traceId,
-                )) &&
-            (identical(other.placeholder, placeholder) ||
-                const DeepCollectionEquality().equals(
-                  other.placeholder,
-                  placeholder,
-                )) &&
-            (identical(other.success, success) ||
-                const DeepCollectionEquality().equals(other.success, success)));
-  }
-
-  @override
-  String toString() => jsonEncode(this);
-
-  @override
-  int get hashCode =>
-      const DeepCollectionEquality().hash(code) ^
-      const DeepCollectionEquality().hash(message) ^
-      const DeepCollectionEquality().hash(data) ^
-      const DeepCollectionEquality().hash(traceId) ^
-      const DeepCollectionEquality().hash(placeholder) ^
-      const DeepCollectionEquality().hash(success) ^
-      runtimeType.hashCode;
-}
-
-extension $ProductNoAuthGetProductInfoGet$ResponseExtension
-    on ProductNoAuthGetProductInfoGet$Response {
-  ProductNoAuthGetProductInfoGet$Response copyWith({
-    double? code,
-    String? message,
-    ProductNoAuthGetProductInfoGet$Response$Data? data,
-    String? traceId,
-    Object? placeholder,
-    bool? success,
-  }) {
-    return ProductNoAuthGetProductInfoGet$Response(
-      code: code ?? this.code,
-      message: message ?? this.message,
-      data: data ?? this.data,
-      traceId: traceId ?? this.traceId,
-      placeholder: placeholder ?? this.placeholder,
-      success: success ?? this.success,
-    );
-  }
-
-  ProductNoAuthGetProductInfoGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
-    Wrapped<String?>? message,
-    Wrapped<ProductNoAuthGetProductInfoGet$Response$Data?>? data,
-    Wrapped<String?>? traceId,
-    Wrapped<Object?>? placeholder,
-    Wrapped<bool?>? success,
-  }) {
-    return ProductNoAuthGetProductInfoGet$Response(
-      code: (code != null ? code.value : this.code),
-      message: (message != null ? message.value : this.message),
-      data: (data != null ? data.value : this.data),
-      traceId: (traceId != null ? traceId.value : this.traceId),
-      placeholder: (placeholder != null ? placeholder.value : this.placeholder),
-      success: (success != null ? success.value : this.success),
-    );
-  }
-}
-
-@JsonSerializable(explicitToJson: true)
-class ProductNoAuthPremierProductCategoryGet$Response {
-  const ProductNoAuthPremierProductCategoryGet$Response({
-    this.code,
-    this.message,
-    this.data,
-    this.traceId,
-    this.placeholder,
-    this.success,
-  });
-
-  factory ProductNoAuthPremierProductCategoryGet$Response.fromJson(
-    Map<String, dynamic> json,
-  ) => _$ProductNoAuthPremierProductCategoryGet$ResponseFromJson(json);
+  ) => _$ProductServiceProductNoAuthSkuListGet$ResponseFromJson(json);
 
   static const toJsonFactory =
-      _$ProductNoAuthPremierProductCategoryGet$ResponseToJson;
+      _$ProductServiceProductNoAuthSkuListGet$ResponseToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthPremierProductCategoryGet$ResponseToJson(this);
-
-  @JsonKey(name: 'code')
-  final double? code;
-  @JsonKey(name: 'message')
-  final String? message;
-  @JsonKey(name: 'data')
-  final ProductNoAuthPremierProductCategoryGet$Response$Data? data;
-  @JsonKey(name: 'traceId')
-  final String? traceId;
-  @JsonKey(name: 'placeholder')
-  final Object? placeholder;
-  @JsonKey(name: 'success')
-  final bool? success;
-  static const fromJsonFactory =
-      _$ProductNoAuthPremierProductCategoryGet$ResponseFromJson;
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other is ProductNoAuthPremierProductCategoryGet$Response &&
-            (identical(other.code, code) ||
-                const DeepCollectionEquality().equals(other.code, code)) &&
-            (identical(other.message, message) ||
-                const DeepCollectionEquality().equals(
-                  other.message,
-                  message,
-                )) &&
-            (identical(other.data, data) ||
-                const DeepCollectionEquality().equals(other.data, data)) &&
-            (identical(other.traceId, traceId) ||
-                const DeepCollectionEquality().equals(
-                  other.traceId,
-                  traceId,
-                )) &&
-            (identical(other.placeholder, placeholder) ||
-                const DeepCollectionEquality().equals(
-                  other.placeholder,
-                  placeholder,
-                )) &&
-            (identical(other.success, success) ||
-                const DeepCollectionEquality().equals(other.success, success)));
-  }
-
-  @override
-  String toString() => jsonEncode(this);
-
-  @override
-  int get hashCode =>
-      const DeepCollectionEquality().hash(code) ^
-      const DeepCollectionEquality().hash(message) ^
-      const DeepCollectionEquality().hash(data) ^
-      const DeepCollectionEquality().hash(traceId) ^
-      const DeepCollectionEquality().hash(placeholder) ^
-      const DeepCollectionEquality().hash(success) ^
-      runtimeType.hashCode;
-}
-
-extension $ProductNoAuthPremierProductCategoryGet$ResponseExtension
-    on ProductNoAuthPremierProductCategoryGet$Response {
-  ProductNoAuthPremierProductCategoryGet$Response copyWith({
-    double? code,
-    String? message,
-    ProductNoAuthPremierProductCategoryGet$Response$Data? data,
-    String? traceId,
-    Object? placeholder,
-    bool? success,
-  }) {
-    return ProductNoAuthPremierProductCategoryGet$Response(
-      code: code ?? this.code,
-      message: message ?? this.message,
-      data: data ?? this.data,
-      traceId: traceId ?? this.traceId,
-      placeholder: placeholder ?? this.placeholder,
-      success: success ?? this.success,
-    );
-  }
-
-  ProductNoAuthPremierProductCategoryGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
-    Wrapped<String?>? message,
-    Wrapped<ProductNoAuthPremierProductCategoryGet$Response$Data?>? data,
-    Wrapped<String?>? traceId,
-    Wrapped<Object?>? placeholder,
-    Wrapped<bool?>? success,
-  }) {
-    return ProductNoAuthPremierProductCategoryGet$Response(
-      code: (code != null ? code.value : this.code),
-      message: (message != null ? message.value : this.message),
-      data: (data != null ? data.value : this.data),
-      traceId: (traceId != null ? traceId.value : this.traceId),
-      placeholder: (placeholder != null ? placeholder.value : this.placeholder),
-      success: (success != null ? success.value : this.success),
-    );
-  }
-}
-
-@JsonSerializable(explicitToJson: true)
-class ProductNoAuthHotProductGet$Response {
-  const ProductNoAuthHotProductGet$Response({
-    required this.code,
-    required this.message,
-    required this.data,
-    required this.traceId,
-  });
-
-  factory ProductNoAuthHotProductGet$Response.fromJson(
-    Map<String, dynamic> json,
-  ) => _$ProductNoAuthHotProductGet$ResponseFromJson(json);
-
-  static const toJsonFactory = _$ProductNoAuthHotProductGet$ResponseToJson;
-  Map<String, dynamic> toJson() =>
-      _$ProductNoAuthHotProductGet$ResponseToJson(this);
+      _$ProductServiceProductNoAuthSkuListGet$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final int code;
   @JsonKey(name: 'message')
   final String message;
   @JsonKey(name: 'data')
-  final List<ProductNoAuthHotProductGet$Response$Data$Item> data;
+  final List<ProductServiceProductNoAuthSkuListGet$Response$Data$Item> data;
   @JsonKey(name: 'traceId')
   final String traceId;
-  static const fromJsonFactory = _$ProductNoAuthHotProductGet$ResponseFromJson;
+  static const fromJsonFactory =
+      _$ProductServiceProductNoAuthSkuListGet$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ProductNoAuthHotProductGet$Response &&
+        (other is ProductServiceProductNoAuthSkuListGet$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -2947,15 +2786,15 @@ class ProductNoAuthHotProductGet$Response {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthHotProductGet$ResponseExtension
-    on ProductNoAuthHotProductGet$Response {
-  ProductNoAuthHotProductGet$Response copyWith({
+extension $ProductServiceProductNoAuthSkuListGet$ResponseExtension
+    on ProductServiceProductNoAuthSkuListGet$Response {
+  ProductServiceProductNoAuthSkuListGet$Response copyWith({
     int? code,
     String? message,
-    List<ProductNoAuthHotProductGet$Response$Data$Item>? data,
+    List<ProductServiceProductNoAuthSkuListGet$Response$Data$Item>? data,
     String? traceId,
   }) {
-    return ProductNoAuthHotProductGet$Response(
+    return ProductServiceProductNoAuthSkuListGet$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       data: data ?? this.data,
@@ -2963,13 +2802,14 @@ extension $ProductNoAuthHotProductGet$ResponseExtension
     );
   }
 
-  ProductNoAuthHotProductGet$Response copyWithWrapped({
+  ProductServiceProductNoAuthSkuListGet$Response copyWithWrapped({
     Wrapped<int>? code,
     Wrapped<String>? message,
-    Wrapped<List<ProductNoAuthHotProductGet$Response$Data$Item>>? data,
+    Wrapped<List<ProductServiceProductNoAuthSkuListGet$Response$Data$Item>>?
+    data,
     Wrapped<String>? traceId,
   }) {
-    return ProductNoAuthHotProductGet$Response(
+    return ProductServiceProductNoAuthSkuListGet$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
@@ -2979,197 +2819,8 @@ extension $ProductNoAuthHotProductGet$ResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthHotProductV2Get$Response {
-  const ProductNoAuthHotProductV2Get$Response({
-    required this.code,
-    required this.message,
-    required this.data,
-    required this.traceId,
-  });
-
-  factory ProductNoAuthHotProductV2Get$Response.fromJson(
-    Map<String, dynamic> json,
-  ) => _$ProductNoAuthHotProductV2Get$ResponseFromJson(json);
-
-  static const toJsonFactory = _$ProductNoAuthHotProductV2Get$ResponseToJson;
-  Map<String, dynamic> toJson() =>
-      _$ProductNoAuthHotProductV2Get$ResponseToJson(this);
-
-  @JsonKey(name: 'code')
-  final int code;
-  @JsonKey(name: 'message')
-  final String message;
-  @JsonKey(name: 'data')
-  final ProductNoAuthHotProductV2Get$Response$Data data;
-  @JsonKey(name: 'traceId')
-  final String traceId;
-  static const fromJsonFactory =
-      _$ProductNoAuthHotProductV2Get$ResponseFromJson;
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other is ProductNoAuthHotProductV2Get$Response &&
-            (identical(other.code, code) ||
-                const DeepCollectionEquality().equals(other.code, code)) &&
-            (identical(other.message, message) ||
-                const DeepCollectionEquality().equals(
-                  other.message,
-                  message,
-                )) &&
-            (identical(other.data, data) ||
-                const DeepCollectionEquality().equals(other.data, data)) &&
-            (identical(other.traceId, traceId) ||
-                const DeepCollectionEquality().equals(other.traceId, traceId)));
-  }
-
-  @override
-  String toString() => jsonEncode(this);
-
-  @override
-  int get hashCode =>
-      const DeepCollectionEquality().hash(code) ^
-      const DeepCollectionEquality().hash(message) ^
-      const DeepCollectionEquality().hash(data) ^
-      const DeepCollectionEquality().hash(traceId) ^
-      runtimeType.hashCode;
-}
-
-extension $ProductNoAuthHotProductV2Get$ResponseExtension
-    on ProductNoAuthHotProductV2Get$Response {
-  ProductNoAuthHotProductV2Get$Response copyWith({
-    int? code,
-    String? message,
-    ProductNoAuthHotProductV2Get$Response$Data? data,
-    String? traceId,
-  }) {
-    return ProductNoAuthHotProductV2Get$Response(
-      code: code ?? this.code,
-      message: message ?? this.message,
-      data: data ?? this.data,
-      traceId: traceId ?? this.traceId,
-    );
-  }
-
-  ProductNoAuthHotProductV2Get$Response copyWithWrapped({
-    Wrapped<int>? code,
-    Wrapped<String>? message,
-    Wrapped<ProductNoAuthHotProductV2Get$Response$Data>? data,
-    Wrapped<String>? traceId,
-  }) {
-    return ProductNoAuthHotProductV2Get$Response(
-      code: (code != null ? code.value : this.code),
-      message: (message != null ? message.value : this.message),
-      data: (data != null ? data.value : this.data),
-      traceId: (traceId != null ? traceId.value : this.traceId),
-    );
-  }
-}
-
-@JsonSerializable(explicitToJson: true)
-class ProductNoAuthHotProductV3Get$Response {
-  const ProductNoAuthHotProductV3Get$Response({
-    this.code,
-    this.message,
-    this.data,
-    this.traceId,
-    this.success,
-  });
-
-  factory ProductNoAuthHotProductV3Get$Response.fromJson(
-    Map<String, dynamic> json,
-  ) => _$ProductNoAuthHotProductV3Get$ResponseFromJson(json);
-
-  static const toJsonFactory = _$ProductNoAuthHotProductV3Get$ResponseToJson;
-  Map<String, dynamic> toJson() =>
-      _$ProductNoAuthHotProductV3Get$ResponseToJson(this);
-
-  @JsonKey(name: 'code')
-  final double? code;
-  @JsonKey(name: 'message')
-  final String? message;
-  @JsonKey(name: 'data')
-  final ProductNoAuthHotProductV3Get$Response$Data? data;
-  @JsonKey(name: 'traceId')
-  final String? traceId;
-  @JsonKey(name: 'success')
-  final bool? success;
-  static const fromJsonFactory =
-      _$ProductNoAuthHotProductV3Get$ResponseFromJson;
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other is ProductNoAuthHotProductV3Get$Response &&
-            (identical(other.code, code) ||
-                const DeepCollectionEquality().equals(other.code, code)) &&
-            (identical(other.message, message) ||
-                const DeepCollectionEquality().equals(
-                  other.message,
-                  message,
-                )) &&
-            (identical(other.data, data) ||
-                const DeepCollectionEquality().equals(other.data, data)) &&
-            (identical(other.traceId, traceId) ||
-                const DeepCollectionEquality().equals(
-                  other.traceId,
-                  traceId,
-                )) &&
-            (identical(other.success, success) ||
-                const DeepCollectionEquality().equals(other.success, success)));
-  }
-
-  @override
-  String toString() => jsonEncode(this);
-
-  @override
-  int get hashCode =>
-      const DeepCollectionEquality().hash(code) ^
-      const DeepCollectionEquality().hash(message) ^
-      const DeepCollectionEquality().hash(data) ^
-      const DeepCollectionEquality().hash(traceId) ^
-      const DeepCollectionEquality().hash(success) ^
-      runtimeType.hashCode;
-}
-
-extension $ProductNoAuthHotProductV3Get$ResponseExtension
-    on ProductNoAuthHotProductV3Get$Response {
-  ProductNoAuthHotProductV3Get$Response copyWith({
-    double? code,
-    String? message,
-    ProductNoAuthHotProductV3Get$Response$Data? data,
-    String? traceId,
-    bool? success,
-  }) {
-    return ProductNoAuthHotProductV3Get$Response(
-      code: code ?? this.code,
-      message: message ?? this.message,
-      data: data ?? this.data,
-      traceId: traceId ?? this.traceId,
-      success: success ?? this.success,
-    );
-  }
-
-  ProductNoAuthHotProductV3Get$Response copyWithWrapped({
-    Wrapped<double?>? code,
-    Wrapped<String?>? message,
-    Wrapped<ProductNoAuthHotProductV3Get$Response$Data?>? data,
-    Wrapped<String?>? traceId,
-    Wrapped<bool?>? success,
-  }) {
-    return ProductNoAuthHotProductV3Get$Response(
-      code: (code != null ? code.value : this.code),
-      message: (message != null ? message.value : this.message),
-      data: (data != null ? data.value : this.data),
-      traceId: (traceId != null ? traceId.value : this.traceId),
-      success: (success != null ? success.value : this.success),
-    );
-  }
-}
-
-@JsonSerializable(explicitToJson: true)
-class ProductNoAuthFlashSaleProductGet$Response {
-  const ProductNoAuthFlashSaleProductGet$Response({
+class ProductServiceProductNoAuthGetProductInfoGet$Response {
+  const ProductServiceProductNoAuthGetProductInfoGet$Response({
     this.code,
     this.message,
     this.data,
@@ -3178,21 +2829,21 @@ class ProductNoAuthFlashSaleProductGet$Response {
     this.success,
   });
 
-  factory ProductNoAuthFlashSaleProductGet$Response.fromJson(
+  factory ProductServiceProductNoAuthGetProductInfoGet$Response.fromJson(
     Map<String, dynamic> json,
-  ) => _$ProductNoAuthFlashSaleProductGet$ResponseFromJson(json);
+  ) => _$ProductServiceProductNoAuthGetProductInfoGet$ResponseFromJson(json);
 
   static const toJsonFactory =
-      _$ProductNoAuthFlashSaleProductGet$ResponseToJson;
+      _$ProductServiceProductNoAuthGetProductInfoGet$ResponseToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthFlashSaleProductGet$ResponseToJson(this);
+      _$ProductServiceProductNoAuthGetProductInfoGet$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final double? code;
   @JsonKey(name: 'message')
   final String? message;
   @JsonKey(name: 'data')
-  final List<ProductNoAuthFlashSaleProductGet$Response$Data$Item>? data;
+  final ProductServiceProductNoAuthGetProductInfoGet$Response$Data? data;
   @JsonKey(name: 'traceId')
   final String? traceId;
   @JsonKey(name: 'placeholder')
@@ -3200,12 +2851,12 @@ class ProductNoAuthFlashSaleProductGet$Response {
   @JsonKey(name: 'success')
   final bool? success;
   static const fromJsonFactory =
-      _$ProductNoAuthFlashSaleProductGet$ResponseFromJson;
+      _$ProductServiceProductNoAuthGetProductInfoGet$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ProductNoAuthFlashSaleProductGet$Response &&
+        (other is ProductServiceProductNoAuthGetProductInfoGet$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -3243,17 +2894,17 @@ class ProductNoAuthFlashSaleProductGet$Response {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthFlashSaleProductGet$ResponseExtension
-    on ProductNoAuthFlashSaleProductGet$Response {
-  ProductNoAuthFlashSaleProductGet$Response copyWith({
+extension $ProductServiceProductNoAuthGetProductInfoGet$ResponseExtension
+    on ProductServiceProductNoAuthGetProductInfoGet$Response {
+  ProductServiceProductNoAuthGetProductInfoGet$Response copyWith({
     double? code,
     String? message,
-    List<ProductNoAuthFlashSaleProductGet$Response$Data$Item>? data,
+    ProductServiceProductNoAuthGetProductInfoGet$Response$Data? data,
     String? traceId,
     Object? placeholder,
     bool? success,
   }) {
-    return ProductNoAuthFlashSaleProductGet$Response(
+    return ProductServiceProductNoAuthGetProductInfoGet$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       data: data ?? this.data,
@@ -3263,15 +2914,15 @@ extension $ProductNoAuthFlashSaleProductGet$ResponseExtension
     );
   }
 
-  ProductNoAuthFlashSaleProductGet$Response copyWithWrapped({
+  ProductServiceProductNoAuthGetProductInfoGet$Response copyWithWrapped({
     Wrapped<double?>? code,
     Wrapped<String?>? message,
-    Wrapped<List<ProductNoAuthFlashSaleProductGet$Response$Data$Item>?>? data,
+    Wrapped<ProductServiceProductNoAuthGetProductInfoGet$Response$Data?>? data,
     Wrapped<String?>? traceId,
     Wrapped<Object?>? placeholder,
     Wrapped<bool?>? success,
   }) {
-    return ProductNoAuthFlashSaleProductGet$Response(
+    return ProductServiceProductNoAuthGetProductInfoGet$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
@@ -3283,8 +2934,8 @@ extension $ProductNoAuthFlashSaleProductGet$ResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthAlbumProductGet$Response {
-  const ProductNoAuthAlbumProductGet$Response({
+class ProductServiceProductNoAuthPremierProductCategoryGet$Response {
+  const ProductServiceProductNoAuthPremierProductCategoryGet$Response({
     this.code,
     this.message,
     this.data,
@@ -3293,20 +2944,26 @@ class ProductNoAuthAlbumProductGet$Response {
     this.success,
   });
 
-  factory ProductNoAuthAlbumProductGet$Response.fromJson(
+  factory ProductServiceProductNoAuthPremierProductCategoryGet$Response.fromJson(
     Map<String, dynamic> json,
-  ) => _$ProductNoAuthAlbumProductGet$ResponseFromJson(json);
+  ) => _$ProductServiceProductNoAuthPremierProductCategoryGet$ResponseFromJson(
+    json,
+  );
 
-  static const toJsonFactory = _$ProductNoAuthAlbumProductGet$ResponseToJson;
+  static const toJsonFactory =
+      _$ProductServiceProductNoAuthPremierProductCategoryGet$ResponseToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthAlbumProductGet$ResponseToJson(this);
+      _$ProductServiceProductNoAuthPremierProductCategoryGet$ResponseToJson(
+        this,
+      );
 
   @JsonKey(name: 'code')
   final double? code;
   @JsonKey(name: 'message')
   final String? message;
   @JsonKey(name: 'data')
-  final ProductNoAuthAlbumProductGet$Response$Data? data;
+  final ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data?
+  data;
   @JsonKey(name: 'traceId')
   final String? traceId;
   @JsonKey(name: 'placeholder')
@@ -3314,12 +2971,12 @@ class ProductNoAuthAlbumProductGet$Response {
   @JsonKey(name: 'success')
   final bool? success;
   static const fromJsonFactory =
-      _$ProductNoAuthAlbumProductGet$ResponseFromJson;
+      _$ProductServiceProductNoAuthPremierProductCategoryGet$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ProductNoAuthAlbumProductGet$Response &&
+        (other is ProductServiceProductNoAuthPremierProductCategoryGet$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -3357,17 +3014,17 @@ class ProductNoAuthAlbumProductGet$Response {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthAlbumProductGet$ResponseExtension
-    on ProductNoAuthAlbumProductGet$Response {
-  ProductNoAuthAlbumProductGet$Response copyWith({
+extension $ProductServiceProductNoAuthPremierProductCategoryGet$ResponseExtension
+    on ProductServiceProductNoAuthPremierProductCategoryGet$Response {
+  ProductServiceProductNoAuthPremierProductCategoryGet$Response copyWith({
     double? code,
     String? message,
-    ProductNoAuthAlbumProductGet$Response$Data? data,
+    ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data? data,
     String? traceId,
     Object? placeholder,
     bool? success,
   }) {
-    return ProductNoAuthAlbumProductGet$Response(
+    return ProductServiceProductNoAuthPremierProductCategoryGet$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       data: data ?? this.data,
@@ -3377,15 +3034,19 @@ extension $ProductNoAuthAlbumProductGet$ResponseExtension
     );
   }
 
-  ProductNoAuthAlbumProductGet$Response copyWithWrapped({
+  ProductServiceProductNoAuthPremierProductCategoryGet$Response
+  copyWithWrapped({
     Wrapped<double?>? code,
     Wrapped<String?>? message,
-    Wrapped<ProductNoAuthAlbumProductGet$Response$Data?>? data,
+    Wrapped<
+      ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data?
+    >?
+    data,
     Wrapped<String?>? traceId,
     Wrapped<Object?>? placeholder,
     Wrapped<bool?>? success,
   }) {
-    return ProductNoAuthAlbumProductGet$Response(
+    return ProductServiceProductNoAuthPremierProductCategoryGet$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
@@ -3397,36 +3058,38 @@ extension $ProductNoAuthAlbumProductGet$ResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ShopNoAuthGetThirdShopGet$Response {
-  const ShopNoAuthGetThirdShopGet$Response({
+class ProductServiceProductNoAuthHotProductGet$Response {
+  const ProductServiceProductNoAuthHotProductGet$Response({
     required this.code,
     required this.message,
     required this.data,
     required this.traceId,
   });
 
-  factory ShopNoAuthGetThirdShopGet$Response.fromJson(
+  factory ProductServiceProductNoAuthHotProductGet$Response.fromJson(
     Map<String, dynamic> json,
-  ) => _$ShopNoAuthGetThirdShopGet$ResponseFromJson(json);
+  ) => _$ProductServiceProductNoAuthHotProductGet$ResponseFromJson(json);
 
-  static const toJsonFactory = _$ShopNoAuthGetThirdShopGet$ResponseToJson;
+  static const toJsonFactory =
+      _$ProductServiceProductNoAuthHotProductGet$ResponseToJson;
   Map<String, dynamic> toJson() =>
-      _$ShopNoAuthGetThirdShopGet$ResponseToJson(this);
+      _$ProductServiceProductNoAuthHotProductGet$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final int code;
   @JsonKey(name: 'message')
   final String message;
   @JsonKey(name: 'data')
-  final ShopNoAuthGetThirdShopGet$Response$Data data;
+  final List<ProductServiceProductNoAuthHotProductGet$Response$Data$Item> data;
   @JsonKey(name: 'traceId')
   final String traceId;
-  static const fromJsonFactory = _$ShopNoAuthGetThirdShopGet$ResponseFromJson;
+  static const fromJsonFactory =
+      _$ProductServiceProductNoAuthHotProductGet$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ShopNoAuthGetThirdShopGet$Response &&
+        (other is ProductServiceProductNoAuthHotProductGet$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -3452,15 +3115,15 @@ class ShopNoAuthGetThirdShopGet$Response {
       runtimeType.hashCode;
 }
 
-extension $ShopNoAuthGetThirdShopGet$ResponseExtension
-    on ShopNoAuthGetThirdShopGet$Response {
-  ShopNoAuthGetThirdShopGet$Response copyWith({
+extension $ProductServiceProductNoAuthHotProductGet$ResponseExtension
+    on ProductServiceProductNoAuthHotProductGet$Response {
+  ProductServiceProductNoAuthHotProductGet$Response copyWith({
     int? code,
     String? message,
-    ShopNoAuthGetThirdShopGet$Response$Data? data,
+    List<ProductServiceProductNoAuthHotProductGet$Response$Data$Item>? data,
     String? traceId,
   }) {
-    return ShopNoAuthGetThirdShopGet$Response(
+    return ProductServiceProductNoAuthHotProductGet$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       data: data ?? this.data,
@@ -3468,13 +3131,14 @@ extension $ShopNoAuthGetThirdShopGet$ResponseExtension
     );
   }
 
-  ShopNoAuthGetThirdShopGet$Response copyWithWrapped({
+  ProductServiceProductNoAuthHotProductGet$Response copyWithWrapped({
     Wrapped<int>? code,
     Wrapped<String>? message,
-    Wrapped<ShopNoAuthGetThirdShopGet$Response$Data>? data,
+    Wrapped<List<ProductServiceProductNoAuthHotProductGet$Response$Data$Item>>?
+    data,
     Wrapped<String>? traceId,
   }) {
-    return ShopNoAuthGetThirdShopGet$Response(
+    return ProductServiceProductNoAuthHotProductGet$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
@@ -3484,42 +3148,130 @@ extension $ShopNoAuthGetThirdShopGet$ResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthKolProductGet$Response {
-  const ProductNoAuthKolProductGet$Response({
+class ProductServiceProductNoAuthHotProductV2Get$Response {
+  const ProductServiceProductNoAuthHotProductV2Get$Response({
+    required this.code,
+    required this.message,
+    required this.data,
+    required this.traceId,
+  });
+
+  factory ProductServiceProductNoAuthHotProductV2Get$Response.fromJson(
+    Map<String, dynamic> json,
+  ) => _$ProductServiceProductNoAuthHotProductV2Get$ResponseFromJson(json);
+
+  static const toJsonFactory =
+      _$ProductServiceProductNoAuthHotProductV2Get$ResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$ProductServiceProductNoAuthHotProductV2Get$ResponseToJson(this);
+
+  @JsonKey(name: 'code')
+  final int code;
+  @JsonKey(name: 'message')
+  final String message;
+  @JsonKey(name: 'data')
+  final ProductServiceProductNoAuthHotProductV2Get$Response$Data data;
+  @JsonKey(name: 'traceId')
+  final String traceId;
+  static const fromJsonFactory =
+      _$ProductServiceProductNoAuthHotProductV2Get$ResponseFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is ProductServiceProductNoAuthHotProductV2Get$Response &&
+            (identical(other.code, code) ||
+                const DeepCollectionEquality().equals(other.code, code)) &&
+            (identical(other.message, message) ||
+                const DeepCollectionEquality().equals(
+                  other.message,
+                  message,
+                )) &&
+            (identical(other.data, data) ||
+                const DeepCollectionEquality().equals(other.data, data)) &&
+            (identical(other.traceId, traceId) ||
+                const DeepCollectionEquality().equals(other.traceId, traceId)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(code) ^
+      const DeepCollectionEquality().hash(message) ^
+      const DeepCollectionEquality().hash(data) ^
+      const DeepCollectionEquality().hash(traceId) ^
+      runtimeType.hashCode;
+}
+
+extension $ProductServiceProductNoAuthHotProductV2Get$ResponseExtension
+    on ProductServiceProductNoAuthHotProductV2Get$Response {
+  ProductServiceProductNoAuthHotProductV2Get$Response copyWith({
+    int? code,
+    String? message,
+    ProductServiceProductNoAuthHotProductV2Get$Response$Data? data,
+    String? traceId,
+  }) {
+    return ProductServiceProductNoAuthHotProductV2Get$Response(
+      code: code ?? this.code,
+      message: message ?? this.message,
+      data: data ?? this.data,
+      traceId: traceId ?? this.traceId,
+    );
+  }
+
+  ProductServiceProductNoAuthHotProductV2Get$Response copyWithWrapped({
+    Wrapped<int>? code,
+    Wrapped<String>? message,
+    Wrapped<ProductServiceProductNoAuthHotProductV2Get$Response$Data>? data,
+    Wrapped<String>? traceId,
+  }) {
+    return ProductServiceProductNoAuthHotProductV2Get$Response(
+      code: (code != null ? code.value : this.code),
+      message: (message != null ? message.value : this.message),
+      data: (data != null ? data.value : this.data),
+      traceId: (traceId != null ? traceId.value : this.traceId),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class ProductServiceProductNoAuthHotProductV3Get$Response {
+  const ProductServiceProductNoAuthHotProductV3Get$Response({
     this.code,
     this.message,
     this.data,
     this.traceId,
-    this.placeholder,
     this.success,
   });
 
-  factory ProductNoAuthKolProductGet$Response.fromJson(
+  factory ProductServiceProductNoAuthHotProductV3Get$Response.fromJson(
     Map<String, dynamic> json,
-  ) => _$ProductNoAuthKolProductGet$ResponseFromJson(json);
+  ) => _$ProductServiceProductNoAuthHotProductV3Get$ResponseFromJson(json);
 
-  static const toJsonFactory = _$ProductNoAuthKolProductGet$ResponseToJson;
+  static const toJsonFactory =
+      _$ProductServiceProductNoAuthHotProductV3Get$ResponseToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthKolProductGet$ResponseToJson(this);
+      _$ProductServiceProductNoAuthHotProductV3Get$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final double? code;
   @JsonKey(name: 'message')
   final String? message;
   @JsonKey(name: 'data')
-  final List<ProductNoAuthKolProductGet$Response$Data$Item>? data;
+  final ProductServiceProductNoAuthHotProductV3Get$Response$Data? data;
   @JsonKey(name: 'traceId')
   final String? traceId;
-  @JsonKey(name: 'placeholder')
-  final Object? placeholder;
   @JsonKey(name: 'success')
   final bool? success;
-  static const fromJsonFactory = _$ProductNoAuthKolProductGet$ResponseFromJson;
+  static const fromJsonFactory =
+      _$ProductServiceProductNoAuthHotProductV3Get$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ProductNoAuthKolProductGet$Response &&
+        (other is ProductServiceProductNoAuthHotProductV3Get$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -3534,11 +3286,6 @@ class ProductNoAuthKolProductGet$Response {
                   other.traceId,
                   traceId,
                 )) &&
-            (identical(other.placeholder, placeholder) ||
-                const DeepCollectionEquality().equals(
-                  other.placeholder,
-                  placeholder,
-                )) &&
             (identical(other.success, success) ||
                 const DeepCollectionEquality().equals(other.success, success)));
   }
@@ -3552,53 +3299,48 @@ class ProductNoAuthKolProductGet$Response {
       const DeepCollectionEquality().hash(message) ^
       const DeepCollectionEquality().hash(data) ^
       const DeepCollectionEquality().hash(traceId) ^
-      const DeepCollectionEquality().hash(placeholder) ^
       const DeepCollectionEquality().hash(success) ^
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthKolProductGet$ResponseExtension
-    on ProductNoAuthKolProductGet$Response {
-  ProductNoAuthKolProductGet$Response copyWith({
+extension $ProductServiceProductNoAuthHotProductV3Get$ResponseExtension
+    on ProductServiceProductNoAuthHotProductV3Get$Response {
+  ProductServiceProductNoAuthHotProductV3Get$Response copyWith({
     double? code,
     String? message,
-    List<ProductNoAuthKolProductGet$Response$Data$Item>? data,
+    ProductServiceProductNoAuthHotProductV3Get$Response$Data? data,
     String? traceId,
-    Object? placeholder,
     bool? success,
   }) {
-    return ProductNoAuthKolProductGet$Response(
+    return ProductServiceProductNoAuthHotProductV3Get$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       data: data ?? this.data,
       traceId: traceId ?? this.traceId,
-      placeholder: placeholder ?? this.placeholder,
       success: success ?? this.success,
     );
   }
 
-  ProductNoAuthKolProductGet$Response copyWithWrapped({
+  ProductServiceProductNoAuthHotProductV3Get$Response copyWithWrapped({
     Wrapped<double?>? code,
     Wrapped<String?>? message,
-    Wrapped<List<ProductNoAuthKolProductGet$Response$Data$Item>?>? data,
+    Wrapped<ProductServiceProductNoAuthHotProductV3Get$Response$Data?>? data,
     Wrapped<String?>? traceId,
-    Wrapped<Object?>? placeholder,
     Wrapped<bool?>? success,
   }) {
-    return ProductNoAuthKolProductGet$Response(
+    return ProductServiceProductNoAuthHotProductV3Get$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
       traceId: (traceId != null ? traceId.value : this.traceId),
-      placeholder: (placeholder != null ? placeholder.value : this.placeholder),
       success: (success != null ? success.value : this.success),
     );
   }
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthPremierProductGet$Response {
-  const ProductNoAuthPremierProductGet$Response({
+class ProductServiceProductNoAuthFlashSaleProductGet$Response {
+  const ProductServiceProductNoAuthFlashSaleProductGet$Response({
     this.code,
     this.message,
     this.data,
@@ -3607,20 +3349,22 @@ class ProductNoAuthPremierProductGet$Response {
     this.success,
   });
 
-  factory ProductNoAuthPremierProductGet$Response.fromJson(
+  factory ProductServiceProductNoAuthFlashSaleProductGet$Response.fromJson(
     Map<String, dynamic> json,
-  ) => _$ProductNoAuthPremierProductGet$ResponseFromJson(json);
+  ) => _$ProductServiceProductNoAuthFlashSaleProductGet$ResponseFromJson(json);
 
-  static const toJsonFactory = _$ProductNoAuthPremierProductGet$ResponseToJson;
+  static const toJsonFactory =
+      _$ProductServiceProductNoAuthFlashSaleProductGet$ResponseToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthPremierProductGet$ResponseToJson(this);
+      _$ProductServiceProductNoAuthFlashSaleProductGet$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final double? code;
   @JsonKey(name: 'message')
   final String? message;
   @JsonKey(name: 'data')
-  final ProductNoAuthPremierProductGet$Response$Data? data;
+  final List<ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item>?
+  data;
   @JsonKey(name: 'traceId')
   final String? traceId;
   @JsonKey(name: 'placeholder')
@@ -3628,12 +3372,12 @@ class ProductNoAuthPremierProductGet$Response {
   @JsonKey(name: 'success')
   final bool? success;
   static const fromJsonFactory =
-      _$ProductNoAuthPremierProductGet$ResponseFromJson;
+      _$ProductServiceProductNoAuthFlashSaleProductGet$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ProductNoAuthPremierProductGet$Response &&
+        (other is ProductServiceProductNoAuthFlashSaleProductGet$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -3671,17 +3415,18 @@ class ProductNoAuthPremierProductGet$Response {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthPremierProductGet$ResponseExtension
-    on ProductNoAuthPremierProductGet$Response {
-  ProductNoAuthPremierProductGet$Response copyWith({
+extension $ProductServiceProductNoAuthFlashSaleProductGet$ResponseExtension
+    on ProductServiceProductNoAuthFlashSaleProductGet$Response {
+  ProductServiceProductNoAuthFlashSaleProductGet$Response copyWith({
     double? code,
     String? message,
-    ProductNoAuthPremierProductGet$Response$Data? data,
+    List<ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item>?
+    data,
     String? traceId,
     Object? placeholder,
     bool? success,
   }) {
-    return ProductNoAuthPremierProductGet$Response(
+    return ProductServiceProductNoAuthFlashSaleProductGet$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       data: data ?? this.data,
@@ -3691,15 +3436,18 @@ extension $ProductNoAuthPremierProductGet$ResponseExtension
     );
   }
 
-  ProductNoAuthPremierProductGet$Response copyWithWrapped({
+  ProductServiceProductNoAuthFlashSaleProductGet$Response copyWithWrapped({
     Wrapped<double?>? code,
     Wrapped<String?>? message,
-    Wrapped<ProductNoAuthPremierProductGet$Response$Data?>? data,
+    Wrapped<
+      List<ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item>?
+    >?
+    data,
     Wrapped<String?>? traceId,
     Wrapped<Object?>? placeholder,
     Wrapped<bool?>? success,
   }) {
-    return ProductNoAuthPremierProductGet$Response(
+    return ProductServiceProductNoAuthFlashSaleProductGet$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
@@ -3711,8 +3459,8 @@ extension $ProductNoAuthPremierProductGet$ResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthPremierProductBrandGet$Response {
-  const ProductNoAuthPremierProductBrandGet$Response({
+class ProductServiceProductNoAuthAlbumProductGet$Response {
+  const ProductServiceProductNoAuthAlbumProductGet$Response({
     this.code,
     this.message,
     this.data,
@@ -3721,14 +3469,451 @@ class ProductNoAuthPremierProductBrandGet$Response {
     this.success,
   });
 
-  factory ProductNoAuthPremierProductBrandGet$Response.fromJson(
+  factory ProductServiceProductNoAuthAlbumProductGet$Response.fromJson(
     Map<String, dynamic> json,
-  ) => _$ProductNoAuthPremierProductBrandGet$ResponseFromJson(json);
+  ) => _$ProductServiceProductNoAuthAlbumProductGet$ResponseFromJson(json);
 
   static const toJsonFactory =
-      _$ProductNoAuthPremierProductBrandGet$ResponseToJson;
+      _$ProductServiceProductNoAuthAlbumProductGet$ResponseToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthPremierProductBrandGet$ResponseToJson(this);
+      _$ProductServiceProductNoAuthAlbumProductGet$ResponseToJson(this);
+
+  @JsonKey(name: 'code')
+  final double? code;
+  @JsonKey(name: 'message')
+  final String? message;
+  @JsonKey(name: 'data')
+  final ProductServiceProductNoAuthAlbumProductGet$Response$Data? data;
+  @JsonKey(name: 'traceId')
+  final String? traceId;
+  @JsonKey(name: 'placeholder')
+  final Object? placeholder;
+  @JsonKey(name: 'success')
+  final bool? success;
+  static const fromJsonFactory =
+      _$ProductServiceProductNoAuthAlbumProductGet$ResponseFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is ProductServiceProductNoAuthAlbumProductGet$Response &&
+            (identical(other.code, code) ||
+                const DeepCollectionEquality().equals(other.code, code)) &&
+            (identical(other.message, message) ||
+                const DeepCollectionEquality().equals(
+                  other.message,
+                  message,
+                )) &&
+            (identical(other.data, data) ||
+                const DeepCollectionEquality().equals(other.data, data)) &&
+            (identical(other.traceId, traceId) ||
+                const DeepCollectionEquality().equals(
+                  other.traceId,
+                  traceId,
+                )) &&
+            (identical(other.placeholder, placeholder) ||
+                const DeepCollectionEquality().equals(
+                  other.placeholder,
+                  placeholder,
+                )) &&
+            (identical(other.success, success) ||
+                const DeepCollectionEquality().equals(other.success, success)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(code) ^
+      const DeepCollectionEquality().hash(message) ^
+      const DeepCollectionEquality().hash(data) ^
+      const DeepCollectionEquality().hash(traceId) ^
+      const DeepCollectionEquality().hash(placeholder) ^
+      const DeepCollectionEquality().hash(success) ^
+      runtimeType.hashCode;
+}
+
+extension $ProductServiceProductNoAuthAlbumProductGet$ResponseExtension
+    on ProductServiceProductNoAuthAlbumProductGet$Response {
+  ProductServiceProductNoAuthAlbumProductGet$Response copyWith({
+    double? code,
+    String? message,
+    ProductServiceProductNoAuthAlbumProductGet$Response$Data? data,
+    String? traceId,
+    Object? placeholder,
+    bool? success,
+  }) {
+    return ProductServiceProductNoAuthAlbumProductGet$Response(
+      code: code ?? this.code,
+      message: message ?? this.message,
+      data: data ?? this.data,
+      traceId: traceId ?? this.traceId,
+      placeholder: placeholder ?? this.placeholder,
+      success: success ?? this.success,
+    );
+  }
+
+  ProductServiceProductNoAuthAlbumProductGet$Response copyWithWrapped({
+    Wrapped<double?>? code,
+    Wrapped<String?>? message,
+    Wrapped<ProductServiceProductNoAuthAlbumProductGet$Response$Data?>? data,
+    Wrapped<String?>? traceId,
+    Wrapped<Object?>? placeholder,
+    Wrapped<bool?>? success,
+  }) {
+    return ProductServiceProductNoAuthAlbumProductGet$Response(
+      code: (code != null ? code.value : this.code),
+      message: (message != null ? message.value : this.message),
+      data: (data != null ? data.value : this.data),
+      traceId: (traceId != null ? traceId.value : this.traceId),
+      placeholder: (placeholder != null ? placeholder.value : this.placeholder),
+      success: (success != null ? success.value : this.success),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class ProductServiceShopNoAuthGetThirdShopGet$Response {
+  const ProductServiceShopNoAuthGetThirdShopGet$Response({
+    required this.code,
+    required this.message,
+    required this.data,
+    required this.traceId,
+  });
+
+  factory ProductServiceShopNoAuthGetThirdShopGet$Response.fromJson(
+    Map<String, dynamic> json,
+  ) => _$ProductServiceShopNoAuthGetThirdShopGet$ResponseFromJson(json);
+
+  static const toJsonFactory =
+      _$ProductServiceShopNoAuthGetThirdShopGet$ResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$ProductServiceShopNoAuthGetThirdShopGet$ResponseToJson(this);
+
+  @JsonKey(name: 'code')
+  final int code;
+  @JsonKey(name: 'message')
+  final String message;
+  @JsonKey(name: 'data')
+  final ProductServiceShopNoAuthGetThirdShopGet$Response$Data data;
+  @JsonKey(name: 'traceId')
+  final String traceId;
+  static const fromJsonFactory =
+      _$ProductServiceShopNoAuthGetThirdShopGet$ResponseFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is ProductServiceShopNoAuthGetThirdShopGet$Response &&
+            (identical(other.code, code) ||
+                const DeepCollectionEquality().equals(other.code, code)) &&
+            (identical(other.message, message) ||
+                const DeepCollectionEquality().equals(
+                  other.message,
+                  message,
+                )) &&
+            (identical(other.data, data) ||
+                const DeepCollectionEquality().equals(other.data, data)) &&
+            (identical(other.traceId, traceId) ||
+                const DeepCollectionEquality().equals(other.traceId, traceId)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(code) ^
+      const DeepCollectionEquality().hash(message) ^
+      const DeepCollectionEquality().hash(data) ^
+      const DeepCollectionEquality().hash(traceId) ^
+      runtimeType.hashCode;
+}
+
+extension $ProductServiceShopNoAuthGetThirdShopGet$ResponseExtension
+    on ProductServiceShopNoAuthGetThirdShopGet$Response {
+  ProductServiceShopNoAuthGetThirdShopGet$Response copyWith({
+    int? code,
+    String? message,
+    ProductServiceShopNoAuthGetThirdShopGet$Response$Data? data,
+    String? traceId,
+  }) {
+    return ProductServiceShopNoAuthGetThirdShopGet$Response(
+      code: code ?? this.code,
+      message: message ?? this.message,
+      data: data ?? this.data,
+      traceId: traceId ?? this.traceId,
+    );
+  }
+
+  ProductServiceShopNoAuthGetThirdShopGet$Response copyWithWrapped({
+    Wrapped<int>? code,
+    Wrapped<String>? message,
+    Wrapped<ProductServiceShopNoAuthGetThirdShopGet$Response$Data>? data,
+    Wrapped<String>? traceId,
+  }) {
+    return ProductServiceShopNoAuthGetThirdShopGet$Response(
+      code: (code != null ? code.value : this.code),
+      message: (message != null ? message.value : this.message),
+      data: (data != null ? data.value : this.data),
+      traceId: (traceId != null ? traceId.value : this.traceId),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class ProductServiceProductNoAuthKolProductGet$Response {
+  const ProductServiceProductNoAuthKolProductGet$Response({
+    this.code,
+    this.message,
+    this.data,
+    this.traceId,
+    this.placeholder,
+    this.success,
+  });
+
+  factory ProductServiceProductNoAuthKolProductGet$Response.fromJson(
+    Map<String, dynamic> json,
+  ) => _$ProductServiceProductNoAuthKolProductGet$ResponseFromJson(json);
+
+  static const toJsonFactory =
+      _$ProductServiceProductNoAuthKolProductGet$ResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$ProductServiceProductNoAuthKolProductGet$ResponseToJson(this);
+
+  @JsonKey(name: 'code')
+  final double? code;
+  @JsonKey(name: 'message')
+  final String? message;
+  @JsonKey(name: 'data')
+  final List<ProductServiceProductNoAuthKolProductGet$Response$Data$Item>? data;
+  @JsonKey(name: 'traceId')
+  final String? traceId;
+  @JsonKey(name: 'placeholder')
+  final Object? placeholder;
+  @JsonKey(name: 'success')
+  final bool? success;
+  static const fromJsonFactory =
+      _$ProductServiceProductNoAuthKolProductGet$ResponseFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is ProductServiceProductNoAuthKolProductGet$Response &&
+            (identical(other.code, code) ||
+                const DeepCollectionEquality().equals(other.code, code)) &&
+            (identical(other.message, message) ||
+                const DeepCollectionEquality().equals(
+                  other.message,
+                  message,
+                )) &&
+            (identical(other.data, data) ||
+                const DeepCollectionEquality().equals(other.data, data)) &&
+            (identical(other.traceId, traceId) ||
+                const DeepCollectionEquality().equals(
+                  other.traceId,
+                  traceId,
+                )) &&
+            (identical(other.placeholder, placeholder) ||
+                const DeepCollectionEquality().equals(
+                  other.placeholder,
+                  placeholder,
+                )) &&
+            (identical(other.success, success) ||
+                const DeepCollectionEquality().equals(other.success, success)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(code) ^
+      const DeepCollectionEquality().hash(message) ^
+      const DeepCollectionEquality().hash(data) ^
+      const DeepCollectionEquality().hash(traceId) ^
+      const DeepCollectionEquality().hash(placeholder) ^
+      const DeepCollectionEquality().hash(success) ^
+      runtimeType.hashCode;
+}
+
+extension $ProductServiceProductNoAuthKolProductGet$ResponseExtension
+    on ProductServiceProductNoAuthKolProductGet$Response {
+  ProductServiceProductNoAuthKolProductGet$Response copyWith({
+    double? code,
+    String? message,
+    List<ProductServiceProductNoAuthKolProductGet$Response$Data$Item>? data,
+    String? traceId,
+    Object? placeholder,
+    bool? success,
+  }) {
+    return ProductServiceProductNoAuthKolProductGet$Response(
+      code: code ?? this.code,
+      message: message ?? this.message,
+      data: data ?? this.data,
+      traceId: traceId ?? this.traceId,
+      placeholder: placeholder ?? this.placeholder,
+      success: success ?? this.success,
+    );
+  }
+
+  ProductServiceProductNoAuthKolProductGet$Response copyWithWrapped({
+    Wrapped<double?>? code,
+    Wrapped<String?>? message,
+    Wrapped<List<ProductServiceProductNoAuthKolProductGet$Response$Data$Item>?>?
+    data,
+    Wrapped<String?>? traceId,
+    Wrapped<Object?>? placeholder,
+    Wrapped<bool?>? success,
+  }) {
+    return ProductServiceProductNoAuthKolProductGet$Response(
+      code: (code != null ? code.value : this.code),
+      message: (message != null ? message.value : this.message),
+      data: (data != null ? data.value : this.data),
+      traceId: (traceId != null ? traceId.value : this.traceId),
+      placeholder: (placeholder != null ? placeholder.value : this.placeholder),
+      success: (success != null ? success.value : this.success),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class ProductServiceProductNoAuthPremierProductGet$Response {
+  const ProductServiceProductNoAuthPremierProductGet$Response({
+    this.code,
+    this.message,
+    this.data,
+    this.traceId,
+    this.placeholder,
+    this.success,
+  });
+
+  factory ProductServiceProductNoAuthPremierProductGet$Response.fromJson(
+    Map<String, dynamic> json,
+  ) => _$ProductServiceProductNoAuthPremierProductGet$ResponseFromJson(json);
+
+  static const toJsonFactory =
+      _$ProductServiceProductNoAuthPremierProductGet$ResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$ProductServiceProductNoAuthPremierProductGet$ResponseToJson(this);
+
+  @JsonKey(name: 'code')
+  final double? code;
+  @JsonKey(name: 'message')
+  final String? message;
+  @JsonKey(name: 'data')
+  final ProductServiceProductNoAuthPremierProductGet$Response$Data? data;
+  @JsonKey(name: 'traceId')
+  final String? traceId;
+  @JsonKey(name: 'placeholder')
+  final Object? placeholder;
+  @JsonKey(name: 'success')
+  final bool? success;
+  static const fromJsonFactory =
+      _$ProductServiceProductNoAuthPremierProductGet$ResponseFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is ProductServiceProductNoAuthPremierProductGet$Response &&
+            (identical(other.code, code) ||
+                const DeepCollectionEquality().equals(other.code, code)) &&
+            (identical(other.message, message) ||
+                const DeepCollectionEquality().equals(
+                  other.message,
+                  message,
+                )) &&
+            (identical(other.data, data) ||
+                const DeepCollectionEquality().equals(other.data, data)) &&
+            (identical(other.traceId, traceId) ||
+                const DeepCollectionEquality().equals(
+                  other.traceId,
+                  traceId,
+                )) &&
+            (identical(other.placeholder, placeholder) ||
+                const DeepCollectionEquality().equals(
+                  other.placeholder,
+                  placeholder,
+                )) &&
+            (identical(other.success, success) ||
+                const DeepCollectionEquality().equals(other.success, success)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(code) ^
+      const DeepCollectionEquality().hash(message) ^
+      const DeepCollectionEquality().hash(data) ^
+      const DeepCollectionEquality().hash(traceId) ^
+      const DeepCollectionEquality().hash(placeholder) ^
+      const DeepCollectionEquality().hash(success) ^
+      runtimeType.hashCode;
+}
+
+extension $ProductServiceProductNoAuthPremierProductGet$ResponseExtension
+    on ProductServiceProductNoAuthPremierProductGet$Response {
+  ProductServiceProductNoAuthPremierProductGet$Response copyWith({
+    double? code,
+    String? message,
+    ProductServiceProductNoAuthPremierProductGet$Response$Data? data,
+    String? traceId,
+    Object? placeholder,
+    bool? success,
+  }) {
+    return ProductServiceProductNoAuthPremierProductGet$Response(
+      code: code ?? this.code,
+      message: message ?? this.message,
+      data: data ?? this.data,
+      traceId: traceId ?? this.traceId,
+      placeholder: placeholder ?? this.placeholder,
+      success: success ?? this.success,
+    );
+  }
+
+  ProductServiceProductNoAuthPremierProductGet$Response copyWithWrapped({
+    Wrapped<double?>? code,
+    Wrapped<String?>? message,
+    Wrapped<ProductServiceProductNoAuthPremierProductGet$Response$Data?>? data,
+    Wrapped<String?>? traceId,
+    Wrapped<Object?>? placeholder,
+    Wrapped<bool?>? success,
+  }) {
+    return ProductServiceProductNoAuthPremierProductGet$Response(
+      code: (code != null ? code.value : this.code),
+      message: (message != null ? message.value : this.message),
+      data: (data != null ? data.value : this.data),
+      traceId: (traceId != null ? traceId.value : this.traceId),
+      placeholder: (placeholder != null ? placeholder.value : this.placeholder),
+      success: (success != null ? success.value : this.success),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class ProductServiceProductNoAuthPremierProductBrandGet$Response {
+  const ProductServiceProductNoAuthPremierProductBrandGet$Response({
+    this.code,
+    this.message,
+    this.data,
+    this.traceId,
+    this.placeholder,
+    this.success,
+  });
+
+  factory ProductServiceProductNoAuthPremierProductBrandGet$Response.fromJson(
+    Map<String, dynamic> json,
+  ) => _$ProductServiceProductNoAuthPremierProductBrandGet$ResponseFromJson(
+    json,
+  );
+
+  static const toJsonFactory =
+      _$ProductServiceProductNoAuthPremierProductBrandGet$ResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$ProductServiceProductNoAuthPremierProductBrandGet$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final double? code;
@@ -3743,12 +3928,12 @@ class ProductNoAuthPremierProductBrandGet$Response {
   @JsonKey(name: 'success')
   final bool? success;
   static const fromJsonFactory =
-      _$ProductNoAuthPremierProductBrandGet$ResponseFromJson;
+      _$ProductServiceProductNoAuthPremierProductBrandGet$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ProductNoAuthPremierProductBrandGet$Response &&
+        (other is ProductServiceProductNoAuthPremierProductBrandGet$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -3786,9 +3971,9 @@ class ProductNoAuthPremierProductBrandGet$Response {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthPremierProductBrandGet$ResponseExtension
-    on ProductNoAuthPremierProductBrandGet$Response {
-  ProductNoAuthPremierProductBrandGet$Response copyWith({
+extension $ProductServiceProductNoAuthPremierProductBrandGet$ResponseExtension
+    on ProductServiceProductNoAuthPremierProductBrandGet$Response {
+  ProductServiceProductNoAuthPremierProductBrandGet$Response copyWith({
     double? code,
     String? message,
     List<String>? data,
@@ -3796,7 +3981,7 @@ extension $ProductNoAuthPremierProductBrandGet$ResponseExtension
     Object? placeholder,
     bool? success,
   }) {
-    return ProductNoAuthPremierProductBrandGet$Response(
+    return ProductServiceProductNoAuthPremierProductBrandGet$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       data: data ?? this.data,
@@ -3806,7 +3991,7 @@ extension $ProductNoAuthPremierProductBrandGet$ResponseExtension
     );
   }
 
-  ProductNoAuthPremierProductBrandGet$Response copyWithWrapped({
+  ProductServiceProductNoAuthPremierProductBrandGet$Response copyWithWrapped({
     Wrapped<double?>? code,
     Wrapped<String?>? message,
     Wrapped<List<String>?>? data,
@@ -3814,7 +3999,7 @@ extension $ProductNoAuthPremierProductBrandGet$ResponseExtension
     Wrapped<Object?>? placeholder,
     Wrapped<bool?>? success,
   }) {
-    return ProductNoAuthPremierProductBrandGet$Response(
+    return ProductServiceProductNoAuthPremierProductBrandGet$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
@@ -3826,8 +4011,8 @@ extension $ProductNoAuthPremierProductBrandGet$ResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class RecommendNoAuthCategoryRecommendationGet$Response {
-  const RecommendNoAuthCategoryRecommendationGet$Response({
+class ProductServiceRecommendNoAuthCategoryRecommendationGet$Response {
+  const ProductServiceRecommendNoAuthCategoryRecommendationGet$Response({
     this.code,
     this.message,
     this.data,
@@ -3835,32 +4020,38 @@ class RecommendNoAuthCategoryRecommendationGet$Response {
     this.success,
   });
 
-  factory RecommendNoAuthCategoryRecommendationGet$Response.fromJson(
+  factory ProductServiceRecommendNoAuthCategoryRecommendationGet$Response.fromJson(
     Map<String, dynamic> json,
-  ) => _$RecommendNoAuthCategoryRecommendationGet$ResponseFromJson(json);
+  ) =>
+      _$ProductServiceRecommendNoAuthCategoryRecommendationGet$ResponseFromJson(
+        json,
+      );
 
   static const toJsonFactory =
-      _$RecommendNoAuthCategoryRecommendationGet$ResponseToJson;
+      _$ProductServiceRecommendNoAuthCategoryRecommendationGet$ResponseToJson;
   Map<String, dynamic> toJson() =>
-      _$RecommendNoAuthCategoryRecommendationGet$ResponseToJson(this);
+      _$ProductServiceRecommendNoAuthCategoryRecommendationGet$ResponseToJson(
+        this,
+      );
 
   @JsonKey(name: 'code')
   final double? code;
   @JsonKey(name: 'message')
   final String? message;
   @JsonKey(name: 'data')
-  final RecommendNoAuthCategoryRecommendationGet$Response$Data? data;
+  final ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data?
+  data;
   @JsonKey(name: 'traceId')
   final String? traceId;
   @JsonKey(name: 'success')
   final bool? success;
   static const fromJsonFactory =
-      _$RecommendNoAuthCategoryRecommendationGet$ResponseFromJson;
+      _$ProductServiceRecommendNoAuthCategoryRecommendationGet$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is RecommendNoAuthCategoryRecommendationGet$Response &&
+        (other is ProductServiceRecommendNoAuthCategoryRecommendationGet$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -3892,16 +4083,16 @@ class RecommendNoAuthCategoryRecommendationGet$Response {
       runtimeType.hashCode;
 }
 
-extension $RecommendNoAuthCategoryRecommendationGet$ResponseExtension
-    on RecommendNoAuthCategoryRecommendationGet$Response {
-  RecommendNoAuthCategoryRecommendationGet$Response copyWith({
+extension $ProductServiceRecommendNoAuthCategoryRecommendationGet$ResponseExtension
+    on ProductServiceRecommendNoAuthCategoryRecommendationGet$Response {
+  ProductServiceRecommendNoAuthCategoryRecommendationGet$Response copyWith({
     double? code,
     String? message,
-    RecommendNoAuthCategoryRecommendationGet$Response$Data? data,
+    ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data? data,
     String? traceId,
     bool? success,
   }) {
-    return RecommendNoAuthCategoryRecommendationGet$Response(
+    return ProductServiceRecommendNoAuthCategoryRecommendationGet$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       data: data ?? this.data,
@@ -3910,14 +4101,18 @@ extension $RecommendNoAuthCategoryRecommendationGet$ResponseExtension
     );
   }
 
-  RecommendNoAuthCategoryRecommendationGet$Response copyWithWrapped({
+  ProductServiceRecommendNoAuthCategoryRecommendationGet$Response
+  copyWithWrapped({
     Wrapped<double?>? code,
     Wrapped<String?>? message,
-    Wrapped<RecommendNoAuthCategoryRecommendationGet$Response$Data?>? data,
+    Wrapped<
+      ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data?
+    >?
+    data,
     Wrapped<String?>? traceId,
     Wrapped<bool?>? success,
   }) {
-    return RecommendNoAuthCategoryRecommendationGet$Response(
+    return ProductServiceRecommendNoAuthCategoryRecommendationGet$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
@@ -3928,212 +4123,38 @@ extension $RecommendNoAuthCategoryRecommendationGet$ResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class RecommendNoAuthCategoryPost$Response {
-  const RecommendNoAuthCategoryPost$Response({
+class ProductServiceRecommendNoAuthCategoryPost$Response {
+  const ProductServiceRecommendNoAuthCategoryPost$Response({
     required this.code,
     required this.message,
     required this.data,
     required this.traceId,
   });
 
-  factory RecommendNoAuthCategoryPost$Response.fromJson(
+  factory ProductServiceRecommendNoAuthCategoryPost$Response.fromJson(
     Map<String, dynamic> json,
-  ) => _$RecommendNoAuthCategoryPost$ResponseFromJson(json);
-
-  static const toJsonFactory = _$RecommendNoAuthCategoryPost$ResponseToJson;
-  Map<String, dynamic> toJson() =>
-      _$RecommendNoAuthCategoryPost$ResponseToJson(this);
-
-  @JsonKey(name: 'code')
-  final int code;
-  @JsonKey(name: 'message')
-  final String message;
-  @JsonKey(name: 'data')
-  final RecommendNoAuthCategoryPost$Response$Data data;
-  @JsonKey(name: 'traceId')
-  final String traceId;
-  static const fromJsonFactory = _$RecommendNoAuthCategoryPost$ResponseFromJson;
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other is RecommendNoAuthCategoryPost$Response &&
-            (identical(other.code, code) ||
-                const DeepCollectionEquality().equals(other.code, code)) &&
-            (identical(other.message, message) ||
-                const DeepCollectionEquality().equals(
-                  other.message,
-                  message,
-                )) &&
-            (identical(other.data, data) ||
-                const DeepCollectionEquality().equals(other.data, data)) &&
-            (identical(other.traceId, traceId) ||
-                const DeepCollectionEquality().equals(other.traceId, traceId)));
-  }
-
-  @override
-  String toString() => jsonEncode(this);
-
-  @override
-  int get hashCode =>
-      const DeepCollectionEquality().hash(code) ^
-      const DeepCollectionEquality().hash(message) ^
-      const DeepCollectionEquality().hash(data) ^
-      const DeepCollectionEquality().hash(traceId) ^
-      runtimeType.hashCode;
-}
-
-extension $RecommendNoAuthCategoryPost$ResponseExtension
-    on RecommendNoAuthCategoryPost$Response {
-  RecommendNoAuthCategoryPost$Response copyWith({
-    int? code,
-    String? message,
-    RecommendNoAuthCategoryPost$Response$Data? data,
-    String? traceId,
-  }) {
-    return RecommendNoAuthCategoryPost$Response(
-      code: code ?? this.code,
-      message: message ?? this.message,
-      data: data ?? this.data,
-      traceId: traceId ?? this.traceId,
-    );
-  }
-
-  RecommendNoAuthCategoryPost$Response copyWithWrapped({
-    Wrapped<int>? code,
-    Wrapped<String>? message,
-    Wrapped<RecommendNoAuthCategoryPost$Response$Data>? data,
-    Wrapped<String>? traceId,
-  }) {
-    return RecommendNoAuthCategoryPost$Response(
-      code: (code != null ? code.value : this.code),
-      message: (message != null ? message.value : this.message),
-      data: (data != null ? data.value : this.data),
-      traceId: (traceId != null ? traceId.value : this.traceId),
-    );
-  }
-}
-
-@JsonSerializable(explicitToJson: true)
-class RecommendNoAuthShopPost$Response {
-  const RecommendNoAuthShopPost$Response({
-    required this.code,
-    required this.message,
-    required this.data,
-    required this.traceId,
-  });
-
-  factory RecommendNoAuthShopPost$Response.fromJson(
-    Map<String, dynamic> json,
-  ) => _$RecommendNoAuthShopPost$ResponseFromJson(json);
-
-  static const toJsonFactory = _$RecommendNoAuthShopPost$ResponseToJson;
-  Map<String, dynamic> toJson() =>
-      _$RecommendNoAuthShopPost$ResponseToJson(this);
-
-  @JsonKey(name: 'code')
-  final int code;
-  @JsonKey(name: 'message')
-  final String message;
-  @JsonKey(name: 'data')
-  final RecommendNoAuthShopPost$Response$Data data;
-  @JsonKey(name: 'traceId')
-  final String traceId;
-  static const fromJsonFactory = _$RecommendNoAuthShopPost$ResponseFromJson;
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other is RecommendNoAuthShopPost$Response &&
-            (identical(other.code, code) ||
-                const DeepCollectionEquality().equals(other.code, code)) &&
-            (identical(other.message, message) ||
-                const DeepCollectionEquality().equals(
-                  other.message,
-                  message,
-                )) &&
-            (identical(other.data, data) ||
-                const DeepCollectionEquality().equals(other.data, data)) &&
-            (identical(other.traceId, traceId) ||
-                const DeepCollectionEquality().equals(other.traceId, traceId)));
-  }
-
-  @override
-  String toString() => jsonEncode(this);
-
-  @override
-  int get hashCode =>
-      const DeepCollectionEquality().hash(code) ^
-      const DeepCollectionEquality().hash(message) ^
-      const DeepCollectionEquality().hash(data) ^
-      const DeepCollectionEquality().hash(traceId) ^
-      runtimeType.hashCode;
-}
-
-extension $RecommendNoAuthShopPost$ResponseExtension
-    on RecommendNoAuthShopPost$Response {
-  RecommendNoAuthShopPost$Response copyWith({
-    int? code,
-    String? message,
-    RecommendNoAuthShopPost$Response$Data? data,
-    String? traceId,
-  }) {
-    return RecommendNoAuthShopPost$Response(
-      code: code ?? this.code,
-      message: message ?? this.message,
-      data: data ?? this.data,
-      traceId: traceId ?? this.traceId,
-    );
-  }
-
-  RecommendNoAuthShopPost$Response copyWithWrapped({
-    Wrapped<int>? code,
-    Wrapped<String>? message,
-    Wrapped<RecommendNoAuthShopPost$Response$Data>? data,
-    Wrapped<String>? traceId,
-  }) {
-    return RecommendNoAuthShopPost$Response(
-      code: (code != null ? code.value : this.code),
-      message: (message != null ? message.value : this.message),
-      data: (data != null ? data.value : this.data),
-      traceId: (traceId != null ? traceId.value : this.traceId),
-    );
-  }
-}
-
-@JsonSerializable(explicitToJson: true)
-class RecommendNoAuthSimilarProductPost$Response {
-  const RecommendNoAuthSimilarProductPost$Response({
-    required this.code,
-    required this.message,
-    required this.data,
-    required this.traceId,
-  });
-
-  factory RecommendNoAuthSimilarProductPost$Response.fromJson(
-    Map<String, dynamic> json,
-  ) => _$RecommendNoAuthSimilarProductPost$ResponseFromJson(json);
+  ) => _$ProductServiceRecommendNoAuthCategoryPost$ResponseFromJson(json);
 
   static const toJsonFactory =
-      _$RecommendNoAuthSimilarProductPost$ResponseToJson;
+      _$ProductServiceRecommendNoAuthCategoryPost$ResponseToJson;
   Map<String, dynamic> toJson() =>
-      _$RecommendNoAuthSimilarProductPost$ResponseToJson(this);
+      _$ProductServiceRecommendNoAuthCategoryPost$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final int code;
   @JsonKey(name: 'message')
   final String message;
   @JsonKey(name: 'data')
-  final RecommendNoAuthSimilarProductPost$Response$Data data;
+  final ProductServiceRecommendNoAuthCategoryPost$Response$Data data;
   @JsonKey(name: 'traceId')
   final String traceId;
   static const fromJsonFactory =
-      _$RecommendNoAuthSimilarProductPost$ResponseFromJson;
+      _$ProductServiceRecommendNoAuthCategoryPost$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is RecommendNoAuthSimilarProductPost$Response &&
+        (other is ProductServiceRecommendNoAuthCategoryPost$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -4159,15 +4180,15 @@ class RecommendNoAuthSimilarProductPost$Response {
       runtimeType.hashCode;
 }
 
-extension $RecommendNoAuthSimilarProductPost$ResponseExtension
-    on RecommendNoAuthSimilarProductPost$Response {
-  RecommendNoAuthSimilarProductPost$Response copyWith({
+extension $ProductServiceRecommendNoAuthCategoryPost$ResponseExtension
+    on ProductServiceRecommendNoAuthCategoryPost$Response {
+  ProductServiceRecommendNoAuthCategoryPost$Response copyWith({
     int? code,
     String? message,
-    RecommendNoAuthSimilarProductPost$Response$Data? data,
+    ProductServiceRecommendNoAuthCategoryPost$Response$Data? data,
     String? traceId,
   }) {
-    return RecommendNoAuthSimilarProductPost$Response(
+    return ProductServiceRecommendNoAuthCategoryPost$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       data: data ?? this.data,
@@ -4175,13 +4196,13 @@ extension $RecommendNoAuthSimilarProductPost$ResponseExtension
     );
   }
 
-  RecommendNoAuthSimilarProductPost$Response copyWithWrapped({
+  ProductServiceRecommendNoAuthCategoryPost$Response copyWithWrapped({
     Wrapped<int>? code,
     Wrapped<String>? message,
-    Wrapped<RecommendNoAuthSimilarProductPost$Response$Data>? data,
+    Wrapped<ProductServiceRecommendNoAuthCategoryPost$Response$Data>? data,
     Wrapped<String>? traceId,
   }) {
-    return RecommendNoAuthSimilarProductPost$Response(
+    return ProductServiceRecommendNoAuthCategoryPost$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
@@ -4191,8 +4212,187 @@ extension $RecommendNoAuthSimilarProductPost$ResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductReviewNoAuthPageGet$Response$Data {
-  const ProductReviewNoAuthPageGet$Response$Data({
+class ProductServiceRecommendNoAuthShopPost$Response {
+  const ProductServiceRecommendNoAuthShopPost$Response({
+    required this.code,
+    required this.message,
+    required this.data,
+    required this.traceId,
+  });
+
+  factory ProductServiceRecommendNoAuthShopPost$Response.fromJson(
+    Map<String, dynamic> json,
+  ) => _$ProductServiceRecommendNoAuthShopPost$ResponseFromJson(json);
+
+  static const toJsonFactory =
+      _$ProductServiceRecommendNoAuthShopPost$ResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$ProductServiceRecommendNoAuthShopPost$ResponseToJson(this);
+
+  @JsonKey(name: 'code')
+  final int code;
+  @JsonKey(name: 'message')
+  final String message;
+  @JsonKey(name: 'data')
+  final ProductServiceRecommendNoAuthShopPost$Response$Data data;
+  @JsonKey(name: 'traceId')
+  final String traceId;
+  static const fromJsonFactory =
+      _$ProductServiceRecommendNoAuthShopPost$ResponseFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is ProductServiceRecommendNoAuthShopPost$Response &&
+            (identical(other.code, code) ||
+                const DeepCollectionEquality().equals(other.code, code)) &&
+            (identical(other.message, message) ||
+                const DeepCollectionEquality().equals(
+                  other.message,
+                  message,
+                )) &&
+            (identical(other.data, data) ||
+                const DeepCollectionEquality().equals(other.data, data)) &&
+            (identical(other.traceId, traceId) ||
+                const DeepCollectionEquality().equals(other.traceId, traceId)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(code) ^
+      const DeepCollectionEquality().hash(message) ^
+      const DeepCollectionEquality().hash(data) ^
+      const DeepCollectionEquality().hash(traceId) ^
+      runtimeType.hashCode;
+}
+
+extension $ProductServiceRecommendNoAuthShopPost$ResponseExtension
+    on ProductServiceRecommendNoAuthShopPost$Response {
+  ProductServiceRecommendNoAuthShopPost$Response copyWith({
+    int? code,
+    String? message,
+    ProductServiceRecommendNoAuthShopPost$Response$Data? data,
+    String? traceId,
+  }) {
+    return ProductServiceRecommendNoAuthShopPost$Response(
+      code: code ?? this.code,
+      message: message ?? this.message,
+      data: data ?? this.data,
+      traceId: traceId ?? this.traceId,
+    );
+  }
+
+  ProductServiceRecommendNoAuthShopPost$Response copyWithWrapped({
+    Wrapped<int>? code,
+    Wrapped<String>? message,
+    Wrapped<ProductServiceRecommendNoAuthShopPost$Response$Data>? data,
+    Wrapped<String>? traceId,
+  }) {
+    return ProductServiceRecommendNoAuthShopPost$Response(
+      code: (code != null ? code.value : this.code),
+      message: (message != null ? message.value : this.message),
+      data: (data != null ? data.value : this.data),
+      traceId: (traceId != null ? traceId.value : this.traceId),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class ProductServiceRecommendNoAuthSimilarProductPost$Response {
+  const ProductServiceRecommendNoAuthSimilarProductPost$Response({
+    required this.code,
+    required this.message,
+    required this.data,
+    required this.traceId,
+  });
+
+  factory ProductServiceRecommendNoAuthSimilarProductPost$Response.fromJson(
+    Map<String, dynamic> json,
+  ) => _$ProductServiceRecommendNoAuthSimilarProductPost$ResponseFromJson(json);
+
+  static const toJsonFactory =
+      _$ProductServiceRecommendNoAuthSimilarProductPost$ResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$ProductServiceRecommendNoAuthSimilarProductPost$ResponseToJson(this);
+
+  @JsonKey(name: 'code')
+  final int code;
+  @JsonKey(name: 'message')
+  final String message;
+  @JsonKey(name: 'data')
+  final ProductServiceRecommendNoAuthSimilarProductPost$Response$Data data;
+  @JsonKey(name: 'traceId')
+  final String traceId;
+  static const fromJsonFactory =
+      _$ProductServiceRecommendNoAuthSimilarProductPost$ResponseFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is ProductServiceRecommendNoAuthSimilarProductPost$Response &&
+            (identical(other.code, code) ||
+                const DeepCollectionEquality().equals(other.code, code)) &&
+            (identical(other.message, message) ||
+                const DeepCollectionEquality().equals(
+                  other.message,
+                  message,
+                )) &&
+            (identical(other.data, data) ||
+                const DeepCollectionEquality().equals(other.data, data)) &&
+            (identical(other.traceId, traceId) ||
+                const DeepCollectionEquality().equals(other.traceId, traceId)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(code) ^
+      const DeepCollectionEquality().hash(message) ^
+      const DeepCollectionEquality().hash(data) ^
+      const DeepCollectionEquality().hash(traceId) ^
+      runtimeType.hashCode;
+}
+
+extension $ProductServiceRecommendNoAuthSimilarProductPost$ResponseExtension
+    on ProductServiceRecommendNoAuthSimilarProductPost$Response {
+  ProductServiceRecommendNoAuthSimilarProductPost$Response copyWith({
+    int? code,
+    String? message,
+    ProductServiceRecommendNoAuthSimilarProductPost$Response$Data? data,
+    String? traceId,
+  }) {
+    return ProductServiceRecommendNoAuthSimilarProductPost$Response(
+      code: code ?? this.code,
+      message: message ?? this.message,
+      data: data ?? this.data,
+      traceId: traceId ?? this.traceId,
+    );
+  }
+
+  ProductServiceRecommendNoAuthSimilarProductPost$Response copyWithWrapped({
+    Wrapped<int>? code,
+    Wrapped<String>? message,
+    Wrapped<ProductServiceRecommendNoAuthSimilarProductPost$Response$Data>?
+    data,
+    Wrapped<String>? traceId,
+  }) {
+    return ProductServiceRecommendNoAuthSimilarProductPost$Response(
+      code: (code != null ? code.value : this.code),
+      message: (message != null ? message.value : this.message),
+      data: (data != null ? data.value : this.data),
+      traceId: (traceId != null ? traceId.value : this.traceId),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class ProductServiceProductReviewNoAuthPageGet$Response$Data {
+  const ProductServiceProductReviewNoAuthPageGet$Response$Data({
     this.current,
     this.size,
     this.total,
@@ -4200,13 +4400,14 @@ class ProductReviewNoAuthPageGet$Response$Data {
     this.records,
   });
 
-  factory ProductReviewNoAuthPageGet$Response$Data.fromJson(
+  factory ProductServiceProductReviewNoAuthPageGet$Response$Data.fromJson(
     Map<String, dynamic> json,
-  ) => _$ProductReviewNoAuthPageGet$Response$DataFromJson(json);
+  ) => _$ProductServiceProductReviewNoAuthPageGet$Response$DataFromJson(json);
 
-  static const toJsonFactory = _$ProductReviewNoAuthPageGet$Response$DataToJson;
+  static const toJsonFactory =
+      _$ProductServiceProductReviewNoAuthPageGet$Response$DataToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductReviewNoAuthPageGet$Response$DataToJson(this);
+      _$ProductServiceProductReviewNoAuthPageGet$Response$DataToJson(this);
 
   @JsonKey(name: 'current')
   final double? current;
@@ -4217,14 +4418,17 @@ class ProductReviewNoAuthPageGet$Response$Data {
   @JsonKey(name: 'pages')
   final double? pages;
   @JsonKey(name: 'records')
-  final List<ProductReviewNoAuthPageGet$Response$Data$Records$Item>? records;
+  final List<
+    ProductServiceProductReviewNoAuthPageGet$Response$Data$Records$Item
+  >?
+  records;
   static const fromJsonFactory =
-      _$ProductReviewNoAuthPageGet$Response$DataFromJson;
+      _$ProductServiceProductReviewNoAuthPageGet$Response$DataFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ProductReviewNoAuthPageGet$Response$Data &&
+        (other is ProductServiceProductReviewNoAuthPageGet$Response$Data &&
             (identical(other.current, current) ||
                 const DeepCollectionEquality().equals(
                   other.current,
@@ -4253,16 +4457,17 @@ class ProductReviewNoAuthPageGet$Response$Data {
       runtimeType.hashCode;
 }
 
-extension $ProductReviewNoAuthPageGet$Response$DataExtension
-    on ProductReviewNoAuthPageGet$Response$Data {
-  ProductReviewNoAuthPageGet$Response$Data copyWith({
+extension $ProductServiceProductReviewNoAuthPageGet$Response$DataExtension
+    on ProductServiceProductReviewNoAuthPageGet$Response$Data {
+  ProductServiceProductReviewNoAuthPageGet$Response$Data copyWith({
     double? current,
     double? size,
     double? total,
     double? pages,
-    List<ProductReviewNoAuthPageGet$Response$Data$Records$Item>? records,
+    List<ProductServiceProductReviewNoAuthPageGet$Response$Data$Records$Item>?
+    records,
   }) {
-    return ProductReviewNoAuthPageGet$Response$Data(
+    return ProductServiceProductReviewNoAuthPageGet$Response$Data(
       current: current ?? this.current,
       size: size ?? this.size,
       total: total ?? this.total,
@@ -4271,15 +4476,17 @@ extension $ProductReviewNoAuthPageGet$Response$DataExtension
     );
   }
 
-  ProductReviewNoAuthPageGet$Response$Data copyWithWrapped({
+  ProductServiceProductReviewNoAuthPageGet$Response$Data copyWithWrapped({
     Wrapped<double?>? current,
     Wrapped<double?>? size,
     Wrapped<double?>? total,
     Wrapped<double?>? pages,
-    Wrapped<List<ProductReviewNoAuthPageGet$Response$Data$Records$Item>?>?
+    Wrapped<
+      List<ProductServiceProductReviewNoAuthPageGet$Response$Data$Records$Item>?
+    >?
     records,
   }) {
-    return ProductReviewNoAuthPageGet$Response$Data(
+    return ProductServiceProductReviewNoAuthPageGet$Response$Data(
       current: (current != null ? current.value : this.current),
       size: (size != null ? size.value : this.size),
       total: (total != null ? total.value : this.total),
@@ -4290,8 +4497,8 @@ extension $ProductReviewNoAuthPageGet$Response$DataExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductReviewNoAuthSummaryGet$Response$Data {
-  const ProductReviewNoAuthSummaryGet$Response$Data({
+class ProductServiceProductReviewNoAuthSummaryGet$Response$Data {
+  const ProductServiceProductReviewNoAuthSummaryGet$Response$Data({
     this.productCode,
     this.reviewCount,
     this.averageScore,
@@ -4299,14 +4506,15 @@ class ProductReviewNoAuthSummaryGet$Response$Data {
     this.featuredReviews,
   });
 
-  factory ProductReviewNoAuthSummaryGet$Response$Data.fromJson(
+  factory ProductServiceProductReviewNoAuthSummaryGet$Response$Data.fromJson(
     Map<String, dynamic> json,
-  ) => _$ProductReviewNoAuthSummaryGet$Response$DataFromJson(json);
+  ) =>
+      _$ProductServiceProductReviewNoAuthSummaryGet$Response$DataFromJson(json);
 
   static const toJsonFactory =
-      _$ProductReviewNoAuthSummaryGet$Response$DataToJson;
+      _$ProductServiceProductReviewNoAuthSummaryGet$Response$DataToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductReviewNoAuthSummaryGet$Response$DataToJson(this);
+      _$ProductServiceProductReviewNoAuthSummaryGet$Response$DataToJson(this);
 
   @JsonKey(name: 'productCode')
   final String? productCode;
@@ -4317,15 +4525,17 @@ class ProductReviewNoAuthSummaryGet$Response$Data {
   @JsonKey(name: 'aiSummary')
   final String? aiSummary;
   @JsonKey(name: 'featuredReviews')
-  final List<ProductReviewNoAuthSummaryGet$Response$Data$FeaturedReviews$Item>?
+  final List<
+    ProductServiceProductReviewNoAuthSummaryGet$Response$Data$FeaturedReviews$Item
+  >?
   featuredReviews;
   static const fromJsonFactory =
-      _$ProductReviewNoAuthSummaryGet$Response$DataFromJson;
+      _$ProductServiceProductReviewNoAuthSummaryGet$Response$DataFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ProductReviewNoAuthSummaryGet$Response$Data &&
+        (other is ProductServiceProductReviewNoAuthSummaryGet$Response$Data &&
             (identical(other.productCode, productCode) ||
                 const DeepCollectionEquality().equals(
                   other.productCode,
@@ -4366,17 +4576,19 @@ class ProductReviewNoAuthSummaryGet$Response$Data {
       runtimeType.hashCode;
 }
 
-extension $ProductReviewNoAuthSummaryGet$Response$DataExtension
-    on ProductReviewNoAuthSummaryGet$Response$Data {
-  ProductReviewNoAuthSummaryGet$Response$Data copyWith({
+extension $ProductServiceProductReviewNoAuthSummaryGet$Response$DataExtension
+    on ProductServiceProductReviewNoAuthSummaryGet$Response$Data {
+  ProductServiceProductReviewNoAuthSummaryGet$Response$Data copyWith({
     String? productCode,
     double? reviewCount,
     double? averageScore,
     String? aiSummary,
-    List<ProductReviewNoAuthSummaryGet$Response$Data$FeaturedReviews$Item>?
+    List<
+      ProductServiceProductReviewNoAuthSummaryGet$Response$Data$FeaturedReviews$Item
+    >?
     featuredReviews,
   }) {
-    return ProductReviewNoAuthSummaryGet$Response$Data(
+    return ProductServiceProductReviewNoAuthSummaryGet$Response$Data(
       productCode: productCode ?? this.productCode,
       reviewCount: reviewCount ?? this.reviewCount,
       averageScore: averageScore ?? this.averageScore,
@@ -4385,17 +4597,19 @@ extension $ProductReviewNoAuthSummaryGet$Response$DataExtension
     );
   }
 
-  ProductReviewNoAuthSummaryGet$Response$Data copyWithWrapped({
+  ProductServiceProductReviewNoAuthSummaryGet$Response$Data copyWithWrapped({
     Wrapped<String?>? productCode,
     Wrapped<double?>? reviewCount,
     Wrapped<double?>? averageScore,
     Wrapped<String?>? aiSummary,
     Wrapped<
-      List<ProductReviewNoAuthSummaryGet$Response$Data$FeaturedReviews$Item>?
+      List<
+        ProductServiceProductReviewNoAuthSummaryGet$Response$Data$FeaturedReviews$Item
+      >?
     >?
     featuredReviews,
   }) {
-    return ProductReviewNoAuthSummaryGet$Response$Data(
+    return ProductServiceProductReviewNoAuthSummaryGet$Response$Data(
       productCode: (productCode != null ? productCode.value : this.productCode),
       reviewCount: (reviewCount != null ? reviewCount.value : this.reviewCount),
       averageScore: (averageScore != null
@@ -4410,26 +4624,30 @@ extension $ProductReviewNoAuthSummaryGet$Response$DataExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class CategoryNoAuthTreeGet$Response$Data {
-  const CategoryNoAuthTreeGet$Response$Data({this.categoryList});
+class ProductServiceCategoryNoAuthTreeGet$Response$Data {
+  const ProductServiceCategoryNoAuthTreeGet$Response$Data({this.categoryList});
 
-  factory CategoryNoAuthTreeGet$Response$Data.fromJson(
+  factory ProductServiceCategoryNoAuthTreeGet$Response$Data.fromJson(
     Map<String, dynamic> json,
-  ) => _$CategoryNoAuthTreeGet$Response$DataFromJson(json);
+  ) => _$ProductServiceCategoryNoAuthTreeGet$Response$DataFromJson(json);
 
-  static const toJsonFactory = _$CategoryNoAuthTreeGet$Response$DataToJson;
+  static const toJsonFactory =
+      _$ProductServiceCategoryNoAuthTreeGet$Response$DataToJson;
   Map<String, dynamic> toJson() =>
-      _$CategoryNoAuthTreeGet$Response$DataToJson(this);
+      _$ProductServiceCategoryNoAuthTreeGet$Response$DataToJson(this);
 
   @JsonKey(name: 'categoryList')
-  final List<CategoryNoAuthTreeGet$Response$Data$CategoryList$Item>?
+  final List<
+    ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item
+  >?
   categoryList;
-  static const fromJsonFactory = _$CategoryNoAuthTreeGet$Response$DataFromJson;
+  static const fromJsonFactory =
+      _$ProductServiceCategoryNoAuthTreeGet$Response$DataFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is CategoryNoAuthTreeGet$Response$Data &&
+        (other is ProductServiceCategoryNoAuthTreeGet$Response$Data &&
             (identical(other.categoryList, categoryList) ||
                 const DeepCollectionEquality().equals(
                   other.categoryList,
@@ -4445,21 +4663,24 @@ class CategoryNoAuthTreeGet$Response$Data {
       const DeepCollectionEquality().hash(categoryList) ^ runtimeType.hashCode;
 }
 
-extension $CategoryNoAuthTreeGet$Response$DataExtension
-    on CategoryNoAuthTreeGet$Response$Data {
-  CategoryNoAuthTreeGet$Response$Data copyWith({
-    List<CategoryNoAuthTreeGet$Response$Data$CategoryList$Item>? categoryList,
+extension $ProductServiceCategoryNoAuthTreeGet$Response$DataExtension
+    on ProductServiceCategoryNoAuthTreeGet$Response$Data {
+  ProductServiceCategoryNoAuthTreeGet$Response$Data copyWith({
+    List<ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item>?
+    categoryList,
   }) {
-    return CategoryNoAuthTreeGet$Response$Data(
+    return ProductServiceCategoryNoAuthTreeGet$Response$Data(
       categoryList: categoryList ?? this.categoryList,
     );
   }
 
-  CategoryNoAuthTreeGet$Response$Data copyWithWrapped({
-    Wrapped<List<CategoryNoAuthTreeGet$Response$Data$CategoryList$Item>?>?
+  ProductServiceCategoryNoAuthTreeGet$Response$Data copyWithWrapped({
+    Wrapped<
+      List<ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item>?
+    >?
     categoryList,
   }) {
-    return CategoryNoAuthTreeGet$Response$Data(
+    return ProductServiceCategoryNoAuthTreeGet$Response$Data(
       categoryList: (categoryList != null
           ? categoryList.value
           : this.categoryList),
@@ -4468,36 +4689,43 @@ extension $CategoryNoAuthTreeGet$Response$DataExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ActivityNoAuthFlashSaleActivityGet$Response$Data {
-  const ActivityNoAuthFlashSaleActivityGet$Response$Data({
+class ProductServiceActivityNoAuthFlashSaleActivityGet$Response$Data {
+  const ProductServiceActivityNoAuthFlashSaleActivityGet$Response$Data({
     this.pic,
     this.ruleLink,
     this.activities,
   });
 
-  factory ActivityNoAuthFlashSaleActivityGet$Response$Data.fromJson(
+  factory ProductServiceActivityNoAuthFlashSaleActivityGet$Response$Data.fromJson(
     Map<String, dynamic> json,
-  ) => _$ActivityNoAuthFlashSaleActivityGet$Response$DataFromJson(json);
+  ) => _$ProductServiceActivityNoAuthFlashSaleActivityGet$Response$DataFromJson(
+    json,
+  );
 
   static const toJsonFactory =
-      _$ActivityNoAuthFlashSaleActivityGet$Response$DataToJson;
+      _$ProductServiceActivityNoAuthFlashSaleActivityGet$Response$DataToJson;
   Map<String, dynamic> toJson() =>
-      _$ActivityNoAuthFlashSaleActivityGet$Response$DataToJson(this);
+      _$ProductServiceActivityNoAuthFlashSaleActivityGet$Response$DataToJson(
+        this,
+      );
 
   @JsonKey(name: 'pic')
   final String? pic;
   @JsonKey(name: 'ruleLink')
   final String? ruleLink;
   @JsonKey(name: 'activities')
-  final List<ActivityNoAuthFlashSaleActivityGet$Response$Data$Activities$Item>?
+  final List<
+    ProductServiceActivityNoAuthFlashSaleActivityGet$Response$Data$Activities$Item
+  >?
   activities;
   static const fromJsonFactory =
-      _$ActivityNoAuthFlashSaleActivityGet$Response$DataFromJson;
+      _$ProductServiceActivityNoAuthFlashSaleActivityGet$Response$DataFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ActivityNoAuthFlashSaleActivityGet$Response$Data &&
+        (other
+                is ProductServiceActivityNoAuthFlashSaleActivityGet$Response$Data &&
             (identical(other.pic, pic) ||
                 const DeepCollectionEquality().equals(other.pic, pic)) &&
             (identical(other.ruleLink, ruleLink) ||
@@ -4523,30 +4751,35 @@ class ActivityNoAuthFlashSaleActivityGet$Response$Data {
       runtimeType.hashCode;
 }
 
-extension $ActivityNoAuthFlashSaleActivityGet$Response$DataExtension
-    on ActivityNoAuthFlashSaleActivityGet$Response$Data {
-  ActivityNoAuthFlashSaleActivityGet$Response$Data copyWith({
+extension $ProductServiceActivityNoAuthFlashSaleActivityGet$Response$DataExtension
+    on ProductServiceActivityNoAuthFlashSaleActivityGet$Response$Data {
+  ProductServiceActivityNoAuthFlashSaleActivityGet$Response$Data copyWith({
     String? pic,
     String? ruleLink,
-    List<ActivityNoAuthFlashSaleActivityGet$Response$Data$Activities$Item>?
+    List<
+      ProductServiceActivityNoAuthFlashSaleActivityGet$Response$Data$Activities$Item
+    >?
     activities,
   }) {
-    return ActivityNoAuthFlashSaleActivityGet$Response$Data(
+    return ProductServiceActivityNoAuthFlashSaleActivityGet$Response$Data(
       pic: pic ?? this.pic,
       ruleLink: ruleLink ?? this.ruleLink,
       activities: activities ?? this.activities,
     );
   }
 
-  ActivityNoAuthFlashSaleActivityGet$Response$Data copyWithWrapped({
+  ProductServiceActivityNoAuthFlashSaleActivityGet$Response$Data
+  copyWithWrapped({
     Wrapped<String?>? pic,
     Wrapped<String?>? ruleLink,
     Wrapped<
-      List<ActivityNoAuthFlashSaleActivityGet$Response$Data$Activities$Item>?
+      List<
+        ProductServiceActivityNoAuthFlashSaleActivityGet$Response$Data$Activities$Item
+      >?
     >?
     activities,
   }) {
-    return ActivityNoAuthFlashSaleActivityGet$Response$Data(
+    return ProductServiceActivityNoAuthFlashSaleActivityGet$Response$Data(
       pic: (pic != null ? pic.value : this.pic),
       ruleLink: (ruleLink != null ? ruleLink.value : this.ruleLink),
       activities: (activities != null ? activities.value : this.activities),
@@ -4555,8 +4788,8 @@ extension $ActivityNoAuthFlashSaleActivityGet$Response$DataExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ActivityNoAuthFlashSaleActivityProductGet$Response$Data {
-  const ActivityNoAuthFlashSaleActivityProductGet$Response$Data({
+class ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data {
+  const ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data({
     required this.records,
     required this.total,
     required this.pageSize,
@@ -4564,18 +4797,23 @@ class ActivityNoAuthFlashSaleActivityProductGet$Response$Data {
     required this.current,
   });
 
-  factory ActivityNoAuthFlashSaleActivityProductGet$Response$Data.fromJson(
+  factory ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data.fromJson(
     Map<String, dynamic> json,
-  ) => _$ActivityNoAuthFlashSaleActivityProductGet$Response$DataFromJson(json);
+  ) =>
+      _$ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$DataFromJson(
+        json,
+      );
 
   static const toJsonFactory =
-      _$ActivityNoAuthFlashSaleActivityProductGet$Response$DataToJson;
+      _$ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$DataToJson;
   Map<String, dynamic> toJson() =>
-      _$ActivityNoAuthFlashSaleActivityProductGet$Response$DataToJson(this);
+      _$ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$DataToJson(
+        this,
+      );
 
   @JsonKey(name: 'records')
   final List<
-    ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item
+    ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item
   >
   records;
   @JsonKey(name: 'total')
@@ -4587,12 +4825,13 @@ class ActivityNoAuthFlashSaleActivityProductGet$Response$Data {
   @JsonKey(name: 'current')
   final int current;
   static const fromJsonFactory =
-      _$ActivityNoAuthFlashSaleActivityProductGet$Response$DataFromJson;
+      _$ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$DataFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ActivityNoAuthFlashSaleActivityProductGet$Response$Data &&
+        (other
+                is ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data &&
             (identical(other.records, records) ||
                 const DeepCollectionEquality().equals(
                   other.records,
@@ -4627,17 +4866,20 @@ class ActivityNoAuthFlashSaleActivityProductGet$Response$Data {
       runtimeType.hashCode;
 }
 
-extension $ActivityNoAuthFlashSaleActivityProductGet$Response$DataExtension
-    on ActivityNoAuthFlashSaleActivityProductGet$Response$Data {
-  ActivityNoAuthFlashSaleActivityProductGet$Response$Data copyWith({
-    List<ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item>?
+extension $ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$DataExtension
+    on ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data {
+  ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data
+  copyWith({
+    List<
+      ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item
+    >?
     records,
     int? total,
     int? pageSize,
     int? totalPages,
     int? current,
   }) {
-    return ActivityNoAuthFlashSaleActivityProductGet$Response$Data(
+    return ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data(
       records: records ?? this.records,
       total: total ?? this.total,
       pageSize: pageSize ?? this.pageSize,
@@ -4646,9 +4888,12 @@ extension $ActivityNoAuthFlashSaleActivityProductGet$Response$DataExtension
     );
   }
 
-  ActivityNoAuthFlashSaleActivityProductGet$Response$Data copyWithWrapped({
+  ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data
+  copyWithWrapped({
     Wrapped<
-      List<ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item>
+      List<
+        ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item
+      >
     >?
     records,
     Wrapped<int>? total,
@@ -4656,7 +4901,7 @@ extension $ActivityNoAuthFlashSaleActivityProductGet$Response$DataExtension
     Wrapped<int>? totalPages,
     Wrapped<int>? current,
   }) {
-    return ActivityNoAuthFlashSaleActivityProductGet$Response$Data(
+    return ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data(
       records: (records != null ? records.value : this.records),
       total: (total != null ? total.value : this.total),
       pageSize: (pageSize != null ? pageSize.value : this.pageSize),
@@ -4667,8 +4912,8 @@ extension $ActivityNoAuthFlashSaleActivityProductGet$Response$DataExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductPremiumDupeNoAuthPagePost$Response$Data {
-  const ProductPremiumDupeNoAuthPagePost$Response$Data({
+class ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data {
+  const ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data({
     this.total,
     this.pageSize,
     this.totalPages,
@@ -4676,14 +4921,18 @@ class ProductPremiumDupeNoAuthPagePost$Response$Data {
     this.records,
   });
 
-  factory ProductPremiumDupeNoAuthPagePost$Response$Data.fromJson(
+  factory ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data.fromJson(
     Map<String, dynamic> json,
-  ) => _$ProductPremiumDupeNoAuthPagePost$Response$DataFromJson(json);
+  ) => _$ProductServiceProductPremiumDupeNoAuthPagePost$Response$DataFromJson(
+    json,
+  );
 
   static const toJsonFactory =
-      _$ProductPremiumDupeNoAuthPagePost$Response$DataToJson;
+      _$ProductServiceProductPremiumDupeNoAuthPagePost$Response$DataToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductPremiumDupeNoAuthPagePost$Response$DataToJson(this);
+      _$ProductServiceProductPremiumDupeNoAuthPagePost$Response$DataToJson(
+        this,
+      );
 
   @JsonKey(name: 'total')
   final int? total;
@@ -4694,15 +4943,17 @@ class ProductPremiumDupeNoAuthPagePost$Response$Data {
   @JsonKey(name: 'current')
   final int? current;
   @JsonKey(name: 'records')
-  final List<ProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item>?
+  final List<
+    ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item
+  >?
   records;
   static const fromJsonFactory =
-      _$ProductPremiumDupeNoAuthPagePost$Response$DataFromJson;
+      _$ProductServiceProductPremiumDupeNoAuthPagePost$Response$DataFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ProductPremiumDupeNoAuthPagePost$Response$Data &&
+        (other is ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data &&
             (identical(other.total, total) ||
                 const DeepCollectionEquality().equals(other.total, total)) &&
             (identical(other.pageSize, pageSize) ||
@@ -4737,16 +4988,19 @@ class ProductPremiumDupeNoAuthPagePost$Response$Data {
       runtimeType.hashCode;
 }
 
-extension $ProductPremiumDupeNoAuthPagePost$Response$DataExtension
-    on ProductPremiumDupeNoAuthPagePost$Response$Data {
-  ProductPremiumDupeNoAuthPagePost$Response$Data copyWith({
+extension $ProductServiceProductPremiumDupeNoAuthPagePost$Response$DataExtension
+    on ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data {
+  ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data copyWith({
     int? total,
     int? pageSize,
     int? totalPages,
     int? current,
-    List<ProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item>? records,
+    List<
+      ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item
+    >?
+    records,
   }) {
-    return ProductPremiumDupeNoAuthPagePost$Response$Data(
+    return ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data(
       total: total ?? this.total,
       pageSize: pageSize ?? this.pageSize,
       totalPages: totalPages ?? this.totalPages,
@@ -4755,15 +5009,19 @@ extension $ProductPremiumDupeNoAuthPagePost$Response$DataExtension
     );
   }
 
-  ProductPremiumDupeNoAuthPagePost$Response$Data copyWithWrapped({
+  ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data copyWithWrapped({
     Wrapped<int?>? total,
     Wrapped<int?>? pageSize,
     Wrapped<int?>? totalPages,
     Wrapped<int?>? current,
-    Wrapped<List<ProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item>?>?
+    Wrapped<
+      List<
+        ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item
+      >?
+    >?
     records,
   }) {
-    return ProductPremiumDupeNoAuthPagePost$Response$Data(
+    return ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data(
       total: (total != null ? total.value : this.total),
       pageSize: (pageSize != null ? pageSize.value : this.pageSize),
       totalPages: (totalPages != null ? totalPages.value : this.totalPages),
@@ -4774,36 +5032,44 @@ extension $ProductPremiumDupeNoAuthPagePost$Response$DataExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductPremiumDupeNoAuthMetaGet$Response$Data {
-  const ProductPremiumDupeNoAuthMetaGet$Response$Data({
+class ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data {
+  const ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data({
     this.categories,
     this.sorts,
     this.config,
   });
 
-  factory ProductPremiumDupeNoAuthMetaGet$Response$Data.fromJson(
+  factory ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data.fromJson(
     Map<String, dynamic> json,
-  ) => _$ProductPremiumDupeNoAuthMetaGet$Response$DataFromJson(json);
+  ) => _$ProductServiceProductPremiumDupeNoAuthMetaGet$Response$DataFromJson(
+    json,
+  );
 
   static const toJsonFactory =
-      _$ProductPremiumDupeNoAuthMetaGet$Response$DataToJson;
+      _$ProductServiceProductPremiumDupeNoAuthMetaGet$Response$DataToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductPremiumDupeNoAuthMetaGet$Response$DataToJson(this);
+      _$ProductServiceProductPremiumDupeNoAuthMetaGet$Response$DataToJson(this);
 
   @JsonKey(name: 'categories')
-  final List<ProductPremiumDupeNoAuthMetaGet$Response$Data$Categories$Item>?
+  final List<
+    ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Categories$Item
+  >?
   categories;
   @JsonKey(name: 'sorts')
-  final List<ProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$Item>? sorts;
+  final List<
+    ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$Item
+  >?
+  sorts;
   @JsonKey(name: 'config')
-  final ProductPremiumDupeNoAuthMetaGet$Response$Data$Config? config;
+  final ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Config?
+  config;
   static const fromJsonFactory =
-      _$ProductPremiumDupeNoAuthMetaGet$Response$DataFromJson;
+      _$ProductServiceProductPremiumDupeNoAuthMetaGet$Response$DataFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ProductPremiumDupeNoAuthMetaGet$Response$Data &&
+        (other is ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data &&
             (identical(other.categories, categories) ||
                 const DeepCollectionEquality().equals(
                   other.categories,
@@ -4826,31 +5092,45 @@ class ProductPremiumDupeNoAuthMetaGet$Response$Data {
       runtimeType.hashCode;
 }
 
-extension $ProductPremiumDupeNoAuthMetaGet$Response$DataExtension
-    on ProductPremiumDupeNoAuthMetaGet$Response$Data {
-  ProductPremiumDupeNoAuthMetaGet$Response$Data copyWith({
-    List<ProductPremiumDupeNoAuthMetaGet$Response$Data$Categories$Item>?
+extension $ProductServiceProductPremiumDupeNoAuthMetaGet$Response$DataExtension
+    on ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data {
+  ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data copyWith({
+    List<
+      ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Categories$Item
+    >?
     categories,
-    List<ProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$Item>? sorts,
-    ProductPremiumDupeNoAuthMetaGet$Response$Data$Config? config,
+    List<
+      ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$Item
+    >?
+    sorts,
+    ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Config? config,
   }) {
-    return ProductPremiumDupeNoAuthMetaGet$Response$Data(
+    return ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data(
       categories: categories ?? this.categories,
       sorts: sorts ?? this.sorts,
       config: config ?? this.config,
     );
   }
 
-  ProductPremiumDupeNoAuthMetaGet$Response$Data copyWithWrapped({
+  ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data copyWithWrapped({
     Wrapped<
-      List<ProductPremiumDupeNoAuthMetaGet$Response$Data$Categories$Item>?
+      List<
+        ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Categories$Item
+      >?
     >?
     categories,
-    Wrapped<List<ProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$Item>?>?
+    Wrapped<
+      List<
+        ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$Item
+      >?
+    >?
     sorts,
-    Wrapped<ProductPremiumDupeNoAuthMetaGet$Response$Data$Config?>? config,
+    Wrapped<
+      ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Config?
+    >?
+    config,
   }) {
-    return ProductPremiumDupeNoAuthMetaGet$Response$Data(
+    return ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data(
       categories: (categories != null ? categories.value : this.categories),
       sorts: (sorts != null ? sorts.value : this.sorts),
       config: (config != null ? config.value : this.config),
@@ -4859,8 +5139,8 @@ extension $ProductPremiumDupeNoAuthMetaGet$Response$DataExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductPremiumDupeNoAuthSelectionGet$Response$Data$Item {
-  const ProductPremiumDupeNoAuthSelectionGet$Response$Data$Item({
+class ProductServiceProductPremiumDupeNoAuthSelectionGet$Response$Data$Item {
+  const ProductServiceProductPremiumDupeNoAuthSelectionGet$Response$Data$Item({
     this.productCode,
     this.productName,
     this.image,
@@ -4882,21 +5162,27 @@ class ProductPremiumDupeNoAuthSelectionGet$Response$Data$Item {
     this.sellPoints,
   });
 
-  factory ProductPremiumDupeNoAuthSelectionGet$Response$Data$Item.fromJson(
+  factory ProductServiceProductPremiumDupeNoAuthSelectionGet$Response$Data$Item.fromJson(
     Map<String, dynamic> json,
-  ) => _$ProductPremiumDupeNoAuthSelectionGet$Response$Data$ItemFromJson(json);
+  ) =>
+      _$ProductServiceProductPremiumDupeNoAuthSelectionGet$Response$Data$ItemFromJson(
+        json,
+      );
 
   static const toJsonFactory =
-      _$ProductPremiumDupeNoAuthSelectionGet$Response$Data$ItemToJson;
+      _$ProductServiceProductPremiumDupeNoAuthSelectionGet$Response$Data$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductPremiumDupeNoAuthSelectionGet$Response$Data$ItemToJson(this);
+      _$ProductServiceProductPremiumDupeNoAuthSelectionGet$Response$Data$ItemToJson(
+        this,
+      );
 
   @JsonKey(name: 'productCode')
   final String? productCode;
   @JsonKey(name: 'productName')
   final String? productName;
   @JsonKey(name: 'image')
-  final ProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$Image? image;
+  final ProductServiceProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$Image?
+  image;
   @JsonKey(name: 'sourcePlatform')
   final String? sourcePlatform;
   @JsonKey(name: 'platformProductId')
@@ -4922,22 +5208,25 @@ class ProductPremiumDupeNoAuthSelectionGet$Response$Data$Item {
   @JsonKey(name: 'marketingInfo')
   final String? marketingInfo;
   @JsonKey(name: 'tags')
-  final List<ProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$Tags$Item>?
+  final List<
+    ProductServiceProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$Tags$Item
+  >?
   tags;
   @JsonKey(name: 'skuSourceCode')
   final String? skuSourceCode;
   @JsonKey(name: 'premiumBrandInfo')
-  final ProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$PremiumBrandInfo?
+  final ProductServiceProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$PremiumBrandInfo?
   premiumBrandInfo;
   @JsonKey(name: 'sellPoints', defaultValue: <Object>[])
   final List<Object>? sellPoints;
   static const fromJsonFactory =
-      _$ProductPremiumDupeNoAuthSelectionGet$Response$Data$ItemFromJson;
+      _$ProductServiceProductPremiumDupeNoAuthSelectionGet$Response$Data$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ProductPremiumDupeNoAuthSelectionGet$Response$Data$Item &&
+        (other
+                is ProductServiceProductPremiumDupeNoAuthSelectionGet$Response$Data$Item &&
             (identical(other.productCode, productCode) ||
                 const DeepCollectionEquality().equals(
                   other.productCode,
@@ -5056,12 +5345,14 @@ class ProductPremiumDupeNoAuthSelectionGet$Response$Data$Item {
       runtimeType.hashCode;
 }
 
-extension $ProductPremiumDupeNoAuthSelectionGet$Response$Data$ItemExtension
-    on ProductPremiumDupeNoAuthSelectionGet$Response$Data$Item {
-  ProductPremiumDupeNoAuthSelectionGet$Response$Data$Item copyWith({
+extension $ProductServiceProductPremiumDupeNoAuthSelectionGet$Response$Data$ItemExtension
+    on ProductServiceProductPremiumDupeNoAuthSelectionGet$Response$Data$Item {
+  ProductServiceProductPremiumDupeNoAuthSelectionGet$Response$Data$Item
+  copyWith({
     String? productCode,
     String? productName,
-    ProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$Image? image,
+    ProductServiceProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$Image?
+    image,
     String? sourcePlatform,
     String? platformProductId,
     List<Object>? categoryTree,
@@ -5074,14 +5365,16 @@ extension $ProductPremiumDupeNoAuthSelectionGet$Response$Data$ItemExtension
     String? sellQuantity,
     int? skuCount,
     String? marketingInfo,
-    List<ProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$Tags$Item>?
+    List<
+      ProductServiceProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$Tags$Item
+    >?
     tags,
     String? skuSourceCode,
-    ProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$PremiumBrandInfo?
+    ProductServiceProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$PremiumBrandInfo?
     premiumBrandInfo,
     List<Object>? sellPoints,
   }) {
-    return ProductPremiumDupeNoAuthSelectionGet$Response$Data$Item(
+    return ProductServiceProductPremiumDupeNoAuthSelectionGet$Response$Data$Item(
       productCode: productCode ?? this.productCode,
       productName: productName ?? this.productName,
       image: image ?? this.image,
@@ -5104,10 +5397,13 @@ extension $ProductPremiumDupeNoAuthSelectionGet$Response$Data$ItemExtension
     );
   }
 
-  ProductPremiumDupeNoAuthSelectionGet$Response$Data$Item copyWithWrapped({
+  ProductServiceProductPremiumDupeNoAuthSelectionGet$Response$Data$Item
+  copyWithWrapped({
     Wrapped<String?>? productCode,
     Wrapped<String?>? productName,
-    Wrapped<ProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$Image?>?
+    Wrapped<
+      ProductServiceProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$Image?
+    >?
     image,
     Wrapped<String?>? sourcePlatform,
     Wrapped<String?>? platformProductId,
@@ -5122,17 +5418,19 @@ extension $ProductPremiumDupeNoAuthSelectionGet$Response$Data$ItemExtension
     Wrapped<int?>? skuCount,
     Wrapped<String?>? marketingInfo,
     Wrapped<
-      List<ProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$Tags$Item>?
+      List<
+        ProductServiceProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$Tags$Item
+      >?
     >?
     tags,
     Wrapped<String?>? skuSourceCode,
     Wrapped<
-      ProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$PremiumBrandInfo?
+      ProductServiceProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$PremiumBrandInfo?
     >?
     premiumBrandInfo,
     Wrapped<List<Object>?>? sellPoints,
   }) {
-    return ProductPremiumDupeNoAuthSelectionGet$Response$Data$Item(
+    return ProductServiceProductPremiumDupeNoAuthSelectionGet$Response$Data$Item(
       productCode: (productCode != null ? productCode.value : this.productCode),
       productName: (productName != null ? productName.value : this.productName),
       image: (image != null ? image.value : this.image),
@@ -5179,8 +5477,8 @@ extension $ProductPremiumDupeNoAuthSelectionGet$Response$Data$ItemExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthPushProductGet$Response$Data {
-  const ProductNoAuthPushProductGet$Response$Data({
+class ProductServiceProductNoAuthPushProductGet$Response$Data {
+  const ProductServiceProductNoAuthPushProductGet$Response$Data({
     required this.total,
     required this.pageSize,
     required this.current,
@@ -5188,14 +5486,14 @@ class ProductNoAuthPushProductGet$Response$Data {
     required this.records,
   });
 
-  factory ProductNoAuthPushProductGet$Response$Data.fromJson(
+  factory ProductServiceProductNoAuthPushProductGet$Response$Data.fromJson(
     Map<String, dynamic> json,
-  ) => _$ProductNoAuthPushProductGet$Response$DataFromJson(json);
+  ) => _$ProductServiceProductNoAuthPushProductGet$Response$DataFromJson(json);
 
   static const toJsonFactory =
-      _$ProductNoAuthPushProductGet$Response$DataToJson;
+      _$ProductServiceProductNoAuthPushProductGet$Response$DataToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthPushProductGet$Response$DataToJson(this);
+      _$ProductServiceProductNoAuthPushProductGet$Response$DataToJson(this);
 
   @JsonKey(name: 'total')
   final int total;
@@ -5206,14 +5504,17 @@ class ProductNoAuthPushProductGet$Response$Data {
   @JsonKey(name: 'totalPages')
   final int totalPages;
   @JsonKey(name: 'records')
-  final List<ProductNoAuthPushProductGet$Response$Data$Records$Item> records;
+  final List<
+    ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item
+  >
+  records;
   static const fromJsonFactory =
-      _$ProductNoAuthPushProductGet$Response$DataFromJson;
+      _$ProductServiceProductNoAuthPushProductGet$Response$DataFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ProductNoAuthPushProductGet$Response$Data &&
+        (other is ProductServiceProductNoAuthPushProductGet$Response$Data &&
             (identical(other.total, total) ||
                 const DeepCollectionEquality().equals(other.total, total)) &&
             (identical(other.pageSize, pageSize) ||
@@ -5248,16 +5549,17 @@ class ProductNoAuthPushProductGet$Response$Data {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthPushProductGet$Response$DataExtension
-    on ProductNoAuthPushProductGet$Response$Data {
-  ProductNoAuthPushProductGet$Response$Data copyWith({
+extension $ProductServiceProductNoAuthPushProductGet$Response$DataExtension
+    on ProductServiceProductNoAuthPushProductGet$Response$Data {
+  ProductServiceProductNoAuthPushProductGet$Response$Data copyWith({
     int? total,
     int? pageSize,
     int? current,
     int? totalPages,
-    List<ProductNoAuthPushProductGet$Response$Data$Records$Item>? records,
+    List<ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item>?
+    records,
   }) {
-    return ProductNoAuthPushProductGet$Response$Data(
+    return ProductServiceProductNoAuthPushProductGet$Response$Data(
       total: total ?? this.total,
       pageSize: pageSize ?? this.pageSize,
       current: current ?? this.current,
@@ -5266,15 +5568,17 @@ extension $ProductNoAuthPushProductGet$Response$DataExtension
     );
   }
 
-  ProductNoAuthPushProductGet$Response$Data copyWithWrapped({
+  ProductServiceProductNoAuthPushProductGet$Response$Data copyWithWrapped({
     Wrapped<int>? total,
     Wrapped<int>? pageSize,
     Wrapped<int>? current,
     Wrapped<int>? totalPages,
-    Wrapped<List<ProductNoAuthPushProductGet$Response$Data$Records$Item>>?
+    Wrapped<
+      List<ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item>
+    >?
     records,
   }) {
-    return ProductNoAuthPushProductGet$Response$Data(
+    return ProductServiceProductNoAuthPushProductGet$Response$Data(
       total: (total != null ? total.value : this.total),
       pageSize: (pageSize != null ? pageSize.value : this.pageSize),
       current: (current != null ? current.value : this.current),
@@ -5285,8 +5589,8 @@ extension $ProductNoAuthPushProductGet$Response$DataExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthSearchGet$Response$Data$Item {
-  const ProductNoAuthSearchGet$Response$Data$Item({
+class ProductServiceProductNoAuthSearchGet$Response$Data$Item {
+  const ProductServiceProductNoAuthSearchGet$Response$Data$Item({
     required this.shopCode,
     required this.productCode,
     required this.productName,
@@ -5314,14 +5618,14 @@ class ProductNoAuthSearchGet$Response$Data$Item {
     required this.sellPoints,
   });
 
-  factory ProductNoAuthSearchGet$Response$Data$Item.fromJson(
+  factory ProductServiceProductNoAuthSearchGet$Response$Data$Item.fromJson(
     Map<String, dynamic> json,
-  ) => _$ProductNoAuthSearchGet$Response$Data$ItemFromJson(json);
+  ) => _$ProductServiceProductNoAuthSearchGet$Response$Data$ItemFromJson(json);
 
   static const toJsonFactory =
-      _$ProductNoAuthSearchGet$Response$Data$ItemToJson;
+      _$ProductServiceProductNoAuthSearchGet$Response$Data$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthSearchGet$Response$Data$ItemToJson(this);
+      _$ProductServiceProductNoAuthSearchGet$Response$Data$ItemToJson(this);
 
   @JsonKey(name: 'shopCode')
   final String shopCode;
@@ -5334,23 +5638,30 @@ class ProductNoAuthSearchGet$Response$Data$Item {
   @JsonKey(name: 'brandName')
   final String brandName;
   @JsonKey(name: 'mainImg')
-  final ProductNoAuthSearchGet$Response$Data$Item$MainImg mainImg;
+  final ProductServiceProductNoAuthSearchGet$Response$Data$Item$MainImg mainImg;
   @JsonKey(name: 'subImg')
-  final ProductNoAuthSearchGet$Response$Data$Item$SubImg subImg;
+  final ProductServiceProductNoAuthSearchGet$Response$Data$Item$SubImg subImg;
   @JsonKey(name: 'mainVideo')
-  final ProductNoAuthSearchGet$Response$Data$Item$MainVideo mainVideo;
+  final ProductServiceProductNoAuthSearchGet$Response$Data$Item$MainVideo
+  mainVideo;
   @JsonKey(name: 'imgCollection')
-  final List<ProductNoAuthSearchGet$Response$Data$Item$ImgCollection$Item>
+  final List<
+    ProductServiceProductNoAuthSearchGet$Response$Data$Item$ImgCollection$Item
+  >
   imgCollection;
   @JsonKey(name: 'textDetail')
   final String textDetail;
   @JsonKey(name: 'categoryId')
   final String categoryId;
   @JsonKey(name: 'productOptions')
-  final List<ProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item>
+  final List<
+    ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item
+  >
   productOptions;
   @JsonKey(name: 'productAttrs')
-  final List<ProductNoAuthSearchGet$Response$Data$Item$ProductAttrs$Item>
+  final List<
+    ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductAttrs$Item
+  >
   productAttrs;
   @JsonKey(name: 'sourcePlatform')
   final String sourcePlatform;
@@ -5373,17 +5684,17 @@ class ProductNoAuthSearchGet$Response$Data$Item {
   @JsonKey(name: 'targetOriginPrice')
   final String targetOriginPrice;
   @JsonKey(name: 'premiumBrandInfo')
-  final ProductNoAuthSearchGet$Response$Data$Item$PremiumBrandInfo?
+  final ProductServiceProductNoAuthSearchGet$Response$Data$Item$PremiumBrandInfo?
   premiumBrandInfo;
   @JsonKey(name: 'sellPoints', defaultValue: <Object>[])
   final List<Object> sellPoints;
   static const fromJsonFactory =
-      _$ProductNoAuthSearchGet$Response$Data$ItemFromJson;
+      _$ProductServiceProductNoAuthSearchGet$Response$Data$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ProductNoAuthSearchGet$Response$Data$Item &&
+        (other is ProductServiceProductNoAuthSearchGet$Response$Data$Item &&
             (identical(other.shopCode, shopCode) ||
                 const DeepCollectionEquality().equals(
                   other.shopCode,
@@ -5541,24 +5852,31 @@ class ProductNoAuthSearchGet$Response$Data$Item {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthSearchGet$Response$Data$ItemExtension
-    on ProductNoAuthSearchGet$Response$Data$Item {
-  ProductNoAuthSearchGet$Response$Data$Item copyWith({
+extension $ProductServiceProductNoAuthSearchGet$Response$Data$ItemExtension
+    on ProductServiceProductNoAuthSearchGet$Response$Data$Item {
+  ProductServiceProductNoAuthSearchGet$Response$Data$Item copyWith({
     String? shopCode,
     String? productCode,
     String? productName,
     String? tenantCode,
     String? brandName,
-    ProductNoAuthSearchGet$Response$Data$Item$MainImg? mainImg,
-    ProductNoAuthSearchGet$Response$Data$Item$SubImg? subImg,
-    ProductNoAuthSearchGet$Response$Data$Item$MainVideo? mainVideo,
-    List<ProductNoAuthSearchGet$Response$Data$Item$ImgCollection$Item>?
+    ProductServiceProductNoAuthSearchGet$Response$Data$Item$MainImg? mainImg,
+    ProductServiceProductNoAuthSearchGet$Response$Data$Item$SubImg? subImg,
+    ProductServiceProductNoAuthSearchGet$Response$Data$Item$MainVideo?
+    mainVideo,
+    List<
+      ProductServiceProductNoAuthSearchGet$Response$Data$Item$ImgCollection$Item
+    >?
     imgCollection,
     String? textDetail,
     String? categoryId,
-    List<ProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item>?
+    List<
+      ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item
+    >?
     productOptions,
-    List<ProductNoAuthSearchGet$Response$Data$Item$ProductAttrs$Item>?
+    List<
+      ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductAttrs$Item
+    >?
     productAttrs,
     String? sourcePlatform,
     String? platformUrl,
@@ -5570,11 +5888,11 @@ extension $ProductNoAuthSearchGet$Response$Data$ItemExtension
     String? targetSellCur,
     String? marketingInfo,
     String? targetOriginPrice,
-    ProductNoAuthSearchGet$Response$Data$Item$PremiumBrandInfo?
+    ProductServiceProductNoAuthSearchGet$Response$Data$Item$PremiumBrandInfo?
     premiumBrandInfo,
     List<Object>? sellPoints,
   }) {
-    return ProductNoAuthSearchGet$Response$Data$Item(
+    return ProductServiceProductNoAuthSearchGet$Response$Data$Item(
       shopCode: shopCode ?? this.shopCode,
       productCode: productCode ?? this.productCode,
       productName: productName ?? this.productName,
@@ -5603,24 +5921,37 @@ extension $ProductNoAuthSearchGet$Response$Data$ItemExtension
     );
   }
 
-  ProductNoAuthSearchGet$Response$Data$Item copyWithWrapped({
+  ProductServiceProductNoAuthSearchGet$Response$Data$Item copyWithWrapped({
     Wrapped<String>? shopCode,
     Wrapped<String>? productCode,
     Wrapped<String>? productName,
     Wrapped<String>? tenantCode,
     Wrapped<String>? brandName,
-    Wrapped<ProductNoAuthSearchGet$Response$Data$Item$MainImg>? mainImg,
-    Wrapped<ProductNoAuthSearchGet$Response$Data$Item$SubImg>? subImg,
-    Wrapped<ProductNoAuthSearchGet$Response$Data$Item$MainVideo>? mainVideo,
-    Wrapped<List<ProductNoAuthSearchGet$Response$Data$Item$ImgCollection$Item>>?
+    Wrapped<ProductServiceProductNoAuthSearchGet$Response$Data$Item$MainImg>?
+    mainImg,
+    Wrapped<ProductServiceProductNoAuthSearchGet$Response$Data$Item$SubImg>?
+    subImg,
+    Wrapped<ProductServiceProductNoAuthSearchGet$Response$Data$Item$MainVideo>?
+    mainVideo,
+    Wrapped<
+      List<
+        ProductServiceProductNoAuthSearchGet$Response$Data$Item$ImgCollection$Item
+      >
+    >?
     imgCollection,
     Wrapped<String>? textDetail,
     Wrapped<String>? categoryId,
     Wrapped<
-      List<ProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item>
+      List<
+        ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item
+      >
     >?
     productOptions,
-    Wrapped<List<ProductNoAuthSearchGet$Response$Data$Item$ProductAttrs$Item>>?
+    Wrapped<
+      List<
+        ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductAttrs$Item
+      >
+    >?
     productAttrs,
     Wrapped<String>? sourcePlatform,
     Wrapped<String>? platformUrl,
@@ -5632,11 +5963,13 @@ extension $ProductNoAuthSearchGet$Response$Data$ItemExtension
     Wrapped<String>? targetSellCur,
     Wrapped<String>? marketingInfo,
     Wrapped<String>? targetOriginPrice,
-    Wrapped<ProductNoAuthSearchGet$Response$Data$Item$PremiumBrandInfo?>?
+    Wrapped<
+      ProductServiceProductNoAuthSearchGet$Response$Data$Item$PremiumBrandInfo?
+    >?
     premiumBrandInfo,
     Wrapped<List<Object>>? sellPoints,
   }) {
-    return ProductNoAuthSearchGet$Response$Data$Item(
+    return ProductServiceProductNoAuthSearchGet$Response$Data$Item(
       shopCode: (shopCode != null ? shopCode.value : this.shopCode),
       productCode: (productCode != null ? productCode.value : this.productCode),
       productName: (productName != null ? productName.value : this.productName),
@@ -5689,8 +6022,8 @@ extension $ProductNoAuthSearchGet$Response$Data$ItemExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthCombineSearchGet$Response$Data {
-  const ProductNoAuthCombineSearchGet$Response$Data({
+class ProductServiceProductNoAuthCombineSearchGet$Response$Data {
+  const ProductServiceProductNoAuthCombineSearchGet$Response$Data({
     this.records,
     this.total,
     this.pageSize,
@@ -5698,17 +6031,21 @@ class ProductNoAuthCombineSearchGet$Response$Data {
     this.totalPages,
   });
 
-  factory ProductNoAuthCombineSearchGet$Response$Data.fromJson(
+  factory ProductServiceProductNoAuthCombineSearchGet$Response$Data.fromJson(
     Map<String, dynamic> json,
-  ) => _$ProductNoAuthCombineSearchGet$Response$DataFromJson(json);
+  ) =>
+      _$ProductServiceProductNoAuthCombineSearchGet$Response$DataFromJson(json);
 
   static const toJsonFactory =
-      _$ProductNoAuthCombineSearchGet$Response$DataToJson;
+      _$ProductServiceProductNoAuthCombineSearchGet$Response$DataToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthCombineSearchGet$Response$DataToJson(this);
+      _$ProductServiceProductNoAuthCombineSearchGet$Response$DataToJson(this);
 
   @JsonKey(name: 'records')
-  final List<ProductNoAuthCombineSearchGet$Response$Data$Records$Item>? records;
+  final List<
+    ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item
+  >?
+  records;
   @JsonKey(name: 'total')
   final double? total;
   @JsonKey(name: 'pageSize')
@@ -5718,12 +6055,12 @@ class ProductNoAuthCombineSearchGet$Response$Data {
   @JsonKey(name: 'totalPages')
   final double? totalPages;
   static const fromJsonFactory =
-      _$ProductNoAuthCombineSearchGet$Response$DataFromJson;
+      _$ProductServiceProductNoAuthCombineSearchGet$Response$DataFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ProductNoAuthCombineSearchGet$Response$Data &&
+        (other is ProductServiceProductNoAuthCombineSearchGet$Response$Data &&
             (identical(other.records, records) ||
                 const DeepCollectionEquality().equals(
                   other.records,
@@ -5761,16 +6098,19 @@ class ProductNoAuthCombineSearchGet$Response$Data {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthCombineSearchGet$Response$DataExtension
-    on ProductNoAuthCombineSearchGet$Response$Data {
-  ProductNoAuthCombineSearchGet$Response$Data copyWith({
-    List<ProductNoAuthCombineSearchGet$Response$Data$Records$Item>? records,
+extension $ProductServiceProductNoAuthCombineSearchGet$Response$DataExtension
+    on ProductServiceProductNoAuthCombineSearchGet$Response$Data {
+  ProductServiceProductNoAuthCombineSearchGet$Response$Data copyWith({
+    List<
+      ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item
+    >?
+    records,
     double? total,
     double? pageSize,
     double? current,
     double? totalPages,
   }) {
-    return ProductNoAuthCombineSearchGet$Response$Data(
+    return ProductServiceProductNoAuthCombineSearchGet$Response$Data(
       records: records ?? this.records,
       total: total ?? this.total,
       pageSize: pageSize ?? this.pageSize,
@@ -5779,15 +6119,19 @@ extension $ProductNoAuthCombineSearchGet$Response$DataExtension
     );
   }
 
-  ProductNoAuthCombineSearchGet$Response$Data copyWithWrapped({
-    Wrapped<List<ProductNoAuthCombineSearchGet$Response$Data$Records$Item>?>?
+  ProductServiceProductNoAuthCombineSearchGet$Response$Data copyWithWrapped({
+    Wrapped<
+      List<
+        ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item
+      >?
+    >?
     records,
     Wrapped<double?>? total,
     Wrapped<double?>? pageSize,
     Wrapped<double?>? current,
     Wrapped<double?>? totalPages,
   }) {
-    return ProductNoAuthCombineSearchGet$Response$Data(
+    return ProductServiceProductNoAuthCombineSearchGet$Response$Data(
       records: (records != null ? records.value : this.records),
       total: (total != null ? total.value : this.total),
       pageSize: (pageSize != null ? pageSize.value : this.pageSize),
@@ -5798,8 +6142,8 @@ extension $ProductNoAuthCombineSearchGet$Response$DataExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthNewArrivalProductGet$Response$Data {
-  const ProductNoAuthNewArrivalProductGet$Response$Data({
+class ProductServiceProductNoAuthNewArrivalProductGet$Response$Data {
+  const ProductServiceProductNoAuthNewArrivalProductGet$Response$Data({
     this.total,
     this.pageSize,
     this.totalPages,
@@ -5807,14 +6151,18 @@ class ProductNoAuthNewArrivalProductGet$Response$Data {
     this.records,
   });
 
-  factory ProductNoAuthNewArrivalProductGet$Response$Data.fromJson(
+  factory ProductServiceProductNoAuthNewArrivalProductGet$Response$Data.fromJson(
     Map<String, dynamic> json,
-  ) => _$ProductNoAuthNewArrivalProductGet$Response$DataFromJson(json);
+  ) => _$ProductServiceProductNoAuthNewArrivalProductGet$Response$DataFromJson(
+    json,
+  );
 
   static const toJsonFactory =
-      _$ProductNoAuthNewArrivalProductGet$Response$DataToJson;
+      _$ProductServiceProductNoAuthNewArrivalProductGet$Response$DataToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthNewArrivalProductGet$Response$DataToJson(this);
+      _$ProductServiceProductNoAuthNewArrivalProductGet$Response$DataToJson(
+        this,
+      );
 
   @JsonKey(name: 'total')
   final double? total;
@@ -5825,15 +6173,17 @@ class ProductNoAuthNewArrivalProductGet$Response$Data {
   @JsonKey(name: 'current')
   final double? current;
   @JsonKey(name: 'records')
-  final List<ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item>?
+  final List<
+    ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item
+  >?
   records;
   static const fromJsonFactory =
-      _$ProductNoAuthNewArrivalProductGet$Response$DataFromJson;
+      _$ProductServiceProductNoAuthNewArrivalProductGet$Response$DataFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ProductNoAuthNewArrivalProductGet$Response$Data &&
+        (other is ProductServiceProductNoAuthNewArrivalProductGet$Response$Data &&
             (identical(other.total, total) ||
                 const DeepCollectionEquality().equals(other.total, total)) &&
             (identical(other.pageSize, pageSize) ||
@@ -5868,16 +6218,19 @@ class ProductNoAuthNewArrivalProductGet$Response$Data {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthNewArrivalProductGet$Response$DataExtension
-    on ProductNoAuthNewArrivalProductGet$Response$Data {
-  ProductNoAuthNewArrivalProductGet$Response$Data copyWith({
+extension $ProductServiceProductNoAuthNewArrivalProductGet$Response$DataExtension
+    on ProductServiceProductNoAuthNewArrivalProductGet$Response$Data {
+  ProductServiceProductNoAuthNewArrivalProductGet$Response$Data copyWith({
     double? total,
     double? pageSize,
     double? totalPages,
     double? current,
-    List<ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item>? records,
+    List<
+      ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item
+    >?
+    records,
   }) {
-    return ProductNoAuthNewArrivalProductGet$Response$Data(
+    return ProductServiceProductNoAuthNewArrivalProductGet$Response$Data(
       total: total ?? this.total,
       pageSize: pageSize ?? this.pageSize,
       totalPages: totalPages ?? this.totalPages,
@@ -5886,17 +6239,20 @@ extension $ProductNoAuthNewArrivalProductGet$Response$DataExtension
     );
   }
 
-  ProductNoAuthNewArrivalProductGet$Response$Data copyWithWrapped({
+  ProductServiceProductNoAuthNewArrivalProductGet$Response$Data
+  copyWithWrapped({
     Wrapped<double?>? total,
     Wrapped<double?>? pageSize,
     Wrapped<double?>? totalPages,
     Wrapped<double?>? current,
     Wrapped<
-      List<ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item>?
+      List<
+        ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item
+      >?
     >?
     records,
   }) {
-    return ProductNoAuthNewArrivalProductGet$Response$Data(
+    return ProductServiceProductNoAuthNewArrivalProductGet$Response$Data(
       total: (total != null ? total.value : this.total),
       pageSize: (pageSize != null ? pageSize.value : this.pageSize),
       totalPages: (totalPages != null ? totalPages.value : this.totalPages),
@@ -5907,8 +6263,8 @@ extension $ProductNoAuthNewArrivalProductGet$Response$DataExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthSkuListGet$Response$Data$Item {
-  const ProductNoAuthSkuListGet$Response$Data$Item({
+class ProductServiceProductNoAuthSkuListGet$Response$Data$Item {
+  const ProductServiceProductNoAuthSkuListGet$Response$Data$Item({
     required this.productCode,
     required this.skuCode,
     required this.tenantCode,
@@ -5930,14 +6286,14 @@ class ProductNoAuthSkuListGet$Response$Data$Item {
     this.flashSaleInfo,
   });
 
-  factory ProductNoAuthSkuListGet$Response$Data$Item.fromJson(
+  factory ProductServiceProductNoAuthSkuListGet$Response$Data$Item.fromJson(
     Map<String, dynamic> json,
-  ) => _$ProductNoAuthSkuListGet$Response$Data$ItemFromJson(json);
+  ) => _$ProductServiceProductNoAuthSkuListGet$Response$Data$ItemFromJson(json);
 
   static const toJsonFactory =
-      _$ProductNoAuthSkuListGet$Response$Data$ItemToJson;
+      _$ProductServiceProductNoAuthSkuListGet$Response$Data$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthSkuListGet$Response$Data$ItemToJson(this);
+      _$ProductServiceProductNoAuthSkuListGet$Response$Data$ItemToJson(this);
 
   @JsonKey(name: 'productCode')
   final String productCode;
@@ -5948,9 +6304,11 @@ class ProductNoAuthSkuListGet$Response$Data$Item {
   @JsonKey(name: 'extUrl')
   final String extUrl;
   @JsonKey(name: 'skuImg')
-  final ProductNoAuthSkuListGet$Response$Data$Item$SkuImg skuImg;
+  final ProductServiceProductNoAuthSkuListGet$Response$Data$Item$SkuImg skuImg;
   @JsonKey(name: 'skuOptions')
-  final List<ProductNoAuthSkuListGet$Response$Data$Item$SkuOptions$Item>
+  final List<
+    ProductServiceProductNoAuthSkuListGet$Response$Data$Item$SkuOptions$Item
+  >
   skuOptions;
   @JsonKey(name: 'sellPrice')
   final String sellPrice;
@@ -5977,14 +6335,15 @@ class ProductNoAuthSkuListGet$Response$Data$Item {
   @JsonKey(name: 'skuSourceCode')
   final String skuSourceCode;
   @JsonKey(name: 'flashSaleInfo')
-  final ProductNoAuthSkuListGet$Response$Data$Item$FlashSaleInfo? flashSaleInfo;
+  final ProductServiceProductNoAuthSkuListGet$Response$Data$Item$FlashSaleInfo?
+  flashSaleInfo;
   static const fromJsonFactory =
-      _$ProductNoAuthSkuListGet$Response$Data$ItemFromJson;
+      _$ProductServiceProductNoAuthSkuListGet$Response$Data$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ProductNoAuthSkuListGet$Response$Data$Item &&
+        (other is ProductServiceProductNoAuthSkuListGet$Response$Data$Item &&
             (identical(other.productCode, productCode) ||
                 const DeepCollectionEquality().equals(
                   other.productCode,
@@ -6091,15 +6450,17 @@ class ProductNoAuthSkuListGet$Response$Data$Item {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthSkuListGet$Response$Data$ItemExtension
-    on ProductNoAuthSkuListGet$Response$Data$Item {
-  ProductNoAuthSkuListGet$Response$Data$Item copyWith({
+extension $ProductServiceProductNoAuthSkuListGet$Response$Data$ItemExtension
+    on ProductServiceProductNoAuthSkuListGet$Response$Data$Item {
+  ProductServiceProductNoAuthSkuListGet$Response$Data$Item copyWith({
     String? productCode,
     String? skuCode,
     String? tenantCode,
     String? extUrl,
-    ProductNoAuthSkuListGet$Response$Data$Item$SkuImg? skuImg,
-    List<ProductNoAuthSkuListGet$Response$Data$Item$SkuOptions$Item>?
+    ProductServiceProductNoAuthSkuListGet$Response$Data$Item$SkuImg? skuImg,
+    List<
+      ProductServiceProductNoAuthSkuListGet$Response$Data$Item$SkuOptions$Item
+    >?
     skuOptions,
     String? sellPrice,
     String? sellCur,
@@ -6113,9 +6474,10 @@ extension $ProductNoAuthSkuListGet$Response$Data$ItemExtension
     String? marketingInfo,
     String? targetOriginPrice,
     String? skuSourceCode,
-    ProductNoAuthSkuListGet$Response$Data$Item$FlashSaleInfo? flashSaleInfo,
+    ProductServiceProductNoAuthSkuListGet$Response$Data$Item$FlashSaleInfo?
+    flashSaleInfo,
   }) {
-    return ProductNoAuthSkuListGet$Response$Data$Item(
+    return ProductServiceProductNoAuthSkuListGet$Response$Data$Item(
       productCode: productCode ?? this.productCode,
       skuCode: skuCode ?? this.skuCode,
       tenantCode: tenantCode ?? this.tenantCode,
@@ -6138,13 +6500,18 @@ extension $ProductNoAuthSkuListGet$Response$Data$ItemExtension
     );
   }
 
-  ProductNoAuthSkuListGet$Response$Data$Item copyWithWrapped({
+  ProductServiceProductNoAuthSkuListGet$Response$Data$Item copyWithWrapped({
     Wrapped<String>? productCode,
     Wrapped<String>? skuCode,
     Wrapped<String>? tenantCode,
     Wrapped<String>? extUrl,
-    Wrapped<ProductNoAuthSkuListGet$Response$Data$Item$SkuImg>? skuImg,
-    Wrapped<List<ProductNoAuthSkuListGet$Response$Data$Item$SkuOptions$Item>>?
+    Wrapped<ProductServiceProductNoAuthSkuListGet$Response$Data$Item$SkuImg>?
+    skuImg,
+    Wrapped<
+      List<
+        ProductServiceProductNoAuthSkuListGet$Response$Data$Item$SkuOptions$Item
+      >
+    >?
     skuOptions,
     Wrapped<String>? sellPrice,
     Wrapped<String>? sellCur,
@@ -6158,10 +6525,12 @@ extension $ProductNoAuthSkuListGet$Response$Data$ItemExtension
     Wrapped<String?>? marketingInfo,
     Wrapped<String?>? targetOriginPrice,
     Wrapped<String>? skuSourceCode,
-    Wrapped<ProductNoAuthSkuListGet$Response$Data$Item$FlashSaleInfo?>?
+    Wrapped<
+      ProductServiceProductNoAuthSkuListGet$Response$Data$Item$FlashSaleInfo?
+    >?
     flashSaleInfo,
   }) {
-    return ProductNoAuthSkuListGet$Response$Data$Item(
+    return ProductServiceProductNoAuthSkuListGet$Response$Data$Item(
       productCode: (productCode != null ? productCode.value : this.productCode),
       skuCode: (skuCode != null ? skuCode.value : this.skuCode),
       tenantCode: (tenantCode != null ? tenantCode.value : this.tenantCode),
@@ -6200,8 +6569,8 @@ extension $ProductNoAuthSkuListGet$Response$Data$ItemExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthGetProductInfoGet$Response$Data {
-  const ProductNoAuthGetProductInfoGet$Response$Data({
+class ProductServiceProductNoAuthGetProductInfoGet$Response$Data {
+  const ProductServiceProductNoAuthGetProductInfoGet$Response$Data({
     this.shopCode,
     this.productCode,
     this.productName,
@@ -6237,14 +6606,16 @@ class ProductNoAuthGetProductInfoGet$Response$Data {
     this.flashSale,
   });
 
-  factory ProductNoAuthGetProductInfoGet$Response$Data.fromJson(
+  factory ProductServiceProductNoAuthGetProductInfoGet$Response$Data.fromJson(
     Map<String, dynamic> json,
-  ) => _$ProductNoAuthGetProductInfoGet$Response$DataFromJson(json);
+  ) => _$ProductServiceProductNoAuthGetProductInfoGet$Response$DataFromJson(
+    json,
+  );
 
   static const toJsonFactory =
-      _$ProductNoAuthGetProductInfoGet$Response$DataToJson;
+      _$ProductServiceProductNoAuthGetProductInfoGet$Response$DataToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthGetProductInfoGet$Response$DataToJson(this);
+      _$ProductServiceProductNoAuthGetProductInfoGet$Response$DataToJson(this);
 
   @JsonKey(name: 'shopCode')
   final String? shopCode;
@@ -6257,28 +6628,40 @@ class ProductNoAuthGetProductInfoGet$Response$Data {
   @JsonKey(name: 'brandName')
   final String? brandName;
   @JsonKey(name: 'mainImg')
-  final List<ProductNoAuthGetProductInfoGet$Response$Data$MainImg$Item>?
+  final List<
+    ProductServiceProductNoAuthGetProductInfoGet$Response$Data$MainImg$Item
+  >?
   mainImg;
   @JsonKey(name: 'subImg')
   final String? subImg;
   @JsonKey(name: 'mainVideo')
-  final List<ProductNoAuthGetProductInfoGet$Response$Data$MainVideo$Item>?
+  final List<
+    ProductServiceProductNoAuthGetProductInfoGet$Response$Data$MainVideo$Item
+  >?
   mainVideo;
   @JsonKey(name: 'imgCollection')
-  final List<ProductNoAuthGetProductInfoGet$Response$Data$ImgCollection$Item>?
+  final List<
+    ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgCollection$Item
+  >?
   imgCollection;
   @JsonKey(name: 'textDetail')
   final String? textDetail;
   @JsonKey(name: 'imgDetail')
-  final List<ProductNoAuthGetProductInfoGet$Response$Data$ImgDetail$Item>?
+  final List<
+    ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgDetail$Item
+  >?
   imgDetail;
   @JsonKey(name: 'categoryId')
   final double? categoryId;
   @JsonKey(name: 'productOptions')
-  final List<ProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item>?
+  final List<
+    ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item
+  >?
   productOptions;
   @JsonKey(name: 'productAttrs')
-  final List<ProductNoAuthGetProductInfoGet$Response$Data$ProductAttrs$Item>?
+  final List<
+    ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductAttrs$Item
+  >?
   productAttrs;
   @JsonKey(name: 'sourcePlatform')
   final String? sourcePlatform;
@@ -6299,19 +6682,24 @@ class ProductNoAuthGetProductInfoGet$Response$Data {
   @JsonKey(name: 'sellQuantity')
   final String? sellQuantity;
   @JsonKey(name: 'inspectImages')
-  final List<ProductNoAuthGetProductInfoGet$Response$Data$InspectImages$Item>?
+  final List<
+    ProductServiceProductNoAuthGetProductInfoGet$Response$Data$InspectImages$Item
+  >?
   inspectImages;
   @JsonKey(name: 'tags')
-  final List<ProductNoAuthGetProductInfoGet$Response$Data$Tags$Item>? tags;
+  final List<
+    ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Tags$Item
+  >?
+  tags;
   @JsonKey(name: 'premiumBrandInfo')
-  final ProductNoAuthGetProductInfoGet$Response$Data$PremiumBrandInfo?
+  final ProductServiceProductNoAuthGetProductInfoGet$Response$Data$PremiumBrandInfo?
   premiumBrandInfo;
   @JsonKey(name: 'sellPoints', defaultValue: <String>[])
   final List<String>? sellPoints;
   @JsonKey(name: 'categoryTree', defaultValue: <double>[])
   final List<double> categoryTree;
   @JsonKey(name: 'ext')
-  final ProductNoAuthGetProductInfoGet$Response$Data$Ext? ext;
+  final ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Ext? ext;
   @JsonKey(name: 'productFlag')
   final String productFlag;
   @JsonKey(name: 'marketingInfo')
@@ -6319,14 +6707,15 @@ class ProductNoAuthGetProductInfoGet$Response$Data {
   @JsonKey(name: 'targetOriginPrice')
   final String targetOriginPrice;
   @JsonKey(name: 'flashSale')
-  final ProductNoAuthGetProductInfoGet$Response$Data$FlashSale? flashSale;
+  final ProductServiceProductNoAuthGetProductInfoGet$Response$Data$FlashSale?
+  flashSale;
   static const fromJsonFactory =
-      _$ProductNoAuthGetProductInfoGet$Response$DataFromJson;
+      _$ProductServiceProductNoAuthGetProductInfoGet$Response$DataFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ProductNoAuthGetProductInfoGet$Response$Data &&
+        (other is ProductServiceProductNoAuthGetProductInfoGet$Response$Data &&
             (identical(other.shopCode, shopCode) ||
                 const DeepCollectionEquality().equals(
                   other.shopCode,
@@ -6526,27 +6915,40 @@ class ProductNoAuthGetProductInfoGet$Response$Data {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthGetProductInfoGet$Response$DataExtension
-    on ProductNoAuthGetProductInfoGet$Response$Data {
-  ProductNoAuthGetProductInfoGet$Response$Data copyWith({
+extension $ProductServiceProductNoAuthGetProductInfoGet$Response$DataExtension
+    on ProductServiceProductNoAuthGetProductInfoGet$Response$Data {
+  ProductServiceProductNoAuthGetProductInfoGet$Response$Data copyWith({
     String? shopCode,
     String? productCode,
     String? productName,
     String? tenantCode,
     String? brandName,
-    List<ProductNoAuthGetProductInfoGet$Response$Data$MainImg$Item>? mainImg,
+    List<
+      ProductServiceProductNoAuthGetProductInfoGet$Response$Data$MainImg$Item
+    >?
+    mainImg,
     String? subImg,
-    List<ProductNoAuthGetProductInfoGet$Response$Data$MainVideo$Item>?
+    List<
+      ProductServiceProductNoAuthGetProductInfoGet$Response$Data$MainVideo$Item
+    >?
     mainVideo,
-    List<ProductNoAuthGetProductInfoGet$Response$Data$ImgCollection$Item>?
+    List<
+      ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgCollection$Item
+    >?
     imgCollection,
     String? textDetail,
-    List<ProductNoAuthGetProductInfoGet$Response$Data$ImgDetail$Item>?
+    List<
+      ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgDetail$Item
+    >?
     imgDetail,
     double? categoryId,
-    List<ProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item>?
+    List<
+      ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item
+    >?
     productOptions,
-    List<ProductNoAuthGetProductInfoGet$Response$Data$ProductAttrs$Item>?
+    List<
+      ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductAttrs$Item
+    >?
     productAttrs,
     String? sourcePlatform,
     String? platformUrl,
@@ -6557,20 +6959,24 @@ extension $ProductNoAuthGetProductInfoGet$Response$DataExtension
     String? targetSellPrice,
     String? targetSellCur,
     String? sellQuantity,
-    List<ProductNoAuthGetProductInfoGet$Response$Data$InspectImages$Item>?
+    List<
+      ProductServiceProductNoAuthGetProductInfoGet$Response$Data$InspectImages$Item
+    >?
     inspectImages,
-    List<ProductNoAuthGetProductInfoGet$Response$Data$Tags$Item>? tags,
-    ProductNoAuthGetProductInfoGet$Response$Data$PremiumBrandInfo?
+    List<ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Tags$Item>?
+    tags,
+    ProductServiceProductNoAuthGetProductInfoGet$Response$Data$PremiumBrandInfo?
     premiumBrandInfo,
     List<String>? sellPoints,
     List<double>? categoryTree,
-    ProductNoAuthGetProductInfoGet$Response$Data$Ext? ext,
+    ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Ext? ext,
     String? productFlag,
     String? marketingInfo,
     String? targetOriginPrice,
-    ProductNoAuthGetProductInfoGet$Response$Data$FlashSale? flashSale,
+    ProductServiceProductNoAuthGetProductInfoGet$Response$Data$FlashSale?
+    flashSale,
   }) {
-    return ProductNoAuthGetProductInfoGet$Response$Data(
+    return ProductServiceProductNoAuthGetProductInfoGet$Response$Data(
       shopCode: shopCode ?? this.shopCode,
       productCode: productCode ?? this.productCode,
       productName: productName ?? this.productName,
@@ -6607,31 +7013,49 @@ extension $ProductNoAuthGetProductInfoGet$Response$DataExtension
     );
   }
 
-  ProductNoAuthGetProductInfoGet$Response$Data copyWithWrapped({
+  ProductServiceProductNoAuthGetProductInfoGet$Response$Data copyWithWrapped({
     Wrapped<String?>? shopCode,
     Wrapped<String?>? productCode,
     Wrapped<String?>? productName,
     Wrapped<String?>? tenantCode,
     Wrapped<String?>? brandName,
-    Wrapped<List<ProductNoAuthGetProductInfoGet$Response$Data$MainImg$Item>?>?
+    Wrapped<
+      List<
+        ProductServiceProductNoAuthGetProductInfoGet$Response$Data$MainImg$Item
+      >?
+    >?
     mainImg,
     Wrapped<String?>? subImg,
-    Wrapped<List<ProductNoAuthGetProductInfoGet$Response$Data$MainVideo$Item>?>?
+    Wrapped<
+      List<
+        ProductServiceProductNoAuthGetProductInfoGet$Response$Data$MainVideo$Item
+      >?
+    >?
     mainVideo,
     Wrapped<
-      List<ProductNoAuthGetProductInfoGet$Response$Data$ImgCollection$Item>?
+      List<
+        ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgCollection$Item
+      >?
     >?
     imgCollection,
     Wrapped<String?>? textDetail,
-    Wrapped<List<ProductNoAuthGetProductInfoGet$Response$Data$ImgDetail$Item>?>?
+    Wrapped<
+      List<
+        ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgDetail$Item
+      >?
+    >?
     imgDetail,
     Wrapped<double?>? categoryId,
     Wrapped<
-      List<ProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item>?
+      List<
+        ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item
+      >?
     >?
     productOptions,
     Wrapped<
-      List<ProductNoAuthGetProductInfoGet$Response$Data$ProductAttrs$Item>?
+      List<
+        ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductAttrs$Item
+      >?
     >?
     productAttrs,
     Wrapped<String?>? sourcePlatform,
@@ -6644,22 +7068,34 @@ extension $ProductNoAuthGetProductInfoGet$Response$DataExtension
     Wrapped<String?>? targetSellCur,
     Wrapped<String?>? sellQuantity,
     Wrapped<
-      List<ProductNoAuthGetProductInfoGet$Response$Data$InspectImages$Item>?
+      List<
+        ProductServiceProductNoAuthGetProductInfoGet$Response$Data$InspectImages$Item
+      >?
     >?
     inspectImages,
-    Wrapped<List<ProductNoAuthGetProductInfoGet$Response$Data$Tags$Item>?>?
+    Wrapped<
+      List<
+        ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Tags$Item
+      >?
+    >?
     tags,
-    Wrapped<ProductNoAuthGetProductInfoGet$Response$Data$PremiumBrandInfo?>?
+    Wrapped<
+      ProductServiceProductNoAuthGetProductInfoGet$Response$Data$PremiumBrandInfo?
+    >?
     premiumBrandInfo,
     Wrapped<List<String>?>? sellPoints,
     Wrapped<List<double>>? categoryTree,
-    Wrapped<ProductNoAuthGetProductInfoGet$Response$Data$Ext?>? ext,
+    Wrapped<ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Ext?>?
+    ext,
     Wrapped<String>? productFlag,
     Wrapped<String>? marketingInfo,
     Wrapped<String>? targetOriginPrice,
-    Wrapped<ProductNoAuthGetProductInfoGet$Response$Data$FlashSale?>? flashSale,
+    Wrapped<
+      ProductServiceProductNoAuthGetProductInfoGet$Response$Data$FlashSale?
+    >?
+    flashSale,
   }) {
-    return ProductNoAuthGetProductInfoGet$Response$Data(
+    return ProductServiceProductNoAuthGetProductInfoGet$Response$Data(
       shopCode: (shopCode != null ? shopCode.value : this.shopCode),
       productCode: (productCode != null ? productCode.value : this.productCode),
       productName: (productName != null ? productName.value : this.productName),
@@ -6726,32 +7162,38 @@ extension $ProductNoAuthGetProductInfoGet$Response$DataExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthPremierProductCategoryGet$Response$Data {
-  const ProductNoAuthPremierProductCategoryGet$Response$Data({
+class ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data {
+  const ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data({
     this.categoryList,
   });
 
-  factory ProductNoAuthPremierProductCategoryGet$Response$Data.fromJson(
+  factory ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data.fromJson(
     Map<String, dynamic> json,
-  ) => _$ProductNoAuthPremierProductCategoryGet$Response$DataFromJson(json);
+  ) =>
+      _$ProductServiceProductNoAuthPremierProductCategoryGet$Response$DataFromJson(
+        json,
+      );
 
   static const toJsonFactory =
-      _$ProductNoAuthPremierProductCategoryGet$Response$DataToJson;
+      _$ProductServiceProductNoAuthPremierProductCategoryGet$Response$DataToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthPremierProductCategoryGet$Response$DataToJson(this);
+      _$ProductServiceProductNoAuthPremierProductCategoryGet$Response$DataToJson(
+        this,
+      );
 
   @JsonKey(name: 'categoryList')
   final List<
-    ProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item
+    ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item
   >?
   categoryList;
   static const fromJsonFactory =
-      _$ProductNoAuthPremierProductCategoryGet$Response$DataFromJson;
+      _$ProductServiceProductNoAuthPremierProductCategoryGet$Response$DataFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ProductNoAuthPremierProductCategoryGet$Response$Data &&
+        (other
+                is ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data &&
             (identical(other.categoryList, categoryList) ||
                 const DeepCollectionEquality().equals(
                   other.categoryList,
@@ -6767,28 +7209,29 @@ class ProductNoAuthPremierProductCategoryGet$Response$Data {
       const DeepCollectionEquality().hash(categoryList) ^ runtimeType.hashCode;
 }
 
-extension $ProductNoAuthPremierProductCategoryGet$Response$DataExtension
-    on ProductNoAuthPremierProductCategoryGet$Response$Data {
-  ProductNoAuthPremierProductCategoryGet$Response$Data copyWith({
+extension $ProductServiceProductNoAuthPremierProductCategoryGet$Response$DataExtension
+    on ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data {
+  ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data copyWith({
     List<
-      ProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item
+      ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item
     >?
     categoryList,
   }) {
-    return ProductNoAuthPremierProductCategoryGet$Response$Data(
+    return ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data(
       categoryList: categoryList ?? this.categoryList,
     );
   }
 
-  ProductNoAuthPremierProductCategoryGet$Response$Data copyWithWrapped({
+  ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data
+  copyWithWrapped({
     Wrapped<
       List<
-        ProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item
+        ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item
       >?
     >?
     categoryList,
   }) {
-    return ProductNoAuthPremierProductCategoryGet$Response$Data(
+    return ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data(
       categoryList: (categoryList != null
           ? categoryList.value
           : this.categoryList),
@@ -6797,8 +7240,8 @@ extension $ProductNoAuthPremierProductCategoryGet$Response$DataExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthHotProductGet$Response$Data$Item {
-  const ProductNoAuthHotProductGet$Response$Data$Item({
+class ProductServiceProductNoAuthHotProductGet$Response$Data$Item {
+  const ProductServiceProductNoAuthHotProductGet$Response$Data$Item({
     required this.productCode,
     required this.productName,
     required this.image,
@@ -6815,21 +7258,23 @@ class ProductNoAuthHotProductGet$Response$Data$Item {
     this.sellPoints,
   });
 
-  factory ProductNoAuthHotProductGet$Response$Data$Item.fromJson(
+  factory ProductServiceProductNoAuthHotProductGet$Response$Data$Item.fromJson(
     Map<String, dynamic> json,
-  ) => _$ProductNoAuthHotProductGet$Response$Data$ItemFromJson(json);
+  ) => _$ProductServiceProductNoAuthHotProductGet$Response$Data$ItemFromJson(
+    json,
+  );
 
   static const toJsonFactory =
-      _$ProductNoAuthHotProductGet$Response$Data$ItemToJson;
+      _$ProductServiceProductNoAuthHotProductGet$Response$Data$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthHotProductGet$Response$Data$ItemToJson(this);
+      _$ProductServiceProductNoAuthHotProductGet$Response$Data$ItemToJson(this);
 
   @JsonKey(name: 'productCode')
   final String productCode;
   @JsonKey(name: 'productName')
   final String productName;
   @JsonKey(name: 'image')
-  final ProductNoAuthHotProductGet$Response$Data$Item$Image image;
+  final ProductServiceProductNoAuthHotProductGet$Response$Data$Item$Image image;
   @JsonKey(name: 'skuCode')
   final String skuCode;
   @JsonKey(name: 'sellPriceCur')
@@ -6847,19 +7292,22 @@ class ProductNoAuthHotProductGet$Response$Data$Item {
   @JsonKey(name: 'targetOriginPrice')
   final String targetOriginPrice;
   @JsonKey(name: 'tags')
-  final List<ProductNoAuthHotProductGet$Response$Data$Item$Tags$Item> tags;
+  final List<
+    ProductServiceProductNoAuthHotProductGet$Response$Data$Item$Tags$Item
+  >
+  tags;
   @JsonKey(name: 'premiumBrandInfo')
-  final ProductNoAuthHotProductGet$Response$Data$Item$PremiumBrandInfo?
+  final ProductServiceProductNoAuthHotProductGet$Response$Data$Item$PremiumBrandInfo?
   premiumBrandInfo;
   @JsonKey(name: 'sellPoints', defaultValue: <Object>[])
   final List<Object>? sellPoints;
   static const fromJsonFactory =
-      _$ProductNoAuthHotProductGet$Response$Data$ItemFromJson;
+      _$ProductServiceProductNoAuthHotProductGet$Response$Data$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ProductNoAuthHotProductGet$Response$Data$Item &&
+        (other is ProductServiceProductNoAuthHotProductGet$Response$Data$Item &&
             (identical(other.productCode, productCode) ||
                 const DeepCollectionEquality().equals(
                   other.productCode,
@@ -6948,12 +7396,12 @@ class ProductNoAuthHotProductGet$Response$Data$Item {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthHotProductGet$Response$Data$ItemExtension
-    on ProductNoAuthHotProductGet$Response$Data$Item {
-  ProductNoAuthHotProductGet$Response$Data$Item copyWith({
+extension $ProductServiceProductNoAuthHotProductGet$Response$Data$ItemExtension
+    on ProductServiceProductNoAuthHotProductGet$Response$Data$Item {
+  ProductServiceProductNoAuthHotProductGet$Response$Data$Item copyWith({
     String? productCode,
     String? productName,
-    ProductNoAuthHotProductGet$Response$Data$Item$Image? image,
+    ProductServiceProductNoAuthHotProductGet$Response$Data$Item$Image? image,
     String? skuCode,
     String? sellPriceCur,
     String? sellPrice,
@@ -6962,12 +7410,13 @@ extension $ProductNoAuthHotProductGet$Response$Data$ItemExtension
     String? sellQuantity,
     String? marketingInfo,
     String? targetOriginPrice,
-    List<ProductNoAuthHotProductGet$Response$Data$Item$Tags$Item>? tags,
-    ProductNoAuthHotProductGet$Response$Data$Item$PremiumBrandInfo?
+    List<ProductServiceProductNoAuthHotProductGet$Response$Data$Item$Tags$Item>?
+    tags,
+    ProductServiceProductNoAuthHotProductGet$Response$Data$Item$PremiumBrandInfo?
     premiumBrandInfo,
     List<Object>? sellPoints,
   }) {
-    return ProductNoAuthHotProductGet$Response$Data$Item(
+    return ProductServiceProductNoAuthHotProductGet$Response$Data$Item(
       productCode: productCode ?? this.productCode,
       productName: productName ?? this.productName,
       image: image ?? this.image,
@@ -6985,10 +7434,11 @@ extension $ProductNoAuthHotProductGet$Response$Data$ItemExtension
     );
   }
 
-  ProductNoAuthHotProductGet$Response$Data$Item copyWithWrapped({
+  ProductServiceProductNoAuthHotProductGet$Response$Data$Item copyWithWrapped({
     Wrapped<String>? productCode,
     Wrapped<String>? productName,
-    Wrapped<ProductNoAuthHotProductGet$Response$Data$Item$Image>? image,
+    Wrapped<ProductServiceProductNoAuthHotProductGet$Response$Data$Item$Image>?
+    image,
     Wrapped<String>? skuCode,
     Wrapped<String>? sellPriceCur,
     Wrapped<String>? sellPrice,
@@ -6997,13 +7447,19 @@ extension $ProductNoAuthHotProductGet$Response$Data$ItemExtension
     Wrapped<String>? sellQuantity,
     Wrapped<String>? marketingInfo,
     Wrapped<String>? targetOriginPrice,
-    Wrapped<List<ProductNoAuthHotProductGet$Response$Data$Item$Tags$Item>>?
+    Wrapped<
+      List<
+        ProductServiceProductNoAuthHotProductGet$Response$Data$Item$Tags$Item
+      >
+    >?
     tags,
-    Wrapped<ProductNoAuthHotProductGet$Response$Data$Item$PremiumBrandInfo?>?
+    Wrapped<
+      ProductServiceProductNoAuthHotProductGet$Response$Data$Item$PremiumBrandInfo?
+    >?
     premiumBrandInfo,
     Wrapped<List<Object>?>? sellPoints,
   }) {
-    return ProductNoAuthHotProductGet$Response$Data$Item(
+    return ProductServiceProductNoAuthHotProductGet$Response$Data$Item(
       productCode: (productCode != null ? productCode.value : this.productCode),
       productName: (productName != null ? productName.value : this.productName),
       image: (image != null ? image.value : this.image),
@@ -7037,8 +7493,8 @@ extension $ProductNoAuthHotProductGet$Response$Data$ItemExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthHotProductV2Get$Response$Data {
-  const ProductNoAuthHotProductV2Get$Response$Data({
+class ProductServiceProductNoAuthHotProductV2Get$Response$Data {
+  const ProductServiceProductNoAuthHotProductV2Get$Response$Data({
     required this.total,
     required this.pageSize,
     required this.current,
@@ -7046,14 +7502,14 @@ class ProductNoAuthHotProductV2Get$Response$Data {
     required this.records,
   });
 
-  factory ProductNoAuthHotProductV2Get$Response$Data.fromJson(
+  factory ProductServiceProductNoAuthHotProductV2Get$Response$Data.fromJson(
     Map<String, dynamic> json,
-  ) => _$ProductNoAuthHotProductV2Get$Response$DataFromJson(json);
+  ) => _$ProductServiceProductNoAuthHotProductV2Get$Response$DataFromJson(json);
 
   static const toJsonFactory =
-      _$ProductNoAuthHotProductV2Get$Response$DataToJson;
+      _$ProductServiceProductNoAuthHotProductV2Get$Response$DataToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthHotProductV2Get$Response$DataToJson(this);
+      _$ProductServiceProductNoAuthHotProductV2Get$Response$DataToJson(this);
 
   @JsonKey(name: 'total')
   final int total;
@@ -7064,14 +7520,17 @@ class ProductNoAuthHotProductV2Get$Response$Data {
   @JsonKey(name: 'totalPages')
   final int totalPages;
   @JsonKey(name: 'records')
-  final List<ProductNoAuthHotProductV2Get$Response$Data$Records$Item> records;
+  final List<
+    ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item
+  >
+  records;
   static const fromJsonFactory =
-      _$ProductNoAuthHotProductV2Get$Response$DataFromJson;
+      _$ProductServiceProductNoAuthHotProductV2Get$Response$DataFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ProductNoAuthHotProductV2Get$Response$Data &&
+        (other is ProductServiceProductNoAuthHotProductV2Get$Response$Data &&
             (identical(other.total, total) ||
                 const DeepCollectionEquality().equals(other.total, total)) &&
             (identical(other.pageSize, pageSize) ||
@@ -7106,16 +7565,17 @@ class ProductNoAuthHotProductV2Get$Response$Data {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthHotProductV2Get$Response$DataExtension
-    on ProductNoAuthHotProductV2Get$Response$Data {
-  ProductNoAuthHotProductV2Get$Response$Data copyWith({
+extension $ProductServiceProductNoAuthHotProductV2Get$Response$DataExtension
+    on ProductServiceProductNoAuthHotProductV2Get$Response$Data {
+  ProductServiceProductNoAuthHotProductV2Get$Response$Data copyWith({
     int? total,
     int? pageSize,
     int? current,
     int? totalPages,
-    List<ProductNoAuthHotProductV2Get$Response$Data$Records$Item>? records,
+    List<ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item>?
+    records,
   }) {
-    return ProductNoAuthHotProductV2Get$Response$Data(
+    return ProductServiceProductNoAuthHotProductV2Get$Response$Data(
       total: total ?? this.total,
       pageSize: pageSize ?? this.pageSize,
       current: current ?? this.current,
@@ -7124,15 +7584,19 @@ extension $ProductNoAuthHotProductV2Get$Response$DataExtension
     );
   }
 
-  ProductNoAuthHotProductV2Get$Response$Data copyWithWrapped({
+  ProductServiceProductNoAuthHotProductV2Get$Response$Data copyWithWrapped({
     Wrapped<int>? total,
     Wrapped<int>? pageSize,
     Wrapped<int>? current,
     Wrapped<int>? totalPages,
-    Wrapped<List<ProductNoAuthHotProductV2Get$Response$Data$Records$Item>>?
+    Wrapped<
+      List<
+        ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item
+      >
+    >?
     records,
   }) {
-    return ProductNoAuthHotProductV2Get$Response$Data(
+    return ProductServiceProductNoAuthHotProductV2Get$Response$Data(
       total: (total != null ? total.value : this.total),
       pageSize: (pageSize != null ? pageSize.value : this.pageSize),
       current: (current != null ? current.value : this.current),
@@ -7143,8 +7607,8 @@ extension $ProductNoAuthHotProductV2Get$Response$DataExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthHotProductV3Get$Response$Data {
-  const ProductNoAuthHotProductV3Get$Response$Data({
+class ProductServiceProductNoAuthHotProductV3Get$Response$Data {
+  const ProductServiceProductNoAuthHotProductV3Get$Response$Data({
     this.total,
     this.pageSize,
     this.totalPages,
@@ -7152,14 +7616,14 @@ class ProductNoAuthHotProductV3Get$Response$Data {
     this.records,
   });
 
-  factory ProductNoAuthHotProductV3Get$Response$Data.fromJson(
+  factory ProductServiceProductNoAuthHotProductV3Get$Response$Data.fromJson(
     Map<String, dynamic> json,
-  ) => _$ProductNoAuthHotProductV3Get$Response$DataFromJson(json);
+  ) => _$ProductServiceProductNoAuthHotProductV3Get$Response$DataFromJson(json);
 
   static const toJsonFactory =
-      _$ProductNoAuthHotProductV3Get$Response$DataToJson;
+      _$ProductServiceProductNoAuthHotProductV3Get$Response$DataToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthHotProductV3Get$Response$DataToJson(this);
+      _$ProductServiceProductNoAuthHotProductV3Get$Response$DataToJson(this);
 
   @JsonKey(name: 'total')
   final double? total;
@@ -7170,14 +7634,17 @@ class ProductNoAuthHotProductV3Get$Response$Data {
   @JsonKey(name: 'current')
   final double? current;
   @JsonKey(name: 'records')
-  final List<ProductNoAuthHotProductV3Get$Response$Data$Records$Item>? records;
+  final List<
+    ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item
+  >?
+  records;
   static const fromJsonFactory =
-      _$ProductNoAuthHotProductV3Get$Response$DataFromJson;
+      _$ProductServiceProductNoAuthHotProductV3Get$Response$DataFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ProductNoAuthHotProductV3Get$Response$Data &&
+        (other is ProductServiceProductNoAuthHotProductV3Get$Response$Data &&
             (identical(other.total, total) ||
                 const DeepCollectionEquality().equals(other.total, total)) &&
             (identical(other.pageSize, pageSize) ||
@@ -7212,16 +7679,17 @@ class ProductNoAuthHotProductV3Get$Response$Data {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthHotProductV3Get$Response$DataExtension
-    on ProductNoAuthHotProductV3Get$Response$Data {
-  ProductNoAuthHotProductV3Get$Response$Data copyWith({
+extension $ProductServiceProductNoAuthHotProductV3Get$Response$DataExtension
+    on ProductServiceProductNoAuthHotProductV3Get$Response$Data {
+  ProductServiceProductNoAuthHotProductV3Get$Response$Data copyWith({
     double? total,
     double? pageSize,
     double? totalPages,
     double? current,
-    List<ProductNoAuthHotProductV3Get$Response$Data$Records$Item>? records,
+    List<ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item>?
+    records,
   }) {
-    return ProductNoAuthHotProductV3Get$Response$Data(
+    return ProductServiceProductNoAuthHotProductV3Get$Response$Data(
       total: total ?? this.total,
       pageSize: pageSize ?? this.pageSize,
       totalPages: totalPages ?? this.totalPages,
@@ -7230,15 +7698,19 @@ extension $ProductNoAuthHotProductV3Get$Response$DataExtension
     );
   }
 
-  ProductNoAuthHotProductV3Get$Response$Data copyWithWrapped({
+  ProductServiceProductNoAuthHotProductV3Get$Response$Data copyWithWrapped({
     Wrapped<double?>? total,
     Wrapped<double?>? pageSize,
     Wrapped<double?>? totalPages,
     Wrapped<double?>? current,
-    Wrapped<List<ProductNoAuthHotProductV3Get$Response$Data$Records$Item>?>?
+    Wrapped<
+      List<
+        ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item
+      >?
+    >?
     records,
   }) {
-    return ProductNoAuthHotProductV3Get$Response$Data(
+    return ProductServiceProductNoAuthHotProductV3Get$Response$Data(
       total: (total != null ? total.value : this.total),
       pageSize: (pageSize != null ? pageSize.value : this.pageSize),
       totalPages: (totalPages != null ? totalPages.value : this.totalPages),
@@ -7249,8 +7721,8 @@ extension $ProductNoAuthHotProductV3Get$Response$DataExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthFlashSaleProductGet$Response$Data$Item {
-  const ProductNoAuthFlashSaleProductGet$Response$Data$Item({
+class ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item {
+  const ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item({
     required this.shopCode,
     required this.productCode,
     required this.productName,
@@ -7281,14 +7753,19 @@ class ProductNoAuthFlashSaleProductGet$Response$Data$Item {
     this.sellPoints,
   });
 
-  factory ProductNoAuthFlashSaleProductGet$Response$Data$Item.fromJson(
+  factory ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item.fromJson(
     Map<String, dynamic> json,
-  ) => _$ProductNoAuthFlashSaleProductGet$Response$Data$ItemFromJson(json);
+  ) =>
+      _$ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$ItemFromJson(
+        json,
+      );
 
   static const toJsonFactory =
-      _$ProductNoAuthFlashSaleProductGet$Response$Data$ItemToJson;
+      _$ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthFlashSaleProductGet$Response$Data$ItemToJson(this);
+      _$ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$ItemToJson(
+        this,
+      );
 
   @JsonKey(name: 'shopCode')
   final String shopCode;
@@ -7301,33 +7778,39 @@ class ProductNoAuthFlashSaleProductGet$Response$Data$Item {
   @JsonKey(name: 'brandName')
   final String brandName;
   @JsonKey(name: 'mainImg')
-  final List<ProductNoAuthFlashSaleProductGet$Response$Data$Item$MainImg$Item>
+  final List<
+    ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$MainImg$Item
+  >
   mainImg;
   @JsonKey(name: 'subImg')
   final Object subImg;
   @JsonKey(name: 'mainVideo')
-  final List<ProductNoAuthFlashSaleProductGet$Response$Data$Item$MainVideo$Item>
+  final List<
+    ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$MainVideo$Item
+  >
   mainVideo;
   @JsonKey(name: 'imgCollection')
   final List<
-    ProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgCollection$Item
+    ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgCollection$Item
   >
   imgCollection;
   @JsonKey(name: 'textDetail')
   final String? textDetail;
   @JsonKey(name: 'imgDetail')
-  final List<ProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgDetail$Item>
+  final List<
+    ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgDetail$Item
+  >
   imgDetail;
   @JsonKey(name: 'categoryId')
   final double categoryId;
   @JsonKey(name: 'productOptions')
   final List<
-    ProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item
+    ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item
   >
   productOptions;
   @JsonKey(name: 'productAttrs')
   final List<
-    ProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductAttrs$Item
+    ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductAttrs$Item
   >
   productAttrs;
   @JsonKey(name: 'sourcePlatform')
@@ -7353,20 +7836,23 @@ class ProductNoAuthFlashSaleProductGet$Response$Data$Item {
   @JsonKey(name: 'sellQuantity')
   final String sellQuantity;
   @JsonKey(name: 'tags')
-  final List<ProductNoAuthFlashSaleProductGet$Response$Data$Item$Tags$Item>
+  final List<
+    ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$Tags$Item
+  >
   tags;
   @JsonKey(name: 'premiumBrandInfo')
-  final ProductNoAuthFlashSaleProductGet$Response$Data$Item$PremiumBrandInfo?
+  final ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$PremiumBrandInfo?
   premiumBrandInfo;
   @JsonKey(name: 'sellPoints', defaultValue: <Object>[])
   final List<Object>? sellPoints;
   static const fromJsonFactory =
-      _$ProductNoAuthFlashSaleProductGet$Response$Data$ItemFromJson;
+      _$ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ProductNoAuthFlashSaleProductGet$Response$Data$Item &&
+        (other
+                is ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item &&
             (identical(other.shopCode, shopCode) ||
                 const DeepCollectionEquality().equals(
                   other.shopCode,
@@ -7539,32 +8025,40 @@ class ProductNoAuthFlashSaleProductGet$Response$Data$Item {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthFlashSaleProductGet$Response$Data$ItemExtension
-    on ProductNoAuthFlashSaleProductGet$Response$Data$Item {
-  ProductNoAuthFlashSaleProductGet$Response$Data$Item copyWith({
+extension $ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$ItemExtension
+    on ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item {
+  ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item copyWith({
     String? shopCode,
     String? productCode,
     String? productName,
     String? tenantCode,
     String? brandName,
-    List<ProductNoAuthFlashSaleProductGet$Response$Data$Item$MainImg$Item>?
+    List<
+      ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$MainImg$Item
+    >?
     mainImg,
     Object? subImg,
-    List<ProductNoAuthFlashSaleProductGet$Response$Data$Item$MainVideo$Item>?
+    List<
+      ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$MainVideo$Item
+    >?
     mainVideo,
     List<
-      ProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgCollection$Item
+      ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgCollection$Item
     >?
     imgCollection,
     String? textDetail,
-    List<ProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgDetail$Item>?
+    List<
+      ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgDetail$Item
+    >?
     imgDetail,
     double? categoryId,
     List<
-      ProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item
+      ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item
     >?
     productOptions,
-    List<ProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductAttrs$Item>?
+    List<
+      ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductAttrs$Item
+    >?
     productAttrs,
     String? sourcePlatform,
     String? platformUrl,
@@ -7577,12 +8071,15 @@ extension $ProductNoAuthFlashSaleProductGet$Response$Data$ItemExtension
     String? productFlag,
     String? marketingInfo,
     String? sellQuantity,
-    List<ProductNoAuthFlashSaleProductGet$Response$Data$Item$Tags$Item>? tags,
-    ProductNoAuthFlashSaleProductGet$Response$Data$Item$PremiumBrandInfo?
+    List<
+      ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$Tags$Item
+    >?
+    tags,
+    ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$PremiumBrandInfo?
     premiumBrandInfo,
     List<Object>? sellPoints,
   }) {
-    return ProductNoAuthFlashSaleProductGet$Response$Data$Item(
+    return ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item(
       shopCode: shopCode ?? this.shopCode,
       productCode: productCode ?? this.productCode,
       productName: productName ?? this.productName,
@@ -7614,42 +8111,49 @@ extension $ProductNoAuthFlashSaleProductGet$Response$Data$ItemExtension
     );
   }
 
-  ProductNoAuthFlashSaleProductGet$Response$Data$Item copyWithWrapped({
+  ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item
+  copyWithWrapped({
     Wrapped<String>? shopCode,
     Wrapped<String>? productCode,
     Wrapped<String>? productName,
     Wrapped<String>? tenantCode,
     Wrapped<String>? brandName,
     Wrapped<
-      List<ProductNoAuthFlashSaleProductGet$Response$Data$Item$MainImg$Item>
+      List<
+        ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$MainImg$Item
+      >
     >?
     mainImg,
     Wrapped<Object>? subImg,
     Wrapped<
-      List<ProductNoAuthFlashSaleProductGet$Response$Data$Item$MainVideo$Item>
+      List<
+        ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$MainVideo$Item
+      >
     >?
     mainVideo,
     Wrapped<
       List<
-        ProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgCollection$Item
+        ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgCollection$Item
       >
     >?
     imgCollection,
     Wrapped<String?>? textDetail,
     Wrapped<
-      List<ProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgDetail$Item>
+      List<
+        ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgDetail$Item
+      >
     >?
     imgDetail,
     Wrapped<double>? categoryId,
     Wrapped<
       List<
-        ProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item
+        ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item
       >
     >?
     productOptions,
     Wrapped<
       List<
-        ProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductAttrs$Item
+        ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductAttrs$Item
       >
     >?
     productAttrs,
@@ -7665,16 +8169,18 @@ extension $ProductNoAuthFlashSaleProductGet$Response$Data$ItemExtension
     Wrapped<String>? marketingInfo,
     Wrapped<String>? sellQuantity,
     Wrapped<
-      List<ProductNoAuthFlashSaleProductGet$Response$Data$Item$Tags$Item>
+      List<
+        ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$Tags$Item
+      >
     >?
     tags,
     Wrapped<
-      ProductNoAuthFlashSaleProductGet$Response$Data$Item$PremiumBrandInfo?
+      ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$PremiumBrandInfo?
     >?
     premiumBrandInfo,
     Wrapped<List<Object>?>? sellPoints,
   }) {
-    return ProductNoAuthFlashSaleProductGet$Response$Data$Item(
+    return ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item(
       shopCode: (shopCode != null ? shopCode.value : this.shopCode),
       productCode: (productCode != null ? productCode.value : this.productCode),
       productName: (productName != null ? productName.value : this.productName),
@@ -7730,8 +8236,8 @@ extension $ProductNoAuthFlashSaleProductGet$Response$Data$ItemExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthAlbumProductGet$Response$Data {
-  const ProductNoAuthAlbumProductGet$Response$Data({
+class ProductServiceProductNoAuthAlbumProductGet$Response$Data {
+  const ProductServiceProductNoAuthAlbumProductGet$Response$Data({
     this.total,
     this.pageSize,
     this.totalPages,
@@ -7739,14 +8245,14 @@ class ProductNoAuthAlbumProductGet$Response$Data {
     this.records,
   });
 
-  factory ProductNoAuthAlbumProductGet$Response$Data.fromJson(
+  factory ProductServiceProductNoAuthAlbumProductGet$Response$Data.fromJson(
     Map<String, dynamic> json,
-  ) => _$ProductNoAuthAlbumProductGet$Response$DataFromJson(json);
+  ) => _$ProductServiceProductNoAuthAlbumProductGet$Response$DataFromJson(json);
 
   static const toJsonFactory =
-      _$ProductNoAuthAlbumProductGet$Response$DataToJson;
+      _$ProductServiceProductNoAuthAlbumProductGet$Response$DataToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthAlbumProductGet$Response$DataToJson(this);
+      _$ProductServiceProductNoAuthAlbumProductGet$Response$DataToJson(this);
 
   @JsonKey(name: 'total')
   final double? total;
@@ -7757,14 +8263,17 @@ class ProductNoAuthAlbumProductGet$Response$Data {
   @JsonKey(name: 'current')
   final double? current;
   @JsonKey(name: 'records')
-  final List<ProductNoAuthAlbumProductGet$Response$Data$Records$Item>? records;
+  final List<
+    ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item
+  >?
+  records;
   static const fromJsonFactory =
-      _$ProductNoAuthAlbumProductGet$Response$DataFromJson;
+      _$ProductServiceProductNoAuthAlbumProductGet$Response$DataFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ProductNoAuthAlbumProductGet$Response$Data &&
+        (other is ProductServiceProductNoAuthAlbumProductGet$Response$Data &&
             (identical(other.total, total) ||
                 const DeepCollectionEquality().equals(other.total, total)) &&
             (identical(other.pageSize, pageSize) ||
@@ -7799,16 +8308,17 @@ class ProductNoAuthAlbumProductGet$Response$Data {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthAlbumProductGet$Response$DataExtension
-    on ProductNoAuthAlbumProductGet$Response$Data {
-  ProductNoAuthAlbumProductGet$Response$Data copyWith({
+extension $ProductServiceProductNoAuthAlbumProductGet$Response$DataExtension
+    on ProductServiceProductNoAuthAlbumProductGet$Response$Data {
+  ProductServiceProductNoAuthAlbumProductGet$Response$Data copyWith({
     double? total,
     double? pageSize,
     double? totalPages,
     double? current,
-    List<ProductNoAuthAlbumProductGet$Response$Data$Records$Item>? records,
+    List<ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item>?
+    records,
   }) {
-    return ProductNoAuthAlbumProductGet$Response$Data(
+    return ProductServiceProductNoAuthAlbumProductGet$Response$Data(
       total: total ?? this.total,
       pageSize: pageSize ?? this.pageSize,
       totalPages: totalPages ?? this.totalPages,
@@ -7817,15 +8327,19 @@ extension $ProductNoAuthAlbumProductGet$Response$DataExtension
     );
   }
 
-  ProductNoAuthAlbumProductGet$Response$Data copyWithWrapped({
+  ProductServiceProductNoAuthAlbumProductGet$Response$Data copyWithWrapped({
     Wrapped<double?>? total,
     Wrapped<double?>? pageSize,
     Wrapped<double?>? totalPages,
     Wrapped<double?>? current,
-    Wrapped<List<ProductNoAuthAlbumProductGet$Response$Data$Records$Item>?>?
+    Wrapped<
+      List<
+        ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item
+      >?
+    >?
     records,
   }) {
-    return ProductNoAuthAlbumProductGet$Response$Data(
+    return ProductServiceProductNoAuthAlbumProductGet$Response$Data(
       total: (total != null ? total.value : this.total),
       pageSize: (pageSize != null ? pageSize.value : this.pageSize),
       totalPages: (totalPages != null ? totalPages.value : this.totalPages),
@@ -7836,8 +8350,8 @@ extension $ProductNoAuthAlbumProductGet$Response$DataExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ShopNoAuthGetThirdShopGet$Response$Data {
-  const ShopNoAuthGetThirdShopGet$Response$Data({
+class ProductServiceShopNoAuthGetThirdShopGet$Response$Data {
+  const ProductServiceShopNoAuthGetThirdShopGet$Response$Data({
     required this.shopCode,
     required this.shopName,
     required this.icon,
@@ -7845,13 +8359,14 @@ class ShopNoAuthGetThirdShopGet$Response$Data {
     required this.records,
   });
 
-  factory ShopNoAuthGetThirdShopGet$Response$Data.fromJson(
+  factory ProductServiceShopNoAuthGetThirdShopGet$Response$Data.fromJson(
     Map<String, dynamic> json,
-  ) => _$ShopNoAuthGetThirdShopGet$Response$DataFromJson(json);
+  ) => _$ProductServiceShopNoAuthGetThirdShopGet$Response$DataFromJson(json);
 
-  static const toJsonFactory = _$ShopNoAuthGetThirdShopGet$Response$DataToJson;
+  static const toJsonFactory =
+      _$ProductServiceShopNoAuthGetThirdShopGet$Response$DataToJson;
   Map<String, dynamic> toJson() =>
-      _$ShopNoAuthGetThirdShopGet$Response$DataToJson(this);
+      _$ProductServiceShopNoAuthGetThirdShopGet$Response$DataToJson(this);
 
   @JsonKey(name: 'shopCode')
   final String shopCode;
@@ -7862,14 +8377,15 @@ class ShopNoAuthGetThirdShopGet$Response$Data {
   @JsonKey(name: 'recordSource')
   final int recordSource;
   @JsonKey(name: 'records')
-  final List<ShopNoAuthGetThirdShopGet$Response$Data$Records$Item> records;
+  final List<ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$Item>
+  records;
   static const fromJsonFactory =
-      _$ShopNoAuthGetThirdShopGet$Response$DataFromJson;
+      _$ProductServiceShopNoAuthGetThirdShopGet$Response$DataFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ShopNoAuthGetThirdShopGet$Response$Data &&
+        (other is ProductServiceShopNoAuthGetThirdShopGet$Response$Data &&
             (identical(other.shopCode, shopCode) ||
                 const DeepCollectionEquality().equals(
                   other.shopCode,
@@ -7904,16 +8420,17 @@ class ShopNoAuthGetThirdShopGet$Response$Data {
       runtimeType.hashCode;
 }
 
-extension $ShopNoAuthGetThirdShopGet$Response$DataExtension
-    on ShopNoAuthGetThirdShopGet$Response$Data {
-  ShopNoAuthGetThirdShopGet$Response$Data copyWith({
+extension $ProductServiceShopNoAuthGetThirdShopGet$Response$DataExtension
+    on ProductServiceShopNoAuthGetThirdShopGet$Response$Data {
+  ProductServiceShopNoAuthGetThirdShopGet$Response$Data copyWith({
     String? shopCode,
     String? shopName,
     String? icon,
     int? recordSource,
-    List<ShopNoAuthGetThirdShopGet$Response$Data$Records$Item>? records,
+    List<ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$Item>?
+    records,
   }) {
-    return ShopNoAuthGetThirdShopGet$Response$Data(
+    return ProductServiceShopNoAuthGetThirdShopGet$Response$Data(
       shopCode: shopCode ?? this.shopCode,
       shopName: shopName ?? this.shopName,
       icon: icon ?? this.icon,
@@ -7922,15 +8439,17 @@ extension $ShopNoAuthGetThirdShopGet$Response$DataExtension
     );
   }
 
-  ShopNoAuthGetThirdShopGet$Response$Data copyWithWrapped({
+  ProductServiceShopNoAuthGetThirdShopGet$Response$Data copyWithWrapped({
     Wrapped<String>? shopCode,
     Wrapped<String>? shopName,
     Wrapped<String>? icon,
     Wrapped<int>? recordSource,
-    Wrapped<List<ShopNoAuthGetThirdShopGet$Response$Data$Records$Item>>?
+    Wrapped<
+      List<ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$Item>
+    >?
     records,
   }) {
-    return ShopNoAuthGetThirdShopGet$Response$Data(
+    return ProductServiceShopNoAuthGetThirdShopGet$Response$Data(
       shopCode: (shopCode != null ? shopCode.value : this.shopCode),
       shopName: (shopName != null ? shopName.value : this.shopName),
       icon: (icon != null ? icon.value : this.icon),
@@ -7943,8 +8462,8 @@ extension $ShopNoAuthGetThirdShopGet$Response$DataExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthKolProductGet$Response$Data$Item {
-  const ProductNoAuthKolProductGet$Response$Data$Item({
+class ProductServiceProductNoAuthKolProductGet$Response$Data$Item {
+  const ProductServiceProductNoAuthKolProductGet$Response$Data$Item({
     required this.shopCode,
     required this.productCode,
     required this.productName,
@@ -7975,14 +8494,16 @@ class ProductNoAuthKolProductGet$Response$Data$Item {
     this.sellPoints,
   });
 
-  factory ProductNoAuthKolProductGet$Response$Data$Item.fromJson(
+  factory ProductServiceProductNoAuthKolProductGet$Response$Data$Item.fromJson(
     Map<String, dynamic> json,
-  ) => _$ProductNoAuthKolProductGet$Response$Data$ItemFromJson(json);
+  ) => _$ProductServiceProductNoAuthKolProductGet$Response$Data$ItemFromJson(
+    json,
+  );
 
   static const toJsonFactory =
-      _$ProductNoAuthKolProductGet$Response$Data$ItemToJson;
+      _$ProductServiceProductNoAuthKolProductGet$Response$Data$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthKolProductGet$Response$Data$ItemToJson(this);
+      _$ProductServiceProductNoAuthKolProductGet$Response$Data$ItemToJson(this);
 
   @JsonKey(name: 'shopCode')
   final String shopCode;
@@ -7995,28 +8516,40 @@ class ProductNoAuthKolProductGet$Response$Data$Item {
   @JsonKey(name: 'brandName')
   final String brandName;
   @JsonKey(name: 'mainImg')
-  final List<ProductNoAuthKolProductGet$Response$Data$Item$MainImg$Item>
+  final List<
+    ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainImg$Item
+  >
   mainImg;
   @JsonKey(name: 'subImg')
   final Object subImg;
   @JsonKey(name: 'mainVideo')
-  final List<ProductNoAuthKolProductGet$Response$Data$Item$MainVideo$Item>
+  final List<
+    ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainVideo$Item
+  >
   mainVideo;
   @JsonKey(name: 'imgCollection')
-  final List<ProductNoAuthKolProductGet$Response$Data$Item$ImgCollection$Item>
+  final List<
+    ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgCollection$Item
+  >
   imgCollection;
   @JsonKey(name: 'textDetail')
   final String? textDetail;
   @JsonKey(name: 'imgDetail')
-  final List<ProductNoAuthKolProductGet$Response$Data$Item$ImgDetail$Item>
+  final List<
+    ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgDetail$Item
+  >
   imgDetail;
   @JsonKey(name: 'categoryId')
   final double categoryId;
   @JsonKey(name: 'productOptions')
-  final List<ProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item>
+  final List<
+    ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item
+  >
   productOptions;
   @JsonKey(name: 'productAttrs')
-  final List<ProductNoAuthKolProductGet$Response$Data$Item$ProductAttrs$Item>
+  final List<
+    ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductAttrs$Item
+  >
   productAttrs;
   @JsonKey(name: 'sourcePlatform')
   final String sourcePlatform;
@@ -8041,19 +8574,22 @@ class ProductNoAuthKolProductGet$Response$Data$Item {
   @JsonKey(name: 'sellQuantity')
   final String sellQuantity;
   @JsonKey(name: 'tags')
-  final List<ProductNoAuthKolProductGet$Response$Data$Item$Tags$Item> tags;
+  final List<
+    ProductServiceProductNoAuthKolProductGet$Response$Data$Item$Tags$Item
+  >
+  tags;
   @JsonKey(name: 'premiumBrandInfo')
-  final ProductNoAuthKolProductGet$Response$Data$Item$PremiumBrandInfo?
+  final ProductServiceProductNoAuthKolProductGet$Response$Data$Item$PremiumBrandInfo?
   premiumBrandInfo;
   @JsonKey(name: 'sellPoints', defaultValue: <Object>[])
   final List<Object>? sellPoints;
   static const fromJsonFactory =
-      _$ProductNoAuthKolProductGet$Response$Data$ItemFromJson;
+      _$ProductServiceProductNoAuthKolProductGet$Response$Data$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ProductNoAuthKolProductGet$Response$Data$Item &&
+        (other is ProductServiceProductNoAuthKolProductGet$Response$Data$Item &&
             (identical(other.shopCode, shopCode) ||
                 const DeepCollectionEquality().equals(
                   other.shopCode,
@@ -8226,27 +8762,40 @@ class ProductNoAuthKolProductGet$Response$Data$Item {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthKolProductGet$Response$Data$ItemExtension
-    on ProductNoAuthKolProductGet$Response$Data$Item {
-  ProductNoAuthKolProductGet$Response$Data$Item copyWith({
+extension $ProductServiceProductNoAuthKolProductGet$Response$Data$ItemExtension
+    on ProductServiceProductNoAuthKolProductGet$Response$Data$Item {
+  ProductServiceProductNoAuthKolProductGet$Response$Data$Item copyWith({
     String? shopCode,
     String? productCode,
     String? productName,
     String? tenantCode,
     String? brandName,
-    List<ProductNoAuthKolProductGet$Response$Data$Item$MainImg$Item>? mainImg,
+    List<
+      ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainImg$Item
+    >?
+    mainImg,
     Object? subImg,
-    List<ProductNoAuthKolProductGet$Response$Data$Item$MainVideo$Item>?
+    List<
+      ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainVideo$Item
+    >?
     mainVideo,
-    List<ProductNoAuthKolProductGet$Response$Data$Item$ImgCollection$Item>?
+    List<
+      ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgCollection$Item
+    >?
     imgCollection,
     String? textDetail,
-    List<ProductNoAuthKolProductGet$Response$Data$Item$ImgDetail$Item>?
+    List<
+      ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgDetail$Item
+    >?
     imgDetail,
     double? categoryId,
-    List<ProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item>?
+    List<
+      ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item
+    >?
     productOptions,
-    List<ProductNoAuthKolProductGet$Response$Data$Item$ProductAttrs$Item>?
+    List<
+      ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductAttrs$Item
+    >?
     productAttrs,
     String? sourcePlatform,
     String? platformUrl,
@@ -8259,12 +8808,13 @@ extension $ProductNoAuthKolProductGet$Response$Data$ItemExtension
     String? productFlag,
     String? marketingInfo,
     String? sellQuantity,
-    List<ProductNoAuthKolProductGet$Response$Data$Item$Tags$Item>? tags,
-    ProductNoAuthKolProductGet$Response$Data$Item$PremiumBrandInfo?
+    List<ProductServiceProductNoAuthKolProductGet$Response$Data$Item$Tags$Item>?
+    tags,
+    ProductServiceProductNoAuthKolProductGet$Response$Data$Item$PremiumBrandInfo?
     premiumBrandInfo,
     List<Object>? sellPoints,
   }) {
-    return ProductNoAuthKolProductGet$Response$Data$Item(
+    return ProductServiceProductNoAuthKolProductGet$Response$Data$Item(
       shopCode: shopCode ?? this.shopCode,
       productCode: productCode ?? this.productCode,
       productName: productName ?? this.productName,
@@ -8296,31 +8846,49 @@ extension $ProductNoAuthKolProductGet$Response$Data$ItemExtension
     );
   }
 
-  ProductNoAuthKolProductGet$Response$Data$Item copyWithWrapped({
+  ProductServiceProductNoAuthKolProductGet$Response$Data$Item copyWithWrapped({
     Wrapped<String>? shopCode,
     Wrapped<String>? productCode,
     Wrapped<String>? productName,
     Wrapped<String>? tenantCode,
     Wrapped<String>? brandName,
-    Wrapped<List<ProductNoAuthKolProductGet$Response$Data$Item$MainImg$Item>>?
+    Wrapped<
+      List<
+        ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainImg$Item
+      >
+    >?
     mainImg,
     Wrapped<Object>? subImg,
-    Wrapped<List<ProductNoAuthKolProductGet$Response$Data$Item$MainVideo$Item>>?
+    Wrapped<
+      List<
+        ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainVideo$Item
+      >
+    >?
     mainVideo,
     Wrapped<
-      List<ProductNoAuthKolProductGet$Response$Data$Item$ImgCollection$Item>
+      List<
+        ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgCollection$Item
+      >
     >?
     imgCollection,
     Wrapped<String?>? textDetail,
-    Wrapped<List<ProductNoAuthKolProductGet$Response$Data$Item$ImgDetail$Item>>?
+    Wrapped<
+      List<
+        ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgDetail$Item
+      >
+    >?
     imgDetail,
     Wrapped<double>? categoryId,
     Wrapped<
-      List<ProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item>
+      List<
+        ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item
+      >
     >?
     productOptions,
     Wrapped<
-      List<ProductNoAuthKolProductGet$Response$Data$Item$ProductAttrs$Item>
+      List<
+        ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductAttrs$Item
+      >
     >?
     productAttrs,
     Wrapped<String>? sourcePlatform,
@@ -8334,13 +8902,19 @@ extension $ProductNoAuthKolProductGet$Response$Data$ItemExtension
     Wrapped<String>? productFlag,
     Wrapped<String>? marketingInfo,
     Wrapped<String>? sellQuantity,
-    Wrapped<List<ProductNoAuthKolProductGet$Response$Data$Item$Tags$Item>>?
+    Wrapped<
+      List<
+        ProductServiceProductNoAuthKolProductGet$Response$Data$Item$Tags$Item
+      >
+    >?
     tags,
-    Wrapped<ProductNoAuthKolProductGet$Response$Data$Item$PremiumBrandInfo?>?
+    Wrapped<
+      ProductServiceProductNoAuthKolProductGet$Response$Data$Item$PremiumBrandInfo?
+    >?
     premiumBrandInfo,
     Wrapped<List<Object>?>? sellPoints,
   }) {
-    return ProductNoAuthKolProductGet$Response$Data$Item(
+    return ProductServiceProductNoAuthKolProductGet$Response$Data$Item(
       shopCode: (shopCode != null ? shopCode.value : this.shopCode),
       productCode: (productCode != null ? productCode.value : this.productCode),
       productName: (productName != null ? productName.value : this.productName),
@@ -8396,8 +8970,8 @@ extension $ProductNoAuthKolProductGet$Response$Data$ItemExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthPremierProductGet$Response$Data {
-  const ProductNoAuthPremierProductGet$Response$Data({
+class ProductServiceProductNoAuthPremierProductGet$Response$Data {
+  const ProductServiceProductNoAuthPremierProductGet$Response$Data({
     this.total,
     this.pageSize,
     this.totalPages,
@@ -8405,14 +8979,16 @@ class ProductNoAuthPremierProductGet$Response$Data {
     this.records,
   });
 
-  factory ProductNoAuthPremierProductGet$Response$Data.fromJson(
+  factory ProductServiceProductNoAuthPremierProductGet$Response$Data.fromJson(
     Map<String, dynamic> json,
-  ) => _$ProductNoAuthPremierProductGet$Response$DataFromJson(json);
+  ) => _$ProductServiceProductNoAuthPremierProductGet$Response$DataFromJson(
+    json,
+  );
 
   static const toJsonFactory =
-      _$ProductNoAuthPremierProductGet$Response$DataToJson;
+      _$ProductServiceProductNoAuthPremierProductGet$Response$DataToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthPremierProductGet$Response$DataToJson(this);
+      _$ProductServiceProductNoAuthPremierProductGet$Response$DataToJson(this);
 
   @JsonKey(name: 'total')
   final double? total;
@@ -8423,15 +8999,17 @@ class ProductNoAuthPremierProductGet$Response$Data {
   @JsonKey(name: 'current')
   final double? current;
   @JsonKey(name: 'records')
-  final List<ProductNoAuthPremierProductGet$Response$Data$Records$Item>?
+  final List<
+    ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item
+  >?
   records;
   static const fromJsonFactory =
-      _$ProductNoAuthPremierProductGet$Response$DataFromJson;
+      _$ProductServiceProductNoAuthPremierProductGet$Response$DataFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ProductNoAuthPremierProductGet$Response$Data &&
+        (other is ProductServiceProductNoAuthPremierProductGet$Response$Data &&
             (identical(other.total, total) ||
                 const DeepCollectionEquality().equals(other.total, total)) &&
             (identical(other.pageSize, pageSize) ||
@@ -8466,16 +9044,19 @@ class ProductNoAuthPremierProductGet$Response$Data {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthPremierProductGet$Response$DataExtension
-    on ProductNoAuthPremierProductGet$Response$Data {
-  ProductNoAuthPremierProductGet$Response$Data copyWith({
+extension $ProductServiceProductNoAuthPremierProductGet$Response$DataExtension
+    on ProductServiceProductNoAuthPremierProductGet$Response$Data {
+  ProductServiceProductNoAuthPremierProductGet$Response$Data copyWith({
     double? total,
     double? pageSize,
     double? totalPages,
     double? current,
-    List<ProductNoAuthPremierProductGet$Response$Data$Records$Item>? records,
+    List<
+      ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item
+    >?
+    records,
   }) {
-    return ProductNoAuthPremierProductGet$Response$Data(
+    return ProductServiceProductNoAuthPremierProductGet$Response$Data(
       total: total ?? this.total,
       pageSize: pageSize ?? this.pageSize,
       totalPages: totalPages ?? this.totalPages,
@@ -8484,15 +9065,19 @@ extension $ProductNoAuthPremierProductGet$Response$DataExtension
     );
   }
 
-  ProductNoAuthPremierProductGet$Response$Data copyWithWrapped({
+  ProductServiceProductNoAuthPremierProductGet$Response$Data copyWithWrapped({
     Wrapped<double?>? total,
     Wrapped<double?>? pageSize,
     Wrapped<double?>? totalPages,
     Wrapped<double?>? current,
-    Wrapped<List<ProductNoAuthPremierProductGet$Response$Data$Records$Item>?>?
+    Wrapped<
+      List<
+        ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item
+      >?
+    >?
     records,
   }) {
-    return ProductNoAuthPremierProductGet$Response$Data(
+    return ProductServiceProductNoAuthPremierProductGet$Response$Data(
       total: (total != null ? total.value : this.total),
       pageSize: (pageSize != null ? pageSize.value : this.pageSize),
       totalPages: (totalPages != null ? totalPages.value : this.totalPages),
@@ -8503,35 +9088,41 @@ extension $ProductNoAuthPremierProductGet$Response$DataExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class RecommendNoAuthCategoryRecommendationGet$Response$Data {
-  const RecommendNoAuthCategoryRecommendationGet$Response$Data({
+class ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data {
+  const ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data({
     this.timestamp,
     this.categories,
   });
 
-  factory RecommendNoAuthCategoryRecommendationGet$Response$Data.fromJson(
+  factory ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data.fromJson(
     Map<String, dynamic> json,
-  ) => _$RecommendNoAuthCategoryRecommendationGet$Response$DataFromJson(json);
+  ) =>
+      _$ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$DataFromJson(
+        json,
+      );
 
   static const toJsonFactory =
-      _$RecommendNoAuthCategoryRecommendationGet$Response$DataToJson;
+      _$ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$DataToJson;
   Map<String, dynamic> toJson() =>
-      _$RecommendNoAuthCategoryRecommendationGet$Response$DataToJson(this);
+      _$ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$DataToJson(
+        this,
+      );
 
   @JsonKey(name: 'timestamp')
   final String? timestamp;
   @JsonKey(name: 'categories')
   final List<
-    RecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item
+    ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item
   >?
   categories;
   static const fromJsonFactory =
-      _$RecommendNoAuthCategoryRecommendationGet$Response$DataFromJson;
+      _$ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$DataFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is RecommendNoAuthCategoryRecommendationGet$Response$Data &&
+        (other
+                is ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data &&
             (identical(other.timestamp, timestamp) ||
                 const DeepCollectionEquality().equals(
                   other.timestamp,
@@ -8554,31 +9145,33 @@ class RecommendNoAuthCategoryRecommendationGet$Response$Data {
       runtimeType.hashCode;
 }
 
-extension $RecommendNoAuthCategoryRecommendationGet$Response$DataExtension
-    on RecommendNoAuthCategoryRecommendationGet$Response$Data {
-  RecommendNoAuthCategoryRecommendationGet$Response$Data copyWith({
+extension $ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$DataExtension
+    on ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data {
+  ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data
+  copyWith({
     String? timestamp,
     List<
-      RecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item
+      ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item
     >?
     categories,
   }) {
-    return RecommendNoAuthCategoryRecommendationGet$Response$Data(
+    return ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data(
       timestamp: timestamp ?? this.timestamp,
       categories: categories ?? this.categories,
     );
   }
 
-  RecommendNoAuthCategoryRecommendationGet$Response$Data copyWithWrapped({
+  ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data
+  copyWithWrapped({
     Wrapped<String?>? timestamp,
     Wrapped<
       List<
-        RecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item
+        ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item
       >?
     >?
     categories,
   }) {
-    return RecommendNoAuthCategoryRecommendationGet$Response$Data(
+    return ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data(
       timestamp: (timestamp != null ? timestamp.value : this.timestamp),
       categories: (categories != null ? categories.value : this.categories),
     );
@@ -8586,8 +9179,8 @@ extension $RecommendNoAuthCategoryRecommendationGet$Response$DataExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class RecommendNoAuthCategoryPost$Response$Data {
-  const RecommendNoAuthCategoryPost$Response$Data({
+class ProductServiceRecommendNoAuthCategoryPost$Response$Data {
+  const ProductServiceRecommendNoAuthCategoryPost$Response$Data({
     required this.total,
     required this.pageSize,
     required this.totalPages,
@@ -8595,14 +9188,14 @@ class RecommendNoAuthCategoryPost$Response$Data {
     required this.records,
   });
 
-  factory RecommendNoAuthCategoryPost$Response$Data.fromJson(
+  factory ProductServiceRecommendNoAuthCategoryPost$Response$Data.fromJson(
     Map<String, dynamic> json,
-  ) => _$RecommendNoAuthCategoryPost$Response$DataFromJson(json);
+  ) => _$ProductServiceRecommendNoAuthCategoryPost$Response$DataFromJson(json);
 
   static const toJsonFactory =
-      _$RecommendNoAuthCategoryPost$Response$DataToJson;
+      _$ProductServiceRecommendNoAuthCategoryPost$Response$DataToJson;
   Map<String, dynamic> toJson() =>
-      _$RecommendNoAuthCategoryPost$Response$DataToJson(this);
+      _$ProductServiceRecommendNoAuthCategoryPost$Response$DataToJson(this);
 
   @JsonKey(name: 'total')
   final String total;
@@ -8613,14 +9206,17 @@ class RecommendNoAuthCategoryPost$Response$Data {
   @JsonKey(name: 'current')
   final String current;
   @JsonKey(name: 'records')
-  final List<RecommendNoAuthCategoryPost$Response$Data$Records$Item> records;
+  final List<
+    ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item
+  >
+  records;
   static const fromJsonFactory =
-      _$RecommendNoAuthCategoryPost$Response$DataFromJson;
+      _$ProductServiceRecommendNoAuthCategoryPost$Response$DataFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is RecommendNoAuthCategoryPost$Response$Data &&
+        (other is ProductServiceRecommendNoAuthCategoryPost$Response$Data &&
             (identical(other.total, total) ||
                 const DeepCollectionEquality().equals(other.total, total)) &&
             (identical(other.pageSize, pageSize) ||
@@ -8655,33 +9251,36 @@ class RecommendNoAuthCategoryPost$Response$Data {
       runtimeType.hashCode;
 }
 
-extension $RecommendNoAuthCategoryPost$Response$DataExtension
-    on RecommendNoAuthCategoryPost$Response$Data {
-  RecommendNoAuthCategoryPost$Response$Data copyWith({
+extension $ProductServiceRecommendNoAuthCategoryPost$Response$DataExtension
+    on ProductServiceRecommendNoAuthCategoryPost$Response$Data {
+  ProductServiceRecommendNoAuthCategoryPost$Response$Data copyWith({
     String? total,
     String? pageSize,
     String? totalPages,
     String? current,
-    List<RecommendNoAuthCategoryPost$Response$Data$Records$Item>? records,
-  }) {
-    return RecommendNoAuthCategoryPost$Response$Data(
-      total: total ?? this.total,
-      pageSize: pageSize ?? this.pageSize,
-      totalPages: totalPages ?? this.totalPages,
-      current: current ?? this.current,
-      records: records ?? this.records,
-    );
-  }
-
-  RecommendNoAuthCategoryPost$Response$Data copyWithWrapped({
-    Wrapped<String>? total,
-    Wrapped<String>? pageSize,
-    Wrapped<String>? totalPages,
-    Wrapped<String>? current,
-    Wrapped<List<RecommendNoAuthCategoryPost$Response$Data$Records$Item>>?
+    List<ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item>?
     records,
   }) {
-    return RecommendNoAuthCategoryPost$Response$Data(
+    return ProductServiceRecommendNoAuthCategoryPost$Response$Data(
+      total: total ?? this.total,
+      pageSize: pageSize ?? this.pageSize,
+      totalPages: totalPages ?? this.totalPages,
+      current: current ?? this.current,
+      records: records ?? this.records,
+    );
+  }
+
+  ProductServiceRecommendNoAuthCategoryPost$Response$Data copyWithWrapped({
+    Wrapped<String>? total,
+    Wrapped<String>? pageSize,
+    Wrapped<String>? totalPages,
+    Wrapped<String>? current,
+    Wrapped<
+      List<ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item>
+    >?
+    records,
+  }) {
+    return ProductServiceRecommendNoAuthCategoryPost$Response$Data(
       total: (total != null ? total.value : this.total),
       pageSize: (pageSize != null ? pageSize.value : this.pageSize),
       totalPages: (totalPages != null ? totalPages.value : this.totalPages),
@@ -8692,8 +9291,8 @@ extension $RecommendNoAuthCategoryPost$Response$DataExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class RecommendNoAuthShopPost$Response$Data {
-  const RecommendNoAuthShopPost$Response$Data({
+class ProductServiceRecommendNoAuthShopPost$Response$Data {
+  const ProductServiceRecommendNoAuthShopPost$Response$Data({
     required this.total,
     required this.pageSize,
     required this.totalPages,
@@ -8701,13 +9300,14 @@ class RecommendNoAuthShopPost$Response$Data {
     required this.records,
   });
 
-  factory RecommendNoAuthShopPost$Response$Data.fromJson(
+  factory ProductServiceRecommendNoAuthShopPost$Response$Data.fromJson(
     Map<String, dynamic> json,
-  ) => _$RecommendNoAuthShopPost$Response$DataFromJson(json);
+  ) => _$ProductServiceRecommendNoAuthShopPost$Response$DataFromJson(json);
 
-  static const toJsonFactory = _$RecommendNoAuthShopPost$Response$DataToJson;
+  static const toJsonFactory =
+      _$ProductServiceRecommendNoAuthShopPost$Response$DataToJson;
   Map<String, dynamic> toJson() =>
-      _$RecommendNoAuthShopPost$Response$DataToJson(this);
+      _$ProductServiceRecommendNoAuthShopPost$Response$DataToJson(this);
 
   @JsonKey(name: 'total')
   final String total;
@@ -8718,14 +9318,15 @@ class RecommendNoAuthShopPost$Response$Data {
   @JsonKey(name: 'current')
   final String current;
   @JsonKey(name: 'records')
-  final List<RecommendNoAuthShopPost$Response$Data$Records$Item> records;
+  final List<ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item>
+  records;
   static const fromJsonFactory =
-      _$RecommendNoAuthShopPost$Response$DataFromJson;
+      _$ProductServiceRecommendNoAuthShopPost$Response$DataFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is RecommendNoAuthShopPost$Response$Data &&
+        (other is ProductServiceRecommendNoAuthShopPost$Response$Data &&
             (identical(other.total, total) ||
                 const DeepCollectionEquality().equals(other.total, total)) &&
             (identical(other.pageSize, pageSize) ||
@@ -8760,16 +9361,17 @@ class RecommendNoAuthShopPost$Response$Data {
       runtimeType.hashCode;
 }
 
-extension $RecommendNoAuthShopPost$Response$DataExtension
-    on RecommendNoAuthShopPost$Response$Data {
-  RecommendNoAuthShopPost$Response$Data copyWith({
+extension $ProductServiceRecommendNoAuthShopPost$Response$DataExtension
+    on ProductServiceRecommendNoAuthShopPost$Response$Data {
+  ProductServiceRecommendNoAuthShopPost$Response$Data copyWith({
     String? total,
     String? pageSize,
     String? totalPages,
     String? current,
-    List<RecommendNoAuthShopPost$Response$Data$Records$Item>? records,
+    List<ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item>?
+    records,
   }) {
-    return RecommendNoAuthShopPost$Response$Data(
+    return ProductServiceRecommendNoAuthShopPost$Response$Data(
       total: total ?? this.total,
       pageSize: pageSize ?? this.pageSize,
       totalPages: totalPages ?? this.totalPages,
@@ -8778,14 +9380,17 @@ extension $RecommendNoAuthShopPost$Response$DataExtension
     );
   }
 
-  RecommendNoAuthShopPost$Response$Data copyWithWrapped({
+  ProductServiceRecommendNoAuthShopPost$Response$Data copyWithWrapped({
     Wrapped<String>? total,
     Wrapped<String>? pageSize,
     Wrapped<String>? totalPages,
     Wrapped<String>? current,
-    Wrapped<List<RecommendNoAuthShopPost$Response$Data$Records$Item>>? records,
+    Wrapped<
+      List<ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item>
+    >?
+    records,
   }) {
-    return RecommendNoAuthShopPost$Response$Data(
+    return ProductServiceRecommendNoAuthShopPost$Response$Data(
       total: (total != null ? total.value : this.total),
       pageSize: (pageSize != null ? pageSize.value : this.pageSize),
       totalPages: (totalPages != null ? totalPages.value : this.totalPages),
@@ -8796,8 +9401,8 @@ extension $RecommendNoAuthShopPost$Response$DataExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class RecommendNoAuthSimilarProductPost$Response$Data {
-  const RecommendNoAuthSimilarProductPost$Response$Data({
+class ProductServiceRecommendNoAuthSimilarProductPost$Response$Data {
+  const ProductServiceRecommendNoAuthSimilarProductPost$Response$Data({
     required this.records,
     required this.total,
     required this.pageSize,
@@ -8805,17 +9410,23 @@ class RecommendNoAuthSimilarProductPost$Response$Data {
     required this.current,
   });
 
-  factory RecommendNoAuthSimilarProductPost$Response$Data.fromJson(
+  factory ProductServiceRecommendNoAuthSimilarProductPost$Response$Data.fromJson(
     Map<String, dynamic> json,
-  ) => _$RecommendNoAuthSimilarProductPost$Response$DataFromJson(json);
+  ) => _$ProductServiceRecommendNoAuthSimilarProductPost$Response$DataFromJson(
+    json,
+  );
 
   static const toJsonFactory =
-      _$RecommendNoAuthSimilarProductPost$Response$DataToJson;
+      _$ProductServiceRecommendNoAuthSimilarProductPost$Response$DataToJson;
   Map<String, dynamic> toJson() =>
-      _$RecommendNoAuthSimilarProductPost$Response$DataToJson(this);
+      _$ProductServiceRecommendNoAuthSimilarProductPost$Response$DataToJson(
+        this,
+      );
 
   @JsonKey(name: 'records')
-  final List<RecommendNoAuthSimilarProductPost$Response$Data$Records$Item>
+  final List<
+    ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item
+  >
   records;
   @JsonKey(name: 'total')
   final String total;
@@ -8826,12 +9437,12 @@ class RecommendNoAuthSimilarProductPost$Response$Data {
   @JsonKey(name: 'current')
   final String current;
   static const fromJsonFactory =
-      _$RecommendNoAuthSimilarProductPost$Response$DataFromJson;
+      _$ProductServiceRecommendNoAuthSimilarProductPost$Response$DataFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is RecommendNoAuthSimilarProductPost$Response$Data &&
+        (other is ProductServiceRecommendNoAuthSimilarProductPost$Response$Data &&
             (identical(other.records, records) ||
                 const DeepCollectionEquality().equals(
                   other.records,
@@ -8866,16 +9477,19 @@ class RecommendNoAuthSimilarProductPost$Response$Data {
       runtimeType.hashCode;
 }
 
-extension $RecommendNoAuthSimilarProductPost$Response$DataExtension
-    on RecommendNoAuthSimilarProductPost$Response$Data {
-  RecommendNoAuthSimilarProductPost$Response$Data copyWith({
-    List<RecommendNoAuthSimilarProductPost$Response$Data$Records$Item>? records,
+extension $ProductServiceRecommendNoAuthSimilarProductPost$Response$DataExtension
+    on ProductServiceRecommendNoAuthSimilarProductPost$Response$Data {
+  ProductServiceRecommendNoAuthSimilarProductPost$Response$Data copyWith({
+    List<
+      ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item
+    >?
+    records,
     String? total,
     String? pageSize,
     String? totalPages,
     String? current,
   }) {
-    return RecommendNoAuthSimilarProductPost$Response$Data(
+    return ProductServiceRecommendNoAuthSimilarProductPost$Response$Data(
       records: records ?? this.records,
       total: total ?? this.total,
       pageSize: pageSize ?? this.pageSize,
@@ -8884,15 +9498,20 @@ extension $RecommendNoAuthSimilarProductPost$Response$DataExtension
     );
   }
 
-  RecommendNoAuthSimilarProductPost$Response$Data copyWithWrapped({
-    Wrapped<List<RecommendNoAuthSimilarProductPost$Response$Data$Records$Item>>?
+  ProductServiceRecommendNoAuthSimilarProductPost$Response$Data
+  copyWithWrapped({
+    Wrapped<
+      List<
+        ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item
+      >
+    >?
     records,
     Wrapped<String>? total,
     Wrapped<String>? pageSize,
     Wrapped<String>? totalPages,
     Wrapped<String>? current,
   }) {
-    return RecommendNoAuthSimilarProductPost$Response$Data(
+    return ProductServiceRecommendNoAuthSimilarProductPost$Response$Data(
       records: (records != null ? records.value : this.records),
       total: (total != null ? total.value : this.total),
       pageSize: (pageSize != null ? pageSize.value : this.pageSize),
@@ -8903,8 +9522,8 @@ extension $RecommendNoAuthSimilarProductPost$Response$DataExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductReviewNoAuthPageGet$Response$Data$Records$Item {
-  const ProductReviewNoAuthPageGet$Response$Data$Records$Item({
+class ProductServiceProductReviewNoAuthPageGet$Response$Data$Records$Item {
+  const ProductServiceProductReviewNoAuthPageGet$Response$Data$Records$Item({
     this.id,
     this.username,
     this.comment,
@@ -8915,162 +9534,17 @@ class ProductReviewNoAuthPageGet$Response$Data$Records$Item {
     this.salesQuantity,
   });
 
-  factory ProductReviewNoAuthPageGet$Response$Data$Records$Item.fromJson(
-    Map<String, dynamic> json,
-  ) => _$ProductReviewNoAuthPageGet$Response$Data$Records$ItemFromJson(json);
-
-  static const toJsonFactory =
-      _$ProductReviewNoAuthPageGet$Response$Data$Records$ItemToJson;
-  Map<String, dynamic> toJson() =>
-      _$ProductReviewNoAuthPageGet$Response$Data$Records$ItemToJson(this);
-
-  @JsonKey(name: 'id')
-  final double? id;
-  @JsonKey(name: 'username')
-  final String? username;
-  @JsonKey(name: 'comment')
-  final String? comment;
-  @JsonKey(name: 'score')
-  final double? score;
-  @JsonKey(name: 'images', defaultValue: <Object>[])
-  final List<Object>? images;
-  @JsonKey(name: 'extraComment')
-  final String? extraComment;
-  @JsonKey(name: 'reviewTime')
-  final String? reviewTime;
-  @JsonKey(name: 'salesQuantity')
-  final double? salesQuantity;
-  static const fromJsonFactory =
-      _$ProductReviewNoAuthPageGet$Response$Data$Records$ItemFromJson;
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other is ProductReviewNoAuthPageGet$Response$Data$Records$Item &&
-            (identical(other.id, id) ||
-                const DeepCollectionEquality().equals(other.id, id)) &&
-            (identical(other.username, username) ||
-                const DeepCollectionEquality().equals(
-                  other.username,
-                  username,
-                )) &&
-            (identical(other.comment, comment) ||
-                const DeepCollectionEquality().equals(
-                  other.comment,
-                  comment,
-                )) &&
-            (identical(other.score, score) ||
-                const DeepCollectionEquality().equals(other.score, score)) &&
-            (identical(other.images, images) ||
-                const DeepCollectionEquality().equals(other.images, images)) &&
-            (identical(other.extraComment, extraComment) ||
-                const DeepCollectionEquality().equals(
-                  other.extraComment,
-                  extraComment,
-                )) &&
-            (identical(other.reviewTime, reviewTime) ||
-                const DeepCollectionEquality().equals(
-                  other.reviewTime,
-                  reviewTime,
-                )) &&
-            (identical(other.salesQuantity, salesQuantity) ||
-                const DeepCollectionEquality().equals(
-                  other.salesQuantity,
-                  salesQuantity,
-                )));
-  }
-
-  @override
-  String toString() => jsonEncode(this);
-
-  @override
-  int get hashCode =>
-      const DeepCollectionEquality().hash(id) ^
-      const DeepCollectionEquality().hash(username) ^
-      const DeepCollectionEquality().hash(comment) ^
-      const DeepCollectionEquality().hash(score) ^
-      const DeepCollectionEquality().hash(images) ^
-      const DeepCollectionEquality().hash(extraComment) ^
-      const DeepCollectionEquality().hash(reviewTime) ^
-      const DeepCollectionEquality().hash(salesQuantity) ^
-      runtimeType.hashCode;
-}
-
-extension $ProductReviewNoAuthPageGet$Response$Data$Records$ItemExtension
-    on ProductReviewNoAuthPageGet$Response$Data$Records$Item {
-  ProductReviewNoAuthPageGet$Response$Data$Records$Item copyWith({
-    double? id,
-    String? username,
-    String? comment,
-    double? score,
-    List<Object>? images,
-    String? extraComment,
-    String? reviewTime,
-    double? salesQuantity,
-  }) {
-    return ProductReviewNoAuthPageGet$Response$Data$Records$Item(
-      id: id ?? this.id,
-      username: username ?? this.username,
-      comment: comment ?? this.comment,
-      score: score ?? this.score,
-      images: images ?? this.images,
-      extraComment: extraComment ?? this.extraComment,
-      reviewTime: reviewTime ?? this.reviewTime,
-      salesQuantity: salesQuantity ?? this.salesQuantity,
-    );
-  }
-
-  ProductReviewNoAuthPageGet$Response$Data$Records$Item copyWithWrapped({
-    Wrapped<double?>? id,
-    Wrapped<String?>? username,
-    Wrapped<String?>? comment,
-    Wrapped<double?>? score,
-    Wrapped<List<Object>?>? images,
-    Wrapped<String?>? extraComment,
-    Wrapped<String?>? reviewTime,
-    Wrapped<double?>? salesQuantity,
-  }) {
-    return ProductReviewNoAuthPageGet$Response$Data$Records$Item(
-      id: (id != null ? id.value : this.id),
-      username: (username != null ? username.value : this.username),
-      comment: (comment != null ? comment.value : this.comment),
-      score: (score != null ? score.value : this.score),
-      images: (images != null ? images.value : this.images),
-      extraComment: (extraComment != null
-          ? extraComment.value
-          : this.extraComment),
-      reviewTime: (reviewTime != null ? reviewTime.value : this.reviewTime),
-      salesQuantity: (salesQuantity != null
-          ? salesQuantity.value
-          : this.salesQuantity),
-    );
-  }
-}
-
-@JsonSerializable(explicitToJson: true)
-class ProductReviewNoAuthSummaryGet$Response$Data$FeaturedReviews$Item {
-  const ProductReviewNoAuthSummaryGet$Response$Data$FeaturedReviews$Item({
-    this.id,
-    this.username,
-    this.comment,
-    this.score,
-    this.images,
-    this.extraComment,
-    this.reviewTime,
-    this.salesQuantity,
-  });
-
-  factory ProductReviewNoAuthSummaryGet$Response$Data$FeaturedReviews$Item.fromJson(
+  factory ProductServiceProductReviewNoAuthPageGet$Response$Data$Records$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ProductReviewNoAuthSummaryGet$Response$Data$FeaturedReviews$ItemFromJson(
+      _$ProductServiceProductReviewNoAuthPageGet$Response$Data$Records$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$ProductReviewNoAuthSummaryGet$Response$Data$FeaturedReviews$ItemToJson;
+      _$ProductServiceProductReviewNoAuthPageGet$Response$Data$Records$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductReviewNoAuthSummaryGet$Response$Data$FeaturedReviews$ItemToJson(
+      _$ProductServiceProductReviewNoAuthPageGet$Response$Data$Records$ItemToJson(
         this,
       );
 
@@ -9091,13 +9565,13 @@ class ProductReviewNoAuthSummaryGet$Response$Data$FeaturedReviews$Item {
   @JsonKey(name: 'salesQuantity')
   final double? salesQuantity;
   static const fromJsonFactory =
-      _$ProductReviewNoAuthSummaryGet$Response$Data$FeaturedReviews$ItemFromJson;
+      _$ProductServiceProductReviewNoAuthPageGet$Response$Data$Records$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is ProductReviewNoAuthSummaryGet$Response$Data$FeaturedReviews$Item &&
+                is ProductServiceProductReviewNoAuthPageGet$Response$Data$Records$Item &&
             (identical(other.id, id) ||
                 const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.username, username) ||
@@ -9147,9 +9621,9 @@ class ProductReviewNoAuthSummaryGet$Response$Data$FeaturedReviews$Item {
       runtimeType.hashCode;
 }
 
-extension $ProductReviewNoAuthSummaryGet$Response$Data$FeaturedReviews$ItemExtension
-    on ProductReviewNoAuthSummaryGet$Response$Data$FeaturedReviews$Item {
-  ProductReviewNoAuthSummaryGet$Response$Data$FeaturedReviews$Item copyWith({
+extension $ProductServiceProductReviewNoAuthPageGet$Response$Data$Records$ItemExtension
+    on ProductServiceProductReviewNoAuthPageGet$Response$Data$Records$Item {
+  ProductServiceProductReviewNoAuthPageGet$Response$Data$Records$Item copyWith({
     double? id,
     String? username,
     String? comment,
@@ -9159,7 +9633,7 @@ extension $ProductReviewNoAuthSummaryGet$Response$Data$FeaturedReviews$ItemExten
     String? reviewTime,
     double? salesQuantity,
   }) {
-    return ProductReviewNoAuthSummaryGet$Response$Data$FeaturedReviews$Item(
+    return ProductServiceProductReviewNoAuthPageGet$Response$Data$Records$Item(
       id: id ?? this.id,
       username: username ?? this.username,
       comment: comment ?? this.comment,
@@ -9171,7 +9645,7 @@ extension $ProductReviewNoAuthSummaryGet$Response$Data$FeaturedReviews$ItemExten
     );
   }
 
-  ProductReviewNoAuthSummaryGet$Response$Data$FeaturedReviews$Item
+  ProductServiceProductReviewNoAuthPageGet$Response$Data$Records$Item
   copyWithWrapped({
     Wrapped<double?>? id,
     Wrapped<String?>? username,
@@ -9182,7 +9656,7 @@ extension $ProductReviewNoAuthSummaryGet$Response$Data$FeaturedReviews$ItemExten
     Wrapped<String?>? reviewTime,
     Wrapped<double?>? salesQuantity,
   }) {
-    return ProductReviewNoAuthSummaryGet$Response$Data$FeaturedReviews$Item(
+    return ProductServiceProductReviewNoAuthPageGet$Response$Data$Records$Item(
       id: (id != null ? id.value : this.id),
       username: (username != null ? username.value : this.username),
       comment: (comment != null ? comment.value : this.comment),
@@ -9200,8 +9674,161 @@ extension $ProductReviewNoAuthSummaryGet$Response$Data$FeaturedReviews$ItemExten
 }
 
 @JsonSerializable(explicitToJson: true)
-class CategoryNoAuthTreeGet$Response$Data$CategoryList$Item {
-  const CategoryNoAuthTreeGet$Response$Data$CategoryList$Item({
+class ProductServiceProductReviewNoAuthSummaryGet$Response$Data$FeaturedReviews$Item {
+  const ProductServiceProductReviewNoAuthSummaryGet$Response$Data$FeaturedReviews$Item({
+    this.id,
+    this.username,
+    this.comment,
+    this.score,
+    this.images,
+    this.extraComment,
+    this.reviewTime,
+    this.salesQuantity,
+  });
+
+  factory ProductServiceProductReviewNoAuthSummaryGet$Response$Data$FeaturedReviews$Item.fromJson(
+    Map<String, dynamic> json,
+  ) =>
+      _$ProductServiceProductReviewNoAuthSummaryGet$Response$Data$FeaturedReviews$ItemFromJson(
+        json,
+      );
+
+  static const toJsonFactory =
+      _$ProductServiceProductReviewNoAuthSummaryGet$Response$Data$FeaturedReviews$ItemToJson;
+  Map<String, dynamic> toJson() =>
+      _$ProductServiceProductReviewNoAuthSummaryGet$Response$Data$FeaturedReviews$ItemToJson(
+        this,
+      );
+
+  @JsonKey(name: 'id')
+  final double? id;
+  @JsonKey(name: 'username')
+  final String? username;
+  @JsonKey(name: 'comment')
+  final String? comment;
+  @JsonKey(name: 'score')
+  final double? score;
+  @JsonKey(name: 'images', defaultValue: <Object>[])
+  final List<Object>? images;
+  @JsonKey(name: 'extraComment')
+  final String? extraComment;
+  @JsonKey(name: 'reviewTime')
+  final String? reviewTime;
+  @JsonKey(name: 'salesQuantity')
+  final double? salesQuantity;
+  static const fromJsonFactory =
+      _$ProductServiceProductReviewNoAuthSummaryGet$Response$Data$FeaturedReviews$ItemFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other
+                is ProductServiceProductReviewNoAuthSummaryGet$Response$Data$FeaturedReviews$Item &&
+            (identical(other.id, id) ||
+                const DeepCollectionEquality().equals(other.id, id)) &&
+            (identical(other.username, username) ||
+                const DeepCollectionEquality().equals(
+                  other.username,
+                  username,
+                )) &&
+            (identical(other.comment, comment) ||
+                const DeepCollectionEquality().equals(
+                  other.comment,
+                  comment,
+                )) &&
+            (identical(other.score, score) ||
+                const DeepCollectionEquality().equals(other.score, score)) &&
+            (identical(other.images, images) ||
+                const DeepCollectionEquality().equals(other.images, images)) &&
+            (identical(other.extraComment, extraComment) ||
+                const DeepCollectionEquality().equals(
+                  other.extraComment,
+                  extraComment,
+                )) &&
+            (identical(other.reviewTime, reviewTime) ||
+                const DeepCollectionEquality().equals(
+                  other.reviewTime,
+                  reviewTime,
+                )) &&
+            (identical(other.salesQuantity, salesQuantity) ||
+                const DeepCollectionEquality().equals(
+                  other.salesQuantity,
+                  salesQuantity,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(id) ^
+      const DeepCollectionEquality().hash(username) ^
+      const DeepCollectionEquality().hash(comment) ^
+      const DeepCollectionEquality().hash(score) ^
+      const DeepCollectionEquality().hash(images) ^
+      const DeepCollectionEquality().hash(extraComment) ^
+      const DeepCollectionEquality().hash(reviewTime) ^
+      const DeepCollectionEquality().hash(salesQuantity) ^
+      runtimeType.hashCode;
+}
+
+extension $ProductServiceProductReviewNoAuthSummaryGet$Response$Data$FeaturedReviews$ItemExtension
+    on ProductServiceProductReviewNoAuthSummaryGet$Response$Data$FeaturedReviews$Item {
+  ProductServiceProductReviewNoAuthSummaryGet$Response$Data$FeaturedReviews$Item
+  copyWith({
+    double? id,
+    String? username,
+    String? comment,
+    double? score,
+    List<Object>? images,
+    String? extraComment,
+    String? reviewTime,
+    double? salesQuantity,
+  }) {
+    return ProductServiceProductReviewNoAuthSummaryGet$Response$Data$FeaturedReviews$Item(
+      id: id ?? this.id,
+      username: username ?? this.username,
+      comment: comment ?? this.comment,
+      score: score ?? this.score,
+      images: images ?? this.images,
+      extraComment: extraComment ?? this.extraComment,
+      reviewTime: reviewTime ?? this.reviewTime,
+      salesQuantity: salesQuantity ?? this.salesQuantity,
+    );
+  }
+
+  ProductServiceProductReviewNoAuthSummaryGet$Response$Data$FeaturedReviews$Item
+  copyWithWrapped({
+    Wrapped<double?>? id,
+    Wrapped<String?>? username,
+    Wrapped<String?>? comment,
+    Wrapped<double?>? score,
+    Wrapped<List<Object>?>? images,
+    Wrapped<String?>? extraComment,
+    Wrapped<String?>? reviewTime,
+    Wrapped<double?>? salesQuantity,
+  }) {
+    return ProductServiceProductReviewNoAuthSummaryGet$Response$Data$FeaturedReviews$Item(
+      id: (id != null ? id.value : this.id),
+      username: (username != null ? username.value : this.username),
+      comment: (comment != null ? comment.value : this.comment),
+      score: (score != null ? score.value : this.score),
+      images: (images != null ? images.value : this.images),
+      extraComment: (extraComment != null
+          ? extraComment.value
+          : this.extraComment),
+      reviewTime: (reviewTime != null ? reviewTime.value : this.reviewTime),
+      salesQuantity: (salesQuantity != null
+          ? salesQuantity.value
+          : this.salesQuantity),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item {
+  const ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item({
     required this.id,
     required this.parentId,
     required this.level,
@@ -9212,14 +9839,19 @@ class CategoryNoAuthTreeGet$Response$Data$CategoryList$Item {
     required this.brands,
   });
 
-  factory CategoryNoAuthTreeGet$Response$Data$CategoryList$Item.fromJson(
+  factory ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item.fromJson(
     Map<String, dynamic> json,
-  ) => _$CategoryNoAuthTreeGet$Response$Data$CategoryList$ItemFromJson(json);
+  ) =>
+      _$ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$ItemFromJson(
+        json,
+      );
 
   static const toJsonFactory =
-      _$CategoryNoAuthTreeGet$Response$Data$CategoryList$ItemToJson;
+      _$ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$CategoryNoAuthTreeGet$Response$Data$CategoryList$ItemToJson(this);
+      _$ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$ItemToJson(
+        this,
+      );
 
   @JsonKey(name: 'id')
   final double id;
@@ -9235,18 +9867,18 @@ class CategoryNoAuthTreeGet$Response$Data$CategoryList$Item {
   final String iconUrl;
   @JsonKey(name: 'categoryList')
   final List<
-    CategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item
+    ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item
   >
   categoryList;
   @JsonKey(name: 'brands', defaultValue: <Object>[])
   final List<Object> brands;
   static const fromJsonFactory =
-      _$CategoryNoAuthTreeGet$Response$Data$CategoryList$ItemFromJson;
+      _$ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is CategoryNoAuthTreeGet$Response$Data$CategoryList$Item &&
+        (other is ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item &&
             (identical(other.id, id) ||
                 const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.parentId, parentId) ||
@@ -9293,9 +9925,9 @@ class CategoryNoAuthTreeGet$Response$Data$CategoryList$Item {
       runtimeType.hashCode;
 }
 
-extension $CategoryNoAuthTreeGet$Response$Data$CategoryList$ItemExtension
-    on CategoryNoAuthTreeGet$Response$Data$CategoryList$Item {
-  CategoryNoAuthTreeGet$Response$Data$CategoryList$Item copyWith({
+extension $ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$ItemExtension
+    on ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item {
+  ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item copyWith({
     double? id,
     double? parentId,
     double? level,
@@ -9303,12 +9935,12 @@ extension $CategoryNoAuthTreeGet$Response$Data$CategoryList$ItemExtension
     String? name,
     String? iconUrl,
     List<
-      CategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item
+      ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item
     >?
     categoryList,
     List<Object>? brands,
   }) {
-    return CategoryNoAuthTreeGet$Response$Data$CategoryList$Item(
+    return ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item(
       id: id ?? this.id,
       parentId: parentId ?? this.parentId,
       level: level ?? this.level,
@@ -9320,7 +9952,8 @@ extension $CategoryNoAuthTreeGet$Response$Data$CategoryList$ItemExtension
     );
   }
 
-  CategoryNoAuthTreeGet$Response$Data$CategoryList$Item copyWithWrapped({
+  ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item
+  copyWithWrapped({
     Wrapped<double>? id,
     Wrapped<double>? parentId,
     Wrapped<double>? level,
@@ -9329,13 +9962,13 @@ extension $CategoryNoAuthTreeGet$Response$Data$CategoryList$ItemExtension
     Wrapped<String>? iconUrl,
     Wrapped<
       List<
-        CategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item
+        ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item
       >
     >?
     categoryList,
     Wrapped<List<Object>>? brands,
   }) {
-    return CategoryNoAuthTreeGet$Response$Data$CategoryList$Item(
+    return ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item(
       id: (id != null ? id.value : this.id),
       parentId: (parentId != null ? parentId.value : this.parentId),
       level: (level != null ? level.value : this.level),
@@ -9351,8 +9984,8 @@ extension $CategoryNoAuthTreeGet$Response$Data$CategoryList$ItemExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ActivityNoAuthFlashSaleActivityGet$Response$Data$Activities$Item {
-  const ActivityNoAuthFlashSaleActivityGet$Response$Data$Activities$Item({
+class ProductServiceActivityNoAuthFlashSaleActivityGet$Response$Data$Activities$Item {
+  const ProductServiceActivityNoAuthFlashSaleActivityGet$Response$Data$Activities$Item({
     this.activityCode,
     this.title,
     this.status,
@@ -9361,17 +9994,17 @@ class ActivityNoAuthFlashSaleActivityGet$Response$Data$Activities$Item {
     this.names,
   });
 
-  factory ActivityNoAuthFlashSaleActivityGet$Response$Data$Activities$Item.fromJson(
+  factory ProductServiceActivityNoAuthFlashSaleActivityGet$Response$Data$Activities$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ActivityNoAuthFlashSaleActivityGet$Response$Data$Activities$ItemFromJson(
+      _$ProductServiceActivityNoAuthFlashSaleActivityGet$Response$Data$Activities$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$ActivityNoAuthFlashSaleActivityGet$Response$Data$Activities$ItemToJson;
+      _$ProductServiceActivityNoAuthFlashSaleActivityGet$Response$Data$Activities$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ActivityNoAuthFlashSaleActivityGet$Response$Data$Activities$ItemToJson(
+      _$ProductServiceActivityNoAuthFlashSaleActivityGet$Response$Data$Activities$ItemToJson(
         this,
       );
 
@@ -9388,12 +10021,13 @@ class ActivityNoAuthFlashSaleActivityGet$Response$Data$Activities$Item {
   @JsonKey(name: 'names', defaultValue: <Object>[])
   final List<Object>? names;
   static const fromJsonFactory =
-      _$ActivityNoAuthFlashSaleActivityGet$Response$Data$Activities$ItemFromJson;
+      _$ProductServiceActivityNoAuthFlashSaleActivityGet$Response$Data$Activities$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ActivityNoAuthFlashSaleActivityGet$Response$Data$Activities$Item &&
+        (other
+                is ProductServiceActivityNoAuthFlashSaleActivityGet$Response$Data$Activities$Item &&
             (identical(other.activityCode, activityCode) ||
                 const DeepCollectionEquality().equals(
                   other.activityCode,
@@ -9431,9 +10065,10 @@ class ActivityNoAuthFlashSaleActivityGet$Response$Data$Activities$Item {
       runtimeType.hashCode;
 }
 
-extension $ActivityNoAuthFlashSaleActivityGet$Response$Data$Activities$ItemExtension
-    on ActivityNoAuthFlashSaleActivityGet$Response$Data$Activities$Item {
-  ActivityNoAuthFlashSaleActivityGet$Response$Data$Activities$Item copyWith({
+extension $ProductServiceActivityNoAuthFlashSaleActivityGet$Response$Data$Activities$ItemExtension
+    on ProductServiceActivityNoAuthFlashSaleActivityGet$Response$Data$Activities$Item {
+  ProductServiceActivityNoAuthFlashSaleActivityGet$Response$Data$Activities$Item
+  copyWith({
     String? activityCode,
     String? title,
     String? status,
@@ -9441,7 +10076,7 @@ extension $ActivityNoAuthFlashSaleActivityGet$Response$Data$Activities$ItemExten
     double? endTime,
     List<Object>? names,
   }) {
-    return ActivityNoAuthFlashSaleActivityGet$Response$Data$Activities$Item(
+    return ProductServiceActivityNoAuthFlashSaleActivityGet$Response$Data$Activities$Item(
       activityCode: activityCode ?? this.activityCode,
       title: title ?? this.title,
       status: status ?? this.status,
@@ -9451,7 +10086,7 @@ extension $ActivityNoAuthFlashSaleActivityGet$Response$Data$Activities$ItemExten
     );
   }
 
-  ActivityNoAuthFlashSaleActivityGet$Response$Data$Activities$Item
+  ProductServiceActivityNoAuthFlashSaleActivityGet$Response$Data$Activities$Item
   copyWithWrapped({
     Wrapped<String?>? activityCode,
     Wrapped<String?>? title,
@@ -9460,7 +10095,7 @@ extension $ActivityNoAuthFlashSaleActivityGet$Response$Data$Activities$ItemExten
     Wrapped<double?>? endTime,
     Wrapped<List<Object>?>? names,
   }) {
-    return ActivityNoAuthFlashSaleActivityGet$Response$Data$Activities$Item(
+    return ProductServiceActivityNoAuthFlashSaleActivityGet$Response$Data$Activities$Item(
       activityCode: (activityCode != null
           ? activityCode.value
           : this.activityCode),
@@ -9474,8 +10109,8 @@ extension $ActivityNoAuthFlashSaleActivityGet$Response$Data$Activities$ItemExten
 }
 
 @JsonSerializable(explicitToJson: true)
-class ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item {
-  const ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item({
+class ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item {
+  const ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item({
     required this.productCode,
     required this.productName,
     required this.image,
@@ -9492,17 +10127,17 @@ class ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item {
     required this.flashSale,
   });
 
-  factory ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item.fromJson(
+  factory ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$ItemFromJson(
+      _$ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$ItemToJson;
+      _$ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$ItemToJson(
+      _$ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$ItemToJson(
         this,
       );
 
@@ -9511,7 +10146,7 @@ class ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item {
   @JsonKey(name: 'productName')
   final String productName;
   @JsonKey(name: 'image')
-  final ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Image
+  final ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Image
   image;
   @JsonKey(name: 'skuCode')
   final String skuCode;
@@ -9533,20 +10168,20 @@ class ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item {
   final String marketingInfo;
   @JsonKey(name: 'tags')
   final List<
-    ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Tags$Item
+    ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Tags$Item
   >
   tags;
   @JsonKey(name: 'flashSale')
-  final ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$FlashSale
+  final ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$FlashSale
   flashSale;
   static const fromJsonFactory =
-      _$ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$ItemFromJson;
+      _$ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item &&
+                is ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item &&
             (identical(other.productCode, productCode) ||
                 const DeepCollectionEquality().equals(
                   other.productCode,
@@ -9635,13 +10270,14 @@ class ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item {
       runtimeType.hashCode;
 }
 
-extension $ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$ItemExtension
-    on ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item {
-  ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item
+extension $ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$ItemExtension
+    on
+        ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item {
+  ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item
   copyWith({
     String? productCode,
     String? productName,
-    ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Image?
+    ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Image?
     image,
     String? skuCode,
     String? sellPriceCur,
@@ -9653,13 +10289,13 @@ extension $ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$ItemE
     int? skuCount,
     String? marketingInfo,
     List<
-      ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Tags$Item
+      ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Tags$Item
     >?
     tags,
-    ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$FlashSale?
+    ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$FlashSale?
     flashSale,
   }) {
-    return ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item(
+    return ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item(
       productCode: productCode ?? this.productCode,
       productName: productName ?? this.productName,
       image: image ?? this.image,
@@ -9677,12 +10313,12 @@ extension $ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$ItemE
     );
   }
 
-  ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item
+  ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item
   copyWithWrapped({
     Wrapped<String>? productCode,
     Wrapped<String>? productName,
     Wrapped<
-      ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Image
+      ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Image
     >?
     image,
     Wrapped<String>? skuCode,
@@ -9696,16 +10332,16 @@ extension $ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$ItemE
     Wrapped<String>? marketingInfo,
     Wrapped<
       List<
-        ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Tags$Item
+        ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Tags$Item
       >
     >?
     tags,
     Wrapped<
-      ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$FlashSale
+      ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$FlashSale
     >?
     flashSale,
   }) {
-    return ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item(
+    return ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item(
       productCode: (productCode != null ? productCode.value : this.productCode),
       productName: (productName != null ? productName.value : this.productName),
       image: (image != null ? image.value : this.image),
@@ -9737,8 +10373,8 @@ extension $ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$ItemE
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item {
-  const ProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item({
+class ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item {
+  const ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item({
     this.productCode,
     this.productName,
     this.image,
@@ -9759,23 +10395,26 @@ class ProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item {
     this.sellPoints,
   });
 
-  factory ProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item.fromJson(
+  factory ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item.fromJson(
     Map<String, dynamic> json,
-  ) => _$ProductPremiumDupeNoAuthPagePost$Response$Data$Records$ItemFromJson(
-    json,
-  );
+  ) =>
+      _$ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data$Records$ItemFromJson(
+        json,
+      );
 
   static const toJsonFactory =
-      _$ProductPremiumDupeNoAuthPagePost$Response$Data$Records$ItemToJson;
+      _$ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data$Records$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductPremiumDupeNoAuthPagePost$Response$Data$Records$ItemToJson(this);
+      _$ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data$Records$ItemToJson(
+        this,
+      );
 
   @JsonKey(name: 'productCode')
   final String? productCode;
   @JsonKey(name: 'productName')
   final String? productName;
   @JsonKey(name: 'image')
-  final ProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$Image?
+  final ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$Image?
   image;
   @JsonKey(name: 'sourcePlatform')
   final String? sourcePlatform;
@@ -9801,23 +10440,24 @@ class ProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item {
   final String? marketingInfo;
   @JsonKey(name: 'tags')
   final List<
-    ProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$Tags$Item
+    ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$Tags$Item
   >?
   tags;
   @JsonKey(name: 'skuSourceCode')
   final String? skuSourceCode;
   @JsonKey(name: 'premiumBrandInfo')
-  final ProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$PremiumBrandInfo?
+  final ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$PremiumBrandInfo?
   premiumBrandInfo;
   @JsonKey(name: 'sellPoints', defaultValue: <Object>[])
   final List<Object>? sellPoints;
   static const fromJsonFactory =
-      _$ProductPremiumDupeNoAuthPagePost$Response$Data$Records$ItemFromJson;
+      _$ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data$Records$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item &&
+        (other
+                is ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item &&
             (identical(other.productCode, productCode) ||
                 const DeepCollectionEquality().equals(
                   other.productCode,
@@ -9930,12 +10570,14 @@ class ProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item {
       runtimeType.hashCode;
 }
 
-extension $ProductPremiumDupeNoAuthPagePost$Response$Data$Records$ItemExtension
-    on ProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item {
-  ProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item copyWith({
+extension $ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data$Records$ItemExtension
+    on ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item {
+  ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item
+  copyWith({
     String? productCode,
     String? productName,
-    ProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$Image? image,
+    ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$Image?
+    image,
     String? sourcePlatform,
     String? platformProductId,
     String? skuCode,
@@ -9947,14 +10589,16 @@ extension $ProductPremiumDupeNoAuthPagePost$Response$Data$Records$ItemExtension
     String? sellQuantity,
     int? skuCount,
     String? marketingInfo,
-    List<ProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$Tags$Item>?
+    List<
+      ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$Tags$Item
+    >?
     tags,
     String? skuSourceCode,
-    ProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$PremiumBrandInfo?
+    ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$PremiumBrandInfo?
     premiumBrandInfo,
     List<Object>? sellPoints,
   }) {
-    return ProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item(
+    return ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item(
       productCode: productCode ?? this.productCode,
       productName: productName ?? this.productName,
       image: image ?? this.image,
@@ -9976,10 +10620,13 @@ extension $ProductPremiumDupeNoAuthPagePost$Response$Data$Records$ItemExtension
     );
   }
 
-  ProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item copyWithWrapped({
+  ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item
+  copyWithWrapped({
     Wrapped<String?>? productCode,
     Wrapped<String?>? productName,
-    Wrapped<ProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$Image?>?
+    Wrapped<
+      ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$Image?
+    >?
     image,
     Wrapped<String?>? sourcePlatform,
     Wrapped<String?>? platformProductId,
@@ -9994,18 +10641,18 @@ extension $ProductPremiumDupeNoAuthPagePost$Response$Data$Records$ItemExtension
     Wrapped<String?>? marketingInfo,
     Wrapped<
       List<
-        ProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$Tags$Item
+        ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$Tags$Item
       >?
     >?
     tags,
     Wrapped<String?>? skuSourceCode,
     Wrapped<
-      ProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$PremiumBrandInfo?
+      ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$PremiumBrandInfo?
     >?
     premiumBrandInfo,
     Wrapped<List<Object>?>? sellPoints,
   }) {
-    return ProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item(
+    return ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item(
       productCode: (productCode != null ? productCode.value : this.productCode),
       productName: (productName != null ? productName.value : this.productName),
       image: (image != null ? image.value : this.image),
@@ -10049,24 +10696,25 @@ extension $ProductPremiumDupeNoAuthPagePost$Response$Data$Records$ItemExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductPremiumDupeNoAuthMetaGet$Response$Data$Categories$Item {
-  const ProductPremiumDupeNoAuthMetaGet$Response$Data$Categories$Item({
+class ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Categories$Item {
+  const ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Categories$Item({
     this.categoryId,
     this.categoryName,
     this.count,
     this.categoryImage,
   });
 
-  factory ProductPremiumDupeNoAuthMetaGet$Response$Data$Categories$Item.fromJson(
+  factory ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Categories$Item.fromJson(
     Map<String, dynamic> json,
-  ) => _$ProductPremiumDupeNoAuthMetaGet$Response$Data$Categories$ItemFromJson(
-    json,
-  );
+  ) =>
+      _$ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Categories$ItemFromJson(
+        json,
+      );
 
   static const toJsonFactory =
-      _$ProductPremiumDupeNoAuthMetaGet$Response$Data$Categories$ItemToJson;
+      _$ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Categories$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductPremiumDupeNoAuthMetaGet$Response$Data$Categories$ItemToJson(
+      _$ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Categories$ItemToJson(
         this,
       );
 
@@ -10079,13 +10727,13 @@ class ProductPremiumDupeNoAuthMetaGet$Response$Data$Categories$Item {
   @JsonKey(name: 'categoryImage')
   final String? categoryImage;
   static const fromJsonFactory =
-      _$ProductPremiumDupeNoAuthMetaGet$Response$Data$Categories$ItemFromJson;
+      _$ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Categories$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is ProductPremiumDupeNoAuthMetaGet$Response$Data$Categories$Item &&
+                is ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Categories$Item &&
             (identical(other.categoryId, categoryId) ||
                 const DeepCollectionEquality().equals(
                   other.categoryId,
@@ -10117,15 +10765,16 @@ class ProductPremiumDupeNoAuthMetaGet$Response$Data$Categories$Item {
       runtimeType.hashCode;
 }
 
-extension $ProductPremiumDupeNoAuthMetaGet$Response$Data$Categories$ItemExtension
-    on ProductPremiumDupeNoAuthMetaGet$Response$Data$Categories$Item {
-  ProductPremiumDupeNoAuthMetaGet$Response$Data$Categories$Item copyWith({
+extension $ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Categories$ItemExtension
+    on ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Categories$Item {
+  ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Categories$Item
+  copyWith({
     int? categoryId,
     String? categoryName,
     int? count,
     String? categoryImage,
   }) {
-    return ProductPremiumDupeNoAuthMetaGet$Response$Data$Categories$Item(
+    return ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Categories$Item(
       categoryId: categoryId ?? this.categoryId,
       categoryName: categoryName ?? this.categoryName,
       count: count ?? this.count,
@@ -10133,14 +10782,14 @@ extension $ProductPremiumDupeNoAuthMetaGet$Response$Data$Categories$ItemExtensio
     );
   }
 
-  ProductPremiumDupeNoAuthMetaGet$Response$Data$Categories$Item
+  ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Categories$Item
   copyWithWrapped({
     Wrapped<int?>? categoryId,
     Wrapped<String?>? categoryName,
     Wrapped<int?>? count,
     Wrapped<String?>? categoryImage,
   }) {
-    return ProductPremiumDupeNoAuthMetaGet$Response$Data$Categories$Item(
+    return ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Categories$Item(
       categoryId: (categoryId != null ? categoryId.value : this.categoryId),
       categoryName: (categoryName != null
           ? categoryName.value
@@ -10154,49 +10803,55 @@ extension $ProductPremiumDupeNoAuthMetaGet$Response$Data$Categories$ItemExtensio
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$Item {
-  const ProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$Item({
+class ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$Item {
+  const ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$Item({
     this.sort,
     this.order,
     this.label,
   });
 
-  factory ProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$Item.fromJson(
+  factory ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$Item.fromJson(
     Map<String, dynamic> json,
-  ) => _$ProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemFromJson(json);
+  ) =>
+      _$ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemFromJson(
+        json,
+      );
 
   static const toJsonFactory =
-      _$ProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemToJson;
+      _$ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemToJson(this);
+      _$ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemToJson(
+        this,
+      );
 
   @JsonKey(
     name: 'sort',
     toJson:
-        productPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSortNullableToJson,
+        productServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSortNullableToJson,
     fromJson:
-        productPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSortNullableFromJson,
+        productServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSortNullableFromJson,
   )
-  final enums.ProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSort?
+  final enums.ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSort?
   sort;
   @JsonKey(
     name: 'order',
     toJson:
-        productPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrderNullableToJson,
+        productServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrderNullableToJson,
     fromJson:
-        productPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrderNullableFromJson,
+        productServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrderNullableFromJson,
   )
-  final enums.ProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrder?
+  final enums.ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrder?
   order;
   @JsonKey(name: 'label')
   final String? label;
   static const fromJsonFactory =
-      _$ProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemFromJson;
+      _$ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$Item &&
+        (other
+                is ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$Item &&
             (identical(other.sort, sort) ||
                 const DeepCollectionEquality().equals(other.sort, sort)) &&
             (identical(other.order, order) ||
@@ -10216,32 +10871,36 @@ class ProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$Item {
       runtimeType.hashCode;
 }
 
-extension $ProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemExtension
-    on ProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$Item {
-  ProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$Item copyWith({
-    enums.ProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSort? sort,
-    enums.ProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrder? order,
+extension $ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemExtension
+    on ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$Item {
+  ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$Item
+  copyWith({
+    enums.ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSort?
+    sort,
+    enums.ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrder?
+    order,
     String? label,
   }) {
-    return ProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$Item(
+    return ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$Item(
       sort: sort ?? this.sort,
       order: order ?? this.order,
       label: label ?? this.label,
     );
   }
 
-  ProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$Item copyWithWrapped({
+  ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$Item
+  copyWithWrapped({
     Wrapped<
-      enums.ProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSort?
+      enums.ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSort?
     >?
     sort,
     Wrapped<
-      enums.ProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrder?
+      enums.ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrder?
     >?
     order,
     Wrapped<String?>? label,
   }) {
-    return ProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$Item(
+    return ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$Item(
       sort: (sort != null ? sort.value : this.sort),
       order: (order != null ? order.value : this.order),
       label: (label != null ? label.value : this.label),
@@ -10250,28 +10909,37 @@ extension $ProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductPremiumDupeNoAuthMetaGet$Response$Data$Config {
-  const ProductPremiumDupeNoAuthMetaGet$Response$Data$Config({this.list});
+class ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Config {
+  const ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Config({
+    this.list,
+  });
 
-  factory ProductPremiumDupeNoAuthMetaGet$Response$Data$Config.fromJson(
+  factory ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Config.fromJson(
     Map<String, dynamic> json,
-  ) => _$ProductPremiumDupeNoAuthMetaGet$Response$Data$ConfigFromJson(json);
+  ) =>
+      _$ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$ConfigFromJson(
+        json,
+      );
 
   static const toJsonFactory =
-      _$ProductPremiumDupeNoAuthMetaGet$Response$Data$ConfigToJson;
+      _$ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$ConfigToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductPremiumDupeNoAuthMetaGet$Response$Data$ConfigToJson(this);
+      _$ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$ConfigToJson(
+        this,
+      );
 
   @JsonKey(name: 'list')
-  final List<ProductPremiumDupeNoAuthMetaGet$Response$Data$Config$List$Item>?
+  final List<
+    ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Config$List$Item
+  >?
   list;
   static const fromJsonFactory =
-      _$ProductPremiumDupeNoAuthMetaGet$Response$Data$ConfigFromJson;
+      _$ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$ConfigFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ProductPremiumDupeNoAuthMetaGet$Response$Data$Config &&
+        (other is ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Config &&
             (identical(other.list, list) ||
                 const DeepCollectionEquality().equals(other.list, list)));
   }
@@ -10284,46 +10952,53 @@ class ProductPremiumDupeNoAuthMetaGet$Response$Data$Config {
       const DeepCollectionEquality().hash(list) ^ runtimeType.hashCode;
 }
 
-extension $ProductPremiumDupeNoAuthMetaGet$Response$Data$ConfigExtension
-    on ProductPremiumDupeNoAuthMetaGet$Response$Data$Config {
-  ProductPremiumDupeNoAuthMetaGet$Response$Data$Config copyWith({
-    List<ProductPremiumDupeNoAuthMetaGet$Response$Data$Config$List$Item>? list,
+extension $ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$ConfigExtension
+    on ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Config {
+  ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Config copyWith({
+    List<
+      ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Config$List$Item
+    >?
+    list,
   }) {
-    return ProductPremiumDupeNoAuthMetaGet$Response$Data$Config(
+    return ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Config(
       list: list ?? this.list,
     );
   }
 
-  ProductPremiumDupeNoAuthMetaGet$Response$Data$Config copyWithWrapped({
+  ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Config
+  copyWithWrapped({
     Wrapped<
-      List<ProductPremiumDupeNoAuthMetaGet$Response$Data$Config$List$Item>?
+      List<
+        ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Config$List$Item
+      >?
     >?
     list,
   }) {
-    return ProductPremiumDupeNoAuthMetaGet$Response$Data$Config(
+    return ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Config(
       list: (list != null ? list.value : this.list),
     );
   }
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$Image {
-  const ProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$Image({
+class ProductServiceProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$Image {
+  const ProductServiceProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$Image({
     this.width,
     this.height,
     this.url,
   });
 
-  factory ProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$Image.fromJson(
+  factory ProductServiceProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$Image.fromJson(
     Map<String, dynamic> json,
-  ) => _$ProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$ImageFromJson(
-    json,
-  );
+  ) =>
+      _$ProductServiceProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$ImageFromJson(
+        json,
+      );
 
   static const toJsonFactory =
-      _$ProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$ImageToJson;
+      _$ProductServiceProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$ImageToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$ImageToJson(
+      _$ProductServiceProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$ImageToJson(
         this,
       );
 
@@ -10334,12 +11009,13 @@ class ProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$Image {
   @JsonKey(name: 'url')
   final String? url;
   static const fromJsonFactory =
-      _$ProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$ImageFromJson;
+      _$ProductServiceProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$ImageFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$Image &&
+        (other
+                is ProductServiceProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$Image &&
             (identical(other.width, width) ||
                 const DeepCollectionEquality().equals(other.width, width)) &&
             (identical(other.height, height) ||
@@ -10359,27 +11035,24 @@ class ProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$Image {
       runtimeType.hashCode;
 }
 
-extension $ProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$ImageExtension
-    on ProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$Image {
-  ProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$Image copyWith({
-    int? width,
-    int? height,
-    String? url,
-  }) {
-    return ProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$Image(
+extension $ProductServiceProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$ImageExtension
+    on ProductServiceProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$Image {
+  ProductServiceProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$Image
+  copyWith({int? width, int? height, String? url}) {
+    return ProductServiceProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$Image(
       width: width ?? this.width,
       height: height ?? this.height,
       url: url ?? this.url,
     );
   }
 
-  ProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$Image
+  ProductServiceProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$Image
   copyWithWrapped({
     Wrapped<int?>? width,
     Wrapped<int?>? height,
     Wrapped<String?>? url,
   }) {
-    return ProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$Image(
+    return ProductServiceProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$Image(
       width: (width != null ? width.value : this.width),
       height: (height != null ? height.value : this.height),
       url: (url != null ? url.value : this.url),
@@ -10388,25 +11061,25 @@ extension $ProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$ImageExtensio
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$Tags$Item {
-  const ProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$Tags$Item({
+class ProductServiceProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$Tags$Item {
+  const ProductServiceProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$Tags$Item({
     this.tagCode,
     this.tagImg,
     this.order,
     this.frontShow,
   });
 
-  factory ProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$Tags$Item.fromJson(
+  factory ProductServiceProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$Tags$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$Tags$ItemFromJson(
+      _$ProductServiceProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$Tags$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$ProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$Tags$ItemToJson;
+      _$ProductServiceProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$Tags$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$Tags$ItemToJson(
+      _$ProductServiceProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$Tags$ItemToJson(
         this,
       );
 
@@ -10419,13 +11092,13 @@ class ProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$Tags$Item {
   @JsonKey(name: 'frontShow')
   final int? frontShow;
   static const fromJsonFactory =
-      _$ProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$Tags$ItemFromJson;
+      _$ProductServiceProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$Tags$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is ProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$Tags$Item &&
+                is ProductServiceProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$Tags$Item &&
             (identical(other.tagCode, tagCode) ||
                 const DeepCollectionEquality().equals(
                   other.tagCode,
@@ -10454,15 +11127,12 @@ class ProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$Tags$Item {
       runtimeType.hashCode;
 }
 
-extension $ProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$Tags$ItemExtension
-    on ProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$Tags$Item {
-  ProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$Tags$Item copyWith({
-    String? tagCode,
-    String? tagImg,
-    int? order,
-    int? frontShow,
-  }) {
-    return ProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$Tags$Item(
+extension $ProductServiceProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$Tags$ItemExtension
+    on
+        ProductServiceProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$Tags$Item {
+  ProductServiceProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$Tags$Item
+  copyWith({String? tagCode, String? tagImg, int? order, int? frontShow}) {
+    return ProductServiceProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$Tags$Item(
       tagCode: tagCode ?? this.tagCode,
       tagImg: tagImg ?? this.tagImg,
       order: order ?? this.order,
@@ -10470,14 +11140,14 @@ extension $ProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$Tags$ItemExte
     );
   }
 
-  ProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$Tags$Item
+  ProductServiceProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$Tags$Item
   copyWithWrapped({
     Wrapped<String?>? tagCode,
     Wrapped<String?>? tagImg,
     Wrapped<int?>? order,
     Wrapped<int?>? frontShow,
   }) {
-    return ProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$Tags$Item(
+    return ProductServiceProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$Tags$Item(
       tagCode: (tagCode != null ? tagCode.value : this.tagCode),
       tagImg: (tagImg != null ? tagImg.value : this.tagImg),
       order: (order != null ? order.value : this.order),
@@ -10487,23 +11157,23 @@ extension $ProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$Tags$ItemExte
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$PremiumBrandInfo {
-  const ProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$PremiumBrandInfo({
+class ProductServiceProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$PremiumBrandInfo {
+  const ProductServiceProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$PremiumBrandInfo({
     this.brandCode,
     this.brandImg,
   });
 
-  factory ProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$PremiumBrandInfo.fromJson(
+  factory ProductServiceProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$PremiumBrandInfo.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$PremiumBrandInfoFromJson(
+      _$ProductServiceProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$PremiumBrandInfoFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$ProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$PremiumBrandInfoToJson;
+      _$ProductServiceProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$PremiumBrandInfoToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$PremiumBrandInfoToJson(
+      _$ProductServiceProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$PremiumBrandInfoToJson(
         this,
       );
 
@@ -10512,13 +11182,13 @@ class ProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$PremiumBrandInfo {
   @JsonKey(name: 'brandImg')
   final String? brandImg;
   static const fromJsonFactory =
-      _$ProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$PremiumBrandInfoFromJson;
+      _$ProductServiceProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$PremiumBrandInfoFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is ProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$PremiumBrandInfo &&
+                is ProductServiceProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$PremiumBrandInfo &&
             (identical(other.brandCode, brandCode) ||
                 const DeepCollectionEquality().equals(
                   other.brandCode,
@@ -10541,19 +11211,20 @@ class ProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$PremiumBrandInfo {
       runtimeType.hashCode;
 }
 
-extension $ProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$PremiumBrandInfoExtension
-    on ProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$PremiumBrandInfo {
-  ProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$PremiumBrandInfo
+extension $ProductServiceProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$PremiumBrandInfoExtension
+    on
+        ProductServiceProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$PremiumBrandInfo {
+  ProductServiceProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$PremiumBrandInfo
   copyWith({String? brandCode, String? brandImg}) {
-    return ProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$PremiumBrandInfo(
+    return ProductServiceProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$PremiumBrandInfo(
       brandCode: brandCode ?? this.brandCode,
       brandImg: brandImg ?? this.brandImg,
     );
   }
 
-  ProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$PremiumBrandInfo
+  ProductServiceProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$PremiumBrandInfo
   copyWithWrapped({Wrapped<String?>? brandCode, Wrapped<String?>? brandImg}) {
-    return ProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$PremiumBrandInfo(
+    return ProductServiceProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$PremiumBrandInfo(
       brandCode: (brandCode != null ? brandCode.value : this.brandCode),
       brandImg: (brandImg != null ? brandImg.value : this.brandImg),
     );
@@ -10561,8 +11232,8 @@ extension $ProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$PremiumBrandI
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthPushProductGet$Response$Data$Records$Item {
-  const ProductNoAuthPushProductGet$Response$Data$Records$Item({
+class ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item {
+  const ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item({
     required this.productCode,
     required this.productName,
     required this.image,
@@ -10579,21 +11250,27 @@ class ProductNoAuthPushProductGet$Response$Data$Records$Item {
     required this.marketingInfo,
   });
 
-  factory ProductNoAuthPushProductGet$Response$Data$Records$Item.fromJson(
+  factory ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item.fromJson(
     Map<String, dynamic> json,
-  ) => _$ProductNoAuthPushProductGet$Response$Data$Records$ItemFromJson(json);
+  ) =>
+      _$ProductServiceProductNoAuthPushProductGet$Response$Data$Records$ItemFromJson(
+        json,
+      );
 
   static const toJsonFactory =
-      _$ProductNoAuthPushProductGet$Response$Data$Records$ItemToJson;
+      _$ProductServiceProductNoAuthPushProductGet$Response$Data$Records$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthPushProductGet$Response$Data$Records$ItemToJson(this);
+      _$ProductServiceProductNoAuthPushProductGet$Response$Data$Records$ItemToJson(
+        this,
+      );
 
   @JsonKey(name: 'productCode')
   final String productCode;
   @JsonKey(name: 'productName')
   final String productName;
   @JsonKey(name: 'image')
-  final ProductNoAuthPushProductGet$Response$Data$Records$Item$Image image;
+  final ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item$Image
+  image;
   @JsonKey(name: 'skuCode')
   final String skuCode;
   @JsonKey(name: 'sellPriceCur')
@@ -10607,10 +11284,12 @@ class ProductNoAuthPushProductGet$Response$Data$Records$Item {
   @JsonKey(name: 'sellQuantity')
   final String sellQuantity;
   @JsonKey(name: 'tags')
-  final List<ProductNoAuthPushProductGet$Response$Data$Records$Item$Tags$Item>
+  final List<
+    ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item$Tags$Item
+  >
   tags;
   @JsonKey(name: 'premiumBrandInfo')
-  final ProductNoAuthPushProductGet$Response$Data$Records$Item$PremiumBrandInfo?
+  final ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item$PremiumBrandInfo?
   premiumBrandInfo;
   @JsonKey(name: 'sellPoints', defaultValue: <Object>[])
   final List<Object>? sellPoints;
@@ -10619,12 +11298,13 @@ class ProductNoAuthPushProductGet$Response$Data$Records$Item {
   @JsonKey(name: 'marketingInfo')
   final String marketingInfo;
   static const fromJsonFactory =
-      _$ProductNoAuthPushProductGet$Response$Data$Records$ItemFromJson;
+      _$ProductServiceProductNoAuthPushProductGet$Response$Data$Records$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ProductNoAuthPushProductGet$Response$Data$Records$Item &&
+        (other
+                is ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item &&
             (identical(other.productCode, productCode) ||
                 const DeepCollectionEquality().equals(
                   other.productCode,
@@ -10713,27 +11393,31 @@ class ProductNoAuthPushProductGet$Response$Data$Records$Item {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthPushProductGet$Response$Data$Records$ItemExtension
-    on ProductNoAuthPushProductGet$Response$Data$Records$Item {
-  ProductNoAuthPushProductGet$Response$Data$Records$Item copyWith({
+extension $ProductServiceProductNoAuthPushProductGet$Response$Data$Records$ItemExtension
+    on ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item {
+  ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item
+  copyWith({
     String? productCode,
     String? productName,
-    ProductNoAuthPushProductGet$Response$Data$Records$Item$Image? image,
+    ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item$Image?
+    image,
     String? skuCode,
     String? sellPriceCur,
     String? sellPrice,
     String? targetSellPrice,
     String? targetSellCur,
     String? sellQuantity,
-    List<ProductNoAuthPushProductGet$Response$Data$Records$Item$Tags$Item>?
+    List<
+      ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item$Tags$Item
+    >?
     tags,
-    ProductNoAuthPushProductGet$Response$Data$Records$Item$PremiumBrandInfo?
+    ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item$PremiumBrandInfo?
     premiumBrandInfo,
     List<Object>? sellPoints,
     String? targetOriginPrice,
     String? marketingInfo,
   }) {
-    return ProductNoAuthPushProductGet$Response$Data$Records$Item(
+    return ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item(
       productCode: productCode ?? this.productCode,
       productName: productName ?? this.productName,
       image: image ?? this.image,
@@ -10751,10 +11435,13 @@ extension $ProductNoAuthPushProductGet$Response$Data$Records$ItemExtension
     );
   }
 
-  ProductNoAuthPushProductGet$Response$Data$Records$Item copyWithWrapped({
+  ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item
+  copyWithWrapped({
     Wrapped<String>? productCode,
     Wrapped<String>? productName,
-    Wrapped<ProductNoAuthPushProductGet$Response$Data$Records$Item$Image>?
+    Wrapped<
+      ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item$Image
+    >?
     image,
     Wrapped<String>? skuCode,
     Wrapped<String>? sellPriceCur,
@@ -10763,18 +11450,20 @@ extension $ProductNoAuthPushProductGet$Response$Data$Records$ItemExtension
     Wrapped<String>? targetSellCur,
     Wrapped<String>? sellQuantity,
     Wrapped<
-      List<ProductNoAuthPushProductGet$Response$Data$Records$Item$Tags$Item>
+      List<
+        ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item$Tags$Item
+      >
     >?
     tags,
     Wrapped<
-      ProductNoAuthPushProductGet$Response$Data$Records$Item$PremiumBrandInfo?
+      ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item$PremiumBrandInfo?
     >?
     premiumBrandInfo,
     Wrapped<List<Object>?>? sellPoints,
     Wrapped<String>? targetOriginPrice,
     Wrapped<String>? marketingInfo,
   }) {
-    return ProductNoAuthPushProductGet$Response$Data$Records$Item(
+    return ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item(
       productCode: (productCode != null ? productCode.value : this.productCode),
       productName: (productName != null ? productName.value : this.productName),
       image: (image != null ? image.value : this.image),
@@ -10808,21 +11497,26 @@ extension $ProductNoAuthPushProductGet$Response$Data$Records$ItemExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthSearchGet$Response$Data$Item$MainImg {
-  const ProductNoAuthSearchGet$Response$Data$Item$MainImg({
+class ProductServiceProductNoAuthSearchGet$Response$Data$Item$MainImg {
+  const ProductServiceProductNoAuthSearchGet$Response$Data$Item$MainImg({
     required this.width,
     required this.height,
     required this.url,
   });
 
-  factory ProductNoAuthSearchGet$Response$Data$Item$MainImg.fromJson(
+  factory ProductServiceProductNoAuthSearchGet$Response$Data$Item$MainImg.fromJson(
     Map<String, dynamic> json,
-  ) => _$ProductNoAuthSearchGet$Response$Data$Item$MainImgFromJson(json);
+  ) =>
+      _$ProductServiceProductNoAuthSearchGet$Response$Data$Item$MainImgFromJson(
+        json,
+      );
 
   static const toJsonFactory =
-      _$ProductNoAuthSearchGet$Response$Data$Item$MainImgToJson;
+      _$ProductServiceProductNoAuthSearchGet$Response$Data$Item$MainImgToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthSearchGet$Response$Data$Item$MainImgToJson(this);
+      _$ProductServiceProductNoAuthSearchGet$Response$Data$Item$MainImgToJson(
+        this,
+      );
 
   @JsonKey(name: 'width')
   final int width;
@@ -10831,12 +11525,12 @@ class ProductNoAuthSearchGet$Response$Data$Item$MainImg {
   @JsonKey(name: 'url')
   final String url;
   static const fromJsonFactory =
-      _$ProductNoAuthSearchGet$Response$Data$Item$MainImgFromJson;
+      _$ProductServiceProductNoAuthSearchGet$Response$Data$Item$MainImgFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ProductNoAuthSearchGet$Response$Data$Item$MainImg &&
+        (other is ProductServiceProductNoAuthSearchGet$Response$Data$Item$MainImg &&
             (identical(other.width, width) ||
                 const DeepCollectionEquality().equals(other.width, width)) &&
             (identical(other.height, height) ||
@@ -10856,26 +11550,27 @@ class ProductNoAuthSearchGet$Response$Data$Item$MainImg {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthSearchGet$Response$Data$Item$MainImgExtension
-    on ProductNoAuthSearchGet$Response$Data$Item$MainImg {
-  ProductNoAuthSearchGet$Response$Data$Item$MainImg copyWith({
+extension $ProductServiceProductNoAuthSearchGet$Response$Data$Item$MainImgExtension
+    on ProductServiceProductNoAuthSearchGet$Response$Data$Item$MainImg {
+  ProductServiceProductNoAuthSearchGet$Response$Data$Item$MainImg copyWith({
     int? width,
     int? height,
     String? url,
   }) {
-    return ProductNoAuthSearchGet$Response$Data$Item$MainImg(
+    return ProductServiceProductNoAuthSearchGet$Response$Data$Item$MainImg(
       width: width ?? this.width,
       height: height ?? this.height,
       url: url ?? this.url,
     );
   }
 
-  ProductNoAuthSearchGet$Response$Data$Item$MainImg copyWithWrapped({
+  ProductServiceProductNoAuthSearchGet$Response$Data$Item$MainImg
+  copyWithWrapped({
     Wrapped<int>? width,
     Wrapped<int>? height,
     Wrapped<String>? url,
   }) {
-    return ProductNoAuthSearchGet$Response$Data$Item$MainImg(
+    return ProductServiceProductNoAuthSearchGet$Response$Data$Item$MainImg(
       width: (width != null ? width.value : this.width),
       height: (height != null ? height.value : this.height),
       url: (url != null ? url.value : this.url),
@@ -10884,21 +11579,25 @@ extension $ProductNoAuthSearchGet$Response$Data$Item$MainImgExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthSearchGet$Response$Data$Item$SubImg {
-  const ProductNoAuthSearchGet$Response$Data$Item$SubImg({
+class ProductServiceProductNoAuthSearchGet$Response$Data$Item$SubImg {
+  const ProductServiceProductNoAuthSearchGet$Response$Data$Item$SubImg({
     required this.width,
     required this.height,
     required this.url,
   });
 
-  factory ProductNoAuthSearchGet$Response$Data$Item$SubImg.fromJson(
+  factory ProductServiceProductNoAuthSearchGet$Response$Data$Item$SubImg.fromJson(
     Map<String, dynamic> json,
-  ) => _$ProductNoAuthSearchGet$Response$Data$Item$SubImgFromJson(json);
+  ) => _$ProductServiceProductNoAuthSearchGet$Response$Data$Item$SubImgFromJson(
+    json,
+  );
 
   static const toJsonFactory =
-      _$ProductNoAuthSearchGet$Response$Data$Item$SubImgToJson;
+      _$ProductServiceProductNoAuthSearchGet$Response$Data$Item$SubImgToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthSearchGet$Response$Data$Item$SubImgToJson(this);
+      _$ProductServiceProductNoAuthSearchGet$Response$Data$Item$SubImgToJson(
+        this,
+      );
 
   @JsonKey(name: 'width')
   final int width;
@@ -10907,12 +11606,12 @@ class ProductNoAuthSearchGet$Response$Data$Item$SubImg {
   @JsonKey(name: 'url')
   final String url;
   static const fromJsonFactory =
-      _$ProductNoAuthSearchGet$Response$Data$Item$SubImgFromJson;
+      _$ProductServiceProductNoAuthSearchGet$Response$Data$Item$SubImgFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ProductNoAuthSearchGet$Response$Data$Item$SubImg &&
+        (other is ProductServiceProductNoAuthSearchGet$Response$Data$Item$SubImg &&
             (identical(other.width, width) ||
                 const DeepCollectionEquality().equals(other.width, width)) &&
             (identical(other.height, height) ||
@@ -10932,26 +11631,27 @@ class ProductNoAuthSearchGet$Response$Data$Item$SubImg {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthSearchGet$Response$Data$Item$SubImgExtension
-    on ProductNoAuthSearchGet$Response$Data$Item$SubImg {
-  ProductNoAuthSearchGet$Response$Data$Item$SubImg copyWith({
+extension $ProductServiceProductNoAuthSearchGet$Response$Data$Item$SubImgExtension
+    on ProductServiceProductNoAuthSearchGet$Response$Data$Item$SubImg {
+  ProductServiceProductNoAuthSearchGet$Response$Data$Item$SubImg copyWith({
     int? width,
     int? height,
     String? url,
   }) {
-    return ProductNoAuthSearchGet$Response$Data$Item$SubImg(
+    return ProductServiceProductNoAuthSearchGet$Response$Data$Item$SubImg(
       width: width ?? this.width,
       height: height ?? this.height,
       url: url ?? this.url,
     );
   }
 
-  ProductNoAuthSearchGet$Response$Data$Item$SubImg copyWithWrapped({
+  ProductServiceProductNoAuthSearchGet$Response$Data$Item$SubImg
+  copyWithWrapped({
     Wrapped<int>? width,
     Wrapped<int>? height,
     Wrapped<String>? url,
   }) {
-    return ProductNoAuthSearchGet$Response$Data$Item$SubImg(
+    return ProductServiceProductNoAuthSearchGet$Response$Data$Item$SubImg(
       width: (width != null ? width.value : this.width),
       height: (height != null ? height.value : this.height),
       url: (url != null ? url.value : this.url),
@@ -10960,29 +11660,35 @@ extension $ProductNoAuthSearchGet$Response$Data$Item$SubImgExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthSearchGet$Response$Data$Item$MainVideo {
-  const ProductNoAuthSearchGet$Response$Data$Item$MainVideo({
+class ProductServiceProductNoAuthSearchGet$Response$Data$Item$MainVideo {
+  const ProductServiceProductNoAuthSearchGet$Response$Data$Item$MainVideo({
     required this.videoUrl,
   });
 
-  factory ProductNoAuthSearchGet$Response$Data$Item$MainVideo.fromJson(
+  factory ProductServiceProductNoAuthSearchGet$Response$Data$Item$MainVideo.fromJson(
     Map<String, dynamic> json,
-  ) => _$ProductNoAuthSearchGet$Response$Data$Item$MainVideoFromJson(json);
+  ) =>
+      _$ProductServiceProductNoAuthSearchGet$Response$Data$Item$MainVideoFromJson(
+        json,
+      );
 
   static const toJsonFactory =
-      _$ProductNoAuthSearchGet$Response$Data$Item$MainVideoToJson;
+      _$ProductServiceProductNoAuthSearchGet$Response$Data$Item$MainVideoToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthSearchGet$Response$Data$Item$MainVideoToJson(this);
+      _$ProductServiceProductNoAuthSearchGet$Response$Data$Item$MainVideoToJson(
+        this,
+      );
 
   @JsonKey(name: 'videoUrl')
   final String videoUrl;
   static const fromJsonFactory =
-      _$ProductNoAuthSearchGet$Response$Data$Item$MainVideoFromJson;
+      _$ProductServiceProductNoAuthSearchGet$Response$Data$Item$MainVideoFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ProductNoAuthSearchGet$Response$Data$Item$MainVideo &&
+        (other
+                is ProductServiceProductNoAuthSearchGet$Response$Data$Item$MainVideo &&
             (identical(other.videoUrl, videoUrl) ||
                 const DeepCollectionEquality().equals(
                   other.videoUrl,
@@ -10998,43 +11704,43 @@ class ProductNoAuthSearchGet$Response$Data$Item$MainVideo {
       const DeepCollectionEquality().hash(videoUrl) ^ runtimeType.hashCode;
 }
 
-extension $ProductNoAuthSearchGet$Response$Data$Item$MainVideoExtension
-    on ProductNoAuthSearchGet$Response$Data$Item$MainVideo {
-  ProductNoAuthSearchGet$Response$Data$Item$MainVideo copyWith({
+extension $ProductServiceProductNoAuthSearchGet$Response$Data$Item$MainVideoExtension
+    on ProductServiceProductNoAuthSearchGet$Response$Data$Item$MainVideo {
+  ProductServiceProductNoAuthSearchGet$Response$Data$Item$MainVideo copyWith({
     String? videoUrl,
   }) {
-    return ProductNoAuthSearchGet$Response$Data$Item$MainVideo(
+    return ProductServiceProductNoAuthSearchGet$Response$Data$Item$MainVideo(
       videoUrl: videoUrl ?? this.videoUrl,
     );
   }
 
-  ProductNoAuthSearchGet$Response$Data$Item$MainVideo copyWithWrapped({
-    Wrapped<String>? videoUrl,
-  }) {
-    return ProductNoAuthSearchGet$Response$Data$Item$MainVideo(
+  ProductServiceProductNoAuthSearchGet$Response$Data$Item$MainVideo
+  copyWithWrapped({Wrapped<String>? videoUrl}) {
+    return ProductServiceProductNoAuthSearchGet$Response$Data$Item$MainVideo(
       videoUrl: (videoUrl != null ? videoUrl.value : this.videoUrl),
     );
   }
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthSearchGet$Response$Data$Item$ImgCollection$Item {
-  const ProductNoAuthSearchGet$Response$Data$Item$ImgCollection$Item({
+class ProductServiceProductNoAuthSearchGet$Response$Data$Item$ImgCollection$Item {
+  const ProductServiceProductNoAuthSearchGet$Response$Data$Item$ImgCollection$Item({
     required this.width,
     required this.height,
     required this.url,
   });
 
-  factory ProductNoAuthSearchGet$Response$Data$Item$ImgCollection$Item.fromJson(
+  factory ProductServiceProductNoAuthSearchGet$Response$Data$Item$ImgCollection$Item.fromJson(
     Map<String, dynamic> json,
-  ) => _$ProductNoAuthSearchGet$Response$Data$Item$ImgCollection$ItemFromJson(
-    json,
-  );
+  ) =>
+      _$ProductServiceProductNoAuthSearchGet$Response$Data$Item$ImgCollection$ItemFromJson(
+        json,
+      );
 
   static const toJsonFactory =
-      _$ProductNoAuthSearchGet$Response$Data$Item$ImgCollection$ItemToJson;
+      _$ProductServiceProductNoAuthSearchGet$Response$Data$Item$ImgCollection$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthSearchGet$Response$Data$Item$ImgCollection$ItemToJson(
+      _$ProductServiceProductNoAuthSearchGet$Response$Data$Item$ImgCollection$ItemToJson(
         this,
       );
 
@@ -11045,12 +11751,13 @@ class ProductNoAuthSearchGet$Response$Data$Item$ImgCollection$Item {
   @JsonKey(name: 'url')
   final String url;
   static const fromJsonFactory =
-      _$ProductNoAuthSearchGet$Response$Data$Item$ImgCollection$ItemFromJson;
+      _$ProductServiceProductNoAuthSearchGet$Response$Data$Item$ImgCollection$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ProductNoAuthSearchGet$Response$Data$Item$ImgCollection$Item &&
+        (other
+                is ProductServiceProductNoAuthSearchGet$Response$Data$Item$ImgCollection$Item &&
             (identical(other.width, width) ||
                 const DeepCollectionEquality().equals(other.width, width)) &&
             (identical(other.height, height) ||
@@ -11070,26 +11777,24 @@ class ProductNoAuthSearchGet$Response$Data$Item$ImgCollection$Item {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthSearchGet$Response$Data$Item$ImgCollection$ItemExtension
-    on ProductNoAuthSearchGet$Response$Data$Item$ImgCollection$Item {
-  ProductNoAuthSearchGet$Response$Data$Item$ImgCollection$Item copyWith({
-    String? width,
-    String? height,
-    String? url,
-  }) {
-    return ProductNoAuthSearchGet$Response$Data$Item$ImgCollection$Item(
+extension $ProductServiceProductNoAuthSearchGet$Response$Data$Item$ImgCollection$ItemExtension
+    on ProductServiceProductNoAuthSearchGet$Response$Data$Item$ImgCollection$Item {
+  ProductServiceProductNoAuthSearchGet$Response$Data$Item$ImgCollection$Item
+  copyWith({String? width, String? height, String? url}) {
+    return ProductServiceProductNoAuthSearchGet$Response$Data$Item$ImgCollection$Item(
       width: width ?? this.width,
       height: height ?? this.height,
       url: url ?? this.url,
     );
   }
 
-  ProductNoAuthSearchGet$Response$Data$Item$ImgCollection$Item copyWithWrapped({
+  ProductServiceProductNoAuthSearchGet$Response$Data$Item$ImgCollection$Item
+  copyWithWrapped({
     Wrapped<String>? width,
     Wrapped<String>? height,
     Wrapped<String>? url,
   }) {
-    return ProductNoAuthSearchGet$Response$Data$Item$ImgCollection$Item(
+    return ProductServiceProductNoAuthSearchGet$Response$Data$Item$ImgCollection$Item(
       width: (width != null ? width.value : this.width),
       height: (height != null ? height.value : this.height),
       url: (url != null ? url.value : this.url),
@@ -11098,8 +11803,8 @@ extension $ProductNoAuthSearchGet$Response$Data$Item$ImgCollection$ItemExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item {
-  const ProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item({
+class ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item {
+  const ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item({
     required this.name,
     required this.enName,
     required this.styleType,
@@ -11107,16 +11812,17 @@ class ProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item {
     required this.optionValues,
   });
 
-  factory ProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item.fromJson(
+  factory ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item.fromJson(
     Map<String, dynamic> json,
-  ) => _$ProductNoAuthSearchGet$Response$Data$Item$ProductOptions$ItemFromJson(
-    json,
-  );
+  ) =>
+      _$ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductOptions$ItemFromJson(
+        json,
+      );
 
   static const toJsonFactory =
-      _$ProductNoAuthSearchGet$Response$Data$Item$ProductOptions$ItemToJson;
+      _$ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductOptions$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthSearchGet$Response$Data$Item$ProductOptions$ItemToJson(
+      _$ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductOptions$ItemToJson(
         this,
       );
 
@@ -11130,17 +11836,17 @@ class ProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item {
   final String type;
   @JsonKey(name: 'optionValues')
   final List<
-    ProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item
+    ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item
   >
   optionValues;
   static const fromJsonFactory =
-      _$ProductNoAuthSearchGet$Response$Data$Item$ProductOptions$ItemFromJson;
+      _$ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductOptions$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is ProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item &&
+                is ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item &&
             (identical(other.name, name) ||
                 const DeepCollectionEquality().equals(other.name, name)) &&
             (identical(other.enName, enName) ||
@@ -11172,19 +11878,20 @@ class ProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthSearchGet$Response$Data$Item$ProductOptions$ItemExtension
-    on ProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item {
-  ProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item copyWith({
+extension $ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductOptions$ItemExtension
+    on ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item {
+  ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item
+  copyWith({
     String? name,
     String? enName,
     int? styleType,
     String? type,
     List<
-      ProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item
+      ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item
     >?
     optionValues,
   }) {
-    return ProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item(
+    return ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item(
       name: name ?? this.name,
       enName: enName ?? this.enName,
       styleType: styleType ?? this.styleType,
@@ -11193,7 +11900,7 @@ extension $ProductNoAuthSearchGet$Response$Data$Item$ProductOptions$ItemExtensio
     );
   }
 
-  ProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item
+  ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item
   copyWithWrapped({
     Wrapped<String>? name,
     Wrapped<String>? enName,
@@ -11201,12 +11908,12 @@ extension $ProductNoAuthSearchGet$Response$Data$Item$ProductOptions$ItemExtensio
     Wrapped<String>? type,
     Wrapped<
       List<
-        ProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item
+        ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item
       >
     >?
     optionValues,
   }) {
-    return ProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item(
+    return ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item(
       name: (name != null ? name.value : this.name),
       enName: (enName != null ? enName.value : this.enName),
       styleType: (styleType != null ? styleType.value : this.styleType),
@@ -11219,34 +11926,38 @@ extension $ProductNoAuthSearchGet$Response$Data$Item$ProductOptions$ItemExtensio
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthSearchGet$Response$Data$Item$ProductAttrs$Item {
-  const ProductNoAuthSearchGet$Response$Data$Item$ProductAttrs$Item({
+class ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductAttrs$Item {
+  const ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductAttrs$Item({
     required this.name,
     required this.value,
   });
 
-  factory ProductNoAuthSearchGet$Response$Data$Item$ProductAttrs$Item.fromJson(
+  factory ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductAttrs$Item.fromJson(
     Map<String, dynamic> json,
-  ) => _$ProductNoAuthSearchGet$Response$Data$Item$ProductAttrs$ItemFromJson(
-    json,
-  );
+  ) =>
+      _$ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductAttrs$ItemFromJson(
+        json,
+      );
 
   static const toJsonFactory =
-      _$ProductNoAuthSearchGet$Response$Data$Item$ProductAttrs$ItemToJson;
+      _$ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductAttrs$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthSearchGet$Response$Data$Item$ProductAttrs$ItemToJson(this);
+      _$ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductAttrs$ItemToJson(
+        this,
+      );
 
   @JsonKey(name: 'name')
   final String name;
   @JsonKey(name: 'value')
   final String value;
   static const fromJsonFactory =
-      _$ProductNoAuthSearchGet$Response$Data$Item$ProductAttrs$ItemFromJson;
+      _$ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductAttrs$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ProductNoAuthSearchGet$Response$Data$Item$ProductAttrs$Item &&
+        (other
+                is ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductAttrs$Item &&
             (identical(other.name, name) ||
                 const DeepCollectionEquality().equals(other.name, name)) &&
             (identical(other.value, value) ||
@@ -11263,23 +11974,19 @@ class ProductNoAuthSearchGet$Response$Data$Item$ProductAttrs$Item {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthSearchGet$Response$Data$Item$ProductAttrs$ItemExtension
-    on ProductNoAuthSearchGet$Response$Data$Item$ProductAttrs$Item {
-  ProductNoAuthSearchGet$Response$Data$Item$ProductAttrs$Item copyWith({
-    String? name,
-    String? value,
-  }) {
-    return ProductNoAuthSearchGet$Response$Data$Item$ProductAttrs$Item(
+extension $ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductAttrs$ItemExtension
+    on ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductAttrs$Item {
+  ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductAttrs$Item
+  copyWith({String? name, String? value}) {
+    return ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductAttrs$Item(
       name: name ?? this.name,
       value: value ?? this.value,
     );
   }
 
-  ProductNoAuthSearchGet$Response$Data$Item$ProductAttrs$Item copyWithWrapped({
-    Wrapped<String>? name,
-    Wrapped<String>? value,
-  }) {
-    return ProductNoAuthSearchGet$Response$Data$Item$ProductAttrs$Item(
+  ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductAttrs$Item
+  copyWithWrapped({Wrapped<String>? name, Wrapped<String>? value}) {
+    return ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductAttrs$Item(
       name: (name != null ? name.value : this.name),
       value: (value != null ? value.value : this.value),
     );
@@ -11287,34 +11994,38 @@ extension $ProductNoAuthSearchGet$Response$Data$Item$ProductAttrs$ItemExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthSearchGet$Response$Data$Item$PremiumBrandInfo {
-  const ProductNoAuthSearchGet$Response$Data$Item$PremiumBrandInfo({
+class ProductServiceProductNoAuthSearchGet$Response$Data$Item$PremiumBrandInfo {
+  const ProductServiceProductNoAuthSearchGet$Response$Data$Item$PremiumBrandInfo({
     this.brandCode,
     this.brandImg,
   });
 
-  factory ProductNoAuthSearchGet$Response$Data$Item$PremiumBrandInfo.fromJson(
+  factory ProductServiceProductNoAuthSearchGet$Response$Data$Item$PremiumBrandInfo.fromJson(
     Map<String, dynamic> json,
-  ) => _$ProductNoAuthSearchGet$Response$Data$Item$PremiumBrandInfoFromJson(
-    json,
-  );
+  ) =>
+      _$ProductServiceProductNoAuthSearchGet$Response$Data$Item$PremiumBrandInfoFromJson(
+        json,
+      );
 
   static const toJsonFactory =
-      _$ProductNoAuthSearchGet$Response$Data$Item$PremiumBrandInfoToJson;
+      _$ProductServiceProductNoAuthSearchGet$Response$Data$Item$PremiumBrandInfoToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthSearchGet$Response$Data$Item$PremiumBrandInfoToJson(this);
+      _$ProductServiceProductNoAuthSearchGet$Response$Data$Item$PremiumBrandInfoToJson(
+        this,
+      );
 
   @JsonKey(name: 'brandCode')
   final String? brandCode;
   @JsonKey(name: 'brandImg')
   final String? brandImg;
   static const fromJsonFactory =
-      _$ProductNoAuthSearchGet$Response$Data$Item$PremiumBrandInfoFromJson;
+      _$ProductServiceProductNoAuthSearchGet$Response$Data$Item$PremiumBrandInfoFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ProductNoAuthSearchGet$Response$Data$Item$PremiumBrandInfo &&
+        (other
+                is ProductServiceProductNoAuthSearchGet$Response$Data$Item$PremiumBrandInfo &&
             (identical(other.brandCode, brandCode) ||
                 const DeepCollectionEquality().equals(
                   other.brandCode,
@@ -11337,23 +12048,19 @@ class ProductNoAuthSearchGet$Response$Data$Item$PremiumBrandInfo {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthSearchGet$Response$Data$Item$PremiumBrandInfoExtension
-    on ProductNoAuthSearchGet$Response$Data$Item$PremiumBrandInfo {
-  ProductNoAuthSearchGet$Response$Data$Item$PremiumBrandInfo copyWith({
-    String? brandCode,
-    String? brandImg,
-  }) {
-    return ProductNoAuthSearchGet$Response$Data$Item$PremiumBrandInfo(
+extension $ProductServiceProductNoAuthSearchGet$Response$Data$Item$PremiumBrandInfoExtension
+    on ProductServiceProductNoAuthSearchGet$Response$Data$Item$PremiumBrandInfo {
+  ProductServiceProductNoAuthSearchGet$Response$Data$Item$PremiumBrandInfo
+  copyWith({String? brandCode, String? brandImg}) {
+    return ProductServiceProductNoAuthSearchGet$Response$Data$Item$PremiumBrandInfo(
       brandCode: brandCode ?? this.brandCode,
       brandImg: brandImg ?? this.brandImg,
     );
   }
 
-  ProductNoAuthSearchGet$Response$Data$Item$PremiumBrandInfo copyWithWrapped({
-    Wrapped<String?>? brandCode,
-    Wrapped<String?>? brandImg,
-  }) {
-    return ProductNoAuthSearchGet$Response$Data$Item$PremiumBrandInfo(
+  ProductServiceProductNoAuthSearchGet$Response$Data$Item$PremiumBrandInfo
+  copyWithWrapped({Wrapped<String?>? brandCode, Wrapped<String?>? brandImg}) {
+    return ProductServiceProductNoAuthSearchGet$Response$Data$Item$PremiumBrandInfo(
       brandCode: (brandCode != null ? brandCode.value : this.brandCode),
       brandImg: (brandImg != null ? brandImg.value : this.brandImg),
     );
@@ -11361,8 +12068,8 @@ extension $ProductNoAuthSearchGet$Response$Data$Item$PremiumBrandInfoExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthCombineSearchGet$Response$Data$Records$Item {
-  const ProductNoAuthCombineSearchGet$Response$Data$Records$Item({
+class ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item {
+  const ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item({
     required this.shopCode,
     required this.productCode,
     required this.productName,
@@ -11391,14 +12098,19 @@ class ProductNoAuthCombineSearchGet$Response$Data$Records$Item {
     this.sellPoints,
   });
 
-  factory ProductNoAuthCombineSearchGet$Response$Data$Records$Item.fromJson(
+  factory ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item.fromJson(
     Map<String, dynamic> json,
-  ) => _$ProductNoAuthCombineSearchGet$Response$Data$Records$ItemFromJson(json);
+  ) =>
+      _$ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$ItemFromJson(
+        json,
+      );
 
   static const toJsonFactory =
-      _$ProductNoAuthCombineSearchGet$Response$Data$Records$ItemToJson;
+      _$ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthCombineSearchGet$Response$Data$Records$ItemToJson(this);
+      _$ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$ItemToJson(
+        this,
+      );
 
   @JsonKey(name: 'shopCode')
   final String shopCode;
@@ -11412,33 +12124,33 @@ class ProductNoAuthCombineSearchGet$Response$Data$Records$Item {
   final String? brandName;
   @JsonKey(name: 'mainImg')
   final List<
-    ProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainImg$Item
+    ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainImg$Item
   >
   mainImg;
   @JsonKey(name: 'subImg')
   final Object subImg;
   @JsonKey(name: 'mainVideo')
   final List<
-    ProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainVideo$Item
+    ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainVideo$Item
   >
   mainVideo;
   @JsonKey(name: 'imgCollection')
   final List<
-    ProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgCollection$Item
+    ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgCollection$Item
   >
   imgCollection;
   @JsonKey(name: 'textDetail')
   final Object textDetail;
   @JsonKey(name: 'imgDetail')
   final List<
-    ProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgDetail$Item
+    ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgDetail$Item
   >
   imgDetail;
   @JsonKey(name: 'categoryId')
   final double categoryId;
   @JsonKey(name: 'productOptions')
   final List<
-    ProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$Item
+    ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$Item
   >
   productOptions;
   @JsonKey(name: 'productAttrs', defaultValue: <Object>[])
@@ -11462,20 +12174,23 @@ class ProductNoAuthCombineSearchGet$Response$Data$Records$Item {
   @JsonKey(name: 'sellQuantity')
   final String sellQuantity;
   @JsonKey(name: 'tags')
-  final List<ProductNoAuthCombineSearchGet$Response$Data$Records$Item$Tags$Item>
+  final List<
+    ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$Tags$Item
+  >
   tags;
   @JsonKey(name: 'premiumBrandInfo')
-  final ProductNoAuthCombineSearchGet$Response$Data$Records$Item$PremiumBrandInfo?
+  final ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$PremiumBrandInfo?
   premiumBrandInfo;
   @JsonKey(name: 'sellPoints', defaultValue: <Object>[])
   final List<Object>? sellPoints;
   static const fromJsonFactory =
-      _$ProductNoAuthCombineSearchGet$Response$Data$Records$ItemFromJson;
+      _$ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ProductNoAuthCombineSearchGet$Response$Data$Records$Item &&
+        (other
+                is ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item &&
             (identical(other.shopCode, shopCode) ||
                 const DeepCollectionEquality().equals(
                   other.shopCode,
@@ -11636,33 +12351,36 @@ class ProductNoAuthCombineSearchGet$Response$Data$Records$Item {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthCombineSearchGet$Response$Data$Records$ItemExtension
-    on ProductNoAuthCombineSearchGet$Response$Data$Records$Item {
-  ProductNoAuthCombineSearchGet$Response$Data$Records$Item copyWith({
+extension $ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$ItemExtension
+    on ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item {
+  ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item
+  copyWith({
     String? shopCode,
     String? productCode,
     String? productName,
     String? tenantCode,
     String? brandName,
-    List<ProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainImg$Item>?
+    List<
+      ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainImg$Item
+    >?
     mainImg,
     Object? subImg,
     List<
-      ProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainVideo$Item
+      ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainVideo$Item
     >?
     mainVideo,
     List<
-      ProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgCollection$Item
+      ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgCollection$Item
     >?
     imgCollection,
     Object? textDetail,
     List<
-      ProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgDetail$Item
+      ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgDetail$Item
     >?
     imgDetail,
     double? categoryId,
     List<
-      ProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$Item
+      ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$Item
     >?
     productOptions,
     List<Object>? productAttrs,
@@ -11675,13 +12393,15 @@ extension $ProductNoAuthCombineSearchGet$Response$Data$Records$ItemExtension
     String? targetSellPrice,
     String? targetSellCur,
     String? sellQuantity,
-    List<ProductNoAuthCombineSearchGet$Response$Data$Records$Item$Tags$Item>?
+    List<
+      ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$Tags$Item
+    >?
     tags,
-    ProductNoAuthCombineSearchGet$Response$Data$Records$Item$PremiumBrandInfo?
+    ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$PremiumBrandInfo?
     premiumBrandInfo,
     List<Object>? sellPoints,
   }) {
-    return ProductNoAuthCombineSearchGet$Response$Data$Records$Item(
+    return ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item(
       shopCode: shopCode ?? this.shopCode,
       productCode: productCode ?? this.productCode,
       productName: productName ?? this.productName,
@@ -11711,7 +12431,8 @@ extension $ProductNoAuthCombineSearchGet$Response$Data$Records$ItemExtension
     );
   }
 
-  ProductNoAuthCombineSearchGet$Response$Data$Records$Item copyWithWrapped({
+  ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item
+  copyWithWrapped({
     Wrapped<String>? shopCode,
     Wrapped<String>? productCode,
     Wrapped<String>? productName,
@@ -11719,34 +12440,34 @@ extension $ProductNoAuthCombineSearchGet$Response$Data$Records$ItemExtension
     Wrapped<String?>? brandName,
     Wrapped<
       List<
-        ProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainImg$Item
+        ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainImg$Item
       >
     >?
     mainImg,
     Wrapped<Object>? subImg,
     Wrapped<
       List<
-        ProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainVideo$Item
+        ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainVideo$Item
       >
     >?
     mainVideo,
     Wrapped<
       List<
-        ProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgCollection$Item
+        ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgCollection$Item
       >
     >?
     imgCollection,
     Wrapped<Object>? textDetail,
     Wrapped<
       List<
-        ProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgDetail$Item
+        ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgDetail$Item
       >
     >?
     imgDetail,
     Wrapped<double>? categoryId,
     Wrapped<
       List<
-        ProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$Item
+        ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$Item
       >
     >?
     productOptions,
@@ -11761,16 +12482,18 @@ extension $ProductNoAuthCombineSearchGet$Response$Data$Records$ItemExtension
     Wrapped<String>? targetSellCur,
     Wrapped<String>? sellQuantity,
     Wrapped<
-      List<ProductNoAuthCombineSearchGet$Response$Data$Records$Item$Tags$Item>
+      List<
+        ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$Tags$Item
+      >
     >?
     tags,
     Wrapped<
-      ProductNoAuthCombineSearchGet$Response$Data$Records$Item$PremiumBrandInfo?
+      ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$PremiumBrandInfo?
     >?
     premiumBrandInfo,
     Wrapped<List<Object>?>? sellPoints,
   }) {
-    return ProductNoAuthCombineSearchGet$Response$Data$Records$Item(
+    return ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item(
       shopCode: (shopCode != null ? shopCode.value : this.shopCode),
       productCode: (productCode != null ? productCode.value : this.productCode),
       productName: (productName != null ? productName.value : this.productName),
@@ -11822,8 +12545,8 @@ extension $ProductNoAuthCombineSearchGet$Response$Data$Records$ItemExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item {
-  const ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item({
+class ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item {
+  const ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item({
     this.shopCode,
     this.productCode,
     this.productName,
@@ -11855,16 +12578,17 @@ class ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item {
     this.sellPoints,
   });
 
-  factory ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item.fromJson(
+  factory ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item.fromJson(
     Map<String, dynamic> json,
-  ) => _$ProductNoAuthNewArrivalProductGet$Response$Data$Records$ItemFromJson(
-    json,
-  );
+  ) =>
+      _$ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$ItemFromJson(
+        json,
+      );
 
   static const toJsonFactory =
-      _$ProductNoAuthNewArrivalProductGet$Response$Data$Records$ItemToJson;
+      _$ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthNewArrivalProductGet$Response$Data$Records$ItemToJson(
+      _$ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$ItemToJson(
         this,
       );
 
@@ -11880,7 +12604,7 @@ class ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item {
   final Object? brandName;
   @JsonKey(name: 'mainImg')
   final List<
-    ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$MainImg$Item
+    ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$MainImg$Item
   >?
   mainImg;
   @JsonKey(name: 'subImg')
@@ -11889,21 +12613,21 @@ class ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item {
   final List<Object>? mainVideo;
   @JsonKey(name: 'imgCollection')
   final List<
-    ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgCollection$Item
+    ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgCollection$Item
   >?
   imgCollection;
   @JsonKey(name: 'textDetail')
   final Object? textDetail;
   @JsonKey(name: 'imgDetail')
   final List<
-    ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgDetail$Item
+    ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgDetail$Item
   >?
   imgDetail;
   @JsonKey(name: 'categoryId')
   final double? categoryId;
   @JsonKey(name: 'productOptions')
   final List<
-    ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$Item
+    ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$Item
   >?
   productOptions;
   @JsonKey(name: 'productAttrs', defaultValue: <Object>[])
@@ -11934,22 +12658,22 @@ class ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item {
   final String? targetOriginPrice;
   @JsonKey(name: 'tags')
   final List<
-    ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$Tags$Item
+    ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$Tags$Item
   >?
   tags;
   @JsonKey(name: 'premiumBrandInfo')
-  final ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$PremiumBrandInfo?
+  final ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$PremiumBrandInfo?
   premiumBrandInfo;
   @JsonKey(name: 'sellPoints', defaultValue: <Object>[])
   final List<Object>? sellPoints;
   static const fromJsonFactory =
-      _$ProductNoAuthNewArrivalProductGet$Response$Data$Records$ItemFromJson;
+      _$ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item &&
+                is ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item &&
             (identical(other.shopCode, shopCode) ||
                 const DeepCollectionEquality().equals(
                   other.shopCode,
@@ -12128,32 +12852,33 @@ class ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthNewArrivalProductGet$Response$Data$Records$ItemExtension
-    on ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item {
-  ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item copyWith({
+extension $ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$ItemExtension
+    on ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item {
+  ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item
+  copyWith({
     Object? shopCode,
     String? productCode,
     String? productName,
     String? tenantCode,
     Object? brandName,
     List<
-      ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$MainImg$Item
+      ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$MainImg$Item
     >?
     mainImg,
     Object? subImg,
     List<Object>? mainVideo,
     List<
-      ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgCollection$Item
+      ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgCollection$Item
     >?
     imgCollection,
     Object? textDetail,
     List<
-      ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgDetail$Item
+      ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgDetail$Item
     >?
     imgDetail,
     double? categoryId,
     List<
-      ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$Item
+      ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$Item
     >?
     productOptions,
     List<Object>? productAttrs,
@@ -12170,14 +12895,14 @@ extension $ProductNoAuthNewArrivalProductGet$Response$Data$Records$ItemExtension
     String? sellQuantity,
     String? targetOriginPrice,
     List<
-      ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$Tags$Item
+      ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$Tags$Item
     >?
     tags,
-    ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$PremiumBrandInfo?
+    ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$PremiumBrandInfo?
     premiumBrandInfo,
     List<Object>? sellPoints,
   }) {
-    return ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item(
+    return ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item(
       shopCode: shopCode ?? this.shopCode,
       productCode: productCode ?? this.productCode,
       productName: productName ?? this.productName,
@@ -12210,7 +12935,8 @@ extension $ProductNoAuthNewArrivalProductGet$Response$Data$Records$ItemExtension
     );
   }
 
-  ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item copyWithWrapped({
+  ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item
+  copyWithWrapped({
     Wrapped<Object?>? shopCode,
     Wrapped<String?>? productCode,
     Wrapped<String?>? productName,
@@ -12218,7 +12944,7 @@ extension $ProductNoAuthNewArrivalProductGet$Response$Data$Records$ItemExtension
     Wrapped<Object?>? brandName,
     Wrapped<
       List<
-        ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$MainImg$Item
+        ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$MainImg$Item
       >?
     >?
     mainImg,
@@ -12226,21 +12952,21 @@ extension $ProductNoAuthNewArrivalProductGet$Response$Data$Records$ItemExtension
     Wrapped<List<Object>?>? mainVideo,
     Wrapped<
       List<
-        ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgCollection$Item
+        ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgCollection$Item
       >?
     >?
     imgCollection,
     Wrapped<Object?>? textDetail,
     Wrapped<
       List<
-        ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgDetail$Item
+        ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgDetail$Item
       >?
     >?
     imgDetail,
     Wrapped<double?>? categoryId,
     Wrapped<
       List<
-        ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$Item
+        ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$Item
       >?
     >?
     productOptions,
@@ -12259,17 +12985,17 @@ extension $ProductNoAuthNewArrivalProductGet$Response$Data$Records$ItemExtension
     Wrapped<String?>? targetOriginPrice,
     Wrapped<
       List<
-        ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$Tags$Item
+        ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$Tags$Item
       >?
     >?
     tags,
     Wrapped<
-      ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$PremiumBrandInfo?
+      ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$PremiumBrandInfo?
     >?
     premiumBrandInfo,
     Wrapped<List<Object>?>? sellPoints,
   }) {
-    return ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item(
+    return ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item(
       shopCode: (shopCode != null ? shopCode.value : this.shopCode),
       productCode: (productCode != null ? productCode.value : this.productCode),
       productName: (productName != null ? productName.value : this.productName),
@@ -12328,21 +13054,26 @@ extension $ProductNoAuthNewArrivalProductGet$Response$Data$Records$ItemExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthSkuListGet$Response$Data$Item$SkuImg {
-  const ProductNoAuthSkuListGet$Response$Data$Item$SkuImg({
+class ProductServiceProductNoAuthSkuListGet$Response$Data$Item$SkuImg {
+  const ProductServiceProductNoAuthSkuListGet$Response$Data$Item$SkuImg({
     required this.width,
     required this.height,
     required this.url,
   });
 
-  factory ProductNoAuthSkuListGet$Response$Data$Item$SkuImg.fromJson(
+  factory ProductServiceProductNoAuthSkuListGet$Response$Data$Item$SkuImg.fromJson(
     Map<String, dynamic> json,
-  ) => _$ProductNoAuthSkuListGet$Response$Data$Item$SkuImgFromJson(json);
+  ) =>
+      _$ProductServiceProductNoAuthSkuListGet$Response$Data$Item$SkuImgFromJson(
+        json,
+      );
 
   static const toJsonFactory =
-      _$ProductNoAuthSkuListGet$Response$Data$Item$SkuImgToJson;
+      _$ProductServiceProductNoAuthSkuListGet$Response$Data$Item$SkuImgToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthSkuListGet$Response$Data$Item$SkuImgToJson(this);
+      _$ProductServiceProductNoAuthSkuListGet$Response$Data$Item$SkuImgToJson(
+        this,
+      );
 
   @JsonKey(name: 'width')
   final int width;
@@ -12351,12 +13082,12 @@ class ProductNoAuthSkuListGet$Response$Data$Item$SkuImg {
   @JsonKey(name: 'url')
   final String url;
   static const fromJsonFactory =
-      _$ProductNoAuthSkuListGet$Response$Data$Item$SkuImgFromJson;
+      _$ProductServiceProductNoAuthSkuListGet$Response$Data$Item$SkuImgFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ProductNoAuthSkuListGet$Response$Data$Item$SkuImg &&
+        (other is ProductServiceProductNoAuthSkuListGet$Response$Data$Item$SkuImg &&
             (identical(other.width, width) ||
                 const DeepCollectionEquality().equals(other.width, width)) &&
             (identical(other.height, height) ||
@@ -12376,26 +13107,27 @@ class ProductNoAuthSkuListGet$Response$Data$Item$SkuImg {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthSkuListGet$Response$Data$Item$SkuImgExtension
-    on ProductNoAuthSkuListGet$Response$Data$Item$SkuImg {
-  ProductNoAuthSkuListGet$Response$Data$Item$SkuImg copyWith({
+extension $ProductServiceProductNoAuthSkuListGet$Response$Data$Item$SkuImgExtension
+    on ProductServiceProductNoAuthSkuListGet$Response$Data$Item$SkuImg {
+  ProductServiceProductNoAuthSkuListGet$Response$Data$Item$SkuImg copyWith({
     int? width,
     int? height,
     String? url,
   }) {
-    return ProductNoAuthSkuListGet$Response$Data$Item$SkuImg(
+    return ProductServiceProductNoAuthSkuListGet$Response$Data$Item$SkuImg(
       width: width ?? this.width,
       height: height ?? this.height,
       url: url ?? this.url,
     );
   }
 
-  ProductNoAuthSkuListGet$Response$Data$Item$SkuImg copyWithWrapped({
+  ProductServiceProductNoAuthSkuListGet$Response$Data$Item$SkuImg
+  copyWithWrapped({
     Wrapped<int>? width,
     Wrapped<int>? height,
     Wrapped<String>? url,
   }) {
-    return ProductNoAuthSkuListGet$Response$Data$Item$SkuImg(
+    return ProductServiceProductNoAuthSkuListGet$Response$Data$Item$SkuImg(
       width: (width != null ? width.value : this.width),
       height: (height != null ? height.value : this.height),
       url: (url != null ? url.value : this.url),
@@ -12404,34 +13136,38 @@ extension $ProductNoAuthSkuListGet$Response$Data$Item$SkuImgExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthSkuListGet$Response$Data$Item$SkuOptions$Item {
-  const ProductNoAuthSkuListGet$Response$Data$Item$SkuOptions$Item({
+class ProductServiceProductNoAuthSkuListGet$Response$Data$Item$SkuOptions$Item {
+  const ProductServiceProductNoAuthSkuListGet$Response$Data$Item$SkuOptions$Item({
     required this.name,
     required this.value,
   });
 
-  factory ProductNoAuthSkuListGet$Response$Data$Item$SkuOptions$Item.fromJson(
+  factory ProductServiceProductNoAuthSkuListGet$Response$Data$Item$SkuOptions$Item.fromJson(
     Map<String, dynamic> json,
-  ) => _$ProductNoAuthSkuListGet$Response$Data$Item$SkuOptions$ItemFromJson(
-    json,
-  );
+  ) =>
+      _$ProductServiceProductNoAuthSkuListGet$Response$Data$Item$SkuOptions$ItemFromJson(
+        json,
+      );
 
   static const toJsonFactory =
-      _$ProductNoAuthSkuListGet$Response$Data$Item$SkuOptions$ItemToJson;
+      _$ProductServiceProductNoAuthSkuListGet$Response$Data$Item$SkuOptions$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthSkuListGet$Response$Data$Item$SkuOptions$ItemToJson(this);
+      _$ProductServiceProductNoAuthSkuListGet$Response$Data$Item$SkuOptions$ItemToJson(
+        this,
+      );
 
   @JsonKey(name: 'name')
   final String name;
   @JsonKey(name: 'value')
   final String value;
   static const fromJsonFactory =
-      _$ProductNoAuthSkuListGet$Response$Data$Item$SkuOptions$ItemFromJson;
+      _$ProductServiceProductNoAuthSkuListGet$Response$Data$Item$SkuOptions$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ProductNoAuthSkuListGet$Response$Data$Item$SkuOptions$Item &&
+        (other
+                is ProductServiceProductNoAuthSkuListGet$Response$Data$Item$SkuOptions$Item &&
             (identical(other.name, name) ||
                 const DeepCollectionEquality().equals(other.name, name)) &&
             (identical(other.value, value) ||
@@ -12448,23 +13184,19 @@ class ProductNoAuthSkuListGet$Response$Data$Item$SkuOptions$Item {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthSkuListGet$Response$Data$Item$SkuOptions$ItemExtension
-    on ProductNoAuthSkuListGet$Response$Data$Item$SkuOptions$Item {
-  ProductNoAuthSkuListGet$Response$Data$Item$SkuOptions$Item copyWith({
-    String? name,
-    String? value,
-  }) {
-    return ProductNoAuthSkuListGet$Response$Data$Item$SkuOptions$Item(
+extension $ProductServiceProductNoAuthSkuListGet$Response$Data$Item$SkuOptions$ItemExtension
+    on ProductServiceProductNoAuthSkuListGet$Response$Data$Item$SkuOptions$Item {
+  ProductServiceProductNoAuthSkuListGet$Response$Data$Item$SkuOptions$Item
+  copyWith({String? name, String? value}) {
+    return ProductServiceProductNoAuthSkuListGet$Response$Data$Item$SkuOptions$Item(
       name: name ?? this.name,
       value: value ?? this.value,
     );
   }
 
-  ProductNoAuthSkuListGet$Response$Data$Item$SkuOptions$Item copyWithWrapped({
-    Wrapped<String>? name,
-    Wrapped<String>? value,
-  }) {
-    return ProductNoAuthSkuListGet$Response$Data$Item$SkuOptions$Item(
+  ProductServiceProductNoAuthSkuListGet$Response$Data$Item$SkuOptions$Item
+  copyWithWrapped({Wrapped<String>? name, Wrapped<String>? value}) {
+    return ProductServiceProductNoAuthSkuListGet$Response$Data$Item$SkuOptions$Item(
       name: (name != null ? name.value : this.name),
       value: (value != null ? value.value : this.value),
     );
@@ -12472,8 +13204,8 @@ extension $ProductNoAuthSkuListGet$Response$Data$Item$SkuOptions$ItemExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthSkuListGet$Response$Data$Item$FlashSaleInfo {
-  const ProductNoAuthSkuListGet$Response$Data$Item$FlashSaleInfo({
+class ProductServiceProductNoAuthSkuListGet$Response$Data$Item$FlashSaleInfo {
+  const ProductServiceProductNoAuthSkuListGet$Response$Data$Item$FlashSaleInfo({
     required this.activityCode,
     required this.activityTitle,
     required this.startTime,
@@ -12483,14 +13215,19 @@ class ProductNoAuthSkuListGet$Response$Data$Item$FlashSaleInfo {
     required this.marketingIcon,
   });
 
-  factory ProductNoAuthSkuListGet$Response$Data$Item$FlashSaleInfo.fromJson(
+  factory ProductServiceProductNoAuthSkuListGet$Response$Data$Item$FlashSaleInfo.fromJson(
     Map<String, dynamic> json,
-  ) => _$ProductNoAuthSkuListGet$Response$Data$Item$FlashSaleInfoFromJson(json);
+  ) =>
+      _$ProductServiceProductNoAuthSkuListGet$Response$Data$Item$FlashSaleInfoFromJson(
+        json,
+      );
 
   static const toJsonFactory =
-      _$ProductNoAuthSkuListGet$Response$Data$Item$FlashSaleInfoToJson;
+      _$ProductServiceProductNoAuthSkuListGet$Response$Data$Item$FlashSaleInfoToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthSkuListGet$Response$Data$Item$FlashSaleInfoToJson(this);
+      _$ProductServiceProductNoAuthSkuListGet$Response$Data$Item$FlashSaleInfoToJson(
+        this,
+      );
 
   @JsonKey(name: 'activityCode')
   final String activityCode;
@@ -12507,12 +13244,13 @@ class ProductNoAuthSkuListGet$Response$Data$Item$FlashSaleInfo {
   @JsonKey(name: 'marketingIcon')
   final String marketingIcon;
   static const fromJsonFactory =
-      _$ProductNoAuthSkuListGet$Response$Data$Item$FlashSaleInfoFromJson;
+      _$ProductServiceProductNoAuthSkuListGet$Response$Data$Item$FlashSaleInfoFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ProductNoAuthSkuListGet$Response$Data$Item$FlashSaleInfo &&
+        (other
+                is ProductServiceProductNoAuthSkuListGet$Response$Data$Item$FlashSaleInfo &&
             (identical(other.activityCode, activityCode) ||
                 const DeepCollectionEquality().equals(
                   other.activityCode,
@@ -12565,9 +13303,10 @@ class ProductNoAuthSkuListGet$Response$Data$Item$FlashSaleInfo {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthSkuListGet$Response$Data$Item$FlashSaleInfoExtension
-    on ProductNoAuthSkuListGet$Response$Data$Item$FlashSaleInfo {
-  ProductNoAuthSkuListGet$Response$Data$Item$FlashSaleInfo copyWith({
+extension $ProductServiceProductNoAuthSkuListGet$Response$Data$Item$FlashSaleInfoExtension
+    on ProductServiceProductNoAuthSkuListGet$Response$Data$Item$FlashSaleInfo {
+  ProductServiceProductNoAuthSkuListGet$Response$Data$Item$FlashSaleInfo
+  copyWith({
     String? activityCode,
     String? activityTitle,
     int? startTime,
@@ -12576,7 +13315,7 @@ extension $ProductNoAuthSkuListGet$Response$Data$Item$FlashSaleInfoExtension
     String? progressText,
     String? marketingIcon,
   }) {
-    return ProductNoAuthSkuListGet$Response$Data$Item$FlashSaleInfo(
+    return ProductServiceProductNoAuthSkuListGet$Response$Data$Item$FlashSaleInfo(
       activityCode: activityCode ?? this.activityCode,
       activityTitle: activityTitle ?? this.activityTitle,
       startTime: startTime ?? this.startTime,
@@ -12587,7 +13326,8 @@ extension $ProductNoAuthSkuListGet$Response$Data$Item$FlashSaleInfoExtension
     );
   }
 
-  ProductNoAuthSkuListGet$Response$Data$Item$FlashSaleInfo copyWithWrapped({
+  ProductServiceProductNoAuthSkuListGet$Response$Data$Item$FlashSaleInfo
+  copyWithWrapped({
     Wrapped<String>? activityCode,
     Wrapped<String>? activityTitle,
     Wrapped<int>? startTime,
@@ -12596,7 +13336,7 @@ extension $ProductNoAuthSkuListGet$Response$Data$Item$FlashSaleInfoExtension
     Wrapped<String>? progressText,
     Wrapped<String>? marketingIcon,
   }) {
-    return ProductNoAuthSkuListGet$Response$Data$Item$FlashSaleInfo(
+    return ProductServiceProductNoAuthSkuListGet$Response$Data$Item$FlashSaleInfo(
       activityCode: (activityCode != null
           ? activityCode.value
           : this.activityCode),
@@ -12619,22 +13359,26 @@ extension $ProductNoAuthSkuListGet$Response$Data$Item$FlashSaleInfoExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthGetProductInfoGet$Response$Data$MainImg$Item {
-  const ProductNoAuthGetProductInfoGet$Response$Data$MainImg$Item({
+class ProductServiceProductNoAuthGetProductInfoGet$Response$Data$MainImg$Item {
+  const ProductServiceProductNoAuthGetProductInfoGet$Response$Data$MainImg$Item({
     this.width,
     this.height,
     this.url,
   });
 
-  factory ProductNoAuthGetProductInfoGet$Response$Data$MainImg$Item.fromJson(
+  factory ProductServiceProductNoAuthGetProductInfoGet$Response$Data$MainImg$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ProductNoAuthGetProductInfoGet$Response$Data$MainImg$ItemFromJson(json);
+      _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$MainImg$ItemFromJson(
+        json,
+      );
 
   static const toJsonFactory =
-      _$ProductNoAuthGetProductInfoGet$Response$Data$MainImg$ItemToJson;
+      _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$MainImg$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthGetProductInfoGet$Response$Data$MainImg$ItemToJson(this);
+      _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$MainImg$ItemToJson(
+        this,
+      );
 
   @JsonKey(name: 'width')
   final double? width;
@@ -12643,12 +13387,13 @@ class ProductNoAuthGetProductInfoGet$Response$Data$MainImg$Item {
   @JsonKey(name: 'url')
   final String? url;
   static const fromJsonFactory =
-      _$ProductNoAuthGetProductInfoGet$Response$Data$MainImg$ItemFromJson;
+      _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$MainImg$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ProductNoAuthGetProductInfoGet$Response$Data$MainImg$Item &&
+        (other
+                is ProductServiceProductNoAuthGetProductInfoGet$Response$Data$MainImg$Item &&
             (identical(other.width, width) ||
                 const DeepCollectionEquality().equals(other.width, width)) &&
             (identical(other.height, height) ||
@@ -12668,26 +13413,24 @@ class ProductNoAuthGetProductInfoGet$Response$Data$MainImg$Item {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthGetProductInfoGet$Response$Data$MainImg$ItemExtension
-    on ProductNoAuthGetProductInfoGet$Response$Data$MainImg$Item {
-  ProductNoAuthGetProductInfoGet$Response$Data$MainImg$Item copyWith({
-    double? width,
-    double? height,
-    String? url,
-  }) {
-    return ProductNoAuthGetProductInfoGet$Response$Data$MainImg$Item(
+extension $ProductServiceProductNoAuthGetProductInfoGet$Response$Data$MainImg$ItemExtension
+    on ProductServiceProductNoAuthGetProductInfoGet$Response$Data$MainImg$Item {
+  ProductServiceProductNoAuthGetProductInfoGet$Response$Data$MainImg$Item
+  copyWith({double? width, double? height, String? url}) {
+    return ProductServiceProductNoAuthGetProductInfoGet$Response$Data$MainImg$Item(
       width: width ?? this.width,
       height: height ?? this.height,
       url: url ?? this.url,
     );
   }
 
-  ProductNoAuthGetProductInfoGet$Response$Data$MainImg$Item copyWithWrapped({
+  ProductServiceProductNoAuthGetProductInfoGet$Response$Data$MainImg$Item
+  copyWithWrapped({
     Wrapped<double?>? width,
     Wrapped<double?>? height,
     Wrapped<String?>? url,
   }) {
-    return ProductNoAuthGetProductInfoGet$Response$Data$MainImg$Item(
+    return ProductServiceProductNoAuthGetProductInfoGet$Response$Data$MainImg$Item(
       width: (width != null ? width.value : this.width),
       height: (height != null ? height.value : this.height),
       url: (url != null ? url.value : this.url),
@@ -12696,8 +13439,8 @@ extension $ProductNoAuthGetProductInfoGet$Response$Data$MainImg$ItemExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthGetProductInfoGet$Response$Data$MainVideo$Item {
-  const ProductNoAuthGetProductInfoGet$Response$Data$MainVideo$Item({
+class ProductServiceProductNoAuthGetProductInfoGet$Response$Data$MainVideo$Item {
+  const ProductServiceProductNoAuthGetProductInfoGet$Response$Data$MainVideo$Item({
     this.videoUrl,
     this.vodUrl,
     this.previewUrl,
@@ -12705,16 +13448,19 @@ class ProductNoAuthGetProductInfoGet$Response$Data$MainVideo$Item {
     this.height,
   });
 
-  factory ProductNoAuthGetProductInfoGet$Response$Data$MainVideo$Item.fromJson(
+  factory ProductServiceProductNoAuthGetProductInfoGet$Response$Data$MainVideo$Item.fromJson(
     Map<String, dynamic> json,
-  ) => _$ProductNoAuthGetProductInfoGet$Response$Data$MainVideo$ItemFromJson(
-    json,
-  );
+  ) =>
+      _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$MainVideo$ItemFromJson(
+        json,
+      );
 
   static const toJsonFactory =
-      _$ProductNoAuthGetProductInfoGet$Response$Data$MainVideo$ItemToJson;
+      _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$MainVideo$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthGetProductInfoGet$Response$Data$MainVideo$ItemToJson(this);
+      _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$MainVideo$ItemToJson(
+        this,
+      );
 
   @JsonKey(name: 'videoUrl')
   final String? videoUrl;
@@ -12727,12 +13473,13 @@ class ProductNoAuthGetProductInfoGet$Response$Data$MainVideo$Item {
   @JsonKey(name: 'height')
   final Object? height;
   static const fromJsonFactory =
-      _$ProductNoAuthGetProductInfoGet$Response$Data$MainVideo$ItemFromJson;
+      _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$MainVideo$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ProductNoAuthGetProductInfoGet$Response$Data$MainVideo$Item &&
+        (other
+                is ProductServiceProductNoAuthGetProductInfoGet$Response$Data$MainVideo$Item &&
             (identical(other.videoUrl, videoUrl) ||
                 const DeepCollectionEquality().equals(
                   other.videoUrl,
@@ -12764,16 +13511,17 @@ class ProductNoAuthGetProductInfoGet$Response$Data$MainVideo$Item {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthGetProductInfoGet$Response$Data$MainVideo$ItemExtension
-    on ProductNoAuthGetProductInfoGet$Response$Data$MainVideo$Item {
-  ProductNoAuthGetProductInfoGet$Response$Data$MainVideo$Item copyWith({
+extension $ProductServiceProductNoAuthGetProductInfoGet$Response$Data$MainVideo$ItemExtension
+    on ProductServiceProductNoAuthGetProductInfoGet$Response$Data$MainVideo$Item {
+  ProductServiceProductNoAuthGetProductInfoGet$Response$Data$MainVideo$Item
+  copyWith({
     String? videoUrl,
     Object? vodUrl,
     Object? previewUrl,
     Object? width,
     Object? height,
   }) {
-    return ProductNoAuthGetProductInfoGet$Response$Data$MainVideo$Item(
+    return ProductServiceProductNoAuthGetProductInfoGet$Response$Data$MainVideo$Item(
       videoUrl: videoUrl ?? this.videoUrl,
       vodUrl: vodUrl ?? this.vodUrl,
       previewUrl: previewUrl ?? this.previewUrl,
@@ -12782,14 +13530,15 @@ extension $ProductNoAuthGetProductInfoGet$Response$Data$MainVideo$ItemExtension
     );
   }
 
-  ProductNoAuthGetProductInfoGet$Response$Data$MainVideo$Item copyWithWrapped({
+  ProductServiceProductNoAuthGetProductInfoGet$Response$Data$MainVideo$Item
+  copyWithWrapped({
     Wrapped<String?>? videoUrl,
     Wrapped<Object?>? vodUrl,
     Wrapped<Object?>? previewUrl,
     Wrapped<Object?>? width,
     Wrapped<Object?>? height,
   }) {
-    return ProductNoAuthGetProductInfoGet$Response$Data$MainVideo$Item(
+    return ProductServiceProductNoAuthGetProductInfoGet$Response$Data$MainVideo$Item(
       videoUrl: (videoUrl != null ? videoUrl.value : this.videoUrl),
       vodUrl: (vodUrl != null ? vodUrl.value : this.vodUrl),
       previewUrl: (previewUrl != null ? previewUrl.value : this.previewUrl),
@@ -12800,24 +13549,24 @@ extension $ProductNoAuthGetProductInfoGet$Response$Data$MainVideo$ItemExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthGetProductInfoGet$Response$Data$ImgCollection$Item {
-  const ProductNoAuthGetProductInfoGet$Response$Data$ImgCollection$Item({
+class ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgCollection$Item {
+  const ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgCollection$Item({
     required this.width,
     required this.height,
     required this.url,
   });
 
-  factory ProductNoAuthGetProductInfoGet$Response$Data$ImgCollection$Item.fromJson(
+  factory ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgCollection$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ProductNoAuthGetProductInfoGet$Response$Data$ImgCollection$ItemFromJson(
+      _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgCollection$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$ProductNoAuthGetProductInfoGet$Response$Data$ImgCollection$ItemToJson;
+      _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgCollection$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthGetProductInfoGet$Response$Data$ImgCollection$ItemToJson(
+      _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgCollection$ItemToJson(
         this,
       );
 
@@ -12828,12 +13577,13 @@ class ProductNoAuthGetProductInfoGet$Response$Data$ImgCollection$Item {
   @JsonKey(name: 'url')
   final String url;
   static const fromJsonFactory =
-      _$ProductNoAuthGetProductInfoGet$Response$Data$ImgCollection$ItemFromJson;
+      _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgCollection$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ProductNoAuthGetProductInfoGet$Response$Data$ImgCollection$Item &&
+        (other
+                is ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgCollection$Item &&
             (identical(other.width, width) ||
                 const DeepCollectionEquality().equals(other.width, width)) &&
             (identical(other.height, height) ||
@@ -12853,27 +13603,24 @@ class ProductNoAuthGetProductInfoGet$Response$Data$ImgCollection$Item {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthGetProductInfoGet$Response$Data$ImgCollection$ItemExtension
-    on ProductNoAuthGetProductInfoGet$Response$Data$ImgCollection$Item {
-  ProductNoAuthGetProductInfoGet$Response$Data$ImgCollection$Item copyWith({
-    double? width,
-    double? height,
-    String? url,
-  }) {
-    return ProductNoAuthGetProductInfoGet$Response$Data$ImgCollection$Item(
+extension $ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgCollection$ItemExtension
+    on ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgCollection$Item {
+  ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgCollection$Item
+  copyWith({double? width, double? height, String? url}) {
+    return ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgCollection$Item(
       width: width ?? this.width,
       height: height ?? this.height,
       url: url ?? this.url,
     );
   }
 
-  ProductNoAuthGetProductInfoGet$Response$Data$ImgCollection$Item
+  ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgCollection$Item
   copyWithWrapped({
     Wrapped<double>? width,
     Wrapped<double>? height,
     Wrapped<String>? url,
   }) {
-    return ProductNoAuthGetProductInfoGet$Response$Data$ImgCollection$Item(
+    return ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgCollection$Item(
       width: (width != null ? width.value : this.width),
       height: (height != null ? height.value : this.height),
       url: (url != null ? url.value : this.url),
@@ -12882,23 +13629,26 @@ extension $ProductNoAuthGetProductInfoGet$Response$Data$ImgCollection$ItemExtens
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthGetProductInfoGet$Response$Data$ImgDetail$Item {
-  const ProductNoAuthGetProductInfoGet$Response$Data$ImgDetail$Item({
+class ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgDetail$Item {
+  const ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgDetail$Item({
     required this.width,
     required this.height,
     required this.url,
   });
 
-  factory ProductNoAuthGetProductInfoGet$Response$Data$ImgDetail$Item.fromJson(
+  factory ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgDetail$Item.fromJson(
     Map<String, dynamic> json,
-  ) => _$ProductNoAuthGetProductInfoGet$Response$Data$ImgDetail$ItemFromJson(
-    json,
-  );
+  ) =>
+      _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgDetail$ItemFromJson(
+        json,
+      );
 
   static const toJsonFactory =
-      _$ProductNoAuthGetProductInfoGet$Response$Data$ImgDetail$ItemToJson;
+      _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgDetail$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthGetProductInfoGet$Response$Data$ImgDetail$ItemToJson(this);
+      _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgDetail$ItemToJson(
+        this,
+      );
 
   @JsonKey(name: 'width')
   final double width;
@@ -12907,12 +13657,13 @@ class ProductNoAuthGetProductInfoGet$Response$Data$ImgDetail$Item {
   @JsonKey(name: 'url')
   final String url;
   static const fromJsonFactory =
-      _$ProductNoAuthGetProductInfoGet$Response$Data$ImgDetail$ItemFromJson;
+      _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgDetail$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ProductNoAuthGetProductInfoGet$Response$Data$ImgDetail$Item &&
+        (other
+                is ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgDetail$Item &&
             (identical(other.width, width) ||
                 const DeepCollectionEquality().equals(other.width, width)) &&
             (identical(other.height, height) ||
@@ -12932,26 +13683,24 @@ class ProductNoAuthGetProductInfoGet$Response$Data$ImgDetail$Item {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthGetProductInfoGet$Response$Data$ImgDetail$ItemExtension
-    on ProductNoAuthGetProductInfoGet$Response$Data$ImgDetail$Item {
-  ProductNoAuthGetProductInfoGet$Response$Data$ImgDetail$Item copyWith({
-    double? width,
-    double? height,
-    String? url,
-  }) {
-    return ProductNoAuthGetProductInfoGet$Response$Data$ImgDetail$Item(
+extension $ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgDetail$ItemExtension
+    on ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgDetail$Item {
+  ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgDetail$Item
+  copyWith({double? width, double? height, String? url}) {
+    return ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgDetail$Item(
       width: width ?? this.width,
       height: height ?? this.height,
       url: url ?? this.url,
     );
   }
 
-  ProductNoAuthGetProductInfoGet$Response$Data$ImgDetail$Item copyWithWrapped({
+  ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgDetail$Item
+  copyWithWrapped({
     Wrapped<double>? width,
     Wrapped<double>? height,
     Wrapped<String>? url,
   }) {
-    return ProductNoAuthGetProductInfoGet$Response$Data$ImgDetail$Item(
+    return ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgDetail$Item(
       width: (width != null ? width.value : this.width),
       height: (height != null ? height.value : this.height),
       url: (url != null ? url.value : this.url),
@@ -12960,24 +13709,24 @@ extension $ProductNoAuthGetProductInfoGet$Response$Data$ImgDetail$ItemExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item {
-  const ProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item({
+class ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item {
+  const ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item({
     required this.name,
     required this.type,
     required this.optionValues,
   });
 
-  factory ProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item.fromJson(
+  factory ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$ItemFromJson(
+      _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$ProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$ItemToJson;
+      _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$ItemToJson(
+      _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$ItemToJson(
         this,
       );
 
@@ -12987,17 +13736,17 @@ class ProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item {
   final double type;
   @JsonKey(name: 'optionValues')
   final List<
-    ProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item$OptionValues$Item
+    ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item$OptionValues$Item
   >
   optionValues;
   static const fromJsonFactory =
-      _$ProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$ItemFromJson;
+      _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is ProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item &&
+                is ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item &&
             (identical(other.name, name) ||
                 const DeepCollectionEquality().equals(other.name, name)) &&
             (identical(other.type, type) ||
@@ -13020,35 +13769,36 @@ class ProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$ItemExtension
-    on ProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item {
-  ProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item copyWith({
+extension $ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$ItemExtension
+    on ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item {
+  ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item
+  copyWith({
     String? name,
     double? type,
     List<
-      ProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item$OptionValues$Item
+      ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item$OptionValues$Item
     >?
     optionValues,
   }) {
-    return ProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item(
+    return ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item(
       name: name ?? this.name,
       type: type ?? this.type,
       optionValues: optionValues ?? this.optionValues,
     );
   }
 
-  ProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item
+  ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item
   copyWithWrapped({
     Wrapped<String>? name,
     Wrapped<double>? type,
     Wrapped<
       List<
-        ProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item$OptionValues$Item
+        ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item$OptionValues$Item
       >
     >?
     optionValues,
   }) {
-    return ProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item(
+    return ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item(
       name: (name != null ? name.value : this.name),
       type: (type != null ? type.value : this.type),
       optionValues: (optionValues != null
@@ -13059,22 +13809,23 @@ extension $ProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$ItemExten
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthGetProductInfoGet$Response$Data$ProductAttrs$Item {
-  const ProductNoAuthGetProductInfoGet$Response$Data$ProductAttrs$Item({
+class ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductAttrs$Item {
+  const ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductAttrs$Item({
     required this.name,
     required this.value,
   });
 
-  factory ProductNoAuthGetProductInfoGet$Response$Data$ProductAttrs$Item.fromJson(
+  factory ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductAttrs$Item.fromJson(
     Map<String, dynamic> json,
-  ) => _$ProductNoAuthGetProductInfoGet$Response$Data$ProductAttrs$ItemFromJson(
-    json,
-  );
+  ) =>
+      _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductAttrs$ItemFromJson(
+        json,
+      );
 
   static const toJsonFactory =
-      _$ProductNoAuthGetProductInfoGet$Response$Data$ProductAttrs$ItemToJson;
+      _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductAttrs$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthGetProductInfoGet$Response$Data$ProductAttrs$ItemToJson(
+      _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductAttrs$ItemToJson(
         this,
       );
 
@@ -13083,12 +13834,13 @@ class ProductNoAuthGetProductInfoGet$Response$Data$ProductAttrs$Item {
   @JsonKey(name: 'value')
   final String value;
   static const fromJsonFactory =
-      _$ProductNoAuthGetProductInfoGet$Response$Data$ProductAttrs$ItemFromJson;
+      _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductAttrs$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ProductNoAuthGetProductInfoGet$Response$Data$ProductAttrs$Item &&
+        (other
+                is ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductAttrs$Item &&
             (identical(other.name, name) ||
                 const DeepCollectionEquality().equals(other.name, name)) &&
             (identical(other.value, value) ||
@@ -13105,21 +13857,19 @@ class ProductNoAuthGetProductInfoGet$Response$Data$ProductAttrs$Item {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthGetProductInfoGet$Response$Data$ProductAttrs$ItemExtension
-    on ProductNoAuthGetProductInfoGet$Response$Data$ProductAttrs$Item {
-  ProductNoAuthGetProductInfoGet$Response$Data$ProductAttrs$Item copyWith({
-    String? name,
-    String? value,
-  }) {
-    return ProductNoAuthGetProductInfoGet$Response$Data$ProductAttrs$Item(
+extension $ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductAttrs$ItemExtension
+    on ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductAttrs$Item {
+  ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductAttrs$Item
+  copyWith({String? name, String? value}) {
+    return ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductAttrs$Item(
       name: name ?? this.name,
       value: value ?? this.value,
     );
   }
 
-  ProductNoAuthGetProductInfoGet$Response$Data$ProductAttrs$Item
+  ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductAttrs$Item
   copyWithWrapped({Wrapped<String>? name, Wrapped<String>? value}) {
-    return ProductNoAuthGetProductInfoGet$Response$Data$ProductAttrs$Item(
+    return ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductAttrs$Item(
       name: (name != null ? name.value : this.name),
       value: (value != null ? value.value : this.value),
     );
@@ -13127,39 +13877,39 @@ extension $ProductNoAuthGetProductInfoGet$Response$Data$ProductAttrs$ItemExtensi
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthGetProductInfoGet$Response$Data$InspectImages$Item {
-  const ProductNoAuthGetProductInfoGet$Response$Data$InspectImages$Item({
+class ProductServiceProductNoAuthGetProductInfoGet$Response$Data$InspectImages$Item {
+  const ProductServiceProductNoAuthGetProductInfoGet$Response$Data$InspectImages$Item({
     this.images,
     this.skuOption,
   });
 
-  factory ProductNoAuthGetProductInfoGet$Response$Data$InspectImages$Item.fromJson(
+  factory ProductServiceProductNoAuthGetProductInfoGet$Response$Data$InspectImages$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ProductNoAuthGetProductInfoGet$Response$Data$InspectImages$ItemFromJson(
+      _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$InspectImages$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$ProductNoAuthGetProductInfoGet$Response$Data$InspectImages$ItemToJson;
+      _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$InspectImages$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthGetProductInfoGet$Response$Data$InspectImages$ItemToJson(
+      _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$InspectImages$ItemToJson(
         this,
       );
 
   @JsonKey(name: 'images', defaultValue: <Object>[])
   final List<Object>? images;
   @JsonKey(name: 'skuOption')
-  final ProductNoAuthGetProductInfoGet$Response$Data$InspectImages$Item$SkuOption?
+  final ProductServiceProductNoAuthGetProductInfoGet$Response$Data$InspectImages$Item$SkuOption?
   skuOption;
   static const fromJsonFactory =
-      _$ProductNoAuthGetProductInfoGet$Response$Data$InspectImages$ItemFromJson;
+      _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$InspectImages$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is ProductNoAuthGetProductInfoGet$Response$Data$InspectImages$Item &&
+                is ProductServiceProductNoAuthGetProductInfoGet$Response$Data$InspectImages$Item &&
             (identical(other.images, images) ||
                 const DeepCollectionEquality().equals(other.images, images)) &&
             (identical(other.skuOption, skuOption) ||
@@ -13179,28 +13929,29 @@ class ProductNoAuthGetProductInfoGet$Response$Data$InspectImages$Item {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthGetProductInfoGet$Response$Data$InspectImages$ItemExtension
-    on ProductNoAuthGetProductInfoGet$Response$Data$InspectImages$Item {
-  ProductNoAuthGetProductInfoGet$Response$Data$InspectImages$Item copyWith({
+extension $ProductServiceProductNoAuthGetProductInfoGet$Response$Data$InspectImages$ItemExtension
+    on ProductServiceProductNoAuthGetProductInfoGet$Response$Data$InspectImages$Item {
+  ProductServiceProductNoAuthGetProductInfoGet$Response$Data$InspectImages$Item
+  copyWith({
     List<Object>? images,
-    ProductNoAuthGetProductInfoGet$Response$Data$InspectImages$Item$SkuOption?
+    ProductServiceProductNoAuthGetProductInfoGet$Response$Data$InspectImages$Item$SkuOption?
     skuOption,
   }) {
-    return ProductNoAuthGetProductInfoGet$Response$Data$InspectImages$Item(
+    return ProductServiceProductNoAuthGetProductInfoGet$Response$Data$InspectImages$Item(
       images: images ?? this.images,
       skuOption: skuOption ?? this.skuOption,
     );
   }
 
-  ProductNoAuthGetProductInfoGet$Response$Data$InspectImages$Item
+  ProductServiceProductNoAuthGetProductInfoGet$Response$Data$InspectImages$Item
   copyWithWrapped({
     Wrapped<List<Object>?>? images,
     Wrapped<
-      ProductNoAuthGetProductInfoGet$Response$Data$InspectImages$Item$SkuOption?
+      ProductServiceProductNoAuthGetProductInfoGet$Response$Data$InspectImages$Item$SkuOption?
     >?
     skuOption,
   }) {
-    return ProductNoAuthGetProductInfoGet$Response$Data$InspectImages$Item(
+    return ProductServiceProductNoAuthGetProductInfoGet$Response$Data$InspectImages$Item(
       images: (images != null ? images.value : this.images),
       skuOption: (skuOption != null ? skuOption.value : this.skuOption),
     );
@@ -13208,21 +13959,26 @@ extension $ProductNoAuthGetProductInfoGet$Response$Data$InspectImages$ItemExtens
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthGetProductInfoGet$Response$Data$Tags$Item {
-  const ProductNoAuthGetProductInfoGet$Response$Data$Tags$Item({
+class ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Tags$Item {
+  const ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Tags$Item({
     required this.tagCode,
     required this.tagName,
     required this.tagImg,
   });
 
-  factory ProductNoAuthGetProductInfoGet$Response$Data$Tags$Item.fromJson(
+  factory ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Tags$Item.fromJson(
     Map<String, dynamic> json,
-  ) => _$ProductNoAuthGetProductInfoGet$Response$Data$Tags$ItemFromJson(json);
+  ) =>
+      _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Tags$ItemFromJson(
+        json,
+      );
 
   static const toJsonFactory =
-      _$ProductNoAuthGetProductInfoGet$Response$Data$Tags$ItemToJson;
+      _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Tags$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthGetProductInfoGet$Response$Data$Tags$ItemToJson(this);
+      _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Tags$ItemToJson(
+        this,
+      );
 
   @JsonKey(name: 'tagCode')
   final String tagCode;
@@ -13231,12 +13987,12 @@ class ProductNoAuthGetProductInfoGet$Response$Data$Tags$Item {
   @JsonKey(name: 'tagImg')
   final String tagImg;
   static const fromJsonFactory =
-      _$ProductNoAuthGetProductInfoGet$Response$Data$Tags$ItemFromJson;
+      _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Tags$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ProductNoAuthGetProductInfoGet$Response$Data$Tags$Item &&
+        (other is ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Tags$Item &&
             (identical(other.tagCode, tagCode) ||
                 const DeepCollectionEquality().equals(
                   other.tagCode,
@@ -13262,26 +14018,24 @@ class ProductNoAuthGetProductInfoGet$Response$Data$Tags$Item {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthGetProductInfoGet$Response$Data$Tags$ItemExtension
-    on ProductNoAuthGetProductInfoGet$Response$Data$Tags$Item {
-  ProductNoAuthGetProductInfoGet$Response$Data$Tags$Item copyWith({
-    String? tagCode,
-    String? tagName,
-    String? tagImg,
-  }) {
-    return ProductNoAuthGetProductInfoGet$Response$Data$Tags$Item(
+extension $ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Tags$ItemExtension
+    on ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Tags$Item {
+  ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Tags$Item
+  copyWith({String? tagCode, String? tagName, String? tagImg}) {
+    return ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Tags$Item(
       tagCode: tagCode ?? this.tagCode,
       tagName: tagName ?? this.tagName,
       tagImg: tagImg ?? this.tagImg,
     );
   }
 
-  ProductNoAuthGetProductInfoGet$Response$Data$Tags$Item copyWithWrapped({
+  ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Tags$Item
+  copyWithWrapped({
     Wrapped<String>? tagCode,
     Wrapped<String>? tagName,
     Wrapped<String>? tagImg,
   }) {
-    return ProductNoAuthGetProductInfoGet$Response$Data$Tags$Item(
+    return ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Tags$Item(
       tagCode: (tagCode != null ? tagCode.value : this.tagCode),
       tagName: (tagName != null ? tagName.value : this.tagName),
       tagImg: (tagImg != null ? tagImg.value : this.tagImg),
@@ -13290,22 +14044,23 @@ extension $ProductNoAuthGetProductInfoGet$Response$Data$Tags$ItemExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthGetProductInfoGet$Response$Data$PremiumBrandInfo {
-  const ProductNoAuthGetProductInfoGet$Response$Data$PremiumBrandInfo({
+class ProductServiceProductNoAuthGetProductInfoGet$Response$Data$PremiumBrandInfo {
+  const ProductServiceProductNoAuthGetProductInfoGet$Response$Data$PremiumBrandInfo({
     this.brandCode,
     this.brandImg,
   });
 
-  factory ProductNoAuthGetProductInfoGet$Response$Data$PremiumBrandInfo.fromJson(
+  factory ProductServiceProductNoAuthGetProductInfoGet$Response$Data$PremiumBrandInfo.fromJson(
     Map<String, dynamic> json,
-  ) => _$ProductNoAuthGetProductInfoGet$Response$Data$PremiumBrandInfoFromJson(
-    json,
-  );
+  ) =>
+      _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$PremiumBrandInfoFromJson(
+        json,
+      );
 
   static const toJsonFactory =
-      _$ProductNoAuthGetProductInfoGet$Response$Data$PremiumBrandInfoToJson;
+      _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$PremiumBrandInfoToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthGetProductInfoGet$Response$Data$PremiumBrandInfoToJson(
+      _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$PremiumBrandInfoToJson(
         this,
       );
 
@@ -13314,13 +14069,13 @@ class ProductNoAuthGetProductInfoGet$Response$Data$PremiumBrandInfo {
   @JsonKey(name: 'brandImg')
   final String? brandImg;
   static const fromJsonFactory =
-      _$ProductNoAuthGetProductInfoGet$Response$Data$PremiumBrandInfoFromJson;
+      _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$PremiumBrandInfoFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is ProductNoAuthGetProductInfoGet$Response$Data$PremiumBrandInfo &&
+                is ProductServiceProductNoAuthGetProductInfoGet$Response$Data$PremiumBrandInfo &&
             (identical(other.brandCode, brandCode) ||
                 const DeepCollectionEquality().equals(
                   other.brandCode,
@@ -13343,21 +14098,19 @@ class ProductNoAuthGetProductInfoGet$Response$Data$PremiumBrandInfo {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthGetProductInfoGet$Response$Data$PremiumBrandInfoExtension
-    on ProductNoAuthGetProductInfoGet$Response$Data$PremiumBrandInfo {
-  ProductNoAuthGetProductInfoGet$Response$Data$PremiumBrandInfo copyWith({
-    String? brandCode,
-    String? brandImg,
-  }) {
-    return ProductNoAuthGetProductInfoGet$Response$Data$PremiumBrandInfo(
+extension $ProductServiceProductNoAuthGetProductInfoGet$Response$Data$PremiumBrandInfoExtension
+    on ProductServiceProductNoAuthGetProductInfoGet$Response$Data$PremiumBrandInfo {
+  ProductServiceProductNoAuthGetProductInfoGet$Response$Data$PremiumBrandInfo
+  copyWith({String? brandCode, String? brandImg}) {
+    return ProductServiceProductNoAuthGetProductInfoGet$Response$Data$PremiumBrandInfo(
       brandCode: brandCode ?? this.brandCode,
       brandImg: brandImg ?? this.brandImg,
     );
   }
 
-  ProductNoAuthGetProductInfoGet$Response$Data$PremiumBrandInfo
+  ProductServiceProductNoAuthGetProductInfoGet$Response$Data$PremiumBrandInfo
   copyWithWrapped({Wrapped<String?>? brandCode, Wrapped<String?>? brandImg}) {
-    return ProductNoAuthGetProductInfoGet$Response$Data$PremiumBrandInfo(
+    return ProductServiceProductNoAuthGetProductInfoGet$Response$Data$PremiumBrandInfo(
       brandCode: (brandCode != null ? brandCode.value : this.brandCode),
       brandImg: (brandImg != null ? brandImg.value : this.brandImg),
     );
@@ -13365,35 +14118,40 @@ extension $ProductNoAuthGetProductInfoGet$Response$Data$PremiumBrandInfoExtensio
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthGetProductInfoGet$Response$Data$Ext {
-  const ProductNoAuthGetProductInfoGet$Response$Data$Ext({
+class ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Ext {
+  const ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Ext({
     required this.sizeHelperOptionName,
     required this.sizeHelperType,
     this.brand,
   });
 
-  factory ProductNoAuthGetProductInfoGet$Response$Data$Ext.fromJson(
+  factory ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Ext.fromJson(
     Map<String, dynamic> json,
-  ) => _$ProductNoAuthGetProductInfoGet$Response$Data$ExtFromJson(json);
+  ) => _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ExtFromJson(
+    json,
+  );
 
   static const toJsonFactory =
-      _$ProductNoAuthGetProductInfoGet$Response$Data$ExtToJson;
+      _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ExtToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthGetProductInfoGet$Response$Data$ExtToJson(this);
+      _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ExtToJson(
+        this,
+      );
 
   @JsonKey(name: 'sizeHelperOptionName')
   final String sizeHelperOptionName;
   @JsonKey(name: 'sizeHelperType')
   final int sizeHelperType;
   @JsonKey(name: 'brand')
-  final ProductNoAuthGetProductInfoGet$Response$Data$Ext$Brand? brand;
+  final ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Ext$Brand?
+  brand;
   static const fromJsonFactory =
-      _$ProductNoAuthGetProductInfoGet$Response$Data$ExtFromJson;
+      _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ExtFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ProductNoAuthGetProductInfoGet$Response$Data$Ext &&
+        (other is ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Ext &&
             (identical(other.sizeHelperOptionName, sizeHelperOptionName) ||
                 const DeepCollectionEquality().equals(
                   other.sizeHelperOptionName,
@@ -13419,26 +14177,30 @@ class ProductNoAuthGetProductInfoGet$Response$Data$Ext {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthGetProductInfoGet$Response$Data$ExtExtension
-    on ProductNoAuthGetProductInfoGet$Response$Data$Ext {
-  ProductNoAuthGetProductInfoGet$Response$Data$Ext copyWith({
+extension $ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ExtExtension
+    on ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Ext {
+  ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Ext copyWith({
     String? sizeHelperOptionName,
     int? sizeHelperType,
-    ProductNoAuthGetProductInfoGet$Response$Data$Ext$Brand? brand,
+    ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Ext$Brand? brand,
   }) {
-    return ProductNoAuthGetProductInfoGet$Response$Data$Ext(
+    return ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Ext(
       sizeHelperOptionName: sizeHelperOptionName ?? this.sizeHelperOptionName,
       sizeHelperType: sizeHelperType ?? this.sizeHelperType,
       brand: brand ?? this.brand,
     );
   }
 
-  ProductNoAuthGetProductInfoGet$Response$Data$Ext copyWithWrapped({
+  ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Ext
+  copyWithWrapped({
     Wrapped<String>? sizeHelperOptionName,
     Wrapped<int>? sizeHelperType,
-    Wrapped<ProductNoAuthGetProductInfoGet$Response$Data$Ext$Brand?>? brand,
+    Wrapped<
+      ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Ext$Brand?
+    >?
+    brand,
   }) {
-    return ProductNoAuthGetProductInfoGet$Response$Data$Ext(
+    return ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Ext(
       sizeHelperOptionName: (sizeHelperOptionName != null
           ? sizeHelperOptionName.value
           : this.sizeHelperOptionName),
@@ -13451,8 +14213,8 @@ extension $ProductNoAuthGetProductInfoGet$Response$Data$ExtExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthGetProductInfoGet$Response$Data$FlashSale {
-  const ProductNoAuthGetProductInfoGet$Response$Data$FlashSale({
+class ProductServiceProductNoAuthGetProductInfoGet$Response$Data$FlashSale {
+  const ProductServiceProductNoAuthGetProductInfoGet$Response$Data$FlashSale({
     required this.activityCode,
     required this.activityTitle,
     required this.startTime,
@@ -13463,14 +14225,19 @@ class ProductNoAuthGetProductInfoGet$Response$Data$FlashSale {
     required this.discountExpr,
   });
 
-  factory ProductNoAuthGetProductInfoGet$Response$Data$FlashSale.fromJson(
+  factory ProductServiceProductNoAuthGetProductInfoGet$Response$Data$FlashSale.fromJson(
     Map<String, dynamic> json,
-  ) => _$ProductNoAuthGetProductInfoGet$Response$Data$FlashSaleFromJson(json);
+  ) =>
+      _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$FlashSaleFromJson(
+        json,
+      );
 
   static const toJsonFactory =
-      _$ProductNoAuthGetProductInfoGet$Response$Data$FlashSaleToJson;
+      _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$FlashSaleToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthGetProductInfoGet$Response$Data$FlashSaleToJson(this);
+      _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$FlashSaleToJson(
+        this,
+      );
 
   @JsonKey(name: 'activityCode')
   final String activityCode;
@@ -13489,12 +14256,13 @@ class ProductNoAuthGetProductInfoGet$Response$Data$FlashSale {
   @JsonKey(name: 'discountExpr')
   final String discountExpr;
   static const fromJsonFactory =
-      _$ProductNoAuthGetProductInfoGet$Response$Data$FlashSaleFromJson;
+      _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$FlashSaleFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ProductNoAuthGetProductInfoGet$Response$Data$FlashSale &&
+        (other
+                is ProductServiceProductNoAuthGetProductInfoGet$Response$Data$FlashSale &&
             (identical(other.activityCode, activityCode) ||
                 const DeepCollectionEquality().equals(
                   other.activityCode,
@@ -13553,9 +14321,10 @@ class ProductNoAuthGetProductInfoGet$Response$Data$FlashSale {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthGetProductInfoGet$Response$Data$FlashSaleExtension
-    on ProductNoAuthGetProductInfoGet$Response$Data$FlashSale {
-  ProductNoAuthGetProductInfoGet$Response$Data$FlashSale copyWith({
+extension $ProductServiceProductNoAuthGetProductInfoGet$Response$Data$FlashSaleExtension
+    on ProductServiceProductNoAuthGetProductInfoGet$Response$Data$FlashSale {
+  ProductServiceProductNoAuthGetProductInfoGet$Response$Data$FlashSale
+  copyWith({
     String? activityCode,
     String? activityTitle,
     String? startTime,
@@ -13565,7 +14334,7 @@ extension $ProductNoAuthGetProductInfoGet$Response$Data$FlashSaleExtension
     String? marketingIcon,
     String? discountExpr,
   }) {
-    return ProductNoAuthGetProductInfoGet$Response$Data$FlashSale(
+    return ProductServiceProductNoAuthGetProductInfoGet$Response$Data$FlashSale(
       activityCode: activityCode ?? this.activityCode,
       activityTitle: activityTitle ?? this.activityTitle,
       startTime: startTime ?? this.startTime,
@@ -13577,7 +14346,8 @@ extension $ProductNoAuthGetProductInfoGet$Response$Data$FlashSaleExtension
     );
   }
 
-  ProductNoAuthGetProductInfoGet$Response$Data$FlashSale copyWithWrapped({
+  ProductServiceProductNoAuthGetProductInfoGet$Response$Data$FlashSale
+  copyWithWrapped({
     Wrapped<String>? activityCode,
     Wrapped<String>? activityTitle,
     Wrapped<String>? startTime,
@@ -13587,7 +14357,7 @@ extension $ProductNoAuthGetProductInfoGet$Response$Data$FlashSaleExtension
     Wrapped<String>? marketingIcon,
     Wrapped<String>? discountExpr,
   }) {
-    return ProductNoAuthGetProductInfoGet$Response$Data$FlashSale(
+    return ProductServiceProductNoAuthGetProductInfoGet$Response$Data$FlashSale(
       activityCode: (activityCode != null
           ? activityCode.value
           : this.activityCode),
@@ -13613,8 +14383,8 @@ extension $ProductNoAuthGetProductInfoGet$Response$Data$FlashSaleExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item {
-  const ProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item({
+class ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item {
+  const ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item({
     required this.id,
     required this.parentId,
     required this.level,
@@ -13625,17 +14395,17 @@ class ProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item {
     required this.brands,
   });
 
-  factory ProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item.fromJson(
+  factory ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$ItemFromJson(
+      _$ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$ProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$ItemToJson;
+      _$ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$ItemToJson(
+      _$ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$ItemToJson(
         this,
       );
 
@@ -13653,19 +14423,19 @@ class ProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item {
   final String iconUrl;
   @JsonKey(name: 'categoryList')
   final List<
-    ProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item$CategoryList$Item
+    ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item$CategoryList$Item
   >
   categoryList;
   @JsonKey(name: 'brands', defaultValue: <Object>[])
   final List<Object> brands;
   static const fromJsonFactory =
-      _$ProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$ItemFromJson;
+      _$ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is ProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item &&
+                is ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item &&
             (identical(other.id, id) ||
                 const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.parentId, parentId) ||
@@ -13712,9 +14482,10 @@ class ProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$ItemExtension
-    on ProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item {
-  ProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item
+extension $ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$ItemExtension
+    on
+        ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item {
+  ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item
   copyWith({
     double? id,
     double? parentId,
@@ -13723,12 +14494,12 @@ extension $ProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Ite
     String? name,
     String? iconUrl,
     List<
-      ProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item$CategoryList$Item
+      ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item$CategoryList$Item
     >?
     categoryList,
     List<Object>? brands,
   }) {
-    return ProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item(
+    return ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item(
       id: id ?? this.id,
       parentId: parentId ?? this.parentId,
       level: level ?? this.level,
@@ -13740,7 +14511,7 @@ extension $ProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Ite
     );
   }
 
-  ProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item
+  ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item
   copyWithWrapped({
     Wrapped<double>? id,
     Wrapped<double>? parentId,
@@ -13750,13 +14521,13 @@ extension $ProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Ite
     Wrapped<String>? iconUrl,
     Wrapped<
       List<
-        ProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item$CategoryList$Item
+        ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item$CategoryList$Item
       >
     >?
     categoryList,
     Wrapped<List<Object>>? brands,
   }) {
-    return ProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item(
+    return ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item(
       id: (id != null ? id.value : this.id),
       parentId: (parentId != null ? parentId.value : this.parentId),
       level: (level != null ? level.value : this.level),
@@ -13772,21 +14543,26 @@ extension $ProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Ite
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthHotProductGet$Response$Data$Item$Image {
-  const ProductNoAuthHotProductGet$Response$Data$Item$Image({
+class ProductServiceProductNoAuthHotProductGet$Response$Data$Item$Image {
+  const ProductServiceProductNoAuthHotProductGet$Response$Data$Item$Image({
     required this.width,
     required this.height,
     required this.url,
   });
 
-  factory ProductNoAuthHotProductGet$Response$Data$Item$Image.fromJson(
+  factory ProductServiceProductNoAuthHotProductGet$Response$Data$Item$Image.fromJson(
     Map<String, dynamic> json,
-  ) => _$ProductNoAuthHotProductGet$Response$Data$Item$ImageFromJson(json);
+  ) =>
+      _$ProductServiceProductNoAuthHotProductGet$Response$Data$Item$ImageFromJson(
+        json,
+      );
 
   static const toJsonFactory =
-      _$ProductNoAuthHotProductGet$Response$Data$Item$ImageToJson;
+      _$ProductServiceProductNoAuthHotProductGet$Response$Data$Item$ImageToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthHotProductGet$Response$Data$Item$ImageToJson(this);
+      _$ProductServiceProductNoAuthHotProductGet$Response$Data$Item$ImageToJson(
+        this,
+      );
 
   @JsonKey(name: 'width')
   final int width;
@@ -13795,12 +14571,12 @@ class ProductNoAuthHotProductGet$Response$Data$Item$Image {
   @JsonKey(name: 'url')
   final String url;
   static const fromJsonFactory =
-      _$ProductNoAuthHotProductGet$Response$Data$Item$ImageFromJson;
+      _$ProductServiceProductNoAuthHotProductGet$Response$Data$Item$ImageFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ProductNoAuthHotProductGet$Response$Data$Item$Image &&
+        (other is ProductServiceProductNoAuthHotProductGet$Response$Data$Item$Image &&
             (identical(other.width, width) ||
                 const DeepCollectionEquality().equals(other.width, width)) &&
             (identical(other.height, height) ||
@@ -13820,26 +14596,27 @@ class ProductNoAuthHotProductGet$Response$Data$Item$Image {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthHotProductGet$Response$Data$Item$ImageExtension
-    on ProductNoAuthHotProductGet$Response$Data$Item$Image {
-  ProductNoAuthHotProductGet$Response$Data$Item$Image copyWith({
+extension $ProductServiceProductNoAuthHotProductGet$Response$Data$Item$ImageExtension
+    on ProductServiceProductNoAuthHotProductGet$Response$Data$Item$Image {
+  ProductServiceProductNoAuthHotProductGet$Response$Data$Item$Image copyWith({
     int? width,
     int? height,
     String? url,
   }) {
-    return ProductNoAuthHotProductGet$Response$Data$Item$Image(
+    return ProductServiceProductNoAuthHotProductGet$Response$Data$Item$Image(
       width: width ?? this.width,
       height: height ?? this.height,
       url: url ?? this.url,
     );
   }
 
-  ProductNoAuthHotProductGet$Response$Data$Item$Image copyWithWrapped({
+  ProductServiceProductNoAuthHotProductGet$Response$Data$Item$Image
+  copyWithWrapped({
     Wrapped<int>? width,
     Wrapped<int>? height,
     Wrapped<String>? url,
   }) {
-    return ProductNoAuthHotProductGet$Response$Data$Item$Image(
+    return ProductServiceProductNoAuthHotProductGet$Response$Data$Item$Image(
       width: (width != null ? width.value : this.width),
       height: (height != null ? height.value : this.height),
       url: (url != null ? url.value : this.url),
@@ -13848,32 +14625,38 @@ extension $ProductNoAuthHotProductGet$Response$Data$Item$ImageExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthHotProductGet$Response$Data$Item$Tags$Item {
-  const ProductNoAuthHotProductGet$Response$Data$Item$Tags$Item({
+class ProductServiceProductNoAuthHotProductGet$Response$Data$Item$Tags$Item {
+  const ProductServiceProductNoAuthHotProductGet$Response$Data$Item$Tags$Item({
     this.tagCode,
     this.tagImg,
   });
 
-  factory ProductNoAuthHotProductGet$Response$Data$Item$Tags$Item.fromJson(
+  factory ProductServiceProductNoAuthHotProductGet$Response$Data$Item$Tags$Item.fromJson(
     Map<String, dynamic> json,
-  ) => _$ProductNoAuthHotProductGet$Response$Data$Item$Tags$ItemFromJson(json);
+  ) =>
+      _$ProductServiceProductNoAuthHotProductGet$Response$Data$Item$Tags$ItemFromJson(
+        json,
+      );
 
   static const toJsonFactory =
-      _$ProductNoAuthHotProductGet$Response$Data$Item$Tags$ItemToJson;
+      _$ProductServiceProductNoAuthHotProductGet$Response$Data$Item$Tags$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthHotProductGet$Response$Data$Item$Tags$ItemToJson(this);
+      _$ProductServiceProductNoAuthHotProductGet$Response$Data$Item$Tags$ItemToJson(
+        this,
+      );
 
   @JsonKey(name: 'tagCode')
   final String? tagCode;
   @JsonKey(name: 'tagImg')
   final String? tagImg;
   static const fromJsonFactory =
-      _$ProductNoAuthHotProductGet$Response$Data$Item$Tags$ItemFromJson;
+      _$ProductServiceProductNoAuthHotProductGet$Response$Data$Item$Tags$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ProductNoAuthHotProductGet$Response$Data$Item$Tags$Item &&
+        (other
+                is ProductServiceProductNoAuthHotProductGet$Response$Data$Item$Tags$Item &&
             (identical(other.tagCode, tagCode) ||
                 const DeepCollectionEquality().equals(
                   other.tagCode,
@@ -13893,23 +14676,19 @@ class ProductNoAuthHotProductGet$Response$Data$Item$Tags$Item {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthHotProductGet$Response$Data$Item$Tags$ItemExtension
-    on ProductNoAuthHotProductGet$Response$Data$Item$Tags$Item {
-  ProductNoAuthHotProductGet$Response$Data$Item$Tags$Item copyWith({
-    String? tagCode,
-    String? tagImg,
-  }) {
-    return ProductNoAuthHotProductGet$Response$Data$Item$Tags$Item(
+extension $ProductServiceProductNoAuthHotProductGet$Response$Data$Item$Tags$ItemExtension
+    on ProductServiceProductNoAuthHotProductGet$Response$Data$Item$Tags$Item {
+  ProductServiceProductNoAuthHotProductGet$Response$Data$Item$Tags$Item
+  copyWith({String? tagCode, String? tagImg}) {
+    return ProductServiceProductNoAuthHotProductGet$Response$Data$Item$Tags$Item(
       tagCode: tagCode ?? this.tagCode,
       tagImg: tagImg ?? this.tagImg,
     );
   }
 
-  ProductNoAuthHotProductGet$Response$Data$Item$Tags$Item copyWithWrapped({
-    Wrapped<String?>? tagCode,
-    Wrapped<String?>? tagImg,
-  }) {
-    return ProductNoAuthHotProductGet$Response$Data$Item$Tags$Item(
+  ProductServiceProductNoAuthHotProductGet$Response$Data$Item$Tags$Item
+  copyWithWrapped({Wrapped<String?>? tagCode, Wrapped<String?>? tagImg}) {
+    return ProductServiceProductNoAuthHotProductGet$Response$Data$Item$Tags$Item(
       tagCode: (tagCode != null ? tagCode.value : this.tagCode),
       tagImg: (tagImg != null ? tagImg.value : this.tagImg),
     );
@@ -13917,22 +14696,23 @@ extension $ProductNoAuthHotProductGet$Response$Data$Item$Tags$ItemExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthHotProductGet$Response$Data$Item$PremiumBrandInfo {
-  const ProductNoAuthHotProductGet$Response$Data$Item$PremiumBrandInfo({
+class ProductServiceProductNoAuthHotProductGet$Response$Data$Item$PremiumBrandInfo {
+  const ProductServiceProductNoAuthHotProductGet$Response$Data$Item$PremiumBrandInfo({
     this.brandCode,
     this.brandImg,
   });
 
-  factory ProductNoAuthHotProductGet$Response$Data$Item$PremiumBrandInfo.fromJson(
+  factory ProductServiceProductNoAuthHotProductGet$Response$Data$Item$PremiumBrandInfo.fromJson(
     Map<String, dynamic> json,
-  ) => _$ProductNoAuthHotProductGet$Response$Data$Item$PremiumBrandInfoFromJson(
-    json,
-  );
+  ) =>
+      _$ProductServiceProductNoAuthHotProductGet$Response$Data$Item$PremiumBrandInfoFromJson(
+        json,
+      );
 
   static const toJsonFactory =
-      _$ProductNoAuthHotProductGet$Response$Data$Item$PremiumBrandInfoToJson;
+      _$ProductServiceProductNoAuthHotProductGet$Response$Data$Item$PremiumBrandInfoToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthHotProductGet$Response$Data$Item$PremiumBrandInfoToJson(
+      _$ProductServiceProductNoAuthHotProductGet$Response$Data$Item$PremiumBrandInfoToJson(
         this,
       );
 
@@ -13941,13 +14721,13 @@ class ProductNoAuthHotProductGet$Response$Data$Item$PremiumBrandInfo {
   @JsonKey(name: 'brandImg')
   final String? brandImg;
   static const fromJsonFactory =
-      _$ProductNoAuthHotProductGet$Response$Data$Item$PremiumBrandInfoFromJson;
+      _$ProductServiceProductNoAuthHotProductGet$Response$Data$Item$PremiumBrandInfoFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is ProductNoAuthHotProductGet$Response$Data$Item$PremiumBrandInfo &&
+                is ProductServiceProductNoAuthHotProductGet$Response$Data$Item$PremiumBrandInfo &&
             (identical(other.brandCode, brandCode) ||
                 const DeepCollectionEquality().equals(
                   other.brandCode,
@@ -13970,21 +14750,19 @@ class ProductNoAuthHotProductGet$Response$Data$Item$PremiumBrandInfo {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthHotProductGet$Response$Data$Item$PremiumBrandInfoExtension
-    on ProductNoAuthHotProductGet$Response$Data$Item$PremiumBrandInfo {
-  ProductNoAuthHotProductGet$Response$Data$Item$PremiumBrandInfo copyWith({
-    String? brandCode,
-    String? brandImg,
-  }) {
-    return ProductNoAuthHotProductGet$Response$Data$Item$PremiumBrandInfo(
+extension $ProductServiceProductNoAuthHotProductGet$Response$Data$Item$PremiumBrandInfoExtension
+    on ProductServiceProductNoAuthHotProductGet$Response$Data$Item$PremiumBrandInfo {
+  ProductServiceProductNoAuthHotProductGet$Response$Data$Item$PremiumBrandInfo
+  copyWith({String? brandCode, String? brandImg}) {
+    return ProductServiceProductNoAuthHotProductGet$Response$Data$Item$PremiumBrandInfo(
       brandCode: brandCode ?? this.brandCode,
       brandImg: brandImg ?? this.brandImg,
     );
   }
 
-  ProductNoAuthHotProductGet$Response$Data$Item$PremiumBrandInfo
+  ProductServiceProductNoAuthHotProductGet$Response$Data$Item$PremiumBrandInfo
   copyWithWrapped({Wrapped<String?>? brandCode, Wrapped<String?>? brandImg}) {
-    return ProductNoAuthHotProductGet$Response$Data$Item$PremiumBrandInfo(
+    return ProductServiceProductNoAuthHotProductGet$Response$Data$Item$PremiumBrandInfo(
       brandCode: (brandCode != null ? brandCode.value : this.brandCode),
       brandImg: (brandImg != null ? brandImg.value : this.brandImg),
     );
@@ -13992,8 +14770,8 @@ extension $ProductNoAuthHotProductGet$Response$Data$Item$PremiumBrandInfoExtensi
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthHotProductV2Get$Response$Data$Records$Item {
-  const ProductNoAuthHotProductV2Get$Response$Data$Records$Item({
+class ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item {
+  const ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item({
     required this.productCode,
     required this.productName,
     required this.image,
@@ -14012,21 +14790,27 @@ class ProductNoAuthHotProductV2Get$Response$Data$Records$Item {
     this.marketingInfo,
   });
 
-  factory ProductNoAuthHotProductV2Get$Response$Data$Records$Item.fromJson(
+  factory ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item.fromJson(
     Map<String, dynamic> json,
-  ) => _$ProductNoAuthHotProductV2Get$Response$Data$Records$ItemFromJson(json);
+  ) =>
+      _$ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$ItemFromJson(
+        json,
+      );
 
   static const toJsonFactory =
-      _$ProductNoAuthHotProductV2Get$Response$Data$Records$ItemToJson;
+      _$ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthHotProductV2Get$Response$Data$Records$ItemToJson(this);
+      _$ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$ItemToJson(
+        this,
+      );
 
   @JsonKey(name: 'productCode')
   final String productCode;
   @JsonKey(name: 'productName')
   final String productName;
   @JsonKey(name: 'image')
-  final ProductNoAuthHotProductV2Get$Response$Data$Records$Item$Image image;
+  final ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$Image
+  image;
   @JsonKey(name: 'skuCode')
   final String skuCode;
   @JsonKey(name: 'sellPriceCur')
@@ -14040,29 +14824,32 @@ class ProductNoAuthHotProductV2Get$Response$Data$Records$Item {
   @JsonKey(name: 'sellQuantity')
   final String sellQuantity;
   @JsonKey(name: 'tags')
-  final List<ProductNoAuthHotProductV2Get$Response$Data$Records$Item$Tags$Item>
+  final List<
+    ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$Tags$Item
+  >
   tags;
   @JsonKey(name: 'premiumBrandInfo')
-  final ProductNoAuthHotProductV2Get$Response$Data$Records$Item$PremiumBrandInfo?
+  final ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$PremiumBrandInfo?
   premiumBrandInfo;
   @JsonKey(name: 'sellPoints', defaultValue: <Object>[])
   final List<Object>? sellPoints;
   @JsonKey(name: 'rate')
   final String? rate;
   @JsonKey(name: 'flashSale')
-  final ProductNoAuthHotProductV2Get$Response$Data$Records$Item$FlashSale?
+  final ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$FlashSale?
   flashSale;
   @JsonKey(name: 'targetOriginPrice')
   final String? targetOriginPrice;
   @JsonKey(name: 'marketingInfo')
   final String? marketingInfo;
   static const fromJsonFactory =
-      _$ProductNoAuthHotProductV2Get$Response$Data$Records$ItemFromJson;
+      _$ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ProductNoAuthHotProductV2Get$Response$Data$Records$Item &&
+        (other
+                is ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item &&
             (identical(other.productCode, productCode) ||
                 const DeepCollectionEquality().equals(
                   other.productCode,
@@ -14160,30 +14947,34 @@ class ProductNoAuthHotProductV2Get$Response$Data$Records$Item {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthHotProductV2Get$Response$Data$Records$ItemExtension
-    on ProductNoAuthHotProductV2Get$Response$Data$Records$Item {
-  ProductNoAuthHotProductV2Get$Response$Data$Records$Item copyWith({
+extension $ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$ItemExtension
+    on ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item {
+  ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item
+  copyWith({
     String? productCode,
     String? productName,
-    ProductNoAuthHotProductV2Get$Response$Data$Records$Item$Image? image,
+    ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$Image?
+    image,
     String? skuCode,
     String? sellPriceCur,
     String? sellPrice,
     String? targetSellPrice,
     String? targetSellCur,
     String? sellQuantity,
-    List<ProductNoAuthHotProductV2Get$Response$Data$Records$Item$Tags$Item>?
+    List<
+      ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$Tags$Item
+    >?
     tags,
-    ProductNoAuthHotProductV2Get$Response$Data$Records$Item$PremiumBrandInfo?
+    ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$PremiumBrandInfo?
     premiumBrandInfo,
     List<Object>? sellPoints,
     String? rate,
-    ProductNoAuthHotProductV2Get$Response$Data$Records$Item$FlashSale?
+    ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$FlashSale?
     flashSale,
     String? targetOriginPrice,
     String? marketingInfo,
   }) {
-    return ProductNoAuthHotProductV2Get$Response$Data$Records$Item(
+    return ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item(
       productCode: productCode ?? this.productCode,
       productName: productName ?? this.productName,
       image: image ?? this.image,
@@ -14203,10 +14994,13 @@ extension $ProductNoAuthHotProductV2Get$Response$Data$Records$ItemExtension
     );
   }
 
-  ProductNoAuthHotProductV2Get$Response$Data$Records$Item copyWithWrapped({
+  ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item
+  copyWithWrapped({
     Wrapped<String>? productCode,
     Wrapped<String>? productName,
-    Wrapped<ProductNoAuthHotProductV2Get$Response$Data$Records$Item$Image>?
+    Wrapped<
+      ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$Image
+    >?
     image,
     Wrapped<String>? skuCode,
     Wrapped<String>? sellPriceCur,
@@ -14215,21 +15009,25 @@ extension $ProductNoAuthHotProductV2Get$Response$Data$Records$ItemExtension
     Wrapped<String>? targetSellCur,
     Wrapped<String>? sellQuantity,
     Wrapped<
-      List<ProductNoAuthHotProductV2Get$Response$Data$Records$Item$Tags$Item>
+      List<
+        ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$Tags$Item
+      >
     >?
     tags,
     Wrapped<
-      ProductNoAuthHotProductV2Get$Response$Data$Records$Item$PremiumBrandInfo?
+      ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$PremiumBrandInfo?
     >?
     premiumBrandInfo,
     Wrapped<List<Object>?>? sellPoints,
     Wrapped<String?>? rate,
-    Wrapped<ProductNoAuthHotProductV2Get$Response$Data$Records$Item$FlashSale?>?
+    Wrapped<
+      ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$FlashSale?
+    >?
     flashSale,
     Wrapped<String?>? targetOriginPrice,
     Wrapped<String?>? marketingInfo,
   }) {
-    return ProductNoAuthHotProductV2Get$Response$Data$Records$Item(
+    return ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item(
       productCode: (productCode != null ? productCode.value : this.productCode),
       productName: (productName != null ? productName.value : this.productName),
       image: (image != null ? image.value : this.image),
@@ -14265,8 +15063,8 @@ extension $ProductNoAuthHotProductV2Get$Response$Data$Records$ItemExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthHotProductV3Get$Response$Data$Records$Item {
-  const ProductNoAuthHotProductV3Get$Response$Data$Records$Item({
+class ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item {
+  const ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item({
     required this.productCode,
     required this.productName,
     required this.image,
@@ -14288,21 +15086,27 @@ class ProductNoAuthHotProductV3Get$Response$Data$Records$Item {
     this.flashSale,
   });
 
-  factory ProductNoAuthHotProductV3Get$Response$Data$Records$Item.fromJson(
+  factory ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item.fromJson(
     Map<String, dynamic> json,
-  ) => _$ProductNoAuthHotProductV3Get$Response$Data$Records$ItemFromJson(json);
+  ) =>
+      _$ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$ItemFromJson(
+        json,
+      );
 
   static const toJsonFactory =
-      _$ProductNoAuthHotProductV3Get$Response$Data$Records$ItemToJson;
+      _$ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthHotProductV3Get$Response$Data$Records$ItemToJson(this);
+      _$ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$ItemToJson(
+        this,
+      );
 
   @JsonKey(name: 'productCode')
   final String productCode;
   @JsonKey(name: 'productName')
   final String productName;
   @JsonKey(name: 'image')
-  final ProductNoAuthHotProductV3Get$Response$Data$Records$Item$Image image;
+  final ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$Image
+  image;
   @JsonKey(name: 'sourcePlatform')
   final String sourcePlatform;
   @JsonKey(name: 'platformProductId')
@@ -14326,25 +15130,28 @@ class ProductNoAuthHotProductV3Get$Response$Data$Records$Item {
   @JsonKey(name: 'marketingInfo')
   final String marketingInfo;
   @JsonKey(name: 'tags')
-  final List<ProductNoAuthHotProductV3Get$Response$Data$Records$Item$Tags$Item>
+  final List<
+    ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$Tags$Item
+  >
   tags;
   @JsonKey(name: 'premiumBrandInfo')
-  final ProductNoAuthHotProductV3Get$Response$Data$Records$Item$PremiumBrandInfo?
+  final ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$PremiumBrandInfo?
   premiumBrandInfo;
   @JsonKey(name: 'sellPoints', defaultValue: <Object>[])
   final List<Object>? sellPoints;
   @JsonKey(name: 'rate')
   final String? rate;
   @JsonKey(name: 'flashSale')
-  final ProductNoAuthHotProductV3Get$Response$Data$Records$Item$FlashSale?
+  final ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$FlashSale?
   flashSale;
   static const fromJsonFactory =
-      _$ProductNoAuthHotProductV3Get$Response$Data$Records$ItemFromJson;
+      _$ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ProductNoAuthHotProductV3Get$Response$Data$Records$Item &&
+        (other
+                is ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item &&
             (identical(other.productCode, productCode) ||
                 const DeepCollectionEquality().equals(
                   other.productCode,
@@ -14460,12 +15267,14 @@ class ProductNoAuthHotProductV3Get$Response$Data$Records$Item {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthHotProductV3Get$Response$Data$Records$ItemExtension
-    on ProductNoAuthHotProductV3Get$Response$Data$Records$Item {
-  ProductNoAuthHotProductV3Get$Response$Data$Records$Item copyWith({
+extension $ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$ItemExtension
+    on ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item {
+  ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item
+  copyWith({
     String? productCode,
     String? productName,
-    ProductNoAuthHotProductV3Get$Response$Data$Records$Item$Image? image,
+    ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$Image?
+    image,
     String? sourcePlatform,
     String? platformProductId,
     String? skuCode,
@@ -14477,16 +15286,18 @@ extension $ProductNoAuthHotProductV3Get$Response$Data$Records$ItemExtension
     String? sellQuantity,
     double? skuCount,
     String? marketingInfo,
-    List<ProductNoAuthHotProductV3Get$Response$Data$Records$Item$Tags$Item>?
+    List<
+      ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$Tags$Item
+    >?
     tags,
-    ProductNoAuthHotProductV3Get$Response$Data$Records$Item$PremiumBrandInfo?
+    ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$PremiumBrandInfo?
     premiumBrandInfo,
     List<Object>? sellPoints,
     String? rate,
-    ProductNoAuthHotProductV3Get$Response$Data$Records$Item$FlashSale?
+    ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$FlashSale?
     flashSale,
   }) {
-    return ProductNoAuthHotProductV3Get$Response$Data$Records$Item(
+    return ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item(
       productCode: productCode ?? this.productCode,
       productName: productName ?? this.productName,
       image: image ?? this.image,
@@ -14509,10 +15320,13 @@ extension $ProductNoAuthHotProductV3Get$Response$Data$Records$ItemExtension
     );
   }
 
-  ProductNoAuthHotProductV3Get$Response$Data$Records$Item copyWithWrapped({
+  ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item
+  copyWithWrapped({
     Wrapped<String>? productCode,
     Wrapped<String>? productName,
-    Wrapped<ProductNoAuthHotProductV3Get$Response$Data$Records$Item$Image>?
+    Wrapped<
+      ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$Image
+    >?
     image,
     Wrapped<String>? sourcePlatform,
     Wrapped<String>? platformProductId,
@@ -14526,19 +15340,23 @@ extension $ProductNoAuthHotProductV3Get$Response$Data$Records$ItemExtension
     Wrapped<double>? skuCount,
     Wrapped<String>? marketingInfo,
     Wrapped<
-      List<ProductNoAuthHotProductV3Get$Response$Data$Records$Item$Tags$Item>
+      List<
+        ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$Tags$Item
+      >
     >?
     tags,
     Wrapped<
-      ProductNoAuthHotProductV3Get$Response$Data$Records$Item$PremiumBrandInfo?
+      ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$PremiumBrandInfo?
     >?
     premiumBrandInfo,
     Wrapped<List<Object>?>? sellPoints,
     Wrapped<String?>? rate,
-    Wrapped<ProductNoAuthHotProductV3Get$Response$Data$Records$Item$FlashSale?>?
+    Wrapped<
+      ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$FlashSale?
+    >?
     flashSale,
   }) {
-    return ProductNoAuthHotProductV3Get$Response$Data$Records$Item(
+    return ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item(
       productCode: (productCode != null ? productCode.value : this.productCode),
       productName: (productName != null ? productName.value : this.productName),
       image: (image != null ? image.value : this.image),
@@ -14581,24 +15399,24 @@ extension $ProductNoAuthHotProductV3Get$Response$Data$Records$ItemExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthFlashSaleProductGet$Response$Data$Item$MainImg$Item {
-  const ProductNoAuthFlashSaleProductGet$Response$Data$Item$MainImg$Item({
+class ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$MainImg$Item {
+  const ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$MainImg$Item({
     required this.width,
     required this.height,
     required this.url,
   });
 
-  factory ProductNoAuthFlashSaleProductGet$Response$Data$Item$MainImg$Item.fromJson(
+  factory ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$MainImg$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ProductNoAuthFlashSaleProductGet$Response$Data$Item$MainImg$ItemFromJson(
+      _$ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$MainImg$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$ProductNoAuthFlashSaleProductGet$Response$Data$Item$MainImg$ItemToJson;
+      _$ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$MainImg$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthFlashSaleProductGet$Response$Data$Item$MainImg$ItemToJson(
+      _$ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$MainImg$ItemToJson(
         this,
       );
 
@@ -14609,12 +15427,13 @@ class ProductNoAuthFlashSaleProductGet$Response$Data$Item$MainImg$Item {
   @JsonKey(name: 'url')
   final String url;
   static const fromJsonFactory =
-      _$ProductNoAuthFlashSaleProductGet$Response$Data$Item$MainImg$ItemFromJson;
+      _$ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$MainImg$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ProductNoAuthFlashSaleProductGet$Response$Data$Item$MainImg$Item &&
+        (other
+                is ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$MainImg$Item &&
             (identical(other.width, width) ||
                 const DeepCollectionEquality().equals(other.width, width)) &&
             (identical(other.height, height) ||
@@ -14634,27 +15453,24 @@ class ProductNoAuthFlashSaleProductGet$Response$Data$Item$MainImg$Item {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthFlashSaleProductGet$Response$Data$Item$MainImg$ItemExtension
-    on ProductNoAuthFlashSaleProductGet$Response$Data$Item$MainImg$Item {
-  ProductNoAuthFlashSaleProductGet$Response$Data$Item$MainImg$Item copyWith({
-    double? width,
-    double? height,
-    String? url,
-  }) {
-    return ProductNoAuthFlashSaleProductGet$Response$Data$Item$MainImg$Item(
+extension $ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$MainImg$ItemExtension
+    on ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$MainImg$Item {
+  ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$MainImg$Item
+  copyWith({double? width, double? height, String? url}) {
+    return ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$MainImg$Item(
       width: width ?? this.width,
       height: height ?? this.height,
       url: url ?? this.url,
     );
   }
 
-  ProductNoAuthFlashSaleProductGet$Response$Data$Item$MainImg$Item
+  ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$MainImg$Item
   copyWithWrapped({
     Wrapped<double>? width,
     Wrapped<double>? height,
     Wrapped<String>? url,
   }) {
-    return ProductNoAuthFlashSaleProductGet$Response$Data$Item$MainImg$Item(
+    return ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$MainImg$Item(
       width: (width != null ? width.value : this.width),
       height: (height != null ? height.value : this.height),
       url: (url != null ? url.value : this.url),
@@ -14663,8 +15479,8 @@ extension $ProductNoAuthFlashSaleProductGet$Response$Data$Item$MainImg$ItemExten
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthFlashSaleProductGet$Response$Data$Item$MainVideo$Item {
-  const ProductNoAuthFlashSaleProductGet$Response$Data$Item$MainVideo$Item({
+class ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$MainVideo$Item {
+  const ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$MainVideo$Item({
     required this.videoUrl,
     required this.vodUrl,
     required this.previewUrl,
@@ -14672,17 +15488,17 @@ class ProductNoAuthFlashSaleProductGet$Response$Data$Item$MainVideo$Item {
     required this.height,
   });
 
-  factory ProductNoAuthFlashSaleProductGet$Response$Data$Item$MainVideo$Item.fromJson(
+  factory ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$MainVideo$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ProductNoAuthFlashSaleProductGet$Response$Data$Item$MainVideo$ItemFromJson(
+      _$ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$MainVideo$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$ProductNoAuthFlashSaleProductGet$Response$Data$Item$MainVideo$ItemToJson;
+      _$ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$MainVideo$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthFlashSaleProductGet$Response$Data$Item$MainVideo$ItemToJson(
+      _$ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$MainVideo$ItemToJson(
         this,
       );
 
@@ -14697,12 +15513,13 @@ class ProductNoAuthFlashSaleProductGet$Response$Data$Item$MainVideo$Item {
   @JsonKey(name: 'height')
   final double height;
   static const fromJsonFactory =
-      _$ProductNoAuthFlashSaleProductGet$Response$Data$Item$MainVideo$ItemFromJson;
+      _$ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$MainVideo$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ProductNoAuthFlashSaleProductGet$Response$Data$Item$MainVideo$Item &&
+        (other
+                is ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$MainVideo$Item &&
             (identical(other.videoUrl, videoUrl) ||
                 const DeepCollectionEquality().equals(
                   other.videoUrl,
@@ -14734,16 +15551,18 @@ class ProductNoAuthFlashSaleProductGet$Response$Data$Item$MainVideo$Item {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthFlashSaleProductGet$Response$Data$Item$MainVideo$ItemExtension
-    on ProductNoAuthFlashSaleProductGet$Response$Data$Item$MainVideo$Item {
-  ProductNoAuthFlashSaleProductGet$Response$Data$Item$MainVideo$Item copyWith({
+extension $ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$MainVideo$ItemExtension
+    on
+        ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$MainVideo$Item {
+  ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$MainVideo$Item
+  copyWith({
     String? videoUrl,
     String? vodUrl,
     String? previewUrl,
     double? width,
     double? height,
   }) {
-    return ProductNoAuthFlashSaleProductGet$Response$Data$Item$MainVideo$Item(
+    return ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$MainVideo$Item(
       videoUrl: videoUrl ?? this.videoUrl,
       vodUrl: vodUrl ?? this.vodUrl,
       previewUrl: previewUrl ?? this.previewUrl,
@@ -14752,7 +15571,7 @@ extension $ProductNoAuthFlashSaleProductGet$Response$Data$Item$MainVideo$ItemExt
     );
   }
 
-  ProductNoAuthFlashSaleProductGet$Response$Data$Item$MainVideo$Item
+  ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$MainVideo$Item
   copyWithWrapped({
     Wrapped<String>? videoUrl,
     Wrapped<String>? vodUrl,
@@ -14760,7 +15579,7 @@ extension $ProductNoAuthFlashSaleProductGet$Response$Data$Item$MainVideo$ItemExt
     Wrapped<double>? width,
     Wrapped<double>? height,
   }) {
-    return ProductNoAuthFlashSaleProductGet$Response$Data$Item$MainVideo$Item(
+    return ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$MainVideo$Item(
       videoUrl: (videoUrl != null ? videoUrl.value : this.videoUrl),
       vodUrl: (vodUrl != null ? vodUrl.value : this.vodUrl),
       previewUrl: (previewUrl != null ? previewUrl.value : this.previewUrl),
@@ -14771,24 +15590,24 @@ extension $ProductNoAuthFlashSaleProductGet$Response$Data$Item$MainVideo$ItemExt
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgCollection$Item {
-  const ProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgCollection$Item({
+class ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgCollection$Item {
+  const ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgCollection$Item({
     required this.width,
     required this.height,
     required this.url,
   });
 
-  factory ProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgCollection$Item.fromJson(
+  factory ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgCollection$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgCollection$ItemFromJson(
+      _$ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgCollection$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$ProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgCollection$ItemToJson;
+      _$ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgCollection$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgCollection$ItemToJson(
+      _$ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgCollection$ItemToJson(
         this,
       );
 
@@ -14799,13 +15618,13 @@ class ProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgCollection$Item {
   @JsonKey(name: 'url')
   final String url;
   static const fromJsonFactory =
-      _$ProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgCollection$ItemFromJson;
+      _$ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgCollection$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is ProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgCollection$Item &&
+                is ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgCollection$Item &&
             (identical(other.width, width) ||
                 const DeepCollectionEquality().equals(other.width, width)) &&
             (identical(other.height, height) ||
@@ -14825,24 +15644,25 @@ class ProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgCollection$Item {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgCollection$ItemExtension
-    on ProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgCollection$Item {
-  ProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgCollection$Item
+extension $ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgCollection$ItemExtension
+    on
+        ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgCollection$Item {
+  ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgCollection$Item
   copyWith({double? width, double? height, String? url}) {
-    return ProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgCollection$Item(
+    return ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgCollection$Item(
       width: width ?? this.width,
       height: height ?? this.height,
       url: url ?? this.url,
     );
   }
 
-  ProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgCollection$Item
+  ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgCollection$Item
   copyWithWrapped({
     Wrapped<double>? width,
     Wrapped<double>? height,
     Wrapped<String>? url,
   }) {
-    return ProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgCollection$Item(
+    return ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgCollection$Item(
       width: (width != null ? width.value : this.width),
       height: (height != null ? height.value : this.height),
       url: (url != null ? url.value : this.url),
@@ -14851,24 +15671,24 @@ extension $ProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgCollection$Ite
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgDetail$Item {
-  const ProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgDetail$Item({
+class ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgDetail$Item {
+  const ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgDetail$Item({
     required this.width,
     required this.height,
     required this.url,
   });
 
-  factory ProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgDetail$Item.fromJson(
+  factory ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgDetail$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgDetail$ItemFromJson(
+      _$ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgDetail$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$ProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgDetail$ItemToJson;
+      _$ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgDetail$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgDetail$ItemToJson(
+      _$ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgDetail$ItemToJson(
         this,
       );
 
@@ -14879,12 +15699,13 @@ class ProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgDetail$Item {
   @JsonKey(name: 'url')
   final String url;
   static const fromJsonFactory =
-      _$ProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgDetail$ItemFromJson;
+      _$ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgDetail$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgDetail$Item &&
+        (other
+                is ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgDetail$Item &&
             (identical(other.width, width) ||
                 const DeepCollectionEquality().equals(other.width, width)) &&
             (identical(other.height, height) ||
@@ -14904,27 +15725,25 @@ class ProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgDetail$Item {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgDetail$ItemExtension
-    on ProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgDetail$Item {
-  ProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgDetail$Item copyWith({
-    double? width,
-    double? height,
-    String? url,
-  }) {
-    return ProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgDetail$Item(
+extension $ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgDetail$ItemExtension
+    on
+        ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgDetail$Item {
+  ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgDetail$Item
+  copyWith({double? width, double? height, String? url}) {
+    return ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgDetail$Item(
       width: width ?? this.width,
       height: height ?? this.height,
       url: url ?? this.url,
     );
   }
 
-  ProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgDetail$Item
+  ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgDetail$Item
   copyWithWrapped({
     Wrapped<double>? width,
     Wrapped<double>? height,
     Wrapped<String>? url,
   }) {
-    return ProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgDetail$Item(
+    return ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgDetail$Item(
       width: (width != null ? width.value : this.width),
       height: (height != null ? height.value : this.height),
       url: (url != null ? url.value : this.url),
@@ -14933,24 +15752,24 @@ extension $ProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgDetail$ItemExt
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item {
-  const ProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item({
+class ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item {
+  const ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item({
     required this.name,
     required this.type,
     required this.optionValues,
   });
 
-  factory ProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item.fromJson(
+  factory ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$ItemFromJson(
+      _$ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$ProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$ItemToJson;
+      _$ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$ItemToJson(
+      _$ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$ItemToJson(
         this,
       );
 
@@ -14960,17 +15779,17 @@ class ProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item {
   final double type;
   @JsonKey(name: 'optionValues')
   final List<
-    ProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item
+    ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item
   >
   optionValues;
   static const fromJsonFactory =
-      _$ProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$ItemFromJson;
+      _$ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is ProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item &&
+                is ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item &&
             (identical(other.name, name) ||
                 const DeepCollectionEquality().equals(other.name, name)) &&
             (identical(other.type, type) ||
@@ -14993,36 +15812,37 @@ class ProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$ItemExtension
-    on ProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item {
-  ProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item
+extension $ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$ItemExtension
+    on
+        ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item {
+  ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item
   copyWith({
     String? name,
     double? type,
     List<
-      ProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item
+      ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item
     >?
     optionValues,
   }) {
-    return ProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item(
+    return ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item(
       name: name ?? this.name,
       type: type ?? this.type,
       optionValues: optionValues ?? this.optionValues,
     );
   }
 
-  ProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item
+  ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item
   copyWithWrapped({
     Wrapped<String>? name,
     Wrapped<double>? type,
     Wrapped<
       List<
-        ProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item
+        ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item
       >
     >?
     optionValues,
   }) {
-    return ProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item(
+    return ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item(
       name: (name != null ? name.value : this.name),
       type: (type != null ? type.value : this.type),
       optionValues: (optionValues != null
@@ -15033,23 +15853,23 @@ extension $ProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$It
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductAttrs$Item {
-  const ProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductAttrs$Item({
+class ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductAttrs$Item {
+  const ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductAttrs$Item({
     required this.name,
     required this.value,
   });
 
-  factory ProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductAttrs$Item.fromJson(
+  factory ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductAttrs$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductAttrs$ItemFromJson(
+      _$ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductAttrs$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$ProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductAttrs$ItemToJson;
+      _$ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductAttrs$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductAttrs$ItemToJson(
+      _$ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductAttrs$ItemToJson(
         this,
       );
 
@@ -15058,13 +15878,13 @@ class ProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductAttrs$Item {
   @JsonKey(name: 'value')
   final String value;
   static const fromJsonFactory =
-      _$ProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductAttrs$ItemFromJson;
+      _$ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductAttrs$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is ProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductAttrs$Item &&
+                is ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductAttrs$Item &&
             (identical(other.name, name) ||
                 const DeepCollectionEquality().equals(other.name, name)) &&
             (identical(other.value, value) ||
@@ -15081,19 +15901,20 @@ class ProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductAttrs$Item {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductAttrs$ItemExtension
-    on ProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductAttrs$Item {
-  ProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductAttrs$Item
+extension $ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductAttrs$ItemExtension
+    on
+        ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductAttrs$Item {
+  ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductAttrs$Item
   copyWith({String? name, String? value}) {
-    return ProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductAttrs$Item(
+    return ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductAttrs$Item(
       name: name ?? this.name,
       value: value ?? this.value,
     );
   }
 
-  ProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductAttrs$Item
+  ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductAttrs$Item
   copyWithWrapped({Wrapped<String>? name, Wrapped<String>? value}) {
-    return ProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductAttrs$Item(
+    return ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductAttrs$Item(
       name: (name != null ? name.value : this.name),
       value: (value != null ? value.value : this.value),
     );
@@ -15101,22 +15922,23 @@ extension $ProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductAttrs$Item
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthFlashSaleProductGet$Response$Data$Item$Tags$Item {
-  const ProductNoAuthFlashSaleProductGet$Response$Data$Item$Tags$Item({
+class ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$Tags$Item {
+  const ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$Tags$Item({
     this.tagCode,
     this.tagImg,
   });
 
-  factory ProductNoAuthFlashSaleProductGet$Response$Data$Item$Tags$Item.fromJson(
+  factory ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$Tags$Item.fromJson(
     Map<String, dynamic> json,
-  ) => _$ProductNoAuthFlashSaleProductGet$Response$Data$Item$Tags$ItemFromJson(
-    json,
-  );
+  ) =>
+      _$ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$Tags$ItemFromJson(
+        json,
+      );
 
   static const toJsonFactory =
-      _$ProductNoAuthFlashSaleProductGet$Response$Data$Item$Tags$ItemToJson;
+      _$ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$Tags$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthFlashSaleProductGet$Response$Data$Item$Tags$ItemToJson(
+      _$ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$Tags$ItemToJson(
         this,
       );
 
@@ -15125,12 +15947,13 @@ class ProductNoAuthFlashSaleProductGet$Response$Data$Item$Tags$Item {
   @JsonKey(name: 'tagImg')
   final String? tagImg;
   static const fromJsonFactory =
-      _$ProductNoAuthFlashSaleProductGet$Response$Data$Item$Tags$ItemFromJson;
+      _$ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$Tags$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ProductNoAuthFlashSaleProductGet$Response$Data$Item$Tags$Item &&
+        (other
+                is ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$Tags$Item &&
             (identical(other.tagCode, tagCode) ||
                 const DeepCollectionEquality().equals(
                   other.tagCode,
@@ -15150,21 +15973,19 @@ class ProductNoAuthFlashSaleProductGet$Response$Data$Item$Tags$Item {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthFlashSaleProductGet$Response$Data$Item$Tags$ItemExtension
-    on ProductNoAuthFlashSaleProductGet$Response$Data$Item$Tags$Item {
-  ProductNoAuthFlashSaleProductGet$Response$Data$Item$Tags$Item copyWith({
-    String? tagCode,
-    String? tagImg,
-  }) {
-    return ProductNoAuthFlashSaleProductGet$Response$Data$Item$Tags$Item(
+extension $ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$Tags$ItemExtension
+    on ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$Tags$Item {
+  ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$Tags$Item
+  copyWith({String? tagCode, String? tagImg}) {
+    return ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$Tags$Item(
       tagCode: tagCode ?? this.tagCode,
       tagImg: tagImg ?? this.tagImg,
     );
   }
 
-  ProductNoAuthFlashSaleProductGet$Response$Data$Item$Tags$Item
+  ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$Tags$Item
   copyWithWrapped({Wrapped<String?>? tagCode, Wrapped<String?>? tagImg}) {
-    return ProductNoAuthFlashSaleProductGet$Response$Data$Item$Tags$Item(
+    return ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$Tags$Item(
       tagCode: (tagCode != null ? tagCode.value : this.tagCode),
       tagImg: (tagImg != null ? tagImg.value : this.tagImg),
     );
@@ -15172,23 +15993,23 @@ extension $ProductNoAuthFlashSaleProductGet$Response$Data$Item$Tags$ItemExtensio
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthFlashSaleProductGet$Response$Data$Item$PremiumBrandInfo {
-  const ProductNoAuthFlashSaleProductGet$Response$Data$Item$PremiumBrandInfo({
+class ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$PremiumBrandInfo {
+  const ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$PremiumBrandInfo({
     this.brandCode,
     this.brandImg,
   });
 
-  factory ProductNoAuthFlashSaleProductGet$Response$Data$Item$PremiumBrandInfo.fromJson(
+  factory ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$PremiumBrandInfo.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ProductNoAuthFlashSaleProductGet$Response$Data$Item$PremiumBrandInfoFromJson(
+      _$ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$PremiumBrandInfoFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$ProductNoAuthFlashSaleProductGet$Response$Data$Item$PremiumBrandInfoToJson;
+      _$ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$PremiumBrandInfoToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthFlashSaleProductGet$Response$Data$Item$PremiumBrandInfoToJson(
+      _$ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$PremiumBrandInfoToJson(
         this,
       );
 
@@ -15197,13 +16018,13 @@ class ProductNoAuthFlashSaleProductGet$Response$Data$Item$PremiumBrandInfo {
   @JsonKey(name: 'brandImg')
   final String? brandImg;
   static const fromJsonFactory =
-      _$ProductNoAuthFlashSaleProductGet$Response$Data$Item$PremiumBrandInfoFromJson;
+      _$ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$PremiumBrandInfoFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is ProductNoAuthFlashSaleProductGet$Response$Data$Item$PremiumBrandInfo &&
+                is ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$PremiumBrandInfo &&
             (identical(other.brandCode, brandCode) ||
                 const DeepCollectionEquality().equals(
                   other.brandCode,
@@ -15226,19 +16047,20 @@ class ProductNoAuthFlashSaleProductGet$Response$Data$Item$PremiumBrandInfo {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthFlashSaleProductGet$Response$Data$Item$PremiumBrandInfoExtension
-    on ProductNoAuthFlashSaleProductGet$Response$Data$Item$PremiumBrandInfo {
-  ProductNoAuthFlashSaleProductGet$Response$Data$Item$PremiumBrandInfo
+extension $ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$PremiumBrandInfoExtension
+    on
+        ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$PremiumBrandInfo {
+  ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$PremiumBrandInfo
   copyWith({String? brandCode, String? brandImg}) {
-    return ProductNoAuthFlashSaleProductGet$Response$Data$Item$PremiumBrandInfo(
+    return ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$PremiumBrandInfo(
       brandCode: brandCode ?? this.brandCode,
       brandImg: brandImg ?? this.brandImg,
     );
   }
 
-  ProductNoAuthFlashSaleProductGet$Response$Data$Item$PremiumBrandInfo
+  ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$PremiumBrandInfo
   copyWithWrapped({Wrapped<String?>? brandCode, Wrapped<String?>? brandImg}) {
-    return ProductNoAuthFlashSaleProductGet$Response$Data$Item$PremiumBrandInfo(
+    return ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$PremiumBrandInfo(
       brandCode: (brandCode != null ? brandCode.value : this.brandCode),
       brandImg: (brandImg != null ? brandImg.value : this.brandImg),
     );
@@ -15246,8 +16068,8 @@ extension $ProductNoAuthFlashSaleProductGet$Response$Data$Item$PremiumBrandInfoE
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthAlbumProductGet$Response$Data$Records$Item {
-  const ProductNoAuthAlbumProductGet$Response$Data$Records$Item({
+class ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item {
+  const ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item({
     this.shopCode,
     this.productCode,
     this.productName,
@@ -15279,14 +16101,19 @@ class ProductNoAuthAlbumProductGet$Response$Data$Records$Item {
     this.sellPoints,
   });
 
-  factory ProductNoAuthAlbumProductGet$Response$Data$Records$Item.fromJson(
+  factory ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item.fromJson(
     Map<String, dynamic> json,
-  ) => _$ProductNoAuthAlbumProductGet$Response$Data$Records$ItemFromJson(json);
+  ) =>
+      _$ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$ItemFromJson(
+        json,
+      );
 
   static const toJsonFactory =
-      _$ProductNoAuthAlbumProductGet$Response$Data$Records$ItemToJson;
+      _$ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthAlbumProductGet$Response$Data$Records$ItemToJson(this);
+      _$ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$ItemToJson(
+        this,
+      );
 
   @JsonKey(name: 'shopCode')
   final Object? shopCode;
@@ -15300,7 +16127,7 @@ class ProductNoAuthAlbumProductGet$Response$Data$Records$Item {
   final Object? brandName;
   @JsonKey(name: 'mainImg')
   final List<
-    ProductNoAuthAlbumProductGet$Response$Data$Records$Item$MainImg$Item
+    ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$MainImg$Item
   >?
   mainImg;
   @JsonKey(name: 'subImg')
@@ -15309,21 +16136,21 @@ class ProductNoAuthAlbumProductGet$Response$Data$Records$Item {
   final List<Object>? mainVideo;
   @JsonKey(name: 'imgCollection')
   final List<
-    ProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgCollection$Item
+    ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgCollection$Item
   >?
   imgCollection;
   @JsonKey(name: 'textDetail')
   final Object? textDetail;
   @JsonKey(name: 'imgDetail')
   final List<
-    ProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgDetail$Item
+    ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgDetail$Item
   >?
   imgDetail;
   @JsonKey(name: 'categoryId')
   final double? categoryId;
   @JsonKey(name: 'productOptions')
   final List<
-    ProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$Item
+    ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$Item
   >?
   productOptions;
   @JsonKey(name: 'productAttrs', defaultValue: <Object>[])
@@ -15353,20 +16180,23 @@ class ProductNoAuthAlbumProductGet$Response$Data$Records$Item {
   @JsonKey(name: 'targetOriginPrice')
   final String? targetOriginPrice;
   @JsonKey(name: 'tags')
-  final List<ProductNoAuthAlbumProductGet$Response$Data$Records$Item$Tags$Item>?
+  final List<
+    ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$Tags$Item
+  >?
   tags;
   @JsonKey(name: 'premiumBrandInfo')
-  final ProductNoAuthAlbumProductGet$Response$Data$Records$Item$PremiumBrandInfo?
+  final ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$PremiumBrandInfo?
   premiumBrandInfo;
   @JsonKey(name: 'sellPoints', defaultValue: <Object>[])
   final List<Object>? sellPoints;
   static const fromJsonFactory =
-      _$ProductNoAuthAlbumProductGet$Response$Data$Records$ItemFromJson;
+      _$ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ProductNoAuthAlbumProductGet$Response$Data$Records$Item &&
+        (other
+                is ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item &&
             (identical(other.shopCode, shopCode) ||
                 const DeepCollectionEquality().equals(
                   other.shopCode,
@@ -15545,30 +16375,33 @@ class ProductNoAuthAlbumProductGet$Response$Data$Records$Item {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthAlbumProductGet$Response$Data$Records$ItemExtension
-    on ProductNoAuthAlbumProductGet$Response$Data$Records$Item {
-  ProductNoAuthAlbumProductGet$Response$Data$Records$Item copyWith({
+extension $ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$ItemExtension
+    on ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item {
+  ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item
+  copyWith({
     Object? shopCode,
     String? productCode,
     String? productName,
     String? tenantCode,
     Object? brandName,
-    List<ProductNoAuthAlbumProductGet$Response$Data$Records$Item$MainImg$Item>?
+    List<
+      ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$MainImg$Item
+    >?
     mainImg,
     Object? subImg,
     List<Object>? mainVideo,
     List<
-      ProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgCollection$Item
+      ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgCollection$Item
     >?
     imgCollection,
     Object? textDetail,
     List<
-      ProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgDetail$Item
+      ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgDetail$Item
     >?
     imgDetail,
     double? categoryId,
     List<
-      ProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$Item
+      ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$Item
     >?
     productOptions,
     List<Object>? productAttrs,
@@ -15584,13 +16417,15 @@ extension $ProductNoAuthAlbumProductGet$Response$Data$Records$ItemExtension
     String? marketingInfo,
     String? sellQuantity,
     String? targetOriginPrice,
-    List<ProductNoAuthAlbumProductGet$Response$Data$Records$Item$Tags$Item>?
+    List<
+      ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$Tags$Item
+    >?
     tags,
-    ProductNoAuthAlbumProductGet$Response$Data$Records$Item$PremiumBrandInfo?
+    ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$PremiumBrandInfo?
     premiumBrandInfo,
     List<Object>? sellPoints,
   }) {
-    return ProductNoAuthAlbumProductGet$Response$Data$Records$Item(
+    return ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item(
       shopCode: shopCode ?? this.shopCode,
       productCode: productCode ?? this.productCode,
       productName: productName ?? this.productName,
@@ -15623,7 +16458,8 @@ extension $ProductNoAuthAlbumProductGet$Response$Data$Records$ItemExtension
     );
   }
 
-  ProductNoAuthAlbumProductGet$Response$Data$Records$Item copyWithWrapped({
+  ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item
+  copyWithWrapped({
     Wrapped<Object?>? shopCode,
     Wrapped<String?>? productCode,
     Wrapped<String?>? productName,
@@ -15631,7 +16467,7 @@ extension $ProductNoAuthAlbumProductGet$Response$Data$Records$ItemExtension
     Wrapped<Object?>? brandName,
     Wrapped<
       List<
-        ProductNoAuthAlbumProductGet$Response$Data$Records$Item$MainImg$Item
+        ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$MainImg$Item
       >?
     >?
     mainImg,
@@ -15639,21 +16475,21 @@ extension $ProductNoAuthAlbumProductGet$Response$Data$Records$ItemExtension
     Wrapped<List<Object>?>? mainVideo,
     Wrapped<
       List<
-        ProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgCollection$Item
+        ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgCollection$Item
       >?
     >?
     imgCollection,
     Wrapped<Object?>? textDetail,
     Wrapped<
       List<
-        ProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgDetail$Item
+        ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgDetail$Item
       >?
     >?
     imgDetail,
     Wrapped<double?>? categoryId,
     Wrapped<
       List<
-        ProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$Item
+        ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$Item
       >?
     >?
     productOptions,
@@ -15671,16 +16507,18 @@ extension $ProductNoAuthAlbumProductGet$Response$Data$Records$ItemExtension
     Wrapped<String?>? sellQuantity,
     Wrapped<String?>? targetOriginPrice,
     Wrapped<
-      List<ProductNoAuthAlbumProductGet$Response$Data$Records$Item$Tags$Item>?
+      List<
+        ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$Tags$Item
+      >?
     >?
     tags,
     Wrapped<
-      ProductNoAuthAlbumProductGet$Response$Data$Records$Item$PremiumBrandInfo?
+      ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$PremiumBrandInfo?
     >?
     premiumBrandInfo,
     Wrapped<List<Object>?>? sellPoints,
   }) {
-    return ProductNoAuthAlbumProductGet$Response$Data$Records$Item(
+    return ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item(
       shopCode: (shopCode != null ? shopCode.value : this.shopCode),
       productCode: (productCode != null ? productCode.value : this.productCode),
       productName: (productName != null ? productName.value : this.productName),
@@ -15739,8 +16577,8 @@ extension $ProductNoAuthAlbumProductGet$Response$Data$Records$ItemExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ShopNoAuthGetThirdShopGet$Response$Data$Records$Item {
-  const ShopNoAuthGetThirdShopGet$Response$Data$Records$Item({
+class ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$Item {
+  const ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$Item({
     required this.productCode,
     required this.productName,
     required this.image,
@@ -15756,21 +16594,27 @@ class ShopNoAuthGetThirdShopGet$Response$Data$Records$Item {
     this.sellPoints,
   });
 
-  factory ShopNoAuthGetThirdShopGet$Response$Data$Records$Item.fromJson(
+  factory ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$Item.fromJson(
     Map<String, dynamic> json,
-  ) => _$ShopNoAuthGetThirdShopGet$Response$Data$Records$ItemFromJson(json);
+  ) =>
+      _$ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$ItemFromJson(
+        json,
+      );
 
   static const toJsonFactory =
-      _$ShopNoAuthGetThirdShopGet$Response$Data$Records$ItemToJson;
+      _$ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ShopNoAuthGetThirdShopGet$Response$Data$Records$ItemToJson(this);
+      _$ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$ItemToJson(
+        this,
+      );
 
   @JsonKey(name: 'productCode')
   final String productCode;
   @JsonKey(name: 'productName')
   final String productName;
   @JsonKey(name: 'image')
-  final ShopNoAuthGetThirdShopGet$Response$Data$Records$Item$Image image;
+  final ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$Item$Image
+  image;
   @JsonKey(name: 'skuCode')
   final String skuCode;
   @JsonKey(name: 'sellPriceCur')
@@ -15788,17 +16632,18 @@ class ShopNoAuthGetThirdShopGet$Response$Data$Records$Item {
   @JsonKey(name: 'targetOriginPrice')
   final String targetOriginPrice;
   @JsonKey(name: 'premiumBrandInfo')
-  final ShopNoAuthGetThirdShopGet$Response$Data$Records$Item$PremiumBrandInfo?
+  final ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$Item$PremiumBrandInfo?
   premiumBrandInfo;
   @JsonKey(name: 'sellPoints', defaultValue: <Object>[])
   final List<Object>? sellPoints;
   static const fromJsonFactory =
-      _$ShopNoAuthGetThirdShopGet$Response$Data$Records$ItemFromJson;
+      _$ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ShopNoAuthGetThirdShopGet$Response$Data$Records$Item &&
+        (other
+                is ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$Item &&
             (identical(other.productCode, productCode) ||
                 const DeepCollectionEquality().equals(
                   other.productCode,
@@ -15884,12 +16729,13 @@ class ShopNoAuthGetThirdShopGet$Response$Data$Records$Item {
       runtimeType.hashCode;
 }
 
-extension $ShopNoAuthGetThirdShopGet$Response$Data$Records$ItemExtension
-    on ShopNoAuthGetThirdShopGet$Response$Data$Records$Item {
-  ShopNoAuthGetThirdShopGet$Response$Data$Records$Item copyWith({
+extension $ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$ItemExtension
+    on ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$Item {
+  ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$Item copyWith({
     String? productCode,
     String? productName,
-    ShopNoAuthGetThirdShopGet$Response$Data$Records$Item$Image? image,
+    ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$Item$Image?
+    image,
     String? skuCode,
     String? sellPriceCur,
     String? sellPrice,
@@ -15898,11 +16744,11 @@ extension $ShopNoAuthGetThirdShopGet$Response$Data$Records$ItemExtension
     String? sellQuantity,
     String? marketingInfo,
     String? targetOriginPrice,
-    ShopNoAuthGetThirdShopGet$Response$Data$Records$Item$PremiumBrandInfo?
+    ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$Item$PremiumBrandInfo?
     premiumBrandInfo,
     List<Object>? sellPoints,
   }) {
-    return ShopNoAuthGetThirdShopGet$Response$Data$Records$Item(
+    return ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$Item(
       productCode: productCode ?? this.productCode,
       productName: productName ?? this.productName,
       image: image ?? this.image,
@@ -15919,10 +16765,14 @@ extension $ShopNoAuthGetThirdShopGet$Response$Data$Records$ItemExtension
     );
   }
 
-  ShopNoAuthGetThirdShopGet$Response$Data$Records$Item copyWithWrapped({
+  ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$Item
+  copyWithWrapped({
     Wrapped<String>? productCode,
     Wrapped<String>? productName,
-    Wrapped<ShopNoAuthGetThirdShopGet$Response$Data$Records$Item$Image>? image,
+    Wrapped<
+      ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$Item$Image
+    >?
+    image,
     Wrapped<String>? skuCode,
     Wrapped<String>? sellPriceCur,
     Wrapped<String>? sellPrice,
@@ -15932,12 +16782,12 @@ extension $ShopNoAuthGetThirdShopGet$Response$Data$Records$ItemExtension
     Wrapped<String>? marketingInfo,
     Wrapped<String>? targetOriginPrice,
     Wrapped<
-      ShopNoAuthGetThirdShopGet$Response$Data$Records$Item$PremiumBrandInfo?
+      ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$Item$PremiumBrandInfo?
     >?
     premiumBrandInfo,
     Wrapped<List<Object>?>? sellPoints,
   }) {
-    return ShopNoAuthGetThirdShopGet$Response$Data$Records$Item(
+    return ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$Item(
       productCode: (productCode != null ? productCode.value : this.productCode),
       productName: (productName != null ? productName.value : this.productName),
       image: (image != null ? image.value : this.image),
@@ -15970,23 +16820,26 @@ extension $ShopNoAuthGetThirdShopGet$Response$Data$Records$ItemExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthKolProductGet$Response$Data$Item$MainImg$Item {
-  const ProductNoAuthKolProductGet$Response$Data$Item$MainImg$Item({
+class ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainImg$Item {
+  const ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainImg$Item({
     required this.width,
     required this.height,
     required this.url,
   });
 
-  factory ProductNoAuthKolProductGet$Response$Data$Item$MainImg$Item.fromJson(
+  factory ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainImg$Item.fromJson(
     Map<String, dynamic> json,
-  ) => _$ProductNoAuthKolProductGet$Response$Data$Item$MainImg$ItemFromJson(
-    json,
-  );
+  ) =>
+      _$ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainImg$ItemFromJson(
+        json,
+      );
 
   static const toJsonFactory =
-      _$ProductNoAuthKolProductGet$Response$Data$Item$MainImg$ItemToJson;
+      _$ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainImg$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthKolProductGet$Response$Data$Item$MainImg$ItemToJson(this);
+      _$ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainImg$ItemToJson(
+        this,
+      );
 
   @JsonKey(name: 'width')
   final double width;
@@ -15995,12 +16848,13 @@ class ProductNoAuthKolProductGet$Response$Data$Item$MainImg$Item {
   @JsonKey(name: 'url')
   final String url;
   static const fromJsonFactory =
-      _$ProductNoAuthKolProductGet$Response$Data$Item$MainImg$ItemFromJson;
+      _$ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainImg$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ProductNoAuthKolProductGet$Response$Data$Item$MainImg$Item &&
+        (other
+                is ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainImg$Item &&
             (identical(other.width, width) ||
                 const DeepCollectionEquality().equals(other.width, width)) &&
             (identical(other.height, height) ||
@@ -16020,26 +16874,24 @@ class ProductNoAuthKolProductGet$Response$Data$Item$MainImg$Item {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthKolProductGet$Response$Data$Item$MainImg$ItemExtension
-    on ProductNoAuthKolProductGet$Response$Data$Item$MainImg$Item {
-  ProductNoAuthKolProductGet$Response$Data$Item$MainImg$Item copyWith({
-    double? width,
-    double? height,
-    String? url,
-  }) {
-    return ProductNoAuthKolProductGet$Response$Data$Item$MainImg$Item(
+extension $ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainImg$ItemExtension
+    on ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainImg$Item {
+  ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainImg$Item
+  copyWith({double? width, double? height, String? url}) {
+    return ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainImg$Item(
       width: width ?? this.width,
       height: height ?? this.height,
       url: url ?? this.url,
     );
   }
 
-  ProductNoAuthKolProductGet$Response$Data$Item$MainImg$Item copyWithWrapped({
+  ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainImg$Item
+  copyWithWrapped({
     Wrapped<double>? width,
     Wrapped<double>? height,
     Wrapped<String>? url,
   }) {
-    return ProductNoAuthKolProductGet$Response$Data$Item$MainImg$Item(
+    return ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainImg$Item(
       width: (width != null ? width.value : this.width),
       height: (height != null ? height.value : this.height),
       url: (url != null ? url.value : this.url),
@@ -16048,8 +16900,8 @@ extension $ProductNoAuthKolProductGet$Response$Data$Item$MainImg$ItemExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthKolProductGet$Response$Data$Item$MainVideo$Item {
-  const ProductNoAuthKolProductGet$Response$Data$Item$MainVideo$Item({
+class ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainVideo$Item {
+  const ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainVideo$Item({
     required this.videoUrl,
     required this.vodUrl,
     required this.previewUrl,
@@ -16057,16 +16909,17 @@ class ProductNoAuthKolProductGet$Response$Data$Item$MainVideo$Item {
     required this.height,
   });
 
-  factory ProductNoAuthKolProductGet$Response$Data$Item$MainVideo$Item.fromJson(
+  factory ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainVideo$Item.fromJson(
     Map<String, dynamic> json,
-  ) => _$ProductNoAuthKolProductGet$Response$Data$Item$MainVideo$ItemFromJson(
-    json,
-  );
+  ) =>
+      _$ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainVideo$ItemFromJson(
+        json,
+      );
 
   static const toJsonFactory =
-      _$ProductNoAuthKolProductGet$Response$Data$Item$MainVideo$ItemToJson;
+      _$ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainVideo$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthKolProductGet$Response$Data$Item$MainVideo$ItemToJson(
+      _$ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainVideo$ItemToJson(
         this,
       );
 
@@ -16081,12 +16934,13 @@ class ProductNoAuthKolProductGet$Response$Data$Item$MainVideo$Item {
   @JsonKey(name: 'height')
   final double height;
   static const fromJsonFactory =
-      _$ProductNoAuthKolProductGet$Response$Data$Item$MainVideo$ItemFromJson;
+      _$ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainVideo$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ProductNoAuthKolProductGet$Response$Data$Item$MainVideo$Item &&
+        (other
+                is ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainVideo$Item &&
             (identical(other.videoUrl, videoUrl) ||
                 const DeepCollectionEquality().equals(
                   other.videoUrl,
@@ -16118,16 +16972,17 @@ class ProductNoAuthKolProductGet$Response$Data$Item$MainVideo$Item {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthKolProductGet$Response$Data$Item$MainVideo$ItemExtension
-    on ProductNoAuthKolProductGet$Response$Data$Item$MainVideo$Item {
-  ProductNoAuthKolProductGet$Response$Data$Item$MainVideo$Item copyWith({
+extension $ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainVideo$ItemExtension
+    on ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainVideo$Item {
+  ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainVideo$Item
+  copyWith({
     String? videoUrl,
     String? vodUrl,
     String? previewUrl,
     double? width,
     double? height,
   }) {
-    return ProductNoAuthKolProductGet$Response$Data$Item$MainVideo$Item(
+    return ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainVideo$Item(
       videoUrl: videoUrl ?? this.videoUrl,
       vodUrl: vodUrl ?? this.vodUrl,
       previewUrl: previewUrl ?? this.previewUrl,
@@ -16136,14 +16991,15 @@ extension $ProductNoAuthKolProductGet$Response$Data$Item$MainVideo$ItemExtension
     );
   }
 
-  ProductNoAuthKolProductGet$Response$Data$Item$MainVideo$Item copyWithWrapped({
+  ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainVideo$Item
+  copyWithWrapped({
     Wrapped<String>? videoUrl,
     Wrapped<String>? vodUrl,
     Wrapped<String>? previewUrl,
     Wrapped<double>? width,
     Wrapped<double>? height,
   }) {
-    return ProductNoAuthKolProductGet$Response$Data$Item$MainVideo$Item(
+    return ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainVideo$Item(
       videoUrl: (videoUrl != null ? videoUrl.value : this.videoUrl),
       vodUrl: (vodUrl != null ? vodUrl.value : this.vodUrl),
       previewUrl: (previewUrl != null ? previewUrl.value : this.previewUrl),
@@ -16154,24 +17010,24 @@ extension $ProductNoAuthKolProductGet$Response$Data$Item$MainVideo$ItemExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthKolProductGet$Response$Data$Item$ImgCollection$Item {
-  const ProductNoAuthKolProductGet$Response$Data$Item$ImgCollection$Item({
+class ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgCollection$Item {
+  const ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgCollection$Item({
     required this.width,
     required this.height,
     required this.url,
   });
 
-  factory ProductNoAuthKolProductGet$Response$Data$Item$ImgCollection$Item.fromJson(
+  factory ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgCollection$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ProductNoAuthKolProductGet$Response$Data$Item$ImgCollection$ItemFromJson(
+      _$ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgCollection$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$ProductNoAuthKolProductGet$Response$Data$Item$ImgCollection$ItemToJson;
+      _$ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgCollection$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthKolProductGet$Response$Data$Item$ImgCollection$ItemToJson(
+      _$ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgCollection$ItemToJson(
         this,
       );
 
@@ -16182,12 +17038,13 @@ class ProductNoAuthKolProductGet$Response$Data$Item$ImgCollection$Item {
   @JsonKey(name: 'url')
   final String url;
   static const fromJsonFactory =
-      _$ProductNoAuthKolProductGet$Response$Data$Item$ImgCollection$ItemFromJson;
+      _$ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgCollection$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ProductNoAuthKolProductGet$Response$Data$Item$ImgCollection$Item &&
+        (other
+                is ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgCollection$Item &&
             (identical(other.width, width) ||
                 const DeepCollectionEquality().equals(other.width, width)) &&
             (identical(other.height, height) ||
@@ -16207,27 +17064,24 @@ class ProductNoAuthKolProductGet$Response$Data$Item$ImgCollection$Item {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthKolProductGet$Response$Data$Item$ImgCollection$ItemExtension
-    on ProductNoAuthKolProductGet$Response$Data$Item$ImgCollection$Item {
-  ProductNoAuthKolProductGet$Response$Data$Item$ImgCollection$Item copyWith({
-    double? width,
-    double? height,
-    String? url,
-  }) {
-    return ProductNoAuthKolProductGet$Response$Data$Item$ImgCollection$Item(
+extension $ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgCollection$ItemExtension
+    on ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgCollection$Item {
+  ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgCollection$Item
+  copyWith({double? width, double? height, String? url}) {
+    return ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgCollection$Item(
       width: width ?? this.width,
       height: height ?? this.height,
       url: url ?? this.url,
     );
   }
 
-  ProductNoAuthKolProductGet$Response$Data$Item$ImgCollection$Item
+  ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgCollection$Item
   copyWithWrapped({
     Wrapped<double>? width,
     Wrapped<double>? height,
     Wrapped<String>? url,
   }) {
-    return ProductNoAuthKolProductGet$Response$Data$Item$ImgCollection$Item(
+    return ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgCollection$Item(
       width: (width != null ? width.value : this.width),
       height: (height != null ? height.value : this.height),
       url: (url != null ? url.value : this.url),
@@ -16236,23 +17090,24 @@ extension $ProductNoAuthKolProductGet$Response$Data$Item$ImgCollection$ItemExten
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthKolProductGet$Response$Data$Item$ImgDetail$Item {
-  const ProductNoAuthKolProductGet$Response$Data$Item$ImgDetail$Item({
+class ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgDetail$Item {
+  const ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgDetail$Item({
     required this.width,
     required this.height,
     required this.url,
   });
 
-  factory ProductNoAuthKolProductGet$Response$Data$Item$ImgDetail$Item.fromJson(
+  factory ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgDetail$Item.fromJson(
     Map<String, dynamic> json,
-  ) => _$ProductNoAuthKolProductGet$Response$Data$Item$ImgDetail$ItemFromJson(
-    json,
-  );
+  ) =>
+      _$ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgDetail$ItemFromJson(
+        json,
+      );
 
   static const toJsonFactory =
-      _$ProductNoAuthKolProductGet$Response$Data$Item$ImgDetail$ItemToJson;
+      _$ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgDetail$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthKolProductGet$Response$Data$Item$ImgDetail$ItemToJson(
+      _$ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgDetail$ItemToJson(
         this,
       );
 
@@ -16263,12 +17118,13 @@ class ProductNoAuthKolProductGet$Response$Data$Item$ImgDetail$Item {
   @JsonKey(name: 'url')
   final String url;
   static const fromJsonFactory =
-      _$ProductNoAuthKolProductGet$Response$Data$Item$ImgDetail$ItemFromJson;
+      _$ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgDetail$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ProductNoAuthKolProductGet$Response$Data$Item$ImgDetail$Item &&
+        (other
+                is ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgDetail$Item &&
             (identical(other.width, width) ||
                 const DeepCollectionEquality().equals(other.width, width)) &&
             (identical(other.height, height) ||
@@ -16288,26 +17144,24 @@ class ProductNoAuthKolProductGet$Response$Data$Item$ImgDetail$Item {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthKolProductGet$Response$Data$Item$ImgDetail$ItemExtension
-    on ProductNoAuthKolProductGet$Response$Data$Item$ImgDetail$Item {
-  ProductNoAuthKolProductGet$Response$Data$Item$ImgDetail$Item copyWith({
-    double? width,
-    double? height,
-    String? url,
-  }) {
-    return ProductNoAuthKolProductGet$Response$Data$Item$ImgDetail$Item(
+extension $ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgDetail$ItemExtension
+    on ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgDetail$Item {
+  ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgDetail$Item
+  copyWith({double? width, double? height, String? url}) {
+    return ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgDetail$Item(
       width: width ?? this.width,
       height: height ?? this.height,
       url: url ?? this.url,
     );
   }
 
-  ProductNoAuthKolProductGet$Response$Data$Item$ImgDetail$Item copyWithWrapped({
+  ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgDetail$Item
+  copyWithWrapped({
     Wrapped<double>? width,
     Wrapped<double>? height,
     Wrapped<String>? url,
   }) {
-    return ProductNoAuthKolProductGet$Response$Data$Item$ImgDetail$Item(
+    return ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgDetail$Item(
       width: (width != null ? width.value : this.width),
       height: (height != null ? height.value : this.height),
       url: (url != null ? url.value : this.url),
@@ -16316,24 +17170,24 @@ extension $ProductNoAuthKolProductGet$Response$Data$Item$ImgDetail$ItemExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item {
-  const ProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item({
+class ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item {
+  const ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item({
     required this.name,
     required this.type,
     required this.optionValues,
   });
 
-  factory ProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item.fromJson(
+  factory ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$ItemFromJson(
+      _$ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$ProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$ItemToJson;
+      _$ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$ItemToJson(
+      _$ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$ItemToJson(
         this,
       );
 
@@ -16343,17 +17197,17 @@ class ProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item {
   final double type;
   @JsonKey(name: 'optionValues')
   final List<
-    ProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item
+    ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item
   >
   optionValues;
   static const fromJsonFactory =
-      _$ProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$ItemFromJson;
+      _$ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is ProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item &&
+                is ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item &&
             (identical(other.name, name) ||
                 const DeepCollectionEquality().equals(other.name, name)) &&
             (identical(other.type, type) ||
@@ -16376,35 +17230,37 @@ class ProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$ItemExtension
-    on ProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item {
-  ProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item copyWith({
+extension $ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$ItemExtension
+    on
+        ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item {
+  ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item
+  copyWith({
     String? name,
     double? type,
     List<
-      ProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item
+      ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item
     >?
     optionValues,
   }) {
-    return ProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item(
+    return ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item(
       name: name ?? this.name,
       type: type ?? this.type,
       optionValues: optionValues ?? this.optionValues,
     );
   }
 
-  ProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item
+  ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item
   copyWithWrapped({
     Wrapped<String>? name,
     Wrapped<double>? type,
     Wrapped<
       List<
-        ProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item
+        ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item
       >
     >?
     optionValues,
   }) {
-    return ProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item(
+    return ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item(
       name: (name != null ? name.value : this.name),
       type: (type != null ? type.value : this.type),
       optionValues: (optionValues != null
@@ -16415,23 +17271,23 @@ extension $ProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$ItemExte
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthKolProductGet$Response$Data$Item$ProductAttrs$Item {
-  const ProductNoAuthKolProductGet$Response$Data$Item$ProductAttrs$Item({
+class ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductAttrs$Item {
+  const ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductAttrs$Item({
     required this.name,
     required this.value,
   });
 
-  factory ProductNoAuthKolProductGet$Response$Data$Item$ProductAttrs$Item.fromJson(
+  factory ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductAttrs$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ProductNoAuthKolProductGet$Response$Data$Item$ProductAttrs$ItemFromJson(
+      _$ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductAttrs$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$ProductNoAuthKolProductGet$Response$Data$Item$ProductAttrs$ItemToJson;
+      _$ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductAttrs$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthKolProductGet$Response$Data$Item$ProductAttrs$ItemToJson(
+      _$ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductAttrs$ItemToJson(
         this,
       );
 
@@ -16440,12 +17296,13 @@ class ProductNoAuthKolProductGet$Response$Data$Item$ProductAttrs$Item {
   @JsonKey(name: 'value')
   final String value;
   static const fromJsonFactory =
-      _$ProductNoAuthKolProductGet$Response$Data$Item$ProductAttrs$ItemFromJson;
+      _$ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductAttrs$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ProductNoAuthKolProductGet$Response$Data$Item$ProductAttrs$Item &&
+        (other
+                is ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductAttrs$Item &&
             (identical(other.name, name) ||
                 const DeepCollectionEquality().equals(other.name, name)) &&
             (identical(other.value, value) ||
@@ -16462,21 +17319,19 @@ class ProductNoAuthKolProductGet$Response$Data$Item$ProductAttrs$Item {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthKolProductGet$Response$Data$Item$ProductAttrs$ItemExtension
-    on ProductNoAuthKolProductGet$Response$Data$Item$ProductAttrs$Item {
-  ProductNoAuthKolProductGet$Response$Data$Item$ProductAttrs$Item copyWith({
-    String? name,
-    String? value,
-  }) {
-    return ProductNoAuthKolProductGet$Response$Data$Item$ProductAttrs$Item(
+extension $ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductAttrs$ItemExtension
+    on ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductAttrs$Item {
+  ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductAttrs$Item
+  copyWith({String? name, String? value}) {
+    return ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductAttrs$Item(
       name: name ?? this.name,
       value: value ?? this.value,
     );
   }
 
-  ProductNoAuthKolProductGet$Response$Data$Item$ProductAttrs$Item
+  ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductAttrs$Item
   copyWithWrapped({Wrapped<String>? name, Wrapped<String>? value}) {
-    return ProductNoAuthKolProductGet$Response$Data$Item$ProductAttrs$Item(
+    return ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductAttrs$Item(
       name: (name != null ? name.value : this.name),
       value: (value != null ? value.value : this.value),
     );
@@ -16484,32 +17339,38 @@ extension $ProductNoAuthKolProductGet$Response$Data$Item$ProductAttrs$ItemExtens
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthKolProductGet$Response$Data$Item$Tags$Item {
-  const ProductNoAuthKolProductGet$Response$Data$Item$Tags$Item({
+class ProductServiceProductNoAuthKolProductGet$Response$Data$Item$Tags$Item {
+  const ProductServiceProductNoAuthKolProductGet$Response$Data$Item$Tags$Item({
     this.tagCode,
     this.tagImg,
   });
 
-  factory ProductNoAuthKolProductGet$Response$Data$Item$Tags$Item.fromJson(
+  factory ProductServiceProductNoAuthKolProductGet$Response$Data$Item$Tags$Item.fromJson(
     Map<String, dynamic> json,
-  ) => _$ProductNoAuthKolProductGet$Response$Data$Item$Tags$ItemFromJson(json);
+  ) =>
+      _$ProductServiceProductNoAuthKolProductGet$Response$Data$Item$Tags$ItemFromJson(
+        json,
+      );
 
   static const toJsonFactory =
-      _$ProductNoAuthKolProductGet$Response$Data$Item$Tags$ItemToJson;
+      _$ProductServiceProductNoAuthKolProductGet$Response$Data$Item$Tags$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthKolProductGet$Response$Data$Item$Tags$ItemToJson(this);
+      _$ProductServiceProductNoAuthKolProductGet$Response$Data$Item$Tags$ItemToJson(
+        this,
+      );
 
   @JsonKey(name: 'tagCode')
   final String? tagCode;
   @JsonKey(name: 'tagImg')
   final String? tagImg;
   static const fromJsonFactory =
-      _$ProductNoAuthKolProductGet$Response$Data$Item$Tags$ItemFromJson;
+      _$ProductServiceProductNoAuthKolProductGet$Response$Data$Item$Tags$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ProductNoAuthKolProductGet$Response$Data$Item$Tags$Item &&
+        (other
+                is ProductServiceProductNoAuthKolProductGet$Response$Data$Item$Tags$Item &&
             (identical(other.tagCode, tagCode) ||
                 const DeepCollectionEquality().equals(
                   other.tagCode,
@@ -16529,23 +17390,19 @@ class ProductNoAuthKolProductGet$Response$Data$Item$Tags$Item {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthKolProductGet$Response$Data$Item$Tags$ItemExtension
-    on ProductNoAuthKolProductGet$Response$Data$Item$Tags$Item {
-  ProductNoAuthKolProductGet$Response$Data$Item$Tags$Item copyWith({
-    String? tagCode,
-    String? tagImg,
-  }) {
-    return ProductNoAuthKolProductGet$Response$Data$Item$Tags$Item(
+extension $ProductServiceProductNoAuthKolProductGet$Response$Data$Item$Tags$ItemExtension
+    on ProductServiceProductNoAuthKolProductGet$Response$Data$Item$Tags$Item {
+  ProductServiceProductNoAuthKolProductGet$Response$Data$Item$Tags$Item
+  copyWith({String? tagCode, String? tagImg}) {
+    return ProductServiceProductNoAuthKolProductGet$Response$Data$Item$Tags$Item(
       tagCode: tagCode ?? this.tagCode,
       tagImg: tagImg ?? this.tagImg,
     );
   }
 
-  ProductNoAuthKolProductGet$Response$Data$Item$Tags$Item copyWithWrapped({
-    Wrapped<String?>? tagCode,
-    Wrapped<String?>? tagImg,
-  }) {
-    return ProductNoAuthKolProductGet$Response$Data$Item$Tags$Item(
+  ProductServiceProductNoAuthKolProductGet$Response$Data$Item$Tags$Item
+  copyWithWrapped({Wrapped<String?>? tagCode, Wrapped<String?>? tagImg}) {
+    return ProductServiceProductNoAuthKolProductGet$Response$Data$Item$Tags$Item(
       tagCode: (tagCode != null ? tagCode.value : this.tagCode),
       tagImg: (tagImg != null ? tagImg.value : this.tagImg),
     );
@@ -16553,22 +17410,23 @@ extension $ProductNoAuthKolProductGet$Response$Data$Item$Tags$ItemExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthKolProductGet$Response$Data$Item$PremiumBrandInfo {
-  const ProductNoAuthKolProductGet$Response$Data$Item$PremiumBrandInfo({
+class ProductServiceProductNoAuthKolProductGet$Response$Data$Item$PremiumBrandInfo {
+  const ProductServiceProductNoAuthKolProductGet$Response$Data$Item$PremiumBrandInfo({
     this.brandCode,
     this.brandImg,
   });
 
-  factory ProductNoAuthKolProductGet$Response$Data$Item$PremiumBrandInfo.fromJson(
+  factory ProductServiceProductNoAuthKolProductGet$Response$Data$Item$PremiumBrandInfo.fromJson(
     Map<String, dynamic> json,
-  ) => _$ProductNoAuthKolProductGet$Response$Data$Item$PremiumBrandInfoFromJson(
-    json,
-  );
+  ) =>
+      _$ProductServiceProductNoAuthKolProductGet$Response$Data$Item$PremiumBrandInfoFromJson(
+        json,
+      );
 
   static const toJsonFactory =
-      _$ProductNoAuthKolProductGet$Response$Data$Item$PremiumBrandInfoToJson;
+      _$ProductServiceProductNoAuthKolProductGet$Response$Data$Item$PremiumBrandInfoToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthKolProductGet$Response$Data$Item$PremiumBrandInfoToJson(
+      _$ProductServiceProductNoAuthKolProductGet$Response$Data$Item$PremiumBrandInfoToJson(
         this,
       );
 
@@ -16577,13 +17435,13 @@ class ProductNoAuthKolProductGet$Response$Data$Item$PremiumBrandInfo {
   @JsonKey(name: 'brandImg')
   final String? brandImg;
   static const fromJsonFactory =
-      _$ProductNoAuthKolProductGet$Response$Data$Item$PremiumBrandInfoFromJson;
+      _$ProductServiceProductNoAuthKolProductGet$Response$Data$Item$PremiumBrandInfoFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is ProductNoAuthKolProductGet$Response$Data$Item$PremiumBrandInfo &&
+                is ProductServiceProductNoAuthKolProductGet$Response$Data$Item$PremiumBrandInfo &&
             (identical(other.brandCode, brandCode) ||
                 const DeepCollectionEquality().equals(
                   other.brandCode,
@@ -16606,21 +17464,19 @@ class ProductNoAuthKolProductGet$Response$Data$Item$PremiumBrandInfo {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthKolProductGet$Response$Data$Item$PremiumBrandInfoExtension
-    on ProductNoAuthKolProductGet$Response$Data$Item$PremiumBrandInfo {
-  ProductNoAuthKolProductGet$Response$Data$Item$PremiumBrandInfo copyWith({
-    String? brandCode,
-    String? brandImg,
-  }) {
-    return ProductNoAuthKolProductGet$Response$Data$Item$PremiumBrandInfo(
+extension $ProductServiceProductNoAuthKolProductGet$Response$Data$Item$PremiumBrandInfoExtension
+    on ProductServiceProductNoAuthKolProductGet$Response$Data$Item$PremiumBrandInfo {
+  ProductServiceProductNoAuthKolProductGet$Response$Data$Item$PremiumBrandInfo
+  copyWith({String? brandCode, String? brandImg}) {
+    return ProductServiceProductNoAuthKolProductGet$Response$Data$Item$PremiumBrandInfo(
       brandCode: brandCode ?? this.brandCode,
       brandImg: brandImg ?? this.brandImg,
     );
   }
 
-  ProductNoAuthKolProductGet$Response$Data$Item$PremiumBrandInfo
+  ProductServiceProductNoAuthKolProductGet$Response$Data$Item$PremiumBrandInfo
   copyWithWrapped({Wrapped<String?>? brandCode, Wrapped<String?>? brandImg}) {
-    return ProductNoAuthKolProductGet$Response$Data$Item$PremiumBrandInfo(
+    return ProductServiceProductNoAuthKolProductGet$Response$Data$Item$PremiumBrandInfo(
       brandCode: (brandCode != null ? brandCode.value : this.brandCode),
       brandImg: (brandImg != null ? brandImg.value : this.brandImg),
     );
@@ -16628,8 +17484,8 @@ extension $ProductNoAuthKolProductGet$Response$Data$Item$PremiumBrandInfoExtensi
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthPremierProductGet$Response$Data$Records$Item {
-  const ProductNoAuthPremierProductGet$Response$Data$Records$Item({
+class ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item {
+  const ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item({
     this.shopCode,
     this.productCode,
     this.productName,
@@ -16661,15 +17517,19 @@ class ProductNoAuthPremierProductGet$Response$Data$Records$Item {
     this.sellPoints,
   });
 
-  factory ProductNoAuthPremierProductGet$Response$Data$Records$Item.fromJson(
+  factory ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ProductNoAuthPremierProductGet$Response$Data$Records$ItemFromJson(json);
+      _$ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$ItemFromJson(
+        json,
+      );
 
   static const toJsonFactory =
-      _$ProductNoAuthPremierProductGet$Response$Data$Records$ItemToJson;
+      _$ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthPremierProductGet$Response$Data$Records$ItemToJson(this);
+      _$ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$ItemToJson(
+        this,
+      );
 
   @JsonKey(name: 'shopCode')
   final Object? shopCode;
@@ -16683,7 +17543,7 @@ class ProductNoAuthPremierProductGet$Response$Data$Records$Item {
   final Object? brandName;
   @JsonKey(name: 'mainImg')
   final List<
-    ProductNoAuthPremierProductGet$Response$Data$Records$Item$MainImg$Item
+    ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$MainImg$Item
   >?
   mainImg;
   @JsonKey(name: 'subImg')
@@ -16692,21 +17552,21 @@ class ProductNoAuthPremierProductGet$Response$Data$Records$Item {
   final List<Object>? mainVideo;
   @JsonKey(name: 'imgCollection')
   final List<
-    ProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgCollection$Item
+    ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgCollection$Item
   >?
   imgCollection;
   @JsonKey(name: 'textDetail')
   final Object? textDetail;
   @JsonKey(name: 'imgDetail')
   final List<
-    ProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgDetail$Item
+    ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgDetail$Item
   >?
   imgDetail;
   @JsonKey(name: 'categoryId')
   final double? categoryId;
   @JsonKey(name: 'productOptions')
   final List<
-    ProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$Item
+    ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$Item
   >?
   productOptions;
   @JsonKey(name: 'productAttrs', defaultValue: <Object>[])
@@ -16737,21 +17597,22 @@ class ProductNoAuthPremierProductGet$Response$Data$Records$Item {
   final String? targetOriginPrice;
   @JsonKey(name: 'tags')
   final List<
-    ProductNoAuthPremierProductGet$Response$Data$Records$Item$Tags$Item
+    ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$Tags$Item
   >?
   tags;
   @JsonKey(name: 'premiumBrandInfo')
-  final ProductNoAuthPremierProductGet$Response$Data$Records$Item$PremiumBrandInfo?
+  final ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$PremiumBrandInfo?
   premiumBrandInfo;
   @JsonKey(name: 'sellPoints', defaultValue: <Object>[])
   final List<Object>? sellPoints;
   static const fromJsonFactory =
-      _$ProductNoAuthPremierProductGet$Response$Data$Records$ItemFromJson;
+      _$ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ProductNoAuthPremierProductGet$Response$Data$Records$Item &&
+        (other
+                is ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item &&
             (identical(other.shopCode, shopCode) ||
                 const DeepCollectionEquality().equals(
                   other.shopCode,
@@ -16930,32 +17791,33 @@ class ProductNoAuthPremierProductGet$Response$Data$Records$Item {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthPremierProductGet$Response$Data$Records$ItemExtension
-    on ProductNoAuthPremierProductGet$Response$Data$Records$Item {
-  ProductNoAuthPremierProductGet$Response$Data$Records$Item copyWith({
+extension $ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$ItemExtension
+    on ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item {
+  ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item
+  copyWith({
     Object? shopCode,
     String? productCode,
     String? productName,
     String? tenantCode,
     Object? brandName,
     List<
-      ProductNoAuthPremierProductGet$Response$Data$Records$Item$MainImg$Item
+      ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$MainImg$Item
     >?
     mainImg,
     Object? subImg,
     List<Object>? mainVideo,
     List<
-      ProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgCollection$Item
+      ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgCollection$Item
     >?
     imgCollection,
     Object? textDetail,
     List<
-      ProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgDetail$Item
+      ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgDetail$Item
     >?
     imgDetail,
     double? categoryId,
     List<
-      ProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$Item
+      ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$Item
     >?
     productOptions,
     List<Object>? productAttrs,
@@ -16971,13 +17833,15 @@ extension $ProductNoAuthPremierProductGet$Response$Data$Records$ItemExtension
     String? marketingInfo,
     String? sellQuantity,
     String? targetOriginPrice,
-    List<ProductNoAuthPremierProductGet$Response$Data$Records$Item$Tags$Item>?
+    List<
+      ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$Tags$Item
+    >?
     tags,
-    ProductNoAuthPremierProductGet$Response$Data$Records$Item$PremiumBrandInfo?
+    ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$PremiumBrandInfo?
     premiumBrandInfo,
     List<Object>? sellPoints,
   }) {
-    return ProductNoAuthPremierProductGet$Response$Data$Records$Item(
+    return ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item(
       shopCode: shopCode ?? this.shopCode,
       productCode: productCode ?? this.productCode,
       productName: productName ?? this.productName,
@@ -17010,7 +17874,8 @@ extension $ProductNoAuthPremierProductGet$Response$Data$Records$ItemExtension
     );
   }
 
-  ProductNoAuthPremierProductGet$Response$Data$Records$Item copyWithWrapped({
+  ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item
+  copyWithWrapped({
     Wrapped<Object?>? shopCode,
     Wrapped<String?>? productCode,
     Wrapped<String?>? productName,
@@ -17018,7 +17883,7 @@ extension $ProductNoAuthPremierProductGet$Response$Data$Records$ItemExtension
     Wrapped<Object?>? brandName,
     Wrapped<
       List<
-        ProductNoAuthPremierProductGet$Response$Data$Records$Item$MainImg$Item
+        ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$MainImg$Item
       >?
     >?
     mainImg,
@@ -17026,21 +17891,21 @@ extension $ProductNoAuthPremierProductGet$Response$Data$Records$ItemExtension
     Wrapped<List<Object>?>? mainVideo,
     Wrapped<
       List<
-        ProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgCollection$Item
+        ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgCollection$Item
       >?
     >?
     imgCollection,
     Wrapped<Object?>? textDetail,
     Wrapped<
       List<
-        ProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgDetail$Item
+        ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgDetail$Item
       >?
     >?
     imgDetail,
     Wrapped<double?>? categoryId,
     Wrapped<
       List<
-        ProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$Item
+        ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$Item
       >?
     >?
     productOptions,
@@ -17058,16 +17923,18 @@ extension $ProductNoAuthPremierProductGet$Response$Data$Records$ItemExtension
     Wrapped<String?>? sellQuantity,
     Wrapped<String?>? targetOriginPrice,
     Wrapped<
-      List<ProductNoAuthPremierProductGet$Response$Data$Records$Item$Tags$Item>?
+      List<
+        ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$Tags$Item
+      >?
     >?
     tags,
     Wrapped<
-      ProductNoAuthPremierProductGet$Response$Data$Records$Item$PremiumBrandInfo?
+      ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$PremiumBrandInfo?
     >?
     premiumBrandInfo,
     Wrapped<List<Object>?>? sellPoints,
   }) {
-    return ProductNoAuthPremierProductGet$Response$Data$Records$Item(
+    return ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item(
       shopCode: (shopCode != null ? shopCode.value : this.shopCode),
       productCode: (productCode != null ? productCode.value : this.productCode),
       productName: (productName != null ? productName.value : this.productName),
@@ -17126,24 +17993,24 @@ extension $ProductNoAuthPremierProductGet$Response$Data$Records$ItemExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class RecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item {
-  const RecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item({
+class ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item {
+  const ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item({
     required this.categoryName,
     required this.productInfos,
     required this.recommendationReason,
   });
 
-  factory RecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item.fromJson(
+  factory ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$RecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$ItemFromJson(
+      _$ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$RecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$ItemToJson;
+      _$ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$RecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$ItemToJson(
+      _$ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$ItemToJson(
         this,
       );
 
@@ -17151,19 +18018,19 @@ class RecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item {
   final String categoryName;
   @JsonKey(name: 'productInfos')
   final List<
-    RecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item
+    ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item
   >
   productInfos;
   @JsonKey(name: 'recommendationReason')
   final String recommendationReason;
   static const fromJsonFactory =
-      _$RecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$ItemFromJson;
+      _$ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is RecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item &&
+                is ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item &&
             (identical(other.categoryName, categoryName) ||
                 const DeepCollectionEquality().equals(
                   other.categoryName,
@@ -17192,36 +18059,37 @@ class RecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item {
       runtimeType.hashCode;
 }
 
-extension $RecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$ItemExtension
-    on RecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item {
-  RecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item
+extension $ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$ItemExtension
+    on
+        ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item {
+  ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item
   copyWith({
     String? categoryName,
     List<
-      RecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item
+      ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item
     >?
     productInfos,
     String? recommendationReason,
   }) {
-    return RecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item(
+    return ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item(
       categoryName: categoryName ?? this.categoryName,
       productInfos: productInfos ?? this.productInfos,
       recommendationReason: recommendationReason ?? this.recommendationReason,
     );
   }
 
-  RecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item
+  ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item
   copyWithWrapped({
     Wrapped<String>? categoryName,
     Wrapped<
       List<
-        RecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item
+        ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item
       >
     >?
     productInfos,
     Wrapped<String>? recommendationReason,
   }) {
-    return RecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item(
+    return ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item(
       categoryName: (categoryName != null
           ? categoryName.value
           : this.categoryName),
@@ -17236,8 +18104,8 @@ extension $RecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Ite
 }
 
 @JsonSerializable(explicitToJson: true)
-class RecommendNoAuthCategoryPost$Response$Data$Records$Item {
-  const RecommendNoAuthCategoryPost$Response$Data$Records$Item({
+class ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item {
+  const ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item({
     required this.productCode,
     required this.productName,
     required this.image,
@@ -17253,21 +18121,27 @@ class RecommendNoAuthCategoryPost$Response$Data$Records$Item {
     this.sellPoints,
   });
 
-  factory RecommendNoAuthCategoryPost$Response$Data$Records$Item.fromJson(
+  factory ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item.fromJson(
     Map<String, dynamic> json,
-  ) => _$RecommendNoAuthCategoryPost$Response$Data$Records$ItemFromJson(json);
+  ) =>
+      _$ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$ItemFromJson(
+        json,
+      );
 
   static const toJsonFactory =
-      _$RecommendNoAuthCategoryPost$Response$Data$Records$ItemToJson;
+      _$ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$RecommendNoAuthCategoryPost$Response$Data$Records$ItemToJson(this);
+      _$ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$ItemToJson(
+        this,
+      );
 
   @JsonKey(name: 'productCode')
   final String productCode;
   @JsonKey(name: 'productName')
   final String productName;
   @JsonKey(name: 'image')
-  final RecommendNoAuthCategoryPost$Response$Data$Records$Item$Image image;
+  final ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item$Image
+  image;
   @JsonKey(name: 'skuCode')
   final String skuCode;
   @JsonKey(name: 'sellPriceCur')
@@ -17283,20 +18157,23 @@ class RecommendNoAuthCategoryPost$Response$Data$Records$Item {
   @JsonKey(name: 'skuCount')
   final int skuCount;
   @JsonKey(name: 'tags')
-  final List<RecommendNoAuthCategoryPost$Response$Data$Records$Item$Tags$Item>
+  final List<
+    ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item$Tags$Item
+  >
   tags;
   @JsonKey(name: 'premiumBrandInfo')
-  final RecommendNoAuthCategoryPost$Response$Data$Records$Item$PremiumBrandInfo?
+  final ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item$PremiumBrandInfo?
   premiumBrandInfo;
   @JsonKey(name: 'sellPoints', defaultValue: <Object>[])
   final List<Object>? sellPoints;
   static const fromJsonFactory =
-      _$RecommendNoAuthCategoryPost$Response$Data$Records$ItemFromJson;
+      _$ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is RecommendNoAuthCategoryPost$Response$Data$Records$Item &&
+        (other
+                is ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item &&
             (identical(other.productCode, productCode) ||
                 const DeepCollectionEquality().equals(
                   other.productCode,
@@ -17379,12 +18256,14 @@ class RecommendNoAuthCategoryPost$Response$Data$Records$Item {
       runtimeType.hashCode;
 }
 
-extension $RecommendNoAuthCategoryPost$Response$Data$Records$ItemExtension
-    on RecommendNoAuthCategoryPost$Response$Data$Records$Item {
-  RecommendNoAuthCategoryPost$Response$Data$Records$Item copyWith({
+extension $ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$ItemExtension
+    on ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item {
+  ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item
+  copyWith({
     String? productCode,
     String? productName,
-    RecommendNoAuthCategoryPost$Response$Data$Records$Item$Image? image,
+    ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item$Image?
+    image,
     String? skuCode,
     String? sellPriceCur,
     String? sellPrice,
@@ -17392,13 +18271,15 @@ extension $RecommendNoAuthCategoryPost$Response$Data$Records$ItemExtension
     String? targetSellCur,
     String? sellQuantity,
     int? skuCount,
-    List<RecommendNoAuthCategoryPost$Response$Data$Records$Item$Tags$Item>?
+    List<
+      ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item$Tags$Item
+    >?
     tags,
-    RecommendNoAuthCategoryPost$Response$Data$Records$Item$PremiumBrandInfo?
+    ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item$PremiumBrandInfo?
     premiumBrandInfo,
     List<Object>? sellPoints,
   }) {
-    return RecommendNoAuthCategoryPost$Response$Data$Records$Item(
+    return ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item(
       productCode: productCode ?? this.productCode,
       productName: productName ?? this.productName,
       image: image ?? this.image,
@@ -17415,10 +18296,13 @@ extension $RecommendNoAuthCategoryPost$Response$Data$Records$ItemExtension
     );
   }
 
-  RecommendNoAuthCategoryPost$Response$Data$Records$Item copyWithWrapped({
+  ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item
+  copyWithWrapped({
     Wrapped<String>? productCode,
     Wrapped<String>? productName,
-    Wrapped<RecommendNoAuthCategoryPost$Response$Data$Records$Item$Image>?
+    Wrapped<
+      ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item$Image
+    >?
     image,
     Wrapped<String>? skuCode,
     Wrapped<String>? sellPriceCur,
@@ -17428,16 +18312,18 @@ extension $RecommendNoAuthCategoryPost$Response$Data$Records$ItemExtension
     Wrapped<String>? sellQuantity,
     Wrapped<int>? skuCount,
     Wrapped<
-      List<RecommendNoAuthCategoryPost$Response$Data$Records$Item$Tags$Item>
+      List<
+        ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item$Tags$Item
+      >
     >?
     tags,
     Wrapped<
-      RecommendNoAuthCategoryPost$Response$Data$Records$Item$PremiumBrandInfo?
+      ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item$PremiumBrandInfo?
     >?
     premiumBrandInfo,
     Wrapped<List<Object>?>? sellPoints,
   }) {
-    return RecommendNoAuthCategoryPost$Response$Data$Records$Item(
+    return ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item(
       productCode: (productCode != null ? productCode.value : this.productCode),
       productName: (productName != null ? productName.value : this.productName),
       image: (image != null ? image.value : this.image),
@@ -17466,8 +18352,8 @@ extension $RecommendNoAuthCategoryPost$Response$Data$Records$ItemExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class RecommendNoAuthShopPost$Response$Data$Records$Item {
-  const RecommendNoAuthShopPost$Response$Data$Records$Item({
+class ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item {
+  const ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item({
     required this.productCode,
     required this.productName,
     required this.image,
@@ -17485,271 +18371,17 @@ class RecommendNoAuthShopPost$Response$Data$Records$Item {
     this.sellPoints,
   });
 
-  factory RecommendNoAuthShopPost$Response$Data$Records$Item.fromJson(
+  factory ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item.fromJson(
     Map<String, dynamic> json,
-  ) => _$RecommendNoAuthShopPost$Response$Data$Records$ItemFromJson(json);
+  ) =>
+      _$ProductServiceRecommendNoAuthShopPost$Response$Data$Records$ItemFromJson(
+        json,
+      );
 
   static const toJsonFactory =
-      _$RecommendNoAuthShopPost$Response$Data$Records$ItemToJson;
+      _$ProductServiceRecommendNoAuthShopPost$Response$Data$Records$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$RecommendNoAuthShopPost$Response$Data$Records$ItemToJson(this);
-
-  @JsonKey(name: 'productCode')
-  final String productCode;
-  @JsonKey(name: 'productName')
-  final String productName;
-  @JsonKey(name: 'image')
-  final RecommendNoAuthShopPost$Response$Data$Records$Item$Image image;
-  @JsonKey(name: 'skuCode')
-  final String skuCode;
-  @JsonKey(name: 'sellPriceCur')
-  final String sellPriceCur;
-  @JsonKey(name: 'sellPrice')
-  final String sellPrice;
-  @JsonKey(name: 'targetSellPrice')
-  final String targetSellPrice;
-  @JsonKey(name: 'targetSellCur')
-  final String targetSellCur;
-  @JsonKey(name: 'sellQuantity')
-  final String sellQuantity;
-  @JsonKey(name: 'skuCount')
-  final int skuCount;
-  @JsonKey(name: 'marketingInfo')
-  final String marketingInfo;
-  @JsonKey(name: 'targetOriginPrice')
-  final String targetOriginPrice;
-  @JsonKey(name: 'tags')
-  final List<RecommendNoAuthShopPost$Response$Data$Records$Item$Tags$Item> tags;
-  @JsonKey(name: 'premiumBrandInfo')
-  final RecommendNoAuthShopPost$Response$Data$Records$Item$PremiumBrandInfo?
-  premiumBrandInfo;
-  @JsonKey(name: 'sellPoints', defaultValue: <Object>[])
-  final List<Object>? sellPoints;
-  static const fromJsonFactory =
-      _$RecommendNoAuthShopPost$Response$Data$Records$ItemFromJson;
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other is RecommendNoAuthShopPost$Response$Data$Records$Item &&
-            (identical(other.productCode, productCode) ||
-                const DeepCollectionEquality().equals(
-                  other.productCode,
-                  productCode,
-                )) &&
-            (identical(other.productName, productName) ||
-                const DeepCollectionEquality().equals(
-                  other.productName,
-                  productName,
-                )) &&
-            (identical(other.image, image) ||
-                const DeepCollectionEquality().equals(other.image, image)) &&
-            (identical(other.skuCode, skuCode) ||
-                const DeepCollectionEquality().equals(
-                  other.skuCode,
-                  skuCode,
-                )) &&
-            (identical(other.sellPriceCur, sellPriceCur) ||
-                const DeepCollectionEquality().equals(
-                  other.sellPriceCur,
-                  sellPriceCur,
-                )) &&
-            (identical(other.sellPrice, sellPrice) ||
-                const DeepCollectionEquality().equals(
-                  other.sellPrice,
-                  sellPrice,
-                )) &&
-            (identical(other.targetSellPrice, targetSellPrice) ||
-                const DeepCollectionEquality().equals(
-                  other.targetSellPrice,
-                  targetSellPrice,
-                )) &&
-            (identical(other.targetSellCur, targetSellCur) ||
-                const DeepCollectionEquality().equals(
-                  other.targetSellCur,
-                  targetSellCur,
-                )) &&
-            (identical(other.sellQuantity, sellQuantity) ||
-                const DeepCollectionEquality().equals(
-                  other.sellQuantity,
-                  sellQuantity,
-                )) &&
-            (identical(other.skuCount, skuCount) ||
-                const DeepCollectionEquality().equals(
-                  other.skuCount,
-                  skuCount,
-                )) &&
-            (identical(other.marketingInfo, marketingInfo) ||
-                const DeepCollectionEquality().equals(
-                  other.marketingInfo,
-                  marketingInfo,
-                )) &&
-            (identical(other.targetOriginPrice, targetOriginPrice) ||
-                const DeepCollectionEquality().equals(
-                  other.targetOriginPrice,
-                  targetOriginPrice,
-                )) &&
-            (identical(other.tags, tags) ||
-                const DeepCollectionEquality().equals(other.tags, tags)) &&
-            (identical(other.premiumBrandInfo, premiumBrandInfo) ||
-                const DeepCollectionEquality().equals(
-                  other.premiumBrandInfo,
-                  premiumBrandInfo,
-                )) &&
-            (identical(other.sellPoints, sellPoints) ||
-                const DeepCollectionEquality().equals(
-                  other.sellPoints,
-                  sellPoints,
-                )));
-  }
-
-  @override
-  String toString() => jsonEncode(this);
-
-  @override
-  int get hashCode =>
-      const DeepCollectionEquality().hash(productCode) ^
-      const DeepCollectionEquality().hash(productName) ^
-      const DeepCollectionEquality().hash(image) ^
-      const DeepCollectionEquality().hash(skuCode) ^
-      const DeepCollectionEquality().hash(sellPriceCur) ^
-      const DeepCollectionEquality().hash(sellPrice) ^
-      const DeepCollectionEquality().hash(targetSellPrice) ^
-      const DeepCollectionEquality().hash(targetSellCur) ^
-      const DeepCollectionEquality().hash(sellQuantity) ^
-      const DeepCollectionEquality().hash(skuCount) ^
-      const DeepCollectionEquality().hash(marketingInfo) ^
-      const DeepCollectionEquality().hash(targetOriginPrice) ^
-      const DeepCollectionEquality().hash(tags) ^
-      const DeepCollectionEquality().hash(premiumBrandInfo) ^
-      const DeepCollectionEquality().hash(sellPoints) ^
-      runtimeType.hashCode;
-}
-
-extension $RecommendNoAuthShopPost$Response$Data$Records$ItemExtension
-    on RecommendNoAuthShopPost$Response$Data$Records$Item {
-  RecommendNoAuthShopPost$Response$Data$Records$Item copyWith({
-    String? productCode,
-    String? productName,
-    RecommendNoAuthShopPost$Response$Data$Records$Item$Image? image,
-    String? skuCode,
-    String? sellPriceCur,
-    String? sellPrice,
-    String? targetSellPrice,
-    String? targetSellCur,
-    String? sellQuantity,
-    int? skuCount,
-    String? marketingInfo,
-    String? targetOriginPrice,
-    List<RecommendNoAuthShopPost$Response$Data$Records$Item$Tags$Item>? tags,
-    RecommendNoAuthShopPost$Response$Data$Records$Item$PremiumBrandInfo?
-    premiumBrandInfo,
-    List<Object>? sellPoints,
-  }) {
-    return RecommendNoAuthShopPost$Response$Data$Records$Item(
-      productCode: productCode ?? this.productCode,
-      productName: productName ?? this.productName,
-      image: image ?? this.image,
-      skuCode: skuCode ?? this.skuCode,
-      sellPriceCur: sellPriceCur ?? this.sellPriceCur,
-      sellPrice: sellPrice ?? this.sellPrice,
-      targetSellPrice: targetSellPrice ?? this.targetSellPrice,
-      targetSellCur: targetSellCur ?? this.targetSellCur,
-      sellQuantity: sellQuantity ?? this.sellQuantity,
-      skuCount: skuCount ?? this.skuCount,
-      marketingInfo: marketingInfo ?? this.marketingInfo,
-      targetOriginPrice: targetOriginPrice ?? this.targetOriginPrice,
-      tags: tags ?? this.tags,
-      premiumBrandInfo: premiumBrandInfo ?? this.premiumBrandInfo,
-      sellPoints: sellPoints ?? this.sellPoints,
-    );
-  }
-
-  RecommendNoAuthShopPost$Response$Data$Records$Item copyWithWrapped({
-    Wrapped<String>? productCode,
-    Wrapped<String>? productName,
-    Wrapped<RecommendNoAuthShopPost$Response$Data$Records$Item$Image>? image,
-    Wrapped<String>? skuCode,
-    Wrapped<String>? sellPriceCur,
-    Wrapped<String>? sellPrice,
-    Wrapped<String>? targetSellPrice,
-    Wrapped<String>? targetSellCur,
-    Wrapped<String>? sellQuantity,
-    Wrapped<int>? skuCount,
-    Wrapped<String>? marketingInfo,
-    Wrapped<String>? targetOriginPrice,
-    Wrapped<List<RecommendNoAuthShopPost$Response$Data$Records$Item$Tags$Item>>?
-    tags,
-    Wrapped<
-      RecommendNoAuthShopPost$Response$Data$Records$Item$PremiumBrandInfo?
-    >?
-    premiumBrandInfo,
-    Wrapped<List<Object>?>? sellPoints,
-  }) {
-    return RecommendNoAuthShopPost$Response$Data$Records$Item(
-      productCode: (productCode != null ? productCode.value : this.productCode),
-      productName: (productName != null ? productName.value : this.productName),
-      image: (image != null ? image.value : this.image),
-      skuCode: (skuCode != null ? skuCode.value : this.skuCode),
-      sellPriceCur: (sellPriceCur != null
-          ? sellPriceCur.value
-          : this.sellPriceCur),
-      sellPrice: (sellPrice != null ? sellPrice.value : this.sellPrice),
-      targetSellPrice: (targetSellPrice != null
-          ? targetSellPrice.value
-          : this.targetSellPrice),
-      targetSellCur: (targetSellCur != null
-          ? targetSellCur.value
-          : this.targetSellCur),
-      sellQuantity: (sellQuantity != null
-          ? sellQuantity.value
-          : this.sellQuantity),
-      skuCount: (skuCount != null ? skuCount.value : this.skuCount),
-      marketingInfo: (marketingInfo != null
-          ? marketingInfo.value
-          : this.marketingInfo),
-      targetOriginPrice: (targetOriginPrice != null
-          ? targetOriginPrice.value
-          : this.targetOriginPrice),
-      tags: (tags != null ? tags.value : this.tags),
-      premiumBrandInfo: (premiumBrandInfo != null
-          ? premiumBrandInfo.value
-          : this.premiumBrandInfo),
-      sellPoints: (sellPoints != null ? sellPoints.value : this.sellPoints),
-    );
-  }
-}
-
-@JsonSerializable(explicitToJson: true)
-class RecommendNoAuthSimilarProductPost$Response$Data$Records$Item {
-  const RecommendNoAuthSimilarProductPost$Response$Data$Records$Item({
-    required this.productCode,
-    required this.productName,
-    required this.image,
-    required this.skuCode,
-    required this.sellPriceCur,
-    required this.sellPrice,
-    required this.targetSellPrice,
-    required this.targetSellCur,
-    required this.sellQuantity,
-    required this.skuCount,
-    required this.marketingInfo,
-    required this.targetOriginPrice,
-    required this.tags,
-    this.premiumBrandInfo,
-    this.sellPoints,
-  });
-
-  factory RecommendNoAuthSimilarProductPost$Response$Data$Records$Item.fromJson(
-    Map<String, dynamic> json,
-  ) => _$RecommendNoAuthSimilarProductPost$Response$Data$Records$ItemFromJson(
-    json,
-  );
-
-  static const toJsonFactory =
-      _$RecommendNoAuthSimilarProductPost$Response$Data$Records$ItemToJson;
-  Map<String, dynamic> toJson() =>
-      _$RecommendNoAuthSimilarProductPost$Response$Data$Records$ItemToJson(
+      _$ProductServiceRecommendNoAuthShopPost$Response$Data$Records$ItemToJson(
         this,
       );
 
@@ -17758,7 +18390,7 @@ class RecommendNoAuthSimilarProductPost$Response$Data$Records$Item {
   @JsonKey(name: 'productName')
   final String productName;
   @JsonKey(name: 'image')
-  final RecommendNoAuthSimilarProductPost$Response$Data$Records$Item$Image
+  final ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item$Image
   image;
   @JsonKey(name: 'skuCode')
   final String skuCode;
@@ -17780,22 +18412,22 @@ class RecommendNoAuthSimilarProductPost$Response$Data$Records$Item {
   final String targetOriginPrice;
   @JsonKey(name: 'tags')
   final List<
-    RecommendNoAuthSimilarProductPost$Response$Data$Records$Item$Tags$Item
+    ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item$Tags$Item
   >
   tags;
   @JsonKey(name: 'premiumBrandInfo')
-  final RecommendNoAuthSimilarProductPost$Response$Data$Records$Item$PremiumBrandInfo?
+  final ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item$PremiumBrandInfo?
   premiumBrandInfo;
   @JsonKey(name: 'sellPoints', defaultValue: <Object>[])
   final List<Object>? sellPoints;
   static const fromJsonFactory =
-      _$RecommendNoAuthSimilarProductPost$Response$Data$Records$ItemFromJson;
+      _$ProductServiceRecommendNoAuthShopPost$Response$Data$Records$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is RecommendNoAuthSimilarProductPost$Response$Data$Records$Item &&
+                is ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item &&
             (identical(other.productCode, productCode) ||
                 const DeepCollectionEquality().equals(
                   other.productCode,
@@ -17890,12 +18522,13 @@ class RecommendNoAuthSimilarProductPost$Response$Data$Records$Item {
       runtimeType.hashCode;
 }
 
-extension $RecommendNoAuthSimilarProductPost$Response$Data$Records$ItemExtension
-    on RecommendNoAuthSimilarProductPost$Response$Data$Records$Item {
-  RecommendNoAuthSimilarProductPost$Response$Data$Records$Item copyWith({
+extension $ProductServiceRecommendNoAuthShopPost$Response$Data$Records$ItemExtension
+    on ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item {
+  ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item copyWith({
     String? productCode,
     String? productName,
-    RecommendNoAuthSimilarProductPost$Response$Data$Records$Item$Image? image,
+    ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item$Image?
+    image,
     String? skuCode,
     String? sellPriceCur,
     String? sellPrice,
@@ -17906,14 +18539,14 @@ extension $RecommendNoAuthSimilarProductPost$Response$Data$Records$ItemExtension
     String? marketingInfo,
     String? targetOriginPrice,
     List<
-      RecommendNoAuthSimilarProductPost$Response$Data$Records$Item$Tags$Item
+      ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item$Tags$Item
     >?
     tags,
-    RecommendNoAuthSimilarProductPost$Response$Data$Records$Item$PremiumBrandInfo?
+    ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item$PremiumBrandInfo?
     premiumBrandInfo,
     List<Object>? sellPoints,
   }) {
-    return RecommendNoAuthSimilarProductPost$Response$Data$Records$Item(
+    return ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item(
       productCode: productCode ?? this.productCode,
       productName: productName ?? this.productName,
       image: image ?? this.image,
@@ -17932,10 +18565,13 @@ extension $RecommendNoAuthSimilarProductPost$Response$Data$Records$ItemExtension
     );
   }
 
-  RecommendNoAuthSimilarProductPost$Response$Data$Records$Item copyWithWrapped({
+  ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item
+  copyWithWrapped({
     Wrapped<String>? productCode,
     Wrapped<String>? productName,
-    Wrapped<RecommendNoAuthSimilarProductPost$Response$Data$Records$Item$Image>?
+    Wrapped<
+      ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item$Image
+    >?
     image,
     Wrapped<String>? skuCode,
     Wrapped<String>? sellPriceCur,
@@ -17948,17 +18584,17 @@ extension $RecommendNoAuthSimilarProductPost$Response$Data$Records$ItemExtension
     Wrapped<String>? targetOriginPrice,
     Wrapped<
       List<
-        RecommendNoAuthSimilarProductPost$Response$Data$Records$Item$Tags$Item
+        ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item$Tags$Item
       >
     >?
     tags,
     Wrapped<
-      RecommendNoAuthSimilarProductPost$Response$Data$Records$Item$PremiumBrandInfo?
+      ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item$PremiumBrandInfo?
     >?
     premiumBrandInfo,
     Wrapped<List<Object>?>? sellPoints,
   }) {
-    return RecommendNoAuthSimilarProductPost$Response$Data$Records$Item(
+    return ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item(
       productCode: (productCode != null ? productCode.value : this.productCode),
       productName: (productName != null ? productName.value : this.productName),
       image: (image != null ? image.value : this.image),
@@ -17993,8 +18629,286 @@ extension $RecommendNoAuthSimilarProductPost$Response$Data$Records$ItemExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class CategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item {
-  const CategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item({
+class ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item {
+  const ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item({
+    required this.productCode,
+    required this.productName,
+    required this.image,
+    required this.skuCode,
+    required this.sellPriceCur,
+    required this.sellPrice,
+    required this.targetSellPrice,
+    required this.targetSellCur,
+    required this.sellQuantity,
+    required this.skuCount,
+    required this.marketingInfo,
+    required this.targetOriginPrice,
+    required this.tags,
+    this.premiumBrandInfo,
+    this.sellPoints,
+  });
+
+  factory ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item.fromJson(
+    Map<String, dynamic> json,
+  ) =>
+      _$ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$ItemFromJson(
+        json,
+      );
+
+  static const toJsonFactory =
+      _$ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$ItemToJson;
+  Map<String, dynamic> toJson() =>
+      _$ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$ItemToJson(
+        this,
+      );
+
+  @JsonKey(name: 'productCode')
+  final String productCode;
+  @JsonKey(name: 'productName')
+  final String productName;
+  @JsonKey(name: 'image')
+  final ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item$Image
+  image;
+  @JsonKey(name: 'skuCode')
+  final String skuCode;
+  @JsonKey(name: 'sellPriceCur')
+  final String sellPriceCur;
+  @JsonKey(name: 'sellPrice')
+  final String sellPrice;
+  @JsonKey(name: 'targetSellPrice')
+  final String targetSellPrice;
+  @JsonKey(name: 'targetSellCur')
+  final String targetSellCur;
+  @JsonKey(name: 'sellQuantity')
+  final String sellQuantity;
+  @JsonKey(name: 'skuCount')
+  final int skuCount;
+  @JsonKey(name: 'marketingInfo')
+  final String marketingInfo;
+  @JsonKey(name: 'targetOriginPrice')
+  final String targetOriginPrice;
+  @JsonKey(name: 'tags')
+  final List<
+    ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item$Tags$Item
+  >
+  tags;
+  @JsonKey(name: 'premiumBrandInfo')
+  final ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item$PremiumBrandInfo?
+  premiumBrandInfo;
+  @JsonKey(name: 'sellPoints', defaultValue: <Object>[])
+  final List<Object>? sellPoints;
+  static const fromJsonFactory =
+      _$ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$ItemFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other
+                is ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item &&
+            (identical(other.productCode, productCode) ||
+                const DeepCollectionEquality().equals(
+                  other.productCode,
+                  productCode,
+                )) &&
+            (identical(other.productName, productName) ||
+                const DeepCollectionEquality().equals(
+                  other.productName,
+                  productName,
+                )) &&
+            (identical(other.image, image) ||
+                const DeepCollectionEquality().equals(other.image, image)) &&
+            (identical(other.skuCode, skuCode) ||
+                const DeepCollectionEquality().equals(
+                  other.skuCode,
+                  skuCode,
+                )) &&
+            (identical(other.sellPriceCur, sellPriceCur) ||
+                const DeepCollectionEquality().equals(
+                  other.sellPriceCur,
+                  sellPriceCur,
+                )) &&
+            (identical(other.sellPrice, sellPrice) ||
+                const DeepCollectionEquality().equals(
+                  other.sellPrice,
+                  sellPrice,
+                )) &&
+            (identical(other.targetSellPrice, targetSellPrice) ||
+                const DeepCollectionEquality().equals(
+                  other.targetSellPrice,
+                  targetSellPrice,
+                )) &&
+            (identical(other.targetSellCur, targetSellCur) ||
+                const DeepCollectionEquality().equals(
+                  other.targetSellCur,
+                  targetSellCur,
+                )) &&
+            (identical(other.sellQuantity, sellQuantity) ||
+                const DeepCollectionEquality().equals(
+                  other.sellQuantity,
+                  sellQuantity,
+                )) &&
+            (identical(other.skuCount, skuCount) ||
+                const DeepCollectionEquality().equals(
+                  other.skuCount,
+                  skuCount,
+                )) &&
+            (identical(other.marketingInfo, marketingInfo) ||
+                const DeepCollectionEquality().equals(
+                  other.marketingInfo,
+                  marketingInfo,
+                )) &&
+            (identical(other.targetOriginPrice, targetOriginPrice) ||
+                const DeepCollectionEquality().equals(
+                  other.targetOriginPrice,
+                  targetOriginPrice,
+                )) &&
+            (identical(other.tags, tags) ||
+                const DeepCollectionEquality().equals(other.tags, tags)) &&
+            (identical(other.premiumBrandInfo, premiumBrandInfo) ||
+                const DeepCollectionEquality().equals(
+                  other.premiumBrandInfo,
+                  premiumBrandInfo,
+                )) &&
+            (identical(other.sellPoints, sellPoints) ||
+                const DeepCollectionEquality().equals(
+                  other.sellPoints,
+                  sellPoints,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(productCode) ^
+      const DeepCollectionEquality().hash(productName) ^
+      const DeepCollectionEquality().hash(image) ^
+      const DeepCollectionEquality().hash(skuCode) ^
+      const DeepCollectionEquality().hash(sellPriceCur) ^
+      const DeepCollectionEquality().hash(sellPrice) ^
+      const DeepCollectionEquality().hash(targetSellPrice) ^
+      const DeepCollectionEquality().hash(targetSellCur) ^
+      const DeepCollectionEquality().hash(sellQuantity) ^
+      const DeepCollectionEquality().hash(skuCount) ^
+      const DeepCollectionEquality().hash(marketingInfo) ^
+      const DeepCollectionEquality().hash(targetOriginPrice) ^
+      const DeepCollectionEquality().hash(tags) ^
+      const DeepCollectionEquality().hash(premiumBrandInfo) ^
+      const DeepCollectionEquality().hash(sellPoints) ^
+      runtimeType.hashCode;
+}
+
+extension $ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$ItemExtension
+    on ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item {
+  ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item
+  copyWith({
+    String? productCode,
+    String? productName,
+    ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item$Image?
+    image,
+    String? skuCode,
+    String? sellPriceCur,
+    String? sellPrice,
+    String? targetSellPrice,
+    String? targetSellCur,
+    String? sellQuantity,
+    int? skuCount,
+    String? marketingInfo,
+    String? targetOriginPrice,
+    List<
+      ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item$Tags$Item
+    >?
+    tags,
+    ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item$PremiumBrandInfo?
+    premiumBrandInfo,
+    List<Object>? sellPoints,
+  }) {
+    return ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item(
+      productCode: productCode ?? this.productCode,
+      productName: productName ?? this.productName,
+      image: image ?? this.image,
+      skuCode: skuCode ?? this.skuCode,
+      sellPriceCur: sellPriceCur ?? this.sellPriceCur,
+      sellPrice: sellPrice ?? this.sellPrice,
+      targetSellPrice: targetSellPrice ?? this.targetSellPrice,
+      targetSellCur: targetSellCur ?? this.targetSellCur,
+      sellQuantity: sellQuantity ?? this.sellQuantity,
+      skuCount: skuCount ?? this.skuCount,
+      marketingInfo: marketingInfo ?? this.marketingInfo,
+      targetOriginPrice: targetOriginPrice ?? this.targetOriginPrice,
+      tags: tags ?? this.tags,
+      premiumBrandInfo: premiumBrandInfo ?? this.premiumBrandInfo,
+      sellPoints: sellPoints ?? this.sellPoints,
+    );
+  }
+
+  ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item
+  copyWithWrapped({
+    Wrapped<String>? productCode,
+    Wrapped<String>? productName,
+    Wrapped<
+      ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item$Image
+    >?
+    image,
+    Wrapped<String>? skuCode,
+    Wrapped<String>? sellPriceCur,
+    Wrapped<String>? sellPrice,
+    Wrapped<String>? targetSellPrice,
+    Wrapped<String>? targetSellCur,
+    Wrapped<String>? sellQuantity,
+    Wrapped<int>? skuCount,
+    Wrapped<String>? marketingInfo,
+    Wrapped<String>? targetOriginPrice,
+    Wrapped<
+      List<
+        ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item$Tags$Item
+      >
+    >?
+    tags,
+    Wrapped<
+      ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item$PremiumBrandInfo?
+    >?
+    premiumBrandInfo,
+    Wrapped<List<Object>?>? sellPoints,
+  }) {
+    return ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item(
+      productCode: (productCode != null ? productCode.value : this.productCode),
+      productName: (productName != null ? productName.value : this.productName),
+      image: (image != null ? image.value : this.image),
+      skuCode: (skuCode != null ? skuCode.value : this.skuCode),
+      sellPriceCur: (sellPriceCur != null
+          ? sellPriceCur.value
+          : this.sellPriceCur),
+      sellPrice: (sellPrice != null ? sellPrice.value : this.sellPrice),
+      targetSellPrice: (targetSellPrice != null
+          ? targetSellPrice.value
+          : this.targetSellPrice),
+      targetSellCur: (targetSellCur != null
+          ? targetSellCur.value
+          : this.targetSellCur),
+      sellQuantity: (sellQuantity != null
+          ? sellQuantity.value
+          : this.sellQuantity),
+      skuCount: (skuCount != null ? skuCount.value : this.skuCount),
+      marketingInfo: (marketingInfo != null
+          ? marketingInfo.value
+          : this.marketingInfo),
+      targetOriginPrice: (targetOriginPrice != null
+          ? targetOriginPrice.value
+          : this.targetOriginPrice),
+      tags: (tags != null ? tags.value : this.tags),
+      premiumBrandInfo: (premiumBrandInfo != null
+          ? premiumBrandInfo.value
+          : this.premiumBrandInfo),
+      sellPoints: (sellPoints != null ? sellPoints.value : this.sellPoints),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item {
+  const ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item({
     required this.id,
     required this.parentId,
     required this.level,
@@ -18005,17 +18919,17 @@ class CategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item {
     required this.brands,
   });
 
-  factory CategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item.fromJson(
+  factory ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$CategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$ItemFromJson(
+      _$ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$CategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$ItemToJson;
+      _$ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$CategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$ItemToJson(
+      _$ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$ItemToJson(
         this,
       );
 
@@ -18033,19 +18947,19 @@ class CategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item {
   final String iconUrl;
   @JsonKey(name: 'categoryList')
   final List<
-    CategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item$CategoryList$Item
+    ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item$CategoryList$Item
   >
   categoryList;
   @JsonKey(name: 'brands', defaultValue: <Object>[])
   final List<Object> brands;
   static const fromJsonFactory =
-      _$CategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$ItemFromJson;
+      _$ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is CategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item &&
+                is ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item &&
             (identical(other.id, id) ||
                 const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.parentId, parentId) ||
@@ -18092,9 +19006,10 @@ class CategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item {
       runtimeType.hashCode;
 }
 
-extension $CategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$ItemExtension
-    on CategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item {
-  CategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item
+extension $ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$ItemExtension
+    on
+        ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item {
+  ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item
   copyWith({
     double? id,
     double? parentId,
@@ -18103,12 +19018,12 @@ extension $CategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$It
     String? name,
     String? iconUrl,
     List<
-      CategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item$CategoryList$Item
+      ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item$CategoryList$Item
     >?
     categoryList,
     List<Object>? brands,
   }) {
-    return CategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item(
+    return ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item(
       id: id ?? this.id,
       parentId: parentId ?? this.parentId,
       level: level ?? this.level,
@@ -18120,7 +19035,7 @@ extension $CategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$It
     );
   }
 
-  CategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item
+  ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item
   copyWithWrapped({
     Wrapped<double>? id,
     Wrapped<double>? parentId,
@@ -18130,13 +19045,13 @@ extension $CategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$It
     Wrapped<String>? iconUrl,
     Wrapped<
       List<
-        CategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item$CategoryList$Item
+        ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item$CategoryList$Item
       >
     >?
     categoryList,
     Wrapped<List<Object>>? brands,
   }) {
-    return CategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item(
+    return ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item(
       id: (id != null ? id.value : this.id),
       parentId: (parentId != null ? parentId.value : this.parentId),
       level: (level != null ? level.value : this.level),
@@ -18152,24 +19067,24 @@ extension $CategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$It
 }
 
 @JsonSerializable(explicitToJson: true)
-class ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Image {
-  const ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Image({
+class ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Image {
+  const ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Image({
     required this.width,
     required this.height,
     required this.url,
   });
 
-  factory ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Image.fromJson(
+  factory ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Image.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$ImageFromJson(
+      _$ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$ImageFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$ImageToJson;
+      _$ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$ImageToJson;
   Map<String, dynamic> toJson() =>
-      _$ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$ImageToJson(
+      _$ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$ImageToJson(
         this,
       );
 
@@ -18180,13 +19095,13 @@ class ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Image
   @JsonKey(name: 'url')
   final String url;
   static const fromJsonFactory =
-      _$ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$ImageFromJson;
+      _$ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$ImageFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Image &&
+                is ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Image &&
             (identical(other.width, width) ||
                 const DeepCollectionEquality().equals(other.width, width)) &&
             (identical(other.height, height) ||
@@ -18206,24 +19121,25 @@ class ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Image
       runtimeType.hashCode;
 }
 
-extension $ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$ImageExtension
-    on ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Image {
-  ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Image
+extension $ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$ImageExtension
+    on
+        ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Image {
+  ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Image
   copyWith({int? width, int? height, String? url}) {
-    return ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Image(
+    return ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Image(
       width: width ?? this.width,
       height: height ?? this.height,
       url: url ?? this.url,
     );
   }
 
-  ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Image
+  ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Image
   copyWithWrapped({
     Wrapped<int>? width,
     Wrapped<int>? height,
     Wrapped<String>? url,
   }) {
-    return ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Image(
+    return ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Image(
       width: (width != null ? width.value : this.width),
       height: (height != null ? height.value : this.height),
       url: (url != null ? url.value : this.url),
@@ -18232,25 +19148,25 @@ extension $ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$
 }
 
 @JsonSerializable(explicitToJson: true)
-class ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Tags$Item {
-  const ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Tags$Item({
+class ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Tags$Item {
+  const ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Tags$Item({
     required this.tagCode,
     required this.tagImg,
     required this.order,
     required this.frontShow,
   });
 
-  factory ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Tags$Item.fromJson(
+  factory ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Tags$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Tags$ItemFromJson(
+      _$ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Tags$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Tags$ItemToJson;
+      _$ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Tags$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Tags$ItemToJson(
+      _$ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Tags$ItemToJson(
         this,
       );
 
@@ -18263,13 +19179,13 @@ class ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Tags$
   @JsonKey(name: 'frontShow')
   final int frontShow;
   static const fromJsonFactory =
-      _$ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Tags$ItemFromJson;
+      _$ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Tags$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Tags$Item &&
+                is ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Tags$Item &&
             (identical(other.tagCode, tagCode) ||
                 const DeepCollectionEquality().equals(
                   other.tagCode,
@@ -18298,11 +19214,12 @@ class ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Tags$
       runtimeType.hashCode;
 }
 
-extension $ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Tags$ItemExtension
-    on ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Tags$Item {
-  ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Tags$Item
+extension $ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Tags$ItemExtension
+    on
+        ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Tags$Item {
+  ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Tags$Item
   copyWith({String? tagCode, String? tagImg, int? order, int? frontShow}) {
-    return ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Tags$Item(
+    return ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Tags$Item(
       tagCode: tagCode ?? this.tagCode,
       tagImg: tagImg ?? this.tagImg,
       order: order ?? this.order,
@@ -18310,14 +19227,14 @@ extension $ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$
     );
   }
 
-  ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Tags$Item
+  ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Tags$Item
   copyWithWrapped({
     Wrapped<String>? tagCode,
     Wrapped<String>? tagImg,
     Wrapped<int>? order,
     Wrapped<int>? frontShow,
   }) {
-    return ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Tags$Item(
+    return ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Tags$Item(
       tagCode: (tagCode != null ? tagCode.value : this.tagCode),
       tagImg: (tagImg != null ? tagImg.value : this.tagImg),
       order: (order != null ? order.value : this.order),
@@ -18327,8 +19244,8 @@ extension $ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$
 }
 
 @JsonSerializable(explicitToJson: true)
-class ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$FlashSale {
-  const ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$FlashSale({
+class ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$FlashSale {
+  const ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$FlashSale({
     this.activityCode,
     this.activityTitle,
     this.startTime,
@@ -18338,17 +19255,17 @@ class ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Flash
     this.marketingIcon,
   });
 
-  factory ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$FlashSale.fromJson(
+  factory ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$FlashSale.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$FlashSaleFromJson(
+      _$ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$FlashSaleFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$FlashSaleToJson;
+      _$ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$FlashSaleToJson;
   Map<String, dynamic> toJson() =>
-      _$ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$FlashSaleToJson(
+      _$ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$FlashSaleToJson(
         this,
       );
 
@@ -18367,13 +19284,13 @@ class ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Flash
   @JsonKey(name: 'marketingIcon')
   final String? marketingIcon;
   static const fromJsonFactory =
-      _$ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$FlashSaleFromJson;
+      _$ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$FlashSaleFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$FlashSale &&
+                is ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$FlashSale &&
             (identical(other.activityCode, activityCode) ||
                 const DeepCollectionEquality().equals(
                   other.activityCode,
@@ -18426,9 +19343,10 @@ class ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Flash
       runtimeType.hashCode;
 }
 
-extension $ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$FlashSaleExtension
-    on ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$FlashSale {
-  ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$FlashSale
+extension $ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$FlashSaleExtension
+    on
+        ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$FlashSale {
+  ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$FlashSale
   copyWith({
     String? activityCode,
     String? activityTitle,
@@ -18438,7 +19356,7 @@ extension $ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$
     String? progressText,
     String? marketingIcon,
   }) {
-    return ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$FlashSale(
+    return ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$FlashSale(
       activityCode: activityCode ?? this.activityCode,
       activityTitle: activityTitle ?? this.activityTitle,
       startTime: startTime ?? this.startTime,
@@ -18449,7 +19367,7 @@ extension $ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$
     );
   }
 
-  ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$FlashSale
+  ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$FlashSale
   copyWithWrapped({
     Wrapped<String?>? activityCode,
     Wrapped<String?>? activityTitle,
@@ -18459,7 +19377,7 @@ extension $ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$
     Wrapped<String?>? progressText,
     Wrapped<String?>? marketingIcon,
   }) {
-    return ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$FlashSale(
+    return ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$FlashSale(
       activityCode: (activityCode != null
           ? activityCode.value
           : this.activityCode),
@@ -18482,24 +19400,24 @@ extension $ActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$Image {
-  const ProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$Image({
+class ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$Image {
+  const ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$Image({
     this.width,
     this.height,
     this.url,
   });
 
-  factory ProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$Image.fromJson(
+  factory ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$Image.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$ImageFromJson(
+      _$ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$ImageFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$ProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$ImageToJson;
+      _$ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$ImageToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$ImageToJson(
+      _$ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$ImageToJson(
         this,
       );
 
@@ -18510,12 +19428,13 @@ class ProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$Image {
   @JsonKey(name: 'url')
   final String? url;
   static const fromJsonFactory =
-      _$ProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$ImageFromJson;
+      _$ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$ImageFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$Image &&
+        (other
+                is ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$Image &&
             (identical(other.width, width) ||
                 const DeepCollectionEquality().equals(other.width, width)) &&
             (identical(other.height, height) ||
@@ -18535,27 +19454,25 @@ class ProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$Image {
       runtimeType.hashCode;
 }
 
-extension $ProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$ImageExtension
-    on ProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$Image {
-  ProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$Image copyWith({
-    int? width,
-    int? height,
-    String? url,
-  }) {
-    return ProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$Image(
+extension $ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$ImageExtension
+    on
+        ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$Image {
+  ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$Image
+  copyWith({int? width, int? height, String? url}) {
+    return ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$Image(
       width: width ?? this.width,
       height: height ?? this.height,
       url: url ?? this.url,
     );
   }
 
-  ProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$Image
+  ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$Image
   copyWithWrapped({
     Wrapped<int?>? width,
     Wrapped<int?>? height,
     Wrapped<String?>? url,
   }) {
-    return ProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$Image(
+    return ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$Image(
       width: (width != null ? width.value : this.width),
       height: (height != null ? height.value : this.height),
       url: (url != null ? url.value : this.url),
@@ -18564,25 +19481,25 @@ extension $ProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$ImageExte
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$Tags$Item {
-  const ProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$Tags$Item({
+class ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$Tags$Item {
+  const ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$Tags$Item({
     this.tagCode,
     this.tagImg,
     this.order,
     this.frontShow,
   });
 
-  factory ProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$Tags$Item.fromJson(
+  factory ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$Tags$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$Tags$ItemFromJson(
+      _$ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$Tags$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$ProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$Tags$ItemToJson;
+      _$ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$Tags$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$Tags$ItemToJson(
+      _$ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$Tags$ItemToJson(
         this,
       );
 
@@ -18595,13 +19512,13 @@ class ProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$Tags$Item {
   @JsonKey(name: 'frontShow')
   final int? frontShow;
   static const fromJsonFactory =
-      _$ProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$Tags$ItemFromJson;
+      _$ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$Tags$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is ProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$Tags$Item &&
+                is ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$Tags$Item &&
             (identical(other.tagCode, tagCode) ||
                 const DeepCollectionEquality().equals(
                   other.tagCode,
@@ -18630,11 +19547,12 @@ class ProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$Tags$Item {
       runtimeType.hashCode;
 }
 
-extension $ProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$Tags$ItemExtension
-    on ProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$Tags$Item {
-  ProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$Tags$Item
+extension $ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$Tags$ItemExtension
+    on
+        ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$Tags$Item {
+  ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$Tags$Item
   copyWith({String? tagCode, String? tagImg, int? order, int? frontShow}) {
-    return ProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$Tags$Item(
+    return ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$Tags$Item(
       tagCode: tagCode ?? this.tagCode,
       tagImg: tagImg ?? this.tagImg,
       order: order ?? this.order,
@@ -18642,14 +19560,14 @@ extension $ProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$Tags$Item
     );
   }
 
-  ProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$Tags$Item
+  ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$Tags$Item
   copyWithWrapped({
     Wrapped<String?>? tagCode,
     Wrapped<String?>? tagImg,
     Wrapped<int?>? order,
     Wrapped<int?>? frontShow,
   }) {
-    return ProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$Tags$Item(
+    return ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$Tags$Item(
       tagCode: (tagCode != null ? tagCode.value : this.tagCode),
       tagImg: (tagImg != null ? tagImg.value : this.tagImg),
       order: (order != null ? order.value : this.order),
@@ -18659,23 +19577,23 @@ extension $ProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$Tags$Item
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$PremiumBrandInfo {
-  const ProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$PremiumBrandInfo({
+class ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$PremiumBrandInfo {
+  const ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$PremiumBrandInfo({
     this.brandCode,
     this.brandImg,
   });
 
-  factory ProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$PremiumBrandInfo.fromJson(
+  factory ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$PremiumBrandInfo.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$PremiumBrandInfoFromJson(
+      _$ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$PremiumBrandInfoFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$ProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$PremiumBrandInfoToJson;
+      _$ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$PremiumBrandInfoToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$PremiumBrandInfoToJson(
+      _$ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$PremiumBrandInfoToJson(
         this,
       );
 
@@ -18684,13 +19602,13 @@ class ProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$PremiumBrandIn
   @JsonKey(name: 'brandImg')
   final String? brandImg;
   static const fromJsonFactory =
-      _$ProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$PremiumBrandInfoFromJson;
+      _$ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$PremiumBrandInfoFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is ProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$PremiumBrandInfo &&
+                is ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$PremiumBrandInfo &&
             (identical(other.brandCode, brandCode) ||
                 const DeepCollectionEquality().equals(
                   other.brandCode,
@@ -18713,19 +19631,20 @@ class ProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$PremiumBrandIn
       runtimeType.hashCode;
 }
 
-extension $ProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$PremiumBrandInfoExtension
-    on ProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$PremiumBrandInfo {
-  ProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$PremiumBrandInfo
+extension $ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$PremiumBrandInfoExtension
+    on
+        ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$PremiumBrandInfo {
+  ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$PremiumBrandInfo
   copyWith({String? brandCode, String? brandImg}) {
-    return ProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$PremiumBrandInfo(
+    return ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$PremiumBrandInfo(
       brandCode: brandCode ?? this.brandCode,
       brandImg: brandImg ?? this.brandImg,
     );
   }
 
-  ProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$PremiumBrandInfo
+  ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$PremiumBrandInfo
   copyWithWrapped({Wrapped<String?>? brandCode, Wrapped<String?>? brandImg}) {
-    return ProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$PremiumBrandInfo(
+    return ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$PremiumBrandInfo(
       brandCode: (brandCode != null ? brandCode.value : this.brandCode),
       brandImg: (brandImg != null ? brandImg.value : this.brandImg),
     );
@@ -18733,24 +19652,25 @@ extension $ProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$PremiumBr
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductPremiumDupeNoAuthMetaGet$Response$Data$Config$List$Item {
-  const ProductPremiumDupeNoAuthMetaGet$Response$Data$Config$List$Item({
+class ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Config$List$Item {
+  const ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Config$List$Item({
     this.img,
     this.tabNormalColor,
     this.tabSelectedColor,
     this.tabsBackgroundColor,
   });
 
-  factory ProductPremiumDupeNoAuthMetaGet$Response$Data$Config$List$Item.fromJson(
+  factory ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Config$List$Item.fromJson(
     Map<String, dynamic> json,
-  ) => _$ProductPremiumDupeNoAuthMetaGet$Response$Data$Config$List$ItemFromJson(
-    json,
-  );
+  ) =>
+      _$ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Config$List$ItemFromJson(
+        json,
+      );
 
   static const toJsonFactory =
-      _$ProductPremiumDupeNoAuthMetaGet$Response$Data$Config$List$ItemToJson;
+      _$ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Config$List$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductPremiumDupeNoAuthMetaGet$Response$Data$Config$List$ItemToJson(
+      _$ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Config$List$ItemToJson(
         this,
       );
 
@@ -18763,13 +19683,13 @@ class ProductPremiumDupeNoAuthMetaGet$Response$Data$Config$List$Item {
   @JsonKey(name: 'tabsBackgroundColor')
   final String? tabsBackgroundColor;
   static const fromJsonFactory =
-      _$ProductPremiumDupeNoAuthMetaGet$Response$Data$Config$List$ItemFromJson;
+      _$ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Config$List$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is ProductPremiumDupeNoAuthMetaGet$Response$Data$Config$List$Item &&
+                is ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Config$List$Item &&
             (identical(other.img, img) ||
                 const DeepCollectionEquality().equals(other.img, img)) &&
             (identical(other.tabNormalColor, tabNormalColor) ||
@@ -18801,15 +19721,16 @@ class ProductPremiumDupeNoAuthMetaGet$Response$Data$Config$List$Item {
       runtimeType.hashCode;
 }
 
-extension $ProductPremiumDupeNoAuthMetaGet$Response$Data$Config$List$ItemExtension
-    on ProductPremiumDupeNoAuthMetaGet$Response$Data$Config$List$Item {
-  ProductPremiumDupeNoAuthMetaGet$Response$Data$Config$List$Item copyWith({
+extension $ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Config$List$ItemExtension
+    on ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Config$List$Item {
+  ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Config$List$Item
+  copyWith({
     String? img,
     String? tabNormalColor,
     String? tabSelectedColor,
     String? tabsBackgroundColor,
   }) {
-    return ProductPremiumDupeNoAuthMetaGet$Response$Data$Config$List$Item(
+    return ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Config$List$Item(
       img: img ?? this.img,
       tabNormalColor: tabNormalColor ?? this.tabNormalColor,
       tabSelectedColor: tabSelectedColor ?? this.tabSelectedColor,
@@ -18817,14 +19738,14 @@ extension $ProductPremiumDupeNoAuthMetaGet$Response$Data$Config$List$ItemExtensi
     );
   }
 
-  ProductPremiumDupeNoAuthMetaGet$Response$Data$Config$List$Item
+  ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Config$List$Item
   copyWithWrapped({
     Wrapped<String?>? img,
     Wrapped<String?>? tabNormalColor,
     Wrapped<String?>? tabSelectedColor,
     Wrapped<String?>? tabsBackgroundColor,
   }) {
-    return ProductPremiumDupeNoAuthMetaGet$Response$Data$Config$List$Item(
+    return ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Config$List$Item(
       img: (img != null ? img.value : this.img),
       tabNormalColor: (tabNormalColor != null
           ? tabNormalColor.value
@@ -18840,23 +19761,24 @@ extension $ProductPremiumDupeNoAuthMetaGet$Response$Data$Config$List$ItemExtensi
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthPushProductGet$Response$Data$Records$Item$Image {
-  const ProductNoAuthPushProductGet$Response$Data$Records$Item$Image({
+class ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item$Image {
+  const ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item$Image({
     required this.width,
     required this.height,
     required this.url,
   });
 
-  factory ProductNoAuthPushProductGet$Response$Data$Records$Item$Image.fromJson(
+  factory ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item$Image.fromJson(
     Map<String, dynamic> json,
-  ) => _$ProductNoAuthPushProductGet$Response$Data$Records$Item$ImageFromJson(
-    json,
-  );
+  ) =>
+      _$ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item$ImageFromJson(
+        json,
+      );
 
   static const toJsonFactory =
-      _$ProductNoAuthPushProductGet$Response$Data$Records$Item$ImageToJson;
+      _$ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item$ImageToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthPushProductGet$Response$Data$Records$Item$ImageToJson(
+      _$ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item$ImageToJson(
         this,
       );
 
@@ -18867,12 +19789,13 @@ class ProductNoAuthPushProductGet$Response$Data$Records$Item$Image {
   @JsonKey(name: 'url')
   final String url;
   static const fromJsonFactory =
-      _$ProductNoAuthPushProductGet$Response$Data$Records$Item$ImageFromJson;
+      _$ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item$ImageFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ProductNoAuthPushProductGet$Response$Data$Records$Item$Image &&
+        (other
+                is ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item$Image &&
             (identical(other.width, width) ||
                 const DeepCollectionEquality().equals(other.width, width)) &&
             (identical(other.height, height) ||
@@ -18892,26 +19815,24 @@ class ProductNoAuthPushProductGet$Response$Data$Records$Item$Image {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthPushProductGet$Response$Data$Records$Item$ImageExtension
-    on ProductNoAuthPushProductGet$Response$Data$Records$Item$Image {
-  ProductNoAuthPushProductGet$Response$Data$Records$Item$Image copyWith({
-    int? width,
-    int? height,
-    String? url,
-  }) {
-    return ProductNoAuthPushProductGet$Response$Data$Records$Item$Image(
+extension $ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item$ImageExtension
+    on ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item$Image {
+  ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item$Image
+  copyWith({int? width, int? height, String? url}) {
+    return ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item$Image(
       width: width ?? this.width,
       height: height ?? this.height,
       url: url ?? this.url,
     );
   }
 
-  ProductNoAuthPushProductGet$Response$Data$Records$Item$Image copyWithWrapped({
+  ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item$Image
+  copyWithWrapped({
     Wrapped<int>? width,
     Wrapped<int>? height,
     Wrapped<String>? url,
   }) {
-    return ProductNoAuthPushProductGet$Response$Data$Records$Item$Image(
+    return ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item$Image(
       width: (width != null ? width.value : this.width),
       height: (height != null ? height.value : this.height),
       url: (url != null ? url.value : this.url),
@@ -18920,23 +19841,23 @@ extension $ProductNoAuthPushProductGet$Response$Data$Records$Item$ImageExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthPushProductGet$Response$Data$Records$Item$Tags$Item {
-  const ProductNoAuthPushProductGet$Response$Data$Records$Item$Tags$Item({
+class ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item$Tags$Item {
+  const ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item$Tags$Item({
     this.tagCode,
     this.tagImg,
   });
 
-  factory ProductNoAuthPushProductGet$Response$Data$Records$Item$Tags$Item.fromJson(
+  factory ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item$Tags$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ProductNoAuthPushProductGet$Response$Data$Records$Item$Tags$ItemFromJson(
+      _$ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item$Tags$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$ProductNoAuthPushProductGet$Response$Data$Records$Item$Tags$ItemToJson;
+      _$ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item$Tags$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthPushProductGet$Response$Data$Records$Item$Tags$ItemToJson(
+      _$ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item$Tags$ItemToJson(
         this,
       );
 
@@ -18945,12 +19866,13 @@ class ProductNoAuthPushProductGet$Response$Data$Records$Item$Tags$Item {
   @JsonKey(name: 'tagImg')
   final String? tagImg;
   static const fromJsonFactory =
-      _$ProductNoAuthPushProductGet$Response$Data$Records$Item$Tags$ItemFromJson;
+      _$ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item$Tags$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ProductNoAuthPushProductGet$Response$Data$Records$Item$Tags$Item &&
+        (other
+                is ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item$Tags$Item &&
             (identical(other.tagCode, tagCode) ||
                 const DeepCollectionEquality().equals(
                   other.tagCode,
@@ -18970,21 +19892,19 @@ class ProductNoAuthPushProductGet$Response$Data$Records$Item$Tags$Item {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthPushProductGet$Response$Data$Records$Item$Tags$ItemExtension
-    on ProductNoAuthPushProductGet$Response$Data$Records$Item$Tags$Item {
-  ProductNoAuthPushProductGet$Response$Data$Records$Item$Tags$Item copyWith({
-    String? tagCode,
-    String? tagImg,
-  }) {
-    return ProductNoAuthPushProductGet$Response$Data$Records$Item$Tags$Item(
+extension $ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item$Tags$ItemExtension
+    on ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item$Tags$Item {
+  ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item$Tags$Item
+  copyWith({String? tagCode, String? tagImg}) {
+    return ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item$Tags$Item(
       tagCode: tagCode ?? this.tagCode,
       tagImg: tagImg ?? this.tagImg,
     );
   }
 
-  ProductNoAuthPushProductGet$Response$Data$Records$Item$Tags$Item
+  ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item$Tags$Item
   copyWithWrapped({Wrapped<String?>? tagCode, Wrapped<String?>? tagImg}) {
-    return ProductNoAuthPushProductGet$Response$Data$Records$Item$Tags$Item(
+    return ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item$Tags$Item(
       tagCode: (tagCode != null ? tagCode.value : this.tagCode),
       tagImg: (tagImg != null ? tagImg.value : this.tagImg),
     );
@@ -18992,23 +19912,23 @@ extension $ProductNoAuthPushProductGet$Response$Data$Records$Item$Tags$ItemExten
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthPushProductGet$Response$Data$Records$Item$PremiumBrandInfo {
-  const ProductNoAuthPushProductGet$Response$Data$Records$Item$PremiumBrandInfo({
+class ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item$PremiumBrandInfo {
+  const ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item$PremiumBrandInfo({
     this.brandCode,
     this.brandImg,
   });
 
-  factory ProductNoAuthPushProductGet$Response$Data$Records$Item$PremiumBrandInfo.fromJson(
+  factory ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item$PremiumBrandInfo.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ProductNoAuthPushProductGet$Response$Data$Records$Item$PremiumBrandInfoFromJson(
+      _$ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item$PremiumBrandInfoFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$ProductNoAuthPushProductGet$Response$Data$Records$Item$PremiumBrandInfoToJson;
+      _$ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item$PremiumBrandInfoToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthPushProductGet$Response$Data$Records$Item$PremiumBrandInfoToJson(
+      _$ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item$PremiumBrandInfoToJson(
         this,
       );
 
@@ -19017,13 +19937,13 @@ class ProductNoAuthPushProductGet$Response$Data$Records$Item$PremiumBrandInfo {
   @JsonKey(name: 'brandImg')
   final String? brandImg;
   static const fromJsonFactory =
-      _$ProductNoAuthPushProductGet$Response$Data$Records$Item$PremiumBrandInfoFromJson;
+      _$ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item$PremiumBrandInfoFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is ProductNoAuthPushProductGet$Response$Data$Records$Item$PremiumBrandInfo &&
+                is ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item$PremiumBrandInfo &&
             (identical(other.brandCode, brandCode) ||
                 const DeepCollectionEquality().equals(
                   other.brandCode,
@@ -19046,19 +19966,20 @@ class ProductNoAuthPushProductGet$Response$Data$Records$Item$PremiumBrandInfo {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthPushProductGet$Response$Data$Records$Item$PremiumBrandInfoExtension
-    on ProductNoAuthPushProductGet$Response$Data$Records$Item$PremiumBrandInfo {
-  ProductNoAuthPushProductGet$Response$Data$Records$Item$PremiumBrandInfo
+extension $ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item$PremiumBrandInfoExtension
+    on
+        ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item$PremiumBrandInfo {
+  ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item$PremiumBrandInfo
   copyWith({String? brandCode, String? brandImg}) {
-    return ProductNoAuthPushProductGet$Response$Data$Records$Item$PremiumBrandInfo(
+    return ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item$PremiumBrandInfo(
       brandCode: brandCode ?? this.brandCode,
       brandImg: brandImg ?? this.brandImg,
     );
   }
 
-  ProductNoAuthPushProductGet$Response$Data$Records$Item$PremiumBrandInfo
+  ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item$PremiumBrandInfo
   copyWithWrapped({Wrapped<String?>? brandCode, Wrapped<String?>? brandImg}) {
-    return ProductNoAuthPushProductGet$Response$Data$Records$Item$PremiumBrandInfo(
+    return ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item$PremiumBrandInfo(
       brandCode: (brandCode != null ? brandCode.value : this.brandCode),
       brandImg: (brandImg != null ? brandImg.value : this.brandImg),
     );
@@ -19066,8 +19987,8 @@ extension $ProductNoAuthPushProductGet$Response$Data$Records$Item$PremiumBrandIn
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item {
-  const ProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item({
+class ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item {
+  const ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item({
     required this.value,
     required this.enValue,
     required this.image,
@@ -19075,17 +19996,17 @@ class ProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item$OptionValues
     required this.imageHeight,
   });
 
-  factory ProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item.fromJson(
+  factory ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item$OptionValues$ItemFromJson(
+      _$ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item$OptionValues$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$ProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item$OptionValues$ItemToJson;
+      _$ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item$OptionValues$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item$OptionValues$ItemToJson(
+      _$ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item$OptionValues$ItemToJson(
         this,
       );
 
@@ -19100,13 +20021,13 @@ class ProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item$OptionValues
   @JsonKey(name: 'imageHeight')
   final int imageHeight;
   static const fromJsonFactory =
-      _$ProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item$OptionValues$ItemFromJson;
+      _$ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item$OptionValues$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is ProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item &&
+                is ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item &&
             (identical(other.value, value) ||
                 const DeepCollectionEquality().equals(other.value, value)) &&
             (identical(other.enValue, enValue) ||
@@ -19141,10 +20062,10 @@ class ProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item$OptionValues
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item$OptionValues$ItemExtension
+extension $ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item$OptionValues$ItemExtension
     on
-        ProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item {
-  ProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item
+        ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item {
+  ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item
   copyWith({
     String? value,
     String? enValue,
@@ -19152,7 +20073,7 @@ extension $ProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item$OptionV
     int? imageWidth,
     int? imageHeight,
   }) {
-    return ProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item(
+    return ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item(
       value: value ?? this.value,
       enValue: enValue ?? this.enValue,
       image: image ?? this.image,
@@ -19161,7 +20082,7 @@ extension $ProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item$OptionV
     );
   }
 
-  ProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item
+  ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item
   copyWithWrapped({
     Wrapped<String>? value,
     Wrapped<String>? enValue,
@@ -19169,7 +20090,7 @@ extension $ProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item$OptionV
     Wrapped<int>? imageWidth,
     Wrapped<int>? imageHeight,
   }) {
-    return ProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item(
+    return ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item(
       value: (value != null ? value.value : this.value),
       enValue: (enValue != null ? enValue.value : this.enValue),
       image: (image != null ? image.value : this.image),
@@ -19180,24 +20101,24 @@ extension $ProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item$OptionV
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainImg$Item {
-  const ProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainImg$Item({
+class ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainImg$Item {
+  const ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainImg$Item({
     required this.width,
     required this.height,
     required this.url,
   });
 
-  factory ProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainImg$Item.fromJson(
+  factory ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainImg$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainImg$ItemFromJson(
+      _$ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainImg$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$ProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainImg$ItemToJson;
+      _$ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainImg$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainImg$ItemToJson(
+      _$ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainImg$ItemToJson(
         this,
       );
 
@@ -19208,13 +20129,13 @@ class ProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainImg$Item {
   @JsonKey(name: 'url')
   final String url;
   static const fromJsonFactory =
-      _$ProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainImg$ItemFromJson;
+      _$ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainImg$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is ProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainImg$Item &&
+                is ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainImg$Item &&
             (identical(other.width, width) ||
                 const DeepCollectionEquality().equals(other.width, width)) &&
             (identical(other.height, height) ||
@@ -19234,24 +20155,25 @@ class ProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainImg$Item {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainImg$ItemExtension
-    on ProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainImg$Item {
-  ProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainImg$Item
+extension $ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainImg$ItemExtension
+    on
+        ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainImg$Item {
+  ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainImg$Item
   copyWith({double? width, double? height, String? url}) {
-    return ProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainImg$Item(
+    return ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainImg$Item(
       width: width ?? this.width,
       height: height ?? this.height,
       url: url ?? this.url,
     );
   }
 
-  ProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainImg$Item
+  ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainImg$Item
   copyWithWrapped({
     Wrapped<double>? width,
     Wrapped<double>? height,
     Wrapped<String>? url,
   }) {
-    return ProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainImg$Item(
+    return ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainImg$Item(
       width: (width != null ? width.value : this.width),
       height: (height != null ? height.value : this.height),
       url: (url != null ? url.value : this.url),
@@ -19260,8 +20182,8 @@ extension $ProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainImg$Item
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainVideo$Item {
-  const ProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainVideo$Item({
+class ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainVideo$Item {
+  const ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainVideo$Item({
     this.videoUrl,
     this.vodUrl,
     this.previewUrl,
@@ -19269,17 +20191,17 @@ class ProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainVideo$Item {
     this.height,
   });
 
-  factory ProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainVideo$Item.fromJson(
+  factory ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainVideo$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainVideo$ItemFromJson(
+      _$ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainVideo$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$ProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainVideo$ItemToJson;
+      _$ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainVideo$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainVideo$ItemToJson(
+      _$ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainVideo$ItemToJson(
         this,
       );
 
@@ -19294,13 +20216,13 @@ class ProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainVideo$Item {
   @JsonKey(name: 'height')
   final Object? height;
   static const fromJsonFactory =
-      _$ProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainVideo$ItemFromJson;
+      _$ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainVideo$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is ProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainVideo$Item &&
+                is ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainVideo$Item &&
             (identical(other.videoUrl, videoUrl) ||
                 const DeepCollectionEquality().equals(
                   other.videoUrl,
@@ -19332,9 +20254,10 @@ class ProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainVideo$Item {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainVideo$ItemExtension
-    on ProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainVideo$Item {
-  ProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainVideo$Item
+extension $ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainVideo$ItemExtension
+    on
+        ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainVideo$Item {
+  ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainVideo$Item
   copyWith({
     String? videoUrl,
     Object? vodUrl,
@@ -19342,7 +20265,7 @@ extension $ProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainVideo$It
     Object? width,
     Object? height,
   }) {
-    return ProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainVideo$Item(
+    return ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainVideo$Item(
       videoUrl: videoUrl ?? this.videoUrl,
       vodUrl: vodUrl ?? this.vodUrl,
       previewUrl: previewUrl ?? this.previewUrl,
@@ -19351,7 +20274,7 @@ extension $ProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainVideo$It
     );
   }
 
-  ProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainVideo$Item
+  ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainVideo$Item
   copyWithWrapped({
     Wrapped<String?>? videoUrl,
     Wrapped<Object?>? vodUrl,
@@ -19359,7 +20282,7 @@ extension $ProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainVideo$It
     Wrapped<Object?>? width,
     Wrapped<Object?>? height,
   }) {
-    return ProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainVideo$Item(
+    return ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainVideo$Item(
       videoUrl: (videoUrl != null ? videoUrl.value : this.videoUrl),
       vodUrl: (vodUrl != null ? vodUrl.value : this.vodUrl),
       previewUrl: (previewUrl != null ? previewUrl.value : this.previewUrl),
@@ -19370,24 +20293,24 @@ extension $ProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainVideo$It
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgCollection$Item {
-  const ProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgCollection$Item({
+class ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgCollection$Item {
+  const ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgCollection$Item({
     required this.width,
     required this.height,
     required this.url,
   });
 
-  factory ProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgCollection$Item.fromJson(
+  factory ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgCollection$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgCollection$ItemFromJson(
+      _$ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgCollection$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$ProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgCollection$ItemToJson;
+      _$ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgCollection$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgCollection$ItemToJson(
+      _$ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgCollection$ItemToJson(
         this,
       );
 
@@ -19398,13 +20321,13 @@ class ProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgCollection$Ite
   @JsonKey(name: 'url')
   final String url;
   static const fromJsonFactory =
-      _$ProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgCollection$ItemFromJson;
+      _$ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgCollection$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is ProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgCollection$Item &&
+                is ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgCollection$Item &&
             (identical(other.width, width) ||
                 const DeepCollectionEquality().equals(other.width, width)) &&
             (identical(other.height, height) ||
@@ -19424,24 +20347,25 @@ class ProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgCollection$Ite
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgCollection$ItemExtension
-    on ProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgCollection$Item {
-  ProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgCollection$Item
+extension $ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgCollection$ItemExtension
+    on
+        ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgCollection$Item {
+  ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgCollection$Item
   copyWith({double? width, double? height, String? url}) {
-    return ProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgCollection$Item(
+    return ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgCollection$Item(
       width: width ?? this.width,
       height: height ?? this.height,
       url: url ?? this.url,
     );
   }
 
-  ProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgCollection$Item
+  ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgCollection$Item
   copyWithWrapped({
     Wrapped<double>? width,
     Wrapped<double>? height,
     Wrapped<String>? url,
   }) {
-    return ProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgCollection$Item(
+    return ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgCollection$Item(
       width: (width != null ? width.value : this.width),
       height: (height != null ? height.value : this.height),
       url: (url != null ? url.value : this.url),
@@ -19450,24 +20374,24 @@ extension $ProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgCollectio
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgDetail$Item {
-  const ProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgDetail$Item({
+class ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgDetail$Item {
+  const ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgDetail$Item({
     required this.width,
     required this.height,
     required this.url,
   });
 
-  factory ProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgDetail$Item.fromJson(
+  factory ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgDetail$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgDetail$ItemFromJson(
+      _$ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgDetail$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$ProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgDetail$ItemToJson;
+      _$ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgDetail$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgDetail$ItemToJson(
+      _$ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgDetail$ItemToJson(
         this,
       );
 
@@ -19478,13 +20402,13 @@ class ProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgDetail$Item {
   @JsonKey(name: 'url')
   final String url;
   static const fromJsonFactory =
-      _$ProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgDetail$ItemFromJson;
+      _$ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgDetail$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is ProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgDetail$Item &&
+                is ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgDetail$Item &&
             (identical(other.width, width) ||
                 const DeepCollectionEquality().equals(other.width, width)) &&
             (identical(other.height, height) ||
@@ -19504,24 +20428,25 @@ class ProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgDetail$Item {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgDetail$ItemExtension
-    on ProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgDetail$Item {
-  ProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgDetail$Item
+extension $ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgDetail$ItemExtension
+    on
+        ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgDetail$Item {
+  ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgDetail$Item
   copyWith({double? width, double? height, String? url}) {
-    return ProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgDetail$Item(
+    return ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgDetail$Item(
       width: width ?? this.width,
       height: height ?? this.height,
       url: url ?? this.url,
     );
   }
 
-  ProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgDetail$Item
+  ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgDetail$Item
   copyWithWrapped({
     Wrapped<double>? width,
     Wrapped<double>? height,
     Wrapped<String>? url,
   }) {
-    return ProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgDetail$Item(
+    return ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgDetail$Item(
       width: (width != null ? width.value : this.width),
       height: (height != null ? height.value : this.height),
       url: (url != null ? url.value : this.url),
@@ -19530,24 +20455,24 @@ extension $ProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgDetail$It
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$Item {
-  const ProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$Item({
+class ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$Item {
+  const ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$Item({
     required this.name,
     required this.type,
     required this.optionValues,
   });
 
-  factory ProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$Item.fromJson(
+  factory ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$ItemFromJson(
+      _$ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$ProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$ItemToJson;
+      _$ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$ItemToJson(
+      _$ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$ItemToJson(
         this,
       );
 
@@ -19557,17 +20482,17 @@ class ProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$It
   final double type;
   @JsonKey(name: 'optionValues')
   final List<
-    ProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item
+    ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item
   >
   optionValues;
   static const fromJsonFactory =
-      _$ProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$ItemFromJson;
+      _$ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is ProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$Item &&
+                is ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$Item &&
             (identical(other.name, name) ||
                 const DeepCollectionEquality().equals(other.name, name)) &&
             (identical(other.type, type) ||
@@ -19590,36 +20515,37 @@ class ProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$It
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$ItemExtension
-    on ProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$Item {
-  ProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$Item
+extension $ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$ItemExtension
+    on
+        ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$Item {
+  ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$Item
   copyWith({
     String? name,
     double? type,
     List<
-      ProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item
+      ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item
     >?
     optionValues,
   }) {
-    return ProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$Item(
+    return ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$Item(
       name: name ?? this.name,
       type: type ?? this.type,
       optionValues: optionValues ?? this.optionValues,
     );
   }
 
-  ProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$Item
+  ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$Item
   copyWithWrapped({
     Wrapped<String>? name,
     Wrapped<double>? type,
     Wrapped<
       List<
-        ProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item
+        ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item
       >
     >?
     optionValues,
   }) {
-    return ProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$Item(
+    return ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$Item(
       name: (name != null ? name.value : this.name),
       type: (type != null ? type.value : this.type),
       optionValues: (optionValues != null
@@ -19630,23 +20556,23 @@ extension $ProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptio
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthCombineSearchGet$Response$Data$Records$Item$Tags$Item {
-  const ProductNoAuthCombineSearchGet$Response$Data$Records$Item$Tags$Item({
+class ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$Tags$Item {
+  const ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$Tags$Item({
     this.tagCode,
     this.tagImg,
   });
 
-  factory ProductNoAuthCombineSearchGet$Response$Data$Records$Item$Tags$Item.fromJson(
+  factory ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$Tags$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ProductNoAuthCombineSearchGet$Response$Data$Records$Item$Tags$ItemFromJson(
+      _$ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$Tags$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$ProductNoAuthCombineSearchGet$Response$Data$Records$Item$Tags$ItemToJson;
+      _$ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$Tags$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthCombineSearchGet$Response$Data$Records$Item$Tags$ItemToJson(
+      _$ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$Tags$ItemToJson(
         this,
       );
 
@@ -19655,12 +20581,13 @@ class ProductNoAuthCombineSearchGet$Response$Data$Records$Item$Tags$Item {
   @JsonKey(name: 'tagImg')
   final String? tagImg;
   static const fromJsonFactory =
-      _$ProductNoAuthCombineSearchGet$Response$Data$Records$Item$Tags$ItemFromJson;
+      _$ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$Tags$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ProductNoAuthCombineSearchGet$Response$Data$Records$Item$Tags$Item &&
+        (other
+                is ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$Tags$Item &&
             (identical(other.tagCode, tagCode) ||
                 const DeepCollectionEquality().equals(
                   other.tagCode,
@@ -19680,21 +20607,20 @@ class ProductNoAuthCombineSearchGet$Response$Data$Records$Item$Tags$Item {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthCombineSearchGet$Response$Data$Records$Item$Tags$ItemExtension
-    on ProductNoAuthCombineSearchGet$Response$Data$Records$Item$Tags$Item {
-  ProductNoAuthCombineSearchGet$Response$Data$Records$Item$Tags$Item copyWith({
-    String? tagCode,
-    String? tagImg,
-  }) {
-    return ProductNoAuthCombineSearchGet$Response$Data$Records$Item$Tags$Item(
+extension $ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$Tags$ItemExtension
+    on
+        ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$Tags$Item {
+  ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$Tags$Item
+  copyWith({String? tagCode, String? tagImg}) {
+    return ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$Tags$Item(
       tagCode: tagCode ?? this.tagCode,
       tagImg: tagImg ?? this.tagImg,
     );
   }
 
-  ProductNoAuthCombineSearchGet$Response$Data$Records$Item$Tags$Item
+  ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$Tags$Item
   copyWithWrapped({Wrapped<String?>? tagCode, Wrapped<String?>? tagImg}) {
-    return ProductNoAuthCombineSearchGet$Response$Data$Records$Item$Tags$Item(
+    return ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$Tags$Item(
       tagCode: (tagCode != null ? tagCode.value : this.tagCode),
       tagImg: (tagImg != null ? tagImg.value : this.tagImg),
     );
@@ -19702,23 +20628,23 @@ extension $ProductNoAuthCombineSearchGet$Response$Data$Records$Item$Tags$ItemExt
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthCombineSearchGet$Response$Data$Records$Item$PremiumBrandInfo {
-  const ProductNoAuthCombineSearchGet$Response$Data$Records$Item$PremiumBrandInfo({
+class ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$PremiumBrandInfo {
+  const ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$PremiumBrandInfo({
     this.brandCode,
     this.brandImg,
   });
 
-  factory ProductNoAuthCombineSearchGet$Response$Data$Records$Item$PremiumBrandInfo.fromJson(
+  factory ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$PremiumBrandInfo.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ProductNoAuthCombineSearchGet$Response$Data$Records$Item$PremiumBrandInfoFromJson(
+      _$ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$PremiumBrandInfoFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$ProductNoAuthCombineSearchGet$Response$Data$Records$Item$PremiumBrandInfoToJson;
+      _$ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$PremiumBrandInfoToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthCombineSearchGet$Response$Data$Records$Item$PremiumBrandInfoToJson(
+      _$ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$PremiumBrandInfoToJson(
         this,
       );
 
@@ -19727,13 +20653,13 @@ class ProductNoAuthCombineSearchGet$Response$Data$Records$Item$PremiumBrandInfo 
   @JsonKey(name: 'brandImg')
   final String? brandImg;
   static const fromJsonFactory =
-      _$ProductNoAuthCombineSearchGet$Response$Data$Records$Item$PremiumBrandInfoFromJson;
+      _$ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$PremiumBrandInfoFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is ProductNoAuthCombineSearchGet$Response$Data$Records$Item$PremiumBrandInfo &&
+                is ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$PremiumBrandInfo &&
             (identical(other.brandCode, brandCode) ||
                 const DeepCollectionEquality().equals(
                   other.brandCode,
@@ -19756,19 +20682,20 @@ class ProductNoAuthCombineSearchGet$Response$Data$Records$Item$PremiumBrandInfo 
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthCombineSearchGet$Response$Data$Records$Item$PremiumBrandInfoExtension
-    on ProductNoAuthCombineSearchGet$Response$Data$Records$Item$PremiumBrandInfo {
-  ProductNoAuthCombineSearchGet$Response$Data$Records$Item$PremiumBrandInfo
+extension $ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$PremiumBrandInfoExtension
+    on
+        ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$PremiumBrandInfo {
+  ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$PremiumBrandInfo
   copyWith({String? brandCode, String? brandImg}) {
-    return ProductNoAuthCombineSearchGet$Response$Data$Records$Item$PremiumBrandInfo(
+    return ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$PremiumBrandInfo(
       brandCode: brandCode ?? this.brandCode,
       brandImg: brandImg ?? this.brandImg,
     );
   }
 
-  ProductNoAuthCombineSearchGet$Response$Data$Records$Item$PremiumBrandInfo
+  ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$PremiumBrandInfo
   copyWithWrapped({Wrapped<String?>? brandCode, Wrapped<String?>? brandImg}) {
-    return ProductNoAuthCombineSearchGet$Response$Data$Records$Item$PremiumBrandInfo(
+    return ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$PremiumBrandInfo(
       brandCode: (brandCode != null ? brandCode.value : this.brandCode),
       brandImg: (brandImg != null ? brandImg.value : this.brandImg),
     );
@@ -19776,24 +20703,24 @@ extension $ProductNoAuthCombineSearchGet$Response$Data$Records$Item$PremiumBrand
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$MainImg$Item {
-  const ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$MainImg$Item({
+class ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$MainImg$Item {
+  const ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$MainImg$Item({
     this.width,
     this.height,
     this.url,
   });
 
-  factory ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$MainImg$Item.fromJson(
+  factory ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$MainImg$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$MainImg$ItemFromJson(
+      _$ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$MainImg$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$MainImg$ItemToJson;
+      _$ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$MainImg$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$MainImg$ItemToJson(
+      _$ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$MainImg$ItemToJson(
         this,
       );
 
@@ -19804,13 +20731,13 @@ class ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$MainImg$Item 
   @JsonKey(name: 'url')
   final String? url;
   static const fromJsonFactory =
-      _$ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$MainImg$ItemFromJson;
+      _$ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$MainImg$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$MainImg$Item &&
+                is ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$MainImg$Item &&
             (identical(other.width, width) ||
                 const DeepCollectionEquality().equals(other.width, width)) &&
             (identical(other.height, height) ||
@@ -19830,24 +20757,25 @@ class ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$MainImg$Item 
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$MainImg$ItemExtension
-    on ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$MainImg$Item {
-  ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$MainImg$Item
+extension $ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$MainImg$ItemExtension
+    on
+        ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$MainImg$Item {
+  ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$MainImg$Item
   copyWith({double? width, double? height, String? url}) {
-    return ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$MainImg$Item(
+    return ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$MainImg$Item(
       width: width ?? this.width,
       height: height ?? this.height,
       url: url ?? this.url,
     );
   }
 
-  ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$MainImg$Item
+  ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$MainImg$Item
   copyWithWrapped({
     Wrapped<double?>? width,
     Wrapped<double?>? height,
     Wrapped<String?>? url,
   }) {
-    return ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$MainImg$Item(
+    return ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$MainImg$Item(
       width: (width != null ? width.value : this.width),
       height: (height != null ? height.value : this.height),
       url: (url != null ? url.value : this.url),
@@ -19856,24 +20784,24 @@ extension $ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$MainImg$
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgCollection$Item {
-  const ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgCollection$Item({
+class ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgCollection$Item {
+  const ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgCollection$Item({
     required this.width,
     required this.height,
     required this.url,
   });
 
-  factory ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgCollection$Item.fromJson(
+  factory ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgCollection$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgCollection$ItemFromJson(
+      _$ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgCollection$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgCollection$ItemToJson;
+      _$ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgCollection$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgCollection$ItemToJson(
+      _$ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgCollection$ItemToJson(
         this,
       );
 
@@ -19884,13 +20812,13 @@ class ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgCollection
   @JsonKey(name: 'url')
   final String url;
   static const fromJsonFactory =
-      _$ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgCollection$ItemFromJson;
+      _$ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgCollection$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgCollection$Item &&
+                is ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgCollection$Item &&
             (identical(other.width, width) ||
                 const DeepCollectionEquality().equals(other.width, width)) &&
             (identical(other.height, height) ||
@@ -19910,25 +20838,25 @@ class ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgCollection
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgCollection$ItemExtension
+extension $ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgCollection$ItemExtension
     on
-        ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgCollection$Item {
-  ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgCollection$Item
+        ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgCollection$Item {
+  ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgCollection$Item
   copyWith({double? width, double? height, String? url}) {
-    return ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgCollection$Item(
+    return ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgCollection$Item(
       width: width ?? this.width,
       height: height ?? this.height,
       url: url ?? this.url,
     );
   }
 
-  ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgCollection$Item
+  ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgCollection$Item
   copyWithWrapped({
     Wrapped<double>? width,
     Wrapped<double>? height,
     Wrapped<String>? url,
   }) {
-    return ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgCollection$Item(
+    return ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgCollection$Item(
       width: (width != null ? width.value : this.width),
       height: (height != null ? height.value : this.height),
       url: (url != null ? url.value : this.url),
@@ -19937,24 +20865,24 @@ extension $ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgColle
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgDetail$Item {
-  const ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgDetail$Item({
+class ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgDetail$Item {
+  const ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgDetail$Item({
     required this.width,
     required this.height,
     required this.url,
   });
 
-  factory ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgDetail$Item.fromJson(
+  factory ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgDetail$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgDetail$ItemFromJson(
+      _$ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgDetail$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgDetail$ItemToJson;
+      _$ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgDetail$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgDetail$ItemToJson(
+      _$ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgDetail$ItemToJson(
         this,
       );
 
@@ -19965,13 +20893,13 @@ class ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgDetail$Ite
   @JsonKey(name: 'url')
   final String url;
   static const fromJsonFactory =
-      _$ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgDetail$ItemFromJson;
+      _$ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgDetail$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgDetail$Item &&
+                is ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgDetail$Item &&
             (identical(other.width, width) ||
                 const DeepCollectionEquality().equals(other.width, width)) &&
             (identical(other.height, height) ||
@@ -19991,24 +20919,25 @@ class ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgDetail$Ite
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgDetail$ItemExtension
-    on ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgDetail$Item {
-  ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgDetail$Item
+extension $ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgDetail$ItemExtension
+    on
+        ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgDetail$Item {
+  ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgDetail$Item
   copyWith({double? width, double? height, String? url}) {
-    return ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgDetail$Item(
+    return ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgDetail$Item(
       width: width ?? this.width,
       height: height ?? this.height,
       url: url ?? this.url,
     );
   }
 
-  ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgDetail$Item
+  ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgDetail$Item
   copyWithWrapped({
     Wrapped<double>? width,
     Wrapped<double>? height,
     Wrapped<String>? url,
   }) {
-    return ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgDetail$Item(
+    return ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgDetail$Item(
       width: (width != null ? width.value : this.width),
       height: (height != null ? height.value : this.height),
       url: (url != null ? url.value : this.url),
@@ -20017,24 +20946,24 @@ extension $ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgDetai
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$Item {
-  const ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$Item({
+class ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$Item {
+  const ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$Item({
     this.name,
     this.type,
     this.optionValues,
   });
 
-  factory ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$Item.fromJson(
+  factory ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$ItemFromJson(
+      _$ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$ItemToJson;
+      _$ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$ItemToJson(
+      _$ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$ItemToJson(
         this,
       );
 
@@ -20044,17 +20973,17 @@ class ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOption
   final double? type;
   @JsonKey(name: 'optionValues')
   final List<
-    ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item
+    ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item
   >?
   optionValues;
   static const fromJsonFactory =
-      _$ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$ItemFromJson;
+      _$ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$Item &&
+                is ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$Item &&
             (identical(other.name, name) ||
                 const DeepCollectionEquality().equals(other.name, name)) &&
             (identical(other.type, type) ||
@@ -20077,37 +21006,37 @@ class ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOption
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$ItemExtension
+extension $ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$ItemExtension
     on
-        ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$Item {
-  ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$Item
+        ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$Item {
+  ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$Item
   copyWith({
     String? name,
     double? type,
     List<
-      ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item
+      ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item
     >?
     optionValues,
   }) {
-    return ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$Item(
+    return ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$Item(
       name: name ?? this.name,
       type: type ?? this.type,
       optionValues: optionValues ?? this.optionValues,
     );
   }
 
-  ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$Item
+  ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$Item
   copyWithWrapped({
     Wrapped<String?>? name,
     Wrapped<double?>? type,
     Wrapped<
       List<
-        ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item
+        ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item
       >?
     >?
     optionValues,
   }) {
-    return ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$Item(
+    return ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$Item(
       name: (name != null ? name.value : this.name),
       type: (type != null ? type.value : this.type),
       optionValues: (optionValues != null
@@ -20118,23 +21047,23 @@ extension $ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductO
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$Tags$Item {
-  const ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$Tags$Item({
+class ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$Tags$Item {
+  const ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$Tags$Item({
     this.tagCode,
     this.tagImg,
   });
 
-  factory ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$Tags$Item.fromJson(
+  factory ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$Tags$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$Tags$ItemFromJson(
+      _$ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$Tags$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$Tags$ItemToJson;
+      _$ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$Tags$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$Tags$ItemToJson(
+      _$ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$Tags$ItemToJson(
         this,
       );
 
@@ -20143,13 +21072,13 @@ class ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$Tags$Item {
   @JsonKey(name: 'tagImg')
   final String? tagImg;
   static const fromJsonFactory =
-      _$ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$Tags$ItemFromJson;
+      _$ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$Tags$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$Tags$Item &&
+                is ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$Tags$Item &&
             (identical(other.tagCode, tagCode) ||
                 const DeepCollectionEquality().equals(
                   other.tagCode,
@@ -20169,19 +21098,20 @@ class ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$Tags$Item {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$Tags$ItemExtension
-    on ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$Tags$Item {
-  ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$Tags$Item
+extension $ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$Tags$ItemExtension
+    on
+        ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$Tags$Item {
+  ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$Tags$Item
   copyWith({String? tagCode, String? tagImg}) {
-    return ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$Tags$Item(
+    return ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$Tags$Item(
       tagCode: tagCode ?? this.tagCode,
       tagImg: tagImg ?? this.tagImg,
     );
   }
 
-  ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$Tags$Item
+  ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$Tags$Item
   copyWithWrapped({Wrapped<String?>? tagCode, Wrapped<String?>? tagImg}) {
-    return ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$Tags$Item(
+    return ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$Tags$Item(
       tagCode: (tagCode != null ? tagCode.value : this.tagCode),
       tagImg: (tagImg != null ? tagImg.value : this.tagImg),
     );
@@ -20189,23 +21119,23 @@ extension $ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$Tags$Ite
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$PremiumBrandInfo {
-  const ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$PremiumBrandInfo({
+class ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$PremiumBrandInfo {
+  const ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$PremiumBrandInfo({
     this.brandCode,
     this.brandImg,
   });
 
-  factory ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$PremiumBrandInfo.fromJson(
+  factory ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$PremiumBrandInfo.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$PremiumBrandInfoFromJson(
+      _$ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$PremiumBrandInfoFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$PremiumBrandInfoToJson;
+      _$ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$PremiumBrandInfoToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$PremiumBrandInfoToJson(
+      _$ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$PremiumBrandInfoToJson(
         this,
       );
 
@@ -20214,13 +21144,13 @@ class ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$PremiumBrandI
   @JsonKey(name: 'brandImg')
   final String? brandImg;
   static const fromJsonFactory =
-      _$ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$PremiumBrandInfoFromJson;
+      _$ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$PremiumBrandInfoFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$PremiumBrandInfo &&
+                is ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$PremiumBrandInfo &&
             (identical(other.brandCode, brandCode) ||
                 const DeepCollectionEquality().equals(
                   other.brandCode,
@@ -20243,19 +21173,20 @@ class ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$PremiumBrandI
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$PremiumBrandInfoExtension
-    on ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$PremiumBrandInfo {
-  ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$PremiumBrandInfo
+extension $ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$PremiumBrandInfoExtension
+    on
+        ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$PremiumBrandInfo {
+  ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$PremiumBrandInfo
   copyWith({String? brandCode, String? brandImg}) {
-    return ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$PremiumBrandInfo(
+    return ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$PremiumBrandInfo(
       brandCode: brandCode ?? this.brandCode,
       brandImg: brandImg ?? this.brandImg,
     );
   }
 
-  ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$PremiumBrandInfo
+  ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$PremiumBrandInfo
   copyWithWrapped({Wrapped<String?>? brandCode, Wrapped<String?>? brandImg}) {
-    return ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$PremiumBrandInfo(
+    return ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$PremiumBrandInfo(
       brandCode: (brandCode != null ? brandCode.value : this.brandCode),
       brandImg: (brandImg != null ? brandImg.value : this.brandImg),
     );
@@ -20263,25 +21194,25 @@ extension $ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$PremiumB
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item$OptionValues$Item {
-  const ProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item$OptionValues$Item({
+class ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item$OptionValues$Item {
+  const ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item$OptionValues$Item({
     required this.value,
     this.image,
     required this.imageWidth,
     required this.imageHeight,
   });
 
-  factory ProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item$OptionValues$Item.fromJson(
+  factory ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item$OptionValues$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item$OptionValues$ItemFromJson(
+      _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item$OptionValues$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$ProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item$OptionValues$ItemToJson;
+      _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item$OptionValues$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item$OptionValues$ItemToJson(
+      _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item$OptionValues$ItemToJson(
         this,
       );
 
@@ -20294,13 +21225,13 @@ class ProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item$OptionVal
   @JsonKey(name: 'imageHeight')
   final Object imageHeight;
   static const fromJsonFactory =
-      _$ProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item$OptionValues$ItemFromJson;
+      _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item$OptionValues$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is ProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item$OptionValues$Item &&
+                is ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item$OptionValues$Item &&
             (identical(other.value, value) ||
                 const DeepCollectionEquality().equals(other.value, value)) &&
             (identical(other.image, image) ||
@@ -20329,17 +21260,17 @@ class ProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item$OptionVal
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item$OptionValues$ItemExtension
+extension $ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item$OptionValues$ItemExtension
     on
-        ProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item$OptionValues$Item {
-  ProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item$OptionValues$Item
+        ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item$OptionValues$Item {
+  ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item$OptionValues$Item
   copyWith({
     String? value,
     String? image,
     Object? imageWidth,
     Object? imageHeight,
   }) {
-    return ProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item$OptionValues$Item(
+    return ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item$OptionValues$Item(
       value: value ?? this.value,
       image: image ?? this.image,
       imageWidth: imageWidth ?? this.imageWidth,
@@ -20347,14 +21278,14 @@ extension $ProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item$Opti
     );
   }
 
-  ProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item$OptionValues$Item
+  ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item$OptionValues$Item
   copyWithWrapped({
     Wrapped<String>? value,
     Wrapped<String?>? image,
     Wrapped<Object>? imageWidth,
     Wrapped<Object>? imageHeight,
   }) {
-    return ProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item$OptionValues$Item(
+    return ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item$OptionValues$Item(
       value: (value != null ? value.value : this.value),
       image: (image != null ? image.value : this.image),
       imageWidth: (imageWidth != null ? imageWidth.value : this.imageWidth),
@@ -20364,23 +21295,23 @@ extension $ProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item$Opti
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthGetProductInfoGet$Response$Data$InspectImages$Item$SkuOption {
-  const ProductNoAuthGetProductInfoGet$Response$Data$InspectImages$Item$SkuOption({
+class ProductServiceProductNoAuthGetProductInfoGet$Response$Data$InspectImages$Item$SkuOption {
+  const ProductServiceProductNoAuthGetProductInfoGet$Response$Data$InspectImages$Item$SkuOption({
     this.name,
     this.value,
   });
 
-  factory ProductNoAuthGetProductInfoGet$Response$Data$InspectImages$Item$SkuOption.fromJson(
+  factory ProductServiceProductNoAuthGetProductInfoGet$Response$Data$InspectImages$Item$SkuOption.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ProductNoAuthGetProductInfoGet$Response$Data$InspectImages$Item$SkuOptionFromJson(
+      _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$InspectImages$Item$SkuOptionFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$ProductNoAuthGetProductInfoGet$Response$Data$InspectImages$Item$SkuOptionToJson;
+      _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$InspectImages$Item$SkuOptionToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthGetProductInfoGet$Response$Data$InspectImages$Item$SkuOptionToJson(
+      _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$InspectImages$Item$SkuOptionToJson(
         this,
       );
 
@@ -20389,13 +21320,13 @@ class ProductNoAuthGetProductInfoGet$Response$Data$InspectImages$Item$SkuOption 
   @JsonKey(name: 'value')
   final String? value;
   static const fromJsonFactory =
-      _$ProductNoAuthGetProductInfoGet$Response$Data$InspectImages$Item$SkuOptionFromJson;
+      _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$InspectImages$Item$SkuOptionFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is ProductNoAuthGetProductInfoGet$Response$Data$InspectImages$Item$SkuOption &&
+                is ProductServiceProductNoAuthGetProductInfoGet$Response$Data$InspectImages$Item$SkuOption &&
             (identical(other.name, name) ||
                 const DeepCollectionEquality().equals(other.name, name)) &&
             (identical(other.value, value) ||
@@ -20412,19 +21343,20 @@ class ProductNoAuthGetProductInfoGet$Response$Data$InspectImages$Item$SkuOption 
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthGetProductInfoGet$Response$Data$InspectImages$Item$SkuOptionExtension
-    on ProductNoAuthGetProductInfoGet$Response$Data$InspectImages$Item$SkuOption {
-  ProductNoAuthGetProductInfoGet$Response$Data$InspectImages$Item$SkuOption
+extension $ProductServiceProductNoAuthGetProductInfoGet$Response$Data$InspectImages$Item$SkuOptionExtension
+    on
+        ProductServiceProductNoAuthGetProductInfoGet$Response$Data$InspectImages$Item$SkuOption {
+  ProductServiceProductNoAuthGetProductInfoGet$Response$Data$InspectImages$Item$SkuOption
   copyWith({String? name, String? value}) {
-    return ProductNoAuthGetProductInfoGet$Response$Data$InspectImages$Item$SkuOption(
+    return ProductServiceProductNoAuthGetProductInfoGet$Response$Data$InspectImages$Item$SkuOption(
       name: name ?? this.name,
       value: value ?? this.value,
     );
   }
 
-  ProductNoAuthGetProductInfoGet$Response$Data$InspectImages$Item$SkuOption
+  ProductServiceProductNoAuthGetProductInfoGet$Response$Data$InspectImages$Item$SkuOption
   copyWithWrapped({Wrapped<String?>? name, Wrapped<String?>? value}) {
-    return ProductNoAuthGetProductInfoGet$Response$Data$InspectImages$Item$SkuOption(
+    return ProductServiceProductNoAuthGetProductInfoGet$Response$Data$InspectImages$Item$SkuOption(
       name: (name != null ? name.value : this.name),
       value: (value != null ? value.value : this.value),
     );
@@ -20432,8 +21364,8 @@ extension $ProductNoAuthGetProductInfoGet$Response$Data$InspectImages$Item$SkuOp
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthGetProductInfoGet$Response$Data$Ext$Brand {
-  const ProductNoAuthGetProductInfoGet$Response$Data$Ext$Brand({
+class ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Ext$Brand {
+  const ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Ext$Brand({
     required this.brandTitle,
     required this.brandName,
     required this.background,
@@ -20442,14 +21374,19 @@ class ProductNoAuthGetProductInfoGet$Response$Data$Ext$Brand {
     required this.deliverAssured,
   });
 
-  factory ProductNoAuthGetProductInfoGet$Response$Data$Ext$Brand.fromJson(
+  factory ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Ext$Brand.fromJson(
     Map<String, dynamic> json,
-  ) => _$ProductNoAuthGetProductInfoGet$Response$Data$Ext$BrandFromJson(json);
+  ) =>
+      _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Ext$BrandFromJson(
+        json,
+      );
 
   static const toJsonFactory =
-      _$ProductNoAuthGetProductInfoGet$Response$Data$Ext$BrandToJson;
+      _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Ext$BrandToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthGetProductInfoGet$Response$Data$Ext$BrandToJson(this);
+      _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Ext$BrandToJson(
+        this,
+      );
 
   @JsonKey(name: 'brandTitle')
   final String brandTitle;
@@ -20464,12 +21401,13 @@ class ProductNoAuthGetProductInfoGet$Response$Data$Ext$Brand {
   @JsonKey(name: 'deliverAssured')
   final String deliverAssured;
   static const fromJsonFactory =
-      _$ProductNoAuthGetProductInfoGet$Response$Data$Ext$BrandFromJson;
+      _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Ext$BrandFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ProductNoAuthGetProductInfoGet$Response$Data$Ext$Brand &&
+        (other
+                is ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Ext$Brand &&
             (identical(other.brandTitle, brandTitle) ||
                 const DeepCollectionEquality().equals(
                   other.brandTitle,
@@ -20516,9 +21454,10 @@ class ProductNoAuthGetProductInfoGet$Response$Data$Ext$Brand {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthGetProductInfoGet$Response$Data$Ext$BrandExtension
-    on ProductNoAuthGetProductInfoGet$Response$Data$Ext$Brand {
-  ProductNoAuthGetProductInfoGet$Response$Data$Ext$Brand copyWith({
+extension $ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Ext$BrandExtension
+    on ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Ext$Brand {
+  ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Ext$Brand
+  copyWith({
     String? brandTitle,
     String? brandName,
     String? background,
@@ -20526,7 +21465,7 @@ extension $ProductNoAuthGetProductInfoGet$Response$Data$Ext$BrandExtension
     String? qualityAssuredUrl,
     String? deliverAssured,
   }) {
-    return ProductNoAuthGetProductInfoGet$Response$Data$Ext$Brand(
+    return ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Ext$Brand(
       brandTitle: brandTitle ?? this.brandTitle,
       brandName: brandName ?? this.brandName,
       background: background ?? this.background,
@@ -20536,7 +21475,8 @@ extension $ProductNoAuthGetProductInfoGet$Response$Data$Ext$BrandExtension
     );
   }
 
-  ProductNoAuthGetProductInfoGet$Response$Data$Ext$Brand copyWithWrapped({
+  ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Ext$Brand
+  copyWithWrapped({
     Wrapped<String>? brandTitle,
     Wrapped<String>? brandName,
     Wrapped<String>? background,
@@ -20544,7 +21484,7 @@ extension $ProductNoAuthGetProductInfoGet$Response$Data$Ext$BrandExtension
     Wrapped<String>? qualityAssuredUrl,
     Wrapped<String>? deliverAssured,
   }) {
-    return ProductNoAuthGetProductInfoGet$Response$Data$Ext$Brand(
+    return ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Ext$Brand(
       brandTitle: (brandTitle != null ? brandTitle.value : this.brandTitle),
       brandName: (brandName != null ? brandName.value : this.brandName),
       background: (background != null ? background.value : this.background),
@@ -20562,8 +21502,8 @@ extension $ProductNoAuthGetProductInfoGet$Response$Data$Ext$BrandExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item$CategoryList$Item {
-  const ProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item$CategoryList$Item({
+class ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item$CategoryList$Item {
+  const ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item$CategoryList$Item({
     required this.id,
     required this.parentId,
     required this.level,
@@ -20574,17 +21514,17 @@ class ProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item$Cat
     required this.brands,
   });
 
-  factory ProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item$CategoryList$Item.fromJson(
+  factory ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item$CategoryList$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item$CategoryList$ItemFromJson(
+      _$ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item$CategoryList$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$ProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item$CategoryList$ItemToJson;
+      _$ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item$CategoryList$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item$CategoryList$ItemToJson(
+      _$ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item$CategoryList$ItemToJson(
         this,
       );
 
@@ -20605,13 +21545,13 @@ class ProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item$Cat
   @JsonKey(name: 'brands', defaultValue: <Object>[])
   final List<Object> brands;
   static const fromJsonFactory =
-      _$ProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item$CategoryList$ItemFromJson;
+      _$ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item$CategoryList$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is ProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item$CategoryList$Item &&
+                is ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item$CategoryList$Item &&
             (identical(other.id, id) ||
                 const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.parentId, parentId) ||
@@ -20658,10 +21598,10 @@ class ProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item$Cat
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item$CategoryList$ItemExtension
+extension $ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item$CategoryList$ItemExtension
     on
-        ProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item$CategoryList$Item {
-  ProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item$CategoryList$Item
+        ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item$CategoryList$Item {
+  ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item$CategoryList$Item
   copyWith({
     double? id,
     double? parentId,
@@ -20672,7 +21612,7 @@ extension $ProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Ite
     List<Object>? categoryList,
     List<Object>? brands,
   }) {
-    return ProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item$CategoryList$Item(
+    return ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item$CategoryList$Item(
       id: id ?? this.id,
       parentId: parentId ?? this.parentId,
       level: level ?? this.level,
@@ -20684,7 +21624,7 @@ extension $ProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Ite
     );
   }
 
-  ProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item$CategoryList$Item
+  ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item$CategoryList$Item
   copyWithWrapped({
     Wrapped<double>? id,
     Wrapped<double>? parentId,
@@ -20695,7 +21635,7 @@ extension $ProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Ite
     Wrapped<List<Object>>? categoryList,
     Wrapped<List<Object>>? brands,
   }) {
-    return ProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item$CategoryList$Item(
+    return ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item$CategoryList$Item(
       id: (id != null ? id.value : this.id),
       parentId: (parentId != null ? parentId.value : this.parentId),
       level: (level != null ? level.value : this.level),
@@ -20711,23 +21651,24 @@ extension $ProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Ite
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthHotProductV2Get$Response$Data$Records$Item$Image {
-  const ProductNoAuthHotProductV2Get$Response$Data$Records$Item$Image({
+class ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$Image {
+  const ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$Image({
     required this.width,
     required this.height,
     required this.url,
   });
 
-  factory ProductNoAuthHotProductV2Get$Response$Data$Records$Item$Image.fromJson(
+  factory ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$Image.fromJson(
     Map<String, dynamic> json,
-  ) => _$ProductNoAuthHotProductV2Get$Response$Data$Records$Item$ImageFromJson(
-    json,
-  );
+  ) =>
+      _$ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$ImageFromJson(
+        json,
+      );
 
   static const toJsonFactory =
-      _$ProductNoAuthHotProductV2Get$Response$Data$Records$Item$ImageToJson;
+      _$ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$ImageToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthHotProductV2Get$Response$Data$Records$Item$ImageToJson(
+      _$ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$ImageToJson(
         this,
       );
 
@@ -20738,12 +21679,13 @@ class ProductNoAuthHotProductV2Get$Response$Data$Records$Item$Image {
   @JsonKey(name: 'url')
   final String url;
   static const fromJsonFactory =
-      _$ProductNoAuthHotProductV2Get$Response$Data$Records$Item$ImageFromJson;
+      _$ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$ImageFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ProductNoAuthHotProductV2Get$Response$Data$Records$Item$Image &&
+        (other
+                is ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$Image &&
             (identical(other.width, width) ||
                 const DeepCollectionEquality().equals(other.width, width)) &&
             (identical(other.height, height) ||
@@ -20763,27 +21705,24 @@ class ProductNoAuthHotProductV2Get$Response$Data$Records$Item$Image {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthHotProductV2Get$Response$Data$Records$Item$ImageExtension
-    on ProductNoAuthHotProductV2Get$Response$Data$Records$Item$Image {
-  ProductNoAuthHotProductV2Get$Response$Data$Records$Item$Image copyWith({
-    int? width,
-    int? height,
-    String? url,
-  }) {
-    return ProductNoAuthHotProductV2Get$Response$Data$Records$Item$Image(
+extension $ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$ImageExtension
+    on ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$Image {
+  ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$Image
+  copyWith({int? width, int? height, String? url}) {
+    return ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$Image(
       width: width ?? this.width,
       height: height ?? this.height,
       url: url ?? this.url,
     );
   }
 
-  ProductNoAuthHotProductV2Get$Response$Data$Records$Item$Image
+  ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$Image
   copyWithWrapped({
     Wrapped<int>? width,
     Wrapped<int>? height,
     Wrapped<String>? url,
   }) {
-    return ProductNoAuthHotProductV2Get$Response$Data$Records$Item$Image(
+    return ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$Image(
       width: (width != null ? width.value : this.width),
       height: (height != null ? height.value : this.height),
       url: (url != null ? url.value : this.url),
@@ -20792,23 +21731,23 @@ extension $ProductNoAuthHotProductV2Get$Response$Data$Records$Item$ImageExtensio
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthHotProductV2Get$Response$Data$Records$Item$Tags$Item {
-  const ProductNoAuthHotProductV2Get$Response$Data$Records$Item$Tags$Item({
+class ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$Tags$Item {
+  const ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$Tags$Item({
     this.tagCode,
     this.tagImg,
   });
 
-  factory ProductNoAuthHotProductV2Get$Response$Data$Records$Item$Tags$Item.fromJson(
+  factory ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$Tags$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ProductNoAuthHotProductV2Get$Response$Data$Records$Item$Tags$ItemFromJson(
+      _$ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$Tags$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$ProductNoAuthHotProductV2Get$Response$Data$Records$Item$Tags$ItemToJson;
+      _$ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$Tags$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthHotProductV2Get$Response$Data$Records$Item$Tags$ItemToJson(
+      _$ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$Tags$ItemToJson(
         this,
       );
 
@@ -20817,12 +21756,13 @@ class ProductNoAuthHotProductV2Get$Response$Data$Records$Item$Tags$Item {
   @JsonKey(name: 'tagImg')
   final String? tagImg;
   static const fromJsonFactory =
-      _$ProductNoAuthHotProductV2Get$Response$Data$Records$Item$Tags$ItemFromJson;
+      _$ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$Tags$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ProductNoAuthHotProductV2Get$Response$Data$Records$Item$Tags$Item &&
+        (other
+                is ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$Tags$Item &&
             (identical(other.tagCode, tagCode) ||
                 const DeepCollectionEquality().equals(
                   other.tagCode,
@@ -20842,21 +21782,20 @@ class ProductNoAuthHotProductV2Get$Response$Data$Records$Item$Tags$Item {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthHotProductV2Get$Response$Data$Records$Item$Tags$ItemExtension
-    on ProductNoAuthHotProductV2Get$Response$Data$Records$Item$Tags$Item {
-  ProductNoAuthHotProductV2Get$Response$Data$Records$Item$Tags$Item copyWith({
-    String? tagCode,
-    String? tagImg,
-  }) {
-    return ProductNoAuthHotProductV2Get$Response$Data$Records$Item$Tags$Item(
+extension $ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$Tags$ItemExtension
+    on
+        ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$Tags$Item {
+  ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$Tags$Item
+  copyWith({String? tagCode, String? tagImg}) {
+    return ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$Tags$Item(
       tagCode: tagCode ?? this.tagCode,
       tagImg: tagImg ?? this.tagImg,
     );
   }
 
-  ProductNoAuthHotProductV2Get$Response$Data$Records$Item$Tags$Item
+  ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$Tags$Item
   copyWithWrapped({Wrapped<String?>? tagCode, Wrapped<String?>? tagImg}) {
-    return ProductNoAuthHotProductV2Get$Response$Data$Records$Item$Tags$Item(
+    return ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$Tags$Item(
       tagCode: (tagCode != null ? tagCode.value : this.tagCode),
       tagImg: (tagImg != null ? tagImg.value : this.tagImg),
     );
@@ -20864,23 +21803,23 @@ extension $ProductNoAuthHotProductV2Get$Response$Data$Records$Item$Tags$ItemExte
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthHotProductV2Get$Response$Data$Records$Item$PremiumBrandInfo {
-  const ProductNoAuthHotProductV2Get$Response$Data$Records$Item$PremiumBrandInfo({
+class ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$PremiumBrandInfo {
+  const ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$PremiumBrandInfo({
     this.brandCode,
     this.brandImg,
   });
 
-  factory ProductNoAuthHotProductV2Get$Response$Data$Records$Item$PremiumBrandInfo.fromJson(
+  factory ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$PremiumBrandInfo.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ProductNoAuthHotProductV2Get$Response$Data$Records$Item$PremiumBrandInfoFromJson(
+      _$ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$PremiumBrandInfoFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$ProductNoAuthHotProductV2Get$Response$Data$Records$Item$PremiumBrandInfoToJson;
+      _$ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$PremiumBrandInfoToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthHotProductV2Get$Response$Data$Records$Item$PremiumBrandInfoToJson(
+      _$ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$PremiumBrandInfoToJson(
         this,
       );
 
@@ -20889,13 +21828,13 @@ class ProductNoAuthHotProductV2Get$Response$Data$Records$Item$PremiumBrandInfo {
   @JsonKey(name: 'brandImg')
   final String? brandImg;
   static const fromJsonFactory =
-      _$ProductNoAuthHotProductV2Get$Response$Data$Records$Item$PremiumBrandInfoFromJson;
+      _$ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$PremiumBrandInfoFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is ProductNoAuthHotProductV2Get$Response$Data$Records$Item$PremiumBrandInfo &&
+                is ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$PremiumBrandInfo &&
             (identical(other.brandCode, brandCode) ||
                 const DeepCollectionEquality().equals(
                   other.brandCode,
@@ -20918,19 +21857,20 @@ class ProductNoAuthHotProductV2Get$Response$Data$Records$Item$PremiumBrandInfo {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthHotProductV2Get$Response$Data$Records$Item$PremiumBrandInfoExtension
-    on ProductNoAuthHotProductV2Get$Response$Data$Records$Item$PremiumBrandInfo {
-  ProductNoAuthHotProductV2Get$Response$Data$Records$Item$PremiumBrandInfo
+extension $ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$PremiumBrandInfoExtension
+    on
+        ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$PremiumBrandInfo {
+  ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$PremiumBrandInfo
   copyWith({String? brandCode, String? brandImg}) {
-    return ProductNoAuthHotProductV2Get$Response$Data$Records$Item$PremiumBrandInfo(
+    return ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$PremiumBrandInfo(
       brandCode: brandCode ?? this.brandCode,
       brandImg: brandImg ?? this.brandImg,
     );
   }
 
-  ProductNoAuthHotProductV2Get$Response$Data$Records$Item$PremiumBrandInfo
+  ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$PremiumBrandInfo
   copyWithWrapped({Wrapped<String?>? brandCode, Wrapped<String?>? brandImg}) {
-    return ProductNoAuthHotProductV2Get$Response$Data$Records$Item$PremiumBrandInfo(
+    return ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$PremiumBrandInfo(
       brandCode: (brandCode != null ? brandCode.value : this.brandCode),
       brandImg: (brandImg != null ? brandImg.value : this.brandImg),
     );
@@ -20938,8 +21878,8 @@ extension $ProductNoAuthHotProductV2Get$Response$Data$Records$Item$PremiumBrandI
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthHotProductV2Get$Response$Data$Records$Item$FlashSale {
-  const ProductNoAuthHotProductV2Get$Response$Data$Records$Item$FlashSale({
+class ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$FlashSale {
+  const ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$FlashSale({
     required this.activityCode,
     required this.activityTitle,
     required this.startTime,
@@ -20950,17 +21890,17 @@ class ProductNoAuthHotProductV2Get$Response$Data$Records$Item$FlashSale {
     required this.discountExpr,
   });
 
-  factory ProductNoAuthHotProductV2Get$Response$Data$Records$Item$FlashSale.fromJson(
+  factory ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$FlashSale.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ProductNoAuthHotProductV2Get$Response$Data$Records$Item$FlashSaleFromJson(
+      _$ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$FlashSaleFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$ProductNoAuthHotProductV2Get$Response$Data$Records$Item$FlashSaleToJson;
+      _$ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$FlashSaleToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthHotProductV2Get$Response$Data$Records$Item$FlashSaleToJson(
+      _$ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$FlashSaleToJson(
         this,
       );
 
@@ -20981,13 +21921,13 @@ class ProductNoAuthHotProductV2Get$Response$Data$Records$Item$FlashSale {
   @JsonKey(name: 'discountExpr')
   final String discountExpr;
   static const fromJsonFactory =
-      _$ProductNoAuthHotProductV2Get$Response$Data$Records$Item$FlashSaleFromJson;
+      _$ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$FlashSaleFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is ProductNoAuthHotProductV2Get$Response$Data$Records$Item$FlashSale &&
+                is ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$FlashSale &&
             (identical(other.activityCode, activityCode) ||
                 const DeepCollectionEquality().equals(
                   other.activityCode,
@@ -21046,9 +21986,11 @@ class ProductNoAuthHotProductV2Get$Response$Data$Records$Item$FlashSale {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthHotProductV2Get$Response$Data$Records$Item$FlashSaleExtension
-    on ProductNoAuthHotProductV2Get$Response$Data$Records$Item$FlashSale {
-  ProductNoAuthHotProductV2Get$Response$Data$Records$Item$FlashSale copyWith({
+extension $ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$FlashSaleExtension
+    on
+        ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$FlashSale {
+  ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$FlashSale
+  copyWith({
     String? activityCode,
     String? activityTitle,
     int? startTime,
@@ -21058,7 +22000,7 @@ extension $ProductNoAuthHotProductV2Get$Response$Data$Records$Item$FlashSaleExte
     String? marketingIcon,
     String? discountExpr,
   }) {
-    return ProductNoAuthHotProductV2Get$Response$Data$Records$Item$FlashSale(
+    return ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$FlashSale(
       activityCode: activityCode ?? this.activityCode,
       activityTitle: activityTitle ?? this.activityTitle,
       startTime: startTime ?? this.startTime,
@@ -21070,7 +22012,7 @@ extension $ProductNoAuthHotProductV2Get$Response$Data$Records$Item$FlashSaleExte
     );
   }
 
-  ProductNoAuthHotProductV2Get$Response$Data$Records$Item$FlashSale
+  ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$FlashSale
   copyWithWrapped({
     Wrapped<String>? activityCode,
     Wrapped<String>? activityTitle,
@@ -21081,7 +22023,7 @@ extension $ProductNoAuthHotProductV2Get$Response$Data$Records$Item$FlashSaleExte
     Wrapped<String>? marketingIcon,
     Wrapped<String>? discountExpr,
   }) {
-    return ProductNoAuthHotProductV2Get$Response$Data$Records$Item$FlashSale(
+    return ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$FlashSale(
       activityCode: (activityCode != null
           ? activityCode.value
           : this.activityCode),
@@ -21107,23 +22049,24 @@ extension $ProductNoAuthHotProductV2Get$Response$Data$Records$Item$FlashSaleExte
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthHotProductV3Get$Response$Data$Records$Item$Image {
-  const ProductNoAuthHotProductV3Get$Response$Data$Records$Item$Image({
+class ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$Image {
+  const ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$Image({
     this.width,
     this.height,
     this.url,
   });
 
-  factory ProductNoAuthHotProductV3Get$Response$Data$Records$Item$Image.fromJson(
+  factory ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$Image.fromJson(
     Map<String, dynamic> json,
-  ) => _$ProductNoAuthHotProductV3Get$Response$Data$Records$Item$ImageFromJson(
-    json,
-  );
+  ) =>
+      _$ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$ImageFromJson(
+        json,
+      );
 
   static const toJsonFactory =
-      _$ProductNoAuthHotProductV3Get$Response$Data$Records$Item$ImageToJson;
+      _$ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$ImageToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthHotProductV3Get$Response$Data$Records$Item$ImageToJson(
+      _$ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$ImageToJson(
         this,
       );
 
@@ -21134,12 +22077,13 @@ class ProductNoAuthHotProductV3Get$Response$Data$Records$Item$Image {
   @JsonKey(name: 'url')
   final String? url;
   static const fromJsonFactory =
-      _$ProductNoAuthHotProductV3Get$Response$Data$Records$Item$ImageFromJson;
+      _$ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$ImageFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ProductNoAuthHotProductV3Get$Response$Data$Records$Item$Image &&
+        (other
+                is ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$Image &&
             (identical(other.width, width) ||
                 const DeepCollectionEquality().equals(other.width, width)) &&
             (identical(other.height, height) ||
@@ -21159,27 +22103,24 @@ class ProductNoAuthHotProductV3Get$Response$Data$Records$Item$Image {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthHotProductV3Get$Response$Data$Records$Item$ImageExtension
-    on ProductNoAuthHotProductV3Get$Response$Data$Records$Item$Image {
-  ProductNoAuthHotProductV3Get$Response$Data$Records$Item$Image copyWith({
-    double? width,
-    double? height,
-    String? url,
-  }) {
-    return ProductNoAuthHotProductV3Get$Response$Data$Records$Item$Image(
+extension $ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$ImageExtension
+    on ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$Image {
+  ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$Image
+  copyWith({double? width, double? height, String? url}) {
+    return ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$Image(
       width: width ?? this.width,
       height: height ?? this.height,
       url: url ?? this.url,
     );
   }
 
-  ProductNoAuthHotProductV3Get$Response$Data$Records$Item$Image
+  ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$Image
   copyWithWrapped({
     Wrapped<double?>? width,
     Wrapped<double?>? height,
     Wrapped<String?>? url,
   }) {
-    return ProductNoAuthHotProductV3Get$Response$Data$Records$Item$Image(
+    return ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$Image(
       width: (width != null ? width.value : this.width),
       height: (height != null ? height.value : this.height),
       url: (url != null ? url.value : this.url),
@@ -21188,25 +22129,25 @@ extension $ProductNoAuthHotProductV3Get$Response$Data$Records$Item$ImageExtensio
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthHotProductV3Get$Response$Data$Records$Item$Tags$Item {
-  const ProductNoAuthHotProductV3Get$Response$Data$Records$Item$Tags$Item({
+class ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$Tags$Item {
+  const ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$Tags$Item({
     required this.tagCode,
     required this.tagImg,
     required this.order,
     required this.frontShow,
   });
 
-  factory ProductNoAuthHotProductV3Get$Response$Data$Records$Item$Tags$Item.fromJson(
+  factory ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$Tags$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ProductNoAuthHotProductV3Get$Response$Data$Records$Item$Tags$ItemFromJson(
+      _$ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$Tags$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$ProductNoAuthHotProductV3Get$Response$Data$Records$Item$Tags$ItemToJson;
+      _$ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$Tags$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthHotProductV3Get$Response$Data$Records$Item$Tags$ItemToJson(
+      _$ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$Tags$ItemToJson(
         this,
       );
 
@@ -21219,13 +22160,13 @@ class ProductNoAuthHotProductV3Get$Response$Data$Records$Item$Tags$Item {
   @JsonKey(name: 'frontShow')
   final double frontShow;
   static const fromJsonFactory =
-      _$ProductNoAuthHotProductV3Get$Response$Data$Records$Item$Tags$ItemFromJson;
+      _$ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$Tags$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is ProductNoAuthHotProductV3Get$Response$Data$Records$Item$Tags$Item &&
+                is ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$Tags$Item &&
             (identical(other.tagCode, tagCode) ||
                 const DeepCollectionEquality().equals(
                   other.tagCode,
@@ -21254,15 +22195,17 @@ class ProductNoAuthHotProductV3Get$Response$Data$Records$Item$Tags$Item {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthHotProductV3Get$Response$Data$Records$Item$Tags$ItemExtension
-    on ProductNoAuthHotProductV3Get$Response$Data$Records$Item$Tags$Item {
-  ProductNoAuthHotProductV3Get$Response$Data$Records$Item$Tags$Item copyWith({
+extension $ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$Tags$ItemExtension
+    on
+        ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$Tags$Item {
+  ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$Tags$Item
+  copyWith({
     String? tagCode,
     String? tagImg,
     double? order,
     double? frontShow,
   }) {
-    return ProductNoAuthHotProductV3Get$Response$Data$Records$Item$Tags$Item(
+    return ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$Tags$Item(
       tagCode: tagCode ?? this.tagCode,
       tagImg: tagImg ?? this.tagImg,
       order: order ?? this.order,
@@ -21270,14 +22213,14 @@ extension $ProductNoAuthHotProductV3Get$Response$Data$Records$Item$Tags$ItemExte
     );
   }
 
-  ProductNoAuthHotProductV3Get$Response$Data$Records$Item$Tags$Item
+  ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$Tags$Item
   copyWithWrapped({
     Wrapped<String>? tagCode,
     Wrapped<String>? tagImg,
     Wrapped<double>? order,
     Wrapped<double>? frontShow,
   }) {
-    return ProductNoAuthHotProductV3Get$Response$Data$Records$Item$Tags$Item(
+    return ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$Tags$Item(
       tagCode: (tagCode != null ? tagCode.value : this.tagCode),
       tagImg: (tagImg != null ? tagImg.value : this.tagImg),
       order: (order != null ? order.value : this.order),
@@ -21287,23 +22230,23 @@ extension $ProductNoAuthHotProductV3Get$Response$Data$Records$Item$Tags$ItemExte
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthHotProductV3Get$Response$Data$Records$Item$PremiumBrandInfo {
-  const ProductNoAuthHotProductV3Get$Response$Data$Records$Item$PremiumBrandInfo({
+class ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$PremiumBrandInfo {
+  const ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$PremiumBrandInfo({
     this.brandCode,
     this.brandImg,
   });
 
-  factory ProductNoAuthHotProductV3Get$Response$Data$Records$Item$PremiumBrandInfo.fromJson(
+  factory ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$PremiumBrandInfo.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ProductNoAuthHotProductV3Get$Response$Data$Records$Item$PremiumBrandInfoFromJson(
+      _$ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$PremiumBrandInfoFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$ProductNoAuthHotProductV3Get$Response$Data$Records$Item$PremiumBrandInfoToJson;
+      _$ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$PremiumBrandInfoToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthHotProductV3Get$Response$Data$Records$Item$PremiumBrandInfoToJson(
+      _$ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$PremiumBrandInfoToJson(
         this,
       );
 
@@ -21312,13 +22255,13 @@ class ProductNoAuthHotProductV3Get$Response$Data$Records$Item$PremiumBrandInfo {
   @JsonKey(name: 'brandImg')
   final String? brandImg;
   static const fromJsonFactory =
-      _$ProductNoAuthHotProductV3Get$Response$Data$Records$Item$PremiumBrandInfoFromJson;
+      _$ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$PremiumBrandInfoFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is ProductNoAuthHotProductV3Get$Response$Data$Records$Item$PremiumBrandInfo &&
+                is ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$PremiumBrandInfo &&
             (identical(other.brandCode, brandCode) ||
                 const DeepCollectionEquality().equals(
                   other.brandCode,
@@ -21341,19 +22284,20 @@ class ProductNoAuthHotProductV3Get$Response$Data$Records$Item$PremiumBrandInfo {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthHotProductV3Get$Response$Data$Records$Item$PremiumBrandInfoExtension
-    on ProductNoAuthHotProductV3Get$Response$Data$Records$Item$PremiumBrandInfo {
-  ProductNoAuthHotProductV3Get$Response$Data$Records$Item$PremiumBrandInfo
+extension $ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$PremiumBrandInfoExtension
+    on
+        ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$PremiumBrandInfo {
+  ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$PremiumBrandInfo
   copyWith({String? brandCode, String? brandImg}) {
-    return ProductNoAuthHotProductV3Get$Response$Data$Records$Item$PremiumBrandInfo(
+    return ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$PremiumBrandInfo(
       brandCode: brandCode ?? this.brandCode,
       brandImg: brandImg ?? this.brandImg,
     );
   }
 
-  ProductNoAuthHotProductV3Get$Response$Data$Records$Item$PremiumBrandInfo
+  ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$PremiumBrandInfo
   copyWithWrapped({Wrapped<String?>? brandCode, Wrapped<String?>? brandImg}) {
-    return ProductNoAuthHotProductV3Get$Response$Data$Records$Item$PremiumBrandInfo(
+    return ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$PremiumBrandInfo(
       brandCode: (brandCode != null ? brandCode.value : this.brandCode),
       brandImg: (brandImg != null ? brandImg.value : this.brandImg),
     );
@@ -21361,8 +22305,8 @@ extension $ProductNoAuthHotProductV3Get$Response$Data$Records$Item$PremiumBrandI
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthHotProductV3Get$Response$Data$Records$Item$FlashSale {
-  const ProductNoAuthHotProductV3Get$Response$Data$Records$Item$FlashSale({
+class ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$FlashSale {
+  const ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$FlashSale({
     required this.activityCode,
     required this.activityTitle,
     required this.startTime,
@@ -21372,17 +22316,17 @@ class ProductNoAuthHotProductV3Get$Response$Data$Records$Item$FlashSale {
     required this.marketingIcon,
   });
 
-  factory ProductNoAuthHotProductV3Get$Response$Data$Records$Item$FlashSale.fromJson(
+  factory ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$FlashSale.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ProductNoAuthHotProductV3Get$Response$Data$Records$Item$FlashSaleFromJson(
+      _$ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$FlashSaleFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$ProductNoAuthHotProductV3Get$Response$Data$Records$Item$FlashSaleToJson;
+      _$ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$FlashSaleToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthHotProductV3Get$Response$Data$Records$Item$FlashSaleToJson(
+      _$ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$FlashSaleToJson(
         this,
       );
 
@@ -21401,13 +22345,13 @@ class ProductNoAuthHotProductV3Get$Response$Data$Records$Item$FlashSale {
   @JsonKey(name: 'marketingIcon')
   final String marketingIcon;
   static const fromJsonFactory =
-      _$ProductNoAuthHotProductV3Get$Response$Data$Records$Item$FlashSaleFromJson;
+      _$ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$FlashSaleFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is ProductNoAuthHotProductV3Get$Response$Data$Records$Item$FlashSale &&
+                is ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$FlashSale &&
             (identical(other.activityCode, activityCode) ||
                 const DeepCollectionEquality().equals(
                   other.activityCode,
@@ -21460,9 +22404,11 @@ class ProductNoAuthHotProductV3Get$Response$Data$Records$Item$FlashSale {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthHotProductV3Get$Response$Data$Records$Item$FlashSaleExtension
-    on ProductNoAuthHotProductV3Get$Response$Data$Records$Item$FlashSale {
-  ProductNoAuthHotProductV3Get$Response$Data$Records$Item$FlashSale copyWith({
+extension $ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$FlashSaleExtension
+    on
+        ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$FlashSale {
+  ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$FlashSale
+  copyWith({
     String? activityCode,
     String? activityTitle,
     int? startTime,
@@ -21471,7 +22417,7 @@ extension $ProductNoAuthHotProductV3Get$Response$Data$Records$Item$FlashSaleExte
     String? progressText,
     String? marketingIcon,
   }) {
-    return ProductNoAuthHotProductV3Get$Response$Data$Records$Item$FlashSale(
+    return ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$FlashSale(
       activityCode: activityCode ?? this.activityCode,
       activityTitle: activityTitle ?? this.activityTitle,
       startTime: startTime ?? this.startTime,
@@ -21482,7 +22428,7 @@ extension $ProductNoAuthHotProductV3Get$Response$Data$Records$Item$FlashSaleExte
     );
   }
 
-  ProductNoAuthHotProductV3Get$Response$Data$Records$Item$FlashSale
+  ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$FlashSale
   copyWithWrapped({
     Wrapped<String>? activityCode,
     Wrapped<String>? activityTitle,
@@ -21492,7 +22438,7 @@ extension $ProductNoAuthHotProductV3Get$Response$Data$Records$Item$FlashSaleExte
     Wrapped<String>? progressText,
     Wrapped<String>? marketingIcon,
   }) {
-    return ProductNoAuthHotProductV3Get$Response$Data$Records$Item$FlashSale(
+    return ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$FlashSale(
       activityCode: (activityCode != null
           ? activityCode.value
           : this.activityCode),
@@ -21515,25 +22461,25 @@ extension $ProductNoAuthHotProductV3Get$Response$Data$Records$Item$FlashSaleExte
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item {
-  const ProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item({
+class ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item {
+  const ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item({
     required this.value,
     this.image,
     this.imageWidth,
     this.imageHeight,
   });
 
-  factory ProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item.fromJson(
+  factory ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$ItemFromJson(
+      _$ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$ProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$ItemToJson;
+      _$ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$ItemToJson(
+      _$ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$ItemToJson(
         this,
       );
 
@@ -21546,13 +22492,13 @@ class ProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item$Op
   @JsonKey(name: 'imageHeight')
   final double? imageHeight;
   static const fromJsonFactory =
-      _$ProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$ItemFromJson;
+      _$ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is ProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item &&
+                is ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item &&
             (identical(other.value, value) ||
                 const DeepCollectionEquality().equals(other.value, value)) &&
             (identical(other.image, image) ||
@@ -21581,17 +22527,17 @@ class ProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item$Op
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$ItemExtension
+extension $ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$ItemExtension
     on
-        ProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item {
-  ProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item
+        ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item {
+  ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item
   copyWith({
     String? value,
     String? image,
     double? imageWidth,
     double? imageHeight,
   }) {
-    return ProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item(
+    return ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item(
       value: value ?? this.value,
       image: image ?? this.image,
       imageWidth: imageWidth ?? this.imageWidth,
@@ -21599,14 +22545,14 @@ extension $ProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$It
     );
   }
 
-  ProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item
+  ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item
   copyWithWrapped({
     Wrapped<String>? value,
     Wrapped<String?>? image,
     Wrapped<double?>? imageWidth,
     Wrapped<double?>? imageHeight,
   }) {
-    return ProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item(
+    return ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item(
       value: (value != null ? value.value : this.value),
       image: (image != null ? image.value : this.image),
       imageWidth: (imageWidth != null ? imageWidth.value : this.imageWidth),
@@ -21616,24 +22562,24 @@ extension $ProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$It
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthAlbumProductGet$Response$Data$Records$Item$MainImg$Item {
-  const ProductNoAuthAlbumProductGet$Response$Data$Records$Item$MainImg$Item({
+class ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$MainImg$Item {
+  const ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$MainImg$Item({
     this.width,
     this.height,
     this.url,
   });
 
-  factory ProductNoAuthAlbumProductGet$Response$Data$Records$Item$MainImg$Item.fromJson(
+  factory ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$MainImg$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ProductNoAuthAlbumProductGet$Response$Data$Records$Item$MainImg$ItemFromJson(
+      _$ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$MainImg$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$ProductNoAuthAlbumProductGet$Response$Data$Records$Item$MainImg$ItemToJson;
+      _$ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$MainImg$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthAlbumProductGet$Response$Data$Records$Item$MainImg$ItemToJson(
+      _$ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$MainImg$ItemToJson(
         this,
       );
 
@@ -21644,12 +22590,13 @@ class ProductNoAuthAlbumProductGet$Response$Data$Records$Item$MainImg$Item {
   @JsonKey(name: 'url')
   final String? url;
   static const fromJsonFactory =
-      _$ProductNoAuthAlbumProductGet$Response$Data$Records$Item$MainImg$ItemFromJson;
+      _$ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$MainImg$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ProductNoAuthAlbumProductGet$Response$Data$Records$Item$MainImg$Item &&
+        (other
+                is ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$MainImg$Item &&
             (identical(other.width, width) ||
                 const DeepCollectionEquality().equals(other.width, width)) &&
             (identical(other.height, height) ||
@@ -21669,24 +22616,25 @@ class ProductNoAuthAlbumProductGet$Response$Data$Records$Item$MainImg$Item {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthAlbumProductGet$Response$Data$Records$Item$MainImg$ItemExtension
-    on ProductNoAuthAlbumProductGet$Response$Data$Records$Item$MainImg$Item {
-  ProductNoAuthAlbumProductGet$Response$Data$Records$Item$MainImg$Item
+extension $ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$MainImg$ItemExtension
+    on
+        ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$MainImg$Item {
+  ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$MainImg$Item
   copyWith({double? width, double? height, String? url}) {
-    return ProductNoAuthAlbumProductGet$Response$Data$Records$Item$MainImg$Item(
+    return ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$MainImg$Item(
       width: width ?? this.width,
       height: height ?? this.height,
       url: url ?? this.url,
     );
   }
 
-  ProductNoAuthAlbumProductGet$Response$Data$Records$Item$MainImg$Item
+  ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$MainImg$Item
   copyWithWrapped({
     Wrapped<double?>? width,
     Wrapped<double?>? height,
     Wrapped<String?>? url,
   }) {
-    return ProductNoAuthAlbumProductGet$Response$Data$Records$Item$MainImg$Item(
+    return ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$MainImg$Item(
       width: (width != null ? width.value : this.width),
       height: (height != null ? height.value : this.height),
       url: (url != null ? url.value : this.url),
@@ -21695,24 +22643,24 @@ extension $ProductNoAuthAlbumProductGet$Response$Data$Records$Item$MainImg$ItemE
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgCollection$Item {
-  const ProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgCollection$Item({
+class ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgCollection$Item {
+  const ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgCollection$Item({
     required this.width,
     required this.height,
     required this.url,
   });
 
-  factory ProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgCollection$Item.fromJson(
+  factory ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgCollection$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgCollection$ItemFromJson(
+      _$ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgCollection$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$ProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgCollection$ItemToJson;
+      _$ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgCollection$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgCollection$ItemToJson(
+      _$ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgCollection$ItemToJson(
         this,
       );
 
@@ -21723,13 +22671,13 @@ class ProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgCollection$Item
   @JsonKey(name: 'url')
   final String url;
   static const fromJsonFactory =
-      _$ProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgCollection$ItemFromJson;
+      _$ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgCollection$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is ProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgCollection$Item &&
+                is ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgCollection$Item &&
             (identical(other.width, width) ||
                 const DeepCollectionEquality().equals(other.width, width)) &&
             (identical(other.height, height) ||
@@ -21749,24 +22697,25 @@ class ProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgCollection$Item
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgCollection$ItemExtension
-    on ProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgCollection$Item {
-  ProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgCollection$Item
+extension $ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgCollection$ItemExtension
+    on
+        ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgCollection$Item {
+  ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgCollection$Item
   copyWith({double? width, double? height, String? url}) {
-    return ProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgCollection$Item(
+    return ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgCollection$Item(
       width: width ?? this.width,
       height: height ?? this.height,
       url: url ?? this.url,
     );
   }
 
-  ProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgCollection$Item
+  ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgCollection$Item
   copyWithWrapped({
     Wrapped<double>? width,
     Wrapped<double>? height,
     Wrapped<String>? url,
   }) {
-    return ProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgCollection$Item(
+    return ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgCollection$Item(
       width: (width != null ? width.value : this.width),
       height: (height != null ? height.value : this.height),
       url: (url != null ? url.value : this.url),
@@ -21775,24 +22724,24 @@ extension $ProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgCollection
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgDetail$Item {
-  const ProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgDetail$Item({
+class ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgDetail$Item {
+  const ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgDetail$Item({
     required this.width,
     required this.height,
     required this.url,
   });
 
-  factory ProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgDetail$Item.fromJson(
+  factory ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgDetail$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgDetail$ItemFromJson(
+      _$ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgDetail$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$ProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgDetail$ItemToJson;
+      _$ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgDetail$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgDetail$ItemToJson(
+      _$ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgDetail$ItemToJson(
         this,
       );
 
@@ -21803,13 +22752,13 @@ class ProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgDetail$Item {
   @JsonKey(name: 'url')
   final String url;
   static const fromJsonFactory =
-      _$ProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgDetail$ItemFromJson;
+      _$ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgDetail$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is ProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgDetail$Item &&
+                is ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgDetail$Item &&
             (identical(other.width, width) ||
                 const DeepCollectionEquality().equals(other.width, width)) &&
             (identical(other.height, height) ||
@@ -21829,24 +22778,25 @@ class ProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgDetail$Item {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgDetail$ItemExtension
-    on ProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgDetail$Item {
-  ProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgDetail$Item
+extension $ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgDetail$ItemExtension
+    on
+        ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgDetail$Item {
+  ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgDetail$Item
   copyWith({double? width, double? height, String? url}) {
-    return ProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgDetail$Item(
+    return ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgDetail$Item(
       width: width ?? this.width,
       height: height ?? this.height,
       url: url ?? this.url,
     );
   }
 
-  ProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgDetail$Item
+  ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgDetail$Item
   copyWithWrapped({
     Wrapped<double>? width,
     Wrapped<double>? height,
     Wrapped<String>? url,
   }) {
-    return ProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgDetail$Item(
+    return ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgDetail$Item(
       width: (width != null ? width.value : this.width),
       height: (height != null ? height.value : this.height),
       url: (url != null ? url.value : this.url),
@@ -21855,24 +22805,24 @@ extension $ProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgDetail$Ite
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$Item {
-  const ProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$Item({
+class ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$Item {
+  const ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$Item({
     this.name,
     this.type,
     this.optionValues,
   });
 
-  factory ProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$Item.fromJson(
+  factory ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$ItemFromJson(
+      _$ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$ProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$ItemToJson;
+      _$ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$ItemToJson(
+      _$ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$ItemToJson(
         this,
       );
 
@@ -21882,17 +22832,17 @@ class ProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$Ite
   final double? type;
   @JsonKey(name: 'optionValues')
   final List<
-    ProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item
+    ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item
   >?
   optionValues;
   static const fromJsonFactory =
-      _$ProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$ItemFromJson;
+      _$ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is ProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$Item &&
+                is ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$Item &&
             (identical(other.name, name) ||
                 const DeepCollectionEquality().equals(other.name, name)) &&
             (identical(other.type, type) ||
@@ -21915,36 +22865,37 @@ class ProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$Ite
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$ItemExtension
-    on ProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$Item {
-  ProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$Item
+extension $ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$ItemExtension
+    on
+        ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$Item {
+  ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$Item
   copyWith({
     String? name,
     double? type,
     List<
-      ProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item
+      ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item
     >?
     optionValues,
   }) {
-    return ProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$Item(
+    return ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$Item(
       name: name ?? this.name,
       type: type ?? this.type,
       optionValues: optionValues ?? this.optionValues,
     );
   }
 
-  ProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$Item
+  ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$Item
   copyWithWrapped({
     Wrapped<String?>? name,
     Wrapped<double?>? type,
     Wrapped<
       List<
-        ProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item
+        ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item
       >?
     >?
     optionValues,
   }) {
-    return ProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$Item(
+    return ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$Item(
       name: (name != null ? name.value : this.name),
       type: (type != null ? type.value : this.type),
       optionValues: (optionValues != null
@@ -21955,23 +22906,23 @@ extension $ProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOption
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthAlbumProductGet$Response$Data$Records$Item$Tags$Item {
-  const ProductNoAuthAlbumProductGet$Response$Data$Records$Item$Tags$Item({
+class ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$Tags$Item {
+  const ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$Tags$Item({
     this.tagCode,
     this.tagImg,
   });
 
-  factory ProductNoAuthAlbumProductGet$Response$Data$Records$Item$Tags$Item.fromJson(
+  factory ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$Tags$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ProductNoAuthAlbumProductGet$Response$Data$Records$Item$Tags$ItemFromJson(
+      _$ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$Tags$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$ProductNoAuthAlbumProductGet$Response$Data$Records$Item$Tags$ItemToJson;
+      _$ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$Tags$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthAlbumProductGet$Response$Data$Records$Item$Tags$ItemToJson(
+      _$ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$Tags$ItemToJson(
         this,
       );
 
@@ -21980,12 +22931,13 @@ class ProductNoAuthAlbumProductGet$Response$Data$Records$Item$Tags$Item {
   @JsonKey(name: 'tagImg')
   final String? tagImg;
   static const fromJsonFactory =
-      _$ProductNoAuthAlbumProductGet$Response$Data$Records$Item$Tags$ItemFromJson;
+      _$ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$Tags$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ProductNoAuthAlbumProductGet$Response$Data$Records$Item$Tags$Item &&
+        (other
+                is ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$Tags$Item &&
             (identical(other.tagCode, tagCode) ||
                 const DeepCollectionEquality().equals(
                   other.tagCode,
@@ -22005,21 +22957,20 @@ class ProductNoAuthAlbumProductGet$Response$Data$Records$Item$Tags$Item {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthAlbumProductGet$Response$Data$Records$Item$Tags$ItemExtension
-    on ProductNoAuthAlbumProductGet$Response$Data$Records$Item$Tags$Item {
-  ProductNoAuthAlbumProductGet$Response$Data$Records$Item$Tags$Item copyWith({
-    String? tagCode,
-    String? tagImg,
-  }) {
-    return ProductNoAuthAlbumProductGet$Response$Data$Records$Item$Tags$Item(
+extension $ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$Tags$ItemExtension
+    on
+        ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$Tags$Item {
+  ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$Tags$Item
+  copyWith({String? tagCode, String? tagImg}) {
+    return ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$Tags$Item(
       tagCode: tagCode ?? this.tagCode,
       tagImg: tagImg ?? this.tagImg,
     );
   }
 
-  ProductNoAuthAlbumProductGet$Response$Data$Records$Item$Tags$Item
+  ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$Tags$Item
   copyWithWrapped({Wrapped<String?>? tagCode, Wrapped<String?>? tagImg}) {
-    return ProductNoAuthAlbumProductGet$Response$Data$Records$Item$Tags$Item(
+    return ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$Tags$Item(
       tagCode: (tagCode != null ? tagCode.value : this.tagCode),
       tagImg: (tagImg != null ? tagImg.value : this.tagImg),
     );
@@ -22027,23 +22978,23 @@ extension $ProductNoAuthAlbumProductGet$Response$Data$Records$Item$Tags$ItemExte
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthAlbumProductGet$Response$Data$Records$Item$PremiumBrandInfo {
-  const ProductNoAuthAlbumProductGet$Response$Data$Records$Item$PremiumBrandInfo({
+class ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$PremiumBrandInfo {
+  const ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$PremiumBrandInfo({
     this.brandCode,
     this.brandImg,
   });
 
-  factory ProductNoAuthAlbumProductGet$Response$Data$Records$Item$PremiumBrandInfo.fromJson(
+  factory ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$PremiumBrandInfo.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ProductNoAuthAlbumProductGet$Response$Data$Records$Item$PremiumBrandInfoFromJson(
+      _$ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$PremiumBrandInfoFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$ProductNoAuthAlbumProductGet$Response$Data$Records$Item$PremiumBrandInfoToJson;
+      _$ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$PremiumBrandInfoToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthAlbumProductGet$Response$Data$Records$Item$PremiumBrandInfoToJson(
+      _$ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$PremiumBrandInfoToJson(
         this,
       );
 
@@ -22052,13 +23003,13 @@ class ProductNoAuthAlbumProductGet$Response$Data$Records$Item$PremiumBrandInfo {
   @JsonKey(name: 'brandImg')
   final String? brandImg;
   static const fromJsonFactory =
-      _$ProductNoAuthAlbumProductGet$Response$Data$Records$Item$PremiumBrandInfoFromJson;
+      _$ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$PremiumBrandInfoFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is ProductNoAuthAlbumProductGet$Response$Data$Records$Item$PremiumBrandInfo &&
+                is ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$PremiumBrandInfo &&
             (identical(other.brandCode, brandCode) ||
                 const DeepCollectionEquality().equals(
                   other.brandCode,
@@ -22081,19 +23032,20 @@ class ProductNoAuthAlbumProductGet$Response$Data$Records$Item$PremiumBrandInfo {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthAlbumProductGet$Response$Data$Records$Item$PremiumBrandInfoExtension
-    on ProductNoAuthAlbumProductGet$Response$Data$Records$Item$PremiumBrandInfo {
-  ProductNoAuthAlbumProductGet$Response$Data$Records$Item$PremiumBrandInfo
+extension $ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$PremiumBrandInfoExtension
+    on
+        ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$PremiumBrandInfo {
+  ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$PremiumBrandInfo
   copyWith({String? brandCode, String? brandImg}) {
-    return ProductNoAuthAlbumProductGet$Response$Data$Records$Item$PremiumBrandInfo(
+    return ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$PremiumBrandInfo(
       brandCode: brandCode ?? this.brandCode,
       brandImg: brandImg ?? this.brandImg,
     );
   }
 
-  ProductNoAuthAlbumProductGet$Response$Data$Records$Item$PremiumBrandInfo
+  ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$PremiumBrandInfo
   copyWithWrapped({Wrapped<String?>? brandCode, Wrapped<String?>? brandImg}) {
-    return ProductNoAuthAlbumProductGet$Response$Data$Records$Item$PremiumBrandInfo(
+    return ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$PremiumBrandInfo(
       brandCode: (brandCode != null ? brandCode.value : this.brandCode),
       brandImg: (brandImg != null ? brandImg.value : this.brandImg),
     );
@@ -22101,23 +23053,26 @@ extension $ProductNoAuthAlbumProductGet$Response$Data$Records$Item$PremiumBrandI
 }
 
 @JsonSerializable(explicitToJson: true)
-class ShopNoAuthGetThirdShopGet$Response$Data$Records$Item$Image {
-  const ShopNoAuthGetThirdShopGet$Response$Data$Records$Item$Image({
+class ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$Item$Image {
+  const ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$Item$Image({
     required this.width,
     required this.height,
     required this.url,
   });
 
-  factory ShopNoAuthGetThirdShopGet$Response$Data$Records$Item$Image.fromJson(
+  factory ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$Item$Image.fromJson(
     Map<String, dynamic> json,
-  ) => _$ShopNoAuthGetThirdShopGet$Response$Data$Records$Item$ImageFromJson(
-    json,
-  );
+  ) =>
+      _$ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$Item$ImageFromJson(
+        json,
+      );
 
   static const toJsonFactory =
-      _$ShopNoAuthGetThirdShopGet$Response$Data$Records$Item$ImageToJson;
+      _$ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$Item$ImageToJson;
   Map<String, dynamic> toJson() =>
-      _$ShopNoAuthGetThirdShopGet$Response$Data$Records$Item$ImageToJson(this);
+      _$ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$Item$ImageToJson(
+        this,
+      );
 
   @JsonKey(name: 'width')
   final int width;
@@ -22126,12 +23081,13 @@ class ShopNoAuthGetThirdShopGet$Response$Data$Records$Item$Image {
   @JsonKey(name: 'url')
   final String url;
   static const fromJsonFactory =
-      _$ShopNoAuthGetThirdShopGet$Response$Data$Records$Item$ImageFromJson;
+      _$ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$Item$ImageFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ShopNoAuthGetThirdShopGet$Response$Data$Records$Item$Image &&
+        (other
+                is ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$Item$Image &&
             (identical(other.width, width) ||
                 const DeepCollectionEquality().equals(other.width, width)) &&
             (identical(other.height, height) ||
@@ -22151,26 +23107,24 @@ class ShopNoAuthGetThirdShopGet$Response$Data$Records$Item$Image {
       runtimeType.hashCode;
 }
 
-extension $ShopNoAuthGetThirdShopGet$Response$Data$Records$Item$ImageExtension
-    on ShopNoAuthGetThirdShopGet$Response$Data$Records$Item$Image {
-  ShopNoAuthGetThirdShopGet$Response$Data$Records$Item$Image copyWith({
-    int? width,
-    int? height,
-    String? url,
-  }) {
-    return ShopNoAuthGetThirdShopGet$Response$Data$Records$Item$Image(
+extension $ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$Item$ImageExtension
+    on ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$Item$Image {
+  ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$Item$Image
+  copyWith({int? width, int? height, String? url}) {
+    return ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$Item$Image(
       width: width ?? this.width,
       height: height ?? this.height,
       url: url ?? this.url,
     );
   }
 
-  ShopNoAuthGetThirdShopGet$Response$Data$Records$Item$Image copyWithWrapped({
+  ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$Item$Image
+  copyWithWrapped({
     Wrapped<int>? width,
     Wrapped<int>? height,
     Wrapped<String>? url,
   }) {
-    return ShopNoAuthGetThirdShopGet$Response$Data$Records$Item$Image(
+    return ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$Item$Image(
       width: (width != null ? width.value : this.width),
       height: (height != null ? height.value : this.height),
       url: (url != null ? url.value : this.url),
@@ -22179,23 +23133,23 @@ extension $ShopNoAuthGetThirdShopGet$Response$Data$Records$Item$ImageExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ShopNoAuthGetThirdShopGet$Response$Data$Records$Item$PremiumBrandInfo {
-  const ShopNoAuthGetThirdShopGet$Response$Data$Records$Item$PremiumBrandInfo({
+class ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$Item$PremiumBrandInfo {
+  const ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$Item$PremiumBrandInfo({
     this.brandCode,
     this.brandImg,
   });
 
-  factory ShopNoAuthGetThirdShopGet$Response$Data$Records$Item$PremiumBrandInfo.fromJson(
+  factory ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$Item$PremiumBrandInfo.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ShopNoAuthGetThirdShopGet$Response$Data$Records$Item$PremiumBrandInfoFromJson(
+      _$ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$Item$PremiumBrandInfoFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$ShopNoAuthGetThirdShopGet$Response$Data$Records$Item$PremiumBrandInfoToJson;
+      _$ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$Item$PremiumBrandInfoToJson;
   Map<String, dynamic> toJson() =>
-      _$ShopNoAuthGetThirdShopGet$Response$Data$Records$Item$PremiumBrandInfoToJson(
+      _$ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$Item$PremiumBrandInfoToJson(
         this,
       );
 
@@ -22204,13 +23158,13 @@ class ShopNoAuthGetThirdShopGet$Response$Data$Records$Item$PremiumBrandInfo {
   @JsonKey(name: 'brandImg')
   final String? brandImg;
   static const fromJsonFactory =
-      _$ShopNoAuthGetThirdShopGet$Response$Data$Records$Item$PremiumBrandInfoFromJson;
+      _$ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$Item$PremiumBrandInfoFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is ShopNoAuthGetThirdShopGet$Response$Data$Records$Item$PremiumBrandInfo &&
+                is ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$Item$PremiumBrandInfo &&
             (identical(other.brandCode, brandCode) ||
                 const DeepCollectionEquality().equals(
                   other.brandCode,
@@ -22233,19 +23187,20 @@ class ShopNoAuthGetThirdShopGet$Response$Data$Records$Item$PremiumBrandInfo {
       runtimeType.hashCode;
 }
 
-extension $ShopNoAuthGetThirdShopGet$Response$Data$Records$Item$PremiumBrandInfoExtension
-    on ShopNoAuthGetThirdShopGet$Response$Data$Records$Item$PremiumBrandInfo {
-  ShopNoAuthGetThirdShopGet$Response$Data$Records$Item$PremiumBrandInfo
+extension $ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$Item$PremiumBrandInfoExtension
+    on
+        ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$Item$PremiumBrandInfo {
+  ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$Item$PremiumBrandInfo
   copyWith({String? brandCode, String? brandImg}) {
-    return ShopNoAuthGetThirdShopGet$Response$Data$Records$Item$PremiumBrandInfo(
+    return ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$Item$PremiumBrandInfo(
       brandCode: brandCode ?? this.brandCode,
       brandImg: brandImg ?? this.brandImg,
     );
   }
 
-  ShopNoAuthGetThirdShopGet$Response$Data$Records$Item$PremiumBrandInfo
+  ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$Item$PremiumBrandInfo
   copyWithWrapped({Wrapped<String?>? brandCode, Wrapped<String?>? brandImg}) {
-    return ShopNoAuthGetThirdShopGet$Response$Data$Records$Item$PremiumBrandInfo(
+    return ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$Item$PremiumBrandInfo(
       brandCode: (brandCode != null ? brandCode.value : this.brandCode),
       brandImg: (brandImg != null ? brandImg.value : this.brandImg),
     );
@@ -22253,25 +23208,25 @@ extension $ShopNoAuthGetThirdShopGet$Response$Data$Records$Item$PremiumBrandInfo
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item {
-  const ProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item({
+class ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item {
+  const ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item({
     required this.value,
     this.image,
     this.imageWidth,
     this.imageHeight,
   });
 
-  factory ProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item.fromJson(
+  factory ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$ItemFromJson(
+      _$ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$ProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$ItemToJson;
+      _$ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$ItemToJson(
+      _$ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$ItemToJson(
         this,
       );
 
@@ -22284,13 +23239,13 @@ class ProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item$OptionVa
   @JsonKey(name: 'imageHeight')
   final double? imageHeight;
   static const fromJsonFactory =
-      _$ProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$ItemFromJson;
+      _$ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is ProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item &&
+                is ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item &&
             (identical(other.value, value) ||
                 const DeepCollectionEquality().equals(other.value, value)) &&
             (identical(other.image, image) ||
@@ -22319,17 +23274,17 @@ class ProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item$OptionVa
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$ItemExtension
+extension $ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$ItemExtension
     on
-        ProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item {
-  ProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item
+        ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item {
+  ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item
   copyWith({
     String? value,
     String? image,
     double? imageWidth,
     double? imageHeight,
   }) {
-    return ProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item(
+    return ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item(
       value: value ?? this.value,
       image: image ?? this.image,
       imageWidth: imageWidth ?? this.imageWidth,
@@ -22337,14 +23292,14 @@ extension $ProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item$Opt
     );
   }
 
-  ProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item
+  ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item
   copyWithWrapped({
     Wrapped<String>? value,
     Wrapped<String?>? image,
     Wrapped<double?>? imageWidth,
     Wrapped<double?>? imageHeight,
   }) {
-    return ProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item(
+    return ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item(
       value: (value != null ? value.value : this.value),
       image: (image != null ? image.value : this.image),
       imageWidth: (imageWidth != null ? imageWidth.value : this.imageWidth),
@@ -22354,24 +23309,24 @@ extension $ProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item$Opt
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthPremierProductGet$Response$Data$Records$Item$MainImg$Item {
-  const ProductNoAuthPremierProductGet$Response$Data$Records$Item$MainImg$Item({
+class ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$MainImg$Item {
+  const ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$MainImg$Item({
     this.width,
     this.height,
     this.url,
   });
 
-  factory ProductNoAuthPremierProductGet$Response$Data$Records$Item$MainImg$Item.fromJson(
+  factory ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$MainImg$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ProductNoAuthPremierProductGet$Response$Data$Records$Item$MainImg$ItemFromJson(
+      _$ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$MainImg$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$ProductNoAuthPremierProductGet$Response$Data$Records$Item$MainImg$ItemToJson;
+      _$ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$MainImg$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthPremierProductGet$Response$Data$Records$Item$MainImg$ItemToJson(
+      _$ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$MainImg$ItemToJson(
         this,
       );
 
@@ -22382,13 +23337,13 @@ class ProductNoAuthPremierProductGet$Response$Data$Records$Item$MainImg$Item {
   @JsonKey(name: 'url')
   final String? url;
   static const fromJsonFactory =
-      _$ProductNoAuthPremierProductGet$Response$Data$Records$Item$MainImg$ItemFromJson;
+      _$ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$MainImg$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is ProductNoAuthPremierProductGet$Response$Data$Records$Item$MainImg$Item &&
+                is ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$MainImg$Item &&
             (identical(other.width, width) ||
                 const DeepCollectionEquality().equals(other.width, width)) &&
             (identical(other.height, height) ||
@@ -22408,24 +23363,25 @@ class ProductNoAuthPremierProductGet$Response$Data$Records$Item$MainImg$Item {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthPremierProductGet$Response$Data$Records$Item$MainImg$ItemExtension
-    on ProductNoAuthPremierProductGet$Response$Data$Records$Item$MainImg$Item {
-  ProductNoAuthPremierProductGet$Response$Data$Records$Item$MainImg$Item
+extension $ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$MainImg$ItemExtension
+    on
+        ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$MainImg$Item {
+  ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$MainImg$Item
   copyWith({double? width, double? height, String? url}) {
-    return ProductNoAuthPremierProductGet$Response$Data$Records$Item$MainImg$Item(
+    return ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$MainImg$Item(
       width: width ?? this.width,
       height: height ?? this.height,
       url: url ?? this.url,
     );
   }
 
-  ProductNoAuthPremierProductGet$Response$Data$Records$Item$MainImg$Item
+  ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$MainImg$Item
   copyWithWrapped({
     Wrapped<double?>? width,
     Wrapped<double?>? height,
     Wrapped<String?>? url,
   }) {
-    return ProductNoAuthPremierProductGet$Response$Data$Records$Item$MainImg$Item(
+    return ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$MainImg$Item(
       width: (width != null ? width.value : this.width),
       height: (height != null ? height.value : this.height),
       url: (url != null ? url.value : this.url),
@@ -22434,24 +23390,24 @@ extension $ProductNoAuthPremierProductGet$Response$Data$Records$Item$MainImg$Ite
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgCollection$Item {
-  const ProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgCollection$Item({
+class ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgCollection$Item {
+  const ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgCollection$Item({
     required this.width,
     required this.height,
     required this.url,
   });
 
-  factory ProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgCollection$Item.fromJson(
+  factory ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgCollection$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgCollection$ItemFromJson(
+      _$ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgCollection$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$ProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgCollection$ItemToJson;
+      _$ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgCollection$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgCollection$ItemToJson(
+      _$ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgCollection$ItemToJson(
         this,
       );
 
@@ -22462,13 +23418,13 @@ class ProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgCollection$It
   @JsonKey(name: 'url')
   final String url;
   static const fromJsonFactory =
-      _$ProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgCollection$ItemFromJson;
+      _$ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgCollection$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is ProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgCollection$Item &&
+                is ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgCollection$Item &&
             (identical(other.width, width) ||
                 const DeepCollectionEquality().equals(other.width, width)) &&
             (identical(other.height, height) ||
@@ -22488,24 +23444,25 @@ class ProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgCollection$It
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgCollection$ItemExtension
-    on ProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgCollection$Item {
-  ProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgCollection$Item
+extension $ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgCollection$ItemExtension
+    on
+        ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgCollection$Item {
+  ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgCollection$Item
   copyWith({double? width, double? height, String? url}) {
-    return ProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgCollection$Item(
+    return ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgCollection$Item(
       width: width ?? this.width,
       height: height ?? this.height,
       url: url ?? this.url,
     );
   }
 
-  ProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgCollection$Item
+  ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgCollection$Item
   copyWithWrapped({
     Wrapped<double>? width,
     Wrapped<double>? height,
     Wrapped<String>? url,
   }) {
-    return ProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgCollection$Item(
+    return ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgCollection$Item(
       width: (width != null ? width.value : this.width),
       height: (height != null ? height.value : this.height),
       url: (url != null ? url.value : this.url),
@@ -22514,24 +23471,24 @@ extension $ProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgCollecti
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgDetail$Item {
-  const ProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgDetail$Item({
+class ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgDetail$Item {
+  const ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgDetail$Item({
     required this.width,
     required this.height,
     required this.url,
   });
 
-  factory ProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgDetail$Item.fromJson(
+  factory ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgDetail$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgDetail$ItemFromJson(
+      _$ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgDetail$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$ProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgDetail$ItemToJson;
+      _$ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgDetail$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgDetail$ItemToJson(
+      _$ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgDetail$ItemToJson(
         this,
       );
 
@@ -22542,13 +23499,13 @@ class ProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgDetail$Item {
   @JsonKey(name: 'url')
   final String url;
   static const fromJsonFactory =
-      _$ProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgDetail$ItemFromJson;
+      _$ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgDetail$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is ProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgDetail$Item &&
+                is ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgDetail$Item &&
             (identical(other.width, width) ||
                 const DeepCollectionEquality().equals(other.width, width)) &&
             (identical(other.height, height) ||
@@ -22568,24 +23525,25 @@ class ProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgDetail$Item {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgDetail$ItemExtension
-    on ProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgDetail$Item {
-  ProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgDetail$Item
+extension $ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgDetail$ItemExtension
+    on
+        ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgDetail$Item {
+  ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgDetail$Item
   copyWith({double? width, double? height, String? url}) {
-    return ProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgDetail$Item(
+    return ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgDetail$Item(
       width: width ?? this.width,
       height: height ?? this.height,
       url: url ?? this.url,
     );
   }
 
-  ProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgDetail$Item
+  ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgDetail$Item
   copyWithWrapped({
     Wrapped<double>? width,
     Wrapped<double>? height,
     Wrapped<String>? url,
   }) {
-    return ProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgDetail$Item(
+    return ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgDetail$Item(
       width: (width != null ? width.value : this.width),
       height: (height != null ? height.value : this.height),
       url: (url != null ? url.value : this.url),
@@ -22594,24 +23552,24 @@ extension $ProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgDetail$I
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$Item {
-  const ProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$Item({
+class ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$Item {
+  const ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$Item({
     this.name,
     this.type,
     this.optionValues,
   });
 
-  factory ProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$Item.fromJson(
+  factory ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$ItemFromJson(
+      _$ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$ProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$ItemToJson;
+      _$ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$ItemToJson(
+      _$ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$ItemToJson(
         this,
       );
 
@@ -22621,17 +23579,17 @@ class ProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$I
   final double? type;
   @JsonKey(name: 'optionValues')
   final List<
-    ProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item
+    ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item
   >?
   optionValues;
   static const fromJsonFactory =
-      _$ProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$ItemFromJson;
+      _$ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is ProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$Item &&
+                is ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$Item &&
             (identical(other.name, name) ||
                 const DeepCollectionEquality().equals(other.name, name)) &&
             (identical(other.type, type) ||
@@ -22654,36 +23612,37 @@ class ProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$I
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$ItemExtension
-    on ProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$Item {
-  ProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$Item
+extension $ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$ItemExtension
+    on
+        ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$Item {
+  ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$Item
   copyWith({
     String? name,
     double? type,
     List<
-      ProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item
+      ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item
     >?
     optionValues,
   }) {
-    return ProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$Item(
+    return ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$Item(
       name: name ?? this.name,
       type: type ?? this.type,
       optionValues: optionValues ?? this.optionValues,
     );
   }
 
-  ProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$Item
+  ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$Item
   copyWithWrapped({
     Wrapped<String?>? name,
     Wrapped<double?>? type,
     Wrapped<
       List<
-        ProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item
+        ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item
       >?
     >?
     optionValues,
   }) {
-    return ProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$Item(
+    return ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$Item(
       name: (name != null ? name.value : this.name),
       type: (type != null ? type.value : this.type),
       optionValues: (optionValues != null
@@ -22694,23 +23653,23 @@ extension $ProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOpti
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthPremierProductGet$Response$Data$Records$Item$Tags$Item {
-  const ProductNoAuthPremierProductGet$Response$Data$Records$Item$Tags$Item({
+class ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$Tags$Item {
+  const ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$Tags$Item({
     this.tagCode,
     this.tagImg,
   });
 
-  factory ProductNoAuthPremierProductGet$Response$Data$Records$Item$Tags$Item.fromJson(
+  factory ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$Tags$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ProductNoAuthPremierProductGet$Response$Data$Records$Item$Tags$ItemFromJson(
+      _$ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$Tags$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$ProductNoAuthPremierProductGet$Response$Data$Records$Item$Tags$ItemToJson;
+      _$ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$Tags$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthPremierProductGet$Response$Data$Records$Item$Tags$ItemToJson(
+      _$ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$Tags$ItemToJson(
         this,
       );
 
@@ -22719,12 +23678,13 @@ class ProductNoAuthPremierProductGet$Response$Data$Records$Item$Tags$Item {
   @JsonKey(name: 'tagImg')
   final String? tagImg;
   static const fromJsonFactory =
-      _$ProductNoAuthPremierProductGet$Response$Data$Records$Item$Tags$ItemFromJson;
+      _$ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$Tags$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ProductNoAuthPremierProductGet$Response$Data$Records$Item$Tags$Item &&
+        (other
+                is ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$Tags$Item &&
             (identical(other.tagCode, tagCode) ||
                 const DeepCollectionEquality().equals(
                   other.tagCode,
@@ -22744,21 +23704,20 @@ class ProductNoAuthPremierProductGet$Response$Data$Records$Item$Tags$Item {
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthPremierProductGet$Response$Data$Records$Item$Tags$ItemExtension
-    on ProductNoAuthPremierProductGet$Response$Data$Records$Item$Tags$Item {
-  ProductNoAuthPremierProductGet$Response$Data$Records$Item$Tags$Item copyWith({
-    String? tagCode,
-    String? tagImg,
-  }) {
-    return ProductNoAuthPremierProductGet$Response$Data$Records$Item$Tags$Item(
+extension $ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$Tags$ItemExtension
+    on
+        ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$Tags$Item {
+  ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$Tags$Item
+  copyWith({String? tagCode, String? tagImg}) {
+    return ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$Tags$Item(
       tagCode: tagCode ?? this.tagCode,
       tagImg: tagImg ?? this.tagImg,
     );
   }
 
-  ProductNoAuthPremierProductGet$Response$Data$Records$Item$Tags$Item
+  ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$Tags$Item
   copyWithWrapped({Wrapped<String?>? tagCode, Wrapped<String?>? tagImg}) {
-    return ProductNoAuthPremierProductGet$Response$Data$Records$Item$Tags$Item(
+    return ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$Tags$Item(
       tagCode: (tagCode != null ? tagCode.value : this.tagCode),
       tagImg: (tagImg != null ? tagImg.value : this.tagImg),
     );
@@ -22766,23 +23725,23 @@ extension $ProductNoAuthPremierProductGet$Response$Data$Records$Item$Tags$ItemEx
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthPremierProductGet$Response$Data$Records$Item$PremiumBrandInfo {
-  const ProductNoAuthPremierProductGet$Response$Data$Records$Item$PremiumBrandInfo({
+class ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$PremiumBrandInfo {
+  const ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$PremiumBrandInfo({
     this.brandCode,
     this.brandImg,
   });
 
-  factory ProductNoAuthPremierProductGet$Response$Data$Records$Item$PremiumBrandInfo.fromJson(
+  factory ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$PremiumBrandInfo.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ProductNoAuthPremierProductGet$Response$Data$Records$Item$PremiumBrandInfoFromJson(
+      _$ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$PremiumBrandInfoFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$ProductNoAuthPremierProductGet$Response$Data$Records$Item$PremiumBrandInfoToJson;
+      _$ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$PremiumBrandInfoToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthPremierProductGet$Response$Data$Records$Item$PremiumBrandInfoToJson(
+      _$ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$PremiumBrandInfoToJson(
         this,
       );
 
@@ -22791,13 +23750,13 @@ class ProductNoAuthPremierProductGet$Response$Data$Records$Item$PremiumBrandInfo
   @JsonKey(name: 'brandImg')
   final String? brandImg;
   static const fromJsonFactory =
-      _$ProductNoAuthPremierProductGet$Response$Data$Records$Item$PremiumBrandInfoFromJson;
+      _$ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$PremiumBrandInfoFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is ProductNoAuthPremierProductGet$Response$Data$Records$Item$PremiumBrandInfo &&
+                is ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$PremiumBrandInfo &&
             (identical(other.brandCode, brandCode) ||
                 const DeepCollectionEquality().equals(
                   other.brandCode,
@@ -22820,19 +23779,20 @@ class ProductNoAuthPremierProductGet$Response$Data$Records$Item$PremiumBrandInfo
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthPremierProductGet$Response$Data$Records$Item$PremiumBrandInfoExtension
-    on ProductNoAuthPremierProductGet$Response$Data$Records$Item$PremiumBrandInfo {
-  ProductNoAuthPremierProductGet$Response$Data$Records$Item$PremiumBrandInfo
+extension $ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$PremiumBrandInfoExtension
+    on
+        ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$PremiumBrandInfo {
+  ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$PremiumBrandInfo
   copyWith({String? brandCode, String? brandImg}) {
-    return ProductNoAuthPremierProductGet$Response$Data$Records$Item$PremiumBrandInfo(
+    return ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$PremiumBrandInfo(
       brandCode: brandCode ?? this.brandCode,
       brandImg: brandImg ?? this.brandImg,
     );
   }
 
-  ProductNoAuthPremierProductGet$Response$Data$Records$Item$PremiumBrandInfo
+  ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$PremiumBrandInfo
   copyWithWrapped({Wrapped<String?>? brandCode, Wrapped<String?>? brandImg}) {
-    return ProductNoAuthPremierProductGet$Response$Data$Records$Item$PremiumBrandInfo(
+    return ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$PremiumBrandInfo(
       brandCode: (brandCode != null ? brandCode.value : this.brandCode),
       brandImg: (brandImg != null ? brandImg.value : this.brandImg),
     );
@@ -22840,8 +23800,8 @@ extension $ProductNoAuthPremierProductGet$Response$Data$Records$Item$PremiumBran
 }
 
 @JsonSerializable(explicitToJson: true)
-class RecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item {
-  const RecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item({
+class ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item {
+  const ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item({
     required this.productCode,
     required this.productName,
     required this.image,
@@ -22860,17 +23820,17 @@ class RecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$Pro
     this.premiumBrandInfo,
   });
 
-  factory RecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item.fromJson(
+  factory ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$RecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$ItemFromJson(
+      _$ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$RecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$ItemToJson;
+      _$ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$RecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$ItemToJson(
+      _$ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$ItemToJson(
         this,
       );
 
@@ -22879,7 +23839,7 @@ class RecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$Pro
   @JsonKey(name: 'productName')
   final String productName;
   @JsonKey(name: 'image')
-  final RecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item$Image
+  final ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item$Image
   image;
   @JsonKey(name: 'sourcePlatform')
   final String sourcePlatform;
@@ -22906,16 +23866,16 @@ class RecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$Pro
   @JsonKey(name: 'tags', defaultValue: <Object>[])
   final List<Object> tags;
   @JsonKey(name: 'premiumBrandInfo')
-  final RecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item$PremiumBrandInfo?
+  final ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item$PremiumBrandInfo?
   premiumBrandInfo;
   static const fromJsonFactory =
-      _$RecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$ItemFromJson;
+      _$ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is RecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item &&
+                is ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item &&
             (identical(other.productCode, productCode) ||
                 const DeepCollectionEquality().equals(
                   other.productCode,
@@ -23016,14 +23976,14 @@ class RecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$Pro
       runtimeType.hashCode;
 }
 
-extension $RecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$ItemExtension
+extension $ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$ItemExtension
     on
-        RecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item {
-  RecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item
+        ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item {
+  ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item
   copyWith({
     String? productCode,
     String? productName,
-    RecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item$Image?
+    ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item$Image?
     image,
     String? sourcePlatform,
     String? platformProductId,
@@ -23037,10 +23997,10 @@ extension $RecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Ite
     double? skuCount,
     String? marketingInfo,
     List<Object>? tags,
-    RecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item$PremiumBrandInfo?
+    ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item$PremiumBrandInfo?
     premiumBrandInfo,
   }) {
-    return RecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item(
+    return ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item(
       productCode: productCode ?? this.productCode,
       productName: productName ?? this.productName,
       image: image ?? this.image,
@@ -23060,12 +24020,12 @@ extension $RecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Ite
     );
   }
 
-  RecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item
+  ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item
   copyWithWrapped({
     Wrapped<String>? productCode,
     Wrapped<String>? productName,
     Wrapped<
-      RecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item$Image
+      ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item$Image
     >?
     image,
     Wrapped<String>? sourcePlatform,
@@ -23081,11 +24041,11 @@ extension $RecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Ite
     Wrapped<String>? marketingInfo,
     Wrapped<List<Object>>? tags,
     Wrapped<
-      RecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item$PremiumBrandInfo?
+      ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item$PremiumBrandInfo?
     >?
     premiumBrandInfo,
   }) {
-    return RecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item(
+    return ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item(
       productCode: (productCode != null ? productCode.value : this.productCode),
       productName: (productName != null ? productName.value : this.productName),
       image: (image != null ? image.value : this.image),
@@ -23125,23 +24085,24 @@ extension $RecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Ite
 }
 
 @JsonSerializable(explicitToJson: true)
-class RecommendNoAuthCategoryPost$Response$Data$Records$Item$Image {
-  const RecommendNoAuthCategoryPost$Response$Data$Records$Item$Image({
+class ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item$Image {
+  const ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item$Image({
     required this.width,
     required this.height,
     required this.url,
   });
 
-  factory RecommendNoAuthCategoryPost$Response$Data$Records$Item$Image.fromJson(
+  factory ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item$Image.fromJson(
     Map<String, dynamic> json,
-  ) => _$RecommendNoAuthCategoryPost$Response$Data$Records$Item$ImageFromJson(
-    json,
-  );
+  ) =>
+      _$ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item$ImageFromJson(
+        json,
+      );
 
   static const toJsonFactory =
-      _$RecommendNoAuthCategoryPost$Response$Data$Records$Item$ImageToJson;
+      _$ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item$ImageToJson;
   Map<String, dynamic> toJson() =>
-      _$RecommendNoAuthCategoryPost$Response$Data$Records$Item$ImageToJson(
+      _$ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item$ImageToJson(
         this,
       );
 
@@ -23152,234 +24113,13 @@ class RecommendNoAuthCategoryPost$Response$Data$Records$Item$Image {
   @JsonKey(name: 'url')
   final String url;
   static const fromJsonFactory =
-      _$RecommendNoAuthCategoryPost$Response$Data$Records$Item$ImageFromJson;
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other is RecommendNoAuthCategoryPost$Response$Data$Records$Item$Image &&
-            (identical(other.width, width) ||
-                const DeepCollectionEquality().equals(other.width, width)) &&
-            (identical(other.height, height) ||
-                const DeepCollectionEquality().equals(other.height, height)) &&
-            (identical(other.url, url) ||
-                const DeepCollectionEquality().equals(other.url, url)));
-  }
-
-  @override
-  String toString() => jsonEncode(this);
-
-  @override
-  int get hashCode =>
-      const DeepCollectionEquality().hash(width) ^
-      const DeepCollectionEquality().hash(height) ^
-      const DeepCollectionEquality().hash(url) ^
-      runtimeType.hashCode;
-}
-
-extension $RecommendNoAuthCategoryPost$Response$Data$Records$Item$ImageExtension
-    on RecommendNoAuthCategoryPost$Response$Data$Records$Item$Image {
-  RecommendNoAuthCategoryPost$Response$Data$Records$Item$Image copyWith({
-    int? width,
-    int? height,
-    String? url,
-  }) {
-    return RecommendNoAuthCategoryPost$Response$Data$Records$Item$Image(
-      width: width ?? this.width,
-      height: height ?? this.height,
-      url: url ?? this.url,
-    );
-  }
-
-  RecommendNoAuthCategoryPost$Response$Data$Records$Item$Image copyWithWrapped({
-    Wrapped<int>? width,
-    Wrapped<int>? height,
-    Wrapped<String>? url,
-  }) {
-    return RecommendNoAuthCategoryPost$Response$Data$Records$Item$Image(
-      width: (width != null ? width.value : this.width),
-      height: (height != null ? height.value : this.height),
-      url: (url != null ? url.value : this.url),
-    );
-  }
-}
-
-@JsonSerializable(explicitToJson: true)
-class RecommendNoAuthCategoryPost$Response$Data$Records$Item$Tags$Item {
-  const RecommendNoAuthCategoryPost$Response$Data$Records$Item$Tags$Item({
-    this.tagCode,
-    this.tagImg,
-  });
-
-  factory RecommendNoAuthCategoryPost$Response$Data$Records$Item$Tags$Item.fromJson(
-    Map<String, dynamic> json,
-  ) =>
-      _$RecommendNoAuthCategoryPost$Response$Data$Records$Item$Tags$ItemFromJson(
-        json,
-      );
-
-  static const toJsonFactory =
-      _$RecommendNoAuthCategoryPost$Response$Data$Records$Item$Tags$ItemToJson;
-  Map<String, dynamic> toJson() =>
-      _$RecommendNoAuthCategoryPost$Response$Data$Records$Item$Tags$ItemToJson(
-        this,
-      );
-
-  @JsonKey(name: 'tagCode')
-  final String? tagCode;
-  @JsonKey(name: 'tagImg')
-  final String? tagImg;
-  static const fromJsonFactory =
-      _$RecommendNoAuthCategoryPost$Response$Data$Records$Item$Tags$ItemFromJson;
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other is RecommendNoAuthCategoryPost$Response$Data$Records$Item$Tags$Item &&
-            (identical(other.tagCode, tagCode) ||
-                const DeepCollectionEquality().equals(
-                  other.tagCode,
-                  tagCode,
-                )) &&
-            (identical(other.tagImg, tagImg) ||
-                const DeepCollectionEquality().equals(other.tagImg, tagImg)));
-  }
-
-  @override
-  String toString() => jsonEncode(this);
-
-  @override
-  int get hashCode =>
-      const DeepCollectionEquality().hash(tagCode) ^
-      const DeepCollectionEquality().hash(tagImg) ^
-      runtimeType.hashCode;
-}
-
-extension $RecommendNoAuthCategoryPost$Response$Data$Records$Item$Tags$ItemExtension
-    on RecommendNoAuthCategoryPost$Response$Data$Records$Item$Tags$Item {
-  RecommendNoAuthCategoryPost$Response$Data$Records$Item$Tags$Item copyWith({
-    String? tagCode,
-    String? tagImg,
-  }) {
-    return RecommendNoAuthCategoryPost$Response$Data$Records$Item$Tags$Item(
-      tagCode: tagCode ?? this.tagCode,
-      tagImg: tagImg ?? this.tagImg,
-    );
-  }
-
-  RecommendNoAuthCategoryPost$Response$Data$Records$Item$Tags$Item
-  copyWithWrapped({Wrapped<String?>? tagCode, Wrapped<String?>? tagImg}) {
-    return RecommendNoAuthCategoryPost$Response$Data$Records$Item$Tags$Item(
-      tagCode: (tagCode != null ? tagCode.value : this.tagCode),
-      tagImg: (tagImg != null ? tagImg.value : this.tagImg),
-    );
-  }
-}
-
-@JsonSerializable(explicitToJson: true)
-class RecommendNoAuthCategoryPost$Response$Data$Records$Item$PremiumBrandInfo {
-  const RecommendNoAuthCategoryPost$Response$Data$Records$Item$PremiumBrandInfo({
-    this.brandCode,
-    this.brandImg,
-  });
-
-  factory RecommendNoAuthCategoryPost$Response$Data$Records$Item$PremiumBrandInfo.fromJson(
-    Map<String, dynamic> json,
-  ) =>
-      _$RecommendNoAuthCategoryPost$Response$Data$Records$Item$PremiumBrandInfoFromJson(
-        json,
-      );
-
-  static const toJsonFactory =
-      _$RecommendNoAuthCategoryPost$Response$Data$Records$Item$PremiumBrandInfoToJson;
-  Map<String, dynamic> toJson() =>
-      _$RecommendNoAuthCategoryPost$Response$Data$Records$Item$PremiumBrandInfoToJson(
-        this,
-      );
-
-  @JsonKey(name: 'brandCode')
-  final String? brandCode;
-  @JsonKey(name: 'brandImg')
-  final String? brandImg;
-  static const fromJsonFactory =
-      _$RecommendNoAuthCategoryPost$Response$Data$Records$Item$PremiumBrandInfoFromJson;
+      _$ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item$ImageFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is RecommendNoAuthCategoryPost$Response$Data$Records$Item$PremiumBrandInfo &&
-            (identical(other.brandCode, brandCode) ||
-                const DeepCollectionEquality().equals(
-                  other.brandCode,
-                  brandCode,
-                )) &&
-            (identical(other.brandImg, brandImg) ||
-                const DeepCollectionEquality().equals(
-                  other.brandImg,
-                  brandImg,
-                )));
-  }
-
-  @override
-  String toString() => jsonEncode(this);
-
-  @override
-  int get hashCode =>
-      const DeepCollectionEquality().hash(brandCode) ^
-      const DeepCollectionEquality().hash(brandImg) ^
-      runtimeType.hashCode;
-}
-
-extension $RecommendNoAuthCategoryPost$Response$Data$Records$Item$PremiumBrandInfoExtension
-    on RecommendNoAuthCategoryPost$Response$Data$Records$Item$PremiumBrandInfo {
-  RecommendNoAuthCategoryPost$Response$Data$Records$Item$PremiumBrandInfo
-  copyWith({String? brandCode, String? brandImg}) {
-    return RecommendNoAuthCategoryPost$Response$Data$Records$Item$PremiumBrandInfo(
-      brandCode: brandCode ?? this.brandCode,
-      brandImg: brandImg ?? this.brandImg,
-    );
-  }
-
-  RecommendNoAuthCategoryPost$Response$Data$Records$Item$PremiumBrandInfo
-  copyWithWrapped({Wrapped<String?>? brandCode, Wrapped<String?>? brandImg}) {
-    return RecommendNoAuthCategoryPost$Response$Data$Records$Item$PremiumBrandInfo(
-      brandCode: (brandCode != null ? brandCode.value : this.brandCode),
-      brandImg: (brandImg != null ? brandImg.value : this.brandImg),
-    );
-  }
-}
-
-@JsonSerializable(explicitToJson: true)
-class RecommendNoAuthShopPost$Response$Data$Records$Item$Image {
-  const RecommendNoAuthShopPost$Response$Data$Records$Item$Image({
-    required this.width,
-    required this.height,
-    required this.url,
-  });
-
-  factory RecommendNoAuthShopPost$Response$Data$Records$Item$Image.fromJson(
-    Map<String, dynamic> json,
-  ) => _$RecommendNoAuthShopPost$Response$Data$Records$Item$ImageFromJson(json);
-
-  static const toJsonFactory =
-      _$RecommendNoAuthShopPost$Response$Data$Records$Item$ImageToJson;
-  Map<String, dynamic> toJson() =>
-      _$RecommendNoAuthShopPost$Response$Data$Records$Item$ImageToJson(this);
-
-  @JsonKey(name: 'width')
-  final int width;
-  @JsonKey(name: 'height')
-  final int height;
-  @JsonKey(name: 'url')
-  final String url;
-  static const fromJsonFactory =
-      _$RecommendNoAuthShopPost$Response$Data$Records$Item$ImageFromJson;
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other is RecommendNoAuthShopPost$Response$Data$Records$Item$Image &&
+                is ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item$Image &&
             (identical(other.width, width) ||
                 const DeepCollectionEquality().equals(other.width, width)) &&
             (identical(other.height, height) ||
@@ -23399,257 +24139,24 @@ class RecommendNoAuthShopPost$Response$Data$Records$Item$Image {
       runtimeType.hashCode;
 }
 
-extension $RecommendNoAuthShopPost$Response$Data$Records$Item$ImageExtension
-    on RecommendNoAuthShopPost$Response$Data$Records$Item$Image {
-  RecommendNoAuthShopPost$Response$Data$Records$Item$Image copyWith({
-    int? width,
-    int? height,
-    String? url,
-  }) {
-    return RecommendNoAuthShopPost$Response$Data$Records$Item$Image(
+extension $ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item$ImageExtension
+    on ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item$Image {
+  ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item$Image
+  copyWith({int? width, int? height, String? url}) {
+    return ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item$Image(
       width: width ?? this.width,
       height: height ?? this.height,
       url: url ?? this.url,
     );
   }
 
-  RecommendNoAuthShopPost$Response$Data$Records$Item$Image copyWithWrapped({
-    Wrapped<int>? width,
-    Wrapped<int>? height,
-    Wrapped<String>? url,
-  }) {
-    return RecommendNoAuthShopPost$Response$Data$Records$Item$Image(
-      width: (width != null ? width.value : this.width),
-      height: (height != null ? height.value : this.height),
-      url: (url != null ? url.value : this.url),
-    );
-  }
-}
-
-@JsonSerializable(explicitToJson: true)
-class RecommendNoAuthShopPost$Response$Data$Records$Item$Tags$Item {
-  const RecommendNoAuthShopPost$Response$Data$Records$Item$Tags$Item({
-    this.tagCode,
-    this.tagImg,
-  });
-
-  factory RecommendNoAuthShopPost$Response$Data$Records$Item$Tags$Item.fromJson(
-    Map<String, dynamic> json,
-  ) => _$RecommendNoAuthShopPost$Response$Data$Records$Item$Tags$ItemFromJson(
-    json,
-  );
-
-  static const toJsonFactory =
-      _$RecommendNoAuthShopPost$Response$Data$Records$Item$Tags$ItemToJson;
-  Map<String, dynamic> toJson() =>
-      _$RecommendNoAuthShopPost$Response$Data$Records$Item$Tags$ItemToJson(
-        this,
-      );
-
-  @JsonKey(name: 'tagCode')
-  final String? tagCode;
-  @JsonKey(name: 'tagImg')
-  final String? tagImg;
-  static const fromJsonFactory =
-      _$RecommendNoAuthShopPost$Response$Data$Records$Item$Tags$ItemFromJson;
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other is RecommendNoAuthShopPost$Response$Data$Records$Item$Tags$Item &&
-            (identical(other.tagCode, tagCode) ||
-                const DeepCollectionEquality().equals(
-                  other.tagCode,
-                  tagCode,
-                )) &&
-            (identical(other.tagImg, tagImg) ||
-                const DeepCollectionEquality().equals(other.tagImg, tagImg)));
-  }
-
-  @override
-  String toString() => jsonEncode(this);
-
-  @override
-  int get hashCode =>
-      const DeepCollectionEquality().hash(tagCode) ^
-      const DeepCollectionEquality().hash(tagImg) ^
-      runtimeType.hashCode;
-}
-
-extension $RecommendNoAuthShopPost$Response$Data$Records$Item$Tags$ItemExtension
-    on RecommendNoAuthShopPost$Response$Data$Records$Item$Tags$Item {
-  RecommendNoAuthShopPost$Response$Data$Records$Item$Tags$Item copyWith({
-    String? tagCode,
-    String? tagImg,
-  }) {
-    return RecommendNoAuthShopPost$Response$Data$Records$Item$Tags$Item(
-      tagCode: tagCode ?? this.tagCode,
-      tagImg: tagImg ?? this.tagImg,
-    );
-  }
-
-  RecommendNoAuthShopPost$Response$Data$Records$Item$Tags$Item copyWithWrapped({
-    Wrapped<String?>? tagCode,
-    Wrapped<String?>? tagImg,
-  }) {
-    return RecommendNoAuthShopPost$Response$Data$Records$Item$Tags$Item(
-      tagCode: (tagCode != null ? tagCode.value : this.tagCode),
-      tagImg: (tagImg != null ? tagImg.value : this.tagImg),
-    );
-  }
-}
-
-@JsonSerializable(explicitToJson: true)
-class RecommendNoAuthShopPost$Response$Data$Records$Item$PremiumBrandInfo {
-  const RecommendNoAuthShopPost$Response$Data$Records$Item$PremiumBrandInfo({
-    this.brandCode,
-    this.brandImg,
-  });
-
-  factory RecommendNoAuthShopPost$Response$Data$Records$Item$PremiumBrandInfo.fromJson(
-    Map<String, dynamic> json,
-  ) =>
-      _$RecommendNoAuthShopPost$Response$Data$Records$Item$PremiumBrandInfoFromJson(
-        json,
-      );
-
-  static const toJsonFactory =
-      _$RecommendNoAuthShopPost$Response$Data$Records$Item$PremiumBrandInfoToJson;
-  Map<String, dynamic> toJson() =>
-      _$RecommendNoAuthShopPost$Response$Data$Records$Item$PremiumBrandInfoToJson(
-        this,
-      );
-
-  @JsonKey(name: 'brandCode')
-  final String? brandCode;
-  @JsonKey(name: 'brandImg')
-  final String? brandImg;
-  static const fromJsonFactory =
-      _$RecommendNoAuthShopPost$Response$Data$Records$Item$PremiumBrandInfoFromJson;
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other
-                is RecommendNoAuthShopPost$Response$Data$Records$Item$PremiumBrandInfo &&
-            (identical(other.brandCode, brandCode) ||
-                const DeepCollectionEquality().equals(
-                  other.brandCode,
-                  brandCode,
-                )) &&
-            (identical(other.brandImg, brandImg) ||
-                const DeepCollectionEquality().equals(
-                  other.brandImg,
-                  brandImg,
-                )));
-  }
-
-  @override
-  String toString() => jsonEncode(this);
-
-  @override
-  int get hashCode =>
-      const DeepCollectionEquality().hash(brandCode) ^
-      const DeepCollectionEquality().hash(brandImg) ^
-      runtimeType.hashCode;
-}
-
-extension $RecommendNoAuthShopPost$Response$Data$Records$Item$PremiumBrandInfoExtension
-    on RecommendNoAuthShopPost$Response$Data$Records$Item$PremiumBrandInfo {
-  RecommendNoAuthShopPost$Response$Data$Records$Item$PremiumBrandInfo copyWith({
-    String? brandCode,
-    String? brandImg,
-  }) {
-    return RecommendNoAuthShopPost$Response$Data$Records$Item$PremiumBrandInfo(
-      brandCode: brandCode ?? this.brandCode,
-      brandImg: brandImg ?? this.brandImg,
-    );
-  }
-
-  RecommendNoAuthShopPost$Response$Data$Records$Item$PremiumBrandInfo
-  copyWithWrapped({Wrapped<String?>? brandCode, Wrapped<String?>? brandImg}) {
-    return RecommendNoAuthShopPost$Response$Data$Records$Item$PremiumBrandInfo(
-      brandCode: (brandCode != null ? brandCode.value : this.brandCode),
-      brandImg: (brandImg != null ? brandImg.value : this.brandImg),
-    );
-  }
-}
-
-@JsonSerializable(explicitToJson: true)
-class RecommendNoAuthSimilarProductPost$Response$Data$Records$Item$Image {
-  const RecommendNoAuthSimilarProductPost$Response$Data$Records$Item$Image({
-    required this.width,
-    required this.height,
-    required this.url,
-  });
-
-  factory RecommendNoAuthSimilarProductPost$Response$Data$Records$Item$Image.fromJson(
-    Map<String, dynamic> json,
-  ) =>
-      _$RecommendNoAuthSimilarProductPost$Response$Data$Records$Item$ImageFromJson(
-        json,
-      );
-
-  static const toJsonFactory =
-      _$RecommendNoAuthSimilarProductPost$Response$Data$Records$Item$ImageToJson;
-  Map<String, dynamic> toJson() =>
-      _$RecommendNoAuthSimilarProductPost$Response$Data$Records$Item$ImageToJson(
-        this,
-      );
-
-  @JsonKey(name: 'width')
-  final int width;
-  @JsonKey(name: 'height')
-  final int height;
-  @JsonKey(name: 'url')
-  final String url;
-  static const fromJsonFactory =
-      _$RecommendNoAuthSimilarProductPost$Response$Data$Records$Item$ImageFromJson;
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other is RecommendNoAuthSimilarProductPost$Response$Data$Records$Item$Image &&
-            (identical(other.width, width) ||
-                const DeepCollectionEquality().equals(other.width, width)) &&
-            (identical(other.height, height) ||
-                const DeepCollectionEquality().equals(other.height, height)) &&
-            (identical(other.url, url) ||
-                const DeepCollectionEquality().equals(other.url, url)));
-  }
-
-  @override
-  String toString() => jsonEncode(this);
-
-  @override
-  int get hashCode =>
-      const DeepCollectionEquality().hash(width) ^
-      const DeepCollectionEquality().hash(height) ^
-      const DeepCollectionEquality().hash(url) ^
-      runtimeType.hashCode;
-}
-
-extension $RecommendNoAuthSimilarProductPost$Response$Data$Records$Item$ImageExtension
-    on RecommendNoAuthSimilarProductPost$Response$Data$Records$Item$Image {
-  RecommendNoAuthSimilarProductPost$Response$Data$Records$Item$Image copyWith({
-    int? width,
-    int? height,
-    String? url,
-  }) {
-    return RecommendNoAuthSimilarProductPost$Response$Data$Records$Item$Image(
-      width: width ?? this.width,
-      height: height ?? this.height,
-      url: url ?? this.url,
-    );
-  }
-
-  RecommendNoAuthSimilarProductPost$Response$Data$Records$Item$Image
+  ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item$Image
   copyWithWrapped({
     Wrapped<int>? width,
     Wrapped<int>? height,
     Wrapped<String>? url,
   }) {
-    return RecommendNoAuthSimilarProductPost$Response$Data$Records$Item$Image(
+    return ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item$Image(
       width: (width != null ? width.value : this.width),
       height: (height != null ? height.value : this.height),
       url: (url != null ? url.value : this.url),
@@ -23658,23 +24165,23 @@ extension $RecommendNoAuthSimilarProductPost$Response$Data$Records$Item$ImageExt
 }
 
 @JsonSerializable(explicitToJson: true)
-class RecommendNoAuthSimilarProductPost$Response$Data$Records$Item$Tags$Item {
-  const RecommendNoAuthSimilarProductPost$Response$Data$Records$Item$Tags$Item({
+class ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item$Tags$Item {
+  const ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item$Tags$Item({
     this.tagCode,
     this.tagImg,
   });
 
-  factory RecommendNoAuthSimilarProductPost$Response$Data$Records$Item$Tags$Item.fromJson(
+  factory ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item$Tags$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$RecommendNoAuthSimilarProductPost$Response$Data$Records$Item$Tags$ItemFromJson(
+      _$ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item$Tags$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$RecommendNoAuthSimilarProductPost$Response$Data$Records$Item$Tags$ItemToJson;
+      _$ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item$Tags$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$RecommendNoAuthSimilarProductPost$Response$Data$Records$Item$Tags$ItemToJson(
+      _$ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item$Tags$ItemToJson(
         this,
       );
 
@@ -23683,13 +24190,13 @@ class RecommendNoAuthSimilarProductPost$Response$Data$Records$Item$Tags$Item {
   @JsonKey(name: 'tagImg')
   final String? tagImg;
   static const fromJsonFactory =
-      _$RecommendNoAuthSimilarProductPost$Response$Data$Records$Item$Tags$ItemFromJson;
+      _$ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item$Tags$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is RecommendNoAuthSimilarProductPost$Response$Data$Records$Item$Tags$Item &&
+                is ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item$Tags$Item &&
             (identical(other.tagCode, tagCode) ||
                 const DeepCollectionEquality().equals(
                   other.tagCode,
@@ -23709,19 +24216,19 @@ class RecommendNoAuthSimilarProductPost$Response$Data$Records$Item$Tags$Item {
       runtimeType.hashCode;
 }
 
-extension $RecommendNoAuthSimilarProductPost$Response$Data$Records$Item$Tags$ItemExtension
-    on RecommendNoAuthSimilarProductPost$Response$Data$Records$Item$Tags$Item {
-  RecommendNoAuthSimilarProductPost$Response$Data$Records$Item$Tags$Item
+extension $ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item$Tags$ItemExtension
+    on ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item$Tags$Item {
+  ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item$Tags$Item
   copyWith({String? tagCode, String? tagImg}) {
-    return RecommendNoAuthSimilarProductPost$Response$Data$Records$Item$Tags$Item(
+    return ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item$Tags$Item(
       tagCode: tagCode ?? this.tagCode,
       tagImg: tagImg ?? this.tagImg,
     );
   }
 
-  RecommendNoAuthSimilarProductPost$Response$Data$Records$Item$Tags$Item
+  ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item$Tags$Item
   copyWithWrapped({Wrapped<String?>? tagCode, Wrapped<String?>? tagImg}) {
-    return RecommendNoAuthSimilarProductPost$Response$Data$Records$Item$Tags$Item(
+    return ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item$Tags$Item(
       tagCode: (tagCode != null ? tagCode.value : this.tagCode),
       tagImg: (tagImg != null ? tagImg.value : this.tagImg),
     );
@@ -23729,23 +24236,23 @@ extension $RecommendNoAuthSimilarProductPost$Response$Data$Records$Item$Tags$Ite
 }
 
 @JsonSerializable(explicitToJson: true)
-class RecommendNoAuthSimilarProductPost$Response$Data$Records$Item$PremiumBrandInfo {
-  const RecommendNoAuthSimilarProductPost$Response$Data$Records$Item$PremiumBrandInfo({
+class ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item$PremiumBrandInfo {
+  const ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item$PremiumBrandInfo({
     this.brandCode,
     this.brandImg,
   });
 
-  factory RecommendNoAuthSimilarProductPost$Response$Data$Records$Item$PremiumBrandInfo.fromJson(
+  factory ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item$PremiumBrandInfo.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$RecommendNoAuthSimilarProductPost$Response$Data$Records$Item$PremiumBrandInfoFromJson(
+      _$ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item$PremiumBrandInfoFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$RecommendNoAuthSimilarProductPost$Response$Data$Records$Item$PremiumBrandInfoToJson;
+      _$ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item$PremiumBrandInfoToJson;
   Map<String, dynamic> toJson() =>
-      _$RecommendNoAuthSimilarProductPost$Response$Data$Records$Item$PremiumBrandInfoToJson(
+      _$ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item$PremiumBrandInfoToJson(
         this,
       );
 
@@ -23754,13 +24261,13 @@ class RecommendNoAuthSimilarProductPost$Response$Data$Records$Item$PremiumBrandI
   @JsonKey(name: 'brandImg')
   final String? brandImg;
   static const fromJsonFactory =
-      _$RecommendNoAuthSimilarProductPost$Response$Data$Records$Item$PremiumBrandInfoFromJson;
+      _$ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item$PremiumBrandInfoFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is RecommendNoAuthSimilarProductPost$Response$Data$Records$Item$PremiumBrandInfo &&
+                is ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item$PremiumBrandInfo &&
             (identical(other.brandCode, brandCode) ||
                 const DeepCollectionEquality().equals(
                   other.brandCode,
@@ -23783,19 +24290,20 @@ class RecommendNoAuthSimilarProductPost$Response$Data$Records$Item$PremiumBrandI
       runtimeType.hashCode;
 }
 
-extension $RecommendNoAuthSimilarProductPost$Response$Data$Records$Item$PremiumBrandInfoExtension
-    on RecommendNoAuthSimilarProductPost$Response$Data$Records$Item$PremiumBrandInfo {
-  RecommendNoAuthSimilarProductPost$Response$Data$Records$Item$PremiumBrandInfo
+extension $ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item$PremiumBrandInfoExtension
+    on
+        ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item$PremiumBrandInfo {
+  ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item$PremiumBrandInfo
   copyWith({String? brandCode, String? brandImg}) {
-    return RecommendNoAuthSimilarProductPost$Response$Data$Records$Item$PremiumBrandInfo(
+    return ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item$PremiumBrandInfo(
       brandCode: brandCode ?? this.brandCode,
       brandImg: brandImg ?? this.brandImg,
     );
   }
 
-  RecommendNoAuthSimilarProductPost$Response$Data$Records$Item$PremiumBrandInfo
+  ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item$PremiumBrandInfo
   copyWithWrapped({Wrapped<String?>? brandCode, Wrapped<String?>? brandImg}) {
-    return RecommendNoAuthSimilarProductPost$Response$Data$Records$Item$PremiumBrandInfo(
+    return ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item$PremiumBrandInfo(
       brandCode: (brandCode != null ? brandCode.value : this.brandCode),
       brandImg: (brandImg != null ? brandImg.value : this.brandImg),
     );
@@ -23803,8 +24311,462 @@ extension $RecommendNoAuthSimilarProductPost$Response$Data$Records$Item$PremiumB
 }
 
 @JsonSerializable(explicitToJson: true)
-class CategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item$CategoryList$Item {
-  const CategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item$CategoryList$Item({
+class ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item$Image {
+  const ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item$Image({
+    required this.width,
+    required this.height,
+    required this.url,
+  });
+
+  factory ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item$Image.fromJson(
+    Map<String, dynamic> json,
+  ) =>
+      _$ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item$ImageFromJson(
+        json,
+      );
+
+  static const toJsonFactory =
+      _$ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item$ImageToJson;
+  Map<String, dynamic> toJson() =>
+      _$ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item$ImageToJson(
+        this,
+      );
+
+  @JsonKey(name: 'width')
+  final int width;
+  @JsonKey(name: 'height')
+  final int height;
+  @JsonKey(name: 'url')
+  final String url;
+  static const fromJsonFactory =
+      _$ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item$ImageFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other
+                is ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item$Image &&
+            (identical(other.width, width) ||
+                const DeepCollectionEquality().equals(other.width, width)) &&
+            (identical(other.height, height) ||
+                const DeepCollectionEquality().equals(other.height, height)) &&
+            (identical(other.url, url) ||
+                const DeepCollectionEquality().equals(other.url, url)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(width) ^
+      const DeepCollectionEquality().hash(height) ^
+      const DeepCollectionEquality().hash(url) ^
+      runtimeType.hashCode;
+}
+
+extension $ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item$ImageExtension
+    on ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item$Image {
+  ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item$Image
+  copyWith({int? width, int? height, String? url}) {
+    return ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item$Image(
+      width: width ?? this.width,
+      height: height ?? this.height,
+      url: url ?? this.url,
+    );
+  }
+
+  ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item$Image
+  copyWithWrapped({
+    Wrapped<int>? width,
+    Wrapped<int>? height,
+    Wrapped<String>? url,
+  }) {
+    return ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item$Image(
+      width: (width != null ? width.value : this.width),
+      height: (height != null ? height.value : this.height),
+      url: (url != null ? url.value : this.url),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item$Tags$Item {
+  const ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item$Tags$Item({
+    this.tagCode,
+    this.tagImg,
+  });
+
+  factory ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item$Tags$Item.fromJson(
+    Map<String, dynamic> json,
+  ) =>
+      _$ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item$Tags$ItemFromJson(
+        json,
+      );
+
+  static const toJsonFactory =
+      _$ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item$Tags$ItemToJson;
+  Map<String, dynamic> toJson() =>
+      _$ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item$Tags$ItemToJson(
+        this,
+      );
+
+  @JsonKey(name: 'tagCode')
+  final String? tagCode;
+  @JsonKey(name: 'tagImg')
+  final String? tagImg;
+  static const fromJsonFactory =
+      _$ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item$Tags$ItemFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other
+                is ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item$Tags$Item &&
+            (identical(other.tagCode, tagCode) ||
+                const DeepCollectionEquality().equals(
+                  other.tagCode,
+                  tagCode,
+                )) &&
+            (identical(other.tagImg, tagImg) ||
+                const DeepCollectionEquality().equals(other.tagImg, tagImg)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(tagCode) ^
+      const DeepCollectionEquality().hash(tagImg) ^
+      runtimeType.hashCode;
+}
+
+extension $ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item$Tags$ItemExtension
+    on ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item$Tags$Item {
+  ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item$Tags$Item
+  copyWith({String? tagCode, String? tagImg}) {
+    return ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item$Tags$Item(
+      tagCode: tagCode ?? this.tagCode,
+      tagImg: tagImg ?? this.tagImg,
+    );
+  }
+
+  ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item$Tags$Item
+  copyWithWrapped({Wrapped<String?>? tagCode, Wrapped<String?>? tagImg}) {
+    return ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item$Tags$Item(
+      tagCode: (tagCode != null ? tagCode.value : this.tagCode),
+      tagImg: (tagImg != null ? tagImg.value : this.tagImg),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item$PremiumBrandInfo {
+  const ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item$PremiumBrandInfo({
+    this.brandCode,
+    this.brandImg,
+  });
+
+  factory ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item$PremiumBrandInfo.fromJson(
+    Map<String, dynamic> json,
+  ) =>
+      _$ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item$PremiumBrandInfoFromJson(
+        json,
+      );
+
+  static const toJsonFactory =
+      _$ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item$PremiumBrandInfoToJson;
+  Map<String, dynamic> toJson() =>
+      _$ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item$PremiumBrandInfoToJson(
+        this,
+      );
+
+  @JsonKey(name: 'brandCode')
+  final String? brandCode;
+  @JsonKey(name: 'brandImg')
+  final String? brandImg;
+  static const fromJsonFactory =
+      _$ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item$PremiumBrandInfoFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other
+                is ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item$PremiumBrandInfo &&
+            (identical(other.brandCode, brandCode) ||
+                const DeepCollectionEquality().equals(
+                  other.brandCode,
+                  brandCode,
+                )) &&
+            (identical(other.brandImg, brandImg) ||
+                const DeepCollectionEquality().equals(
+                  other.brandImg,
+                  brandImg,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(brandCode) ^
+      const DeepCollectionEquality().hash(brandImg) ^
+      runtimeType.hashCode;
+}
+
+extension $ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item$PremiumBrandInfoExtension
+    on
+        ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item$PremiumBrandInfo {
+  ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item$PremiumBrandInfo
+  copyWith({String? brandCode, String? brandImg}) {
+    return ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item$PremiumBrandInfo(
+      brandCode: brandCode ?? this.brandCode,
+      brandImg: brandImg ?? this.brandImg,
+    );
+  }
+
+  ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item$PremiumBrandInfo
+  copyWithWrapped({Wrapped<String?>? brandCode, Wrapped<String?>? brandImg}) {
+    return ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item$PremiumBrandInfo(
+      brandCode: (brandCode != null ? brandCode.value : this.brandCode),
+      brandImg: (brandImg != null ? brandImg.value : this.brandImg),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item$Image {
+  const ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item$Image({
+    required this.width,
+    required this.height,
+    required this.url,
+  });
+
+  factory ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item$Image.fromJson(
+    Map<String, dynamic> json,
+  ) =>
+      _$ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item$ImageFromJson(
+        json,
+      );
+
+  static const toJsonFactory =
+      _$ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item$ImageToJson;
+  Map<String, dynamic> toJson() =>
+      _$ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item$ImageToJson(
+        this,
+      );
+
+  @JsonKey(name: 'width')
+  final int width;
+  @JsonKey(name: 'height')
+  final int height;
+  @JsonKey(name: 'url')
+  final String url;
+  static const fromJsonFactory =
+      _$ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item$ImageFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other
+                is ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item$Image &&
+            (identical(other.width, width) ||
+                const DeepCollectionEquality().equals(other.width, width)) &&
+            (identical(other.height, height) ||
+                const DeepCollectionEquality().equals(other.height, height)) &&
+            (identical(other.url, url) ||
+                const DeepCollectionEquality().equals(other.url, url)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(width) ^
+      const DeepCollectionEquality().hash(height) ^
+      const DeepCollectionEquality().hash(url) ^
+      runtimeType.hashCode;
+}
+
+extension $ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item$ImageExtension
+    on
+        ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item$Image {
+  ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item$Image
+  copyWith({int? width, int? height, String? url}) {
+    return ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item$Image(
+      width: width ?? this.width,
+      height: height ?? this.height,
+      url: url ?? this.url,
+    );
+  }
+
+  ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item$Image
+  copyWithWrapped({
+    Wrapped<int>? width,
+    Wrapped<int>? height,
+    Wrapped<String>? url,
+  }) {
+    return ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item$Image(
+      width: (width != null ? width.value : this.width),
+      height: (height != null ? height.value : this.height),
+      url: (url != null ? url.value : this.url),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item$Tags$Item {
+  const ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item$Tags$Item({
+    this.tagCode,
+    this.tagImg,
+  });
+
+  factory ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item$Tags$Item.fromJson(
+    Map<String, dynamic> json,
+  ) =>
+      _$ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item$Tags$ItemFromJson(
+        json,
+      );
+
+  static const toJsonFactory =
+      _$ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item$Tags$ItemToJson;
+  Map<String, dynamic> toJson() =>
+      _$ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item$Tags$ItemToJson(
+        this,
+      );
+
+  @JsonKey(name: 'tagCode')
+  final String? tagCode;
+  @JsonKey(name: 'tagImg')
+  final String? tagImg;
+  static const fromJsonFactory =
+      _$ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item$Tags$ItemFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other
+                is ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item$Tags$Item &&
+            (identical(other.tagCode, tagCode) ||
+                const DeepCollectionEquality().equals(
+                  other.tagCode,
+                  tagCode,
+                )) &&
+            (identical(other.tagImg, tagImg) ||
+                const DeepCollectionEquality().equals(other.tagImg, tagImg)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(tagCode) ^
+      const DeepCollectionEquality().hash(tagImg) ^
+      runtimeType.hashCode;
+}
+
+extension $ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item$Tags$ItemExtension
+    on
+        ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item$Tags$Item {
+  ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item$Tags$Item
+  copyWith({String? tagCode, String? tagImg}) {
+    return ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item$Tags$Item(
+      tagCode: tagCode ?? this.tagCode,
+      tagImg: tagImg ?? this.tagImg,
+    );
+  }
+
+  ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item$Tags$Item
+  copyWithWrapped({Wrapped<String?>? tagCode, Wrapped<String?>? tagImg}) {
+    return ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item$Tags$Item(
+      tagCode: (tagCode != null ? tagCode.value : this.tagCode),
+      tagImg: (tagImg != null ? tagImg.value : this.tagImg),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item$PremiumBrandInfo {
+  const ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item$PremiumBrandInfo({
+    this.brandCode,
+    this.brandImg,
+  });
+
+  factory ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item$PremiumBrandInfo.fromJson(
+    Map<String, dynamic> json,
+  ) =>
+      _$ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item$PremiumBrandInfoFromJson(
+        json,
+      );
+
+  static const toJsonFactory =
+      _$ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item$PremiumBrandInfoToJson;
+  Map<String, dynamic> toJson() =>
+      _$ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item$PremiumBrandInfoToJson(
+        this,
+      );
+
+  @JsonKey(name: 'brandCode')
+  final String? brandCode;
+  @JsonKey(name: 'brandImg')
+  final String? brandImg;
+  static const fromJsonFactory =
+      _$ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item$PremiumBrandInfoFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other
+                is ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item$PremiumBrandInfo &&
+            (identical(other.brandCode, brandCode) ||
+                const DeepCollectionEquality().equals(
+                  other.brandCode,
+                  brandCode,
+                )) &&
+            (identical(other.brandImg, brandImg) ||
+                const DeepCollectionEquality().equals(
+                  other.brandImg,
+                  brandImg,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(brandCode) ^
+      const DeepCollectionEquality().hash(brandImg) ^
+      runtimeType.hashCode;
+}
+
+extension $ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item$PremiumBrandInfoExtension
+    on
+        ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item$PremiumBrandInfo {
+  ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item$PremiumBrandInfo
+  copyWith({String? brandCode, String? brandImg}) {
+    return ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item$PremiumBrandInfo(
+      brandCode: brandCode ?? this.brandCode,
+      brandImg: brandImg ?? this.brandImg,
+    );
+  }
+
+  ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item$PremiumBrandInfo
+  copyWithWrapped({Wrapped<String?>? brandCode, Wrapped<String?>? brandImg}) {
+    return ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item$PremiumBrandInfo(
+      brandCode: (brandCode != null ? brandCode.value : this.brandCode),
+      brandImg: (brandImg != null ? brandImg.value : this.brandImg),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item$CategoryList$Item {
+  const ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item$CategoryList$Item({
     required this.id,
     required this.name,
     required this.iconUrl,
@@ -23812,17 +24774,17 @@ class CategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item$Ca
     required this.level,
   });
 
-  factory CategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item$CategoryList$Item.fromJson(
+  factory ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item$CategoryList$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$CategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item$CategoryList$ItemFromJson(
+      _$ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item$CategoryList$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$CategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item$CategoryList$ItemToJson;
+      _$ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item$CategoryList$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$CategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item$CategoryList$ItemToJson(
+      _$ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item$CategoryList$ItemToJson(
         this,
       );
 
@@ -23837,13 +24799,13 @@ class CategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item$Ca
   @JsonKey(name: 'level')
   final double level;
   static const fromJsonFactory =
-      _$CategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item$CategoryList$ItemFromJson;
+      _$ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item$CategoryList$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is CategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item$CategoryList$Item &&
+                is ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item$CategoryList$Item &&
             (identical(other.id, id) ||
                 const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.name, name) ||
@@ -23875,10 +24837,10 @@ class CategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item$Ca
       runtimeType.hashCode;
 }
 
-extension $CategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item$CategoryList$ItemExtension
+extension $ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item$CategoryList$ItemExtension
     on
-        CategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item$CategoryList$Item {
-  CategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item$CategoryList$Item
+        ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item$CategoryList$Item {
+  ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item$CategoryList$Item
   copyWith({
     double? id,
     String? name,
@@ -23886,7 +24848,7 @@ extension $CategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$It
     double? parentId,
     double? level,
   }) {
-    return CategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item$CategoryList$Item(
+    return ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item$CategoryList$Item(
       id: id ?? this.id,
       name: name ?? this.name,
       iconUrl: iconUrl ?? this.iconUrl,
@@ -23895,7 +24857,7 @@ extension $CategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$It
     );
   }
 
-  CategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item$CategoryList$Item
+  ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item$CategoryList$Item
   copyWithWrapped({
     Wrapped<double>? id,
     Wrapped<String>? name,
@@ -23903,7 +24865,7 @@ extension $CategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$It
     Wrapped<double>? parentId,
     Wrapped<double>? level,
   }) {
-    return CategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item$CategoryList$Item(
+    return ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item$CategoryList$Item(
       id: (id != null ? id.value : this.id),
       name: (name != null ? name.value : this.name),
       iconUrl: (iconUrl != null ? iconUrl.value : this.iconUrl),
@@ -23914,25 +24876,25 @@ extension $CategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$It
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item {
-  const ProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item({
+class ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item {
+  const ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item({
     required this.value,
     this.image,
     required this.imageWidth,
     required this.imageHeight,
   });
 
-  factory ProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item.fromJson(
+  factory ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$ItemFromJson(
+      _$ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$ProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$ItemToJson;
+      _$ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$ItemToJson(
+      _$ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$ItemToJson(
         this,
       );
 
@@ -23945,13 +24907,13 @@ class ProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$It
   @JsonKey(name: 'imageHeight')
   final Object imageHeight;
   static const fromJsonFactory =
-      _$ProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$ItemFromJson;
+      _$ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is ProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item &&
+                is ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item &&
             (identical(other.value, value) ||
                 const DeepCollectionEquality().equals(other.value, value)) &&
             (identical(other.image, image) ||
@@ -23980,17 +24942,17 @@ class ProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$It
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$ItemExtension
+extension $ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$ItemExtension
     on
-        ProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item {
-  ProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item
+        ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item {
+  ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item
   copyWith({
     String? value,
     String? image,
     Object? imageWidth,
     Object? imageHeight,
   }) {
-    return ProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item(
+    return ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item(
       value: value ?? this.value,
       image: image ?? this.image,
       imageWidth: imageWidth ?? this.imageWidth,
@@ -23998,14 +24960,14 @@ extension $ProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptio
     );
   }
 
-  ProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item
+  ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item
   copyWithWrapped({
     Wrapped<String>? value,
     Wrapped<String?>? image,
     Wrapped<Object>? imageWidth,
     Wrapped<Object>? imageHeight,
   }) {
-    return ProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item(
+    return ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item(
       value: (value != null ? value.value : this.value),
       image: (image != null ? image.value : this.image),
       imageWidth: (imageWidth != null ? imageWidth.value : this.imageWidth),
@@ -24015,25 +24977,25 @@ extension $ProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptio
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item {
-  const ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item({
+class ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item {
+  const ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item({
     required this.value,
     required this.image,
     required this.imageWidth,
     required this.imageHeight,
   });
 
-  factory ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item.fromJson(
+  factory ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$ItemFromJson(
+      _$ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$ItemToJson;
+      _$ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$ItemToJson(
+      _$ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$ItemToJson(
         this,
       );
 
@@ -24046,13 +25008,13 @@ class ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOption
   @JsonKey(name: 'imageHeight')
   final Object imageHeight;
   static const fromJsonFactory =
-      _$ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$ItemFromJson;
+      _$ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item &&
+                is ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item &&
             (identical(other.value, value) ||
                 const DeepCollectionEquality().equals(other.value, value)) &&
             (identical(other.image, image) ||
@@ -24081,17 +25043,17 @@ class ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOption
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$ItemExtension
+extension $ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$ItemExtension
     on
-        ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item {
-  ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item
+        ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item {
+  ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item
   copyWith({
     String? value,
     Object? image,
     Object? imageWidth,
     Object? imageHeight,
   }) {
-    return ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item(
+    return ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item(
       value: value ?? this.value,
       image: image ?? this.image,
       imageWidth: imageWidth ?? this.imageWidth,
@@ -24099,14 +25061,14 @@ extension $ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductO
     );
   }
 
-  ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item
+  ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item
   copyWithWrapped({
     Wrapped<String>? value,
     Wrapped<Object>? image,
     Wrapped<Object>? imageWidth,
     Wrapped<Object>? imageHeight,
   }) {
-    return ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item(
+    return ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item(
       value: (value != null ? value.value : this.value),
       image: (image != null ? image.value : this.image),
       imageWidth: (imageWidth != null ? imageWidth.value : this.imageWidth),
@@ -24116,25 +25078,25 @@ extension $ProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductO
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item {
-  const ProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item({
+class ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item {
+  const ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item({
     required this.value,
     required this.image,
     required this.imageWidth,
     required this.imageHeight,
   });
 
-  factory ProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item.fromJson(
+  factory ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$ItemFromJson(
+      _$ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$ProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$ItemToJson;
+      _$ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$ItemToJson(
+      _$ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$ItemToJson(
         this,
       );
 
@@ -24147,13 +25109,13 @@ class ProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$Ite
   @JsonKey(name: 'imageHeight')
   final Object imageHeight;
   static const fromJsonFactory =
-      _$ProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$ItemFromJson;
+      _$ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is ProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item &&
+                is ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item &&
             (identical(other.value, value) ||
                 const DeepCollectionEquality().equals(other.value, value)) &&
             (identical(other.image, image) ||
@@ -24182,17 +25144,17 @@ class ProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$Ite
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$ItemExtension
+extension $ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$ItemExtension
     on
-        ProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item {
-  ProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item
+        ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item {
+  ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item
   copyWith({
     String? value,
     Object? image,
     Object? imageWidth,
     Object? imageHeight,
   }) {
-    return ProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item(
+    return ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item(
       value: value ?? this.value,
       image: image ?? this.image,
       imageWidth: imageWidth ?? this.imageWidth,
@@ -24200,14 +25162,14 @@ extension $ProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOption
     );
   }
 
-  ProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item
+  ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item
   copyWithWrapped({
     Wrapped<String>? value,
     Wrapped<Object>? image,
     Wrapped<Object>? imageWidth,
     Wrapped<Object>? imageHeight,
   }) {
-    return ProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item(
+    return ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item(
       value: (value != null ? value.value : this.value),
       image: (image != null ? image.value : this.image),
       imageWidth: (imageWidth != null ? imageWidth.value : this.imageWidth),
@@ -24217,25 +25179,25 @@ extension $ProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOption
 }
 
 @JsonSerializable(explicitToJson: true)
-class ProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item {
-  const ProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item({
+class ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item {
+  const ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item({
     required this.value,
     required this.image,
     required this.imageWidth,
     required this.imageHeight,
   });
 
-  factory ProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item.fromJson(
+  factory ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$ItemFromJson(
+      _$ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$ProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$ItemToJson;
+      _$ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$ItemToJson(
+      _$ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$ItemToJson(
         this,
       );
 
@@ -24248,13 +25210,13 @@ class ProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$I
   @JsonKey(name: 'imageHeight')
   final Object imageHeight;
   static const fromJsonFactory =
-      _$ProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$ItemFromJson;
+      _$ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is ProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item &&
+                is ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item &&
             (identical(other.value, value) ||
                 const DeepCollectionEquality().equals(other.value, value)) &&
             (identical(other.image, image) ||
@@ -24283,17 +25245,17 @@ class ProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$I
       runtimeType.hashCode;
 }
 
-extension $ProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$ItemExtension
+extension $ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$ItemExtension
     on
-        ProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item {
-  ProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item
+        ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item {
+  ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item
   copyWith({
     String? value,
     Object? image,
     Object? imageWidth,
     Object? imageHeight,
   }) {
-    return ProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item(
+    return ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item(
       value: value ?? this.value,
       image: image ?? this.image,
       imageWidth: imageWidth ?? this.imageWidth,
@@ -24301,14 +25263,14 @@ extension $ProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOpti
     );
   }
 
-  ProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item
+  ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item
   copyWithWrapped({
     Wrapped<String>? value,
     Wrapped<Object>? image,
     Wrapped<Object>? imageWidth,
     Wrapped<Object>? imageHeight,
   }) {
-    return ProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item(
+    return ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item(
       value: (value != null ? value.value : this.value),
       image: (image != null ? image.value : this.image),
       imageWidth: (imageWidth != null ? imageWidth.value : this.imageWidth),
@@ -24318,24 +25280,24 @@ extension $ProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOpti
 }
 
 @JsonSerializable(explicitToJson: true)
-class RecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item$Image {
-  const RecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item$Image({
+class ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item$Image {
+  const ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item$Image({
     this.width,
     this.height,
     this.url,
   });
 
-  factory RecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item$Image.fromJson(
+  factory ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item$Image.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$RecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item$ImageFromJson(
+      _$ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item$ImageFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$RecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item$ImageToJson;
+      _$ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item$ImageToJson;
   Map<String, dynamic> toJson() =>
-      _$RecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item$ImageToJson(
+      _$ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item$ImageToJson(
         this,
       );
 
@@ -24346,13 +25308,13 @@ class RecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$Pro
   @JsonKey(name: 'url')
   final String? url;
   static const fromJsonFactory =
-      _$RecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item$ImageFromJson;
+      _$ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item$ImageFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is RecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item$Image &&
+                is ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item$Image &&
             (identical(other.width, width) ||
                 const DeepCollectionEquality().equals(other.width, width)) &&
             (identical(other.height, height) ||
@@ -24372,25 +25334,25 @@ class RecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$Pro
       runtimeType.hashCode;
 }
 
-extension $RecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item$ImageExtension
+extension $ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item$ImageExtension
     on
-        RecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item$Image {
-  RecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item$Image
+        ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item$Image {
+  ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item$Image
   copyWith({double? width, double? height, String? url}) {
-    return RecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item$Image(
+    return ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item$Image(
       width: width ?? this.width,
       height: height ?? this.height,
       url: url ?? this.url,
     );
   }
 
-  RecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item$Image
+  ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item$Image
   copyWithWrapped({
     Wrapped<double?>? width,
     Wrapped<double?>? height,
     Wrapped<String?>? url,
   }) {
-    return RecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item$Image(
+    return ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item$Image(
       width: (width != null ? width.value : this.width),
       height: (height != null ? height.value : this.height),
       url: (url != null ? url.value : this.url),
@@ -24399,23 +25361,23 @@ extension $RecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Ite
 }
 
 @JsonSerializable(explicitToJson: true)
-class RecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item$PremiumBrandInfo {
-  const RecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item$PremiumBrandInfo({
+class ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item$PremiumBrandInfo {
+  const ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item$PremiumBrandInfo({
     this.brandCode,
     this.brandImg,
   });
 
-  factory RecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item$PremiumBrandInfo.fromJson(
+  factory ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item$PremiumBrandInfo.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$RecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item$PremiumBrandInfoFromJson(
+      _$ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item$PremiumBrandInfoFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$RecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item$PremiumBrandInfoToJson;
+      _$ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item$PremiumBrandInfoToJson;
   Map<String, dynamic> toJson() =>
-      _$RecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item$PremiumBrandInfoToJson(
+      _$ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item$PremiumBrandInfoToJson(
         this,
       );
 
@@ -24424,13 +25386,13 @@ class RecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$Pro
   @JsonKey(name: 'brandImg')
   final String? brandImg;
   static const fromJsonFactory =
-      _$RecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item$PremiumBrandInfoFromJson;
+      _$ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item$PremiumBrandInfoFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is RecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item$PremiumBrandInfo &&
+                is ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item$PremiumBrandInfo &&
             (identical(other.brandCode, brandCode) ||
                 const DeepCollectionEquality().equals(
                   other.brandCode,
@@ -24453,20 +25415,20 @@ class RecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$Pro
       runtimeType.hashCode;
 }
 
-extension $RecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item$PremiumBrandInfoExtension
+extension $ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item$PremiumBrandInfoExtension
     on
-        RecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item$PremiumBrandInfo {
-  RecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item$PremiumBrandInfo
+        ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item$PremiumBrandInfo {
+  ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item$PremiumBrandInfo
   copyWith({String? brandCode, String? brandImg}) {
-    return RecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item$PremiumBrandInfo(
+    return ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item$PremiumBrandInfo(
       brandCode: brandCode ?? this.brandCode,
       brandImg: brandImg ?? this.brandImg,
     );
   }
 
-  RecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item$PremiumBrandInfo
+  ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item$PremiumBrandInfo
   copyWithWrapped({Wrapped<String?>? brandCode, Wrapped<String?>? brandImg}) {
-    return RecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item$PremiumBrandInfo(
+    return ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item$PremiumBrandInfo(
       brandCode: (brandCode != null ? brandCode.value : this.brandCode),
       brandImg: (brandImg != null ? brandImg.value : this.brandImg),
     );
@@ -24474,119 +25436,142 @@ extension $RecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Ite
 }
 
 String?
-productPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSortNullableToJson(
-  enums.ProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSort?
-  productPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSort,
+productServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSortNullableToJson(
+  enums.ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSort?
+  productServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSort,
 ) {
-  return productPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSort?.value;
+  return productServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSort
+      ?.value;
 }
 
-String? productPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSortToJson(
-  enums.ProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSort
-  productPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSort,
+String?
+productServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSortToJson(
+  enums.ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSort
+  productServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSort,
 ) {
-  return productPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSort.value;
+  return productServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSort
+      .value;
 }
 
-enums.ProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSort
-productPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSortFromJson(
-  Object? productPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSort, [
-  enums.ProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSort?
+enums.ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSort
+productServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSortFromJson(
+  Object?
+  productServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSort, [
+  enums.ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSort?
   defaultValue,
 ]) {
   return enums
-          .ProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSort
+          .ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSort
           .values
           .firstWhereOrNull(
             (e) =>
                 e.value ==
-                productPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSort,
+                productServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSort,
           ) ??
       defaultValue ??
       enums
-          .ProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSort
+          .ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSort
           .swaggerGeneratedUnknown;
 }
 
-enums.ProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSort?
-productPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSortNullableFromJson(
-  Object? productPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSort, [
-  enums.ProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSort?
+enums.ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSort?
+productServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSortNullableFromJson(
+  Object?
+  productServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSort, [
+  enums.ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSort?
   defaultValue,
 ]) {
-  if (productPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSort == null) {
+  if (productServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSort ==
+      null) {
     return null;
   }
   return enums
-          .ProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSort
+          .ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSort
           .values
           .firstWhereOrNull(
             (e) =>
                 e.value ==
-                productPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSort,
+                productServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSort,
           ) ??
       defaultValue;
 }
 
 String
-productPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSortExplodedListToJson(
-  List<enums.ProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSort>?
-  productPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSort,
+productServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSortExplodedListToJson(
+  List<
+    enums.ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSort
+  >?
+  productServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSort,
 ) {
-  return productPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSort
+  return productServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSort
           ?.map((e) => e.value!)
           .join(',') ??
       '';
 }
 
 List<String>
-productPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSortListToJson(
-  List<enums.ProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSort>?
-  productPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSort,
+productServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSortListToJson(
+  List<
+    enums.ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSort
+  >?
+  productServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSort,
 ) {
-  if (productPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSort == null) {
+  if (productServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSort ==
+      null) {
     return [];
   }
 
-  return productPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSort
+  return productServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSort
       .map((e) => e.value!)
       .toList();
 }
 
-List<enums.ProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSort>
-productPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSortListFromJson(
-  List? productPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSort, [
-  List<enums.ProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSort>?
+List<
+  enums.ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSort
+>
+productServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSortListFromJson(
+  List?
+  productServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSort, [
+  List<
+    enums.ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSort
+  >?
   defaultValue,
 ]) {
-  if (productPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSort == null) {
+  if (productServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSort ==
+      null) {
     return defaultValue ?? [];
   }
 
-  return productPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSort
+  return productServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSort
       .map(
         (e) =>
-            productPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSortFromJson(
+            productServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSortFromJson(
               e.toString(),
             ),
       )
       .toList();
 }
 
-List<enums.ProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSort>?
-productPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSortNullableListFromJson(
-  List? productPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSort, [
-  List<enums.ProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSort>?
+List<
+  enums.ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSort
+>?
+productServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSortNullableListFromJson(
+  List?
+  productServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSort, [
+  List<
+    enums.ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSort
+  >?
   defaultValue,
 ]) {
-  if (productPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSort == null) {
+  if (productServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSort ==
+      null) {
     return defaultValue;
   }
 
-  return productPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSort
+  return productServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSort
       .map(
         (e) =>
-            productPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSortFromJson(
+            productServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSortFromJson(
               e.toString(),
             ),
       )
@@ -24594,119 +25579,142 @@ productPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemSortNullableListFromJson
 }
 
 String?
-productPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrderNullableToJson(
-  enums.ProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrder?
-  productPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrder,
+productServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrderNullableToJson(
+  enums.ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrder?
+  productServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrder,
 ) {
-  return productPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrder?.value;
+  return productServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrder
+      ?.value;
 }
 
-String? productPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrderToJson(
-  enums.ProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrder
-  productPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrder,
+String?
+productServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrderToJson(
+  enums.ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrder
+  productServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrder,
 ) {
-  return productPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrder.value;
+  return productServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrder
+      .value;
 }
 
-enums.ProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrder
-productPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrderFromJson(
-  Object? productPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrder, [
-  enums.ProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrder?
+enums.ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrder
+productServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrderFromJson(
+  Object?
+  productServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrder, [
+  enums.ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrder?
   defaultValue,
 ]) {
   return enums
-          .ProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrder
+          .ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrder
           .values
           .firstWhereOrNull(
             (e) =>
                 e.value ==
-                productPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrder,
+                productServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrder,
           ) ??
       defaultValue ??
       enums
-          .ProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrder
+          .ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrder
           .swaggerGeneratedUnknown;
 }
 
-enums.ProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrder?
-productPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrderNullableFromJson(
-  Object? productPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrder, [
-  enums.ProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrder?
+enums.ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrder?
+productServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrderNullableFromJson(
+  Object?
+  productServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrder, [
+  enums.ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrder?
   defaultValue,
 ]) {
-  if (productPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrder == null) {
+  if (productServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrder ==
+      null) {
     return null;
   }
   return enums
-          .ProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrder
+          .ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrder
           .values
           .firstWhereOrNull(
             (e) =>
                 e.value ==
-                productPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrder,
+                productServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrder,
           ) ??
       defaultValue;
 }
 
 String
-productPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrderExplodedListToJson(
-  List<enums.ProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrder>?
-  productPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrder,
+productServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrderExplodedListToJson(
+  List<
+    enums.ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrder
+  >?
+  productServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrder,
 ) {
-  return productPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrder
+  return productServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrder
           ?.map((e) => e.value!)
           .join(',') ??
       '';
 }
 
 List<String>
-productPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrderListToJson(
-  List<enums.ProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrder>?
-  productPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrder,
+productServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrderListToJson(
+  List<
+    enums.ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrder
+  >?
+  productServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrder,
 ) {
-  if (productPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrder == null) {
+  if (productServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrder ==
+      null) {
     return [];
   }
 
-  return productPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrder
+  return productServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrder
       .map((e) => e.value!)
       .toList();
 }
 
-List<enums.ProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrder>
-productPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrderListFromJson(
-  List? productPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrder, [
-  List<enums.ProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrder>?
+List<
+  enums.ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrder
+>
+productServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrderListFromJson(
+  List?
+  productServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrder, [
+  List<
+    enums.ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrder
+  >?
   defaultValue,
 ]) {
-  if (productPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrder == null) {
+  if (productServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrder ==
+      null) {
     return defaultValue ?? [];
   }
 
-  return productPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrder
+  return productServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrder
       .map(
         (e) =>
-            productPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrderFromJson(
+            productServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrderFromJson(
               e.toString(),
             ),
       )
       .toList();
 }
 
-List<enums.ProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrder>?
-productPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrderNullableListFromJson(
-  List? productPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrder, [
-  List<enums.ProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrder>?
+List<
+  enums.ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrder
+>?
+productServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrderNullableListFromJson(
+  List?
+  productServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrder, [
+  List<
+    enums.ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrder
+  >?
   defaultValue,
 ]) {
-  if (productPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrder == null) {
+  if (productServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrder ==
+      null) {
     return defaultValue;
   }
 
-  return productPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrder
+  return productServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrder
       .map(
         (e) =>
-            productPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrderFromJson(
+            productServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrderFromJson(
               e.toString(),
             ),
       )

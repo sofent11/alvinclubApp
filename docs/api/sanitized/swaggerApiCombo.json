@@ -4,7 +4,6 @@
     "title": "combo-service",
     "version": "last"
   },
-  "basePath": "/combo-service",
   "tags": [
     {
       "name": "KOL信息",
@@ -39,7 +38,7 @@
     "http"
   ],
   "paths": {
-    "/no-auth/biz/kol/kolInfo": {
+    "/combo-service/no-auth/biz/kol/kolInfo": {
       "get": {
         "tags": [
           "KOL信息"
@@ -141,7 +140,7 @@
         }
       }
     },
-    "/no-auth/popup/promise": {
+    "/combo-service/no-auth/popup/promise": {
       "get": {
         "tags": [
           "app"
@@ -225,7 +224,7 @@
         }
       }
     },
-    "/no-auth/common/app-config/version_check": {
+    "/combo-service/no-auth/common/app-config/version_check": {
       "get": {
         "tags": [
           "app"
@@ -278,7 +277,7 @@
         }
       }
     },
-    "/biz/community-post/unlike": {
+    "/combo-service/biz/community-post/unlike": {
       "post": {
         "tags": [
           "用户端帖子相关接口"
@@ -334,7 +333,7 @@
         }
       }
     },
-    "/biz/community-post/liked": {
+    "/combo-service/biz/community-post/liked": {
       "get": {
         "tags": [
           "用户端帖子相关接口"
@@ -788,7 +787,7 @@
         }
       }
     },
-    "/biz/community-post/no-auth/list": {
+    "/combo-service/biz/community-post/no-auth/list": {
       "get": {
         "tags": [
           "用户端帖子相关接口"
@@ -1242,7 +1241,7 @@
         }
       }
     },
-    "/biz/community-post/like": {
+    "/combo-service/biz/community-post/like": {
       "post": {
         "tags": [
           "用户端帖子相关接口"
@@ -1298,7 +1297,7 @@
         }
       }
     },
-    "/no-auth/biz/image-trans/translate": {
+    "/combo-service/no-auth/biz/image-trans/translate": {
       "post": {
         "tags": [
           "公共分类"
@@ -1357,7 +1356,7 @@
         }
       }
     },
-    "/biz/user-order/pending": {
+    "/combo-service/biz/user-order/pending": {
       "get": {
         "tags": [
           "公共分类"
@@ -1414,7 +1413,7 @@
         }
       }
     },
-    "/api/v1/style-outfits/generateModel": {
+    "/combo-service/api/v1/style-outfits/generateModel": {
       "post": {
         "tags": [
           "ai-fashion"
@@ -1550,7 +1549,7 @@
         }
       }
     },
-    "/biz/ai-fashion/no-auth/body-shape": {
+    "/combo-service/biz/ai-fashion/no-auth/body-shape": {
       "get": {
         "tags": [
           "ai-fashion"
@@ -1666,7 +1665,7 @@
         }
       }
     },
-    "/biz/ai-fashion/model/save": {
+    "/combo-service/biz/ai-fashion/model/save": {
       "post": {
         "tags": [
           "ai-fashion"
@@ -1760,7 +1759,7 @@
         }
       }
     },
-    "/api/v1/style-outfits/result/page": {
+    "/combo-service/api/v1/style-outfits/result/page": {
       "get": {
         "tags": [
           "ai-fashion"
@@ -2128,7 +2127,7 @@
         }
       }
     },
-    "/biz/ai-fashion/model/recently-used": {
+    "/combo-service/biz/ai-fashion/model/recently-used": {
       "get": {
         "tags": [
           "ai-fashion"
@@ -2202,7 +2201,7 @@
         }
       }
     },
-    "/api/v1/style-outfits/{modelId}/status": {
+    "/combo-service/api/v1/style-outfits/{modelId}/status": {
       "get": {
         "tags": [
           "ai-fashion"
@@ -2310,7 +2309,7 @@
         }
       }
     },
-    "/api/v1/style-outfits/result": {
+    "/combo-service/api/v1/style-outfits/result": {
       "get": {
         "tags": [
           "ai-fashion"
@@ -2629,7 +2628,7 @@
         }
       }
     },
-    "/biz/ai-fashion/model/{modelId}": {
+    "/combo-service/biz/ai-fashion/model/{modelId}": {
       "get": {
         "tags": [
           "ai-fashion"
@@ -2705,7 +2704,7 @@
         }
       }
     },
-    "/biz/ai-fashion/model/list": {
+    "/combo-service/biz/ai-fashion/model/list": {
       "get": {
         "tags": [
           "ai-fashion"
@@ -2811,7 +2810,7 @@
         }
       }
     },
-    "/api/v1/style-outfits/generate": {
+    "/combo-service/api/v1/style-outfits/generate": {
       "post": {
         "tags": [
           "ai-fashion"
@@ -2942,7 +2941,7 @@
         }
       }
     },
-    "/biz/ai-fashion/no-auth/style/preset": {
+    "/combo-service/biz/ai-fashion/no-auth/style/preset": {
       "get": {
         "tags": [
           "ai-fashion"
@@ -3095,7 +3094,7 @@
         }
       }
     },
-    "/biz/ai-fashion/no-auth/post/list": {
+    "/combo-service/biz/ai-fashion/no-auth/post/list": {
       "get": {
         "tags": [
           "ai-fashion"
@@ -3215,7 +3214,7 @@
         }
       }
     },
-    "/biz/ai-fashion/no-auth/post/detail": {
+    "/combo-service/biz/ai-fashion/no-auth/post/detail": {
       "get": {
         "tags": [
           "ai-fashion"
@@ -3407,7 +3406,7 @@
         }
       }
     },
-    "/biz/ai-fashion/no-auth/select/option": {
+    "/combo-service/biz/ai-fashion/no-auth/select/option": {
       "get": {
         "tags": [
           "ai-fashion"
@@ -3469,7 +3468,7 @@
         }
       }
     },
-    "/api/v1/style-outfits/generateModel/regenerate": {
+    "/combo-service/api/v1/style-outfits/generateModel/regenerate": {
       "post": {
         "tags": [
           "ai-fashion"
@@ -3531,7 +3530,7 @@
         }
       }
     },
-    "/api/v1/style-outfits/generate/regenerate": {
+    "/combo-service/api/v1/style-outfits/generate/regenerate": {
       "post": {
         "tags": [
           "ai-fashion"
@@ -3593,7 +3592,7 @@
         }
       }
     },
-    "/biz/user-share-reward/page": {
+    "/combo-service/biz/user-share-reward/page": {
       "get": {
         "tags": [
           "分享返利"
@@ -3719,7 +3718,7 @@
         }
       }
     },
-    "/biz/user-share-reward": {
+    "/combo-service/biz/user-share-reward": {
       "post": {
         "tags": [
           "分享返利"
@@ -3779,7 +3778,7 @@
         }
       }
     },
-    "/no-auth/biz/album/albumInfo": {
+    "/combo-service/no-auth/biz/album/albumInfo": {
       "get": {
         "tags": [
           "相册"

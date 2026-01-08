@@ -62,7 +62,7 @@ class PortalSelectorModal extends StatelessWidget {
                         Flexible(
                           child: ListView.separated(
                             itemCount: portals.length,
-                            separatorBuilder: (_, __) => Divider(height: 1, color: colors.border),
+                            separatorBuilder: (_, _) => Divider(height: 1, color: colors.border),
                             itemBuilder: (context, index) {
                               final portal = portals[index];
                               return InkWell(

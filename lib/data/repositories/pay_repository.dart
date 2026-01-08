@@ -110,7 +110,7 @@ class PayRepository {
     }
 
     final api = _ref.read(swaggerPayApiProvider);
-    final response = await api.payPayTypeGet(
+    final response = await api.payServicePayPayTypeGet(
       orderId: input.orderId,
       orderType: input.orderType,
       orderAmount: input.orderAmount,
@@ -118,11 +118,14 @@ class PayRepository {
     );
 
     final body = _toMap(response.body);
-    if (body == null || _parseInt(body['code']) != 0) {
-      throw _createApiError(body?['message']?.toString() ?? '获取支付方式失败', body);
+    if (body == null) {
+      throw _createApiError('获取支付方式失败', body);
+    }
+    if (_parseInt(body['code']) != 0) {
+      throw _createApiError(body['message']?.toString() ?? '获取支付方式失败', body);
     }
 
-    final list = _toList(_toMap(body?['data'])?['list']);
+    final list = _toList(_toMap(body['data'])?['list']);
     return list.asMap().entries.map((entry) {
       final index = entry.key;
       final method = _toMap(entry.value) ?? const {};
@@ -148,7 +151,7 @@ class PayRepository {
     }
 
     final api = _ref.read(swaggerPayApiProvider);
-    final response = await api.payPayPost(
+    final response = await api.payServicePayPayPost(
       root: {
         'orderId': input.orderId,
         'payType': input.payType,
@@ -161,11 +164,14 @@ class PayRepository {
     );
 
     final body = _toMap(response.body);
-    if (body == null || _parseInt(body['code']) != 0) {
-      throw _createApiError(body?['message']?.toString() ?? '发起支付失败', body);
+    if (body == null) {
+      throw _createApiError('发起支付失败', body);
+    }
+    if (_parseInt(body['code']) != 0) {
+      throw _createApiError(body['message']?.toString() ?? '发起支付失败', body);
     }
 
-    final data = _toMap(body?['data']);
+    final data = _toMap(body['data']);
     final thirdPayParam = data?['thirdPayParam']?.toString();
     final stripeParams = _extractStripeParams(thirdPayParam);
 
@@ -184,7 +190,7 @@ class PayRepository {
     }
 
     final api = _ref.read(swaggerPayApiProvider);
-    final response = await api.payPayResultGet(orderId: orderId);
+    final response = await api.payServicePayPayResultGet(orderId: orderId);
     final body = _toMap(response.body);
     final data = _toMap(body?['data']);
     if (_parseInt(body?['code']) != 0 || data == null) {

@@ -6,22 +6,22 @@ part of 'swaggerApiPay.swagger.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-WithdrawOrdersGet$Response _$WithdrawOrdersGet$ResponseFromJson(
-  Map<String, dynamic> json,
-) => WithdrawOrdersGet$Response(
-  code: (json['code'] as num?)?.toDouble(),
-  message: json['message'] as String?,
-  data: json['data'] == null
-      ? null
-      : WithdrawOrdersGet$Response$Data.fromJson(
-          json['data'] as Map<String, dynamic>,
-        ),
-  traceId: json['traceId'] as String?,
-  success: json['success'] as bool?,
-);
+PayServiceWithdrawOrdersGet$Response
+_$PayServiceWithdrawOrdersGet$ResponseFromJson(Map<String, dynamic> json) =>
+    PayServiceWithdrawOrdersGet$Response(
+      code: (json['code'] as num?)?.toDouble(),
+      message: json['message'] as String?,
+      data: json['data'] == null
+          ? null
+          : PayServiceWithdrawOrdersGet$Response$Data.fromJson(
+              json['data'] as Map<String, dynamic>,
+            ),
+      traceId: json['traceId'] as String?,
+      success: json['success'] as bool?,
+    );
 
-Map<String, dynamic> _$WithdrawOrdersGet$ResponseToJson(
-  WithdrawOrdersGet$Response instance,
+Map<String, dynamic> _$PayServiceWithdrawOrdersGet$ResponseToJson(
+  PayServiceWithdrawOrdersGet$Response instance,
 ) => <String, dynamic>{
   'code': instance.code,
   'message': instance.message,
@@ -30,22 +30,22 @@ Map<String, dynamic> _$WithdrawOrdersGet$ResponseToJson(
   'success': instance.success,
 };
 
-WithdrawApplyPost$Response _$WithdrawApplyPost$ResponseFromJson(
-  Map<String, dynamic> json,
-) => WithdrawApplyPost$Response(
-  code: (json['code'] as num?)?.toDouble(),
-  message: json['message'] as String?,
-  data: json['data'] == null
-      ? null
-      : WithdrawApplyPost$Response$Data.fromJson(
-          json['data'] as Map<String, dynamic>,
-        ),
-  traceId: json['traceId'] as String?,
-  success: json['success'] as bool?,
-);
+PayServiceWithdrawApplyPost$Response
+_$PayServiceWithdrawApplyPost$ResponseFromJson(Map<String, dynamic> json) =>
+    PayServiceWithdrawApplyPost$Response(
+      code: (json['code'] as num?)?.toDouble(),
+      message: json['message'] as String?,
+      data: json['data'] == null
+          ? null
+          : PayServiceWithdrawApplyPost$Response$Data.fromJson(
+              json['data'] as Map<String, dynamic>,
+            ),
+      traceId: json['traceId'] as String?,
+      success: json['success'] as bool?,
+    );
 
-Map<String, dynamic> _$WithdrawApplyPost$ResponseToJson(
-  WithdrawApplyPost$Response instance,
+Map<String, dynamic> _$PayServiceWithdrawApplyPost$ResponseToJson(
+  PayServiceWithdrawApplyPost$Response instance,
 ) => <String, dynamic>{
   'code': instance.code,
   'message': instance.message,
@@ -54,32 +54,33 @@ Map<String, dynamic> _$WithdrawApplyPost$ResponseToJson(
   'success': instance.success,
 };
 
-CommissionSummaryGet$Response _$CommissionSummaryGet$ResponseFromJson(
-  Map<String, dynamic> json,
-) => CommissionSummaryGet$Response(
-  code: (json['code'] as num).toDouble(),
-  message: json['message'] as String,
-  data: CommissionSummaryGet$Response$Data.fromJson(
-    json['data'] as Map<String, dynamic>,
-  ),
-);
+PayServiceCommissionSummaryGet$Response
+_$PayServiceCommissionSummaryGet$ResponseFromJson(Map<String, dynamic> json) =>
+    PayServiceCommissionSummaryGet$Response(
+      code: (json['code'] as num).toDouble(),
+      message: json['message'] as String,
+      data: PayServiceCommissionSummaryGet$Response$Data.fromJson(
+        json['data'] as Map<String, dynamic>,
+      ),
+    );
 
-Map<String, dynamic> _$CommissionSummaryGet$ResponseToJson(
-  CommissionSummaryGet$Response instance,
+Map<String, dynamic> _$PayServiceCommissionSummaryGet$ResponseToJson(
+  PayServiceCommissionSummaryGet$Response instance,
 ) => <String, dynamic>{
   'code': instance.code,
   'message': instance.message,
   'data': instance.data.toJson(),
 };
 
-CommissionTransactionGet$Response _$CommissionTransactionGet$ResponseFromJson(
+PayServiceCommissionTransactionGet$Response
+_$PayServiceCommissionTransactionGet$ResponseFromJson(
   Map<String, dynamic> json,
-) => CommissionTransactionGet$Response(
+) => PayServiceCommissionTransactionGet$Response(
   code: (json['code'] as num?)?.toDouble(),
   message: json['message'] as String?,
   data: json['data'] == null
       ? null
-      : CommissionTransactionGet$Response$Data.fromJson(
+      : PayServiceCommissionTransactionGet$Response$Data.fromJson(
           json['data'] as Map<String, dynamic>,
         ),
   traceId: json['traceId'] as String?,
@@ -87,8 +88,8 @@ CommissionTransactionGet$Response _$CommissionTransactionGet$ResponseFromJson(
   success: json['success'] as bool?,
 );
 
-Map<String, dynamic> _$CommissionTransactionGet$ResponseToJson(
-  CommissionTransactionGet$Response instance,
+Map<String, dynamic> _$PayServiceCommissionTransactionGet$ResponseToJson(
+  PayServiceCommissionTransactionGet$Response instance,
 ) => <String, dynamic>{
   'code': instance.code,
   'message': instance.message,
@@ -98,89 +99,14 @@ Map<String, dynamic> _$CommissionTransactionGet$ResponseToJson(
   'success': instance.success,
 };
 
-RechargeBalanceGet$Response _$RechargeBalanceGet$ResponseFromJson(
-  Map<String, dynamic> json,
-) => RechargeBalanceGet$Response(
-  code: (json['code'] as num?)?.toDouble(),
-  message: json['message'] as String?,
-  data: json['data'] == null
-      ? null
-      : RechargeBalanceGet$Response$Data.fromJson(
-          json['data'] as Map<String, dynamic>,
-        ),
-  traceId: json['traceId'] as String?,
-  placeholder: json['placeholder'],
-  success: json['success'] as bool?,
-);
-
-Map<String, dynamic> _$RechargeBalanceGet$ResponseToJson(
-  RechargeBalanceGet$Response instance,
-) => <String, dynamic>{
-  'code': instance.code,
-  'message': instance.message,
-  'data': instance.data?.toJson(),
-  'traceId': instance.traceId,
-  'placeholder': instance.placeholder,
-  'success': instance.success,
-};
-
-RechargeOrdersGet$Response _$RechargeOrdersGet$ResponseFromJson(
-  Map<String, dynamic> json,
-) => RechargeOrdersGet$Response(
-  code: (json['code'] as num?)?.toDouble(),
-  message: json['message'] as String?,
-  data: json['data'] == null
-      ? null
-      : RechargeOrdersGet$Response$Data.fromJson(
-          json['data'] as Map<String, dynamic>,
-        ),
-  traceId: json['traceId'] as String?,
-  success: json['success'] as bool?,
-);
-
-Map<String, dynamic> _$RechargeOrdersGet$ResponseToJson(
-  RechargeOrdersGet$Response instance,
-) => <String, dynamic>{
-  'code': instance.code,
-  'message': instance.message,
-  'data': instance.data?.toJson(),
-  'traceId': instance.traceId,
-  'success': instance.success,
-};
-
-RechargeCreateOrderPost$Response _$RechargeCreateOrderPost$ResponseFromJson(
-  Map<String, dynamic> json,
-) => RechargeCreateOrderPost$Response(
-  code: (json['code'] as num?)?.toDouble(),
-  message: json['message'] as String?,
-  data: json['data'] == null
-      ? null
-      : RechargeCreateOrderPost$Response$Data.fromJson(
-          json['data'] as Map<String, dynamic>,
-        ),
-  traceId: json['traceId'] as String?,
-  placeholder: json['placeholder'],
-  success: json['success'] as bool?,
-);
-
-Map<String, dynamic> _$RechargeCreateOrderPost$ResponseToJson(
-  RechargeCreateOrderPost$Response instance,
-) => <String, dynamic>{
-  'code': instance.code,
-  'message': instance.message,
-  'data': instance.data?.toJson(),
-  'traceId': instance.traceId,
-  'placeholder': instance.placeholder,
-  'success': instance.success,
-};
-
-PayPayPost$Response _$PayPayPost$ResponseFromJson(Map<String, dynamic> json) =>
-    PayPayPost$Response(
+PayServiceRechargeBalanceGet$Response
+_$PayServiceRechargeBalanceGet$ResponseFromJson(Map<String, dynamic> json) =>
+    PayServiceRechargeBalanceGet$Response(
       code: (json['code'] as num?)?.toDouble(),
       message: json['message'] as String?,
       data: json['data'] == null
           ? null
-          : PayPayPost$Response$Data.fromJson(
+          : PayServiceRechargeBalanceGet$Response$Data.fromJson(
               json['data'] as Map<String, dynamic>,
             ),
       traceId: json['traceId'] as String?,
@@ -188,8 +114,8 @@ PayPayPost$Response _$PayPayPost$ResponseFromJson(Map<String, dynamic> json) =>
       success: json['success'] as bool?,
     );
 
-Map<String, dynamic> _$PayPayPost$ResponseToJson(
-  PayPayPost$Response instance,
+Map<String, dynamic> _$PayServiceRechargeBalanceGet$ResponseToJson(
+  PayServiceRechargeBalanceGet$Response instance,
 ) => <String, dynamic>{
   'code': instance.code,
   'message': instance.message,
@@ -199,14 +125,39 @@ Map<String, dynamic> _$PayPayPost$ResponseToJson(
   'success': instance.success,
 };
 
-PayPayResultGet$Response _$PayPayResultGet$ResponseFromJson(
+PayServiceRechargeOrdersGet$Response
+_$PayServiceRechargeOrdersGet$ResponseFromJson(Map<String, dynamic> json) =>
+    PayServiceRechargeOrdersGet$Response(
+      code: (json['code'] as num?)?.toDouble(),
+      message: json['message'] as String?,
+      data: json['data'] == null
+          ? null
+          : PayServiceRechargeOrdersGet$Response$Data.fromJson(
+              json['data'] as Map<String, dynamic>,
+            ),
+      traceId: json['traceId'] as String?,
+      success: json['success'] as bool?,
+    );
+
+Map<String, dynamic> _$PayServiceRechargeOrdersGet$ResponseToJson(
+  PayServiceRechargeOrdersGet$Response instance,
+) => <String, dynamic>{
+  'code': instance.code,
+  'message': instance.message,
+  'data': instance.data?.toJson(),
+  'traceId': instance.traceId,
+  'success': instance.success,
+};
+
+PayServiceRechargeCreateOrderPost$Response
+_$PayServiceRechargeCreateOrderPost$ResponseFromJson(
   Map<String, dynamic> json,
-) => PayPayResultGet$Response(
+) => PayServiceRechargeCreateOrderPost$Response(
   code: (json['code'] as num?)?.toDouble(),
   message: json['message'] as String?,
   data: json['data'] == null
       ? null
-      : PayPayResultGet$Response$Data.fromJson(
+      : PayServiceRechargeCreateOrderPost$Response$Data.fromJson(
           json['data'] as Map<String, dynamic>,
         ),
   traceId: json['traceId'] as String?,
@@ -214,8 +165,8 @@ PayPayResultGet$Response _$PayPayResultGet$ResponseFromJson(
   success: json['success'] as bool?,
 );
 
-Map<String, dynamic> _$PayPayResultGet$ResponseToJson(
-  PayPayResultGet$Response instance,
+Map<String, dynamic> _$PayServiceRechargeCreateOrderPost$ResponseToJson(
+  PayServiceRechargeCreateOrderPost$Response instance,
 ) => <String, dynamic>{
   'code': instance.code,
   'message': instance.message,
@@ -225,14 +176,14 @@ Map<String, dynamic> _$PayPayResultGet$ResponseToJson(
   'success': instance.success,
 };
 
-PayPayTypeGet$Response _$PayPayTypeGet$ResponseFromJson(
+PayServicePayPayPost$Response _$PayServicePayPayPost$ResponseFromJson(
   Map<String, dynamic> json,
-) => PayPayTypeGet$Response(
+) => PayServicePayPayPost$Response(
   code: (json['code'] as num?)?.toDouble(),
   message: json['message'] as String?,
   data: json['data'] == null
       ? null
-      : PayPayTypeGet$Response$Data.fromJson(
+      : PayServicePayPayPost$Response$Data.fromJson(
           json['data'] as Map<String, dynamic>,
         ),
   traceId: json['traceId'] as String?,
@@ -240,8 +191,8 @@ PayPayTypeGet$Response _$PayPayTypeGet$ResponseFromJson(
   success: json['success'] as bool?,
 );
 
-Map<String, dynamic> _$PayPayTypeGet$ResponseToJson(
-  PayPayTypeGet$Response instance,
+Map<String, dynamic> _$PayServicePayPayPost$ResponseToJson(
+  PayServicePayPayPost$Response instance,
 ) => <String, dynamic>{
   'code': instance.code,
   'message': instance.message,
@@ -251,25 +202,77 @@ Map<String, dynamic> _$PayPayTypeGet$ResponseToJson(
   'success': instance.success,
 };
 
-EchoooCoinTypeGet$Response _$EchoooCoinTypeGet$ResponseFromJson(
+PayServicePayPayResultGet$Response _$PayServicePayPayResultGet$ResponseFromJson(
   Map<String, dynamic> json,
-) => EchoooCoinTypeGet$Response(
+) => PayServicePayPayResultGet$Response(
   code: (json['code'] as num?)?.toDouble(),
   message: json['message'] as String?,
-  data: (json['data'] as List<dynamic>?)
-      ?.map(
-        (e) => EchoooCoinTypeGet$Response$Data$Item.fromJson(
-          e as Map<String, dynamic>,
+  data: json['data'] == null
+      ? null
+      : PayServicePayPayResultGet$Response$Data.fromJson(
+          json['data'] as Map<String, dynamic>,
         ),
-      )
-      .toList(),
   traceId: json['traceId'] as String?,
   placeholder: json['placeholder'],
   success: json['success'] as bool?,
 );
 
-Map<String, dynamic> _$EchoooCoinTypeGet$ResponseToJson(
-  EchoooCoinTypeGet$Response instance,
+Map<String, dynamic> _$PayServicePayPayResultGet$ResponseToJson(
+  PayServicePayPayResultGet$Response instance,
+) => <String, dynamic>{
+  'code': instance.code,
+  'message': instance.message,
+  'data': instance.data?.toJson(),
+  'traceId': instance.traceId,
+  'placeholder': instance.placeholder,
+  'success': instance.success,
+};
+
+PayServicePayPayTypeGet$Response _$PayServicePayPayTypeGet$ResponseFromJson(
+  Map<String, dynamic> json,
+) => PayServicePayPayTypeGet$Response(
+  code: (json['code'] as num?)?.toDouble(),
+  message: json['message'] as String?,
+  data: json['data'] == null
+      ? null
+      : PayServicePayPayTypeGet$Response$Data.fromJson(
+          json['data'] as Map<String, dynamic>,
+        ),
+  traceId: json['traceId'] as String?,
+  placeholder: json['placeholder'],
+  success: json['success'] as bool?,
+);
+
+Map<String, dynamic> _$PayServicePayPayTypeGet$ResponseToJson(
+  PayServicePayPayTypeGet$Response instance,
+) => <String, dynamic>{
+  'code': instance.code,
+  'message': instance.message,
+  'data': instance.data?.toJson(),
+  'traceId': instance.traceId,
+  'placeholder': instance.placeholder,
+  'success': instance.success,
+};
+
+PayServiceEchoooCoinTypeGet$Response
+_$PayServiceEchoooCoinTypeGet$ResponseFromJson(Map<String, dynamic> json) =>
+    PayServiceEchoooCoinTypeGet$Response(
+      code: (json['code'] as num?)?.toDouble(),
+      message: json['message'] as String?,
+      data: (json['data'] as List<dynamic>?)
+          ?.map(
+            (e) => PayServiceEchoooCoinTypeGet$Response$Data$Item.fromJson(
+              e as Map<String, dynamic>,
+            ),
+          )
+          .toList(),
+      traceId: json['traceId'] as String?,
+      placeholder: json['placeholder'],
+      success: json['success'] as bool?,
+    );
+
+Map<String, dynamic> _$PayServiceEchoooCoinTypeGet$ResponseToJson(
+  PayServiceEchoooCoinTypeGet$Response instance,
 ) => <String, dynamic>{
   'code': instance.code,
   'message': instance.message,
@@ -279,23 +282,23 @@ Map<String, dynamic> _$EchoooCoinTypeGet$ResponseToJson(
   'success': instance.success,
 };
 
-EchoooCoinInfoGet$Response _$EchoooCoinInfoGet$ResponseFromJson(
-  Map<String, dynamic> json,
-) => EchoooCoinInfoGet$Response(
-  code: (json['code'] as num?)?.toDouble(),
-  message: json['message'] as String?,
-  data: json['data'] == null
-      ? null
-      : EchoooCoinInfoGet$Response$Data.fromJson(
-          json['data'] as Map<String, dynamic>,
-        ),
-  traceId: json['traceId'] as String?,
-  placeholder: json['placeholder'],
-  success: json['success'] as bool?,
-);
+PayServiceEchoooCoinInfoGet$Response
+_$PayServiceEchoooCoinInfoGet$ResponseFromJson(Map<String, dynamic> json) =>
+    PayServiceEchoooCoinInfoGet$Response(
+      code: (json['code'] as num?)?.toDouble(),
+      message: json['message'] as String?,
+      data: json['data'] == null
+          ? null
+          : PayServiceEchoooCoinInfoGet$Response$Data.fromJson(
+              json['data'] as Map<String, dynamic>,
+            ),
+      traceId: json['traceId'] as String?,
+      placeholder: json['placeholder'],
+      success: json['success'] as bool?,
+    );
 
-Map<String, dynamic> _$EchoooCoinInfoGet$ResponseToJson(
-  EchoooCoinInfoGet$Response instance,
+Map<String, dynamic> _$PayServiceEchoooCoinInfoGet$ResponseToJson(
+  PayServiceEchoooCoinInfoGet$Response instance,
 ) => <String, dynamic>{
   'code': instance.code,
   'message': instance.message,
@@ -305,23 +308,23 @@ Map<String, dynamic> _$EchoooCoinInfoGet$ResponseToJson(
   'success': instance.success,
 };
 
-EchoooCoinLogGet$Response _$EchoooCoinLogGet$ResponseFromJson(
-  Map<String, dynamic> json,
-) => EchoooCoinLogGet$Response(
-  code: (json['code'] as num?)?.toDouble(),
-  message: json['message'] as String?,
-  data: json['data'] == null
-      ? null
-      : EchoooCoinLogGet$Response$Data.fromJson(
-          json['data'] as Map<String, dynamic>,
-        ),
-  traceId: json['traceId'] as String?,
-  placeholder: json['placeholder'],
-  success: json['success'] as bool?,
-);
+PayServiceEchoooCoinLogGet$Response
+_$PayServiceEchoooCoinLogGet$ResponseFromJson(Map<String, dynamic> json) =>
+    PayServiceEchoooCoinLogGet$Response(
+      code: (json['code'] as num?)?.toDouble(),
+      message: json['message'] as String?,
+      data: json['data'] == null
+          ? null
+          : PayServiceEchoooCoinLogGet$Response$Data.fromJson(
+              json['data'] as Map<String, dynamic>,
+            ),
+      traceId: json['traceId'] as String?,
+      placeholder: json['placeholder'],
+      success: json['success'] as bool?,
+    );
 
-Map<String, dynamic> _$EchoooCoinLogGet$ResponseToJson(
-  EchoooCoinLogGet$Response instance,
+Map<String, dynamic> _$PayServiceEchoooCoinLogGet$ResponseToJson(
+  PayServiceEchoooCoinLogGet$Response instance,
 ) => <String, dynamic>{
   'code': instance.code,
   'message': instance.message,
@@ -331,12 +334,13 @@ Map<String, dynamic> _$EchoooCoinLogGet$ResponseToJson(
   'success': instance.success,
 };
 
-WithdrawOrdersGet$Response$Data _$WithdrawOrdersGet$Response$DataFromJson(
+PayServiceWithdrawOrdersGet$Response$Data
+_$PayServiceWithdrawOrdersGet$Response$DataFromJson(
   Map<String, dynamic> json,
-) => WithdrawOrdersGet$Response$Data(
+) => PayServiceWithdrawOrdersGet$Response$Data(
   records: (json['records'] as List<dynamic>?)
       ?.map(
-        (e) => WithdrawOrdersGet$Response$Data$Records$Item.fromJson(
+        (e) => PayServiceWithdrawOrdersGet$Response$Data$Records$Item.fromJson(
           e as Map<String, dynamic>,
         ),
       )
@@ -347,8 +351,8 @@ WithdrawOrdersGet$Response$Data _$WithdrawOrdersGet$Response$DataFromJson(
   pages: (json['pages'] as num?)?.toDouble(),
 );
 
-Map<String, dynamic> _$WithdrawOrdersGet$Response$DataToJson(
-  WithdrawOrdersGet$Response$Data instance,
+Map<String, dynamic> _$PayServiceWithdrawOrdersGet$Response$DataToJson(
+  PayServiceWithdrawOrdersGet$Response$Data instance,
 ) => <String, dynamic>{
   'records': instance.records?.map((e) => e.toJson()).toList(),
   'total': instance.total,
@@ -357,9 +361,10 @@ Map<String, dynamic> _$WithdrawOrdersGet$Response$DataToJson(
   'pages': instance.pages,
 };
 
-WithdrawApplyPost$Response$Data _$WithdrawApplyPost$Response$DataFromJson(
+PayServiceWithdrawApplyPost$Response$Data
+_$PayServiceWithdrawApplyPost$Response$DataFromJson(
   Map<String, dynamic> json,
-) => WithdrawApplyPost$Response$Data(
+) => PayServiceWithdrawApplyPost$Response$Data(
   orderNo: json['orderNo'] as String?,
   amount: json['amount'] as String?,
   currency: json['currency'] as String?,
@@ -369,8 +374,8 @@ WithdrawApplyPost$Response$Data _$WithdrawApplyPost$Response$DataFromJson(
   completedTime: json['completedTime'] as String?,
 );
 
-Map<String, dynamic> _$WithdrawApplyPost$Response$DataToJson(
-  WithdrawApplyPost$Response$Data instance,
+Map<String, dynamic> _$PayServiceWithdrawApplyPost$Response$DataToJson(
+  PayServiceWithdrawApplyPost$Response$Data instance,
 ) => <String, dynamic>{
   'orderNo': instance.orderNo,
   'amount': instance.amount,
@@ -381,9 +386,10 @@ Map<String, dynamic> _$WithdrawApplyPost$Response$DataToJson(
   'completedTime': instance.completedTime,
 };
 
-CommissionSummaryGet$Response$Data _$CommissionSummaryGet$Response$DataFromJson(
+PayServiceCommissionSummaryGet$Response$Data
+_$PayServiceCommissionSummaryGet$Response$DataFromJson(
   Map<String, dynamic> json,
-) => CommissionSummaryGet$Response$Data(
+) => PayServiceCommissionSummaryGet$Response$Data(
   commissionTotal: json['commissionTotal'] as String,
   targetCurrencyTotal: json['targetCurrencyTotal'] as String,
   withdrawAmount: json['withdrawAmount'] as String,
@@ -393,8 +399,8 @@ CommissionSummaryGet$Response$Data _$CommissionSummaryGet$Response$DataFromJson(
   pendingWithdrawAmount: json['pendingWithdrawAmount'] as String,
 );
 
-Map<String, dynamic> _$CommissionSummaryGet$Response$DataToJson(
-  CommissionSummaryGet$Response$Data instance,
+Map<String, dynamic> _$PayServiceCommissionSummaryGet$Response$DataToJson(
+  PayServiceCommissionSummaryGet$Response$Data instance,
 ) => <String, dynamic>{
   'commissionTotal': instance.commissionTotal,
   'targetCurrencyTotal': instance.targetCurrencyTotal,
@@ -405,24 +411,26 @@ Map<String, dynamic> _$CommissionSummaryGet$Response$DataToJson(
   'pendingWithdrawAmount': instance.pendingWithdrawAmount,
 };
 
-CommissionTransactionGet$Response$Data
-_$CommissionTransactionGet$Response$DataFromJson(Map<String, dynamic> json) =>
-    CommissionTransactionGet$Response$Data(
-      total: (json['total'] as num?)?.toDouble(),
-      pageSize: (json['pageSize'] as num?)?.toDouble(),
-      totalPages: (json['totalPages'] as num?)?.toDouble(),
-      current: (json['current'] as num?)?.toDouble(),
-      records: (json['records'] as List<dynamic>?)
-          ?.map(
-            (e) => CommissionTransactionGet$Response$Data$Records$Item.fromJson(
+PayServiceCommissionTransactionGet$Response$Data
+_$PayServiceCommissionTransactionGet$Response$DataFromJson(
+  Map<String, dynamic> json,
+) => PayServiceCommissionTransactionGet$Response$Data(
+  total: (json['total'] as num?)?.toDouble(),
+  pageSize: (json['pageSize'] as num?)?.toDouble(),
+  totalPages: (json['totalPages'] as num?)?.toDouble(),
+  current: (json['current'] as num?)?.toDouble(),
+  records: (json['records'] as List<dynamic>?)
+      ?.map(
+        (e) =>
+            PayServiceCommissionTransactionGet$Response$Data$Records$Item.fromJson(
               e as Map<String, dynamic>,
             ),
-          )
-          .toList(),
-    );
+      )
+      .toList(),
+);
 
-Map<String, dynamic> _$CommissionTransactionGet$Response$DataToJson(
-  CommissionTransactionGet$Response$Data instance,
+Map<String, dynamic> _$PayServiceCommissionTransactionGet$Response$DataToJson(
+  PayServiceCommissionTransactionGet$Response$Data instance,
 ) => <String, dynamic>{
   'total': instance.total,
   'pageSize': instance.pageSize,
@@ -431,13 +439,14 @@ Map<String, dynamic> _$CommissionTransactionGet$Response$DataToJson(
   'records': instance.records?.map((e) => e.toJson()).toList(),
 };
 
-RechargeBalanceGet$Response$Data _$RechargeBalanceGet$Response$DataFromJson(
+PayServiceRechargeBalanceGet$Response$Data
+_$PayServiceRechargeBalanceGet$Response$DataFromJson(
   Map<String, dynamic> json,
-) => RechargeBalanceGet$Response$Data(
+) => PayServiceRechargeBalanceGet$Response$Data(
   balance: json['balance'] as String?,
   currency: json['currency'] == null
       ? null
-      : RechargeBalanceGet$Response$Data$Currency.fromJson(
+      : PayServiceRechargeBalanceGet$Response$Data$Currency.fromJson(
           json['currency'] as Map<String, dynamic>,
         ),
   yesterdayProfit: json['yesterdayProfit'] as String?,
@@ -449,18 +458,18 @@ RechargeBalanceGet$Response$Data _$RechargeBalanceGet$Response$DataFromJson(
   targetBalance: json['targetBalance'] as String?,
   rechargeReward: json['rechargeReward'] == null
       ? null
-      : RechargeBalanceGet$Response$Data$RechargeReward.fromJson(
+      : PayServiceRechargeBalanceGet$Response$Data$RechargeReward.fromJson(
           json['rechargeReward'] as Map<String, dynamic>,
         ),
   targetCurrency: json['targetCurrency'] == null
       ? null
-      : RechargeBalanceGet$Response$Data$TargetCurrency.fromJson(
+      : PayServiceRechargeBalanceGet$Response$Data$TargetCurrency.fromJson(
           json['targetCurrency'] as Map<String, dynamic>,
         ),
 );
 
-Map<String, dynamic> _$RechargeBalanceGet$Response$DataToJson(
-  RechargeBalanceGet$Response$Data instance,
+Map<String, dynamic> _$PayServiceRechargeBalanceGet$Response$DataToJson(
+  PayServiceRechargeBalanceGet$Response$Data instance,
 ) => <String, dynamic>{
   'balance': instance.balance,
   'currency': instance.currency?.toJson(),
@@ -475,12 +484,13 @@ Map<String, dynamic> _$RechargeBalanceGet$Response$DataToJson(
   'targetCurrency': instance.targetCurrency?.toJson(),
 };
 
-RechargeOrdersGet$Response$Data _$RechargeOrdersGet$Response$DataFromJson(
+PayServiceRechargeOrdersGet$Response$Data
+_$PayServiceRechargeOrdersGet$Response$DataFromJson(
   Map<String, dynamic> json,
-) => RechargeOrdersGet$Response$Data(
+) => PayServiceRechargeOrdersGet$Response$Data(
   records: (json['records'] as List<dynamic>?)
       ?.map(
-        (e) => RechargeOrdersGet$Response$Data$Records$Item.fromJson(
+        (e) => PayServiceRechargeOrdersGet$Response$Data$Records$Item.fromJson(
           e as Map<String, dynamic>,
         ),
       )
@@ -491,8 +501,8 @@ RechargeOrdersGet$Response$Data _$RechargeOrdersGet$Response$DataFromJson(
   pages: (json['pages'] as num?)?.toDouble(),
 );
 
-Map<String, dynamic> _$RechargeOrdersGet$Response$DataToJson(
-  RechargeOrdersGet$Response$Data instance,
+Map<String, dynamic> _$PayServiceRechargeOrdersGet$Response$DataToJson(
+  PayServiceRechargeOrdersGet$Response$Data instance,
 ) => <String, dynamic>{
   'records': instance.records?.map((e) => e.toJson()).toList(),
   'total': instance.total,
@@ -501,43 +511,46 @@ Map<String, dynamic> _$RechargeOrdersGet$Response$DataToJson(
   'pages': instance.pages,
 };
 
-RechargeCreateOrderPost$Response$Data
-_$RechargeCreateOrderPost$Response$DataFromJson(Map<String, dynamic> json) =>
-    RechargeCreateOrderPost$Response$Data(orderId: json['orderId'] as String?);
+PayServiceRechargeCreateOrderPost$Response$Data
+_$PayServiceRechargeCreateOrderPost$Response$DataFromJson(
+  Map<String, dynamic> json,
+) => PayServiceRechargeCreateOrderPost$Response$Data(
+  orderId: json['orderId'] as String?,
+);
 
-Map<String, dynamic> _$RechargeCreateOrderPost$Response$DataToJson(
-  RechargeCreateOrderPost$Response$Data instance,
+Map<String, dynamic> _$PayServiceRechargeCreateOrderPost$Response$DataToJson(
+  PayServiceRechargeCreateOrderPost$Response$Data instance,
 ) => <String, dynamic>{'orderId': instance.orderId};
 
-PayPayPost$Response$Data _$PayPayPost$Response$DataFromJson(
+PayServicePayPayPost$Response$Data _$PayServicePayPayPost$Response$DataFromJson(
   Map<String, dynamic> json,
-) => PayPayPost$Response$Data(
+) => PayServicePayPayPost$Response$Data(
   thirdPayParam: json['thirdPayParam'] as String?,
   receiptAddress: json['receiptAddress'] as String,
 );
 
-Map<String, dynamic> _$PayPayPost$Response$DataToJson(
-  PayPayPost$Response$Data instance,
+Map<String, dynamic> _$PayServicePayPayPost$Response$DataToJson(
+  PayServicePayPayPost$Response$Data instance,
 ) => <String, dynamic>{
   'thirdPayParam': instance.thirdPayParam,
   'receiptAddress': instance.receiptAddress,
 };
 
-PayPayResultGet$Response$Data _$PayPayResultGet$Response$DataFromJson(
-  Map<String, dynamic> json,
-) => PayPayResultGet$Response$Data(
-  payStatus: (json['payStatus'] as num?)?.toDouble(),
-  orderType: (json['orderType'] as num?)?.toDouble(),
-  currency: json['currency'] == null
-      ? null
-      : PayPayResultGet$Response$Data$Currency.fromJson(
-          json['currency'] as Map<String, dynamic>,
-        ),
-  payAmount: json['payAmount'] as String?,
-);
+PayServicePayPayResultGet$Response$Data
+_$PayServicePayPayResultGet$Response$DataFromJson(Map<String, dynamic> json) =>
+    PayServicePayPayResultGet$Response$Data(
+      payStatus: (json['payStatus'] as num?)?.toDouble(),
+      orderType: (json['orderType'] as num?)?.toDouble(),
+      currency: json['currency'] == null
+          ? null
+          : PayServicePayPayResultGet$Response$Data$Currency.fromJson(
+              json['currency'] as Map<String, dynamic>,
+            ),
+      payAmount: json['payAmount'] as String?,
+    );
 
-Map<String, dynamic> _$PayPayResultGet$Response$DataToJson(
-  PayPayResultGet$Response$Data instance,
+Map<String, dynamic> _$PayServicePayPayResultGet$Response$DataToJson(
+  PayServicePayPayResultGet$Response$Data instance,
 ) => <String, dynamic>{
   'payStatus': instance.payStatus,
   'orderType': instance.orderType,
@@ -545,47 +558,49 @@ Map<String, dynamic> _$PayPayResultGet$Response$DataToJson(
   'payAmount': instance.payAmount,
 };
 
-PayPayTypeGet$Response$Data _$PayPayTypeGet$Response$DataFromJson(
-  Map<String, dynamic> json,
-) => PayPayTypeGet$Response$Data(
-  list: (json['list'] as List<dynamic>?)
-      ?.map(
-        (e) => PayPayTypeGet$Response$Data$List$Item.fromJson(
-          e as Map<String, dynamic>,
-        ),
-      )
-      .toList(),
-);
-
-Map<String, dynamic> _$PayPayTypeGet$Response$DataToJson(
-  PayPayTypeGet$Response$Data instance,
-) => <String, dynamic>{'list': instance.list?.map((e) => e.toJson()).toList()};
-
-EchoooCoinTypeGet$Response$Data$Item
-_$EchoooCoinTypeGet$Response$Data$ItemFromJson(Map<String, dynamic> json) =>
-    EchoooCoinTypeGet$Response$Data$Item(
-      type: (json['type'] as num).toDouble(),
-      name: json['name'] as String,
+PayServicePayPayTypeGet$Response$Data
+_$PayServicePayPayTypeGet$Response$DataFromJson(Map<String, dynamic> json) =>
+    PayServicePayPayTypeGet$Response$Data(
+      list: (json['list'] as List<dynamic>?)
+          ?.map(
+            (e) => PayServicePayPayTypeGet$Response$Data$List$Item.fromJson(
+              e as Map<String, dynamic>,
+            ),
+          )
+          .toList(),
     );
 
-Map<String, dynamic> _$EchoooCoinTypeGet$Response$Data$ItemToJson(
-  EchoooCoinTypeGet$Response$Data$Item instance,
+Map<String, dynamic> _$PayServicePayPayTypeGet$Response$DataToJson(
+  PayServicePayPayTypeGet$Response$Data instance,
+) => <String, dynamic>{'list': instance.list?.map((e) => e.toJson()).toList()};
+
+PayServiceEchoooCoinTypeGet$Response$Data$Item
+_$PayServiceEchoooCoinTypeGet$Response$Data$ItemFromJson(
+  Map<String, dynamic> json,
+) => PayServiceEchoooCoinTypeGet$Response$Data$Item(
+  type: (json['type'] as num).toDouble(),
+  name: json['name'] as String,
+);
+
+Map<String, dynamic> _$PayServiceEchoooCoinTypeGet$Response$Data$ItemToJson(
+  PayServiceEchoooCoinTypeGet$Response$Data$Item instance,
 ) => <String, dynamic>{'type': instance.type, 'name': instance.name};
 
-EchoooCoinInfoGet$Response$Data _$EchoooCoinInfoGet$Response$DataFromJson(
+PayServiceEchoooCoinInfoGet$Response$Data
+_$PayServiceEchoooCoinInfoGet$Response$DataFromJson(
   Map<String, dynamic> json,
-) => EchoooCoinInfoGet$Response$Data(
+) => PayServiceEchoooCoinInfoGet$Response$Data(
   balance: (json['balance'] as num).toDouble(),
   percentage: json['percentage'] as String,
   deductibleAmount: json['deductibleAmount'] as String,
   accumulateAmount: json['accumulateAmount'] as String,
-  currency: EchoooCoinInfoGet$Response$Data$Currency.fromJson(
+  currency: PayServiceEchoooCoinInfoGet$Response$Data$Currency.fromJson(
     json['currency'] as Map<String, dynamic>,
   ),
 );
 
-Map<String, dynamic> _$EchoooCoinInfoGet$Response$DataToJson(
-  EchoooCoinInfoGet$Response$Data instance,
+Map<String, dynamic> _$PayServiceEchoooCoinInfoGet$Response$DataToJson(
+  PayServiceEchoooCoinInfoGet$Response$Data instance,
 ) => <String, dynamic>{
   'balance': instance.balance,
   'percentage': instance.percentage,
@@ -594,24 +609,25 @@ Map<String, dynamic> _$EchoooCoinInfoGet$Response$DataToJson(
   'currency': instance.currency.toJson(),
 };
 
-EchoooCoinLogGet$Response$Data _$EchoooCoinLogGet$Response$DataFromJson(
-  Map<String, dynamic> json,
-) => EchoooCoinLogGet$Response$Data(
-  total: (json['total'] as num?)?.toDouble(),
-  pageSize: (json['pageSize'] as num?)?.toDouble(),
-  totalPages: (json['totalPages'] as num?)?.toDouble(),
-  current: (json['current'] as num?)?.toDouble(),
-  records: (json['records'] as List<dynamic>?)
-      ?.map(
-        (e) => EchoooCoinLogGet$Response$Data$Records$Item.fromJson(
-          e as Map<String, dynamic>,
-        ),
-      )
-      .toList(),
-);
+PayServiceEchoooCoinLogGet$Response$Data
+_$PayServiceEchoooCoinLogGet$Response$DataFromJson(Map<String, dynamic> json) =>
+    PayServiceEchoooCoinLogGet$Response$Data(
+      total: (json['total'] as num?)?.toDouble(),
+      pageSize: (json['pageSize'] as num?)?.toDouble(),
+      totalPages: (json['totalPages'] as num?)?.toDouble(),
+      current: (json['current'] as num?)?.toDouble(),
+      records: (json['records'] as List<dynamic>?)
+          ?.map(
+            (e) =>
+                PayServiceEchoooCoinLogGet$Response$Data$Records$Item.fromJson(
+                  e as Map<String, dynamic>,
+                ),
+          )
+          .toList(),
+    );
 
-Map<String, dynamic> _$EchoooCoinLogGet$Response$DataToJson(
-  EchoooCoinLogGet$Response$Data instance,
+Map<String, dynamic> _$PayServiceEchoooCoinLogGet$Response$DataToJson(
+  PayServiceEchoooCoinLogGet$Response$Data instance,
 ) => <String, dynamic>{
   'total': instance.total,
   'pageSize': instance.pageSize,
@@ -620,10 +636,10 @@ Map<String, dynamic> _$EchoooCoinLogGet$Response$DataToJson(
   'records': instance.records?.map((e) => e.toJson()).toList(),
 };
 
-WithdrawOrdersGet$Response$Data$Records$Item
-_$WithdrawOrdersGet$Response$Data$Records$ItemFromJson(
+PayServiceWithdrawOrdersGet$Response$Data$Records$Item
+_$PayServiceWithdrawOrdersGet$Response$Data$Records$ItemFromJson(
   Map<String, dynamic> json,
-) => WithdrawOrdersGet$Response$Data$Records$Item(
+) => PayServiceWithdrawOrdersGet$Response$Data$Records$Item(
   orderNo: json['orderNo'] as String?,
   amount: json['amount'] as String?,
   currency: json['currency'] as String?,
@@ -636,8 +652,9 @@ _$WithdrawOrdersGet$Response$Data$Records$ItemFromJson(
   accountNo: json['accountNo'] as String?,
 );
 
-Map<String, dynamic> _$WithdrawOrdersGet$Response$Data$Records$ItemToJson(
-  WithdrawOrdersGet$Response$Data$Records$Item instance,
+Map<String, dynamic>
+_$PayServiceWithdrawOrdersGet$Response$Data$Records$ItemToJson(
+  PayServiceWithdrawOrdersGet$Response$Data$Records$Item instance,
 ) => <String, dynamic>{
   'orderNo': instance.orderNo,
   'amount': instance.amount,
@@ -651,10 +668,10 @@ Map<String, dynamic> _$WithdrawOrdersGet$Response$Data$Records$ItemToJson(
   'accountNo': instance.accountNo,
 };
 
-CommissionTransactionGet$Response$Data$Records$Item
-_$CommissionTransactionGet$Response$Data$Records$ItemFromJson(
+PayServiceCommissionTransactionGet$Response$Data$Records$Item
+_$PayServiceCommissionTransactionGet$Response$Data$Records$ItemFromJson(
   Map<String, dynamic> json,
-) => CommissionTransactionGet$Response$Data$Records$Item(
+) => PayServiceCommissionTransactionGet$Response$Data$Records$Item(
   amount: json['amount'] as String,
   time: json['time'] as String,
   typeName: json['typeName'] as String,
@@ -662,8 +679,8 @@ _$CommissionTransactionGet$Response$Data$Records$ItemFromJson(
 );
 
 Map<String, dynamic>
-_$CommissionTransactionGet$Response$Data$Records$ItemToJson(
-  CommissionTransactionGet$Response$Data$Records$Item instance,
+_$PayServiceCommissionTransactionGet$Response$Data$Records$ItemToJson(
+  PayServiceCommissionTransactionGet$Response$Data$Records$Item instance,
 ) => <String, dynamic>{
   'amount': instance.amount,
   'time': instance.time,
@@ -671,49 +688,52 @@ _$CommissionTransactionGet$Response$Data$Records$ItemToJson(
   'currency': instance.currency,
 };
 
-RechargeBalanceGet$Response$Data$Currency
-_$RechargeBalanceGet$Response$Data$CurrencyFromJson(
+PayServiceRechargeBalanceGet$Response$Data$Currency
+_$PayServiceRechargeBalanceGet$Response$Data$CurrencyFromJson(
   Map<String, dynamic> json,
-) => RechargeBalanceGet$Response$Data$Currency(
+) => PayServiceRechargeBalanceGet$Response$Data$Currency(
   name: json['name'] as String?,
   symbol: json['symbol'] as String?,
 );
 
-Map<String, dynamic> _$RechargeBalanceGet$Response$Data$CurrencyToJson(
-  RechargeBalanceGet$Response$Data$Currency instance,
+Map<String, dynamic>
+_$PayServiceRechargeBalanceGet$Response$Data$CurrencyToJson(
+  PayServiceRechargeBalanceGet$Response$Data$Currency instance,
 ) => <String, dynamic>{'name': instance.name, 'symbol': instance.symbol};
 
-RechargeBalanceGet$Response$Data$RechargeReward
-_$RechargeBalanceGet$Response$Data$RechargeRewardFromJson(
+PayServiceRechargeBalanceGet$Response$Data$RechargeReward
+_$PayServiceRechargeBalanceGet$Response$Data$RechargeRewardFromJson(
   Map<String, dynamic> json,
-) => RechargeBalanceGet$Response$Data$RechargeReward(
+) => PayServiceRechargeBalanceGet$Response$Data$RechargeReward(
   amount: json['amount'] as String?,
   expireAt: (json['expireAt'] as num?)?.toDouble(),
 );
 
-Map<String, dynamic> _$RechargeBalanceGet$Response$Data$RechargeRewardToJson(
-  RechargeBalanceGet$Response$Data$RechargeReward instance,
+Map<String, dynamic>
+_$PayServiceRechargeBalanceGet$Response$Data$RechargeRewardToJson(
+  PayServiceRechargeBalanceGet$Response$Data$RechargeReward instance,
 ) => <String, dynamic>{
   'amount': instance.amount,
   'expireAt': instance.expireAt,
 };
 
-RechargeBalanceGet$Response$Data$TargetCurrency
-_$RechargeBalanceGet$Response$Data$TargetCurrencyFromJson(
+PayServiceRechargeBalanceGet$Response$Data$TargetCurrency
+_$PayServiceRechargeBalanceGet$Response$Data$TargetCurrencyFromJson(
   Map<String, dynamic> json,
-) => RechargeBalanceGet$Response$Data$TargetCurrency(
+) => PayServiceRechargeBalanceGet$Response$Data$TargetCurrency(
   name: json['name'] as String?,
   symbol: json['symbol'] as String?,
 );
 
-Map<String, dynamic> _$RechargeBalanceGet$Response$Data$TargetCurrencyToJson(
-  RechargeBalanceGet$Response$Data$TargetCurrency instance,
+Map<String, dynamic>
+_$PayServiceRechargeBalanceGet$Response$Data$TargetCurrencyToJson(
+  PayServiceRechargeBalanceGet$Response$Data$TargetCurrency instance,
 ) => <String, dynamic>{'name': instance.name, 'symbol': instance.symbol};
 
-RechargeOrdersGet$Response$Data$Records$Item
-_$RechargeOrdersGet$Response$Data$Records$ItemFromJson(
+PayServiceRechargeOrdersGet$Response$Data$Records$Item
+_$PayServiceRechargeOrdersGet$Response$Data$Records$ItemFromJson(
   Map<String, dynamic> json,
-) => RechargeOrdersGet$Response$Data$Records$Item(
+) => PayServiceRechargeOrdersGet$Response$Data$Records$Item(
   id: (json['id'] as num?)?.toDouble(),
   userId: json['userId'] as String?,
   tenantCode: json['tenantCode'] as String?,
@@ -730,8 +750,9 @@ _$RechargeOrdersGet$Response$Data$Records$ItemFromJson(
   payOrderId: json['payOrderId'] as String?,
 );
 
-Map<String, dynamic> _$RechargeOrdersGet$Response$Data$Records$ItemToJson(
-  RechargeOrdersGet$Response$Data$Records$Item instance,
+Map<String, dynamic>
+_$PayServiceRechargeOrdersGet$Response$Data$Records$ItemToJson(
+  PayServiceRechargeOrdersGet$Response$Data$Records$Item instance,
 ) => <String, dynamic>{
   'id': instance.id,
   'userId': instance.userId,
@@ -749,38 +770,40 @@ Map<String, dynamic> _$RechargeOrdersGet$Response$Data$Records$ItemToJson(
   'payOrderId': instance.payOrderId,
 };
 
-PayPayResultGet$Response$Data$Currency
-_$PayPayResultGet$Response$Data$CurrencyFromJson(Map<String, dynamic> json) =>
-    PayPayResultGet$Response$Data$Currency(
-      name: json['name'] as String?,
-      symbol: json['symbol'] as String?,
-    );
+PayServicePayPayResultGet$Response$Data$Currency
+_$PayServicePayPayResultGet$Response$Data$CurrencyFromJson(
+  Map<String, dynamic> json,
+) => PayServicePayPayResultGet$Response$Data$Currency(
+  name: json['name'] as String?,
+  symbol: json['symbol'] as String?,
+);
 
-Map<String, dynamic> _$PayPayResultGet$Response$Data$CurrencyToJson(
-  PayPayResultGet$Response$Data$Currency instance,
+Map<String, dynamic> _$PayServicePayPayResultGet$Response$Data$CurrencyToJson(
+  PayServicePayPayResultGet$Response$Data$Currency instance,
 ) => <String, dynamic>{'name': instance.name, 'symbol': instance.symbol};
 
-PayPayTypeGet$Response$Data$List$Item
-_$PayPayTypeGet$Response$Data$List$ItemFromJson(Map<String, dynamic> json) =>
-    PayPayTypeGet$Response$Data$List$Item(
-      payType: json['payType'] as String?,
-      payAmount: json['payAmount'] as String?,
-      currency: json['currency'] == null
-          ? null
-          : PayPayTypeGet$Response$Data$List$Item$Currency.fromJson(
-              json['currency'] as Map<String, dynamic>,
-            ),
-      payTypeName: json['payTypeName'] as String?,
-      payTypeIcon: json['payTypeIcon'] as String?,
-      payTypeDesc: json['payTypeDesc'] as String?,
-      payFee: json['payFee'] as String?,
-      rechargeOnly: json['rechargeOnly'] as String?,
-      rechargeDifference: json['rechargeDifference'] as String?,
-      isDefault: json['isDefault'] as bool?,
-    );
+PayServicePayPayTypeGet$Response$Data$List$Item
+_$PayServicePayPayTypeGet$Response$Data$List$ItemFromJson(
+  Map<String, dynamic> json,
+) => PayServicePayPayTypeGet$Response$Data$List$Item(
+  payType: json['payType'] as String?,
+  payAmount: json['payAmount'] as String?,
+  currency: json['currency'] == null
+      ? null
+      : PayServicePayPayTypeGet$Response$Data$List$Item$Currency.fromJson(
+          json['currency'] as Map<String, dynamic>,
+        ),
+  payTypeName: json['payTypeName'] as String?,
+  payTypeIcon: json['payTypeIcon'] as String?,
+  payTypeDesc: json['payTypeDesc'] as String?,
+  payFee: json['payFee'] as String?,
+  rechargeOnly: json['rechargeOnly'] as String?,
+  rechargeDifference: json['rechargeDifference'] as String?,
+  isDefault: json['isDefault'] as bool?,
+);
 
-Map<String, dynamic> _$PayPayTypeGet$Response$Data$List$ItemToJson(
-  PayPayTypeGet$Response$Data$List$Item instance,
+Map<String, dynamic> _$PayServicePayPayTypeGet$Response$Data$List$ItemToJson(
+  PayServicePayPayTypeGet$Response$Data$List$Item instance,
 ) => <String, dynamic>{
   'payType': instance.payType,
   'payAmount': instance.payAmount,
@@ -794,29 +817,31 @@ Map<String, dynamic> _$PayPayTypeGet$Response$Data$List$ItemToJson(
   'isDefault': instance.isDefault,
 };
 
-EchoooCoinInfoGet$Response$Data$Currency
-_$EchoooCoinInfoGet$Response$Data$CurrencyFromJson(Map<String, dynamic> json) =>
-    EchoooCoinInfoGet$Response$Data$Currency(
-      name: json['name'] as String,
-      symbol: json['symbol'] as String,
-    );
+PayServiceEchoooCoinInfoGet$Response$Data$Currency
+_$PayServiceEchoooCoinInfoGet$Response$Data$CurrencyFromJson(
+  Map<String, dynamic> json,
+) => PayServiceEchoooCoinInfoGet$Response$Data$Currency(
+  name: json['name'] as String,
+  symbol: json['symbol'] as String,
+);
 
-Map<String, dynamic> _$EchoooCoinInfoGet$Response$Data$CurrencyToJson(
-  EchoooCoinInfoGet$Response$Data$Currency instance,
+Map<String, dynamic> _$PayServiceEchoooCoinInfoGet$Response$Data$CurrencyToJson(
+  PayServiceEchoooCoinInfoGet$Response$Data$Currency instance,
 ) => <String, dynamic>{'name': instance.name, 'symbol': instance.symbol};
 
-EchoooCoinLogGet$Response$Data$Records$Item
-_$EchoooCoinLogGet$Response$Data$Records$ItemFromJson(
+PayServiceEchoooCoinLogGet$Response$Data$Records$Item
+_$PayServiceEchoooCoinLogGet$Response$Data$Records$ItemFromJson(
   Map<String, dynamic> json,
-) => EchoooCoinLogGet$Response$Data$Records$Item(
+) => PayServiceEchoooCoinLogGet$Response$Data$Records$Item(
   actualAmount: (json['actualAmount'] as num).toDouble(),
   gmtCreate: (json['gmtCreate'] as num).toDouble(),
   type: (json['type'] as num).toDouble(),
   name: json['name'] as String,
 );
 
-Map<String, dynamic> _$EchoooCoinLogGet$Response$Data$Records$ItemToJson(
-  EchoooCoinLogGet$Response$Data$Records$Item instance,
+Map<String, dynamic>
+_$PayServiceEchoooCoinLogGet$Response$Data$Records$ItemToJson(
+  PayServiceEchoooCoinLogGet$Response$Data$Records$Item instance,
 ) => <String, dynamic>{
   'actualAmount': instance.actualAmount,
   'gmtCreate': instance.gmtCreate,
@@ -824,14 +849,15 @@ Map<String, dynamic> _$EchoooCoinLogGet$Response$Data$Records$ItemToJson(
   'name': instance.name,
 };
 
-PayPayTypeGet$Response$Data$List$Item$Currency
-_$PayPayTypeGet$Response$Data$List$Item$CurrencyFromJson(
+PayServicePayPayTypeGet$Response$Data$List$Item$Currency
+_$PayServicePayPayTypeGet$Response$Data$List$Item$CurrencyFromJson(
   Map<String, dynamic> json,
-) => PayPayTypeGet$Response$Data$List$Item$Currency(
+) => PayServicePayPayTypeGet$Response$Data$List$Item$Currency(
   name: json['name'] as String?,
   symbol: json['symbol'] as String?,
 );
 
-Map<String, dynamic> _$PayPayTypeGet$Response$Data$List$Item$CurrencyToJson(
-  PayPayTypeGet$Response$Data$List$Item$Currency instance,
+Map<String, dynamic>
+_$PayServicePayPayTypeGet$Response$Data$List$Item$CurrencyToJson(
+  PayServicePayPayTypeGet$Response$Data$List$Item$Currency instance,
 ) => <String, dynamic>{'name': instance.name, 'symbol': instance.symbol};

@@ -5,7 +5,6 @@ import 'package:go_router/go_router.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
 import '../../core/navigation/route_paths.dart';
-import '../../core/theme/app_theme.dart';
 import '../../shared/widgets/product_card.dart';
 import '../../shared/widgets/themed_text.dart';
 import 'home_providers.dart';
@@ -23,9 +22,9 @@ class HomeScreen extends ConsumerWidget {
       body: SafeArea(
         child: RefreshIndicator(
           onRefresh: () async {
-             ref.refresh(homeConfigProvider);
-             ref.refresh(hotProductsProvider);
-             ref.refresh(flashSaleProductsProvider);
+             ref.invalidate(homeConfigProvider);
+             ref.invalidate(hotProductsProvider);
+             ref.invalidate(flashSaleProductsProvider);
           },
           child: CustomScrollView(
             slivers: [
@@ -108,7 +107,7 @@ class HomeScreen extends ConsumerWidget {
           );
         },
         loading: () => const SizedBox(height: 160, child: Center(child: CircularProgressIndicator())),
-        error: (_, __) => const SizedBox.shrink(),
+        error: (_, _) => const SizedBox.shrink(),
       ),
     );
   }
@@ -133,7 +132,7 @@ class HomeScreen extends ConsumerWidget {
               scrollDirection: Axis.horizontal,
               padding: const EdgeInsets.symmetric(horizontal: 16),
               itemCount: products.length,
-              separatorBuilder: (_, __) => const SizedBox(width: 12),
+              separatorBuilder: (_, _) => const SizedBox(width: 12),
               itemBuilder: (context, index) {
                 final product = products[index];
                 return SizedBox(
@@ -150,7 +149,7 @@ class HomeScreen extends ConsumerWidget {
           );
         },
         loading: () => const SizedBox(height: 100, child: Center(child: CircularProgressIndicator())),
-        error: (_, __) => const SizedBox.shrink(),
+        error: (_, _) => const SizedBox.shrink(),
       ),
     );
   }

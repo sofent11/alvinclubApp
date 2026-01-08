@@ -4,7 +4,6 @@
     "title": "user-service",
     "version": "last"
   },
-  "basePath": "/user-service",
   "tags": [
     {
       "name": "收货地址",
@@ -51,7 +50,7 @@
     "http"
   ],
   "paths": {
-    "/address/update": {
+    "/user-service/address/update": {
       "post": {
         "tags": [
           "收货地址"
@@ -193,7 +192,7 @@
         }
       }
     },
-    "/address/delete": {
+    "/user-service/address/delete": {
       "delete": {
         "tags": [
           "收货地址"
@@ -240,7 +239,7 @@
         }
       }
     },
-    "/address/query": {
+    "/user-service/address/query": {
       "get": {
         "tags": [
           "收货地址"
@@ -335,7 +334,7 @@
         }
       }
     },
-    "/no-auth/support/country": {
+    "/user-service/no-auth/support/country": {
       "get": {
         "tags": [
           "收货地址"
@@ -374,7 +373,7 @@
         }
       }
     },
-    "/address/list": {
+    "/user-service/address/list": {
       "get": {
         "tags": [
           "收货地址"
@@ -514,7 +513,7 @@
         }
       }
     },
-    "/getShippingAddressByCountry": {
+    "/user-service/getShippingAddressByCountry": {
       "get": {
         "tags": [
           "收货地址"
@@ -629,7 +628,7 @@
         }
       }
     },
-    "/address/add": {
+    "/user-service/address/add": {
       "post": {
         "tags": [
           "收货地址"
@@ -774,7 +773,7 @@
         }
       }
     },
-    "/getDefaultShippingAddress": {
+    "/user-service/getDefaultShippingAddress": {
       "get": {
         "tags": [
           "收货地址"
@@ -909,7 +908,7 @@
         }
       }
     },
-    "/address/country": {
+    "/user-service/address/country": {
       "get": {
         "tags": [
           "收货地址"
@@ -982,7 +981,7 @@
         }
       }
     },
-    "/address/queryByZipCode": {
+    "/user-service/address/queryByZipCode": {
       "get": {
         "tags": [
           "收货地址"
@@ -1091,7 +1090,7 @@
         }
       }
     },
-    "/user/inner/upd/user-level": {
+    "/user-service/user/inner/upd/user-level": {
       "post": {
         "tags": [
           "服务接口"
@@ -1155,7 +1154,7 @@
         }
       }
     },
-    "/signin/switchPortal": {
+    "/user-service/signin/switchPortal": {
       "post": {
         "tags": [
           "注册&登录"
@@ -1294,7 +1293,7 @@
         }
       }
     },
-    "/signIn/init": {
+    "/user-service/signIn/init": {
       "post": {
         "tags": [
           "注册&登录"
@@ -1376,7 +1375,7 @@
         }
       }
     },
-    "/otp/apply": {
+    "/user-service/otp/apply": {
       "post": {
         "tags": [
           "注册&登录"
@@ -1422,7 +1421,7 @@
         }
       }
     },
-    "/signOut": {
+    "/user-service/signOut": {
       "post": {
         "tags": [
           "注册&登录"
@@ -1454,7 +1453,7 @@
         }
       }
     },
-    "/signIn/verify": {
+    "/user-service/signIn/verify": {
       "post": {
         "tags": [
           "注册&登录"
@@ -1614,7 +1613,7 @@
         }
       }
     },
-    "/signIn/call": {
+    "/user-service/signIn/call": {
       "post": {
         "tags": [
           "注册&登录"
@@ -1764,7 +1763,7 @@
         }
       }
     },
-    "/no-auth/otp/verify": {
+    "/user-service/no-auth/otp/verify": {
       "post": {
         "tags": [
           "注册&登录"
@@ -1904,7 +1903,7 @@
         }
       }
     },
-    "/no-auth/email/unsubscribe": {
+    "/user-service/no-auth/email/unsubscribe": {
       "post": {
         "tags": [
           "非验权接口"
@@ -1953,7 +1952,7 @@
         }
       }
     },
-    "/no-auth/common-config/default-setting": {
+    "/user-service/no-auth/common-config/default-setting": {
       "get": {
         "tags": [
           "非验权接口"
@@ -2001,7 +2000,7 @@
         }
       }
     },
-    "/file/im/upload": {
+    "/user-service/file/im/upload": {
       "post": {
         "tags": [
           "文件上传"
@@ -2069,7 +2068,7 @@
         }
       }
     },
-    "/file/logo/upload": {
+    "/user-service/file/logo/upload": {
       "post": {
         "tags": [
           "文件上传"
@@ -2120,7 +2119,7 @@
         }
       }
     },
-    "/user/coupon/count": {
+    "/user-service/user/coupon/count": {
       "get": {
         "tags": [
           "优惠券"
@@ -2181,7 +2180,7 @@
         }
       }
     },
-    "/user/coupon/activityInfo": {
+    "/user-service/user/coupon/activityInfo": {
       "get": {
         "tags": [
           "优惠券"
@@ -2262,7 +2261,7 @@
         }
       }
     },
-    "/user/coupon/code2Coupon": {
+    "/user-service/user/coupon/code2Coupon": {
       "get": {
         "tags": [
           "优惠券"
@@ -2395,7 +2394,7 @@
         }
       }
     },
-    "/user/coupon/activityInfos": {
+    "/user-service/user/coupon/activityInfos": {
       "get": {
         "tags": [
           "优惠券"
@@ -2469,7 +2468,7 @@
         }
       }
     },
-    "/user/coupon/getActivities": {
+    "/user-service/user/coupon/getActivities": {
       "get": {
         "tags": [
           "优惠券"
@@ -2511,7 +2510,7 @@
         }
       }
     },
-    "/user/coupon/getList": {
+    "/user-service/user/coupon/getList": {
       "get": {
         "tags": [
           "优惠券"
@@ -2632,7 +2631,7 @@
         }
       }
     },
-    "/user/coupon/getUserCouponByActivity": {
+    "/user-service/user/coupon/getUserCouponByActivity": {
       "post": {
         "tags": [
           "优惠券"
@@ -2694,7 +2693,7 @@
         }
       }
     },
-    "/user/coupon/save": {
+    "/user-service/user/coupon/save": {
       "get": {
         "tags": [
           "优惠券"
@@ -2741,7 +2740,7 @@
         }
       }
     },
-    "/user/coupon/no-auth/activityInfo": {
+    "/user-service/user/coupon/no-auth/activityInfo": {
       "get": {
         "tags": [
           "优惠券"
@@ -2808,7 +2807,7 @@
         }
       }
     },
-    "/user/coupon/getCouponByActivity": {
+    "/user-service/user/coupon/getCouponByActivity": {
       "post": {
         "tags": [
           "优惠券"
@@ -2917,7 +2916,7 @@
         }
       }
     },
-    "/user/coupon/get": {
+    "/user-service/user/coupon/get": {
       "get": {
         "tags": [
           "优惠券"
@@ -3057,7 +3056,7 @@
         }
       }
     },
-    "/im/getInfo": {
+    "/user-service/im/getInfo": {
       "post": {
         "tags": [
           "IM"
@@ -3233,7 +3232,7 @@
         }
       }
     },
-    "/user/share/list": {
+    "/user-service/user/share/list": {
       "get": {
         "tags": [
           "用户"
@@ -3328,7 +3327,7 @@
         }
       }
     },
-    "/user/share/rewardInfo": {
+    "/user-service/user/share/rewardInfo": {
       "get": {
         "tags": [
           "用户"
@@ -3427,7 +3426,7 @@
         }
       }
     },
-    "/user/share/submit": {
+    "/user-service/user/share/submit": {
       "post": {
         "tags": [
           "用户"
@@ -3489,7 +3488,7 @@
         }
       }
     },
-    "/user/delete": {
+    "/user-service/user/delete": {
       "get": {
         "tags": [
           "用户"
@@ -3530,7 +3529,7 @@
         }
       }
     },
-    "/user/delete/confirm": {
+    "/user-service/user/delete/confirm": {
       "get": {
         "tags": [
           "用户"
@@ -3574,7 +3573,7 @@
         }
       }
     },
-    "/user/update": {
+    "/user-service/user/update": {
       "post": {
         "tags": [
           "用户"
@@ -3649,7 +3648,7 @@
         }
       }
     },
-    "/user/get": {
+    "/user-service/user/get": {
       "get": {
         "tags": [
           "用户"
@@ -3755,7 +3754,7 @@
         }
       }
     },
-    "/user/user-commission": {
+    "/user-service/user/user-commission": {
       "get": {
         "tags": [
           "用户"
@@ -3803,7 +3802,7 @@
         }
       }
     },
-    "/user/configure-setting": {
+    "/user-service/user/configure-setting": {
       "get": {
         "tags": [
           "用户"
@@ -3845,7 +3844,7 @@
         }
       }
     },
-    "/user/invite/count": {
+    "/user-service/user/invite/count": {
       "get": {
         "tags": [
           "用户"
@@ -3881,7 +3880,7 @@
         }
       }
     },
-    "/user/invite/num": {
+    "/user-service/user/invite/num": {
       "get": {
         "tags": [
           "用户"
@@ -3930,7 +3929,7 @@
         }
       }
     },
-    "/user/share/update": {
+    "/user-service/user/share/update": {
       "post": {
         "tags": [
           "用户"
@@ -3989,7 +3988,7 @@
         }
       }
     },
-    "/user/user-reward": {
+    "/user-service/user/user-reward": {
       "get": {
         "tags": [
           "用户"
@@ -4040,7 +4039,7 @@
         }
       }
     },
-    "/user-tag-portrait/ai-to-portrait": {
+    "/user-service/user-tag-portrait/ai-to-portrait": {
       "post": {
         "tags": [
           "用户画像"
@@ -4118,7 +4117,7 @@
         }
       }
     },
-    "/user-tag-portrait/ai-to-portrait-v2": {
+    "/user-service/user-tag-portrait/ai-to-portrait-v2": {
       "post": {
         "tags": [
           "用户画像"
@@ -4201,7 +4200,7 @@
         }
       }
     },
-    "/user-tag-portrait/update-portrait": {
+    "/user-service/user-tag-portrait/update-portrait": {
       "post": {
         "tags": [
           "用户画像"
@@ -4277,7 +4276,7 @@
         }
       }
     },
-    "/user-tag-portrait/get-portrait": {
+    "/user-service/user-tag-portrait/get-portrait": {
       "get": {
         "tags": [
           "用户画像"
@@ -4380,7 +4379,7 @@
         }
       }
     },
-    "/user/coupon/app/homeActivity": {
+    "/user-service/user/coupon/app/homeActivity": {
       "post": {
         "tags": [
           "app端"

@@ -162,26 +162,26 @@ lib/
 ## 4. 详细迁移步骤（可执行）
 
 ### 阶段 A：项目初始化与资源对齐
-- [ ] 初始化 Flutter 工程（bundleId 与 RN 一致：`com.echoo.w2c`）
-- [ ] 配置 `app scheme`：`w2capp`（用于 OAuth 与支付回调）
-- [ ] 导入 assets（`assets/images/*`）与图标配置
-- [ ] 配置多环境 `.env`（对应 `EXPO_PUBLIC_*`）
-- [ ] 建立基础目录结构（见第 3 部分）
-- [ ] 设置 lint/test baseline（`flutter_lints`, `flutter_test`）
+- [x] 初始化 Flutter 工程（bundleId 与 RN 一致：`com.echoo.w2c`）
+- [x] 配置 `app scheme`：`w2capp`（用于 OAuth 与支付回调）
+- [x] 导入 assets（`assets/images/*`）与图标配置
+- [x] 配置多环境 `.env`（对应 `EXPO_PUBLIC_*`）
+- [x] 建立基础目录结构（见第 3 部分）
+- [x] 设置 lint/test baseline（`flutter_lints`, `flutter_test`）
 
 **验收**：Flutter App 可空页面启动；env 可读取；assets 可显示。
 
 ### 阶段 B：核心基础设施（必须先完成）
-- [ ] `EnvConfig`：迁移 `constants/env.ts`（`apiBaseUrl`, `appEnv`, `defaultLocale`, `referer`）
-- [ ] `ApiClient`：
+- [x] `EnvConfig`：迁移 `constants/env.ts`（`apiBaseUrl`, `appEnv`, `defaultLocale`, `referer`）
+- [x] `ApiClient`：
   - 注入 headers（`Accept-Language`, `Referer`, `X-VIEW-URI`, `PortalCode`, `Currency`, `Authorization`）
   - 401 -> 清空 auth
   - dev 模式打印 curl / response / error
-- [ ] `ApiError` 与 `error-handler`：迁移 `errors.ts` + `error-handler.ts`
-- [ ] `AuthStore`：与 RN 字段一致（tokens, user, status）
-- [ ] `QueryCache`：支持 staleTime、invalidate、refetch（匹配 RN 设定）
-- [ ] `Analytics`：迁移 `lib/analytics.ts` 事件枚举与方法
-- [ ] `Theme`：迁移 `constants/theme.ts` + `ThemedText/ThemedView/ThemedButton`
+- [x] `ApiError` 与 `error-handler`：迁移 `errors.ts` + `error-handler.ts`
+- [x] `AuthStore`：与 RN 字段一致（tokens, user, status）
+- [x] `QueryCache`：支持 staleTime、invalidate、refetch（匹配 RN 设定）
+- [x] `Analytics`：迁移 `lib/analytics.ts` 事件枚举与方法
+- [x] `Theme`：迁移 `constants/theme.ts` + `ThemedText/ThemedView/ThemedButton`
 
 **验收**：
 - 调用任意 API 可携带正确 headers
@@ -189,8 +189,8 @@ lib/
 - 主题色与字体在 Flutter 上可用
 
 ### 阶段 C：API 生成与数据层迁移
-- [ ] 从 `docs/api/*.json` 生成 Dart API（推荐 openapi-generator 或 swagger-dart-code-generator）
-- [ ] 建立 `repositories` 并迁移 RN 的数据映射逻辑：
+- [x] 从 `docs/api/*.json` 生成 Dart API（推荐 openapi-generator 或 swagger-dart-code-generator）
+- [x] 建立 `repositories` 并迁移 RN 的数据映射逻辑：
   - `auth`：`initSignIn`, `verifySignIn`, `verifyGoogleSignIn`, `signOut`
   - `product`：`getHotProductsV2`, `getFlashSaleProducts`, `getPremierProducts`, `getProductCategories`, `getCategoryProducts`, `getCategoryRecommendProducts`, `searchProducts`, `getProductDetail`, `getProductSkus`, `getProductReviews`, `getProductReviewSummary`, `getSimilarProducts`
   - `cart`：`getCart`, `updateCart`, `calculateCartPricing`, `addToCart`
@@ -204,17 +204,17 @@ lib/
   - `translation`：图片翻译逻辑
   - `upload` / `file`：上传逻辑、URL 处理
   - `ai-fashion`：所有 AI Fashion API
-- [ ] 对应 **Mapper** 完整复制 RN 的数值解析与 fallback 行为
+- [x] 对应 **Mapper** 完整复制 RN 的数值解析与 fallback 行为
 
 **验收**：
 - 与 RN 同样输入返回同样结构（Mock + 正常 API 都覆盖）
 
 ### 阶段 D：鉴权与登录流程
-- [ ] OAuth：用 `flutter_appauth` 实现与 `use-google-auth.ts` 等价的 PKCE 登录
-- [ ] OTP 登录：按 RN 验证码逻辑（`otpLength`, `expiresIn`, `requestId`）
-- [ ] Portal 选择器：迁移 `constants/portals.ts` 与 UI
-- [ ] AuthGuard：实现 `withAuthScreen` 等价逻辑（`idle` -> loading）
-- [ ] Token 持久化：`flutter_secure_storage` + 内存 fallback
+- [x] OAuth：用 `flutter_appauth` 实现与 `use-google-auth.ts` 等价的 PKCE 登录
+- [x] OTP 登录：按 RN 验证码逻辑（`otpLength`, `expiresIn`, `requestId`）
+- [x] Portal 选择器：迁移 `constants/portals.ts` 与 UI
+- [x] AuthGuard：实现 `withAuthScreen` 等价逻辑（`idle` -> loading）
+- [x] Token 持久化：`flutter_secure_storage` + 内存 fallback
 
 **验收**：
 - OTP/Google 登录成功后可进入首页
@@ -222,19 +222,19 @@ lib/
 
 ### 阶段 E：核心电商模块
 1) **首页/分类/搜索**
-- [ ] 首页 TopNav + PremiumDupe + FlashSale + QuickEntry + 推荐流
-- [ ] 分类页三层分类逻辑与跳转
+- [x] 首页 TopNav + PremiumDupe + FlashSale + QuickEntry + 推荐流
+- [x] 分类页三层分类逻辑与跳转
 - [ ] 搜索历史 LRU10 与搜索结果排序/过滤逻辑
 
 2) **商品详情**
-- [ ] SKU 选择逻辑（`normalizeSelection` / `findMatchingSku`）
-- [ ] 详情/评价 Tab + 图片翻译
+- [x] SKU 选择逻辑（`normalizeSelection` / `findMatchingSku`）
+- [x] 详情/评价 Tab + 图片翻译
 - [ ] 相似商品、收藏
 
 3) **购物车**
-- [ ] 默认全选可用 SKU
-- [ ] 数量修改、删除、价格计算
-- [ ] Checkout 跳转携带 sku 列表
+- [x] 默认全选可用 SKU
+- [x] 数量修改、删除、价格计算
+- [x] Checkout 跳转携带 sku 列表
 
 4) **结算/订单/支付**
 - [ ] Checkout 优惠券自动应用逻辑
@@ -275,33 +275,33 @@ lib/
 
 | RN Hook / Module | Flutter 对应 | 关键逻辑 |
 | --- | --- | --- |
-| `useCart` | `CartQueryProvider` | staleTime=30s, invalidate on update |
-| `useCartPricing` | `CartPricingProvider` | enabled when items>0 |
-| `useAddToCart` | `CartMutation` | invalidate cart & pricing |
-| `useProductDetail` | `ProductDetailProvider` | 并发获取 detail + skus |
-| `useSearchProducts` | `SearchPagingProvider` | sort/order 与 filters 保持一致 |
-| `useOrderList` | `OrderListPaging` | frontStatus & pagination |
-| `usePaymentResult` | `PaymentResultProvider` | refetchInterval=3000ms |
-| `useGoogleAuth` | `GoogleAuthService` | PKCE + id_token 解析 |
-| `useOutfitResult` | `OutfitResultProvider` | polling 2s until terminal |
-| `useFavorites` | `FavoritesStore` | local storage key 保持一致 |
-| `searchHistory` | `SearchHistoryStore` | LRU 10 条 |
+| `useCart` | `CartQueryProvider` | staleTime=30s, invalidate on update | [x] |
+| `useCartPricing` | `CartPricingProvider` | enabled when items>0 | [x] |
+| `useAddToCart` | `CartMutation` | invalidate cart & pricing | [x] |
+| `useProductDetail` | `ProductDetailProvider` | 并发获取 detail + skus | [x] |
+| `useSearchProducts` | `SearchPagingProvider` | sort/order 与 filters 保持一致 | [ ] |
+| `useOrderList` | `OrderListPaging` | frontStatus & pagination | [ ] |
+| `usePaymentResult` | `PaymentResultProvider` | refetchInterval=3000ms | [ ] |
+| `useGoogleAuth` | `GoogleAuthService` | PKCE + id_token 解析 | [x] |
+| `useOutfitResult` | `OutfitResultProvider` | polling 2s until terminal | [ ] |
+| `useFavorites` | `FavoritesStore` | local storage key 保持一致 | [ ] |
+| `searchHistory` | `SearchHistoryStore` | LRU 10 条 | [ ] |
 
 > 实现时需补全所有 hooks（见 `hooks/` 目录）并逐一对照。
 
 ---
 
 ## 6. 逻辑继承 Checklist（建议逐条核对）
-- [ ] 请求头注入逻辑完全一致
-- [ ] 401 清会话 + UI 行为一致
-- [ ] OTP 验证逻辑与错误处理一致
-- [ ] 购物车自动勾选逻辑一致
+- [x] 请求头注入逻辑完全一致
+- [x] 401 清会话 + UI 行为一致
+- [x] OTP 验证逻辑与错误处理一致
+- [x] 购物车自动勾选逻辑一致
 - [ ] 优惠券自动应用/取消逻辑一致
 - [ ] 订单支付 `thirdPayParam` 解析逻辑一致
 - [ ] AI Fashion 轮询终止条件一致
 - [ ] Mock fallback 行为一致（Community/Wallet）
 - [ ] 搜索历史与收藏存储 key 与行为一致
-- [ ] Theme tokens 与颜色映射一致
+- [x] Theme tokens 与颜色映射一致
 
 ---
 
@@ -338,4 +338,3 @@ lib/
 - 迁移对照表（RN -> Flutter 模块映射）
 - 测试用例与报告
 - 运行与构建说明（dev/stage/prod）
-

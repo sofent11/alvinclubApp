@@ -9,7 +9,13 @@ import '../../features/auth/sign_in_screen.dart';
 import '../../features/cart/cart_screen.dart';
 import '../../features/catalog/categories_screen.dart';
 import '../../features/home/home_screen.dart';
+import '../../data/repositories/cart_repository.dart';
+import '../../features/checkout/presentation/checkout_screen.dart';
+import '../../features/checkout/presentation/order_success_screen.dart';
+import '../../features/checkout/presentation/payment_screen.dart';
 import '../../features/product/product_detail_screen.dart';
+import '../../features/search/presentation/search_results_screen.dart';
+import '../../features/search/presentation/search_screen.dart';
 import '../../shared/widgets/placeholder_screen.dart';
 import 'route_paths.dart';
 
@@ -31,11 +37,14 @@ final routerProvider = Provider<GoRouter>((ref) {
       GoRoute(path: RoutePaths.signIn, builder: (context, state) => const SignInScreen()),
       GoRoute(
         path: RoutePaths.search,
-        builder: (context, state) => const PlaceholderScreen(title: 'Search'),
+        builder: (context, state) => const SearchScreen(),
       ),
       GoRoute(
         path: RoutePaths.searchResults,
-        builder: (context, state) => const PlaceholderScreen(title: 'Search Results'),
+        builder: (context, state) {
+          final query = state.uri.queryParameters['q'] ?? '';
+          return SearchResultsScreen(query: query);
+        },
       ),
       GoRoute(
         path: RoutePaths.productDetail,
@@ -53,15 +62,25 @@ final routerProvider = Provider<GoRouter>((ref) {
       ),
       GoRoute(path: RoutePaths.flashSale, builder: (context, state) => const PlaceholderScreen(title: 'Flash Sale')),
       GoRoute(path: RoutePaths.kol, builder: (context, state) => PlaceholderScreen(title: 'KOL ${state.pathParameters['code']}')),
-      GoRoute(path: RoutePaths.checkout, builder: (context, state) => const PlaceholderScreen(title: 'Checkout')),
+      GoRoute(
+        path: RoutePaths.checkout,
+        builder: (context, state) {
+          final items = state.extra as List<CartPricingRequestItem>? ?? [];
+          return CheckoutScreen(items: items);
+        },
+      ),
       GoRoute(path: RoutePaths.orderList, builder: (context, state) => const PlaceholderScreen(title: 'Orders')),
       GoRoute(
         path: RoutePaths.orderPay,
-        builder: (context, state) => PlaceholderScreen(title: 'Order Pay ${state.pathParameters['orderId']}'),
+        builder: (context, state) => PaymentScreen(
+          orderId: state.pathParameters['orderId'] ?? '',
+        ),
       ),
       GoRoute(
         path: RoutePaths.orderSuccess,
-        builder: (context, state) => PlaceholderScreen(title: 'Order Success ${state.pathParameters['orderId']}'),
+        builder: (context, state) => OrderSuccessScreen(
+          orderId: state.pathParameters['orderId'] ?? '',
+        ),
       ),
       GoRoute(path: RoutePaths.addressList, builder: (context, state) => const PlaceholderScreen(title: 'Addresses')),
       GoRoute(path: RoutePaths.addressNew, builder: (context, state) => const PlaceholderScreen(title: 'New Address')),

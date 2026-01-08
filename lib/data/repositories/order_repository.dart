@@ -247,11 +247,14 @@ class OrderRepository {
     );
 
     final body = _toMap(response.body);
-    if (body == null || _parseInt(body['code']) != 0) {
-      throw _createApiError(body?['message']?.toString() ?? '获取可用优惠券失败', body);
+    if (body == null) {
+      throw _createApiError('获取可用优惠券失败', body);
+    }
+    if (_parseInt(body['code']) != 0) {
+      throw _createApiError(body['message']?.toString() ?? '获取可用优惠券失败', body);
     }
 
-    final coupon = _toMap(body?['data']);
+    final coupon = _toMap(body['data']);
     final code = coupon?['couponCode']?.toString();
     if (code == null || code.isEmpty) {
       return null;
@@ -422,10 +425,10 @@ class OrderRepository {
       throw _createApiError('获取订单统计失败', response.body);
     }
     if (_parseInt(parsed['code']) != 0) {
-      throw _createApiError(parsed?['message']?.toString() ?? '获取订单统计失败', parsed);
+      throw _createApiError(parsed['message']?.toString() ?? '获取订单统计失败', parsed);
     }
 
-    final data = _toMap(parsed?['data']);
+    final data = _toMap(parsed['data']);
     final rawCount = _toStringKeyMap(data?['frontStatusCount']);
 
     final pendingPayment = _readCount(rawCount, '1');

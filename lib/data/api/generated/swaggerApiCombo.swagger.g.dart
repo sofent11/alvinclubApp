@@ -6,14 +6,15 @@ part of 'swaggerApiCombo.swagger.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-NoAuthBizKolKolInfoGet$Response _$NoAuthBizKolKolInfoGet$ResponseFromJson(
+ComboServiceNoAuthBizKolKolInfoGet$Response
+_$ComboServiceNoAuthBizKolKolInfoGet$ResponseFromJson(
   Map<String, dynamic> json,
-) => NoAuthBizKolKolInfoGet$Response(
+) => ComboServiceNoAuthBizKolKolInfoGet$Response(
   code: (json['code'] as num?)?.toDouble(),
   message: json['message'] as String?,
   data: json['data'] == null
       ? null
-      : NoAuthBizKolKolInfoGet$Response$Data.fromJson(
+      : ComboServiceNoAuthBizKolKolInfoGet$Response$Data.fromJson(
           json['data'] as Map<String, dynamic>,
         ),
   traceId: json['traceId'] as String?,
@@ -21,8 +22,8 @@ NoAuthBizKolKolInfoGet$Response _$NoAuthBizKolKolInfoGet$ResponseFromJson(
   success: json['success'] as bool?,
 );
 
-Map<String, dynamic> _$NoAuthBizKolKolInfoGet$ResponseToJson(
-  NoAuthBizKolKolInfoGet$Response instance,
+Map<String, dynamic> _$ComboServiceNoAuthBizKolKolInfoGet$ResponseToJson(
+  ComboServiceNoAuthBizKolKolInfoGet$Response instance,
 ) => <String, dynamic>{
   'code': instance.code,
   'message': instance.message,
@@ -32,19 +33,20 @@ Map<String, dynamic> _$NoAuthBizKolKolInfoGet$ResponseToJson(
   'success': instance.success,
 };
 
-NoAuthPopupPromiseGet$Response _$NoAuthPopupPromiseGet$ResponseFromJson(
+ComboServiceNoAuthPopupPromiseGet$Response
+_$ComboServiceNoAuthPopupPromiseGet$ResponseFromJson(
   Map<String, dynamic> json,
-) => NoAuthPopupPromiseGet$Response(
+) => ComboServiceNoAuthPopupPromiseGet$Response(
   code: json['code'] as String,
   message: json['message'] as String,
-  data: NoAuthPopupPromiseGet$Response$Data.fromJson(
+  data: ComboServiceNoAuthPopupPromiseGet$Response$Data.fromJson(
     json['data'] as Map<String, dynamic>,
   ),
   traceId: json['traceId'] as String,
 );
 
-Map<String, dynamic> _$NoAuthPopupPromiseGet$ResponseToJson(
-  NoAuthPopupPromiseGet$Response instance,
+Map<String, dynamic> _$ComboServiceNoAuthPopupPromiseGet$ResponseToJson(
+  ComboServiceNoAuthPopupPromiseGet$Response instance,
 ) => <String, dynamic>{
   'code': instance.code,
   'message': instance.message,
@@ -52,23 +54,24 @@ Map<String, dynamic> _$NoAuthPopupPromiseGet$ResponseToJson(
   'traceId': instance.traceId,
 };
 
-NoAuthCommonAppConfigVersionCheckGet$Response
-_$NoAuthCommonAppConfigVersionCheckGet$ResponseFromJson(
+ComboServiceNoAuthCommonAppConfigVersionCheckGet$Response
+_$ComboServiceNoAuthCommonAppConfigVersionCheckGet$ResponseFromJson(
   Map<String, dynamic> json,
-) => NoAuthCommonAppConfigVersionCheckGet$Response(
+) => ComboServiceNoAuthCommonAppConfigVersionCheckGet$Response(
   code: (json['code'] as num?)?.toDouble(),
   message: json['message'] as String?,
   data: json['data'] == null
       ? null
-      : NoAuthCommonAppConfigVersionCheckGet$Response$Data.fromJson(
+      : ComboServiceNoAuthCommonAppConfigVersionCheckGet$Response$Data.fromJson(
           json['data'] as Map<String, dynamic>,
         ),
   success: json['success'] as bool?,
   traceId: json['traceId'] as String?,
 );
 
-Map<String, dynamic> _$NoAuthCommonAppConfigVersionCheckGet$ResponseToJson(
-  NoAuthCommonAppConfigVersionCheckGet$Response instance,
+Map<String, dynamic>
+_$ComboServiceNoAuthCommonAppConfigVersionCheckGet$ResponseToJson(
+  ComboServiceNoAuthCommonAppConfigVersionCheckGet$Response instance,
 ) => <String, dynamic>{
   'code': instance.code,
   'message': instance.message,
@@ -77,79 +80,18 @@ Map<String, dynamic> _$NoAuthCommonAppConfigVersionCheckGet$ResponseToJson(
   'traceId': instance.traceId,
 };
 
-BizCommunityPostUnlikePost$Response
-_$BizCommunityPostUnlikePost$ResponseFromJson(Map<String, dynamic> json) =>
-    BizCommunityPostUnlikePost$Response(
-      code: (json['code'] as num?)?.toInt(),
-      message: json['message'] as String?,
-      data: json['data'] as bool?,
-      traceId: json['traceId'] as String?,
-    );
-
-Map<String, dynamic> _$BizCommunityPostUnlikePost$ResponseToJson(
-  BizCommunityPostUnlikePost$Response instance,
-) => <String, dynamic>{
-  'code': instance.code,
-  'message': instance.message,
-  'data': instance.data,
-  'traceId': instance.traceId,
-};
-
-BizCommunityPostLikedGet$Response _$BizCommunityPostLikedGet$ResponseFromJson(
+ComboServiceBizCommunityPostUnlikePost$Response
+_$ComboServiceBizCommunityPostUnlikePost$ResponseFromJson(
   Map<String, dynamic> json,
-) => BizCommunityPostLikedGet$Response(
-  code: (json['code'] as num?)?.toInt(),
-  message: json['message'] as String?,
-  data: json['data'] == null
-      ? null
-      : BizCommunityPostLikedGet$Response$Data.fromJson(
-          json['data'] as Map<String, dynamic>,
-        ),
-  traceId: json['traceId'] as String?,
-);
-
-Map<String, dynamic> _$BizCommunityPostLikedGet$ResponseToJson(
-  BizCommunityPostLikedGet$Response instance,
-) => <String, dynamic>{
-  'code': instance.code,
-  'message': instance.message,
-  'data': instance.data?.toJson(),
-  'traceId': instance.traceId,
-};
-
-BizCommunityPostNoAuthListGet$Response
-_$BizCommunityPostNoAuthListGet$ResponseFromJson(Map<String, dynamic> json) =>
-    BizCommunityPostNoAuthListGet$Response(
-      code: (json['code'] as num?)?.toInt(),
-      message: json['message'] as String?,
-      data: json['data'] == null
-          ? null
-          : BizCommunityPostNoAuthListGet$Response$Data.fromJson(
-              json['data'] as Map<String, dynamic>,
-            ),
-      traceId: json['traceId'] as String?,
-    );
-
-Map<String, dynamic> _$BizCommunityPostNoAuthListGet$ResponseToJson(
-  BizCommunityPostNoAuthListGet$Response instance,
-) => <String, dynamic>{
-  'code': instance.code,
-  'message': instance.message,
-  'data': instance.data?.toJson(),
-  'traceId': instance.traceId,
-};
-
-BizCommunityPostLikePost$Response _$BizCommunityPostLikePost$ResponseFromJson(
-  Map<String, dynamic> json,
-) => BizCommunityPostLikePost$Response(
+) => ComboServiceBizCommunityPostUnlikePost$Response(
   code: (json['code'] as num?)?.toInt(),
   message: json['message'] as String?,
   data: json['data'] as bool?,
   traceId: json['traceId'] as String?,
 );
 
-Map<String, dynamic> _$BizCommunityPostLikePost$ResponseToJson(
-  BizCommunityPostLikePost$Response instance,
+Map<String, dynamic> _$ComboServiceBizCommunityPostUnlikePost$ResponseToJson(
+  ComboServiceBizCommunityPostUnlikePost$Response instance,
 ) => <String, dynamic>{
   'code': instance.code,
   'message': instance.message,
@@ -157,10 +99,75 @@ Map<String, dynamic> _$BizCommunityPostLikePost$ResponseToJson(
   'traceId': instance.traceId,
 };
 
-NoAuthBizImageTransTranslatePost$Response
-_$NoAuthBizImageTransTranslatePost$ResponseFromJson(
+ComboServiceBizCommunityPostLikedGet$Response
+_$ComboServiceBizCommunityPostLikedGet$ResponseFromJson(
   Map<String, dynamic> json,
-) => NoAuthBizImageTransTranslatePost$Response(
+) => ComboServiceBizCommunityPostLikedGet$Response(
+  code: (json['code'] as num?)?.toInt(),
+  message: json['message'] as String?,
+  data: json['data'] == null
+      ? null
+      : ComboServiceBizCommunityPostLikedGet$Response$Data.fromJson(
+          json['data'] as Map<String, dynamic>,
+        ),
+  traceId: json['traceId'] as String?,
+);
+
+Map<String, dynamic> _$ComboServiceBizCommunityPostLikedGet$ResponseToJson(
+  ComboServiceBizCommunityPostLikedGet$Response instance,
+) => <String, dynamic>{
+  'code': instance.code,
+  'message': instance.message,
+  'data': instance.data?.toJson(),
+  'traceId': instance.traceId,
+};
+
+ComboServiceBizCommunityPostNoAuthListGet$Response
+_$ComboServiceBizCommunityPostNoAuthListGet$ResponseFromJson(
+  Map<String, dynamic> json,
+) => ComboServiceBizCommunityPostNoAuthListGet$Response(
+  code: (json['code'] as num?)?.toInt(),
+  message: json['message'] as String?,
+  data: json['data'] == null
+      ? null
+      : ComboServiceBizCommunityPostNoAuthListGet$Response$Data.fromJson(
+          json['data'] as Map<String, dynamic>,
+        ),
+  traceId: json['traceId'] as String?,
+);
+
+Map<String, dynamic> _$ComboServiceBizCommunityPostNoAuthListGet$ResponseToJson(
+  ComboServiceBizCommunityPostNoAuthListGet$Response instance,
+) => <String, dynamic>{
+  'code': instance.code,
+  'message': instance.message,
+  'data': instance.data?.toJson(),
+  'traceId': instance.traceId,
+};
+
+ComboServiceBizCommunityPostLikePost$Response
+_$ComboServiceBizCommunityPostLikePost$ResponseFromJson(
+  Map<String, dynamic> json,
+) => ComboServiceBizCommunityPostLikePost$Response(
+  code: (json['code'] as num?)?.toInt(),
+  message: json['message'] as String?,
+  data: json['data'] as bool?,
+  traceId: json['traceId'] as String?,
+);
+
+Map<String, dynamic> _$ComboServiceBizCommunityPostLikePost$ResponseToJson(
+  ComboServiceBizCommunityPostLikePost$Response instance,
+) => <String, dynamic>{
+  'code': instance.code,
+  'message': instance.message,
+  'data': instance.data,
+  'traceId': instance.traceId,
+};
+
+ComboServiceNoAuthBizImageTransTranslatePost$Response
+_$ComboServiceNoAuthBizImageTransTranslatePost$ResponseFromJson(
+  Map<String, dynamic> json,
+) => ComboServiceNoAuthBizImageTransTranslatePost$Response(
   code: (json['code'] as num?)?.toDouble(),
   message: json['message'] as String?,
   data: json['data'] as String?,
@@ -169,8 +176,9 @@ _$NoAuthBizImageTransTranslatePost$ResponseFromJson(
   success: json['success'] as bool?,
 );
 
-Map<String, dynamic> _$NoAuthBizImageTransTranslatePost$ResponseToJson(
-  NoAuthBizImageTransTranslatePost$Response instance,
+Map<String, dynamic>
+_$ComboServiceNoAuthBizImageTransTranslatePost$ResponseToJson(
+  ComboServiceNoAuthBizImageTransTranslatePost$Response instance,
 ) => <String, dynamic>{
   'code': instance.code,
   'message': instance.message,
@@ -180,14 +188,15 @@ Map<String, dynamic> _$NoAuthBizImageTransTranslatePost$ResponseToJson(
   'success': instance.success,
 };
 
-BizUserOrderPendingGet$Response _$BizUserOrderPendingGet$ResponseFromJson(
+ComboServiceBizUserOrderPendingGet$Response
+_$ComboServiceBizUserOrderPendingGet$ResponseFromJson(
   Map<String, dynamic> json,
-) => BizUserOrderPendingGet$Response(
+) => ComboServiceBizUserOrderPendingGet$Response(
   code: (json['code'] as num?)?.toDouble(),
   message: json['message'] as String?,
   data: json['data'] == null
       ? null
-      : BizUserOrderPendingGet$Response$Data.fromJson(
+      : ComboServiceBizUserOrderPendingGet$Response$Data.fromJson(
           json['data'] as Map<String, dynamic>,
         ),
   traceId: json['traceId'] as String?,
@@ -195,8 +204,8 @@ BizUserOrderPendingGet$Response _$BizUserOrderPendingGet$ResponseFromJson(
   success: json['success'] as bool?,
 );
 
-Map<String, dynamic> _$BizUserOrderPendingGet$ResponseToJson(
-  BizUserOrderPendingGet$Response instance,
+Map<String, dynamic> _$ComboServiceBizUserOrderPendingGet$ResponseToJson(
+  ComboServiceBizUserOrderPendingGet$Response instance,
 ) => <String, dynamic>{
   'code': instance.code,
   'message': instance.message,
@@ -206,23 +215,24 @@ Map<String, dynamic> _$BizUserOrderPendingGet$ResponseToJson(
   'success': instance.success,
 };
 
-ApiV1StyleOutfitsGenerateModelPost$Response
-_$ApiV1StyleOutfitsGenerateModelPost$ResponseFromJson(
+ComboServiceApiV1StyleOutfitsGenerateModelPost$Response
+_$ComboServiceApiV1StyleOutfitsGenerateModelPost$ResponseFromJson(
   Map<String, dynamic> json,
-) => ApiV1StyleOutfitsGenerateModelPost$Response(
+) => ComboServiceApiV1StyleOutfitsGenerateModelPost$Response(
   code: (json['code'] as num?)?.toDouble(),
   message: json['message'] as String?,
   traceId: json['traceId'] as String?,
   success: json['success'] as bool?,
   data: json['data'] == null
       ? null
-      : ApiV1StyleOutfitsGenerateModelPost$Response$Data.fromJson(
+      : ComboServiceApiV1StyleOutfitsGenerateModelPost$Response$Data.fromJson(
           json['data'] as Map<String, dynamic>,
         ),
 );
 
-Map<String, dynamic> _$ApiV1StyleOutfitsGenerateModelPost$ResponseToJson(
-  ApiV1StyleOutfitsGenerateModelPost$Response instance,
+Map<String, dynamic>
+_$ComboServiceApiV1StyleOutfitsGenerateModelPost$ResponseToJson(
+  ComboServiceApiV1StyleOutfitsGenerateModelPost$Response instance,
 ) => <String, dynamic>{
   'code': instance.code,
   'message': instance.message,
@@ -231,41 +241,44 @@ Map<String, dynamic> _$ApiV1StyleOutfitsGenerateModelPost$ResponseToJson(
   'data': instance.data?.toJson(),
 };
 
-BizAiFashionNoAuthBodyShapeGet$Response
-_$BizAiFashionNoAuthBodyShapeGet$ResponseFromJson(Map<String, dynamic> json) =>
-    BizAiFashionNoAuthBodyShapeGet$Response(
-      code: (json['code'] as num?)?.toDouble(),
-      msg: json['msg'] as String?,
-      data: json['data'] == null
-          ? null
-          : BizAiFashionNoAuthBodyShapeGet$Response$Data.fromJson(
-              json['data'] as Map<String, dynamic>,
-            ),
-    );
+ComboServiceBizAiFashionNoAuthBodyShapeGet$Response
+_$ComboServiceBizAiFashionNoAuthBodyShapeGet$ResponseFromJson(
+  Map<String, dynamic> json,
+) => ComboServiceBizAiFashionNoAuthBodyShapeGet$Response(
+  code: (json['code'] as num?)?.toDouble(),
+  msg: json['msg'] as String?,
+  data: json['data'] == null
+      ? null
+      : ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data.fromJson(
+          json['data'] as Map<String, dynamic>,
+        ),
+);
 
-Map<String, dynamic> _$BizAiFashionNoAuthBodyShapeGet$ResponseToJson(
-  BizAiFashionNoAuthBodyShapeGet$Response instance,
+Map<String, dynamic>
+_$ComboServiceBizAiFashionNoAuthBodyShapeGet$ResponseToJson(
+  ComboServiceBizAiFashionNoAuthBodyShapeGet$Response instance,
 ) => <String, dynamic>{
   'code': instance.code,
   'msg': instance.msg,
   'data': instance.data?.toJson(),
 };
 
-BizAiFashionModelSavePost$Response _$BizAiFashionModelSavePost$ResponseFromJson(
+ComboServiceBizAiFashionModelSavePost$Response
+_$ComboServiceBizAiFashionModelSavePost$ResponseFromJson(
   Map<String, dynamic> json,
-) => BizAiFashionModelSavePost$Response(
+) => ComboServiceBizAiFashionModelSavePost$Response(
   code: (json['code'] as num?)?.toDouble(),
   message: json['message'] as String?,
   traceId: json['traceId'] as String?,
   data: json['data'] == null
       ? null
-      : BizAiFashionModelSavePost$Response$Data.fromJson(
+      : ComboServiceBizAiFashionModelSavePost$Response$Data.fromJson(
           json['data'] as Map<String, dynamic>,
         ),
 );
 
-Map<String, dynamic> _$BizAiFashionModelSavePost$ResponseToJson(
-  BizAiFashionModelSavePost$Response instance,
+Map<String, dynamic> _$ComboServiceBizAiFashionModelSavePost$ResponseToJson(
+  ComboServiceBizAiFashionModelSavePost$Response instance,
 ) => <String, dynamic>{
   'code': instance.code,
   'message': instance.message,
@@ -273,23 +286,25 @@ Map<String, dynamic> _$BizAiFashionModelSavePost$ResponseToJson(
   'data': instance.data?.toJson(),
 };
 
-ApiV1StyleOutfitsResultPageGet$Response
-_$ApiV1StyleOutfitsResultPageGet$ResponseFromJson(Map<String, dynamic> json) =>
-    ApiV1StyleOutfitsResultPageGet$Response(
-      code: (json['code'] as num?)?.toDouble(),
-      message: json['message'] as String?,
-      data: json['data'] == null
-          ? null
-          : ApiV1StyleOutfitsResultPageGet$Response$Data.fromJson(
-              json['data'] as Map<String, dynamic>,
-            ),
-      traceId: json['traceId'] as String?,
-      placeholder: json['placeholder'],
-      success: json['success'] as bool?,
-    );
+ComboServiceApiV1StyleOutfitsResultPageGet$Response
+_$ComboServiceApiV1StyleOutfitsResultPageGet$ResponseFromJson(
+  Map<String, dynamic> json,
+) => ComboServiceApiV1StyleOutfitsResultPageGet$Response(
+  code: (json['code'] as num?)?.toDouble(),
+  message: json['message'] as String?,
+  data: json['data'] == null
+      ? null
+      : ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data.fromJson(
+          json['data'] as Map<String, dynamic>,
+        ),
+  traceId: json['traceId'] as String?,
+  placeholder: json['placeholder'],
+  success: json['success'] as bool?,
+);
 
-Map<String, dynamic> _$ApiV1StyleOutfitsResultPageGet$ResponseToJson(
-  ApiV1StyleOutfitsResultPageGet$Response instance,
+Map<String, dynamic>
+_$ComboServiceApiV1StyleOutfitsResultPageGet$ResponseToJson(
+  ComboServiceApiV1StyleOutfitsResultPageGet$Response instance,
 ) => <String, dynamic>{
   'code': instance.code,
   'message': instance.message,
@@ -299,23 +314,24 @@ Map<String, dynamic> _$ApiV1StyleOutfitsResultPageGet$ResponseToJson(
   'success': instance.success,
 };
 
-BizAiFashionModelRecentlyUsedGet$Response
-_$BizAiFashionModelRecentlyUsedGet$ResponseFromJson(
+ComboServiceBizAiFashionModelRecentlyUsedGet$Response
+_$ComboServiceBizAiFashionModelRecentlyUsedGet$ResponseFromJson(
   Map<String, dynamic> json,
-) => BizAiFashionModelRecentlyUsedGet$Response(
+) => ComboServiceBizAiFashionModelRecentlyUsedGet$Response(
   code: (json['code'] as num?)?.toDouble(),
   message: json['message'] as String?,
   traceId: json['traceId'] as String?,
   success: json['success'] as bool?,
   data: json['data'] == null
       ? null
-      : BizAiFashionModelRecentlyUsedGet$Response$Data.fromJson(
+      : ComboServiceBizAiFashionModelRecentlyUsedGet$Response$Data.fromJson(
           json['data'] as Map<String, dynamic>,
         ),
 );
 
-Map<String, dynamic> _$BizAiFashionModelRecentlyUsedGet$ResponseToJson(
-  BizAiFashionModelRecentlyUsedGet$Response instance,
+Map<String, dynamic>
+_$ComboServiceBizAiFashionModelRecentlyUsedGet$ResponseToJson(
+  ComboServiceBizAiFashionModelRecentlyUsedGet$Response instance,
 ) => <String, dynamic>{
   'code': instance.code,
   'message': instance.message,
@@ -324,23 +340,24 @@ Map<String, dynamic> _$BizAiFashionModelRecentlyUsedGet$ResponseToJson(
   'data': instance.data?.toJson(),
 };
 
-ApiV1StyleOutfitsModelIdStatusGet$Response
-_$ApiV1StyleOutfitsModelIdStatusGet$ResponseFromJson(
+ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response
+_$ComboServiceApiV1StyleOutfitsModelIdStatusGet$ResponseFromJson(
   Map<String, dynamic> json,
-) => ApiV1StyleOutfitsModelIdStatusGet$Response(
+) => ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response(
   code: (json['code'] as num?)?.toDouble(),
   message: json['message'] as String?,
   traceId: json['traceId'] as String?,
   success: json['success'] as bool?,
   data: json['data'] == null
       ? null
-      : ApiV1StyleOutfitsModelIdStatusGet$Response$Data.fromJson(
+      : ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response$Data.fromJson(
           json['data'] as Map<String, dynamic>,
         ),
 );
 
-Map<String, dynamic> _$ApiV1StyleOutfitsModelIdStatusGet$ResponseToJson(
-  ApiV1StyleOutfitsModelIdStatusGet$Response instance,
+Map<String, dynamic>
+_$ComboServiceApiV1StyleOutfitsModelIdStatusGet$ResponseToJson(
+  ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response instance,
 ) => <String, dynamic>{
   'code': instance.code,
   'message': instance.message,
@@ -349,65 +366,68 @@ Map<String, dynamic> _$ApiV1StyleOutfitsModelIdStatusGet$ResponseToJson(
   'data': instance.data?.toJson(),
 };
 
-ApiV1StyleOutfitsResultGet$Response
-_$ApiV1StyleOutfitsResultGet$ResponseFromJson(Map<String, dynamic> json) =>
-    ApiV1StyleOutfitsResultGet$Response(
-      code: (json['code'] as num?)?.toDouble(),
-      message: json['message'] as String?,
-      traceId: json['traceId'] as String?,
-      success: json['success'] as bool?,
-      data: json['data'] == null
-          ? null
-          : ApiV1StyleOutfitsResultGet$Response$Data.fromJson(
-              json['data'] as Map<String, dynamic>,
-            ),
-    );
-
-Map<String, dynamic> _$ApiV1StyleOutfitsResultGet$ResponseToJson(
-  ApiV1StyleOutfitsResultGet$Response instance,
-) => <String, dynamic>{
-  'code': instance.code,
-  'message': instance.message,
-  'traceId': instance.traceId,
-  'success': instance.success,
-  'data': instance.data?.toJson(),
-};
-
-BizAiFashionModelModelIdGet$Response
-_$BizAiFashionModelModelIdGet$ResponseFromJson(Map<String, dynamic> json) =>
-    BizAiFashionModelModelIdGet$Response(
-      code: (json['code'] as num?)?.toDouble(),
-      message: json['message'] as String?,
-      data: json['data'] == null
-          ? null
-          : BizAiFashionModelModelIdGet$Response$Data.fromJson(
-              json['data'] as Map<String, dynamic>,
-            ),
-    );
-
-Map<String, dynamic> _$BizAiFashionModelModelIdGet$ResponseToJson(
-  BizAiFashionModelModelIdGet$Response instance,
-) => <String, dynamic>{
-  'code': instance.code,
-  'message': instance.message,
-  'data': instance.data?.toJson(),
-};
-
-BizAiFashionModelListGet$Response _$BizAiFashionModelListGet$ResponseFromJson(
+ComboServiceApiV1StyleOutfitsResultGet$Response
+_$ComboServiceApiV1StyleOutfitsResultGet$ResponseFromJson(
   Map<String, dynamic> json,
-) => BizAiFashionModelListGet$Response(
+) => ComboServiceApiV1StyleOutfitsResultGet$Response(
+  code: (json['code'] as num?)?.toDouble(),
+  message: json['message'] as String?,
+  traceId: json['traceId'] as String?,
+  success: json['success'] as bool?,
+  data: json['data'] == null
+      ? null
+      : ComboServiceApiV1StyleOutfitsResultGet$Response$Data.fromJson(
+          json['data'] as Map<String, dynamic>,
+        ),
+);
+
+Map<String, dynamic> _$ComboServiceApiV1StyleOutfitsResultGet$ResponseToJson(
+  ComboServiceApiV1StyleOutfitsResultGet$Response instance,
+) => <String, dynamic>{
+  'code': instance.code,
+  'message': instance.message,
+  'traceId': instance.traceId,
+  'success': instance.success,
+  'data': instance.data?.toJson(),
+};
+
+ComboServiceBizAiFashionModelModelIdGet$Response
+_$ComboServiceBizAiFashionModelModelIdGet$ResponseFromJson(
+  Map<String, dynamic> json,
+) => ComboServiceBizAiFashionModelModelIdGet$Response(
+  code: (json['code'] as num?)?.toDouble(),
+  message: json['message'] as String?,
+  data: json['data'] == null
+      ? null
+      : ComboServiceBizAiFashionModelModelIdGet$Response$Data.fromJson(
+          json['data'] as Map<String, dynamic>,
+        ),
+);
+
+Map<String, dynamic> _$ComboServiceBizAiFashionModelModelIdGet$ResponseToJson(
+  ComboServiceBizAiFashionModelModelIdGet$Response instance,
+) => <String, dynamic>{
+  'code': instance.code,
+  'message': instance.message,
+  'data': instance.data?.toJson(),
+};
+
+ComboServiceBizAiFashionModelListGet$Response
+_$ComboServiceBizAiFashionModelListGet$ResponseFromJson(
+  Map<String, dynamic> json,
+) => ComboServiceBizAiFashionModelListGet$Response(
   code: (json['code'] as num?)?.toDouble(),
   message: json['message'] as String?,
   traceId: json['traceId'] as String?,
   data: json['data'] == null
       ? null
-      : BizAiFashionModelListGet$Response$Data.fromJson(
+      : ComboServiceBizAiFashionModelListGet$Response$Data.fromJson(
           json['data'] as Map<String, dynamic>,
         ),
 );
 
-Map<String, dynamic> _$BizAiFashionModelListGet$ResponseToJson(
-  BizAiFashionModelListGet$Response instance,
+Map<String, dynamic> _$ComboServiceBizAiFashionModelListGet$ResponseToJson(
+  ComboServiceBizAiFashionModelListGet$Response instance,
 ) => <String, dynamic>{
   'code': instance.code,
   'message': instance.message,
@@ -415,22 +435,23 @@ Map<String, dynamic> _$BizAiFashionModelListGet$ResponseToJson(
   'data': instance.data?.toJson(),
 };
 
-ApiV1StyleOutfitsGeneratePost$Response
-_$ApiV1StyleOutfitsGeneratePost$ResponseFromJson(Map<String, dynamic> json) =>
-    ApiV1StyleOutfitsGeneratePost$Response(
-      code: (json['code'] as num?)?.toDouble(),
-      message: json['message'] as String?,
-      traceId: json['traceId'] as String?,
-      success: json['success'] as bool?,
-      data: json['data'] == null
-          ? null
-          : ApiV1StyleOutfitsGeneratePost$Response$Data.fromJson(
-              json['data'] as Map<String, dynamic>,
-            ),
-    );
+ComboServiceApiV1StyleOutfitsGeneratePost$Response
+_$ComboServiceApiV1StyleOutfitsGeneratePost$ResponseFromJson(
+  Map<String, dynamic> json,
+) => ComboServiceApiV1StyleOutfitsGeneratePost$Response(
+  code: (json['code'] as num?)?.toDouble(),
+  message: json['message'] as String?,
+  traceId: json['traceId'] as String?,
+  success: json['success'] as bool?,
+  data: json['data'] == null
+      ? null
+      : ComboServiceApiV1StyleOutfitsGeneratePost$Response$Data.fromJson(
+          json['data'] as Map<String, dynamic>,
+        ),
+);
 
-Map<String, dynamic> _$ApiV1StyleOutfitsGeneratePost$ResponseToJson(
-  ApiV1StyleOutfitsGeneratePost$Response instance,
+Map<String, dynamic> _$ComboServiceApiV1StyleOutfitsGeneratePost$ResponseToJson(
+  ComboServiceApiV1StyleOutfitsGeneratePost$Response instance,
 ) => <String, dynamic>{
   'code': instance.code,
   'message': instance.message,
@@ -439,42 +460,44 @@ Map<String, dynamic> _$ApiV1StyleOutfitsGeneratePost$ResponseToJson(
   'data': instance.data?.toJson(),
 };
 
-BizAiFashionNoAuthStylePresetGet$Response
-_$BizAiFashionNoAuthStylePresetGet$ResponseFromJson(
+ComboServiceBizAiFashionNoAuthStylePresetGet$Response
+_$ComboServiceBizAiFashionNoAuthStylePresetGet$ResponseFromJson(
   Map<String, dynamic> json,
-) => BizAiFashionNoAuthStylePresetGet$Response(
+) => ComboServiceBizAiFashionNoAuthStylePresetGet$Response(
   code: (json['code'] as num?)?.toDouble(),
   message: json['message'] as String?,
   data: json['data'] == null
       ? null
-      : BizAiFashionNoAuthStylePresetGet$Response$Data.fromJson(
+      : ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data.fromJson(
           json['data'] as Map<String, dynamic>,
         ),
 );
 
-Map<String, dynamic> _$BizAiFashionNoAuthStylePresetGet$ResponseToJson(
-  BizAiFashionNoAuthStylePresetGet$Response instance,
+Map<String, dynamic>
+_$ComboServiceBizAiFashionNoAuthStylePresetGet$ResponseToJson(
+  ComboServiceBizAiFashionNoAuthStylePresetGet$Response instance,
 ) => <String, dynamic>{
   'code': instance.code,
   'message': instance.message,
   'data': instance.data?.toJson(),
 };
 
-BizAiFashionNoAuthPostListGet$Response
-_$BizAiFashionNoAuthPostListGet$ResponseFromJson(Map<String, dynamic> json) =>
-    BizAiFashionNoAuthPostListGet$Response(
-      code: (json['code'] as num?)?.toDouble(),
-      message: json['message'] as String?,
-      traceId: json['traceId'] as String?,
-      data: json['data'] == null
-          ? null
-          : BizAiFashionNoAuthPostListGet$Response$Data.fromJson(
-              json['data'] as Map<String, dynamic>,
-            ),
-    );
+ComboServiceBizAiFashionNoAuthPostListGet$Response
+_$ComboServiceBizAiFashionNoAuthPostListGet$ResponseFromJson(
+  Map<String, dynamic> json,
+) => ComboServiceBizAiFashionNoAuthPostListGet$Response(
+  code: (json['code'] as num?)?.toDouble(),
+  message: json['message'] as String?,
+  traceId: json['traceId'] as String?,
+  data: json['data'] == null
+      ? null
+      : ComboServiceBizAiFashionNoAuthPostListGet$Response$Data.fromJson(
+          json['data'] as Map<String, dynamic>,
+        ),
+);
 
-Map<String, dynamic> _$BizAiFashionNoAuthPostListGet$ResponseToJson(
-  BizAiFashionNoAuthPostListGet$Response instance,
+Map<String, dynamic> _$ComboServiceBizAiFashionNoAuthPostListGet$ResponseToJson(
+  ComboServiceBizAiFashionNoAuthPostListGet$Response instance,
 ) => <String, dynamic>{
   'code': instance.code,
   'message': instance.message,
@@ -482,22 +505,24 @@ Map<String, dynamic> _$BizAiFashionNoAuthPostListGet$ResponseToJson(
   'data': instance.data?.toJson(),
 };
 
-BizAiFashionNoAuthPostDetailGet$Response
-_$BizAiFashionNoAuthPostDetailGet$ResponseFromJson(Map<String, dynamic> json) =>
-    BizAiFashionNoAuthPostDetailGet$Response(
-      code: (json['code'] as num?)?.toDouble(),
-      message: json['message'] as String?,
-      data: json['data'] == null
-          ? null
-          : BizAiFashionNoAuthPostDetailGet$Response$Data.fromJson(
-              json['data'] as Map<String, dynamic>,
-            ),
-      reasonCode: json['reasonCode'],
-      traceId: json['traceId'] as String?,
-    );
+ComboServiceBizAiFashionNoAuthPostDetailGet$Response
+_$ComboServiceBizAiFashionNoAuthPostDetailGet$ResponseFromJson(
+  Map<String, dynamic> json,
+) => ComboServiceBizAiFashionNoAuthPostDetailGet$Response(
+  code: (json['code'] as num?)?.toDouble(),
+  message: json['message'] as String?,
+  data: json['data'] == null
+      ? null
+      : ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data.fromJson(
+          json['data'] as Map<String, dynamic>,
+        ),
+  reasonCode: json['reasonCode'],
+  traceId: json['traceId'] as String?,
+);
 
-Map<String, dynamic> _$BizAiFashionNoAuthPostDetailGet$ResponseToJson(
-  BizAiFashionNoAuthPostDetailGet$Response instance,
+Map<String, dynamic>
+_$ComboServiceBizAiFashionNoAuthPostDetailGet$ResponseToJson(
+  ComboServiceBizAiFashionNoAuthPostDetailGet$Response instance,
 ) => <String, dynamic>{
   'code': instance.code,
   'message': instance.message,
@@ -506,72 +531,48 @@ Map<String, dynamic> _$BizAiFashionNoAuthPostDetailGet$ResponseToJson(
   'traceId': instance.traceId,
 };
 
-BizAiFashionNoAuthSelectOptionGet$Response
-_$BizAiFashionNoAuthSelectOptionGet$ResponseFromJson(
+ComboServiceBizAiFashionNoAuthSelectOptionGet$Response
+_$ComboServiceBizAiFashionNoAuthSelectOptionGet$ResponseFromJson(
   Map<String, dynamic> json,
-) => BizAiFashionNoAuthSelectOptionGet$Response(
+) => ComboServiceBizAiFashionNoAuthSelectOptionGet$Response(
   code: (json['code'] as num?)?.toDouble(),
   message: json['message'] as String?,
   traceId: json['traceId'] as String?,
   data: json['data'] == null
       ? null
-      : BizAiFashionNoAuthSelectOptionGet$Response$Data.fromJson(
-          json['data'] as Map<String, dynamic>,
-        ),
-);
-
-Map<String, dynamic> _$BizAiFashionNoAuthSelectOptionGet$ResponseToJson(
-  BizAiFashionNoAuthSelectOptionGet$Response instance,
-) => <String, dynamic>{
-  'code': instance.code,
-  'message': instance.message,
-  'traceId': instance.traceId,
-  'data': instance.data?.toJson(),
-};
-
-ApiV1StyleOutfitsGenerateModelRegeneratePost$Response
-_$ApiV1StyleOutfitsGenerateModelRegeneratePost$ResponseFromJson(
-  Map<String, dynamic> json,
-) => ApiV1StyleOutfitsGenerateModelRegeneratePost$Response(
-  code: (json['code'] as num?)?.toDouble(),
-  message: json['message'] as String?,
-  traceId: json['traceId'] as String?,
-  success: json['success'] as bool?,
-  data: json['data'] == null
-      ? null
-      : ApiV1StyleOutfitsGenerateModelRegeneratePost$Response$Data.fromJson(
+      : ComboServiceBizAiFashionNoAuthSelectOptionGet$Response$Data.fromJson(
           json['data'] as Map<String, dynamic>,
         ),
 );
 
 Map<String, dynamic>
-_$ApiV1StyleOutfitsGenerateModelRegeneratePost$ResponseToJson(
-  ApiV1StyleOutfitsGenerateModelRegeneratePost$Response instance,
+_$ComboServiceBizAiFashionNoAuthSelectOptionGet$ResponseToJson(
+  ComboServiceBizAiFashionNoAuthSelectOptionGet$Response instance,
 ) => <String, dynamic>{
   'code': instance.code,
   'message': instance.message,
   'traceId': instance.traceId,
-  'success': instance.success,
   'data': instance.data?.toJson(),
 };
 
-ApiV1StyleOutfitsGenerateRegeneratePost$Response
-_$ApiV1StyleOutfitsGenerateRegeneratePost$ResponseFromJson(
+ComboServiceApiV1StyleOutfitsGenerateModelRegeneratePost$Response
+_$ComboServiceApiV1StyleOutfitsGenerateModelRegeneratePost$ResponseFromJson(
   Map<String, dynamic> json,
-) => ApiV1StyleOutfitsGenerateRegeneratePost$Response(
+) => ComboServiceApiV1StyleOutfitsGenerateModelRegeneratePost$Response(
   code: (json['code'] as num?)?.toDouble(),
   message: json['message'] as String?,
   traceId: json['traceId'] as String?,
   success: json['success'] as bool?,
   data: json['data'] == null
       ? null
-      : ApiV1StyleOutfitsGenerateRegeneratePost$Response$Data.fromJson(
+      : ComboServiceApiV1StyleOutfitsGenerateModelRegeneratePost$Response$Data.fromJson(
           json['data'] as Map<String, dynamic>,
         ),
 );
 
-Map<String, dynamic> _$ApiV1StyleOutfitsGenerateRegeneratePost$ResponseToJson(
-  ApiV1StyleOutfitsGenerateRegeneratePost$Response instance,
+Map<String, dynamic>
+_$ComboServiceApiV1StyleOutfitsGenerateModelRegeneratePost$ResponseToJson(
+  ComboServiceApiV1StyleOutfitsGenerateModelRegeneratePost$Response instance,
 ) => <String, dynamic>{
   'code': instance.code,
   'message': instance.message,
@@ -580,14 +581,41 @@ Map<String, dynamic> _$ApiV1StyleOutfitsGenerateRegeneratePost$ResponseToJson(
   'data': instance.data?.toJson(),
 };
 
-BizUserShareRewardPageGet$Response _$BizUserShareRewardPageGet$ResponseFromJson(
+ComboServiceApiV1StyleOutfitsGenerateRegeneratePost$Response
+_$ComboServiceApiV1StyleOutfitsGenerateRegeneratePost$ResponseFromJson(
   Map<String, dynamic> json,
-) => BizUserShareRewardPageGet$Response(
+) => ComboServiceApiV1StyleOutfitsGenerateRegeneratePost$Response(
+  code: (json['code'] as num?)?.toDouble(),
+  message: json['message'] as String?,
+  traceId: json['traceId'] as String?,
+  success: json['success'] as bool?,
+  data: json['data'] == null
+      ? null
+      : ComboServiceApiV1StyleOutfitsGenerateRegeneratePost$Response$Data.fromJson(
+          json['data'] as Map<String, dynamic>,
+        ),
+);
+
+Map<String, dynamic>
+_$ComboServiceApiV1StyleOutfitsGenerateRegeneratePost$ResponseToJson(
+  ComboServiceApiV1StyleOutfitsGenerateRegeneratePost$Response instance,
+) => <String, dynamic>{
+  'code': instance.code,
+  'message': instance.message,
+  'traceId': instance.traceId,
+  'success': instance.success,
+  'data': instance.data?.toJson(),
+};
+
+ComboServiceBizUserShareRewardPageGet$Response
+_$ComboServiceBizUserShareRewardPageGet$ResponseFromJson(
+  Map<String, dynamic> json,
+) => ComboServiceBizUserShareRewardPageGet$Response(
   code: (json['code'] as num?)?.toDouble(),
   message: json['message'] as String?,
   data: json['data'] == null
       ? null
-      : BizUserShareRewardPageGet$Response$Data.fromJson(
+      : ComboServiceBizUserShareRewardPageGet$Response$Data.fromJson(
           json['data'] as Map<String, dynamic>,
         ),
   traceId: json['traceId'] as String?,
@@ -595,8 +623,8 @@ BizUserShareRewardPageGet$Response _$BizUserShareRewardPageGet$ResponseFromJson(
   success: json['success'] as bool?,
 );
 
-Map<String, dynamic> _$BizUserShareRewardPageGet$ResponseToJson(
-  BizUserShareRewardPageGet$Response instance,
+Map<String, dynamic> _$ComboServiceBizUserShareRewardPageGet$ResponseToJson(
+  ComboServiceBizUserShareRewardPageGet$Response instance,
 ) => <String, dynamic>{
   'code': instance.code,
   'message': instance.message,
@@ -606,9 +634,10 @@ Map<String, dynamic> _$BizUserShareRewardPageGet$ResponseToJson(
   'success': instance.success,
 };
 
-BizUserShareRewardPost$Response _$BizUserShareRewardPost$ResponseFromJson(
+ComboServiceBizUserShareRewardPost$Response
+_$ComboServiceBizUserShareRewardPost$ResponseFromJson(
   Map<String, dynamic> json,
-) => BizUserShareRewardPost$Response(
+) => ComboServiceBizUserShareRewardPost$Response(
   code: (json['code'] as num?)?.toDouble(),
   message: json['message'] as String?,
   data: json['data'] as String?,
@@ -617,8 +646,8 @@ BizUserShareRewardPost$Response _$BizUserShareRewardPost$ResponseFromJson(
   success: json['success'] as bool?,
 );
 
-Map<String, dynamic> _$BizUserShareRewardPost$ResponseToJson(
-  BizUserShareRewardPost$Response instance,
+Map<String, dynamic> _$ComboServiceBizUserShareRewardPost$ResponseToJson(
+  ComboServiceBizUserShareRewardPost$Response instance,
 ) => <String, dynamic>{
   'code': instance.code,
   'message': instance.message,
@@ -628,23 +657,24 @@ Map<String, dynamic> _$BizUserShareRewardPost$ResponseToJson(
   'success': instance.success,
 };
 
-NoAuthBizAlbumAlbumInfoGet$Response
-_$NoAuthBizAlbumAlbumInfoGet$ResponseFromJson(Map<String, dynamic> json) =>
-    NoAuthBizAlbumAlbumInfoGet$Response(
-      code: (json['code'] as num?)?.toDouble(),
-      message: json['message'] as String?,
-      data: json['data'] == null
-          ? null
-          : NoAuthBizAlbumAlbumInfoGet$Response$Data.fromJson(
-              json['data'] as Map<String, dynamic>,
-            ),
-      traceId: json['traceId'] as String?,
-      placeholder: json['placeholder'],
-      success: json['success'] as bool?,
-    );
+ComboServiceNoAuthBizAlbumAlbumInfoGet$Response
+_$ComboServiceNoAuthBizAlbumAlbumInfoGet$ResponseFromJson(
+  Map<String, dynamic> json,
+) => ComboServiceNoAuthBizAlbumAlbumInfoGet$Response(
+  code: (json['code'] as num?)?.toDouble(),
+  message: json['message'] as String?,
+  data: json['data'] == null
+      ? null
+      : ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data.fromJson(
+          json['data'] as Map<String, dynamic>,
+        ),
+  traceId: json['traceId'] as String?,
+  placeholder: json['placeholder'],
+  success: json['success'] as bool?,
+);
 
-Map<String, dynamic> _$NoAuthBizAlbumAlbumInfoGet$ResponseToJson(
-  NoAuthBizAlbumAlbumInfoGet$Response instance,
+Map<String, dynamic> _$ComboServiceNoAuthBizAlbumAlbumInfoGet$ResponseToJson(
+  ComboServiceNoAuthBizAlbumAlbumInfoGet$Response instance,
 ) => <String, dynamic>{
   'code': instance.code,
   'message': instance.message,
@@ -654,25 +684,26 @@ Map<String, dynamic> _$NoAuthBizAlbumAlbumInfoGet$ResponseToJson(
   'success': instance.success,
 };
 
-NoAuthBizKolKolInfoGet$Response$Data
-_$NoAuthBizKolKolInfoGet$Response$DataFromJson(Map<String, dynamic> json) =>
-    NoAuthBizKolKolInfoGet$Response$Data(
-      inviteCode: json['inviteCode'] as String?,
-      tenantCode: json['tenantCode'] as String?,
-      shareLink: json['shareLink'] as String?,
-      excelLinks: (json['excelLinks'] as List<dynamic>?)
-          ?.map(
-            (e) =>
-                NoAuthBizKolKolInfoGet$Response$Data$ExcelLinks$Item.fromJson(
-                  e as Map<String, dynamic>,
-                ),
-          )
-          .toList(),
-      jumpTo: json['jumpTo'] as String?,
-    );
+ComboServiceNoAuthBizKolKolInfoGet$Response$Data
+_$ComboServiceNoAuthBizKolKolInfoGet$Response$DataFromJson(
+  Map<String, dynamic> json,
+) => ComboServiceNoAuthBizKolKolInfoGet$Response$Data(
+  inviteCode: json['inviteCode'] as String?,
+  tenantCode: json['tenantCode'] as String?,
+  shareLink: json['shareLink'] as String?,
+  excelLinks: (json['excelLinks'] as List<dynamic>?)
+      ?.map(
+        (e) =>
+            ComboServiceNoAuthBizKolKolInfoGet$Response$Data$ExcelLinks$Item.fromJson(
+              e as Map<String, dynamic>,
+            ),
+      )
+      .toList(),
+  jumpTo: json['jumpTo'] as String?,
+);
 
-Map<String, dynamic> _$NoAuthBizKolKolInfoGet$Response$DataToJson(
-  NoAuthBizKolKolInfoGet$Response$Data instance,
+Map<String, dynamic> _$ComboServiceNoAuthBizKolKolInfoGet$Response$DataToJson(
+  ComboServiceNoAuthBizKolKolInfoGet$Response$Data instance,
 ) => <String, dynamic>{
   'inviteCode': instance.inviteCode,
   'tenantCode': instance.tenantCode,
@@ -681,99 +712,107 @@ Map<String, dynamic> _$NoAuthBizKolKolInfoGet$Response$DataToJson(
   'jumpTo': instance.jumpTo,
 };
 
-NoAuthPopupPromiseGet$Response$Data
-_$NoAuthPopupPromiseGet$Response$DataFromJson(Map<String, dynamic> json) =>
-    NoAuthPopupPromiseGet$Response$Data(
-      content: (json['content'] as List<dynamic>)
-          .map(
-            (e) => NoAuthPopupPromiseGet$Response$Data$Content$Item.fromJson(
+ComboServiceNoAuthPopupPromiseGet$Response$Data
+_$ComboServiceNoAuthPopupPromiseGet$Response$DataFromJson(
+  Map<String, dynamic> json,
+) => ComboServiceNoAuthPopupPromiseGet$Response$Data(
+  content: (json['content'] as List<dynamic>)
+      .map(
+        (e) =>
+            ComboServiceNoAuthPopupPromiseGet$Response$Data$Content$Item.fromJson(
               e as Map<String, dynamic>,
             ),
-          )
-          .toList(),
-    );
+      )
+      .toList(),
+);
 
-Map<String, dynamic> _$NoAuthPopupPromiseGet$Response$DataToJson(
-  NoAuthPopupPromiseGet$Response$Data instance,
+Map<String, dynamic> _$ComboServiceNoAuthPopupPromiseGet$Response$DataToJson(
+  ComboServiceNoAuthPopupPromiseGet$Response$Data instance,
 ) => <String, dynamic>{
   'content': instance.content.map((e) => e.toJson()).toList(),
 };
 
-NoAuthCommonAppConfigVersionCheckGet$Response$Data
-_$NoAuthCommonAppConfigVersionCheckGet$Response$DataFromJson(
+ComboServiceNoAuthCommonAppConfigVersionCheckGet$Response$Data
+_$ComboServiceNoAuthCommonAppConfigVersionCheckGet$Response$DataFromJson(
   Map<String, dynamic> json,
-) => NoAuthCommonAppConfigVersionCheckGet$Response$Data(
+) => ComboServiceNoAuthCommonAppConfigVersionCheckGet$Response$Data(
   allowClose: json['allowClose'] as bool,
   storeUrl: json['storeUrl'] as String,
   haveUpdate: json['haveUpdate'] as bool,
 );
 
-Map<String, dynamic> _$NoAuthCommonAppConfigVersionCheckGet$Response$DataToJson(
-  NoAuthCommonAppConfigVersionCheckGet$Response$Data instance,
+Map<String, dynamic>
+_$ComboServiceNoAuthCommonAppConfigVersionCheckGet$Response$DataToJson(
+  ComboServiceNoAuthCommonAppConfigVersionCheckGet$Response$Data instance,
 ) => <String, dynamic>{
   'allowClose': instance.allowClose,
   'storeUrl': instance.storeUrl,
   'haveUpdate': instance.haveUpdate,
 };
 
-BizCommunityPostLikedGet$Response$Data
-_$BizCommunityPostLikedGet$Response$DataFromJson(Map<String, dynamic> json) =>
-    BizCommunityPostLikedGet$Response$Data(
-      posts: (json['posts'] as List<dynamic>?)
-          ?.map(
-            (e) => BizCommunityPostLikedGet$Response$Data$Posts$Item.fromJson(
-              e as Map<String, dynamic>,
-            ),
-          )
-          .toList(),
-      nextCursor: json['nextCursor'] as String?,
-      hasMore: json['hasMore'] as bool?,
-    );
-
-Map<String, dynamic> _$BizCommunityPostLikedGet$Response$DataToJson(
-  BizCommunityPostLikedGet$Response$Data instance,
-) => <String, dynamic>{
-  'posts': instance.posts?.map((e) => e.toJson()).toList(),
-  'nextCursor': instance.nextCursor,
-  'hasMore': instance.hasMore,
-};
-
-BizCommunityPostNoAuthListGet$Response$Data
-_$BizCommunityPostNoAuthListGet$Response$DataFromJson(
+ComboServiceBizCommunityPostLikedGet$Response$Data
+_$ComboServiceBizCommunityPostLikedGet$Response$DataFromJson(
   Map<String, dynamic> json,
-) => BizCommunityPostNoAuthListGet$Response$Data(
+) => ComboServiceBizCommunityPostLikedGet$Response$Data(
   posts: (json['posts'] as List<dynamic>?)
       ?.map(
-        (e) => BizCommunityPostNoAuthListGet$Response$Data$Posts$Item.fromJson(
-          e as Map<String, dynamic>,
-        ),
+        (e) =>
+            ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item.fromJson(
+              e as Map<String, dynamic>,
+            ),
       )
       .toList(),
   nextCursor: json['nextCursor'] as String?,
   hasMore: json['hasMore'] as bool?,
 );
 
-Map<String, dynamic> _$BizCommunityPostNoAuthListGet$Response$DataToJson(
-  BizCommunityPostNoAuthListGet$Response$Data instance,
+Map<String, dynamic> _$ComboServiceBizCommunityPostLikedGet$Response$DataToJson(
+  ComboServiceBizCommunityPostLikedGet$Response$Data instance,
 ) => <String, dynamic>{
   'posts': instance.posts?.map((e) => e.toJson()).toList(),
   'nextCursor': instance.nextCursor,
   'hasMore': instance.hasMore,
 };
 
-BizUserOrderPendingGet$Response$Data
-_$BizUserOrderPendingGet$Response$DataFromJson(Map<String, dynamic> json) =>
-    BizUserOrderPendingGet$Response$Data(
-      pendingOrderCount: (json['pendingOrderCount'] as num?)?.toDouble(),
-      totalOrderCount: (json['totalOrderCount'] as num?)?.toDouble(),
-      pendingWarehouseItemCount: (json['pendingWarehouseItemCount'] as num?)
-          ?.toDouble(),
-      pendingPackageCount: (json['pendingPackageCount'] as num?)?.toDouble(),
-      totalPackageCount: (json['totalPackageCount'] as num?)?.toDouble(),
-    );
+ComboServiceBizCommunityPostNoAuthListGet$Response$Data
+_$ComboServiceBizCommunityPostNoAuthListGet$Response$DataFromJson(
+  Map<String, dynamic> json,
+) => ComboServiceBizCommunityPostNoAuthListGet$Response$Data(
+  posts: (json['posts'] as List<dynamic>?)
+      ?.map(
+        (e) =>
+            ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item.fromJson(
+              e as Map<String, dynamic>,
+            ),
+      )
+      .toList(),
+  nextCursor: json['nextCursor'] as String?,
+  hasMore: json['hasMore'] as bool?,
+);
 
-Map<String, dynamic> _$BizUserOrderPendingGet$Response$DataToJson(
-  BizUserOrderPendingGet$Response$Data instance,
+Map<String, dynamic>
+_$ComboServiceBizCommunityPostNoAuthListGet$Response$DataToJson(
+  ComboServiceBizCommunityPostNoAuthListGet$Response$Data instance,
+) => <String, dynamic>{
+  'posts': instance.posts?.map((e) => e.toJson()).toList(),
+  'nextCursor': instance.nextCursor,
+  'hasMore': instance.hasMore,
+};
+
+ComboServiceBizUserOrderPendingGet$Response$Data
+_$ComboServiceBizUserOrderPendingGet$Response$DataFromJson(
+  Map<String, dynamic> json,
+) => ComboServiceBizUserOrderPendingGet$Response$Data(
+  pendingOrderCount: (json['pendingOrderCount'] as num?)?.toDouble(),
+  totalOrderCount: (json['totalOrderCount'] as num?)?.toDouble(),
+  pendingWarehouseItemCount: (json['pendingWarehouseItemCount'] as num?)
+      ?.toDouble(),
+  pendingPackageCount: (json['pendingPackageCount'] as num?)?.toDouble(),
+  totalPackageCount: (json['totalPackageCount'] as num?)?.toDouble(),
+);
+
+Map<String, dynamic> _$ComboServiceBizUserOrderPendingGet$Response$DataToJson(
+  ComboServiceBizUserOrderPendingGet$Response$Data instance,
 ) => <String, dynamic>{
   'pendingOrderCount': instance.pendingOrderCount,
   'totalOrderCount': instance.totalOrderCount,
@@ -782,69 +821,74 @@ Map<String, dynamic> _$BizUserOrderPendingGet$Response$DataToJson(
   'totalPackageCount': instance.totalPackageCount,
 };
 
-ApiV1StyleOutfitsGenerateModelPost$Response$Data
-_$ApiV1StyleOutfitsGenerateModelPost$Response$DataFromJson(
+ComboServiceApiV1StyleOutfitsGenerateModelPost$Response$Data
+_$ComboServiceApiV1StyleOutfitsGenerateModelPost$Response$DataFromJson(
   Map<String, dynamic> json,
-) => ApiV1StyleOutfitsGenerateModelPost$Response$Data(
+) => ComboServiceApiV1StyleOutfitsGenerateModelPost$Response$Data(
   taskId: json['taskId'] as String?,
   status: json['status'] as String?,
   estimatedTime: json['estimatedTime'] as String?,
 );
 
-Map<String, dynamic> _$ApiV1StyleOutfitsGenerateModelPost$Response$DataToJson(
-  ApiV1StyleOutfitsGenerateModelPost$Response$Data instance,
+Map<String, dynamic>
+_$ComboServiceApiV1StyleOutfitsGenerateModelPost$Response$DataToJson(
+  ComboServiceApiV1StyleOutfitsGenerateModelPost$Response$Data instance,
 ) => <String, dynamic>{
   'taskId': instance.taskId,
   'status': instance.status,
   'estimatedTime': instance.estimatedTime,
 };
 
-BizAiFashionNoAuthBodyShapeGet$Response$Data
-_$BizAiFashionNoAuthBodyShapeGet$Response$DataFromJson(
+ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data
+_$ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$DataFromJson(
   Map<String, dynamic> json,
-) => BizAiFashionNoAuthBodyShapeGet$Response$Data(
+) => ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data(
   female: (json['female'] as List<dynamic>?)
       ?.map(
         (e) =>
-            BizAiFashionNoAuthBodyShapeGet$Response$Data$Female$Item.fromJson(
+            ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data$Female$Item.fromJson(
               e as Map<String, dynamic>,
             ),
       )
       .toList(),
   male: (json['male'] as List<dynamic>?)
       ?.map(
-        (e) => BizAiFashionNoAuthBodyShapeGet$Response$Data$Male$Item.fromJson(
-          e as Map<String, dynamic>,
-        ),
+        (e) =>
+            ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data$Male$Item.fromJson(
+              e as Map<String, dynamic>,
+            ),
       )
       .toList(),
 );
 
-Map<String, dynamic> _$BizAiFashionNoAuthBodyShapeGet$Response$DataToJson(
-  BizAiFashionNoAuthBodyShapeGet$Response$Data instance,
+Map<String, dynamic>
+_$ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$DataToJson(
+  ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data instance,
 ) => <String, dynamic>{
   'female': instance.female?.map((e) => e.toJson()).toList(),
   'male': instance.male?.map((e) => e.toJson()).toList(),
 };
 
-BizAiFashionModelSavePost$Response$Data
-_$BizAiFashionModelSavePost$Response$DataFromJson(Map<String, dynamic> json) =>
-    BizAiFashionModelSavePost$Response$Data(
-      id: (json['id'] as num?)?.toDouble(),
-      tenantCode: json['tenantCode'] as String?,
-      userId: json['userId'] as String?,
-      modelDesc: json['modelDesc'] as String?,
-      modelId: json['modelId'] as String?,
-      modelImage: json['modelImage'] as String?,
-      ext: json['ext'],
-      isDeleted: (json['isDeleted'] as num?)?.toDouble(),
-      gmtCreate: json['gmtCreate'] as String?,
-      gmtUpdate: json['gmtUpdate'] as String?,
-      groupId: (json['groupId'] as num?)?.toDouble(),
-    );
+ComboServiceBizAiFashionModelSavePost$Response$Data
+_$ComboServiceBizAiFashionModelSavePost$Response$DataFromJson(
+  Map<String, dynamic> json,
+) => ComboServiceBizAiFashionModelSavePost$Response$Data(
+  id: (json['id'] as num?)?.toDouble(),
+  tenantCode: json['tenantCode'] as String?,
+  userId: json['userId'] as String?,
+  modelDesc: json['modelDesc'] as String?,
+  modelId: json['modelId'] as String?,
+  modelImage: json['modelImage'] as String?,
+  ext: json['ext'],
+  isDeleted: (json['isDeleted'] as num?)?.toDouble(),
+  gmtCreate: json['gmtCreate'] as String?,
+  gmtUpdate: json['gmtUpdate'] as String?,
+  groupId: (json['groupId'] as num?)?.toDouble(),
+);
 
-Map<String, dynamic> _$BizAiFashionModelSavePost$Response$DataToJson(
-  BizAiFashionModelSavePost$Response$Data instance,
+Map<String, dynamic>
+_$ComboServiceBizAiFashionModelSavePost$Response$DataToJson(
+  ComboServiceBizAiFashionModelSavePost$Response$Data instance,
 ) => <String, dynamic>{
   'id': instance.id,
   'tenantCode': instance.tenantCode,
@@ -859,14 +903,14 @@ Map<String, dynamic> _$BizAiFashionModelSavePost$Response$DataToJson(
   'groupId': instance.groupId,
 };
 
-ApiV1StyleOutfitsResultPageGet$Response$Data
-_$ApiV1StyleOutfitsResultPageGet$Response$DataFromJson(
+ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data
+_$ComboServiceApiV1StyleOutfitsResultPageGet$Response$DataFromJson(
   Map<String, dynamic> json,
-) => ApiV1StyleOutfitsResultPageGet$Response$Data(
+) => ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data(
   records: (json['records'] as List<dynamic>?)
       ?.map(
         (e) =>
-            ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item.fromJson(
+            ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item.fromJson(
               e as Map<String, dynamic>,
             ),
       )
@@ -877,8 +921,9 @@ _$ApiV1StyleOutfitsResultPageGet$Response$DataFromJson(
   pages: (json['pages'] as num?)?.toDouble(),
 );
 
-Map<String, dynamic> _$ApiV1StyleOutfitsResultPageGet$Response$DataToJson(
-  ApiV1StyleOutfitsResultPageGet$Response$Data instance,
+Map<String, dynamic>
+_$ComboServiceApiV1StyleOutfitsResultPageGet$Response$DataToJson(
+  ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data instance,
 ) => <String, dynamic>{
   'records': instance.records?.map((e) => e.toJson()).toList(),
   'total': instance.total,
@@ -887,10 +932,10 @@ Map<String, dynamic> _$ApiV1StyleOutfitsResultPageGet$Response$DataToJson(
   'pages': instance.pages,
 };
 
-BizAiFashionModelRecentlyUsedGet$Response$Data
-_$BizAiFashionModelRecentlyUsedGet$Response$DataFromJson(
+ComboServiceBizAiFashionModelRecentlyUsedGet$Response$Data
+_$ComboServiceBizAiFashionModelRecentlyUsedGet$Response$DataFromJson(
   Map<String, dynamic> json,
-) => BizAiFashionModelRecentlyUsedGet$Response$Data(
+) => ComboServiceBizAiFashionModelRecentlyUsedGet$Response$Data(
   id: (json['id'] as num?)?.toDouble(),
   tenantCode: json['tenantCode'] as String?,
   userId: json['userId'] as String?,
@@ -905,8 +950,9 @@ _$BizAiFashionModelRecentlyUsedGet$Response$DataFromJson(
   groupId: (json['groupId'] as num?)?.toDouble(),
 );
 
-Map<String, dynamic> _$BizAiFashionModelRecentlyUsedGet$Response$DataToJson(
-  BizAiFashionModelRecentlyUsedGet$Response$Data instance,
+Map<String, dynamic>
+_$ComboServiceBizAiFashionModelRecentlyUsedGet$Response$DataToJson(
+  ComboServiceBizAiFashionModelRecentlyUsedGet$Response$Data instance,
 ) => <String, dynamic>{
   'id': instance.id,
   'tenantCode': instance.tenantCode,
@@ -922,10 +968,10 @@ Map<String, dynamic> _$BizAiFashionModelRecentlyUsedGet$Response$DataToJson(
   'groupId': instance.groupId,
 };
 
-ApiV1StyleOutfitsModelIdStatusGet$Response$Data
-_$ApiV1StyleOutfitsModelIdStatusGet$Response$DataFromJson(
+ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response$Data
+_$ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response$DataFromJson(
   Map<String, dynamic> json,
-) => ApiV1StyleOutfitsModelIdStatusGet$Response$Data(
+) => ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response$Data(
   taskId: json['taskId'] as String?,
   status: json['status'] as String?,
   totalCount: (json['totalCount'] as num?)?.toDouble(),
@@ -940,15 +986,16 @@ _$ApiV1StyleOutfitsModelIdStatusGet$Response$DataFromJson(
   generatedModels: (json['generatedModels'] as List<dynamic>?)
       ?.map(
         (e) =>
-            ApiV1StyleOutfitsModelIdStatusGet$Response$Data$GeneratedModels$Item.fromJson(
+            ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response$Data$GeneratedModels$Item.fromJson(
               e as Map<String, dynamic>,
             ),
       )
       .toList(),
 );
 
-Map<String, dynamic> _$ApiV1StyleOutfitsModelIdStatusGet$Response$DataToJson(
-  ApiV1StyleOutfitsModelIdStatusGet$Response$Data instance,
+Map<String, dynamic>
+_$ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response$DataToJson(
+  ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response$Data instance,
 ) => <String, dynamic>{
   'taskId': instance.taskId,
   'status': instance.status,
@@ -964,10 +1011,10 @@ Map<String, dynamic> _$ApiV1StyleOutfitsModelIdStatusGet$Response$DataToJson(
   'generatedModels': instance.generatedModels?.map((e) => e.toJson()).toList(),
 };
 
-ApiV1StyleOutfitsResultGet$Response$Data
-_$ApiV1StyleOutfitsResultGet$Response$DataFromJson(
+ComboServiceApiV1StyleOutfitsResultGet$Response$Data
+_$ComboServiceApiV1StyleOutfitsResultGet$Response$DataFromJson(
   Map<String, dynamic> json,
-) => ApiV1StyleOutfitsResultGet$Response$Data(
+) => ComboServiceApiV1StyleOutfitsResultGet$Response$Data(
   taskId: json['taskId'] as String?,
   status: json['status'] as String?,
   count: (json['count'] as num?)?.toDouble(),
@@ -976,7 +1023,7 @@ _$ApiV1StyleOutfitsResultGet$Response$DataFromJson(
   totalDuration: (json['totalDuration'] as num?)?.toDouble(),
   requestParams: json['requestParams'] == null
       ? null
-      : ApiV1StyleOutfitsResultGet$Response$Data$RequestParams.fromJson(
+      : ComboServiceApiV1StyleOutfitsResultGet$Response$Data$RequestParams.fromJson(
           json['requestParams'] as Map<String, dynamic>,
         ),
   images:
@@ -990,7 +1037,7 @@ _$ApiV1StyleOutfitsResultGet$Response$DataFromJson(
   productLinks: (json['productLinks'] as List<dynamic>?)
       ?.map(
         (e) =>
-            ApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item.fromJson(
+            ComboServiceApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item.fromJson(
               e as Map<String, dynamic>,
             ),
       )
@@ -998,18 +1045,19 @@ _$ApiV1StyleOutfitsResultGet$Response$DataFromJson(
   generationTime: json['generationTime'] as String?,
   sharingImages: json['sharingImages'] == null
       ? null
-      : ApiV1StyleOutfitsResultGet$Response$Data$SharingImages.fromJson(
+      : ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages.fromJson(
           json['sharingImages'] as Map<String, dynamic>,
         ),
   sharingImagesStatus: json['sharingImagesStatus'] == null
       ? null
-      : ApiV1StyleOutfitsResultGet$Response$Data$SharingImagesStatus.fromJson(
+      : ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImagesStatus.fromJson(
           json['sharingImagesStatus'] as Map<String, dynamic>,
         ),
 );
 
-Map<String, dynamic> _$ApiV1StyleOutfitsResultGet$Response$DataToJson(
-  ApiV1StyleOutfitsResultGet$Response$Data instance,
+Map<String, dynamic>
+_$ComboServiceApiV1StyleOutfitsResultGet$Response$DataToJson(
+  ComboServiceApiV1StyleOutfitsResultGet$Response$Data instance,
 ) => <String, dynamic>{
   'taskId': instance.taskId,
   'status': instance.status,
@@ -1030,10 +1078,10 @@ Map<String, dynamic> _$ApiV1StyleOutfitsResultGet$Response$DataToJson(
   'sharingImagesStatus': instance.sharingImagesStatus?.toJson(),
 };
 
-BizAiFashionModelModelIdGet$Response$Data
-_$BizAiFashionModelModelIdGet$Response$DataFromJson(
+ComboServiceBizAiFashionModelModelIdGet$Response$Data
+_$ComboServiceBizAiFashionModelModelIdGet$Response$DataFromJson(
   Map<String, dynamic> json,
-) => BizAiFashionModelModelIdGet$Response$Data(
+) => ComboServiceBizAiFashionModelModelIdGet$Response$Data(
   id: (json['id'] as num?)?.toDouble(),
   tenantCode: json['tenantCode'] as String?,
   userId: json['userId'] as String?,
@@ -1048,8 +1096,9 @@ _$BizAiFashionModelModelIdGet$Response$DataFromJson(
   groupId: (json['groupId'] as num?)?.toDouble(),
 );
 
-Map<String, dynamic> _$BizAiFashionModelModelIdGet$Response$DataToJson(
-  BizAiFashionModelModelIdGet$Response$Data instance,
+Map<String, dynamic>
+_$ComboServiceBizAiFashionModelModelIdGet$Response$DataToJson(
+  ComboServiceBizAiFashionModelModelIdGet$Response$Data instance,
 ) => <String, dynamic>{
   'id': instance.id,
   'tenantCode': instance.tenantCode,
@@ -1065,30 +1114,32 @@ Map<String, dynamic> _$BizAiFashionModelModelIdGet$Response$DataToJson(
   'groupId': instance.groupId,
 };
 
-BizAiFashionModelListGet$Response$Data
-_$BizAiFashionModelListGet$Response$DataFromJson(Map<String, dynamic> json) =>
-    BizAiFashionModelListGet$Response$Data(
-      models: (json['models'] as List<dynamic>?)
-          ?.map(
-            (e) => BizAiFashionModelListGet$Response$Data$Models$Item.fromJson(
+ComboServiceBizAiFashionModelListGet$Response$Data
+_$ComboServiceBizAiFashionModelListGet$Response$DataFromJson(
+  Map<String, dynamic> json,
+) => ComboServiceBizAiFashionModelListGet$Response$Data(
+  models: (json['models'] as List<dynamic>?)
+      ?.map(
+        (e) =>
+            ComboServiceBizAiFashionModelListGet$Response$Data$Models$Item.fromJson(
               e as Map<String, dynamic>,
             ),
-          )
-          .toList(),
-      fstModel: json['fstModel'] as bool?,
-    );
+      )
+      .toList(),
+  fstModel: json['fstModel'] as bool?,
+);
 
-Map<String, dynamic> _$BizAiFashionModelListGet$Response$DataToJson(
-  BizAiFashionModelListGet$Response$Data instance,
+Map<String, dynamic> _$ComboServiceBizAiFashionModelListGet$Response$DataToJson(
+  ComboServiceBizAiFashionModelListGet$Response$Data instance,
 ) => <String, dynamic>{
   'models': instance.models?.map((e) => e.toJson()).toList(),
   'fstModel': instance.fstModel,
 };
 
-ApiV1StyleOutfitsGeneratePost$Response$Data
-_$ApiV1StyleOutfitsGeneratePost$Response$DataFromJson(
+ComboServiceApiV1StyleOutfitsGeneratePost$Response$Data
+_$ComboServiceApiV1StyleOutfitsGeneratePost$Response$DataFromJson(
   Map<String, dynamic> json,
-) => ApiV1StyleOutfitsGeneratePost$Response$Data(
+) => ComboServiceApiV1StyleOutfitsGeneratePost$Response$Data(
   taskId: json['taskId'] as String?,
   status: json['status'] as String?,
   count: (json['count'] as num?)?.toDouble(),
@@ -1096,8 +1147,9 @@ _$ApiV1StyleOutfitsGeneratePost$Response$DataFromJson(
   createdAt: (json['createdAt'] as num?)?.toDouble(),
 );
 
-Map<String, dynamic> _$ApiV1StyleOutfitsGeneratePost$Response$DataToJson(
-  ApiV1StyleOutfitsGeneratePost$Response$Data instance,
+Map<String, dynamic>
+_$ComboServiceApiV1StyleOutfitsGeneratePost$Response$DataToJson(
+  ComboServiceApiV1StyleOutfitsGeneratePost$Response$Data instance,
 ) => <String, dynamic>{
   'taskId': instance.taskId,
   'status': instance.status,
@@ -1106,34 +1158,35 @@ Map<String, dynamic> _$ApiV1StyleOutfitsGeneratePost$Response$DataToJson(
   'createdAt': instance.createdAt,
 };
 
-BizAiFashionNoAuthStylePresetGet$Response$Data
-_$BizAiFashionNoAuthStylePresetGet$Response$DataFromJson(
+ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data
+_$ComboServiceBizAiFashionNoAuthStylePresetGet$Response$DataFromJson(
   Map<String, dynamic> json,
-) => BizAiFashionNoAuthStylePresetGet$Response$Data(
+) => ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data(
   referenceImages: (json['referenceImages'] as List<dynamic>?)
       ?.map(
         (e) =>
-            BizAiFashionNoAuthStylePresetGet$Response$Data$ReferenceImages$Item.fromJson(
+            ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$ReferenceImages$Item.fromJson(
               e as Map<String, dynamic>,
             ),
       )
       .toList(),
   option: json['option'] == null
       ? null
-      : BizAiFashionNoAuthStylePresetGet$Response$Data$Option.fromJson(
+      : ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$Option.fromJson(
           json['option'] as Map<String, dynamic>,
         ),
   prompt: json['prompt'] as String?,
   modelInfo: json['modelInfo'] == null
       ? null
-      : BizAiFashionNoAuthStylePresetGet$Response$Data$ModelInfo.fromJson(
+      : ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$ModelInfo.fromJson(
           json['modelInfo'] as Map<String, dynamic>,
         ),
   templateId: (json['templateId'] as num?)?.toInt(),
 );
 
-Map<String, dynamic> _$BizAiFashionNoAuthStylePresetGet$Response$DataToJson(
-  BizAiFashionNoAuthStylePresetGet$Response$Data instance,
+Map<String, dynamic>
+_$ComboServiceBizAiFashionNoAuthStylePresetGet$Response$DataToJson(
+  ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data instance,
 ) => <String, dynamic>{
   'referenceImages': instance.referenceImages?.map((e) => e.toJson()).toList(),
   'option': instance.option?.toJson(),
@@ -1142,54 +1195,56 @@ Map<String, dynamic> _$BizAiFashionNoAuthStylePresetGet$Response$DataToJson(
   'templateId': instance.templateId,
 };
 
-BizAiFashionNoAuthPostListGet$Response$Data
-_$BizAiFashionNoAuthPostListGet$Response$DataFromJson(
+ComboServiceBizAiFashionNoAuthPostListGet$Response$Data
+_$ComboServiceBizAiFashionNoAuthPostListGet$Response$DataFromJson(
   Map<String, dynamic> json,
-) => BizAiFashionNoAuthPostListGet$Response$Data(
+) => ComboServiceBizAiFashionNoAuthPostListGet$Response$Data(
   posts: (json['posts'] as List<dynamic>?)
       ?.map(
-        (e) => BizAiFashionNoAuthPostListGet$Response$Data$Posts$Item.fromJson(
-          e as Map<String, dynamic>,
-        ),
+        (e) =>
+            ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item.fromJson(
+              e as Map<String, dynamic>,
+            ),
       )
       .toList(),
   nextCursor: json['nextCursor'] as String?,
   hasMore: json['hasMore'] as bool?,
 );
 
-Map<String, dynamic> _$BizAiFashionNoAuthPostListGet$Response$DataToJson(
-  BizAiFashionNoAuthPostListGet$Response$Data instance,
+Map<String, dynamic>
+_$ComboServiceBizAiFashionNoAuthPostListGet$Response$DataToJson(
+  ComboServiceBizAiFashionNoAuthPostListGet$Response$Data instance,
 ) => <String, dynamic>{
   'posts': instance.posts?.map((e) => e.toJson()).toList(),
   'nextCursor': instance.nextCursor,
   'hasMore': instance.hasMore,
 };
 
-BizAiFashionNoAuthPostDetailGet$Response$Data
-_$BizAiFashionNoAuthPostDetailGet$Response$DataFromJson(
+ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data
+_$ComboServiceBizAiFashionNoAuthPostDetailGet$Response$DataFromJson(
   Map<String, dynamic> json,
-) => BizAiFashionNoAuthPostDetailGet$Response$Data(
+) => ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data(
   postId: (json['postId'] as num?)?.toDouble(),
   postTitle: json['postTitle'] as String?,
   frontImage: json['frontImage'] == null
       ? null
-      : BizAiFashionNoAuthPostDetailGet$Response$Data$FrontImage.fromJson(
+      : ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FrontImage.fromJson(
           json['frontImage'] as Map<String, dynamic>,
         ),
   headerImage: json['headerImage'] == null
       ? null
-      : BizAiFashionNoAuthPostDetailGet$Response$Data$HeaderImage.fromJson(
+      : ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$HeaderImage.fromJson(
           json['headerImage'] as Map<String, dynamic>,
         ),
   modelImage: json['modelImage'] == null
       ? null
-      : BizAiFashionNoAuthPostDetailGet$Response$Data$ModelImage.fromJson(
+      : ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$ModelImage.fromJson(
           json['modelImage'] as Map<String, dynamic>,
         ),
   images: (json['images'] as List<dynamic>?)
       ?.map(
         (e) =>
-            BizAiFashionNoAuthPostDetailGet$Response$Data$Images$Item.fromJson(
+            ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$Images$Item.fromJson(
               e as Map<String, dynamic>,
             ),
       )
@@ -1197,7 +1252,7 @@ _$BizAiFashionNoAuthPostDetailGet$Response$DataFromJson(
   footerImages: (json['footerImages'] as List<dynamic>?)
       ?.map(
         (e) =>
-            BizAiFashionNoAuthPostDetailGet$Response$Data$FooterImages$Item.fromJson(
+            ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FooterImages$Item.fromJson(
               e as Map<String, dynamic>,
             ),
       )
@@ -1205,14 +1260,15 @@ _$BizAiFashionNoAuthPostDetailGet$Response$DataFromJson(
   prompt: json['prompt'] as String?,
   option: json['option'] == null
       ? null
-      : BizAiFashionNoAuthPostDetailGet$Response$Data$Option.fromJson(
+      : ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$Option.fromJson(
           json['option'] as Map<String, dynamic>,
         ),
   templateId: (json['templateId'] as num?)?.toDouble(),
 );
 
-Map<String, dynamic> _$BizAiFashionNoAuthPostDetailGet$Response$DataToJson(
-  BizAiFashionNoAuthPostDetailGet$Response$Data instance,
+Map<String, dynamic>
+_$ComboServiceBizAiFashionNoAuthPostDetailGet$Response$DataToJson(
+  ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data instance,
 ) => <String, dynamic>{
   'postId': instance.postId,
   'postTitle': instance.postTitle,
@@ -1226,71 +1282,75 @@ Map<String, dynamic> _$BizAiFashionNoAuthPostDetailGet$Response$DataToJson(
   'templateId': instance.templateId,
 };
 
-BizAiFashionNoAuthSelectOptionGet$Response$Data
-_$BizAiFashionNoAuthSelectOptionGet$Response$DataFromJson(
+ComboServiceBizAiFashionNoAuthSelectOptionGet$Response$Data
+_$ComboServiceBizAiFashionNoAuthSelectOptionGet$Response$DataFromJson(
   Map<String, dynamic> json,
-) => BizAiFashionNoAuthSelectOptionGet$Response$Data(
+) => ComboServiceBizAiFashionNoAuthSelectOptionGet$Response$Data(
   selectionList: (json['selectionList'] as List<dynamic>?)
       ?.map(
         (e) =>
-            BizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$Item.fromJson(
+            ComboServiceBizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$Item.fromJson(
               e as Map<String, dynamic>,
             ),
       )
       .toList(),
 );
 
-Map<String, dynamic> _$BizAiFashionNoAuthSelectOptionGet$Response$DataToJson(
-  BizAiFashionNoAuthSelectOptionGet$Response$Data instance,
+Map<String, dynamic>
+_$ComboServiceBizAiFashionNoAuthSelectOptionGet$Response$DataToJson(
+  ComboServiceBizAiFashionNoAuthSelectOptionGet$Response$Data instance,
 ) => <String, dynamic>{
   'selectionList': instance.selectionList?.map((e) => e.toJson()).toList(),
 };
 
-ApiV1StyleOutfitsGenerateModelRegeneratePost$Response$Data
-_$ApiV1StyleOutfitsGenerateModelRegeneratePost$Response$DataFromJson(
+ComboServiceApiV1StyleOutfitsGenerateModelRegeneratePost$Response$Data
+_$ComboServiceApiV1StyleOutfitsGenerateModelRegeneratePost$Response$DataFromJson(
   Map<String, dynamic> json,
-) => ApiV1StyleOutfitsGenerateModelRegeneratePost$Response$Data(
+) => ComboServiceApiV1StyleOutfitsGenerateModelRegeneratePost$Response$Data(
   modelId: json['modelId'] as String?,
   status: json['status'] as String?,
 );
 
 Map<String, dynamic>
-_$ApiV1StyleOutfitsGenerateModelRegeneratePost$Response$DataToJson(
-  ApiV1StyleOutfitsGenerateModelRegeneratePost$Response$Data instance,
+_$ComboServiceApiV1StyleOutfitsGenerateModelRegeneratePost$Response$DataToJson(
+  ComboServiceApiV1StyleOutfitsGenerateModelRegeneratePost$Response$Data
+  instance,
 ) => <String, dynamic>{'modelId': instance.modelId, 'status': instance.status};
 
-ApiV1StyleOutfitsGenerateRegeneratePost$Response$Data
-_$ApiV1StyleOutfitsGenerateRegeneratePost$Response$DataFromJson(
+ComboServiceApiV1StyleOutfitsGenerateRegeneratePost$Response$Data
+_$ComboServiceApiV1StyleOutfitsGenerateRegeneratePost$Response$DataFromJson(
   Map<String, dynamic> json,
-) => ApiV1StyleOutfitsGenerateRegeneratePost$Response$Data(
+) => ComboServiceApiV1StyleOutfitsGenerateRegeneratePost$Response$Data(
   taskId: json['taskId'] as String?,
   status: json['status'] as String?,
 );
 
 Map<String, dynamic>
-_$ApiV1StyleOutfitsGenerateRegeneratePost$Response$DataToJson(
-  ApiV1StyleOutfitsGenerateRegeneratePost$Response$Data instance,
+_$ComboServiceApiV1StyleOutfitsGenerateRegeneratePost$Response$DataToJson(
+  ComboServiceApiV1StyleOutfitsGenerateRegeneratePost$Response$Data instance,
 ) => <String, dynamic>{'taskId': instance.taskId, 'status': instance.status};
 
-BizUserShareRewardPageGet$Response$Data
-_$BizUserShareRewardPageGet$Response$DataFromJson(Map<String, dynamic> json) =>
-    BizUserShareRewardPageGet$Response$Data(
-      records: (json['records'] as List<dynamic>?)
-          ?.map(
-            (e) =>
-                BizUserShareRewardPageGet$Response$Data$Records$Item.fromJson(
-                  e as Map<String, dynamic>,
-                ),
-          )
-          .toList(),
-      total: (json['total'] as num?)?.toDouble(),
-      size: (json['size'] as num?)?.toDouble(),
-      current: (json['current'] as num?)?.toDouble(),
-      pages: (json['pages'] as num?)?.toDouble(),
-    );
+ComboServiceBizUserShareRewardPageGet$Response$Data
+_$ComboServiceBizUserShareRewardPageGet$Response$DataFromJson(
+  Map<String, dynamic> json,
+) => ComboServiceBizUserShareRewardPageGet$Response$Data(
+  records: (json['records'] as List<dynamic>?)
+      ?.map(
+        (e) =>
+            ComboServiceBizUserShareRewardPageGet$Response$Data$Records$Item.fromJson(
+              e as Map<String, dynamic>,
+            ),
+      )
+      .toList(),
+  total: (json['total'] as num?)?.toDouble(),
+  size: (json['size'] as num?)?.toDouble(),
+  current: (json['current'] as num?)?.toDouble(),
+  pages: (json['pages'] as num?)?.toDouble(),
+);
 
-Map<String, dynamic> _$BizUserShareRewardPageGet$Response$DataToJson(
-  BizUserShareRewardPageGet$Response$Data instance,
+Map<String, dynamic>
+_$ComboServiceBizUserShareRewardPageGet$Response$DataToJson(
+  ComboServiceBizUserShareRewardPageGet$Response$Data instance,
 ) => <String, dynamic>{
   'records': instance.records?.map((e) => e.toJson()).toList(),
   'total': instance.total,
@@ -1299,32 +1359,34 @@ Map<String, dynamic> _$BizUserShareRewardPageGet$Response$DataToJson(
   'pages': instance.pages,
 };
 
-NoAuthBizAlbumAlbumInfoGet$Response$Data
-_$NoAuthBizAlbumAlbumInfoGet$Response$DataFromJson(Map<String, dynamic> json) =>
-    NoAuthBizAlbumAlbumInfoGet$Response$Data(
-      albumCode: json['albumCode'] as String?,
-      tenantCode: json['tenantCode'] as String?,
-      name: json['name'] as String?,
-      description: json['description'] as String?,
-      backImg: json['backImg'] as String?,
-      pcImg: json['pcImg'] as String?,
-      related: (json['related'] as List<dynamic>?)
-          ?.map(
-            (e) =>
-                NoAuthBizAlbumAlbumInfoGet$Response$Data$Related$Item.fromJson(
-                  e as Map<String, dynamic>,
-                ),
-          )
-          .toList(),
-      categoryTreeDto: json['categoryTreeDto'] == null
-          ? null
-          : NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto.fromJson(
-              json['categoryTreeDto'] as Map<String, dynamic>,
+ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data
+_$ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$DataFromJson(
+  Map<String, dynamic> json,
+) => ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data(
+  albumCode: json['albumCode'] as String?,
+  tenantCode: json['tenantCode'] as String?,
+  name: json['name'] as String?,
+  description: json['description'] as String?,
+  backImg: json['backImg'] as String?,
+  pcImg: json['pcImg'] as String?,
+  related: (json['related'] as List<dynamic>?)
+      ?.map(
+        (e) =>
+            ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$Related$Item.fromJson(
+              e as Map<String, dynamic>,
             ),
-    );
+      )
+      .toList(),
+  categoryTreeDto: json['categoryTreeDto'] == null
+      ? null
+      : ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto.fromJson(
+          json['categoryTreeDto'] as Map<String, dynamic>,
+        ),
+);
 
-Map<String, dynamic> _$NoAuthBizAlbumAlbumInfoGet$Response$DataToJson(
-  NoAuthBizAlbumAlbumInfoGet$Response$Data instance,
+Map<String, dynamic>
+_$ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$DataToJson(
+  ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data instance,
 ) => <String, dynamic>{
   'albumCode': instance.albumCode,
   'tenantCode': instance.tenantCode,
@@ -1336,28 +1398,28 @@ Map<String, dynamic> _$NoAuthBizAlbumAlbumInfoGet$Response$DataToJson(
   'categoryTreeDto': instance.categoryTreeDto?.toJson(),
 };
 
-NoAuthBizKolKolInfoGet$Response$Data$ExcelLinks$Item
-_$NoAuthBizKolKolInfoGet$Response$Data$ExcelLinks$ItemFromJson(
+ComboServiceNoAuthBizKolKolInfoGet$Response$Data$ExcelLinks$Item
+_$ComboServiceNoAuthBizKolKolInfoGet$Response$Data$ExcelLinks$ItemFromJson(
   Map<String, dynamic> json,
-) => NoAuthBizKolKolInfoGet$Response$Data$ExcelLinks$Item(
+) => ComboServiceNoAuthBizKolKolInfoGet$Response$Data$ExcelLinks$Item(
   title: json['title'] as String,
   excelLink: json['excelLink'] as String,
   desc: json['desc'] as String,
 );
 
 Map<String, dynamic>
-_$NoAuthBizKolKolInfoGet$Response$Data$ExcelLinks$ItemToJson(
-  NoAuthBizKolKolInfoGet$Response$Data$ExcelLinks$Item instance,
+_$ComboServiceNoAuthBizKolKolInfoGet$Response$Data$ExcelLinks$ItemToJson(
+  ComboServiceNoAuthBizKolKolInfoGet$Response$Data$ExcelLinks$Item instance,
 ) => <String, dynamic>{
   'title': instance.title,
   'excelLink': instance.excelLink,
   'desc': instance.desc,
 };
 
-NoAuthPopupPromiseGet$Response$Data$Content$Item
-_$NoAuthPopupPromiseGet$Response$Data$Content$ItemFromJson(
+ComboServiceNoAuthPopupPromiseGet$Response$Data$Content$Item
+_$ComboServiceNoAuthPopupPromiseGet$Response$Data$Content$ItemFromJson(
   Map<String, dynamic> json,
-) => NoAuthPopupPromiseGet$Response$Data$Content$Item(
+) => ComboServiceNoAuthPopupPromiseGet$Response$Data$Content$Item(
   title: json['title'] as String,
   icon: json['icon'] as String,
   paragraphs:
@@ -1372,8 +1434,9 @@ _$NoAuthPopupPromiseGet$Response$Data$Content$ItemFromJson(
   schemaText: json['schemaText'] as String,
 );
 
-Map<String, dynamic> _$NoAuthPopupPromiseGet$Response$Data$Content$ItemToJson(
-  NoAuthPopupPromiseGet$Response$Data$Content$Item instance,
+Map<String, dynamic>
+_$ComboServiceNoAuthPopupPromiseGet$Response$Data$Content$ItemToJson(
+  ComboServiceNoAuthPopupPromiseGet$Response$Data$Content$Item instance,
 ) => <String, dynamic>{
   'title': instance.title,
   'icon': instance.icon,
@@ -1383,10 +1446,10 @@ Map<String, dynamic> _$NoAuthPopupPromiseGet$Response$Data$Content$ItemToJson(
   'schemaText': instance.schemaText,
 };
 
-BizCommunityPostLikedGet$Response$Data$Posts$Item
-_$BizCommunityPostLikedGet$Response$Data$Posts$ItemFromJson(
+ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item
+_$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$ItemFromJson(
   Map<String, dynamic> json,
-) => BizCommunityPostLikedGet$Response$Data$Posts$Item(
+) => ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item(
   postId: (json['postId'] as num?)?.toInt(),
   postCode: json['postCode'] as String?,
   tenantCode: json['tenantCode'] as String?,
@@ -1407,7 +1470,7 @@ _$BizCommunityPostLikedGet$Response$Data$Posts$ItemFromJson(
   products: (json['products'] as List<dynamic>?)
       ?.map(
         (e) =>
-            BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item.fromJson(
+            ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item.fromJson(
               e as Map<String, dynamic>,
             ),
       )
@@ -1419,8 +1482,9 @@ _$BizCommunityPostLikedGet$Response$Data$Posts$ItemFromJson(
       : DateTime.parse(json['publishTime'] as String),
 );
 
-Map<String, dynamic> _$BizCommunityPostLikedGet$Response$Data$Posts$ItemToJson(
-  BizCommunityPostLikedGet$Response$Data$Posts$Item instance,
+Map<String, dynamic>
+_$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$ItemToJson(
+  ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item instance,
 ) => <String, dynamic>{
   'postId': instance.postId,
   'postCode': instance.postCode,
@@ -1437,10 +1501,10 @@ Map<String, dynamic> _$BizCommunityPostLikedGet$Response$Data$Posts$ItemToJson(
   'publishTime': instance.publishTime?.toIso8601String(),
 };
 
-BizCommunityPostNoAuthListGet$Response$Data$Posts$Item
-_$BizCommunityPostNoAuthListGet$Response$Data$Posts$ItemFromJson(
+ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item
+_$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$ItemFromJson(
   Map<String, dynamic> json,
-) => BizCommunityPostNoAuthListGet$Response$Data$Posts$Item(
+) => ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item(
   postId: (json['postId'] as num?)?.toInt(),
   postCode: json['postCode'] as String?,
   tenantCode: json['tenantCode'] as String?,
@@ -1461,7 +1525,7 @@ _$BizCommunityPostNoAuthListGet$Response$Data$Posts$ItemFromJson(
   products: (json['products'] as List<dynamic>?)
       ?.map(
         (e) =>
-            BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item.fromJson(
+            ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item.fromJson(
               e as Map<String, dynamic>,
             ),
       )
@@ -1474,8 +1538,8 @@ _$BizCommunityPostNoAuthListGet$Response$Data$Posts$ItemFromJson(
 );
 
 Map<String, dynamic>
-_$BizCommunityPostNoAuthListGet$Response$Data$Posts$ItemToJson(
-  BizCommunityPostNoAuthListGet$Response$Data$Posts$Item instance,
+_$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$ItemToJson(
+  ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item instance,
 ) => <String, dynamic>{
   'postId': instance.postId,
   'postCode': instance.postCode,
@@ -1492,10 +1556,10 @@ _$BizCommunityPostNoAuthListGet$Response$Data$Posts$ItemToJson(
   'publishTime': instance.publishTime?.toIso8601String(),
 };
 
-BizAiFashionNoAuthBodyShapeGet$Response$Data$Female$Item
-_$BizAiFashionNoAuthBodyShapeGet$Response$Data$Female$ItemFromJson(
+ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data$Female$Item
+_$ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data$Female$ItemFromJson(
   Map<String, dynamic> json,
-) => BizAiFashionNoAuthBodyShapeGet$Response$Data$Female$Item(
+) => ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data$Female$Item(
   age: json['age'] as String,
   glass: json['glass'] as String,
   body: json['body'] as String,
@@ -1507,8 +1571,8 @@ _$BizAiFashionNoAuthBodyShapeGet$Response$Data$Female$ItemFromJson(
 );
 
 Map<String, dynamic>
-_$BizAiFashionNoAuthBodyShapeGet$Response$Data$Female$ItemToJson(
-  BizAiFashionNoAuthBodyShapeGet$Response$Data$Female$Item instance,
+_$ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data$Female$ItemToJson(
+  ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data$Female$Item instance,
 ) => <String, dynamic>{
   'age': instance.age,
   'glass': instance.glass,
@@ -1520,10 +1584,10 @@ _$BizAiFashionNoAuthBodyShapeGet$Response$Data$Female$ItemToJson(
   'image': instance.image,
 };
 
-BizAiFashionNoAuthBodyShapeGet$Response$Data$Male$Item
-_$BizAiFashionNoAuthBodyShapeGet$Response$Data$Male$ItemFromJson(
+ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data$Male$Item
+_$ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data$Male$ItemFromJson(
   Map<String, dynamic> json,
-) => BizAiFashionNoAuthBodyShapeGet$Response$Data$Male$Item(
+) => ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data$Male$Item(
   age: json['age'] as String,
   glass: json['glass'] as String,
   body: json['body'] as String,
@@ -1535,8 +1599,8 @@ _$BizAiFashionNoAuthBodyShapeGet$Response$Data$Male$ItemFromJson(
 );
 
 Map<String, dynamic>
-_$BizAiFashionNoAuthBodyShapeGet$Response$Data$Male$ItemToJson(
-  BizAiFashionNoAuthBodyShapeGet$Response$Data$Male$Item instance,
+_$ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data$Male$ItemToJson(
+  ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data$Male$Item instance,
 ) => <String, dynamic>{
   'age': instance.age,
   'glass': instance.glass,
@@ -1548,10 +1612,10 @@ _$BizAiFashionNoAuthBodyShapeGet$Response$Data$Male$ItemToJson(
   'image': instance.image,
 };
 
-ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item
-_$ApiV1StyleOutfitsResultPageGet$Response$Data$Records$ItemFromJson(
+ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item
+_$ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$ItemFromJson(
   Map<String, dynamic> json,
-) => ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item(
+) => ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item(
   taskId: json['taskId'] as String?,
   status: json['status'] as String?,
   count: (json['count'] as num?)?.toDouble(),
@@ -1560,7 +1624,7 @@ _$ApiV1StyleOutfitsResultPageGet$Response$Data$Records$ItemFromJson(
   totalDuration: (json['totalDuration'] as num?)?.toDouble(),
   requestParams: json['requestParams'] == null
       ? null
-      : ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$RequestParams.fromJson(
+      : ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$RequestParams.fromJson(
           json['requestParams'] as Map<String, dynamic>,
         ),
   images:
@@ -1574,7 +1638,7 @@ _$ApiV1StyleOutfitsResultPageGet$Response$Data$Records$ItemFromJson(
   productLinks: (json['productLinks'] as List<dynamic>?)
       ?.map(
         (e) =>
-            ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item.fromJson(
+            ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item.fromJson(
               e as Map<String, dynamic>,
             ),
       )
@@ -1582,19 +1646,20 @@ _$ApiV1StyleOutfitsResultPageGet$Response$Data$Records$ItemFromJson(
   generationTime: json['generationTime'] as String?,
   sharingImages: json['sharingImages'] == null
       ? null
-      : ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages.fromJson(
+      : ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages.fromJson(
           json['sharingImages'] as Map<String, dynamic>,
         ),
   sharingImagesStatus: json['sharingImagesStatus'] == null
       ? null
-      : ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImagesStatus.fromJson(
+      : ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImagesStatus.fromJson(
           json['sharingImagesStatus'] as Map<String, dynamic>,
         ),
 );
 
 Map<String, dynamic>
-_$ApiV1StyleOutfitsResultPageGet$Response$Data$Records$ItemToJson(
-  ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item instance,
+_$ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$ItemToJson(
+  ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item
+  instance,
 ) => <String, dynamic>{
   'taskId': instance.taskId,
   'status': instance.status,
@@ -1615,23 +1680,25 @@ _$ApiV1StyleOutfitsResultPageGet$Response$Data$Records$ItemToJson(
   'sharingImagesStatus': instance.sharingImagesStatus?.toJson(),
 };
 
-ApiV1StyleOutfitsModelIdStatusGet$Response$Data$GeneratedModels$Item
-_$ApiV1StyleOutfitsModelIdStatusGet$Response$Data$GeneratedModels$ItemFromJson(
+ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response$Data$GeneratedModels$Item
+_$ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response$Data$GeneratedModels$ItemFromJson(
   Map<String, dynamic> json,
-) => ApiV1StyleOutfitsModelIdStatusGet$Response$Data$GeneratedModels$Item(
-  index: (json['index'] as num).toDouble(),
-  url: json['url'] as String,
-);
+) =>
+    ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response$Data$GeneratedModels$Item(
+      index: (json['index'] as num).toDouble(),
+      url: json['url'] as String,
+    );
 
 Map<String, dynamic>
-_$ApiV1StyleOutfitsModelIdStatusGet$Response$Data$GeneratedModels$ItemToJson(
-  ApiV1StyleOutfitsModelIdStatusGet$Response$Data$GeneratedModels$Item instance,
+_$ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response$Data$GeneratedModels$ItemToJson(
+  ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response$Data$GeneratedModels$Item
+  instance,
 ) => <String, dynamic>{'index': instance.index, 'url': instance.url};
 
-ApiV1StyleOutfitsResultGet$Response$Data$RequestParams
-_$ApiV1StyleOutfitsResultGet$Response$Data$RequestParamsFromJson(
+ComboServiceApiV1StyleOutfitsResultGet$Response$Data$RequestParams
+_$ComboServiceApiV1StyleOutfitsResultGet$Response$Data$RequestParamsFromJson(
   Map<String, dynamic> json,
-) => ApiV1StyleOutfitsResultGet$Response$Data$RequestParams(
+) => ComboServiceApiV1StyleOutfitsResultGet$Response$Data$RequestParams(
   referenceImages:
       (json['referenceImages'] as List<dynamic>?)
           ?.map((e) => e as String)
@@ -1652,8 +1719,8 @@ _$ApiV1StyleOutfitsResultGet$Response$Data$RequestParamsFromJson(
 );
 
 Map<String, dynamic>
-_$ApiV1StyleOutfitsResultGet$Response$Data$RequestParamsToJson(
-  ApiV1StyleOutfitsResultGet$Response$Data$RequestParams instance,
+_$ComboServiceApiV1StyleOutfitsResultGet$Response$Data$RequestParamsToJson(
+  ComboServiceApiV1StyleOutfitsResultGet$Response$Data$RequestParams instance,
 ) => <String, dynamic>{
   'referenceImages': instance.referenceImages,
   'customPrompt': instance.customPrompt,
@@ -1670,10 +1737,10 @@ _$ApiV1StyleOutfitsResultGet$Response$Data$RequestParamsToJson(
   'useMultiModelImage': instance.useMultiModelImage,
 };
 
-ApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item
-_$ApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$ItemFromJson(
+ComboServiceApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item
+_$ComboServiceApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$ItemFromJson(
   Map<String, dynamic> json,
-) => ApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item(
+) => ComboServiceApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item(
   name: json['name'] as String?,
   title: json['title'] as String?,
   link: json['link'] as String?,
@@ -1686,7 +1753,7 @@ _$ApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$ItemFromJson(
   options: (json['options'] as List<dynamic>?)
       ?.map(
         (e) =>
-            ApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item$Options$Item.fromJson(
+            ComboServiceApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item$Options$Item.fromJson(
               e as Map<String, dynamic>,
             ),
       )
@@ -1698,8 +1765,9 @@ _$ApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$ItemFromJson(
 );
 
 Map<String, dynamic>
-_$ApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$ItemToJson(
-  ApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item instance,
+_$ComboServiceApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$ItemToJson(
+  ComboServiceApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item
+  instance,
 ) => <String, dynamic>{
   'name': instance.name,
   'title': instance.title,
@@ -1717,15 +1785,15 @@ _$ApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$ItemToJson(
   'cachedImageUpdatedAt': instance.cachedImageUpdatedAt,
 };
 
-ApiV1StyleOutfitsResultGet$Response$Data$SharingImages
-_$ApiV1StyleOutfitsResultGet$Response$Data$SharingImagesFromJson(
+ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages
+_$ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImagesFromJson(
   Map<String, dynamic> json,
-) => ApiV1StyleOutfitsResultGet$Response$Data$SharingImages(
+) => ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages(
   title: json['title'] as String?,
   items: (json['items'] as List<dynamic>?)
       ?.map(
         (e) =>
-            ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item.fromJson(
+            ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item.fromJson(
               e as Map<String, dynamic>,
             ),
       )
@@ -1740,7 +1808,7 @@ _$ApiV1StyleOutfitsResultGet$Response$Data$SharingImagesFromJson(
   images: (json['images'] as List<dynamic>?)
       ?.map(
         (e) =>
-            ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Images$Item.fromJson(
+            ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Images$Item.fromJson(
               e as Map<String, dynamic>,
             ),
       )
@@ -1748,8 +1816,8 @@ _$ApiV1StyleOutfitsResultGet$Response$Data$SharingImagesFromJson(
 );
 
 Map<String, dynamic>
-_$ApiV1StyleOutfitsResultGet$Response$Data$SharingImagesToJson(
-  ApiV1StyleOutfitsResultGet$Response$Data$SharingImages instance,
+_$ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImagesToJson(
+  ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages instance,
 ) => <String, dynamic>{
   'title': instance.title,
   'items': instance.items?.map((e) => e.toJson()).toList(),
@@ -1759,81 +1827,85 @@ _$ApiV1StyleOutfitsResultGet$Response$Data$SharingImagesToJson(
   'images': instance.images?.map((e) => e.toJson()).toList(),
 };
 
-ApiV1StyleOutfitsResultGet$Response$Data$SharingImagesStatus
-_$ApiV1StyleOutfitsResultGet$Response$Data$SharingImagesStatusFromJson(
+ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImagesStatus
+_$ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImagesStatusFromJson(
   Map<String, dynamic> json,
-) => ApiV1StyleOutfitsResultGet$Response$Data$SharingImagesStatus(
+) => ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImagesStatus(
   ready: json['ready'] as bool?,
   count: (json['count'] as num?)?.toDouble(),
 );
 
 Map<String, dynamic>
-_$ApiV1StyleOutfitsResultGet$Response$Data$SharingImagesStatusToJson(
-  ApiV1StyleOutfitsResultGet$Response$Data$SharingImagesStatus instance,
+_$ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImagesStatusToJson(
+  ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImagesStatus
+  instance,
 ) => <String, dynamic>{'ready': instance.ready, 'count': instance.count};
 
-BizAiFashionModelListGet$Response$Data$Models$Item
-_$BizAiFashionModelListGet$Response$Data$Models$ItemFromJson(
+ComboServiceBizAiFashionModelListGet$Response$Data$Models$Item
+_$ComboServiceBizAiFashionModelListGet$Response$Data$Models$ItemFromJson(
   Map<String, dynamic> json,
-) => BizAiFashionModelListGet$Response$Data$Models$Item(
+) => ComboServiceBizAiFashionModelListGet$Response$Data$Models$Item(
   groupId: (json['groupId'] as num?)?.toDouble(),
   title: json['title'] as String?,
   data: (json['data'] as List<dynamic>?)
       ?.map(
         (e) =>
-            BizAiFashionModelListGet$Response$Data$Models$Item$Data$Item.fromJson(
+            ComboServiceBizAiFashionModelListGet$Response$Data$Models$Item$Data$Item.fromJson(
               e as Map<String, dynamic>,
             ),
       )
       .toList(),
 );
 
-Map<String, dynamic> _$BizAiFashionModelListGet$Response$Data$Models$ItemToJson(
-  BizAiFashionModelListGet$Response$Data$Models$Item instance,
+Map<String, dynamic>
+_$ComboServiceBizAiFashionModelListGet$Response$Data$Models$ItemToJson(
+  ComboServiceBizAiFashionModelListGet$Response$Data$Models$Item instance,
 ) => <String, dynamic>{
   'groupId': instance.groupId,
   'title': instance.title,
   'data': instance.data?.map((e) => e.toJson()).toList(),
 };
 
-BizAiFashionNoAuthStylePresetGet$Response$Data$ReferenceImages$Item
-_$BizAiFashionNoAuthStylePresetGet$Response$Data$ReferenceImages$ItemFromJson(
+ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$ReferenceImages$Item
+_$ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$ReferenceImages$ItemFromJson(
   Map<String, dynamic> json,
-) => BizAiFashionNoAuthStylePresetGet$Response$Data$ReferenceImages$Item(
-  width: (json['width'] as num).toInt(),
-  height: (json['height'] as num).toInt(),
-  url: json['url'] as String,
-);
+) =>
+    ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$ReferenceImages$Item(
+      width: (json['width'] as num).toInt(),
+      height: (json['height'] as num).toInt(),
+      url: json['url'] as String,
+    );
 
 Map<String, dynamic>
-_$BizAiFashionNoAuthStylePresetGet$Response$Data$ReferenceImages$ItemToJson(
-  BizAiFashionNoAuthStylePresetGet$Response$Data$ReferenceImages$Item instance,
+_$ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$ReferenceImages$ItemToJson(
+  ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$ReferenceImages$Item
+  instance,
 ) => <String, dynamic>{
   'width': instance.width,
   'height': instance.height,
   'url': instance.url,
 };
 
-BizAiFashionNoAuthStylePresetGet$Response$Data$Option
-_$BizAiFashionNoAuthStylePresetGet$Response$Data$OptionFromJson(
+ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$Option
+_$ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$OptionFromJson(
   Map<String, dynamic> json,
-) => BizAiFashionNoAuthStylePresetGet$Response$Data$Option(
+) => ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$Option(
   occasion: json['occasion'] as String?,
   styleTrendyElements: json['styleTrendyElements'] as String?,
 );
 
 Map<String, dynamic>
-_$BizAiFashionNoAuthStylePresetGet$Response$Data$OptionToJson(
-  BizAiFashionNoAuthStylePresetGet$Response$Data$Option instance,
+_$ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$OptionToJson(
+  ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$Option instance,
 ) => <String, dynamic>{
   'occasion': instance.occasion,
   'styleTrendyElements': instance.styleTrendyElements,
 };
 
-BizAiFashionNoAuthStylePresetGet$Response$Data$ModelInfo
-_$BizAiFashionNoAuthStylePresetGet$Response$Data$ModelInfoFromJson(
+ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$ModelInfo
+_$ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$ModelInfoFromJson(
   Map<String, dynamic> json,
-) => BizAiFashionNoAuthStylePresetGet$Response$Data$ModelInfo(
+) => ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$ModelInfo(
   id: (json['id'] as num?)?.toInt(),
   tenantCode: json['tenantCode'] as String?,
   userId: json['userId'] as String?,
@@ -1853,8 +1925,8 @@ _$BizAiFashionNoAuthStylePresetGet$Response$Data$ModelInfoFromJson(
 );
 
 Map<String, dynamic>
-_$BizAiFashionNoAuthStylePresetGet$Response$Data$ModelInfoToJson(
-  BizAiFashionNoAuthStylePresetGet$Response$Data$ModelInfo instance,
+_$ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$ModelInfoToJson(
+  ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$ModelInfo instance,
 ) => <String, dynamic>{
   'id': instance.id,
   'tenantCode': instance.tenantCode,
@@ -1870,14 +1942,14 @@ _$BizAiFashionNoAuthStylePresetGet$Response$Data$ModelInfoToJson(
   'groupId': instance.groupId,
 };
 
-BizAiFashionNoAuthPostListGet$Response$Data$Posts$Item
-_$BizAiFashionNoAuthPostListGet$Response$Data$Posts$ItemFromJson(
+ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item
+_$ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$ItemFromJson(
   Map<String, dynamic> json,
-) => BizAiFashionNoAuthPostListGet$Response$Data$Posts$Item(
+) => ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item(
   images: (json['images'] as List<dynamic>?)
       ?.map(
         (e) =>
-            BizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$Images$Item.fromJson(
+            ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$Images$Item.fromJson(
               e as Map<String, dynamic>,
             ),
       )
@@ -1887,14 +1959,14 @@ _$BizAiFashionNoAuthPostListGet$Response$Data$Posts$ItemFromJson(
   postId: (json['postId'] as num?)?.toDouble(),
   frontImage: json['frontImage'] == null
       ? null
-      : BizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$FrontImage.fromJson(
+      : ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$FrontImage.fromJson(
           json['frontImage'] as Map<String, dynamic>,
         ),
 );
 
 Map<String, dynamic>
-_$BizAiFashionNoAuthPostListGet$Response$Data$Posts$ItemToJson(
-  BizAiFashionNoAuthPostListGet$Response$Data$Posts$Item instance,
+_$ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$ItemToJson(
+  ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item instance,
 ) => <String, dynamic>{
   'images': instance.images?.map((e) => e.toJson()).toList(),
   'prompt': instance.prompt,
@@ -1903,100 +1975,104 @@ _$BizAiFashionNoAuthPostListGet$Response$Data$Posts$ItemToJson(
   'frontImage': instance.frontImage?.toJson(),
 };
 
-BizAiFashionNoAuthPostDetailGet$Response$Data$FrontImage
-_$BizAiFashionNoAuthPostDetailGet$Response$Data$FrontImageFromJson(
+ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FrontImage
+_$ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FrontImageFromJson(
   Map<String, dynamic> json,
-) => BizAiFashionNoAuthPostDetailGet$Response$Data$FrontImage(
+) => ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FrontImage(
   width: (json['width'] as num?)?.toDouble(),
   height: (json['height'] as num?)?.toDouble(),
   url: json['url'] as String?,
 );
 
 Map<String, dynamic>
-_$BizAiFashionNoAuthPostDetailGet$Response$Data$FrontImageToJson(
-  BizAiFashionNoAuthPostDetailGet$Response$Data$FrontImage instance,
+_$ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FrontImageToJson(
+  ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FrontImage instance,
 ) => <String, dynamic>{
   'width': instance.width,
   'height': instance.height,
   'url': instance.url,
 };
 
-BizAiFashionNoAuthPostDetailGet$Response$Data$HeaderImage
-_$BizAiFashionNoAuthPostDetailGet$Response$Data$HeaderImageFromJson(
+ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$HeaderImage
+_$ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$HeaderImageFromJson(
   Map<String, dynamic> json,
-) => BizAiFashionNoAuthPostDetailGet$Response$Data$HeaderImage(
+) => ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$HeaderImage(
   width: (json['width'] as num?)?.toDouble(),
   height: (json['height'] as num?)?.toDouble(),
   url: json['url'] as String?,
 );
 
 Map<String, dynamic>
-_$BizAiFashionNoAuthPostDetailGet$Response$Data$HeaderImageToJson(
-  BizAiFashionNoAuthPostDetailGet$Response$Data$HeaderImage instance,
+_$ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$HeaderImageToJson(
+  ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$HeaderImage
+  instance,
 ) => <String, dynamic>{
   'width': instance.width,
   'height': instance.height,
   'url': instance.url,
 };
 
-BizAiFashionNoAuthPostDetailGet$Response$Data$ModelImage
-_$BizAiFashionNoAuthPostDetailGet$Response$Data$ModelImageFromJson(
+ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$ModelImage
+_$ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$ModelImageFromJson(
   Map<String, dynamic> json,
-) => BizAiFashionNoAuthPostDetailGet$Response$Data$ModelImage(
+) => ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$ModelImage(
   url: json['url'] as String?,
   height: (json['height'] as num?)?.toDouble(),
   width: (json['width'] as num?)?.toDouble(),
 );
 
 Map<String, dynamic>
-_$BizAiFashionNoAuthPostDetailGet$Response$Data$ModelImageToJson(
-  BizAiFashionNoAuthPostDetailGet$Response$Data$ModelImage instance,
+_$ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$ModelImageToJson(
+  ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$ModelImage instance,
 ) => <String, dynamic>{
   'url': instance.url,
   'height': instance.height,
   'width': instance.width,
 };
 
-BizAiFashionNoAuthPostDetailGet$Response$Data$Images$Item
-_$BizAiFashionNoAuthPostDetailGet$Response$Data$Images$ItemFromJson(
+ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$Images$Item
+_$ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$Images$ItemFromJson(
   Map<String, dynamic> json,
-) => BizAiFashionNoAuthPostDetailGet$Response$Data$Images$Item(
+) => ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$Images$Item(
   width: (json['width'] as num).toDouble(),
   height: (json['height'] as num).toDouble(),
   url: json['url'] as String,
 );
 
 Map<String, dynamic>
-_$BizAiFashionNoAuthPostDetailGet$Response$Data$Images$ItemToJson(
-  BizAiFashionNoAuthPostDetailGet$Response$Data$Images$Item instance,
+_$ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$Images$ItemToJson(
+  ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$Images$Item
+  instance,
 ) => <String, dynamic>{
   'width': instance.width,
   'height': instance.height,
   'url': instance.url,
 };
 
-BizAiFashionNoAuthPostDetailGet$Response$Data$FooterImages$Item
-_$BizAiFashionNoAuthPostDetailGet$Response$Data$FooterImages$ItemFromJson(
+ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FooterImages$Item
+_$ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FooterImages$ItemFromJson(
   Map<String, dynamic> json,
-) => BizAiFashionNoAuthPostDetailGet$Response$Data$FooterImages$Item(
-  width: (json['width'] as num).toDouble(),
-  height: (json['height'] as num).toDouble(),
-  url: json['url'] as String,
-);
+) =>
+    ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FooterImages$Item(
+      width: (json['width'] as num).toDouble(),
+      height: (json['height'] as num).toDouble(),
+      url: json['url'] as String,
+    );
 
 Map<String, dynamic>
-_$BizAiFashionNoAuthPostDetailGet$Response$Data$FooterImages$ItemToJson(
-  BizAiFashionNoAuthPostDetailGet$Response$Data$FooterImages$Item instance,
+_$ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FooterImages$ItemToJson(
+  ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FooterImages$Item
+  instance,
 ) => <String, dynamic>{
   'width': instance.width,
   'height': instance.height,
   'url': instance.url,
 };
 
-BizAiFashionNoAuthPostDetailGet$Response$Data$Option
-_$BizAiFashionNoAuthPostDetailGet$Response$Data$OptionFromJson(
+ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$Option
+_$ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$OptionFromJson(
   Map<String, dynamic> json,
-) => BizAiFashionNoAuthPostDetailGet$Response$Data$Option(
+) => ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$Option(
   category: json['category'] as String?,
   styleTrendyElements: json['styleTrendyElements'] as String?,
   gender: json['gender'] as String?,
@@ -2014,8 +2090,8 @@ _$BizAiFashionNoAuthPostDetailGet$Response$Data$OptionFromJson(
 );
 
 Map<String, dynamic>
-_$BizAiFashionNoAuthPostDetailGet$Response$Data$OptionToJson(
-  BizAiFashionNoAuthPostDetailGet$Response$Data$Option instance,
+_$ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$OptionToJson(
+  ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$Option instance,
 ) => <String, dynamic>{
   'category': instance.category,
   'styleTrendyElements': instance.styleTrendyElements,
@@ -2033,15 +2109,15 @@ _$BizAiFashionNoAuthPostDetailGet$Response$Data$OptionToJson(
   'skinColor': instance.skinColor,
 };
 
-BizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$Item
-_$BizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$ItemFromJson(
+ComboServiceBizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$Item
+_$ComboServiceBizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$ItemFromJson(
   Map<String, dynamic> json,
-) => BizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$Item(
+) => ComboServiceBizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$Item(
   key: json['key'] as String?,
   data: (json['data'] as List<dynamic>?)
       ?.map(
         (e) =>
-            BizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$Item$Data$Item.fromJson(
+            ComboServiceBizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$Item$Data$Item.fromJson(
               e as Map<String, dynamic>,
             ),
       )
@@ -2049,17 +2125,18 @@ _$BizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$ItemFromJson(
 );
 
 Map<String, dynamic>
-_$BizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$ItemToJson(
-  BizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$Item instance,
+_$ComboServiceBizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$ItemToJson(
+  ComboServiceBizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$Item
+  instance,
 ) => <String, dynamic>{
   'key': instance.key,
   'data': instance.data?.map((e) => e.toJson()).toList(),
 };
 
-BizUserShareRewardPageGet$Response$Data$Records$Item
-_$BizUserShareRewardPageGet$Response$Data$Records$ItemFromJson(
+ComboServiceBizUserShareRewardPageGet$Response$Data$Records$Item
+_$ComboServiceBizUserShareRewardPageGet$Response$Data$Records$ItemFromJson(
   Map<String, dynamic> json,
-) => BizUserShareRewardPageGet$Response$Data$Records$Item(
+) => ComboServiceBizUserShareRewardPageGet$Response$Data$Records$Item(
   rewardId: json['rewardId'] as String?,
   userId: json['userId'] as String?,
   content: json['content'] as String?,
@@ -2071,8 +2148,8 @@ _$BizUserShareRewardPageGet$Response$Data$Records$ItemFromJson(
 );
 
 Map<String, dynamic>
-_$BizUserShareRewardPageGet$Response$Data$Records$ItemToJson(
-  BizUserShareRewardPageGet$Response$Data$Records$Item instance,
+_$ComboServiceBizUserShareRewardPageGet$Response$Data$Records$ItemToJson(
+  ComboServiceBizUserShareRewardPageGet$Response$Data$Records$Item instance,
 ) => <String, dynamic>{
   'rewardId': instance.rewardId,
   'userId': instance.userId,
@@ -2084,10 +2161,10 @@ _$BizUserShareRewardPageGet$Response$Data$Records$ItemToJson(
   'rewardTime': instance.rewardTime,
 };
 
-NoAuthBizAlbumAlbumInfoGet$Response$Data$Related$Item
-_$NoAuthBizAlbumAlbumInfoGet$Response$Data$Related$ItemFromJson(
+ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$Related$Item
+_$ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$Related$ItemFromJson(
   Map<String, dynamic> json,
-) => NoAuthBizAlbumAlbumInfoGet$Response$Data$Related$Item(
+) => ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$Related$Item(
   albumCode: json['albumCode'] as String?,
   tenantCode: json['tenantCode'] as String?,
   name: json['name'] as String?,
@@ -2096,8 +2173,8 @@ _$NoAuthBizAlbumAlbumInfoGet$Response$Data$Related$ItemFromJson(
 );
 
 Map<String, dynamic>
-_$NoAuthBizAlbumAlbumInfoGet$Response$Data$Related$ItemToJson(
-  NoAuthBizAlbumAlbumInfoGet$Response$Data$Related$Item instance,
+_$ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$Related$ItemToJson(
+  ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$Related$Item instance,
 ) => <String, dynamic>{
   'albumCode': instance.albumCode,
   'tenantCode': instance.tenantCode,
@@ -2106,14 +2183,14 @@ _$NoAuthBizAlbumAlbumInfoGet$Response$Data$Related$ItemToJson(
   'backImg': instance.backImg,
 };
 
-NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto
-_$NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDtoFromJson(
+ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto
+_$ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDtoFromJson(
   Map<String, dynamic> json,
-) => NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto(
+) => ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto(
   categoryList: (json['categoryList'] as List<dynamic>)
       .map(
         (e) =>
-            NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item.fromJson(
+            ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item.fromJson(
               e as Map<String, dynamic>,
             ),
       )
@@ -2121,16 +2198,16 @@ _$NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDtoFromJson(
 );
 
 Map<String, dynamic>
-_$NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDtoToJson(
-  NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto instance,
+_$ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDtoToJson(
+  ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto instance,
 ) => <String, dynamic>{
   'categoryList': instance.categoryList.map((e) => e.toJson()).toList(),
 };
 
-BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item
-_$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$ItemFromJson(
+ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item
+_$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$ItemFromJson(
   Map<String, dynamic> json,
-) => BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item(
+) => ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item(
   shopCode: json['shopCode'] as String?,
   productCode: json['productCode'] as String?,
   productName: json['productName'] as String?,
@@ -2139,7 +2216,7 @@ _$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$ItemFromJson(
   mainImg: (json['mainImg'] as List<dynamic>?)
       ?.map(
         (e) =>
-            BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainImg$Item.fromJson(
+            ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainImg$Item.fromJson(
               e as Map<String, dynamic>,
             ),
       )
@@ -2147,7 +2224,7 @@ _$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$ItemFromJson(
   subImg: (json['subImg'] as List<dynamic>?)
       ?.map(
         (e) =>
-            BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$SubImg$Item.fromJson(
+            ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$SubImg$Item.fromJson(
               e as Map<String, dynamic>,
             ),
       )
@@ -2155,7 +2232,7 @@ _$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$ItemFromJson(
   mainVideo: (json['mainVideo'] as List<dynamic>?)
       ?.map(
         (e) =>
-            BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainVideo$Item.fromJson(
+            ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainVideo$Item.fromJson(
               e as Map<String, dynamic>,
             ),
       )
@@ -2163,7 +2240,7 @@ _$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$ItemFromJson(
   imgCollection: (json['imgCollection'] as List<dynamic>?)
       ?.map(
         (e) =>
-            BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgCollection$Item.fromJson(
+            ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgCollection$Item.fromJson(
               e as Map<String, dynamic>,
             ),
       )
@@ -2172,7 +2249,7 @@ _$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$ItemFromJson(
   imgDetail: (json['imgDetail'] as List<dynamic>?)
       ?.map(
         (e) =>
-            BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgDetail$Item.fromJson(
+            ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgDetail$Item.fromJson(
               e as Map<String, dynamic>,
             ),
       )
@@ -2186,7 +2263,7 @@ _$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$ItemFromJson(
   productOptions: (json['productOptions'] as List<dynamic>?)
       ?.map(
         (e) =>
-            BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item.fromJson(
+            ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item.fromJson(
               e as Map<String, dynamic>,
             ),
       )
@@ -2194,7 +2271,7 @@ _$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$ItemFromJson(
   productAttrs: (json['productAttrs'] as List<dynamic>?)
       ?.map(
         (e) =>
-            BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$Item.fromJson(
+            ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$Item.fromJson(
               e as Map<String, dynamic>,
             ),
       )
@@ -2215,7 +2292,7 @@ _$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$ItemFromJson(
   inspectImages: (json['inspectImages'] as List<dynamic>?)
       ?.map(
         (e) =>
-            BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item.fromJson(
+            ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item.fromJson(
               e as Map<String, dynamic>,
             ),
       )
@@ -2223,7 +2300,7 @@ _$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$ItemFromJson(
   tags: (json['tags'] as List<dynamic>?)
       ?.map(
         (e) =>
-            BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$Tags$Item.fromJson(
+            ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$Tags$Item.fromJson(
               e as Map<String, dynamic>,
             ),
       )
@@ -2231,8 +2308,9 @@ _$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$ItemFromJson(
 );
 
 Map<String, dynamic>
-_$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$ItemToJson(
-  BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item instance,
+_$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$ItemToJson(
+  ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item
+  instance,
 ) => <String, dynamic>{
   'shopCode': instance.shopCode,
   'productCode': instance.productCode,
@@ -2266,10 +2344,10 @@ _$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$ItemToJson(
   'tags': instance.tags?.map((e) => e.toJson()).toList(),
 };
 
-BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item
-_$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$ItemFromJson(
+ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item
+_$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$ItemFromJson(
   Map<String, dynamic> json,
-) => BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item(
+) => ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item(
   shopCode: json['shopCode'] as String?,
   productCode: json['productCode'] as String?,
   productName: json['productName'] as String?,
@@ -2278,7 +2356,7 @@ _$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$ItemFromJson(
   mainImg: (json['mainImg'] as List<dynamic>?)
       ?.map(
         (e) =>
-            BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainImg$Item.fromJson(
+            ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainImg$Item.fromJson(
               e as Map<String, dynamic>,
             ),
       )
@@ -2286,7 +2364,7 @@ _$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$ItemFromJson(
   subImg: (json['subImg'] as List<dynamic>?)
       ?.map(
         (e) =>
-            BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$SubImg$Item.fromJson(
+            ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$SubImg$Item.fromJson(
               e as Map<String, dynamic>,
             ),
       )
@@ -2294,7 +2372,7 @@ _$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$ItemFromJson(
   mainVideo: (json['mainVideo'] as List<dynamic>?)
       ?.map(
         (e) =>
-            BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainVideo$Item.fromJson(
+            ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainVideo$Item.fromJson(
               e as Map<String, dynamic>,
             ),
       )
@@ -2302,7 +2380,7 @@ _$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$ItemFromJson(
   imgCollection: (json['imgCollection'] as List<dynamic>?)
       ?.map(
         (e) =>
-            BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgCollection$Item.fromJson(
+            ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgCollection$Item.fromJson(
               e as Map<String, dynamic>,
             ),
       )
@@ -2311,7 +2389,7 @@ _$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$ItemFromJson(
   imgDetail: (json['imgDetail'] as List<dynamic>?)
       ?.map(
         (e) =>
-            BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgDetail$Item.fromJson(
+            ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgDetail$Item.fromJson(
               e as Map<String, dynamic>,
             ),
       )
@@ -2325,7 +2403,7 @@ _$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$ItemFromJson(
   productOptions: (json['productOptions'] as List<dynamic>?)
       ?.map(
         (e) =>
-            BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item.fromJson(
+            ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item.fromJson(
               e as Map<String, dynamic>,
             ),
       )
@@ -2333,7 +2411,7 @@ _$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$ItemFromJson(
   productAttrs: (json['productAttrs'] as List<dynamic>?)
       ?.map(
         (e) =>
-            BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$Item.fromJson(
+            ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$Item.fromJson(
               e as Map<String, dynamic>,
             ),
       )
@@ -2354,7 +2432,7 @@ _$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$ItemFromJson(
   inspectImages: (json['inspectImages'] as List<dynamic>?)
       ?.map(
         (e) =>
-            BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item.fromJson(
+            ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item.fromJson(
               e as Map<String, dynamic>,
             ),
       )
@@ -2362,7 +2440,7 @@ _$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$ItemFromJson(
   tags: (json['tags'] as List<dynamic>?)
       ?.map(
         (e) =>
-            BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$Tags$Item.fromJson(
+            ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$Tags$Item.fromJson(
               e as Map<String, dynamic>,
             ),
       )
@@ -2370,8 +2448,9 @@ _$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$ItemFromJson(
 );
 
 Map<String, dynamic>
-_$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$ItemToJson(
-  BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item instance,
+_$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$ItemToJson(
+  ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item
+  instance,
 ) => <String, dynamic>{
   'shopCode': instance.shopCode,
   'productCode': instance.productCode,
@@ -2405,32 +2484,33 @@ _$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$ItemToJson(
   'tags': instance.tags?.map((e) => e.toJson()).toList(),
 };
 
-ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$RequestParams
-_$ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$RequestParamsFromJson(
+ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$RequestParams
+_$ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$RequestParamsFromJson(
   Map<String, dynamic> json,
-) => ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$RequestParams(
-  referenceImages:
-      (json['referenceImages'] as List<dynamic>?)
-          ?.map((e) => e as String)
-          .toList() ??
-      [],
-  customPrompt: json['customPrompt'] as String?,
-  gender: (json['gender'] as num?)?.toDouble(),
-  age: json['age'] as String?,
-  physicalAppearance: json['physicalAppearance'] as String?,
-  styleTrendyElements: json['styleTrendyElements'] as String?,
-  brand: json['brand'] as String?,
-  budget: json['budget'] as String?,
-  customModelId: json['customModelId'] as String?,
-  modelImageUrl: json['modelImageUrl'] as String?,
-  referenceMode: json['referenceMode'] as String?,
-  occasion: json['occasion'] as String?,
-  useMultiModelImage: json['useMultiModelImage'] as bool?,
-);
+) =>
+    ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$RequestParams(
+      referenceImages:
+          (json['referenceImages'] as List<dynamic>?)
+              ?.map((e) => e as String)
+              .toList() ??
+          [],
+      customPrompt: json['customPrompt'] as String?,
+      gender: (json['gender'] as num?)?.toDouble(),
+      age: json['age'] as String?,
+      physicalAppearance: json['physicalAppearance'] as String?,
+      styleTrendyElements: json['styleTrendyElements'] as String?,
+      brand: json['brand'] as String?,
+      budget: json['budget'] as String?,
+      customModelId: json['customModelId'] as String?,
+      modelImageUrl: json['modelImageUrl'] as String?,
+      referenceMode: json['referenceMode'] as String?,
+      occasion: json['occasion'] as String?,
+      useMultiModelImage: json['useMultiModelImage'] as bool?,
+    );
 
 Map<String, dynamic>
-_$ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$RequestParamsToJson(
-  ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$RequestParams
+_$ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$RequestParamsToJson(
+  ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$RequestParams
   instance,
 ) => <String, dynamic>{
   'referenceImages': instance.referenceImages,
@@ -2448,10 +2528,10 @@ _$ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$RequestParamsToJson(
   'useMultiModelImage': instance.useMultiModelImage,
 };
 
-ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item
-_$ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$ItemFromJson(
+ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item
+_$ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$ItemFromJson(
   Map<String, dynamic> json,
-) => ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item(
+) => ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item(
   name: json['name'] as String?,
   title: json['title'] as String?,
   link: json['link'] as String?,
@@ -2464,7 +2544,7 @@ _$ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$ItemFro
   options: (json['options'] as List<dynamic>?)
       ?.map(
         (e) =>
-            ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item$Options$Item.fromJson(
+            ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item$Options$Item.fromJson(
               e as Map<String, dynamic>,
             ),
       )
@@ -2476,8 +2556,8 @@ _$ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$ItemFro
 );
 
 Map<String, dynamic>
-_$ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$ItemToJson(
-  ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item
+_$ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$ItemToJson(
+  ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item
   instance,
 ) => <String, dynamic>{
   'name': instance.name,
@@ -2496,15 +2576,15 @@ _$ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$ItemToJ
   'cachedImageUpdatedAt': instance.cachedImageUpdatedAt,
 };
 
-ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages
-_$ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImagesFromJson(
+ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages
+_$ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImagesFromJson(
   Map<String, dynamic> json,
-) => ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages(
+) => ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages(
   title: json['title'] as String?,
   items: (json['items'] as List<dynamic>?)
       ?.map(
         (e) =>
-            ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item.fromJson(
+            ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item.fromJson(
               e as Map<String, dynamic>,
             ),
       )
@@ -2519,7 +2599,7 @@ _$ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImagesFromJso
   images: (json['images'] as List<dynamic>?)
       ?.map(
         (e) =>
-            ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Images$Item.fromJson(
+            ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Images$Item.fromJson(
               e as Map<String, dynamic>,
             ),
       )
@@ -2527,8 +2607,8 @@ _$ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImagesFromJso
 );
 
 Map<String, dynamic>
-_$ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImagesToJson(
-  ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages
+_$ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImagesToJson(
+  ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages
   instance,
 ) => <String, dynamic>{
   'title': instance.title,
@@ -2539,36 +2619,37 @@ _$ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImagesToJson(
   'images': instance.images?.map((e) => e.toJson()).toList(),
 };
 
-ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImagesStatus
-_$ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImagesStatusFromJson(
+ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImagesStatus
+_$ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImagesStatusFromJson(
   Map<String, dynamic> json,
 ) =>
-    ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImagesStatus(
+    ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImagesStatus(
       ready: json['ready'] as bool?,
       count: (json['count'] as num?)?.toDouble(),
     );
 
 Map<String, dynamic>
-_$ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImagesStatusToJson(
-  ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImagesStatus
+_$ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImagesStatusToJson(
+  ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImagesStatus
   instance,
 ) => <String, dynamic>{'ready': instance.ready, 'count': instance.count};
 
-ApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item$Options$Item
-_$ApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item$Options$ItemFromJson(
+ComboServiceApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item$Options$Item
+_$ComboServiceApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item$Options$ItemFromJson(
   Map<String, dynamic> json,
-) => ApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item$Options$Item(
-  id: (json['id'] as num?)?.toDouble(),
-  title: json['title'] as String?,
-  link: json['link'] as String?,
-  source: json['source'] as String?,
-  price: json['price'] as String?,
-  image: json['image'] as String?,
-);
+) =>
+    ComboServiceApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item$Options$Item(
+      id: (json['id'] as num?)?.toDouble(),
+      title: json['title'] as String?,
+      link: json['link'] as String?,
+      source: json['source'] as String?,
+      price: json['price'] as String?,
+      image: json['image'] as String?,
+    );
 
 Map<String, dynamic>
-_$ApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item$Options$ItemToJson(
-  ApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item$Options$Item
+_$ComboServiceApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item$Options$ItemToJson(
+  ComboServiceApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item$Options$Item
   instance,
 ) => <String, dynamic>{
   'id': instance.id,
@@ -2579,27 +2660,28 @@ _$ApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item$Options$ItemToJson(
   'image': instance.image,
 };
 
-ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item
-_$ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$ItemFromJson(
+ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item
+_$ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$ItemFromJson(
   Map<String, dynamic> json,
-) => ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item(
+) => ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item(
   sharingImageId: (json['sharingImageId'] as num?)?.toDouble(),
   imageUrl: json['imageUrl'] as String?,
   caption: json['caption'] == null
       ? null
-      : ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$Caption.fromJson(
+      : ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$Caption.fromJson(
           json['caption'] as Map<String, dynamic>,
         ),
   metadata: json['metadata'] == null
       ? null
-      : ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$Metadata.fromJson(
+      : ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$Metadata.fromJson(
           json['metadata'] as Map<String, dynamic>,
         ),
 );
 
 Map<String, dynamic>
-_$ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$ItemToJson(
-  ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item instance,
+_$ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$ItemToJson(
+  ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item
+  instance,
 ) => <String, dynamic>{
   'sharingImageId': instance.sharingImageId,
   'imageUrl': instance.imageUrl,
@@ -2607,26 +2689,28 @@ _$ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$ItemToJson(
   'metadata': instance.metadata?.toJson(),
 };
 
-ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Images$Item
-_$ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Images$ItemFromJson(
+ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Images$Item
+_$ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Images$ItemFromJson(
   Map<String, dynamic> json,
-) => ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Images$Item(
-  sharingImageId: (json['sharingImageId'] as num?)?.toDouble(),
-  imageUrl: json['imageUrl'] as String?,
-);
+) =>
+    ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Images$Item(
+      sharingImageId: (json['sharingImageId'] as num?)?.toDouble(),
+      imageUrl: json['imageUrl'] as String?,
+    );
 
 Map<String, dynamic>
-_$ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Images$ItemToJson(
-  ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Images$Item instance,
+_$ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Images$ItemToJson(
+  ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Images$Item
+  instance,
 ) => <String, dynamic>{
   'sharingImageId': instance.sharingImageId,
   'imageUrl': instance.imageUrl,
 };
 
-BizAiFashionModelListGet$Response$Data$Models$Item$Data$Item
-_$BizAiFashionModelListGet$Response$Data$Models$Item$Data$ItemFromJson(
+ComboServiceBizAiFashionModelListGet$Response$Data$Models$Item$Data$Item
+_$ComboServiceBizAiFashionModelListGet$Response$Data$Models$Item$Data$ItemFromJson(
   Map<String, dynamic> json,
-) => BizAiFashionModelListGet$Response$Data$Models$Item$Data$Item(
+) => ComboServiceBizAiFashionModelListGet$Response$Data$Models$Item$Data$Item(
   id: (json['id'] as num?)?.toDouble(),
   tenantCode: json['tenantCode'] as String?,
   userId: json['userId'] as String?,
@@ -2645,8 +2729,9 @@ _$BizAiFashionModelListGet$Response$Data$Models$Item$Data$ItemFromJson(
 );
 
 Map<String, dynamic>
-_$BizAiFashionModelListGet$Response$Data$Models$Item$Data$ItemToJson(
-  BizAiFashionModelListGet$Response$Data$Models$Item$Data$Item instance,
+_$ComboServiceBizAiFashionModelListGet$Response$Data$Models$Item$Data$ItemToJson(
+  ComboServiceBizAiFashionModelListGet$Response$Data$Models$Item$Data$Item
+  instance,
 ) => <String, dynamic>{
   'id': instance.id,
   'tenantCode': instance.tenantCode,
@@ -2663,61 +2748,65 @@ _$BizAiFashionModelListGet$Response$Data$Models$Item$Data$ItemToJson(
   'modelData': instance.modelData,
 };
 
-BizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$Images$Item
-_$BizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$Images$ItemFromJson(
-  Map<String, dynamic> json,
-) => BizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$Images$Item(
-  width: (json['width'] as num?)?.toDouble(),
-  height: (json['height'] as num?)?.toDouble(),
-  url: json['url'] as String?,
-);
-
-Map<String, dynamic>
-_$BizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$Images$ItemToJson(
-  BizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$Images$Item instance,
-) => <String, dynamic>{
-  'width': instance.width,
-  'height': instance.height,
-  'url': instance.url,
-};
-
-BizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$FrontImage
-_$BizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$FrontImageFromJson(
-  Map<String, dynamic> json,
-) => BizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$FrontImage(
-  width: (json['width'] as num?)?.toDouble(),
-  height: (json['height'] as num?)?.toDouble(),
-  url: json['url'] as String?,
-);
-
-Map<String, dynamic>
-_$BizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$FrontImageToJson(
-  BizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$FrontImage instance,
-) => <String, dynamic>{
-  'width': instance.width,
-  'height': instance.height,
-  'url': instance.url,
-};
-
-BizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$Item$Data$Item
-_$BizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$Item$Data$ItemFromJson(
+ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$Images$Item
+_$ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$Images$ItemFromJson(
   Map<String, dynamic> json,
 ) =>
-    BizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$Item$Data$Item(
+    ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$Images$Item(
+      width: (json['width'] as num?)?.toDouble(),
+      height: (json['height'] as num?)?.toDouble(),
+      url: json['url'] as String?,
+    );
+
+Map<String, dynamic>
+_$ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$Images$ItemToJson(
+  ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$Images$Item
+  instance,
+) => <String, dynamic>{
+  'width': instance.width,
+  'height': instance.height,
+  'url': instance.url,
+};
+
+ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$FrontImage
+_$ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$FrontImageFromJson(
+  Map<String, dynamic> json,
+) =>
+    ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$FrontImage(
+      width: (json['width'] as num?)?.toDouble(),
+      height: (json['height'] as num?)?.toDouble(),
+      url: json['url'] as String?,
+    );
+
+Map<String, dynamic>
+_$ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$FrontImageToJson(
+  ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$FrontImage
+  instance,
+) => <String, dynamic>{
+  'width': instance.width,
+  'height': instance.height,
+  'url': instance.url,
+};
+
+ComboServiceBizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$Item$Data$Item
+_$ComboServiceBizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$Item$Data$ItemFromJson(
+  Map<String, dynamic> json,
+) =>
+    ComboServiceBizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$Item$Data$Item(
       label: json['label'] as String?,
       value: json['value'] as String?,
     );
 
 Map<String, dynamic>
-_$BizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$Item$Data$ItemToJson(
-  BizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$Item$Data$Item
+_$ComboServiceBizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$Item$Data$ItemToJson(
+  ComboServiceBizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$Item$Data$Item
   instance,
 ) => <String, dynamic>{'label': instance.label, 'value': instance.value};
 
-NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item
-_$NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$ItemFromJson(
+ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item
+_$ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$ItemFromJson(
   Map<String, dynamic> json,
-) => NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item(
+) => ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item(
   id: (json['id'] as num).toInt(),
   parentId: (json['parentId'] as num).toInt(),
   level: (json['level'] as num).toInt(),
@@ -2727,7 +2816,7 @@ _$NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$ItemFrom
   categoryList: (json['categoryList'] as List<dynamic>)
       .map(
         (e) =>
-            NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item$CategoryList$Item.fromJson(
+            ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item$CategoryList$Item.fromJson(
               e as Map<String, dynamic>,
             ),
       )
@@ -2735,8 +2824,8 @@ _$NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$ItemFrom
 );
 
 Map<String, dynamic>
-_$NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$ItemToJson(
-  NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item
+_$ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$ItemToJson(
+  ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item
   instance,
 ) => <String, dynamic>{
   'id': instance.id,
@@ -2748,19 +2837,19 @@ _$NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$ItemToJs
   'categoryList': instance.categoryList.map((e) => e.toJson()).toList(),
 };
 
-BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainImg$Item
-_$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainImg$ItemFromJson(
+ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainImg$Item
+_$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainImg$ItemFromJson(
   Map<String, dynamic> json,
 ) =>
-    BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainImg$Item(
+    ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainImg$Item(
       width: (json['width'] as num?)?.toInt(),
       height: (json['height'] as num?)?.toInt(),
       url: json['url'] as String?,
     );
 
 Map<String, dynamic>
-_$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainImg$ItemToJson(
-  BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainImg$Item
+_$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainImg$ItemToJson(
+  ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainImg$Item
   instance,
 ) => <String, dynamic>{
   'width': instance.width,
@@ -2768,19 +2857,19 @@ _$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainImg$ItemTo
   'url': instance.url,
 };
 
-BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$SubImg$Item
-_$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$SubImg$ItemFromJson(
+ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$SubImg$Item
+_$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$SubImg$ItemFromJson(
   Map<String, dynamic> json,
 ) =>
-    BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$SubImg$Item(
+    ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$SubImg$Item(
       width: (json['width'] as num?)?.toInt(),
       height: (json['height'] as num?)?.toInt(),
       url: json['url'] as String?,
     );
 
 Map<String, dynamic>
-_$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$SubImg$ItemToJson(
-  BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$SubImg$Item
+_$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$SubImg$ItemToJson(
+  ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$SubImg$Item
   instance,
 ) => <String, dynamic>{
   'width': instance.width,
@@ -2788,11 +2877,11 @@ _$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$SubImg$ItemToJ
   'url': instance.url,
 };
 
-BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainVideo$Item
-_$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainVideo$ItemFromJson(
+ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainVideo$Item
+_$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainVideo$ItemFromJson(
   Map<String, dynamic> json,
 ) =>
-    BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainVideo$Item(
+    ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainVideo$Item(
       videoUrl: json['videoUrl'] as String?,
       vodUrl: json['vodUrl'] as String?,
       previewUrl: json['previewUrl'] as String?,
@@ -2801,8 +2890,8 @@ _$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainVideo$Item
     );
 
 Map<String, dynamic>
-_$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainVideo$ItemToJson(
-  BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainVideo$Item
+_$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainVideo$ItemToJson(
+  ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainVideo$Item
   instance,
 ) => <String, dynamic>{
   'videoUrl': instance.videoUrl,
@@ -2812,19 +2901,19 @@ _$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainVideo$Item
   'height': instance.height,
 };
 
-BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgCollection$Item
-_$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgCollection$ItemFromJson(
+ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgCollection$Item
+_$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgCollection$ItemFromJson(
   Map<String, dynamic> json,
 ) =>
-    BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgCollection$Item(
+    ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgCollection$Item(
       width: (json['width'] as num?)?.toInt(),
       height: (json['height'] as num?)?.toInt(),
       url: json['url'] as String?,
     );
 
 Map<String, dynamic>
-_$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgCollection$ItemToJson(
-  BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgCollection$Item
+_$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgCollection$ItemToJson(
+  ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgCollection$Item
   instance,
 ) => <String, dynamic>{
   'width': instance.width,
@@ -2832,19 +2921,19 @@ _$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgCollection$
   'url': instance.url,
 };
 
-BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgDetail$Item
-_$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgDetail$ItemFromJson(
+ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgDetail$Item
+_$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgDetail$ItemFromJson(
   Map<String, dynamic> json,
 ) =>
-    BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgDetail$Item(
+    ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgDetail$Item(
       width: (json['width'] as num?)?.toInt(),
       height: (json['height'] as num?)?.toInt(),
       url: json['url'] as String?,
     );
 
 Map<String, dynamic>
-_$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgDetail$ItemToJson(
-  BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgDetail$Item
+_$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgDetail$ItemToJson(
+  ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgDetail$Item
   instance,
 ) => <String, dynamic>{
   'width': instance.width,
@@ -2852,16 +2941,16 @@ _$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgDetail$Item
   'url': instance.url,
 };
 
-BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item
-_$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$ItemFromJson(
+ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item
+_$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$ItemFromJson(
   Map<String, dynamic> json,
-) => BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item(
+) => ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item(
   name: json['name'] as String?,
   type: (json['type'] as num?)?.toInt(),
   optionValues: (json['optionValues'] as List<dynamic>?)
       ?.map(
         (e) =>
-            BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$Item.fromJson(
+            ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$Item.fromJson(
               e as Map<String, dynamic>,
             ),
       )
@@ -2869,8 +2958,8 @@ _$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions
 );
 
 Map<String, dynamic>
-_$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$ItemToJson(
-  BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item
+_$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$ItemToJson(
+  ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item
   instance,
 ) => <String, dynamic>{
   'name': instance.name,
@@ -2878,238 +2967,49 @@ _$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions
   'optionValues': instance.optionValues?.map((e) => e.toJson()).toList(),
 };
 
-BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$Item
-_$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$ItemFromJson(
+ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$Item
+_$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$ItemFromJson(
   Map<String, dynamic> json,
 ) =>
-    BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$Item(
+    ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$Item(
       name: json['name'] as String?,
       value: json['value'] as String?,
     );
 
 Map<String, dynamic>
-_$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$ItemToJson(
-  BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$Item
+_$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$ItemToJson(
+  ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$Item
   instance,
 ) => <String, dynamic>{'name': instance.name, 'value': instance.value};
 
-BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item
-_$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$ItemFromJson(
+ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item
+_$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$ItemFromJson(
   Map<String, dynamic> json,
-) => BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item(
+) => ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item(
   images:
       (json['images'] as List<dynamic>?)?.map((e) => e as Object).toList() ??
       [],
   skuOption: json['skuOption'] == null
       ? null
-      : BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOption.fromJson(
+      : ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOption.fromJson(
           json['skuOption'] as Map<String, dynamic>,
         ),
 );
 
 Map<String, dynamic>
-_$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$ItemToJson(
-  BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item
+_$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$ItemToJson(
+  ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item
   instance,
 ) => <String, dynamic>{
   'images': instance.images,
   'skuOption': instance.skuOption?.toJson(),
 };
 
-BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$Tags$Item
-_$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$Tags$ItemFromJson(
-  Map<String, dynamic> json,
-) => BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$Tags$Item(
-  tagCode: json['tagCode'] as String?,
-  tagImg: json['tagImg'] as String?,
-  order: (json['order'] as num?)?.toInt(),
-  frontShow: (json['frontShow'] as num?)?.toInt(),
-);
-
-Map<String, dynamic>
-_$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$Tags$ItemToJson(
-  BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$Tags$Item
-  instance,
-) => <String, dynamic>{
-  'tagCode': instance.tagCode,
-  'tagImg': instance.tagImg,
-  'order': instance.order,
-  'frontShow': instance.frontShow,
-};
-
-BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainImg$Item
-_$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainImg$ItemFromJson(
+ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$Tags$Item
+_$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$Tags$ItemFromJson(
   Map<String, dynamic> json,
 ) =>
-    BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainImg$Item(
-      width: (json['width'] as num?)?.toInt(),
-      height: (json['height'] as num?)?.toInt(),
-      url: json['url'] as String?,
-    );
-
-Map<String, dynamic>
-_$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainImg$ItemToJson(
-  BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainImg$Item
-  instance,
-) => <String, dynamic>{
-  'width': instance.width,
-  'height': instance.height,
-  'url': instance.url,
-};
-
-BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$SubImg$Item
-_$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$SubImg$ItemFromJson(
-  Map<String, dynamic> json,
-) =>
-    BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$SubImg$Item(
-      width: (json['width'] as num?)?.toInt(),
-      height: (json['height'] as num?)?.toInt(),
-      url: json['url'] as String?,
-    );
-
-Map<String, dynamic>
-_$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$SubImg$ItemToJson(
-  BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$SubImg$Item
-  instance,
-) => <String, dynamic>{
-  'width': instance.width,
-  'height': instance.height,
-  'url': instance.url,
-};
-
-BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainVideo$Item
-_$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainVideo$ItemFromJson(
-  Map<String, dynamic> json,
-) =>
-    BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainVideo$Item(
-      videoUrl: json['videoUrl'] as String?,
-      vodUrl: json['vodUrl'] as String?,
-      previewUrl: json['previewUrl'] as String?,
-      width: (json['width'] as num?)?.toInt(),
-      height: (json['height'] as num?)?.toInt(),
-    );
-
-Map<String, dynamic>
-_$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainVideo$ItemToJson(
-  BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainVideo$Item
-  instance,
-) => <String, dynamic>{
-  'videoUrl': instance.videoUrl,
-  'vodUrl': instance.vodUrl,
-  'previewUrl': instance.previewUrl,
-  'width': instance.width,
-  'height': instance.height,
-};
-
-BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgCollection$Item
-_$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgCollection$ItemFromJson(
-  Map<String, dynamic> json,
-) =>
-    BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgCollection$Item(
-      width: (json['width'] as num?)?.toInt(),
-      height: (json['height'] as num?)?.toInt(),
-      url: json['url'] as String?,
-    );
-
-Map<String, dynamic>
-_$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgCollection$ItemToJson(
-  BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgCollection$Item
-  instance,
-) => <String, dynamic>{
-  'width': instance.width,
-  'height': instance.height,
-  'url': instance.url,
-};
-
-BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgDetail$Item
-_$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgDetail$ItemFromJson(
-  Map<String, dynamic> json,
-) =>
-    BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgDetail$Item(
-      width: (json['width'] as num?)?.toInt(),
-      height: (json['height'] as num?)?.toInt(),
-      url: json['url'] as String?,
-    );
-
-Map<String, dynamic>
-_$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgDetail$ItemToJson(
-  BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgDetail$Item
-  instance,
-) => <String, dynamic>{
-  'width': instance.width,
-  'height': instance.height,
-  'url': instance.url,
-};
-
-BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item
-_$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$ItemFromJson(
-  Map<String, dynamic> json,
-) => BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item(
-  name: json['name'] as String?,
-  type: (json['type'] as num?)?.toInt(),
-  optionValues: (json['optionValues'] as List<dynamic>?)
-      ?.map(
-        (e) =>
-            BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$Item.fromJson(
-              e as Map<String, dynamic>,
-            ),
-      )
-      .toList(),
-);
-
-Map<String, dynamic>
-_$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$ItemToJson(
-  BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item
-  instance,
-) => <String, dynamic>{
-  'name': instance.name,
-  'type': instance.type,
-  'optionValues': instance.optionValues?.map((e) => e.toJson()).toList(),
-};
-
-BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$Item
-_$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$ItemFromJson(
-  Map<String, dynamic> json,
-) =>
-    BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$Item(
-      name: json['name'] as String?,
-      value: json['value'] as String?,
-    );
-
-Map<String, dynamic>
-_$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$ItemToJson(
-  BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$Item
-  instance,
-) => <String, dynamic>{'name': instance.name, 'value': instance.value};
-
-BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item
-_$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$ItemFromJson(
-  Map<String, dynamic> json,
-) => BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item(
-  images:
-      (json['images'] as List<dynamic>?)?.map((e) => e as Object).toList() ??
-      [],
-  skuOption: json['skuOption'] == null
-      ? null
-      : BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOption.fromJson(
-          json['skuOption'] as Map<String, dynamic>,
-        ),
-);
-
-Map<String, dynamic>
-_$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$ItemToJson(
-  BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item
-  instance,
-) => <String, dynamic>{
-  'images': instance.images,
-  'skuOption': instance.skuOption?.toJson(),
-};
-
-BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$Tags$Item
-_$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$Tags$ItemFromJson(
-  Map<String, dynamic> json,
-) =>
-    BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$Tags$Item(
+    ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$Tags$Item(
       tagCode: json['tagCode'] as String?,
       tagImg: json['tagImg'] as String?,
       order: (json['order'] as num?)?.toInt(),
@@ -3117,8 +3017,8 @@ _$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$Tags$Item
     );
 
 Map<String, dynamic>
-_$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$Tags$ItemToJson(
-  BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$Tags$Item
+_$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$Tags$ItemToJson(
+  ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$Tags$Item
   instance,
 ) => <String, dynamic>{
   'tagCode': instance.tagCode,
@@ -3127,11 +3027,201 @@ _$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$Tags$Item
   'frontShow': instance.frontShow,
 };
 
-ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item$Options$Item
-_$ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item$Options$ItemFromJson(
+ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainImg$Item
+_$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainImg$ItemFromJson(
   Map<String, dynamic> json,
 ) =>
-    ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item$Options$Item(
+    ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainImg$Item(
+      width: (json['width'] as num?)?.toInt(),
+      height: (json['height'] as num?)?.toInt(),
+      url: json['url'] as String?,
+    );
+
+Map<String, dynamic>
+_$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainImg$ItemToJson(
+  ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainImg$Item
+  instance,
+) => <String, dynamic>{
+  'width': instance.width,
+  'height': instance.height,
+  'url': instance.url,
+};
+
+ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$SubImg$Item
+_$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$SubImg$ItemFromJson(
+  Map<String, dynamic> json,
+) =>
+    ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$SubImg$Item(
+      width: (json['width'] as num?)?.toInt(),
+      height: (json['height'] as num?)?.toInt(),
+      url: json['url'] as String?,
+    );
+
+Map<String, dynamic>
+_$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$SubImg$ItemToJson(
+  ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$SubImg$Item
+  instance,
+) => <String, dynamic>{
+  'width': instance.width,
+  'height': instance.height,
+  'url': instance.url,
+};
+
+ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainVideo$Item
+_$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainVideo$ItemFromJson(
+  Map<String, dynamic> json,
+) =>
+    ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainVideo$Item(
+      videoUrl: json['videoUrl'] as String?,
+      vodUrl: json['vodUrl'] as String?,
+      previewUrl: json['previewUrl'] as String?,
+      width: (json['width'] as num?)?.toInt(),
+      height: (json['height'] as num?)?.toInt(),
+    );
+
+Map<String, dynamic>
+_$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainVideo$ItemToJson(
+  ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainVideo$Item
+  instance,
+) => <String, dynamic>{
+  'videoUrl': instance.videoUrl,
+  'vodUrl': instance.vodUrl,
+  'previewUrl': instance.previewUrl,
+  'width': instance.width,
+  'height': instance.height,
+};
+
+ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgCollection$Item
+_$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgCollection$ItemFromJson(
+  Map<String, dynamic> json,
+) =>
+    ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgCollection$Item(
+      width: (json['width'] as num?)?.toInt(),
+      height: (json['height'] as num?)?.toInt(),
+      url: json['url'] as String?,
+    );
+
+Map<String, dynamic>
+_$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgCollection$ItemToJson(
+  ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgCollection$Item
+  instance,
+) => <String, dynamic>{
+  'width': instance.width,
+  'height': instance.height,
+  'url': instance.url,
+};
+
+ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgDetail$Item
+_$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgDetail$ItemFromJson(
+  Map<String, dynamic> json,
+) =>
+    ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgDetail$Item(
+      width: (json['width'] as num?)?.toInt(),
+      height: (json['height'] as num?)?.toInt(),
+      url: json['url'] as String?,
+    );
+
+Map<String, dynamic>
+_$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgDetail$ItemToJson(
+  ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgDetail$Item
+  instance,
+) => <String, dynamic>{
+  'width': instance.width,
+  'height': instance.height,
+  'url': instance.url,
+};
+
+ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item
+_$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$ItemFromJson(
+  Map<String, dynamic> json,
+) => ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item(
+  name: json['name'] as String?,
+  type: (json['type'] as num?)?.toInt(),
+  optionValues: (json['optionValues'] as List<dynamic>?)
+      ?.map(
+        (e) =>
+            ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$Item.fromJson(
+              e as Map<String, dynamic>,
+            ),
+      )
+      .toList(),
+);
+
+Map<String, dynamic>
+_$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$ItemToJson(
+  ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item
+  instance,
+) => <String, dynamic>{
+  'name': instance.name,
+  'type': instance.type,
+  'optionValues': instance.optionValues?.map((e) => e.toJson()).toList(),
+};
+
+ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$Item
+_$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$ItemFromJson(
+  Map<String, dynamic> json,
+) =>
+    ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$Item(
+      name: json['name'] as String?,
+      value: json['value'] as String?,
+    );
+
+Map<String, dynamic>
+_$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$ItemToJson(
+  ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$Item
+  instance,
+) => <String, dynamic>{'name': instance.name, 'value': instance.value};
+
+ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item
+_$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$ItemFromJson(
+  Map<String, dynamic> json,
+) => ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item(
+  images:
+      (json['images'] as List<dynamic>?)?.map((e) => e as Object).toList() ??
+      [],
+  skuOption: json['skuOption'] == null
+      ? null
+      : ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOption.fromJson(
+          json['skuOption'] as Map<String, dynamic>,
+        ),
+);
+
+Map<String, dynamic>
+_$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$ItemToJson(
+  ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item
+  instance,
+) => <String, dynamic>{
+  'images': instance.images,
+  'skuOption': instance.skuOption?.toJson(),
+};
+
+ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$Tags$Item
+_$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$Tags$ItemFromJson(
+  Map<String, dynamic> json,
+) =>
+    ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$Tags$Item(
+      tagCode: json['tagCode'] as String?,
+      tagImg: json['tagImg'] as String?,
+      order: (json['order'] as num?)?.toInt(),
+      frontShow: (json['frontShow'] as num?)?.toInt(),
+    );
+
+Map<String, dynamic>
+_$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$Tags$ItemToJson(
+  ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$Tags$Item
+  instance,
+) => <String, dynamic>{
+  'tagCode': instance.tagCode,
+  'tagImg': instance.tagImg,
+  'order': instance.order,
+  'frontShow': instance.frontShow,
+};
+
+ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item$Options$Item
+_$ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item$Options$ItemFromJson(
+  Map<String, dynamic> json,
+) =>
+    ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item$Options$Item(
       id: (json['id'] as num?)?.toDouble(),
       title: json['title'] as String?,
       link: json['link'] as String?,
@@ -3141,8 +3231,8 @@ _$ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item$Op
     );
 
 Map<String, dynamic>
-_$ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item$Options$ItemToJson(
-  ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item$Options$Item
+_$ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item$Options$ItemToJson(
+  ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item$Options$Item
   instance,
 ) => <String, dynamic>{
   'id': instance.id,
@@ -3153,27 +3243,27 @@ _$ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item$Op
   'image': instance.image,
 };
 
-ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item
-_$ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$ItemFromJson(
+ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item
+_$ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$ItemFromJson(
   Map<String, dynamic> json,
-) => ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item(
+) => ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item(
   sharingImageId: (json['sharingImageId'] as num?)?.toDouble(),
   imageUrl: json['imageUrl'] as String?,
   caption: json['caption'] == null
       ? null
-      : ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$Caption.fromJson(
+      : ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$Caption.fromJson(
           json['caption'] as Map<String, dynamic>,
         ),
   metadata: json['metadata'] == null
       ? null
-      : ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$Metadata.fromJson(
+      : ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$Metadata.fromJson(
           json['metadata'] as Map<String, dynamic>,
         ),
 );
 
 Map<String, dynamic>
-_$ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$ItemToJson(
-  ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item
+_$ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$ItemToJson(
+  ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item
   instance,
 ) => <String, dynamic>{
   'sharingImageId': instance.sharingImageId,
@@ -3182,39 +3272,42 @@ _$ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$
   'metadata': instance.metadata?.toJson(),
 };
 
-ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Images$Item
-_$ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Images$ItemFromJson(
+ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Images$Item
+_$ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Images$ItemFromJson(
   Map<String, dynamic> json,
 ) =>
-    ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Images$Item(
+    ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Images$Item(
       sharingImageId: (json['sharingImageId'] as num?)?.toDouble(),
       imageUrl: json['imageUrl'] as String?,
     );
 
 Map<String, dynamic>
-_$ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Images$ItemToJson(
-  ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Images$Item
+_$ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Images$ItemToJson(
+  ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Images$Item
   instance,
 ) => <String, dynamic>{
   'sharingImageId': instance.sharingImageId,
   'imageUrl': instance.imageUrl,
 };
 
-ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$Caption
-_$ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$CaptionFromJson(
+ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$Caption
+_$ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$CaptionFromJson(
   Map<String, dynamic> json,
-) => ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$Caption(
-  description: json['description'] as String?,
-  brand: json['brand'] as String?,
-  hashtags:
-      (json['hashtags'] as List<dynamic>?)?.map((e) => e as String).toList() ??
-      [],
-  fullText: json['full_text'] as String?,
-);
+) =>
+    ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$Caption(
+      description: json['description'] as String?,
+      brand: json['brand'] as String?,
+      hashtags:
+          (json['hashtags'] as List<dynamic>?)
+              ?.map((e) => e as String)
+              .toList() ??
+          [],
+      fullText: json['full_text'] as String?,
+    );
 
 Map<String, dynamic>
-_$ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$CaptionToJson(
-  ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$Caption
+_$ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$CaptionToJson(
+  ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$Caption
   instance,
 ) => <String, dynamic>{
   'description': instance.description,
@@ -3223,23 +3316,24 @@ _$ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$CaptionToJso
   'full_text': instance.fullText,
 };
 
-ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$Metadata
-_$ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$MetadataFromJson(
+ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$Metadata
+_$ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$MetadataFromJson(
   Map<String, dynamic> json,
-) => ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$Metadata(
-  segmentedImageUrl: json['segmentedImageUrl'] as String?,
-  styleDescription: json['styleDescription'] as String?,
-  occasion: json['occasion'] as String?,
-  customPrompt: json['customPrompt'] as String?,
-  generatedAt: (json['generatedAt'] as num?)?.toDouble(),
-  version: (json['version'] as num?)?.toDouble(),
-  temperature: (json['temperature'] as num?)?.toDouble(),
-  regenerationStatus: json['regenerationStatus'] as String?,
-);
+) =>
+    ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$Metadata(
+      segmentedImageUrl: json['segmentedImageUrl'] as String?,
+      styleDescription: json['styleDescription'] as String?,
+      occasion: json['occasion'] as String?,
+      customPrompt: json['customPrompt'] as String?,
+      generatedAt: (json['generatedAt'] as num?)?.toDouble(),
+      version: (json['version'] as num?)?.toDouble(),
+      temperature: (json['temperature'] as num?)?.toDouble(),
+      regenerationStatus: json['regenerationStatus'] as String?,
+    );
 
 Map<String, dynamic>
-_$ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$MetadataToJson(
-  ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$Metadata
+_$ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$MetadataToJson(
+  ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$Metadata
   instance,
 ) => <String, dynamic>{
   'segmentedImageUrl': instance.segmentedImageUrl,
@@ -3252,11 +3346,11 @@ _$ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$MetadataToJs
   'regenerationStatus': instance.regenerationStatus,
 };
 
-NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item$CategoryList$Item
-_$NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item$CategoryList$ItemFromJson(
+ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item$CategoryList$Item
+_$ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item$CategoryList$ItemFromJson(
   Map<String, dynamic> json,
 ) =>
-    NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item$CategoryList$Item(
+    ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item$CategoryList$Item(
       id: (json['id'] as num).toInt(),
       parentId: (json['parentId'] as num).toInt(),
       level: (json['level'] as num).toInt(),
@@ -3266,8 +3360,8 @@ _$NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item$Cat
     );
 
 Map<String, dynamic>
-_$NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item$CategoryList$ItemToJson(
-  NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item$CategoryList$Item
+_$ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item$CategoryList$ItemToJson(
+  ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item$CategoryList$Item
   instance,
 ) => <String, dynamic>{
   'id': instance.id,
@@ -3278,11 +3372,11 @@ _$NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item$Cat
   'iconUrl': instance.iconUrl,
 };
 
-BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$Item
-_$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$ItemFromJson(
+ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$Item
+_$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$ItemFromJson(
   Map<String, dynamic> json,
 ) =>
-    BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$Item(
+    ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$Item(
       value: json['value'] as String?,
       image: json['image'] as String?,
       imageWidth: (json['imageWidth'] as num?)?.toInt(),
@@ -3290,8 +3384,8 @@ _$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions
     );
 
 Map<String, dynamic>
-_$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$ItemToJson(
-  BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$Item
+_$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$ItemToJson(
+  ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$Item
   instance,
 ) => <String, dynamic>{
   'value': instance.value,
@@ -3300,26 +3394,26 @@ _$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions
   'imageHeight': instance.imageHeight,
 };
 
-BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOption
-_$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOptionFromJson(
+ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOption
+_$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOptionFromJson(
   Map<String, dynamic> json,
 ) =>
-    BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOption(
+    ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOption(
       name: json['name'] as String?,
       value: json['value'] as String?,
     );
 
 Map<String, dynamic>
-_$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOptionToJson(
-  BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOption
+_$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOptionToJson(
+  ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOption
   instance,
 ) => <String, dynamic>{'name': instance.name, 'value': instance.value};
 
-BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$Item
-_$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$ItemFromJson(
+ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$Item
+_$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$ItemFromJson(
   Map<String, dynamic> json,
 ) =>
-    BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$Item(
+    ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$Item(
       value: json['value'] as String?,
       image: json['image'] as String?,
       imageWidth: (json['imageWidth'] as num?)?.toInt(),
@@ -3327,8 +3421,8 @@ _$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOp
     );
 
 Map<String, dynamic>
-_$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$ItemToJson(
-  BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$Item
+_$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$ItemToJson(
+  ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$Item
   instance,
 ) => <String, dynamic>{
   'value': instance.value,
@@ -3337,26 +3431,26 @@ _$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOp
   'imageHeight': instance.imageHeight,
 };
 
-BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOption
-_$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOptionFromJson(
+ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOption
+_$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOptionFromJson(
   Map<String, dynamic> json,
 ) =>
-    BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOption(
+    ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOption(
       name: json['name'] as String?,
       value: json['value'] as String?,
     );
 
 Map<String, dynamic>
-_$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOptionToJson(
-  BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOption
+_$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOptionToJson(
+  ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOption
   instance,
 ) => <String, dynamic>{'name': instance.name, 'value': instance.value};
 
-ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$Caption
-_$ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$CaptionFromJson(
+ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$Caption
+_$ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$CaptionFromJson(
   Map<String, dynamic> json,
 ) =>
-    ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$Caption(
+    ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$Caption(
       description: json['description'] as String?,
       brand: json['brand'] as String?,
       hashtags:
@@ -3368,8 +3462,8 @@ _$ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$
     );
 
 Map<String, dynamic>
-_$ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$CaptionToJson(
-  ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$Caption
+_$ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$CaptionToJson(
+  ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$Caption
   instance,
 ) => <String, dynamic>{
   'description': instance.description,
@@ -3378,11 +3472,11 @@ _$ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$
   'full_text': instance.fullText,
 };
 
-ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$Metadata
-_$ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$MetadataFromJson(
+ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$Metadata
+_$ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$MetadataFromJson(
   Map<String, dynamic> json,
 ) =>
-    ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$Metadata(
+    ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$Metadata(
       segmentedImageUrl: json['segmentedImageUrl'] as String?,
       styleDescription: json['styleDescription'] as String?,
       occasion: json['occasion'] as String?,
@@ -3394,8 +3488,8 @@ _$ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$
     );
 
 Map<String, dynamic>
-_$ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$MetadataToJson(
-  ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$Metadata
+_$ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$MetadataToJson(
+  ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$Metadata
   instance,
 ) => <String, dynamic>{
   'segmentedImageUrl': instance.segmentedImageUrl,

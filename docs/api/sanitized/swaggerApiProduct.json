@@ -4,7 +4,6 @@
     "title": "product-service",
     "version": "last"
   },
-  "basePath": "/product-service",
   "tags": [
     {
       "name": "商品评论",
@@ -39,7 +38,7 @@
     "http"
   ],
   "paths": {
-    "/product-review/no-auth/page": {
+    "/product-service/product-review/no-auth/page": {
       "get": {
         "tags": [
           "商品评论"
@@ -187,7 +186,7 @@
         }
       }
     },
-    "/product-review/no-auth/summary": {
+    "/product-service/product-review/no-auth/summary": {
       "get": {
         "tags": [
           "商品评论"
@@ -321,7 +320,7 @@
         }
       }
     },
-    "/category/no-auth/tree": {
+    "/product-service/category/no-auth/tree": {
       "get": {
         "tags": [
           "分类"
@@ -476,7 +475,7 @@
         }
       }
     },
-    "/activity/no-auth/flash-sale-activity": {
+    "/product-service/activity/no-auth/flash-sale-activity": {
       "get": {
         "tags": [
           "FlashSale"
@@ -551,7 +550,7 @@
         }
       }
     },
-    "/activity/no-auth/flash-sale-activity/product": {
+    "/product-service/activity/no-auth/flash-sale-activity/product": {
       "get": {
         "tags": [
           "FlashSale"
@@ -780,7 +779,7 @@
         }
       }
     },
-    "/product/premium-dupe/no-auth/page": {
+    "/product-service/product/premium-dupe/no-auth/page": {
       "post": {
         "tags": [
           "大牌平替"
@@ -1078,7 +1077,7 @@
         }
       }
     },
-    "/product/premium-dupe/no-auth/meta": {
+    "/product-service/product/premium-dupe/no-auth/meta": {
       "get": {
         "tags": [
           "大牌平替"
@@ -1230,7 +1229,7 @@
         }
       }
     },
-    "/product/premium-dupe/no-auth/selection": {
+    "/product-service/product/premium-dupe/no-auth/selection": {
       "get": {
         "tags": [
           "大牌平替"
@@ -1462,7 +1461,7 @@
         }
       }
     },
-    "/external-purchase-record": {
+    "/product-service/external-purchase-record": {
       "post": {
         "tags": [
           "外部信息"
@@ -1585,7 +1584,7 @@
         }
       }
     },
-    "/product/no-auth/pushProduct": {
+    "/product-service/product/no-auth/pushProduct": {
       "get": {
         "tags": [
           "公共分类"
@@ -1785,7 +1784,7 @@
         }
       }
     },
-    "/product/no-auth/search": {
+    "/product-service/product/no-auth/search": {
       "get": {
         "tags": [
           "公共分类"
@@ -2094,7 +2093,7 @@
         }
       }
     },
-    "/product/no-auth/combineSearch": {
+    "/product-service/product/no-auth/combineSearch": {
       "get": {
         "tags": [
           "公共分类"
@@ -2525,7 +2524,7 @@
         }
       }
     },
-    "/product/no-auth/newArrivalProduct": {
+    "/product-service/product/no-auth/newArrivalProduct": {
       "get": {
         "tags": [
           "公共分类"
@@ -2819,7 +2818,7 @@
         }
       }
     },
-    "/product/no-auth/newArrivalProductBrand": {
+    "/product-service/product/no-auth/newArrivalProductBrand": {
       "get": {
         "tags": [
           "公共分类"
@@ -2861,7 +2860,7 @@
         }
       }
     },
-    "/product/no-auth/skuList": {
+    "/product-service/product/no-auth/skuList": {
       "get": {
         "tags": [
           "公共分类"
@@ -3067,7 +3066,7 @@
         }
       }
     },
-    "/product/no-auth/getProductInfo": {
+    "/product-service/product/no-auth/getProductInfo": {
       "get": {
         "tags": [
           "公共分类"
@@ -3519,7 +3518,7 @@
         }
       }
     },
-    "/product/no-auth/premierProductCategory": {
+    "/product-service/product/no-auth/premierProductCategory": {
       "get": {
         "tags": [
           "公共分类"
@@ -3650,7 +3649,7 @@
         }
       }
     },
-    "/product/no-auth/hotProduct": {
+    "/product-service/product/no-auth/hotProduct": {
       "get": {
         "tags": [
           "公共分类"
@@ -3799,7 +3798,7 @@
         }
       }
     },
-    "/product/no-auth/hotProduct/v2": {
+    "/product-service/product/no-auth/hotProduct/v2": {
       "get": {
         "tags": [
           "公共分类"
@@ -4050,7 +4049,7 @@
         }
       }
     },
-    "/product/no-auth/hotProduct/v3": {
+    "/product-service/product/no-auth/hotProduct/v3": {
       "get": {
         "tags": [
           "公共分类"
@@ -4284,7 +4283,7 @@
         }
       }
     },
-    "/product/no-auth/flashSaleProduct": {
+    "/product-service/product/no-auth/flashSaleProduct": {
       "get": {
         "tags": [
           "公共分类"
@@ -4644,7 +4643,7 @@
         }
       }
     },
-    "/product/no-auth/albumProduct": {
+    "/product-service/product/no-auth/albumProduct": {
       "get": {
         "tags": [
           "公共分类"
@@ -4980,7 +4979,7 @@
         }
       }
     },
-    "/shop/no-auth/getThirdShop": {
+    "/product-service/shop/no-auth/getThirdShop": {
       "get": {
         "tags": [
           "公共分类"
@@ -5149,7 +5148,7 @@
         }
       }
     },
-    "/product/no-auth/kolProduct": {
+    "/product-service/product/no-auth/kolProduct": {
       "get": {
         "tags": [
           "公共分类"
@@ -5495,7 +5494,7 @@
         }
       }
     },
-    "/product/no-auth/premierProduct": {
+    "/product-service/product/no-auth/premierProduct": {
       "get": {
         "tags": [
           "公共分类"
@@ -5803,7 +5802,7 @@
         }
       }
     },
-    "/product/no-auth/premierProductBrand": {
+    "/product-service/product/no-auth/premierProductBrand": {
       "get": {
         "tags": [
           "公共分类"
@@ -5845,7 +5844,7 @@
         }
       }
     },
-    "/recommend/no-auth/categoryRecommendation": {
+    "/product-service/recommend/no-auth/categoryRecommendation": {
       "get": {
         "tags": [
           "推荐feeds"
@@ -6054,7 +6053,7 @@
         }
       }
     },
-    "/recommend/no-auth/category": {
+    "/product-service/recommend/no-auth/category": {
       "post": {
         "tags": [
           "推荐feeds"
@@ -6275,7 +6274,7 @@
         }
       }
     },
-    "/recommend/no-auth/shop": {
+    "/product-service/recommend/no-auth/shop": {
       "post": {
         "tags": [
           "推荐feeds"
@@ -6492,7 +6491,7 @@
         }
       }
     },
-    "/recommend/no-auth/similarProduct": {
+    "/product-service/recommend/no-auth/similarProduct": {
       "post": {
         "tags": [
           "推荐feeds"

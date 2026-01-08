@@ -4,7 +4,6 @@
     "title": "order-service",
     "version": "last"
   },
-  "basePath": "/",
   "tags": [
     {
       "name": "app端",

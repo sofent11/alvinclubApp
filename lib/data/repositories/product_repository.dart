@@ -334,7 +334,7 @@ class ProductRepository {
 
   Future<ProductListResponse> getHotProductsV2({ProductListParams? params}) async {
     final api = _ref.read(swaggerProductApiProvider);
-    final response = await api.productNoAuthHotProductV2Get(
+    final response = await api.productServiceProductNoAuthHotProductV2Get(
       current: (params?.page ?? 1).toString(),
       size: (params?.pageSize ?? 20).toString(),
       categoryId: params?.categoryId,
@@ -382,7 +382,7 @@ class ProductRepository {
 
   Future<ProductListResponse> getFlashSaleProducts({ProductListParams? params}) async {
     final api = _ref.read(swaggerProductApiProvider);
-    final response = await api.productNoAuthFlashSaleProductGet(
+    final response = await api.productServiceProductNoAuthFlashSaleProductGet(
       current: (params?.page ?? 1).toString(),
       size: (params?.pageSize ?? 10).toString(),
     );
@@ -431,7 +431,7 @@ class ProductRepository {
 
   Future<ProductListResponse> getPremierProducts({ProductListParams? params}) async {
     final api = _ref.read(swaggerProductApiProvider);
-    final response = await api.productNoAuthPremierProductGet(
+    final response = await api.productServiceProductNoAuthPremierProductGet(
       pageNum: (params?.page ?? 1).toString(),
       pageSize: (params?.pageSize ?? 10).toString(),
       categoryId: params?.categoryId,
@@ -483,7 +483,7 @@ class ProductRepository {
 
   Future<List<CategoryItem>> getProductCategories() async {
     final api = _ref.read(swaggerProductApiProvider);
-    final response = await api.categoryNoAuthTreeGet();
+    final response = await api.productServiceCategoryNoAuthTreeGet();
 
     final body = _toMap(response.body);
     final code = _parseInt(body?['code']);
@@ -509,7 +509,7 @@ class ProductRepository {
     }
 
     final api = _ref.read(swaggerProductApiProvider);
-    final response = await api.recommendNoAuthCategoryPost(
+    final response = await api.productServiceRecommendNoAuthCategoryPost(
       root: {
         'current': params.page ?? 1,
         'pageSize': params.pageSize ?? 20,
@@ -573,7 +573,7 @@ class ProductRepository {
         .toList();
 
     final api = _ref.read(swaggerProductApiProvider);
-    final response = await api.recommendNoAuthCategoryPost(
+    final response = await api.productServiceRecommendNoAuthCategoryPost(
       root: {
         'current': params.page ?? 1,
         'pageSize': params.pageSize ?? 20,
@@ -633,7 +633,7 @@ class ProductRepository {
 
   Future<ProductListResponse> searchProducts(SearchProductsParams params) async {
     final api = _ref.read(swaggerProductApiProvider);
-    final response = await api.productNoAuthCombineSearchGet(
+    final response = await api.productServiceProductNoAuthCombineSearchGet(
       query: params.query,
       current: (params.page ?? 1).toString(),
       pageSize: (params.pageSize ?? 20).toString(),
@@ -697,7 +697,7 @@ class ProductRepository {
     }
 
     final api = _ref.read(swaggerProductApiProvider);
-    final response = await api.productNoAuthGetProductInfoGet(productCode: productCode);
+    final response = await api.productServiceProductNoAuthGetProductInfoGet(productCode: productCode);
 
     final body = _toMap(response.body);
     final code = _parseInt(body?['code']);
@@ -808,7 +808,7 @@ class ProductRepository {
     }
 
     final api = _ref.read(swaggerProductApiProvider);
-    final response = await api.productNoAuthSkuListGet(productCode: productCode);
+    final response = await api.productServiceProductNoAuthSkuListGet(productCode: productCode);
 
     final body = _toMap(response.body);
     final code = _parseInt(body?['code']);
@@ -867,7 +867,7 @@ class ProductRepository {
     }
 
     final api = _ref.read(swaggerProductApiProvider);
-    final response = await api.productReviewNoAuthPageGet(
+    final response = await api.productServiceProductReviewNoAuthPageGet(
       productCode: productCode,
       current: page.toString(),
       size: pageSize.toString(),
@@ -928,7 +928,7 @@ class ProductRepository {
     }
 
     final api = _ref.read(swaggerProductApiProvider);
-    final response = await api.productReviewNoAuthSummaryGet(
+    final response = await api.productServiceProductReviewNoAuthSummaryGet(
       productCode: productCode,
       root: {
         'current': 1,
@@ -987,7 +987,7 @@ class ProductRepository {
     }
 
     final api = _ref.read(swaggerProductApiProvider);
-    final response = await api.recommendNoAuthSimilarProductPost(
+    final response = await api.productServiceRecommendNoAuthSimilarProductPost(
       root: {
         'productCode': productCode,
       },

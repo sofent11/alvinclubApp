@@ -45,7 +45,7 @@ abstract class SwaggerApiCombo extends ChopperService {
       client: httpClient,
       authenticator: authenticator,
       errorConverter: errorConverter,
-      baseUrl: baseUrl ?? Uri.parse('http:///combo-service'),
+      baseUrl: baseUrl ?? Uri.parse('http://'),
     );
     return _$SwaggerApiCombo(newClient);
   }
@@ -53,22 +53,22 @@ abstract class SwaggerApiCombo extends ChopperService {
   ///根据拉取KOL分享链接
   ///@param code
   ///@param root
-  Future<chopper.Response<NoAuthBizKolKolInfoGet$Response>>
-  noAuthBizKolKolInfoGet({required String? code, Object? root}) {
+  Future<chopper.Response<ComboServiceNoAuthBizKolKolInfoGet$Response>>
+  comboServiceNoAuthBizKolKolInfoGet({required String? code, Object? root}) {
     generatedMapping.putIfAbsent(
-      NoAuthBizKolKolInfoGet$Response,
-      () => NoAuthBizKolKolInfoGet$Response.fromJsonFactory,
+      ComboServiceNoAuthBizKolKolInfoGet$Response,
+      () => ComboServiceNoAuthBizKolKolInfoGet$Response.fromJsonFactory,
     );
 
-    return _noAuthBizKolKolInfoGet(code: code, root: root);
+    return _comboServiceNoAuthBizKolKolInfoGet(code: code, root: root);
   }
 
   ///根据拉取KOL分享链接
   ///@param code
   ///@param root
-  @GET(path: '/no-auth/biz/kol/kolInfo')
-  Future<chopper.Response<NoAuthBizKolKolInfoGet$Response>>
-  _noAuthBizKolKolInfoGet({
+  @GET(path: '/combo-service/no-auth/biz/kol/kolInfo')
+  Future<chopper.Response<ComboServiceNoAuthBizKolKolInfoGet$Response>>
+  _comboServiceNoAuthBizKolKolInfoGet({
     @Query('code') required String? code,
     @Body() Object? root,
     @chopper.Tag()
@@ -85,20 +85,20 @@ abstract class SwaggerApiCombo extends ChopperService {
   });
 
   ///Echooo承诺弹窗
-  Future<chopper.Response<NoAuthPopupPromiseGet$Response>>
-  noAuthPopupPromiseGet() {
+  Future<chopper.Response<ComboServiceNoAuthPopupPromiseGet$Response>>
+  comboServiceNoAuthPopupPromiseGet() {
     generatedMapping.putIfAbsent(
-      NoAuthPopupPromiseGet$Response,
-      () => NoAuthPopupPromiseGet$Response.fromJsonFactory,
+      ComboServiceNoAuthPopupPromiseGet$Response,
+      () => ComboServiceNoAuthPopupPromiseGet$Response.fromJsonFactory,
     );
 
-    return _noAuthPopupPromiseGet();
+    return _comboServiceNoAuthPopupPromiseGet();
   }
 
   ///Echooo承诺弹窗
-  @GET(path: '/no-auth/popup/promise')
-  Future<chopper.Response<NoAuthPopupPromiseGet$Response>>
-  _noAuthPopupPromiseGet({
+  @GET(path: '/combo-service/no-auth/popup/promise')
+  Future<chopper.Response<ComboServiceNoAuthPopupPromiseGet$Response>>
+  _comboServiceNoAuthPopupPromiseGet({
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description:
@@ -114,20 +114,25 @@ abstract class SwaggerApiCombo extends ChopperService {
   });
 
   ///检查接口升级
-  Future<chopper.Response<NoAuthCommonAppConfigVersionCheckGet$Response>>
-  noAuthCommonAppConfigVersionCheckGet() {
+  Future<
+    chopper.Response<ComboServiceNoAuthCommonAppConfigVersionCheckGet$Response>
+  >
+  comboServiceNoAuthCommonAppConfigVersionCheckGet() {
     generatedMapping.putIfAbsent(
-      NoAuthCommonAppConfigVersionCheckGet$Response,
-      () => NoAuthCommonAppConfigVersionCheckGet$Response.fromJsonFactory,
+      ComboServiceNoAuthCommonAppConfigVersionCheckGet$Response,
+      () => ComboServiceNoAuthCommonAppConfigVersionCheckGet$Response
+          .fromJsonFactory,
     );
 
-    return _noAuthCommonAppConfigVersionCheckGet();
+    return _comboServiceNoAuthCommonAppConfigVersionCheckGet();
   }
 
   ///检查接口升级
-  @GET(path: '/no-auth/common/app-config/version_check')
-  Future<chopper.Response<NoAuthCommonAppConfigVersionCheckGet$Response>>
-  _noAuthCommonAppConfigVersionCheckGet({
+  @GET(path: '/combo-service/no-auth/common/app-config/version_check')
+  Future<
+    chopper.Response<ComboServiceNoAuthCommonAppConfigVersionCheckGet$Response>
+  >
+  _comboServiceNoAuthCommonAppConfigVersionCheckGet({
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -143,21 +148,21 @@ abstract class SwaggerApiCombo extends ChopperService {
 
   ///取消点赞帖子
   ///@param root
-  Future<chopper.Response<BizCommunityPostUnlikePost$Response>>
-  bizCommunityPostUnlikePost({Object? root}) {
+  Future<chopper.Response<ComboServiceBizCommunityPostUnlikePost$Response>>
+  comboServiceBizCommunityPostUnlikePost({Object? root}) {
     generatedMapping.putIfAbsent(
-      BizCommunityPostUnlikePost$Response,
-      () => BizCommunityPostUnlikePost$Response.fromJsonFactory,
+      ComboServiceBizCommunityPostUnlikePost$Response,
+      () => ComboServiceBizCommunityPostUnlikePost$Response.fromJsonFactory,
     );
 
-    return _bizCommunityPostUnlikePost(root: root);
+    return _comboServiceBizCommunityPostUnlikePost(root: root);
   }
 
   ///取消点赞帖子
   ///@param root
-  @POST(path: '/biz/community-post/unlike')
-  Future<chopper.Response<BizCommunityPostUnlikePost$Response>>
-  _bizCommunityPostUnlikePost({
+  @POST(path: '/combo-service/biz/community-post/unlike')
+  Future<chopper.Response<ComboServiceBizCommunityPostUnlikePost$Response>>
+  _comboServiceBizCommunityPostUnlikePost({
     @Body() Object? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -176,18 +181,18 @@ abstract class SwaggerApiCombo extends ChopperService {
   ///@param cursor 游标
   ///@param pageSize
   ///@param root
-  Future<chopper.Response<BizCommunityPostLikedGet$Response>>
-  bizCommunityPostLikedGet({
+  Future<chopper.Response<ComboServiceBizCommunityPostLikedGet$Response>>
+  comboServiceBizCommunityPostLikedGet({
     String? cursor,
     required String? pageSize,
     Object? root,
   }) {
     generatedMapping.putIfAbsent(
-      BizCommunityPostLikedGet$Response,
-      () => BizCommunityPostLikedGet$Response.fromJsonFactory,
+      ComboServiceBizCommunityPostLikedGet$Response,
+      () => ComboServiceBizCommunityPostLikedGet$Response.fromJsonFactory,
     );
 
-    return _bizCommunityPostLikedGet(
+    return _comboServiceBizCommunityPostLikedGet(
       cursor: cursor,
       pageSize: pageSize,
       root: root,
@@ -198,9 +203,9 @@ abstract class SwaggerApiCombo extends ChopperService {
   ///@param cursor 游标
   ///@param pageSize
   ///@param root
-  @GET(path: '/biz/community-post/liked')
-  Future<chopper.Response<BizCommunityPostLikedGet$Response>>
-  _bizCommunityPostLikedGet({
+  @GET(path: '/combo-service/biz/community-post/liked')
+  Future<chopper.Response<ComboServiceBizCommunityPostLikedGet$Response>>
+  _comboServiceBizCommunityPostLikedGet({
     @Query('cursor') String? cursor,
     @Query('pageSize') required String? pageSize,
     @Body() Object? root,
@@ -221,18 +226,18 @@ abstract class SwaggerApiCombo extends ChopperService {
   ///@param cursor 游标
   ///@param pageSize
   ///@param root
-  Future<chopper.Response<BizCommunityPostNoAuthListGet$Response>>
-  bizCommunityPostNoAuthListGet({
+  Future<chopper.Response<ComboServiceBizCommunityPostNoAuthListGet$Response>>
+  comboServiceBizCommunityPostNoAuthListGet({
     String? cursor,
     required String? pageSize,
     Object? root,
   }) {
     generatedMapping.putIfAbsent(
-      BizCommunityPostNoAuthListGet$Response,
-      () => BizCommunityPostNoAuthListGet$Response.fromJsonFactory,
+      ComboServiceBizCommunityPostNoAuthListGet$Response,
+      () => ComboServiceBizCommunityPostNoAuthListGet$Response.fromJsonFactory,
     );
 
-    return _bizCommunityPostNoAuthListGet(
+    return _comboServiceBizCommunityPostNoAuthListGet(
       cursor: cursor,
       pageSize: pageSize,
       root: root,
@@ -243,9 +248,9 @@ abstract class SwaggerApiCombo extends ChopperService {
   ///@param cursor 游标
   ///@param pageSize
   ///@param root
-  @GET(path: '/biz/community-post/no-auth/list')
-  Future<chopper.Response<BizCommunityPostNoAuthListGet$Response>>
-  _bizCommunityPostNoAuthListGet({
+  @GET(path: '/combo-service/biz/community-post/no-auth/list')
+  Future<chopper.Response<ComboServiceBizCommunityPostNoAuthListGet$Response>>
+  _comboServiceBizCommunityPostNoAuthListGet({
     @Query('cursor') String? cursor,
     @Query('pageSize') required String? pageSize,
     @Body() Object? root,
@@ -264,21 +269,21 @@ abstract class SwaggerApiCombo extends ChopperService {
 
   ///点赞帖子
   ///@param root
-  Future<chopper.Response<BizCommunityPostLikePost$Response>>
-  bizCommunityPostLikePost({Object? root}) {
+  Future<chopper.Response<ComboServiceBizCommunityPostLikePost$Response>>
+  comboServiceBizCommunityPostLikePost({Object? root}) {
     generatedMapping.putIfAbsent(
-      BizCommunityPostLikePost$Response,
-      () => BizCommunityPostLikePost$Response.fromJsonFactory,
+      ComboServiceBizCommunityPostLikePost$Response,
+      () => ComboServiceBizCommunityPostLikePost$Response.fromJsonFactory,
     );
 
-    return _bizCommunityPostLikePost(root: root);
+    return _comboServiceBizCommunityPostLikePost(root: root);
   }
 
   ///点赞帖子
   ///@param root
-  @POST(path: '/biz/community-post/like')
-  Future<chopper.Response<BizCommunityPostLikePost$Response>>
-  _bizCommunityPostLikePost({
+  @POST(path: '/combo-service/biz/community-post/like')
+  Future<chopper.Response<ComboServiceBizCommunityPostLikePost$Response>>
+  _comboServiceBizCommunityPostLikePost({
     @Body() Object? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -295,21 +300,26 @@ abstract class SwaggerApiCombo extends ChopperService {
 
   ///图片翻译
   ///@param root
-  Future<chopper.Response<NoAuthBizImageTransTranslatePost$Response>>
-  noAuthBizImageTransTranslatePost({Object? root}) {
+  Future<
+    chopper.Response<ComboServiceNoAuthBizImageTransTranslatePost$Response>
+  >
+  comboServiceNoAuthBizImageTransTranslatePost({Object? root}) {
     generatedMapping.putIfAbsent(
-      NoAuthBizImageTransTranslatePost$Response,
-      () => NoAuthBizImageTransTranslatePost$Response.fromJsonFactory,
+      ComboServiceNoAuthBizImageTransTranslatePost$Response,
+      () =>
+          ComboServiceNoAuthBizImageTransTranslatePost$Response.fromJsonFactory,
     );
 
-    return _noAuthBizImageTransTranslatePost(root: root);
+    return _comboServiceNoAuthBizImageTransTranslatePost(root: root);
   }
 
   ///图片翻译
   ///@param root
-  @POST(path: '/no-auth/biz/image-trans/translate')
-  Future<chopper.Response<NoAuthBizImageTransTranslatePost$Response>>
-  _noAuthBizImageTransTranslatePost({
+  @POST(path: '/combo-service/no-auth/biz/image-trans/translate')
+  Future<
+    chopper.Response<ComboServiceNoAuthBizImageTransTranslatePost$Response>
+  >
+  _comboServiceNoAuthBizImageTransTranslatePost({
     @Body() Object? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -325,20 +335,20 @@ abstract class SwaggerApiCombo extends ChopperService {
   });
 
   ///用户订单未读未处理条数
-  Future<chopper.Response<BizUserOrderPendingGet$Response>>
-  bizUserOrderPendingGet() {
+  Future<chopper.Response<ComboServiceBizUserOrderPendingGet$Response>>
+  comboServiceBizUserOrderPendingGet() {
     generatedMapping.putIfAbsent(
-      BizUserOrderPendingGet$Response,
-      () => BizUserOrderPendingGet$Response.fromJsonFactory,
+      ComboServiceBizUserOrderPendingGet$Response,
+      () => ComboServiceBizUserOrderPendingGet$Response.fromJsonFactory,
     );
 
-    return _bizUserOrderPendingGet();
+    return _comboServiceBizUserOrderPendingGet();
   }
 
   ///用户订单未读未处理条数
-  @GET(path: '/biz/user-order/pending')
-  Future<chopper.Response<BizUserOrderPendingGet$Response>>
-  _bizUserOrderPendingGet({
+  @GET(path: '/combo-service/biz/user-order/pending')
+  Future<chopper.Response<ComboServiceBizUserOrderPendingGet$Response>>
+  _comboServiceBizUserOrderPendingGet({
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -354,21 +364,26 @@ abstract class SwaggerApiCombo extends ChopperService {
 
   ///AI生成模特
   ///@param root
-  Future<chopper.Response<ApiV1StyleOutfitsGenerateModelPost$Response>>
-  apiV1StyleOutfitsGenerateModelPost({Object? root}) {
+  Future<
+    chopper.Response<ComboServiceApiV1StyleOutfitsGenerateModelPost$Response>
+  >
+  comboServiceApiV1StyleOutfitsGenerateModelPost({Object? root}) {
     generatedMapping.putIfAbsent(
-      ApiV1StyleOutfitsGenerateModelPost$Response,
-      () => ApiV1StyleOutfitsGenerateModelPost$Response.fromJsonFactory,
+      ComboServiceApiV1StyleOutfitsGenerateModelPost$Response,
+      () => ComboServiceApiV1StyleOutfitsGenerateModelPost$Response
+          .fromJsonFactory,
     );
 
-    return _apiV1StyleOutfitsGenerateModelPost(root: root);
+    return _comboServiceApiV1StyleOutfitsGenerateModelPost(root: root);
   }
 
   ///AI生成模特
   ///@param root
-  @POST(path: '/api/v1/style-outfits/generateModel')
-  Future<chopper.Response<ApiV1StyleOutfitsGenerateModelPost$Response>>
-  _apiV1StyleOutfitsGenerateModelPost({
+  @POST(path: '/combo-service/api/v1/style-outfits/generateModel')
+  Future<
+    chopper.Response<ComboServiceApiV1StyleOutfitsGenerateModelPost$Response>
+  >
+  _comboServiceApiV1StyleOutfitsGenerateModelPost({
     @Body() Object? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -384,20 +399,20 @@ abstract class SwaggerApiCombo extends ChopperService {
   });
 
   ///体型查询
-  Future<chopper.Response<BizAiFashionNoAuthBodyShapeGet$Response>>
-  bizAiFashionNoAuthBodyShapeGet() {
+  Future<chopper.Response<ComboServiceBizAiFashionNoAuthBodyShapeGet$Response>>
+  comboServiceBizAiFashionNoAuthBodyShapeGet() {
     generatedMapping.putIfAbsent(
-      BizAiFashionNoAuthBodyShapeGet$Response,
-      () => BizAiFashionNoAuthBodyShapeGet$Response.fromJsonFactory,
+      ComboServiceBizAiFashionNoAuthBodyShapeGet$Response,
+      () => ComboServiceBizAiFashionNoAuthBodyShapeGet$Response.fromJsonFactory,
     );
 
-    return _bizAiFashionNoAuthBodyShapeGet();
+    return _comboServiceBizAiFashionNoAuthBodyShapeGet();
   }
 
   ///体型查询
-  @GET(path: '/biz/ai-fashion/no-auth/body-shape')
-  Future<chopper.Response<BizAiFashionNoAuthBodyShapeGet$Response>>
-  _bizAiFashionNoAuthBodyShapeGet({
+  @GET(path: '/combo-service/biz/ai-fashion/no-auth/body-shape')
+  Future<chopper.Response<ComboServiceBizAiFashionNoAuthBodyShapeGet$Response>>
+  _comboServiceBizAiFashionNoAuthBodyShapeGet({
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '只取image图片就可以',
@@ -413,21 +428,21 @@ abstract class SwaggerApiCombo extends ChopperService {
 
   ///保存模特
   ///@param root
-  Future<chopper.Response<BizAiFashionModelSavePost$Response>>
-  bizAiFashionModelSavePost({Object? root}) {
+  Future<chopper.Response<ComboServiceBizAiFashionModelSavePost$Response>>
+  comboServiceBizAiFashionModelSavePost({Object? root}) {
     generatedMapping.putIfAbsent(
-      BizAiFashionModelSavePost$Response,
-      () => BizAiFashionModelSavePost$Response.fromJsonFactory,
+      ComboServiceBizAiFashionModelSavePost$Response,
+      () => ComboServiceBizAiFashionModelSavePost$Response.fromJsonFactory,
     );
 
-    return _bizAiFashionModelSavePost(root: root);
+    return _comboServiceBizAiFashionModelSavePost(root: root);
   }
 
   ///保存模特
   ///@param root
-  @POST(path: '/biz/ai-fashion/model/save')
-  Future<chopper.Response<BizAiFashionModelSavePost$Response>>
-  _bizAiFashionModelSavePost({
+  @POST(path: '/combo-service/biz/ai-fashion/model/save')
+  Future<chopper.Response<ComboServiceBizAiFashionModelSavePost$Response>>
+  _comboServiceBizAiFashionModelSavePost({
     @Body() Object? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -446,18 +461,18 @@ abstract class SwaggerApiCombo extends ChopperService {
   ///@param pageNum
   ///@param pageSize
   ///@param root
-  Future<chopper.Response<ApiV1StyleOutfitsResultPageGet$Response>>
-  apiV1StyleOutfitsResultPageGet({
+  Future<chopper.Response<ComboServiceApiV1StyleOutfitsResultPageGet$Response>>
+  comboServiceApiV1StyleOutfitsResultPageGet({
     required String? pageNum,
     required String? pageSize,
     Object? root,
   }) {
     generatedMapping.putIfAbsent(
-      ApiV1StyleOutfitsResultPageGet$Response,
-      () => ApiV1StyleOutfitsResultPageGet$Response.fromJsonFactory,
+      ComboServiceApiV1StyleOutfitsResultPageGet$Response,
+      () => ComboServiceApiV1StyleOutfitsResultPageGet$Response.fromJsonFactory,
     );
 
-    return _apiV1StyleOutfitsResultPageGet(
+    return _comboServiceApiV1StyleOutfitsResultPageGet(
       pageNum: pageNum,
       pageSize: pageSize,
       root: root,
@@ -468,9 +483,9 @@ abstract class SwaggerApiCombo extends ChopperService {
   ///@param pageNum
   ///@param pageSize
   ///@param root
-  @GET(path: '/api/v1/style-outfits/result/page')
-  Future<chopper.Response<ApiV1StyleOutfitsResultPageGet$Response>>
-  _apiV1StyleOutfitsResultPageGet({
+  @GET(path: '/combo-service/api/v1/style-outfits/result/page')
+  Future<chopper.Response<ComboServiceApiV1StyleOutfitsResultPageGet$Response>>
+  _comboServiceApiV1StyleOutfitsResultPageGet({
     @Query('pageNum') required String? pageNum,
     @Query('pageSize') required String? pageSize,
     @Body() Object? root,
@@ -488,20 +503,25 @@ abstract class SwaggerApiCombo extends ChopperService {
   });
 
   ///查询最近使用的模特
-  Future<chopper.Response<BizAiFashionModelRecentlyUsedGet$Response>>
-  bizAiFashionModelRecentlyUsedGet() {
+  Future<
+    chopper.Response<ComboServiceBizAiFashionModelRecentlyUsedGet$Response>
+  >
+  comboServiceBizAiFashionModelRecentlyUsedGet() {
     generatedMapping.putIfAbsent(
-      BizAiFashionModelRecentlyUsedGet$Response,
-      () => BizAiFashionModelRecentlyUsedGet$Response.fromJsonFactory,
+      ComboServiceBizAiFashionModelRecentlyUsedGet$Response,
+      () =>
+          ComboServiceBizAiFashionModelRecentlyUsedGet$Response.fromJsonFactory,
     );
 
-    return _bizAiFashionModelRecentlyUsedGet();
+    return _comboServiceBizAiFashionModelRecentlyUsedGet();
   }
 
   ///查询最近使用的模特
-  @GET(path: '/biz/ai-fashion/model/recently-used')
-  Future<chopper.Response<BizAiFashionModelRecentlyUsedGet$Response>>
-  _bizAiFashionModelRecentlyUsedGet({
+  @GET(path: '/combo-service/biz/ai-fashion/model/recently-used')
+  Future<
+    chopper.Response<ComboServiceBizAiFashionModelRecentlyUsedGet$Response>
+  >
+  _comboServiceBizAiFashionModelRecentlyUsedGet({
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -518,17 +538,20 @@ abstract class SwaggerApiCombo extends ChopperService {
   ///查询模特状态
   ///@param modelId
   ///@param modelId 模特id
-  Future<chopper.Response<ApiV1StyleOutfitsModelIdStatusGet$Response>>
-  apiV1StyleOutfitsModelIdStatusGet({
+  Future<
+    chopper.Response<ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response>
+  >
+  comboServiceApiV1StyleOutfitsModelIdStatusGet({
     required String? modelId,
     required String? modelId$,
   }) {
     generatedMapping.putIfAbsent(
-      ApiV1StyleOutfitsModelIdStatusGet$Response,
-      () => ApiV1StyleOutfitsModelIdStatusGet$Response.fromJsonFactory,
+      ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response,
+      () => ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response
+          .fromJsonFactory,
     );
 
-    return _apiV1StyleOutfitsModelIdStatusGet(
+    return _comboServiceApiV1StyleOutfitsModelIdStatusGet(
       modelId: modelId,
       modelId$: modelId$,
     );
@@ -537,9 +560,11 @@ abstract class SwaggerApiCombo extends ChopperService {
   ///查询模特状态
   ///@param modelId
   ///@param modelId 模特id
-  @GET(path: '/api/v1/style-outfits/{modelId}/status')
-  Future<chopper.Response<ApiV1StyleOutfitsModelIdStatusGet$Response>>
-  _apiV1StyleOutfitsModelIdStatusGet({
+  @GET(path: '/combo-service/api/v1/style-outfits/{modelId}/status')
+  Future<
+    chopper.Response<ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response>
+  >
+  _comboServiceApiV1StyleOutfitsModelIdStatusGet({
     @Path('modelId') required String? modelId,
     @Query('modelId') required String? modelId$,
     @chopper.Tag()
@@ -557,21 +582,21 @@ abstract class SwaggerApiCombo extends ChopperService {
 
   ///查询穿搭结果
   ///@param taskId 内部任务ID
-  Future<chopper.Response<ApiV1StyleOutfitsResultGet$Response>>
-  apiV1StyleOutfitsResultGet({required String? taskId}) {
+  Future<chopper.Response<ComboServiceApiV1StyleOutfitsResultGet$Response>>
+  comboServiceApiV1StyleOutfitsResultGet({required String? taskId}) {
     generatedMapping.putIfAbsent(
-      ApiV1StyleOutfitsResultGet$Response,
-      () => ApiV1StyleOutfitsResultGet$Response.fromJsonFactory,
+      ComboServiceApiV1StyleOutfitsResultGet$Response,
+      () => ComboServiceApiV1StyleOutfitsResultGet$Response.fromJsonFactory,
     );
 
-    return _apiV1StyleOutfitsResultGet(taskId: taskId);
+    return _comboServiceApiV1StyleOutfitsResultGet(taskId: taskId);
   }
 
   ///查询穿搭结果
   ///@param taskId 内部任务ID
-  @GET(path: '/api/v1/style-outfits/result')
-  Future<chopper.Response<ApiV1StyleOutfitsResultGet$Response>>
-  _apiV1StyleOutfitsResultGet({
+  @GET(path: '/combo-service/api/v1/style-outfits/result')
+  Future<chopper.Response<ComboServiceApiV1StyleOutfitsResultGet$Response>>
+  _comboServiceApiV1StyleOutfitsResultGet({
     @Query('taskId') required String? taskId,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -588,21 +613,21 @@ abstract class SwaggerApiCombo extends ChopperService {
 
   ///根据modelId查询模特
   ///@param modelId modelId
-  Future<chopper.Response<BizAiFashionModelModelIdGet$Response>>
-  bizAiFashionModelModelIdGet({required String? modelId}) {
+  Future<chopper.Response<ComboServiceBizAiFashionModelModelIdGet$Response>>
+  comboServiceBizAiFashionModelModelIdGet({required String? modelId}) {
     generatedMapping.putIfAbsent(
-      BizAiFashionModelModelIdGet$Response,
-      () => BizAiFashionModelModelIdGet$Response.fromJsonFactory,
+      ComboServiceBizAiFashionModelModelIdGet$Response,
+      () => ComboServiceBizAiFashionModelModelIdGet$Response.fromJsonFactory,
     );
 
-    return _bizAiFashionModelModelIdGet(modelId: modelId);
+    return _comboServiceBizAiFashionModelModelIdGet(modelId: modelId);
   }
 
   ///根据modelId查询模特
   ///@param modelId modelId
-  @GET(path: '/biz/ai-fashion/model/{modelId}')
-  Future<chopper.Response<BizAiFashionModelModelIdGet$Response>>
-  _bizAiFashionModelModelIdGet({
+  @GET(path: '/combo-service/biz/ai-fashion/model/{modelId}')
+  Future<chopper.Response<ComboServiceBizAiFashionModelModelIdGet$Response>>
+  _comboServiceBizAiFashionModelModelIdGet({
     @Path('modelId') required String? modelId,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -618,20 +643,20 @@ abstract class SwaggerApiCombo extends ChopperService {
   });
 
   ///模特列表
-  Future<chopper.Response<BizAiFashionModelListGet$Response>>
-  bizAiFashionModelListGet() {
+  Future<chopper.Response<ComboServiceBizAiFashionModelListGet$Response>>
+  comboServiceBizAiFashionModelListGet() {
     generatedMapping.putIfAbsent(
-      BizAiFashionModelListGet$Response,
-      () => BizAiFashionModelListGet$Response.fromJsonFactory,
+      ComboServiceBizAiFashionModelListGet$Response,
+      () => ComboServiceBizAiFashionModelListGet$Response.fromJsonFactory,
     );
 
-    return _bizAiFashionModelListGet();
+    return _comboServiceBizAiFashionModelListGet();
   }
 
   ///模特列表
-  @GET(path: '/biz/ai-fashion/model/list')
-  Future<chopper.Response<BizAiFashionModelListGet$Response>>
-  _bizAiFashionModelListGet({
+  @GET(path: '/combo-service/biz/ai-fashion/model/list')
+  Future<chopper.Response<ComboServiceBizAiFashionModelListGet$Response>>
+  _comboServiceBizAiFashionModelListGet({
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '模特的分组，点击某个分组，可以查看当前分组的模特列表，默认是 null，查询全部',
@@ -647,21 +672,21 @@ abstract class SwaggerApiCombo extends ChopperService {
 
   ///生成穿搭
   ///@param root
-  Future<chopper.Response<ApiV1StyleOutfitsGeneratePost$Response>>
-  apiV1StyleOutfitsGeneratePost({Object? root}) {
+  Future<chopper.Response<ComboServiceApiV1StyleOutfitsGeneratePost$Response>>
+  comboServiceApiV1StyleOutfitsGeneratePost({Object? root}) {
     generatedMapping.putIfAbsent(
-      ApiV1StyleOutfitsGeneratePost$Response,
-      () => ApiV1StyleOutfitsGeneratePost$Response.fromJsonFactory,
+      ComboServiceApiV1StyleOutfitsGeneratePost$Response,
+      () => ComboServiceApiV1StyleOutfitsGeneratePost$Response.fromJsonFactory,
     );
 
-    return _apiV1StyleOutfitsGeneratePost(root: root);
+    return _comboServiceApiV1StyleOutfitsGeneratePost(root: root);
   }
 
   ///生成穿搭
   ///@param root
-  @POST(path: '/api/v1/style-outfits/generate')
-  Future<chopper.Response<ApiV1StyleOutfitsGeneratePost$Response>>
-  _apiV1StyleOutfitsGeneratePost({
+  @POST(path: '/combo-service/api/v1/style-outfits/generate')
+  Future<chopper.Response<ComboServiceApiV1StyleOutfitsGeneratePost$Response>>
+  _comboServiceApiV1StyleOutfitsGeneratePost({
     @Body() Object? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -679,14 +704,20 @@ abstract class SwaggerApiCombo extends ChopperService {
   ///穿搭参数预设
   ///@param taskId 内部任务ID
   ///@param templateId
-  Future<chopper.Response<BizAiFashionNoAuthStylePresetGet$Response>>
-  bizAiFashionNoAuthStylePresetGet({String? taskId, String? templateId}) {
+  Future<
+    chopper.Response<ComboServiceBizAiFashionNoAuthStylePresetGet$Response>
+  >
+  comboServiceBizAiFashionNoAuthStylePresetGet({
+    String? taskId,
+    String? templateId,
+  }) {
     generatedMapping.putIfAbsent(
-      BizAiFashionNoAuthStylePresetGet$Response,
-      () => BizAiFashionNoAuthStylePresetGet$Response.fromJsonFactory,
+      ComboServiceBizAiFashionNoAuthStylePresetGet$Response,
+      () =>
+          ComboServiceBizAiFashionNoAuthStylePresetGet$Response.fromJsonFactory,
     );
 
-    return _bizAiFashionNoAuthStylePresetGet(
+    return _comboServiceBizAiFashionNoAuthStylePresetGet(
       taskId: taskId,
       templateId: templateId,
     );
@@ -695,9 +726,11 @@ abstract class SwaggerApiCombo extends ChopperService {
   ///穿搭参数预设
   ///@param taskId 内部任务ID
   ///@param templateId
-  @GET(path: '/biz/ai-fashion/no-auth/style/preset')
-  Future<chopper.Response<BizAiFashionNoAuthStylePresetGet$Response>>
-  _bizAiFashionNoAuthStylePresetGet({
+  @GET(path: '/combo-service/biz/ai-fashion/no-auth/style/preset')
+  Future<
+    chopper.Response<ComboServiceBizAiFashionNoAuthStylePresetGet$Response>
+  >
+  _comboServiceBizAiFashionNoAuthStylePresetGet({
     @Query('taskId') String? taskId,
     @Query('templateId') String? templateId,
     @chopper.Tag()
@@ -718,19 +751,19 @@ abstract class SwaggerApiCombo extends ChopperService {
   ///@param pageSize 后端默认 10
   ///@param androidScheme
   ///@param iosScheme
-  Future<chopper.Response<BizAiFashionNoAuthPostListGet$Response>>
-  bizAiFashionNoAuthPostListGet({
+  Future<chopper.Response<ComboServiceBizAiFashionNoAuthPostListGet$Response>>
+  comboServiceBizAiFashionNoAuthPostListGet({
     required String? cursor,
     required String? pageSize,
     String? androidScheme,
     String? iosScheme,
   }) {
     generatedMapping.putIfAbsent(
-      BizAiFashionNoAuthPostListGet$Response,
-      () => BizAiFashionNoAuthPostListGet$Response.fromJsonFactory,
+      ComboServiceBizAiFashionNoAuthPostListGet$Response,
+      () => ComboServiceBizAiFashionNoAuthPostListGet$Response.fromJsonFactory,
     );
 
-    return _bizAiFashionNoAuthPostListGet(
+    return _comboServiceBizAiFashionNoAuthPostListGet(
       cursor: cursor,
       pageSize: pageSize,
       androidScheme: androidScheme,
@@ -743,9 +776,9 @@ abstract class SwaggerApiCombo extends ChopperService {
   ///@param pageSize 后端默认 10
   ///@param androidScheme
   ///@param iosScheme
-  @GET(path: '/biz/ai-fashion/no-auth/post/list')
-  Future<chopper.Response<BizAiFashionNoAuthPostListGet$Response>>
-  _bizAiFashionNoAuthPostListGet({
+  @GET(path: '/combo-service/biz/ai-fashion/no-auth/post/list')
+  Future<chopper.Response<ComboServiceBizAiFashionNoAuthPostListGet$Response>>
+  _comboServiceBizAiFashionNoAuthPostListGet({
     @Query('cursor') required String? cursor,
     @Query('pageSize') required String? pageSize,
     @Query('androidScheme') String? androidScheme,
@@ -765,21 +798,22 @@ abstract class SwaggerApiCombo extends ChopperService {
 
   ///穿搭帖子详情
   ///@param postId
-  Future<chopper.Response<BizAiFashionNoAuthPostDetailGet$Response>>
-  bizAiFashionNoAuthPostDetailGet({required String? postId}) {
+  Future<chopper.Response<ComboServiceBizAiFashionNoAuthPostDetailGet$Response>>
+  comboServiceBizAiFashionNoAuthPostDetailGet({required String? postId}) {
     generatedMapping.putIfAbsent(
-      BizAiFashionNoAuthPostDetailGet$Response,
-      () => BizAiFashionNoAuthPostDetailGet$Response.fromJsonFactory,
+      ComboServiceBizAiFashionNoAuthPostDetailGet$Response,
+      () =>
+          ComboServiceBizAiFashionNoAuthPostDetailGet$Response.fromJsonFactory,
     );
 
-    return _bizAiFashionNoAuthPostDetailGet(postId: postId);
+    return _comboServiceBizAiFashionNoAuthPostDetailGet(postId: postId);
   }
 
   ///穿搭帖子详情
   ///@param postId
-  @GET(path: '/biz/ai-fashion/no-auth/post/detail')
-  Future<chopper.Response<BizAiFashionNoAuthPostDetailGet$Response>>
-  _bizAiFashionNoAuthPostDetailGet({
+  @GET(path: '/combo-service/biz/ai-fashion/no-auth/post/detail')
+  Future<chopper.Response<ComboServiceBizAiFashionNoAuthPostDetailGet$Response>>
+  _comboServiceBizAiFashionNoAuthPostDetailGet({
     @Query('postId') required String? postId,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -795,20 +829,25 @@ abstract class SwaggerApiCombo extends ChopperService {
   });
 
   ///选择项列表
-  Future<chopper.Response<BizAiFashionNoAuthSelectOptionGet$Response>>
-  bizAiFashionNoAuthSelectOptionGet() {
+  Future<
+    chopper.Response<ComboServiceBizAiFashionNoAuthSelectOptionGet$Response>
+  >
+  comboServiceBizAiFashionNoAuthSelectOptionGet() {
     generatedMapping.putIfAbsent(
-      BizAiFashionNoAuthSelectOptionGet$Response,
-      () => BizAiFashionNoAuthSelectOptionGet$Response.fromJsonFactory,
+      ComboServiceBizAiFashionNoAuthSelectOptionGet$Response,
+      () => ComboServiceBizAiFashionNoAuthSelectOptionGet$Response
+          .fromJsonFactory,
     );
 
-    return _bizAiFashionNoAuthSelectOptionGet();
+    return _comboServiceBizAiFashionNoAuthSelectOptionGet();
   }
 
   ///选择项列表
-  @GET(path: '/biz/ai-fashion/no-auth/select/option')
-  Future<chopper.Response<BizAiFashionNoAuthSelectOptionGet$Response>>
-  _bizAiFashionNoAuthSelectOptionGet({
+  @GET(path: '/combo-service/biz/ai-fashion/no-auth/select/option')
+  Future<
+    chopper.Response<ComboServiceBizAiFashionNoAuthSelectOptionGet$Response>
+  >
+  _comboServiceBizAiFashionNoAuthSelectOptionGet({
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -825,25 +864,31 @@ abstract class SwaggerApiCombo extends ChopperService {
   ///重新生成模特
   ///@param root
   Future<
-    chopper.Response<ApiV1StyleOutfitsGenerateModelRegeneratePost$Response>
+    chopper.Response<
+      ComboServiceApiV1StyleOutfitsGenerateModelRegeneratePost$Response
+    >
   >
-  apiV1StyleOutfitsGenerateModelRegeneratePost({Object? root}) {
+  comboServiceApiV1StyleOutfitsGenerateModelRegeneratePost({Object? root}) {
     generatedMapping.putIfAbsent(
-      ApiV1StyleOutfitsGenerateModelRegeneratePost$Response,
-      () =>
-          ApiV1StyleOutfitsGenerateModelRegeneratePost$Response.fromJsonFactory,
+      ComboServiceApiV1StyleOutfitsGenerateModelRegeneratePost$Response,
+      () => ComboServiceApiV1StyleOutfitsGenerateModelRegeneratePost$Response
+          .fromJsonFactory,
     );
 
-    return _apiV1StyleOutfitsGenerateModelRegeneratePost(root: root);
+    return _comboServiceApiV1StyleOutfitsGenerateModelRegeneratePost(
+      root: root,
+    );
   }
 
   ///重新生成模特
   ///@param root
-  @POST(path: '/api/v1/style-outfits/generateModel/regenerate')
+  @POST(path: '/combo-service/api/v1/style-outfits/generateModel/regenerate')
   Future<
-    chopper.Response<ApiV1StyleOutfitsGenerateModelRegeneratePost$Response>
+    chopper.Response<
+      ComboServiceApiV1StyleOutfitsGenerateModelRegeneratePost$Response
+    >
   >
-  _apiV1StyleOutfitsGenerateModelRegeneratePost({
+  _comboServiceApiV1StyleOutfitsGenerateModelRegeneratePost({
     @Body() Object? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -860,21 +905,30 @@ abstract class SwaggerApiCombo extends ChopperService {
 
   ///重新生成穿搭
   ///@param root
-  Future<chopper.Response<ApiV1StyleOutfitsGenerateRegeneratePost$Response>>
-  apiV1StyleOutfitsGenerateRegeneratePost({Object? root}) {
+  Future<
+    chopper.Response<
+      ComboServiceApiV1StyleOutfitsGenerateRegeneratePost$Response
+    >
+  >
+  comboServiceApiV1StyleOutfitsGenerateRegeneratePost({Object? root}) {
     generatedMapping.putIfAbsent(
-      ApiV1StyleOutfitsGenerateRegeneratePost$Response,
-      () => ApiV1StyleOutfitsGenerateRegeneratePost$Response.fromJsonFactory,
+      ComboServiceApiV1StyleOutfitsGenerateRegeneratePost$Response,
+      () => ComboServiceApiV1StyleOutfitsGenerateRegeneratePost$Response
+          .fromJsonFactory,
     );
 
-    return _apiV1StyleOutfitsGenerateRegeneratePost(root: root);
+    return _comboServiceApiV1StyleOutfitsGenerateRegeneratePost(root: root);
   }
 
   ///重新生成穿搭
   ///@param root
-  @POST(path: '/api/v1/style-outfits/generate/regenerate')
-  Future<chopper.Response<ApiV1StyleOutfitsGenerateRegeneratePost$Response>>
-  _apiV1StyleOutfitsGenerateRegeneratePost({
+  @POST(path: '/combo-service/api/v1/style-outfits/generate/regenerate')
+  Future<
+    chopper.Response<
+      ComboServiceApiV1StyleOutfitsGenerateRegeneratePost$Response
+    >
+  >
+  _comboServiceApiV1StyleOutfitsGenerateRegeneratePost({
     @Body() Object? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -894,19 +948,19 @@ abstract class SwaggerApiCombo extends ChopperService {
   ///@param pageSize
   ///@param orderId
   ///@param root
-  Future<chopper.Response<BizUserShareRewardPageGet$Response>>
-  bizUserShareRewardPageGet({
+  Future<chopper.Response<ComboServiceBizUserShareRewardPageGet$Response>>
+  comboServiceBizUserShareRewardPageGet({
     required String? pageNum,
     required String? pageSize,
     String? orderId,
     Object? root,
   }) {
     generatedMapping.putIfAbsent(
-      BizUserShareRewardPageGet$Response,
-      () => BizUserShareRewardPageGet$Response.fromJsonFactory,
+      ComboServiceBizUserShareRewardPageGet$Response,
+      () => ComboServiceBizUserShareRewardPageGet$Response.fromJsonFactory,
     );
 
-    return _bizUserShareRewardPageGet(
+    return _comboServiceBizUserShareRewardPageGet(
       pageNum: pageNum,
       pageSize: pageSize,
       orderId: orderId,
@@ -919,9 +973,9 @@ abstract class SwaggerApiCombo extends ChopperService {
   ///@param pageSize
   ///@param orderId
   ///@param root
-  @GET(path: '/biz/user-share-reward/page')
-  Future<chopper.Response<BizUserShareRewardPageGet$Response>>
-  _bizUserShareRewardPageGet({
+  @GET(path: '/combo-service/biz/user-share-reward/page')
+  Future<chopper.Response<ComboServiceBizUserShareRewardPageGet$Response>>
+  _comboServiceBizUserShareRewardPageGet({
     @Query('pageNum') required String? pageNum,
     @Query('pageSize') required String? pageSize,
     @Query('orderId') String? orderId,
@@ -941,21 +995,21 @@ abstract class SwaggerApiCombo extends ChopperService {
 
   ///提交返利请求
   ///@param root
-  Future<chopper.Response<BizUserShareRewardPost$Response>>
-  bizUserShareRewardPost({Object? root}) {
+  Future<chopper.Response<ComboServiceBizUserShareRewardPost$Response>>
+  comboServiceBizUserShareRewardPost({Object? root}) {
     generatedMapping.putIfAbsent(
-      BizUserShareRewardPost$Response,
-      () => BizUserShareRewardPost$Response.fromJsonFactory,
+      ComboServiceBizUserShareRewardPost$Response,
+      () => ComboServiceBizUserShareRewardPost$Response.fromJsonFactory,
     );
 
-    return _bizUserShareRewardPost(root: root);
+    return _comboServiceBizUserShareRewardPost(root: root);
   }
 
   ///提交返利请求
   ///@param root
-  @POST(path: '/biz/user-share-reward')
-  Future<chopper.Response<BizUserShareRewardPost$Response>>
-  _bizUserShareRewardPost({
+  @POST(path: '/combo-service/biz/user-share-reward')
+  Future<chopper.Response<ComboServiceBizUserShareRewardPost$Response>>
+  _comboServiceBizUserShareRewardPost({
     @Body() Object? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -973,22 +1027,28 @@ abstract class SwaggerApiCombo extends ChopperService {
   ///根据拉取相册信息
   ///@param albumCode
   ///@param root
-  Future<chopper.Response<NoAuthBizAlbumAlbumInfoGet$Response>>
-  noAuthBizAlbumAlbumInfoGet({required String? albumCode, Object? root}) {
+  Future<chopper.Response<ComboServiceNoAuthBizAlbumAlbumInfoGet$Response>>
+  comboServiceNoAuthBizAlbumAlbumInfoGet({
+    required String? albumCode,
+    Object? root,
+  }) {
     generatedMapping.putIfAbsent(
-      NoAuthBizAlbumAlbumInfoGet$Response,
-      () => NoAuthBizAlbumAlbumInfoGet$Response.fromJsonFactory,
+      ComboServiceNoAuthBizAlbumAlbumInfoGet$Response,
+      () => ComboServiceNoAuthBizAlbumAlbumInfoGet$Response.fromJsonFactory,
     );
 
-    return _noAuthBizAlbumAlbumInfoGet(albumCode: albumCode, root: root);
+    return _comboServiceNoAuthBizAlbumAlbumInfoGet(
+      albumCode: albumCode,
+      root: root,
+    );
   }
 
   ///根据拉取相册信息
   ///@param albumCode
   ///@param root
-  @GET(path: '/no-auth/biz/album/albumInfo')
-  Future<chopper.Response<NoAuthBizAlbumAlbumInfoGet$Response>>
-  _noAuthBizAlbumAlbumInfoGet({
+  @GET(path: '/combo-service/no-auth/biz/album/albumInfo')
+  Future<chopper.Response<ComboServiceNoAuthBizAlbumAlbumInfoGet$Response>>
+  _comboServiceNoAuthBizAlbumAlbumInfoGet({
     @Query('albumCode') required String? albumCode,
     @Body() Object? root,
     @chopper.Tag()
@@ -1006,8 +1066,8 @@ abstract class SwaggerApiCombo extends ChopperService {
 }
 
 @JsonSerializable(explicitToJson: true)
-class NoAuthBizKolKolInfoGet$Response {
-  const NoAuthBizKolKolInfoGet$Response({
+class ComboServiceNoAuthBizKolKolInfoGet$Response {
+  const ComboServiceNoAuthBizKolKolInfoGet$Response({
     this.code,
     this.message,
     this.data,
@@ -1016,31 +1076,34 @@ class NoAuthBizKolKolInfoGet$Response {
     this.success,
   });
 
-  factory NoAuthBizKolKolInfoGet$Response.fromJson(Map<String, dynamic> json) =>
-      _$NoAuthBizKolKolInfoGet$ResponseFromJson(json);
+  factory ComboServiceNoAuthBizKolKolInfoGet$Response.fromJson(
+    Map<String, dynamic> json,
+  ) => _$ComboServiceNoAuthBizKolKolInfoGet$ResponseFromJson(json);
 
-  static const toJsonFactory = _$NoAuthBizKolKolInfoGet$ResponseToJson;
+  static const toJsonFactory =
+      _$ComboServiceNoAuthBizKolKolInfoGet$ResponseToJson;
   Map<String, dynamic> toJson() =>
-      _$NoAuthBizKolKolInfoGet$ResponseToJson(this);
+      _$ComboServiceNoAuthBizKolKolInfoGet$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final double? code;
   @JsonKey(name: 'message')
   final String? message;
   @JsonKey(name: 'data')
-  final NoAuthBizKolKolInfoGet$Response$Data? data;
+  final ComboServiceNoAuthBizKolKolInfoGet$Response$Data? data;
   @JsonKey(name: 'traceId')
   final String? traceId;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
   @JsonKey(name: 'success')
   final bool? success;
-  static const fromJsonFactory = _$NoAuthBizKolKolInfoGet$ResponseFromJson;
+  static const fromJsonFactory =
+      _$ComboServiceNoAuthBizKolKolInfoGet$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is NoAuthBizKolKolInfoGet$Response &&
+        (other is ComboServiceNoAuthBizKolKolInfoGet$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -1078,17 +1141,17 @@ class NoAuthBizKolKolInfoGet$Response {
       runtimeType.hashCode;
 }
 
-extension $NoAuthBizKolKolInfoGet$ResponseExtension
-    on NoAuthBizKolKolInfoGet$Response {
-  NoAuthBizKolKolInfoGet$Response copyWith({
+extension $ComboServiceNoAuthBizKolKolInfoGet$ResponseExtension
+    on ComboServiceNoAuthBizKolKolInfoGet$Response {
+  ComboServiceNoAuthBizKolKolInfoGet$Response copyWith({
     double? code,
     String? message,
-    NoAuthBizKolKolInfoGet$Response$Data? data,
+    ComboServiceNoAuthBizKolKolInfoGet$Response$Data? data,
     String? traceId,
     Object? placeholder,
     bool? success,
   }) {
-    return NoAuthBizKolKolInfoGet$Response(
+    return ComboServiceNoAuthBizKolKolInfoGet$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       data: data ?? this.data,
@@ -1098,15 +1161,15 @@ extension $NoAuthBizKolKolInfoGet$ResponseExtension
     );
   }
 
-  NoAuthBizKolKolInfoGet$Response copyWithWrapped({
+  ComboServiceNoAuthBizKolKolInfoGet$Response copyWithWrapped({
     Wrapped<double?>? code,
     Wrapped<String?>? message,
-    Wrapped<NoAuthBizKolKolInfoGet$Response$Data?>? data,
+    Wrapped<ComboServiceNoAuthBizKolKolInfoGet$Response$Data?>? data,
     Wrapped<String?>? traceId,
     Wrapped<Object?>? placeholder,
     Wrapped<bool?>? success,
   }) {
-    return NoAuthBizKolKolInfoGet$Response(
+    return ComboServiceNoAuthBizKolKolInfoGet$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
@@ -1118,34 +1181,38 @@ extension $NoAuthBizKolKolInfoGet$ResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class NoAuthPopupPromiseGet$Response {
-  const NoAuthPopupPromiseGet$Response({
+class ComboServiceNoAuthPopupPromiseGet$Response {
+  const ComboServiceNoAuthPopupPromiseGet$Response({
     required this.code,
     required this.message,
     required this.data,
     required this.traceId,
   });
 
-  factory NoAuthPopupPromiseGet$Response.fromJson(Map<String, dynamic> json) =>
-      _$NoAuthPopupPromiseGet$ResponseFromJson(json);
+  factory ComboServiceNoAuthPopupPromiseGet$Response.fromJson(
+    Map<String, dynamic> json,
+  ) => _$ComboServiceNoAuthPopupPromiseGet$ResponseFromJson(json);
 
-  static const toJsonFactory = _$NoAuthPopupPromiseGet$ResponseToJson;
-  Map<String, dynamic> toJson() => _$NoAuthPopupPromiseGet$ResponseToJson(this);
+  static const toJsonFactory =
+      _$ComboServiceNoAuthPopupPromiseGet$ResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$ComboServiceNoAuthPopupPromiseGet$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final String code;
   @JsonKey(name: 'message')
   final String message;
   @JsonKey(name: 'data')
-  final NoAuthPopupPromiseGet$Response$Data data;
+  final ComboServiceNoAuthPopupPromiseGet$Response$Data data;
   @JsonKey(name: 'traceId')
   final String traceId;
-  static const fromJsonFactory = _$NoAuthPopupPromiseGet$ResponseFromJson;
+  static const fromJsonFactory =
+      _$ComboServiceNoAuthPopupPromiseGet$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is NoAuthPopupPromiseGet$Response &&
+        (other is ComboServiceNoAuthPopupPromiseGet$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -1171,15 +1238,15 @@ class NoAuthPopupPromiseGet$Response {
       runtimeType.hashCode;
 }
 
-extension $NoAuthPopupPromiseGet$ResponseExtension
-    on NoAuthPopupPromiseGet$Response {
-  NoAuthPopupPromiseGet$Response copyWith({
+extension $ComboServiceNoAuthPopupPromiseGet$ResponseExtension
+    on ComboServiceNoAuthPopupPromiseGet$Response {
+  ComboServiceNoAuthPopupPromiseGet$Response copyWith({
     String? code,
     String? message,
-    NoAuthPopupPromiseGet$Response$Data? data,
+    ComboServiceNoAuthPopupPromiseGet$Response$Data? data,
     String? traceId,
   }) {
-    return NoAuthPopupPromiseGet$Response(
+    return ComboServiceNoAuthPopupPromiseGet$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       data: data ?? this.data,
@@ -1187,13 +1254,13 @@ extension $NoAuthPopupPromiseGet$ResponseExtension
     );
   }
 
-  NoAuthPopupPromiseGet$Response copyWithWrapped({
+  ComboServiceNoAuthPopupPromiseGet$Response copyWithWrapped({
     Wrapped<String>? code,
     Wrapped<String>? message,
-    Wrapped<NoAuthPopupPromiseGet$Response$Data>? data,
+    Wrapped<ComboServiceNoAuthPopupPromiseGet$Response$Data>? data,
     Wrapped<String>? traceId,
   }) {
-    return NoAuthPopupPromiseGet$Response(
+    return ComboServiceNoAuthPopupPromiseGet$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
@@ -1203,8 +1270,8 @@ extension $NoAuthPopupPromiseGet$ResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class NoAuthCommonAppConfigVersionCheckGet$Response {
-  const NoAuthCommonAppConfigVersionCheckGet$Response({
+class ComboServiceNoAuthCommonAppConfigVersionCheckGet$Response {
+  const ComboServiceNoAuthCommonAppConfigVersionCheckGet$Response({
     this.code,
     this.message,
     this.data,
@@ -1212,32 +1279,33 @@ class NoAuthCommonAppConfigVersionCheckGet$Response {
     this.traceId,
   });
 
-  factory NoAuthCommonAppConfigVersionCheckGet$Response.fromJson(
+  factory ComboServiceNoAuthCommonAppConfigVersionCheckGet$Response.fromJson(
     Map<String, dynamic> json,
-  ) => _$NoAuthCommonAppConfigVersionCheckGet$ResponseFromJson(json);
+  ) =>
+      _$ComboServiceNoAuthCommonAppConfigVersionCheckGet$ResponseFromJson(json);
 
   static const toJsonFactory =
-      _$NoAuthCommonAppConfigVersionCheckGet$ResponseToJson;
+      _$ComboServiceNoAuthCommonAppConfigVersionCheckGet$ResponseToJson;
   Map<String, dynamic> toJson() =>
-      _$NoAuthCommonAppConfigVersionCheckGet$ResponseToJson(this);
+      _$ComboServiceNoAuthCommonAppConfigVersionCheckGet$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final double? code;
   @JsonKey(name: 'message')
   final String? message;
   @JsonKey(name: 'data')
-  final NoAuthCommonAppConfigVersionCheckGet$Response$Data? data;
+  final ComboServiceNoAuthCommonAppConfigVersionCheckGet$Response$Data? data;
   @JsonKey(name: 'success')
   final bool? success;
   @JsonKey(name: 'traceId')
   final String? traceId;
   static const fromJsonFactory =
-      _$NoAuthCommonAppConfigVersionCheckGet$ResponseFromJson;
+      _$ComboServiceNoAuthCommonAppConfigVersionCheckGet$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is NoAuthCommonAppConfigVersionCheckGet$Response &&
+        (other is ComboServiceNoAuthCommonAppConfigVersionCheckGet$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -1269,16 +1337,16 @@ class NoAuthCommonAppConfigVersionCheckGet$Response {
       runtimeType.hashCode;
 }
 
-extension $NoAuthCommonAppConfigVersionCheckGet$ResponseExtension
-    on NoAuthCommonAppConfigVersionCheckGet$Response {
-  NoAuthCommonAppConfigVersionCheckGet$Response copyWith({
+extension $ComboServiceNoAuthCommonAppConfigVersionCheckGet$ResponseExtension
+    on ComboServiceNoAuthCommonAppConfigVersionCheckGet$Response {
+  ComboServiceNoAuthCommonAppConfigVersionCheckGet$Response copyWith({
     double? code,
     String? message,
-    NoAuthCommonAppConfigVersionCheckGet$Response$Data? data,
+    ComboServiceNoAuthCommonAppConfigVersionCheckGet$Response$Data? data,
     bool? success,
     String? traceId,
   }) {
-    return NoAuthCommonAppConfigVersionCheckGet$Response(
+    return ComboServiceNoAuthCommonAppConfigVersionCheckGet$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       data: data ?? this.data,
@@ -1287,14 +1355,15 @@ extension $NoAuthCommonAppConfigVersionCheckGet$ResponseExtension
     );
   }
 
-  NoAuthCommonAppConfigVersionCheckGet$Response copyWithWrapped({
+  ComboServiceNoAuthCommonAppConfigVersionCheckGet$Response copyWithWrapped({
     Wrapped<double?>? code,
     Wrapped<String?>? message,
-    Wrapped<NoAuthCommonAppConfigVersionCheckGet$Response$Data?>? data,
+    Wrapped<ComboServiceNoAuthCommonAppConfigVersionCheckGet$Response$Data?>?
+    data,
     Wrapped<bool?>? success,
     Wrapped<String?>? traceId,
   }) {
-    return NoAuthCommonAppConfigVersionCheckGet$Response(
+    return ComboServiceNoAuthCommonAppConfigVersionCheckGet$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
@@ -1305,21 +1374,22 @@ extension $NoAuthCommonAppConfigVersionCheckGet$ResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class BizCommunityPostUnlikePost$Response {
-  const BizCommunityPostUnlikePost$Response({
+class ComboServiceBizCommunityPostUnlikePost$Response {
+  const ComboServiceBizCommunityPostUnlikePost$Response({
     this.code,
     this.message,
     this.data,
     this.traceId,
   });
 
-  factory BizCommunityPostUnlikePost$Response.fromJson(
+  factory ComboServiceBizCommunityPostUnlikePost$Response.fromJson(
     Map<String, dynamic> json,
-  ) => _$BizCommunityPostUnlikePost$ResponseFromJson(json);
+  ) => _$ComboServiceBizCommunityPostUnlikePost$ResponseFromJson(json);
 
-  static const toJsonFactory = _$BizCommunityPostUnlikePost$ResponseToJson;
+  static const toJsonFactory =
+      _$ComboServiceBizCommunityPostUnlikePost$ResponseToJson;
   Map<String, dynamic> toJson() =>
-      _$BizCommunityPostUnlikePost$ResponseToJson(this);
+      _$ComboServiceBizCommunityPostUnlikePost$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final int? code;
@@ -1327,189 +1397,15 @@ class BizCommunityPostUnlikePost$Response {
   final String? message;
   @JsonKey(name: 'data')
   final bool? data;
-  @JsonKey(name: 'traceId')
-  final String? traceId;
-  static const fromJsonFactory = _$BizCommunityPostUnlikePost$ResponseFromJson;
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other is BizCommunityPostUnlikePost$Response &&
-            (identical(other.code, code) ||
-                const DeepCollectionEquality().equals(other.code, code)) &&
-            (identical(other.message, message) ||
-                const DeepCollectionEquality().equals(
-                  other.message,
-                  message,
-                )) &&
-            (identical(other.data, data) ||
-                const DeepCollectionEquality().equals(other.data, data)) &&
-            (identical(other.traceId, traceId) ||
-                const DeepCollectionEquality().equals(other.traceId, traceId)));
-  }
-
-  @override
-  String toString() => jsonEncode(this);
-
-  @override
-  int get hashCode =>
-      const DeepCollectionEquality().hash(code) ^
-      const DeepCollectionEquality().hash(message) ^
-      const DeepCollectionEquality().hash(data) ^
-      const DeepCollectionEquality().hash(traceId) ^
-      runtimeType.hashCode;
-}
-
-extension $BizCommunityPostUnlikePost$ResponseExtension
-    on BizCommunityPostUnlikePost$Response {
-  BizCommunityPostUnlikePost$Response copyWith({
-    int? code,
-    String? message,
-    bool? data,
-    String? traceId,
-  }) {
-    return BizCommunityPostUnlikePost$Response(
-      code: code ?? this.code,
-      message: message ?? this.message,
-      data: data ?? this.data,
-      traceId: traceId ?? this.traceId,
-    );
-  }
-
-  BizCommunityPostUnlikePost$Response copyWithWrapped({
-    Wrapped<int?>? code,
-    Wrapped<String?>? message,
-    Wrapped<bool?>? data,
-    Wrapped<String?>? traceId,
-  }) {
-    return BizCommunityPostUnlikePost$Response(
-      code: (code != null ? code.value : this.code),
-      message: (message != null ? message.value : this.message),
-      data: (data != null ? data.value : this.data),
-      traceId: (traceId != null ? traceId.value : this.traceId),
-    );
-  }
-}
-
-@JsonSerializable(explicitToJson: true)
-class BizCommunityPostLikedGet$Response {
-  const BizCommunityPostLikedGet$Response({
-    this.code,
-    this.message,
-    this.data,
-    this.traceId,
-  });
-
-  factory BizCommunityPostLikedGet$Response.fromJson(
-    Map<String, dynamic> json,
-  ) => _$BizCommunityPostLikedGet$ResponseFromJson(json);
-
-  static const toJsonFactory = _$BizCommunityPostLikedGet$ResponseToJson;
-  Map<String, dynamic> toJson() =>
-      _$BizCommunityPostLikedGet$ResponseToJson(this);
-
-  @JsonKey(name: 'code')
-  final int? code;
-  @JsonKey(name: 'message')
-  final String? message;
-  @JsonKey(name: 'data')
-  final BizCommunityPostLikedGet$Response$Data? data;
-  @JsonKey(name: 'traceId')
-  final String? traceId;
-  static const fromJsonFactory = _$BizCommunityPostLikedGet$ResponseFromJson;
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other is BizCommunityPostLikedGet$Response &&
-            (identical(other.code, code) ||
-                const DeepCollectionEquality().equals(other.code, code)) &&
-            (identical(other.message, message) ||
-                const DeepCollectionEquality().equals(
-                  other.message,
-                  message,
-                )) &&
-            (identical(other.data, data) ||
-                const DeepCollectionEquality().equals(other.data, data)) &&
-            (identical(other.traceId, traceId) ||
-                const DeepCollectionEquality().equals(other.traceId, traceId)));
-  }
-
-  @override
-  String toString() => jsonEncode(this);
-
-  @override
-  int get hashCode =>
-      const DeepCollectionEquality().hash(code) ^
-      const DeepCollectionEquality().hash(message) ^
-      const DeepCollectionEquality().hash(data) ^
-      const DeepCollectionEquality().hash(traceId) ^
-      runtimeType.hashCode;
-}
-
-extension $BizCommunityPostLikedGet$ResponseExtension
-    on BizCommunityPostLikedGet$Response {
-  BizCommunityPostLikedGet$Response copyWith({
-    int? code,
-    String? message,
-    BizCommunityPostLikedGet$Response$Data? data,
-    String? traceId,
-  }) {
-    return BizCommunityPostLikedGet$Response(
-      code: code ?? this.code,
-      message: message ?? this.message,
-      data: data ?? this.data,
-      traceId: traceId ?? this.traceId,
-    );
-  }
-
-  BizCommunityPostLikedGet$Response copyWithWrapped({
-    Wrapped<int?>? code,
-    Wrapped<String?>? message,
-    Wrapped<BizCommunityPostLikedGet$Response$Data?>? data,
-    Wrapped<String?>? traceId,
-  }) {
-    return BizCommunityPostLikedGet$Response(
-      code: (code != null ? code.value : this.code),
-      message: (message != null ? message.value : this.message),
-      data: (data != null ? data.value : this.data),
-      traceId: (traceId != null ? traceId.value : this.traceId),
-    );
-  }
-}
-
-@JsonSerializable(explicitToJson: true)
-class BizCommunityPostNoAuthListGet$Response {
-  const BizCommunityPostNoAuthListGet$Response({
-    this.code,
-    this.message,
-    this.data,
-    this.traceId,
-  });
-
-  factory BizCommunityPostNoAuthListGet$Response.fromJson(
-    Map<String, dynamic> json,
-  ) => _$BizCommunityPostNoAuthListGet$ResponseFromJson(json);
-
-  static const toJsonFactory = _$BizCommunityPostNoAuthListGet$ResponseToJson;
-  Map<String, dynamic> toJson() =>
-      _$BizCommunityPostNoAuthListGet$ResponseToJson(this);
-
-  @JsonKey(name: 'code')
-  final int? code;
-  @JsonKey(name: 'message')
-  final String? message;
-  @JsonKey(name: 'data')
-  final BizCommunityPostNoAuthListGet$Response$Data? data;
   @JsonKey(name: 'traceId')
   final String? traceId;
   static const fromJsonFactory =
-      _$BizCommunityPostNoAuthListGet$ResponseFromJson;
+      _$ComboServiceBizCommunityPostUnlikePost$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is BizCommunityPostNoAuthListGet$Response &&
+        (other is ComboServiceBizCommunityPostUnlikePost$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -1535,15 +1431,15 @@ class BizCommunityPostNoAuthListGet$Response {
       runtimeType.hashCode;
 }
 
-extension $BizCommunityPostNoAuthListGet$ResponseExtension
-    on BizCommunityPostNoAuthListGet$Response {
-  BizCommunityPostNoAuthListGet$Response copyWith({
+extension $ComboServiceBizCommunityPostUnlikePost$ResponseExtension
+    on ComboServiceBizCommunityPostUnlikePost$Response {
+  ComboServiceBizCommunityPostUnlikePost$Response copyWith({
     int? code,
     String? message,
-    BizCommunityPostNoAuthListGet$Response$Data? data,
+    bool? data,
     String? traceId,
   }) {
-    return BizCommunityPostNoAuthListGet$Response(
+    return ComboServiceBizCommunityPostUnlikePost$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       data: data ?? this.data,
@@ -1551,13 +1447,13 @@ extension $BizCommunityPostNoAuthListGet$ResponseExtension
     );
   }
 
-  BizCommunityPostNoAuthListGet$Response copyWithWrapped({
+  ComboServiceBizCommunityPostUnlikePost$Response copyWithWrapped({
     Wrapped<int?>? code,
     Wrapped<String?>? message,
-    Wrapped<BizCommunityPostNoAuthListGet$Response$Data?>? data,
+    Wrapped<bool?>? data,
     Wrapped<String?>? traceId,
   }) {
-    return BizCommunityPostNoAuthListGet$Response(
+    return ComboServiceBizCommunityPostUnlikePost$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
@@ -1567,21 +1463,200 @@ extension $BizCommunityPostNoAuthListGet$ResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class BizCommunityPostLikePost$Response {
-  const BizCommunityPostLikePost$Response({
+class ComboServiceBizCommunityPostLikedGet$Response {
+  const ComboServiceBizCommunityPostLikedGet$Response({
     this.code,
     this.message,
     this.data,
     this.traceId,
   });
 
-  factory BizCommunityPostLikePost$Response.fromJson(
+  factory ComboServiceBizCommunityPostLikedGet$Response.fromJson(
     Map<String, dynamic> json,
-  ) => _$BizCommunityPostLikePost$ResponseFromJson(json);
+  ) => _$ComboServiceBizCommunityPostLikedGet$ResponseFromJson(json);
 
-  static const toJsonFactory = _$BizCommunityPostLikePost$ResponseToJson;
+  static const toJsonFactory =
+      _$ComboServiceBizCommunityPostLikedGet$ResponseToJson;
   Map<String, dynamic> toJson() =>
-      _$BizCommunityPostLikePost$ResponseToJson(this);
+      _$ComboServiceBizCommunityPostLikedGet$ResponseToJson(this);
+
+  @JsonKey(name: 'code')
+  final int? code;
+  @JsonKey(name: 'message')
+  final String? message;
+  @JsonKey(name: 'data')
+  final ComboServiceBizCommunityPostLikedGet$Response$Data? data;
+  @JsonKey(name: 'traceId')
+  final String? traceId;
+  static const fromJsonFactory =
+      _$ComboServiceBizCommunityPostLikedGet$ResponseFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is ComboServiceBizCommunityPostLikedGet$Response &&
+            (identical(other.code, code) ||
+                const DeepCollectionEquality().equals(other.code, code)) &&
+            (identical(other.message, message) ||
+                const DeepCollectionEquality().equals(
+                  other.message,
+                  message,
+                )) &&
+            (identical(other.data, data) ||
+                const DeepCollectionEquality().equals(other.data, data)) &&
+            (identical(other.traceId, traceId) ||
+                const DeepCollectionEquality().equals(other.traceId, traceId)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(code) ^
+      const DeepCollectionEquality().hash(message) ^
+      const DeepCollectionEquality().hash(data) ^
+      const DeepCollectionEquality().hash(traceId) ^
+      runtimeType.hashCode;
+}
+
+extension $ComboServiceBizCommunityPostLikedGet$ResponseExtension
+    on ComboServiceBizCommunityPostLikedGet$Response {
+  ComboServiceBizCommunityPostLikedGet$Response copyWith({
+    int? code,
+    String? message,
+    ComboServiceBizCommunityPostLikedGet$Response$Data? data,
+    String? traceId,
+  }) {
+    return ComboServiceBizCommunityPostLikedGet$Response(
+      code: code ?? this.code,
+      message: message ?? this.message,
+      data: data ?? this.data,
+      traceId: traceId ?? this.traceId,
+    );
+  }
+
+  ComboServiceBizCommunityPostLikedGet$Response copyWithWrapped({
+    Wrapped<int?>? code,
+    Wrapped<String?>? message,
+    Wrapped<ComboServiceBizCommunityPostLikedGet$Response$Data?>? data,
+    Wrapped<String?>? traceId,
+  }) {
+    return ComboServiceBizCommunityPostLikedGet$Response(
+      code: (code != null ? code.value : this.code),
+      message: (message != null ? message.value : this.message),
+      data: (data != null ? data.value : this.data),
+      traceId: (traceId != null ? traceId.value : this.traceId),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class ComboServiceBizCommunityPostNoAuthListGet$Response {
+  const ComboServiceBizCommunityPostNoAuthListGet$Response({
+    this.code,
+    this.message,
+    this.data,
+    this.traceId,
+  });
+
+  factory ComboServiceBizCommunityPostNoAuthListGet$Response.fromJson(
+    Map<String, dynamic> json,
+  ) => _$ComboServiceBizCommunityPostNoAuthListGet$ResponseFromJson(json);
+
+  static const toJsonFactory =
+      _$ComboServiceBizCommunityPostNoAuthListGet$ResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$ComboServiceBizCommunityPostNoAuthListGet$ResponseToJson(this);
+
+  @JsonKey(name: 'code')
+  final int? code;
+  @JsonKey(name: 'message')
+  final String? message;
+  @JsonKey(name: 'data')
+  final ComboServiceBizCommunityPostNoAuthListGet$Response$Data? data;
+  @JsonKey(name: 'traceId')
+  final String? traceId;
+  static const fromJsonFactory =
+      _$ComboServiceBizCommunityPostNoAuthListGet$ResponseFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is ComboServiceBizCommunityPostNoAuthListGet$Response &&
+            (identical(other.code, code) ||
+                const DeepCollectionEquality().equals(other.code, code)) &&
+            (identical(other.message, message) ||
+                const DeepCollectionEquality().equals(
+                  other.message,
+                  message,
+                )) &&
+            (identical(other.data, data) ||
+                const DeepCollectionEquality().equals(other.data, data)) &&
+            (identical(other.traceId, traceId) ||
+                const DeepCollectionEquality().equals(other.traceId, traceId)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(code) ^
+      const DeepCollectionEquality().hash(message) ^
+      const DeepCollectionEquality().hash(data) ^
+      const DeepCollectionEquality().hash(traceId) ^
+      runtimeType.hashCode;
+}
+
+extension $ComboServiceBizCommunityPostNoAuthListGet$ResponseExtension
+    on ComboServiceBizCommunityPostNoAuthListGet$Response {
+  ComboServiceBizCommunityPostNoAuthListGet$Response copyWith({
+    int? code,
+    String? message,
+    ComboServiceBizCommunityPostNoAuthListGet$Response$Data? data,
+    String? traceId,
+  }) {
+    return ComboServiceBizCommunityPostNoAuthListGet$Response(
+      code: code ?? this.code,
+      message: message ?? this.message,
+      data: data ?? this.data,
+      traceId: traceId ?? this.traceId,
+    );
+  }
+
+  ComboServiceBizCommunityPostNoAuthListGet$Response copyWithWrapped({
+    Wrapped<int?>? code,
+    Wrapped<String?>? message,
+    Wrapped<ComboServiceBizCommunityPostNoAuthListGet$Response$Data?>? data,
+    Wrapped<String?>? traceId,
+  }) {
+    return ComboServiceBizCommunityPostNoAuthListGet$Response(
+      code: (code != null ? code.value : this.code),
+      message: (message != null ? message.value : this.message),
+      data: (data != null ? data.value : this.data),
+      traceId: (traceId != null ? traceId.value : this.traceId),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class ComboServiceBizCommunityPostLikePost$Response {
+  const ComboServiceBizCommunityPostLikePost$Response({
+    this.code,
+    this.message,
+    this.data,
+    this.traceId,
+  });
+
+  factory ComboServiceBizCommunityPostLikePost$Response.fromJson(
+    Map<String, dynamic> json,
+  ) => _$ComboServiceBizCommunityPostLikePost$ResponseFromJson(json);
+
+  static const toJsonFactory =
+      _$ComboServiceBizCommunityPostLikePost$ResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$ComboServiceBizCommunityPostLikePost$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final int? code;
@@ -1591,12 +1666,13 @@ class BizCommunityPostLikePost$Response {
   final bool? data;
   @JsonKey(name: 'traceId')
   final String? traceId;
-  static const fromJsonFactory = _$BizCommunityPostLikePost$ResponseFromJson;
+  static const fromJsonFactory =
+      _$ComboServiceBizCommunityPostLikePost$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is BizCommunityPostLikePost$Response &&
+        (other is ComboServiceBizCommunityPostLikePost$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -1622,15 +1698,15 @@ class BizCommunityPostLikePost$Response {
       runtimeType.hashCode;
 }
 
-extension $BizCommunityPostLikePost$ResponseExtension
-    on BizCommunityPostLikePost$Response {
-  BizCommunityPostLikePost$Response copyWith({
+extension $ComboServiceBizCommunityPostLikePost$ResponseExtension
+    on ComboServiceBizCommunityPostLikePost$Response {
+  ComboServiceBizCommunityPostLikePost$Response copyWith({
     int? code,
     String? message,
     bool? data,
     String? traceId,
   }) {
-    return BizCommunityPostLikePost$Response(
+    return ComboServiceBizCommunityPostLikePost$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       data: data ?? this.data,
@@ -1638,13 +1714,13 @@ extension $BizCommunityPostLikePost$ResponseExtension
     );
   }
 
-  BizCommunityPostLikePost$Response copyWithWrapped({
+  ComboServiceBizCommunityPostLikePost$Response copyWithWrapped({
     Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<bool?>? data,
     Wrapped<String?>? traceId,
   }) {
-    return BizCommunityPostLikePost$Response(
+    return ComboServiceBizCommunityPostLikePost$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
@@ -1654,8 +1730,8 @@ extension $BizCommunityPostLikePost$ResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class NoAuthBizImageTransTranslatePost$Response {
-  const NoAuthBizImageTransTranslatePost$Response({
+class ComboServiceNoAuthBizImageTransTranslatePost$Response {
+  const ComboServiceNoAuthBizImageTransTranslatePost$Response({
     this.code,
     this.message,
     this.data,
@@ -1664,14 +1740,14 @@ class NoAuthBizImageTransTranslatePost$Response {
     this.success,
   });
 
-  factory NoAuthBizImageTransTranslatePost$Response.fromJson(
+  factory ComboServiceNoAuthBizImageTransTranslatePost$Response.fromJson(
     Map<String, dynamic> json,
-  ) => _$NoAuthBizImageTransTranslatePost$ResponseFromJson(json);
+  ) => _$ComboServiceNoAuthBizImageTransTranslatePost$ResponseFromJson(json);
 
   static const toJsonFactory =
-      _$NoAuthBizImageTransTranslatePost$ResponseToJson;
+      _$ComboServiceNoAuthBizImageTransTranslatePost$ResponseToJson;
   Map<String, dynamic> toJson() =>
-      _$NoAuthBizImageTransTranslatePost$ResponseToJson(this);
+      _$ComboServiceNoAuthBizImageTransTranslatePost$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final double? code;
@@ -1686,12 +1762,12 @@ class NoAuthBizImageTransTranslatePost$Response {
   @JsonKey(name: 'success')
   final bool? success;
   static const fromJsonFactory =
-      _$NoAuthBizImageTransTranslatePost$ResponseFromJson;
+      _$ComboServiceNoAuthBizImageTransTranslatePost$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is NoAuthBizImageTransTranslatePost$Response &&
+        (other is ComboServiceNoAuthBizImageTransTranslatePost$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -1729,9 +1805,9 @@ class NoAuthBizImageTransTranslatePost$Response {
       runtimeType.hashCode;
 }
 
-extension $NoAuthBizImageTransTranslatePost$ResponseExtension
-    on NoAuthBizImageTransTranslatePost$Response {
-  NoAuthBizImageTransTranslatePost$Response copyWith({
+extension $ComboServiceNoAuthBizImageTransTranslatePost$ResponseExtension
+    on ComboServiceNoAuthBizImageTransTranslatePost$Response {
+  ComboServiceNoAuthBizImageTransTranslatePost$Response copyWith({
     double? code,
     String? message,
     String? data,
@@ -1739,7 +1815,7 @@ extension $NoAuthBizImageTransTranslatePost$ResponseExtension
     Object? placeholder,
     bool? success,
   }) {
-    return NoAuthBizImageTransTranslatePost$Response(
+    return ComboServiceNoAuthBizImageTransTranslatePost$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       data: data ?? this.data,
@@ -1749,7 +1825,7 @@ extension $NoAuthBizImageTransTranslatePost$ResponseExtension
     );
   }
 
-  NoAuthBizImageTransTranslatePost$Response copyWithWrapped({
+  ComboServiceNoAuthBizImageTransTranslatePost$Response copyWithWrapped({
     Wrapped<double?>? code,
     Wrapped<String?>? message,
     Wrapped<String?>? data,
@@ -1757,7 +1833,7 @@ extension $NoAuthBizImageTransTranslatePost$ResponseExtension
     Wrapped<Object?>? placeholder,
     Wrapped<bool?>? success,
   }) {
-    return NoAuthBizImageTransTranslatePost$Response(
+    return ComboServiceNoAuthBizImageTransTranslatePost$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
@@ -1769,8 +1845,8 @@ extension $NoAuthBizImageTransTranslatePost$ResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class BizUserOrderPendingGet$Response {
-  const BizUserOrderPendingGet$Response({
+class ComboServiceBizUserOrderPendingGet$Response {
+  const ComboServiceBizUserOrderPendingGet$Response({
     this.code,
     this.message,
     this.data,
@@ -1779,31 +1855,34 @@ class BizUserOrderPendingGet$Response {
     this.success,
   });
 
-  factory BizUserOrderPendingGet$Response.fromJson(Map<String, dynamic> json) =>
-      _$BizUserOrderPendingGet$ResponseFromJson(json);
+  factory ComboServiceBizUserOrderPendingGet$Response.fromJson(
+    Map<String, dynamic> json,
+  ) => _$ComboServiceBizUserOrderPendingGet$ResponseFromJson(json);
 
-  static const toJsonFactory = _$BizUserOrderPendingGet$ResponseToJson;
+  static const toJsonFactory =
+      _$ComboServiceBizUserOrderPendingGet$ResponseToJson;
   Map<String, dynamic> toJson() =>
-      _$BizUserOrderPendingGet$ResponseToJson(this);
+      _$ComboServiceBizUserOrderPendingGet$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final double? code;
   @JsonKey(name: 'message')
   final String? message;
   @JsonKey(name: 'data')
-  final BizUserOrderPendingGet$Response$Data? data;
+  final ComboServiceBizUserOrderPendingGet$Response$Data? data;
   @JsonKey(name: 'traceId')
   final String? traceId;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
   @JsonKey(name: 'success')
   final bool? success;
-  static const fromJsonFactory = _$BizUserOrderPendingGet$ResponseFromJson;
+  static const fromJsonFactory =
+      _$ComboServiceBizUserOrderPendingGet$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is BizUserOrderPendingGet$Response &&
+        (other is ComboServiceBizUserOrderPendingGet$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -1841,17 +1920,17 @@ class BizUserOrderPendingGet$Response {
       runtimeType.hashCode;
 }
 
-extension $BizUserOrderPendingGet$ResponseExtension
-    on BizUserOrderPendingGet$Response {
-  BizUserOrderPendingGet$Response copyWith({
+extension $ComboServiceBizUserOrderPendingGet$ResponseExtension
+    on ComboServiceBizUserOrderPendingGet$Response {
+  ComboServiceBizUserOrderPendingGet$Response copyWith({
     double? code,
     String? message,
-    BizUserOrderPendingGet$Response$Data? data,
+    ComboServiceBizUserOrderPendingGet$Response$Data? data,
     String? traceId,
     Object? placeholder,
     bool? success,
   }) {
-    return BizUserOrderPendingGet$Response(
+    return ComboServiceBizUserOrderPendingGet$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       data: data ?? this.data,
@@ -1861,15 +1940,15 @@ extension $BizUserOrderPendingGet$ResponseExtension
     );
   }
 
-  BizUserOrderPendingGet$Response copyWithWrapped({
+  ComboServiceBizUserOrderPendingGet$Response copyWithWrapped({
     Wrapped<double?>? code,
     Wrapped<String?>? message,
-    Wrapped<BizUserOrderPendingGet$Response$Data?>? data,
+    Wrapped<ComboServiceBizUserOrderPendingGet$Response$Data?>? data,
     Wrapped<String?>? traceId,
     Wrapped<Object?>? placeholder,
     Wrapped<bool?>? success,
   }) {
-    return BizUserOrderPendingGet$Response(
+    return ComboServiceBizUserOrderPendingGet$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
@@ -1881,8 +1960,8 @@ extension $BizUserOrderPendingGet$ResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ApiV1StyleOutfitsGenerateModelPost$Response {
-  const ApiV1StyleOutfitsGenerateModelPost$Response({
+class ComboServiceApiV1StyleOutfitsGenerateModelPost$Response {
+  const ComboServiceApiV1StyleOutfitsGenerateModelPost$Response({
     this.code,
     this.message,
     this.traceId,
@@ -1890,14 +1969,14 @@ class ApiV1StyleOutfitsGenerateModelPost$Response {
     this.data,
   });
 
-  factory ApiV1StyleOutfitsGenerateModelPost$Response.fromJson(
+  factory ComboServiceApiV1StyleOutfitsGenerateModelPost$Response.fromJson(
     Map<String, dynamic> json,
-  ) => _$ApiV1StyleOutfitsGenerateModelPost$ResponseFromJson(json);
+  ) => _$ComboServiceApiV1StyleOutfitsGenerateModelPost$ResponseFromJson(json);
 
   static const toJsonFactory =
-      _$ApiV1StyleOutfitsGenerateModelPost$ResponseToJson;
+      _$ComboServiceApiV1StyleOutfitsGenerateModelPost$ResponseToJson;
   Map<String, dynamic> toJson() =>
-      _$ApiV1StyleOutfitsGenerateModelPost$ResponseToJson(this);
+      _$ComboServiceApiV1StyleOutfitsGenerateModelPost$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final double? code;
@@ -1908,14 +1987,14 @@ class ApiV1StyleOutfitsGenerateModelPost$Response {
   @JsonKey(name: 'success')
   final bool? success;
   @JsonKey(name: 'data')
-  final ApiV1StyleOutfitsGenerateModelPost$Response$Data? data;
+  final ComboServiceApiV1StyleOutfitsGenerateModelPost$Response$Data? data;
   static const fromJsonFactory =
-      _$ApiV1StyleOutfitsGenerateModelPost$ResponseFromJson;
+      _$ComboServiceApiV1StyleOutfitsGenerateModelPost$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ApiV1StyleOutfitsGenerateModelPost$Response &&
+        (other is ComboServiceApiV1StyleOutfitsGenerateModelPost$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -1950,16 +2029,16 @@ class ApiV1StyleOutfitsGenerateModelPost$Response {
       runtimeType.hashCode;
 }
 
-extension $ApiV1StyleOutfitsGenerateModelPost$ResponseExtension
-    on ApiV1StyleOutfitsGenerateModelPost$Response {
-  ApiV1StyleOutfitsGenerateModelPost$Response copyWith({
+extension $ComboServiceApiV1StyleOutfitsGenerateModelPost$ResponseExtension
+    on ComboServiceApiV1StyleOutfitsGenerateModelPost$Response {
+  ComboServiceApiV1StyleOutfitsGenerateModelPost$Response copyWith({
     double? code,
     String? message,
     String? traceId,
     bool? success,
-    ApiV1StyleOutfitsGenerateModelPost$Response$Data? data,
+    ComboServiceApiV1StyleOutfitsGenerateModelPost$Response$Data? data,
   }) {
-    return ApiV1StyleOutfitsGenerateModelPost$Response(
+    return ComboServiceApiV1StyleOutfitsGenerateModelPost$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       traceId: traceId ?? this.traceId,
@@ -1968,14 +2047,15 @@ extension $ApiV1StyleOutfitsGenerateModelPost$ResponseExtension
     );
   }
 
-  ApiV1StyleOutfitsGenerateModelPost$Response copyWithWrapped({
+  ComboServiceApiV1StyleOutfitsGenerateModelPost$Response copyWithWrapped({
     Wrapped<double?>? code,
     Wrapped<String?>? message,
     Wrapped<String?>? traceId,
     Wrapped<bool?>? success,
-    Wrapped<ApiV1StyleOutfitsGenerateModelPost$Response$Data?>? data,
+    Wrapped<ComboServiceApiV1StyleOutfitsGenerateModelPost$Response$Data?>?
+    data,
   }) {
-    return ApiV1StyleOutfitsGenerateModelPost$Response(
+    return ComboServiceApiV1StyleOutfitsGenerateModelPost$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       traceId: (traceId != null ? traceId.value : this.traceId),
@@ -1986,34 +2066,35 @@ extension $ApiV1StyleOutfitsGenerateModelPost$ResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class BizAiFashionNoAuthBodyShapeGet$Response {
-  const BizAiFashionNoAuthBodyShapeGet$Response({
+class ComboServiceBizAiFashionNoAuthBodyShapeGet$Response {
+  const ComboServiceBizAiFashionNoAuthBodyShapeGet$Response({
     this.code,
     this.msg,
     this.data,
   });
 
-  factory BizAiFashionNoAuthBodyShapeGet$Response.fromJson(
+  factory ComboServiceBizAiFashionNoAuthBodyShapeGet$Response.fromJson(
     Map<String, dynamic> json,
-  ) => _$BizAiFashionNoAuthBodyShapeGet$ResponseFromJson(json);
+  ) => _$ComboServiceBizAiFashionNoAuthBodyShapeGet$ResponseFromJson(json);
 
-  static const toJsonFactory = _$BizAiFashionNoAuthBodyShapeGet$ResponseToJson;
+  static const toJsonFactory =
+      _$ComboServiceBizAiFashionNoAuthBodyShapeGet$ResponseToJson;
   Map<String, dynamic> toJson() =>
-      _$BizAiFashionNoAuthBodyShapeGet$ResponseToJson(this);
+      _$ComboServiceBizAiFashionNoAuthBodyShapeGet$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final double? code;
   @JsonKey(name: 'msg')
   final String? msg;
   @JsonKey(name: 'data')
-  final BizAiFashionNoAuthBodyShapeGet$Response$Data? data;
+  final ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data? data;
   static const fromJsonFactory =
-      _$BizAiFashionNoAuthBodyShapeGet$ResponseFromJson;
+      _$ComboServiceBizAiFashionNoAuthBodyShapeGet$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is BizAiFashionNoAuthBodyShapeGet$Response &&
+        (other is ComboServiceBizAiFashionNoAuthBodyShapeGet$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.msg, msg) ||
@@ -2033,26 +2114,26 @@ class BizAiFashionNoAuthBodyShapeGet$Response {
       runtimeType.hashCode;
 }
 
-extension $BizAiFashionNoAuthBodyShapeGet$ResponseExtension
-    on BizAiFashionNoAuthBodyShapeGet$Response {
-  BizAiFashionNoAuthBodyShapeGet$Response copyWith({
+extension $ComboServiceBizAiFashionNoAuthBodyShapeGet$ResponseExtension
+    on ComboServiceBizAiFashionNoAuthBodyShapeGet$Response {
+  ComboServiceBizAiFashionNoAuthBodyShapeGet$Response copyWith({
     double? code,
     String? msg,
-    BizAiFashionNoAuthBodyShapeGet$Response$Data? data,
+    ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data? data,
   }) {
-    return BizAiFashionNoAuthBodyShapeGet$Response(
+    return ComboServiceBizAiFashionNoAuthBodyShapeGet$Response(
       code: code ?? this.code,
       msg: msg ?? this.msg,
       data: data ?? this.data,
     );
   }
 
-  BizAiFashionNoAuthBodyShapeGet$Response copyWithWrapped({
+  ComboServiceBizAiFashionNoAuthBodyShapeGet$Response copyWithWrapped({
     Wrapped<double?>? code,
     Wrapped<String?>? msg,
-    Wrapped<BizAiFashionNoAuthBodyShapeGet$Response$Data?>? data,
+    Wrapped<ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data?>? data,
   }) {
-    return BizAiFashionNoAuthBodyShapeGet$Response(
+    return ComboServiceBizAiFashionNoAuthBodyShapeGet$Response(
       code: (code != null ? code.value : this.code),
       msg: (msg != null ? msg.value : this.msg),
       data: (data != null ? data.value : this.data),
@@ -2061,21 +2142,22 @@ extension $BizAiFashionNoAuthBodyShapeGet$ResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class BizAiFashionModelSavePost$Response {
-  const BizAiFashionModelSavePost$Response({
+class ComboServiceBizAiFashionModelSavePost$Response {
+  const ComboServiceBizAiFashionModelSavePost$Response({
     this.code,
     this.message,
     this.traceId,
     this.data,
   });
 
-  factory BizAiFashionModelSavePost$Response.fromJson(
+  factory ComboServiceBizAiFashionModelSavePost$Response.fromJson(
     Map<String, dynamic> json,
-  ) => _$BizAiFashionModelSavePost$ResponseFromJson(json);
+  ) => _$ComboServiceBizAiFashionModelSavePost$ResponseFromJson(json);
 
-  static const toJsonFactory = _$BizAiFashionModelSavePost$ResponseToJson;
+  static const toJsonFactory =
+      _$ComboServiceBizAiFashionModelSavePost$ResponseToJson;
   Map<String, dynamic> toJson() =>
-      _$BizAiFashionModelSavePost$ResponseToJson(this);
+      _$ComboServiceBizAiFashionModelSavePost$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final double? code;
@@ -2084,13 +2166,14 @@ class BizAiFashionModelSavePost$Response {
   @JsonKey(name: 'traceId')
   final String? traceId;
   @JsonKey(name: 'data')
-  final BizAiFashionModelSavePost$Response$Data? data;
-  static const fromJsonFactory = _$BizAiFashionModelSavePost$ResponseFromJson;
+  final ComboServiceBizAiFashionModelSavePost$Response$Data? data;
+  static const fromJsonFactory =
+      _$ComboServiceBizAiFashionModelSavePost$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is BizAiFashionModelSavePost$Response &&
+        (other is ComboServiceBizAiFashionModelSavePost$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -2119,15 +2202,15 @@ class BizAiFashionModelSavePost$Response {
       runtimeType.hashCode;
 }
 
-extension $BizAiFashionModelSavePost$ResponseExtension
-    on BizAiFashionModelSavePost$Response {
-  BizAiFashionModelSavePost$Response copyWith({
+extension $ComboServiceBizAiFashionModelSavePost$ResponseExtension
+    on ComboServiceBizAiFashionModelSavePost$Response {
+  ComboServiceBizAiFashionModelSavePost$Response copyWith({
     double? code,
     String? message,
     String? traceId,
-    BizAiFashionModelSavePost$Response$Data? data,
+    ComboServiceBizAiFashionModelSavePost$Response$Data? data,
   }) {
-    return BizAiFashionModelSavePost$Response(
+    return ComboServiceBizAiFashionModelSavePost$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       traceId: traceId ?? this.traceId,
@@ -2135,13 +2218,13 @@ extension $BizAiFashionModelSavePost$ResponseExtension
     );
   }
 
-  BizAiFashionModelSavePost$Response copyWithWrapped({
+  ComboServiceBizAiFashionModelSavePost$Response copyWithWrapped({
     Wrapped<double?>? code,
     Wrapped<String?>? message,
     Wrapped<String?>? traceId,
-    Wrapped<BizAiFashionModelSavePost$Response$Data?>? data,
+    Wrapped<ComboServiceBizAiFashionModelSavePost$Response$Data?>? data,
   }) {
-    return BizAiFashionModelSavePost$Response(
+    return ComboServiceBizAiFashionModelSavePost$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       traceId: (traceId != null ? traceId.value : this.traceId),
@@ -2151,8 +2234,8 @@ extension $BizAiFashionModelSavePost$ResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ApiV1StyleOutfitsResultPageGet$Response {
-  const ApiV1StyleOutfitsResultPageGet$Response({
+class ComboServiceApiV1StyleOutfitsResultPageGet$Response {
+  const ComboServiceApiV1StyleOutfitsResultPageGet$Response({
     this.code,
     this.message,
     this.data,
@@ -2161,20 +2244,21 @@ class ApiV1StyleOutfitsResultPageGet$Response {
     this.success,
   });
 
-  factory ApiV1StyleOutfitsResultPageGet$Response.fromJson(
+  factory ComboServiceApiV1StyleOutfitsResultPageGet$Response.fromJson(
     Map<String, dynamic> json,
-  ) => _$ApiV1StyleOutfitsResultPageGet$ResponseFromJson(json);
+  ) => _$ComboServiceApiV1StyleOutfitsResultPageGet$ResponseFromJson(json);
 
-  static const toJsonFactory = _$ApiV1StyleOutfitsResultPageGet$ResponseToJson;
+  static const toJsonFactory =
+      _$ComboServiceApiV1StyleOutfitsResultPageGet$ResponseToJson;
   Map<String, dynamic> toJson() =>
-      _$ApiV1StyleOutfitsResultPageGet$ResponseToJson(this);
+      _$ComboServiceApiV1StyleOutfitsResultPageGet$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final double? code;
   @JsonKey(name: 'message')
   final String? message;
   @JsonKey(name: 'data')
-  final ApiV1StyleOutfitsResultPageGet$Response$Data? data;
+  final ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data? data;
   @JsonKey(name: 'traceId')
   final String? traceId;
   @JsonKey(name: 'placeholder')
@@ -2182,12 +2266,12 @@ class ApiV1StyleOutfitsResultPageGet$Response {
   @JsonKey(name: 'success')
   final bool? success;
   static const fromJsonFactory =
-      _$ApiV1StyleOutfitsResultPageGet$ResponseFromJson;
+      _$ComboServiceApiV1StyleOutfitsResultPageGet$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ApiV1StyleOutfitsResultPageGet$Response &&
+        (other is ComboServiceApiV1StyleOutfitsResultPageGet$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -2225,17 +2309,17 @@ class ApiV1StyleOutfitsResultPageGet$Response {
       runtimeType.hashCode;
 }
 
-extension $ApiV1StyleOutfitsResultPageGet$ResponseExtension
-    on ApiV1StyleOutfitsResultPageGet$Response {
-  ApiV1StyleOutfitsResultPageGet$Response copyWith({
+extension $ComboServiceApiV1StyleOutfitsResultPageGet$ResponseExtension
+    on ComboServiceApiV1StyleOutfitsResultPageGet$Response {
+  ComboServiceApiV1StyleOutfitsResultPageGet$Response copyWith({
     double? code,
     String? message,
-    ApiV1StyleOutfitsResultPageGet$Response$Data? data,
+    ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data? data,
     String? traceId,
     Object? placeholder,
     bool? success,
   }) {
-    return ApiV1StyleOutfitsResultPageGet$Response(
+    return ComboServiceApiV1StyleOutfitsResultPageGet$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       data: data ?? this.data,
@@ -2245,15 +2329,15 @@ extension $ApiV1StyleOutfitsResultPageGet$ResponseExtension
     );
   }
 
-  ApiV1StyleOutfitsResultPageGet$Response copyWithWrapped({
+  ComboServiceApiV1StyleOutfitsResultPageGet$Response copyWithWrapped({
     Wrapped<double?>? code,
     Wrapped<String?>? message,
-    Wrapped<ApiV1StyleOutfitsResultPageGet$Response$Data?>? data,
+    Wrapped<ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data?>? data,
     Wrapped<String?>? traceId,
     Wrapped<Object?>? placeholder,
     Wrapped<bool?>? success,
   }) {
-    return ApiV1StyleOutfitsResultPageGet$Response(
+    return ComboServiceApiV1StyleOutfitsResultPageGet$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
@@ -2265,8 +2349,8 @@ extension $ApiV1StyleOutfitsResultPageGet$ResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class BizAiFashionModelRecentlyUsedGet$Response {
-  const BizAiFashionModelRecentlyUsedGet$Response({
+class ComboServiceBizAiFashionModelRecentlyUsedGet$Response {
+  const ComboServiceBizAiFashionModelRecentlyUsedGet$Response({
     this.code,
     this.message,
     this.traceId,
@@ -2274,14 +2358,14 @@ class BizAiFashionModelRecentlyUsedGet$Response {
     this.data,
   });
 
-  factory BizAiFashionModelRecentlyUsedGet$Response.fromJson(
+  factory ComboServiceBizAiFashionModelRecentlyUsedGet$Response.fromJson(
     Map<String, dynamic> json,
-  ) => _$BizAiFashionModelRecentlyUsedGet$ResponseFromJson(json);
+  ) => _$ComboServiceBizAiFashionModelRecentlyUsedGet$ResponseFromJson(json);
 
   static const toJsonFactory =
-      _$BizAiFashionModelRecentlyUsedGet$ResponseToJson;
+      _$ComboServiceBizAiFashionModelRecentlyUsedGet$ResponseToJson;
   Map<String, dynamic> toJson() =>
-      _$BizAiFashionModelRecentlyUsedGet$ResponseToJson(this);
+      _$ComboServiceBizAiFashionModelRecentlyUsedGet$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final double? code;
@@ -2292,14 +2376,14 @@ class BizAiFashionModelRecentlyUsedGet$Response {
   @JsonKey(name: 'success')
   final bool? success;
   @JsonKey(name: 'data')
-  final BizAiFashionModelRecentlyUsedGet$Response$Data? data;
+  final ComboServiceBizAiFashionModelRecentlyUsedGet$Response$Data? data;
   static const fromJsonFactory =
-      _$BizAiFashionModelRecentlyUsedGet$ResponseFromJson;
+      _$ComboServiceBizAiFashionModelRecentlyUsedGet$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is BizAiFashionModelRecentlyUsedGet$Response &&
+        (other is ComboServiceBizAiFashionModelRecentlyUsedGet$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -2334,16 +2418,16 @@ class BizAiFashionModelRecentlyUsedGet$Response {
       runtimeType.hashCode;
 }
 
-extension $BizAiFashionModelRecentlyUsedGet$ResponseExtension
-    on BizAiFashionModelRecentlyUsedGet$Response {
-  BizAiFashionModelRecentlyUsedGet$Response copyWith({
+extension $ComboServiceBizAiFashionModelRecentlyUsedGet$ResponseExtension
+    on ComboServiceBizAiFashionModelRecentlyUsedGet$Response {
+  ComboServiceBizAiFashionModelRecentlyUsedGet$Response copyWith({
     double? code,
     String? message,
     String? traceId,
     bool? success,
-    BizAiFashionModelRecentlyUsedGet$Response$Data? data,
+    ComboServiceBizAiFashionModelRecentlyUsedGet$Response$Data? data,
   }) {
-    return BizAiFashionModelRecentlyUsedGet$Response(
+    return ComboServiceBizAiFashionModelRecentlyUsedGet$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       traceId: traceId ?? this.traceId,
@@ -2352,14 +2436,14 @@ extension $BizAiFashionModelRecentlyUsedGet$ResponseExtension
     );
   }
 
-  BizAiFashionModelRecentlyUsedGet$Response copyWithWrapped({
+  ComboServiceBizAiFashionModelRecentlyUsedGet$Response copyWithWrapped({
     Wrapped<double?>? code,
     Wrapped<String?>? message,
     Wrapped<String?>? traceId,
     Wrapped<bool?>? success,
-    Wrapped<BizAiFashionModelRecentlyUsedGet$Response$Data?>? data,
+    Wrapped<ComboServiceBizAiFashionModelRecentlyUsedGet$Response$Data?>? data,
   }) {
-    return BizAiFashionModelRecentlyUsedGet$Response(
+    return ComboServiceBizAiFashionModelRecentlyUsedGet$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       traceId: (traceId != null ? traceId.value : this.traceId),
@@ -2370,8 +2454,8 @@ extension $BizAiFashionModelRecentlyUsedGet$ResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ApiV1StyleOutfitsModelIdStatusGet$Response {
-  const ApiV1StyleOutfitsModelIdStatusGet$Response({
+class ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response {
+  const ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response({
     this.code,
     this.message,
     this.traceId,
@@ -2379,14 +2463,14 @@ class ApiV1StyleOutfitsModelIdStatusGet$Response {
     this.data,
   });
 
-  factory ApiV1StyleOutfitsModelIdStatusGet$Response.fromJson(
+  factory ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response.fromJson(
     Map<String, dynamic> json,
-  ) => _$ApiV1StyleOutfitsModelIdStatusGet$ResponseFromJson(json);
+  ) => _$ComboServiceApiV1StyleOutfitsModelIdStatusGet$ResponseFromJson(json);
 
   static const toJsonFactory =
-      _$ApiV1StyleOutfitsModelIdStatusGet$ResponseToJson;
+      _$ComboServiceApiV1StyleOutfitsModelIdStatusGet$ResponseToJson;
   Map<String, dynamic> toJson() =>
-      _$ApiV1StyleOutfitsModelIdStatusGet$ResponseToJson(this);
+      _$ComboServiceApiV1StyleOutfitsModelIdStatusGet$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final double? code;
@@ -2397,14 +2481,14 @@ class ApiV1StyleOutfitsModelIdStatusGet$Response {
   @JsonKey(name: 'success')
   final bool? success;
   @JsonKey(name: 'data')
-  final ApiV1StyleOutfitsModelIdStatusGet$Response$Data? data;
+  final ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response$Data? data;
   static const fromJsonFactory =
-      _$ApiV1StyleOutfitsModelIdStatusGet$ResponseFromJson;
+      _$ComboServiceApiV1StyleOutfitsModelIdStatusGet$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ApiV1StyleOutfitsModelIdStatusGet$Response &&
+        (other is ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -2439,16 +2523,16 @@ class ApiV1StyleOutfitsModelIdStatusGet$Response {
       runtimeType.hashCode;
 }
 
-extension $ApiV1StyleOutfitsModelIdStatusGet$ResponseExtension
-    on ApiV1StyleOutfitsModelIdStatusGet$Response {
-  ApiV1StyleOutfitsModelIdStatusGet$Response copyWith({
+extension $ComboServiceApiV1StyleOutfitsModelIdStatusGet$ResponseExtension
+    on ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response {
+  ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response copyWith({
     double? code,
     String? message,
     String? traceId,
     bool? success,
-    ApiV1StyleOutfitsModelIdStatusGet$Response$Data? data,
+    ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response$Data? data,
   }) {
-    return ApiV1StyleOutfitsModelIdStatusGet$Response(
+    return ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       traceId: traceId ?? this.traceId,
@@ -2457,14 +2541,14 @@ extension $ApiV1StyleOutfitsModelIdStatusGet$ResponseExtension
     );
   }
 
-  ApiV1StyleOutfitsModelIdStatusGet$Response copyWithWrapped({
+  ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response copyWithWrapped({
     Wrapped<double?>? code,
     Wrapped<String?>? message,
     Wrapped<String?>? traceId,
     Wrapped<bool?>? success,
-    Wrapped<ApiV1StyleOutfitsModelIdStatusGet$Response$Data?>? data,
+    Wrapped<ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response$Data?>? data,
   }) {
-    return ApiV1StyleOutfitsModelIdStatusGet$Response(
+    return ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       traceId: (traceId != null ? traceId.value : this.traceId),
@@ -2475,8 +2559,8 @@ extension $ApiV1StyleOutfitsModelIdStatusGet$ResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ApiV1StyleOutfitsResultGet$Response {
-  const ApiV1StyleOutfitsResultGet$Response({
+class ComboServiceApiV1StyleOutfitsResultGet$Response {
+  const ComboServiceApiV1StyleOutfitsResultGet$Response({
     this.code,
     this.message,
     this.traceId,
@@ -2484,400 +2568,131 @@ class ApiV1StyleOutfitsResultGet$Response {
     this.data,
   });
 
-  factory ApiV1StyleOutfitsResultGet$Response.fromJson(
+  factory ComboServiceApiV1StyleOutfitsResultGet$Response.fromJson(
     Map<String, dynamic> json,
-  ) => _$ApiV1StyleOutfitsResultGet$ResponseFromJson(json);
-
-  static const toJsonFactory = _$ApiV1StyleOutfitsResultGet$ResponseToJson;
-  Map<String, dynamic> toJson() =>
-      _$ApiV1StyleOutfitsResultGet$ResponseToJson(this);
-
-  @JsonKey(name: 'code')
-  final double? code;
-  @JsonKey(name: 'message')
-  final String? message;
-  @JsonKey(name: 'traceId')
-  final String? traceId;
-  @JsonKey(name: 'success')
-  final bool? success;
-  @JsonKey(name: 'data')
-  final ApiV1StyleOutfitsResultGet$Response$Data? data;
-  static const fromJsonFactory = _$ApiV1StyleOutfitsResultGet$ResponseFromJson;
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other is ApiV1StyleOutfitsResultGet$Response &&
-            (identical(other.code, code) ||
-                const DeepCollectionEquality().equals(other.code, code)) &&
-            (identical(other.message, message) ||
-                const DeepCollectionEquality().equals(
-                  other.message,
-                  message,
-                )) &&
-            (identical(other.traceId, traceId) ||
-                const DeepCollectionEquality().equals(
-                  other.traceId,
-                  traceId,
-                )) &&
-            (identical(other.success, success) ||
-                const DeepCollectionEquality().equals(
-                  other.success,
-                  success,
-                )) &&
-            (identical(other.data, data) ||
-                const DeepCollectionEquality().equals(other.data, data)));
-  }
-
-  @override
-  String toString() => jsonEncode(this);
-
-  @override
-  int get hashCode =>
-      const DeepCollectionEquality().hash(code) ^
-      const DeepCollectionEquality().hash(message) ^
-      const DeepCollectionEquality().hash(traceId) ^
-      const DeepCollectionEquality().hash(success) ^
-      const DeepCollectionEquality().hash(data) ^
-      runtimeType.hashCode;
-}
-
-extension $ApiV1StyleOutfitsResultGet$ResponseExtension
-    on ApiV1StyleOutfitsResultGet$Response {
-  ApiV1StyleOutfitsResultGet$Response copyWith({
-    double? code,
-    String? message,
-    String? traceId,
-    bool? success,
-    ApiV1StyleOutfitsResultGet$Response$Data? data,
-  }) {
-    return ApiV1StyleOutfitsResultGet$Response(
-      code: code ?? this.code,
-      message: message ?? this.message,
-      traceId: traceId ?? this.traceId,
-      success: success ?? this.success,
-      data: data ?? this.data,
-    );
-  }
-
-  ApiV1StyleOutfitsResultGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
-    Wrapped<String?>? message,
-    Wrapped<String?>? traceId,
-    Wrapped<bool?>? success,
-    Wrapped<ApiV1StyleOutfitsResultGet$Response$Data?>? data,
-  }) {
-    return ApiV1StyleOutfitsResultGet$Response(
-      code: (code != null ? code.value : this.code),
-      message: (message != null ? message.value : this.message),
-      traceId: (traceId != null ? traceId.value : this.traceId),
-      success: (success != null ? success.value : this.success),
-      data: (data != null ? data.value : this.data),
-    );
-  }
-}
-
-@JsonSerializable(explicitToJson: true)
-class BizAiFashionModelModelIdGet$Response {
-  const BizAiFashionModelModelIdGet$Response({
-    this.code,
-    this.message,
-    this.data,
-  });
-
-  factory BizAiFashionModelModelIdGet$Response.fromJson(
-    Map<String, dynamic> json,
-  ) => _$BizAiFashionModelModelIdGet$ResponseFromJson(json);
-
-  static const toJsonFactory = _$BizAiFashionModelModelIdGet$ResponseToJson;
-  Map<String, dynamic> toJson() =>
-      _$BizAiFashionModelModelIdGet$ResponseToJson(this);
-
-  @JsonKey(name: 'code')
-  final double? code;
-  @JsonKey(name: 'message')
-  final String? message;
-  @JsonKey(name: 'data')
-  final BizAiFashionModelModelIdGet$Response$Data? data;
-  static const fromJsonFactory = _$BizAiFashionModelModelIdGet$ResponseFromJson;
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other is BizAiFashionModelModelIdGet$Response &&
-            (identical(other.code, code) ||
-                const DeepCollectionEquality().equals(other.code, code)) &&
-            (identical(other.message, message) ||
-                const DeepCollectionEquality().equals(
-                  other.message,
-                  message,
-                )) &&
-            (identical(other.data, data) ||
-                const DeepCollectionEquality().equals(other.data, data)));
-  }
-
-  @override
-  String toString() => jsonEncode(this);
-
-  @override
-  int get hashCode =>
-      const DeepCollectionEquality().hash(code) ^
-      const DeepCollectionEquality().hash(message) ^
-      const DeepCollectionEquality().hash(data) ^
-      runtimeType.hashCode;
-}
-
-extension $BizAiFashionModelModelIdGet$ResponseExtension
-    on BizAiFashionModelModelIdGet$Response {
-  BizAiFashionModelModelIdGet$Response copyWith({
-    double? code,
-    String? message,
-    BizAiFashionModelModelIdGet$Response$Data? data,
-  }) {
-    return BizAiFashionModelModelIdGet$Response(
-      code: code ?? this.code,
-      message: message ?? this.message,
-      data: data ?? this.data,
-    );
-  }
-
-  BizAiFashionModelModelIdGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
-    Wrapped<String?>? message,
-    Wrapped<BizAiFashionModelModelIdGet$Response$Data?>? data,
-  }) {
-    return BizAiFashionModelModelIdGet$Response(
-      code: (code != null ? code.value : this.code),
-      message: (message != null ? message.value : this.message),
-      data: (data != null ? data.value : this.data),
-    );
-  }
-}
-
-@JsonSerializable(explicitToJson: true)
-class BizAiFashionModelListGet$Response {
-  const BizAiFashionModelListGet$Response({
-    this.code,
-    this.message,
-    this.traceId,
-    this.data,
-  });
-
-  factory BizAiFashionModelListGet$Response.fromJson(
-    Map<String, dynamic> json,
-  ) => _$BizAiFashionModelListGet$ResponseFromJson(json);
-
-  static const toJsonFactory = _$BizAiFashionModelListGet$ResponseToJson;
-  Map<String, dynamic> toJson() =>
-      _$BizAiFashionModelListGet$ResponseToJson(this);
-
-  @JsonKey(name: 'code')
-  final double? code;
-  @JsonKey(name: 'message')
-  final String? message;
-  @JsonKey(name: 'traceId')
-  final String? traceId;
-  @JsonKey(name: 'data')
-  final BizAiFashionModelListGet$Response$Data? data;
-  static const fromJsonFactory = _$BizAiFashionModelListGet$ResponseFromJson;
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other is BizAiFashionModelListGet$Response &&
-            (identical(other.code, code) ||
-                const DeepCollectionEquality().equals(other.code, code)) &&
-            (identical(other.message, message) ||
-                const DeepCollectionEquality().equals(
-                  other.message,
-                  message,
-                )) &&
-            (identical(other.traceId, traceId) ||
-                const DeepCollectionEquality().equals(
-                  other.traceId,
-                  traceId,
-                )) &&
-            (identical(other.data, data) ||
-                const DeepCollectionEquality().equals(other.data, data)));
-  }
-
-  @override
-  String toString() => jsonEncode(this);
-
-  @override
-  int get hashCode =>
-      const DeepCollectionEquality().hash(code) ^
-      const DeepCollectionEquality().hash(message) ^
-      const DeepCollectionEquality().hash(traceId) ^
-      const DeepCollectionEquality().hash(data) ^
-      runtimeType.hashCode;
-}
-
-extension $BizAiFashionModelListGet$ResponseExtension
-    on BizAiFashionModelListGet$Response {
-  BizAiFashionModelListGet$Response copyWith({
-    double? code,
-    String? message,
-    String? traceId,
-    BizAiFashionModelListGet$Response$Data? data,
-  }) {
-    return BizAiFashionModelListGet$Response(
-      code: code ?? this.code,
-      message: message ?? this.message,
-      traceId: traceId ?? this.traceId,
-      data: data ?? this.data,
-    );
-  }
-
-  BizAiFashionModelListGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
-    Wrapped<String?>? message,
-    Wrapped<String?>? traceId,
-    Wrapped<BizAiFashionModelListGet$Response$Data?>? data,
-  }) {
-    return BizAiFashionModelListGet$Response(
-      code: (code != null ? code.value : this.code),
-      message: (message != null ? message.value : this.message),
-      traceId: (traceId != null ? traceId.value : this.traceId),
-      data: (data != null ? data.value : this.data),
-    );
-  }
-}
-
-@JsonSerializable(explicitToJson: true)
-class ApiV1StyleOutfitsGeneratePost$Response {
-  const ApiV1StyleOutfitsGeneratePost$Response({
-    this.code,
-    this.message,
-    this.traceId,
-    this.success,
-    this.data,
-  });
-
-  factory ApiV1StyleOutfitsGeneratePost$Response.fromJson(
-    Map<String, dynamic> json,
-  ) => _$ApiV1StyleOutfitsGeneratePost$ResponseFromJson(json);
-
-  static const toJsonFactory = _$ApiV1StyleOutfitsGeneratePost$ResponseToJson;
-  Map<String, dynamic> toJson() =>
-      _$ApiV1StyleOutfitsGeneratePost$ResponseToJson(this);
-
-  @JsonKey(name: 'code')
-  final double? code;
-  @JsonKey(name: 'message')
-  final String? message;
-  @JsonKey(name: 'traceId')
-  final String? traceId;
-  @JsonKey(name: 'success')
-  final bool? success;
-  @JsonKey(name: 'data')
-  final ApiV1StyleOutfitsGeneratePost$Response$Data? data;
-  static const fromJsonFactory =
-      _$ApiV1StyleOutfitsGeneratePost$ResponseFromJson;
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other is ApiV1StyleOutfitsGeneratePost$Response &&
-            (identical(other.code, code) ||
-                const DeepCollectionEquality().equals(other.code, code)) &&
-            (identical(other.message, message) ||
-                const DeepCollectionEquality().equals(
-                  other.message,
-                  message,
-                )) &&
-            (identical(other.traceId, traceId) ||
-                const DeepCollectionEquality().equals(
-                  other.traceId,
-                  traceId,
-                )) &&
-            (identical(other.success, success) ||
-                const DeepCollectionEquality().equals(
-                  other.success,
-                  success,
-                )) &&
-            (identical(other.data, data) ||
-                const DeepCollectionEquality().equals(other.data, data)));
-  }
-
-  @override
-  String toString() => jsonEncode(this);
-
-  @override
-  int get hashCode =>
-      const DeepCollectionEquality().hash(code) ^
-      const DeepCollectionEquality().hash(message) ^
-      const DeepCollectionEquality().hash(traceId) ^
-      const DeepCollectionEquality().hash(success) ^
-      const DeepCollectionEquality().hash(data) ^
-      runtimeType.hashCode;
-}
-
-extension $ApiV1StyleOutfitsGeneratePost$ResponseExtension
-    on ApiV1StyleOutfitsGeneratePost$Response {
-  ApiV1StyleOutfitsGeneratePost$Response copyWith({
-    double? code,
-    String? message,
-    String? traceId,
-    bool? success,
-    ApiV1StyleOutfitsGeneratePost$Response$Data? data,
-  }) {
-    return ApiV1StyleOutfitsGeneratePost$Response(
-      code: code ?? this.code,
-      message: message ?? this.message,
-      traceId: traceId ?? this.traceId,
-      success: success ?? this.success,
-      data: data ?? this.data,
-    );
-  }
-
-  ApiV1StyleOutfitsGeneratePost$Response copyWithWrapped({
-    Wrapped<double?>? code,
-    Wrapped<String?>? message,
-    Wrapped<String?>? traceId,
-    Wrapped<bool?>? success,
-    Wrapped<ApiV1StyleOutfitsGeneratePost$Response$Data?>? data,
-  }) {
-    return ApiV1StyleOutfitsGeneratePost$Response(
-      code: (code != null ? code.value : this.code),
-      message: (message != null ? message.value : this.message),
-      traceId: (traceId != null ? traceId.value : this.traceId),
-      success: (success != null ? success.value : this.success),
-      data: (data != null ? data.value : this.data),
-    );
-  }
-}
-
-@JsonSerializable(explicitToJson: true)
-class BizAiFashionNoAuthStylePresetGet$Response {
-  const BizAiFashionNoAuthStylePresetGet$Response({
-    this.code,
-    this.message,
-    this.data,
-  });
-
-  factory BizAiFashionNoAuthStylePresetGet$Response.fromJson(
-    Map<String, dynamic> json,
-  ) => _$BizAiFashionNoAuthStylePresetGet$ResponseFromJson(json);
+  ) => _$ComboServiceApiV1StyleOutfitsResultGet$ResponseFromJson(json);
 
   static const toJsonFactory =
-      _$BizAiFashionNoAuthStylePresetGet$ResponseToJson;
+      _$ComboServiceApiV1StyleOutfitsResultGet$ResponseToJson;
   Map<String, dynamic> toJson() =>
-      _$BizAiFashionNoAuthStylePresetGet$ResponseToJson(this);
+      _$ComboServiceApiV1StyleOutfitsResultGet$ResponseToJson(this);
+
+  @JsonKey(name: 'code')
+  final double? code;
+  @JsonKey(name: 'message')
+  final String? message;
+  @JsonKey(name: 'traceId')
+  final String? traceId;
+  @JsonKey(name: 'success')
+  final bool? success;
+  @JsonKey(name: 'data')
+  final ComboServiceApiV1StyleOutfitsResultGet$Response$Data? data;
+  static const fromJsonFactory =
+      _$ComboServiceApiV1StyleOutfitsResultGet$ResponseFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is ComboServiceApiV1StyleOutfitsResultGet$Response &&
+            (identical(other.code, code) ||
+                const DeepCollectionEquality().equals(other.code, code)) &&
+            (identical(other.message, message) ||
+                const DeepCollectionEquality().equals(
+                  other.message,
+                  message,
+                )) &&
+            (identical(other.traceId, traceId) ||
+                const DeepCollectionEquality().equals(
+                  other.traceId,
+                  traceId,
+                )) &&
+            (identical(other.success, success) ||
+                const DeepCollectionEquality().equals(
+                  other.success,
+                  success,
+                )) &&
+            (identical(other.data, data) ||
+                const DeepCollectionEquality().equals(other.data, data)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(code) ^
+      const DeepCollectionEquality().hash(message) ^
+      const DeepCollectionEquality().hash(traceId) ^
+      const DeepCollectionEquality().hash(success) ^
+      const DeepCollectionEquality().hash(data) ^
+      runtimeType.hashCode;
+}
+
+extension $ComboServiceApiV1StyleOutfitsResultGet$ResponseExtension
+    on ComboServiceApiV1StyleOutfitsResultGet$Response {
+  ComboServiceApiV1StyleOutfitsResultGet$Response copyWith({
+    double? code,
+    String? message,
+    String? traceId,
+    bool? success,
+    ComboServiceApiV1StyleOutfitsResultGet$Response$Data? data,
+  }) {
+    return ComboServiceApiV1StyleOutfitsResultGet$Response(
+      code: code ?? this.code,
+      message: message ?? this.message,
+      traceId: traceId ?? this.traceId,
+      success: success ?? this.success,
+      data: data ?? this.data,
+    );
+  }
+
+  ComboServiceApiV1StyleOutfitsResultGet$Response copyWithWrapped({
+    Wrapped<double?>? code,
+    Wrapped<String?>? message,
+    Wrapped<String?>? traceId,
+    Wrapped<bool?>? success,
+    Wrapped<ComboServiceApiV1StyleOutfitsResultGet$Response$Data?>? data,
+  }) {
+    return ComboServiceApiV1StyleOutfitsResultGet$Response(
+      code: (code != null ? code.value : this.code),
+      message: (message != null ? message.value : this.message),
+      traceId: (traceId != null ? traceId.value : this.traceId),
+      success: (success != null ? success.value : this.success),
+      data: (data != null ? data.value : this.data),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class ComboServiceBizAiFashionModelModelIdGet$Response {
+  const ComboServiceBizAiFashionModelModelIdGet$Response({
+    this.code,
+    this.message,
+    this.data,
+  });
+
+  factory ComboServiceBizAiFashionModelModelIdGet$Response.fromJson(
+    Map<String, dynamic> json,
+  ) => _$ComboServiceBizAiFashionModelModelIdGet$ResponseFromJson(json);
+
+  static const toJsonFactory =
+      _$ComboServiceBizAiFashionModelModelIdGet$ResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$ComboServiceBizAiFashionModelModelIdGet$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final double? code;
   @JsonKey(name: 'message')
   final String? message;
   @JsonKey(name: 'data')
-  final BizAiFashionNoAuthStylePresetGet$Response$Data? data;
+  final ComboServiceBizAiFashionModelModelIdGet$Response$Data? data;
   static const fromJsonFactory =
-      _$BizAiFashionNoAuthStylePresetGet$ResponseFromJson;
+      _$ComboServiceBizAiFashionModelModelIdGet$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is BizAiFashionNoAuthStylePresetGet$Response &&
+        (other is ComboServiceBizAiFashionModelModelIdGet$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -2900,26 +2715,26 @@ class BizAiFashionNoAuthStylePresetGet$Response {
       runtimeType.hashCode;
 }
 
-extension $BizAiFashionNoAuthStylePresetGet$ResponseExtension
-    on BizAiFashionNoAuthStylePresetGet$Response {
-  BizAiFashionNoAuthStylePresetGet$Response copyWith({
+extension $ComboServiceBizAiFashionModelModelIdGet$ResponseExtension
+    on ComboServiceBizAiFashionModelModelIdGet$Response {
+  ComboServiceBizAiFashionModelModelIdGet$Response copyWith({
     double? code,
     String? message,
-    BizAiFashionNoAuthStylePresetGet$Response$Data? data,
+    ComboServiceBizAiFashionModelModelIdGet$Response$Data? data,
   }) {
-    return BizAiFashionNoAuthStylePresetGet$Response(
+    return ComboServiceBizAiFashionModelModelIdGet$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       data: data ?? this.data,
     );
   }
 
-  BizAiFashionNoAuthStylePresetGet$Response copyWithWrapped({
+  ComboServiceBizAiFashionModelModelIdGet$Response copyWithWrapped({
     Wrapped<double?>? code,
     Wrapped<String?>? message,
-    Wrapped<BizAiFashionNoAuthStylePresetGet$Response$Data?>? data,
+    Wrapped<ComboServiceBizAiFashionModelModelIdGet$Response$Data?>? data,
   }) {
-    return BizAiFashionNoAuthStylePresetGet$Response(
+    return ComboServiceBizAiFashionModelModelIdGet$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
@@ -2928,21 +2743,22 @@ extension $BizAiFashionNoAuthStylePresetGet$ResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class BizAiFashionNoAuthPostListGet$Response {
-  const BizAiFashionNoAuthPostListGet$Response({
+class ComboServiceBizAiFashionModelListGet$Response {
+  const ComboServiceBizAiFashionModelListGet$Response({
     this.code,
     this.message,
     this.traceId,
     this.data,
   });
 
-  factory BizAiFashionNoAuthPostListGet$Response.fromJson(
+  factory ComboServiceBizAiFashionModelListGet$Response.fromJson(
     Map<String, dynamic> json,
-  ) => _$BizAiFashionNoAuthPostListGet$ResponseFromJson(json);
+  ) => _$ComboServiceBizAiFashionModelListGet$ResponseFromJson(json);
 
-  static const toJsonFactory = _$BizAiFashionNoAuthPostListGet$ResponseToJson;
+  static const toJsonFactory =
+      _$ComboServiceBizAiFashionModelListGet$ResponseToJson;
   Map<String, dynamic> toJson() =>
-      _$BizAiFashionNoAuthPostListGet$ResponseToJson(this);
+      _$ComboServiceBizAiFashionModelListGet$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final double? code;
@@ -2951,14 +2767,14 @@ class BizAiFashionNoAuthPostListGet$Response {
   @JsonKey(name: 'traceId')
   final String? traceId;
   @JsonKey(name: 'data')
-  final BizAiFashionNoAuthPostListGet$Response$Data? data;
+  final ComboServiceBizAiFashionModelListGet$Response$Data? data;
   static const fromJsonFactory =
-      _$BizAiFashionNoAuthPostListGet$ResponseFromJson;
+      _$ComboServiceBizAiFashionModelListGet$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is BizAiFashionNoAuthPostListGet$Response &&
+        (other is ComboServiceBizAiFashionModelListGet$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -2987,15 +2803,15 @@ class BizAiFashionNoAuthPostListGet$Response {
       runtimeType.hashCode;
 }
 
-extension $BizAiFashionNoAuthPostListGet$ResponseExtension
-    on BizAiFashionNoAuthPostListGet$Response {
-  BizAiFashionNoAuthPostListGet$Response copyWith({
+extension $ComboServiceBizAiFashionModelListGet$ResponseExtension
+    on ComboServiceBizAiFashionModelListGet$Response {
+  ComboServiceBizAiFashionModelListGet$Response copyWith({
     double? code,
     String? message,
     String? traceId,
-    BizAiFashionNoAuthPostListGet$Response$Data? data,
+    ComboServiceBizAiFashionModelListGet$Response$Data? data,
   }) {
-    return BizAiFashionNoAuthPostListGet$Response(
+    return ComboServiceBizAiFashionModelListGet$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       traceId: traceId ?? this.traceId,
@@ -3003,13 +2819,13 @@ extension $BizAiFashionNoAuthPostListGet$ResponseExtension
     );
   }
 
-  BizAiFashionNoAuthPostListGet$Response copyWithWrapped({
+  ComboServiceBizAiFashionModelListGet$Response copyWithWrapped({
     Wrapped<double?>? code,
     Wrapped<String?>? message,
     Wrapped<String?>? traceId,
-    Wrapped<BizAiFashionNoAuthPostListGet$Response$Data?>? data,
+    Wrapped<ComboServiceBizAiFashionModelListGet$Response$Data?>? data,
   }) {
-    return BizAiFashionNoAuthPostListGet$Response(
+    return ComboServiceBizAiFashionModelListGet$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       traceId: (traceId != null ? traceId.value : this.traceId),
@@ -3019,8 +2835,284 @@ extension $BizAiFashionNoAuthPostListGet$ResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class BizAiFashionNoAuthPostDetailGet$Response {
-  const BizAiFashionNoAuthPostDetailGet$Response({
+class ComboServiceApiV1StyleOutfitsGeneratePost$Response {
+  const ComboServiceApiV1StyleOutfitsGeneratePost$Response({
+    this.code,
+    this.message,
+    this.traceId,
+    this.success,
+    this.data,
+  });
+
+  factory ComboServiceApiV1StyleOutfitsGeneratePost$Response.fromJson(
+    Map<String, dynamic> json,
+  ) => _$ComboServiceApiV1StyleOutfitsGeneratePost$ResponseFromJson(json);
+
+  static const toJsonFactory =
+      _$ComboServiceApiV1StyleOutfitsGeneratePost$ResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$ComboServiceApiV1StyleOutfitsGeneratePost$ResponseToJson(this);
+
+  @JsonKey(name: 'code')
+  final double? code;
+  @JsonKey(name: 'message')
+  final String? message;
+  @JsonKey(name: 'traceId')
+  final String? traceId;
+  @JsonKey(name: 'success')
+  final bool? success;
+  @JsonKey(name: 'data')
+  final ComboServiceApiV1StyleOutfitsGeneratePost$Response$Data? data;
+  static const fromJsonFactory =
+      _$ComboServiceApiV1StyleOutfitsGeneratePost$ResponseFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is ComboServiceApiV1StyleOutfitsGeneratePost$Response &&
+            (identical(other.code, code) ||
+                const DeepCollectionEquality().equals(other.code, code)) &&
+            (identical(other.message, message) ||
+                const DeepCollectionEquality().equals(
+                  other.message,
+                  message,
+                )) &&
+            (identical(other.traceId, traceId) ||
+                const DeepCollectionEquality().equals(
+                  other.traceId,
+                  traceId,
+                )) &&
+            (identical(other.success, success) ||
+                const DeepCollectionEquality().equals(
+                  other.success,
+                  success,
+                )) &&
+            (identical(other.data, data) ||
+                const DeepCollectionEquality().equals(other.data, data)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(code) ^
+      const DeepCollectionEquality().hash(message) ^
+      const DeepCollectionEquality().hash(traceId) ^
+      const DeepCollectionEquality().hash(success) ^
+      const DeepCollectionEquality().hash(data) ^
+      runtimeType.hashCode;
+}
+
+extension $ComboServiceApiV1StyleOutfitsGeneratePost$ResponseExtension
+    on ComboServiceApiV1StyleOutfitsGeneratePost$Response {
+  ComboServiceApiV1StyleOutfitsGeneratePost$Response copyWith({
+    double? code,
+    String? message,
+    String? traceId,
+    bool? success,
+    ComboServiceApiV1StyleOutfitsGeneratePost$Response$Data? data,
+  }) {
+    return ComboServiceApiV1StyleOutfitsGeneratePost$Response(
+      code: code ?? this.code,
+      message: message ?? this.message,
+      traceId: traceId ?? this.traceId,
+      success: success ?? this.success,
+      data: data ?? this.data,
+    );
+  }
+
+  ComboServiceApiV1StyleOutfitsGeneratePost$Response copyWithWrapped({
+    Wrapped<double?>? code,
+    Wrapped<String?>? message,
+    Wrapped<String?>? traceId,
+    Wrapped<bool?>? success,
+    Wrapped<ComboServiceApiV1StyleOutfitsGeneratePost$Response$Data?>? data,
+  }) {
+    return ComboServiceApiV1StyleOutfitsGeneratePost$Response(
+      code: (code != null ? code.value : this.code),
+      message: (message != null ? message.value : this.message),
+      traceId: (traceId != null ? traceId.value : this.traceId),
+      success: (success != null ? success.value : this.success),
+      data: (data != null ? data.value : this.data),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class ComboServiceBizAiFashionNoAuthStylePresetGet$Response {
+  const ComboServiceBizAiFashionNoAuthStylePresetGet$Response({
+    this.code,
+    this.message,
+    this.data,
+  });
+
+  factory ComboServiceBizAiFashionNoAuthStylePresetGet$Response.fromJson(
+    Map<String, dynamic> json,
+  ) => _$ComboServiceBizAiFashionNoAuthStylePresetGet$ResponseFromJson(json);
+
+  static const toJsonFactory =
+      _$ComboServiceBizAiFashionNoAuthStylePresetGet$ResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$ComboServiceBizAiFashionNoAuthStylePresetGet$ResponseToJson(this);
+
+  @JsonKey(name: 'code')
+  final double? code;
+  @JsonKey(name: 'message')
+  final String? message;
+  @JsonKey(name: 'data')
+  final ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data? data;
+  static const fromJsonFactory =
+      _$ComboServiceBizAiFashionNoAuthStylePresetGet$ResponseFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is ComboServiceBizAiFashionNoAuthStylePresetGet$Response &&
+            (identical(other.code, code) ||
+                const DeepCollectionEquality().equals(other.code, code)) &&
+            (identical(other.message, message) ||
+                const DeepCollectionEquality().equals(
+                  other.message,
+                  message,
+                )) &&
+            (identical(other.data, data) ||
+                const DeepCollectionEquality().equals(other.data, data)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(code) ^
+      const DeepCollectionEquality().hash(message) ^
+      const DeepCollectionEquality().hash(data) ^
+      runtimeType.hashCode;
+}
+
+extension $ComboServiceBizAiFashionNoAuthStylePresetGet$ResponseExtension
+    on ComboServiceBizAiFashionNoAuthStylePresetGet$Response {
+  ComboServiceBizAiFashionNoAuthStylePresetGet$Response copyWith({
+    double? code,
+    String? message,
+    ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data? data,
+  }) {
+    return ComboServiceBizAiFashionNoAuthStylePresetGet$Response(
+      code: code ?? this.code,
+      message: message ?? this.message,
+      data: data ?? this.data,
+    );
+  }
+
+  ComboServiceBizAiFashionNoAuthStylePresetGet$Response copyWithWrapped({
+    Wrapped<double?>? code,
+    Wrapped<String?>? message,
+    Wrapped<ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data?>? data,
+  }) {
+    return ComboServiceBizAiFashionNoAuthStylePresetGet$Response(
+      code: (code != null ? code.value : this.code),
+      message: (message != null ? message.value : this.message),
+      data: (data != null ? data.value : this.data),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class ComboServiceBizAiFashionNoAuthPostListGet$Response {
+  const ComboServiceBizAiFashionNoAuthPostListGet$Response({
+    this.code,
+    this.message,
+    this.traceId,
+    this.data,
+  });
+
+  factory ComboServiceBizAiFashionNoAuthPostListGet$Response.fromJson(
+    Map<String, dynamic> json,
+  ) => _$ComboServiceBizAiFashionNoAuthPostListGet$ResponseFromJson(json);
+
+  static const toJsonFactory =
+      _$ComboServiceBizAiFashionNoAuthPostListGet$ResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$ComboServiceBizAiFashionNoAuthPostListGet$ResponseToJson(this);
+
+  @JsonKey(name: 'code')
+  final double? code;
+  @JsonKey(name: 'message')
+  final String? message;
+  @JsonKey(name: 'traceId')
+  final String? traceId;
+  @JsonKey(name: 'data')
+  final ComboServiceBizAiFashionNoAuthPostListGet$Response$Data? data;
+  static const fromJsonFactory =
+      _$ComboServiceBizAiFashionNoAuthPostListGet$ResponseFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is ComboServiceBizAiFashionNoAuthPostListGet$Response &&
+            (identical(other.code, code) ||
+                const DeepCollectionEquality().equals(other.code, code)) &&
+            (identical(other.message, message) ||
+                const DeepCollectionEquality().equals(
+                  other.message,
+                  message,
+                )) &&
+            (identical(other.traceId, traceId) ||
+                const DeepCollectionEquality().equals(
+                  other.traceId,
+                  traceId,
+                )) &&
+            (identical(other.data, data) ||
+                const DeepCollectionEquality().equals(other.data, data)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(code) ^
+      const DeepCollectionEquality().hash(message) ^
+      const DeepCollectionEquality().hash(traceId) ^
+      const DeepCollectionEquality().hash(data) ^
+      runtimeType.hashCode;
+}
+
+extension $ComboServiceBizAiFashionNoAuthPostListGet$ResponseExtension
+    on ComboServiceBizAiFashionNoAuthPostListGet$Response {
+  ComboServiceBizAiFashionNoAuthPostListGet$Response copyWith({
+    double? code,
+    String? message,
+    String? traceId,
+    ComboServiceBizAiFashionNoAuthPostListGet$Response$Data? data,
+  }) {
+    return ComboServiceBizAiFashionNoAuthPostListGet$Response(
+      code: code ?? this.code,
+      message: message ?? this.message,
+      traceId: traceId ?? this.traceId,
+      data: data ?? this.data,
+    );
+  }
+
+  ComboServiceBizAiFashionNoAuthPostListGet$Response copyWithWrapped({
+    Wrapped<double?>? code,
+    Wrapped<String?>? message,
+    Wrapped<String?>? traceId,
+    Wrapped<ComboServiceBizAiFashionNoAuthPostListGet$Response$Data?>? data,
+  }) {
+    return ComboServiceBizAiFashionNoAuthPostListGet$Response(
+      code: (code != null ? code.value : this.code),
+      message: (message != null ? message.value : this.message),
+      traceId: (traceId != null ? traceId.value : this.traceId),
+      data: (data != null ? data.value : this.data),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class ComboServiceBizAiFashionNoAuthPostDetailGet$Response {
+  const ComboServiceBizAiFashionNoAuthPostDetailGet$Response({
     this.code,
     this.message,
     this.data,
@@ -3028,31 +3120,32 @@ class BizAiFashionNoAuthPostDetailGet$Response {
     this.traceId,
   });
 
-  factory BizAiFashionNoAuthPostDetailGet$Response.fromJson(
+  factory ComboServiceBizAiFashionNoAuthPostDetailGet$Response.fromJson(
     Map<String, dynamic> json,
-  ) => _$BizAiFashionNoAuthPostDetailGet$ResponseFromJson(json);
+  ) => _$ComboServiceBizAiFashionNoAuthPostDetailGet$ResponseFromJson(json);
 
-  static const toJsonFactory = _$BizAiFashionNoAuthPostDetailGet$ResponseToJson;
+  static const toJsonFactory =
+      _$ComboServiceBizAiFashionNoAuthPostDetailGet$ResponseToJson;
   Map<String, dynamic> toJson() =>
-      _$BizAiFashionNoAuthPostDetailGet$ResponseToJson(this);
+      _$ComboServiceBizAiFashionNoAuthPostDetailGet$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final double? code;
   @JsonKey(name: 'message')
   final String? message;
   @JsonKey(name: 'data')
-  final BizAiFashionNoAuthPostDetailGet$Response$Data? data;
+  final ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data? data;
   @JsonKey(name: 'reasonCode')
   final Object? reasonCode;
   @JsonKey(name: 'traceId')
   final String? traceId;
   static const fromJsonFactory =
-      _$BizAiFashionNoAuthPostDetailGet$ResponseFromJson;
+      _$ComboServiceBizAiFashionNoAuthPostDetailGet$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is BizAiFashionNoAuthPostDetailGet$Response &&
+        (other is ComboServiceBizAiFashionNoAuthPostDetailGet$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -3084,16 +3177,16 @@ class BizAiFashionNoAuthPostDetailGet$Response {
       runtimeType.hashCode;
 }
 
-extension $BizAiFashionNoAuthPostDetailGet$ResponseExtension
-    on BizAiFashionNoAuthPostDetailGet$Response {
-  BizAiFashionNoAuthPostDetailGet$Response copyWith({
+extension $ComboServiceBizAiFashionNoAuthPostDetailGet$ResponseExtension
+    on ComboServiceBizAiFashionNoAuthPostDetailGet$Response {
+  ComboServiceBizAiFashionNoAuthPostDetailGet$Response copyWith({
     double? code,
     String? message,
-    BizAiFashionNoAuthPostDetailGet$Response$Data? data,
+    ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data? data,
     Object? reasonCode,
     String? traceId,
   }) {
-    return BizAiFashionNoAuthPostDetailGet$Response(
+    return ComboServiceBizAiFashionNoAuthPostDetailGet$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       data: data ?? this.data,
@@ -3102,14 +3195,14 @@ extension $BizAiFashionNoAuthPostDetailGet$ResponseExtension
     );
   }
 
-  BizAiFashionNoAuthPostDetailGet$Response copyWithWrapped({
+  ComboServiceBizAiFashionNoAuthPostDetailGet$Response copyWithWrapped({
     Wrapped<double?>? code,
     Wrapped<String?>? message,
-    Wrapped<BizAiFashionNoAuthPostDetailGet$Response$Data?>? data,
+    Wrapped<ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data?>? data,
     Wrapped<Object?>? reasonCode,
     Wrapped<String?>? traceId,
   }) {
-    return BizAiFashionNoAuthPostDetailGet$Response(
+    return ComboServiceBizAiFashionNoAuthPostDetailGet$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
@@ -3120,22 +3213,22 @@ extension $BizAiFashionNoAuthPostDetailGet$ResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class BizAiFashionNoAuthSelectOptionGet$Response {
-  const BizAiFashionNoAuthSelectOptionGet$Response({
+class ComboServiceBizAiFashionNoAuthSelectOptionGet$Response {
+  const ComboServiceBizAiFashionNoAuthSelectOptionGet$Response({
     this.code,
     this.message,
     this.traceId,
     this.data,
   });
 
-  factory BizAiFashionNoAuthSelectOptionGet$Response.fromJson(
+  factory ComboServiceBizAiFashionNoAuthSelectOptionGet$Response.fromJson(
     Map<String, dynamic> json,
-  ) => _$BizAiFashionNoAuthSelectOptionGet$ResponseFromJson(json);
+  ) => _$ComboServiceBizAiFashionNoAuthSelectOptionGet$ResponseFromJson(json);
 
   static const toJsonFactory =
-      _$BizAiFashionNoAuthSelectOptionGet$ResponseToJson;
+      _$ComboServiceBizAiFashionNoAuthSelectOptionGet$ResponseToJson;
   Map<String, dynamic> toJson() =>
-      _$BizAiFashionNoAuthSelectOptionGet$ResponseToJson(this);
+      _$ComboServiceBizAiFashionNoAuthSelectOptionGet$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final double? code;
@@ -3144,14 +3237,14 @@ class BizAiFashionNoAuthSelectOptionGet$Response {
   @JsonKey(name: 'traceId')
   final String? traceId;
   @JsonKey(name: 'data')
-  final BizAiFashionNoAuthSelectOptionGet$Response$Data? data;
+  final ComboServiceBizAiFashionNoAuthSelectOptionGet$Response$Data? data;
   static const fromJsonFactory =
-      _$BizAiFashionNoAuthSelectOptionGet$ResponseFromJson;
+      _$ComboServiceBizAiFashionNoAuthSelectOptionGet$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is BizAiFashionNoAuthSelectOptionGet$Response &&
+        (other is ComboServiceBizAiFashionNoAuthSelectOptionGet$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -3180,15 +3273,15 @@ class BizAiFashionNoAuthSelectOptionGet$Response {
       runtimeType.hashCode;
 }
 
-extension $BizAiFashionNoAuthSelectOptionGet$ResponseExtension
-    on BizAiFashionNoAuthSelectOptionGet$Response {
-  BizAiFashionNoAuthSelectOptionGet$Response copyWith({
+extension $ComboServiceBizAiFashionNoAuthSelectOptionGet$ResponseExtension
+    on ComboServiceBizAiFashionNoAuthSelectOptionGet$Response {
+  ComboServiceBizAiFashionNoAuthSelectOptionGet$Response copyWith({
     double? code,
     String? message,
     String? traceId,
-    BizAiFashionNoAuthSelectOptionGet$Response$Data? data,
+    ComboServiceBizAiFashionNoAuthSelectOptionGet$Response$Data? data,
   }) {
-    return BizAiFashionNoAuthSelectOptionGet$Response(
+    return ComboServiceBizAiFashionNoAuthSelectOptionGet$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       traceId: traceId ?? this.traceId,
@@ -3196,13 +3289,13 @@ extension $BizAiFashionNoAuthSelectOptionGet$ResponseExtension
     );
   }
 
-  BizAiFashionNoAuthSelectOptionGet$Response copyWithWrapped({
+  ComboServiceBizAiFashionNoAuthSelectOptionGet$Response copyWithWrapped({
     Wrapped<double?>? code,
     Wrapped<String?>? message,
     Wrapped<String?>? traceId,
-    Wrapped<BizAiFashionNoAuthSelectOptionGet$Response$Data?>? data,
+    Wrapped<ComboServiceBizAiFashionNoAuthSelectOptionGet$Response$Data?>? data,
   }) {
-    return BizAiFashionNoAuthSelectOptionGet$Response(
+    return ComboServiceBizAiFashionNoAuthSelectOptionGet$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       traceId: (traceId != null ? traceId.value : this.traceId),
@@ -3212,8 +3305,8 @@ extension $BizAiFashionNoAuthSelectOptionGet$ResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ApiV1StyleOutfitsGenerateModelRegeneratePost$Response {
-  const ApiV1StyleOutfitsGenerateModelRegeneratePost$Response({
+class ComboServiceApiV1StyleOutfitsGenerateModelRegeneratePost$Response {
+  const ComboServiceApiV1StyleOutfitsGenerateModelRegeneratePost$Response({
     this.code,
     this.message,
     this.traceId,
@@ -3221,14 +3314,19 @@ class ApiV1StyleOutfitsGenerateModelRegeneratePost$Response {
     this.data,
   });
 
-  factory ApiV1StyleOutfitsGenerateModelRegeneratePost$Response.fromJson(
+  factory ComboServiceApiV1StyleOutfitsGenerateModelRegeneratePost$Response.fromJson(
     Map<String, dynamic> json,
-  ) => _$ApiV1StyleOutfitsGenerateModelRegeneratePost$ResponseFromJson(json);
+  ) =>
+      _$ComboServiceApiV1StyleOutfitsGenerateModelRegeneratePost$ResponseFromJson(
+        json,
+      );
 
   static const toJsonFactory =
-      _$ApiV1StyleOutfitsGenerateModelRegeneratePost$ResponseToJson;
+      _$ComboServiceApiV1StyleOutfitsGenerateModelRegeneratePost$ResponseToJson;
   Map<String, dynamic> toJson() =>
-      _$ApiV1StyleOutfitsGenerateModelRegeneratePost$ResponseToJson(this);
+      _$ComboServiceApiV1StyleOutfitsGenerateModelRegeneratePost$ResponseToJson(
+        this,
+      );
 
   @JsonKey(name: 'code')
   final double? code;
@@ -3239,14 +3337,15 @@ class ApiV1StyleOutfitsGenerateModelRegeneratePost$Response {
   @JsonKey(name: 'success')
   final bool? success;
   @JsonKey(name: 'data')
-  final ApiV1StyleOutfitsGenerateModelRegeneratePost$Response$Data? data;
+  final ComboServiceApiV1StyleOutfitsGenerateModelRegeneratePost$Response$Data?
+  data;
   static const fromJsonFactory =
-      _$ApiV1StyleOutfitsGenerateModelRegeneratePost$ResponseFromJson;
+      _$ComboServiceApiV1StyleOutfitsGenerateModelRegeneratePost$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ApiV1StyleOutfitsGenerateModelRegeneratePost$Response &&
+        (other is ComboServiceApiV1StyleOutfitsGenerateModelRegeneratePost$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -3281,16 +3380,17 @@ class ApiV1StyleOutfitsGenerateModelRegeneratePost$Response {
       runtimeType.hashCode;
 }
 
-extension $ApiV1StyleOutfitsGenerateModelRegeneratePost$ResponseExtension
-    on ApiV1StyleOutfitsGenerateModelRegeneratePost$Response {
-  ApiV1StyleOutfitsGenerateModelRegeneratePost$Response copyWith({
+extension $ComboServiceApiV1StyleOutfitsGenerateModelRegeneratePost$ResponseExtension
+    on ComboServiceApiV1StyleOutfitsGenerateModelRegeneratePost$Response {
+  ComboServiceApiV1StyleOutfitsGenerateModelRegeneratePost$Response copyWith({
     double? code,
     String? message,
     String? traceId,
     bool? success,
-    ApiV1StyleOutfitsGenerateModelRegeneratePost$Response$Data? data,
+    ComboServiceApiV1StyleOutfitsGenerateModelRegeneratePost$Response$Data?
+    data,
   }) {
-    return ApiV1StyleOutfitsGenerateModelRegeneratePost$Response(
+    return ComboServiceApiV1StyleOutfitsGenerateModelRegeneratePost$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       traceId: traceId ?? this.traceId,
@@ -3299,14 +3399,18 @@ extension $ApiV1StyleOutfitsGenerateModelRegeneratePost$ResponseExtension
     );
   }
 
-  ApiV1StyleOutfitsGenerateModelRegeneratePost$Response copyWithWrapped({
+  ComboServiceApiV1StyleOutfitsGenerateModelRegeneratePost$Response
+  copyWithWrapped({
     Wrapped<double?>? code,
     Wrapped<String?>? message,
     Wrapped<String?>? traceId,
     Wrapped<bool?>? success,
-    Wrapped<ApiV1StyleOutfitsGenerateModelRegeneratePost$Response$Data?>? data,
+    Wrapped<
+      ComboServiceApiV1StyleOutfitsGenerateModelRegeneratePost$Response$Data?
+    >?
+    data,
   }) {
-    return ApiV1StyleOutfitsGenerateModelRegeneratePost$Response(
+    return ComboServiceApiV1StyleOutfitsGenerateModelRegeneratePost$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       traceId: (traceId != null ? traceId.value : this.traceId),
@@ -3317,8 +3421,8 @@ extension $ApiV1StyleOutfitsGenerateModelRegeneratePost$ResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ApiV1StyleOutfitsGenerateRegeneratePost$Response {
-  const ApiV1StyleOutfitsGenerateRegeneratePost$Response({
+class ComboServiceApiV1StyleOutfitsGenerateRegeneratePost$Response {
+  const ComboServiceApiV1StyleOutfitsGenerateRegeneratePost$Response({
     this.code,
     this.message,
     this.traceId,
@@ -3326,14 +3430,18 @@ class ApiV1StyleOutfitsGenerateRegeneratePost$Response {
     this.data,
   });
 
-  factory ApiV1StyleOutfitsGenerateRegeneratePost$Response.fromJson(
+  factory ComboServiceApiV1StyleOutfitsGenerateRegeneratePost$Response.fromJson(
     Map<String, dynamic> json,
-  ) => _$ApiV1StyleOutfitsGenerateRegeneratePost$ResponseFromJson(json);
+  ) => _$ComboServiceApiV1StyleOutfitsGenerateRegeneratePost$ResponseFromJson(
+    json,
+  );
 
   static const toJsonFactory =
-      _$ApiV1StyleOutfitsGenerateRegeneratePost$ResponseToJson;
+      _$ComboServiceApiV1StyleOutfitsGenerateRegeneratePost$ResponseToJson;
   Map<String, dynamic> toJson() =>
-      _$ApiV1StyleOutfitsGenerateRegeneratePost$ResponseToJson(this);
+      _$ComboServiceApiV1StyleOutfitsGenerateRegeneratePost$ResponseToJson(
+        this,
+      );
 
   @JsonKey(name: 'code')
   final double? code;
@@ -3344,14 +3452,14 @@ class ApiV1StyleOutfitsGenerateRegeneratePost$Response {
   @JsonKey(name: 'success')
   final bool? success;
   @JsonKey(name: 'data')
-  final ApiV1StyleOutfitsGenerateRegeneratePost$Response$Data? data;
+  final ComboServiceApiV1StyleOutfitsGenerateRegeneratePost$Response$Data? data;
   static const fromJsonFactory =
-      _$ApiV1StyleOutfitsGenerateRegeneratePost$ResponseFromJson;
+      _$ComboServiceApiV1StyleOutfitsGenerateRegeneratePost$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ApiV1StyleOutfitsGenerateRegeneratePost$Response &&
+        (other is ComboServiceApiV1StyleOutfitsGenerateRegeneratePost$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -3386,16 +3494,16 @@ class ApiV1StyleOutfitsGenerateRegeneratePost$Response {
       runtimeType.hashCode;
 }
 
-extension $ApiV1StyleOutfitsGenerateRegeneratePost$ResponseExtension
-    on ApiV1StyleOutfitsGenerateRegeneratePost$Response {
-  ApiV1StyleOutfitsGenerateRegeneratePost$Response copyWith({
+extension $ComboServiceApiV1StyleOutfitsGenerateRegeneratePost$ResponseExtension
+    on ComboServiceApiV1StyleOutfitsGenerateRegeneratePost$Response {
+  ComboServiceApiV1StyleOutfitsGenerateRegeneratePost$Response copyWith({
     double? code,
     String? message,
     String? traceId,
     bool? success,
-    ApiV1StyleOutfitsGenerateRegeneratePost$Response$Data? data,
+    ComboServiceApiV1StyleOutfitsGenerateRegeneratePost$Response$Data? data,
   }) {
-    return ApiV1StyleOutfitsGenerateRegeneratePost$Response(
+    return ComboServiceApiV1StyleOutfitsGenerateRegeneratePost$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       traceId: traceId ?? this.traceId,
@@ -3404,14 +3512,15 @@ extension $ApiV1StyleOutfitsGenerateRegeneratePost$ResponseExtension
     );
   }
 
-  ApiV1StyleOutfitsGenerateRegeneratePost$Response copyWithWrapped({
+  ComboServiceApiV1StyleOutfitsGenerateRegeneratePost$Response copyWithWrapped({
     Wrapped<double?>? code,
     Wrapped<String?>? message,
     Wrapped<String?>? traceId,
     Wrapped<bool?>? success,
-    Wrapped<ApiV1StyleOutfitsGenerateRegeneratePost$Response$Data?>? data,
+    Wrapped<ComboServiceApiV1StyleOutfitsGenerateRegeneratePost$Response$Data?>?
+    data,
   }) {
-    return ApiV1StyleOutfitsGenerateRegeneratePost$Response(
+    return ComboServiceApiV1StyleOutfitsGenerateRegeneratePost$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       traceId: (traceId != null ? traceId.value : this.traceId),
@@ -3422,8 +3531,8 @@ extension $ApiV1StyleOutfitsGenerateRegeneratePost$ResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class BizUserShareRewardPageGet$Response {
-  const BizUserShareRewardPageGet$Response({
+class ComboServiceBizUserShareRewardPageGet$Response {
+  const ComboServiceBizUserShareRewardPageGet$Response({
     this.code,
     this.message,
     this.data,
@@ -3432,32 +3541,34 @@ class BizUserShareRewardPageGet$Response {
     this.success,
   });
 
-  factory BizUserShareRewardPageGet$Response.fromJson(
+  factory ComboServiceBizUserShareRewardPageGet$Response.fromJson(
     Map<String, dynamic> json,
-  ) => _$BizUserShareRewardPageGet$ResponseFromJson(json);
+  ) => _$ComboServiceBizUserShareRewardPageGet$ResponseFromJson(json);
 
-  static const toJsonFactory = _$BizUserShareRewardPageGet$ResponseToJson;
+  static const toJsonFactory =
+      _$ComboServiceBizUserShareRewardPageGet$ResponseToJson;
   Map<String, dynamic> toJson() =>
-      _$BizUserShareRewardPageGet$ResponseToJson(this);
+      _$ComboServiceBizUserShareRewardPageGet$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final double? code;
   @JsonKey(name: 'message')
   final String? message;
   @JsonKey(name: 'data')
-  final BizUserShareRewardPageGet$Response$Data? data;
+  final ComboServiceBizUserShareRewardPageGet$Response$Data? data;
   @JsonKey(name: 'traceId')
   final String? traceId;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
   @JsonKey(name: 'success')
   final bool? success;
-  static const fromJsonFactory = _$BizUserShareRewardPageGet$ResponseFromJson;
+  static const fromJsonFactory =
+      _$ComboServiceBizUserShareRewardPageGet$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is BizUserShareRewardPageGet$Response &&
+        (other is ComboServiceBizUserShareRewardPageGet$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -3495,17 +3606,17 @@ class BizUserShareRewardPageGet$Response {
       runtimeType.hashCode;
 }
 
-extension $BizUserShareRewardPageGet$ResponseExtension
-    on BizUserShareRewardPageGet$Response {
-  BizUserShareRewardPageGet$Response copyWith({
+extension $ComboServiceBizUserShareRewardPageGet$ResponseExtension
+    on ComboServiceBizUserShareRewardPageGet$Response {
+  ComboServiceBizUserShareRewardPageGet$Response copyWith({
     double? code,
     String? message,
-    BizUserShareRewardPageGet$Response$Data? data,
+    ComboServiceBizUserShareRewardPageGet$Response$Data? data,
     String? traceId,
     Object? placeholder,
     bool? success,
   }) {
-    return BizUserShareRewardPageGet$Response(
+    return ComboServiceBizUserShareRewardPageGet$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       data: data ?? this.data,
@@ -3515,15 +3626,15 @@ extension $BizUserShareRewardPageGet$ResponseExtension
     );
   }
 
-  BizUserShareRewardPageGet$Response copyWithWrapped({
+  ComboServiceBizUserShareRewardPageGet$Response copyWithWrapped({
     Wrapped<double?>? code,
     Wrapped<String?>? message,
-    Wrapped<BizUserShareRewardPageGet$Response$Data?>? data,
+    Wrapped<ComboServiceBizUserShareRewardPageGet$Response$Data?>? data,
     Wrapped<String?>? traceId,
     Wrapped<Object?>? placeholder,
     Wrapped<bool?>? success,
   }) {
-    return BizUserShareRewardPageGet$Response(
+    return ComboServiceBizUserShareRewardPageGet$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
@@ -3535,8 +3646,8 @@ extension $BizUserShareRewardPageGet$ResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class BizUserShareRewardPost$Response {
-  const BizUserShareRewardPost$Response({
+class ComboServiceBizUserShareRewardPost$Response {
+  const ComboServiceBizUserShareRewardPost$Response({
     this.code,
     this.message,
     this.data,
@@ -3545,12 +3656,14 @@ class BizUserShareRewardPost$Response {
     this.success,
   });
 
-  factory BizUserShareRewardPost$Response.fromJson(Map<String, dynamic> json) =>
-      _$BizUserShareRewardPost$ResponseFromJson(json);
+  factory ComboServiceBizUserShareRewardPost$Response.fromJson(
+    Map<String, dynamic> json,
+  ) => _$ComboServiceBizUserShareRewardPost$ResponseFromJson(json);
 
-  static const toJsonFactory = _$BizUserShareRewardPost$ResponseToJson;
+  static const toJsonFactory =
+      _$ComboServiceBizUserShareRewardPost$ResponseToJson;
   Map<String, dynamic> toJson() =>
-      _$BizUserShareRewardPost$ResponseToJson(this);
+      _$ComboServiceBizUserShareRewardPost$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final double? code;
@@ -3564,12 +3677,13 @@ class BizUserShareRewardPost$Response {
   final Object? placeholder;
   @JsonKey(name: 'success')
   final bool? success;
-  static const fromJsonFactory = _$BizUserShareRewardPost$ResponseFromJson;
+  static const fromJsonFactory =
+      _$ComboServiceBizUserShareRewardPost$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is BizUserShareRewardPost$Response &&
+        (other is ComboServiceBizUserShareRewardPost$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -3607,9 +3721,9 @@ class BizUserShareRewardPost$Response {
       runtimeType.hashCode;
 }
 
-extension $BizUserShareRewardPost$ResponseExtension
-    on BizUserShareRewardPost$Response {
-  BizUserShareRewardPost$Response copyWith({
+extension $ComboServiceBizUserShareRewardPost$ResponseExtension
+    on ComboServiceBizUserShareRewardPost$Response {
+  ComboServiceBizUserShareRewardPost$Response copyWith({
     double? code,
     String? message,
     String? data,
@@ -3617,7 +3731,7 @@ extension $BizUserShareRewardPost$ResponseExtension
     Object? placeholder,
     bool? success,
   }) {
-    return BizUserShareRewardPost$Response(
+    return ComboServiceBizUserShareRewardPost$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       data: data ?? this.data,
@@ -3627,7 +3741,7 @@ extension $BizUserShareRewardPost$ResponseExtension
     );
   }
 
-  BizUserShareRewardPost$Response copyWithWrapped({
+  ComboServiceBizUserShareRewardPost$Response copyWithWrapped({
     Wrapped<double?>? code,
     Wrapped<String?>? message,
     Wrapped<String?>? data,
@@ -3635,7 +3749,7 @@ extension $BizUserShareRewardPost$ResponseExtension
     Wrapped<Object?>? placeholder,
     Wrapped<bool?>? success,
   }) {
-    return BizUserShareRewardPost$Response(
+    return ComboServiceBizUserShareRewardPost$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
@@ -3647,8 +3761,8 @@ extension $BizUserShareRewardPost$ResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class NoAuthBizAlbumAlbumInfoGet$Response {
-  const NoAuthBizAlbumAlbumInfoGet$Response({
+class ComboServiceNoAuthBizAlbumAlbumInfoGet$Response {
+  const ComboServiceNoAuthBizAlbumAlbumInfoGet$Response({
     this.code,
     this.message,
     this.data,
@@ -3657,32 +3771,34 @@ class NoAuthBizAlbumAlbumInfoGet$Response {
     this.success,
   });
 
-  factory NoAuthBizAlbumAlbumInfoGet$Response.fromJson(
+  factory ComboServiceNoAuthBizAlbumAlbumInfoGet$Response.fromJson(
     Map<String, dynamic> json,
-  ) => _$NoAuthBizAlbumAlbumInfoGet$ResponseFromJson(json);
+  ) => _$ComboServiceNoAuthBizAlbumAlbumInfoGet$ResponseFromJson(json);
 
-  static const toJsonFactory = _$NoAuthBizAlbumAlbumInfoGet$ResponseToJson;
+  static const toJsonFactory =
+      _$ComboServiceNoAuthBizAlbumAlbumInfoGet$ResponseToJson;
   Map<String, dynamic> toJson() =>
-      _$NoAuthBizAlbumAlbumInfoGet$ResponseToJson(this);
+      _$ComboServiceNoAuthBizAlbumAlbumInfoGet$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final double? code;
   @JsonKey(name: 'message')
   final String? message;
   @JsonKey(name: 'data')
-  final NoAuthBizAlbumAlbumInfoGet$Response$Data? data;
+  final ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data? data;
   @JsonKey(name: 'traceId')
   final String? traceId;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
   @JsonKey(name: 'success')
   final bool? success;
-  static const fromJsonFactory = _$NoAuthBizAlbumAlbumInfoGet$ResponseFromJson;
+  static const fromJsonFactory =
+      _$ComboServiceNoAuthBizAlbumAlbumInfoGet$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is NoAuthBizAlbumAlbumInfoGet$Response &&
+        (other is ComboServiceNoAuthBizAlbumAlbumInfoGet$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -3720,17 +3836,17 @@ class NoAuthBizAlbumAlbumInfoGet$Response {
       runtimeType.hashCode;
 }
 
-extension $NoAuthBizAlbumAlbumInfoGet$ResponseExtension
-    on NoAuthBizAlbumAlbumInfoGet$Response {
-  NoAuthBizAlbumAlbumInfoGet$Response copyWith({
+extension $ComboServiceNoAuthBizAlbumAlbumInfoGet$ResponseExtension
+    on ComboServiceNoAuthBizAlbumAlbumInfoGet$Response {
+  ComboServiceNoAuthBizAlbumAlbumInfoGet$Response copyWith({
     double? code,
     String? message,
-    NoAuthBizAlbumAlbumInfoGet$Response$Data? data,
+    ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data? data,
     String? traceId,
     Object? placeholder,
     bool? success,
   }) {
-    return NoAuthBizAlbumAlbumInfoGet$Response(
+    return ComboServiceNoAuthBizAlbumAlbumInfoGet$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       data: data ?? this.data,
@@ -3740,15 +3856,15 @@ extension $NoAuthBizAlbumAlbumInfoGet$ResponseExtension
     );
   }
 
-  NoAuthBizAlbumAlbumInfoGet$Response copyWithWrapped({
+  ComboServiceNoAuthBizAlbumAlbumInfoGet$Response copyWithWrapped({
     Wrapped<double?>? code,
     Wrapped<String?>? message,
-    Wrapped<NoAuthBizAlbumAlbumInfoGet$Response$Data?>? data,
+    Wrapped<ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data?>? data,
     Wrapped<String?>? traceId,
     Wrapped<Object?>? placeholder,
     Wrapped<bool?>? success,
   }) {
-    return NoAuthBizAlbumAlbumInfoGet$Response(
+    return ComboServiceNoAuthBizAlbumAlbumInfoGet$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
@@ -3760,8 +3876,8 @@ extension $NoAuthBizAlbumAlbumInfoGet$ResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class NoAuthBizKolKolInfoGet$Response$Data {
-  const NoAuthBizKolKolInfoGet$Response$Data({
+class ComboServiceNoAuthBizKolKolInfoGet$Response$Data {
+  const ComboServiceNoAuthBizKolKolInfoGet$Response$Data({
     this.inviteCode,
     this.tenantCode,
     this.shareLink,
@@ -3769,13 +3885,14 @@ class NoAuthBizKolKolInfoGet$Response$Data {
     this.jumpTo,
   });
 
-  factory NoAuthBizKolKolInfoGet$Response$Data.fromJson(
+  factory ComboServiceNoAuthBizKolKolInfoGet$Response$Data.fromJson(
     Map<String, dynamic> json,
-  ) => _$NoAuthBizKolKolInfoGet$Response$DataFromJson(json);
+  ) => _$ComboServiceNoAuthBizKolKolInfoGet$Response$DataFromJson(json);
 
-  static const toJsonFactory = _$NoAuthBizKolKolInfoGet$Response$DataToJson;
+  static const toJsonFactory =
+      _$ComboServiceNoAuthBizKolKolInfoGet$Response$DataToJson;
   Map<String, dynamic> toJson() =>
-      _$NoAuthBizKolKolInfoGet$Response$DataToJson(this);
+      _$ComboServiceNoAuthBizKolKolInfoGet$Response$DataToJson(this);
 
   @JsonKey(name: 'inviteCode')
   final String? inviteCode;
@@ -3784,15 +3901,17 @@ class NoAuthBizKolKolInfoGet$Response$Data {
   @JsonKey(name: 'shareLink')
   final String? shareLink;
   @JsonKey(name: 'excelLinks')
-  final List<NoAuthBizKolKolInfoGet$Response$Data$ExcelLinks$Item>? excelLinks;
+  final List<ComboServiceNoAuthBizKolKolInfoGet$Response$Data$ExcelLinks$Item>?
+  excelLinks;
   @JsonKey(name: 'jumpTo')
   final String? jumpTo;
-  static const fromJsonFactory = _$NoAuthBizKolKolInfoGet$Response$DataFromJson;
+  static const fromJsonFactory =
+      _$ComboServiceNoAuthBizKolKolInfoGet$Response$DataFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is NoAuthBizKolKolInfoGet$Response$Data &&
+        (other is ComboServiceNoAuthBizKolKolInfoGet$Response$Data &&
             (identical(other.inviteCode, inviteCode) ||
                 const DeepCollectionEquality().equals(
                   other.inviteCode,
@@ -3830,16 +3949,17 @@ class NoAuthBizKolKolInfoGet$Response$Data {
       runtimeType.hashCode;
 }
 
-extension $NoAuthBizKolKolInfoGet$Response$DataExtension
-    on NoAuthBizKolKolInfoGet$Response$Data {
-  NoAuthBizKolKolInfoGet$Response$Data copyWith({
+extension $ComboServiceNoAuthBizKolKolInfoGet$Response$DataExtension
+    on ComboServiceNoAuthBizKolKolInfoGet$Response$Data {
+  ComboServiceNoAuthBizKolKolInfoGet$Response$Data copyWith({
     String? inviteCode,
     String? tenantCode,
     String? shareLink,
-    List<NoAuthBizKolKolInfoGet$Response$Data$ExcelLinks$Item>? excelLinks,
+    List<ComboServiceNoAuthBizKolKolInfoGet$Response$Data$ExcelLinks$Item>?
+    excelLinks,
     String? jumpTo,
   }) {
-    return NoAuthBizKolKolInfoGet$Response$Data(
+    return ComboServiceNoAuthBizKolKolInfoGet$Response$Data(
       inviteCode: inviteCode ?? this.inviteCode,
       tenantCode: tenantCode ?? this.tenantCode,
       shareLink: shareLink ?? this.shareLink,
@@ -3848,15 +3968,17 @@ extension $NoAuthBizKolKolInfoGet$Response$DataExtension
     );
   }
 
-  NoAuthBizKolKolInfoGet$Response$Data copyWithWrapped({
+  ComboServiceNoAuthBizKolKolInfoGet$Response$Data copyWithWrapped({
     Wrapped<String?>? inviteCode,
     Wrapped<String?>? tenantCode,
     Wrapped<String?>? shareLink,
-    Wrapped<List<NoAuthBizKolKolInfoGet$Response$Data$ExcelLinks$Item>?>?
+    Wrapped<
+      List<ComboServiceNoAuthBizKolKolInfoGet$Response$Data$ExcelLinks$Item>?
+    >?
     excelLinks,
     Wrapped<String?>? jumpTo,
   }) {
-    return NoAuthBizKolKolInfoGet$Response$Data(
+    return ComboServiceNoAuthBizKolKolInfoGet$Response$Data(
       inviteCode: (inviteCode != null ? inviteCode.value : this.inviteCode),
       tenantCode: (tenantCode != null ? tenantCode.value : this.tenantCode),
       shareLink: (shareLink != null ? shareLink.value : this.shareLink),
@@ -3867,25 +3989,30 @@ extension $NoAuthBizKolKolInfoGet$Response$DataExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class NoAuthPopupPromiseGet$Response$Data {
-  const NoAuthPopupPromiseGet$Response$Data({required this.content});
+class ComboServiceNoAuthPopupPromiseGet$Response$Data {
+  const ComboServiceNoAuthPopupPromiseGet$Response$Data({
+    required this.content,
+  });
 
-  factory NoAuthPopupPromiseGet$Response$Data.fromJson(
+  factory ComboServiceNoAuthPopupPromiseGet$Response$Data.fromJson(
     Map<String, dynamic> json,
-  ) => _$NoAuthPopupPromiseGet$Response$DataFromJson(json);
+  ) => _$ComboServiceNoAuthPopupPromiseGet$Response$DataFromJson(json);
 
-  static const toJsonFactory = _$NoAuthPopupPromiseGet$Response$DataToJson;
+  static const toJsonFactory =
+      _$ComboServiceNoAuthPopupPromiseGet$Response$DataToJson;
   Map<String, dynamic> toJson() =>
-      _$NoAuthPopupPromiseGet$Response$DataToJson(this);
+      _$ComboServiceNoAuthPopupPromiseGet$Response$DataToJson(this);
 
   @JsonKey(name: 'content')
-  final List<NoAuthPopupPromiseGet$Response$Data$Content$Item> content;
-  static const fromJsonFactory = _$NoAuthPopupPromiseGet$Response$DataFromJson;
+  final List<ComboServiceNoAuthPopupPromiseGet$Response$Data$Content$Item>
+  content;
+  static const fromJsonFactory =
+      _$ComboServiceNoAuthPopupPromiseGet$Response$DataFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is NoAuthPopupPromiseGet$Response$Data &&
+        (other is ComboServiceNoAuthPopupPromiseGet$Response$Data &&
             (identical(other.content, content) ||
                 const DeepCollectionEquality().equals(other.content, content)));
   }
@@ -3898,41 +4025,46 @@ class NoAuthPopupPromiseGet$Response$Data {
       const DeepCollectionEquality().hash(content) ^ runtimeType.hashCode;
 }
 
-extension $NoAuthPopupPromiseGet$Response$DataExtension
-    on NoAuthPopupPromiseGet$Response$Data {
-  NoAuthPopupPromiseGet$Response$Data copyWith({
-    List<NoAuthPopupPromiseGet$Response$Data$Content$Item>? content,
+extension $ComboServiceNoAuthPopupPromiseGet$Response$DataExtension
+    on ComboServiceNoAuthPopupPromiseGet$Response$Data {
+  ComboServiceNoAuthPopupPromiseGet$Response$Data copyWith({
+    List<ComboServiceNoAuthPopupPromiseGet$Response$Data$Content$Item>? content,
   }) {
-    return NoAuthPopupPromiseGet$Response$Data(
+    return ComboServiceNoAuthPopupPromiseGet$Response$Data(
       content: content ?? this.content,
     );
   }
 
-  NoAuthPopupPromiseGet$Response$Data copyWithWrapped({
-    Wrapped<List<NoAuthPopupPromiseGet$Response$Data$Content$Item>>? content,
+  ComboServiceNoAuthPopupPromiseGet$Response$Data copyWithWrapped({
+    Wrapped<List<ComboServiceNoAuthPopupPromiseGet$Response$Data$Content$Item>>?
+    content,
   }) {
-    return NoAuthPopupPromiseGet$Response$Data(
+    return ComboServiceNoAuthPopupPromiseGet$Response$Data(
       content: (content != null ? content.value : this.content),
     );
   }
 }
 
 @JsonSerializable(explicitToJson: true)
-class NoAuthCommonAppConfigVersionCheckGet$Response$Data {
-  const NoAuthCommonAppConfigVersionCheckGet$Response$Data({
+class ComboServiceNoAuthCommonAppConfigVersionCheckGet$Response$Data {
+  const ComboServiceNoAuthCommonAppConfigVersionCheckGet$Response$Data({
     required this.allowClose,
     required this.storeUrl,
     required this.haveUpdate,
   });
 
-  factory NoAuthCommonAppConfigVersionCheckGet$Response$Data.fromJson(
+  factory ComboServiceNoAuthCommonAppConfigVersionCheckGet$Response$Data.fromJson(
     Map<String, dynamic> json,
-  ) => _$NoAuthCommonAppConfigVersionCheckGet$Response$DataFromJson(json);
+  ) => _$ComboServiceNoAuthCommonAppConfigVersionCheckGet$Response$DataFromJson(
+    json,
+  );
 
   static const toJsonFactory =
-      _$NoAuthCommonAppConfigVersionCheckGet$Response$DataToJson;
+      _$ComboServiceNoAuthCommonAppConfigVersionCheckGet$Response$DataToJson;
   Map<String, dynamic> toJson() =>
-      _$NoAuthCommonAppConfigVersionCheckGet$Response$DataToJson(this);
+      _$ComboServiceNoAuthCommonAppConfigVersionCheckGet$Response$DataToJson(
+        this,
+      );
 
   @JsonKey(name: 'allowClose')
   final bool allowClose;
@@ -3941,12 +4073,13 @@ class NoAuthCommonAppConfigVersionCheckGet$Response$Data {
   @JsonKey(name: 'haveUpdate')
   final bool haveUpdate;
   static const fromJsonFactory =
-      _$NoAuthCommonAppConfigVersionCheckGet$Response$DataFromJson;
+      _$ComboServiceNoAuthCommonAppConfigVersionCheckGet$Response$DataFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is NoAuthCommonAppConfigVersionCheckGet$Response$Data &&
+        (other
+                is ComboServiceNoAuthCommonAppConfigVersionCheckGet$Response$Data &&
             (identical(other.allowClose, allowClose) ||
                 const DeepCollectionEquality().equals(
                   other.allowClose,
@@ -3975,26 +4108,27 @@ class NoAuthCommonAppConfigVersionCheckGet$Response$Data {
       runtimeType.hashCode;
 }
 
-extension $NoAuthCommonAppConfigVersionCheckGet$Response$DataExtension
-    on NoAuthCommonAppConfigVersionCheckGet$Response$Data {
-  NoAuthCommonAppConfigVersionCheckGet$Response$Data copyWith({
+extension $ComboServiceNoAuthCommonAppConfigVersionCheckGet$Response$DataExtension
+    on ComboServiceNoAuthCommonAppConfigVersionCheckGet$Response$Data {
+  ComboServiceNoAuthCommonAppConfigVersionCheckGet$Response$Data copyWith({
     bool? allowClose,
     String? storeUrl,
     bool? haveUpdate,
   }) {
-    return NoAuthCommonAppConfigVersionCheckGet$Response$Data(
+    return ComboServiceNoAuthCommonAppConfigVersionCheckGet$Response$Data(
       allowClose: allowClose ?? this.allowClose,
       storeUrl: storeUrl ?? this.storeUrl,
       haveUpdate: haveUpdate ?? this.haveUpdate,
     );
   }
 
-  NoAuthCommonAppConfigVersionCheckGet$Response$Data copyWithWrapped({
+  ComboServiceNoAuthCommonAppConfigVersionCheckGet$Response$Data
+  copyWithWrapped({
     Wrapped<bool>? allowClose,
     Wrapped<String>? storeUrl,
     Wrapped<bool>? haveUpdate,
   }) {
-    return NoAuthCommonAppConfigVersionCheckGet$Response$Data(
+    return ComboServiceNoAuthCommonAppConfigVersionCheckGet$Response$Data(
       allowClose: (allowClose != null ? allowClose.value : this.allowClose),
       storeUrl: (storeUrl != null ? storeUrl.value : this.storeUrl),
       haveUpdate: (haveUpdate != null ? haveUpdate.value : this.haveUpdate),
@@ -4003,113 +4137,36 @@ extension $NoAuthCommonAppConfigVersionCheckGet$Response$DataExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class BizCommunityPostLikedGet$Response$Data {
-  const BizCommunityPostLikedGet$Response$Data({
+class ComboServiceBizCommunityPostLikedGet$Response$Data {
+  const ComboServiceBizCommunityPostLikedGet$Response$Data({
     this.posts,
     this.nextCursor,
     this.hasMore,
   });
 
-  factory BizCommunityPostLikedGet$Response$Data.fromJson(
+  factory ComboServiceBizCommunityPostLikedGet$Response$Data.fromJson(
     Map<String, dynamic> json,
-  ) => _$BizCommunityPostLikedGet$Response$DataFromJson(json);
-
-  static const toJsonFactory = _$BizCommunityPostLikedGet$Response$DataToJson;
-  Map<String, dynamic> toJson() =>
-      _$BizCommunityPostLikedGet$Response$DataToJson(this);
-
-  @JsonKey(name: 'posts')
-  final List<BizCommunityPostLikedGet$Response$Data$Posts$Item>? posts;
-  @JsonKey(name: 'nextCursor')
-  final String? nextCursor;
-  @JsonKey(name: 'hasMore')
-  final bool? hasMore;
-  static const fromJsonFactory =
-      _$BizCommunityPostLikedGet$Response$DataFromJson;
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other is BizCommunityPostLikedGet$Response$Data &&
-            (identical(other.posts, posts) ||
-                const DeepCollectionEquality().equals(other.posts, posts)) &&
-            (identical(other.nextCursor, nextCursor) ||
-                const DeepCollectionEquality().equals(
-                  other.nextCursor,
-                  nextCursor,
-                )) &&
-            (identical(other.hasMore, hasMore) ||
-                const DeepCollectionEquality().equals(other.hasMore, hasMore)));
-  }
-
-  @override
-  String toString() => jsonEncode(this);
-
-  @override
-  int get hashCode =>
-      const DeepCollectionEquality().hash(posts) ^
-      const DeepCollectionEquality().hash(nextCursor) ^
-      const DeepCollectionEquality().hash(hasMore) ^
-      runtimeType.hashCode;
-}
-
-extension $BizCommunityPostLikedGet$Response$DataExtension
-    on BizCommunityPostLikedGet$Response$Data {
-  BizCommunityPostLikedGet$Response$Data copyWith({
-    List<BizCommunityPostLikedGet$Response$Data$Posts$Item>? posts,
-    String? nextCursor,
-    bool? hasMore,
-  }) {
-    return BizCommunityPostLikedGet$Response$Data(
-      posts: posts ?? this.posts,
-      nextCursor: nextCursor ?? this.nextCursor,
-      hasMore: hasMore ?? this.hasMore,
-    );
-  }
-
-  BizCommunityPostLikedGet$Response$Data copyWithWrapped({
-    Wrapped<List<BizCommunityPostLikedGet$Response$Data$Posts$Item>?>? posts,
-    Wrapped<String?>? nextCursor,
-    Wrapped<bool?>? hasMore,
-  }) {
-    return BizCommunityPostLikedGet$Response$Data(
-      posts: (posts != null ? posts.value : this.posts),
-      nextCursor: (nextCursor != null ? nextCursor.value : this.nextCursor),
-      hasMore: (hasMore != null ? hasMore.value : this.hasMore),
-    );
-  }
-}
-
-@JsonSerializable(explicitToJson: true)
-class BizCommunityPostNoAuthListGet$Response$Data {
-  const BizCommunityPostNoAuthListGet$Response$Data({
-    this.posts,
-    this.nextCursor,
-    this.hasMore,
-  });
-
-  factory BizCommunityPostNoAuthListGet$Response$Data.fromJson(
-    Map<String, dynamic> json,
-  ) => _$BizCommunityPostNoAuthListGet$Response$DataFromJson(json);
+  ) => _$ComboServiceBizCommunityPostLikedGet$Response$DataFromJson(json);
 
   static const toJsonFactory =
-      _$BizCommunityPostNoAuthListGet$Response$DataToJson;
+      _$ComboServiceBizCommunityPostLikedGet$Response$DataToJson;
   Map<String, dynamic> toJson() =>
-      _$BizCommunityPostNoAuthListGet$Response$DataToJson(this);
+      _$ComboServiceBizCommunityPostLikedGet$Response$DataToJson(this);
 
   @JsonKey(name: 'posts')
-  final List<BizCommunityPostNoAuthListGet$Response$Data$Posts$Item>? posts;
+  final List<ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item>?
+  posts;
   @JsonKey(name: 'nextCursor')
   final String? nextCursor;
   @JsonKey(name: 'hasMore')
   final bool? hasMore;
   static const fromJsonFactory =
-      _$BizCommunityPostNoAuthListGet$Response$DataFromJson;
+      _$ComboServiceBizCommunityPostLikedGet$Response$DataFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is BizCommunityPostNoAuthListGet$Response$Data &&
+        (other is ComboServiceBizCommunityPostLikedGet$Response$Data &&
             (identical(other.posts, posts) ||
                 const DeepCollectionEquality().equals(other.posts, posts)) &&
             (identical(other.nextCursor, nextCursor) ||
@@ -4132,27 +4189,29 @@ class BizCommunityPostNoAuthListGet$Response$Data {
       runtimeType.hashCode;
 }
 
-extension $BizCommunityPostNoAuthListGet$Response$DataExtension
-    on BizCommunityPostNoAuthListGet$Response$Data {
-  BizCommunityPostNoAuthListGet$Response$Data copyWith({
-    List<BizCommunityPostNoAuthListGet$Response$Data$Posts$Item>? posts,
+extension $ComboServiceBizCommunityPostLikedGet$Response$DataExtension
+    on ComboServiceBizCommunityPostLikedGet$Response$Data {
+  ComboServiceBizCommunityPostLikedGet$Response$Data copyWith({
+    List<ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item>? posts,
     String? nextCursor,
     bool? hasMore,
   }) {
-    return BizCommunityPostNoAuthListGet$Response$Data(
+    return ComboServiceBizCommunityPostLikedGet$Response$Data(
       posts: posts ?? this.posts,
       nextCursor: nextCursor ?? this.nextCursor,
       hasMore: hasMore ?? this.hasMore,
     );
   }
 
-  BizCommunityPostNoAuthListGet$Response$Data copyWithWrapped({
-    Wrapped<List<BizCommunityPostNoAuthListGet$Response$Data$Posts$Item>?>?
+  ComboServiceBizCommunityPostLikedGet$Response$Data copyWithWrapped({
+    Wrapped<
+      List<ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item>?
+    >?
     posts,
     Wrapped<String?>? nextCursor,
     Wrapped<bool?>? hasMore,
   }) {
-    return BizCommunityPostNoAuthListGet$Response$Data(
+    return ComboServiceBizCommunityPostLikedGet$Response$Data(
       posts: (posts != null ? posts.value : this.posts),
       nextCursor: (nextCursor != null ? nextCursor.value : this.nextCursor),
       hasMore: (hasMore != null ? hasMore.value : this.hasMore),
@@ -4161,8 +4220,94 @@ extension $BizCommunityPostNoAuthListGet$Response$DataExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class BizUserOrderPendingGet$Response$Data {
-  const BizUserOrderPendingGet$Response$Data({
+class ComboServiceBizCommunityPostNoAuthListGet$Response$Data {
+  const ComboServiceBizCommunityPostNoAuthListGet$Response$Data({
+    this.posts,
+    this.nextCursor,
+    this.hasMore,
+  });
+
+  factory ComboServiceBizCommunityPostNoAuthListGet$Response$Data.fromJson(
+    Map<String, dynamic> json,
+  ) => _$ComboServiceBizCommunityPostNoAuthListGet$Response$DataFromJson(json);
+
+  static const toJsonFactory =
+      _$ComboServiceBizCommunityPostNoAuthListGet$Response$DataToJson;
+  Map<String, dynamic> toJson() =>
+      _$ComboServiceBizCommunityPostNoAuthListGet$Response$DataToJson(this);
+
+  @JsonKey(name: 'posts')
+  final List<
+    ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item
+  >?
+  posts;
+  @JsonKey(name: 'nextCursor')
+  final String? nextCursor;
+  @JsonKey(name: 'hasMore')
+  final bool? hasMore;
+  static const fromJsonFactory =
+      _$ComboServiceBizCommunityPostNoAuthListGet$Response$DataFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is ComboServiceBizCommunityPostNoAuthListGet$Response$Data &&
+            (identical(other.posts, posts) ||
+                const DeepCollectionEquality().equals(other.posts, posts)) &&
+            (identical(other.nextCursor, nextCursor) ||
+                const DeepCollectionEquality().equals(
+                  other.nextCursor,
+                  nextCursor,
+                )) &&
+            (identical(other.hasMore, hasMore) ||
+                const DeepCollectionEquality().equals(other.hasMore, hasMore)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(posts) ^
+      const DeepCollectionEquality().hash(nextCursor) ^
+      const DeepCollectionEquality().hash(hasMore) ^
+      runtimeType.hashCode;
+}
+
+extension $ComboServiceBizCommunityPostNoAuthListGet$Response$DataExtension
+    on ComboServiceBizCommunityPostNoAuthListGet$Response$Data {
+  ComboServiceBizCommunityPostNoAuthListGet$Response$Data copyWith({
+    List<ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item>?
+    posts,
+    String? nextCursor,
+    bool? hasMore,
+  }) {
+    return ComboServiceBizCommunityPostNoAuthListGet$Response$Data(
+      posts: posts ?? this.posts,
+      nextCursor: nextCursor ?? this.nextCursor,
+      hasMore: hasMore ?? this.hasMore,
+    );
+  }
+
+  ComboServiceBizCommunityPostNoAuthListGet$Response$Data copyWithWrapped({
+    Wrapped<
+      List<ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item>?
+    >?
+    posts,
+    Wrapped<String?>? nextCursor,
+    Wrapped<bool?>? hasMore,
+  }) {
+    return ComboServiceBizCommunityPostNoAuthListGet$Response$Data(
+      posts: (posts != null ? posts.value : this.posts),
+      nextCursor: (nextCursor != null ? nextCursor.value : this.nextCursor),
+      hasMore: (hasMore != null ? hasMore.value : this.hasMore),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class ComboServiceBizUserOrderPendingGet$Response$Data {
+  const ComboServiceBizUserOrderPendingGet$Response$Data({
     this.pendingOrderCount,
     this.totalOrderCount,
     this.pendingWarehouseItemCount,
@@ -4170,13 +4315,14 @@ class BizUserOrderPendingGet$Response$Data {
     this.totalPackageCount,
   });
 
-  factory BizUserOrderPendingGet$Response$Data.fromJson(
+  factory ComboServiceBizUserOrderPendingGet$Response$Data.fromJson(
     Map<String, dynamic> json,
-  ) => _$BizUserOrderPendingGet$Response$DataFromJson(json);
+  ) => _$ComboServiceBizUserOrderPendingGet$Response$DataFromJson(json);
 
-  static const toJsonFactory = _$BizUserOrderPendingGet$Response$DataToJson;
+  static const toJsonFactory =
+      _$ComboServiceBizUserOrderPendingGet$Response$DataToJson;
   Map<String, dynamic> toJson() =>
-      _$BizUserOrderPendingGet$Response$DataToJson(this);
+      _$ComboServiceBizUserOrderPendingGet$Response$DataToJson(this);
 
   @JsonKey(name: 'pendingOrderCount')
   final double? pendingOrderCount;
@@ -4188,12 +4334,13 @@ class BizUserOrderPendingGet$Response$Data {
   final double? pendingPackageCount;
   @JsonKey(name: 'totalPackageCount')
   final double? totalPackageCount;
-  static const fromJsonFactory = _$BizUserOrderPendingGet$Response$DataFromJson;
+  static const fromJsonFactory =
+      _$ComboServiceBizUserOrderPendingGet$Response$DataFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is BizUserOrderPendingGet$Response$Data &&
+        (other is ComboServiceBizUserOrderPendingGet$Response$Data &&
             (identical(other.pendingOrderCount, pendingOrderCount) ||
                 const DeepCollectionEquality().equals(
                   other.pendingOrderCount,
@@ -4237,16 +4384,16 @@ class BizUserOrderPendingGet$Response$Data {
       runtimeType.hashCode;
 }
 
-extension $BizUserOrderPendingGet$Response$DataExtension
-    on BizUserOrderPendingGet$Response$Data {
-  BizUserOrderPendingGet$Response$Data copyWith({
+extension $ComboServiceBizUserOrderPendingGet$Response$DataExtension
+    on ComboServiceBizUserOrderPendingGet$Response$Data {
+  ComboServiceBizUserOrderPendingGet$Response$Data copyWith({
     double? pendingOrderCount,
     double? totalOrderCount,
     double? pendingWarehouseItemCount,
     double? pendingPackageCount,
     double? totalPackageCount,
   }) {
-    return BizUserOrderPendingGet$Response$Data(
+    return ComboServiceBizUserOrderPendingGet$Response$Data(
       pendingOrderCount: pendingOrderCount ?? this.pendingOrderCount,
       totalOrderCount: totalOrderCount ?? this.totalOrderCount,
       pendingWarehouseItemCount:
@@ -4256,14 +4403,14 @@ extension $BizUserOrderPendingGet$Response$DataExtension
     );
   }
 
-  BizUserOrderPendingGet$Response$Data copyWithWrapped({
+  ComboServiceBizUserOrderPendingGet$Response$Data copyWithWrapped({
     Wrapped<double?>? pendingOrderCount,
     Wrapped<double?>? totalOrderCount,
     Wrapped<double?>? pendingWarehouseItemCount,
     Wrapped<double?>? pendingPackageCount,
     Wrapped<double?>? totalPackageCount,
   }) {
-    return BizUserOrderPendingGet$Response$Data(
+    return ComboServiceBizUserOrderPendingGet$Response$Data(
       pendingOrderCount: (pendingOrderCount != null
           ? pendingOrderCount.value
           : this.pendingOrderCount),
@@ -4284,21 +4431,25 @@ extension $BizUserOrderPendingGet$Response$DataExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ApiV1StyleOutfitsGenerateModelPost$Response$Data {
-  const ApiV1StyleOutfitsGenerateModelPost$Response$Data({
+class ComboServiceApiV1StyleOutfitsGenerateModelPost$Response$Data {
+  const ComboServiceApiV1StyleOutfitsGenerateModelPost$Response$Data({
     this.taskId,
     this.status,
     this.estimatedTime,
   });
 
-  factory ApiV1StyleOutfitsGenerateModelPost$Response$Data.fromJson(
+  factory ComboServiceApiV1StyleOutfitsGenerateModelPost$Response$Data.fromJson(
     Map<String, dynamic> json,
-  ) => _$ApiV1StyleOutfitsGenerateModelPost$Response$DataFromJson(json);
+  ) => _$ComboServiceApiV1StyleOutfitsGenerateModelPost$Response$DataFromJson(
+    json,
+  );
 
   static const toJsonFactory =
-      _$ApiV1StyleOutfitsGenerateModelPost$Response$DataToJson;
+      _$ComboServiceApiV1StyleOutfitsGenerateModelPost$Response$DataToJson;
   Map<String, dynamic> toJson() =>
-      _$ApiV1StyleOutfitsGenerateModelPost$Response$DataToJson(this);
+      _$ComboServiceApiV1StyleOutfitsGenerateModelPost$Response$DataToJson(
+        this,
+      );
 
   @JsonKey(name: 'taskId')
   final String? taskId;
@@ -4307,12 +4458,13 @@ class ApiV1StyleOutfitsGenerateModelPost$Response$Data {
   @JsonKey(name: 'estimatedTime')
   final String? estimatedTime;
   static const fromJsonFactory =
-      _$ApiV1StyleOutfitsGenerateModelPost$Response$DataFromJson;
+      _$ComboServiceApiV1StyleOutfitsGenerateModelPost$Response$DataFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ApiV1StyleOutfitsGenerateModelPost$Response$Data &&
+        (other
+                is ComboServiceApiV1StyleOutfitsGenerateModelPost$Response$Data &&
             (identical(other.taskId, taskId) ||
                 const DeepCollectionEquality().equals(other.taskId, taskId)) &&
             (identical(other.status, status) ||
@@ -4335,26 +4487,26 @@ class ApiV1StyleOutfitsGenerateModelPost$Response$Data {
       runtimeType.hashCode;
 }
 
-extension $ApiV1StyleOutfitsGenerateModelPost$Response$DataExtension
-    on ApiV1StyleOutfitsGenerateModelPost$Response$Data {
-  ApiV1StyleOutfitsGenerateModelPost$Response$Data copyWith({
+extension $ComboServiceApiV1StyleOutfitsGenerateModelPost$Response$DataExtension
+    on ComboServiceApiV1StyleOutfitsGenerateModelPost$Response$Data {
+  ComboServiceApiV1StyleOutfitsGenerateModelPost$Response$Data copyWith({
     String? taskId,
     String? status,
     String? estimatedTime,
   }) {
-    return ApiV1StyleOutfitsGenerateModelPost$Response$Data(
+    return ComboServiceApiV1StyleOutfitsGenerateModelPost$Response$Data(
       taskId: taskId ?? this.taskId,
       status: status ?? this.status,
       estimatedTime: estimatedTime ?? this.estimatedTime,
     );
   }
 
-  ApiV1StyleOutfitsGenerateModelPost$Response$Data copyWithWrapped({
+  ComboServiceApiV1StyleOutfitsGenerateModelPost$Response$Data copyWithWrapped({
     Wrapped<String?>? taskId,
     Wrapped<String?>? status,
     Wrapped<String?>? estimatedTime,
   }) {
-    return ApiV1StyleOutfitsGenerateModelPost$Response$Data(
+    return ComboServiceApiV1StyleOutfitsGenerateModelPost$Response$Data(
       taskId: (taskId != null ? taskId.value : this.taskId),
       status: (status != null ? status.value : this.status),
       estimatedTime: (estimatedTime != null
@@ -4365,29 +4517,38 @@ extension $ApiV1StyleOutfitsGenerateModelPost$Response$DataExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class BizAiFashionNoAuthBodyShapeGet$Response$Data {
-  const BizAiFashionNoAuthBodyShapeGet$Response$Data({this.female, this.male});
+class ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data {
+  const ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data({
+    this.female,
+    this.male,
+  });
 
-  factory BizAiFashionNoAuthBodyShapeGet$Response$Data.fromJson(
+  factory ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data.fromJson(
     Map<String, dynamic> json,
-  ) => _$BizAiFashionNoAuthBodyShapeGet$Response$DataFromJson(json);
+  ) => _$ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$DataFromJson(json);
 
   static const toJsonFactory =
-      _$BizAiFashionNoAuthBodyShapeGet$Response$DataToJson;
+      _$ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$DataToJson;
   Map<String, dynamic> toJson() =>
-      _$BizAiFashionNoAuthBodyShapeGet$Response$DataToJson(this);
+      _$ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$DataToJson(this);
 
   @JsonKey(name: 'female')
-  final List<BizAiFashionNoAuthBodyShapeGet$Response$Data$Female$Item>? female;
+  final List<
+    ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data$Female$Item
+  >?
+  female;
   @JsonKey(name: 'male')
-  final List<BizAiFashionNoAuthBodyShapeGet$Response$Data$Male$Item>? male;
+  final List<
+    ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data$Male$Item
+  >?
+  male;
   static const fromJsonFactory =
-      _$BizAiFashionNoAuthBodyShapeGet$Response$DataFromJson;
+      _$ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$DataFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is BizAiFashionNoAuthBodyShapeGet$Response$Data &&
+        (other is ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data &&
             (identical(other.female, female) ||
                 const DeepCollectionEquality().equals(other.female, female)) &&
             (identical(other.male, male) ||
@@ -4404,25 +4565,33 @@ class BizAiFashionNoAuthBodyShapeGet$Response$Data {
       runtimeType.hashCode;
 }
 
-extension $BizAiFashionNoAuthBodyShapeGet$Response$DataExtension
-    on BizAiFashionNoAuthBodyShapeGet$Response$Data {
-  BizAiFashionNoAuthBodyShapeGet$Response$Data copyWith({
-    List<BizAiFashionNoAuthBodyShapeGet$Response$Data$Female$Item>? female,
-    List<BizAiFashionNoAuthBodyShapeGet$Response$Data$Male$Item>? male,
+extension $ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$DataExtension
+    on ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data {
+  ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data copyWith({
+    List<ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data$Female$Item>?
+    female,
+    List<ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data$Male$Item>?
+    male,
   }) {
-    return BizAiFashionNoAuthBodyShapeGet$Response$Data(
+    return ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data(
       female: female ?? this.female,
       male: male ?? this.male,
     );
   }
 
-  BizAiFashionNoAuthBodyShapeGet$Response$Data copyWithWrapped({
-    Wrapped<List<BizAiFashionNoAuthBodyShapeGet$Response$Data$Female$Item>?>?
+  ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data copyWithWrapped({
+    Wrapped<
+      List<
+        ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data$Female$Item
+      >?
+    >?
     female,
-    Wrapped<List<BizAiFashionNoAuthBodyShapeGet$Response$Data$Male$Item>?>?
+    Wrapped<
+      List<ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data$Male$Item>?
+    >?
     male,
   }) {
-    return BizAiFashionNoAuthBodyShapeGet$Response$Data(
+    return ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data(
       female: (female != null ? female.value : this.female),
       male: (male != null ? male.value : this.male),
     );
@@ -4430,8 +4599,8 @@ extension $BizAiFashionNoAuthBodyShapeGet$Response$DataExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class BizAiFashionModelSavePost$Response$Data {
-  const BizAiFashionModelSavePost$Response$Data({
+class ComboServiceBizAiFashionModelSavePost$Response$Data {
+  const ComboServiceBizAiFashionModelSavePost$Response$Data({
     this.id,
     this.tenantCode,
     this.userId,
@@ -4445,13 +4614,14 @@ class BizAiFashionModelSavePost$Response$Data {
     this.groupId,
   });
 
-  factory BizAiFashionModelSavePost$Response$Data.fromJson(
+  factory ComboServiceBizAiFashionModelSavePost$Response$Data.fromJson(
     Map<String, dynamic> json,
-  ) => _$BizAiFashionModelSavePost$Response$DataFromJson(json);
+  ) => _$ComboServiceBizAiFashionModelSavePost$Response$DataFromJson(json);
 
-  static const toJsonFactory = _$BizAiFashionModelSavePost$Response$DataToJson;
+  static const toJsonFactory =
+      _$ComboServiceBizAiFashionModelSavePost$Response$DataToJson;
   Map<String, dynamic> toJson() =>
-      _$BizAiFashionModelSavePost$Response$DataToJson(this);
+      _$ComboServiceBizAiFashionModelSavePost$Response$DataToJson(this);
 
   @JsonKey(name: 'id')
   final double? id;
@@ -4476,12 +4646,12 @@ class BizAiFashionModelSavePost$Response$Data {
   @JsonKey(name: 'groupId')
   final double? groupId;
   static const fromJsonFactory =
-      _$BizAiFashionModelSavePost$Response$DataFromJson;
+      _$ComboServiceBizAiFashionModelSavePost$Response$DataFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is BizAiFashionModelSavePost$Response$Data &&
+        (other is ComboServiceBizAiFashionModelSavePost$Response$Data &&
             (identical(other.id, id) ||
                 const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.tenantCode, tenantCode) ||
@@ -4546,9 +4716,9 @@ class BizAiFashionModelSavePost$Response$Data {
       runtimeType.hashCode;
 }
 
-extension $BizAiFashionModelSavePost$Response$DataExtension
-    on BizAiFashionModelSavePost$Response$Data {
-  BizAiFashionModelSavePost$Response$Data copyWith({
+extension $ComboServiceBizAiFashionModelSavePost$Response$DataExtension
+    on ComboServiceBizAiFashionModelSavePost$Response$Data {
+  ComboServiceBizAiFashionModelSavePost$Response$Data copyWith({
     double? id,
     String? tenantCode,
     String? userId,
@@ -4561,7 +4731,7 @@ extension $BizAiFashionModelSavePost$Response$DataExtension
     String? gmtUpdate,
     double? groupId,
   }) {
-    return BizAiFashionModelSavePost$Response$Data(
+    return ComboServiceBizAiFashionModelSavePost$Response$Data(
       id: id ?? this.id,
       tenantCode: tenantCode ?? this.tenantCode,
       userId: userId ?? this.userId,
@@ -4576,7 +4746,7 @@ extension $BizAiFashionModelSavePost$Response$DataExtension
     );
   }
 
-  BizAiFashionModelSavePost$Response$Data copyWithWrapped({
+  ComboServiceBizAiFashionModelSavePost$Response$Data copyWithWrapped({
     Wrapped<double?>? id,
     Wrapped<String?>? tenantCode,
     Wrapped<String?>? userId,
@@ -4589,7 +4759,7 @@ extension $BizAiFashionModelSavePost$Response$DataExtension
     Wrapped<String?>? gmtUpdate,
     Wrapped<double?>? groupId,
   }) {
-    return BizAiFashionModelSavePost$Response$Data(
+    return ComboServiceBizAiFashionModelSavePost$Response$Data(
       id: (id != null ? id.value : this.id),
       tenantCode: (tenantCode != null ? tenantCode.value : this.tenantCode),
       userId: (userId != null ? userId.value : this.userId),
@@ -4606,8 +4776,8 @@ extension $BizAiFashionModelSavePost$Response$DataExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ApiV1StyleOutfitsResultPageGet$Response$Data {
-  const ApiV1StyleOutfitsResultPageGet$Response$Data({
+class ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data {
+  const ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data({
     this.records,
     this.total,
     this.size,
@@ -4615,17 +4785,19 @@ class ApiV1StyleOutfitsResultPageGet$Response$Data {
     this.pages,
   });
 
-  factory ApiV1StyleOutfitsResultPageGet$Response$Data.fromJson(
+  factory ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data.fromJson(
     Map<String, dynamic> json,
-  ) => _$ApiV1StyleOutfitsResultPageGet$Response$DataFromJson(json);
+  ) => _$ComboServiceApiV1StyleOutfitsResultPageGet$Response$DataFromJson(json);
 
   static const toJsonFactory =
-      _$ApiV1StyleOutfitsResultPageGet$Response$DataToJson;
+      _$ComboServiceApiV1StyleOutfitsResultPageGet$Response$DataToJson;
   Map<String, dynamic> toJson() =>
-      _$ApiV1StyleOutfitsResultPageGet$Response$DataToJson(this);
+      _$ComboServiceApiV1StyleOutfitsResultPageGet$Response$DataToJson(this);
 
   @JsonKey(name: 'records')
-  final List<ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item>?
+  final List<
+    ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item
+  >?
   records;
   @JsonKey(name: 'total')
   final double? total;
@@ -4636,12 +4808,12 @@ class ApiV1StyleOutfitsResultPageGet$Response$Data {
   @JsonKey(name: 'pages')
   final double? pages;
   static const fromJsonFactory =
-      _$ApiV1StyleOutfitsResultPageGet$Response$DataFromJson;
+      _$ComboServiceApiV1StyleOutfitsResultPageGet$Response$DataFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ApiV1StyleOutfitsResultPageGet$Response$Data &&
+        (other is ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data &&
             (identical(other.records, records) ||
                 const DeepCollectionEquality().equals(
                   other.records,
@@ -4673,16 +4845,17 @@ class ApiV1StyleOutfitsResultPageGet$Response$Data {
       runtimeType.hashCode;
 }
 
-extension $ApiV1StyleOutfitsResultPageGet$Response$DataExtension
-    on ApiV1StyleOutfitsResultPageGet$Response$Data {
-  ApiV1StyleOutfitsResultPageGet$Response$Data copyWith({
-    List<ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item>? records,
+extension $ComboServiceApiV1StyleOutfitsResultPageGet$Response$DataExtension
+    on ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data {
+  ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data copyWith({
+    List<ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item>?
+    records,
     double? total,
     double? size,
     double? current,
     double? pages,
   }) {
-    return ApiV1StyleOutfitsResultPageGet$Response$Data(
+    return ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data(
       records: records ?? this.records,
       total: total ?? this.total,
       size: size ?? this.size,
@@ -4691,15 +4864,19 @@ extension $ApiV1StyleOutfitsResultPageGet$Response$DataExtension
     );
   }
 
-  ApiV1StyleOutfitsResultPageGet$Response$Data copyWithWrapped({
-    Wrapped<List<ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item>?>?
+  ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data copyWithWrapped({
+    Wrapped<
+      List<
+        ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item
+      >?
+    >?
     records,
     Wrapped<double?>? total,
     Wrapped<double?>? size,
     Wrapped<double?>? current,
     Wrapped<double?>? pages,
   }) {
-    return ApiV1StyleOutfitsResultPageGet$Response$Data(
+    return ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data(
       records: (records != null ? records.value : this.records),
       total: (total != null ? total.value : this.total),
       size: (size != null ? size.value : this.size),
@@ -4710,8 +4887,8 @@ extension $ApiV1StyleOutfitsResultPageGet$Response$DataExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class BizAiFashionModelRecentlyUsedGet$Response$Data {
-  const BizAiFashionModelRecentlyUsedGet$Response$Data({
+class ComboServiceBizAiFashionModelRecentlyUsedGet$Response$Data {
+  const ComboServiceBizAiFashionModelRecentlyUsedGet$Response$Data({
     this.id,
     this.tenantCode,
     this.userId,
@@ -4726,14 +4903,16 @@ class BizAiFashionModelRecentlyUsedGet$Response$Data {
     this.groupId,
   });
 
-  factory BizAiFashionModelRecentlyUsedGet$Response$Data.fromJson(
+  factory ComboServiceBizAiFashionModelRecentlyUsedGet$Response$Data.fromJson(
     Map<String, dynamic> json,
-  ) => _$BizAiFashionModelRecentlyUsedGet$Response$DataFromJson(json);
+  ) => _$ComboServiceBizAiFashionModelRecentlyUsedGet$Response$DataFromJson(
+    json,
+  );
 
   static const toJsonFactory =
-      _$BizAiFashionModelRecentlyUsedGet$Response$DataToJson;
+      _$ComboServiceBizAiFashionModelRecentlyUsedGet$Response$DataToJson;
   Map<String, dynamic> toJson() =>
-      _$BizAiFashionModelRecentlyUsedGet$Response$DataToJson(this);
+      _$ComboServiceBizAiFashionModelRecentlyUsedGet$Response$DataToJson(this);
 
   @JsonKey(name: 'id')
   final double? id;
@@ -4760,12 +4939,12 @@ class BizAiFashionModelRecentlyUsedGet$Response$Data {
   @JsonKey(name: 'groupId')
   final double? groupId;
   static const fromJsonFactory =
-      _$BizAiFashionModelRecentlyUsedGet$Response$DataFromJson;
+      _$ComboServiceBizAiFashionModelRecentlyUsedGet$Response$DataFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is BizAiFashionModelRecentlyUsedGet$Response$Data &&
+        (other is ComboServiceBizAiFashionModelRecentlyUsedGet$Response$Data &&
             (identical(other.id, id) ||
                 const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.tenantCode, tenantCode) ||
@@ -4836,9 +5015,9 @@ class BizAiFashionModelRecentlyUsedGet$Response$Data {
       runtimeType.hashCode;
 }
 
-extension $BizAiFashionModelRecentlyUsedGet$Response$DataExtension
-    on BizAiFashionModelRecentlyUsedGet$Response$Data {
-  BizAiFashionModelRecentlyUsedGet$Response$Data copyWith({
+extension $ComboServiceBizAiFashionModelRecentlyUsedGet$Response$DataExtension
+    on ComboServiceBizAiFashionModelRecentlyUsedGet$Response$Data {
+  ComboServiceBizAiFashionModelRecentlyUsedGet$Response$Data copyWith({
     double? id,
     String? tenantCode,
     String? userId,
@@ -4852,7 +5031,7 @@ extension $BizAiFashionModelRecentlyUsedGet$Response$DataExtension
     String? gmtUpdate,
     double? groupId,
   }) {
-    return BizAiFashionModelRecentlyUsedGet$Response$Data(
+    return ComboServiceBizAiFashionModelRecentlyUsedGet$Response$Data(
       id: id ?? this.id,
       tenantCode: tenantCode ?? this.tenantCode,
       userId: userId ?? this.userId,
@@ -4868,7 +5047,7 @@ extension $BizAiFashionModelRecentlyUsedGet$Response$DataExtension
     );
   }
 
-  BizAiFashionModelRecentlyUsedGet$Response$Data copyWithWrapped({
+  ComboServiceBizAiFashionModelRecentlyUsedGet$Response$Data copyWithWrapped({
     Wrapped<double?>? id,
     Wrapped<String?>? tenantCode,
     Wrapped<String?>? userId,
@@ -4882,7 +5061,7 @@ extension $BizAiFashionModelRecentlyUsedGet$Response$DataExtension
     Wrapped<String?>? gmtUpdate,
     Wrapped<double?>? groupId,
   }) {
-    return BizAiFashionModelRecentlyUsedGet$Response$Data(
+    return ComboServiceBizAiFashionModelRecentlyUsedGet$Response$Data(
       id: (id != null ? id.value : this.id),
       tenantCode: (tenantCode != null ? tenantCode.value : this.tenantCode),
       userId: (userId != null ? userId.value : this.userId),
@@ -4902,8 +5081,8 @@ extension $BizAiFashionModelRecentlyUsedGet$Response$DataExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ApiV1StyleOutfitsModelIdStatusGet$Response$Data {
-  const ApiV1StyleOutfitsModelIdStatusGet$Response$Data({
+class ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response$Data {
+  const ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response$Data({
     this.taskId,
     this.status,
     this.totalCount,
@@ -4918,14 +5097,16 @@ class ApiV1StyleOutfitsModelIdStatusGet$Response$Data {
     this.generatedModels,
   });
 
-  factory ApiV1StyleOutfitsModelIdStatusGet$Response$Data.fromJson(
+  factory ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response$Data.fromJson(
     Map<String, dynamic> json,
-  ) => _$ApiV1StyleOutfitsModelIdStatusGet$Response$DataFromJson(json);
+  ) => _$ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response$DataFromJson(
+    json,
+  );
 
   static const toJsonFactory =
-      _$ApiV1StyleOutfitsModelIdStatusGet$Response$DataToJson;
+      _$ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response$DataToJson;
   Map<String, dynamic> toJson() =>
-      _$ApiV1StyleOutfitsModelIdStatusGet$Response$DataToJson(this);
+      _$ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response$DataToJson(this);
 
   @JsonKey(name: 'taskId')
   final String? taskId;
@@ -4951,16 +5132,16 @@ class ApiV1StyleOutfitsModelIdStatusGet$Response$Data {
   final Object? error;
   @JsonKey(name: 'generatedModels')
   final List<
-    ApiV1StyleOutfitsModelIdStatusGet$Response$Data$GeneratedModels$Item
+    ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response$Data$GeneratedModels$Item
   >?
   generatedModels;
   static const fromJsonFactory =
-      _$ApiV1StyleOutfitsModelIdStatusGet$Response$DataFromJson;
+      _$ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response$DataFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ApiV1StyleOutfitsModelIdStatusGet$Response$Data &&
+        (other is ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response$Data &&
             (identical(other.taskId, taskId) ||
                 const DeepCollectionEquality().equals(other.taskId, taskId)) &&
             (identical(other.status, status) ||
@@ -5031,9 +5212,9 @@ class ApiV1StyleOutfitsModelIdStatusGet$Response$Data {
       runtimeType.hashCode;
 }
 
-extension $ApiV1StyleOutfitsModelIdStatusGet$Response$DataExtension
-    on ApiV1StyleOutfitsModelIdStatusGet$Response$Data {
-  ApiV1StyleOutfitsModelIdStatusGet$Response$Data copyWith({
+extension $ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response$DataExtension
+    on ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response$Data {
+  ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response$Data copyWith({
     String? taskId,
     String? status,
     double? totalCount,
@@ -5045,10 +5226,12 @@ extension $ApiV1StyleOutfitsModelIdStatusGet$Response$DataExtension
     double? usageCount,
     String? createdAt,
     Object? error,
-    List<ApiV1StyleOutfitsModelIdStatusGet$Response$Data$GeneratedModels$Item>?
+    List<
+      ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response$Data$GeneratedModels$Item
+    >?
     generatedModels,
   }) {
-    return ApiV1StyleOutfitsModelIdStatusGet$Response$Data(
+    return ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response$Data(
       taskId: taskId ?? this.taskId,
       status: status ?? this.status,
       totalCount: totalCount ?? this.totalCount,
@@ -5064,7 +5247,7 @@ extension $ApiV1StyleOutfitsModelIdStatusGet$Response$DataExtension
     );
   }
 
-  ApiV1StyleOutfitsModelIdStatusGet$Response$Data copyWithWrapped({
+  ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response$Data copyWithWrapped({
     Wrapped<String?>? taskId,
     Wrapped<String?>? status,
     Wrapped<double?>? totalCount,
@@ -5078,12 +5261,12 @@ extension $ApiV1StyleOutfitsModelIdStatusGet$Response$DataExtension
     Wrapped<Object?>? error,
     Wrapped<
       List<
-        ApiV1StyleOutfitsModelIdStatusGet$Response$Data$GeneratedModels$Item
+        ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response$Data$GeneratedModels$Item
       >?
     >?
     generatedModels,
   }) {
-    return ApiV1StyleOutfitsModelIdStatusGet$Response$Data(
+    return ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response$Data(
       taskId: (taskId != null ? taskId.value : this.taskId),
       status: (status != null ? status.value : this.status),
       totalCount: (totalCount != null ? totalCount.value : this.totalCount),
@@ -5109,8 +5292,8 @@ extension $ApiV1StyleOutfitsModelIdStatusGet$Response$DataExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ApiV1StyleOutfitsResultGet$Response$Data {
-  const ApiV1StyleOutfitsResultGet$Response$Data({
+class ComboServiceApiV1StyleOutfitsResultGet$Response$Data {
+  const ComboServiceApiV1StyleOutfitsResultGet$Response$Data({
     this.taskId,
     this.status,
     this.count,
@@ -5130,13 +5313,14 @@ class ApiV1StyleOutfitsResultGet$Response$Data {
     this.sharingImagesStatus,
   });
 
-  factory ApiV1StyleOutfitsResultGet$Response$Data.fromJson(
+  factory ComboServiceApiV1StyleOutfitsResultGet$Response$Data.fromJson(
     Map<String, dynamic> json,
-  ) => _$ApiV1StyleOutfitsResultGet$Response$DataFromJson(json);
+  ) => _$ComboServiceApiV1StyleOutfitsResultGet$Response$DataFromJson(json);
 
-  static const toJsonFactory = _$ApiV1StyleOutfitsResultGet$Response$DataToJson;
+  static const toJsonFactory =
+      _$ComboServiceApiV1StyleOutfitsResultGet$Response$DataToJson;
   Map<String, dynamic> toJson() =>
-      _$ApiV1StyleOutfitsResultGet$Response$DataToJson(this);
+      _$ComboServiceApiV1StyleOutfitsResultGet$Response$DataToJson(this);
 
   @JsonKey(name: 'taskId')
   final String? taskId;
@@ -5151,7 +5335,8 @@ class ApiV1StyleOutfitsResultGet$Response$Data {
   @JsonKey(name: 'totalDuration')
   final double? totalDuration;
   @JsonKey(name: 'requestParams')
-  final ApiV1StyleOutfitsResultGet$Response$Data$RequestParams? requestParams;
+  final ComboServiceApiV1StyleOutfitsResultGet$Response$Data$RequestParams?
+  requestParams;
   @JsonKey(name: 'images', defaultValue: <String>[])
   final List<String>? images;
   @JsonKey(name: 'aiSuggestionImage')
@@ -5165,22 +5350,25 @@ class ApiV1StyleOutfitsResultGet$Response$Data {
   @JsonKey(name: 'finalOutfitImage')
   final String? finalOutfitImage;
   @JsonKey(name: 'productLinks')
-  final List<ApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item>?
+  final List<
+    ComboServiceApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item
+  >?
   productLinks;
   @JsonKey(name: 'generationTime')
   final String? generationTime;
   @JsonKey(name: 'sharingImages')
-  final ApiV1StyleOutfitsResultGet$Response$Data$SharingImages? sharingImages;
+  final ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages?
+  sharingImages;
   @JsonKey(name: 'sharingImagesStatus')
-  final ApiV1StyleOutfitsResultGet$Response$Data$SharingImagesStatus?
+  final ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImagesStatus?
   sharingImagesStatus;
   static const fromJsonFactory =
-      _$ApiV1StyleOutfitsResultGet$Response$DataFromJson;
+      _$ComboServiceApiV1StyleOutfitsResultGet$Response$DataFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ApiV1StyleOutfitsResultGet$Response$Data &&
+        (other is ComboServiceApiV1StyleOutfitsResultGet$Response$Data &&
             (identical(other.taskId, taskId) ||
                 const DeepCollectionEquality().equals(other.taskId, taskId)) &&
             (identical(other.status, status) ||
@@ -5281,30 +5469,34 @@ class ApiV1StyleOutfitsResultGet$Response$Data {
       runtimeType.hashCode;
 }
 
-extension $ApiV1StyleOutfitsResultGet$Response$DataExtension
-    on ApiV1StyleOutfitsResultGet$Response$Data {
-  ApiV1StyleOutfitsResultGet$Response$Data copyWith({
+extension $ComboServiceApiV1StyleOutfitsResultGet$Response$DataExtension
+    on ComboServiceApiV1StyleOutfitsResultGet$Response$Data {
+  ComboServiceApiV1StyleOutfitsResultGet$Response$Data copyWith({
     String? taskId,
     String? status,
     double? count,
     double? createdAt,
     double? completedAt,
     double? totalDuration,
-    ApiV1StyleOutfitsResultGet$Response$Data$RequestParams? requestParams,
+    ComboServiceApiV1StyleOutfitsResultGet$Response$Data$RequestParams?
+    requestParams,
     List<String>? images,
     String? aiSuggestionImage,
     String? userModelImage,
     String? regeneratedModelImage,
     String? flattenedItemsImage,
     String? finalOutfitImage,
-    List<ApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item>?
+    List<
+      ComboServiceApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item
+    >?
     productLinks,
     String? generationTime,
-    ApiV1StyleOutfitsResultGet$Response$Data$SharingImages? sharingImages,
-    ApiV1StyleOutfitsResultGet$Response$Data$SharingImagesStatus?
+    ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages?
+    sharingImages,
+    ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImagesStatus?
     sharingImagesStatus,
   }) {
-    return ApiV1StyleOutfitsResultGet$Response$Data(
+    return ComboServiceApiV1StyleOutfitsResultGet$Response$Data(
       taskId: taskId ?? this.taskId,
       status: status ?? this.status,
       count: count ?? this.count,
@@ -5326,14 +5518,16 @@ extension $ApiV1StyleOutfitsResultGet$Response$DataExtension
     );
   }
 
-  ApiV1StyleOutfitsResultGet$Response$Data copyWithWrapped({
+  ComboServiceApiV1StyleOutfitsResultGet$Response$Data copyWithWrapped({
     Wrapped<String?>? taskId,
     Wrapped<String?>? status,
     Wrapped<double?>? count,
     Wrapped<double?>? createdAt,
     Wrapped<double?>? completedAt,
     Wrapped<double?>? totalDuration,
-    Wrapped<ApiV1StyleOutfitsResultGet$Response$Data$RequestParams?>?
+    Wrapped<
+      ComboServiceApiV1StyleOutfitsResultGet$Response$Data$RequestParams?
+    >?
     requestParams,
     Wrapped<List<String>?>? images,
     Wrapped<String?>? aiSuggestionImage,
@@ -5341,15 +5535,23 @@ extension $ApiV1StyleOutfitsResultGet$Response$DataExtension
     Wrapped<String?>? regeneratedModelImage,
     Wrapped<String?>? flattenedItemsImage,
     Wrapped<String?>? finalOutfitImage,
-    Wrapped<List<ApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item>?>?
+    Wrapped<
+      List<
+        ComboServiceApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item
+      >?
+    >?
     productLinks,
     Wrapped<String?>? generationTime,
-    Wrapped<ApiV1StyleOutfitsResultGet$Response$Data$SharingImages?>?
+    Wrapped<
+      ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages?
+    >?
     sharingImages,
-    Wrapped<ApiV1StyleOutfitsResultGet$Response$Data$SharingImagesStatus?>?
+    Wrapped<
+      ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImagesStatus?
+    >?
     sharingImagesStatus,
   }) {
-    return ApiV1StyleOutfitsResultGet$Response$Data(
+    return ComboServiceApiV1StyleOutfitsResultGet$Response$Data(
       taskId: (taskId != null ? taskId.value : this.taskId),
       status: (status != null ? status.value : this.status),
       count: (count != null ? count.value : this.count),
@@ -5394,8 +5596,8 @@ extension $ApiV1StyleOutfitsResultGet$Response$DataExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class BizAiFashionModelModelIdGet$Response$Data {
-  const BizAiFashionModelModelIdGet$Response$Data({
+class ComboServiceBizAiFashionModelModelIdGet$Response$Data {
+  const ComboServiceBizAiFashionModelModelIdGet$Response$Data({
     this.id,
     this.tenantCode,
     this.userId,
@@ -5410,14 +5612,14 @@ class BizAiFashionModelModelIdGet$Response$Data {
     this.groupId,
   });
 
-  factory BizAiFashionModelModelIdGet$Response$Data.fromJson(
+  factory ComboServiceBizAiFashionModelModelIdGet$Response$Data.fromJson(
     Map<String, dynamic> json,
-  ) => _$BizAiFashionModelModelIdGet$Response$DataFromJson(json);
+  ) => _$ComboServiceBizAiFashionModelModelIdGet$Response$DataFromJson(json);
 
   static const toJsonFactory =
-      _$BizAiFashionModelModelIdGet$Response$DataToJson;
+      _$ComboServiceBizAiFashionModelModelIdGet$Response$DataToJson;
   Map<String, dynamic> toJson() =>
-      _$BizAiFashionModelModelIdGet$Response$DataToJson(this);
+      _$ComboServiceBizAiFashionModelModelIdGet$Response$DataToJson(this);
 
   @JsonKey(name: 'id')
   final double? id;
@@ -5444,12 +5646,12 @@ class BizAiFashionModelModelIdGet$Response$Data {
   @JsonKey(name: 'groupId')
   final double? groupId;
   static const fromJsonFactory =
-      _$BizAiFashionModelModelIdGet$Response$DataFromJson;
+      _$ComboServiceBizAiFashionModelModelIdGet$Response$DataFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is BizAiFashionModelModelIdGet$Response$Data &&
+        (other is ComboServiceBizAiFashionModelModelIdGet$Response$Data &&
             (identical(other.id, id) ||
                 const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.tenantCode, tenantCode) ||
@@ -5520,9 +5722,9 @@ class BizAiFashionModelModelIdGet$Response$Data {
       runtimeType.hashCode;
 }
 
-extension $BizAiFashionModelModelIdGet$Response$DataExtension
-    on BizAiFashionModelModelIdGet$Response$Data {
-  BizAiFashionModelModelIdGet$Response$Data copyWith({
+extension $ComboServiceBizAiFashionModelModelIdGet$Response$DataExtension
+    on ComboServiceBizAiFashionModelModelIdGet$Response$Data {
+  ComboServiceBizAiFashionModelModelIdGet$Response$Data copyWith({
     double? id,
     String? tenantCode,
     String? userId,
@@ -5536,7 +5738,7 @@ extension $BizAiFashionModelModelIdGet$Response$DataExtension
     String? gmtUpdate,
     double? groupId,
   }) {
-    return BizAiFashionModelModelIdGet$Response$Data(
+    return ComboServiceBizAiFashionModelModelIdGet$Response$Data(
       id: id ?? this.id,
       tenantCode: tenantCode ?? this.tenantCode,
       userId: userId ?? this.userId,
@@ -5552,7 +5754,7 @@ extension $BizAiFashionModelModelIdGet$Response$DataExtension
     );
   }
 
-  BizAiFashionModelModelIdGet$Response$Data copyWithWrapped({
+  ComboServiceBizAiFashionModelModelIdGet$Response$Data copyWithWrapped({
     Wrapped<double?>? id,
     Wrapped<String?>? tenantCode,
     Wrapped<String?>? userId,
@@ -5566,7 +5768,7 @@ extension $BizAiFashionModelModelIdGet$Response$DataExtension
     Wrapped<String?>? gmtUpdate,
     Wrapped<double?>? groupId,
   }) {
-    return BizAiFashionModelModelIdGet$Response$Data(
+    return ComboServiceBizAiFashionModelModelIdGet$Response$Data(
       id: (id != null ? id.value : this.id),
       tenantCode: (tenantCode != null ? tenantCode.value : this.tenantCode),
       userId: (userId != null ? userId.value : this.userId),
@@ -5586,28 +5788,33 @@ extension $BizAiFashionModelModelIdGet$Response$DataExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class BizAiFashionModelListGet$Response$Data {
-  const BizAiFashionModelListGet$Response$Data({this.models, this.fstModel});
+class ComboServiceBizAiFashionModelListGet$Response$Data {
+  const ComboServiceBizAiFashionModelListGet$Response$Data({
+    this.models,
+    this.fstModel,
+  });
 
-  factory BizAiFashionModelListGet$Response$Data.fromJson(
+  factory ComboServiceBizAiFashionModelListGet$Response$Data.fromJson(
     Map<String, dynamic> json,
-  ) => _$BizAiFashionModelListGet$Response$DataFromJson(json);
+  ) => _$ComboServiceBizAiFashionModelListGet$Response$DataFromJson(json);
 
-  static const toJsonFactory = _$BizAiFashionModelListGet$Response$DataToJson;
+  static const toJsonFactory =
+      _$ComboServiceBizAiFashionModelListGet$Response$DataToJson;
   Map<String, dynamic> toJson() =>
-      _$BizAiFashionModelListGet$Response$DataToJson(this);
+      _$ComboServiceBizAiFashionModelListGet$Response$DataToJson(this);
 
   @JsonKey(name: 'models')
-  final List<BizAiFashionModelListGet$Response$Data$Models$Item>? models;
+  final List<ComboServiceBizAiFashionModelListGet$Response$Data$Models$Item>?
+  models;
   @JsonKey(name: 'fstModel')
   final bool? fstModel;
   static const fromJsonFactory =
-      _$BizAiFashionModelListGet$Response$DataFromJson;
+      _$ComboServiceBizAiFashionModelListGet$Response$DataFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is BizAiFashionModelListGet$Response$Data &&
+        (other is ComboServiceBizAiFashionModelListGet$Response$Data &&
             (identical(other.models, models) ||
                 const DeepCollectionEquality().equals(other.models, models)) &&
             (identical(other.fstModel, fstModel) ||
@@ -5627,23 +5834,27 @@ class BizAiFashionModelListGet$Response$Data {
       runtimeType.hashCode;
 }
 
-extension $BizAiFashionModelListGet$Response$DataExtension
-    on BizAiFashionModelListGet$Response$Data {
-  BizAiFashionModelListGet$Response$Data copyWith({
-    List<BizAiFashionModelListGet$Response$Data$Models$Item>? models,
+extension $ComboServiceBizAiFashionModelListGet$Response$DataExtension
+    on ComboServiceBizAiFashionModelListGet$Response$Data {
+  ComboServiceBizAiFashionModelListGet$Response$Data copyWith({
+    List<ComboServiceBizAiFashionModelListGet$Response$Data$Models$Item>?
+    models,
     bool? fstModel,
   }) {
-    return BizAiFashionModelListGet$Response$Data(
+    return ComboServiceBizAiFashionModelListGet$Response$Data(
       models: models ?? this.models,
       fstModel: fstModel ?? this.fstModel,
     );
   }
 
-  BizAiFashionModelListGet$Response$Data copyWithWrapped({
-    Wrapped<List<BizAiFashionModelListGet$Response$Data$Models$Item>?>? models,
+  ComboServiceBizAiFashionModelListGet$Response$Data copyWithWrapped({
+    Wrapped<
+      List<ComboServiceBizAiFashionModelListGet$Response$Data$Models$Item>?
+    >?
+    models,
     Wrapped<bool?>? fstModel,
   }) {
-    return BizAiFashionModelListGet$Response$Data(
+    return ComboServiceBizAiFashionModelListGet$Response$Data(
       models: (models != null ? models.value : this.models),
       fstModel: (fstModel != null ? fstModel.value : this.fstModel),
     );
@@ -5651,8 +5862,8 @@ extension $BizAiFashionModelListGet$Response$DataExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ApiV1StyleOutfitsGeneratePost$Response$Data {
-  const ApiV1StyleOutfitsGeneratePost$Response$Data({
+class ComboServiceApiV1StyleOutfitsGeneratePost$Response$Data {
+  const ComboServiceApiV1StyleOutfitsGeneratePost$Response$Data({
     this.taskId,
     this.status,
     this.count,
@@ -5660,14 +5871,14 @@ class ApiV1StyleOutfitsGeneratePost$Response$Data {
     this.createdAt,
   });
 
-  factory ApiV1StyleOutfitsGeneratePost$Response$Data.fromJson(
+  factory ComboServiceApiV1StyleOutfitsGeneratePost$Response$Data.fromJson(
     Map<String, dynamic> json,
-  ) => _$ApiV1StyleOutfitsGeneratePost$Response$DataFromJson(json);
+  ) => _$ComboServiceApiV1StyleOutfitsGeneratePost$Response$DataFromJson(json);
 
   static const toJsonFactory =
-      _$ApiV1StyleOutfitsGeneratePost$Response$DataToJson;
+      _$ComboServiceApiV1StyleOutfitsGeneratePost$Response$DataToJson;
   Map<String, dynamic> toJson() =>
-      _$ApiV1StyleOutfitsGeneratePost$Response$DataToJson(this);
+      _$ComboServiceApiV1StyleOutfitsGeneratePost$Response$DataToJson(this);
 
   @JsonKey(name: 'taskId')
   final String? taskId;
@@ -5680,12 +5891,12 @@ class ApiV1StyleOutfitsGeneratePost$Response$Data {
   @JsonKey(name: 'createdAt')
   final double? createdAt;
   static const fromJsonFactory =
-      _$ApiV1StyleOutfitsGeneratePost$Response$DataFromJson;
+      _$ComboServiceApiV1StyleOutfitsGeneratePost$Response$DataFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ApiV1StyleOutfitsGeneratePost$Response$Data &&
+        (other is ComboServiceApiV1StyleOutfitsGeneratePost$Response$Data &&
             (identical(other.taskId, taskId) ||
                 const DeepCollectionEquality().equals(other.taskId, taskId)) &&
             (identical(other.status, status) ||
@@ -5717,16 +5928,16 @@ class ApiV1StyleOutfitsGeneratePost$Response$Data {
       runtimeType.hashCode;
 }
 
-extension $ApiV1StyleOutfitsGeneratePost$Response$DataExtension
-    on ApiV1StyleOutfitsGeneratePost$Response$Data {
-  ApiV1StyleOutfitsGeneratePost$Response$Data copyWith({
+extension $ComboServiceApiV1StyleOutfitsGeneratePost$Response$DataExtension
+    on ComboServiceApiV1StyleOutfitsGeneratePost$Response$Data {
+  ComboServiceApiV1StyleOutfitsGeneratePost$Response$Data copyWith({
     String? taskId,
     String? status,
     double? count,
     String? estimatedTime,
     double? createdAt,
   }) {
-    return ApiV1StyleOutfitsGeneratePost$Response$Data(
+    return ComboServiceApiV1StyleOutfitsGeneratePost$Response$Data(
       taskId: taskId ?? this.taskId,
       status: status ?? this.status,
       count: count ?? this.count,
@@ -5735,14 +5946,14 @@ extension $ApiV1StyleOutfitsGeneratePost$Response$DataExtension
     );
   }
 
-  ApiV1StyleOutfitsGeneratePost$Response$Data copyWithWrapped({
+  ComboServiceApiV1StyleOutfitsGeneratePost$Response$Data copyWithWrapped({
     Wrapped<String?>? taskId,
     Wrapped<String?>? status,
     Wrapped<double?>? count,
     Wrapped<String?>? estimatedTime,
     Wrapped<double?>? createdAt,
   }) {
-    return ApiV1StyleOutfitsGeneratePost$Response$Data(
+    return ComboServiceApiV1StyleOutfitsGeneratePost$Response$Data(
       taskId: (taskId != null ? taskId.value : this.taskId),
       status: (status != null ? status.value : this.status),
       count: (count != null ? count.value : this.count),
@@ -5755,8 +5966,8 @@ extension $ApiV1StyleOutfitsGeneratePost$Response$DataExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class BizAiFashionNoAuthStylePresetGet$Response$Data {
-  const BizAiFashionNoAuthStylePresetGet$Response$Data({
+class ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data {
+  const ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data({
     this.referenceImages,
     this.option,
     this.prompt,
@@ -5764,35 +5975,39 @@ class BizAiFashionNoAuthStylePresetGet$Response$Data {
     this.templateId,
   });
 
-  factory BizAiFashionNoAuthStylePresetGet$Response$Data.fromJson(
+  factory ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data.fromJson(
     Map<String, dynamic> json,
-  ) => _$BizAiFashionNoAuthStylePresetGet$Response$DataFromJson(json);
+  ) => _$ComboServiceBizAiFashionNoAuthStylePresetGet$Response$DataFromJson(
+    json,
+  );
 
   static const toJsonFactory =
-      _$BizAiFashionNoAuthStylePresetGet$Response$DataToJson;
+      _$ComboServiceBizAiFashionNoAuthStylePresetGet$Response$DataToJson;
   Map<String, dynamic> toJson() =>
-      _$BizAiFashionNoAuthStylePresetGet$Response$DataToJson(this);
+      _$ComboServiceBizAiFashionNoAuthStylePresetGet$Response$DataToJson(this);
 
   @JsonKey(name: 'referenceImages')
   final List<
-    BizAiFashionNoAuthStylePresetGet$Response$Data$ReferenceImages$Item
+    ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$ReferenceImages$Item
   >?
   referenceImages;
   @JsonKey(name: 'option')
-  final BizAiFashionNoAuthStylePresetGet$Response$Data$Option? option;
+  final ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$Option?
+  option;
   @JsonKey(name: 'prompt')
   final String? prompt;
   @JsonKey(name: 'modelInfo')
-  final BizAiFashionNoAuthStylePresetGet$Response$Data$ModelInfo? modelInfo;
+  final ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$ModelInfo?
+  modelInfo;
   @JsonKey(name: 'templateId')
   final int? templateId;
   static const fromJsonFactory =
-      _$BizAiFashionNoAuthStylePresetGet$Response$DataFromJson;
+      _$ComboServiceBizAiFashionNoAuthStylePresetGet$Response$DataFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is BizAiFashionNoAuthStylePresetGet$Response$Data &&
+        (other is ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data &&
             (identical(other.referenceImages, referenceImages) ||
                 const DeepCollectionEquality().equals(
                   other.referenceImages,
@@ -5827,17 +6042,20 @@ class BizAiFashionNoAuthStylePresetGet$Response$Data {
       runtimeType.hashCode;
 }
 
-extension $BizAiFashionNoAuthStylePresetGet$Response$DataExtension
-    on BizAiFashionNoAuthStylePresetGet$Response$Data {
-  BizAiFashionNoAuthStylePresetGet$Response$Data copyWith({
-    List<BizAiFashionNoAuthStylePresetGet$Response$Data$ReferenceImages$Item>?
+extension $ComboServiceBizAiFashionNoAuthStylePresetGet$Response$DataExtension
+    on ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data {
+  ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data copyWith({
+    List<
+      ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$ReferenceImages$Item
+    >?
     referenceImages,
-    BizAiFashionNoAuthStylePresetGet$Response$Data$Option? option,
+    ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$Option? option,
     String? prompt,
-    BizAiFashionNoAuthStylePresetGet$Response$Data$ModelInfo? modelInfo,
+    ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$ModelInfo?
+    modelInfo,
     int? templateId,
   }) {
-    return BizAiFashionNoAuthStylePresetGet$Response$Data(
+    return ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data(
       referenceImages: referenceImages ?? this.referenceImages,
       option: option ?? this.option,
       prompt: prompt ?? this.prompt,
@@ -5846,18 +6064,23 @@ extension $BizAiFashionNoAuthStylePresetGet$Response$DataExtension
     );
   }
 
-  BizAiFashionNoAuthStylePresetGet$Response$Data copyWithWrapped({
+  ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data copyWithWrapped({
     Wrapped<
-      List<BizAiFashionNoAuthStylePresetGet$Response$Data$ReferenceImages$Item>?
+      List<
+        ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$ReferenceImages$Item
+      >?
     >?
     referenceImages,
-    Wrapped<BizAiFashionNoAuthStylePresetGet$Response$Data$Option?>? option,
+    Wrapped<ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$Option?>?
+    option,
     Wrapped<String?>? prompt,
-    Wrapped<BizAiFashionNoAuthStylePresetGet$Response$Data$ModelInfo?>?
+    Wrapped<
+      ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$ModelInfo?
+    >?
     modelInfo,
     Wrapped<int?>? templateId,
   }) {
-    return BizAiFashionNoAuthStylePresetGet$Response$Data(
+    return ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data(
       referenceImages: (referenceImages != null
           ? referenceImages.value
           : this.referenceImages),
@@ -5870,35 +6093,38 @@ extension $BizAiFashionNoAuthStylePresetGet$Response$DataExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class BizAiFashionNoAuthPostListGet$Response$Data {
-  const BizAiFashionNoAuthPostListGet$Response$Data({
+class ComboServiceBizAiFashionNoAuthPostListGet$Response$Data {
+  const ComboServiceBizAiFashionNoAuthPostListGet$Response$Data({
     this.posts,
     this.nextCursor,
     this.hasMore,
   });
 
-  factory BizAiFashionNoAuthPostListGet$Response$Data.fromJson(
+  factory ComboServiceBizAiFashionNoAuthPostListGet$Response$Data.fromJson(
     Map<String, dynamic> json,
-  ) => _$BizAiFashionNoAuthPostListGet$Response$DataFromJson(json);
+  ) => _$ComboServiceBizAiFashionNoAuthPostListGet$Response$DataFromJson(json);
 
   static const toJsonFactory =
-      _$BizAiFashionNoAuthPostListGet$Response$DataToJson;
+      _$ComboServiceBizAiFashionNoAuthPostListGet$Response$DataToJson;
   Map<String, dynamic> toJson() =>
-      _$BizAiFashionNoAuthPostListGet$Response$DataToJson(this);
+      _$ComboServiceBizAiFashionNoAuthPostListGet$Response$DataToJson(this);
 
   @JsonKey(name: 'posts')
-  final List<BizAiFashionNoAuthPostListGet$Response$Data$Posts$Item>? posts;
+  final List<
+    ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item
+  >?
+  posts;
   @JsonKey(name: 'nextCursor')
   final String? nextCursor;
   @JsonKey(name: 'hasMore')
   final bool? hasMore;
   static const fromJsonFactory =
-      _$BizAiFashionNoAuthPostListGet$Response$DataFromJson;
+      _$ComboServiceBizAiFashionNoAuthPostListGet$Response$DataFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is BizAiFashionNoAuthPostListGet$Response$Data &&
+        (other is ComboServiceBizAiFashionNoAuthPostListGet$Response$Data &&
             (identical(other.posts, posts) ||
                 const DeepCollectionEquality().equals(other.posts, posts)) &&
             (identical(other.nextCursor, nextCursor) ||
@@ -5921,27 +6147,30 @@ class BizAiFashionNoAuthPostListGet$Response$Data {
       runtimeType.hashCode;
 }
 
-extension $BizAiFashionNoAuthPostListGet$Response$DataExtension
-    on BizAiFashionNoAuthPostListGet$Response$Data {
-  BizAiFashionNoAuthPostListGet$Response$Data copyWith({
-    List<BizAiFashionNoAuthPostListGet$Response$Data$Posts$Item>? posts,
+extension $ComboServiceBizAiFashionNoAuthPostListGet$Response$DataExtension
+    on ComboServiceBizAiFashionNoAuthPostListGet$Response$Data {
+  ComboServiceBizAiFashionNoAuthPostListGet$Response$Data copyWith({
+    List<ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item>?
+    posts,
     String? nextCursor,
     bool? hasMore,
   }) {
-    return BizAiFashionNoAuthPostListGet$Response$Data(
+    return ComboServiceBizAiFashionNoAuthPostListGet$Response$Data(
       posts: posts ?? this.posts,
       nextCursor: nextCursor ?? this.nextCursor,
       hasMore: hasMore ?? this.hasMore,
     );
   }
 
-  BizAiFashionNoAuthPostListGet$Response$Data copyWithWrapped({
-    Wrapped<List<BizAiFashionNoAuthPostListGet$Response$Data$Posts$Item>?>?
+  ComboServiceBizAiFashionNoAuthPostListGet$Response$Data copyWithWrapped({
+    Wrapped<
+      List<ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item>?
+    >?
     posts,
     Wrapped<String?>? nextCursor,
     Wrapped<bool?>? hasMore,
   }) {
-    return BizAiFashionNoAuthPostListGet$Response$Data(
+    return ComboServiceBizAiFashionNoAuthPostListGet$Response$Data(
       posts: (posts != null ? posts.value : this.posts),
       nextCursor: (nextCursor != null ? nextCursor.value : this.nextCursor),
       hasMore: (hasMore != null ? hasMore.value : this.hasMore),
@@ -5950,8 +6179,8 @@ extension $BizAiFashionNoAuthPostListGet$Response$DataExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class BizAiFashionNoAuthPostDetailGet$Response$Data {
-  const BizAiFashionNoAuthPostDetailGet$Response$Data({
+class ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data {
+  const ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data({
     this.postId,
     this.postTitle,
     this.frontImage,
@@ -5964,43 +6193,53 @@ class BizAiFashionNoAuthPostDetailGet$Response$Data {
     this.templateId,
   });
 
-  factory BizAiFashionNoAuthPostDetailGet$Response$Data.fromJson(
+  factory ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data.fromJson(
     Map<String, dynamic> json,
-  ) => _$BizAiFashionNoAuthPostDetailGet$Response$DataFromJson(json);
+  ) =>
+      _$ComboServiceBizAiFashionNoAuthPostDetailGet$Response$DataFromJson(json);
 
   static const toJsonFactory =
-      _$BizAiFashionNoAuthPostDetailGet$Response$DataToJson;
+      _$ComboServiceBizAiFashionNoAuthPostDetailGet$Response$DataToJson;
   Map<String, dynamic> toJson() =>
-      _$BizAiFashionNoAuthPostDetailGet$Response$DataToJson(this);
+      _$ComboServiceBizAiFashionNoAuthPostDetailGet$Response$DataToJson(this);
 
   @JsonKey(name: 'postId')
   final double? postId;
   @JsonKey(name: 'postTitle')
   final String? postTitle;
   @JsonKey(name: 'frontImage')
-  final BizAiFashionNoAuthPostDetailGet$Response$Data$FrontImage? frontImage;
+  final ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FrontImage?
+  frontImage;
   @JsonKey(name: 'headerImage')
-  final BizAiFashionNoAuthPostDetailGet$Response$Data$HeaderImage? headerImage;
+  final ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$HeaderImage?
+  headerImage;
   @JsonKey(name: 'modelImage')
-  final BizAiFashionNoAuthPostDetailGet$Response$Data$ModelImage? modelImage;
+  final ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$ModelImage?
+  modelImage;
   @JsonKey(name: 'images')
-  final List<BizAiFashionNoAuthPostDetailGet$Response$Data$Images$Item>? images;
+  final List<
+    ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$Images$Item
+  >?
+  images;
   @JsonKey(name: 'footerImages')
-  final List<BizAiFashionNoAuthPostDetailGet$Response$Data$FooterImages$Item>?
+  final List<
+    ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FooterImages$Item
+  >?
   footerImages;
   @JsonKey(name: 'prompt')
   final String? prompt;
   @JsonKey(name: 'option')
-  final BizAiFashionNoAuthPostDetailGet$Response$Data$Option? option;
+  final ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$Option?
+  option;
   @JsonKey(name: 'templateId')
   final double? templateId;
   static const fromJsonFactory =
-      _$BizAiFashionNoAuthPostDetailGet$Response$DataFromJson;
+      _$ComboServiceBizAiFashionNoAuthPostDetailGet$Response$DataFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is BizAiFashionNoAuthPostDetailGet$Response$Data &&
+        (other is ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data &&
             (identical(other.postId, postId) ||
                 const DeepCollectionEquality().equals(other.postId, postId)) &&
             (identical(other.postTitle, postTitle) ||
@@ -6059,22 +6298,28 @@ class BizAiFashionNoAuthPostDetailGet$Response$Data {
       runtimeType.hashCode;
 }
 
-extension $BizAiFashionNoAuthPostDetailGet$Response$DataExtension
-    on BizAiFashionNoAuthPostDetailGet$Response$Data {
-  BizAiFashionNoAuthPostDetailGet$Response$Data copyWith({
+extension $ComboServiceBizAiFashionNoAuthPostDetailGet$Response$DataExtension
+    on ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data {
+  ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data copyWith({
     double? postId,
     String? postTitle,
-    BizAiFashionNoAuthPostDetailGet$Response$Data$FrontImage? frontImage,
-    BizAiFashionNoAuthPostDetailGet$Response$Data$HeaderImage? headerImage,
-    BizAiFashionNoAuthPostDetailGet$Response$Data$ModelImage? modelImage,
-    List<BizAiFashionNoAuthPostDetailGet$Response$Data$Images$Item>? images,
-    List<BizAiFashionNoAuthPostDetailGet$Response$Data$FooterImages$Item>?
+    ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FrontImage?
+    frontImage,
+    ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$HeaderImage?
+    headerImage,
+    ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$ModelImage?
+    modelImage,
+    List<ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$Images$Item>?
+    images,
+    List<
+      ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FooterImages$Item
+    >?
     footerImages,
     String? prompt,
-    BizAiFashionNoAuthPostDetailGet$Response$Data$Option? option,
+    ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$Option? option,
     double? templateId,
   }) {
-    return BizAiFashionNoAuthPostDetailGet$Response$Data(
+    return ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data(
       postId: postId ?? this.postId,
       postTitle: postTitle ?? this.postTitle,
       frontImage: frontImage ?? this.frontImage,
@@ -6088,26 +6333,39 @@ extension $BizAiFashionNoAuthPostDetailGet$Response$DataExtension
     );
   }
 
-  BizAiFashionNoAuthPostDetailGet$Response$Data copyWithWrapped({
+  ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data copyWithWrapped({
     Wrapped<double?>? postId,
     Wrapped<String?>? postTitle,
-    Wrapped<BizAiFashionNoAuthPostDetailGet$Response$Data$FrontImage?>?
+    Wrapped<
+      ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FrontImage?
+    >?
     frontImage,
-    Wrapped<BizAiFashionNoAuthPostDetailGet$Response$Data$HeaderImage?>?
+    Wrapped<
+      ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$HeaderImage?
+    >?
     headerImage,
-    Wrapped<BizAiFashionNoAuthPostDetailGet$Response$Data$ModelImage?>?
+    Wrapped<
+      ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$ModelImage?
+    >?
     modelImage,
-    Wrapped<List<BizAiFashionNoAuthPostDetailGet$Response$Data$Images$Item>?>?
+    Wrapped<
+      List<
+        ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$Images$Item
+      >?
+    >?
     images,
     Wrapped<
-      List<BizAiFashionNoAuthPostDetailGet$Response$Data$FooterImages$Item>?
+      List<
+        ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FooterImages$Item
+      >?
     >?
     footerImages,
     Wrapped<String?>? prompt,
-    Wrapped<BizAiFashionNoAuthPostDetailGet$Response$Data$Option?>? option,
+    Wrapped<ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$Option?>?
+    option,
     Wrapped<double?>? templateId,
   }) {
-    return BizAiFashionNoAuthPostDetailGet$Response$Data(
+    return ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data(
       postId: (postId != null ? postId.value : this.postId),
       postTitle: (postTitle != null ? postTitle.value : this.postTitle),
       frontImage: (frontImage != null ? frontImage.value : this.frontImage),
@@ -6125,30 +6383,34 @@ extension $BizAiFashionNoAuthPostDetailGet$Response$DataExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class BizAiFashionNoAuthSelectOptionGet$Response$Data {
-  const BizAiFashionNoAuthSelectOptionGet$Response$Data({this.selectionList});
+class ComboServiceBizAiFashionNoAuthSelectOptionGet$Response$Data {
+  const ComboServiceBizAiFashionNoAuthSelectOptionGet$Response$Data({
+    this.selectionList,
+  });
 
-  factory BizAiFashionNoAuthSelectOptionGet$Response$Data.fromJson(
+  factory ComboServiceBizAiFashionNoAuthSelectOptionGet$Response$Data.fromJson(
     Map<String, dynamic> json,
-  ) => _$BizAiFashionNoAuthSelectOptionGet$Response$DataFromJson(json);
+  ) => _$ComboServiceBizAiFashionNoAuthSelectOptionGet$Response$DataFromJson(
+    json,
+  );
 
   static const toJsonFactory =
-      _$BizAiFashionNoAuthSelectOptionGet$Response$DataToJson;
+      _$ComboServiceBizAiFashionNoAuthSelectOptionGet$Response$DataToJson;
   Map<String, dynamic> toJson() =>
-      _$BizAiFashionNoAuthSelectOptionGet$Response$DataToJson(this);
+      _$ComboServiceBizAiFashionNoAuthSelectOptionGet$Response$DataToJson(this);
 
   @JsonKey(name: 'selectionList')
   final List<
-    BizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$Item
+    ComboServiceBizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$Item
   >?
   selectionList;
   static const fromJsonFactory =
-      _$BizAiFashionNoAuthSelectOptionGet$Response$DataFromJson;
+      _$ComboServiceBizAiFashionNoAuthSelectOptionGet$Response$DataFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is BizAiFashionNoAuthSelectOptionGet$Response$Data &&
+        (other is ComboServiceBizAiFashionNoAuthSelectOptionGet$Response$Data &&
             (identical(other.selectionList, selectionList) ||
                 const DeepCollectionEquality().equals(
                   other.selectionList,
@@ -6164,24 +6426,28 @@ class BizAiFashionNoAuthSelectOptionGet$Response$Data {
       const DeepCollectionEquality().hash(selectionList) ^ runtimeType.hashCode;
 }
 
-extension $BizAiFashionNoAuthSelectOptionGet$Response$DataExtension
-    on BizAiFashionNoAuthSelectOptionGet$Response$Data {
-  BizAiFashionNoAuthSelectOptionGet$Response$Data copyWith({
-    List<BizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$Item>?
+extension $ComboServiceBizAiFashionNoAuthSelectOptionGet$Response$DataExtension
+    on ComboServiceBizAiFashionNoAuthSelectOptionGet$Response$Data {
+  ComboServiceBizAiFashionNoAuthSelectOptionGet$Response$Data copyWith({
+    List<
+      ComboServiceBizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$Item
+    >?
     selectionList,
   }) {
-    return BizAiFashionNoAuthSelectOptionGet$Response$Data(
+    return ComboServiceBizAiFashionNoAuthSelectOptionGet$Response$Data(
       selectionList: selectionList ?? this.selectionList,
     );
   }
 
-  BizAiFashionNoAuthSelectOptionGet$Response$Data copyWithWrapped({
+  ComboServiceBizAiFashionNoAuthSelectOptionGet$Response$Data copyWithWrapped({
     Wrapped<
-      List<BizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$Item>?
+      List<
+        ComboServiceBizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$Item
+      >?
     >?
     selectionList,
   }) {
-    return BizAiFashionNoAuthSelectOptionGet$Response$Data(
+    return ComboServiceBizAiFashionNoAuthSelectOptionGet$Response$Data(
       selectionList: (selectionList != null
           ? selectionList.value
           : this.selectionList),
@@ -6190,34 +6456,38 @@ extension $BizAiFashionNoAuthSelectOptionGet$Response$DataExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ApiV1StyleOutfitsGenerateModelRegeneratePost$Response$Data {
-  const ApiV1StyleOutfitsGenerateModelRegeneratePost$Response$Data({
+class ComboServiceApiV1StyleOutfitsGenerateModelRegeneratePost$Response$Data {
+  const ComboServiceApiV1StyleOutfitsGenerateModelRegeneratePost$Response$Data({
     this.modelId,
     this.status,
   });
 
-  factory ApiV1StyleOutfitsGenerateModelRegeneratePost$Response$Data.fromJson(
+  factory ComboServiceApiV1StyleOutfitsGenerateModelRegeneratePost$Response$Data.fromJson(
     Map<String, dynamic> json,
-  ) => _$ApiV1StyleOutfitsGenerateModelRegeneratePost$Response$DataFromJson(
-    json,
-  );
+  ) =>
+      _$ComboServiceApiV1StyleOutfitsGenerateModelRegeneratePost$Response$DataFromJson(
+        json,
+      );
 
   static const toJsonFactory =
-      _$ApiV1StyleOutfitsGenerateModelRegeneratePost$Response$DataToJson;
+      _$ComboServiceApiV1StyleOutfitsGenerateModelRegeneratePost$Response$DataToJson;
   Map<String, dynamic> toJson() =>
-      _$ApiV1StyleOutfitsGenerateModelRegeneratePost$Response$DataToJson(this);
+      _$ComboServiceApiV1StyleOutfitsGenerateModelRegeneratePost$Response$DataToJson(
+        this,
+      );
 
   @JsonKey(name: 'modelId')
   final String? modelId;
   @JsonKey(name: 'status')
   final String? status;
   static const fromJsonFactory =
-      _$ApiV1StyleOutfitsGenerateModelRegeneratePost$Response$DataFromJson;
+      _$ComboServiceApiV1StyleOutfitsGenerateModelRegeneratePost$Response$DataFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ApiV1StyleOutfitsGenerateModelRegeneratePost$Response$Data &&
+        (other
+                is ComboServiceApiV1StyleOutfitsGenerateModelRegeneratePost$Response$Data &&
             (identical(other.modelId, modelId) ||
                 const DeepCollectionEquality().equals(
                   other.modelId,
@@ -6237,23 +6507,19 @@ class ApiV1StyleOutfitsGenerateModelRegeneratePost$Response$Data {
       runtimeType.hashCode;
 }
 
-extension $ApiV1StyleOutfitsGenerateModelRegeneratePost$Response$DataExtension
-    on ApiV1StyleOutfitsGenerateModelRegeneratePost$Response$Data {
-  ApiV1StyleOutfitsGenerateModelRegeneratePost$Response$Data copyWith({
-    String? modelId,
-    String? status,
-  }) {
-    return ApiV1StyleOutfitsGenerateModelRegeneratePost$Response$Data(
+extension $ComboServiceApiV1StyleOutfitsGenerateModelRegeneratePost$Response$DataExtension
+    on ComboServiceApiV1StyleOutfitsGenerateModelRegeneratePost$Response$Data {
+  ComboServiceApiV1StyleOutfitsGenerateModelRegeneratePost$Response$Data
+  copyWith({String? modelId, String? status}) {
+    return ComboServiceApiV1StyleOutfitsGenerateModelRegeneratePost$Response$Data(
       modelId: modelId ?? this.modelId,
       status: status ?? this.status,
     );
   }
 
-  ApiV1StyleOutfitsGenerateModelRegeneratePost$Response$Data copyWithWrapped({
-    Wrapped<String?>? modelId,
-    Wrapped<String?>? status,
-  }) {
-    return ApiV1StyleOutfitsGenerateModelRegeneratePost$Response$Data(
+  ComboServiceApiV1StyleOutfitsGenerateModelRegeneratePost$Response$Data
+  copyWithWrapped({Wrapped<String?>? modelId, Wrapped<String?>? status}) {
+    return ComboServiceApiV1StyleOutfitsGenerateModelRegeneratePost$Response$Data(
       modelId: (modelId != null ? modelId.value : this.modelId),
       status: (status != null ? status.value : this.status),
     );
@@ -6261,32 +6527,37 @@ extension $ApiV1StyleOutfitsGenerateModelRegeneratePost$Response$DataExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ApiV1StyleOutfitsGenerateRegeneratePost$Response$Data {
-  const ApiV1StyleOutfitsGenerateRegeneratePost$Response$Data({
+class ComboServiceApiV1StyleOutfitsGenerateRegeneratePost$Response$Data {
+  const ComboServiceApiV1StyleOutfitsGenerateRegeneratePost$Response$Data({
     this.taskId,
     this.status,
   });
 
-  factory ApiV1StyleOutfitsGenerateRegeneratePost$Response$Data.fromJson(
+  factory ComboServiceApiV1StyleOutfitsGenerateRegeneratePost$Response$Data.fromJson(
     Map<String, dynamic> json,
-  ) => _$ApiV1StyleOutfitsGenerateRegeneratePost$Response$DataFromJson(json);
+  ) =>
+      _$ComboServiceApiV1StyleOutfitsGenerateRegeneratePost$Response$DataFromJson(
+        json,
+      );
 
   static const toJsonFactory =
-      _$ApiV1StyleOutfitsGenerateRegeneratePost$Response$DataToJson;
+      _$ComboServiceApiV1StyleOutfitsGenerateRegeneratePost$Response$DataToJson;
   Map<String, dynamic> toJson() =>
-      _$ApiV1StyleOutfitsGenerateRegeneratePost$Response$DataToJson(this);
+      _$ComboServiceApiV1StyleOutfitsGenerateRegeneratePost$Response$DataToJson(
+        this,
+      );
 
   @JsonKey(name: 'taskId')
   final String? taskId;
   @JsonKey(name: 'status')
   final String? status;
   static const fromJsonFactory =
-      _$ApiV1StyleOutfitsGenerateRegeneratePost$Response$DataFromJson;
+      _$ComboServiceApiV1StyleOutfitsGenerateRegeneratePost$Response$DataFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ApiV1StyleOutfitsGenerateRegeneratePost$Response$Data &&
+        (other is ComboServiceApiV1StyleOutfitsGenerateRegeneratePost$Response$Data &&
             (identical(other.taskId, taskId) ||
                 const DeepCollectionEquality().equals(other.taskId, taskId)) &&
             (identical(other.status, status) ||
@@ -6303,23 +6574,21 @@ class ApiV1StyleOutfitsGenerateRegeneratePost$Response$Data {
       runtimeType.hashCode;
 }
 
-extension $ApiV1StyleOutfitsGenerateRegeneratePost$Response$DataExtension
-    on ApiV1StyleOutfitsGenerateRegeneratePost$Response$Data {
-  ApiV1StyleOutfitsGenerateRegeneratePost$Response$Data copyWith({
+extension $ComboServiceApiV1StyleOutfitsGenerateRegeneratePost$Response$DataExtension
+    on ComboServiceApiV1StyleOutfitsGenerateRegeneratePost$Response$Data {
+  ComboServiceApiV1StyleOutfitsGenerateRegeneratePost$Response$Data copyWith({
     String? taskId,
     String? status,
   }) {
-    return ApiV1StyleOutfitsGenerateRegeneratePost$Response$Data(
+    return ComboServiceApiV1StyleOutfitsGenerateRegeneratePost$Response$Data(
       taskId: taskId ?? this.taskId,
       status: status ?? this.status,
     );
   }
 
-  ApiV1StyleOutfitsGenerateRegeneratePost$Response$Data copyWithWrapped({
-    Wrapped<String?>? taskId,
-    Wrapped<String?>? status,
-  }) {
-    return ApiV1StyleOutfitsGenerateRegeneratePost$Response$Data(
+  ComboServiceApiV1StyleOutfitsGenerateRegeneratePost$Response$Data
+  copyWithWrapped({Wrapped<String?>? taskId, Wrapped<String?>? status}) {
+    return ComboServiceApiV1StyleOutfitsGenerateRegeneratePost$Response$Data(
       taskId: (taskId != null ? taskId.value : this.taskId),
       status: (status != null ? status.value : this.status),
     );
@@ -6327,8 +6596,8 @@ extension $ApiV1StyleOutfitsGenerateRegeneratePost$Response$DataExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class BizUserShareRewardPageGet$Response$Data {
-  const BizUserShareRewardPageGet$Response$Data({
+class ComboServiceBizUserShareRewardPageGet$Response$Data {
+  const ComboServiceBizUserShareRewardPageGet$Response$Data({
     this.records,
     this.total,
     this.size,
@@ -6336,16 +6605,18 @@ class BizUserShareRewardPageGet$Response$Data {
     this.pages,
   });
 
-  factory BizUserShareRewardPageGet$Response$Data.fromJson(
+  factory ComboServiceBizUserShareRewardPageGet$Response$Data.fromJson(
     Map<String, dynamic> json,
-  ) => _$BizUserShareRewardPageGet$Response$DataFromJson(json);
+  ) => _$ComboServiceBizUserShareRewardPageGet$Response$DataFromJson(json);
 
-  static const toJsonFactory = _$BizUserShareRewardPageGet$Response$DataToJson;
+  static const toJsonFactory =
+      _$ComboServiceBizUserShareRewardPageGet$Response$DataToJson;
   Map<String, dynamic> toJson() =>
-      _$BizUserShareRewardPageGet$Response$DataToJson(this);
+      _$ComboServiceBizUserShareRewardPageGet$Response$DataToJson(this);
 
   @JsonKey(name: 'records')
-  final List<BizUserShareRewardPageGet$Response$Data$Records$Item>? records;
+  final List<ComboServiceBizUserShareRewardPageGet$Response$Data$Records$Item>?
+  records;
   @JsonKey(name: 'total')
   final double? total;
   @JsonKey(name: 'size')
@@ -6355,12 +6626,12 @@ class BizUserShareRewardPageGet$Response$Data {
   @JsonKey(name: 'pages')
   final double? pages;
   static const fromJsonFactory =
-      _$BizUserShareRewardPageGet$Response$DataFromJson;
+      _$ComboServiceBizUserShareRewardPageGet$Response$DataFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is BizUserShareRewardPageGet$Response$Data &&
+        (other is ComboServiceBizUserShareRewardPageGet$Response$Data &&
             (identical(other.records, records) ||
                 const DeepCollectionEquality().equals(
                   other.records,
@@ -6392,16 +6663,17 @@ class BizUserShareRewardPageGet$Response$Data {
       runtimeType.hashCode;
 }
 
-extension $BizUserShareRewardPageGet$Response$DataExtension
-    on BizUserShareRewardPageGet$Response$Data {
-  BizUserShareRewardPageGet$Response$Data copyWith({
-    List<BizUserShareRewardPageGet$Response$Data$Records$Item>? records,
+extension $ComboServiceBizUserShareRewardPageGet$Response$DataExtension
+    on ComboServiceBizUserShareRewardPageGet$Response$Data {
+  ComboServiceBizUserShareRewardPageGet$Response$Data copyWith({
+    List<ComboServiceBizUserShareRewardPageGet$Response$Data$Records$Item>?
+    records,
     double? total,
     double? size,
     double? current,
     double? pages,
   }) {
-    return BizUserShareRewardPageGet$Response$Data(
+    return ComboServiceBizUserShareRewardPageGet$Response$Data(
       records: records ?? this.records,
       total: total ?? this.total,
       size: size ?? this.size,
@@ -6410,15 +6682,17 @@ extension $BizUserShareRewardPageGet$Response$DataExtension
     );
   }
 
-  BizUserShareRewardPageGet$Response$Data copyWithWrapped({
-    Wrapped<List<BizUserShareRewardPageGet$Response$Data$Records$Item>?>?
+  ComboServiceBizUserShareRewardPageGet$Response$Data copyWithWrapped({
+    Wrapped<
+      List<ComboServiceBizUserShareRewardPageGet$Response$Data$Records$Item>?
+    >?
     records,
     Wrapped<double?>? total,
     Wrapped<double?>? size,
     Wrapped<double?>? current,
     Wrapped<double?>? pages,
   }) {
-    return BizUserShareRewardPageGet$Response$Data(
+    return ComboServiceBizUserShareRewardPageGet$Response$Data(
       records: (records != null ? records.value : this.records),
       total: (total != null ? total.value : this.total),
       size: (size != null ? size.value : this.size),
@@ -6429,8 +6703,8 @@ extension $BizUserShareRewardPageGet$Response$DataExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class NoAuthBizAlbumAlbumInfoGet$Response$Data {
-  const NoAuthBizAlbumAlbumInfoGet$Response$Data({
+class ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data {
+  const ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data({
     this.albumCode,
     this.tenantCode,
     this.name,
@@ -6441,13 +6715,14 @@ class NoAuthBizAlbumAlbumInfoGet$Response$Data {
     this.categoryTreeDto,
   });
 
-  factory NoAuthBizAlbumAlbumInfoGet$Response$Data.fromJson(
+  factory ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data.fromJson(
     Map<String, dynamic> json,
-  ) => _$NoAuthBizAlbumAlbumInfoGet$Response$DataFromJson(json);
+  ) => _$ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$DataFromJson(json);
 
-  static const toJsonFactory = _$NoAuthBizAlbumAlbumInfoGet$Response$DataToJson;
+  static const toJsonFactory =
+      _$ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$DataToJson;
   Map<String, dynamic> toJson() =>
-      _$NoAuthBizAlbumAlbumInfoGet$Response$DataToJson(this);
+      _$ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$DataToJson(this);
 
   @JsonKey(name: 'albumCode')
   final String? albumCode;
@@ -6462,17 +6737,18 @@ class NoAuthBizAlbumAlbumInfoGet$Response$Data {
   @JsonKey(name: 'pcImg')
   final String? pcImg;
   @JsonKey(name: 'related')
-  final List<NoAuthBizAlbumAlbumInfoGet$Response$Data$Related$Item>? related;
+  final List<ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$Related$Item>?
+  related;
   @JsonKey(name: 'categoryTreeDto')
-  final NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto?
+  final ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto?
   categoryTreeDto;
   static const fromJsonFactory =
-      _$NoAuthBizAlbumAlbumInfoGet$Response$DataFromJson;
+      _$ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$DataFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is NoAuthBizAlbumAlbumInfoGet$Response$Data &&
+        (other is ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data &&
             (identical(other.albumCode, albumCode) ||
                 const DeepCollectionEquality().equals(
                   other.albumCode,
@@ -6525,19 +6801,21 @@ class NoAuthBizAlbumAlbumInfoGet$Response$Data {
       runtimeType.hashCode;
 }
 
-extension $NoAuthBizAlbumAlbumInfoGet$Response$DataExtension
-    on NoAuthBizAlbumAlbumInfoGet$Response$Data {
-  NoAuthBizAlbumAlbumInfoGet$Response$Data copyWith({
+extension $ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$DataExtension
+    on ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data {
+  ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data copyWith({
     String? albumCode,
     String? tenantCode,
     String? name,
     String? description,
     String? backImg,
     String? pcImg,
-    List<NoAuthBizAlbumAlbumInfoGet$Response$Data$Related$Item>? related,
-    NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto? categoryTreeDto,
+    List<ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$Related$Item>?
+    related,
+    ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto?
+    categoryTreeDto,
   }) {
-    return NoAuthBizAlbumAlbumInfoGet$Response$Data(
+    return ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data(
       albumCode: albumCode ?? this.albumCode,
       tenantCode: tenantCode ?? this.tenantCode,
       name: name ?? this.name,
@@ -6549,19 +6827,23 @@ extension $NoAuthBizAlbumAlbumInfoGet$Response$DataExtension
     );
   }
 
-  NoAuthBizAlbumAlbumInfoGet$Response$Data copyWithWrapped({
+  ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data copyWithWrapped({
     Wrapped<String?>? albumCode,
     Wrapped<String?>? tenantCode,
     Wrapped<String?>? name,
     Wrapped<String?>? description,
     Wrapped<String?>? backImg,
     Wrapped<String?>? pcImg,
-    Wrapped<List<NoAuthBizAlbumAlbumInfoGet$Response$Data$Related$Item>?>?
+    Wrapped<
+      List<ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$Related$Item>?
+    >?
     related,
-    Wrapped<NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto?>?
+    Wrapped<
+      ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto?
+    >?
     categoryTreeDto,
   }) {
-    return NoAuthBizAlbumAlbumInfoGet$Response$Data(
+    return ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data(
       albumCode: (albumCode != null ? albumCode.value : this.albumCode),
       tenantCode: (tenantCode != null ? tenantCode.value : this.tenantCode),
       name: (name != null ? name.value : this.name),
@@ -6577,21 +6859,26 @@ extension $NoAuthBizAlbumAlbumInfoGet$Response$DataExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class NoAuthBizKolKolInfoGet$Response$Data$ExcelLinks$Item {
-  const NoAuthBizKolKolInfoGet$Response$Data$ExcelLinks$Item({
+class ComboServiceNoAuthBizKolKolInfoGet$Response$Data$ExcelLinks$Item {
+  const ComboServiceNoAuthBizKolKolInfoGet$Response$Data$ExcelLinks$Item({
     required this.title,
     required this.excelLink,
     required this.desc,
   });
 
-  factory NoAuthBizKolKolInfoGet$Response$Data$ExcelLinks$Item.fromJson(
+  factory ComboServiceNoAuthBizKolKolInfoGet$Response$Data$ExcelLinks$Item.fromJson(
     Map<String, dynamic> json,
-  ) => _$NoAuthBizKolKolInfoGet$Response$Data$ExcelLinks$ItemFromJson(json);
+  ) =>
+      _$ComboServiceNoAuthBizKolKolInfoGet$Response$Data$ExcelLinks$ItemFromJson(
+        json,
+      );
 
   static const toJsonFactory =
-      _$NoAuthBizKolKolInfoGet$Response$Data$ExcelLinks$ItemToJson;
+      _$ComboServiceNoAuthBizKolKolInfoGet$Response$Data$ExcelLinks$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$NoAuthBizKolKolInfoGet$Response$Data$ExcelLinks$ItemToJson(this);
+      _$ComboServiceNoAuthBizKolKolInfoGet$Response$Data$ExcelLinks$ItemToJson(
+        this,
+      );
 
   @JsonKey(name: 'title')
   final String title;
@@ -6600,12 +6887,12 @@ class NoAuthBizKolKolInfoGet$Response$Data$ExcelLinks$Item {
   @JsonKey(name: 'desc')
   final String desc;
   static const fromJsonFactory =
-      _$NoAuthBizKolKolInfoGet$Response$Data$ExcelLinks$ItemFromJson;
+      _$ComboServiceNoAuthBizKolKolInfoGet$Response$Data$ExcelLinks$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is NoAuthBizKolKolInfoGet$Response$Data$ExcelLinks$Item &&
+        (other is ComboServiceNoAuthBizKolKolInfoGet$Response$Data$ExcelLinks$Item &&
             (identical(other.title, title) ||
                 const DeepCollectionEquality().equals(other.title, title)) &&
             (identical(other.excelLink, excelLink) ||
@@ -6628,26 +6915,27 @@ class NoAuthBizKolKolInfoGet$Response$Data$ExcelLinks$Item {
       runtimeType.hashCode;
 }
 
-extension $NoAuthBizKolKolInfoGet$Response$Data$ExcelLinks$ItemExtension
-    on NoAuthBizKolKolInfoGet$Response$Data$ExcelLinks$Item {
-  NoAuthBizKolKolInfoGet$Response$Data$ExcelLinks$Item copyWith({
+extension $ComboServiceNoAuthBizKolKolInfoGet$Response$Data$ExcelLinks$ItemExtension
+    on ComboServiceNoAuthBizKolKolInfoGet$Response$Data$ExcelLinks$Item {
+  ComboServiceNoAuthBizKolKolInfoGet$Response$Data$ExcelLinks$Item copyWith({
     String? title,
     String? excelLink,
     String? desc,
   }) {
-    return NoAuthBizKolKolInfoGet$Response$Data$ExcelLinks$Item(
+    return ComboServiceNoAuthBizKolKolInfoGet$Response$Data$ExcelLinks$Item(
       title: title ?? this.title,
       excelLink: excelLink ?? this.excelLink,
       desc: desc ?? this.desc,
     );
   }
 
-  NoAuthBizKolKolInfoGet$Response$Data$ExcelLinks$Item copyWithWrapped({
+  ComboServiceNoAuthBizKolKolInfoGet$Response$Data$ExcelLinks$Item
+  copyWithWrapped({
     Wrapped<String>? title,
     Wrapped<String>? excelLink,
     Wrapped<String>? desc,
   }) {
-    return NoAuthBizKolKolInfoGet$Response$Data$ExcelLinks$Item(
+    return ComboServiceNoAuthBizKolKolInfoGet$Response$Data$ExcelLinks$Item(
       title: (title != null ? title.value : this.title),
       excelLink: (excelLink != null ? excelLink.value : this.excelLink),
       desc: (desc != null ? desc.value : this.desc),
@@ -6656,8 +6944,8 @@ extension $NoAuthBizKolKolInfoGet$Response$Data$ExcelLinks$ItemExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class NoAuthPopupPromiseGet$Response$Data$Content$Item {
-  const NoAuthPopupPromiseGet$Response$Data$Content$Item({
+class ComboServiceNoAuthPopupPromiseGet$Response$Data$Content$Item {
+  const ComboServiceNoAuthPopupPromiseGet$Response$Data$Content$Item({
     required this.title,
     required this.icon,
     required this.paragraphs,
@@ -6666,14 +6954,18 @@ class NoAuthPopupPromiseGet$Response$Data$Content$Item {
     required this.schemaText,
   });
 
-  factory NoAuthPopupPromiseGet$Response$Data$Content$Item.fromJson(
+  factory ComboServiceNoAuthPopupPromiseGet$Response$Data$Content$Item.fromJson(
     Map<String, dynamic> json,
-  ) => _$NoAuthPopupPromiseGet$Response$Data$Content$ItemFromJson(json);
+  ) => _$ComboServiceNoAuthPopupPromiseGet$Response$Data$Content$ItemFromJson(
+    json,
+  );
 
   static const toJsonFactory =
-      _$NoAuthPopupPromiseGet$Response$Data$Content$ItemToJson;
+      _$ComboServiceNoAuthPopupPromiseGet$Response$Data$Content$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$NoAuthPopupPromiseGet$Response$Data$Content$ItemToJson(this);
+      _$ComboServiceNoAuthPopupPromiseGet$Response$Data$Content$ItemToJson(
+        this,
+      );
 
   @JsonKey(name: 'title')
   final String title;
@@ -6688,12 +6980,13 @@ class NoAuthPopupPromiseGet$Response$Data$Content$Item {
   @JsonKey(name: 'schemaText')
   final String schemaText;
   static const fromJsonFactory =
-      _$NoAuthPopupPromiseGet$Response$Data$Content$ItemFromJson;
+      _$ComboServiceNoAuthPopupPromiseGet$Response$Data$Content$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is NoAuthPopupPromiseGet$Response$Data$Content$Item &&
+        (other
+                is ComboServiceNoAuthPopupPromiseGet$Response$Data$Content$Item &&
             (identical(other.title, title) ||
                 const DeepCollectionEquality().equals(other.title, title)) &&
             (identical(other.icon, icon) ||
@@ -6728,9 +7021,9 @@ class NoAuthPopupPromiseGet$Response$Data$Content$Item {
       runtimeType.hashCode;
 }
 
-extension $NoAuthPopupPromiseGet$Response$Data$Content$ItemExtension
-    on NoAuthPopupPromiseGet$Response$Data$Content$Item {
-  NoAuthPopupPromiseGet$Response$Data$Content$Item copyWith({
+extension $ComboServiceNoAuthPopupPromiseGet$Response$Data$Content$ItemExtension
+    on ComboServiceNoAuthPopupPromiseGet$Response$Data$Content$Item {
+  ComboServiceNoAuthPopupPromiseGet$Response$Data$Content$Item copyWith({
     String? title,
     String? icon,
     List<Object>? paragraphs,
@@ -6738,7 +7031,7 @@ extension $NoAuthPopupPromiseGet$Response$Data$Content$ItemExtension
     String? schema,
     String? schemaText,
   }) {
-    return NoAuthPopupPromiseGet$Response$Data$Content$Item(
+    return ComboServiceNoAuthPopupPromiseGet$Response$Data$Content$Item(
       title: title ?? this.title,
       icon: icon ?? this.icon,
       paragraphs: paragraphs ?? this.paragraphs,
@@ -6748,7 +7041,7 @@ extension $NoAuthPopupPromiseGet$Response$Data$Content$ItemExtension
     );
   }
 
-  NoAuthPopupPromiseGet$Response$Data$Content$Item copyWithWrapped({
+  ComboServiceNoAuthPopupPromiseGet$Response$Data$Content$Item copyWithWrapped({
     Wrapped<String>? title,
     Wrapped<String>? icon,
     Wrapped<List<Object>>? paragraphs,
@@ -6756,7 +7049,7 @@ extension $NoAuthPopupPromiseGet$Response$Data$Content$ItemExtension
     Wrapped<String>? schema,
     Wrapped<String>? schemaText,
   }) {
-    return NoAuthPopupPromiseGet$Response$Data$Content$Item(
+    return ComboServiceNoAuthPopupPromiseGet$Response$Data$Content$Item(
       title: (title != null ? title.value : this.title),
       icon: (icon != null ? icon.value : this.icon),
       paragraphs: (paragraphs != null ? paragraphs.value : this.paragraphs),
@@ -6768,8 +7061,8 @@ extension $NoAuthPopupPromiseGet$Response$Data$Content$ItemExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class BizCommunityPostLikedGet$Response$Data$Posts$Item {
-  const BizCommunityPostLikedGet$Response$Data$Posts$Item({
+class ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item {
+  const ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item({
     this.postId,
     this.postCode,
     this.tenantCode,
@@ -6785,232 +7078,18 @@ class BizCommunityPostLikedGet$Response$Data$Posts$Item {
     this.publishTime,
   });
 
-  factory BizCommunityPostLikedGet$Response$Data$Posts$Item.fromJson(
+  factory ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item.fromJson(
     Map<String, dynamic> json,
-  ) => _$BizCommunityPostLikedGet$Response$Data$Posts$ItemFromJson(json);
+  ) => _$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$ItemFromJson(
+    json,
+  );
 
   static const toJsonFactory =
-      _$BizCommunityPostLikedGet$Response$Data$Posts$ItemToJson;
+      _$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$BizCommunityPostLikedGet$Response$Data$Posts$ItemToJson(this);
-
-  @JsonKey(name: 'postId')
-  final int? postId;
-  @JsonKey(name: 'postCode')
-  final String? postCode;
-  @JsonKey(name: 'tenantCode')
-  final String? tenantCode;
-  @JsonKey(name: 'posterUserId')
-  final String? posterUserId;
-  @JsonKey(name: 'title')
-  final String? title;
-  @JsonKey(name: 'description')
-  final String? description;
-  @JsonKey(name: 'translatedDescription')
-  final String? translatedDescription;
-  @JsonKey(name: 'postImages', defaultValue: <Object>[])
-  final List<Object>? postImages;
-  @JsonKey(name: 'relatedProductCodes', defaultValue: <Object>[])
-  final List<Object>? relatedProductCodes;
-  @JsonKey(name: 'products')
-  final List<BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item>?
-  products;
-  @JsonKey(name: 'likeCount')
-  final int? likeCount;
-  @JsonKey(name: 'liked')
-  final bool? liked;
-  @JsonKey(name: 'publishTime')
-  final DateTime? publishTime;
-  static const fromJsonFactory =
-      _$BizCommunityPostLikedGet$Response$Data$Posts$ItemFromJson;
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other is BizCommunityPostLikedGet$Response$Data$Posts$Item &&
-            (identical(other.postId, postId) ||
-                const DeepCollectionEquality().equals(other.postId, postId)) &&
-            (identical(other.postCode, postCode) ||
-                const DeepCollectionEquality().equals(
-                  other.postCode,
-                  postCode,
-                )) &&
-            (identical(other.tenantCode, tenantCode) ||
-                const DeepCollectionEquality().equals(
-                  other.tenantCode,
-                  tenantCode,
-                )) &&
-            (identical(other.posterUserId, posterUserId) ||
-                const DeepCollectionEquality().equals(
-                  other.posterUserId,
-                  posterUserId,
-                )) &&
-            (identical(other.title, title) ||
-                const DeepCollectionEquality().equals(other.title, title)) &&
-            (identical(other.description, description) ||
-                const DeepCollectionEquality().equals(
-                  other.description,
-                  description,
-                )) &&
-            (identical(other.translatedDescription, translatedDescription) ||
-                const DeepCollectionEquality().equals(
-                  other.translatedDescription,
-                  translatedDescription,
-                )) &&
-            (identical(other.postImages, postImages) ||
-                const DeepCollectionEquality().equals(
-                  other.postImages,
-                  postImages,
-                )) &&
-            (identical(other.relatedProductCodes, relatedProductCodes) ||
-                const DeepCollectionEquality().equals(
-                  other.relatedProductCodes,
-                  relatedProductCodes,
-                )) &&
-            (identical(other.products, products) ||
-                const DeepCollectionEquality().equals(
-                  other.products,
-                  products,
-                )) &&
-            (identical(other.likeCount, likeCount) ||
-                const DeepCollectionEquality().equals(
-                  other.likeCount,
-                  likeCount,
-                )) &&
-            (identical(other.liked, liked) ||
-                const DeepCollectionEquality().equals(other.liked, liked)) &&
-            (identical(other.publishTime, publishTime) ||
-                const DeepCollectionEquality().equals(
-                  other.publishTime,
-                  publishTime,
-                )));
-  }
-
-  @override
-  String toString() => jsonEncode(this);
-
-  @override
-  int get hashCode =>
-      const DeepCollectionEquality().hash(postId) ^
-      const DeepCollectionEquality().hash(postCode) ^
-      const DeepCollectionEquality().hash(tenantCode) ^
-      const DeepCollectionEquality().hash(posterUserId) ^
-      const DeepCollectionEquality().hash(title) ^
-      const DeepCollectionEquality().hash(description) ^
-      const DeepCollectionEquality().hash(translatedDescription) ^
-      const DeepCollectionEquality().hash(postImages) ^
-      const DeepCollectionEquality().hash(relatedProductCodes) ^
-      const DeepCollectionEquality().hash(products) ^
-      const DeepCollectionEquality().hash(likeCount) ^
-      const DeepCollectionEquality().hash(liked) ^
-      const DeepCollectionEquality().hash(publishTime) ^
-      runtimeType.hashCode;
-}
-
-extension $BizCommunityPostLikedGet$Response$Data$Posts$ItemExtension
-    on BizCommunityPostLikedGet$Response$Data$Posts$Item {
-  BizCommunityPostLikedGet$Response$Data$Posts$Item copyWith({
-    int? postId,
-    String? postCode,
-    String? tenantCode,
-    String? posterUserId,
-    String? title,
-    String? description,
-    String? translatedDescription,
-    List<Object>? postImages,
-    List<Object>? relatedProductCodes,
-    List<BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item>?
-    products,
-    int? likeCount,
-    bool? liked,
-    DateTime? publishTime,
-  }) {
-    return BizCommunityPostLikedGet$Response$Data$Posts$Item(
-      postId: postId ?? this.postId,
-      postCode: postCode ?? this.postCode,
-      tenantCode: tenantCode ?? this.tenantCode,
-      posterUserId: posterUserId ?? this.posterUserId,
-      title: title ?? this.title,
-      description: description ?? this.description,
-      translatedDescription:
-          translatedDescription ?? this.translatedDescription,
-      postImages: postImages ?? this.postImages,
-      relatedProductCodes: relatedProductCodes ?? this.relatedProductCodes,
-      products: products ?? this.products,
-      likeCount: likeCount ?? this.likeCount,
-      liked: liked ?? this.liked,
-      publishTime: publishTime ?? this.publishTime,
-    );
-  }
-
-  BizCommunityPostLikedGet$Response$Data$Posts$Item copyWithWrapped({
-    Wrapped<int?>? postId,
-    Wrapped<String?>? postCode,
-    Wrapped<String?>? tenantCode,
-    Wrapped<String?>? posterUserId,
-    Wrapped<String?>? title,
-    Wrapped<String?>? description,
-    Wrapped<String?>? translatedDescription,
-    Wrapped<List<Object>?>? postImages,
-    Wrapped<List<Object>?>? relatedProductCodes,
-    Wrapped<
-      List<BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item>?
-    >?
-    products,
-    Wrapped<int?>? likeCount,
-    Wrapped<bool?>? liked,
-    Wrapped<DateTime?>? publishTime,
-  }) {
-    return BizCommunityPostLikedGet$Response$Data$Posts$Item(
-      postId: (postId != null ? postId.value : this.postId),
-      postCode: (postCode != null ? postCode.value : this.postCode),
-      tenantCode: (tenantCode != null ? tenantCode.value : this.tenantCode),
-      posterUserId: (posterUserId != null
-          ? posterUserId.value
-          : this.posterUserId),
-      title: (title != null ? title.value : this.title),
-      description: (description != null ? description.value : this.description),
-      translatedDescription: (translatedDescription != null
-          ? translatedDescription.value
-          : this.translatedDescription),
-      postImages: (postImages != null ? postImages.value : this.postImages),
-      relatedProductCodes: (relatedProductCodes != null
-          ? relatedProductCodes.value
-          : this.relatedProductCodes),
-      products: (products != null ? products.value : this.products),
-      likeCount: (likeCount != null ? likeCount.value : this.likeCount),
-      liked: (liked != null ? liked.value : this.liked),
-      publishTime: (publishTime != null ? publishTime.value : this.publishTime),
-    );
-  }
-}
-
-@JsonSerializable(explicitToJson: true)
-class BizCommunityPostNoAuthListGet$Response$Data$Posts$Item {
-  const BizCommunityPostNoAuthListGet$Response$Data$Posts$Item({
-    this.postId,
-    this.postCode,
-    this.tenantCode,
-    this.posterUserId,
-    this.title,
-    this.description,
-    this.translatedDescription,
-    this.postImages,
-    this.relatedProductCodes,
-    this.products,
-    this.likeCount,
-    this.liked,
-    this.publishTime,
-  });
-
-  factory BizCommunityPostNoAuthListGet$Response$Data$Posts$Item.fromJson(
-    Map<String, dynamic> json,
-  ) => _$BizCommunityPostNoAuthListGet$Response$Data$Posts$ItemFromJson(json);
-
-  static const toJsonFactory =
-      _$BizCommunityPostNoAuthListGet$Response$Data$Posts$ItemToJson;
-  Map<String, dynamic> toJson() =>
-      _$BizCommunityPostNoAuthListGet$Response$Data$Posts$ItemToJson(this);
+      _$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$ItemToJson(
+        this,
+      );
 
   @JsonKey(name: 'postId')
   final int? postId;
@@ -7032,7 +7111,7 @@ class BizCommunityPostNoAuthListGet$Response$Data$Posts$Item {
   final List<Object>? relatedProductCodes;
   @JsonKey(name: 'products')
   final List<
-    BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item
+    ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item
   >?
   products;
   @JsonKey(name: 'likeCount')
@@ -7042,12 +7121,13 @@ class BizCommunityPostNoAuthListGet$Response$Data$Posts$Item {
   @JsonKey(name: 'publishTime')
   final DateTime? publishTime;
   static const fromJsonFactory =
-      _$BizCommunityPostNoAuthListGet$Response$Data$Posts$ItemFromJson;
+      _$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is BizCommunityPostNoAuthListGet$Response$Data$Posts$Item &&
+        (other
+                is ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item &&
             (identical(other.postId, postId) ||
                 const DeepCollectionEquality().equals(other.postId, postId)) &&
             (identical(other.postCode, postCode) ||
@@ -7127,9 +7207,9 @@ class BizCommunityPostNoAuthListGet$Response$Data$Posts$Item {
       runtimeType.hashCode;
 }
 
-extension $BizCommunityPostNoAuthListGet$Response$Data$Posts$ItemExtension
-    on BizCommunityPostNoAuthListGet$Response$Data$Posts$Item {
-  BizCommunityPostNoAuthListGet$Response$Data$Posts$Item copyWith({
+extension $ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$ItemExtension
+    on ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item {
+  ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item copyWith({
     int? postId,
     String? postCode,
     String? tenantCode,
@@ -7139,13 +7219,15 @@ extension $BizCommunityPostNoAuthListGet$Response$Data$Posts$ItemExtension
     String? translatedDescription,
     List<Object>? postImages,
     List<Object>? relatedProductCodes,
-    List<BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item>?
+    List<
+      ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item
+    >?
     products,
     int? likeCount,
     bool? liked,
     DateTime? publishTime,
   }) {
-    return BizCommunityPostNoAuthListGet$Response$Data$Posts$Item(
+    return ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item(
       postId: postId ?? this.postId,
       postCode: postCode ?? this.postCode,
       tenantCode: tenantCode ?? this.tenantCode,
@@ -7163,7 +7245,8 @@ extension $BizCommunityPostNoAuthListGet$Response$Data$Posts$ItemExtension
     );
   }
 
-  BizCommunityPostNoAuthListGet$Response$Data$Posts$Item copyWithWrapped({
+  ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item
+  copyWithWrapped({
     Wrapped<int?>? postId,
     Wrapped<String?>? postCode,
     Wrapped<String?>? tenantCode,
@@ -7175,7 +7258,7 @@ extension $BizCommunityPostNoAuthListGet$Response$Data$Posts$ItemExtension
     Wrapped<List<Object>?>? relatedProductCodes,
     Wrapped<
       List<
-        BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item
+        ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item
       >?
     >?
     products,
@@ -7183,7 +7266,7 @@ extension $BizCommunityPostNoAuthListGet$Response$Data$Posts$ItemExtension
     Wrapped<bool?>? liked,
     Wrapped<DateTime?>? publishTime,
   }) {
-    return BizCommunityPostNoAuthListGet$Response$Data$Posts$Item(
+    return ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item(
       postId: (postId != null ? postId.value : this.postId),
       postCode: (postCode != null ? postCode.value : this.postCode),
       tenantCode: (tenantCode != null ? tenantCode.value : this.tenantCode),
@@ -7208,8 +7291,239 @@ extension $BizCommunityPostNoAuthListGet$Response$Data$Posts$ItemExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class BizAiFashionNoAuthBodyShapeGet$Response$Data$Female$Item {
-  const BizAiFashionNoAuthBodyShapeGet$Response$Data$Female$Item({
+class ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item {
+  const ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item({
+    this.postId,
+    this.postCode,
+    this.tenantCode,
+    this.posterUserId,
+    this.title,
+    this.description,
+    this.translatedDescription,
+    this.postImages,
+    this.relatedProductCodes,
+    this.products,
+    this.likeCount,
+    this.liked,
+    this.publishTime,
+  });
+
+  factory ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item.fromJson(
+    Map<String, dynamic> json,
+  ) =>
+      _$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$ItemFromJson(
+        json,
+      );
+
+  static const toJsonFactory =
+      _$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$ItemToJson;
+  Map<String, dynamic> toJson() =>
+      _$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$ItemToJson(
+        this,
+      );
+
+  @JsonKey(name: 'postId')
+  final int? postId;
+  @JsonKey(name: 'postCode')
+  final String? postCode;
+  @JsonKey(name: 'tenantCode')
+  final String? tenantCode;
+  @JsonKey(name: 'posterUserId')
+  final String? posterUserId;
+  @JsonKey(name: 'title')
+  final String? title;
+  @JsonKey(name: 'description')
+  final String? description;
+  @JsonKey(name: 'translatedDescription')
+  final String? translatedDescription;
+  @JsonKey(name: 'postImages', defaultValue: <Object>[])
+  final List<Object>? postImages;
+  @JsonKey(name: 'relatedProductCodes', defaultValue: <Object>[])
+  final List<Object>? relatedProductCodes;
+  @JsonKey(name: 'products')
+  final List<
+    ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item
+  >?
+  products;
+  @JsonKey(name: 'likeCount')
+  final int? likeCount;
+  @JsonKey(name: 'liked')
+  final bool? liked;
+  @JsonKey(name: 'publishTime')
+  final DateTime? publishTime;
+  static const fromJsonFactory =
+      _$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$ItemFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other
+                is ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item &&
+            (identical(other.postId, postId) ||
+                const DeepCollectionEquality().equals(other.postId, postId)) &&
+            (identical(other.postCode, postCode) ||
+                const DeepCollectionEquality().equals(
+                  other.postCode,
+                  postCode,
+                )) &&
+            (identical(other.tenantCode, tenantCode) ||
+                const DeepCollectionEquality().equals(
+                  other.tenantCode,
+                  tenantCode,
+                )) &&
+            (identical(other.posterUserId, posterUserId) ||
+                const DeepCollectionEquality().equals(
+                  other.posterUserId,
+                  posterUserId,
+                )) &&
+            (identical(other.title, title) ||
+                const DeepCollectionEquality().equals(other.title, title)) &&
+            (identical(other.description, description) ||
+                const DeepCollectionEquality().equals(
+                  other.description,
+                  description,
+                )) &&
+            (identical(other.translatedDescription, translatedDescription) ||
+                const DeepCollectionEquality().equals(
+                  other.translatedDescription,
+                  translatedDescription,
+                )) &&
+            (identical(other.postImages, postImages) ||
+                const DeepCollectionEquality().equals(
+                  other.postImages,
+                  postImages,
+                )) &&
+            (identical(other.relatedProductCodes, relatedProductCodes) ||
+                const DeepCollectionEquality().equals(
+                  other.relatedProductCodes,
+                  relatedProductCodes,
+                )) &&
+            (identical(other.products, products) ||
+                const DeepCollectionEquality().equals(
+                  other.products,
+                  products,
+                )) &&
+            (identical(other.likeCount, likeCount) ||
+                const DeepCollectionEquality().equals(
+                  other.likeCount,
+                  likeCount,
+                )) &&
+            (identical(other.liked, liked) ||
+                const DeepCollectionEquality().equals(other.liked, liked)) &&
+            (identical(other.publishTime, publishTime) ||
+                const DeepCollectionEquality().equals(
+                  other.publishTime,
+                  publishTime,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(postId) ^
+      const DeepCollectionEquality().hash(postCode) ^
+      const DeepCollectionEquality().hash(tenantCode) ^
+      const DeepCollectionEquality().hash(posterUserId) ^
+      const DeepCollectionEquality().hash(title) ^
+      const DeepCollectionEquality().hash(description) ^
+      const DeepCollectionEquality().hash(translatedDescription) ^
+      const DeepCollectionEquality().hash(postImages) ^
+      const DeepCollectionEquality().hash(relatedProductCodes) ^
+      const DeepCollectionEquality().hash(products) ^
+      const DeepCollectionEquality().hash(likeCount) ^
+      const DeepCollectionEquality().hash(liked) ^
+      const DeepCollectionEquality().hash(publishTime) ^
+      runtimeType.hashCode;
+}
+
+extension $ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$ItemExtension
+    on ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item {
+  ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item copyWith({
+    int? postId,
+    String? postCode,
+    String? tenantCode,
+    String? posterUserId,
+    String? title,
+    String? description,
+    String? translatedDescription,
+    List<Object>? postImages,
+    List<Object>? relatedProductCodes,
+    List<
+      ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item
+    >?
+    products,
+    int? likeCount,
+    bool? liked,
+    DateTime? publishTime,
+  }) {
+    return ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item(
+      postId: postId ?? this.postId,
+      postCode: postCode ?? this.postCode,
+      tenantCode: tenantCode ?? this.tenantCode,
+      posterUserId: posterUserId ?? this.posterUserId,
+      title: title ?? this.title,
+      description: description ?? this.description,
+      translatedDescription:
+          translatedDescription ?? this.translatedDescription,
+      postImages: postImages ?? this.postImages,
+      relatedProductCodes: relatedProductCodes ?? this.relatedProductCodes,
+      products: products ?? this.products,
+      likeCount: likeCount ?? this.likeCount,
+      liked: liked ?? this.liked,
+      publishTime: publishTime ?? this.publishTime,
+    );
+  }
+
+  ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item
+  copyWithWrapped({
+    Wrapped<int?>? postId,
+    Wrapped<String?>? postCode,
+    Wrapped<String?>? tenantCode,
+    Wrapped<String?>? posterUserId,
+    Wrapped<String?>? title,
+    Wrapped<String?>? description,
+    Wrapped<String?>? translatedDescription,
+    Wrapped<List<Object>?>? postImages,
+    Wrapped<List<Object>?>? relatedProductCodes,
+    Wrapped<
+      List<
+        ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item
+      >?
+    >?
+    products,
+    Wrapped<int?>? likeCount,
+    Wrapped<bool?>? liked,
+    Wrapped<DateTime?>? publishTime,
+  }) {
+    return ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item(
+      postId: (postId != null ? postId.value : this.postId),
+      postCode: (postCode != null ? postCode.value : this.postCode),
+      tenantCode: (tenantCode != null ? tenantCode.value : this.tenantCode),
+      posterUserId: (posterUserId != null
+          ? posterUserId.value
+          : this.posterUserId),
+      title: (title != null ? title.value : this.title),
+      description: (description != null ? description.value : this.description),
+      translatedDescription: (translatedDescription != null
+          ? translatedDescription.value
+          : this.translatedDescription),
+      postImages: (postImages != null ? postImages.value : this.postImages),
+      relatedProductCodes: (relatedProductCodes != null
+          ? relatedProductCodes.value
+          : this.relatedProductCodes),
+      products: (products != null ? products.value : this.products),
+      likeCount: (likeCount != null ? likeCount.value : this.likeCount),
+      liked: (liked != null ? liked.value : this.liked),
+      publishTime: (publishTime != null ? publishTime.value : this.publishTime),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data$Female$Item {
+  const ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data$Female$Item({
     required this.age,
     required this.glass,
     required this.body,
@@ -7220,14 +7534,19 @@ class BizAiFashionNoAuthBodyShapeGet$Response$Data$Female$Item {
     required this.image,
   });
 
-  factory BizAiFashionNoAuthBodyShapeGet$Response$Data$Female$Item.fromJson(
+  factory ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data$Female$Item.fromJson(
     Map<String, dynamic> json,
-  ) => _$BizAiFashionNoAuthBodyShapeGet$Response$Data$Female$ItemFromJson(json);
+  ) =>
+      _$ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data$Female$ItemFromJson(
+        json,
+      );
 
   static const toJsonFactory =
-      _$BizAiFashionNoAuthBodyShapeGet$Response$Data$Female$ItemToJson;
+      _$ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data$Female$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$BizAiFashionNoAuthBodyShapeGet$Response$Data$Female$ItemToJson(this);
+      _$ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data$Female$ItemToJson(
+        this,
+      );
 
   @JsonKey(name: 'age')
   final String age;
@@ -7246,12 +7565,12 @@ class BizAiFashionNoAuthBodyShapeGet$Response$Data$Female$Item {
   @JsonKey(name: 'image')
   final String image;
   static const fromJsonFactory =
-      _$BizAiFashionNoAuthBodyShapeGet$Response$Data$Female$ItemFromJson;
+      _$ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data$Female$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is BizAiFashionNoAuthBodyShapeGet$Response$Data$Female$Item &&
+        (other is ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data$Female$Item &&
             (identical(other.age, age) ||
                 const DeepCollectionEquality().equals(other.age, age)) &&
             (identical(other.glass, glass) ||
@@ -7286,9 +7605,10 @@ class BizAiFashionNoAuthBodyShapeGet$Response$Data$Female$Item {
       runtimeType.hashCode;
 }
 
-extension $BizAiFashionNoAuthBodyShapeGet$Response$Data$Female$ItemExtension
-    on BizAiFashionNoAuthBodyShapeGet$Response$Data$Female$Item {
-  BizAiFashionNoAuthBodyShapeGet$Response$Data$Female$Item copyWith({
+extension $ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data$Female$ItemExtension
+    on ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data$Female$Item {
+  ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data$Female$Item
+  copyWith({
     String? age,
     String? glass,
     String? body,
@@ -7298,7 +7618,7 @@ extension $BizAiFashionNoAuthBodyShapeGet$Response$Data$Female$ItemExtension
     String? sort,
     String? image,
   }) {
-    return BizAiFashionNoAuthBodyShapeGet$Response$Data$Female$Item(
+    return ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data$Female$Item(
       age: age ?? this.age,
       glass: glass ?? this.glass,
       body: body ?? this.body,
@@ -7310,7 +7630,8 @@ extension $BizAiFashionNoAuthBodyShapeGet$Response$Data$Female$ItemExtension
     );
   }
 
-  BizAiFashionNoAuthBodyShapeGet$Response$Data$Female$Item copyWithWrapped({
+  ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data$Female$Item
+  copyWithWrapped({
     Wrapped<String>? age,
     Wrapped<String>? glass,
     Wrapped<String>? body,
@@ -7320,7 +7641,7 @@ extension $BizAiFashionNoAuthBodyShapeGet$Response$Data$Female$ItemExtension
     Wrapped<String>? sort,
     Wrapped<String>? image,
   }) {
-    return BizAiFashionNoAuthBodyShapeGet$Response$Data$Female$Item(
+    return ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data$Female$Item(
       age: (age != null ? age.value : this.age),
       glass: (glass != null ? glass.value : this.glass),
       body: (body != null ? body.value : this.body),
@@ -7334,8 +7655,8 @@ extension $BizAiFashionNoAuthBodyShapeGet$Response$Data$Female$ItemExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class BizAiFashionNoAuthBodyShapeGet$Response$Data$Male$Item {
-  const BizAiFashionNoAuthBodyShapeGet$Response$Data$Male$Item({
+class ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data$Male$Item {
+  const ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data$Male$Item({
     required this.age,
     required this.glass,
     required this.body,
@@ -7346,14 +7667,19 @@ class BizAiFashionNoAuthBodyShapeGet$Response$Data$Male$Item {
     required this.image,
   });
 
-  factory BizAiFashionNoAuthBodyShapeGet$Response$Data$Male$Item.fromJson(
+  factory ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data$Male$Item.fromJson(
     Map<String, dynamic> json,
-  ) => _$BizAiFashionNoAuthBodyShapeGet$Response$Data$Male$ItemFromJson(json);
+  ) =>
+      _$ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data$Male$ItemFromJson(
+        json,
+      );
 
   static const toJsonFactory =
-      _$BizAiFashionNoAuthBodyShapeGet$Response$Data$Male$ItemToJson;
+      _$ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data$Male$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$BizAiFashionNoAuthBodyShapeGet$Response$Data$Male$ItemToJson(this);
+      _$ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data$Male$ItemToJson(
+        this,
+      );
 
   @JsonKey(name: 'age')
   final String age;
@@ -7372,12 +7698,12 @@ class BizAiFashionNoAuthBodyShapeGet$Response$Data$Male$Item {
   @JsonKey(name: 'image')
   final String image;
   static const fromJsonFactory =
-      _$BizAiFashionNoAuthBodyShapeGet$Response$Data$Male$ItemFromJson;
+      _$ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data$Male$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is BizAiFashionNoAuthBodyShapeGet$Response$Data$Male$Item &&
+        (other is ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data$Male$Item &&
             (identical(other.age, age) ||
                 const DeepCollectionEquality().equals(other.age, age)) &&
             (identical(other.glass, glass) ||
@@ -7412,9 +7738,9 @@ class BizAiFashionNoAuthBodyShapeGet$Response$Data$Male$Item {
       runtimeType.hashCode;
 }
 
-extension $BizAiFashionNoAuthBodyShapeGet$Response$Data$Male$ItemExtension
-    on BizAiFashionNoAuthBodyShapeGet$Response$Data$Male$Item {
-  BizAiFashionNoAuthBodyShapeGet$Response$Data$Male$Item copyWith({
+extension $ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data$Male$ItemExtension
+    on ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data$Male$Item {
+  ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data$Male$Item copyWith({
     String? age,
     String? glass,
     String? body,
@@ -7424,7 +7750,7 @@ extension $BizAiFashionNoAuthBodyShapeGet$Response$Data$Male$ItemExtension
     String? sort,
     String? image,
   }) {
-    return BizAiFashionNoAuthBodyShapeGet$Response$Data$Male$Item(
+    return ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data$Male$Item(
       age: age ?? this.age,
       glass: glass ?? this.glass,
       body: body ?? this.body,
@@ -7436,7 +7762,8 @@ extension $BizAiFashionNoAuthBodyShapeGet$Response$Data$Male$ItemExtension
     );
   }
 
-  BizAiFashionNoAuthBodyShapeGet$Response$Data$Male$Item copyWithWrapped({
+  ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data$Male$Item
+  copyWithWrapped({
     Wrapped<String>? age,
     Wrapped<String>? glass,
     Wrapped<String>? body,
@@ -7446,7 +7773,7 @@ extension $BizAiFashionNoAuthBodyShapeGet$Response$Data$Male$ItemExtension
     Wrapped<String>? sort,
     Wrapped<String>? image,
   }) {
-    return BizAiFashionNoAuthBodyShapeGet$Response$Data$Male$Item(
+    return ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data$Male$Item(
       age: (age != null ? age.value : this.age),
       glass: (glass != null ? glass.value : this.glass),
       body: (body != null ? body.value : this.body),
@@ -7460,8 +7787,8 @@ extension $BizAiFashionNoAuthBodyShapeGet$Response$Data$Male$ItemExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item {
-  const ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item({
+class ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item {
+  const ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item({
     this.taskId,
     this.status,
     this.count,
@@ -7481,15 +7808,19 @@ class ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item {
     this.sharingImagesStatus,
   });
 
-  factory ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item.fromJson(
+  factory ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ApiV1StyleOutfitsResultPageGet$Response$Data$Records$ItemFromJson(json);
+      _$ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$ItemFromJson(
+        json,
+      );
 
   static const toJsonFactory =
-      _$ApiV1StyleOutfitsResultPageGet$Response$Data$Records$ItemToJson;
+      _$ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ApiV1StyleOutfitsResultPageGet$Response$Data$Records$ItemToJson(this);
+      _$ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$ItemToJson(
+        this,
+      );
 
   @JsonKey(name: 'taskId')
   final String? taskId;
@@ -7504,7 +7835,7 @@ class ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item {
   @JsonKey(name: 'totalDuration')
   final double? totalDuration;
   @JsonKey(name: 'requestParams')
-  final ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$RequestParams?
+  final ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$RequestParams?
   requestParams;
   @JsonKey(name: 'images', defaultValue: <Object>[])
   final List<Object>? images;
@@ -7520,24 +7851,25 @@ class ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item {
   final String? finalOutfitImage;
   @JsonKey(name: 'productLinks')
   final List<
-    ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item
+    ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item
   >?
   productLinks;
   @JsonKey(name: 'generationTime')
   final String? generationTime;
   @JsonKey(name: 'sharingImages')
-  final ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages?
+  final ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages?
   sharingImages;
   @JsonKey(name: 'sharingImagesStatus')
-  final ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImagesStatus?
+  final ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImagesStatus?
   sharingImagesStatus;
   static const fromJsonFactory =
-      _$ApiV1StyleOutfitsResultPageGet$Response$Data$Records$ItemFromJson;
+      _$ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item &&
+        (other
+                is ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item &&
             (identical(other.taskId, taskId) ||
                 const DeepCollectionEquality().equals(other.taskId, taskId)) &&
             (identical(other.status, status) ||
@@ -7638,16 +7970,17 @@ class ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item {
       runtimeType.hashCode;
 }
 
-extension $ApiV1StyleOutfitsResultPageGet$Response$Data$Records$ItemExtension
-    on ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item {
-  ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item copyWith({
+extension $ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$ItemExtension
+    on ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item {
+  ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item
+  copyWith({
     String? taskId,
     String? status,
     double? count,
     double? createdAt,
     double? completedAt,
     double? totalDuration,
-    ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$RequestParams?
+    ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$RequestParams?
     requestParams,
     List<Object>? images,
     String? aiSuggestionImage,
@@ -7656,16 +7989,16 @@ extension $ApiV1StyleOutfitsResultPageGet$Response$Data$Records$ItemExtension
     String? flattenedItemsImage,
     String? finalOutfitImage,
     List<
-      ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item
+      ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item
     >?
     productLinks,
     String? generationTime,
-    ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages?
+    ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages?
     sharingImages,
-    ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImagesStatus?
+    ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImagesStatus?
     sharingImagesStatus,
   }) {
-    return ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item(
+    return ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item(
       taskId: taskId ?? this.taskId,
       status: status ?? this.status,
       count: count ?? this.count,
@@ -7687,7 +8020,8 @@ extension $ApiV1StyleOutfitsResultPageGet$Response$Data$Records$ItemExtension
     );
   }
 
-  ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item copyWithWrapped({
+  ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item
+  copyWithWrapped({
     Wrapped<String?>? taskId,
     Wrapped<String?>? status,
     Wrapped<double?>? count,
@@ -7695,7 +8029,7 @@ extension $ApiV1StyleOutfitsResultPageGet$Response$Data$Records$ItemExtension
     Wrapped<double?>? completedAt,
     Wrapped<double?>? totalDuration,
     Wrapped<
-      ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$RequestParams?
+      ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$RequestParams?
     >?
     requestParams,
     Wrapped<List<Object>?>? images,
@@ -7706,21 +8040,21 @@ extension $ApiV1StyleOutfitsResultPageGet$Response$Data$Records$ItemExtension
     Wrapped<String?>? finalOutfitImage,
     Wrapped<
       List<
-        ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item
+        ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item
       >?
     >?
     productLinks,
     Wrapped<String?>? generationTime,
     Wrapped<
-      ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages?
+      ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages?
     >?
     sharingImages,
     Wrapped<
-      ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImagesStatus?
+      ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImagesStatus?
     >?
     sharingImagesStatus,
   }) {
-    return ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item(
+    return ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item(
       taskId: (taskId != null ? taskId.value : this.taskId),
       status: (status != null ? status.value : this.status),
       count: (count != null ? count.value : this.count),
@@ -7765,23 +8099,23 @@ extension $ApiV1StyleOutfitsResultPageGet$Response$Data$Records$ItemExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ApiV1StyleOutfitsModelIdStatusGet$Response$Data$GeneratedModels$Item {
-  const ApiV1StyleOutfitsModelIdStatusGet$Response$Data$GeneratedModels$Item({
+class ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response$Data$GeneratedModels$Item {
+  const ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response$Data$GeneratedModels$Item({
     required this.index,
     required this.url,
   });
 
-  factory ApiV1StyleOutfitsModelIdStatusGet$Response$Data$GeneratedModels$Item.fromJson(
+  factory ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response$Data$GeneratedModels$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ApiV1StyleOutfitsModelIdStatusGet$Response$Data$GeneratedModels$ItemFromJson(
+      _$ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response$Data$GeneratedModels$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$ApiV1StyleOutfitsModelIdStatusGet$Response$Data$GeneratedModels$ItemToJson;
+      _$ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response$Data$GeneratedModels$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ApiV1StyleOutfitsModelIdStatusGet$Response$Data$GeneratedModels$ItemToJson(
+      _$ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response$Data$GeneratedModels$ItemToJson(
         this,
       );
 
@@ -7790,12 +8124,13 @@ class ApiV1StyleOutfitsModelIdStatusGet$Response$Data$GeneratedModels$Item {
   @JsonKey(name: 'url')
   final String url;
   static const fromJsonFactory =
-      _$ApiV1StyleOutfitsModelIdStatusGet$Response$Data$GeneratedModels$ItemFromJson;
+      _$ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response$Data$GeneratedModels$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ApiV1StyleOutfitsModelIdStatusGet$Response$Data$GeneratedModels$Item &&
+        (other
+                is ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response$Data$GeneratedModels$Item &&
             (identical(other.index, index) ||
                 const DeepCollectionEquality().equals(other.index, index)) &&
             (identical(other.url, url) ||
@@ -7812,19 +8147,20 @@ class ApiV1StyleOutfitsModelIdStatusGet$Response$Data$GeneratedModels$Item {
       runtimeType.hashCode;
 }
 
-extension $ApiV1StyleOutfitsModelIdStatusGet$Response$Data$GeneratedModels$ItemExtension
-    on ApiV1StyleOutfitsModelIdStatusGet$Response$Data$GeneratedModels$Item {
-  ApiV1StyleOutfitsModelIdStatusGet$Response$Data$GeneratedModels$Item
+extension $ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response$Data$GeneratedModels$ItemExtension
+    on
+        ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response$Data$GeneratedModels$Item {
+  ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response$Data$GeneratedModels$Item
   copyWith({double? index, String? url}) {
-    return ApiV1StyleOutfitsModelIdStatusGet$Response$Data$GeneratedModels$Item(
+    return ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response$Data$GeneratedModels$Item(
       index: index ?? this.index,
       url: url ?? this.url,
     );
   }
 
-  ApiV1StyleOutfitsModelIdStatusGet$Response$Data$GeneratedModels$Item
+  ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response$Data$GeneratedModels$Item
   copyWithWrapped({Wrapped<double>? index, Wrapped<String>? url}) {
-    return ApiV1StyleOutfitsModelIdStatusGet$Response$Data$GeneratedModels$Item(
+    return ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response$Data$GeneratedModels$Item(
       index: (index != null ? index.value : this.index),
       url: (url != null ? url.value : this.url),
     );
@@ -7832,8 +8168,8 @@ extension $ApiV1StyleOutfitsModelIdStatusGet$Response$Data$GeneratedModels$ItemE
 }
 
 @JsonSerializable(explicitToJson: true)
-class ApiV1StyleOutfitsResultGet$Response$Data$RequestParams {
-  const ApiV1StyleOutfitsResultGet$Response$Data$RequestParams({
+class ComboServiceApiV1StyleOutfitsResultGet$Response$Data$RequestParams {
+  const ComboServiceApiV1StyleOutfitsResultGet$Response$Data$RequestParams({
     this.referenceImages,
     this.customPrompt,
     this.gender,
@@ -7849,14 +8185,19 @@ class ApiV1StyleOutfitsResultGet$Response$Data$RequestParams {
     this.useMultiModelImage,
   });
 
-  factory ApiV1StyleOutfitsResultGet$Response$Data$RequestParams.fromJson(
+  factory ComboServiceApiV1StyleOutfitsResultGet$Response$Data$RequestParams.fromJson(
     Map<String, dynamic> json,
-  ) => _$ApiV1StyleOutfitsResultGet$Response$Data$RequestParamsFromJson(json);
+  ) =>
+      _$ComboServiceApiV1StyleOutfitsResultGet$Response$Data$RequestParamsFromJson(
+        json,
+      );
 
   static const toJsonFactory =
-      _$ApiV1StyleOutfitsResultGet$Response$Data$RequestParamsToJson;
+      _$ComboServiceApiV1StyleOutfitsResultGet$Response$Data$RequestParamsToJson;
   Map<String, dynamic> toJson() =>
-      _$ApiV1StyleOutfitsResultGet$Response$Data$RequestParamsToJson(this);
+      _$ComboServiceApiV1StyleOutfitsResultGet$Response$Data$RequestParamsToJson(
+        this,
+      );
 
   @JsonKey(name: 'referenceImages', defaultValue: <String>[])
   final List<String>? referenceImages;
@@ -7885,12 +8226,13 @@ class ApiV1StyleOutfitsResultGet$Response$Data$RequestParams {
   @JsonKey(name: 'useMultiModelImage')
   final bool? useMultiModelImage;
   static const fromJsonFactory =
-      _$ApiV1StyleOutfitsResultGet$Response$Data$RequestParamsFromJson;
+      _$ComboServiceApiV1StyleOutfitsResultGet$Response$Data$RequestParamsFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ApiV1StyleOutfitsResultGet$Response$Data$RequestParams &&
+        (other
+                is ComboServiceApiV1StyleOutfitsResultGet$Response$Data$RequestParams &&
             (identical(other.referenceImages, referenceImages) ||
                 const DeepCollectionEquality().equals(
                   other.referenceImages,
@@ -7967,9 +8309,9 @@ class ApiV1StyleOutfitsResultGet$Response$Data$RequestParams {
       runtimeType.hashCode;
 }
 
-extension $ApiV1StyleOutfitsResultGet$Response$Data$RequestParamsExtension
-    on ApiV1StyleOutfitsResultGet$Response$Data$RequestParams {
-  ApiV1StyleOutfitsResultGet$Response$Data$RequestParams copyWith({
+extension $ComboServiceApiV1StyleOutfitsResultGet$Response$Data$RequestParamsExtension
+    on ComboServiceApiV1StyleOutfitsResultGet$Response$Data$RequestParams {
+  ComboServiceApiV1StyleOutfitsResultGet$Response$Data$RequestParams copyWith({
     List<String>? referenceImages,
     String? customPrompt,
     double? gender,
@@ -7984,7 +8326,7 @@ extension $ApiV1StyleOutfitsResultGet$Response$Data$RequestParamsExtension
     String? occasion,
     bool? useMultiModelImage,
   }) {
-    return ApiV1StyleOutfitsResultGet$Response$Data$RequestParams(
+    return ComboServiceApiV1StyleOutfitsResultGet$Response$Data$RequestParams(
       referenceImages: referenceImages ?? this.referenceImages,
       customPrompt: customPrompt ?? this.customPrompt,
       gender: gender ?? this.gender,
@@ -8001,7 +8343,8 @@ extension $ApiV1StyleOutfitsResultGet$Response$Data$RequestParamsExtension
     );
   }
 
-  ApiV1StyleOutfitsResultGet$Response$Data$RequestParams copyWithWrapped({
+  ComboServiceApiV1StyleOutfitsResultGet$Response$Data$RequestParams
+  copyWithWrapped({
     Wrapped<List<String>?>? referenceImages,
     Wrapped<String?>? customPrompt,
     Wrapped<double?>? gender,
@@ -8016,7 +8359,7 @@ extension $ApiV1StyleOutfitsResultGet$Response$Data$RequestParamsExtension
     Wrapped<String?>? occasion,
     Wrapped<bool?>? useMultiModelImage,
   }) {
-    return ApiV1StyleOutfitsResultGet$Response$Data$RequestParams(
+    return ComboServiceApiV1StyleOutfitsResultGet$Response$Data$RequestParams(
       referenceImages: (referenceImages != null
           ? referenceImages.value
           : this.referenceImages),
@@ -8051,8 +8394,8 @@ extension $ApiV1StyleOutfitsResultGet$Response$Data$RequestParamsExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item {
-  const ApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item({
+class ComboServiceApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item {
+  const ComboServiceApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item({
     this.name,
     this.title,
     this.link,
@@ -8069,16 +8412,19 @@ class ApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item {
     this.cachedImageUpdatedAt,
   });
 
-  factory ApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item.fromJson(
+  factory ComboServiceApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item.fromJson(
     Map<String, dynamic> json,
-  ) => _$ApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$ItemFromJson(
-    json,
-  );
+  ) =>
+      _$ComboServiceApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$ItemFromJson(
+        json,
+      );
 
   static const toJsonFactory =
-      _$ApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$ItemToJson;
+      _$ComboServiceApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$ItemToJson(this);
+      _$ComboServiceApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$ItemToJson(
+        this,
+      );
 
   @JsonKey(name: 'name')
   final String? name;
@@ -8100,7 +8446,7 @@ class ApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item {
   final double? selectedId;
   @JsonKey(name: 'options')
   final List<
-    ApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item$Options$Item
+    ComboServiceApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item$Options$Item
   >?
   options;
   @JsonKey(name: 'cachedImage')
@@ -8112,12 +8458,13 @@ class ApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item {
   @JsonKey(name: 'cachedImageUpdatedAt')
   final double? cachedImageUpdatedAt;
   static const fromJsonFactory =
-      _$ApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$ItemFromJson;
+      _$ComboServiceApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item &&
+        (other
+                is ComboServiceApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item &&
             (identical(other.name, name) ||
                 const DeepCollectionEquality().equals(other.name, name)) &&
             (identical(other.title, title) ||
@@ -8194,9 +8541,10 @@ class ApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item {
       runtimeType.hashCode;
 }
 
-extension $ApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$ItemExtension
-    on ApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item {
-  ApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item copyWith({
+extension $ComboServiceApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$ItemExtension
+    on ComboServiceApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item {
+  ComboServiceApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item
+  copyWith({
     String? name,
     String? title,
     String? link,
@@ -8207,7 +8555,7 @@ extension $ApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$ItemExtension
     String? pending,
     double? selectedId,
     List<
-      ApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item$Options$Item
+      ComboServiceApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item$Options$Item
     >?
     options,
     String? cachedImage,
@@ -8215,7 +8563,7 @@ extension $ApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$ItemExtension
     double? cachedImageSelectedId,
     double? cachedImageUpdatedAt,
   }) {
-    return ApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item(
+    return ComboServiceApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item(
       name: name ?? this.name,
       title: title ?? this.title,
       link: link ?? this.link,
@@ -8234,7 +8582,8 @@ extension $ApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$ItemExtension
     );
   }
 
-  ApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item copyWithWrapped({
+  ComboServiceApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item
+  copyWithWrapped({
     Wrapped<String?>? name,
     Wrapped<String?>? title,
     Wrapped<String?>? link,
@@ -8246,7 +8595,7 @@ extension $ApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$ItemExtension
     Wrapped<double?>? selectedId,
     Wrapped<
       List<
-        ApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item$Options$Item
+        ComboServiceApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item$Options$Item
       >?
     >?
     options,
@@ -8255,7 +8604,7 @@ extension $ApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$ItemExtension
     Wrapped<double?>? cachedImageSelectedId,
     Wrapped<double?>? cachedImageUpdatedAt,
   }) {
-    return ApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item(
+    return ComboServiceApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item(
       name: (name != null ? name.value : this.name),
       title: (title != null ? title.value : this.title),
       link: (link != null ? link.value : this.link),
@@ -8281,8 +8630,8 @@ extension $ApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$ItemExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ApiV1StyleOutfitsResultGet$Response$Data$SharingImages {
-  const ApiV1StyleOutfitsResultGet$Response$Data$SharingImages({
+class ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages {
+  const ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages({
     this.title,
     this.items,
     this.generatedAt,
@@ -8291,19 +8640,26 @@ class ApiV1StyleOutfitsResultGet$Response$Data$SharingImages {
     this.images,
   });
 
-  factory ApiV1StyleOutfitsResultGet$Response$Data$SharingImages.fromJson(
+  factory ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages.fromJson(
     Map<String, dynamic> json,
-  ) => _$ApiV1StyleOutfitsResultGet$Response$Data$SharingImagesFromJson(json);
+  ) =>
+      _$ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImagesFromJson(
+        json,
+      );
 
   static const toJsonFactory =
-      _$ApiV1StyleOutfitsResultGet$Response$Data$SharingImagesToJson;
+      _$ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImagesToJson;
   Map<String, dynamic> toJson() =>
-      _$ApiV1StyleOutfitsResultGet$Response$Data$SharingImagesToJson(this);
+      _$ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImagesToJson(
+        this,
+      );
 
   @JsonKey(name: 'title')
   final String? title;
   @JsonKey(name: 'items')
-  final List<ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item>?
+  final List<
+    ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item
+  >?
   items;
   @JsonKey(name: 'generated_at')
   final double? generatedAt;
@@ -8313,16 +8669,16 @@ class ApiV1StyleOutfitsResultGet$Response$Data$SharingImages {
   final List<String>? whiteBgImages;
   @JsonKey(name: 'images')
   final List<
-    ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Images$Item
+    ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Images$Item
   >?
   images;
   static const fromJsonFactory =
-      _$ApiV1StyleOutfitsResultGet$Response$Data$SharingImagesFromJson;
+      _$ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImagesFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ApiV1StyleOutfitsResultGet$Response$Data$SharingImages &&
+        (other is ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages &&
             (identical(other.title, title) ||
                 const DeepCollectionEquality().equals(other.title, title)) &&
             (identical(other.items, items) ||
@@ -8360,19 +8716,23 @@ class ApiV1StyleOutfitsResultGet$Response$Data$SharingImages {
       runtimeType.hashCode;
 }
 
-extension $ApiV1StyleOutfitsResultGet$Response$Data$SharingImagesExtension
-    on ApiV1StyleOutfitsResultGet$Response$Data$SharingImages {
-  ApiV1StyleOutfitsResultGet$Response$Data$SharingImages copyWith({
+extension $ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImagesExtension
+    on ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages {
+  ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages copyWith({
     String? title,
-    List<ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item>?
+    List<
+      ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item
+    >?
     items,
     double? generatedAt,
     String? multiModelImageUrl,
     List<String>? whiteBgImages,
-    List<ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Images$Item>?
+    List<
+      ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Images$Item
+    >?
     images,
   }) {
-    return ApiV1StyleOutfitsResultGet$Response$Data$SharingImages(
+    return ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages(
       title: title ?? this.title,
       items: items ?? this.items,
       generatedAt: generatedAt ?? this.generatedAt,
@@ -8382,21 +8742,26 @@ extension $ApiV1StyleOutfitsResultGet$Response$Data$SharingImagesExtension
     );
   }
 
-  ApiV1StyleOutfitsResultGet$Response$Data$SharingImages copyWithWrapped({
+  ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages
+  copyWithWrapped({
     Wrapped<String?>? title,
     Wrapped<
-      List<ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item>?
+      List<
+        ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item
+      >?
     >?
     items,
     Wrapped<double?>? generatedAt,
     Wrapped<String?>? multiModelImageUrl,
     Wrapped<List<String>?>? whiteBgImages,
     Wrapped<
-      List<ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Images$Item>?
+      List<
+        ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Images$Item
+      >?
     >?
     images,
   }) {
-    return ApiV1StyleOutfitsResultGet$Response$Data$SharingImages(
+    return ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages(
       title: (title != null ? title.value : this.title),
       items: (items != null ? items.value : this.items),
       generatedAt: (generatedAt != null ? generatedAt.value : this.generatedAt),
@@ -8412,22 +8777,23 @@ extension $ApiV1StyleOutfitsResultGet$Response$Data$SharingImagesExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class ApiV1StyleOutfitsResultGet$Response$Data$SharingImagesStatus {
-  const ApiV1StyleOutfitsResultGet$Response$Data$SharingImagesStatus({
+class ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImagesStatus {
+  const ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImagesStatus({
     this.ready,
     this.count,
   });
 
-  factory ApiV1StyleOutfitsResultGet$Response$Data$SharingImagesStatus.fromJson(
+  factory ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImagesStatus.fromJson(
     Map<String, dynamic> json,
-  ) => _$ApiV1StyleOutfitsResultGet$Response$Data$SharingImagesStatusFromJson(
-    json,
-  );
+  ) =>
+      _$ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImagesStatusFromJson(
+        json,
+      );
 
   static const toJsonFactory =
-      _$ApiV1StyleOutfitsResultGet$Response$Data$SharingImagesStatusToJson;
+      _$ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImagesStatusToJson;
   Map<String, dynamic> toJson() =>
-      _$ApiV1StyleOutfitsResultGet$Response$Data$SharingImagesStatusToJson(
+      _$ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImagesStatusToJson(
         this,
       );
 
@@ -8436,12 +8802,13 @@ class ApiV1StyleOutfitsResultGet$Response$Data$SharingImagesStatus {
   @JsonKey(name: 'count')
   final double? count;
   static const fromJsonFactory =
-      _$ApiV1StyleOutfitsResultGet$Response$Data$SharingImagesStatusFromJson;
+      _$ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImagesStatusFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is ApiV1StyleOutfitsResultGet$Response$Data$SharingImagesStatus &&
+        (other
+                is ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImagesStatus &&
             (identical(other.ready, ready) ||
                 const DeepCollectionEquality().equals(other.ready, ready)) &&
             (identical(other.count, count) ||
@@ -8458,23 +8825,19 @@ class ApiV1StyleOutfitsResultGet$Response$Data$SharingImagesStatus {
       runtimeType.hashCode;
 }
 
-extension $ApiV1StyleOutfitsResultGet$Response$Data$SharingImagesStatusExtension
-    on ApiV1StyleOutfitsResultGet$Response$Data$SharingImagesStatus {
-  ApiV1StyleOutfitsResultGet$Response$Data$SharingImagesStatus copyWith({
-    bool? ready,
-    double? count,
-  }) {
-    return ApiV1StyleOutfitsResultGet$Response$Data$SharingImagesStatus(
+extension $ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImagesStatusExtension
+    on ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImagesStatus {
+  ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImagesStatus
+  copyWith({bool? ready, double? count}) {
+    return ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImagesStatus(
       ready: ready ?? this.ready,
       count: count ?? this.count,
     );
   }
 
-  ApiV1StyleOutfitsResultGet$Response$Data$SharingImagesStatus copyWithWrapped({
-    Wrapped<bool?>? ready,
-    Wrapped<double?>? count,
-  }) {
-    return ApiV1StyleOutfitsResultGet$Response$Data$SharingImagesStatus(
+  ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImagesStatus
+  copyWithWrapped({Wrapped<bool?>? ready, Wrapped<double?>? count}) {
+    return ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImagesStatus(
       ready: (ready != null ? ready.value : this.ready),
       count: (count != null ? count.value : this.count),
     );
@@ -8482,36 +8845,42 @@ extension $ApiV1StyleOutfitsResultGet$Response$Data$SharingImagesStatusExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class BizAiFashionModelListGet$Response$Data$Models$Item {
-  const BizAiFashionModelListGet$Response$Data$Models$Item({
+class ComboServiceBizAiFashionModelListGet$Response$Data$Models$Item {
+  const ComboServiceBizAiFashionModelListGet$Response$Data$Models$Item({
     this.groupId,
     this.title,
     this.data,
   });
 
-  factory BizAiFashionModelListGet$Response$Data$Models$Item.fromJson(
+  factory ComboServiceBizAiFashionModelListGet$Response$Data$Models$Item.fromJson(
     Map<String, dynamic> json,
-  ) => _$BizAiFashionModelListGet$Response$Data$Models$ItemFromJson(json);
+  ) => _$ComboServiceBizAiFashionModelListGet$Response$Data$Models$ItemFromJson(
+    json,
+  );
 
   static const toJsonFactory =
-      _$BizAiFashionModelListGet$Response$Data$Models$ItemToJson;
+      _$ComboServiceBizAiFashionModelListGet$Response$Data$Models$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$BizAiFashionModelListGet$Response$Data$Models$ItemToJson(this);
+      _$ComboServiceBizAiFashionModelListGet$Response$Data$Models$ItemToJson(
+        this,
+      );
 
   @JsonKey(name: 'groupId')
   final double? groupId;
   @JsonKey(name: 'title')
   final String? title;
   @JsonKey(name: 'data')
-  final List<BizAiFashionModelListGet$Response$Data$Models$Item$Data$Item>?
+  final List<
+    ComboServiceBizAiFashionModelListGet$Response$Data$Models$Item$Data$Item
+  >?
   data;
   static const fromJsonFactory =
-      _$BizAiFashionModelListGet$Response$Data$Models$ItemFromJson;
+      _$ComboServiceBizAiFashionModelListGet$Response$Data$Models$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is BizAiFashionModelListGet$Response$Data$Models$Item &&
+        (other is ComboServiceBizAiFashionModelListGet$Response$Data$Models$Item &&
             (identical(other.groupId, groupId) ||
                 const DeepCollectionEquality().equals(
                   other.groupId,
@@ -8534,29 +8903,35 @@ class BizAiFashionModelListGet$Response$Data$Models$Item {
       runtimeType.hashCode;
 }
 
-extension $BizAiFashionModelListGet$Response$Data$Models$ItemExtension
-    on BizAiFashionModelListGet$Response$Data$Models$Item {
-  BizAiFashionModelListGet$Response$Data$Models$Item copyWith({
+extension $ComboServiceBizAiFashionModelListGet$Response$Data$Models$ItemExtension
+    on ComboServiceBizAiFashionModelListGet$Response$Data$Models$Item {
+  ComboServiceBizAiFashionModelListGet$Response$Data$Models$Item copyWith({
     double? groupId,
     String? title,
-    List<BizAiFashionModelListGet$Response$Data$Models$Item$Data$Item>? data,
+    List<
+      ComboServiceBizAiFashionModelListGet$Response$Data$Models$Item$Data$Item
+    >?
+    data,
   }) {
-    return BizAiFashionModelListGet$Response$Data$Models$Item(
+    return ComboServiceBizAiFashionModelListGet$Response$Data$Models$Item(
       groupId: groupId ?? this.groupId,
       title: title ?? this.title,
       data: data ?? this.data,
     );
   }
 
-  BizAiFashionModelListGet$Response$Data$Models$Item copyWithWrapped({
+  ComboServiceBizAiFashionModelListGet$Response$Data$Models$Item
+  copyWithWrapped({
     Wrapped<double?>? groupId,
     Wrapped<String?>? title,
     Wrapped<
-      List<BizAiFashionModelListGet$Response$Data$Models$Item$Data$Item>?
+      List<
+        ComboServiceBizAiFashionModelListGet$Response$Data$Models$Item$Data$Item
+      >?
     >?
     data,
   }) {
-    return BizAiFashionModelListGet$Response$Data$Models$Item(
+    return ComboServiceBizAiFashionModelListGet$Response$Data$Models$Item(
       groupId: (groupId != null ? groupId.value : this.groupId),
       title: (title != null ? title.value : this.title),
       data: (data != null ? data.value : this.data),
@@ -8565,24 +8940,24 @@ extension $BizAiFashionModelListGet$Response$Data$Models$ItemExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class BizAiFashionNoAuthStylePresetGet$Response$Data$ReferenceImages$Item {
-  const BizAiFashionNoAuthStylePresetGet$Response$Data$ReferenceImages$Item({
+class ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$ReferenceImages$Item {
+  const ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$ReferenceImages$Item({
     required this.width,
     required this.height,
     required this.url,
   });
 
-  factory BizAiFashionNoAuthStylePresetGet$Response$Data$ReferenceImages$Item.fromJson(
+  factory ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$ReferenceImages$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$BizAiFashionNoAuthStylePresetGet$Response$Data$ReferenceImages$ItemFromJson(
+      _$ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$ReferenceImages$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$BizAiFashionNoAuthStylePresetGet$Response$Data$ReferenceImages$ItemToJson;
+      _$ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$ReferenceImages$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$BizAiFashionNoAuthStylePresetGet$Response$Data$ReferenceImages$ItemToJson(
+      _$ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$ReferenceImages$ItemToJson(
         this,
       );
 
@@ -8593,12 +8968,13 @@ class BizAiFashionNoAuthStylePresetGet$Response$Data$ReferenceImages$Item {
   @JsonKey(name: 'url')
   final String url;
   static const fromJsonFactory =
-      _$BizAiFashionNoAuthStylePresetGet$Response$Data$ReferenceImages$ItemFromJson;
+      _$ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$ReferenceImages$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is BizAiFashionNoAuthStylePresetGet$Response$Data$ReferenceImages$Item &&
+        (other
+                is ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$ReferenceImages$Item &&
             (identical(other.width, width) ||
                 const DeepCollectionEquality().equals(other.width, width)) &&
             (identical(other.height, height) ||
@@ -8618,27 +8994,25 @@ class BizAiFashionNoAuthStylePresetGet$Response$Data$ReferenceImages$Item {
       runtimeType.hashCode;
 }
 
-extension $BizAiFashionNoAuthStylePresetGet$Response$Data$ReferenceImages$ItemExtension
-    on BizAiFashionNoAuthStylePresetGet$Response$Data$ReferenceImages$Item {
-  BizAiFashionNoAuthStylePresetGet$Response$Data$ReferenceImages$Item copyWith({
-    int? width,
-    int? height,
-    String? url,
-  }) {
-    return BizAiFashionNoAuthStylePresetGet$Response$Data$ReferenceImages$Item(
+extension $ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$ReferenceImages$ItemExtension
+    on
+        ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$ReferenceImages$Item {
+  ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$ReferenceImages$Item
+  copyWith({int? width, int? height, String? url}) {
+    return ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$ReferenceImages$Item(
       width: width ?? this.width,
       height: height ?? this.height,
       url: url ?? this.url,
     );
   }
 
-  BizAiFashionNoAuthStylePresetGet$Response$Data$ReferenceImages$Item
+  ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$ReferenceImages$Item
   copyWithWrapped({
     Wrapped<int>? width,
     Wrapped<int>? height,
     Wrapped<String>? url,
   }) {
-    return BizAiFashionNoAuthStylePresetGet$Response$Data$ReferenceImages$Item(
+    return ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$ReferenceImages$Item(
       width: (width != null ? width.value : this.width),
       height: (height != null ? height.value : this.height),
       url: (url != null ? url.value : this.url),
@@ -8647,32 +9021,38 @@ extension $BizAiFashionNoAuthStylePresetGet$Response$Data$ReferenceImages$ItemEx
 }
 
 @JsonSerializable(explicitToJson: true)
-class BizAiFashionNoAuthStylePresetGet$Response$Data$Option {
-  const BizAiFashionNoAuthStylePresetGet$Response$Data$Option({
+class ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$Option {
+  const ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$Option({
     this.occasion,
     this.styleTrendyElements,
   });
 
-  factory BizAiFashionNoAuthStylePresetGet$Response$Data$Option.fromJson(
+  factory ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$Option.fromJson(
     Map<String, dynamic> json,
-  ) => _$BizAiFashionNoAuthStylePresetGet$Response$Data$OptionFromJson(json);
+  ) =>
+      _$ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$OptionFromJson(
+        json,
+      );
 
   static const toJsonFactory =
-      _$BizAiFashionNoAuthStylePresetGet$Response$Data$OptionToJson;
+      _$ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$OptionToJson;
   Map<String, dynamic> toJson() =>
-      _$BizAiFashionNoAuthStylePresetGet$Response$Data$OptionToJson(this);
+      _$ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$OptionToJson(
+        this,
+      );
 
   @JsonKey(name: 'occasion')
   final String? occasion;
   @JsonKey(name: 'styleTrendyElements')
   final String? styleTrendyElements;
   static const fromJsonFactory =
-      _$BizAiFashionNoAuthStylePresetGet$Response$Data$OptionFromJson;
+      _$ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$OptionFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is BizAiFashionNoAuthStylePresetGet$Response$Data$Option &&
+        (other
+                is ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$Option &&
             (identical(other.occasion, occasion) ||
                 const DeepCollectionEquality().equals(
                   other.occasion,
@@ -8695,23 +9075,24 @@ class BizAiFashionNoAuthStylePresetGet$Response$Data$Option {
       runtimeType.hashCode;
 }
 
-extension $BizAiFashionNoAuthStylePresetGet$Response$Data$OptionExtension
-    on BizAiFashionNoAuthStylePresetGet$Response$Data$Option {
-  BizAiFashionNoAuthStylePresetGet$Response$Data$Option copyWith({
+extension $ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$OptionExtension
+    on ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$Option {
+  ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$Option copyWith({
     String? occasion,
     String? styleTrendyElements,
   }) {
-    return BizAiFashionNoAuthStylePresetGet$Response$Data$Option(
+    return ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$Option(
       occasion: occasion ?? this.occasion,
       styleTrendyElements: styleTrendyElements ?? this.styleTrendyElements,
     );
   }
 
-  BizAiFashionNoAuthStylePresetGet$Response$Data$Option copyWithWrapped({
+  ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$Option
+  copyWithWrapped({
     Wrapped<String?>? occasion,
     Wrapped<String?>? styleTrendyElements,
   }) {
-    return BizAiFashionNoAuthStylePresetGet$Response$Data$Option(
+    return ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$Option(
       occasion: (occasion != null ? occasion.value : this.occasion),
       styleTrendyElements: (styleTrendyElements != null
           ? styleTrendyElements.value
@@ -8721,8 +9102,8 @@ extension $BizAiFashionNoAuthStylePresetGet$Response$Data$OptionExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class BizAiFashionNoAuthStylePresetGet$Response$Data$ModelInfo {
-  const BizAiFashionNoAuthStylePresetGet$Response$Data$ModelInfo({
+class ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$ModelInfo {
+  const ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$ModelInfo({
     this.id,
     this.tenantCode,
     this.userId,
@@ -8737,14 +9118,19 @@ class BizAiFashionNoAuthStylePresetGet$Response$Data$ModelInfo {
     this.groupId,
   });
 
-  factory BizAiFashionNoAuthStylePresetGet$Response$Data$ModelInfo.fromJson(
+  factory ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$ModelInfo.fromJson(
     Map<String, dynamic> json,
-  ) => _$BizAiFashionNoAuthStylePresetGet$Response$Data$ModelInfoFromJson(json);
+  ) =>
+      _$ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$ModelInfoFromJson(
+        json,
+      );
 
   static const toJsonFactory =
-      _$BizAiFashionNoAuthStylePresetGet$Response$Data$ModelInfoToJson;
+      _$ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$ModelInfoToJson;
   Map<String, dynamic> toJson() =>
-      _$BizAiFashionNoAuthStylePresetGet$Response$Data$ModelInfoToJson(this);
+      _$ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$ModelInfoToJson(
+        this,
+      );
 
   @JsonKey(name: 'id')
   final int? id;
@@ -8771,12 +9157,12 @@ class BizAiFashionNoAuthStylePresetGet$Response$Data$ModelInfo {
   @JsonKey(name: 'groupId')
   final int? groupId;
   static const fromJsonFactory =
-      _$BizAiFashionNoAuthStylePresetGet$Response$Data$ModelInfoFromJson;
+      _$ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$ModelInfoFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is BizAiFashionNoAuthStylePresetGet$Response$Data$ModelInfo &&
+        (other is ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$ModelInfo &&
             (identical(other.id, id) ||
                 const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.tenantCode, tenantCode) ||
@@ -8847,9 +9233,10 @@ class BizAiFashionNoAuthStylePresetGet$Response$Data$ModelInfo {
       runtimeType.hashCode;
 }
 
-extension $BizAiFashionNoAuthStylePresetGet$Response$Data$ModelInfoExtension
-    on BizAiFashionNoAuthStylePresetGet$Response$Data$ModelInfo {
-  BizAiFashionNoAuthStylePresetGet$Response$Data$ModelInfo copyWith({
+extension $ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$ModelInfoExtension
+    on ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$ModelInfo {
+  ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$ModelInfo
+  copyWith({
     int? id,
     String? tenantCode,
     String? userId,
@@ -8863,7 +9250,7 @@ extension $BizAiFashionNoAuthStylePresetGet$Response$Data$ModelInfoExtension
     DateTime? gmtUpdate,
     int? groupId,
   }) {
-    return BizAiFashionNoAuthStylePresetGet$Response$Data$ModelInfo(
+    return ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$ModelInfo(
       id: id ?? this.id,
       tenantCode: tenantCode ?? this.tenantCode,
       userId: userId ?? this.userId,
@@ -8879,7 +9266,8 @@ extension $BizAiFashionNoAuthStylePresetGet$Response$Data$ModelInfoExtension
     );
   }
 
-  BizAiFashionNoAuthStylePresetGet$Response$Data$ModelInfo copyWithWrapped({
+  ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$ModelInfo
+  copyWithWrapped({
     Wrapped<int?>? id,
     Wrapped<String?>? tenantCode,
     Wrapped<String?>? userId,
@@ -8893,7 +9281,7 @@ extension $BizAiFashionNoAuthStylePresetGet$Response$Data$ModelInfoExtension
     Wrapped<DateTime?>? gmtUpdate,
     Wrapped<int?>? groupId,
   }) {
-    return BizAiFashionNoAuthStylePresetGet$Response$Data$ModelInfo(
+    return ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$ModelInfo(
       id: (id != null ? id.value : this.id),
       tenantCode: (tenantCode != null ? tenantCode.value : this.tenantCode),
       userId: (userId != null ? userId.value : this.userId),
@@ -8913,8 +9301,8 @@ extension $BizAiFashionNoAuthStylePresetGet$Response$Data$ModelInfoExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class BizAiFashionNoAuthPostListGet$Response$Data$Posts$Item {
-  const BizAiFashionNoAuthPostListGet$Response$Data$Posts$Item({
+class ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item {
+  const ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item({
     this.images,
     this.prompt,
     this.postTitle,
@@ -8922,18 +9310,23 @@ class BizAiFashionNoAuthPostListGet$Response$Data$Posts$Item {
     this.frontImage,
   });
 
-  factory BizAiFashionNoAuthPostListGet$Response$Data$Posts$Item.fromJson(
+  factory ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item.fromJson(
     Map<String, dynamic> json,
-  ) => _$BizAiFashionNoAuthPostListGet$Response$Data$Posts$ItemFromJson(json);
+  ) =>
+      _$ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$ItemFromJson(
+        json,
+      );
 
   static const toJsonFactory =
-      _$BizAiFashionNoAuthPostListGet$Response$Data$Posts$ItemToJson;
+      _$ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$BizAiFashionNoAuthPostListGet$Response$Data$Posts$ItemToJson(this);
+      _$ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$ItemToJson(
+        this,
+      );
 
   @JsonKey(name: 'images')
   final List<
-    BizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$Images$Item
+    ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$Images$Item
   >?
   images;
   @JsonKey(name: 'prompt')
@@ -8943,15 +9336,16 @@ class BizAiFashionNoAuthPostListGet$Response$Data$Posts$Item {
   @JsonKey(name: 'postId')
   final double? postId;
   @JsonKey(name: 'frontImage')
-  final BizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$FrontImage?
+  final ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$FrontImage?
   frontImage;
   static const fromJsonFactory =
-      _$BizAiFashionNoAuthPostListGet$Response$Data$Posts$ItemFromJson;
+      _$ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is BizAiFashionNoAuthPostListGet$Response$Data$Posts$Item &&
+        (other
+                is ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item &&
             (identical(other.images, images) ||
                 const DeepCollectionEquality().equals(other.images, images)) &&
             (identical(other.prompt, prompt) ||
@@ -8983,18 +9377,20 @@ class BizAiFashionNoAuthPostListGet$Response$Data$Posts$Item {
       runtimeType.hashCode;
 }
 
-extension $BizAiFashionNoAuthPostListGet$Response$Data$Posts$ItemExtension
-    on BizAiFashionNoAuthPostListGet$Response$Data$Posts$Item {
-  BizAiFashionNoAuthPostListGet$Response$Data$Posts$Item copyWith({
-    List<BizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$Images$Item>?
+extension $ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$ItemExtension
+    on ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item {
+  ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item copyWith({
+    List<
+      ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$Images$Item
+    >?
     images,
     String? prompt,
     String? postTitle,
     double? postId,
-    BizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$FrontImage?
+    ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$FrontImage?
     frontImage,
   }) {
-    return BizAiFashionNoAuthPostListGet$Response$Data$Posts$Item(
+    return ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item(
       images: images ?? this.images,
       prompt: prompt ?? this.prompt,
       postTitle: postTitle ?? this.postTitle,
@@ -9003,18 +9399,23 @@ extension $BizAiFashionNoAuthPostListGet$Response$Data$Posts$ItemExtension
     );
   }
 
-  BizAiFashionNoAuthPostListGet$Response$Data$Posts$Item copyWithWrapped({
+  ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item
+  copyWithWrapped({
     Wrapped<
-      List<BizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$Images$Item>?
+      List<
+        ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$Images$Item
+      >?
     >?
     images,
     Wrapped<String?>? prompt,
     Wrapped<String?>? postTitle,
     Wrapped<double?>? postId,
-    Wrapped<BizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$FrontImage?>?
+    Wrapped<
+      ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$FrontImage?
+    >?
     frontImage,
   }) {
-    return BizAiFashionNoAuthPostListGet$Response$Data$Posts$Item(
+    return ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item(
       images: (images != null ? images.value : this.images),
       prompt: (prompt != null ? prompt.value : this.prompt),
       postTitle: (postTitle != null ? postTitle.value : this.postTitle),
@@ -9025,98 +9426,26 @@ extension $BizAiFashionNoAuthPostListGet$Response$Data$Posts$ItemExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class BizAiFashionNoAuthPostDetailGet$Response$Data$FrontImage {
-  const BizAiFashionNoAuthPostDetailGet$Response$Data$FrontImage({
+class ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FrontImage {
+  const ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FrontImage({
     this.width,
     this.height,
     this.url,
   });
 
-  factory BizAiFashionNoAuthPostDetailGet$Response$Data$FrontImage.fromJson(
-    Map<String, dynamic> json,
-  ) => _$BizAiFashionNoAuthPostDetailGet$Response$Data$FrontImageFromJson(json);
-
-  static const toJsonFactory =
-      _$BizAiFashionNoAuthPostDetailGet$Response$Data$FrontImageToJson;
-  Map<String, dynamic> toJson() =>
-      _$BizAiFashionNoAuthPostDetailGet$Response$Data$FrontImageToJson(this);
-
-  @JsonKey(name: 'width')
-  final double? width;
-  @JsonKey(name: 'height')
-  final double? height;
-  @JsonKey(name: 'url')
-  final String? url;
-  static const fromJsonFactory =
-      _$BizAiFashionNoAuthPostDetailGet$Response$Data$FrontImageFromJson;
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other is BizAiFashionNoAuthPostDetailGet$Response$Data$FrontImage &&
-            (identical(other.width, width) ||
-                const DeepCollectionEquality().equals(other.width, width)) &&
-            (identical(other.height, height) ||
-                const DeepCollectionEquality().equals(other.height, height)) &&
-            (identical(other.url, url) ||
-                const DeepCollectionEquality().equals(other.url, url)));
-  }
-
-  @override
-  String toString() => jsonEncode(this);
-
-  @override
-  int get hashCode =>
-      const DeepCollectionEquality().hash(width) ^
-      const DeepCollectionEquality().hash(height) ^
-      const DeepCollectionEquality().hash(url) ^
-      runtimeType.hashCode;
-}
-
-extension $BizAiFashionNoAuthPostDetailGet$Response$Data$FrontImageExtension
-    on BizAiFashionNoAuthPostDetailGet$Response$Data$FrontImage {
-  BizAiFashionNoAuthPostDetailGet$Response$Data$FrontImage copyWith({
-    double? width,
-    double? height,
-    String? url,
-  }) {
-    return BizAiFashionNoAuthPostDetailGet$Response$Data$FrontImage(
-      width: width ?? this.width,
-      height: height ?? this.height,
-      url: url ?? this.url,
-    );
-  }
-
-  BizAiFashionNoAuthPostDetailGet$Response$Data$FrontImage copyWithWrapped({
-    Wrapped<double?>? width,
-    Wrapped<double?>? height,
-    Wrapped<String?>? url,
-  }) {
-    return BizAiFashionNoAuthPostDetailGet$Response$Data$FrontImage(
-      width: (width != null ? width.value : this.width),
-      height: (height != null ? height.value : this.height),
-      url: (url != null ? url.value : this.url),
-    );
-  }
-}
-
-@JsonSerializable(explicitToJson: true)
-class BizAiFashionNoAuthPostDetailGet$Response$Data$HeaderImage {
-  const BizAiFashionNoAuthPostDetailGet$Response$Data$HeaderImage({
-    this.width,
-    this.height,
-    this.url,
-  });
-
-  factory BizAiFashionNoAuthPostDetailGet$Response$Data$HeaderImage.fromJson(
+  factory ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FrontImage.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$BizAiFashionNoAuthPostDetailGet$Response$Data$HeaderImageFromJson(json);
+      _$ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FrontImageFromJson(
+        json,
+      );
 
   static const toJsonFactory =
-      _$BizAiFashionNoAuthPostDetailGet$Response$Data$HeaderImageToJson;
+      _$ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FrontImageToJson;
   Map<String, dynamic> toJson() =>
-      _$BizAiFashionNoAuthPostDetailGet$Response$Data$HeaderImageToJson(this);
+      _$ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FrontImageToJson(
+        this,
+      );
 
   @JsonKey(name: 'width')
   final double? width;
@@ -9125,12 +9454,12 @@ class BizAiFashionNoAuthPostDetailGet$Response$Data$HeaderImage {
   @JsonKey(name: 'url')
   final String? url;
   static const fromJsonFactory =
-      _$BizAiFashionNoAuthPostDetailGet$Response$Data$HeaderImageFromJson;
+      _$ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FrontImageFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is BizAiFashionNoAuthPostDetailGet$Response$Data$HeaderImage &&
+        (other is ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FrontImage &&
             (identical(other.width, width) ||
                 const DeepCollectionEquality().equals(other.width, width)) &&
             (identical(other.height, height) ||
@@ -9150,26 +9479,24 @@ class BizAiFashionNoAuthPostDetailGet$Response$Data$HeaderImage {
       runtimeType.hashCode;
 }
 
-extension $BizAiFashionNoAuthPostDetailGet$Response$Data$HeaderImageExtension
-    on BizAiFashionNoAuthPostDetailGet$Response$Data$HeaderImage {
-  BizAiFashionNoAuthPostDetailGet$Response$Data$HeaderImage copyWith({
-    double? width,
-    double? height,
-    String? url,
-  }) {
-    return BizAiFashionNoAuthPostDetailGet$Response$Data$HeaderImage(
+extension $ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FrontImageExtension
+    on ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FrontImage {
+  ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FrontImage
+  copyWith({double? width, double? height, String? url}) {
+    return ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FrontImage(
       width: width ?? this.width,
       height: height ?? this.height,
       url: url ?? this.url,
     );
   }
 
-  BizAiFashionNoAuthPostDetailGet$Response$Data$HeaderImage copyWithWrapped({
+  ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FrontImage
+  copyWithWrapped({
     Wrapped<double?>? width,
     Wrapped<double?>? height,
     Wrapped<String?>? url,
   }) {
-    return BizAiFashionNoAuthPostDetailGet$Response$Data$HeaderImage(
+    return ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FrontImage(
       width: (width != null ? width.value : this.width),
       height: (height != null ? height.value : this.height),
       url: (url != null ? url.value : this.url),
@@ -9178,21 +9505,106 @@ extension $BizAiFashionNoAuthPostDetailGet$Response$Data$HeaderImageExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class BizAiFashionNoAuthPostDetailGet$Response$Data$ModelImage {
-  const BizAiFashionNoAuthPostDetailGet$Response$Data$ModelImage({
+class ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$HeaderImage {
+  const ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$HeaderImage({
+    this.width,
+    this.height,
+    this.url,
+  });
+
+  factory ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$HeaderImage.fromJson(
+    Map<String, dynamic> json,
+  ) =>
+      _$ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$HeaderImageFromJson(
+        json,
+      );
+
+  static const toJsonFactory =
+      _$ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$HeaderImageToJson;
+  Map<String, dynamic> toJson() =>
+      _$ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$HeaderImageToJson(
+        this,
+      );
+
+  @JsonKey(name: 'width')
+  final double? width;
+  @JsonKey(name: 'height')
+  final double? height;
+  @JsonKey(name: 'url')
+  final String? url;
+  static const fromJsonFactory =
+      _$ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$HeaderImageFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other
+                is ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$HeaderImage &&
+            (identical(other.width, width) ||
+                const DeepCollectionEquality().equals(other.width, width)) &&
+            (identical(other.height, height) ||
+                const DeepCollectionEquality().equals(other.height, height)) &&
+            (identical(other.url, url) ||
+                const DeepCollectionEquality().equals(other.url, url)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(width) ^
+      const DeepCollectionEquality().hash(height) ^
+      const DeepCollectionEquality().hash(url) ^
+      runtimeType.hashCode;
+}
+
+extension $ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$HeaderImageExtension
+    on ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$HeaderImage {
+  ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$HeaderImage
+  copyWith({double? width, double? height, String? url}) {
+    return ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$HeaderImage(
+      width: width ?? this.width,
+      height: height ?? this.height,
+      url: url ?? this.url,
+    );
+  }
+
+  ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$HeaderImage
+  copyWithWrapped({
+    Wrapped<double?>? width,
+    Wrapped<double?>? height,
+    Wrapped<String?>? url,
+  }) {
+    return ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$HeaderImage(
+      width: (width != null ? width.value : this.width),
+      height: (height != null ? height.value : this.height),
+      url: (url != null ? url.value : this.url),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$ModelImage {
+  const ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$ModelImage({
     this.url,
     this.height,
     this.width,
   });
 
-  factory BizAiFashionNoAuthPostDetailGet$Response$Data$ModelImage.fromJson(
+  factory ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$ModelImage.fromJson(
     Map<String, dynamic> json,
-  ) => _$BizAiFashionNoAuthPostDetailGet$Response$Data$ModelImageFromJson(json);
+  ) =>
+      _$ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$ModelImageFromJson(
+        json,
+      );
 
   static const toJsonFactory =
-      _$BizAiFashionNoAuthPostDetailGet$Response$Data$ModelImageToJson;
+      _$ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$ModelImageToJson;
   Map<String, dynamic> toJson() =>
-      _$BizAiFashionNoAuthPostDetailGet$Response$Data$ModelImageToJson(this);
+      _$ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$ModelImageToJson(
+        this,
+      );
 
   @JsonKey(name: 'url')
   final String? url;
@@ -9201,12 +9613,12 @@ class BizAiFashionNoAuthPostDetailGet$Response$Data$ModelImage {
   @JsonKey(name: 'width')
   final double? width;
   static const fromJsonFactory =
-      _$BizAiFashionNoAuthPostDetailGet$Response$Data$ModelImageFromJson;
+      _$ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$ModelImageFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is BizAiFashionNoAuthPostDetailGet$Response$Data$ModelImage &&
+        (other is ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$ModelImage &&
             (identical(other.url, url) ||
                 const DeepCollectionEquality().equals(other.url, url)) &&
             (identical(other.height, height) ||
@@ -9226,26 +9638,24 @@ class BizAiFashionNoAuthPostDetailGet$Response$Data$ModelImage {
       runtimeType.hashCode;
 }
 
-extension $BizAiFashionNoAuthPostDetailGet$Response$Data$ModelImageExtension
-    on BizAiFashionNoAuthPostDetailGet$Response$Data$ModelImage {
-  BizAiFashionNoAuthPostDetailGet$Response$Data$ModelImage copyWith({
-    String? url,
-    double? height,
-    double? width,
-  }) {
-    return BizAiFashionNoAuthPostDetailGet$Response$Data$ModelImage(
+extension $ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$ModelImageExtension
+    on ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$ModelImage {
+  ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$ModelImage
+  copyWith({String? url, double? height, double? width}) {
+    return ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$ModelImage(
       url: url ?? this.url,
       height: height ?? this.height,
       width: width ?? this.width,
     );
   }
 
-  BizAiFashionNoAuthPostDetailGet$Response$Data$ModelImage copyWithWrapped({
+  ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$ModelImage
+  copyWithWrapped({
     Wrapped<String?>? url,
     Wrapped<double?>? height,
     Wrapped<double?>? width,
   }) {
-    return BizAiFashionNoAuthPostDetailGet$Response$Data$ModelImage(
+    return ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$ModelImage(
       url: (url != null ? url.value : this.url),
       height: (height != null ? height.value : this.height),
       width: (width != null ? width.value : this.width),
@@ -9254,101 +9664,24 @@ extension $BizAiFashionNoAuthPostDetailGet$Response$Data$ModelImageExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class BizAiFashionNoAuthPostDetailGet$Response$Data$Images$Item {
-  const BizAiFashionNoAuthPostDetailGet$Response$Data$Images$Item({
+class ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$Images$Item {
+  const ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$Images$Item({
     required this.width,
     required this.height,
     required this.url,
   });
 
-  factory BizAiFashionNoAuthPostDetailGet$Response$Data$Images$Item.fromJson(
+  factory ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$Images$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$BizAiFashionNoAuthPostDetailGet$Response$Data$Images$ItemFromJson(json);
-
-  static const toJsonFactory =
-      _$BizAiFashionNoAuthPostDetailGet$Response$Data$Images$ItemToJson;
-  Map<String, dynamic> toJson() =>
-      _$BizAiFashionNoAuthPostDetailGet$Response$Data$Images$ItemToJson(this);
-
-  @JsonKey(name: 'width')
-  final double width;
-  @JsonKey(name: 'height')
-  final double height;
-  @JsonKey(name: 'url')
-  final String url;
-  static const fromJsonFactory =
-      _$BizAiFashionNoAuthPostDetailGet$Response$Data$Images$ItemFromJson;
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other is BizAiFashionNoAuthPostDetailGet$Response$Data$Images$Item &&
-            (identical(other.width, width) ||
-                const DeepCollectionEquality().equals(other.width, width)) &&
-            (identical(other.height, height) ||
-                const DeepCollectionEquality().equals(other.height, height)) &&
-            (identical(other.url, url) ||
-                const DeepCollectionEquality().equals(other.url, url)));
-  }
-
-  @override
-  String toString() => jsonEncode(this);
-
-  @override
-  int get hashCode =>
-      const DeepCollectionEquality().hash(width) ^
-      const DeepCollectionEquality().hash(height) ^
-      const DeepCollectionEquality().hash(url) ^
-      runtimeType.hashCode;
-}
-
-extension $BizAiFashionNoAuthPostDetailGet$Response$Data$Images$ItemExtension
-    on BizAiFashionNoAuthPostDetailGet$Response$Data$Images$Item {
-  BizAiFashionNoAuthPostDetailGet$Response$Data$Images$Item copyWith({
-    double? width,
-    double? height,
-    String? url,
-  }) {
-    return BizAiFashionNoAuthPostDetailGet$Response$Data$Images$Item(
-      width: width ?? this.width,
-      height: height ?? this.height,
-      url: url ?? this.url,
-    );
-  }
-
-  BizAiFashionNoAuthPostDetailGet$Response$Data$Images$Item copyWithWrapped({
-    Wrapped<double>? width,
-    Wrapped<double>? height,
-    Wrapped<String>? url,
-  }) {
-    return BizAiFashionNoAuthPostDetailGet$Response$Data$Images$Item(
-      width: (width != null ? width.value : this.width),
-      height: (height != null ? height.value : this.height),
-      url: (url != null ? url.value : this.url),
-    );
-  }
-}
-
-@JsonSerializable(explicitToJson: true)
-class BizAiFashionNoAuthPostDetailGet$Response$Data$FooterImages$Item {
-  const BizAiFashionNoAuthPostDetailGet$Response$Data$FooterImages$Item({
-    required this.width,
-    required this.height,
-    required this.url,
-  });
-
-  factory BizAiFashionNoAuthPostDetailGet$Response$Data$FooterImages$Item.fromJson(
-    Map<String, dynamic> json,
-  ) =>
-      _$BizAiFashionNoAuthPostDetailGet$Response$Data$FooterImages$ItemFromJson(
+      _$ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$Images$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$BizAiFashionNoAuthPostDetailGet$Response$Data$FooterImages$ItemToJson;
+      _$ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$Images$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$BizAiFashionNoAuthPostDetailGet$Response$Data$FooterImages$ItemToJson(
+      _$ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$Images$ItemToJson(
         this,
       );
 
@@ -9359,12 +9692,13 @@ class BizAiFashionNoAuthPostDetailGet$Response$Data$FooterImages$Item {
   @JsonKey(name: 'url')
   final String url;
   static const fromJsonFactory =
-      _$BizAiFashionNoAuthPostDetailGet$Response$Data$FooterImages$ItemFromJson;
+      _$ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$Images$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is BizAiFashionNoAuthPostDetailGet$Response$Data$FooterImages$Item &&
+        (other
+                is ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$Images$Item &&
             (identical(other.width, width) ||
                 const DeepCollectionEquality().equals(other.width, width)) &&
             (identical(other.height, height) ||
@@ -9384,27 +9718,24 @@ class BizAiFashionNoAuthPostDetailGet$Response$Data$FooterImages$Item {
       runtimeType.hashCode;
 }
 
-extension $BizAiFashionNoAuthPostDetailGet$Response$Data$FooterImages$ItemExtension
-    on BizAiFashionNoAuthPostDetailGet$Response$Data$FooterImages$Item {
-  BizAiFashionNoAuthPostDetailGet$Response$Data$FooterImages$Item copyWith({
-    double? width,
-    double? height,
-    String? url,
-  }) {
-    return BizAiFashionNoAuthPostDetailGet$Response$Data$FooterImages$Item(
+extension $ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$Images$ItemExtension
+    on ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$Images$Item {
+  ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$Images$Item
+  copyWith({double? width, double? height, String? url}) {
+    return ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$Images$Item(
       width: width ?? this.width,
       height: height ?? this.height,
       url: url ?? this.url,
     );
   }
 
-  BizAiFashionNoAuthPostDetailGet$Response$Data$FooterImages$Item
+  ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$Images$Item
   copyWithWrapped({
     Wrapped<double>? width,
     Wrapped<double>? height,
     Wrapped<String>? url,
   }) {
-    return BizAiFashionNoAuthPostDetailGet$Response$Data$FooterImages$Item(
+    return ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$Images$Item(
       width: (width != null ? width.value : this.width),
       height: (height != null ? height.value : this.height),
       url: (url != null ? url.value : this.url),
@@ -9413,8 +9744,88 @@ extension $BizAiFashionNoAuthPostDetailGet$Response$Data$FooterImages$ItemExtens
 }
 
 @JsonSerializable(explicitToJson: true)
-class BizAiFashionNoAuthPostDetailGet$Response$Data$Option {
-  const BizAiFashionNoAuthPostDetailGet$Response$Data$Option({
+class ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FooterImages$Item {
+  const ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FooterImages$Item({
+    required this.width,
+    required this.height,
+    required this.url,
+  });
+
+  factory ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FooterImages$Item.fromJson(
+    Map<String, dynamic> json,
+  ) =>
+      _$ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FooterImages$ItemFromJson(
+        json,
+      );
+
+  static const toJsonFactory =
+      _$ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FooterImages$ItemToJson;
+  Map<String, dynamic> toJson() =>
+      _$ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FooterImages$ItemToJson(
+        this,
+      );
+
+  @JsonKey(name: 'width')
+  final double width;
+  @JsonKey(name: 'height')
+  final double height;
+  @JsonKey(name: 'url')
+  final String url;
+  static const fromJsonFactory =
+      _$ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FooterImages$ItemFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other
+                is ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FooterImages$Item &&
+            (identical(other.width, width) ||
+                const DeepCollectionEquality().equals(other.width, width)) &&
+            (identical(other.height, height) ||
+                const DeepCollectionEquality().equals(other.height, height)) &&
+            (identical(other.url, url) ||
+                const DeepCollectionEquality().equals(other.url, url)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(width) ^
+      const DeepCollectionEquality().hash(height) ^
+      const DeepCollectionEquality().hash(url) ^
+      runtimeType.hashCode;
+}
+
+extension $ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FooterImages$ItemExtension
+    on ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FooterImages$Item {
+  ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FooterImages$Item
+  copyWith({double? width, double? height, String? url}) {
+    return ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FooterImages$Item(
+      width: width ?? this.width,
+      height: height ?? this.height,
+      url: url ?? this.url,
+    );
+  }
+
+  ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FooterImages$Item
+  copyWithWrapped({
+    Wrapped<double>? width,
+    Wrapped<double>? height,
+    Wrapped<String>? url,
+  }) {
+    return ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FooterImages$Item(
+      width: (width != null ? width.value : this.width),
+      height: (height != null ? height.value : this.height),
+      url: (url != null ? url.value : this.url),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$Option {
+  const ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$Option({
     this.category,
     this.styleTrendyElements,
     this.gender,
@@ -9431,14 +9842,19 @@ class BizAiFashionNoAuthPostDetailGet$Response$Data$Option {
     this.skinColor,
   });
 
-  factory BizAiFashionNoAuthPostDetailGet$Response$Data$Option.fromJson(
+  factory ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$Option.fromJson(
     Map<String, dynamic> json,
-  ) => _$BizAiFashionNoAuthPostDetailGet$Response$Data$OptionFromJson(json);
+  ) =>
+      _$ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$OptionFromJson(
+        json,
+      );
 
   static const toJsonFactory =
-      _$BizAiFashionNoAuthPostDetailGet$Response$Data$OptionToJson;
+      _$ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$OptionToJson;
   Map<String, dynamic> toJson() =>
-      _$BizAiFashionNoAuthPostDetailGet$Response$Data$OptionToJson(this);
+      _$ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$OptionToJson(
+        this,
+      );
 
   @JsonKey(name: 'category')
   final String? category;
@@ -9469,12 +9885,13 @@ class BizAiFashionNoAuthPostDetailGet$Response$Data$Option {
   @JsonKey(name: 'skinColor')
   final String? skinColor;
   static const fromJsonFactory =
-      _$BizAiFashionNoAuthPostDetailGet$Response$Data$OptionFromJson;
+      _$ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$OptionFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is BizAiFashionNoAuthPostDetailGet$Response$Data$Option &&
+        (other
+                is ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$Option &&
             (identical(other.category, category) ||
                 const DeepCollectionEquality().equals(
                   other.category,
@@ -9548,9 +9965,9 @@ class BizAiFashionNoAuthPostDetailGet$Response$Data$Option {
       runtimeType.hashCode;
 }
 
-extension $BizAiFashionNoAuthPostDetailGet$Response$Data$OptionExtension
-    on BizAiFashionNoAuthPostDetailGet$Response$Data$Option {
-  BizAiFashionNoAuthPostDetailGet$Response$Data$Option copyWith({
+extension $ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$OptionExtension
+    on ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$Option {
+  ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$Option copyWith({
     String? category,
     String? styleTrendyElements,
     String? gender,
@@ -9566,7 +9983,7 @@ extension $BizAiFashionNoAuthPostDetailGet$Response$Data$OptionExtension
     String? physicalAppearance,
     String? skinColor,
   }) {
-    return BizAiFashionNoAuthPostDetailGet$Response$Data$Option(
+    return ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$Option(
       category: category ?? this.category,
       styleTrendyElements: styleTrendyElements ?? this.styleTrendyElements,
       gender: gender ?? this.gender,
@@ -9585,7 +10002,8 @@ extension $BizAiFashionNoAuthPostDetailGet$Response$Data$OptionExtension
     );
   }
 
-  BizAiFashionNoAuthPostDetailGet$Response$Data$Option copyWithWrapped({
+  ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$Option
+  copyWithWrapped({
     Wrapped<String?>? category,
     Wrapped<String?>? styleTrendyElements,
     Wrapped<String?>? gender,
@@ -9601,7 +10019,7 @@ extension $BizAiFashionNoAuthPostDetailGet$Response$Data$OptionExtension
     Wrapped<String?>? physicalAppearance,
     Wrapped<String?>? skinColor,
   }) {
-    return BizAiFashionNoAuthPostDetailGet$Response$Data$Option(
+    return ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$Option(
       category: (category != null ? category.value : this.category),
       styleTrendyElements: (styleTrendyElements != null
           ? styleTrendyElements.value
@@ -9627,23 +10045,23 @@ extension $BizAiFashionNoAuthPostDetailGet$Response$Data$OptionExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class BizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$Item {
-  const BizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$Item({
+class ComboServiceBizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$Item {
+  const ComboServiceBizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$Item({
     this.key,
     this.data,
   });
 
-  factory BizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$Item.fromJson(
+  factory ComboServiceBizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$BizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$ItemFromJson(
+      _$ComboServiceBizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$BizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$ItemToJson;
+      _$ComboServiceBizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$BizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$ItemToJson(
+      _$ComboServiceBizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$ItemToJson(
         this,
       );
 
@@ -9651,16 +10069,17 @@ class BizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$Item {
   final String? key;
   @JsonKey(name: 'data')
   final List<
-    BizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$Item$Data$Item
+    ComboServiceBizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$Item$Data$Item
   >?
   data;
   static const fromJsonFactory =
-      _$BizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$ItemFromJson;
+      _$ComboServiceBizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is BizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$Item &&
+        (other
+                is ComboServiceBizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$Item &&
             (identical(other.key, key) ||
                 const DeepCollectionEquality().equals(other.key, key)) &&
             (identical(other.data, data) ||
@@ -9677,32 +10096,33 @@ class BizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$Item {
       runtimeType.hashCode;
 }
 
-extension $BizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$ItemExtension
-    on BizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$Item {
-  BizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$Item copyWith({
+extension $ComboServiceBizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$ItemExtension
+    on ComboServiceBizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$Item {
+  ComboServiceBizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$Item
+  copyWith({
     String? key,
     List<
-      BizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$Item$Data$Item
+      ComboServiceBizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$Item$Data$Item
     >?
     data,
   }) {
-    return BizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$Item(
+    return ComboServiceBizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$Item(
       key: key ?? this.key,
       data: data ?? this.data,
     );
   }
 
-  BizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$Item
+  ComboServiceBizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$Item
   copyWithWrapped({
     Wrapped<String?>? key,
     Wrapped<
       List<
-        BizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$Item$Data$Item
+        ComboServiceBizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$Item$Data$Item
       >?
     >?
     data,
   }) {
-    return BizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$Item(
+    return ComboServiceBizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$Item(
       key: (key != null ? key.value : this.key),
       data: (data != null ? data.value : this.data),
     );
@@ -9710,8 +10130,8 @@ extension $BizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$ItemExt
 }
 
 @JsonSerializable(explicitToJson: true)
-class BizUserShareRewardPageGet$Response$Data$Records$Item {
-  const BizUserShareRewardPageGet$Response$Data$Records$Item({
+class ComboServiceBizUserShareRewardPageGet$Response$Data$Records$Item {
+  const ComboServiceBizUserShareRewardPageGet$Response$Data$Records$Item({
     this.rewardId,
     this.userId,
     this.content,
@@ -9722,14 +10142,19 @@ class BizUserShareRewardPageGet$Response$Data$Records$Item {
     this.rewardTime,
   });
 
-  factory BizUserShareRewardPageGet$Response$Data$Records$Item.fromJson(
+  factory ComboServiceBizUserShareRewardPageGet$Response$Data$Records$Item.fromJson(
     Map<String, dynamic> json,
-  ) => _$BizUserShareRewardPageGet$Response$Data$Records$ItemFromJson(json);
+  ) =>
+      _$ComboServiceBizUserShareRewardPageGet$Response$Data$Records$ItemFromJson(
+        json,
+      );
 
   static const toJsonFactory =
-      _$BizUserShareRewardPageGet$Response$Data$Records$ItemToJson;
+      _$ComboServiceBizUserShareRewardPageGet$Response$Data$Records$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$BizUserShareRewardPageGet$Response$Data$Records$ItemToJson(this);
+      _$ComboServiceBizUserShareRewardPageGet$Response$Data$Records$ItemToJson(
+        this,
+      );
 
   @JsonKey(name: 'rewardId')
   final String? rewardId;
@@ -9748,12 +10173,13 @@ class BizUserShareRewardPageGet$Response$Data$Records$Item {
   @JsonKey(name: 'rewardTime')
   final String? rewardTime;
   static const fromJsonFactory =
-      _$BizUserShareRewardPageGet$Response$Data$Records$ItemFromJson;
+      _$ComboServiceBizUserShareRewardPageGet$Response$Data$Records$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is BizUserShareRewardPageGet$Response$Data$Records$Item &&
+        (other
+                is ComboServiceBizUserShareRewardPageGet$Response$Data$Records$Item &&
             (identical(other.rewardId, rewardId) ||
                 const DeepCollectionEquality().equals(
                   other.rewardId,
@@ -9809,9 +10235,9 @@ class BizUserShareRewardPageGet$Response$Data$Records$Item {
       runtimeType.hashCode;
 }
 
-extension $BizUserShareRewardPageGet$Response$Data$Records$ItemExtension
-    on BizUserShareRewardPageGet$Response$Data$Records$Item {
-  BizUserShareRewardPageGet$Response$Data$Records$Item copyWith({
+extension $ComboServiceBizUserShareRewardPageGet$Response$Data$Records$ItemExtension
+    on ComboServiceBizUserShareRewardPageGet$Response$Data$Records$Item {
+  ComboServiceBizUserShareRewardPageGet$Response$Data$Records$Item copyWith({
     String? rewardId,
     String? userId,
     String? content,
@@ -9821,7 +10247,7 @@ extension $BizUserShareRewardPageGet$Response$Data$Records$ItemExtension
     double? rewardStatus,
     String? rewardTime,
   }) {
-    return BizUserShareRewardPageGet$Response$Data$Records$Item(
+    return ComboServiceBizUserShareRewardPageGet$Response$Data$Records$Item(
       rewardId: rewardId ?? this.rewardId,
       userId: userId ?? this.userId,
       content: content ?? this.content,
@@ -9833,7 +10259,8 @@ extension $BizUserShareRewardPageGet$Response$Data$Records$ItemExtension
     );
   }
 
-  BizUserShareRewardPageGet$Response$Data$Records$Item copyWithWrapped({
+  ComboServiceBizUserShareRewardPageGet$Response$Data$Records$Item
+  copyWithWrapped({
     Wrapped<String?>? rewardId,
     Wrapped<String?>? userId,
     Wrapped<String?>? content,
@@ -9843,7 +10270,7 @@ extension $BizUserShareRewardPageGet$Response$Data$Records$ItemExtension
     Wrapped<double?>? rewardStatus,
     Wrapped<String?>? rewardTime,
   }) {
-    return BizUserShareRewardPageGet$Response$Data$Records$Item(
+    return ComboServiceBizUserShareRewardPageGet$Response$Data$Records$Item(
       rewardId: (rewardId != null ? rewardId.value : this.rewardId),
       userId: (userId != null ? userId.value : this.userId),
       content: (content != null ? content.value : this.content),
@@ -9861,8 +10288,8 @@ extension $BizUserShareRewardPageGet$Response$Data$Records$ItemExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class NoAuthBizAlbumAlbumInfoGet$Response$Data$Related$Item {
-  const NoAuthBizAlbumAlbumInfoGet$Response$Data$Related$Item({
+class ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$Related$Item {
+  const ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$Related$Item({
     this.albumCode,
     this.tenantCode,
     this.name,
@@ -9870,14 +10297,19 @@ class NoAuthBizAlbumAlbumInfoGet$Response$Data$Related$Item {
     this.backImg,
   });
 
-  factory NoAuthBizAlbumAlbumInfoGet$Response$Data$Related$Item.fromJson(
+  factory ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$Related$Item.fromJson(
     Map<String, dynamic> json,
-  ) => _$NoAuthBizAlbumAlbumInfoGet$Response$Data$Related$ItemFromJson(json);
+  ) =>
+      _$ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$Related$ItemFromJson(
+        json,
+      );
 
   static const toJsonFactory =
-      _$NoAuthBizAlbumAlbumInfoGet$Response$Data$Related$ItemToJson;
+      _$ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$Related$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$NoAuthBizAlbumAlbumInfoGet$Response$Data$Related$ItemToJson(this);
+      _$ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$Related$ItemToJson(
+        this,
+      );
 
   @JsonKey(name: 'albumCode')
   final String? albumCode;
@@ -9890,12 +10322,12 @@ class NoAuthBizAlbumAlbumInfoGet$Response$Data$Related$Item {
   @JsonKey(name: 'backImg')
   final String? backImg;
   static const fromJsonFactory =
-      _$NoAuthBizAlbumAlbumInfoGet$Response$Data$Related$ItemFromJson;
+      _$ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$Related$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is NoAuthBizAlbumAlbumInfoGet$Response$Data$Related$Item &&
+        (other is ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$Related$Item &&
             (identical(other.albumCode, albumCode) ||
                 const DeepCollectionEquality().equals(
                   other.albumCode,
@@ -9930,16 +10362,16 @@ class NoAuthBizAlbumAlbumInfoGet$Response$Data$Related$Item {
       runtimeType.hashCode;
 }
 
-extension $NoAuthBizAlbumAlbumInfoGet$Response$Data$Related$ItemExtension
-    on NoAuthBizAlbumAlbumInfoGet$Response$Data$Related$Item {
-  NoAuthBizAlbumAlbumInfoGet$Response$Data$Related$Item copyWith({
+extension $ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$Related$ItemExtension
+    on ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$Related$Item {
+  ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$Related$Item copyWith({
     String? albumCode,
     String? tenantCode,
     String? name,
     String? description,
     String? backImg,
   }) {
-    return NoAuthBizAlbumAlbumInfoGet$Response$Data$Related$Item(
+    return ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$Related$Item(
       albumCode: albumCode ?? this.albumCode,
       tenantCode: tenantCode ?? this.tenantCode,
       name: name ?? this.name,
@@ -9948,14 +10380,15 @@ extension $NoAuthBizAlbumAlbumInfoGet$Response$Data$Related$ItemExtension
     );
   }
 
-  NoAuthBizAlbumAlbumInfoGet$Response$Data$Related$Item copyWithWrapped({
+  ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$Related$Item
+  copyWithWrapped({
     Wrapped<String?>? albumCode,
     Wrapped<String?>? tenantCode,
     Wrapped<String?>? name,
     Wrapped<String?>? description,
     Wrapped<String?>? backImg,
   }) {
-    return NoAuthBizAlbumAlbumInfoGet$Response$Data$Related$Item(
+    return ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$Related$Item(
       albumCode: (albumCode != null ? albumCode.value : this.albumCode),
       tenantCode: (tenantCode != null ? tenantCode.value : this.tenantCode),
       name: (name != null ? name.value : this.name),
@@ -9966,32 +10399,38 @@ extension $NoAuthBizAlbumAlbumInfoGet$Response$Data$Related$ItemExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto {
-  const NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto({
+class ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto {
+  const ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto({
     required this.categoryList,
   });
 
-  factory NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto.fromJson(
+  factory ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto.fromJson(
     Map<String, dynamic> json,
-  ) => _$NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDtoFromJson(json);
+  ) =>
+      _$ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDtoFromJson(
+        json,
+      );
 
   static const toJsonFactory =
-      _$NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDtoToJson;
+      _$ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDtoToJson;
   Map<String, dynamic> toJson() =>
-      _$NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDtoToJson(this);
+      _$ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDtoToJson(
+        this,
+      );
 
   @JsonKey(name: 'categoryList')
   final List<
-    NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item
+    ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item
   >
   categoryList;
   static const fromJsonFactory =
-      _$NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDtoFromJson;
+      _$ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDtoFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto &&
+        (other
+                is ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto &&
             (identical(other.categoryList, categoryList) ||
                 const DeepCollectionEquality().equals(
                   other.categoryList,
@@ -10007,28 +10446,30 @@ class NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto {
       const DeepCollectionEquality().hash(categoryList) ^ runtimeType.hashCode;
 }
 
-extension $NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDtoExtension
-    on NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto {
-  NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto copyWith({
+extension $ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDtoExtension
+    on ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto {
+  ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto
+  copyWith({
     List<
-      NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item
+      ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item
     >?
     categoryList,
   }) {
-    return NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto(
+    return ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto(
       categoryList: categoryList ?? this.categoryList,
     );
   }
 
-  NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto copyWithWrapped({
+  ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto
+  copyWithWrapped({
     Wrapped<
       List<
-        NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item
+        ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item
       >
     >?
     categoryList,
   }) {
-    return NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto(
+    return ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto(
       categoryList: (categoryList != null
           ? categoryList.value
           : this.categoryList),
@@ -10037,8 +10478,8 @@ extension $NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDtoExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item {
-  const BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item({
+class ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item {
+  const ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item({
     this.shopCode,
     this.productCode,
     this.productName,
@@ -10071,17 +10512,17 @@ class BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item {
     this.tags,
   });
 
-  factory BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item.fromJson(
+  factory ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$ItemFromJson(
+      _$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$ItemToJson;
+      _$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$ItemToJson(
+      _$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$ItemToJson(
         this,
       );
 
@@ -10097,29 +10538,29 @@ class BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item {
   final String? brandName;
   @JsonKey(name: 'mainImg')
   final List<
-    BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainImg$Item
+    ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainImg$Item
   >?
   mainImg;
   @JsonKey(name: 'subImg')
   final List<
-    BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$SubImg$Item
+    ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$SubImg$Item
   >?
   subImg;
   @JsonKey(name: 'mainVideo')
   final List<
-    BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainVideo$Item
+    ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainVideo$Item
   >?
   mainVideo;
   @JsonKey(name: 'imgCollection')
   final List<
-    BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgCollection$Item
+    ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgCollection$Item
   >?
   imgCollection;
   @JsonKey(name: 'textDetail')
   final String? textDetail;
   @JsonKey(name: 'imgDetail')
   final List<
-    BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgDetail$Item
+    ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgDetail$Item
   >?
   imgDetail;
   @JsonKey(name: 'categoryId')
@@ -10128,12 +10569,12 @@ class BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item {
   final List<Object>? categoryTree;
   @JsonKey(name: 'productOptions')
   final List<
-    BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item
+    ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item
   >?
   productOptions;
   @JsonKey(name: 'productAttrs')
   final List<
-    BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$Item
+    ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$Item
   >?
   productAttrs;
   @JsonKey(name: 'sourcePlatform')
@@ -10164,21 +10605,22 @@ class BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item {
   final String? sellQuantity;
   @JsonKey(name: 'inspectImages')
   final List<
-    BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item
+    ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item
   >?
   inspectImages;
   @JsonKey(name: 'tags')
   final List<
-    BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$Tags$Item
+    ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$Tags$Item
   >?
   tags;
   static const fromJsonFactory =
-      _$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$ItemFromJson;
+      _$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item &&
+        (other
+                is ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item &&
             (identical(other.shopCode, shopCode) ||
                 const DeepCollectionEquality().equals(
                   other.shopCode,
@@ -10363,572 +10805,9 @@ class BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item {
       runtimeType.hashCode;
 }
 
-extension $BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$ItemExtension
-    on BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item {
-  BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item copyWith({
-    String? shopCode,
-    String? productCode,
-    String? productName,
-    String? tenantCode,
-    String? brandName,
-    List<
-      BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainImg$Item
-    >?
-    mainImg,
-    List<
-      BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$SubImg$Item
-    >?
-    subImg,
-    List<
-      BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainVideo$Item
-    >?
-    mainVideo,
-    List<
-      BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgCollection$Item
-    >?
-    imgCollection,
-    String? textDetail,
-    List<
-      BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgDetail$Item
-    >?
-    imgDetail,
-    int? categoryId,
-    List<Object>? categoryTree,
-    List<
-      BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item
-    >?
-    productOptions,
-    List<
-      BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$Item
-    >?
-    productAttrs,
-    String? sourcePlatform,
-    String? platformUrl,
-    String? platformProductId,
-    String? skuCode,
-    String? skuSourceCode,
-    String? sellPriceCur,
-    double? sellPrice,
-    double? targetSellPrice,
-    String? targetSellCur,
-    double? targetOriginPrice,
-    String? productFlag,
-    String? marketingInfo,
-    String? sellQuantity,
-    List<
-      BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item
-    >?
-    inspectImages,
-    List<
-      BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$Tags$Item
-    >?
-    tags,
-  }) {
-    return BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item(
-      shopCode: shopCode ?? this.shopCode,
-      productCode: productCode ?? this.productCode,
-      productName: productName ?? this.productName,
-      tenantCode: tenantCode ?? this.tenantCode,
-      brandName: brandName ?? this.brandName,
-      mainImg: mainImg ?? this.mainImg,
-      subImg: subImg ?? this.subImg,
-      mainVideo: mainVideo ?? this.mainVideo,
-      imgCollection: imgCollection ?? this.imgCollection,
-      textDetail: textDetail ?? this.textDetail,
-      imgDetail: imgDetail ?? this.imgDetail,
-      categoryId: categoryId ?? this.categoryId,
-      categoryTree: categoryTree ?? this.categoryTree,
-      productOptions: productOptions ?? this.productOptions,
-      productAttrs: productAttrs ?? this.productAttrs,
-      sourcePlatform: sourcePlatform ?? this.sourcePlatform,
-      platformUrl: platformUrl ?? this.platformUrl,
-      platformProductId: platformProductId ?? this.platformProductId,
-      skuCode: skuCode ?? this.skuCode,
-      skuSourceCode: skuSourceCode ?? this.skuSourceCode,
-      sellPriceCur: sellPriceCur ?? this.sellPriceCur,
-      sellPrice: sellPrice ?? this.sellPrice,
-      targetSellPrice: targetSellPrice ?? this.targetSellPrice,
-      targetSellCur: targetSellCur ?? this.targetSellCur,
-      targetOriginPrice: targetOriginPrice ?? this.targetOriginPrice,
-      productFlag: productFlag ?? this.productFlag,
-      marketingInfo: marketingInfo ?? this.marketingInfo,
-      sellQuantity: sellQuantity ?? this.sellQuantity,
-      inspectImages: inspectImages ?? this.inspectImages,
-      tags: tags ?? this.tags,
-    );
-  }
-
-  BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item
-  copyWithWrapped({
-    Wrapped<String?>? shopCode,
-    Wrapped<String?>? productCode,
-    Wrapped<String?>? productName,
-    Wrapped<String?>? tenantCode,
-    Wrapped<String?>? brandName,
-    Wrapped<
-      List<
-        BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainImg$Item
-      >?
-    >?
-    mainImg,
-    Wrapped<
-      List<
-        BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$SubImg$Item
-      >?
-    >?
-    subImg,
-    Wrapped<
-      List<
-        BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainVideo$Item
-      >?
-    >?
-    mainVideo,
-    Wrapped<
-      List<
-        BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgCollection$Item
-      >?
-    >?
-    imgCollection,
-    Wrapped<String?>? textDetail,
-    Wrapped<
-      List<
-        BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgDetail$Item
-      >?
-    >?
-    imgDetail,
-    Wrapped<int?>? categoryId,
-    Wrapped<List<Object>?>? categoryTree,
-    Wrapped<
-      List<
-        BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item
-      >?
-    >?
-    productOptions,
-    Wrapped<
-      List<
-        BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$Item
-      >?
-    >?
-    productAttrs,
-    Wrapped<String?>? sourcePlatform,
-    Wrapped<String?>? platformUrl,
-    Wrapped<String?>? platformProductId,
-    Wrapped<String?>? skuCode,
-    Wrapped<String?>? skuSourceCode,
-    Wrapped<String?>? sellPriceCur,
-    Wrapped<double?>? sellPrice,
-    Wrapped<double?>? targetSellPrice,
-    Wrapped<String?>? targetSellCur,
-    Wrapped<double?>? targetOriginPrice,
-    Wrapped<String?>? productFlag,
-    Wrapped<String?>? marketingInfo,
-    Wrapped<String?>? sellQuantity,
-    Wrapped<
-      List<
-        BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item
-      >?
-    >?
-    inspectImages,
-    Wrapped<
-      List<
-        BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$Tags$Item
-      >?
-    >?
-    tags,
-  }) {
-    return BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item(
-      shopCode: (shopCode != null ? shopCode.value : this.shopCode),
-      productCode: (productCode != null ? productCode.value : this.productCode),
-      productName: (productName != null ? productName.value : this.productName),
-      tenantCode: (tenantCode != null ? tenantCode.value : this.tenantCode),
-      brandName: (brandName != null ? brandName.value : this.brandName),
-      mainImg: (mainImg != null ? mainImg.value : this.mainImg),
-      subImg: (subImg != null ? subImg.value : this.subImg),
-      mainVideo: (mainVideo != null ? mainVideo.value : this.mainVideo),
-      imgCollection: (imgCollection != null
-          ? imgCollection.value
-          : this.imgCollection),
-      textDetail: (textDetail != null ? textDetail.value : this.textDetail),
-      imgDetail: (imgDetail != null ? imgDetail.value : this.imgDetail),
-      categoryId: (categoryId != null ? categoryId.value : this.categoryId),
-      categoryTree: (categoryTree != null
-          ? categoryTree.value
-          : this.categoryTree),
-      productOptions: (productOptions != null
-          ? productOptions.value
-          : this.productOptions),
-      productAttrs: (productAttrs != null
-          ? productAttrs.value
-          : this.productAttrs),
-      sourcePlatform: (sourcePlatform != null
-          ? sourcePlatform.value
-          : this.sourcePlatform),
-      platformUrl: (platformUrl != null ? platformUrl.value : this.platformUrl),
-      platformProductId: (platformProductId != null
-          ? platformProductId.value
-          : this.platformProductId),
-      skuCode: (skuCode != null ? skuCode.value : this.skuCode),
-      skuSourceCode: (skuSourceCode != null
-          ? skuSourceCode.value
-          : this.skuSourceCode),
-      sellPriceCur: (sellPriceCur != null
-          ? sellPriceCur.value
-          : this.sellPriceCur),
-      sellPrice: (sellPrice != null ? sellPrice.value : this.sellPrice),
-      targetSellPrice: (targetSellPrice != null
-          ? targetSellPrice.value
-          : this.targetSellPrice),
-      targetSellCur: (targetSellCur != null
-          ? targetSellCur.value
-          : this.targetSellCur),
-      targetOriginPrice: (targetOriginPrice != null
-          ? targetOriginPrice.value
-          : this.targetOriginPrice),
-      productFlag: (productFlag != null ? productFlag.value : this.productFlag),
-      marketingInfo: (marketingInfo != null
-          ? marketingInfo.value
-          : this.marketingInfo),
-      sellQuantity: (sellQuantity != null
-          ? sellQuantity.value
-          : this.sellQuantity),
-      inspectImages: (inspectImages != null
-          ? inspectImages.value
-          : this.inspectImages),
-      tags: (tags != null ? tags.value : this.tags),
-    );
-  }
-}
-
-@JsonSerializable(explicitToJson: true)
-class BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item {
-  const BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item({
-    this.shopCode,
-    this.productCode,
-    this.productName,
-    this.tenantCode,
-    this.brandName,
-    this.mainImg,
-    this.subImg,
-    this.mainVideo,
-    this.imgCollection,
-    this.textDetail,
-    this.imgDetail,
-    this.categoryId,
-    this.categoryTree,
-    this.productOptions,
-    this.productAttrs,
-    this.sourcePlatform,
-    this.platformUrl,
-    this.platformProductId,
-    this.skuCode,
-    this.skuSourceCode,
-    this.sellPriceCur,
-    this.sellPrice,
-    this.targetSellPrice,
-    this.targetSellCur,
-    this.targetOriginPrice,
-    this.productFlag,
-    this.marketingInfo,
-    this.sellQuantity,
-    this.inspectImages,
-    this.tags,
-  });
-
-  factory BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item.fromJson(
-    Map<String, dynamic> json,
-  ) =>
-      _$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$ItemFromJson(
-        json,
-      );
-
-  static const toJsonFactory =
-      _$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$ItemToJson;
-  Map<String, dynamic> toJson() =>
-      _$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$ItemToJson(
-        this,
-      );
-
-  @JsonKey(name: 'shopCode')
-  final String? shopCode;
-  @JsonKey(name: 'productCode')
-  final String? productCode;
-  @JsonKey(name: 'productName')
-  final String? productName;
-  @JsonKey(name: 'tenantCode')
-  final String? tenantCode;
-  @JsonKey(name: 'brandName')
-  final String? brandName;
-  @JsonKey(name: 'mainImg')
-  final List<
-    BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainImg$Item
-  >?
-  mainImg;
-  @JsonKey(name: 'subImg')
-  final List<
-    BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$SubImg$Item
-  >?
-  subImg;
-  @JsonKey(name: 'mainVideo')
-  final List<
-    BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainVideo$Item
-  >?
-  mainVideo;
-  @JsonKey(name: 'imgCollection')
-  final List<
-    BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgCollection$Item
-  >?
-  imgCollection;
-  @JsonKey(name: 'textDetail')
-  final String? textDetail;
-  @JsonKey(name: 'imgDetail')
-  final List<
-    BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgDetail$Item
-  >?
-  imgDetail;
-  @JsonKey(name: 'categoryId')
-  final int? categoryId;
-  @JsonKey(name: 'categoryTree', defaultValue: <Object>[])
-  final List<Object>? categoryTree;
-  @JsonKey(name: 'productOptions')
-  final List<
-    BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item
-  >?
-  productOptions;
-  @JsonKey(name: 'productAttrs')
-  final List<
-    BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$Item
-  >?
-  productAttrs;
-  @JsonKey(name: 'sourcePlatform')
-  final String? sourcePlatform;
-  @JsonKey(name: 'platformUrl')
-  final String? platformUrl;
-  @JsonKey(name: 'platformProductId')
-  final String? platformProductId;
-  @JsonKey(name: 'skuCode')
-  final String? skuCode;
-  @JsonKey(name: 'skuSourceCode')
-  final String? skuSourceCode;
-  @JsonKey(name: 'sellPriceCur')
-  final String? sellPriceCur;
-  @JsonKey(name: 'sellPrice')
-  final double? sellPrice;
-  @JsonKey(name: 'targetSellPrice')
-  final double? targetSellPrice;
-  @JsonKey(name: 'targetSellCur')
-  final String? targetSellCur;
-  @JsonKey(name: 'targetOriginPrice')
-  final double? targetOriginPrice;
-  @JsonKey(name: 'productFlag')
-  final String? productFlag;
-  @JsonKey(name: 'marketingInfo')
-  final String? marketingInfo;
-  @JsonKey(name: 'sellQuantity')
-  final String? sellQuantity;
-  @JsonKey(name: 'inspectImages')
-  final List<
-    BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item
-  >?
-  inspectImages;
-  @JsonKey(name: 'tags')
-  final List<
-    BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$Tags$Item
-  >?
-  tags;
-  static const fromJsonFactory =
-      _$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$ItemFromJson;
-
-  @override
-  bool operator ==(Object other) {
-    return identical(this, other) ||
-        (other is BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item &&
-            (identical(other.shopCode, shopCode) ||
-                const DeepCollectionEquality().equals(
-                  other.shopCode,
-                  shopCode,
-                )) &&
-            (identical(other.productCode, productCode) ||
-                const DeepCollectionEquality().equals(
-                  other.productCode,
-                  productCode,
-                )) &&
-            (identical(other.productName, productName) ||
-                const DeepCollectionEquality().equals(
-                  other.productName,
-                  productName,
-                )) &&
-            (identical(other.tenantCode, tenantCode) ||
-                const DeepCollectionEquality().equals(
-                  other.tenantCode,
-                  tenantCode,
-                )) &&
-            (identical(other.brandName, brandName) ||
-                const DeepCollectionEquality().equals(
-                  other.brandName,
-                  brandName,
-                )) &&
-            (identical(other.mainImg, mainImg) ||
-                const DeepCollectionEquality().equals(
-                  other.mainImg,
-                  mainImg,
-                )) &&
-            (identical(other.subImg, subImg) ||
-                const DeepCollectionEquality().equals(other.subImg, subImg)) &&
-            (identical(other.mainVideo, mainVideo) ||
-                const DeepCollectionEquality().equals(
-                  other.mainVideo,
-                  mainVideo,
-                )) &&
-            (identical(other.imgCollection, imgCollection) ||
-                const DeepCollectionEquality().equals(
-                  other.imgCollection,
-                  imgCollection,
-                )) &&
-            (identical(other.textDetail, textDetail) ||
-                const DeepCollectionEquality().equals(
-                  other.textDetail,
-                  textDetail,
-                )) &&
-            (identical(other.imgDetail, imgDetail) ||
-                const DeepCollectionEquality().equals(
-                  other.imgDetail,
-                  imgDetail,
-                )) &&
-            (identical(other.categoryId, categoryId) ||
-                const DeepCollectionEquality().equals(
-                  other.categoryId,
-                  categoryId,
-                )) &&
-            (identical(other.categoryTree, categoryTree) ||
-                const DeepCollectionEquality().equals(
-                  other.categoryTree,
-                  categoryTree,
-                )) &&
-            (identical(other.productOptions, productOptions) ||
-                const DeepCollectionEquality().equals(
-                  other.productOptions,
-                  productOptions,
-                )) &&
-            (identical(other.productAttrs, productAttrs) ||
-                const DeepCollectionEquality().equals(
-                  other.productAttrs,
-                  productAttrs,
-                )) &&
-            (identical(other.sourcePlatform, sourcePlatform) ||
-                const DeepCollectionEquality().equals(
-                  other.sourcePlatform,
-                  sourcePlatform,
-                )) &&
-            (identical(other.platformUrl, platformUrl) ||
-                const DeepCollectionEquality().equals(
-                  other.platformUrl,
-                  platformUrl,
-                )) &&
-            (identical(other.platformProductId, platformProductId) ||
-                const DeepCollectionEquality().equals(
-                  other.platformProductId,
-                  platformProductId,
-                )) &&
-            (identical(other.skuCode, skuCode) ||
-                const DeepCollectionEquality().equals(
-                  other.skuCode,
-                  skuCode,
-                )) &&
-            (identical(other.skuSourceCode, skuSourceCode) ||
-                const DeepCollectionEquality().equals(
-                  other.skuSourceCode,
-                  skuSourceCode,
-                )) &&
-            (identical(other.sellPriceCur, sellPriceCur) ||
-                const DeepCollectionEquality().equals(
-                  other.sellPriceCur,
-                  sellPriceCur,
-                )) &&
-            (identical(other.sellPrice, sellPrice) ||
-                const DeepCollectionEquality().equals(
-                  other.sellPrice,
-                  sellPrice,
-                )) &&
-            (identical(other.targetSellPrice, targetSellPrice) ||
-                const DeepCollectionEquality().equals(
-                  other.targetSellPrice,
-                  targetSellPrice,
-                )) &&
-            (identical(other.targetSellCur, targetSellCur) ||
-                const DeepCollectionEquality().equals(
-                  other.targetSellCur,
-                  targetSellCur,
-                )) &&
-            (identical(other.targetOriginPrice, targetOriginPrice) ||
-                const DeepCollectionEquality().equals(
-                  other.targetOriginPrice,
-                  targetOriginPrice,
-                )) &&
-            (identical(other.productFlag, productFlag) ||
-                const DeepCollectionEquality().equals(
-                  other.productFlag,
-                  productFlag,
-                )) &&
-            (identical(other.marketingInfo, marketingInfo) ||
-                const DeepCollectionEquality().equals(
-                  other.marketingInfo,
-                  marketingInfo,
-                )) &&
-            (identical(other.sellQuantity, sellQuantity) ||
-                const DeepCollectionEquality().equals(
-                  other.sellQuantity,
-                  sellQuantity,
-                )) &&
-            (identical(other.inspectImages, inspectImages) ||
-                const DeepCollectionEquality().equals(
-                  other.inspectImages,
-                  inspectImages,
-                )) &&
-            (identical(other.tags, tags) ||
-                const DeepCollectionEquality().equals(other.tags, tags)));
-  }
-
-  @override
-  String toString() => jsonEncode(this);
-
-  @override
-  int get hashCode =>
-      const DeepCollectionEquality().hash(shopCode) ^
-      const DeepCollectionEquality().hash(productCode) ^
-      const DeepCollectionEquality().hash(productName) ^
-      const DeepCollectionEquality().hash(tenantCode) ^
-      const DeepCollectionEquality().hash(brandName) ^
-      const DeepCollectionEquality().hash(mainImg) ^
-      const DeepCollectionEquality().hash(subImg) ^
-      const DeepCollectionEquality().hash(mainVideo) ^
-      const DeepCollectionEquality().hash(imgCollection) ^
-      const DeepCollectionEquality().hash(textDetail) ^
-      const DeepCollectionEquality().hash(imgDetail) ^
-      const DeepCollectionEquality().hash(categoryId) ^
-      const DeepCollectionEquality().hash(categoryTree) ^
-      const DeepCollectionEquality().hash(productOptions) ^
-      const DeepCollectionEquality().hash(productAttrs) ^
-      const DeepCollectionEquality().hash(sourcePlatform) ^
-      const DeepCollectionEquality().hash(platformUrl) ^
-      const DeepCollectionEquality().hash(platformProductId) ^
-      const DeepCollectionEquality().hash(skuCode) ^
-      const DeepCollectionEquality().hash(skuSourceCode) ^
-      const DeepCollectionEquality().hash(sellPriceCur) ^
-      const DeepCollectionEquality().hash(sellPrice) ^
-      const DeepCollectionEquality().hash(targetSellPrice) ^
-      const DeepCollectionEquality().hash(targetSellCur) ^
-      const DeepCollectionEquality().hash(targetOriginPrice) ^
-      const DeepCollectionEquality().hash(productFlag) ^
-      const DeepCollectionEquality().hash(marketingInfo) ^
-      const DeepCollectionEquality().hash(sellQuantity) ^
-      const DeepCollectionEquality().hash(inspectImages) ^
-      const DeepCollectionEquality().hash(tags) ^
-      runtimeType.hashCode;
-}
-
-extension $BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$ItemExtension
-    on BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item {
-  BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item
+extension $ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$ItemExtension
+    on ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item {
+  ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item
   copyWith({
     String? shopCode,
     String? productCode,
@@ -10936,34 +10815,34 @@ extension $BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$ItemE
     String? tenantCode,
     String? brandName,
     List<
-      BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainImg$Item
+      ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainImg$Item
     >?
     mainImg,
     List<
-      BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$SubImg$Item
+      ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$SubImg$Item
     >?
     subImg,
     List<
-      BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainVideo$Item
+      ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainVideo$Item
     >?
     mainVideo,
     List<
-      BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgCollection$Item
+      ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgCollection$Item
     >?
     imgCollection,
     String? textDetail,
     List<
-      BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgDetail$Item
+      ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgDetail$Item
     >?
     imgDetail,
     int? categoryId,
     List<Object>? categoryTree,
     List<
-      BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item
+      ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item
     >?
     productOptions,
     List<
-      BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$Item
+      ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$Item
     >?
     productAttrs,
     String? sourcePlatform,
@@ -10980,15 +10859,15 @@ extension $BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$ItemE
     String? marketingInfo,
     String? sellQuantity,
     List<
-      BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item
+      ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item
     >?
     inspectImages,
     List<
-      BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$Tags$Item
+      ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$Tags$Item
     >?
     tags,
   }) {
-    return BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item(
+    return ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item(
       shopCode: shopCode ?? this.shopCode,
       productCode: productCode ?? this.productCode,
       productName: productName ?? this.productName,
@@ -11022,7 +10901,7 @@ extension $BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$ItemE
     );
   }
 
-  BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item
+  ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item
   copyWithWrapped({
     Wrapped<String?>? shopCode,
     Wrapped<String?>? productCode,
@@ -11031,32 +10910,32 @@ extension $BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$ItemE
     Wrapped<String?>? brandName,
     Wrapped<
       List<
-        BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainImg$Item
+        ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainImg$Item
       >?
     >?
     mainImg,
     Wrapped<
       List<
-        BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$SubImg$Item
+        ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$SubImg$Item
       >?
     >?
     subImg,
     Wrapped<
       List<
-        BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainVideo$Item
+        ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainVideo$Item
       >?
     >?
     mainVideo,
     Wrapped<
       List<
-        BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgCollection$Item
+        ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgCollection$Item
       >?
     >?
     imgCollection,
     Wrapped<String?>? textDetail,
     Wrapped<
       List<
-        BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgDetail$Item
+        ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgDetail$Item
       >?
     >?
     imgDetail,
@@ -11064,13 +10943,13 @@ extension $BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$ItemE
     Wrapped<List<Object>?>? categoryTree,
     Wrapped<
       List<
-        BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item
+        ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item
       >?
     >?
     productOptions,
     Wrapped<
       List<
-        BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$Item
+        ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$Item
       >?
     >?
     productAttrs,
@@ -11089,18 +10968,18 @@ extension $BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$ItemE
     Wrapped<String?>? sellQuantity,
     Wrapped<
       List<
-        BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item
+        ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item
       >?
     >?
     inspectImages,
     Wrapped<
       List<
-        BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$Tags$Item
+        ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$Tags$Item
       >?
     >?
     tags,
   }) {
-    return BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item(
+    return ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item(
       shopCode: (shopCode != null ? shopCode.value : this.shopCode),
       productCode: (productCode != null ? productCode.value : this.productCode),
       productName: (productName != null ? productName.value : this.productName),
@@ -11164,8 +11043,574 @@ extension $BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$ItemE
 }
 
 @JsonSerializable(explicitToJson: true)
-class ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$RequestParams {
-  const ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$RequestParams({
+class ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item {
+  const ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item({
+    this.shopCode,
+    this.productCode,
+    this.productName,
+    this.tenantCode,
+    this.brandName,
+    this.mainImg,
+    this.subImg,
+    this.mainVideo,
+    this.imgCollection,
+    this.textDetail,
+    this.imgDetail,
+    this.categoryId,
+    this.categoryTree,
+    this.productOptions,
+    this.productAttrs,
+    this.sourcePlatform,
+    this.platformUrl,
+    this.platformProductId,
+    this.skuCode,
+    this.skuSourceCode,
+    this.sellPriceCur,
+    this.sellPrice,
+    this.targetSellPrice,
+    this.targetSellCur,
+    this.targetOriginPrice,
+    this.productFlag,
+    this.marketingInfo,
+    this.sellQuantity,
+    this.inspectImages,
+    this.tags,
+  });
+
+  factory ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item.fromJson(
+    Map<String, dynamic> json,
+  ) =>
+      _$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$ItemFromJson(
+        json,
+      );
+
+  static const toJsonFactory =
+      _$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$ItemToJson;
+  Map<String, dynamic> toJson() =>
+      _$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$ItemToJson(
+        this,
+      );
+
+  @JsonKey(name: 'shopCode')
+  final String? shopCode;
+  @JsonKey(name: 'productCode')
+  final String? productCode;
+  @JsonKey(name: 'productName')
+  final String? productName;
+  @JsonKey(name: 'tenantCode')
+  final String? tenantCode;
+  @JsonKey(name: 'brandName')
+  final String? brandName;
+  @JsonKey(name: 'mainImg')
+  final List<
+    ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainImg$Item
+  >?
+  mainImg;
+  @JsonKey(name: 'subImg')
+  final List<
+    ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$SubImg$Item
+  >?
+  subImg;
+  @JsonKey(name: 'mainVideo')
+  final List<
+    ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainVideo$Item
+  >?
+  mainVideo;
+  @JsonKey(name: 'imgCollection')
+  final List<
+    ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgCollection$Item
+  >?
+  imgCollection;
+  @JsonKey(name: 'textDetail')
+  final String? textDetail;
+  @JsonKey(name: 'imgDetail')
+  final List<
+    ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgDetail$Item
+  >?
+  imgDetail;
+  @JsonKey(name: 'categoryId')
+  final int? categoryId;
+  @JsonKey(name: 'categoryTree', defaultValue: <Object>[])
+  final List<Object>? categoryTree;
+  @JsonKey(name: 'productOptions')
+  final List<
+    ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item
+  >?
+  productOptions;
+  @JsonKey(name: 'productAttrs')
+  final List<
+    ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$Item
+  >?
+  productAttrs;
+  @JsonKey(name: 'sourcePlatform')
+  final String? sourcePlatform;
+  @JsonKey(name: 'platformUrl')
+  final String? platformUrl;
+  @JsonKey(name: 'platformProductId')
+  final String? platformProductId;
+  @JsonKey(name: 'skuCode')
+  final String? skuCode;
+  @JsonKey(name: 'skuSourceCode')
+  final String? skuSourceCode;
+  @JsonKey(name: 'sellPriceCur')
+  final String? sellPriceCur;
+  @JsonKey(name: 'sellPrice')
+  final double? sellPrice;
+  @JsonKey(name: 'targetSellPrice')
+  final double? targetSellPrice;
+  @JsonKey(name: 'targetSellCur')
+  final String? targetSellCur;
+  @JsonKey(name: 'targetOriginPrice')
+  final double? targetOriginPrice;
+  @JsonKey(name: 'productFlag')
+  final String? productFlag;
+  @JsonKey(name: 'marketingInfo')
+  final String? marketingInfo;
+  @JsonKey(name: 'sellQuantity')
+  final String? sellQuantity;
+  @JsonKey(name: 'inspectImages')
+  final List<
+    ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item
+  >?
+  inspectImages;
+  @JsonKey(name: 'tags')
+  final List<
+    ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$Tags$Item
+  >?
+  tags;
+  static const fromJsonFactory =
+      _$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$ItemFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other
+                is ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item &&
+            (identical(other.shopCode, shopCode) ||
+                const DeepCollectionEquality().equals(
+                  other.shopCode,
+                  shopCode,
+                )) &&
+            (identical(other.productCode, productCode) ||
+                const DeepCollectionEquality().equals(
+                  other.productCode,
+                  productCode,
+                )) &&
+            (identical(other.productName, productName) ||
+                const DeepCollectionEquality().equals(
+                  other.productName,
+                  productName,
+                )) &&
+            (identical(other.tenantCode, tenantCode) ||
+                const DeepCollectionEquality().equals(
+                  other.tenantCode,
+                  tenantCode,
+                )) &&
+            (identical(other.brandName, brandName) ||
+                const DeepCollectionEquality().equals(
+                  other.brandName,
+                  brandName,
+                )) &&
+            (identical(other.mainImg, mainImg) ||
+                const DeepCollectionEquality().equals(
+                  other.mainImg,
+                  mainImg,
+                )) &&
+            (identical(other.subImg, subImg) ||
+                const DeepCollectionEquality().equals(other.subImg, subImg)) &&
+            (identical(other.mainVideo, mainVideo) ||
+                const DeepCollectionEquality().equals(
+                  other.mainVideo,
+                  mainVideo,
+                )) &&
+            (identical(other.imgCollection, imgCollection) ||
+                const DeepCollectionEquality().equals(
+                  other.imgCollection,
+                  imgCollection,
+                )) &&
+            (identical(other.textDetail, textDetail) ||
+                const DeepCollectionEquality().equals(
+                  other.textDetail,
+                  textDetail,
+                )) &&
+            (identical(other.imgDetail, imgDetail) ||
+                const DeepCollectionEquality().equals(
+                  other.imgDetail,
+                  imgDetail,
+                )) &&
+            (identical(other.categoryId, categoryId) ||
+                const DeepCollectionEquality().equals(
+                  other.categoryId,
+                  categoryId,
+                )) &&
+            (identical(other.categoryTree, categoryTree) ||
+                const DeepCollectionEquality().equals(
+                  other.categoryTree,
+                  categoryTree,
+                )) &&
+            (identical(other.productOptions, productOptions) ||
+                const DeepCollectionEquality().equals(
+                  other.productOptions,
+                  productOptions,
+                )) &&
+            (identical(other.productAttrs, productAttrs) ||
+                const DeepCollectionEquality().equals(
+                  other.productAttrs,
+                  productAttrs,
+                )) &&
+            (identical(other.sourcePlatform, sourcePlatform) ||
+                const DeepCollectionEquality().equals(
+                  other.sourcePlatform,
+                  sourcePlatform,
+                )) &&
+            (identical(other.platformUrl, platformUrl) ||
+                const DeepCollectionEquality().equals(
+                  other.platformUrl,
+                  platformUrl,
+                )) &&
+            (identical(other.platformProductId, platformProductId) ||
+                const DeepCollectionEquality().equals(
+                  other.platformProductId,
+                  platformProductId,
+                )) &&
+            (identical(other.skuCode, skuCode) ||
+                const DeepCollectionEquality().equals(
+                  other.skuCode,
+                  skuCode,
+                )) &&
+            (identical(other.skuSourceCode, skuSourceCode) ||
+                const DeepCollectionEquality().equals(
+                  other.skuSourceCode,
+                  skuSourceCode,
+                )) &&
+            (identical(other.sellPriceCur, sellPriceCur) ||
+                const DeepCollectionEquality().equals(
+                  other.sellPriceCur,
+                  sellPriceCur,
+                )) &&
+            (identical(other.sellPrice, sellPrice) ||
+                const DeepCollectionEquality().equals(
+                  other.sellPrice,
+                  sellPrice,
+                )) &&
+            (identical(other.targetSellPrice, targetSellPrice) ||
+                const DeepCollectionEquality().equals(
+                  other.targetSellPrice,
+                  targetSellPrice,
+                )) &&
+            (identical(other.targetSellCur, targetSellCur) ||
+                const DeepCollectionEquality().equals(
+                  other.targetSellCur,
+                  targetSellCur,
+                )) &&
+            (identical(other.targetOriginPrice, targetOriginPrice) ||
+                const DeepCollectionEquality().equals(
+                  other.targetOriginPrice,
+                  targetOriginPrice,
+                )) &&
+            (identical(other.productFlag, productFlag) ||
+                const DeepCollectionEquality().equals(
+                  other.productFlag,
+                  productFlag,
+                )) &&
+            (identical(other.marketingInfo, marketingInfo) ||
+                const DeepCollectionEquality().equals(
+                  other.marketingInfo,
+                  marketingInfo,
+                )) &&
+            (identical(other.sellQuantity, sellQuantity) ||
+                const DeepCollectionEquality().equals(
+                  other.sellQuantity,
+                  sellQuantity,
+                )) &&
+            (identical(other.inspectImages, inspectImages) ||
+                const DeepCollectionEquality().equals(
+                  other.inspectImages,
+                  inspectImages,
+                )) &&
+            (identical(other.tags, tags) ||
+                const DeepCollectionEquality().equals(other.tags, tags)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(shopCode) ^
+      const DeepCollectionEquality().hash(productCode) ^
+      const DeepCollectionEquality().hash(productName) ^
+      const DeepCollectionEquality().hash(tenantCode) ^
+      const DeepCollectionEquality().hash(brandName) ^
+      const DeepCollectionEquality().hash(mainImg) ^
+      const DeepCollectionEquality().hash(subImg) ^
+      const DeepCollectionEquality().hash(mainVideo) ^
+      const DeepCollectionEquality().hash(imgCollection) ^
+      const DeepCollectionEquality().hash(textDetail) ^
+      const DeepCollectionEquality().hash(imgDetail) ^
+      const DeepCollectionEquality().hash(categoryId) ^
+      const DeepCollectionEquality().hash(categoryTree) ^
+      const DeepCollectionEquality().hash(productOptions) ^
+      const DeepCollectionEquality().hash(productAttrs) ^
+      const DeepCollectionEquality().hash(sourcePlatform) ^
+      const DeepCollectionEquality().hash(platformUrl) ^
+      const DeepCollectionEquality().hash(platformProductId) ^
+      const DeepCollectionEquality().hash(skuCode) ^
+      const DeepCollectionEquality().hash(skuSourceCode) ^
+      const DeepCollectionEquality().hash(sellPriceCur) ^
+      const DeepCollectionEquality().hash(sellPrice) ^
+      const DeepCollectionEquality().hash(targetSellPrice) ^
+      const DeepCollectionEquality().hash(targetSellCur) ^
+      const DeepCollectionEquality().hash(targetOriginPrice) ^
+      const DeepCollectionEquality().hash(productFlag) ^
+      const DeepCollectionEquality().hash(marketingInfo) ^
+      const DeepCollectionEquality().hash(sellQuantity) ^
+      const DeepCollectionEquality().hash(inspectImages) ^
+      const DeepCollectionEquality().hash(tags) ^
+      runtimeType.hashCode;
+}
+
+extension $ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$ItemExtension
+    on
+        ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item {
+  ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item
+  copyWith({
+    String? shopCode,
+    String? productCode,
+    String? productName,
+    String? tenantCode,
+    String? brandName,
+    List<
+      ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainImg$Item
+    >?
+    mainImg,
+    List<
+      ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$SubImg$Item
+    >?
+    subImg,
+    List<
+      ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainVideo$Item
+    >?
+    mainVideo,
+    List<
+      ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgCollection$Item
+    >?
+    imgCollection,
+    String? textDetail,
+    List<
+      ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgDetail$Item
+    >?
+    imgDetail,
+    int? categoryId,
+    List<Object>? categoryTree,
+    List<
+      ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item
+    >?
+    productOptions,
+    List<
+      ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$Item
+    >?
+    productAttrs,
+    String? sourcePlatform,
+    String? platformUrl,
+    String? platformProductId,
+    String? skuCode,
+    String? skuSourceCode,
+    String? sellPriceCur,
+    double? sellPrice,
+    double? targetSellPrice,
+    String? targetSellCur,
+    double? targetOriginPrice,
+    String? productFlag,
+    String? marketingInfo,
+    String? sellQuantity,
+    List<
+      ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item
+    >?
+    inspectImages,
+    List<
+      ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$Tags$Item
+    >?
+    tags,
+  }) {
+    return ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item(
+      shopCode: shopCode ?? this.shopCode,
+      productCode: productCode ?? this.productCode,
+      productName: productName ?? this.productName,
+      tenantCode: tenantCode ?? this.tenantCode,
+      brandName: brandName ?? this.brandName,
+      mainImg: mainImg ?? this.mainImg,
+      subImg: subImg ?? this.subImg,
+      mainVideo: mainVideo ?? this.mainVideo,
+      imgCollection: imgCollection ?? this.imgCollection,
+      textDetail: textDetail ?? this.textDetail,
+      imgDetail: imgDetail ?? this.imgDetail,
+      categoryId: categoryId ?? this.categoryId,
+      categoryTree: categoryTree ?? this.categoryTree,
+      productOptions: productOptions ?? this.productOptions,
+      productAttrs: productAttrs ?? this.productAttrs,
+      sourcePlatform: sourcePlatform ?? this.sourcePlatform,
+      platformUrl: platformUrl ?? this.platformUrl,
+      platformProductId: platformProductId ?? this.platformProductId,
+      skuCode: skuCode ?? this.skuCode,
+      skuSourceCode: skuSourceCode ?? this.skuSourceCode,
+      sellPriceCur: sellPriceCur ?? this.sellPriceCur,
+      sellPrice: sellPrice ?? this.sellPrice,
+      targetSellPrice: targetSellPrice ?? this.targetSellPrice,
+      targetSellCur: targetSellCur ?? this.targetSellCur,
+      targetOriginPrice: targetOriginPrice ?? this.targetOriginPrice,
+      productFlag: productFlag ?? this.productFlag,
+      marketingInfo: marketingInfo ?? this.marketingInfo,
+      sellQuantity: sellQuantity ?? this.sellQuantity,
+      inspectImages: inspectImages ?? this.inspectImages,
+      tags: tags ?? this.tags,
+    );
+  }
+
+  ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item
+  copyWithWrapped({
+    Wrapped<String?>? shopCode,
+    Wrapped<String?>? productCode,
+    Wrapped<String?>? productName,
+    Wrapped<String?>? tenantCode,
+    Wrapped<String?>? brandName,
+    Wrapped<
+      List<
+        ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainImg$Item
+      >?
+    >?
+    mainImg,
+    Wrapped<
+      List<
+        ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$SubImg$Item
+      >?
+    >?
+    subImg,
+    Wrapped<
+      List<
+        ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainVideo$Item
+      >?
+    >?
+    mainVideo,
+    Wrapped<
+      List<
+        ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgCollection$Item
+      >?
+    >?
+    imgCollection,
+    Wrapped<String?>? textDetail,
+    Wrapped<
+      List<
+        ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgDetail$Item
+      >?
+    >?
+    imgDetail,
+    Wrapped<int?>? categoryId,
+    Wrapped<List<Object>?>? categoryTree,
+    Wrapped<
+      List<
+        ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item
+      >?
+    >?
+    productOptions,
+    Wrapped<
+      List<
+        ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$Item
+      >?
+    >?
+    productAttrs,
+    Wrapped<String?>? sourcePlatform,
+    Wrapped<String?>? platformUrl,
+    Wrapped<String?>? platformProductId,
+    Wrapped<String?>? skuCode,
+    Wrapped<String?>? skuSourceCode,
+    Wrapped<String?>? sellPriceCur,
+    Wrapped<double?>? sellPrice,
+    Wrapped<double?>? targetSellPrice,
+    Wrapped<String?>? targetSellCur,
+    Wrapped<double?>? targetOriginPrice,
+    Wrapped<String?>? productFlag,
+    Wrapped<String?>? marketingInfo,
+    Wrapped<String?>? sellQuantity,
+    Wrapped<
+      List<
+        ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item
+      >?
+    >?
+    inspectImages,
+    Wrapped<
+      List<
+        ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$Tags$Item
+      >?
+    >?
+    tags,
+  }) {
+    return ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item(
+      shopCode: (shopCode != null ? shopCode.value : this.shopCode),
+      productCode: (productCode != null ? productCode.value : this.productCode),
+      productName: (productName != null ? productName.value : this.productName),
+      tenantCode: (tenantCode != null ? tenantCode.value : this.tenantCode),
+      brandName: (brandName != null ? brandName.value : this.brandName),
+      mainImg: (mainImg != null ? mainImg.value : this.mainImg),
+      subImg: (subImg != null ? subImg.value : this.subImg),
+      mainVideo: (mainVideo != null ? mainVideo.value : this.mainVideo),
+      imgCollection: (imgCollection != null
+          ? imgCollection.value
+          : this.imgCollection),
+      textDetail: (textDetail != null ? textDetail.value : this.textDetail),
+      imgDetail: (imgDetail != null ? imgDetail.value : this.imgDetail),
+      categoryId: (categoryId != null ? categoryId.value : this.categoryId),
+      categoryTree: (categoryTree != null
+          ? categoryTree.value
+          : this.categoryTree),
+      productOptions: (productOptions != null
+          ? productOptions.value
+          : this.productOptions),
+      productAttrs: (productAttrs != null
+          ? productAttrs.value
+          : this.productAttrs),
+      sourcePlatform: (sourcePlatform != null
+          ? sourcePlatform.value
+          : this.sourcePlatform),
+      platformUrl: (platformUrl != null ? platformUrl.value : this.platformUrl),
+      platformProductId: (platformProductId != null
+          ? platformProductId.value
+          : this.platformProductId),
+      skuCode: (skuCode != null ? skuCode.value : this.skuCode),
+      skuSourceCode: (skuSourceCode != null
+          ? skuSourceCode.value
+          : this.skuSourceCode),
+      sellPriceCur: (sellPriceCur != null
+          ? sellPriceCur.value
+          : this.sellPriceCur),
+      sellPrice: (sellPrice != null ? sellPrice.value : this.sellPrice),
+      targetSellPrice: (targetSellPrice != null
+          ? targetSellPrice.value
+          : this.targetSellPrice),
+      targetSellCur: (targetSellCur != null
+          ? targetSellCur.value
+          : this.targetSellCur),
+      targetOriginPrice: (targetOriginPrice != null
+          ? targetOriginPrice.value
+          : this.targetOriginPrice),
+      productFlag: (productFlag != null ? productFlag.value : this.productFlag),
+      marketingInfo: (marketingInfo != null
+          ? marketingInfo.value
+          : this.marketingInfo),
+      sellQuantity: (sellQuantity != null
+          ? sellQuantity.value
+          : this.sellQuantity),
+      inspectImages: (inspectImages != null
+          ? inspectImages.value
+          : this.inspectImages),
+      tags: (tags != null ? tags.value : this.tags),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$RequestParams {
+  const ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$RequestParams({
     this.referenceImages,
     this.customPrompt,
     this.gender,
@@ -11181,17 +11626,17 @@ class ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$RequestParams {
     this.useMultiModelImage,
   });
 
-  factory ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$RequestParams.fromJson(
+  factory ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$RequestParams.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$RequestParamsFromJson(
+      _$ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$RequestParamsFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$RequestParamsToJson;
+      _$ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$RequestParamsToJson;
   Map<String, dynamic> toJson() =>
-      _$ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$RequestParamsToJson(
+      _$ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$RequestParamsToJson(
         this,
       );
 
@@ -11222,13 +11667,13 @@ class ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$RequestParams {
   @JsonKey(name: 'useMultiModelImage')
   final bool? useMultiModelImage;
   static const fromJsonFactory =
-      _$ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$RequestParamsFromJson;
+      _$ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$RequestParamsFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$RequestParams &&
+                is ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$RequestParams &&
             (identical(other.referenceImages, referenceImages) ||
                 const DeepCollectionEquality().equals(
                   other.referenceImages,
@@ -11305,9 +11750,10 @@ class ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$RequestParams {
       runtimeType.hashCode;
 }
 
-extension $ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$RequestParamsExtension
-    on ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$RequestParams {
-  ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$RequestParams
+extension $ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$RequestParamsExtension
+    on
+        ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$RequestParams {
+  ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$RequestParams
   copyWith({
     List<String>? referenceImages,
     String? customPrompt,
@@ -11323,7 +11769,7 @@ extension $ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$RequestPara
     String? occasion,
     bool? useMultiModelImage,
   }) {
-    return ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$RequestParams(
+    return ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$RequestParams(
       referenceImages: referenceImages ?? this.referenceImages,
       customPrompt: customPrompt ?? this.customPrompt,
       gender: gender ?? this.gender,
@@ -11340,7 +11786,7 @@ extension $ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$RequestPara
     );
   }
 
-  ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$RequestParams
+  ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$RequestParams
   copyWithWrapped({
     Wrapped<List<String>?>? referenceImages,
     Wrapped<String?>? customPrompt,
@@ -11356,7 +11802,7 @@ extension $ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$RequestPara
     Wrapped<String?>? occasion,
     Wrapped<bool?>? useMultiModelImage,
   }) {
-    return ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$RequestParams(
+    return ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$RequestParams(
       referenceImages: (referenceImages != null
           ? referenceImages.value
           : this.referenceImages),
@@ -11391,8 +11837,8 @@ extension $ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$RequestPara
 }
 
 @JsonSerializable(explicitToJson: true)
-class ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item {
-  const ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item({
+class ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item {
+  const ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item({
     this.name,
     this.title,
     this.link,
@@ -11409,17 +11855,17 @@ class ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Ite
     this.cachedImageUpdatedAt,
   });
 
-  factory ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item.fromJson(
+  factory ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$ItemFromJson(
+      _$ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$ItemToJson;
+      _$ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$ItemToJson(
+      _$ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$ItemToJson(
         this,
       );
 
@@ -11443,7 +11889,7 @@ class ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Ite
   final double? selectedId;
   @JsonKey(name: 'options')
   final List<
-    ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item$Options$Item
+    ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item$Options$Item
   >?
   options;
   @JsonKey(name: 'cachedImage')
@@ -11455,13 +11901,13 @@ class ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Ite
   @JsonKey(name: 'cachedImageUpdatedAt')
   final double? cachedImageUpdatedAt;
   static const fromJsonFactory =
-      _$ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$ItemFromJson;
+      _$ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item &&
+                is ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item &&
             (identical(other.name, name) ||
                 const DeepCollectionEquality().equals(other.name, name)) &&
             (identical(other.title, title) ||
@@ -11538,9 +11984,10 @@ class ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Ite
       runtimeType.hashCode;
 }
 
-extension $ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$ItemExtension
-    on ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item {
-  ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item
+extension $ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$ItemExtension
+    on
+        ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item {
+  ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item
   copyWith({
     String? name,
     String? title,
@@ -11552,7 +11999,7 @@ extension $ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLink
     String? pending,
     double? selectedId,
     List<
-      ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item$Options$Item
+      ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item$Options$Item
     >?
     options,
     String? cachedImage,
@@ -11560,7 +12007,7 @@ extension $ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLink
     double? cachedImageSelectedId,
     double? cachedImageUpdatedAt,
   }) {
-    return ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item(
+    return ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item(
       name: name ?? this.name,
       title: title ?? this.title,
       link: link ?? this.link,
@@ -11579,7 +12026,7 @@ extension $ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLink
     );
   }
 
-  ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item
+  ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item
   copyWithWrapped({
     Wrapped<String?>? name,
     Wrapped<String?>? title,
@@ -11592,7 +12039,7 @@ extension $ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLink
     Wrapped<double?>? selectedId,
     Wrapped<
       List<
-        ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item$Options$Item
+        ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item$Options$Item
       >?
     >?
     options,
@@ -11601,7 +12048,7 @@ extension $ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLink
     Wrapped<double?>? cachedImageSelectedId,
     Wrapped<double?>? cachedImageUpdatedAt,
   }) {
-    return ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item(
+    return ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item(
       name: (name != null ? name.value : this.name),
       title: (title != null ? title.value : this.title),
       link: (link != null ? link.value : this.link),
@@ -11627,8 +12074,8 @@ extension $ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLink
 }
 
 @JsonSerializable(explicitToJson: true)
-class ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages {
-  const ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages({
+class ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages {
+  const ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages({
     this.title,
     this.items,
     this.generatedAt,
@@ -11637,17 +12084,17 @@ class ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages {
     this.images,
   });
 
-  factory ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages.fromJson(
+  factory ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImagesFromJson(
+      _$ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImagesFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImagesToJson;
+      _$ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImagesToJson;
   Map<String, dynamic> toJson() =>
-      _$ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImagesToJson(
+      _$ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImagesToJson(
         this,
       );
 
@@ -11655,7 +12102,7 @@ class ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages {
   final String? title;
   @JsonKey(name: 'items')
   final List<
-    ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item
+    ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item
   >?
   items;
   @JsonKey(name: 'generated_at')
@@ -11666,17 +12113,17 @@ class ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages {
   final List<String>? whiteBgImages;
   @JsonKey(name: 'images')
   final List<
-    ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Images$Item
+    ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Images$Item
   >?
   images;
   static const fromJsonFactory =
-      _$ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImagesFromJson;
+      _$ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImagesFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages &&
+                is ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages &&
             (identical(other.title, title) ||
                 const DeepCollectionEquality().equals(other.title, title)) &&
             (identical(other.items, items) ||
@@ -11714,24 +12161,25 @@ class ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages {
       runtimeType.hashCode;
 }
 
-extension $ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImagesExtension
-    on ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages {
-  ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages
+extension $ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImagesExtension
+    on
+        ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages {
+  ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages
   copyWith({
     String? title,
     List<
-      ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item
+      ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item
     >?
     items,
     double? generatedAt,
     String? multiModelImageUrl,
     List<String>? whiteBgImages,
     List<
-      ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Images$Item
+      ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Images$Item
     >?
     images,
   }) {
-    return ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages(
+    return ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages(
       title: title ?? this.title,
       items: items ?? this.items,
       generatedAt: generatedAt ?? this.generatedAt,
@@ -11741,12 +12189,12 @@ extension $ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImag
     );
   }
 
-  ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages
+  ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages
   copyWithWrapped({
     Wrapped<String?>? title,
     Wrapped<
       List<
-        ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item
+        ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item
       >?
     >?
     items,
@@ -11755,12 +12203,12 @@ extension $ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImag
     Wrapped<List<String>?>? whiteBgImages,
     Wrapped<
       List<
-        ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Images$Item
+        ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Images$Item
       >?
     >?
     images,
   }) {
-    return ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages(
+    return ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages(
       title: (title != null ? title.value : this.title),
       items: (items != null ? items.value : this.items),
       generatedAt: (generatedAt != null ? generatedAt.value : this.generatedAt),
@@ -11776,23 +12224,23 @@ extension $ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImag
 }
 
 @JsonSerializable(explicitToJson: true)
-class ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImagesStatus {
-  const ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImagesStatus({
+class ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImagesStatus {
+  const ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImagesStatus({
     this.ready,
     this.count,
   });
 
-  factory ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImagesStatus.fromJson(
+  factory ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImagesStatus.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImagesStatusFromJson(
+      _$ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImagesStatusFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImagesStatusToJson;
+      _$ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImagesStatusToJson;
   Map<String, dynamic> toJson() =>
-      _$ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImagesStatusToJson(
+      _$ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImagesStatusToJson(
         this,
       );
 
@@ -11801,13 +12249,13 @@ class ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImagesSta
   @JsonKey(name: 'count')
   final double? count;
   static const fromJsonFactory =
-      _$ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImagesStatusFromJson;
+      _$ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImagesStatusFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImagesStatus &&
+                is ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImagesStatus &&
             (identical(other.ready, ready) ||
                 const DeepCollectionEquality().equals(other.ready, ready)) &&
             (identical(other.count, count) ||
@@ -11824,19 +12272,20 @@ class ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImagesSta
       runtimeType.hashCode;
 }
 
-extension $ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImagesStatusExtension
-    on ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImagesStatus {
-  ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImagesStatus
+extension $ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImagesStatusExtension
+    on
+        ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImagesStatus {
+  ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImagesStatus
   copyWith({bool? ready, double? count}) {
-    return ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImagesStatus(
+    return ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImagesStatus(
       ready: ready ?? this.ready,
       count: count ?? this.count,
     );
   }
 
-  ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImagesStatus
+  ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImagesStatus
   copyWithWrapped({Wrapped<bool?>? ready, Wrapped<double?>? count}) {
-    return ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImagesStatus(
+    return ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImagesStatus(
       ready: (ready != null ? ready.value : this.ready),
       count: (count != null ? count.value : this.count),
     );
@@ -11844,8 +12293,8 @@ extension $ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImag
 }
 
 @JsonSerializable(explicitToJson: true)
-class ApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item$Options$Item {
-  const ApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item$Options$Item({
+class ComboServiceApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item$Options$Item {
+  const ComboServiceApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item$Options$Item({
     this.id,
     this.title,
     this.link,
@@ -11854,17 +12303,17 @@ class ApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item$Options$Item {
     this.image,
   });
 
-  factory ApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item$Options$Item.fromJson(
+  factory ComboServiceApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item$Options$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item$Options$ItemFromJson(
+      _$ComboServiceApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item$Options$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$ApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item$Options$ItemToJson;
+      _$ComboServiceApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item$Options$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item$Options$ItemToJson(
+      _$ComboServiceApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item$Options$ItemToJson(
         this,
       );
 
@@ -11881,13 +12330,13 @@ class ApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item$Options$Item {
   @JsonKey(name: 'image')
   final String? image;
   static const fromJsonFactory =
-      _$ApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item$Options$ItemFromJson;
+      _$ComboServiceApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item$Options$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is ApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item$Options$Item &&
+                is ComboServiceApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item$Options$Item &&
             (identical(other.id, id) ||
                 const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.title, title) ||
@@ -11916,9 +12365,10 @@ class ApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item$Options$Item {
       runtimeType.hashCode;
 }
 
-extension $ApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item$Options$ItemExtension
-    on ApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item$Options$Item {
-  ApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item$Options$Item
+extension $ComboServiceApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item$Options$ItemExtension
+    on
+        ComboServiceApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item$Options$Item {
+  ComboServiceApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item$Options$Item
   copyWith({
     double? id,
     String? title,
@@ -11927,7 +12377,7 @@ extension $ApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item$Options$It
     String? price,
     String? image,
   }) {
-    return ApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item$Options$Item(
+    return ComboServiceApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item$Options$Item(
       id: id ?? this.id,
       title: title ?? this.title,
       link: link ?? this.link,
@@ -11937,7 +12387,7 @@ extension $ApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item$Options$It
     );
   }
 
-  ApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item$Options$Item
+  ComboServiceApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item$Options$Item
   copyWithWrapped({
     Wrapped<double?>? id,
     Wrapped<String?>? title,
@@ -11946,7 +12396,7 @@ extension $ApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item$Options$It
     Wrapped<String?>? price,
     Wrapped<String?>? image,
   }) {
-    return ApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item$Options$Item(
+    return ComboServiceApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item$Options$Item(
       id: (id != null ? id.value : this.id),
       title: (title != null ? title.value : this.title),
       link: (link != null ? link.value : this.link),
@@ -11958,25 +12408,25 @@ extension $ApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item$Options$It
 }
 
 @JsonSerializable(explicitToJson: true)
-class ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item {
-  const ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item({
+class ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item {
+  const ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item({
     this.sharingImageId,
     this.imageUrl,
     this.caption,
     this.metadata,
   });
 
-  factory ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item.fromJson(
+  factory ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$ItemFromJson(
+      _$ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$ItemToJson;
+      _$ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$ItemToJson(
+      _$ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$ItemToJson(
         this,
       );
 
@@ -11985,19 +12435,19 @@ class ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item {
   @JsonKey(name: 'imageUrl')
   final String? imageUrl;
   @JsonKey(name: 'caption')
-  final ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$Caption?
+  final ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$Caption?
   caption;
   @JsonKey(name: 'metadata')
-  final ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$Metadata?
+  final ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$Metadata?
   metadata;
   static const fromJsonFactory =
-      _$ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$ItemFromJson;
+      _$ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item &&
+                is ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item &&
             (identical(other.sharingImageId, sharingImageId) ||
                 const DeepCollectionEquality().equals(
                   other.sharingImageId,
@@ -12032,17 +12482,18 @@ class ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item {
       runtimeType.hashCode;
 }
 
-extension $ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$ItemExtension
-    on ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item {
-  ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item copyWith({
+extension $ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$ItemExtension
+    on ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item {
+  ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item
+  copyWith({
     double? sharingImageId,
     String? imageUrl,
-    ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$Caption?
+    ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$Caption?
     caption,
-    ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$Metadata?
+    ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$Metadata?
     metadata,
   }) {
-    return ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item(
+    return ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item(
       sharingImageId: sharingImageId ?? this.sharingImageId,
       imageUrl: imageUrl ?? this.imageUrl,
       caption: caption ?? this.caption,
@@ -12050,20 +12501,20 @@ extension $ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$ItemExte
     );
   }
 
-  ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item
+  ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item
   copyWithWrapped({
     Wrapped<double?>? sharingImageId,
     Wrapped<String?>? imageUrl,
     Wrapped<
-      ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$Caption?
+      ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$Caption?
     >?
     caption,
     Wrapped<
-      ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$Metadata?
+      ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$Metadata?
     >?
     metadata,
   }) {
-    return ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item(
+    return ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item(
       sharingImageId: (sharingImageId != null
           ? sharingImageId.value
           : this.sharingImageId),
@@ -12075,23 +12526,23 @@ extension $ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$ItemExte
 }
 
 @JsonSerializable(explicitToJson: true)
-class ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Images$Item {
-  const ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Images$Item({
+class ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Images$Item {
+  const ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Images$Item({
     this.sharingImageId,
     this.imageUrl,
   });
 
-  factory ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Images$Item.fromJson(
+  factory ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Images$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Images$ItemFromJson(
+      _$ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Images$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Images$ItemToJson;
+      _$ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Images$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Images$ItemToJson(
+      _$ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Images$ItemToJson(
         this,
       );
 
@@ -12100,13 +12551,13 @@ class ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Images$Item {
   @JsonKey(name: 'imageUrl')
   final String? imageUrl;
   static const fromJsonFactory =
-      _$ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Images$ItemFromJson;
+      _$ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Images$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Images$Item &&
+                is ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Images$Item &&
             (identical(other.sharingImageId, sharingImageId) ||
                 const DeepCollectionEquality().equals(
                   other.sharingImageId,
@@ -12129,24 +12580,22 @@ class ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Images$Item {
       runtimeType.hashCode;
 }
 
-extension $ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Images$ItemExtension
-    on ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Images$Item {
-  ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Images$Item copyWith({
-    double? sharingImageId,
-    String? imageUrl,
-  }) {
-    return ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Images$Item(
+extension $ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Images$ItemExtension
+    on ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Images$Item {
+  ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Images$Item
+  copyWith({double? sharingImageId, String? imageUrl}) {
+    return ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Images$Item(
       sharingImageId: sharingImageId ?? this.sharingImageId,
       imageUrl: imageUrl ?? this.imageUrl,
     );
   }
 
-  ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Images$Item
+  ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Images$Item
   copyWithWrapped({
     Wrapped<double?>? sharingImageId,
     Wrapped<String?>? imageUrl,
   }) {
-    return ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Images$Item(
+    return ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Images$Item(
       sharingImageId: (sharingImageId != null
           ? sharingImageId.value
           : this.sharingImageId),
@@ -12156,8 +12605,8 @@ extension $ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Images$ItemExt
 }
 
 @JsonSerializable(explicitToJson: true)
-class BizAiFashionModelListGet$Response$Data$Models$Item$Data$Item {
-  const BizAiFashionModelListGet$Response$Data$Models$Item$Data$Item({
+class ComboServiceBizAiFashionModelListGet$Response$Data$Models$Item$Data$Item {
+  const ComboServiceBizAiFashionModelListGet$Response$Data$Models$Item$Data$Item({
     this.id,
     this.tenantCode,
     this.userId,
@@ -12173,16 +12622,17 @@ class BizAiFashionModelListGet$Response$Data$Models$Item$Data$Item {
     this.modelData,
   });
 
-  factory BizAiFashionModelListGet$Response$Data$Models$Item$Data$Item.fromJson(
+  factory ComboServiceBizAiFashionModelListGet$Response$Data$Models$Item$Data$Item.fromJson(
     Map<String, dynamic> json,
-  ) => _$BizAiFashionModelListGet$Response$Data$Models$Item$Data$ItemFromJson(
-    json,
-  );
+  ) =>
+      _$ComboServiceBizAiFashionModelListGet$Response$Data$Models$Item$Data$ItemFromJson(
+        json,
+      );
 
   static const toJsonFactory =
-      _$BizAiFashionModelListGet$Response$Data$Models$Item$Data$ItemToJson;
+      _$ComboServiceBizAiFashionModelListGet$Response$Data$Models$Item$Data$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$BizAiFashionModelListGet$Response$Data$Models$Item$Data$ItemToJson(
+      _$ComboServiceBizAiFashionModelListGet$Response$Data$Models$Item$Data$ItemToJson(
         this,
       );
 
@@ -12213,13 +12663,13 @@ class BizAiFashionModelListGet$Response$Data$Models$Item$Data$Item {
   @JsonKey(name: 'modelData', defaultValue: <Object>[])
   final List<Object>? modelData;
   static const fromJsonFactory =
-      _$BizAiFashionModelListGet$Response$Data$Models$Item$Data$ItemFromJson;
+      _$ComboServiceBizAiFashionModelListGet$Response$Data$Models$Item$Data$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is BizAiFashionModelListGet$Response$Data$Models$Item$Data$Item &&
+                is ComboServiceBizAiFashionModelListGet$Response$Data$Models$Item$Data$Item &&
             (identical(other.id, id) ||
                 const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.tenantCode, tenantCode) ||
@@ -12299,9 +12749,10 @@ class BizAiFashionModelListGet$Response$Data$Models$Item$Data$Item {
       runtimeType.hashCode;
 }
 
-extension $BizAiFashionModelListGet$Response$Data$Models$Item$Data$ItemExtension
-    on BizAiFashionModelListGet$Response$Data$Models$Item$Data$Item {
-  BizAiFashionModelListGet$Response$Data$Models$Item$Data$Item copyWith({
+extension $ComboServiceBizAiFashionModelListGet$Response$Data$Models$Item$Data$ItemExtension
+    on ComboServiceBizAiFashionModelListGet$Response$Data$Models$Item$Data$Item {
+  ComboServiceBizAiFashionModelListGet$Response$Data$Models$Item$Data$Item
+  copyWith({
     double? id,
     String? tenantCode,
     String? userId,
@@ -12316,7 +12767,7 @@ extension $BizAiFashionModelListGet$Response$Data$Models$Item$Data$ItemExtension
     double? groupId,
     List<Object>? modelData,
   }) {
-    return BizAiFashionModelListGet$Response$Data$Models$Item$Data$Item(
+    return ComboServiceBizAiFashionModelListGet$Response$Data$Models$Item$Data$Item(
       id: id ?? this.id,
       tenantCode: tenantCode ?? this.tenantCode,
       userId: userId ?? this.userId,
@@ -12333,7 +12784,8 @@ extension $BizAiFashionModelListGet$Response$Data$Models$Item$Data$ItemExtension
     );
   }
 
-  BizAiFashionModelListGet$Response$Data$Models$Item$Data$Item copyWithWrapped({
+  ComboServiceBizAiFashionModelListGet$Response$Data$Models$Item$Data$Item
+  copyWithWrapped({
     Wrapped<double?>? id,
     Wrapped<String?>? tenantCode,
     Wrapped<String?>? userId,
@@ -12348,7 +12800,7 @@ extension $BizAiFashionModelListGet$Response$Data$Models$Item$Data$ItemExtension
     Wrapped<double?>? groupId,
     Wrapped<List<Object>?>? modelData,
   }) {
-    return BizAiFashionModelListGet$Response$Data$Models$Item$Data$Item(
+    return ComboServiceBizAiFashionModelListGet$Response$Data$Models$Item$Data$Item(
       id: (id != null ? id.value : this.id),
       tenantCode: (tenantCode != null ? tenantCode.value : this.tenantCode),
       userId: (userId != null ? userId.value : this.userId),
@@ -12369,24 +12821,24 @@ extension $BizAiFashionModelListGet$Response$Data$Models$Item$Data$ItemExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class BizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$Images$Item {
-  const BizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$Images$Item({
+class ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$Images$Item {
+  const ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$Images$Item({
     this.width,
     this.height,
     this.url,
   });
 
-  factory BizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$Images$Item.fromJson(
+  factory ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$Images$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$BizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$Images$ItemFromJson(
+      _$ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$Images$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$BizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$Images$ItemToJson;
+      _$ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$Images$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$BizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$Images$ItemToJson(
+      _$ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$Images$ItemToJson(
         this,
       );
 
@@ -12397,12 +12849,13 @@ class BizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$Images$Item {
   @JsonKey(name: 'url')
   final String? url;
   static const fromJsonFactory =
-      _$BizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$Images$ItemFromJson;
+      _$ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$Images$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is BizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$Images$Item &&
+        (other
+                is ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$Images$Item &&
             (identical(other.width, width) ||
                 const DeepCollectionEquality().equals(other.width, width)) &&
             (identical(other.height, height) ||
@@ -12422,27 +12875,24 @@ class BizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$Images$Item {
       runtimeType.hashCode;
 }
 
-extension $BizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$Images$ItemExtension
-    on BizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$Images$Item {
-  BizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$Images$Item copyWith({
-    double? width,
-    double? height,
-    String? url,
-  }) {
-    return BizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$Images$Item(
+extension $ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$Images$ItemExtension
+    on ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$Images$Item {
+  ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$Images$Item
+  copyWith({double? width, double? height, String? url}) {
+    return ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$Images$Item(
       width: width ?? this.width,
       height: height ?? this.height,
       url: url ?? this.url,
     );
   }
 
-  BizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$Images$Item
+  ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$Images$Item
   copyWithWrapped({
     Wrapped<double?>? width,
     Wrapped<double?>? height,
     Wrapped<String?>? url,
   }) {
-    return BizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$Images$Item(
+    return ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$Images$Item(
       width: (width != null ? width.value : this.width),
       height: (height != null ? height.value : this.height),
       url: (url != null ? url.value : this.url),
@@ -12451,24 +12901,24 @@ extension $BizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$Images$ItemExt
 }
 
 @JsonSerializable(explicitToJson: true)
-class BizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$FrontImage {
-  const BizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$FrontImage({
+class ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$FrontImage {
+  const ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$FrontImage({
     this.width,
     this.height,
     this.url,
   });
 
-  factory BizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$FrontImage.fromJson(
+  factory ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$FrontImage.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$BizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$FrontImageFromJson(
+      _$ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$FrontImageFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$BizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$FrontImageToJson;
+      _$ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$FrontImageToJson;
   Map<String, dynamic> toJson() =>
-      _$BizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$FrontImageToJson(
+      _$ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$FrontImageToJson(
         this,
       );
 
@@ -12479,12 +12929,13 @@ class BizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$FrontImage {
   @JsonKey(name: 'url')
   final String? url;
   static const fromJsonFactory =
-      _$BizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$FrontImageFromJson;
+      _$ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$FrontImageFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is BizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$FrontImage &&
+        (other
+                is ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$FrontImage &&
             (identical(other.width, width) ||
                 const DeepCollectionEquality().equals(other.width, width)) &&
             (identical(other.height, height) ||
@@ -12504,27 +12955,24 @@ class BizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$FrontImage {
       runtimeType.hashCode;
 }
 
-extension $BizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$FrontImageExtension
-    on BizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$FrontImage {
-  BizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$FrontImage copyWith({
-    double? width,
-    double? height,
-    String? url,
-  }) {
-    return BizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$FrontImage(
+extension $ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$FrontImageExtension
+    on ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$FrontImage {
+  ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$FrontImage
+  copyWith({double? width, double? height, String? url}) {
+    return ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$FrontImage(
       width: width ?? this.width,
       height: height ?? this.height,
       url: url ?? this.url,
     );
   }
 
-  BizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$FrontImage
+  ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$FrontImage
   copyWithWrapped({
     Wrapped<double?>? width,
     Wrapped<double?>? height,
     Wrapped<String?>? url,
   }) {
-    return BizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$FrontImage(
+    return ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$FrontImage(
       width: (width != null ? width.value : this.width),
       height: (height != null ? height.value : this.height),
       url: (url != null ? url.value : this.url),
@@ -12533,23 +12981,23 @@ extension $BizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$FrontImageExte
 }
 
 @JsonSerializable(explicitToJson: true)
-class BizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$Item$Data$Item {
-  const BizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$Item$Data$Item({
+class ComboServiceBizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$Item$Data$Item {
+  const ComboServiceBizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$Item$Data$Item({
     this.label,
     this.value,
   });
 
-  factory BizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$Item$Data$Item.fromJson(
+  factory ComboServiceBizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$Item$Data$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$BizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$Item$Data$ItemFromJson(
+      _$ComboServiceBizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$Item$Data$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$BizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$Item$Data$ItemToJson;
+      _$ComboServiceBizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$Item$Data$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$BizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$Item$Data$ItemToJson(
+      _$ComboServiceBizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$Item$Data$ItemToJson(
         this,
       );
 
@@ -12558,13 +13006,13 @@ class BizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$Item$Data$It
   @JsonKey(name: 'value')
   final String? value;
   static const fromJsonFactory =
-      _$BizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$Item$Data$ItemFromJson;
+      _$ComboServiceBizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$Item$Data$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is BizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$Item$Data$Item &&
+                is ComboServiceBizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$Item$Data$Item &&
             (identical(other.label, label) ||
                 const DeepCollectionEquality().equals(other.label, label)) &&
             (identical(other.value, value) ||
@@ -12581,19 +13029,20 @@ class BizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$Item$Data$It
       runtimeType.hashCode;
 }
 
-extension $BizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$Item$Data$ItemExtension
-    on BizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$Item$Data$Item {
-  BizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$Item$Data$Item
+extension $ComboServiceBizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$Item$Data$ItemExtension
+    on
+        ComboServiceBizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$Item$Data$Item {
+  ComboServiceBizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$Item$Data$Item
   copyWith({String? label, String? value}) {
-    return BizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$Item$Data$Item(
+    return ComboServiceBizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$Item$Data$Item(
       label: label ?? this.label,
       value: value ?? this.value,
     );
   }
 
-  BizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$Item$Data$Item
+  ComboServiceBizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$Item$Data$Item
   copyWithWrapped({Wrapped<String?>? label, Wrapped<String?>? value}) {
-    return BizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$Item$Data$Item(
+    return ComboServiceBizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$Item$Data$Item(
       label: (label != null ? label.value : this.label),
       value: (value != null ? value.value : this.value),
     );
@@ -12601,8 +13050,8 @@ extension $BizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$Item$Da
 }
 
 @JsonSerializable(explicitToJson: true)
-class NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item {
-  const NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item({
+class ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item {
+  const ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item({
     required this.id,
     required this.parentId,
     required this.level,
@@ -12612,17 +13061,17 @@ class NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item
     required this.categoryList,
   });
 
-  factory NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item.fromJson(
+  factory ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$ItemFromJson(
+      _$ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$ItemToJson;
+      _$ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$ItemToJson(
+      _$ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$ItemToJson(
         this,
       );
 
@@ -12640,17 +13089,17 @@ class NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item
   final String iconUrl;
   @JsonKey(name: 'categoryList')
   final List<
-    NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item$CategoryList$Item
+    ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item$CategoryList$Item
   >
   categoryList;
   static const fromJsonFactory =
-      _$NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$ItemFromJson;
+      _$ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item &&
+                is ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item &&
             (identical(other.id, id) ||
                 const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.parentId, parentId) ||
@@ -12694,9 +13143,10 @@ class NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item
       runtimeType.hashCode;
 }
 
-extension $NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$ItemExtension
-    on NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item {
-  NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item
+extension $ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$ItemExtension
+    on
+        ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item {
+  ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item
   copyWith({
     int? id,
     int? parentId,
@@ -12705,11 +13155,11 @@ extension $NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList
     String? name,
     String? iconUrl,
     List<
-      NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item$CategoryList$Item
+      ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item$CategoryList$Item
     >?
     categoryList,
   }) {
-    return NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item(
+    return ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item(
       id: id ?? this.id,
       parentId: parentId ?? this.parentId,
       level: level ?? this.level,
@@ -12720,7 +13170,7 @@ extension $NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList
     );
   }
 
-  NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item
+  ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item
   copyWithWrapped({
     Wrapped<int>? id,
     Wrapped<int>? parentId,
@@ -12730,12 +13180,12 @@ extension $NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList
     Wrapped<String>? iconUrl,
     Wrapped<
       List<
-        NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item$CategoryList$Item
+        ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item$CategoryList$Item
       >
     >?
     categoryList,
   }) {
-    return NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item(
+    return ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item(
       id: (id != null ? id.value : this.id),
       parentId: (parentId != null ? parentId.value : this.parentId),
       level: (level != null ? level.value : this.level),
@@ -12750,24 +13200,24 @@ extension $NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList
 }
 
 @JsonSerializable(explicitToJson: true)
-class BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainImg$Item {
-  const BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainImg$Item({
+class ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainImg$Item {
+  const ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainImg$Item({
     this.width,
     this.height,
     this.url,
   });
 
-  factory BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainImg$Item.fromJson(
+  factory ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainImg$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainImg$ItemFromJson(
+      _$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainImg$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainImg$ItemToJson;
+      _$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainImg$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainImg$ItemToJson(
+      _$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainImg$ItemToJson(
         this,
       );
 
@@ -12778,13 +13228,13 @@ class BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainImg$It
   @JsonKey(name: 'url')
   final String? url;
   static const fromJsonFactory =
-      _$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainImg$ItemFromJson;
+      _$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainImg$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainImg$Item &&
+                is ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainImg$Item &&
             (identical(other.width, width) ||
                 const DeepCollectionEquality().equals(other.width, width)) &&
             (identical(other.height, height) ||
@@ -12804,24 +13254,25 @@ class BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainImg$It
       runtimeType.hashCode;
 }
 
-extension $BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainImg$ItemExtension
-    on BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainImg$Item {
-  BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainImg$Item
+extension $ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainImg$ItemExtension
+    on
+        ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainImg$Item {
+  ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainImg$Item
   copyWith({int? width, int? height, String? url}) {
-    return BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainImg$Item(
+    return ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainImg$Item(
       width: width ?? this.width,
       height: height ?? this.height,
       url: url ?? this.url,
     );
   }
 
-  BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainImg$Item
+  ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainImg$Item
   copyWithWrapped({
     Wrapped<int?>? width,
     Wrapped<int?>? height,
     Wrapped<String?>? url,
   }) {
-    return BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainImg$Item(
+    return ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainImg$Item(
       width: (width != null ? width.value : this.width),
       height: (height != null ? height.value : this.height),
       url: (url != null ? url.value : this.url),
@@ -12830,24 +13281,24 @@ extension $BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainI
 }
 
 @JsonSerializable(explicitToJson: true)
-class BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$SubImg$Item {
-  const BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$SubImg$Item({
+class ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$SubImg$Item {
+  const ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$SubImg$Item({
     this.width,
     this.height,
     this.url,
   });
 
-  factory BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$SubImg$Item.fromJson(
+  factory ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$SubImg$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$SubImg$ItemFromJson(
+      _$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$SubImg$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$SubImg$ItemToJson;
+      _$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$SubImg$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$SubImg$ItemToJson(
+      _$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$SubImg$ItemToJson(
         this,
       );
 
@@ -12858,13 +13309,13 @@ class BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$SubImg$Ite
   @JsonKey(name: 'url')
   final String? url;
   static const fromJsonFactory =
-      _$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$SubImg$ItemFromJson;
+      _$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$SubImg$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$SubImg$Item &&
+                is ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$SubImg$Item &&
             (identical(other.width, width) ||
                 const DeepCollectionEquality().equals(other.width, width)) &&
             (identical(other.height, height) ||
@@ -12884,24 +13335,25 @@ class BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$SubImg$Ite
       runtimeType.hashCode;
 }
 
-extension $BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$SubImg$ItemExtension
-    on BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$SubImg$Item {
-  BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$SubImg$Item
+extension $ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$SubImg$ItemExtension
+    on
+        ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$SubImg$Item {
+  ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$SubImg$Item
   copyWith({int? width, int? height, String? url}) {
-    return BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$SubImg$Item(
+    return ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$SubImg$Item(
       width: width ?? this.width,
       height: height ?? this.height,
       url: url ?? this.url,
     );
   }
 
-  BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$SubImg$Item
+  ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$SubImg$Item
   copyWithWrapped({
     Wrapped<int?>? width,
     Wrapped<int?>? height,
     Wrapped<String?>? url,
   }) {
-    return BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$SubImg$Item(
+    return ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$SubImg$Item(
       width: (width != null ? width.value : this.width),
       height: (height != null ? height.value : this.height),
       url: (url != null ? url.value : this.url),
@@ -12910,8 +13362,8 @@ extension $BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$SubIm
 }
 
 @JsonSerializable(explicitToJson: true)
-class BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainVideo$Item {
-  const BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainVideo$Item({
+class ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainVideo$Item {
+  const ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainVideo$Item({
     this.videoUrl,
     this.vodUrl,
     this.previewUrl,
@@ -12919,17 +13371,17 @@ class BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainVideo$
     this.height,
   });
 
-  factory BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainVideo$Item.fromJson(
+  factory ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainVideo$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainVideo$ItemFromJson(
+      _$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainVideo$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainVideo$ItemToJson;
+      _$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainVideo$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainVideo$ItemToJson(
+      _$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainVideo$ItemToJson(
         this,
       );
 
@@ -12944,13 +13396,13 @@ class BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainVideo$
   @JsonKey(name: 'height')
   final int? height;
   static const fromJsonFactory =
-      _$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainVideo$ItemFromJson;
+      _$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainVideo$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainVideo$Item &&
+                is ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainVideo$Item &&
             (identical(other.videoUrl, videoUrl) ||
                 const DeepCollectionEquality().equals(
                   other.videoUrl,
@@ -12982,9 +13434,10 @@ class BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainVideo$
       runtimeType.hashCode;
 }
 
-extension $BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainVideo$ItemExtension
-    on BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainVideo$Item {
-  BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainVideo$Item
+extension $ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainVideo$ItemExtension
+    on
+        ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainVideo$Item {
+  ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainVideo$Item
   copyWith({
     String? videoUrl,
     String? vodUrl,
@@ -12992,7 +13445,7 @@ extension $BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainV
     int? width,
     int? height,
   }) {
-    return BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainVideo$Item(
+    return ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainVideo$Item(
       videoUrl: videoUrl ?? this.videoUrl,
       vodUrl: vodUrl ?? this.vodUrl,
       previewUrl: previewUrl ?? this.previewUrl,
@@ -13001,7 +13454,7 @@ extension $BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainV
     );
   }
 
-  BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainVideo$Item
+  ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainVideo$Item
   copyWithWrapped({
     Wrapped<String?>? videoUrl,
     Wrapped<String?>? vodUrl,
@@ -13009,7 +13462,7 @@ extension $BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainV
     Wrapped<int?>? width,
     Wrapped<int?>? height,
   }) {
-    return BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainVideo$Item(
+    return ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainVideo$Item(
       videoUrl: (videoUrl != null ? videoUrl.value : this.videoUrl),
       vodUrl: (vodUrl != null ? vodUrl.value : this.vodUrl),
       previewUrl: (previewUrl != null ? previewUrl.value : this.previewUrl),
@@ -13020,24 +13473,24 @@ extension $BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainV
 }
 
 @JsonSerializable(explicitToJson: true)
-class BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgCollection$Item {
-  const BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgCollection$Item({
+class ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgCollection$Item {
+  const ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgCollection$Item({
     this.width,
     this.height,
     this.url,
   });
 
-  factory BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgCollection$Item.fromJson(
+  factory ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgCollection$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgCollection$ItemFromJson(
+      _$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgCollection$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgCollection$ItemToJson;
+      _$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgCollection$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgCollection$ItemToJson(
+      _$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgCollection$ItemToJson(
         this,
       );
 
@@ -13048,13 +13501,13 @@ class BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgCollect
   @JsonKey(name: 'url')
   final String? url;
   static const fromJsonFactory =
-      _$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgCollection$ItemFromJson;
+      _$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgCollection$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgCollection$Item &&
+                is ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgCollection$Item &&
             (identical(other.width, width) ||
                 const DeepCollectionEquality().equals(other.width, width)) &&
             (identical(other.height, height) ||
@@ -13074,25 +13527,25 @@ class BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgCollect
       runtimeType.hashCode;
 }
 
-extension $BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgCollection$ItemExtension
+extension $ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgCollection$ItemExtension
     on
-        BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgCollection$Item {
-  BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgCollection$Item
+        ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgCollection$Item {
+  ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgCollection$Item
   copyWith({int? width, int? height, String? url}) {
-    return BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgCollection$Item(
+    return ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgCollection$Item(
       width: width ?? this.width,
       height: height ?? this.height,
       url: url ?? this.url,
     );
   }
 
-  BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgCollection$Item
+  ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgCollection$Item
   copyWithWrapped({
     Wrapped<int?>? width,
     Wrapped<int?>? height,
     Wrapped<String?>? url,
   }) {
-    return BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgCollection$Item(
+    return ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgCollection$Item(
       width: (width != null ? width.value : this.width),
       height: (height != null ? height.value : this.height),
       url: (url != null ? url.value : this.url),
@@ -13101,24 +13554,24 @@ extension $BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgCo
 }
 
 @JsonSerializable(explicitToJson: true)
-class BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgDetail$Item {
-  const BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgDetail$Item({
+class ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgDetail$Item {
+  const ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgDetail$Item({
     this.width,
     this.height,
     this.url,
   });
 
-  factory BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgDetail$Item.fromJson(
+  factory ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgDetail$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgDetail$ItemFromJson(
+      _$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgDetail$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgDetail$ItemToJson;
+      _$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgDetail$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgDetail$ItemToJson(
+      _$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgDetail$ItemToJson(
         this,
       );
 
@@ -13129,13 +13582,13 @@ class BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgDetail$
   @JsonKey(name: 'url')
   final String? url;
   static const fromJsonFactory =
-      _$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgDetail$ItemFromJson;
+      _$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgDetail$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgDetail$Item &&
+                is ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgDetail$Item &&
             (identical(other.width, width) ||
                 const DeepCollectionEquality().equals(other.width, width)) &&
             (identical(other.height, height) ||
@@ -13155,24 +13608,25 @@ class BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgDetail$
       runtimeType.hashCode;
 }
 
-extension $BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgDetail$ItemExtension
-    on BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgDetail$Item {
-  BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgDetail$Item
+extension $ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgDetail$ItemExtension
+    on
+        ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgDetail$Item {
+  ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgDetail$Item
   copyWith({int? width, int? height, String? url}) {
-    return BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgDetail$Item(
+    return ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgDetail$Item(
       width: width ?? this.width,
       height: height ?? this.height,
       url: url ?? this.url,
     );
   }
 
-  BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgDetail$Item
+  ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgDetail$Item
   copyWithWrapped({
     Wrapped<int?>? width,
     Wrapped<int?>? height,
     Wrapped<String?>? url,
   }) {
-    return BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgDetail$Item(
+    return ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgDetail$Item(
       width: (width != null ? width.value : this.width),
       height: (height != null ? height.value : this.height),
       url: (url != null ? url.value : this.url),
@@ -13181,24 +13635,24 @@ extension $BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgDe
 }
 
 @JsonSerializable(explicitToJson: true)
-class BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item {
-  const BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item({
+class ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item {
+  const ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item({
     this.name,
     this.type,
     this.optionValues,
   });
 
-  factory BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item.fromJson(
+  factory ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$ItemFromJson(
+      _$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$ItemToJson;
+      _$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$ItemToJson(
+      _$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$ItemToJson(
         this,
       );
 
@@ -13208,17 +13662,17 @@ class BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOpt
   final int? type;
   @JsonKey(name: 'optionValues')
   final List<
-    BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$Item
+    ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$Item
   >?
   optionValues;
   static const fromJsonFactory =
-      _$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$ItemFromJson;
+      _$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item &&
+                is ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item &&
             (identical(other.name, name) ||
                 const DeepCollectionEquality().equals(other.name, name)) &&
             (identical(other.type, type) ||
@@ -13241,37 +13695,37 @@ class BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOpt
       runtimeType.hashCode;
 }
 
-extension $BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$ItemExtension
+extension $ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$ItemExtension
     on
-        BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item {
-  BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item
+        ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item {
+  ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item
   copyWith({
     String? name,
     int? type,
     List<
-      BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$Item
+      ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$Item
     >?
     optionValues,
   }) {
-    return BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item(
+    return ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item(
       name: name ?? this.name,
       type: type ?? this.type,
       optionValues: optionValues ?? this.optionValues,
     );
   }
 
-  BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item
+  ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item
   copyWithWrapped({
     Wrapped<String?>? name,
     Wrapped<int?>? type,
     Wrapped<
       List<
-        BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$Item
+        ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$Item
       >?
     >?
     optionValues,
   }) {
-    return BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item(
+    return ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item(
       name: (name != null ? name.value : this.name),
       type: (type != null ? type.value : this.type),
       optionValues: (optionValues != null
@@ -13282,23 +13736,23 @@ extension $BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$Produ
 }
 
 @JsonSerializable(explicitToJson: true)
-class BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$Item {
-  const BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$Item({
+class ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$Item {
+  const ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$Item({
     this.name,
     this.value,
   });
 
-  factory BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$Item.fromJson(
+  factory ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$ItemFromJson(
+      _$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$ItemToJson;
+      _$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$ItemToJson(
+      _$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$ItemToJson(
         this,
       );
 
@@ -13307,13 +13761,13 @@ class BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductAtt
   @JsonKey(name: 'value')
   final String? value;
   static const fromJsonFactory =
-      _$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$ItemFromJson;
+      _$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$Item &&
+                is ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$Item &&
             (identical(other.name, name) ||
                 const DeepCollectionEquality().equals(other.name, name)) &&
             (identical(other.value, value) ||
@@ -13330,20 +13784,20 @@ class BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductAtt
       runtimeType.hashCode;
 }
 
-extension $BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$ItemExtension
+extension $ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$ItemExtension
     on
-        BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$Item {
-  BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$Item
+        ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$Item {
+  ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$Item
   copyWith({String? name, String? value}) {
-    return BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$Item(
+    return ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$Item(
       name: name ?? this.name,
       value: value ?? this.value,
     );
   }
 
-  BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$Item
+  ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$Item
   copyWithWrapped({Wrapped<String?>? name, Wrapped<String?>? value}) {
-    return BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$Item(
+    return ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$Item(
       name: (name != null ? name.value : this.name),
       value: (value != null ? value.value : this.value),
     );
@@ -13351,39 +13805,39 @@ extension $BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$Produ
 }
 
 @JsonSerializable(explicitToJson: true)
-class BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item {
-  const BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item({
+class ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item {
+  const ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item({
     this.images,
     this.skuOption,
   });
 
-  factory BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item.fromJson(
+  factory ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$ItemFromJson(
+      _$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$ItemToJson;
+      _$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$ItemToJson(
+      _$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$ItemToJson(
         this,
       );
 
   @JsonKey(name: 'images', defaultValue: <Object>[])
   final List<Object>? images;
   @JsonKey(name: 'skuOption')
-  final BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOption?
+  final ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOption?
   skuOption;
   static const fromJsonFactory =
-      _$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$ItemFromJson;
+      _$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item &&
+                is ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item &&
             (identical(other.images, images) ||
                 const DeepCollectionEquality().equals(other.images, images)) &&
             (identical(other.skuOption, skuOption) ||
@@ -13403,30 +13857,30 @@ class BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectIma
       runtimeType.hashCode;
 }
 
-extension $BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$ItemExtension
+extension $ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$ItemExtension
     on
-        BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item {
-  BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item
+        ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item {
+  ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item
   copyWith({
     List<Object>? images,
-    BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOption?
+    ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOption?
     skuOption,
   }) {
-    return BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item(
+    return ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item(
       images: images ?? this.images,
       skuOption: skuOption ?? this.skuOption,
     );
   }
 
-  BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item
+  ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item
   copyWithWrapped({
     Wrapped<List<Object>?>? images,
     Wrapped<
-      BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOption?
+      ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOption?
     >?
     skuOption,
   }) {
-    return BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item(
+    return ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item(
       images: (images != null ? images.value : this.images),
       skuOption: (skuOption != null ? skuOption.value : this.skuOption),
     );
@@ -13434,25 +13888,25 @@ extension $BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$Inspe
 }
 
 @JsonSerializable(explicitToJson: true)
-class BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$Tags$Item {
-  const BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$Tags$Item({
+class ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$Tags$Item {
+  const ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$Tags$Item({
     this.tagCode,
     this.tagImg,
     this.order,
     this.frontShow,
   });
 
-  factory BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$Tags$Item.fromJson(
+  factory ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$Tags$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$Tags$ItemFromJson(
+      _$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$Tags$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$Tags$ItemToJson;
+      _$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$Tags$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$Tags$ItemToJson(
+      _$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$Tags$ItemToJson(
         this,
       );
 
@@ -13465,13 +13919,13 @@ class BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$Tags$Item 
   @JsonKey(name: 'frontShow')
   final int? frontShow;
   static const fromJsonFactory =
-      _$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$Tags$ItemFromJson;
+      _$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$Tags$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$Tags$Item &&
+                is ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$Tags$Item &&
             (identical(other.tagCode, tagCode) ||
                 const DeepCollectionEquality().equals(
                   other.tagCode,
@@ -13500,11 +13954,12 @@ class BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$Tags$Item 
       runtimeType.hashCode;
 }
 
-extension $BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$Tags$ItemExtension
-    on BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$Tags$Item {
-  BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$Tags$Item
+extension $ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$Tags$ItemExtension
+    on
+        ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$Tags$Item {
+  ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$Tags$Item
   copyWith({String? tagCode, String? tagImg, int? order, int? frontShow}) {
-    return BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$Tags$Item(
+    return ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$Tags$Item(
       tagCode: tagCode ?? this.tagCode,
       tagImg: tagImg ?? this.tagImg,
       order: order ?? this.order,
@@ -13512,14 +13967,14 @@ extension $BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$Tags$
     );
   }
 
-  BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$Tags$Item
+  ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$Tags$Item
   copyWithWrapped({
     Wrapped<String?>? tagCode,
     Wrapped<String?>? tagImg,
     Wrapped<int?>? order,
     Wrapped<int?>? frontShow,
   }) {
-    return BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$Tags$Item(
+    return ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$Tags$Item(
       tagCode: (tagCode != null ? tagCode.value : this.tagCode),
       tagImg: (tagImg != null ? tagImg.value : this.tagImg),
       order: (order != null ? order.value : this.order),
@@ -13529,24 +13984,24 @@ extension $BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$Tags$
 }
 
 @JsonSerializable(explicitToJson: true)
-class BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainImg$Item {
-  const BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainImg$Item({
+class ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainImg$Item {
+  const ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainImg$Item({
     this.width,
     this.height,
     this.url,
   });
 
-  factory BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainImg$Item.fromJson(
+  factory ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainImg$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainImg$ItemFromJson(
+      _$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainImg$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainImg$ItemToJson;
+      _$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainImg$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainImg$ItemToJson(
+      _$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainImg$ItemToJson(
         this,
       );
 
@@ -13557,13 +14012,13 @@ class BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainI
   @JsonKey(name: 'url')
   final String? url;
   static const fromJsonFactory =
-      _$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainImg$ItemFromJson;
+      _$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainImg$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainImg$Item &&
+                is ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainImg$Item &&
             (identical(other.width, width) ||
                 const DeepCollectionEquality().equals(other.width, width)) &&
             (identical(other.height, height) ||
@@ -13583,25 +14038,25 @@ class BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainI
       runtimeType.hashCode;
 }
 
-extension $BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainImg$ItemExtension
+extension $ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainImg$ItemExtension
     on
-        BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainImg$Item {
-  BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainImg$Item
+        ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainImg$Item {
+  ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainImg$Item
   copyWith({int? width, int? height, String? url}) {
-    return BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainImg$Item(
+    return ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainImg$Item(
       width: width ?? this.width,
       height: height ?? this.height,
       url: url ?? this.url,
     );
   }
 
-  BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainImg$Item
+  ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainImg$Item
   copyWithWrapped({
     Wrapped<int?>? width,
     Wrapped<int?>? height,
     Wrapped<String?>? url,
   }) {
-    return BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainImg$Item(
+    return ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainImg$Item(
       width: (width != null ? width.value : this.width),
       height: (height != null ? height.value : this.height),
       url: (url != null ? url.value : this.url),
@@ -13610,24 +14065,24 @@ extension $BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$
 }
 
 @JsonSerializable(explicitToJson: true)
-class BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$SubImg$Item {
-  const BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$SubImg$Item({
+class ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$SubImg$Item {
+  const ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$SubImg$Item({
     this.width,
     this.height,
     this.url,
   });
 
-  factory BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$SubImg$Item.fromJson(
+  factory ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$SubImg$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$SubImg$ItemFromJson(
+      _$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$SubImg$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$SubImg$ItemToJson;
+      _$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$SubImg$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$SubImg$ItemToJson(
+      _$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$SubImg$ItemToJson(
         this,
       );
 
@@ -13638,13 +14093,13 @@ class BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$SubIm
   @JsonKey(name: 'url')
   final String? url;
   static const fromJsonFactory =
-      _$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$SubImg$ItemFromJson;
+      _$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$SubImg$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$SubImg$Item &&
+                is ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$SubImg$Item &&
             (identical(other.width, width) ||
                 const DeepCollectionEquality().equals(other.width, width)) &&
             (identical(other.height, height) ||
@@ -13664,25 +14119,25 @@ class BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$SubIm
       runtimeType.hashCode;
 }
 
-extension $BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$SubImg$ItemExtension
+extension $ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$SubImg$ItemExtension
     on
-        BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$SubImg$Item {
-  BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$SubImg$Item
+        ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$SubImg$Item {
+  ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$SubImg$Item
   copyWith({int? width, int? height, String? url}) {
-    return BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$SubImg$Item(
+    return ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$SubImg$Item(
       width: width ?? this.width,
       height: height ?? this.height,
       url: url ?? this.url,
     );
   }
 
-  BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$SubImg$Item
+  ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$SubImg$Item
   copyWithWrapped({
     Wrapped<int?>? width,
     Wrapped<int?>? height,
     Wrapped<String?>? url,
   }) {
-    return BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$SubImg$Item(
+    return ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$SubImg$Item(
       width: (width != null ? width.value : this.width),
       height: (height != null ? height.value : this.height),
       url: (url != null ? url.value : this.url),
@@ -13691,8 +14146,8 @@ extension $BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$
 }
 
 @JsonSerializable(explicitToJson: true)
-class BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainVideo$Item {
-  const BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainVideo$Item({
+class ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainVideo$Item {
+  const ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainVideo$Item({
     this.videoUrl,
     this.vodUrl,
     this.previewUrl,
@@ -13700,17 +14155,17 @@ class BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainV
     this.height,
   });
 
-  factory BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainVideo$Item.fromJson(
+  factory ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainVideo$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainVideo$ItemFromJson(
+      _$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainVideo$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainVideo$ItemToJson;
+      _$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainVideo$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainVideo$ItemToJson(
+      _$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainVideo$ItemToJson(
         this,
       );
 
@@ -13725,13 +14180,13 @@ class BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainV
   @JsonKey(name: 'height')
   final int? height;
   static const fromJsonFactory =
-      _$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainVideo$ItemFromJson;
+      _$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainVideo$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainVideo$Item &&
+                is ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainVideo$Item &&
             (identical(other.videoUrl, videoUrl) ||
                 const DeepCollectionEquality().equals(
                   other.videoUrl,
@@ -13763,10 +14218,10 @@ class BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainV
       runtimeType.hashCode;
 }
 
-extension $BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainVideo$ItemExtension
+extension $ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainVideo$ItemExtension
     on
-        BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainVideo$Item {
-  BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainVideo$Item
+        ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainVideo$Item {
+  ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainVideo$Item
   copyWith({
     String? videoUrl,
     String? vodUrl,
@@ -13774,7 +14229,7 @@ extension $BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$
     int? width,
     int? height,
   }) {
-    return BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainVideo$Item(
+    return ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainVideo$Item(
       videoUrl: videoUrl ?? this.videoUrl,
       vodUrl: vodUrl ?? this.vodUrl,
       previewUrl: previewUrl ?? this.previewUrl,
@@ -13783,7 +14238,7 @@ extension $BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$
     );
   }
 
-  BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainVideo$Item
+  ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainVideo$Item
   copyWithWrapped({
     Wrapped<String?>? videoUrl,
     Wrapped<String?>? vodUrl,
@@ -13791,7 +14246,7 @@ extension $BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$
     Wrapped<int?>? width,
     Wrapped<int?>? height,
   }) {
-    return BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainVideo$Item(
+    return ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainVideo$Item(
       videoUrl: (videoUrl != null ? videoUrl.value : this.videoUrl),
       vodUrl: (vodUrl != null ? vodUrl.value : this.vodUrl),
       previewUrl: (previewUrl != null ? previewUrl.value : this.previewUrl),
@@ -13802,24 +14257,24 @@ extension $BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$
 }
 
 @JsonSerializable(explicitToJson: true)
-class BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgCollection$Item {
-  const BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgCollection$Item({
+class ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgCollection$Item {
+  const ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgCollection$Item({
     this.width,
     this.height,
     this.url,
   });
 
-  factory BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgCollection$Item.fromJson(
+  factory ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgCollection$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgCollection$ItemFromJson(
+      _$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgCollection$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgCollection$ItemToJson;
+      _$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgCollection$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgCollection$ItemToJson(
+      _$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgCollection$ItemToJson(
         this,
       );
 
@@ -13830,13 +14285,13 @@ class BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgCo
   @JsonKey(name: 'url')
   final String? url;
   static const fromJsonFactory =
-      _$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgCollection$ItemFromJson;
+      _$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgCollection$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgCollection$Item &&
+                is ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgCollection$Item &&
             (identical(other.width, width) ||
                 const DeepCollectionEquality().equals(other.width, width)) &&
             (identical(other.height, height) ||
@@ -13856,25 +14311,25 @@ class BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgCo
       runtimeType.hashCode;
 }
 
-extension $BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgCollection$ItemExtension
+extension $ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgCollection$ItemExtension
     on
-        BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgCollection$Item {
-  BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgCollection$Item
+        ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgCollection$Item {
+  ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgCollection$Item
   copyWith({int? width, int? height, String? url}) {
-    return BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgCollection$Item(
+    return ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgCollection$Item(
       width: width ?? this.width,
       height: height ?? this.height,
       url: url ?? this.url,
     );
   }
 
-  BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgCollection$Item
+  ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgCollection$Item
   copyWithWrapped({
     Wrapped<int?>? width,
     Wrapped<int?>? height,
     Wrapped<String?>? url,
   }) {
-    return BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgCollection$Item(
+    return ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgCollection$Item(
       width: (width != null ? width.value : this.width),
       height: (height != null ? height.value : this.height),
       url: (url != null ? url.value : this.url),
@@ -13883,24 +14338,24 @@ extension $BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$
 }
 
 @JsonSerializable(explicitToJson: true)
-class BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgDetail$Item {
-  const BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgDetail$Item({
+class ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgDetail$Item {
+  const ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgDetail$Item({
     this.width,
     this.height,
     this.url,
   });
 
-  factory BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgDetail$Item.fromJson(
+  factory ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgDetail$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgDetail$ItemFromJson(
+      _$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgDetail$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgDetail$ItemToJson;
+      _$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgDetail$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgDetail$ItemToJson(
+      _$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgDetail$ItemToJson(
         this,
       );
 
@@ -13911,13 +14366,13 @@ class BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgDe
   @JsonKey(name: 'url')
   final String? url;
   static const fromJsonFactory =
-      _$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgDetail$ItemFromJson;
+      _$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgDetail$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgDetail$Item &&
+                is ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgDetail$Item &&
             (identical(other.width, width) ||
                 const DeepCollectionEquality().equals(other.width, width)) &&
             (identical(other.height, height) ||
@@ -13937,25 +14392,25 @@ class BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgDe
       runtimeType.hashCode;
 }
 
-extension $BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgDetail$ItemExtension
+extension $ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgDetail$ItemExtension
     on
-        BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgDetail$Item {
-  BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgDetail$Item
+        ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgDetail$Item {
+  ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgDetail$Item
   copyWith({int? width, int? height, String? url}) {
-    return BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgDetail$Item(
+    return ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgDetail$Item(
       width: width ?? this.width,
       height: height ?? this.height,
       url: url ?? this.url,
     );
   }
 
-  BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgDetail$Item
+  ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgDetail$Item
   copyWithWrapped({
     Wrapped<int?>? width,
     Wrapped<int?>? height,
     Wrapped<String?>? url,
   }) {
-    return BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgDetail$Item(
+    return ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgDetail$Item(
       width: (width != null ? width.value : this.width),
       height: (height != null ? height.value : this.height),
       url: (url != null ? url.value : this.url),
@@ -13964,24 +14419,24 @@ extension $BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$
 }
 
 @JsonSerializable(explicitToJson: true)
-class BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item {
-  const BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item({
+class ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item {
+  const ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item({
     this.name,
     this.type,
     this.optionValues,
   });
 
-  factory BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item.fromJson(
+  factory ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$ItemFromJson(
+      _$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$ItemToJson;
+      _$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$ItemToJson(
+      _$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$ItemToJson(
         this,
       );
 
@@ -13991,17 +14446,17 @@ class BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$Produ
   final int? type;
   @JsonKey(name: 'optionValues')
   final List<
-    BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$Item
+    ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$Item
   >?
   optionValues;
   static const fromJsonFactory =
-      _$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$ItemFromJson;
+      _$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item &&
+                is ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item &&
             (identical(other.name, name) ||
                 const DeepCollectionEquality().equals(other.name, name)) &&
             (identical(other.type, type) ||
@@ -14024,37 +14479,37 @@ class BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$Produ
       runtimeType.hashCode;
 }
 
-extension $BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$ItemExtension
+extension $ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$ItemExtension
     on
-        BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item {
-  BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item
+        ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item {
+  ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item
   copyWith({
     String? name,
     int? type,
     List<
-      BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$Item
+      ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$Item
     >?
     optionValues,
   }) {
-    return BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item(
+    return ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item(
       name: name ?? this.name,
       type: type ?? this.type,
       optionValues: optionValues ?? this.optionValues,
     );
   }
 
-  BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item
+  ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item
   copyWithWrapped({
     Wrapped<String?>? name,
     Wrapped<int?>? type,
     Wrapped<
       List<
-        BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$Item
+        ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$Item
       >?
     >?
     optionValues,
   }) {
-    return BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item(
+    return ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item(
       name: (name != null ? name.value : this.name),
       type: (type != null ? type.value : this.type),
       optionValues: (optionValues != null
@@ -14065,23 +14520,23 @@ extension $BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$
 }
 
 @JsonSerializable(explicitToJson: true)
-class BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$Item {
-  const BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$Item({
+class ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$Item {
+  const ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$Item({
     this.name,
     this.value,
   });
 
-  factory BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$Item.fromJson(
+  factory ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$ItemFromJson(
+      _$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$ItemToJson;
+      _$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$ItemToJson(
+      _$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$ItemToJson(
         this,
       );
 
@@ -14090,13 +14545,13 @@ class BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$Produ
   @JsonKey(name: 'value')
   final String? value;
   static const fromJsonFactory =
-      _$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$ItemFromJson;
+      _$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$Item &&
+                is ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$Item &&
             (identical(other.name, name) ||
                 const DeepCollectionEquality().equals(other.name, name)) &&
             (identical(other.value, value) ||
@@ -14113,20 +14568,20 @@ class BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$Produ
       runtimeType.hashCode;
 }
 
-extension $BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$ItemExtension
+extension $ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$ItemExtension
     on
-        BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$Item {
-  BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$Item
+        ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$Item {
+  ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$Item
   copyWith({String? name, String? value}) {
-    return BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$Item(
+    return ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$Item(
       name: name ?? this.name,
       value: value ?? this.value,
     );
   }
 
-  BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$Item
+  ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$Item
   copyWithWrapped({Wrapped<String?>? name, Wrapped<String?>? value}) {
-    return BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$Item(
+    return ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$Item(
       name: (name != null ? name.value : this.name),
       value: (value != null ? value.value : this.value),
     );
@@ -14134,39 +14589,39 @@ extension $BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$
 }
 
 @JsonSerializable(explicitToJson: true)
-class BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item {
-  const BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item({
+class ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item {
+  const ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item({
     this.images,
     this.skuOption,
   });
 
-  factory BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item.fromJson(
+  factory ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$ItemFromJson(
+      _$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$ItemToJson;
+      _$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$ItemToJson(
+      _$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$ItemToJson(
         this,
       );
 
   @JsonKey(name: 'images', defaultValue: <Object>[])
   final List<Object>? images;
   @JsonKey(name: 'skuOption')
-  final BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOption?
+  final ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOption?
   skuOption;
   static const fromJsonFactory =
-      _$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$ItemFromJson;
+      _$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item &&
+                is ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item &&
             (identical(other.images, images) ||
                 const DeepCollectionEquality().equals(other.images, images)) &&
             (identical(other.skuOption, skuOption) ||
@@ -14186,30 +14641,30 @@ class BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$Inspe
       runtimeType.hashCode;
 }
 
-extension $BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$ItemExtension
+extension $ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$ItemExtension
     on
-        BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item {
-  BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item
+        ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item {
+  ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item
   copyWith({
     List<Object>? images,
-    BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOption?
+    ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOption?
     skuOption,
   }) {
-    return BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item(
+    return ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item(
       images: images ?? this.images,
       skuOption: skuOption ?? this.skuOption,
     );
   }
 
-  BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item
+  ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item
   copyWithWrapped({
     Wrapped<List<Object>?>? images,
     Wrapped<
-      BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOption?
+      ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOption?
     >?
     skuOption,
   }) {
-    return BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item(
+    return ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item(
       images: (images != null ? images.value : this.images),
       skuOption: (skuOption != null ? skuOption.value : this.skuOption),
     );
@@ -14217,25 +14672,25 @@ extension $BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$
 }
 
 @JsonSerializable(explicitToJson: true)
-class BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$Tags$Item {
-  const BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$Tags$Item({
+class ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$Tags$Item {
+  const ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$Tags$Item({
     this.tagCode,
     this.tagImg,
     this.order,
     this.frontShow,
   });
 
-  factory BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$Tags$Item.fromJson(
+  factory ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$Tags$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$Tags$ItemFromJson(
+      _$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$Tags$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$Tags$ItemToJson;
+      _$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$Tags$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$Tags$ItemToJson(
+      _$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$Tags$ItemToJson(
         this,
       );
 
@@ -14248,13 +14703,13 @@ class BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$Tags$
   @JsonKey(name: 'frontShow')
   final int? frontShow;
   static const fromJsonFactory =
-      _$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$Tags$ItemFromJson;
+      _$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$Tags$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$Tags$Item &&
+                is ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$Tags$Item &&
             (identical(other.tagCode, tagCode) ||
                 const DeepCollectionEquality().equals(
                   other.tagCode,
@@ -14283,11 +14738,12 @@ class BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$Tags$
       runtimeType.hashCode;
 }
 
-extension $BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$Tags$ItemExtension
-    on BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$Tags$Item {
-  BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$Tags$Item
+extension $ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$Tags$ItemExtension
+    on
+        ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$Tags$Item {
+  ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$Tags$Item
   copyWith({String? tagCode, String? tagImg, int? order, int? frontShow}) {
-    return BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$Tags$Item(
+    return ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$Tags$Item(
       tagCode: tagCode ?? this.tagCode,
       tagImg: tagImg ?? this.tagImg,
       order: order ?? this.order,
@@ -14295,14 +14751,14 @@ extension $BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$
     );
   }
 
-  BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$Tags$Item
+  ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$Tags$Item
   copyWithWrapped({
     Wrapped<String?>? tagCode,
     Wrapped<String?>? tagImg,
     Wrapped<int?>? order,
     Wrapped<int?>? frontShow,
   }) {
-    return BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$Tags$Item(
+    return ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$Tags$Item(
       tagCode: (tagCode != null ? tagCode.value : this.tagCode),
       tagImg: (tagImg != null ? tagImg.value : this.tagImg),
       order: (order != null ? order.value : this.order),
@@ -14312,8 +14768,8 @@ extension $BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$
 }
 
 @JsonSerializable(explicitToJson: true)
-class ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item$Options$Item {
-  const ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item$Options$Item({
+class ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item$Options$Item {
+  const ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item$Options$Item({
     this.id,
     this.title,
     this.link,
@@ -14322,17 +14778,17 @@ class ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Ite
     this.image,
   });
 
-  factory ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item$Options$Item.fromJson(
+  factory ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item$Options$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item$Options$ItemFromJson(
+      _$ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item$Options$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item$Options$ItemToJson;
+      _$ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item$Options$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item$Options$ItemToJson(
+      _$ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item$Options$ItemToJson(
         this,
       );
 
@@ -14349,13 +14805,13 @@ class ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Ite
   @JsonKey(name: 'image')
   final String? image;
   static const fromJsonFactory =
-      _$ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item$Options$ItemFromJson;
+      _$ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item$Options$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item$Options$Item &&
+                is ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item$Options$Item &&
             (identical(other.id, id) ||
                 const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.title, title) ||
@@ -14384,10 +14840,10 @@ class ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Ite
       runtimeType.hashCode;
 }
 
-extension $ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item$Options$ItemExtension
+extension $ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item$Options$ItemExtension
     on
-        ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item$Options$Item {
-  ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item$Options$Item
+        ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item$Options$Item {
+  ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item$Options$Item
   copyWith({
     double? id,
     String? title,
@@ -14396,7 +14852,7 @@ extension $ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLink
     String? price,
     String? image,
   }) {
-    return ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item$Options$Item(
+    return ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item$Options$Item(
       id: id ?? this.id,
       title: title ?? this.title,
       link: link ?? this.link,
@@ -14406,7 +14862,7 @@ extension $ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLink
     );
   }
 
-  ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item$Options$Item
+  ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item$Options$Item
   copyWithWrapped({
     Wrapped<double?>? id,
     Wrapped<String?>? title,
@@ -14415,7 +14871,7 @@ extension $ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLink
     Wrapped<String?>? price,
     Wrapped<String?>? image,
   }) {
-    return ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item$Options$Item(
+    return ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item$Options$Item(
       id: (id != null ? id.value : this.id),
       title: (title != null ? title.value : this.title),
       link: (link != null ? link.value : this.link),
@@ -14427,25 +14883,25 @@ extension $ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLink
 }
 
 @JsonSerializable(explicitToJson: true)
-class ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item {
-  const ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item({
+class ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item {
+  const ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item({
     this.sharingImageId,
     this.imageUrl,
     this.caption,
     this.metadata,
   });
 
-  factory ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item.fromJson(
+  factory ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$ItemFromJson(
+      _$ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$ItemToJson;
+      _$ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$ItemToJson(
+      _$ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$ItemToJson(
         this,
       );
 
@@ -14454,19 +14910,19 @@ class ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$It
   @JsonKey(name: 'imageUrl')
   final String? imageUrl;
   @JsonKey(name: 'caption')
-  final ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$Caption?
+  final ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$Caption?
   caption;
   @JsonKey(name: 'metadata')
-  final ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$Metadata?
+  final ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$Metadata?
   metadata;
   static const fromJsonFactory =
-      _$ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$ItemFromJson;
+      _$ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item &&
+                is ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item &&
             (identical(other.sharingImageId, sharingImageId) ||
                 const DeepCollectionEquality().equals(
                   other.sharingImageId,
@@ -14501,19 +14957,19 @@ class ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$It
       runtimeType.hashCode;
 }
 
-extension $ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$ItemExtension
+extension $ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$ItemExtension
     on
-        ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item {
-  ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item
+        ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item {
+  ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item
   copyWith({
     double? sharingImageId,
     String? imageUrl,
-    ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$Caption?
+    ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$Caption?
     caption,
-    ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$Metadata?
+    ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$Metadata?
     metadata,
   }) {
-    return ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item(
+    return ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item(
       sharingImageId: sharingImageId ?? this.sharingImageId,
       imageUrl: imageUrl ?? this.imageUrl,
       caption: caption ?? this.caption,
@@ -14521,20 +14977,20 @@ extension $ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImag
     );
   }
 
-  ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item
+  ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item
   copyWithWrapped({
     Wrapped<double?>? sharingImageId,
     Wrapped<String?>? imageUrl,
     Wrapped<
-      ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$Caption?
+      ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$Caption?
     >?
     caption,
     Wrapped<
-      ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$Metadata?
+      ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$Metadata?
     >?
     metadata,
   }) {
-    return ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item(
+    return ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item(
       sharingImageId: (sharingImageId != null
           ? sharingImageId.value
           : this.sharingImageId),
@@ -14546,23 +15002,23 @@ extension $ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImag
 }
 
 @JsonSerializable(explicitToJson: true)
-class ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Images$Item {
-  const ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Images$Item({
+class ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Images$Item {
+  const ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Images$Item({
     this.sharingImageId,
     this.imageUrl,
   });
 
-  factory ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Images$Item.fromJson(
+  factory ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Images$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Images$ItemFromJson(
+      _$ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Images$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Images$ItemToJson;
+      _$ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Images$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Images$ItemToJson(
+      _$ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Images$ItemToJson(
         this,
       );
 
@@ -14571,13 +15027,13 @@ class ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Im
   @JsonKey(name: 'imageUrl')
   final String? imageUrl;
   static const fromJsonFactory =
-      _$ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Images$ItemFromJson;
+      _$ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Images$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Images$Item &&
+                is ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Images$Item &&
             (identical(other.sharingImageId, sharingImageId) ||
                 const DeepCollectionEquality().equals(
                   other.sharingImageId,
@@ -14600,23 +15056,23 @@ class ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Im
       runtimeType.hashCode;
 }
 
-extension $ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Images$ItemExtension
+extension $ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Images$ItemExtension
     on
-        ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Images$Item {
-  ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Images$Item
+        ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Images$Item {
+  ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Images$Item
   copyWith({double? sharingImageId, String? imageUrl}) {
-    return ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Images$Item(
+    return ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Images$Item(
       sharingImageId: sharingImageId ?? this.sharingImageId,
       imageUrl: imageUrl ?? this.imageUrl,
     );
   }
 
-  ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Images$Item
+  ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Images$Item
   copyWithWrapped({
     Wrapped<double?>? sharingImageId,
     Wrapped<String?>? imageUrl,
   }) {
-    return ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Images$Item(
+    return ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Images$Item(
       sharingImageId: (sharingImageId != null
           ? sharingImageId.value
           : this.sharingImageId),
@@ -14626,25 +15082,25 @@ extension $ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImag
 }
 
 @JsonSerializable(explicitToJson: true)
-class ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$Caption {
-  const ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$Caption({
+class ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$Caption {
+  const ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$Caption({
     this.description,
     this.brand,
     this.hashtags,
     this.fullText,
   });
 
-  factory ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$Caption.fromJson(
+  factory ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$Caption.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$CaptionFromJson(
+      _$ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$CaptionFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$CaptionToJson;
+      _$ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$CaptionToJson;
   Map<String, dynamic> toJson() =>
-      _$ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$CaptionToJson(
+      _$ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$CaptionToJson(
         this,
       );
 
@@ -14657,13 +15113,13 @@ class ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$Caption 
   @JsonKey(name: 'full_text')
   final String? fullText;
   static const fromJsonFactory =
-      _$ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$CaptionFromJson;
+      _$ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$CaptionFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$Caption &&
+                is ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$Caption &&
             (identical(other.description, description) ||
                 const DeepCollectionEquality().equals(
                   other.description,
@@ -14695,16 +15151,17 @@ class ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$Caption 
       runtimeType.hashCode;
 }
 
-extension $ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$CaptionExtension
-    on ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$Caption {
-  ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$Caption
+extension $ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$CaptionExtension
+    on
+        ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$Caption {
+  ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$Caption
   copyWith({
     String? description,
     String? brand,
     List<String>? hashtags,
     String? fullText,
   }) {
-    return ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$Caption(
+    return ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$Caption(
       description: description ?? this.description,
       brand: brand ?? this.brand,
       hashtags: hashtags ?? this.hashtags,
@@ -14712,14 +15169,14 @@ extension $ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$Cap
     );
   }
 
-  ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$Caption
+  ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$Caption
   copyWithWrapped({
     Wrapped<String?>? description,
     Wrapped<String?>? brand,
     Wrapped<List<String>?>? hashtags,
     Wrapped<String?>? fullText,
   }) {
-    return ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$Caption(
+    return ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$Caption(
       description: (description != null ? description.value : this.description),
       brand: (brand != null ? brand.value : this.brand),
       hashtags: (hashtags != null ? hashtags.value : this.hashtags),
@@ -14729,8 +15186,8 @@ extension $ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$Cap
 }
 
 @JsonSerializable(explicitToJson: true)
-class ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$Metadata {
-  const ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$Metadata({
+class ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$Metadata {
+  const ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$Metadata({
     this.segmentedImageUrl,
     this.styleDescription,
     this.occasion,
@@ -14741,17 +15198,17 @@ class ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$Metadata
     this.regenerationStatus,
   });
 
-  factory ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$Metadata.fromJson(
+  factory ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$Metadata.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$MetadataFromJson(
+      _$ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$MetadataFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$MetadataToJson;
+      _$ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$MetadataToJson;
   Map<String, dynamic> toJson() =>
-      _$ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$MetadataToJson(
+      _$ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$MetadataToJson(
         this,
       );
 
@@ -14772,13 +15229,13 @@ class ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$Metadata
   @JsonKey(name: 'regenerationStatus')
   final String? regenerationStatus;
   static const fromJsonFactory =
-      _$ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$MetadataFromJson;
+      _$ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$MetadataFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$Metadata &&
+                is ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$Metadata &&
             (identical(other.segmentedImageUrl, segmentedImageUrl) ||
                 const DeepCollectionEquality().equals(
                   other.segmentedImageUrl,
@@ -14837,9 +15294,10 @@ class ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$Metadata
       runtimeType.hashCode;
 }
 
-extension $ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$MetadataExtension
-    on ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$Metadata {
-  ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$Metadata
+extension $ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$MetadataExtension
+    on
+        ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$Metadata {
+  ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$Metadata
   copyWith({
     String? segmentedImageUrl,
     String? styleDescription,
@@ -14850,7 +15308,7 @@ extension $ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$Met
     double? temperature,
     String? regenerationStatus,
   }) {
-    return ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$Metadata(
+    return ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$Metadata(
       segmentedImageUrl: segmentedImageUrl ?? this.segmentedImageUrl,
       styleDescription: styleDescription ?? this.styleDescription,
       occasion: occasion ?? this.occasion,
@@ -14862,7 +15320,7 @@ extension $ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$Met
     );
   }
 
-  ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$Metadata
+  ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$Metadata
   copyWithWrapped({
     Wrapped<String?>? segmentedImageUrl,
     Wrapped<String?>? styleDescription,
@@ -14873,7 +15331,7 @@ extension $ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$Met
     Wrapped<double?>? temperature,
     Wrapped<String?>? regenerationStatus,
   }) {
-    return ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$Metadata(
+    return ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$Metadata(
       segmentedImageUrl: (segmentedImageUrl != null
           ? segmentedImageUrl.value
           : this.segmentedImageUrl),
@@ -14895,8 +15353,8 @@ extension $ApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$Met
 }
 
 @JsonSerializable(explicitToJson: true)
-class NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item$CategoryList$Item {
-  const NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item$CategoryList$Item({
+class ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item$CategoryList$Item {
+  const ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item$CategoryList$Item({
     required this.id,
     required this.parentId,
     required this.level,
@@ -14905,17 +15363,17 @@ class NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item
     required this.iconUrl,
   });
 
-  factory NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item$CategoryList$Item.fromJson(
+  factory ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item$CategoryList$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item$CategoryList$ItemFromJson(
+      _$ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item$CategoryList$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item$CategoryList$ItemToJson;
+      _$ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item$CategoryList$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item$CategoryList$ItemToJson(
+      _$ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item$CategoryList$ItemToJson(
         this,
       );
 
@@ -14932,13 +15390,13 @@ class NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item
   @JsonKey(name: 'iconUrl')
   final String iconUrl;
   static const fromJsonFactory =
-      _$NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item$CategoryList$ItemFromJson;
+      _$ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item$CategoryList$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item$CategoryList$Item &&
+                is ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item$CategoryList$Item &&
             (identical(other.id, id) ||
                 const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.parentId, parentId) ||
@@ -14973,10 +15431,10 @@ class NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item
       runtimeType.hashCode;
 }
 
-extension $NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item$CategoryList$ItemExtension
+extension $ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item$CategoryList$ItemExtension
     on
-        NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item$CategoryList$Item {
-  NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item$CategoryList$Item
+        ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item$CategoryList$Item {
+  ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item$CategoryList$Item
   copyWith({
     int? id,
     int? parentId,
@@ -14985,7 +15443,7 @@ extension $NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList
     String? name,
     String? iconUrl,
   }) {
-    return NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item$CategoryList$Item(
+    return ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item$CategoryList$Item(
       id: id ?? this.id,
       parentId: parentId ?? this.parentId,
       level: level ?? this.level,
@@ -14995,7 +15453,7 @@ extension $NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList
     );
   }
 
-  NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item$CategoryList$Item
+  ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item$CategoryList$Item
   copyWithWrapped({
     Wrapped<int>? id,
     Wrapped<int>? parentId,
@@ -15004,7 +15462,7 @@ extension $NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList
     Wrapped<String>? name,
     Wrapped<String>? iconUrl,
   }) {
-    return NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item$CategoryList$Item(
+    return ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item$CategoryList$Item(
       id: (id != null ? id.value : this.id),
       parentId: (parentId != null ? parentId.value : this.parentId),
       level: (level != null ? level.value : this.level),
@@ -15016,25 +15474,25 @@ extension $NoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList
 }
 
 @JsonSerializable(explicitToJson: true)
-class BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$Item {
-  const BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$Item({
+class ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$Item {
+  const ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$Item({
     this.value,
     this.image,
     this.imageWidth,
     this.imageHeight,
   });
 
-  factory BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$Item.fromJson(
+  factory ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$ItemFromJson(
+      _$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$ItemToJson;
+      _$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$ItemToJson(
+      _$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$ItemToJson(
         this,
       );
 
@@ -15047,13 +15505,13 @@ class BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOpt
   @JsonKey(name: 'imageHeight')
   final int? imageHeight;
   static const fromJsonFactory =
-      _$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$ItemFromJson;
+      _$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$Item &&
+                is ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$Item &&
             (identical(other.value, value) ||
                 const DeepCollectionEquality().equals(other.value, value)) &&
             (identical(other.image, image) ||
@@ -15082,12 +15540,12 @@ class BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOpt
       runtimeType.hashCode;
 }
 
-extension $BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$ItemExtension
+extension $ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$ItemExtension
     on
-        BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$Item {
-  BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$Item
+        ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$Item {
+  ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$Item
   copyWith({String? value, String? image, int? imageWidth, int? imageHeight}) {
-    return BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$Item(
+    return ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$Item(
       value: value ?? this.value,
       image: image ?? this.image,
       imageWidth: imageWidth ?? this.imageWidth,
@@ -15095,14 +15553,14 @@ extension $BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$Produ
     );
   }
 
-  BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$Item
+  ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$Item
   copyWithWrapped({
     Wrapped<String?>? value,
     Wrapped<String?>? image,
     Wrapped<int?>? imageWidth,
     Wrapped<int?>? imageHeight,
   }) {
-    return BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$Item(
+    return ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$Item(
       value: (value != null ? value.value : this.value),
       image: (image != null ? image.value : this.image),
       imageWidth: (imageWidth != null ? imageWidth.value : this.imageWidth),
@@ -15112,23 +15570,23 @@ extension $BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$Produ
 }
 
 @JsonSerializable(explicitToJson: true)
-class BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOption {
-  const BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOption({
+class ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOption {
+  const ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOption({
     this.name,
     this.value,
   });
 
-  factory BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOption.fromJson(
+  factory ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOption.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOptionFromJson(
+      _$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOptionFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOptionToJson;
+      _$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOptionToJson;
   Map<String, dynamic> toJson() =>
-      _$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOptionToJson(
+      _$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOptionToJson(
         this,
       );
 
@@ -15137,13 +15595,13 @@ class BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectIma
   @JsonKey(name: 'value')
   final String? value;
   static const fromJsonFactory =
-      _$BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOptionFromJson;
+      _$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOptionFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOption &&
+                is ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOption &&
             (identical(other.name, name) ||
                 const DeepCollectionEquality().equals(other.name, name)) &&
             (identical(other.value, value) ||
@@ -15160,20 +15618,20 @@ class BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectIma
       runtimeType.hashCode;
 }
 
-extension $BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOptionExtension
+extension $ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOptionExtension
     on
-        BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOption {
-  BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOption
+        ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOption {
+  ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOption
   copyWith({String? name, String? value}) {
-    return BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOption(
+    return ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOption(
       name: name ?? this.name,
       value: value ?? this.value,
     );
   }
 
-  BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOption
+  ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOption
   copyWithWrapped({Wrapped<String?>? name, Wrapped<String?>? value}) {
-    return BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOption(
+    return ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOption(
       name: (name != null ? name.value : this.name),
       value: (value != null ? value.value : this.value),
     );
@@ -15181,25 +15639,25 @@ extension $BizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$Inspe
 }
 
 @JsonSerializable(explicitToJson: true)
-class BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$Item {
-  const BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$Item({
+class ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$Item {
+  const ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$Item({
     this.value,
     this.image,
     this.imageWidth,
     this.imageHeight,
   });
 
-  factory BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$Item.fromJson(
+  factory ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$Item.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$ItemFromJson(
+      _$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$ItemFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$ItemToJson;
+      _$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$ItemToJson;
   Map<String, dynamic> toJson() =>
-      _$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$ItemToJson(
+      _$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$ItemToJson(
         this,
       );
 
@@ -15212,13 +15670,13 @@ class BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$Produ
   @JsonKey(name: 'imageHeight')
   final int? imageHeight;
   static const fromJsonFactory =
-      _$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$ItemFromJson;
+      _$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$ItemFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$Item &&
+                is ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$Item &&
             (identical(other.value, value) ||
                 const DeepCollectionEquality().equals(other.value, value)) &&
             (identical(other.image, image) ||
@@ -15247,12 +15705,12 @@ class BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$Produ
       runtimeType.hashCode;
 }
 
-extension $BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$ItemExtension
+extension $ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$ItemExtension
     on
-        BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$Item {
-  BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$Item
+        ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$Item {
+  ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$Item
   copyWith({String? value, String? image, int? imageWidth, int? imageHeight}) {
-    return BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$Item(
+    return ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$Item(
       value: value ?? this.value,
       image: image ?? this.image,
       imageWidth: imageWidth ?? this.imageWidth,
@@ -15260,14 +15718,14 @@ extension $BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$
     );
   }
 
-  BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$Item
+  ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$Item
   copyWithWrapped({
     Wrapped<String?>? value,
     Wrapped<String?>? image,
     Wrapped<int?>? imageWidth,
     Wrapped<int?>? imageHeight,
   }) {
-    return BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$Item(
+    return ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$Item(
       value: (value != null ? value.value : this.value),
       image: (image != null ? image.value : this.image),
       imageWidth: (imageWidth != null ? imageWidth.value : this.imageWidth),
@@ -15277,23 +15735,23 @@ extension $BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$
 }
 
 @JsonSerializable(explicitToJson: true)
-class BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOption {
-  const BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOption({
+class ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOption {
+  const ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOption({
     this.name,
     this.value,
   });
 
-  factory BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOption.fromJson(
+  factory ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOption.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOptionFromJson(
+      _$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOptionFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOptionToJson;
+      _$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOptionToJson;
   Map<String, dynamic> toJson() =>
-      _$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOptionToJson(
+      _$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOptionToJson(
         this,
       );
 
@@ -15302,13 +15760,13 @@ class BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$Inspe
   @JsonKey(name: 'value')
   final String? value;
   static const fromJsonFactory =
-      _$BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOptionFromJson;
+      _$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOptionFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOption &&
+                is ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOption &&
             (identical(other.name, name) ||
                 const DeepCollectionEquality().equals(other.name, name)) &&
             (identical(other.value, value) ||
@@ -15325,20 +15783,20 @@ class BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$Inspe
       runtimeType.hashCode;
 }
 
-extension $BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOptionExtension
+extension $ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOptionExtension
     on
-        BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOption {
-  BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOption
+        ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOption {
+  ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOption
   copyWith({String? name, String? value}) {
-    return BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOption(
+    return ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOption(
       name: name ?? this.name,
       value: value ?? this.value,
     );
   }
 
-  BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOption
+  ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOption
   copyWithWrapped({Wrapped<String?>? name, Wrapped<String?>? value}) {
-    return BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOption(
+    return ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOption(
       name: (name != null ? name.value : this.name),
       value: (value != null ? value.value : this.value),
     );
@@ -15346,25 +15804,25 @@ extension $BizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$
 }
 
 @JsonSerializable(explicitToJson: true)
-class ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$Caption {
-  const ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$Caption({
+class ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$Caption {
+  const ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$Caption({
     this.description,
     this.brand,
     this.hashtags,
     this.fullText,
   });
 
-  factory ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$Caption.fromJson(
+  factory ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$Caption.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$CaptionFromJson(
+      _$ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$CaptionFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$CaptionToJson;
+      _$ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$CaptionToJson;
   Map<String, dynamic> toJson() =>
-      _$ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$CaptionToJson(
+      _$ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$CaptionToJson(
         this,
       );
 
@@ -15377,13 +15835,13 @@ class ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$It
   @JsonKey(name: 'full_text')
   final String? fullText;
   static const fromJsonFactory =
-      _$ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$CaptionFromJson;
+      _$ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$CaptionFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$Caption &&
+                is ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$Caption &&
             (identical(other.description, description) ||
                 const DeepCollectionEquality().equals(
                   other.description,
@@ -15415,17 +15873,17 @@ class ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$It
       runtimeType.hashCode;
 }
 
-extension $ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$CaptionExtension
+extension $ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$CaptionExtension
     on
-        ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$Caption {
-  ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$Caption
+        ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$Caption {
+  ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$Caption
   copyWith({
     String? description,
     String? brand,
     List<String>? hashtags,
     String? fullText,
   }) {
-    return ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$Caption(
+    return ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$Caption(
       description: description ?? this.description,
       brand: brand ?? this.brand,
       hashtags: hashtags ?? this.hashtags,
@@ -15433,14 +15891,14 @@ extension $ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImag
     );
   }
 
-  ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$Caption
+  ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$Caption
   copyWithWrapped({
     Wrapped<String?>? description,
     Wrapped<String?>? brand,
     Wrapped<List<String>?>? hashtags,
     Wrapped<String?>? fullText,
   }) {
-    return ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$Caption(
+    return ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$Caption(
       description: (description != null ? description.value : this.description),
       brand: (brand != null ? brand.value : this.brand),
       hashtags: (hashtags != null ? hashtags.value : this.hashtags),
@@ -15450,8 +15908,8 @@ extension $ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImag
 }
 
 @JsonSerializable(explicitToJson: true)
-class ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$Metadata {
-  const ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$Metadata({
+class ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$Metadata {
+  const ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$Metadata({
     this.segmentedImageUrl,
     this.styleDescription,
     this.occasion,
@@ -15462,17 +15920,17 @@ class ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$It
     this.regenerationStatus,
   });
 
-  factory ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$Metadata.fromJson(
+  factory ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$Metadata.fromJson(
     Map<String, dynamic> json,
   ) =>
-      _$ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$MetadataFromJson(
+      _$ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$MetadataFromJson(
         json,
       );
 
   static const toJsonFactory =
-      _$ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$MetadataToJson;
+      _$ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$MetadataToJson;
   Map<String, dynamic> toJson() =>
-      _$ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$MetadataToJson(
+      _$ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$MetadataToJson(
         this,
       );
 
@@ -15493,13 +15951,13 @@ class ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$It
   @JsonKey(name: 'regenerationStatus')
   final String? regenerationStatus;
   static const fromJsonFactory =
-      _$ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$MetadataFromJson;
+      _$ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$MetadataFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other
-                is ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$Metadata &&
+                is ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$Metadata &&
             (identical(other.segmentedImageUrl, segmentedImageUrl) ||
                 const DeepCollectionEquality().equals(
                   other.segmentedImageUrl,
@@ -15558,10 +16016,10 @@ class ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$It
       runtimeType.hashCode;
 }
 
-extension $ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$MetadataExtension
+extension $ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$MetadataExtension
     on
-        ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$Metadata {
-  ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$Metadata
+        ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$Metadata {
+  ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$Metadata
   copyWith({
     String? segmentedImageUrl,
     String? styleDescription,
@@ -15572,7 +16030,7 @@ extension $ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImag
     double? temperature,
     String? regenerationStatus,
   }) {
-    return ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$Metadata(
+    return ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$Metadata(
       segmentedImageUrl: segmentedImageUrl ?? this.segmentedImageUrl,
       styleDescription: styleDescription ?? this.styleDescription,
       occasion: occasion ?? this.occasion,
@@ -15584,7 +16042,7 @@ extension $ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImag
     );
   }
 
-  ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$Metadata
+  ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$Metadata
   copyWithWrapped({
     Wrapped<String?>? segmentedImageUrl,
     Wrapped<String?>? styleDescription,
@@ -15595,7 +16053,7 @@ extension $ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImag
     Wrapped<double?>? temperature,
     Wrapped<String?>? regenerationStatus,
   }) {
-    return ApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$Metadata(
+    return ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$Metadata(
       segmentedImageUrl: (segmentedImageUrl != null
           ? segmentedImageUrl.value
           : this.segmentedImageUrl),

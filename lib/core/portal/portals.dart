@@ -32,4 +32,4 @@ const List<Portal> portals = [
   Portal(code: 'CH', name: 'Switzerland', id: 16, currency: 'EUR', language: 'en-US'),
 ];
 
-const Portal defaultPortal = portals[1];
+const Portal defaultPortal = Portal(code: 'US', name: 'United States', id: 2, currency: 'USD', language: 'en-US');

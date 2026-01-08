@@ -45,28 +45,28 @@ abstract class SwaggerApiConfig extends ChopperService {
       client: httpClient,
       authenticator: authenticator,
       errorConverter: errorConverter,
-      baseUrl: baseUrl ?? Uri.parse('http:///config-service'),
+      baseUrl: baseUrl ?? Uri.parse('http://'),
     );
     return _$SwaggerApiConfig(newClient);
   }
 
   ///保存用户配置
   ///@param root
-  Future<chopper.Response<UserConfigPost$Response>> userConfigPost({
-    Object? root,
-  }) {
+  Future<chopper.Response<ConfigServiceUserConfigPost$Response>>
+  configServiceUserConfigPost({Object? root}) {
     generatedMapping.putIfAbsent(
-      UserConfigPost$Response,
-      () => UserConfigPost$Response.fromJsonFactory,
+      ConfigServiceUserConfigPost$Response,
+      () => ConfigServiceUserConfigPost$Response.fromJsonFactory,
     );
 
-    return _userConfigPost(root: root);
+    return _configServiceUserConfigPost(root: root);
   }
 
   ///保存用户配置
   ///@param root
-  @POST(path: '/user/config')
-  Future<chopper.Response<UserConfigPost$Response>> _userConfigPost({
+  @POST(path: '/config-service/user/config')
+  Future<chopper.Response<ConfigServiceUserConfigPost$Response>>
+  _configServiceUserConfigPost({
     @Body() Object? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -84,23 +84,22 @@ abstract class SwaggerApiConfig extends ChopperService {
   ///拉取用户配置
   ///@param key
   ///@param root
-  Future<chopper.Response<UserConfigGet$Response>> userConfigGet({
-    required String? key,
-    Object? root,
-  }) {
+  Future<chopper.Response<ConfigServiceUserConfigGet$Response>>
+  configServiceUserConfigGet({required String? key, Object? root}) {
     generatedMapping.putIfAbsent(
-      UserConfigGet$Response,
-      () => UserConfigGet$Response.fromJsonFactory,
+      ConfigServiceUserConfigGet$Response,
+      () => ConfigServiceUserConfigGet$Response.fromJsonFactory,
     );
 
-    return _userConfigGet(key: key, root: root);
+    return _configServiceUserConfigGet(key: key, root: root);
   }
 
   ///拉取用户配置
   ///@param key
   ///@param root
-  @GET(path: '/user/config')
-  Future<chopper.Response<UserConfigGet$Response>> _userConfigGet({
+  @GET(path: '/config-service/user/config')
+  Future<chopper.Response<ConfigServiceUserConfigGet$Response>>
+  _configServiceUserConfigGet({
     @Query('key') required String? key,
     @Body() Object? root,
     @chopper.Tag()
@@ -120,18 +119,18 @@ abstract class SwaggerApiConfig extends ChopperService {
   ///@param configKey
   ///@param instanceId
   ///@param root
-  Future<chopper.Response<UserConfigNoAuthInstanceGet$Response>>
-  userConfigNoAuthInstanceGet({
+  Future<chopper.Response<ConfigServiceUserConfigNoAuthInstanceGet$Response>>
+  configServiceUserConfigNoAuthInstanceGet({
     String? configKey,
     required String? instanceId,
     Object? root,
   }) {
     generatedMapping.putIfAbsent(
-      UserConfigNoAuthInstanceGet$Response,
-      () => UserConfigNoAuthInstanceGet$Response.fromJsonFactory,
+      ConfigServiceUserConfigNoAuthInstanceGet$Response,
+      () => ConfigServiceUserConfigNoAuthInstanceGet$Response.fromJsonFactory,
     );
 
-    return _userConfigNoAuthInstanceGet(
+    return _configServiceUserConfigNoAuthInstanceGet(
       configKey: configKey,
       instanceId: instanceId,
       root: root,
@@ -142,9 +141,9 @@ abstract class SwaggerApiConfig extends ChopperService {
   ///@param configKey
   ///@param instanceId
   ///@param root
-  @GET(path: '/user/config/no-auth/instance')
-  Future<chopper.Response<UserConfigNoAuthInstanceGet$Response>>
-  _userConfigNoAuthInstanceGet({
+  @GET(path: '/config-service/user/config/no-auth/instance')
+  Future<chopper.Response<ConfigServiceUserConfigNoAuthInstanceGet$Response>>
+  _configServiceUserConfigNoAuthInstanceGet({
     @Query('configKey') String? configKey,
     @Query('instanceId') required String? instanceId,
     @Body() Object? root,
@@ -163,8 +162,8 @@ abstract class SwaggerApiConfig extends ChopperService {
 }
 
 @JsonSerializable(explicitToJson: true)
-class UserConfigPost$Response {
-  const UserConfigPost$Response({
+class ConfigServiceUserConfigPost$Response {
+  const ConfigServiceUserConfigPost$Response({
     this.code,
     this.message,
     this.data,
@@ -173,11 +172,13 @@ class UserConfigPost$Response {
     this.success,
   });
 
-  factory UserConfigPost$Response.fromJson(Map<String, dynamic> json) =>
-      _$UserConfigPost$ResponseFromJson(json);
+  factory ConfigServiceUserConfigPost$Response.fromJson(
+    Map<String, dynamic> json,
+  ) => _$ConfigServiceUserConfigPost$ResponseFromJson(json);
 
-  static const toJsonFactory = _$UserConfigPost$ResponseToJson;
-  Map<String, dynamic> toJson() => _$UserConfigPost$ResponseToJson(this);
+  static const toJsonFactory = _$ConfigServiceUserConfigPost$ResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$ConfigServiceUserConfigPost$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final double? code;
@@ -191,12 +192,12 @@ class UserConfigPost$Response {
   final Object? placeholder;
   @JsonKey(name: 'success')
   final bool? success;
-  static const fromJsonFactory = _$UserConfigPost$ResponseFromJson;
+  static const fromJsonFactory = _$ConfigServiceUserConfigPost$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is UserConfigPost$Response &&
+        (other is ConfigServiceUserConfigPost$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -234,8 +235,9 @@ class UserConfigPost$Response {
       runtimeType.hashCode;
 }
 
-extension $UserConfigPost$ResponseExtension on UserConfigPost$Response {
-  UserConfigPost$Response copyWith({
+extension $ConfigServiceUserConfigPost$ResponseExtension
+    on ConfigServiceUserConfigPost$Response {
+  ConfigServiceUserConfigPost$Response copyWith({
     double? code,
     String? message,
     bool? data,
@@ -243,7 +245,7 @@ extension $UserConfigPost$ResponseExtension on UserConfigPost$Response {
     Object? placeholder,
     bool? success,
   }) {
-    return UserConfigPost$Response(
+    return ConfigServiceUserConfigPost$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       data: data ?? this.data,
@@ -253,7 +255,7 @@ extension $UserConfigPost$ResponseExtension on UserConfigPost$Response {
     );
   }
 
-  UserConfigPost$Response copyWithWrapped({
+  ConfigServiceUserConfigPost$Response copyWithWrapped({
     Wrapped<double?>? code,
     Wrapped<String?>? message,
     Wrapped<bool?>? data,
@@ -261,7 +263,7 @@ extension $UserConfigPost$ResponseExtension on UserConfigPost$Response {
     Wrapped<Object?>? placeholder,
     Wrapped<bool?>? success,
   }) {
-    return UserConfigPost$Response(
+    return ConfigServiceUserConfigPost$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
@@ -273,8 +275,8 @@ extension $UserConfigPost$ResponseExtension on UserConfigPost$Response {
 }
 
 @JsonSerializable(explicitToJson: true)
-class UserConfigGet$Response {
-  const UserConfigGet$Response({
+class ConfigServiceUserConfigGet$Response {
+  const ConfigServiceUserConfigGet$Response({
     this.code,
     this.message,
     this.data,
@@ -283,30 +285,32 @@ class UserConfigGet$Response {
     this.success,
   });
 
-  factory UserConfigGet$Response.fromJson(Map<String, dynamic> json) =>
-      _$UserConfigGet$ResponseFromJson(json);
+  factory ConfigServiceUserConfigGet$Response.fromJson(
+    Map<String, dynamic> json,
+  ) => _$ConfigServiceUserConfigGet$ResponseFromJson(json);
 
-  static const toJsonFactory = _$UserConfigGet$ResponseToJson;
-  Map<String, dynamic> toJson() => _$UserConfigGet$ResponseToJson(this);
+  static const toJsonFactory = _$ConfigServiceUserConfigGet$ResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$ConfigServiceUserConfigGet$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final double? code;
   @JsonKey(name: 'message')
   final String? message;
   @JsonKey(name: 'data')
-  final UserConfigGet$Response$Data? data;
+  final ConfigServiceUserConfigGet$Response$Data? data;
   @JsonKey(name: 'traceId')
   final String? traceId;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
   @JsonKey(name: 'success')
   final bool? success;
-  static const fromJsonFactory = _$UserConfigGet$ResponseFromJson;
+  static const fromJsonFactory = _$ConfigServiceUserConfigGet$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is UserConfigGet$Response &&
+        (other is ConfigServiceUserConfigGet$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.message, message) ||
@@ -344,16 +348,17 @@ class UserConfigGet$Response {
       runtimeType.hashCode;
 }
 
-extension $UserConfigGet$ResponseExtension on UserConfigGet$Response {
-  UserConfigGet$Response copyWith({
+extension $ConfigServiceUserConfigGet$ResponseExtension
+    on ConfigServiceUserConfigGet$Response {
+  ConfigServiceUserConfigGet$Response copyWith({
     double? code,
     String? message,
-    UserConfigGet$Response$Data? data,
+    ConfigServiceUserConfigGet$Response$Data? data,
     String? traceId,
     Object? placeholder,
     bool? success,
   }) {
-    return UserConfigGet$Response(
+    return ConfigServiceUserConfigGet$Response(
       code: code ?? this.code,
       message: message ?? this.message,
       data: data ?? this.data,
@@ -363,15 +368,15 @@ extension $UserConfigGet$ResponseExtension on UserConfigGet$Response {
     );
   }
 
-  UserConfigGet$Response copyWithWrapped({
+  ConfigServiceUserConfigGet$Response copyWithWrapped({
     Wrapped<double?>? code,
     Wrapped<String?>? message,
-    Wrapped<UserConfigGet$Response$Data?>? data,
+    Wrapped<ConfigServiceUserConfigGet$Response$Data?>? data,
     Wrapped<String?>? traceId,
     Wrapped<Object?>? placeholder,
     Wrapped<bool?>? success,
   }) {
-    return UserConfigGet$Response(
+    return ConfigServiceUserConfigGet$Response(
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
@@ -383,8 +388,8 @@ extension $UserConfigGet$ResponseExtension on UserConfigGet$Response {
 }
 
 @JsonSerializable(explicitToJson: true)
-class UserConfigNoAuthInstanceGet$Response {
-  const UserConfigNoAuthInstanceGet$Response({
+class ConfigServiceUserConfigNoAuthInstanceGet$Response {
+  const ConfigServiceUserConfigNoAuthInstanceGet$Response({
     this.code,
     this.data,
     this.message,
@@ -392,13 +397,14 @@ class UserConfigNoAuthInstanceGet$Response {
     this.traceId,
   });
 
-  factory UserConfigNoAuthInstanceGet$Response.fromJson(
+  factory ConfigServiceUserConfigNoAuthInstanceGet$Response.fromJson(
     Map<String, dynamic> json,
-  ) => _$UserConfigNoAuthInstanceGet$ResponseFromJson(json);
+  ) => _$ConfigServiceUserConfigNoAuthInstanceGet$ResponseFromJson(json);
 
-  static const toJsonFactory = _$UserConfigNoAuthInstanceGet$ResponseToJson;
+  static const toJsonFactory =
+      _$ConfigServiceUserConfigNoAuthInstanceGet$ResponseToJson;
   Map<String, dynamic> toJson() =>
-      _$UserConfigNoAuthInstanceGet$ResponseToJson(this);
+      _$ConfigServiceUserConfigNoAuthInstanceGet$ResponseToJson(this);
 
   @JsonKey(name: 'code')
   final double? code;
@@ -410,12 +416,13 @@ class UserConfigNoAuthInstanceGet$Response {
   final bool? success;
   @JsonKey(name: 'traceId')
   final String? traceId;
-  static const fromJsonFactory = _$UserConfigNoAuthInstanceGet$ResponseFromJson;
+  static const fromJsonFactory =
+      _$ConfigServiceUserConfigNoAuthInstanceGet$ResponseFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is UserConfigNoAuthInstanceGet$Response &&
+        (other is ConfigServiceUserConfigNoAuthInstanceGet$Response &&
             (identical(other.code, code) ||
                 const DeepCollectionEquality().equals(other.code, code)) &&
             (identical(other.data, data) ||
@@ -447,16 +454,16 @@ class UserConfigNoAuthInstanceGet$Response {
       runtimeType.hashCode;
 }
 
-extension $UserConfigNoAuthInstanceGet$ResponseExtension
-    on UserConfigNoAuthInstanceGet$Response {
-  UserConfigNoAuthInstanceGet$Response copyWith({
+extension $ConfigServiceUserConfigNoAuthInstanceGet$ResponseExtension
+    on ConfigServiceUserConfigNoAuthInstanceGet$Response {
+  ConfigServiceUserConfigNoAuthInstanceGet$Response copyWith({
     double? code,
     String? data,
     String? message,
     bool? success,
     String? traceId,
   }) {
-    return UserConfigNoAuthInstanceGet$Response(
+    return ConfigServiceUserConfigNoAuthInstanceGet$Response(
       code: code ?? this.code,
       data: data ?? this.data,
       message: message ?? this.message,
@@ -465,14 +472,14 @@ extension $UserConfigNoAuthInstanceGet$ResponseExtension
     );
   }
 
-  UserConfigNoAuthInstanceGet$Response copyWithWrapped({
+  ConfigServiceUserConfigNoAuthInstanceGet$Response copyWithWrapped({
     Wrapped<double?>? code,
     Wrapped<String?>? data,
     Wrapped<String?>? message,
     Wrapped<bool?>? success,
     Wrapped<String?>? traceId,
   }) {
-    return UserConfigNoAuthInstanceGet$Response(
+    return ConfigServiceUserConfigNoAuthInstanceGet$Response(
       code: (code != null ? code.value : this.code),
       data: (data != null ? data.value : this.data),
       message: (message != null ? message.value : this.message),
@@ -483,25 +490,28 @@ extension $UserConfigNoAuthInstanceGet$ResponseExtension
 }
 
 @JsonSerializable(explicitToJson: true)
-class UserConfigGet$Response$Data {
-  const UserConfigGet$Response$Data({this.key, this.value});
+class ConfigServiceUserConfigGet$Response$Data {
+  const ConfigServiceUserConfigGet$Response$Data({this.key, this.value});
 
-  factory UserConfigGet$Response$Data.fromJson(Map<String, dynamic> json) =>
-      _$UserConfigGet$Response$DataFromJson(json);
+  factory ConfigServiceUserConfigGet$Response$Data.fromJson(
+    Map<String, dynamic> json,
+  ) => _$ConfigServiceUserConfigGet$Response$DataFromJson(json);
 
-  static const toJsonFactory = _$UserConfigGet$Response$DataToJson;
-  Map<String, dynamic> toJson() => _$UserConfigGet$Response$DataToJson(this);
+  static const toJsonFactory = _$ConfigServiceUserConfigGet$Response$DataToJson;
+  Map<String, dynamic> toJson() =>
+      _$ConfigServiceUserConfigGet$Response$DataToJson(this);
 
   @JsonKey(name: 'key')
   final String? key;
   @JsonKey(name: 'value')
   final String? value;
-  static const fromJsonFactory = _$UserConfigGet$Response$DataFromJson;
+  static const fromJsonFactory =
+      _$ConfigServiceUserConfigGet$Response$DataFromJson;
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
-        (other is UserConfigGet$Response$Data &&
+        (other is ConfigServiceUserConfigGet$Response$Data &&
             (identical(other.key, key) ||
                 const DeepCollectionEquality().equals(other.key, key)) &&
             (identical(other.value, value) ||
@@ -518,19 +528,23 @@ class UserConfigGet$Response$Data {
       runtimeType.hashCode;
 }
 
-extension $UserConfigGet$Response$DataExtension on UserConfigGet$Response$Data {
-  UserConfigGet$Response$Data copyWith({String? key, String? value}) {
-    return UserConfigGet$Response$Data(
+extension $ConfigServiceUserConfigGet$Response$DataExtension
+    on ConfigServiceUserConfigGet$Response$Data {
+  ConfigServiceUserConfigGet$Response$Data copyWith({
+    String? key,
+    String? value,
+  }) {
+    return ConfigServiceUserConfigGet$Response$Data(
       key: key ?? this.key,
       value: value ?? this.value,
     );
   }
 
-  UserConfigGet$Response$Data copyWithWrapped({
+  ConfigServiceUserConfigGet$Response$Data copyWithWrapped({
     Wrapped<String?>? key,
     Wrapped<String?>? value,
   }) {
-    return UserConfigGet$Response$Data(
+    return ConfigServiceUserConfigGet$Response$Data(
       key: (key != null ? key.value : this.key),
       value: (value != null ? value.value : this.value),
     );
