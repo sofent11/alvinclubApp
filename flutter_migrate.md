@@ -240,7 +240,7 @@ lib/
 - [x] Checkout 优惠券自动应用逻辑
 - [x] Order submit -> Pay 页面参数
 - [x] Payment Methods + 发起支付 + WebView 收银台 + deep link 回调
-- [ ] 支付结果轮询 & 状态文案
+- [x] 支付结果轮询 & 状态文案
 - [x] Order List + 状态统计
 
 **验收**：主流程（搜索 -> 详情 -> 加购 -> 结算 -> 支付）跑通。
@@ -264,7 +264,7 @@ lib/
 ### 阶段 H：AI Fashion 模块
 - [x] Fashion Feed（瀑布流）
 - [x] Style Me（选项 sheet + 上传 + generate）
-- [ ] Model Settings / Custom Model / Outfit Result / History / Post Detail
+- [x] Model Settings / Custom Model / Outfit Result / History / Post Detail
 - [x] 轮询逻辑与动画组件
 
 **验收**：AI Fashion 全流程可跑通。
@@ -296,11 +296,11 @@ lib/
 - [x] 401 清会话 + UI 行为一致
 - [x] OTP 验证逻辑与错误处理一致
 - [x] 购物车自动勾选逻辑一致
-- [ ] 优惠券自动应用/取消逻辑一致
-- [ ] 订单支付 `thirdPayParam` 解析逻辑一致
-- [ ] AI Fashion 轮询终止条件一致
-- [ ] Mock fallback 行为一致（Community/Wallet）
-- [ ] 搜索历史与收藏存储 key 与行为一致
+- [x] 优惠券自动应用/取消逻辑一致
+- [x] 订单支付 `thirdPayParam` 解析逻辑一致
+- [x] AI Fashion 轮询终止条件一致
+- [x] Mock fallback 行为一致（Community/Wallet）
+- [x] 搜索历史与收藏存储 key 与行为一致
 - [x] Theme tokens 与颜色映射一致
 
 ---
