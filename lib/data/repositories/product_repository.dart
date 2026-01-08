@@ -475,7 +475,8 @@ class ProductRepository {
   Future<ProductListResponse> getFlashSaleActivityProducts(String activityId, {int page = 1, int pageSize = 20}) async {
     final api = _ref.read(swaggerProductApiProvider);
     final response = await api.productServiceActivityNoAuthFlashSaleActivityProductGet(
-      activityId: activityId,
+      activityCode: activityId,
+      name: null,
       current: page.toString(),
       size: pageSize.toString(),
     );

@@ -41,7 +41,7 @@ class CommunityRepository {
       final api = _ref.read(swaggerComboApiProvider);
       final response = await api.comboServiceBizCommunityPostNoAuthListGet(
         cursor: cursor,
-        size: '20',
+        pageSize: '20',
       );
 
       final body = _toMap(response.body);
