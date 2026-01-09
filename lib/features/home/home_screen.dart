@@ -1,56 +1,334 @@
 import 'dart:async';
 
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:go_router/go_router.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 
 import '../../core/navigation/route_paths.dart';
 import '../../core/theme/app_theme.dart';
 import '../../data/repositories/product_repository.dart';
-import '../../features/flash_sale/application/flash_sale_providers.dart' hide flashSaleProductsProvider;
 import '../../shared/widgets/empty_state.dart';
 import '../../shared/widgets/flash_sale_timer.dart';
 import '../../shared/widgets/product_card.dart';
 import '../../shared/widgets/themed_text.dart';
+import '../catalog/catalog_providers.dart';
+import '../flash_sale/application/flash_sale_providers.dart' hide flashSaleProductsProvider;
+import 'home_models.dart';
 import 'home_providers.dart';
+import 'widgets/fashion_feed.dart';
+import 'widgets/floating_banner.dart';
+import 'widgets/home_category_tabs.dart';
+import 'widgets/home_top_nav.dart';
+import 'widgets/premium_dupe_list.dart';
+import 'widgets/premium_dupe_sheet.dart';
+import 'widgets/quick_entry_grid.dart';
 
-class HomeScreen extends ConsumerWidget {
+class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({super.key});
 
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  ConsumerState<HomeScreen> createState() => _HomeScreenState();
+}
+
+class _HomeScreenState extends ConsumerState<HomeScreen> {
+  final ScrollController _scrollController = ScrollController();
+  String _activeTopNav = 'for-you';
+  String? _activeCategoryId;
+
+  @override
+  void initState() {
+    super.initState();
+    _scrollController.addListener(_handleScroll);
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
+
+  void _handleScroll() {
+    if (!_scrollController.hasClients) return;
+    if (_scrollController.position.pixels <
+        _scrollController.position.maxScrollExtent - 200) {
+      return;
+    }
+
+    if (_activeTopNav == 'for-you') {
+      ref.read(homeHotProductsProvider.notifier).loadMore();
+      return;
+    }
+
+    if (_activeTopNav == 'fashion') return;
+
+    final params = _recommendParamsForActive();
+    ref.read(homeRecommendProductsProvider(params).notifier).loadMore();
+  }
+
+  HomeRecommendParams _recommendParamsForActive() {
+    final topNavItems = _buildTopNavItems(ref.read(homeTopNavProvider).valueOrNull ?? []);
+    final activeItem = topNavItems.firstWhere(
+      (item) => item.key == _activeTopNav,
+      orElse: () => topNavItems.first,
+    );
+    final categoryIds = _parseCategoryIds(activeItem.categoryId);
+
+    if (_activeTopNav == 'for-you' || _activeTopNav == 'fashion') {
+      return const HomeRecommendParams();
+    }
+
+    if (_activeCategoryId != null && _activeCategoryId!.isNotEmpty) {
+      return HomeRecommendParams(categoryId: _activeCategoryId);
+    }
+
+    return HomeRecommendParams(categoryIds: categoryIds);
+  }
+
+  Future<void> _handleRefresh() async {
+    ref.invalidate(homeConfigProvider);
+    ref.invalidate(homeTopNavProvider);
+    ref.invalidate(homeAlbumProvider);
+    ref.invalidate(premiumDupeSelectionProvider);
+    ref.invalidate(flashSaleProductsProvider);
+    ref.invalidate(flashSaleActivitiesProvider);
+    ref.read(homeHotProductsProvider.notifier).loadFirstPage();
+
+    if (_activeTopNav != 'for-you' && _activeTopNav != 'fashion') {
+      ref.invalidate(homeRecommendProductsProvider(_recommendParamsForActive()));
+    }
+
+    await Future<void>.delayed(const Duration(milliseconds: 200));
+  }
+
+  void _onTopNavTap(HomeTopNavItem item) {
+    if (item.key == _activeTopNav) return;
+    setState(() {
+      _activeTopNav = item.key;
+      _activeCategoryId = null;
+    });
+  }
+
+  void _onCategoryTap(String? id) {
+    if (id == _activeCategoryId) return;
+    setState(() {
+      _activeCategoryId = id;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    final colors = context.appColors;
     final configAsync = ref.watch(homeConfigProvider);
-    final hotProductsAsync = ref.watch(hotProductsProvider);
+    final topNavAsync = ref.watch(homeTopNavProvider);
+    final albumAsync = ref.watch(homeAlbumProvider);
+    final premiumDupeAsync = ref.watch(premiumDupeSelectionProvider);
+    final hotState = ref.watch(homeHotProductsProvider);
+    final categoriesAsync = ref.watch(categoriesProvider);
     final flashSaleAsync = ref.watch(flashSaleProductsProvider);
     final flashSaleActivitiesAsync = ref.watch(flashSaleActivitiesProvider);
-    final colors = context.appColors;
+
+    final topNavItems = _buildTopNavItems(topNavAsync.valueOrNull ?? []);
+    final activeKey = topNavItems.any((item) => item.key == _activeTopNav)
+        ? _activeTopNav
+        : topNavItems.first.key;
+    final isForYou = activeKey == 'for-you';
+    final isFashion = activeKey == 'fashion';
+    final activeItem = topNavItems.firstWhere((item) => item.key == activeKey);
+
+    final categoryNameMap = _buildCategoryNameMap(categoriesAsync.valueOrNull ?? []);
+    final categoryIds = _parseCategoryIds(activeItem.categoryId);
+    final categoryTabs = _buildCategoryTabs(categoryIds, categoryNameMap);
+
+    final recommendParams = isForYou || isFashion
+        ? const HomeRecommendParams()
+        : (_activeCategoryId != null && _activeCategoryId!.isNotEmpty)
+            ? HomeRecommendParams(categoryId: _activeCategoryId)
+            : HomeRecommendParams(categoryIds: categoryIds);
+
+    final recommendState = isForYou || isFashion
+        ? const PagedProductsState()
+        : ref.watch(homeRecommendProductsProvider(recommendParams));
+
+    if (isFashion) {
+      return Scaffold(
+        backgroundColor: colors.background,
+        body: SafeArea(
+          child: Column(
+            children: [
+              _HomeHeaderBar(onTap: () => context.push(RoutePaths.search)),
+              HomeTopNavBar(
+                items: topNavItems,
+                activeKey: activeKey,
+                onItemTap: _onTopNavTap,
+              ),
+              const Expanded(child: FashionFeed()),
+            ],
+          ),
+        ),
+      );
+    }
 
     return Scaffold(
       backgroundColor: colors.background,
       body: SafeArea(
-        child: RefreshIndicator(
-          onRefresh: () async {
-            ref.invalidate(homeConfigProvider);
-            ref.invalidate(hotProductsProvider);
-            ref.invalidate(flashSaleProductsProvider);
-            ref.invalidate(flashSaleActivitiesProvider);
-          },
-          child: CustomScrollView(
-            slivers: [
-              _buildSearchHeader(context),
-              _buildBanners(context, configAsync),
-              _buildFlashSaleSectionHeader(context, flashSaleActivitiesAsync),
-              _buildFlashSaleList(context, flashSaleAsync),
-              _buildSectionTitle(context, 'Hot Products'),
-              _buildProductGrid(context, hotProductsAsync),
-              const SliverToBoxAdapter(child: SizedBox(height: 20)),
-            ],
-          ),
+        child: Stack(
+          children: [
+            RefreshIndicator(
+              onRefresh: _handleRefresh,
+              child: CustomScrollView(
+                controller: _scrollController,
+                slivers: [
+                  _buildSearchHeader(context),
+                  SliverPersistentHeader(
+                    pinned: isForYou,
+                    delegate: _FixedHeaderDelegate(
+                      height: 48,
+                      child: HomeTopNavBar(
+                        items: topNavItems,
+                        activeKey: activeKey,
+                        onItemTap: _onTopNavTap,
+                      ),
+                    ),
+                  ),
+                  if (!isForYou) _buildHeroBanner(activeItem),
+                  if (!isForYou)
+                    SliverPersistentHeader(
+                      pinned: true,
+                      delegate: _FixedHeaderDelegate(
+                        height: 46,
+                        child: HomeCategoryTabs(
+                          items: categoryTabs,
+                          activeId: _activeCategoryId,
+                          onChange: _onCategoryTap,
+                        ),
+                      ),
+                    ),
+                  if (isForYou) _buildBanners(context, configAsync),
+                  if (isForYou)
+                    SliverToBoxAdapter(
+                      child: premiumDupeAsync.when(
+                        data: (products) => PremiumDupeList(
+                          products: products,
+                          onProductTap: (_) => PremiumDupeSheet.show(context),
+                          onMoreTap: () => PremiumDupeSheet.show(context),
+                        ),
+                        loading: () => const SizedBox.shrink(),
+                        error: (_, _) => const SizedBox.shrink(),
+                      ),
+                    ),
+                  if (isForYou)
+                    _buildFlashSaleSectionHeader(context, flashSaleActivitiesAsync),
+                  if (isForYou)
+                    _buildFlashSaleList(context, flashSaleAsync),
+                  if (isForYou)
+                    SliverToBoxAdapter(
+                      child: albumAsync.when(
+                        data: (entries) {
+                          final quickEntries = entries
+                              .map(
+                                (item) => QuickEntryItem(
+                                  id: item.albumCode,
+                                  title: item.title,
+                                  iconUrl: item.icon,
+                                  badgeUrl: item.newIcon,
+                                  onTap: () => context.push(
+                                    '${RoutePaths.topicDetail.replaceFirst(':id', item.albumCode)}?title=${Uri.encodeComponent(item.title)}',
+                                  ),
+                                ),
+                              )
+                              .toList();
+                          return QuickEntryGrid(entries: quickEntries);
+                        },
+                        loading: () => const SizedBox.shrink(),
+                        error: (_, _) => const SizedBox.shrink(),
+                      ),
+                    ),
+                  if (isForYou)
+                    _buildSectionTitle(context, 'Hot Products'),
+                  if (isForYou)
+                    _buildProductGrid(context, hotState),
+                  if (!isForYou)
+                    _buildProductGrid(context, recommendState),
+                  SliverToBoxAdapter(
+                    child: SizedBox(height: isForYou ? 90 : 24),
+                  ),
+                ],
+              ),
+            ),
+            if (isForYou) const FloatingBanner(),
+          ],
         ),
       ),
     );
+  }
+
+  List<HomeTopNavItem> _buildTopNavItems(List<HomeTopNavItem> remoteItems) {
+    return [
+      const HomeTopNavItem(
+        title: 'For You',
+        link: 'for-you',
+        code: 'forYou',
+        showType: 'text',
+        portalCode: [],
+        categoryId: '',
+      ),
+      const HomeTopNavItem(
+        title: 'Fashion',
+        link: 'fashion',
+        code: 'fashion',
+        showType: 'text',
+        portalCode: [],
+        categoryId: '',
+      ),
+      ...remoteItems,
+    ];
+  }
+
+  List<String> _parseCategoryIds(String? raw) {
+    if (raw == null || raw.trim().isEmpty) return [];
+    return raw
+        .split(',')
+        .map((id) => id.trim())
+        .where((id) => id.isNotEmpty)
+        .toList();
+  }
+
+  Map<String, String> _buildCategoryNameMap(List<CategoryItem> categories) {
+    final map = <String, String>{};
+    void walk(List<CategoryItem> items) {
+      for (final item in items) {
+        map[item.id] = item.name;
+        if (item.children != null && item.children!.isNotEmpty) {
+          walk(item.children!);
+        }
+      }
+    }
+
+    walk(categories);
+    return map;
+  }
+
+  List<HomeCategoryTab> _buildCategoryTabs(
+    List<String> categoryIds,
+    Map<String, String> categoryNameMap,
+  ) {
+    if (categoryIds.isEmpty) {
+      return const [HomeCategoryTab(name: 'All')];
+    }
+
+    final tabs = categoryIds
+        .map(
+          (id) => HomeCategoryTab(
+            id: id,
+            name: categoryNameMap[id] ?? id,
+          ),
+        )
+        .where((item) => item.name.isNotEmpty)
+        .toList();
+
+    return [const HomeCategoryTab(name: 'All'), ...tabs];
   }
 
   Widget _buildSearchHeader(BuildContext context) {
@@ -61,44 +339,8 @@ class HomeScreen extends ConsumerWidget {
       pinned: true,
       elevation: 0,
       backgroundColor: colors.background,
-      titleSpacing: 16,
-      title: Row(
-        children: [
-          const ThemedText(
-            "Alvin's Club",
-            type: ThemedTextType.title,
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-          ),
-          const SizedBox(width: 12),
-          Expanded(
-            child: GestureDetector(
-              onTap: () => context.push(RoutePaths.search),
-              child: Container(
-                height: 36,
-                padding: const EdgeInsets.symmetric(horizontal: 12),
-                decoration: BoxDecoration(
-                  color: const Color(0xFFF5F5F5),
-                  borderRadius: BorderRadius.circular(18),
-                ),
-                child: Row(
-                  children: [
-                    Icon(Icons.search, color: colors.textMuted, size: 18),
-                    const SizedBox(width: 8),
-                    Expanded(
-                      child: Text(
-                        "I'm going for a look th...",
-                        style: TextStyle(color: colors.textMuted, fontSize: 14),
-                        overflow: TextOverflow.ellipsis,
-                      ),
-                    ),
-                    Icon(Icons.photo_camera_outlined, color: colors.textMuted, size: 18),
-                  ],
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
+      titleSpacing: 0,
+      title: _HomeHeaderBar(onTap: () => context.push(RoutePaths.search)),
     );
   }
 
@@ -124,6 +366,27 @@ class HomeScreen extends ConsumerWidget {
     );
   }
 
+  Widget _buildHeroBanner(HomeTopNavItem activeItem) {
+    final bgImage = activeItem.bgImage;
+    if (bgImage == null || bgImage.url.isEmpty) {
+      return const SliverToBoxAdapter(child: SizedBox.shrink());
+    }
+
+    final ratio = (bgImage.width != null && bgImage.height != null && bgImage.height != 0)
+        ? bgImage.width! / bgImage.height!
+        : 16 / 9;
+
+    return SliverToBoxAdapter(
+      child: AspectRatio(
+        aspectRatio: ratio,
+        child: CachedNetworkImage(
+          imageUrl: bgImage.url,
+          fit: BoxFit.cover,
+        ),
+      ),
+    );
+  }
+
   Widget _buildFlashSaleSectionHeader(
     BuildContext context,
     AsyncValue<List<FlashSaleActivity>> activitiesAsync,
@@ -138,7 +401,6 @@ class HomeScreen extends ConsumerWidget {
             activitiesAsync.when(
               data: (activities) {
                 if (activities.isEmpty) return const SizedBox.shrink();
-                // Pick the first activity for Home Screen display
                 final activity = activities.first;
                 final endTime = DateTime.tryParse(activity.endTime);
                 if (endTime != null) {
@@ -166,7 +428,7 @@ class HomeScreen extends ConsumerWidget {
 
   Widget _buildFlashSaleList(
     BuildContext context,
-    AsyncValue<List<dynamic>> productsAsync,
+    AsyncValue<List<ProductItem>> productsAsync,
   ) {
     return SliverToBoxAdapter(
       child: productsAsync.when(
@@ -207,71 +469,140 @@ class HomeScreen extends ConsumerWidget {
     );
   }
 
-  Widget _buildProductGrid(
-    BuildContext context,
-    AsyncValue<List<dynamic>> productsAsync,
-  ) {
-    return productsAsync.when(
-      data: (products) {
-        if (products.isEmpty) {
-          return const SliverToBoxAdapter(
-            child: Padding(
-              padding: EdgeInsets.all(16.0),
-              child: EmptyState(
-                type: EmptyStateType.search,
-                title: 'No products found',
-                description: 'Try again later.',
-              ),
-            ),
-          );
-        }
-        return SliverPadding(
-          padding: const EdgeInsets.symmetric(horizontal: 16),
-          sliver: SliverMasonryGrid.count(
-            crossAxisCount: 2,
-            mainAxisSpacing: 12,
-            crossAxisSpacing: 12,
-            childCount: products.length,
-            itemBuilder: (context, index) {
-              final product = products[index];
-              return ProductCard(
-                product: product,
-                variant: ProductCardVariant.compact,
-                aspectRatio: _staggeredAspectRatio(index),
-                onTap: () => context.push(
-                  RoutePaths.productDetail.replaceFirst(
-                    ':productCode',
-                    product.id,
-                  ),
-                ),
-              );
-            },
-          ),
-        );
-      },
-      loading: () => const SliverToBoxAdapter(
+  Widget _buildProductGrid(BuildContext context, PagedProductsState state) {
+    if (state.isLoading && state.products.isEmpty) {
+      return const SliverToBoxAdapter(
         child: Padding(
           padding: EdgeInsets.all(32.0),
           child: Center(child: CircularProgressIndicator()),
         ),
-      ),
-      error: (err, stack) => SliverToBoxAdapter(
+      );
+    }
+
+    if (state.error != null && state.products.isEmpty) {
+      return SliverToBoxAdapter(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: ErrorState(
             title: 'Unable to load products',
-            description: err.toString(),
+            description: state.error!,
           ),
         ),
+      );
+    }
+
+    if (state.products.isEmpty) {
+      return const SliverToBoxAdapter(
+        child: Padding(
+          padding: EdgeInsets.all(16.0),
+          child: EmptyState(
+            type: EmptyStateType.search,
+            title: 'No products found',
+            description: 'Try again later.',
+          ),
+        ),
+      );
+    }
+
+    return SliverPadding(
+      padding: const EdgeInsets.symmetric(horizontal: 16),
+      sliver: SliverMasonryGrid.count(
+        crossAxisCount: 2,
+        mainAxisSpacing: 12,
+        crossAxisSpacing: 12,
+        childCount: state.products.length,
+        itemBuilder: (context, index) {
+          final product = state.products[index];
+          return ProductCard(
+            product: product,
+            variant: ProductCardVariant.compact,
+            aspectRatio: _staggeredAspectRatio(index),
+            onTap: () => context.push(
+              RoutePaths.productDetail.replaceFirst(
+                ':productCode',
+                product.id,
+              ),
+            ),
+          );
+        },
       ),
     );
   }
 }
 
-double _staggeredAspectRatio(int index) {
-  if (index % 3 == 0) return 1;
-  if (index % 2 == 0) return 1.2;
-  return 0.8;
+class _HomeHeaderBar extends StatelessWidget {
+  const _HomeHeaderBar({required this.onTap});
+
+  final VoidCallback onTap;
+
+  @override
+  Widget build(BuildContext context) {
+    final colors = context.appColors;
+
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
+      child: Row(
+        children: [
+          const ThemedText(
+            "Alvin's Club",
+            type: ThemedTextType.title,
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+          ),
+          const SizedBox(width: 12),
+          Expanded(
+            child: GestureDetector(
+              onTap: onTap,
+              child: Container(
+                height: 36,
+                padding: const EdgeInsets.symmetric(horizontal: 12),
+                decoration: BoxDecoration(
+                  color: const Color(0xFFF5F5F5),
+                  borderRadius: BorderRadius.circular(18),
+                ),
+                child: Row(
+                  children: [
+                    Icon(Icons.search, color: colors.textMuted, size: 18),
+                    const SizedBox(width: 8),
+                    Expanded(
+                      child: Text(
+                        "I'm going for a look th...",
+                        style: TextStyle(color: colors.textMuted, fontSize: 14),
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                    Icon(Icons.photo_camera_outlined, color: colors.textMuted, size: 18),
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+class _FixedHeaderDelegate extends SliverPersistentHeaderDelegate {
+  _FixedHeaderDelegate({required this.height, required this.child});
+
+  final double height;
+  final Widget child;
+
+  @override
+  double get minExtent => height;
+
+  @override
+  double get maxExtent => height;
+
+  @override
+  Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {
+    return child;
+  }
+
+  @override
+  bool shouldRebuild(covariant _FixedHeaderDelegate oldDelegate) {
+    return oldDelegate.height != height || oldDelegate.child != child;
+  }
 }
 
 class _BannerCarousel extends StatefulWidget {
@@ -361,9 +692,7 @@ class _BannerCarouselState extends State<_BannerCarousel> {
                     width: _currentPage == index ? 20 : 6,
                     height: 6,
                     decoration: BoxDecoration(
-                      color: _currentPage == index
-                          ? Colors.white
-                          : Colors.white54,
+                      color: _currentPage == index ? Colors.white : Colors.white54,
                       borderRadius: BorderRadius.circular(3),
                     ),
                   ),
@@ -375,4 +704,10 @@ class _BannerCarouselState extends State<_BannerCarousel> {
       ),
     );
   }
+}
+
+double _staggeredAspectRatio(int index) {
+  if (index % 3 == 0) return 1;
+  if (index % 2 == 0) return 1.2;
+  return 0.8;
 }

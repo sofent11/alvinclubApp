@@ -77,6 +77,78 @@ class CategoryItem {
   final List<String>? brands;
 }
 
+class PremiumDupeCategory {
+  const PremiumDupeCategory({
+    required this.id,
+    required this.name,
+    this.count,
+    this.imageUrl,
+  });
+
+  final String id;
+  final String name;
+  final int? count;
+  final String? imageUrl;
+}
+
+class PremiumDupeProduct {
+  const PremiumDupeProduct({
+    required this.id,
+    required this.name,
+    required this.price,
+    required this.currency,
+    required this.imageUrl,
+    this.originalPrice,
+    this.sales,
+    this.marketingInfo,
+    this.premiumBrandInfo,
+  });
+
+  final String id;
+  final String name;
+  final double price;
+  final double? originalPrice;
+  final String currency;
+  final String imageUrl;
+  final String? sales;
+  final String? marketingInfo;
+  final Map<String, dynamic>? premiumBrandInfo;
+}
+
+class PremiumDupePage {
+  const PremiumDupePage({
+    required this.products,
+    required this.total,
+    required this.pageSize,
+    required this.totalPages,
+    required this.current,
+  });
+
+  final List<PremiumDupeProduct> products;
+  final int total;
+  final int pageSize;
+  final int totalPages;
+  final int current;
+}
+
+class PremiumDupePageParams {
+  const PremiumDupePageParams({
+    this.current,
+    this.pageSize,
+    this.categoryId,
+    this.sort,
+    this.order,
+    this.productCode,
+  });
+
+  final int? current;
+  final int? pageSize;
+  final int? categoryId;
+  final String? sort;
+  final String? order;
+  final String? productCode;
+}
+
 class ProductOptionValue {
   const ProductOptionValue({required this.value, this.image});
 
@@ -787,6 +859,112 @@ class ProductRepository {
       products: products,
       total: total,
       hasMore: current * pageSize < total,
+    );
+  }
+
+  Future<List<PremiumDupeProduct>> getPremiumDupeSelection() async {
+    final api = _ref.read(swaggerProductApiProvider);
+    final response = await api.productServiceProductPremiumDupeNoAuthSelectionGet();
+
+    final body = _toMap(response.body);
+    final code = _parseInt(body?['code']);
+    if (code != 0) {
+      throw _createApiError(body?['message']?.toString() ?? '获取精选平替商品失败', body);
+    }
+
+    final data = _toList(body?['data']);
+    if (data.isEmpty) return [];
+
+    return data.map((itemRaw) {
+      final item = _toMap(itemRaw) ?? {};
+      final image = _toMap(item['image']);
+      return PremiumDupeProduct(
+        id: item['productCode']?.toString() ?? '',
+        name: item['productName']?.toString() ?? '',
+        price: _parsePrice(item['targetSellPrice'] ?? item['sellPrice']),
+        originalPrice: _parseOptionalPrice(item['targetOriginPrice'] ?? item['originPrice']),
+        currency: item['targetSellCur']?.toString() ?? item['sellPriceCur']?.toString() ?? 'USD',
+        imageUrl: image?['url']?.toString() ?? '',
+        sales: item['sellQuantity']?.toString(),
+        marketingInfo: item['marketingInfo']?.toString(),
+        premiumBrandInfo: item['premiumBrandInfo'] is Map<String, dynamic>
+            ? item['premiumBrandInfo'] as Map<String, dynamic>
+            : null,
+      );
+    }).toList();
+  }
+
+  Future<List<PremiumDupeCategory>> getPremiumDupeMeta() async {
+    final api = _ref.read(swaggerProductApiProvider);
+    final response = await api.productServiceProductPremiumDupeNoAuthMetaGet();
+
+    final body = _toMap(response.body);
+    final code = _parseInt(body?['code']);
+    if (code != 0) {
+      throw _createApiError(body?['message']?.toString() ?? '获取平替分类失败', body);
+    }
+
+    final data = _toMap(body?['data']);
+    final categories = _toMapList(data?['categories']);
+    if (categories.isEmpty) return [];
+
+    return categories
+        .map((item) {
+          return PremiumDupeCategory(
+            id: item['categoryId']?.toString() ?? '',
+            name: item['categoryName']?.toString() ?? '',
+            count: _parseInt(item['count']),
+            imageUrl: item['categoryImage']?.toString(),
+          );
+        })
+        .where((item) => item.id.isNotEmpty && item.name.isNotEmpty)
+        .toList();
+  }
+
+  Future<PremiumDupePage> getPremiumDupePage(PremiumDupePageParams params) async {
+    final api = _ref.read(swaggerProductApiProvider);
+    final response = await api.productServiceProductPremiumDupeNoAuthPagePost(
+      root: {
+        'current': params.current ?? 1,
+        'pageSize': params.pageSize ?? 20,
+        if (params.categoryId != null) 'categoryId': params.categoryId,
+        if (params.sort != null) 'sort': params.sort,
+        if (params.order != null) 'order': params.order,
+        if (params.productCode != null) 'productCode': params.productCode,
+      },
+    );
+
+    final body = _toMap(response.body);
+    final code = _parseInt(body?['code']);
+    if (code != 0) {
+      throw _createApiError(body?['message']?.toString() ?? '获取平替商品失败', body);
+    }
+
+    final data = _toMap(body?['data']);
+    final records = _toMapList(data?['records']);
+    final products = records.map((item) {
+      final image = _toMap(item['image']);
+      return PremiumDupeProduct(
+        id: item['productCode']?.toString() ?? '',
+        name: item['productName']?.toString() ?? '',
+        price: _parsePrice(item['targetSellPrice'] ?? item['sellPrice']),
+        originalPrice: _parseOptionalPrice(item['targetOriginPrice'] ?? item['originPrice']),
+        currency: item['targetSellCur']?.toString() ?? item['sellPriceCur']?.toString() ?? 'USD',
+        imageUrl: image?['url']?.toString() ?? '',
+        sales: item['sellQuantity']?.toString(),
+        marketingInfo: item['marketingInfo']?.toString(),
+        premiumBrandInfo: item['premiumBrandInfo'] is Map<String, dynamic>
+            ? item['premiumBrandInfo'] as Map<String, dynamic>
+            : null,
+      );
+    }).toList();
+
+    return PremiumDupePage(
+      products: products,
+      total: _parseInt(data?['total']),
+      pageSize: _parseInt(data?['pageSize'], fallback: params.pageSize ?? 20),
+      totalPages: _parseInt(data?['totalPages']),
+      current: _parseInt(data?['current'], fallback: params.current ?? 1),
     );
   }
 

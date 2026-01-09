@@ -13,6 +13,9 @@ class HomeRepository {
 
   static const String _homeConfigKey = 'app_home_page_config';
   static const String _premiumDupeConfigKey = 'app_premium_dupe_config';
+  static const String _homeTopNavKey = '04_home_top_nav';
+  static const String _homeAlbumKey = 'app_home_album';
+  static const String _premiumInspiredKey = '04_premium_inspired';
 
   ApiError _createApiError(String message, Object? raw) {
     return ApiError(status: 400, message: message, raw: raw);
@@ -22,8 +25,20 @@ class HomeRepository {
     return _getConfig(_homeConfigKey);
   }
 
+  Future<Map<String, dynamic>> getHomeTopNavConfig() async {
+    return _getConfig(_homeTopNavKey);
+  }
+
+  Future<Map<String, dynamic>> getHomeAlbumConfig() async {
+    return _getConfig(_homeAlbumKey);
+  }
+
   Future<Map<String, dynamic>> getPremiumDupeConfig() async {
     return _getConfig(_premiumDupeConfigKey);
+  }
+
+  Future<Map<String, dynamic>> getPremiumInspiredConfig() async {
+    return _getConfig(_premiumInspiredKey);
   }
 
   Future<Map<String, dynamic>> _getConfig(String key) async {
