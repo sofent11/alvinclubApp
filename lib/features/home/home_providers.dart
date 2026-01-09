@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../data/repositories/home_repository.dart';
@@ -13,19 +14,31 @@ final homeTopNavProvider = FutureProvider<List<HomeTopNavItem>>((ref) async {
   final repo = ref.watch(homeRepositoryProvider);
   final config = await repo.getHomeTopNavConfig();
   final rawList = config['list'];
-  if (rawList is! List) return [];
-  return rawList
+  if (rawList is! List) {
+    debugPrint(
+      '[HomeTopNav] config has no list field or is not a List: ${config.keys}',
+    );
+    return [];
+  }
+  final items = rawList
       .whereType<Map>()
       .map((item) => HomeTopNavItem.fromJson(Map<String, dynamic>.from(item)))
       .where((item) => item.title.isNotEmpty)
       .toList();
+  debugPrint(
+    '[HomeTopNav] Loaded ${items.length} remote nav items: ${items.map((e) => e.title).toList()}',
+  );
+  return items;
 });
 
 final homeAlbumProvider = FutureProvider<List<HomeAlbumItem>>((ref) async {
   final repo = ref.watch(homeRepositoryProvider);
   final config = await repo.getHomeAlbumConfig();
   final rawList = config['list'];
-  if (rawList is! List) return [];
+  if (rawList is! List) {
+    debugPrint('[HomeAlbum] config has no list field or is not a List');
+    return [];
+  }
   return rawList
       .whereType<Map>()
       .map((item) => HomeAlbumItem.fromJson(Map<String, dynamic>.from(item)))
@@ -33,23 +46,37 @@ final homeAlbumProvider = FutureProvider<List<HomeAlbumItem>>((ref) async {
       .toList();
 });
 
-final premiumInspiredConfigProvider = FutureProvider<List<PremiumInspiredConfigItem>>((ref) async {
-  final repo = ref.watch(homeRepositoryProvider);
-  final config = await repo.getPremiumInspiredConfig();
-  final rawList = config['list'];
-  if (rawList is! List) return [];
-  return rawList
-      .whereType<Map>()
-      .map((item) => PremiumInspiredConfigItem.fromJson(Map<String, dynamic>.from(item)))
-      .toList();
-});
+final premiumInspiredConfigProvider =
+    FutureProvider<List<PremiumInspiredConfigItem>>((ref) async {
+      final repo = ref.watch(homeRepositoryProvider);
+      final config = await repo.getPremiumInspiredConfig();
+      final rawList = config['list'];
+      if (rawList is! List) {
+        debugPrint('[PremiumInspired] config has no list field');
+        return [];
+      }
+      return rawList
+          .whereType<Map>()
+          .map(
+            (item) => PremiumInspiredConfigItem.fromJson(
+              Map<String, dynamic>.from(item),
+            ),
+          )
+          .toList();
+    });
 
-final premiumDupeSelectionProvider = FutureProvider<List<PremiumDupeProduct>>((ref) async {
+final premiumDupeSelectionProvider = FutureProvider<List<PremiumDupeProduct>>((
+  ref,
+) async {
   final repo = ref.watch(productRepositoryProvider);
-  return repo.getPremiumDupeSelection();
+  final products = await repo.getPremiumDupeSelection();
+  debugPrint('[PremiumDupeSelection] Loaded ${products.length} products');
+  return products;
 });
 
-final premiumDupeMetaProvider = FutureProvider<List<PremiumDupeCategory>>((ref) async {
+final premiumDupeMetaProvider = FutureProvider<List<PremiumDupeCategory>>((
+  ref,
+) async {
   final repo = ref.watch(productRepositoryProvider);
   return repo.getPremiumDupeMeta();
 });
@@ -87,7 +114,8 @@ class PagedProductsState {
 }
 
 class HomeHotProductsNotifier extends StateNotifier<PagedProductsState> {
-  HomeHotProductsNotifier(this._repository) : super(const PagedProductsState()) {
+  HomeHotProductsNotifier(this._repository)
+    : super(const PagedProductsState()) {
     loadFirstPage();
   }
 
@@ -135,9 +163,9 @@ class HomeHotProductsNotifier extends StateNotifier<PagedProductsState> {
 
 final homeHotProductsProvider =
     StateNotifierProvider<HomeHotProductsNotifier, PagedProductsState>((ref) {
-  final repo = ref.watch(productRepositoryProvider);
-  return HomeHotProductsNotifier(repo);
-});
+      final repo = ref.watch(productRepositoryProvider);
+      return HomeHotProductsNotifier(repo);
+    });
 
 class HomeRecommendParams {
   const HomeRecommendParams({this.categoryId, this.categoryIds});
@@ -160,12 +188,13 @@ class HomeRecommendParams {
   }
 
   @override
-  int get hashCode => Object.hash(categoryId, Object.hashAll(categoryIds ?? const []));
+  int get hashCode =>
+      Object.hash(categoryId, Object.hashAll(categoryIds ?? const []));
 }
 
 class HomeRecommendProductsNotifier extends StateNotifier<PagedProductsState> {
   HomeRecommendProductsNotifier(this._repository, this._params)
-      : super(const PagedProductsState()) {
+    : super(const PagedProductsState()) {
     loadFirstPage();
   }
 
@@ -228,13 +257,15 @@ class HomeRecommendProductsNotifier extends StateNotifier<PagedProductsState> {
   }
 }
 
-final homeRecommendProductsProvider =
-    StateNotifierProvider.family.autoDispose<HomeRecommendProductsNotifier, PagedProductsState, HomeRecommendParams>(
-  (ref, params) {
-    final repo = ref.watch(productRepositoryProvider);
-    return HomeRecommendProductsNotifier(repo, params);
-  },
-);
+final homeRecommendProductsProvider = StateNotifierProvider.family
+    .autoDispose<
+      HomeRecommendProductsNotifier,
+      PagedProductsState,
+      HomeRecommendParams
+    >((ref, params) {
+      final repo = ref.watch(productRepositoryProvider);
+      return HomeRecommendProductsNotifier(repo, params);
+    });
 
 class PremiumDupePageState {
   const PremiumDupePageState({
@@ -270,7 +301,7 @@ class PremiumDupePageState {
 
 class PremiumDupePageNotifier extends StateNotifier<PremiumDupePageState> {
   PremiumDupePageNotifier(this._repository, this._categoryId)
-      : super(const PremiumDupePageState()) {
+    : super(const PremiumDupePageState()) {
     loadFirstPage();
   }
 
@@ -325,16 +356,21 @@ class PremiumDupePageNotifier extends StateNotifier<PremiumDupePageState> {
   }
 }
 
-final premiumDupePageProvider =
-    StateNotifierProvider.family.autoDispose<PremiumDupePageNotifier, PremiumDupePageState, int?>(
-  (ref, categoryId) {
-    final repo = ref.watch(productRepositoryProvider);
-    return PremiumDupePageNotifier(repo, categoryId);
-  },
-);
+final premiumDupePageProvider = StateNotifierProvider.family
+    .autoDispose<PremiumDupePageNotifier, PremiumDupePageState, int?>((
+      ref,
+      categoryId,
+    ) {
+      final repo = ref.watch(productRepositoryProvider);
+      return PremiumDupePageNotifier(repo, categoryId);
+    });
 
-final flashSaleProductsProvider = FutureProvider<List<ProductItem>>((ref) async {
+final flashSaleProductsProvider = FutureProvider<List<ProductItem>>((
+  ref,
+) async {
   final repo = ref.watch(productRepositoryProvider);
-  final response = await repo.getFlashSaleProducts(params: const ProductListParams(pageSize: 10));
+  final response = await repo.getFlashSaleProducts(
+    params: const ProductListParams(pageSize: 10),
+  );
   return response.products;
 });
