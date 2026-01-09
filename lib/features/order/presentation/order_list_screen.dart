@@ -6,6 +6,7 @@ import 'package:go_router/go_router.dart';
 import '../../../core/navigation/route_paths.dart';
 import '../../../core/theme/app_theme.dart';
 import '../../../data/repositories/order_repository.dart';
+import '../../../shared/widgets/empty_state.dart';
 import '../../../shared/widgets/themed_button.dart';
 import '../../../shared/widgets/themed_text.dart';
 import '../application/order_providers.dart';
@@ -50,7 +51,10 @@ class _OrderListScreenState extends ConsumerState<OrderListScreen>
 
   @override
   Widget build(BuildContext context) {
+    final colors = context.appColors;
+
     return Scaffold(
+      backgroundColor: colors.background,
       appBar: AppBar(
         title: const Text('My Orders'),
         bottom: TabBar(
@@ -93,23 +97,15 @@ class _OrderListTabState extends ConsumerState<_OrderListTab> with AutomaticKeep
     }
 
     if (state.error != null && state.orders.isEmpty) {
-      return Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text('Error: ${state.error}'),
-            const SizedBox(height: 10),
-            ElevatedButton(
-              onPressed: () => notifier.refresh(),
-              child: const Text('Retry'),
-            ),
-          ],
-        ),
+      return ErrorState(
+        title: 'Unable to load orders',
+        description: state.error,
+        onRetry: notifier.refresh,
       );
     }
 
     if (state.orders.isEmpty) {
-      return const Center(child: Text('No orders found.'));
+      return const EmptyOrdersState();
     }
 
     return RefreshIndicator(
@@ -149,15 +145,17 @@ class OrderCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final currency = order.currency ?? 'USD';
-    final total = order.totalAmount ?? 0;
+    final currency = order.targetCurrency ?? order.currency ?? 'USD';
+    final total = order.payableAmount ?? order.totalAmount ?? 0;
+    final colors = context.appColors;
+    final badge = _statusBadgeStyle(order.frontStatus, colors);
 
     return Container(
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: colors.surface,
         borderRadius: BorderRadius.circular(8),
-        border: Border.all(color: Colors.grey[200]!),
+        border: Border.all(color: colors.border),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -169,9 +167,20 @@ class OrderCard extends StatelessWidget {
                 'Order #${order.orderId}',
                 style: const TextStyle(fontWeight: FontWeight.bold),
               ),
-              Text(
-                order.statusText,
-                style: TextStyle(color: context.appColors.primary, fontWeight: FontWeight.bold),
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                decoration: BoxDecoration(
+                  color: badge.background,
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: Text(
+                  order.statusText,
+                  style: TextStyle(
+                    color: badge.foreground,
+                    fontWeight: FontWeight.w600,
+                    fontSize: 12,
+                  ),
+                ),
               ),
             ],
           ),
@@ -204,10 +213,10 @@ class OrderCard extends StatelessWidget {
                         if (item.options.isNotEmpty)
                           Text(
                             item.options.map((o) => o.value).join(', '),
-                            style: TextStyle(color: Colors.grey[600], fontSize: 12),
+                            style: TextStyle(color: colors.textMuted, fontSize: 12),
                           ),
                         const SizedBox(height: 4),
-                        Text('x${item.quantity}', style: const TextStyle(color: Colors.grey)),
+                        Text('x${item.quantity}', style: TextStyle(color: colors.textMuted)),
                       ],
                     ),
                   ),
@@ -230,7 +239,7 @@ class OrderCard extends StatelessWidget {
               Text('${order.quantity} Items'),
               RichText(
                 text: TextSpan(
-                  style: const TextStyle(color: Colors.black),
+                  style: TextStyle(color: colors.text),
                   children: [
                     const TextSpan(text: 'Total: '),
                     TextSpan(
@@ -249,11 +258,13 @@ class OrderCard extends StatelessWidget {
               // Actions based on status
               if (order.frontStatus == 1) ...[
                 // Unpaid
-                OutlinedButton(
+                ThemedButton(
+                  label: 'Cancel',
                   onPressed: () {
                     // TODO: Cancel Order
                   },
-                  child: const Text('Cancel'),
+                  variant: ThemedButtonVariant.ghost,
+                  size: ThemedButtonSize.sm,
                 ),
                 const SizedBox(width: 8),
                 ThemedButton(
@@ -284,5 +295,22 @@ class OrderCard extends StatelessWidget {
         ],
       ),
     );
+  }
+}
+
+({Color background, Color foreground}) _statusBadgeStyle(int status, AppColorScheme colors) {
+  switch (status) {
+    case 1:
+      return (background: colors.warning.withValues(alpha: 0.15), foreground: colors.warning);
+    case 2:
+      return (background: colors.secondary.withValues(alpha: 0.15), foreground: colors.secondary);
+    case 3:
+      return (background: colors.tint.withValues(alpha: 0.15), foreground: colors.tint);
+    case 4:
+      return (background: colors.success.withValues(alpha: 0.15), foreground: colors.success);
+    case 5:
+      return (background: colors.mutedBackground, foreground: colors.textMuted);
+    default:
+      return (background: colors.mutedBackground, foreground: colors.textMuted);
   }
 }

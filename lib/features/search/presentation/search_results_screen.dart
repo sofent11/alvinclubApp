@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../../core/navigation/route_paths.dart';
 import '../../../shared/widgets/product_card.dart';
+import '../../../shared/widgets/empty_state.dart';
 import '../application/search_history_notifier.dart';
 import '../application/search_providers.dart';
 
@@ -163,11 +164,21 @@ class _SearchResultsScreenState extends ConsumerState<SearchResultsScreen> {
     }
 
     if (state.error != null && state.results.isEmpty) {
-      return Center(child: Text('Error: ${state.error}'));
+      return ErrorState(
+        title: 'Unable to load results',
+        description: state.error,
+        onRetry: () => ref.read(searchControllerProvider.notifier).search(state.query),
+      );
     }
 
     if (state.results.isEmpty) {
-      return const Center(child: Text('No results found.'));
+      return EmptySearchState(
+        query: state.query,
+        onClear: () {
+          _controller.clear();
+          context.pop();
+        },
+      );
     }
 
     return MasonryGridView.count(

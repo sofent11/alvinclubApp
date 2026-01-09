@@ -5,6 +5,7 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
 import '../../../core/theme/app_theme.dart';
 import '../../../data/repositories/community_repository.dart';
+import '../../../shared/widgets/empty_state.dart';
 import '../../../shared/widgets/themed_text.dart';
 import '../application/community_providers.dart';
 
@@ -22,7 +23,11 @@ class CommunityScreen extends ConsumerWidget {
       body: postsAsync.when(
         data: (posts) {
           if (posts.isEmpty) {
-            return const Center(child: Text('No posts found.'));
+            return const EmptyState(
+              type: EmptyStateType.search,
+              title: 'No posts yet',
+              description: 'Be the first to share something.',
+            );
           }
 
           return MasonryGridView.count(
@@ -38,7 +43,11 @@ class CommunityScreen extends ConsumerWidget {
           );
         },
         loading: () => const Center(child: CircularProgressIndicator()),
-        error: (err, _) => Center(child: Text('Error: $err')),
+        error: (err, _) => ErrorState(
+          title: 'Unable to load community',
+          description: err.toString(),
+          onRetry: () => ref.invalidate(communityPostsProvider),
+        ),
       ),
     );
   }

@@ -6,6 +6,7 @@ import 'package:go_router/go_router.dart';
 import '../../core/navigation/route_paths.dart';
 import '../../core/theme/app_theme.dart';
 import '../../data/repositories/product_repository.dart';
+import '../../shared/widgets/empty_state.dart';
 import '../../shared/widgets/themed_text.dart';
 import 'catalog_providers.dart';
 
@@ -24,10 +25,17 @@ class _CategoriesScreenState extends ConsumerState<CategoriesScreen> {
     final categoriesAsync = ref.watch(categoriesProvider);
 
     return Scaffold(
+      backgroundColor: context.appColors.background,
       appBar: AppBar(title: const Text('Categories')),
       body: categoriesAsync.when(
         data: (categories) {
-          if (categories.isEmpty) return const Center(child: Text('No categories'));
+          if (categories.isEmpty) {
+            return const EmptyState(
+              type: EmptyStateType.error,
+              title: 'No categories available',
+              description: 'Please check back later.',
+            );
+          }
 
           // Select first by default
           final currentId = _selectedId ?? categories.first.id;
@@ -98,7 +106,11 @@ class _CategoriesScreenState extends ConsumerState<CategoriesScreen> {
           );
         },
         loading: () => const Center(child: CircularProgressIndicator()),
-        error: (err, _) => Center(child: Text('Error: $err')),
+        error: (err, _) => ErrorState(
+          title: 'Unable to load categories',
+          description: err.toString(),
+          onRetry: () => ref.invalidate(categoriesProvider),
+        ),
       ),
     );
   }

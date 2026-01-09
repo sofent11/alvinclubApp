@@ -4,7 +4,8 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 import 'package:go_router/go_router.dart';
 import '../../../core/navigation/route_paths.dart';
-import '../../../shared/widgets/themed_text.dart';
+import '../../../core/theme/app_theme.dart';
+import '../../../shared/widgets/empty_state.dart';
 import '../application/ai_fashion_providers.dart';
 
 class HistoryScreen extends ConsumerWidget {
@@ -13,13 +14,19 @@ class HistoryScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final historyAsync = ref.watch(aiFashionHistoryProvider);
+    final colors = context.appColors;
 
     return Scaffold(
+      backgroundColor: colors.background,
       appBar: AppBar(title: const Text('Fashion History')),
       body: historyAsync.when(
         data: (history) {
           if (history.isEmpty) {
-            return const Center(child: Text('No history found'));
+            return const EmptyState(
+              type: EmptyStateType.search,
+              title: 'No history found',
+              description: 'Your generated looks will appear here.',
+            );
           }
           return ListView.builder(
             itemCount: history.length,
@@ -50,7 +57,11 @@ class HistoryScreen extends ConsumerWidget {
           );
         },
         loading: () => const Center(child: CircularProgressIndicator()),
-        error: (e, st) => Center(child: Text(e.toString())),
+        error: (e, st) => ErrorState(
+          title: 'Unable to load history',
+          description: e.toString(),
+          onRetry: () => ref.invalidate(aiFashionHistoryProvider),
+        ),
       ),
     );
   }

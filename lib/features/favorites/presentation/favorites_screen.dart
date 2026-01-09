@@ -7,6 +7,7 @@ import 'package:go_router/go_router.dart';
 import '../../../core/navigation/route_paths.dart';
 import '../../../core/storage/favorites_store.dart';
 import '../../../core/theme/app_theme.dart';
+import '../../../shared/widgets/empty_state.dart';
 import '../../../shared/widgets/themed_text.dart';
 import '../application/favorites_notifier.dart';
 
@@ -24,22 +25,8 @@ class FavoritesScreen extends ConsumerWidget {
       body: favoritesAsync.when(
         data: (favorites) {
           if (favorites.isEmpty) {
-            return Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Icon(Icons.favorite_border, size: 64, color: Colors.grey[300]),
-                  const SizedBox(height: 16),
-                  const ThemedText('Your wishlist is empty', type: ThemedTextType.subtitle),
-                  const SizedBox(height: 8),
-                  Text('Start adding items you love!', style: TextStyle(color: Colors.grey[600])),
-                  const SizedBox(height: 24),
-                  ElevatedButton(
-                    onPressed: () => context.go(RoutePaths.home),
-                    child: const Text('Go Shopping'),
-                  ),
-                ],
-              ),
+            return EmptyFavoritesState(
+              onBrowse: () => context.go(RoutePaths.home),
             );
           }
 
@@ -56,7 +43,11 @@ class FavoritesScreen extends ConsumerWidget {
           );
         },
         loading: () => const Center(child: CircularProgressIndicator()),
-        error: (err, _) => Center(child: Text('Error: $err')),
+        error: (err, _) => ErrorState(
+          title: 'Unable to load favorites',
+          description: err.toString(),
+          onRetry: () => ref.invalidate(favoritesNotifierProvider),
+        ),
       ),
     );
   }
@@ -79,7 +70,7 @@ class _FavoriteCard extends ConsumerWidget {
       ),
       child: Container(
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: colors.surface,
           borderRadius: BorderRadius.circular(12),
           border: Border.all(color: colors.border),
         ),

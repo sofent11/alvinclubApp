@@ -492,7 +492,25 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
                         },
                       ),
                       const SizedBox(height: 24),
-                      Divider(color: context.appColors.border),
+                      Row(
+                        children: [
+                          Expanded(
+                            child: Divider(color: context.appColors.border),
+                          ),
+                          const SizedBox(width: 12),
+                          ThemedText(
+                            'Or continue with',
+                            style: TextStyle(
+                              color: context.appColors.textMuted,
+                              fontSize: 12,
+                            ),
+                          ),
+                          const SizedBox(width: 12),
+                          Expanded(
+                            child: Divider(color: context.appColors.border),
+                          ),
+                        ],
+                      ),
                       const SizedBox(height: 16),
                       ThemedButton(
                         label: 'Continue with Google',

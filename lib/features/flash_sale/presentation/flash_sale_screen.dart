@@ -8,6 +8,7 @@ import 'package:go_router/go_router.dart';
 import '../../../core/navigation/route_paths.dart';
 import '../../../core/theme/app_theme.dart';
 import '../../../data/repositories/product_repository.dart';
+import '../../../shared/widgets/empty_state.dart';
 import '../../../shared/widgets/product_card.dart';
 import '../../../shared/widgets/themed_text.dart';
 import '../application/flash_sale_providers.dart';
@@ -33,13 +34,18 @@ class _FlashSaleScreenState extends ConsumerState<FlashSaleScreen> with SingleTi
     final activitiesAsync = ref.watch(flashSaleActivitiesProvider);
 
     return Scaffold(
+      backgroundColor: context.appColors.background,
       appBar: AppBar(
         title: const Text('Flash Sale'),
       ),
       body: activitiesAsync.when(
         data: (activities) {
           if (activities.isEmpty) {
-            return const Center(child: Text('No flash sales at the moment.'));
+            return const EmptyState(
+              type: EmptyStateType.search,
+              title: 'No flash sales',
+              description: 'Please check back later.',
+            );
           }
 
           if (_tabController == null || _tabController!.length != activities.length) {
@@ -63,7 +69,11 @@ class _FlashSaleScreenState extends ConsumerState<FlashSaleScreen> with SingleTi
           );
         },
         loading: () => const Center(child: CircularProgressIndicator()),
-        error: (err, _) => Center(child: Text('Error: $err')),
+        error: (err, _) => ErrorState(
+          title: 'Unable to load flash sale',
+          description: err.toString(),
+          onRetry: () => ref.invalidate(flashSaleActivitiesProvider),
+        ),
       ),
     );
   }
@@ -87,9 +97,21 @@ class _FlashSaleList extends ConsumerWidget {
         if (state.isLoading && state.products.isEmpty)
           const SliverFillRemaining(child: Center(child: CircularProgressIndicator()))
         else if (state.error != null && state.products.isEmpty)
-          SliverFillRemaining(child: Center(child: Text('Error: ${state.error}')))
+          SliverFillRemaining(
+            child: ErrorState(
+              title: 'Unable to load products',
+              description: state.error,
+              onRetry: notifier.loadFirstPage,
+            ),
+          )
         else if (state.products.isEmpty)
-          const SliverFillRemaining(child: Center(child: Text('No products found.')))
+          const SliverFillRemaining(
+            child: EmptyState(
+              type: EmptyStateType.search,
+              title: 'No products found',
+              description: 'Try again later.',
+            ),
+          )
         else
           SliverPadding(
             padding: const EdgeInsets.all(12),

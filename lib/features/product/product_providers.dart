@@ -19,6 +19,11 @@ final productReviewsProvider = FutureProvider.family<({List<ProductReview> revie
   return (reviews: result.reviews, total: result.total);
 });
 
+final productReviewSummaryProvider = FutureProvider.family<ProductReviewSummary?, String>((ref, productCode) async {
+  final repo = ref.watch(productRepositoryProvider);
+  return repo.getProductReviewSummary(productCode);
+});
+
 final similarProductsProvider = FutureProvider.family<List<ProductItem>, String>((ref, productCode) async {
   final repo = ref.watch(productRepositoryProvider);
   return repo.getSimilarProducts(productCode);

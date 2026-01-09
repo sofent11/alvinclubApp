@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -9,9 +11,14 @@ import '../../../shared/widgets/themed_button.dart';
 import '../application/payment_providers.dart';
 
 class PaymentScreen extends ConsumerStatefulWidget {
-  const PaymentScreen({super.key, required this.orderId});
+  const PaymentScreen({
+    super.key,
+    required this.orderId,
+    this.timeoutSeconds,
+  });
 
   final String orderId;
+  final int? timeoutSeconds;
 
   @override
   ConsumerState<PaymentScreen> createState() => _PaymentScreenState();
@@ -20,12 +27,38 @@ class PaymentScreen extends ConsumerStatefulWidget {
 class _PaymentScreenState extends ConsumerState<PaymentScreen> {
   WebViewController? _webViewController;
   bool _showWebView = false;
+  Timer? _countdownTimer;
+  int? _remainingSeconds;
 
   @override
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) {
       ref.read(paymentControllerProvider.notifier).loadMethods(widget.orderId);
+    });
+    _startCountdown();
+  }
+
+  @override
+  void dispose() {
+    _countdownTimer?.cancel();
+    super.dispose();
+  }
+
+  void _startCountdown() {
+    final timeoutSeconds = widget.timeoutSeconds;
+    if (timeoutSeconds == null || timeoutSeconds <= 0) return;
+
+    _remainingSeconds = timeoutSeconds;
+    _countdownTimer = Timer.periodic(const Duration(seconds: 1), (timer) {
+      if (!mounted) return;
+      setState(() {
+        final next = (_remainingSeconds ?? 0) - 1;
+        _remainingSeconds = next <= 0 ? 0 : next;
+        if (next <= 0) {
+          timer.cancel();
+        }
+      });
     });
   }
 
@@ -109,6 +142,12 @@ class _PaymentScreenState extends ConsumerState<PaymentScreen> {
       appBar: AppBar(title: const Text('Select Payment Method')),
       body: Column(
         children: [
+          if (_remainingSeconds != null) ...[
+            Padding(
+              padding: const EdgeInsets.fromLTRB(16, 12, 16, 0),
+              child: _buildCountdownBanner(),
+            ),
+          ],
           Expanded(
             child: ListView.separated(
               padding: const EdgeInsets.all(16),
@@ -199,5 +238,43 @@ class _PaymentScreenState extends ConsumerState<PaymentScreen> {
         ),
       ),
     );
+  }
+
+  Widget _buildCountdownBanner() {
+    final colors = context.appColors;
+    final remaining = _remainingSeconds ?? 0;
+
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+      decoration: BoxDecoration(
+        color: colors.mutedBackground,
+        borderRadius: BorderRadius.circular(10),
+        border: Border.all(color: colors.border),
+      ),
+      child: Row(
+        children: [
+          Icon(Icons.timer, color: colors.warning, size: 18),
+          const SizedBox(width: 8),
+          Expanded(
+            child: Text(
+              'Complete payment in ${_formatCountdown(remaining)}',
+              style: TextStyle(color: colors.textMuted, fontSize: 13),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  String _formatCountdown(int seconds) {
+    final hours = seconds ~/ 3600;
+    final minutes = (seconds % 3600) ~/ 60;
+    final secs = seconds % 60;
+    final twoDigits = (int value) => value.toString().padLeft(2, '0');
+
+    if (hours > 0) {
+      return '${twoDigits(hours)}:${twoDigits(minutes)}:${twoDigits(secs)}';
+    }
+    return '${twoDigits(minutes)}:${twoDigits(secs)}';
   }
 }

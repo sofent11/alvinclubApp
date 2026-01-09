@@ -7,6 +7,8 @@ import 'package:go_router/go_router.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 
 import '../../core/navigation/route_paths.dart';
+import '../../core/theme/app_theme.dart';
+import '../../shared/widgets/empty_state.dart';
 import '../../shared/widgets/product_card.dart';
 import '../../shared/widgets/themed_text.dart';
 import 'home_providers.dart';
@@ -19,8 +21,10 @@ class HomeScreen extends ConsumerWidget {
     final configAsync = ref.watch(homeConfigProvider);
     final hotProductsAsync = ref.watch(hotProductsProvider);
     final flashSaleAsync = ref.watch(flashSaleProductsProvider);
+    final colors = context.appColors;
 
     return Scaffold(
+      backgroundColor: colors.background,
       body: SafeArea(
         child: RefreshIndicator(
           onRefresh: () async {
@@ -45,27 +49,29 @@ class HomeScreen extends ConsumerWidget {
   }
 
   Widget _buildSearchHeader(BuildContext context) {
+    final colors = context.appColors;
+
     return SliverAppBar(
       floating: true,
       pinned: true,
       elevation: 0,
-      backgroundColor: Colors.white,
+      backgroundColor: colors.surface,
       title: GestureDetector(
         onTap: () => context.push(RoutePaths.search),
         child: Container(
           height: 40,
           padding: const EdgeInsets.symmetric(horizontal: 12),
           decoration: BoxDecoration(
-            color: Colors.grey[100],
+            color: colors.mutedBackground,
             borderRadius: BorderRadius.circular(20),
           ),
           child: Row(
             children: [
-              const Icon(Icons.search, color: Colors.grey),
+              Icon(Icons.search, color: colors.textMuted),
               const SizedBox(width: 8),
               Text(
                 'Search products...',
-                style: TextStyle(color: Colors.grey[600], fontSize: 14),
+                style: TextStyle(color: colors.textMuted, fontSize: 14),
               ),
             ],
           ),
@@ -157,7 +163,11 @@ class HomeScreen extends ConsumerWidget {
           return const SliverToBoxAdapter(
             child: Padding(
               padding: EdgeInsets.all(16.0),
-              child: Center(child: Text('No products found')),
+              child: EmptyState(
+                type: EmptyStateType.search,
+                title: 'No products found',
+                description: 'Try again later.',
+              ),
             ),
           );
         }
@@ -192,7 +202,10 @@ class HomeScreen extends ConsumerWidget {
       error: (err, stack) => SliverToBoxAdapter(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
-          child: Center(child: Text('Error: $err')),
+          child: ErrorState(
+            title: 'Unable to load products',
+            description: err.toString(),
+          ),
         ),
       ),
     );

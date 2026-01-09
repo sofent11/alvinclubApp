@@ -4,7 +4,9 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:go_router/go_router.dart';
 import '../../../core/navigation/route_paths.dart';
+import '../../../core/theme/app_theme.dart';
 import '../../../data/repositories/ai_fashion_repository.dart';
+import '../../../shared/widgets/empty_state.dart';
 import '../../../shared/widgets/themed_text.dart';
 import '../application/ai_fashion_providers.dart';
 
@@ -14,8 +16,10 @@ class AiFashionFeedScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final feedAsync = ref.watch(aiFashionFeedProvider);
+    final colors = context.appColors;
 
     return Scaffold(
+      backgroundColor: colors.background,
       appBar: AppBar(
         title: const Text('AI Fashion Feed'),
         actions: [
@@ -28,7 +32,11 @@ class AiFashionFeedScreen extends ConsumerWidget {
       body: feedAsync.when(
         data: (posts) {
           if (posts.isEmpty) {
-            return const Center(child: Text('No fashion posts found'));
+            return const EmptyState(
+              type: EmptyStateType.search,
+              title: 'No fashion posts',
+              description: 'Check back later for new looks.',
+            );
           }
           return MasonryGridView.count(
             padding: const EdgeInsets.all(8),
@@ -43,14 +51,18 @@ class AiFashionFeedScreen extends ConsumerWidget {
           );
         },
         loading: () => const Center(child: CircularProgressIndicator()),
-        error: (e, st) => Center(child: Text(e.toString())),
+        error: (e, st) => ErrorState(
+          title: 'Unable to load feed',
+          description: e.toString(),
+          onRetry: () => ref.invalidate(aiFashionFeedProvider),
+        ),
       ),
       floatingActionButton: FloatingActionButton.extended(
         onPressed: () => context.push(RoutePaths.fashionStyleMe),
         label: const Text('Style Me'),
         icon: const Icon(Icons.auto_awesome),
-        backgroundColor: Colors.black,
-        foregroundColor: Colors.white,
+        backgroundColor: colors.tint,
+        foregroundColor: colors.surface,
       ),
     );
   }

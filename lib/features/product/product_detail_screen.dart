@@ -91,6 +91,10 @@ class _ProductDetailContentState extends ConsumerState<_ProductDetailContent> {
     final currentPrice = selectedSku?.price ?? widget.detail.price;
     final currency = selectedSku?.currency ?? widget.detail.currency ?? 'USD';
     final isFavoriteAsync = ref.watch(isFavoriteProvider(widget.detail.id));
+    final reviewSummaryAsync =
+        ref.watch(productReviewSummaryProvider(widget.detail.id));
+    final reviewsAsync = ref.watch(productReviewsProvider(widget.detail.id));
+    final colors = context.appColors;
 
     // Image logic: Sku Image -> Product Detail Main Image
     final mainImage =
@@ -194,30 +198,55 @@ class _ProductDetailContentState extends ConsumerState<_ProductDetailContent> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      ThemedText(
-                        '$currency ${currentPrice.toStringAsFixed(2)}',
-                        type: ThemedTextType.title,
-                        style: TextStyle(color: context.appColors.primary),
+                      Row(
+                        children: [
+                          ThemedText(
+                            '$currency ${currentPrice.toStringAsFixed(2)}',
+                            type: ThemedTextType.title,
+                            style: TextStyle(color: colors.primary),
+                          ),
+                          const SizedBox(width: 8),
+                          if (selectedSku?.originalPrice != null &&
+                              selectedSku!.originalPrice! > currentPrice)
+                            Text(
+                              '$currency ${selectedSku.originalPrice!.toStringAsFixed(2)}',
+                              style: TextStyle(
+                                color: colors.textMuted,
+                                decoration: TextDecoration.lineThrough,
+                              ),
+                            )
+                          else if (widget.detail.originalPrice != null &&
+                              widget.detail.originalPrice! > currentPrice)
+                            Text(
+                              '$currency ${widget.detail.originalPrice!.toStringAsFixed(2)}',
+                              style: TextStyle(
+                                color: colors.textMuted,
+                                decoration: TextDecoration.lineThrough,
+                              ),
+                            ),
+                        ],
                       ),
                       const SizedBox(height: 4),
                       Text(
                         'Tax included',
                         style: TextStyle(
-                          color: context.appColors.textMuted,
+                          color: colors.textMuted,
                           fontSize: 12,
                         ),
                       ),
+                      const SizedBox(height: 8),
+                      _buildRatingSummary(reviewSummaryAsync, colors),
                       const SizedBox(height: 8),
                       ThemedText(
                         widget.detail.name,
                         type: ThemedTextType.subtitle,
                       ),
                       const SizedBox(height: 16),
-                      Divider(color: context.appColors.border),
+                      Divider(color: colors.border),
                       const SizedBox(height: 16),
                       _buildOptions(context, ref, state),
                       const SizedBox(height: 16),
-                      Divider(color: context.appColors.border),
+                      Divider(color: colors.border),
                       const SizedBox(height: 16),
                       const ThemedText(
                         'Description',
@@ -226,8 +255,10 @@ class _ProductDetailContentState extends ConsumerState<_ProductDetailContent> {
                       const SizedBox(height: 8),
                       Text(
                         widget.detail.description ?? 'No description.',
-                        style: TextStyle(color: context.appColors.textMuted),
+                        style: TextStyle(color: colors.textMuted),
                       ),
+                      const SizedBox(height: 24),
+                      _buildReviewSection(reviewSummaryAsync, reviewsAsync, colors),
                       const SizedBox(height: 24),
                     ],
                   ),
@@ -294,6 +325,8 @@ class _ProductDetailContentState extends ConsumerState<_ProductDetailContent> {
     WidgetRef ref,
     ProductDetailState state,
   ) {
+    final colors = context.appColors;
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: widget.detail.options.map((option) {
@@ -310,20 +343,37 @@ class _ProductDetailContentState extends ConsumerState<_ProductDetailContent> {
                 children: option.values.map((value) {
                   final isSelected =
                       state.selectedOptions[option.name] == value.value;
+                  final isEnabled = _isOptionEnabled(
+                    widget.skus,
+                    state.selectedOptions,
+                    option.name,
+                    value.value,
+                  );
+
                   return ChoiceChip(
-                    label: Text(value.value),
+                    label: Text(
+                      value.value,
+                      style: TextStyle(
+                        color: isEnabled ? colors.text : colors.textMuted,
+                      ),
+                    ),
                     selected: isSelected,
-                    onSelected: (selected) {
-                      if (selected) {
-                        ref
-                            .read(productDetailControllerProvider.notifier)
-                            .selectOption(
-                              option.name,
-                              value.value,
-                              widget.skus,
-                            );
-                      }
-                    },
+                    selectedColor: colors.tint.withValues(alpha: 0.15),
+                    onSelected: isEnabled
+                        ? (selected) {
+                            if (selected) {
+                              ref
+                                  .read(
+                                    productDetailControllerProvider.notifier,
+                                  )
+                                  .selectOption(
+                                    option.name,
+                                    value.value,
+                                    widget.skus,
+                                  );
+                            }
+                          }
+                        : null,
                   );
                 }).toList(),
               ),
@@ -335,13 +385,15 @@ class _ProductDetailContentState extends ConsumerState<_ProductDetailContent> {
   }
 
   Widget _buildBottomBar(BuildContext context, ProductSku? selectedSku) {
+    final colors = context.appColors;
+
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: colors.surface,
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha: 0.05),
+            color: colors.shadow.withValues(alpha: 0.2),
             offset: const Offset(0, -2),
             blurRadius: 10,
           ),
@@ -388,4 +440,230 @@ class _ProductDetailContentState extends ConsumerState<_ProductDetailContent> {
       ),
     );
   }
+
+  Widget _buildRatingSummary(
+    AsyncValue<ProductReviewSummary?> summaryAsync,
+    AppColorScheme colors,
+  ) {
+    return summaryAsync.when(
+      data: (summary) {
+        if (summary == null || summary.totalReviews == 0) {
+          return const SizedBox.shrink();
+        }
+        return Row(
+          children: [
+            _buildStarRow(summary.averageRating, size: 16),
+            const SizedBox(width: 6),
+            Text(
+              summary.averageRating.toStringAsFixed(1),
+              style: TextStyle(fontWeight: FontWeight.w600, color: colors.text),
+            ),
+            const SizedBox(width: 8),
+            Text(
+              '(${summary.totalReviews})',
+              style: TextStyle(color: colors.textMuted, fontSize: 12),
+            ),
+          ],
+        );
+      },
+      loading: () => const SizedBox(
+        height: 16,
+        width: 120,
+        child: LinearProgressIndicator(minHeight: 2),
+      ),
+      error: (_, __) => const SizedBox.shrink(),
+    );
+  }
+
+  Widget _buildReviewSection(
+    AsyncValue<ProductReviewSummary?> summaryAsync,
+    AsyncValue<({List<ProductReview> reviews, int total})> reviewsAsync,
+    AppColorScheme colors,
+  ) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const ThemedText(
+          'Reviews',
+          type: ThemedTextType.defaultSemiBold,
+        ),
+        const SizedBox(height: 8),
+        summaryAsync.when(
+          data: (summary) {
+            if (summary == null || summary.totalReviews == 0) {
+              return Text('No reviews yet', style: TextStyle(color: colors.textMuted));
+            }
+            return Column(
+              children: summary.ratingDistribution.map((item) {
+                return Padding(
+                  padding: const EdgeInsets.only(bottom: 6),
+                  child: Row(
+                    children: [
+                      Text('${item.rating}', style: TextStyle(color: colors.textMuted, fontSize: 12)),
+                      const SizedBox(width: 4),
+                      const Icon(Icons.star, size: 12, color: Colors.amber),
+                      const SizedBox(width: 8),
+                      Expanded(
+                        child: ClipRRect(
+                          borderRadius: BorderRadius.circular(6),
+                          child: LinearProgressIndicator(
+                            value: item.percentage / 100,
+                            backgroundColor: colors.muted,
+                            valueColor: AlwaysStoppedAnimation<Color>(colors.tint),
+                            minHeight: 6,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(width: 8),
+                      Text('${item.count}', style: TextStyle(color: colors.textMuted, fontSize: 12)),
+                    ],
+                  ),
+                );
+              }).toList(),
+            );
+          },
+          loading: () => const SizedBox(
+            height: 12,
+            child: LinearProgressIndicator(minHeight: 2),
+          ),
+          error: (_, __) => const SizedBox.shrink(),
+        ),
+        const SizedBox(height: 12),
+        reviewsAsync.when(
+          data: (payload) {
+            if (payload.reviews.isEmpty) {
+              return const SizedBox.shrink();
+            }
+            return Column(
+              children: payload.reviews.map((review) {
+                return Padding(
+                  padding: const EdgeInsets.only(bottom: 16),
+                  child: _ReviewCard(review: review),
+                );
+              }).toList(),
+            );
+          },
+          loading: () => const SizedBox.shrink(),
+          error: (_, __) => const SizedBox.shrink(),
+        ),
+      ],
+    );
+  }
+
+}
+
+class _ReviewCard extends StatelessWidget {
+  const _ReviewCard({required this.review});
+
+  final ProductReview review;
+
+  @override
+  Widget build(BuildContext context) {
+    final colors = context.appColors;
+
+    return Container(
+      padding: const EdgeInsets.all(12),
+      decoration: BoxDecoration(
+        color: colors.surface,
+        borderRadius: BorderRadius.circular(AppRadius.md),
+        border: Border.all(color: colors.border),
+      ),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Row(
+            children: [
+              CircleAvatar(
+                radius: 14,
+                backgroundColor: colors.mutedBackground,
+                backgroundImage: review.userAvatar != null && review.userAvatar!.isNotEmpty
+                    ? CachedNetworkImageProvider(review.userAvatar!)
+                    : null,
+                child: review.userAvatar == null || review.userAvatar!.isEmpty
+                    ? Icon(Icons.person, size: 16, color: colors.textMuted)
+                    : null,
+              ),
+              const SizedBox(width: 8),
+              Expanded(
+                child: Text(
+                  review.userName,
+                  style: const TextStyle(fontWeight: FontWeight.w600, fontSize: 12),
+                ),
+              ),
+              _buildStarRow(review.rating.toDouble(), size: 12),
+            ],
+          ),
+          if (review.content.isNotEmpty) ...[
+            const SizedBox(height: 8),
+            Text(
+              review.content,
+              style: TextStyle(color: colors.text, fontSize: 13),
+            ),
+          ],
+          if (review.images != null && review.images!.isNotEmpty) ...[
+            const SizedBox(height: 8),
+            Wrap(
+              spacing: 8,
+              runSpacing: 8,
+              children: review.images!.take(3).map((image) {
+                return ClipRRect(
+                  borderRadius: BorderRadius.circular(6),
+                  child: CachedNetworkImage(
+                    imageUrl: image,
+                    width: 70,
+                    height: 70,
+                    fit: BoxFit.cover,
+                  ),
+                );
+              }).toList(),
+            ),
+          ],
+          const SizedBox(height: 6),
+          Text(
+            review.createdAt,
+            style: TextStyle(color: colors.textMuted, fontSize: 11),
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+Widget _buildStarRow(double rating, {double size = 14}) {
+  final fullStars = rating.floor();
+  final hasHalf = (rating - fullStars) >= 0.5;
+  final total = 5;
+
+  return Row(
+    children: List.generate(total, (index) {
+      if (index < fullStars) {
+        return Icon(Icons.star, size: size, color: Colors.amber);
+      }
+      if (index == fullStars && hasHalf) {
+        return Icon(Icons.star_half, size: size, color: Colors.amber);
+      }
+      return Icon(Icons.star_border, size: size, color: Colors.amber);
+    }),
+  );
+}
+
+bool _isOptionEnabled(
+  List<ProductSku> skus,
+  Map<String, String> selectedOptions,
+  String optionName,
+  String value,
+) {
+  for (final sku in skus) {
+    if (sku.options[optionName] != value) continue;
+    var matches = true;
+    for (final entry in selectedOptions.entries) {
+      if (entry.key == optionName) continue;
+      if (sku.options[entry.key] != entry.value) {
+        matches = false;
+        break;
+      }
+    }
+    if (matches) return true;
+  }
+  return false;
 }

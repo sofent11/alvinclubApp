@@ -116,6 +116,7 @@ final routerProvider = Provider<GoRouter>((ref) {
         name: RoutePaths.orderPay,
         builder: (context, state) => PaymentScreen(
           orderId: state.pathParameters['orderId'] ?? '',
+          timeoutSeconds: int.tryParse(state.uri.queryParameters['timeout'] ?? ''),
         ),
       ),
       GoRoute(

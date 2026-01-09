@@ -11,38 +11,38 @@
 ## 1. Global UI/UX Standards Checklist
 Verify generic elements used across the app.
 
-- [x] **Typography System**
-    - [x] Headings (Sizes, Weights) match RN.
-    - [x] Body text (Line heights, Colors) match RN.
-    - [x] "Price" display formatting (Currency symbol, decimals, strikethrough style).
-- [x] **Color Palette**
-    - [x] Primary/Secondary brand colors.
-    - [x] Background colors (Off-white vs Pure white).
-    - [x] Text colors (Primary, Secondary, Disabled/Hint).
-- [x] **Core Components**
-    - [x] `ProductCard`:
+- [ ] **Typography System**
+    - [ ] Headings (Sizes, Weights) match RN.
+    - [ ] Body text (Line heights, Colors) match RN.
+    - [ ] "Price" display formatting (Currency symbol, decimals, strikethrough style).
+- [ ] **Color Palette**
+    - [ ] Primary/Secondary brand colors.
+    - [ ] Background colors (Off-white vs Pure white).
+    - [ ] Text colors (Primary, Secondary, Disabled/Hint).
+- [ ] **Core Components**
+    - [ ] `ProductCard`:
         - **Flutter**: `lib/shared/widgets/product_card.dart`
         - **RN Ref**: `components/product/ProductCard.tsx` (Estimated)
-        - [x] **Gap**: Missing Discount Tag (e.g., "-30%").
-        - [x] **Gap**: Missing Rating/Review count (e.g., "⭐ 4.9 (200)").
-        - [x] **Gap**: Missing Favorite/Heart icon overlay.
-        - [x] Image aspect ratio and "broken image" fallback style.
-    - [x] `ThemedButton`:
+        - [ ] **Gap**: Missing Discount Tag (e.g., "-30%").
+        - [ ] **Gap**: Missing Rating/Review count (e.g., "⭐ 4.9 (200)").
+        - [ ] **Gap**: Missing Favorite/Heart icon overlay.
+        - [ ] Image aspect ratio and "broken image" fallback style.
+    - [ ] `ThemedButton`:
         - **Flutter**: `lib/shared/widgets/themed_button.dart`
         - **RN Ref**: `components/ui/ThemedButton.tsx` (Estimated)
-        - [x] Loading state (Spinner placement).
-        - [x] Disabled state visual (Opacity/Color).
-        - [x] Tap feedback (Ripple vs Opacity change).
-    - [x] `Input` fields:
+        - [ ] Loading state (Spinner placement).
+        - [ ] Disabled state visual (Opacity/Color).
+        - [ ] Tap feedback (Ripple vs Opacity change).
+    - [ ] `Input` fields:
         - **Flutter**: `lib/shared/widgets/input_field.dart`
         - **RN Ref**: `components/ui/Input.tsx` (Estimated)
-        - [x] Focus border color.
-        - [x] Error message style and placement.
-        - [x] Clear (x) button visibility.
-- [x] **Feedback Mechanisms**
-    - [x] **Gap**: Toast/Snackbars (e.g., "Added to Cart") - currently likely missing or default.
-    - [x] **Gap**: Loading Skeletons (Shimmer) vs simple `CircularProgressIndicator`.
-    - [x] **Gap**: Empty States (for Search, Cart, Orders) - Need specific illustrations/text.
+        - [ ] Focus border color.
+        - [ ] Error message style and placement.
+        - [ ] Clear (x) button visibility.
+- [ ] **Feedback Mechanisms**
+    - [ ] **Gap**: Toast/Snackbars (e.g., "Added to Cart") - currently likely missing or default.
+    - [ ] **Gap**: Loading Skeletons (Shimmer) vs simple `CircularProgressIndicator`.
+    - [ ] **Gap**: Empty States (for Search, Cart, Orders) - Need specific illustrations/text.
 
 ## 2. Feature-Specific Verification
 
@@ -50,9 +50,9 @@ Verify generic elements used across the app.
 **Flutter**: `lib/features/home/home_screen.dart`
 **RN Ref**: `app/(tabs)/index.tsx`
 
-- [x] **Home Screen**:
-    - [x] **Banner**: Auto-play behavior, Pagination dots styling.
-    - [x] **Header**: Search bar transition/stickiness on scroll.
+- [ ] **Home Screen**:
+    - [ ] **Banner**: Auto-play behavior, Pagination dots styling.
+    - [ ] **Header**: Search bar transition/stickiness on scroll.
     - [ ] **Categories**: Icon sizing + Text alignment.
     - [ ] **Flash Sale**: Countdown timer format (HH:MM:SS), Progress bar visual.
       - **Flutter**: `lib/features/flash_sale/presentation/flash_sale_screen.dart`
@@ -67,14 +67,14 @@ Verify generic elements used across the app.
 **Flutter**: `lib/features/product/product_detail_screen.dart`
 **RN Ref**: `app/product/[productCode].tsx`
 
-- [x] **Image Gallery**:
-    - [x] Pagination indicator (1/5 vs dots).
+- [ ] **Image Gallery**:
+    - [ ] Pagination indicator (1/5 vs dots).
     - [ ] Zoom capability.
-- [x] **Info Section**:
-    - [x] Price sizing/color dominance.
-    - [x] VAT/Tax info text presence.
+- [ ] **Info Section**:
+    - [ ] Price sizing/color dominance.
+    - [ ] VAT/Tax info text presence.
 - [ ] **SKU Selection**:
-    - [x] Visual style of Chips (Selected vs Unselected vs Disabled).
+    - [ ] Visual style of Chips (Selected vs Unselected vs Disabled).
     - [ ] **Gap**: Is the logic for "disabling incompatible combinations" visual?
 - [ ] **Description**:
     - [ ] HTML rendering quality (embedded images/tables).

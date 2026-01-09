@@ -5,6 +5,7 @@ import 'package:go_router/go_router.dart';
 
 import '../../core/navigation/route_paths.dart';
 import '../../data/repositories/product_repository.dart';
+import '../../shared/widgets/empty_state.dart';
 import '../../shared/widgets/product_card.dart';
 import 'catalog_providers.dart';
 
@@ -57,11 +58,19 @@ class _CategoryDetailScreenState extends ConsumerState<CategoryDetailScreen> {
     }
 
     if (state.error != null && state.products.isEmpty) {
-      return Center(child: Text('Error: ${state.error}'));
+      return ErrorState(
+        title: 'Unable to load products',
+        description: state.error,
+        onRetry: () => ref.read(categoryProductsProvider(widget.id).notifier).loadFirstPage(),
+      );
     }
 
     if (state.products.isEmpty) {
-      return const Center(child: Text('No products found in this category.'));
+      return const EmptyState(
+        type: EmptyStateType.search,
+        title: 'No products found',
+        description: 'Try a different category or check back later.',
+      );
     }
 
     return MasonryGridView.count(

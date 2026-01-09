@@ -6,8 +6,10 @@ import 'package:go_router/go_router.dart';
 import '../../core/navigation/route_paths.dart';
 import '../../core/theme/app_theme.dart';
 import '../../data/repositories/cart_repository.dart';
+import '../../shared/widgets/empty_state.dart';
 import '../../shared/widgets/themed_button.dart';
 import '../../shared/widgets/themed_text.dart';
+import '../../shared/widgets/toast.dart';
 import 'cart_controller.dart';
 import 'cart_providers.dart';
 
@@ -22,23 +24,26 @@ class _CartScreenState extends ConsumerState<CartScreen> {
   @override
   Widget build(BuildContext context) {
     final cartAsync = ref.watch(cartProvider);
+    final selection = ref.watch(cartControllerProvider).selectedSkuCodes;
+    final colors = context.appColors;
 
     return Scaffold(
+      backgroundColor: colors.background,
       appBar: AppBar(
         title: const Text('Shopping Cart'),
         actions: [
           IconButton(
             icon: const Icon(Icons.delete_outline),
-            onPressed: () {
-               // TODO: Delete selected
-            },
+            onPressed: selection.isEmpty ? null : () => _confirmDelete(context),
           ),
         ],
       ),
       body: cartAsync.when(
         data: (payload) {
           if (payload.items.isEmpty) {
-            return const Center(child: Text('Your cart is empty'));
+            return EmptyCartState(
+              onShopNow: () => context.go(RoutePaths.home),
+            );
           }
           
           // Init selection if needed
@@ -64,9 +69,43 @@ class _CartScreenState extends ConsumerState<CartScreen> {
           );
         },
         loading: () => const Center(child: CircularProgressIndicator()),
-        error: (err, _) => Center(child: Text('Error: $err')),
+        error: (err, _) => ErrorState(
+          title: 'Unable to load cart',
+          description: err.toString(),
+          onRetry: () => ref.invalidate(cartProvider),
+        ),
       ),
     );
+  }
+
+  Future<void> _confirmDelete(BuildContext context) async {
+    final selection = ref.read(cartControllerProvider).selectedSkuCodes;
+    if (selection.isEmpty) return;
+
+    final shouldDelete = await showDialog<bool>(
+      context: context,
+      builder: (dialogContext) {
+        return AlertDialog(
+          title: const Text('Remove items'),
+          content: Text('Remove ${selection.length} selected item(s) from your cart?'),
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.of(dialogContext).pop(false),
+              child: const Text('Cancel'),
+            ),
+            TextButton(
+              onPressed: () => Navigator.of(dialogContext).pop(true),
+              child: const Text('Remove'),
+            ),
+          ],
+        );
+      },
+    );
+
+    if (shouldDelete != true || !mounted) return;
+    await ref.read(cartControllerProvider.notifier).removeItems(selection.toList());
+    if (!mounted) return;
+    AppToast.success(context, 'Removed from cart');
   }
 }
 
@@ -79,15 +118,16 @@ class _CartItemView extends ConsumerWidget {
   Widget build(BuildContext context, WidgetRef ref) {
     final state = ref.watch(cartControllerProvider);
     final isSelected = state.selectedSkuCodes.contains(item.skuCode);
+    final colors = context.appColors;
 
     return Container(
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: colors.surface,
         borderRadius: BorderRadius.circular(12),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha: 0.05),
+            color: colors.shadow.withValues(alpha: 0.15),
             blurRadius: 8,
             offset: const Offset(0, 2),
           ),
@@ -97,9 +137,11 @@ class _CartItemView extends ConsumerWidget {
         children: [
           Checkbox(
             value: isSelected,
-            onChanged: (val) {
+            onChanged: item.status == 'available'
+                ? (val) {
               ref.read(cartControllerProvider.notifier).toggleItem(item.skuCode);
-            },
+            }
+                : null,
           ),
           ClipRRect(
             borderRadius: BorderRadius.circular(8),
@@ -108,7 +150,7 @@ class _CartItemView extends ConsumerWidget {
               width: 80,
               height: 80,
               fit: BoxFit.cover,
-              errorWidget: (_, _, _) => Container(color: Colors.grey[200], width: 80, height: 80),
+              errorWidget: (_, _, _) => Container(color: colors.mutedBackground, width: 80, height: 80),
             ),
           ),
           const SizedBox(width: 12),
@@ -126,7 +168,19 @@ class _CartItemView extends ConsumerWidget {
                 if (item.options.isNotEmpty)
                   Text(
                     item.options.map((o) => '${o.name}: ${o.value}').join(', '),
-                    style: TextStyle(color: Colors.grey[600], fontSize: 12),
+                    style: TextStyle(color: colors.textMuted, fontSize: 12),
+                  ),
+                if (item.status != 'available')
+                  Padding(
+                    padding: const EdgeInsets.only(top: 6),
+                    child: Text(
+                      'Unavailable',
+                      style: TextStyle(
+                        color: colors.danger,
+                        fontSize: 12,
+                        fontWeight: FontWeight.w600,
+                      ),
+                    ),
                   ),
                 const SizedBox(height: 8),
                 Row(
@@ -138,9 +192,11 @@ class _CartItemView extends ConsumerWidget {
                     ),
                     _QuantityStepper(
                       quantity: item.quantity,
-                      onChanged: (val) {
-                        ref.read(cartControllerProvider.notifier).updateQuantity(item.skuCode, val);
-                      },
+                      onChanged: item.status == 'available'
+                          ? (val) {
+                              ref.read(cartControllerProvider.notifier).updateQuantity(item.skuCode, val);
+                            }
+                          : null,
                     ),
                   ],
                 ),
@@ -157,27 +213,38 @@ class _QuantityStepper extends StatelessWidget {
   const _QuantityStepper({required this.quantity, required this.onChanged});
 
   final int quantity;
-  final ValueChanged<int> onChanged;
+  final ValueChanged<int>? onChanged;
 
   @override
   Widget build(BuildContext context) {
+    final colors = context.appColors;
+    final isDisabled = onChanged == null;
+
     return Container(
       decoration: BoxDecoration(
-        border: Border.all(color: Colors.grey[300]!),
+        border: Border.all(color: colors.border),
         borderRadius: BorderRadius.circular(4),
       ),
       child: Row(
         children: [
           InkWell(
-            onTap: quantity > 1 ? () => onChanged(quantity - 1) : null,
+            onTap: !isDisabled && quantity > 1
+                ? () => onChanged?.call(quantity - 1)
+                : null,
             child: const Padding(
               padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
               child: Icon(Icons.remove, size: 16),
             ),
           ),
-          Text('$quantity', style: const TextStyle(fontSize: 14)),
+          Text(
+            '$quantity',
+            style: TextStyle(
+              fontSize: 14,
+              color: isDisabled ? colors.textMuted : colors.text,
+            ),
+          ),
           InkWell(
-            onTap: () => onChanged(quantity + 1),
+            onTap: !isDisabled ? () => onChanged?.call(quantity + 1) : null,
             child: const Padding(
               padding: EdgeInsets.symmetric(horizontal: 8, vertical: 4),
               child: Icon(Icons.add, size: 16),
@@ -200,14 +267,22 @@ class _CartBottomBar extends ConsumerWidget {
     final selection = ref.watch(cartControllerProvider).selectedSkuCodes;
     final allAvailable = items.where((i) => i.status == 'available').length;
     final isAllSelected = selection.isNotEmpty && selection.length == allAvailable;
+    final colors = context.appColors;
+    final selectedItems = items
+        .where((item) => selection.contains(item.skuCode))
+        .map((item) => CartPricingRequestItem(
+              skuCode: item.skuCode,
+              quantity: item.quantity,
+            ))
+        .toList();
 
     return Container(
       padding: const EdgeInsets.all(16),
       decoration: BoxDecoration(
-        color: Colors.white,
+        color: colors.surface,
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withValues(alpha: 0.05),
+            color: colors.shadow.withValues(alpha: 0.2),
             offset: const Offset(0, -2),
             blurRadius: 10,
           ),
@@ -235,10 +310,20 @@ class _CartBottomBar extends ConsumerWidget {
               children: [
                 const Text('Total:', style: TextStyle(fontSize: 12, color: Colors.grey)),
                 pricingAsync.when(
-                  data: (pricing) => ThemedText(
-                    '${pricing.currency ?? 'USD'} ${pricing.settlementAmount.toStringAsFixed(2)}',
-                    type: ThemedTextType.subtitle,
-                    style: TextStyle(color: context.appColors.primary),
+                  data: (pricing) => Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      ThemedText(
+                        '${pricing.currency ?? 'USD'} ${pricing.settlementAmount.toStringAsFixed(2)}',
+                        type: ThemedTextType.subtitle,
+                        style: TextStyle(color: colors.primary),
+                      ),
+                      if ((pricing.discountAmount ?? 0) > 0)
+                        Text(
+                          'Saved ${pricing.currency ?? 'USD'} ${pricing.discountAmount!.toStringAsFixed(2)}',
+                          style: TextStyle(fontSize: 11, color: colors.success),
+                        ),
+                    ],
                   ),
                   loading: () => const SizedBox(
                     width: 60,
@@ -257,7 +342,10 @@ class _CartBottomBar extends ConsumerWidget {
                 onPressed: selection.isEmpty
                     ? null
                     : () {
-                        context.push(RoutePaths.checkout);
+                        context.push(
+                          RoutePaths.checkout,
+                          extra: selectedItems,
+                        );
                       },
               ),
             ),
