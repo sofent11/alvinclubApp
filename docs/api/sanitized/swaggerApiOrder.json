@@ -55,10 +55,7 @@
                 "orderId": {
                   "type": "string"
                 }
-              },
-              "required": [
-                "orderId"
-              ]
+              }
             }
           }
         ],
@@ -79,12 +76,7 @@
                   "type": "object",
                   "properties": {}
                 }
-              },
-              "required": [
-                "message",
-                "code",
-                "data"
-              ]
+              }
             }
           }
         }
@@ -279,10 +271,7 @@
                     }
                   }
                 }
-              },
-              "required": [
-                "orderId"
-              ]
+              }
             }
           }
         ],
@@ -325,12 +314,7 @@
                         }
                       }
                     }
-                  },
-                  "required": [
-                    "title",
-                    "description",
-                    "parcelOrderId"
-                  ]
+                  }
                 },
                 "code": {
                   "type": "number"
@@ -338,12 +322,7 @@
                 "message": {
                   "type": "string"
                 }
-              },
-              "required": [
-                "data",
-                "code",
-                "message"
-              ]
+              }
             }
           }
         }
@@ -434,11 +413,7 @@
                 "removePackage": {
                   "type": "boolean"
                 }
-              },
-              "required": [
-                "country",
-                "buyType"
-              ]
+              }
             }
           }
         ],
@@ -467,13 +442,7 @@
                       "type": "number",
                       "description": "订单超时时间，单位：毫秒，如 30 分钟就是 1800000"
                     }
-                  },
-                  "required": [
-                    "orderId",
-                    "timeoutPeriod",
-                    "orderStatus",
-                    "single"
-                  ]
+                  }
                 },
                 "code": {
                   "type": "number"
@@ -481,12 +450,7 @@
                 "message": {
                   "type": "string"
                 }
-              },
-              "required": [
-                "data",
-                "code",
-                "message"
-              ]
+              }
             }
           }
         }
@@ -678,10 +642,7 @@
                     }
                   }
                 }
-              },
-              "required": [
-                "orderId"
-              ]
+              }
             }
           }
         ],
@@ -702,12 +663,7 @@
                 "message": {
                   "type": "string"
                 }
-              },
-              "required": [
-                "data",
-                "code",
-                "message"
-              ]
+              }
             }
           }
         }
@@ -945,25 +901,7 @@
                                 "targetOriginPrice": {
                                   "type": "string"
                                 }
-                              },
-                              "required": [
-                                "image",
-                                "skuCode",
-                                "productName",
-                                "productCode",
-                                "sellPrice",
-                                "sellCur",
-                                "totalPrice",
-                                "targetSellPrice",
-                                "targetSellCur",
-                                "targetTotalPrice",
-                                "quantity",
-                                "skuSpecValues",
-                                "isReturned",
-                                "targetOriginPrice",
-                                "targetSkuFinalPrice",
-                                "targetTotalFinalPrice"
-                              ]
+                              }
                             }
                           },
                           "supplyOrderList": {
@@ -1018,12 +956,7 @@
                                       "pin": {
                                         "type": "string"
                                       }
-                                    },
-                                    "required": [
-                                      "barCodeImg",
-                                      "codeInfo",
-                                      "pin"
-                                    ]
+                                    }
                                   }
                                 }
                               }
@@ -1207,8 +1140,7 @@
                                   "type": "string"
                                 }
                               }
-                            },
-                            "required": []
+                            }
                           },
                           "afterSalesList": {
                             "type": "string"
@@ -1230,13 +1162,7 @@
                                 "targetCurrency": {
                                   "type": "string"
                                 }
-                              },
-                              "required": [
-                                "billId",
-                                "status",
-                                "targetTotalPrice",
-                                "targetCurrency"
-                              ]
+                              }
                             }
                           },
                           "userAddress": {
@@ -1316,25 +1242,7 @@
                           "tabStatusDescription": {
                             "type": "string"
                           }
-                        },
-                        "required": [
-                          "orderId",
-                          "status",
-                          "frontStatus",
-                          "statusContent",
-                          "orderStatus",
-                          "parentOrderId",
-                          "quantity",
-                          "totalAmount",
-                          "targetTotalAmount",
-                          "currency",
-                          "targetCurrency",
-                          "description",
-                          "remark",
-                          "statusIcon",
-                          "discountAmount",
-                          "targetDiscountAmount"
-                        ]
+                        }
                       }
                     }
                   }
@@ -1486,10 +1394,7 @@
                         "orderFreight": {
                           "type": "boolean"
                         }
-                      },
-                      "required": [
-                        "frontStatus"
-                      ]
+                      }
                     },
                     "userAddress": {
                       "type": "object",
@@ -1536,10 +1441,7 @@
                         "id": {
                           "type": "number"
                         }
-                      },
-                      "required": [
-                        "id"
-                      ]
+                      }
                     },
                     "payMethod": {
                       "type": "object",
@@ -1660,8 +1562,7 @@
                                   "position": {
                                     "type": "integer"
                                   }
-                                },
-                                "required": []
+                                }
                               },
                               "lineContent": {
                                 "type": "string"
@@ -1697,8 +1598,7 @@
                             }
                           }
                         }
-                      },
-                      "required": []
+                      }
                     },
                     "orderBillList": {
                       "type": "array",
@@ -1717,13 +1617,7 @@
                           "billId": {
                             "type": "string"
                           }
-                        },
-                        "required": [
-                          "status",
-                          "targetCurrency",
-                          "targetTotalPrice",
-                          "billId"
-                        ]
+                        }
                       }
                     },
                     "parcelOrder": {
@@ -1790,14 +1684,7 @@
                               "imageUrl": {
                                 "type": "string"
                               }
-                            },
-                            "required": [
-                              "skuCode",
-                              "productCode",
-                              "productName",
-                              "quantity",
-                              "imageUrl"
-                            ]
+                            }
                           }
                         },
                         "buyerOperates": {
@@ -1827,15 +1714,7 @@
                             "targetCompensatePriceCurrency": {
                               "type": "string"
                             }
-                          },
-                          "required": [
-                            "compensateBillId",
-                            "compensatePrice",
-                            "compensatePriceCurrency",
-                            "compensateReason",
-                            "targetCompensatePrice",
-                            "targetCompensatePriceCurrency"
-                          ]
+                          }
                         },
                         "solutionCode": {
                           "type": "string"
@@ -1864,28 +1743,9 @@
                             "currency": {
                               "type": "string"
                             }
-                          },
-                          "required": [
-                            "symbol",
-                            "currency"
-                          ]
+                          }
                         }
-                      },
-                      "required": [
-                        "parcelOrderId",
-                        "parcelStatus",
-                        "parcelStatusDesc",
-                        "createTime",
-                        "warehouseCode",
-                        "warehouseName",
-                        "freight",
-                        "freightCurrency",
-                        "lastMileMailNo",
-                        "lastMileCompanyCode",
-                        "lastMileCompanyName",
-                        "parcelProductDTOList",
-                        "buyerOperates"
-                      ]
+                      }
                     },
                     "orderTrace": {
                       "type": "object",
@@ -1934,28 +1794,13 @@
                               "logisticsOrderId": {
                                 "type": "string"
                               }
-                            },
-                            "required": [
-                              "id",
-                              "frontCode",
-                              "icon",
-                              "traceMessage",
-                              "time",
-                              "lastMileMailNo",
-                              "lastMileMailNoLink",
-                              "lastMileMailNoTitle",
-                              "traceStatus",
-                              "logisticsOrderId"
-                            ]
+                            }
                           }
                         },
                         "parcelOrderId": {
                           "type": "string"
                         }
-                      },
-                      "required": [
-                        "parcelOrderId"
-                      ]
+                      }
                     },
                     "discountInfos": {
                       "type": "array",
@@ -1977,8 +1822,7 @@
                           "couponCode": {
                             "type": "string"
                           }
-                        },
-                        "required": []
+                        }
                       }
                     },
                     "orderList": {
@@ -2062,27 +1906,7 @@
                                 "skuSourceCode": {
                                   "type": "string"
                                 }
-                              },
-                              "required": [
-                                "skuSpecValues",
-                                "image",
-                                "productCode",
-                                "skuCode",
-                                "productName",
-                                "targetSellPrice",
-                                "currency",
-                                "targetCurrency",
-                                "quantity",
-                                "targetTotalPrice",
-                                "sellPrice",
-                                "totalPrice",
-                                "isReturned",
-                                "targetOriginPrice",
-                                "targetOriginTotalPrice",
-                                "targetSkuDiscountPrice",
-                                "targetTotalFinalPrice",
-                                "targetSkuFinalPrice"
-                              ]
+                              }
                             }
                           },
                           "sourceOption": {
@@ -2110,8 +1934,7 @@
                               "orderFreightUrl": {
                                 "type": "string"
                               }
-                            },
-                            "required": []
+                            }
                           },
                           "skuSourceCode": {
                             "type": "string"
@@ -2186,16 +2009,10 @@
                               }
                             }
                           }
-                        },
-                        "required": [
-                          "skuList"
-                        ]
+                        }
                       }
                     }
-                  },
-                  "required": [
-                    "orderList"
-                  ]
+                  }
                 },
                 "traceId": {
                   "type": "string"
@@ -2260,13 +2077,7 @@
                     "targetPrice": {
                       "type": "string"
                     }
-                  },
-                  "required": [
-                    "currency",
-                    "targetCurrency",
-                    "totalPrice",
-                    "targetPrice"
-                  ]
+                  }
                 },
                 "code": {
                   "type": "number"
@@ -2274,12 +2085,7 @@
                 "message": {
                   "type": "string"
                 }
-              },
-              "required": [
-                "data",
-                "code",
-                "message"
-              ]
+              }
             }
           }
         }
@@ -2306,10 +2112,7 @@
                 "orderId": {
                   "type": "string"
                 }
-              },
-              "required": [
-                "orderId"
-              ]
+              }
             }
           }
         ],
@@ -2330,12 +2133,7 @@
                   "type": "object",
                   "properties": {}
                 }
-              },
-              "required": [
-                "message",
-                "code",
-                "data"
-              ]
+              }
             }
           }
         }
@@ -2458,11 +2256,7 @@
                 "removePackage": {
                   "type": "boolean"
                 }
-              },
-              "required": [
-                "country",
-                "buyType"
-              ]
+              }
             }
           }
         ],
@@ -2488,12 +2282,7 @@
                       "type": "number",
                       "description": "订单超时时间，单位：毫秒，如 30 分钟就是 1800000"
                     }
-                  },
-                  "required": [
-                    "orderId",
-                    "timeoutPeriod",
-                    "orderStatus"
-                  ]
+                  }
                 },
                 "code": {
                   "type": "number"
@@ -2501,12 +2290,7 @@
                 "message": {
                   "type": "string"
                 }
-              },
-              "required": [
-                "data",
-                "code",
-                "message"
-              ]
+              }
             }
           }
         }
@@ -2719,10 +2503,7 @@
                     }
                   }
                 }
-              },
-              "required": [
-                "orderId"
-              ]
+              }
             }
           }
         ],
@@ -2743,12 +2524,7 @@
                 "message": {
                   "type": "string"
                 }
-              },
-              "required": [
-                "data",
-                "code",
-                "message"
-              ]
+              }
             }
           }
         }
@@ -2793,24 +2569,11 @@
                         "price": {
                           "type": "string"
                         }
-                      },
-                      "required": [
-                        "skuCode",
-                        "quantity",
-                        "price"
-                      ]
+                      }
                     }
-                  },
-                  "required": [
-                    "skuList"
-                  ]
+                  }
                 }
-              },
-              "required": [
-                "code",
-                "message",
-                "data"
-              ]
+              }
             }
           }
         ],
@@ -2885,12 +2648,7 @@
                                 "type": "string",
                                 "description": "外显税额"
                               }
-                            },
-                            "required": [
-                              "type",
-                              "tax",
-                              "title"
-                            ]
+                            }
                           }
                         },
                         "solutionList": {
@@ -2929,11 +2687,7 @@
                                         "description": "法币符号"
                                       }
                                     },
-                                    "description": "法币",
-                                    "required": [
-                                      "name",
-                                      "symbol"
-                                    ]
+                                    "description": "法币"
                                   },
                                   "freightFreeThreshold": {
                                     "type": "string",
@@ -2951,11 +2705,7 @@
                                         "description": "法币符号"
                                       }
                                     },
-                                    "description": "法币",
-                                    "required": [
-                                      "name",
-                                      "symbol"
-                                    ]
+                                    "description": "法币"
                                   },
                                   "gmtExpectArriveStart": {
                                     "type": "number",
@@ -2981,25 +2731,9 @@
                                         "description": "法币符号"
                                       }
                                     },
-                                    "description": "法币",
-                                    "required": [
-                                      "name",
-                                      "symbol"
-                                    ]
+                                    "description": "法币"
                                   }
                                 },
-                                "required": [
-                                  "solutionName",
-                                  "gmtExpectArriveStart",
-                                  "gmtExpectArriveEnd",
-                                  "lateCompensation",
-                                  "freightCurrency",
-                                  "lateCompensationCurrency",
-                                  "freightFreeThreshold",
-                                  "freightFreeThresholdCurrency",
-                                  "freight",
-                                  "solutionCode"
-                                ],
                                 "description": "推荐物流解决方案"
                               },
                               "lastMileList": {
@@ -3040,11 +2774,7 @@
                                                 "description": "法币符号"
                                               }
                                             },
-                                            "description": "法币",
-                                            "required": [
-                                              "name",
-                                              "symbol"
-                                            ]
+                                            "description": "法币"
                                           },
                                           "freightFreeThreshold": {
                                             "type": "string",
@@ -3062,11 +2792,7 @@
                                                 "description": "法币符号"
                                               }
                                             },
-                                            "description": "法币",
-                                            "required": [
-                                              "name",
-                                              "symbol"
-                                            ]
+                                            "description": "法币"
                                           },
                                           "gmtExpectArriveStart": {
                                             "type": "string",
@@ -3092,48 +2818,22 @@
                                                 "description": "法币符号"
                                               }
                                             },
-                                            "description": "法币",
-                                            "required": [
-                                              "name",
-                                              "symbol"
-                                            ]
+                                            "description": "法币"
                                           },
                                           "lateCompensationTimeframe": {
                                             "type": "string",
                                             "description": "超时赔付时效，单位h"
                                           }
                                         },
-                                        "required": [
-                                          "solutionName",
-                                          "gmtExpectArriveStart",
-                                          "gmtExpectArriveEnd",
-                                          "lateCompensation",
-                                          "freightCurrency",
-                                          "lateCompensationCurrency",
-                                          "freightFreeThreshold",
-                                          "freightFreeThresholdCurrency",
-                                          "freight",
-                                          "solutionCode",
-                                          "lateCompensationTimeframe"
-                                        ],
                                         "description": "物流解决方案"
                                       },
                                       "description": "物流解决方案列表"
                                     }
-                                  },
-                                  "required": [
-                                    "name",
-                                    "solutionList"
-                                  ]
+                                  }
                                 },
                                 "description": "最后一公里配送服务列表"
                               }
-                            },
-                            "required": [
-                              "skuSourceCode",
-                              "lastMileList",
-                              "recommendSolution"
-                            ]
+                            }
                           },
                           "description": "解决方案列表"
                         },
@@ -3177,11 +2877,7 @@
                                           "type": "string",
                                           "description": "法币，如CA"
                                         }
-                                      },
-                                      "required": [
-                                        "symbol",
-                                        "name"
-                                      ]
+                                      }
                                     },
                                     "skuSpecValues": {
                                       "type": "array",
@@ -3210,22 +2906,7 @@
                                       "type": "string",
                                       "description": "单位"
                                     }
-                                  },
-                                  "required": [
-                                    "skuCode",
-                                    "sellPrice",
-                                    "skuImage",
-                                    "quantity",
-                                    "productName",
-                                    "currency",
-                                    "lowStocks",
-                                    "shopName",
-                                    "skuSpecValues",
-                                    "shopImage",
-                                    "giftCode",
-                                    "weightUnit",
-                                    "weight"
-                                  ]
+                                  }
                                 }
                               },
                               "skuSourceCode": {
@@ -3233,10 +2914,6 @@
                                 "description": "货源地编码"
                               }
                             },
-                            "required": [
-                              "records",
-                              "skuSourceCode"
-                            ],
                             "description": "赠品数据"
                           },
                           "description": "赠品数据"
@@ -3285,11 +2962,7 @@
                                             "name": {
                                               "type": "string"
                                             }
-                                          },
-                                          "required": [
-                                            "symbol",
-                                            "name"
-                                          ]
+                                          }
                                         },
                                         "validStartStamp": {
                                           "type": "string",
@@ -3335,35 +3008,12 @@
                                           "description": "满100可用"
                                         }
                                       },
-                                      "description": "优惠券实体",
-                                      "required": [
-                                        "name",
-                                        "voucherCode",
-                                        "discountType",
-                                        "discountInfo",
-                                        "desc",
-                                        "validEndStamp",
-                                        "validStartStamp",
-                                        "status",
-                                        "isDefault",
-                                        "unavailableReason",
-                                        "currency",
-                                        "sourceCode",
-                                        "validEndDesc",
-                                        "usedVoucherInfo",
-                                        "minOrderAmountInfo",
-                                        "available",
-                                        "description"
-                                      ]
+                                      "description": "优惠券实体"
                                     },
                                     "description": "优惠券列表"
                                   }
                                 },
-                                "description": "优惠券实体",
-                                "required": [
-                                  "title",
-                                  "list"
-                                ]
+                                "description": "优惠券实体"
                               },
                               "description": "优惠券列表"
                             },
@@ -3376,29 +3026,9 @@
                               "description": "色值， #FC610A"
                             }
                           },
-                          "description": "优惠券列表信息",
-                          "required": [
-                            "voucherInfos",
-                            "descprition",
-                            "usedVoucherInfoColor"
-                          ]
+                          "description": "优惠券列表信息"
                         }
-                      },
-                      "required": [
-                        "itemsOriginTotalAmount",
-                        "taxDetail",
-                        "freightAmount",
-                        "taxLines",
-                        "rechargeBalance",
-                        "solutionList",
-                        "giveaway",
-                        "voucherMsg",
-                        "isVoucherCode",
-                        "isCouponCode",
-                        "couponCodeReason",
-                        "notSupportDeliveryDescription",
-                        "rechargeBalanceTips"
-                      ]
+                      }
                     },
                     "paymentMethodList": {
                       "type": "array",
@@ -3414,27 +3044,13 @@
                           "payTypeIcon": {
                             "type": "string"
                           }
-                        },
-                        "required": [
-                          "payType",
-                          "payTypeName",
-                          "payTypeIcon"
-                        ]
+                        }
                       },
                       "description": "支付方式列表"
                     }
-                  },
-                  "required": [
-                    "pricing",
-                    "paymentMethodList"
-                  ]
+                  }
                 }
-              },
-              "required": [
-                "code",
-                "message",
-                "data"
-              ]
+              }
             }
           }
         }
@@ -3469,12 +3085,7 @@
                   "type": "number",
                   "description": "抵扣金额（CNY）"
                 }
-              },
-              "required": [
-                "orderId",
-                "isRecharge",
-                "rechargeAmount"
-              ]
+              }
             }
           }
         ],
@@ -3505,15 +3116,7 @@
                   "type": "string",
                   "description": "充值卡扣减状态：2 全额扣减，1 可扣减，0 不可扣减"
                 }
-              },
-              "required": [
-                "totalPrice",
-                "targetTotalPrice",
-                "currency",
-                "targetCurrency",
-                "rechargeBalance",
-                "rechargeStatus"
-              ]
+              }
             }
           }
         }
@@ -3551,21 +3154,14 @@
                       "price": {
                         "type": "number"
                       }
-                    },
-                    "required": [
-                      "skuCode",
-                      "quantity"
-                    ]
+                    }
                   }
                 },
                 "userCouponCode": {
                   "type": "string",
                   "description": "优惠券code"
                 }
-              },
-              "required": [
-                "skuList"
-              ]
+              }
             }
           }
         ],
@@ -3594,15 +3190,7 @@
                 "targetShipLimitAmount": {
                   "type": "string"
                 }
-              },
-              "required": [
-                "totalAmount",
-                "targetTotalAmount",
-                "sellCur",
-                "targetSellCur",
-                "targetOrderLimitAmount",
-                "targetShipLimitAmount"
-              ]
+              }
             }
           }
         }
@@ -3650,11 +3238,7 @@
                   "type": "boolean",
                   "description": "true 整单退"
                 }
-              },
-              "required": [
-                "orderId",
-                "allReturn"
-              ]
+              }
             }
           }
         ],
@@ -3749,10 +3333,7 @@
                   "targetTotalPrice": {
                     "type": "string"
                   }
-                },
-                "required": [
-                  "billId"
-                ]
+                }
               }
             }
           }
@@ -3926,10 +3507,7 @@
                         "orderFreight": {
                           "type": "boolean"
                         }
-                      },
-                      "required": [
-                        "frontStatus"
-                      ]
+                      }
                     },
                     "userAddress": {
                       "type": "object",
@@ -3976,10 +3554,7 @@
                         "id": {
                           "type": "number"
                         }
-                      },
-                      "required": [
-                        "id"
-                      ]
+                      }
                     },
                     "payMethod": {
                       "type": "object",
@@ -4065,10 +3640,7 @@
                         "targetActualAmount": {
                           "type": "string"
                         }
-                      },
-                      "required": [
-                        "targetItemsTotalAmount"
-                      ]
+                      }
                     },
                     "orderBillList": {
                       "type": "array",
@@ -4087,13 +3659,7 @@
                           "billId": {
                             "type": "string"
                           }
-                        },
-                        "required": [
-                          "status",
-                          "targetCurrency",
-                          "targetTotalPrice",
-                          "billId"
-                        ]
+                        }
                       }
                     },
                     "parcelOrder": {
@@ -4160,14 +3726,7 @@
                               "imageUrl": {
                                 "type": "string"
                               }
-                            },
-                            "required": [
-                              "skuCode",
-                              "productCode",
-                              "productName",
-                              "quantity",
-                              "imageUrl"
-                            ]
+                            }
                           }
                         },
                         "buyerOperates": {
@@ -4197,15 +3756,7 @@
                             "targetCompensatePriceCurrency": {
                               "type": "string"
                             }
-                          },
-                          "required": [
-                            "compensateBillId",
-                            "compensatePrice",
-                            "compensatePriceCurrency",
-                            "compensateReason",
-                            "targetCompensatePrice",
-                            "targetCompensatePriceCurrency"
-                          ]
+                          }
                         },
                         "solutionCode": {
                           "type": "string"
@@ -4234,28 +3785,9 @@
                             "currency": {
                               "type": "string"
                             }
-                          },
-                          "required": [
-                            "symbol",
-                            "currency"
-                          ]
+                          }
                         }
-                      },
-                      "required": [
-                        "parcelOrderId",
-                        "parcelStatus",
-                        "parcelStatusDesc",
-                        "createTime",
-                        "warehouseCode",
-                        "warehouseName",
-                        "freight",
-                        "freightCurrency",
-                        "lastMileMailNo",
-                        "lastMileCompanyCode",
-                        "lastMileCompanyName",
-                        "parcelProductDTOList",
-                        "buyerOperates"
-                      ]
+                      }
                     },
                     "orderTrace": {
                       "type": "object",
@@ -4304,19 +3836,7 @@
                               "logisticsOrderId": {
                                 "type": "string"
                               }
-                            },
-                            "required": [
-                              "id",
-                              "frontCode",
-                              "icon",
-                              "traceMessage",
-                              "time",
-                              "lastMileMailNo",
-                              "lastMileMailNoLink",
-                              "lastMileMailNoTitle",
-                              "traceStatus",
-                              "logisticsOrderId"
-                            ]
+                            }
                           }
                         },
                         "parcelOrderId": {
@@ -4397,37 +3917,16 @@
                                       "type": "string",
                                       "format": "date-time"
                                     }
-                                  },
-                                  "required": [
-                                    "id",
-                                    "frontCode",
-                                    "frontTitleCode",
-                                    "frontTitle",
-                                    "icon",
-                                    "traceMessage",
-                                    "time",
-                                    "traceStatus",
-                                    "traceTime"
-                                  ]
+                                  }
                                 }
                               },
                               "sequenceTime": {
                                 "type": "integer"
                               }
-                            },
-                            "required": [
-                              "subParcelOrderId",
-                              "parcelOrderStatus",
-                              "traceList",
-                              "sequenceTime"
-                            ]
+                            }
                           }
                         }
-                      },
-                      "required": [
-                        "parcelOrderId",
-                        "groupTraceList"
-                      ]
+                      }
                     },
                     "discountInfos": {
                       "type": "array",
@@ -4449,8 +3948,7 @@
                           "couponCode": {
                             "type": "string"
                           }
-                        },
-                        "required": []
+                        }
                       }
                     },
                     "orderList": {
@@ -4534,27 +4032,7 @@
                                 "skuSourceCode": {
                                   "type": "string"
                                 }
-                              },
-                              "required": [
-                                "skuSpecValues",
-                                "image",
-                                "productCode",
-                                "skuCode",
-                                "productName",
-                                "targetSellPrice",
-                                "currency",
-                                "targetCurrency",
-                                "quantity",
-                                "targetTotalPrice",
-                                "sellPrice",
-                                "totalPrice",
-                                "isReturned",
-                                "targetOriginPrice",
-                                "targetOriginTotalPrice",
-                                "targetSkuDiscountPrice",
-                                "targetTotalFinalPrice",
-                                "targetSkuFinalPrice"
-                              ]
+                              }
                             }
                           },
                           "afterSalesList": {
@@ -4648,18 +4126,10 @@
                           "remark": {
                             "type": "string"
                           }
-                        },
-                        "required": [
-                          "skuList",
-                          "skuSourceCode",
-                          "remark"
-                        ]
+                        }
                       }
                     }
-                  },
-                  "required": [
-                    "orderList"
-                  ]
+                  }
                 },
                 "traceId": {
                   "type": "string"
@@ -4717,10 +4187,7 @@
                 "orderId": {
                   "type": "string"
                 }
-              },
-              "required": [
-                "orderId"
-              ]
+              }
             }
           }
         ],
@@ -4879,11 +4346,7 @@
                 "discountCode": {
                   "type": "string"
                 }
-              },
-              "required": [
-                "orderId",
-                "discountCode"
-              ]
+              }
             }
           }
         ],
@@ -4932,17 +4395,7 @@
                       "unavailableReason": {
                         "type": "string"
                       }
-                    },
-                    "required": [
-                      "discountInfo",
-                      "discountAmount",
-                      "discountType",
-                      "currency",
-                      "couponCode",
-                      "available",
-                      "targetDiscountAmount",
-                      "targetCurrency"
-                    ]
+                    }
                   }
                 },
                 "traceId": {
@@ -4988,11 +4441,7 @@
                       "quantity": {
                         "type": "number"
                       }
-                    },
-                    "required": [
-                      "skuCode",
-                      "quantity"
-                    ]
+                    }
                   }
                 }
               }
@@ -5087,11 +4536,7 @@
                       "quantity": {
                         "type": "number"
                       }
-                    },
-                    "required": [
-                      "skuCode",
-                      "quantity"
-                    ]
+                    }
                   }
                 }
               }
@@ -5198,11 +4643,7 @@
                             "value": {
                               "type": "string"
                             }
-                          },
-                          "required": [
-                            "name",
-                            "value"
-                          ]
+                          }
                         }
                       },
                       "review": {
@@ -5223,27 +4664,9 @@
                           "extraComment": {
                             "type": "string"
                           }
-                        },
-                        "required": [
-                          "comment",
-                          "score",
-                          "images",
-                          "extraComment"
-                        ]
+                        }
                       }
-                    },
-                    "required": [
-                      "productName",
-                      "targetSellPrice",
-                      "image",
-                      "productCode",
-                      "skuCode",
-                      "targetSellCur",
-                      "targetTotalPrice",
-                      "quantity",
-                      "skuSpecValues",
-                      "review"
-                    ]
+                    }
                   }
                 },
                 "traceId": {
@@ -5487,25 +4910,7 @@
                                 "targetOriginPrice": {
                                   "type": "string"
                                 }
-                              },
-                              "required": [
-                                "image",
-                                "skuCode",
-                                "productName",
-                                "productCode",
-                                "sellPrice",
-                                "sellCur",
-                                "totalPrice",
-                                "targetSellPrice",
-                                "targetSellCur",
-                                "targetTotalPrice",
-                                "quantity",
-                                "skuSpecValues",
-                                "isReturned",
-                                "targetOriginPrice",
-                                "targetSkuFinalPrice",
-                                "targetTotalFinalPrice"
-                              ]
+                              }
                             }
                           },
                           "supplyOrderList": {
@@ -5560,12 +4965,7 @@
                                       "pin": {
                                         "type": "string"
                                       }
-                                    },
-                                    "required": [
-                                      "barCodeImg",
-                                      "codeInfo",
-                                      "pin"
-                                    ]
+                                    }
                                   }
                                 }
                               }
@@ -5749,8 +5149,7 @@
                                   "type": "string"
                                 }
                               }
-                            },
-                            "required": []
+                            }
                           },
                           "afterSalesList": {
                             "type": "string"
@@ -5772,13 +5171,7 @@
                                 "targetCurrency": {
                                   "type": "string"
                                 }
-                              },
-                              "required": [
-                                "billId",
-                                "status",
-                                "targetTotalPrice",
-                                "targetCurrency"
-                              ]
+                              }
                             }
                           },
                           "userAddress": {
@@ -5855,25 +5248,7 @@
                           "targetServiceAmount": {
                             "type": "string"
                           }
-                        },
-                        "required": [
-                          "orderId",
-                          "status",
-                          "frontStatus",
-                          "statusContent",
-                          "orderStatus",
-                          "parentOrderId",
-                          "quantity",
-                          "totalAmount",
-                          "targetTotalAmount",
-                          "currency",
-                          "targetCurrency",
-                          "description",
-                          "remark",
-                          "statusIcon",
-                          "discountAmount",
-                          "targetDiscountAmount"
-                        ]
+                        }
                       }
                     }
                   }
@@ -6227,8 +5602,7 @@
                                   "type": "string"
                                 }
                               }
-                            },
-                            "required": []
+                            }
                           },
                           "userAddress": {
                             "type": "object",
@@ -6496,12 +5870,7 @@
                                             "pin": {
                                               "type": "string"
                                             }
-                                          },
-                                          "required": [
-                                            "barCodeImg",
-                                            "codeInfo",
-                                            "pin"
-                                          ]
+                                          }
                                         }
                                       }
                                     }
@@ -6685,8 +6054,7 @@
                                         "type": "string"
                                       }
                                     }
-                                  },
-                                  "required": []
+                                  }
                                 },
                                 "afterSalesList": {
                                   "type": "string"
@@ -6708,8 +6076,7 @@
                                       "targetCurrency": {
                                         "type": "string"
                                       }
-                                    },
-                                    "required": []
+                                    }
                                   }
                                 },
                                 "userAddress": {
@@ -6818,8 +6185,7 @@
                     "batchNo": {
                       "type": "string"
                     }
-                  },
-                  "required": []
+                  }
                 },
                 "traceId": {
                   "type": "string"
@@ -6931,23 +6297,13 @@
                       "extraComment": {
                         "type": "string"
                       }
-                    },
-                    "required": [
-                      "skuCode",
-                      "comment",
-                      "score",
-                      "extraComment",
-                      "images"
-                    ]
+                    }
                   }
                 },
                 "orderId": {
                   "type": "string"
                 }
-              },
-              "required": [
-                "orderId"
-              ]
+              }
             }
           }
         ],
@@ -7086,11 +6442,7 @@
                                       "value": {
                                         "type": "string"
                                       }
-                                    },
-                                    "required": [
-                                      "name",
-                                      "value"
-                                    ]
+                                    }
                                   }
                                 },
                                 "canAfterSales": {
@@ -7108,12 +6460,7 @@
                                 "field_2": {
                                   "type": "string"
                                 }
-                              },
-                              "required": [
-                                "image",
-                                "field_2",
-                                "skuSpecValues"
-                              ]
+                              }
                             }
                           },
                           "supplyOrderList": {
@@ -7172,10 +6519,7 @@
                                 "qcRemark": {
                                   "type": "string"
                                 }
-                              },
-                              "required": [
-                                "inspectImageUrlList"
-                              ]
+                              }
                             }
                           },
                           "skuSourceCode": {
@@ -7240,15 +6584,9 @@
                               "orderFreightUrl": {
                                 "type": "string"
                               }
-                            },
-                            "required": []
+                            }
                           }
-                        },
-                        "required": [
-                          "skuList",
-                          "skuSourceCode",
-                          "skuSourceTitle"
-                        ]
+                        }
                       }
                     },
                     "afterSalesList": {
@@ -7598,11 +6936,7 @@
                             "name": {
                               "type": "string"
                             }
-                          },
-                          "required": [
-                            "symbol",
-                            "name"
-                          ]
+                          }
                         },
                         "actualFreight": {
                           "type": "string"
@@ -7851,23 +7185,7 @@
                                     "traceTime": {
                                       "type": "string"
                                     }
-                                  },
-                                  "required": [
-                                    "id",
-                                    "subParcelOrderId",
-                                    "frontCode",
-                                    "frontTitleCode",
-                                    "frontTitle",
-                                    "icon",
-                                    "traceMessage",
-                                    "time",
-                                    "lastMileMailNo",
-                                    "lastMileCompanyName",
-                                    "lastMileMailNoLink",
-                                    "lastMileMailNoTitle",
-                                    "traceStatus",
-                                    "traceTime"
-                                  ]
+                                  }
                                 }
                               },
                               "sequenceTime": {
@@ -8017,23 +7335,7 @@
                               "traceTime": {
                                 "type": "string"
                               }
-                            },
-                            "required": [
-                              "id",
-                              "subParcelOrderId",
-                              "frontCode",
-                              "frontTitleCode",
-                              "frontTitle",
-                              "icon",
-                              "traceMessage",
-                              "time",
-                              "lastMileMailNo",
-                              "lastMileCompanyName",
-                              "lastMileMailNoLink",
-                              "lastMileMailNoTitle",
-                              "traceStatus",
-                              "traceTime"
-                            ]
+                            }
                           }
                         }
                       }
@@ -8058,14 +7360,10 @@
                           "couponCode": {
                             "type": "string"
                           }
-                        },
-                        "required": []
+                        }
                       }
                     }
-                  },
-                  "required": [
-                    "orderList"
-                  ]
+                  }
                 },
                 "traceId": {
                   "type": "string"
@@ -8215,10 +7513,7 @@
                         "removePackage": {
                           "type": "boolean"
                         }
-                      },
-                      "required": [
-                        "frontStatus"
-                      ]
+                      }
                     },
                     "userAddress": {
                       "type": "object",
@@ -8265,10 +7560,7 @@
                         "id": {
                           "type": "number"
                         }
-                      },
-                      "required": [
-                        "id"
-                      ]
+                      }
                     },
                     "payMethod": {
                       "type": "object",
@@ -8342,10 +7634,7 @@
                         "targetItemsTotalAmount": {
                           "type": "string"
                         }
-                      },
-                      "required": [
-                        "targetItemsTotalAmount"
-                      ]
+                      }
                     },
                     "orderBillList": {
                       "type": "array",
@@ -8364,13 +7653,7 @@
                           "billId": {
                             "type": "string"
                           }
-                        },
-                        "required": [
-                          "status",
-                          "targetCurrency",
-                          "targetTotalPrice",
-                          "billId"
-                        ]
+                        }
                       }
                     },
                     "parcelOrder": {
@@ -8437,14 +7720,7 @@
                               "imageUrl": {
                                 "type": "string"
                               }
-                            },
-                            "required": [
-                              "skuCode",
-                              "productCode",
-                              "productName",
-                              "quantity",
-                              "imageUrl"
-                            ]
+                            }
                           }
                         },
                         "buyerOperates": {
@@ -8474,15 +7750,7 @@
                             "targetCompensatePriceCurrency": {
                               "type": "string"
                             }
-                          },
-                          "required": [
-                            "compensateBillId",
-                            "compensatePrice",
-                            "compensatePriceCurrency",
-                            "compensateReason",
-                            "targetCompensatePrice",
-                            "targetCompensatePriceCurrency"
-                          ]
+                          }
                         },
                         "solutionCode": {
                           "type": "string"
@@ -8511,28 +7779,9 @@
                             "currency": {
                               "type": "string"
                             }
-                          },
-                          "required": [
-                            "symbol",
-                            "currency"
-                          ]
+                          }
                         }
-                      },
-                      "required": [
-                        "parcelOrderId",
-                        "parcelStatus",
-                        "parcelStatusDesc",
-                        "createTime",
-                        "warehouseCode",
-                        "warehouseName",
-                        "freight",
-                        "freightCurrency",
-                        "lastMileMailNo",
-                        "lastMileCompanyCode",
-                        "lastMileCompanyName",
-                        "parcelProductDTOList",
-                        "buyerOperates"
-                      ]
+                      }
                     },
                     "orderTrace": {
                       "type": "object",
@@ -8581,28 +7830,13 @@
                               "logisticsOrderId": {
                                 "type": "string"
                               }
-                            },
-                            "required": [
-                              "id",
-                              "frontCode",
-                              "icon",
-                              "traceMessage",
-                              "time",
-                              "lastMileMailNo",
-                              "lastMileMailNoLink",
-                              "lastMileMailNoTitle",
-                              "traceStatus",
-                              "logisticsOrderId"
-                            ]
+                            }
                           }
                         },
                         "parcelOrderId": {
                           "type": "string"
                         }
-                      },
-                      "required": [
-                        "parcelOrderId"
-                      ]
+                      }
                     },
                     "orderList": {
                       "type": "array",
@@ -8664,21 +7898,7 @@
                                     }
                                   }
                                 }
-                              },
-                              "required": [
-                                "skuSpecValues",
-                                "image",
-                                "productCode",
-                                "skuCode",
-                                "productName",
-                                "targetSellPrice",
-                                "currency",
-                                "targetCurrency",
-                                "quantity",
-                                "targetTotalPrice",
-                                "sellPrice",
-                                "totalPrice"
-                              ]
+                              }
                             }
                           },
                           "afterSalesList": {
@@ -8731,16 +7951,10 @@
                               }
                             }
                           }
-                        },
-                        "required": [
-                          "skuList"
-                        ]
+                        }
                       }
                     }
-                  },
-                  "required": [
-                    "orderList"
-                  ]
+                  }
                 },
                 "traceId": {
                   "type": "string"
@@ -8897,10 +8111,7 @@
                               "giveawayGift": {
                                 "type": "number"
                               }
-                            },
-                            "required": [
-                              "frontStatus"
-                            ]
+                            }
                           },
                           "userAddress": {
                             "type": "object",
@@ -8947,10 +8158,7 @@
                               "id": {
                                 "type": "number"
                               }
-                            },
-                            "required": [
-                              "id"
-                            ]
+                            }
                           },
                           "payMethod": {
                             "type": "object",
@@ -9045,13 +8253,7 @@
                               "targetServiceAmount": {
                                 "type": "string"
                               }
-                            },
-                            "required": [
-                              "targetItemsTotalAmount",
-                              "targetStockFeeAmount",
-                              "targetTipAmount",
-                              "targetServiceAmount"
-                            ]
+                            }
                           },
                           "orderBillList": {
                             "type": "array",
@@ -9070,13 +8272,7 @@
                                 "billId": {
                                   "type": "string"
                                 }
-                              },
-                              "required": [
-                                "status",
-                                "targetCurrency",
-                                "targetTotalPrice",
-                                "billId"
-                              ]
+                              }
                             }
                           },
                           "parcelOrder": {
@@ -9143,14 +8339,7 @@
                                     "imageUrl": {
                                       "type": "string"
                                     }
-                                  },
-                                  "required": [
-                                    "skuCode",
-                                    "productCode",
-                                    "productName",
-                                    "quantity",
-                                    "imageUrl"
-                                  ]
+                                  }
                                 }
                               },
                               "buyerOperates": {
@@ -9180,15 +8369,7 @@
                                   "targetCompensatePriceCurrency": {
                                     "type": "string"
                                   }
-                                },
-                                "required": [
-                                  "compensateBillId",
-                                  "compensatePrice",
-                                  "compensatePriceCurrency",
-                                  "compensateReason",
-                                  "targetCompensatePrice",
-                                  "targetCompensatePriceCurrency"
-                                ]
+                                }
                               },
                               "solutionCode": {
                                 "type": "string"
@@ -9217,28 +8398,9 @@
                                   "currency": {
                                     "type": "string"
                                   }
-                                },
-                                "required": [
-                                  "symbol",
-                                  "currency"
-                                ]
+                                }
                               }
-                            },
-                            "required": [
-                              "parcelOrderId",
-                              "parcelStatus",
-                              "parcelStatusDesc",
-                              "createTime",
-                              "warehouseCode",
-                              "warehouseName",
-                              "freight",
-                              "freightCurrency",
-                              "lastMileMailNo",
-                              "lastMileCompanyCode",
-                              "lastMileCompanyName",
-                              "parcelProductDTOList",
-                              "buyerOperates"
-                            ]
+                            }
                           },
                           "orderTrace": {
                             "type": "object",
@@ -9287,28 +8449,13 @@
                                     "logisticsOrderId": {
                                       "type": "string"
                                     }
-                                  },
-                                  "required": [
-                                    "id",
-                                    "frontCode",
-                                    "icon",
-                                    "traceMessage",
-                                    "time",
-                                    "lastMileMailNo",
-                                    "lastMileMailNoLink",
-                                    "lastMileMailNoTitle",
-                                    "traceStatus",
-                                    "logisticsOrderId"
-                                  ]
+                                  }
                                 }
                               },
                               "parcelOrderId": {
                                 "type": "string"
                               }
-                            },
-                            "required": [
-                              "parcelOrderId"
-                            ]
+                            }
                           },
                           "discountInfos": {
                             "type": "array",
@@ -9330,8 +8477,7 @@
                                 "couponCode": {
                                   "type": "string"
                                 }
-                              },
-                              "required": []
+                              }
                             }
                           },
                           "orderList": {
@@ -9412,27 +8558,7 @@
                                       "isReturned": {
                                         "type": "boolean"
                                       }
-                                    },
-                                    "required": [
-                                      "skuSpecValues",
-                                      "image",
-                                      "productCode",
-                                      "skuCode",
-                                      "productName",
-                                      "targetSellPrice",
-                                      "currency",
-                                      "targetCurrency",
-                                      "quantity",
-                                      "targetTotalPrice",
-                                      "sellPrice",
-                                      "totalPrice",
-                                      "isReturned",
-                                      "targetOriginPrice",
-                                      "targetOriginTotalPrice",
-                                      "targetSkuDiscountPrice",
-                                      "targetSkuFinalPrice",
-                                      "targetTotalFinalPrice"
-                                    ]
+                                    }
                                   }
                                 },
                                 "afterSalesList": {
@@ -9488,10 +8614,7 @@
                                     }
                                   }
                                 }
-                              },
-                              "required": [
-                                "skuList"
-                              ]
+                              }
                             }
                           }
                         }
@@ -9600,10 +8723,7 @@
                         "giveawayGift": {
                           "type": "integer"
                         }
-                      },
-                      "required": [
-                        "frontStatus"
-                      ]
+                      }
                     },
                     "parcelOrder": {
                       "type": "object",
@@ -9669,14 +8789,7 @@
                               "imageUrl": {
                                 "type": "string"
                               }
-                            },
-                            "required": [
-                              "skuCode",
-                              "productCode",
-                              "productName",
-                              "quantity",
-                              "imageUrl"
-                            ]
+                            }
                           }
                         },
                         "buyerOperates": {
@@ -9706,15 +8819,7 @@
                             "targetCompensatePriceCurrency": {
                               "type": "string"
                             }
-                          },
-                          "required": [
-                            "compensateBillId",
-                            "compensatePrice",
-                            "compensatePriceCurrency",
-                            "compensateReason",
-                            "targetCompensatePrice",
-                            "targetCompensatePriceCurrency"
-                          ]
+                          }
                         },
                         "solutionCode": {
                           "type": "string"
@@ -9743,28 +8848,9 @@
                             "currency": {
                               "type": "string"
                             }
-                          },
-                          "required": [
-                            "symbol",
-                            "currency"
-                          ]
+                          }
                         }
-                      },
-                      "required": [
-                        "parcelOrderId",
-                        "parcelStatus",
-                        "parcelStatusDesc",
-                        "createTime",
-                        "warehouseCode",
-                        "warehouseName",
-                        "freight",
-                        "freightCurrency",
-                        "lastMileMailNo",
-                        "lastMileCompanyCode",
-                        "lastMileCompanyName",
-                        "parcelProductDTOList",
-                        "buyerOperates"
-                      ]
+                      }
                     },
                     "orderTrace": {
                       "type": "object",
@@ -9813,19 +8899,7 @@
                               "logisticsOrderId": {
                                 "type": "string"
                               }
-                            },
-                            "required": [
-                              "id",
-                              "frontCode",
-                              "icon",
-                              "traceMessage",
-                              "time",
-                              "lastMileMailNo",
-                              "lastMileMailNoLink",
-                              "lastMileMailNoTitle",
-                              "traceStatus",
-                              "logisticsOrderId"
-                            ]
+                            }
                           }
                         },
                         "parcelOrderId": {
@@ -9895,20 +8969,7 @@
                                     "frontTitleCode": {
                                       "type": "string"
                                     }
-                                  },
-                                  "required": [
-                                    "id",
-                                    "frontCode",
-                                    "icon",
-                                    "traceMessage",
-                                    "time",
-                                    "lastMileMailNo",
-                                    "lastMileMailNoLink",
-                                    "lastMileMailNoTitle",
-                                    "traceStatus",
-                                    "frontTitle",
-                                    "frontTitleCode"
-                                  ]
+                                  }
                                 }
                               }
                             }
@@ -10024,20 +9085,7 @@
                           "frontTitleCode": {
                             "type": "string"
                           }
-                        },
-                        "required": [
-                          "id",
-                          "frontCode",
-                          "icon",
-                          "traceMessage",
-                          "time",
-                          "lastMileMailNo",
-                          "lastMileMailNoLink",
-                          "lastMileMailNoTitle",
-                          "traceStatus",
-                          "frontTitle",
-                          "frontTitleCode"
-                        ]
+                        }
                       }
                     }
                   }
@@ -10090,11 +9138,7 @@
                 "sourceDetail": {
                   "type": "string"
                 }
-              },
-              "required": [
-                "skuCode",
-                "quantity"
-              ]
+              }
             }
           }
         ],
@@ -10148,21 +9192,12 @@
                         "type": "string",
                         "description": "命中的活动，换购活动：\"discount_additional\"，3元3件：”quantity_discount“"
                       }
-                    },
-                    "required": [
-                      "skuCode",
-                      "quantity",
-                      "token",
-                      "groupType"
-                    ]
+                    }
                   },
                   "description": "sku列表"
                 }
               },
-              "description": "sku列表",
-              "required": [
-                "skuList"
-              ]
+              "description": "sku列表"
             }
           }
         ],
@@ -10288,11 +9323,7 @@
                                       "value": {
                                         "type": "string"
                                       }
-                                    },
-                                    "required": [
-                                      "name",
-                                      "value"
-                                    ]
+                                    }
                                   }
                                 },
                                 "discountAmount": {
@@ -10365,10 +9396,7 @@
                         }
                       }
                     }
-                  },
-                  "required": [
-                    "list"
-                  ]
+                  }
                 },
                 "traceId": {
                   "type": "string"
@@ -10426,17 +9454,10 @@
                       "remark": {
                         "type": "string"
                       }
-                    },
-                    "required": [
-                      "orderUpdate"
-                    ]
+                    }
                   }
                 }
-              },
-              "required": [
-                "type",
-                "cart"
-              ]
+              }
             }
           }
         ],
@@ -10486,18 +9507,10 @@
                         "type": "string",
                         "description": "当前价格"
                       }
-                    },
-                    "required": [
-                      "skuCode",
-                      "quantity",
-                      "price"
-                    ]
+                    }
                   }
                 }
-              },
-              "required": [
-                "skuList"
-              ]
+              }
             }
           }
         ],
@@ -10518,12 +9531,7 @@
                   "type": "object",
                   "properties": {}
                 }
-              },
-              "required": [
-                "code",
-                "message",
-                "data"
-              ]
+              }
             }
           }
         }
@@ -10568,10 +9576,7 @@
                   "type": "string",
                   "description": "优惠券code"
                 }
-              },
-              "required": [
-                "skuList"
-              ]
+              }
             }
           }
         ],
@@ -10750,10 +9755,7 @@
                   "type": "string",
                   "description": "优惠券code"
                 }
-              },
-              "required": [
-                "skuList"
-              ]
+              }
             }
           }
         ],
@@ -10870,24 +9872,7 @@
                         }
                       }
                     }
-                  },
-                  "required": [
-                    "itemsTotalAmount",
-                    "freightAmount",
-                    "totalAmount",
-                    "targetTotalAmount",
-                    "discountAmount",
-                    "targetDiscountAmount",
-                    "settlementAmount",
-                    "targetSettlementAmount",
-                    "targetOrderLimitAmount",
-                    "targetShipLimitAmount",
-                    "targetSellCur",
-                    "sellCur",
-                    "rechargeBalance",
-                    "userCouponCode",
-                    "targetItemsTotalAmount"
-                  ]
+                  }
                 },
                 "traceId": {
                   "type": "string"

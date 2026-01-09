@@ -38,7 +38,7 @@ flutter pub run build_runner build --delete-conflicting-outputs
 If the API specs in `docs/api/` change:
 1.  **Sanitize Specs:**
     ```sh
-    python3 scripts/sanitize_swagger.py docs/api/swaggerApiCombo.json docs/api/sanitized/swaggerApiCombo.json
+    python3 scripts/sanitize_all_swagger.py
     ```
 2.  **Run Build Runner:**
     ```sh

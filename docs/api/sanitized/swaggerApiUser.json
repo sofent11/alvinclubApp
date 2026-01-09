@@ -150,17 +150,7 @@
                 "tin": {
                   "type": "string"
                 }
-              },
-              "required": [
-                "id",
-                "userId",
-                "countryCode",
-                "stateCode",
-                "cityCode",
-                "remark",
-                "accessCode",
-                "email"
-              ]
+              }
             }
           }
         ],
@@ -471,31 +461,7 @@
                       "tin": {
                         "type": "string"
                       }
-                    },
-                    "required": [
-                      "id",
-                      "tenantCode",
-                      "userId",
-                      "isDefault",
-                      "country",
-                      "countryCode",
-                      "state",
-                      "stateCode",
-                      "city",
-                      "cityCode",
-                      "street",
-                      "apartment",
-                      "address",
-                      "coordinate",
-                      "firstName",
-                      "lastName",
-                      "phoneNumber",
-                      "zipCode",
-                      "deleted",
-                      "isDelivered",
-                      "gmtCreate",
-                      "gmtUpdate"
-                    ]
+                    }
                   }
                 },
                 "traceId": {
@@ -600,21 +566,7 @@
                         "mock": "86+18888888888"
                       }
                     }
-                  },
-                  "required": [
-                    "isDefault",
-                    "id",
-                    "firstName",
-                    "lastName",
-                    "phoneNumber",
-                    "address",
-                    "countryCode",
-                    "stateCode",
-                    "country",
-                    "state",
-                    "cityCode",
-                    "simpleStateCode"
-                  ]
+                  }
                 },
                 "placeholder": {
                   "type": "null"
@@ -725,23 +677,7 @@
                 "tin": {
                   "type": "string"
                 }
-              },
-              "required": [
-                "countryCode",
-                "stateCode",
-                "country",
-                "state",
-                "username",
-                "city",
-                "firstName",
-                "lastName",
-                "phoneNumber",
-                "zipCode",
-                "cityCode",
-                "remark",
-                "accessCode",
-                "email"
-              ]
+              }
             }
           }
         ],
@@ -877,24 +813,7 @@
                     "email": {
                       "type": "string"
                     }
-                  },
-                  "required": [
-                    "isDefault",
-                    "id",
-                    "firstName",
-                    "lastName",
-                    "phoneNumber",
-                    "address",
-                    "countryCode",
-                    "stateCode",
-                    "country",
-                    "state",
-                    "cityCode",
-                    "simpleStateCode",
-                    "street",
-                    "zipCode",
-                    "email"
-                  ]
+                  }
                 },
                 "placeholder": {
                   "type": "null"
@@ -961,12 +880,7 @@
                         "type": "string",
                         "description": "国家\\州名称"
                       }
-                    },
-                    "required": [
-                      "areaCode",
-                      "name",
-                      "icon"
-                    ]
+                    }
                   }
                 },
                 "placeholder": {
@@ -1058,21 +972,7 @@
                       "longitude": {
                         "type": "null"
                       }
-                    },
-                    "required": [
-                      "apartment",
-                      "street",
-                      "city",
-                      "cityCode",
-                      "state",
-                      "stateCode",
-                      "country",
-                      "countryCode",
-                      "address",
-                      "zipCode",
-                      "latitude",
-                      "longitude"
-                    ]
+                    }
                   }
                 },
                 "traceId": {
@@ -1116,12 +1016,7 @@
                 "level": {
                   "type": "string"
                 }
-              },
-              "required": [
-                "userId",
-                "tenantCode",
-                "level"
-              ]
+              }
             }
           }
         ],
@@ -1175,10 +1070,7 @@
                 "dstPortalCode": {
                   "type": "string"
                 }
-              },
-              "required": [
-                "dstPortalCode"
-              ]
+              }
             }
           }
         ],
@@ -1326,11 +1218,7 @@
                   "type": "number",
                   "description": "0 web"
                 }
-              },
-              "required": [
-                "loginName",
-                "authWay"
-              ]
+              }
             }
           }
         ],
@@ -1359,12 +1247,7 @@
                     "jumpUrl": {
                       "type": "string"
                     }
-                  },
-                  "required": [
-                    "authWay",
-                    "code",
-                    "jumpUrl"
-                  ]
+                  }
                 },
                 "traceId": {
                   "type": "null"
@@ -1494,11 +1377,7 @@
                   "type": "string",
                   "description": "05租户必填"
                 }
-              },
-              "required": [
-                "code",
-                "authWay"
-              ]
+              }
             }
           }
         ],
@@ -1645,13 +1524,7 @@
                 "portalCode": {
                   "type": "string"
                 }
-              },
-              "required": [
-                "authWay",
-                "code",
-                "inviteCode",
-                "portalCode"
-              ]
+              }
             }
           }
         ],
@@ -1785,10 +1658,7 @@
                   "type": "string",
                   "description": "password和验证码都填这,telegram将返回的object直接stringfy填入，谷歌登录返回绑定token"
                 }
-              },
-              "required": [
-                "code"
-              ]
+              }
             }
           }
         ],
@@ -1931,12 +1801,7 @@
                   "type": "string",
                   "description": "0-营销邮箱，1-用户邮箱"
                 }
-              },
-              "required": [
-                "email",
-                "token",
-                "source"
-              ]
+              }
             }
           }
         ],
@@ -1985,8 +1850,7 @@
                     "currency": {
                       "type": "string"
                     }
-                  },
-                  "required": []
+                  }
                 },
                 "placeholder": {
                   "type": "null"
@@ -2050,19 +1914,10 @@
                       "fileId": {
                         "type": "string"
                       }
-                    },
-                    "required": [
-                      "url",
-                      "fileId"
-                    ]
+                    }
                   }
                 }
-              },
-              "required": [
-                "code",
-                "data",
-                "message"
-              ]
+              }
             }
           }
         }
@@ -2109,11 +1964,9 @@
                     "fileId": {
                       "type": "string"
                     }
-                  },
-                  "required": []
+                  }
                 }
-              },
-              "required": []
+              }
             }
           }
         }
@@ -2241,13 +2094,7 @@
                             "type": "string",
                             "description": "CP-gk7Sd1wf4d4n"
                           }
-                        },
-                        "required": [
-                          "currencySymbol",
-                          "discountType",
-                          "discountInfo",
-                          "limitAmount"
-                        ]
+                        }
                       }
                     },
                     "received": {
@@ -2299,11 +2146,7 @@
                 "isDiscount": {
                   "type": "string"
                 }
-              },
-              "required": [
-                "sourceCode",
-                "isDiscount"
-              ]
+              }
             }
           }
         ],
@@ -2458,8 +2301,7 @@
                           }
                         }
                       }
-                    },
-                    "required": []
+                    }
                   }
                 }
               }
@@ -2612,8 +2454,7 @@
                           }
                         }
                       }
-                    },
-                    "required": []
+                    }
                   }
                 },
                 "traceId": {
@@ -2655,10 +2496,7 @@
                     "type": "string"
                   }
                 }
-              },
-              "required": [
-                "couponActivityCodes"
-              ]
+              }
             }
           }
         ],
@@ -2787,13 +2625,7 @@
                           "limitAmount": {
                             "type": "number"
                           }
-                        },
-                        "required": [
-                          "currencySymbol",
-                          "discountType",
-                          "discountInfo",
-                          "limitAmount"
-                        ]
+                        }
                       }
                     },
                     "received": {
@@ -3026,19 +2858,9 @@
                           "discountUnit": {
                             "type": "string"
                           }
-                        },
-                        "required": [
-                          "discountUnit",
-                          "discountStr"
-                        ]
+                        }
                       }
-                    },
-                    "required": [
-                      "userId",
-                      "tenantCode",
-                      "couponCode",
-                      "couponStatus"
-                    ]
+                    }
                   }
                 },
                 "traceId": {
@@ -3116,11 +2938,7 @@
                             "type": "string",
                             "description": "会话类型"
                           }
-                        },
-                        "required": [
-                          "channelId",
-                          "channelType"
-                        ]
+                        }
                       },
                       "description": "会话列表白名单列表"
                     },
@@ -3208,17 +3026,7 @@
                       "type": "number",
                       "description": "0仅显示邮箱,  1显示邮箱,客服,电话"
                     }
-                  },
-                  "required": [
-                    "longConnectApi",
-                    "api",
-                    "uid",
-                    "token",
-                    "wsApi",
-                    "longConnectKeep",
-                    "whiteList",
-                    "showStatus"
-                  ]
+                  }
                 },
                 "message": {
                   "type": "string"
@@ -3259,10 +3067,7 @@
                 "insUrl": {
                   "type": "string"
                 }
-              },
-              "required": [
-                "orderId"
-              ]
+              }
             }
           }
         ],
@@ -3361,10 +3166,7 @@
                 "insUrl": {
                   "type": "string"
                 }
-              },
-              "required": [
-                "orderId"
-              ]
+              }
             }
           }
         ],
@@ -3453,10 +3255,7 @@
                 "insUrl": {
                   "type": "string"
                 }
-              },
-              "required": [
-                "orderId"
-              ]
+              }
             }
           }
         ],
@@ -3629,10 +3428,7 @@
                 "delete": {
                   "type": "boolean"
                 }
-              },
-              "required": [
-                "userId"
-              ]
+              }
             }
           }
         ],
@@ -3787,8 +3583,7 @@
                     "nextUserLevelPoints": {
                       "type": "integer"
                     }
-                  },
-                  "required": []
+                  }
                 },
                 "placeholder": {
                   "type": "null"
@@ -4141,8 +3936,7 @@
                   },
                   "description": "用户回答记录，每一个问题一条"
                 }
-              },
-              "required": []
+              }
             }
           }
         ],
@@ -4364,8 +4158,7 @@
                     "favoriteBrands": {
                       "type": "string"
                     }
-                  },
-                  "required": []
+                  }
                 },
                 "traceId": {
                   "type": "string"

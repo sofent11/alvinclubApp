@@ -106,13 +106,14 @@ ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response
 _$ProductServiceActivityNoAuthFlashSaleActivityProductGet$ResponseFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response(
-  code: json['code'] as String,
-  message: json['message'] as String,
-  data:
-      ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data.fromJson(
-        json['data'] as Map<String, dynamic>,
-      ),
-  traceId: json['traceId'] as String,
+  code: json['code'] as String?,
+  message: json['message'] as String?,
+  data: json['data'] == null
+      ? null
+      : ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data.fromJson(
+          json['data'] as Map<String, dynamic>,
+        ),
+  traceId: json['traceId'] as String?,
 );
 
 Map<String, dynamic>
@@ -121,7 +122,7 @@ _$ProductServiceActivityNoAuthFlashSaleActivityProductGet$ResponseToJson(
 ) => <String, dynamic>{
   'code': instance.code,
   'message': instance.message,
-  'data': instance.data.toJson(),
+  'data': instance.data?.toJson(),
   'traceId': instance.traceId,
 };
 
@@ -221,12 +222,14 @@ ProductServiceProductNoAuthPushProductGet$Response
 _$ProductServiceProductNoAuthPushProductGet$ResponseFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceProductNoAuthPushProductGet$Response(
-  code: (json['code'] as num).toInt(),
-  message: json['message'] as String,
-  data: ProductServiceProductNoAuthPushProductGet$Response$Data.fromJson(
-    json['data'] as Map<String, dynamic>,
-  ),
-  traceId: json['traceId'] as String,
+  code: (json['code'] as num?)?.toInt(),
+  message: json['message'] as String?,
+  data: json['data'] == null
+      ? null
+      : ProductServiceProductNoAuthPushProductGet$Response$Data.fromJson(
+          json['data'] as Map<String, dynamic>,
+        ),
+  traceId: json['traceId'] as String?,
 );
 
 Map<String, dynamic> _$ProductServiceProductNoAuthPushProductGet$ResponseToJson(
@@ -234,7 +237,7 @@ Map<String, dynamic> _$ProductServiceProductNoAuthPushProductGet$ResponseToJson(
 ) => <String, dynamic>{
   'code': instance.code,
   'message': instance.message,
-  'data': instance.data.toJson(),
+  'data': instance.data?.toJson(),
   'traceId': instance.traceId,
 };
 
@@ -242,16 +245,16 @@ ProductServiceProductNoAuthSearchGet$Response
 _$ProductServiceProductNoAuthSearchGet$ResponseFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceProductNoAuthSearchGet$Response(
-  code: (json['code'] as num).toInt(),
-  message: json['message'] as String,
-  data: (json['data'] as List<dynamic>)
-      .map(
+  code: (json['code'] as num?)?.toInt(),
+  message: json['message'] as String?,
+  data: (json['data'] as List<dynamic>?)
+      ?.map(
         (e) => ProductServiceProductNoAuthSearchGet$Response$Data$Item.fromJson(
           e as Map<String, dynamic>,
         ),
       )
       .toList(),
-  traceId: json['traceId'] as String,
+  traceId: json['traceId'] as String?,
 );
 
 Map<String, dynamic> _$ProductServiceProductNoAuthSearchGet$ResponseToJson(
@@ -259,7 +262,7 @@ Map<String, dynamic> _$ProductServiceProductNoAuthSearchGet$ResponseToJson(
 ) => <String, dynamic>{
   'code': instance.code,
   'message': instance.message,
-  'data': instance.data.map((e) => e.toJson()).toList(),
+  'data': instance.data?.map((e) => e.toJson()).toList(),
   'traceId': instance.traceId,
 };
 
@@ -348,17 +351,17 @@ ProductServiceProductNoAuthSkuListGet$Response
 _$ProductServiceProductNoAuthSkuListGet$ResponseFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceProductNoAuthSkuListGet$Response(
-  code: (json['code'] as num).toInt(),
-  message: json['message'] as String,
-  data: (json['data'] as List<dynamic>)
-      .map(
+  code: (json['code'] as num?)?.toInt(),
+  message: json['message'] as String?,
+  data: (json['data'] as List<dynamic>?)
+      ?.map(
         (e) =>
             ProductServiceProductNoAuthSkuListGet$Response$Data$Item.fromJson(
               e as Map<String, dynamic>,
             ),
       )
       .toList(),
-  traceId: json['traceId'] as String,
+  traceId: json['traceId'] as String?,
 );
 
 Map<String, dynamic> _$ProductServiceProductNoAuthSkuListGet$ResponseToJson(
@@ -366,7 +369,7 @@ Map<String, dynamic> _$ProductServiceProductNoAuthSkuListGet$ResponseToJson(
 ) => <String, dynamic>{
   'code': instance.code,
   'message': instance.message,
-  'data': instance.data.map((e) => e.toJson()).toList(),
+  'data': instance.data?.map((e) => e.toJson()).toList(),
   'traceId': instance.traceId,
 };
 
@@ -430,17 +433,17 @@ ProductServiceProductNoAuthHotProductGet$Response
 _$ProductServiceProductNoAuthHotProductGet$ResponseFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceProductNoAuthHotProductGet$Response(
-  code: (json['code'] as num).toInt(),
-  message: json['message'] as String,
-  data: (json['data'] as List<dynamic>)
-      .map(
+  code: (json['code'] as num?)?.toInt(),
+  message: json['message'] as String?,
+  data: (json['data'] as List<dynamic>?)
+      ?.map(
         (e) =>
             ProductServiceProductNoAuthHotProductGet$Response$Data$Item.fromJson(
               e as Map<String, dynamic>,
             ),
       )
       .toList(),
-  traceId: json['traceId'] as String,
+  traceId: json['traceId'] as String?,
 );
 
 Map<String, dynamic> _$ProductServiceProductNoAuthHotProductGet$ResponseToJson(
@@ -448,7 +451,7 @@ Map<String, dynamic> _$ProductServiceProductNoAuthHotProductGet$ResponseToJson(
 ) => <String, dynamic>{
   'code': instance.code,
   'message': instance.message,
-  'data': instance.data.map((e) => e.toJson()).toList(),
+  'data': instance.data?.map((e) => e.toJson()).toList(),
   'traceId': instance.traceId,
 };
 
@@ -456,12 +459,14 @@ ProductServiceProductNoAuthHotProductV2Get$Response
 _$ProductServiceProductNoAuthHotProductV2Get$ResponseFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceProductNoAuthHotProductV2Get$Response(
-  code: (json['code'] as num).toInt(),
-  message: json['message'] as String,
-  data: ProductServiceProductNoAuthHotProductV2Get$Response$Data.fromJson(
-    json['data'] as Map<String, dynamic>,
-  ),
-  traceId: json['traceId'] as String,
+  code: (json['code'] as num?)?.toInt(),
+  message: json['message'] as String?,
+  data: json['data'] == null
+      ? null
+      : ProductServiceProductNoAuthHotProductV2Get$Response$Data.fromJson(
+          json['data'] as Map<String, dynamic>,
+        ),
+  traceId: json['traceId'] as String?,
 );
 
 Map<String, dynamic>
@@ -470,7 +475,7 @@ _$ProductServiceProductNoAuthHotProductV2Get$ResponseToJson(
 ) => <String, dynamic>{
   'code': instance.code,
   'message': instance.message,
-  'data': instance.data.toJson(),
+  'data': instance.data?.toJson(),
   'traceId': instance.traceId,
 };
 
@@ -563,12 +568,14 @@ ProductServiceShopNoAuthGetThirdShopGet$Response
 _$ProductServiceShopNoAuthGetThirdShopGet$ResponseFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceShopNoAuthGetThirdShopGet$Response(
-  code: (json['code'] as num).toInt(),
-  message: json['message'] as String,
-  data: ProductServiceShopNoAuthGetThirdShopGet$Response$Data.fromJson(
-    json['data'] as Map<String, dynamic>,
-  ),
-  traceId: json['traceId'] as String,
+  code: (json['code'] as num?)?.toInt(),
+  message: json['message'] as String?,
+  data: json['data'] == null
+      ? null
+      : ProductServiceShopNoAuthGetThirdShopGet$Response$Data.fromJson(
+          json['data'] as Map<String, dynamic>,
+        ),
+  traceId: json['traceId'] as String?,
 );
 
 Map<String, dynamic> _$ProductServiceShopNoAuthGetThirdShopGet$ResponseToJson(
@@ -576,7 +583,7 @@ Map<String, dynamic> _$ProductServiceShopNoAuthGetThirdShopGet$ResponseToJson(
 ) => <String, dynamic>{
   'code': instance.code,
   'message': instance.message,
-  'data': instance.data.toJson(),
+  'data': instance.data?.toJson(),
   'traceId': instance.traceId,
 };
 
@@ -693,12 +700,14 @@ ProductServiceRecommendNoAuthCategoryPost$Response
 _$ProductServiceRecommendNoAuthCategoryPost$ResponseFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceRecommendNoAuthCategoryPost$Response(
-  code: (json['code'] as num).toInt(),
-  message: json['message'] as String,
-  data: ProductServiceRecommendNoAuthCategoryPost$Response$Data.fromJson(
-    json['data'] as Map<String, dynamic>,
-  ),
-  traceId: json['traceId'] as String,
+  code: (json['code'] as num?)?.toInt(),
+  message: json['message'] as String?,
+  data: json['data'] == null
+      ? null
+      : ProductServiceRecommendNoAuthCategoryPost$Response$Data.fromJson(
+          json['data'] as Map<String, dynamic>,
+        ),
+  traceId: json['traceId'] as String?,
 );
 
 Map<String, dynamic> _$ProductServiceRecommendNoAuthCategoryPost$ResponseToJson(
@@ -706,7 +715,7 @@ Map<String, dynamic> _$ProductServiceRecommendNoAuthCategoryPost$ResponseToJson(
 ) => <String, dynamic>{
   'code': instance.code,
   'message': instance.message,
-  'data': instance.data.toJson(),
+  'data': instance.data?.toJson(),
   'traceId': instance.traceId,
 };
 
@@ -714,12 +723,14 @@ ProductServiceRecommendNoAuthShopPost$Response
 _$ProductServiceRecommendNoAuthShopPost$ResponseFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceRecommendNoAuthShopPost$Response(
-  code: (json['code'] as num).toInt(),
-  message: json['message'] as String,
-  data: ProductServiceRecommendNoAuthShopPost$Response$Data.fromJson(
-    json['data'] as Map<String, dynamic>,
-  ),
-  traceId: json['traceId'] as String,
+  code: (json['code'] as num?)?.toInt(),
+  message: json['message'] as String?,
+  data: json['data'] == null
+      ? null
+      : ProductServiceRecommendNoAuthShopPost$Response$Data.fromJson(
+          json['data'] as Map<String, dynamic>,
+        ),
+  traceId: json['traceId'] as String?,
 );
 
 Map<String, dynamic> _$ProductServiceRecommendNoAuthShopPost$ResponseToJson(
@@ -727,7 +738,7 @@ Map<String, dynamic> _$ProductServiceRecommendNoAuthShopPost$ResponseToJson(
 ) => <String, dynamic>{
   'code': instance.code,
   'message': instance.message,
-  'data': instance.data.toJson(),
+  'data': instance.data?.toJson(),
   'traceId': instance.traceId,
 };
 
@@ -735,12 +746,14 @@ ProductServiceRecommendNoAuthSimilarProductPost$Response
 _$ProductServiceRecommendNoAuthSimilarProductPost$ResponseFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceRecommendNoAuthSimilarProductPost$Response(
-  code: (json['code'] as num).toInt(),
-  message: json['message'] as String,
-  data: ProductServiceRecommendNoAuthSimilarProductPost$Response$Data.fromJson(
-    json['data'] as Map<String, dynamic>,
-  ),
-  traceId: json['traceId'] as String,
+  code: (json['code'] as num?)?.toInt(),
+  message: json['message'] as String?,
+  data: json['data'] == null
+      ? null
+      : ProductServiceRecommendNoAuthSimilarProductPost$Response$Data.fromJson(
+          json['data'] as Map<String, dynamic>,
+        ),
+  traceId: json['traceId'] as String?,
 );
 
 Map<String, dynamic>
@@ -749,7 +762,7 @@ _$ProductServiceRecommendNoAuthSimilarProductPost$ResponseToJson(
 ) => <String, dynamic>{
   'code': instance.code,
   'message': instance.message,
-  'data': instance.data.toJson(),
+  'data': instance.data?.toJson(),
   'traceId': instance.traceId,
 };
 
@@ -860,18 +873,18 @@ ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data
 _$ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$DataFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data(
-  records: (json['records'] as List<dynamic>)
-      .map(
+  records: (json['records'] as List<dynamic>?)
+      ?.map(
         (e) =>
             ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item.fromJson(
               e as Map<String, dynamic>,
             ),
       )
       .toList(),
-  total: (json['total'] as num).toInt(),
-  pageSize: (json['pageSize'] as num).toInt(),
-  totalPages: (json['totalPages'] as num).toInt(),
-  current: (json['current'] as num).toInt(),
+  total: (json['total'] as num?)?.toInt(),
+  pageSize: (json['pageSize'] as num?)?.toInt(),
+  totalPages: (json['totalPages'] as num?)?.toInt(),
+  current: (json['current'] as num?)?.toInt(),
 );
 
 Map<String, dynamic>
@@ -879,7 +892,7 @@ _$ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$DataToJson(
   ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data
   instance,
 ) => <String, dynamic>{
-  'records': instance.records.map((e) => e.toJson()).toList(),
+  'records': instance.records?.map((e) => e.toJson()).toList(),
   'total': instance.total,
   'pageSize': instance.pageSize,
   'totalPages': instance.totalPages,
@@ -1029,12 +1042,12 @@ ProductServiceProductNoAuthPushProductGet$Response$Data
 _$ProductServiceProductNoAuthPushProductGet$Response$DataFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceProductNoAuthPushProductGet$Response$Data(
-  total: (json['total'] as num).toInt(),
-  pageSize: (json['pageSize'] as num).toInt(),
-  current: (json['current'] as num).toInt(),
-  totalPages: (json['totalPages'] as num).toInt(),
-  records: (json['records'] as List<dynamic>)
-      .map(
+  total: (json['total'] as num?)?.toInt(),
+  pageSize: (json['pageSize'] as num?)?.toInt(),
+  current: (json['current'] as num?)?.toInt(),
+  totalPages: (json['totalPages'] as num?)?.toInt(),
+  records: (json['records'] as List<dynamic>?)
+      ?.map(
         (e) =>
             ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item.fromJson(
               e as Map<String, dynamic>,
@@ -1051,66 +1064,69 @@ _$ProductServiceProductNoAuthPushProductGet$Response$DataToJson(
   'pageSize': instance.pageSize,
   'current': instance.current,
   'totalPages': instance.totalPages,
-  'records': instance.records.map((e) => e.toJson()).toList(),
+  'records': instance.records?.map((e) => e.toJson()).toList(),
 };
 
 ProductServiceProductNoAuthSearchGet$Response$Data$Item
 _$ProductServiceProductNoAuthSearchGet$Response$Data$ItemFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceProductNoAuthSearchGet$Response$Data$Item(
-  shopCode: json['shopCode'] as String,
-  productCode: json['productCode'] as String,
-  productName: json['productName'] as String,
-  tenantCode: json['tenantCode'] as String,
-  brandName: json['brandName'] as String,
-  mainImg:
-      ProductServiceProductNoAuthSearchGet$Response$Data$Item$MainImg.fromJson(
-        json['mainImg'] as Map<String, dynamic>,
-      ),
-  subImg:
-      ProductServiceProductNoAuthSearchGet$Response$Data$Item$SubImg.fromJson(
-        json['subImg'] as Map<String, dynamic>,
-      ),
-  mainVideo:
-      ProductServiceProductNoAuthSearchGet$Response$Data$Item$MainVideo.fromJson(
-        json['mainVideo'] as Map<String, dynamic>,
-      ),
-  imgCollection: (json['imgCollection'] as List<dynamic>)
-      .map(
+  shopCode: json['shopCode'] as String?,
+  productCode: json['productCode'] as String?,
+  productName: json['productName'] as String?,
+  tenantCode: json['tenantCode'] as String?,
+  brandName: json['brandName'] as String?,
+  mainImg: json['mainImg'] == null
+      ? null
+      : ProductServiceProductNoAuthSearchGet$Response$Data$Item$MainImg.fromJson(
+          json['mainImg'] as Map<String, dynamic>,
+        ),
+  subImg: json['subImg'] == null
+      ? null
+      : ProductServiceProductNoAuthSearchGet$Response$Data$Item$SubImg.fromJson(
+          json['subImg'] as Map<String, dynamic>,
+        ),
+  mainVideo: json['mainVideo'] == null
+      ? null
+      : ProductServiceProductNoAuthSearchGet$Response$Data$Item$MainVideo.fromJson(
+          json['mainVideo'] as Map<String, dynamic>,
+        ),
+  imgCollection: (json['imgCollection'] as List<dynamic>?)
+      ?.map(
         (e) =>
             ProductServiceProductNoAuthSearchGet$Response$Data$Item$ImgCollection$Item.fromJson(
               e as Map<String, dynamic>,
             ),
       )
       .toList(),
-  textDetail: json['textDetail'] as String,
-  categoryId: json['categoryId'] as String,
-  productOptions: (json['productOptions'] as List<dynamic>)
-      .map(
+  textDetail: json['textDetail'] as String?,
+  categoryId: json['categoryId'] as String?,
+  productOptions: (json['productOptions'] as List<dynamic>?)
+      ?.map(
         (e) =>
             ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item.fromJson(
               e as Map<String, dynamic>,
             ),
       )
       .toList(),
-  productAttrs: (json['productAttrs'] as List<dynamic>)
-      .map(
+  productAttrs: (json['productAttrs'] as List<dynamic>?)
+      ?.map(
         (e) =>
             ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductAttrs$Item.fromJson(
               e as Map<String, dynamic>,
             ),
       )
       .toList(),
-  sourcePlatform: json['sourcePlatform'] as String,
-  platformUrl: json['platformUrl'] as String,
-  platformProductId: json['platformProductId'] as String,
-  skuCode: json['skuCode'] as String,
-  sellPriceCur: json['sellPriceCur'] as String,
-  sellPrice: json['sellPrice'] as String,
-  targetSellPrice: json['targetSellPrice'] as String,
-  targetSellCur: json['targetSellCur'] as String,
-  marketingInfo: json['marketingInfo'] as String,
-  targetOriginPrice: json['targetOriginPrice'] as String,
+  sourcePlatform: json['sourcePlatform'] as String?,
+  platformUrl: json['platformUrl'] as String?,
+  platformProductId: json['platformProductId'] as String?,
+  skuCode: json['skuCode'] as String?,
+  sellPriceCur: json['sellPriceCur'] as String?,
+  sellPrice: json['sellPrice'] as String?,
+  targetSellPrice: json['targetSellPrice'] as String?,
+  targetSellCur: json['targetSellCur'] as String?,
+  marketingInfo: json['marketingInfo'] as String?,
+  targetOriginPrice: json['targetOriginPrice'] as String?,
   premiumBrandInfo: json['premiumBrandInfo'] == null
       ? null
       : ProductServiceProductNoAuthSearchGet$Response$Data$Item$PremiumBrandInfo.fromJson(
@@ -1132,14 +1148,14 @@ _$ProductServiceProductNoAuthSearchGet$Response$Data$ItemToJson(
   'productName': instance.productName,
   'tenantCode': instance.tenantCode,
   'brandName': instance.brandName,
-  'mainImg': instance.mainImg.toJson(),
-  'subImg': instance.subImg.toJson(),
-  'mainVideo': instance.mainVideo.toJson(),
-  'imgCollection': instance.imgCollection.map((e) => e.toJson()).toList(),
+  'mainImg': instance.mainImg?.toJson(),
+  'subImg': instance.subImg?.toJson(),
+  'mainVideo': instance.mainVideo?.toJson(),
+  'imgCollection': instance.imgCollection?.map((e) => e.toJson()).toList(),
   'textDetail': instance.textDetail,
   'categoryId': instance.categoryId,
-  'productOptions': instance.productOptions.map((e) => e.toJson()).toList(),
-  'productAttrs': instance.productAttrs.map((e) => e.toJson()).toList(),
+  'productOptions': instance.productOptions?.map((e) => e.toJson()).toList(),
+  'productAttrs': instance.productAttrs?.map((e) => e.toJson()).toList(),
   'sourcePlatform': instance.sourcePlatform,
   'platformUrl': instance.platformUrl,
   'platformProductId': instance.platformProductId,
@@ -1216,26 +1232,27 @@ ProductServiceProductNoAuthSkuListGet$Response$Data$Item
 _$ProductServiceProductNoAuthSkuListGet$Response$Data$ItemFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceProductNoAuthSkuListGet$Response$Data$Item(
-  productCode: json['productCode'] as String,
-  skuCode: json['skuCode'] as String,
-  tenantCode: json['tenantCode'] as String,
-  extUrl: json['extUrl'] as String,
-  skuImg:
-      ProductServiceProductNoAuthSkuListGet$Response$Data$Item$SkuImg.fromJson(
-        json['skuImg'] as Map<String, dynamic>,
-      ),
-  skuOptions: (json['skuOptions'] as List<dynamic>)
-      .map(
+  productCode: json['productCode'] as String?,
+  skuCode: json['skuCode'] as String?,
+  tenantCode: json['tenantCode'] as String?,
+  extUrl: json['extUrl'] as String?,
+  skuImg: json['skuImg'] == null
+      ? null
+      : ProductServiceProductNoAuthSkuListGet$Response$Data$Item$SkuImg.fromJson(
+          json['skuImg'] as Map<String, dynamic>,
+        ),
+  skuOptions: (json['skuOptions'] as List<dynamic>?)
+      ?.map(
         (e) =>
             ProductServiceProductNoAuthSkuListGet$Response$Data$Item$SkuOptions$Item.fromJson(
               e as Map<String, dynamic>,
             ),
       )
       .toList(),
-  sellPrice: json['sellPrice'] as String,
-  sellCur: json['sellCur'] as String,
-  targetSellPrice: json['targetSellPrice'] as String,
-  targetSellCur: json['targetSellCur'] as String,
+  sellPrice: json['sellPrice'] as String?,
+  sellCur: json['sellCur'] as String?,
+  targetSellPrice: json['targetSellPrice'] as String?,
+  targetSellCur: json['targetSellCur'] as String?,
   length: json['length'] as String?,
   width: json['width'] as String?,
   height: json['height'] as String?,
@@ -1243,7 +1260,7 @@ _$ProductServiceProductNoAuthSkuListGet$Response$Data$ItemFromJson(
   estimateUnitFreight: json['estimateUnitFreight'] as String?,
   marketingInfo: json['marketingInfo'] as String?,
   targetOriginPrice: json['targetOriginPrice'] as String?,
-  skuSourceCode: json['skuSourceCode'] as String,
+  skuSourceCode: json['skuSourceCode'] as String?,
   flashSaleInfo: json['flashSaleInfo'] == null
       ? null
       : ProductServiceProductNoAuthSkuListGet$Response$Data$Item$FlashSaleInfo.fromJson(
@@ -1259,8 +1276,8 @@ _$ProductServiceProductNoAuthSkuListGet$Response$Data$ItemToJson(
   'skuCode': instance.skuCode,
   'tenantCode': instance.tenantCode,
   'extUrl': instance.extUrl,
-  'skuImg': instance.skuImg.toJson(),
-  'skuOptions': instance.skuOptions.map((e) => e.toJson()).toList(),
+  'skuImg': instance.skuImg?.toJson(),
+  'skuOptions': instance.skuOptions?.map((e) => e.toJson()).toList(),
   'sellPrice': instance.sellPrice,
   'sellCur': instance.sellCur,
   'targetSellPrice': instance.targetSellPrice,
@@ -1381,9 +1398,9 @@ _$ProductServiceProductNoAuthGetProductInfoGet$Response$DataFromJson(
       : ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Ext.fromJson(
           json['ext'] as Map<String, dynamic>,
         ),
-  productFlag: json['productFlag'] as String,
-  marketingInfo: json['marketingInfo'] as String,
-  targetOriginPrice: json['targetOriginPrice'] as String,
+  productFlag: json['productFlag'] as String?,
+  marketingInfo: json['marketingInfo'] as String?,
+  targetOriginPrice: json['targetOriginPrice'] as String?,
   flashSale: json['flashSale'] == null
       ? null
       : ProductServiceProductNoAuthGetProductInfoGet$Response$Data$FlashSale.fromJson(
@@ -1455,22 +1472,23 @@ ProductServiceProductNoAuthHotProductGet$Response$Data$Item
 _$ProductServiceProductNoAuthHotProductGet$Response$Data$ItemFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceProductNoAuthHotProductGet$Response$Data$Item(
-  productCode: json['productCode'] as String,
-  productName: json['productName'] as String,
-  image:
-      ProductServiceProductNoAuthHotProductGet$Response$Data$Item$Image.fromJson(
-        json['image'] as Map<String, dynamic>,
-      ),
-  skuCode: json['skuCode'] as String,
-  sellPriceCur: json['sellPriceCur'] as String,
-  sellPrice: json['sellPrice'] as String,
-  targetSellPrice: json['targetSellPrice'] as String,
-  targetSellCur: json['targetSellCur'] as String,
-  sellQuantity: json['sellQuantity'] as String,
-  marketingInfo: json['marketingInfo'] as String,
-  targetOriginPrice: json['targetOriginPrice'] as String,
-  tags: (json['tags'] as List<dynamic>)
-      .map(
+  productCode: json['productCode'] as String?,
+  productName: json['productName'] as String?,
+  image: json['image'] == null
+      ? null
+      : ProductServiceProductNoAuthHotProductGet$Response$Data$Item$Image.fromJson(
+          json['image'] as Map<String, dynamic>,
+        ),
+  skuCode: json['skuCode'] as String?,
+  sellPriceCur: json['sellPriceCur'] as String?,
+  sellPrice: json['sellPrice'] as String?,
+  targetSellPrice: json['targetSellPrice'] as String?,
+  targetSellCur: json['targetSellCur'] as String?,
+  sellQuantity: json['sellQuantity'] as String?,
+  marketingInfo: json['marketingInfo'] as String?,
+  targetOriginPrice: json['targetOriginPrice'] as String?,
+  tags: (json['tags'] as List<dynamic>?)
+      ?.map(
         (e) =>
             ProductServiceProductNoAuthHotProductGet$Response$Data$Item$Tags$Item.fromJson(
               e as Map<String, dynamic>,
@@ -1495,7 +1513,7 @@ _$ProductServiceProductNoAuthHotProductGet$Response$Data$ItemToJson(
 ) => <String, dynamic>{
   'productCode': instance.productCode,
   'productName': instance.productName,
-  'image': instance.image.toJson(),
+  'image': instance.image?.toJson(),
   'skuCode': instance.skuCode,
   'sellPriceCur': instance.sellPriceCur,
   'sellPrice': instance.sellPrice,
@@ -1504,7 +1522,7 @@ _$ProductServiceProductNoAuthHotProductGet$Response$Data$ItemToJson(
   'sellQuantity': instance.sellQuantity,
   'marketingInfo': instance.marketingInfo,
   'targetOriginPrice': instance.targetOriginPrice,
-  'tags': instance.tags.map((e) => e.toJson()).toList(),
+  'tags': instance.tags?.map((e) => e.toJson()).toList(),
   'premiumBrandInfo': instance.premiumBrandInfo?.toJson(),
   'sellPoints': instance.sellPoints,
 };
@@ -1513,12 +1531,12 @@ ProductServiceProductNoAuthHotProductV2Get$Response$Data
 _$ProductServiceProductNoAuthHotProductV2Get$Response$DataFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceProductNoAuthHotProductV2Get$Response$Data(
-  total: (json['total'] as num).toInt(),
-  pageSize: (json['pageSize'] as num).toInt(),
-  current: (json['current'] as num).toInt(),
-  totalPages: (json['totalPages'] as num).toInt(),
-  records: (json['records'] as List<dynamic>)
-      .map(
+  total: (json['total'] as num?)?.toInt(),
+  pageSize: (json['pageSize'] as num?)?.toInt(),
+  current: (json['current'] as num?)?.toInt(),
+  totalPages: (json['totalPages'] as num?)?.toInt(),
+  records: (json['records'] as List<dynamic>?)
+      ?.map(
         (e) =>
             ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item.fromJson(
               e as Map<String, dynamic>,
@@ -1535,7 +1553,7 @@ _$ProductServiceProductNoAuthHotProductV2Get$Response$DataToJson(
   'pageSize': instance.pageSize,
   'current': instance.current,
   'totalPages': instance.totalPages,
-  'records': instance.records.map((e) => e.toJson()).toList(),
+  'records': instance.records?.map((e) => e.toJson()).toList(),
 };
 
 ProductServiceProductNoAuthHotProductV3Get$Response$Data
@@ -1571,30 +1589,30 @@ ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item
 _$ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$ItemFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item(
-  shopCode: json['shopCode'] as String,
-  productCode: json['productCode'] as String,
-  productName: json['productName'] as String,
-  tenantCode: json['tenantCode'] as String,
-  brandName: json['brandName'] as String,
-  mainImg: (json['mainImg'] as List<dynamic>)
-      .map(
+  shopCode: json['shopCode'] as String?,
+  productCode: json['productCode'] as String?,
+  productName: json['productName'] as String?,
+  tenantCode: json['tenantCode'] as String?,
+  brandName: json['brandName'] as String?,
+  mainImg: (json['mainImg'] as List<dynamic>?)
+      ?.map(
         (e) =>
             ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$MainImg$Item.fromJson(
               e as Map<String, dynamic>,
             ),
       )
       .toList(),
-  subImg: json['subImg'] as Object,
-  mainVideo: (json['mainVideo'] as List<dynamic>)
-      .map(
+  subImg: json['subImg'],
+  mainVideo: (json['mainVideo'] as List<dynamic>?)
+      ?.map(
         (e) =>
             ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$MainVideo$Item.fromJson(
               e as Map<String, dynamic>,
             ),
       )
       .toList(),
-  imgCollection: (json['imgCollection'] as List<dynamic>)
-      .map(
+  imgCollection: (json['imgCollection'] as List<dynamic>?)
+      ?.map(
         (e) =>
             ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgCollection$Item.fromJson(
               e as Map<String, dynamic>,
@@ -1602,44 +1620,44 @@ _$ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$ItemFromJson(
       )
       .toList(),
   textDetail: json['textDetail'] as String?,
-  imgDetail: (json['imgDetail'] as List<dynamic>)
-      .map(
+  imgDetail: (json['imgDetail'] as List<dynamic>?)
+      ?.map(
         (e) =>
             ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgDetail$Item.fromJson(
               e as Map<String, dynamic>,
             ),
       )
       .toList(),
-  categoryId: (json['categoryId'] as num).toDouble(),
-  productOptions: (json['productOptions'] as List<dynamic>)
-      .map(
+  categoryId: (json['categoryId'] as num?)?.toDouble(),
+  productOptions: (json['productOptions'] as List<dynamic>?)
+      ?.map(
         (e) =>
             ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item.fromJson(
               e as Map<String, dynamic>,
             ),
       )
       .toList(),
-  productAttrs: (json['productAttrs'] as List<dynamic>)
-      .map(
+  productAttrs: (json['productAttrs'] as List<dynamic>?)
+      ?.map(
         (e) =>
             ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductAttrs$Item.fromJson(
               e as Map<String, dynamic>,
             ),
       )
       .toList(),
-  sourcePlatform: json['sourcePlatform'] as String,
-  platformUrl: json['platformUrl'] as String,
-  platformProductId: json['platformProductId'] as String,
-  skuCode: json['skuCode'] as String,
-  sellPriceCur: json['sellPriceCur'] as String,
-  sellPrice: json['sellPrice'] as String,
-  targetSellPrice: json['targetSellPrice'] as String,
-  targetSellCur: json['targetSellCur'] as String,
-  productFlag: json['productFlag'] as String,
-  marketingInfo: json['marketingInfo'] as String,
-  sellQuantity: json['sellQuantity'] as String,
-  tags: (json['tags'] as List<dynamic>)
-      .map(
+  sourcePlatform: json['sourcePlatform'] as String?,
+  platformUrl: json['platformUrl'] as String?,
+  platformProductId: json['platformProductId'] as String?,
+  skuCode: json['skuCode'] as String?,
+  sellPriceCur: json['sellPriceCur'] as String?,
+  sellPrice: json['sellPrice'] as String?,
+  targetSellPrice: json['targetSellPrice'] as String?,
+  targetSellCur: json['targetSellCur'] as String?,
+  productFlag: json['productFlag'] as String?,
+  marketingInfo: json['marketingInfo'] as String?,
+  sellQuantity: json['sellQuantity'] as String?,
+  tags: (json['tags'] as List<dynamic>?)
+      ?.map(
         (e) =>
             ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$Tags$Item.fromJson(
               e as Map<String, dynamic>,
@@ -1667,15 +1685,15 @@ _$ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$ItemToJson(
   'productName': instance.productName,
   'tenantCode': instance.tenantCode,
   'brandName': instance.brandName,
-  'mainImg': instance.mainImg.map((e) => e.toJson()).toList(),
+  'mainImg': instance.mainImg?.map((e) => e.toJson()).toList(),
   'subImg': instance.subImg,
-  'mainVideo': instance.mainVideo.map((e) => e.toJson()).toList(),
-  'imgCollection': instance.imgCollection.map((e) => e.toJson()).toList(),
+  'mainVideo': instance.mainVideo?.map((e) => e.toJson()).toList(),
+  'imgCollection': instance.imgCollection?.map((e) => e.toJson()).toList(),
   'textDetail': instance.textDetail,
-  'imgDetail': instance.imgDetail.map((e) => e.toJson()).toList(),
+  'imgDetail': instance.imgDetail?.map((e) => e.toJson()).toList(),
   'categoryId': instance.categoryId,
-  'productOptions': instance.productOptions.map((e) => e.toJson()).toList(),
-  'productAttrs': instance.productAttrs.map((e) => e.toJson()).toList(),
+  'productOptions': instance.productOptions?.map((e) => e.toJson()).toList(),
+  'productAttrs': instance.productAttrs?.map((e) => e.toJson()).toList(),
   'sourcePlatform': instance.sourcePlatform,
   'platformUrl': instance.platformUrl,
   'platformProductId': instance.platformProductId,
@@ -1687,7 +1705,7 @@ _$ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$ItemToJson(
   'productFlag': instance.productFlag,
   'marketingInfo': instance.marketingInfo,
   'sellQuantity': instance.sellQuantity,
-  'tags': instance.tags.map((e) => e.toJson()).toList(),
+  'tags': instance.tags?.map((e) => e.toJson()).toList(),
   'premiumBrandInfo': instance.premiumBrandInfo?.toJson(),
   'sellPoints': instance.sellPoints,
 };
@@ -1725,12 +1743,12 @@ ProductServiceShopNoAuthGetThirdShopGet$Response$Data
 _$ProductServiceShopNoAuthGetThirdShopGet$Response$DataFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceShopNoAuthGetThirdShopGet$Response$Data(
-  shopCode: json['shopCode'] as String,
-  shopName: json['shopName'] as String,
-  icon: json['icon'] as String,
-  recordSource: (json['recordSource'] as num).toInt(),
-  records: (json['records'] as List<dynamic>)
-      .map(
+  shopCode: json['shopCode'] as String?,
+  shopName: json['shopName'] as String?,
+  icon: json['icon'] as String?,
+  recordSource: (json['recordSource'] as num?)?.toInt(),
+  records: (json['records'] as List<dynamic>?)
+      ?.map(
         (e) =>
             ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$Item.fromJson(
               e as Map<String, dynamic>,
@@ -1747,37 +1765,37 @@ _$ProductServiceShopNoAuthGetThirdShopGet$Response$DataToJson(
   'shopName': instance.shopName,
   'icon': instance.icon,
   'recordSource': instance.recordSource,
-  'records': instance.records.map((e) => e.toJson()).toList(),
+  'records': instance.records?.map((e) => e.toJson()).toList(),
 };
 
 ProductServiceProductNoAuthKolProductGet$Response$Data$Item
 _$ProductServiceProductNoAuthKolProductGet$Response$Data$ItemFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceProductNoAuthKolProductGet$Response$Data$Item(
-  shopCode: json['shopCode'] as String,
-  productCode: json['productCode'] as String,
-  productName: json['productName'] as String,
-  tenantCode: json['tenantCode'] as String,
-  brandName: json['brandName'] as String,
-  mainImg: (json['mainImg'] as List<dynamic>)
-      .map(
+  shopCode: json['shopCode'] as String?,
+  productCode: json['productCode'] as String?,
+  productName: json['productName'] as String?,
+  tenantCode: json['tenantCode'] as String?,
+  brandName: json['brandName'] as String?,
+  mainImg: (json['mainImg'] as List<dynamic>?)
+      ?.map(
         (e) =>
             ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainImg$Item.fromJson(
               e as Map<String, dynamic>,
             ),
       )
       .toList(),
-  subImg: json['subImg'] as Object,
-  mainVideo: (json['mainVideo'] as List<dynamic>)
-      .map(
+  subImg: json['subImg'],
+  mainVideo: (json['mainVideo'] as List<dynamic>?)
+      ?.map(
         (e) =>
             ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainVideo$Item.fromJson(
               e as Map<String, dynamic>,
             ),
       )
       .toList(),
-  imgCollection: (json['imgCollection'] as List<dynamic>)
-      .map(
+  imgCollection: (json['imgCollection'] as List<dynamic>?)
+      ?.map(
         (e) =>
             ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgCollection$Item.fromJson(
               e as Map<String, dynamic>,
@@ -1785,44 +1803,44 @@ _$ProductServiceProductNoAuthKolProductGet$Response$Data$ItemFromJson(
       )
       .toList(),
   textDetail: json['textDetail'] as String?,
-  imgDetail: (json['imgDetail'] as List<dynamic>)
-      .map(
+  imgDetail: (json['imgDetail'] as List<dynamic>?)
+      ?.map(
         (e) =>
             ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgDetail$Item.fromJson(
               e as Map<String, dynamic>,
             ),
       )
       .toList(),
-  categoryId: (json['categoryId'] as num).toDouble(),
-  productOptions: (json['productOptions'] as List<dynamic>)
-      .map(
+  categoryId: (json['categoryId'] as num?)?.toDouble(),
+  productOptions: (json['productOptions'] as List<dynamic>?)
+      ?.map(
         (e) =>
             ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item.fromJson(
               e as Map<String, dynamic>,
             ),
       )
       .toList(),
-  productAttrs: (json['productAttrs'] as List<dynamic>)
-      .map(
+  productAttrs: (json['productAttrs'] as List<dynamic>?)
+      ?.map(
         (e) =>
             ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductAttrs$Item.fromJson(
               e as Map<String, dynamic>,
             ),
       )
       .toList(),
-  sourcePlatform: json['sourcePlatform'] as String,
-  platformUrl: json['platformUrl'] as String,
-  platformProductId: json['platformProductId'] as String,
-  skuCode: json['skuCode'] as String,
-  sellPriceCur: json['sellPriceCur'] as String,
-  sellPrice: json['sellPrice'] as String,
-  targetSellPrice: json['targetSellPrice'] as String,
-  targetSellCur: json['targetSellCur'] as String,
-  productFlag: json['productFlag'] as String,
-  marketingInfo: json['marketingInfo'] as String,
-  sellQuantity: json['sellQuantity'] as String,
-  tags: (json['tags'] as List<dynamic>)
-      .map(
+  sourcePlatform: json['sourcePlatform'] as String?,
+  platformUrl: json['platformUrl'] as String?,
+  platformProductId: json['platformProductId'] as String?,
+  skuCode: json['skuCode'] as String?,
+  sellPriceCur: json['sellPriceCur'] as String?,
+  sellPrice: json['sellPrice'] as String?,
+  targetSellPrice: json['targetSellPrice'] as String?,
+  targetSellCur: json['targetSellCur'] as String?,
+  productFlag: json['productFlag'] as String?,
+  marketingInfo: json['marketingInfo'] as String?,
+  sellQuantity: json['sellQuantity'] as String?,
+  tags: (json['tags'] as List<dynamic>?)
+      ?.map(
         (e) =>
             ProductServiceProductNoAuthKolProductGet$Response$Data$Item$Tags$Item.fromJson(
               e as Map<String, dynamic>,
@@ -1850,15 +1868,15 @@ _$ProductServiceProductNoAuthKolProductGet$Response$Data$ItemToJson(
   'productName': instance.productName,
   'tenantCode': instance.tenantCode,
   'brandName': instance.brandName,
-  'mainImg': instance.mainImg.map((e) => e.toJson()).toList(),
+  'mainImg': instance.mainImg?.map((e) => e.toJson()).toList(),
   'subImg': instance.subImg,
-  'mainVideo': instance.mainVideo.map((e) => e.toJson()).toList(),
-  'imgCollection': instance.imgCollection.map((e) => e.toJson()).toList(),
+  'mainVideo': instance.mainVideo?.map((e) => e.toJson()).toList(),
+  'imgCollection': instance.imgCollection?.map((e) => e.toJson()).toList(),
   'textDetail': instance.textDetail,
-  'imgDetail': instance.imgDetail.map((e) => e.toJson()).toList(),
+  'imgDetail': instance.imgDetail?.map((e) => e.toJson()).toList(),
   'categoryId': instance.categoryId,
-  'productOptions': instance.productOptions.map((e) => e.toJson()).toList(),
-  'productAttrs': instance.productAttrs.map((e) => e.toJson()).toList(),
+  'productOptions': instance.productOptions?.map((e) => e.toJson()).toList(),
+  'productAttrs': instance.productAttrs?.map((e) => e.toJson()).toList(),
   'sourcePlatform': instance.sourcePlatform,
   'platformUrl': instance.platformUrl,
   'platformProductId': instance.platformProductId,
@@ -1870,7 +1888,7 @@ _$ProductServiceProductNoAuthKolProductGet$Response$Data$ItemToJson(
   'productFlag': instance.productFlag,
   'marketingInfo': instance.marketingInfo,
   'sellQuantity': instance.sellQuantity,
-  'tags': instance.tags.map((e) => e.toJson()).toList(),
+  'tags': instance.tags?.map((e) => e.toJson()).toList(),
   'premiumBrandInfo': instance.premiumBrandInfo?.toJson(),
   'sellPoints': instance.sellPoints,
 };
@@ -1931,12 +1949,12 @@ ProductServiceRecommendNoAuthCategoryPost$Response$Data
 _$ProductServiceRecommendNoAuthCategoryPost$Response$DataFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceRecommendNoAuthCategoryPost$Response$Data(
-  total: json['total'] as String,
-  pageSize: json['pageSize'] as String,
-  totalPages: json['totalPages'] as String,
-  current: json['current'] as String,
-  records: (json['records'] as List<dynamic>)
-      .map(
+  total: json['total'] as String?,
+  pageSize: json['pageSize'] as String?,
+  totalPages: json['totalPages'] as String?,
+  current: json['current'] as String?,
+  records: (json['records'] as List<dynamic>?)
+      ?.map(
         (e) =>
             ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item.fromJson(
               e as Map<String, dynamic>,
@@ -1953,19 +1971,19 @@ _$ProductServiceRecommendNoAuthCategoryPost$Response$DataToJson(
   'pageSize': instance.pageSize,
   'totalPages': instance.totalPages,
   'current': instance.current,
-  'records': instance.records.map((e) => e.toJson()).toList(),
+  'records': instance.records?.map((e) => e.toJson()).toList(),
 };
 
 ProductServiceRecommendNoAuthShopPost$Response$Data
 _$ProductServiceRecommendNoAuthShopPost$Response$DataFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceRecommendNoAuthShopPost$Response$Data(
-  total: json['total'] as String,
-  pageSize: json['pageSize'] as String,
-  totalPages: json['totalPages'] as String,
-  current: json['current'] as String,
-  records: (json['records'] as List<dynamic>)
-      .map(
+  total: json['total'] as String?,
+  pageSize: json['pageSize'] as String?,
+  totalPages: json['totalPages'] as String?,
+  current: json['current'] as String?,
+  records: (json['records'] as List<dynamic>?)
+      ?.map(
         (e) =>
             ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item.fromJson(
               e as Map<String, dynamic>,
@@ -1982,32 +2000,32 @@ _$ProductServiceRecommendNoAuthShopPost$Response$DataToJson(
   'pageSize': instance.pageSize,
   'totalPages': instance.totalPages,
   'current': instance.current,
-  'records': instance.records.map((e) => e.toJson()).toList(),
+  'records': instance.records?.map((e) => e.toJson()).toList(),
 };
 
 ProductServiceRecommendNoAuthSimilarProductPost$Response$Data
 _$ProductServiceRecommendNoAuthSimilarProductPost$Response$DataFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceRecommendNoAuthSimilarProductPost$Response$Data(
-  records: (json['records'] as List<dynamic>)
-      .map(
+  records: (json['records'] as List<dynamic>?)
+      ?.map(
         (e) =>
             ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item.fromJson(
               e as Map<String, dynamic>,
             ),
       )
       .toList(),
-  total: json['total'] as String,
-  pageSize: json['pageSize'] as String,
-  totalPages: json['totalPages'] as String,
-  current: json['current'] as String,
+  total: json['total'] as String?,
+  pageSize: json['pageSize'] as String?,
+  totalPages: json['totalPages'] as String?,
+  current: json['current'] as String?,
 );
 
 Map<String, dynamic>
 _$ProductServiceRecommendNoAuthSimilarProductPost$Response$DataToJson(
   ProductServiceRecommendNoAuthSimilarProductPost$Response$Data instance,
 ) => <String, dynamic>{
-  'records': instance.records.map((e) => e.toJson()).toList(),
+  'records': instance.records?.map((e) => e.toJson()).toList(),
   'total': instance.total,
   'pageSize': instance.pageSize,
   'totalPages': instance.totalPages,
@@ -2082,14 +2100,14 @@ ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item
 _$ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$ItemFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item(
-  id: (json['id'] as num).toDouble(),
-  parentId: (json['parentId'] as num).toDouble(),
-  level: (json['level'] as num).toDouble(),
-  showOrder: (json['showOrder'] as num).toDouble(),
-  name: json['name'] as String,
-  iconUrl: json['iconUrl'] as String,
-  categoryList: (json['categoryList'] as List<dynamic>)
-      .map(
+  id: (json['id'] as num?)?.toDouble(),
+  parentId: (json['parentId'] as num?)?.toDouble(),
+  level: (json['level'] as num?)?.toDouble(),
+  showOrder: (json['showOrder'] as num?)?.toDouble(),
+  name: json['name'] as String?,
+  iconUrl: json['iconUrl'] as String?,
+  categoryList: (json['categoryList'] as List<dynamic>?)
+      ?.map(
         (e) =>
             ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item.fromJson(
               e as Map<String, dynamic>,
@@ -2111,7 +2129,7 @@ _$ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$ItemToJson(
   'showOrder': instance.showOrder,
   'name': instance.name,
   'iconUrl': instance.iconUrl,
-  'categoryList': instance.categoryList.map((e) => e.toJson()).toList(),
+  'categoryList': instance.categoryList?.map((e) => e.toJson()).toList(),
   'brands': instance.brands,
 };
 
@@ -2147,33 +2165,35 @@ ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$It
 _$ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$ItemFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item(
-  productCode: json['productCode'] as String,
-  productName: json['productName'] as String,
-  image:
-      ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Image.fromJson(
-        json['image'] as Map<String, dynamic>,
-      ),
-  skuCode: json['skuCode'] as String,
-  sellPriceCur: json['sellPriceCur'] as String,
-  sellPrice: json['sellPrice'] as String,
-  targetSellPrice: json['targetSellPrice'] as String,
-  targetOriginPrice: json['targetOriginPrice'] as String,
-  targetSellCur: json['targetSellCur'] as String,
-  sellQuantity: json['sellQuantity'] as String,
-  skuCount: (json['skuCount'] as num).toInt(),
-  marketingInfo: json['marketingInfo'] as String,
-  tags: (json['tags'] as List<dynamic>)
-      .map(
+  productCode: json['productCode'] as String?,
+  productName: json['productName'] as String?,
+  image: json['image'] == null
+      ? null
+      : ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Image.fromJson(
+          json['image'] as Map<String, dynamic>,
+        ),
+  skuCode: json['skuCode'] as String?,
+  sellPriceCur: json['sellPriceCur'] as String?,
+  sellPrice: json['sellPrice'] as String?,
+  targetSellPrice: json['targetSellPrice'] as String?,
+  targetOriginPrice: json['targetOriginPrice'] as String?,
+  targetSellCur: json['targetSellCur'] as String?,
+  sellQuantity: json['sellQuantity'] as String?,
+  skuCount: (json['skuCount'] as num?)?.toInt(),
+  marketingInfo: json['marketingInfo'] as String?,
+  tags: (json['tags'] as List<dynamic>?)
+      ?.map(
         (e) =>
             ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Tags$Item.fromJson(
               e as Map<String, dynamic>,
             ),
       )
       .toList(),
-  flashSale:
-      ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$FlashSale.fromJson(
-        json['flashSale'] as Map<String, dynamic>,
-      ),
+  flashSale: json['flashSale'] == null
+      ? null
+      : ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$FlashSale.fromJson(
+          json['flashSale'] as Map<String, dynamic>,
+        ),
 );
 
 Map<String, dynamic>
@@ -2183,7 +2203,7 @@ _$ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$
 ) => <String, dynamic>{
   'productCode': instance.productCode,
   'productName': instance.productName,
-  'image': instance.image.toJson(),
+  'image': instance.image?.toJson(),
   'skuCode': instance.skuCode,
   'sellPriceCur': instance.sellPriceCur,
   'sellPrice': instance.sellPrice,
@@ -2193,8 +2213,8 @@ _$ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$
   'sellQuantity': instance.sellQuantity,
   'skuCount': instance.skuCount,
   'marketingInfo': instance.marketingInfo,
-  'tags': instance.tags.map((e) => e.toJson()).toList(),
-  'flashSale': instance.flashSale.toJson(),
+  'tags': instance.tags?.map((e) => e.toJson()).toList(),
+  'flashSale': instance.flashSale?.toJson(),
 };
 
 ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item
@@ -2401,20 +2421,21 @@ ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item
 _$ProductServiceProductNoAuthPushProductGet$Response$Data$Records$ItemFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item(
-  productCode: json['productCode'] as String,
-  productName: json['productName'] as String,
-  image:
-      ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item$Image.fromJson(
-        json['image'] as Map<String, dynamic>,
-      ),
-  skuCode: json['skuCode'] as String,
-  sellPriceCur: json['sellPriceCur'] as String,
-  sellPrice: json['sellPrice'] as String,
-  targetSellPrice: json['targetSellPrice'] as String,
-  targetSellCur: json['targetSellCur'] as String,
-  sellQuantity: json['sellQuantity'] as String,
-  tags: (json['tags'] as List<dynamic>)
-      .map(
+  productCode: json['productCode'] as String?,
+  productName: json['productName'] as String?,
+  image: json['image'] == null
+      ? null
+      : ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item$Image.fromJson(
+          json['image'] as Map<String, dynamic>,
+        ),
+  skuCode: json['skuCode'] as String?,
+  sellPriceCur: json['sellPriceCur'] as String?,
+  sellPrice: json['sellPrice'] as String?,
+  targetSellPrice: json['targetSellPrice'] as String?,
+  targetSellCur: json['targetSellCur'] as String?,
+  sellQuantity: json['sellQuantity'] as String?,
+  tags: (json['tags'] as List<dynamic>?)
+      ?.map(
         (e) =>
             ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item$Tags$Item.fromJson(
               e as Map<String, dynamic>,
@@ -2431,8 +2452,8 @@ _$ProductServiceProductNoAuthPushProductGet$Response$Data$Records$ItemFromJson(
           ?.map((e) => e as Object)
           .toList() ??
       [],
-  targetOriginPrice: json['targetOriginPrice'] as String,
-  marketingInfo: json['marketingInfo'] as String,
+  targetOriginPrice: json['targetOriginPrice'] as String?,
+  marketingInfo: json['marketingInfo'] as String?,
 );
 
 Map<String, dynamic>
@@ -2441,14 +2462,14 @@ _$ProductServiceProductNoAuthPushProductGet$Response$Data$Records$ItemToJson(
 ) => <String, dynamic>{
   'productCode': instance.productCode,
   'productName': instance.productName,
-  'image': instance.image.toJson(),
+  'image': instance.image?.toJson(),
   'skuCode': instance.skuCode,
   'sellPriceCur': instance.sellPriceCur,
   'sellPrice': instance.sellPrice,
   'targetSellPrice': instance.targetSellPrice,
   'targetSellCur': instance.targetSellCur,
   'sellQuantity': instance.sellQuantity,
-  'tags': instance.tags.map((e) => e.toJson()).toList(),
+  'tags': instance.tags?.map((e) => e.toJson()).toList(),
   'premiumBrandInfo': instance.premiumBrandInfo?.toJson(),
   'sellPoints': instance.sellPoints,
   'targetOriginPrice': instance.targetOriginPrice,
@@ -2459,9 +2480,9 @@ ProductServiceProductNoAuthSearchGet$Response$Data$Item$MainImg
 _$ProductServiceProductNoAuthSearchGet$Response$Data$Item$MainImgFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceProductNoAuthSearchGet$Response$Data$Item$MainImg(
-  width: (json['width'] as num).toInt(),
-  height: (json['height'] as num).toInt(),
-  url: json['url'] as String,
+  width: (json['width'] as num?)?.toInt(),
+  height: (json['height'] as num?)?.toInt(),
+  url: json['url'] as String?,
 );
 
 Map<String, dynamic>
@@ -2477,9 +2498,9 @@ ProductServiceProductNoAuthSearchGet$Response$Data$Item$SubImg
 _$ProductServiceProductNoAuthSearchGet$Response$Data$Item$SubImgFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceProductNoAuthSearchGet$Response$Data$Item$SubImg(
-  width: (json['width'] as num).toInt(),
-  height: (json['height'] as num).toInt(),
-  url: json['url'] as String,
+  width: (json['width'] as num?)?.toInt(),
+  height: (json['height'] as num?)?.toInt(),
+  url: json['url'] as String?,
 );
 
 Map<String, dynamic>
@@ -2495,7 +2516,7 @@ ProductServiceProductNoAuthSearchGet$Response$Data$Item$MainVideo
 _$ProductServiceProductNoAuthSearchGet$Response$Data$Item$MainVideoFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceProductNoAuthSearchGet$Response$Data$Item$MainVideo(
-  videoUrl: json['videoUrl'] as String,
+  videoUrl: json['videoUrl'] as String?,
 );
 
 Map<String, dynamic>
@@ -2507,9 +2528,9 @@ ProductServiceProductNoAuthSearchGet$Response$Data$Item$ImgCollection$Item
 _$ProductServiceProductNoAuthSearchGet$Response$Data$Item$ImgCollection$ItemFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceProductNoAuthSearchGet$Response$Data$Item$ImgCollection$Item(
-  width: json['width'] as String,
-  height: json['height'] as String,
-  url: json['url'] as String,
+  width: json['width'] as String?,
+  height: json['height'] as String?,
+  url: json['url'] as String?,
 );
 
 Map<String, dynamic>
@@ -2526,12 +2547,12 @@ ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item
 _$ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductOptions$ItemFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item(
-  name: json['name'] as String,
-  enName: json['enName'] as String,
-  styleType: (json['styleType'] as num).toInt(),
-  type: json['type'] as String,
-  optionValues: (json['optionValues'] as List<dynamic>)
-      .map(
+  name: json['name'] as String?,
+  enName: json['enName'] as String?,
+  styleType: (json['styleType'] as num?)?.toInt(),
+  type: json['type'] as String?,
+  optionValues: (json['optionValues'] as List<dynamic>?)
+      ?.map(
         (e) =>
             ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item.fromJson(
               e as Map<String, dynamic>,
@@ -2549,15 +2570,15 @@ _$ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductOptions$ItemToJ
   'enName': instance.enName,
   'styleType': instance.styleType,
   'type': instance.type,
-  'optionValues': instance.optionValues.map((e) => e.toJson()).toList(),
+  'optionValues': instance.optionValues?.map((e) => e.toJson()).toList(),
 };
 
 ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductAttrs$Item
 _$ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductAttrs$ItemFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductAttrs$Item(
-  name: json['name'] as String,
-  value: json['value'] as String,
+  name: json['name'] as String?,
+  value: json['value'] as String?,
 );
 
 Map<String, dynamic>
@@ -2587,48 +2608,48 @@ ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item
 _$ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$ItemFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item(
-  shopCode: json['shopCode'] as String,
-  productCode: json['productCode'] as String,
-  productName: json['productName'] as String,
-  tenantCode: json['tenantCode'] as String,
+  shopCode: json['shopCode'] as String?,
+  productCode: json['productCode'] as String?,
+  productName: json['productName'] as String?,
+  tenantCode: json['tenantCode'] as String?,
   brandName: json['brandName'] as String?,
-  mainImg: (json['mainImg'] as List<dynamic>)
-      .map(
+  mainImg: (json['mainImg'] as List<dynamic>?)
+      ?.map(
         (e) =>
             ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainImg$Item.fromJson(
               e as Map<String, dynamic>,
             ),
       )
       .toList(),
-  subImg: json['subImg'] as Object,
-  mainVideo: (json['mainVideo'] as List<dynamic>)
-      .map(
+  subImg: json['subImg'],
+  mainVideo: (json['mainVideo'] as List<dynamic>?)
+      ?.map(
         (e) =>
             ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainVideo$Item.fromJson(
               e as Map<String, dynamic>,
             ),
       )
       .toList(),
-  imgCollection: (json['imgCollection'] as List<dynamic>)
-      .map(
+  imgCollection: (json['imgCollection'] as List<dynamic>?)
+      ?.map(
         (e) =>
             ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgCollection$Item.fromJson(
               e as Map<String, dynamic>,
             ),
       )
       .toList(),
-  textDetail: json['textDetail'] as Object,
-  imgDetail: (json['imgDetail'] as List<dynamic>)
-      .map(
+  textDetail: json['textDetail'],
+  imgDetail: (json['imgDetail'] as List<dynamic>?)
+      ?.map(
         (e) =>
             ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgDetail$Item.fromJson(
               e as Map<String, dynamic>,
             ),
       )
       .toList(),
-  categoryId: (json['categoryId'] as num).toDouble(),
-  productOptions: (json['productOptions'] as List<dynamic>)
-      .map(
+  categoryId: (json['categoryId'] as num?)?.toDouble(),
+  productOptions: (json['productOptions'] as List<dynamic>?)
+      ?.map(
         (e) =>
             ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$Item.fromJson(
               e as Map<String, dynamic>,
@@ -2640,17 +2661,17 @@ _$ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$ItemFromJson
           ?.map((e) => e as Object)
           .toList() ??
       [],
-  sourcePlatform: json['sourcePlatform'] as String,
-  platformUrl: json['platformUrl'] as String,
-  platformProductId: json['platformProductId'] as String,
-  skuCode: json['skuCode'] as String,
-  sellPriceCur: json['sellPriceCur'] as String,
-  sellPrice: json['sellPrice'] as String,
-  targetSellPrice: json['targetSellPrice'] as String,
-  targetSellCur: json['targetSellCur'] as String,
-  sellQuantity: json['sellQuantity'] as String,
-  tags: (json['tags'] as List<dynamic>)
-      .map(
+  sourcePlatform: json['sourcePlatform'] as String?,
+  platformUrl: json['platformUrl'] as String?,
+  platformProductId: json['platformProductId'] as String?,
+  skuCode: json['skuCode'] as String?,
+  sellPriceCur: json['sellPriceCur'] as String?,
+  sellPrice: json['sellPrice'] as String?,
+  targetSellPrice: json['targetSellPrice'] as String?,
+  targetSellCur: json['targetSellCur'] as String?,
+  sellQuantity: json['sellQuantity'] as String?,
+  tags: (json['tags'] as List<dynamic>?)
+      ?.map(
         (e) =>
             ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$Tags$Item.fromJson(
               e as Map<String, dynamic>,
@@ -2679,14 +2700,14 @@ _$ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$ItemToJson(
   'productName': instance.productName,
   'tenantCode': instance.tenantCode,
   'brandName': instance.brandName,
-  'mainImg': instance.mainImg.map((e) => e.toJson()).toList(),
+  'mainImg': instance.mainImg?.map((e) => e.toJson()).toList(),
   'subImg': instance.subImg,
-  'mainVideo': instance.mainVideo.map((e) => e.toJson()).toList(),
-  'imgCollection': instance.imgCollection.map((e) => e.toJson()).toList(),
+  'mainVideo': instance.mainVideo?.map((e) => e.toJson()).toList(),
+  'imgCollection': instance.imgCollection?.map((e) => e.toJson()).toList(),
   'textDetail': instance.textDetail,
-  'imgDetail': instance.imgDetail.map((e) => e.toJson()).toList(),
+  'imgDetail': instance.imgDetail?.map((e) => e.toJson()).toList(),
   'categoryId': instance.categoryId,
-  'productOptions': instance.productOptions.map((e) => e.toJson()).toList(),
+  'productOptions': instance.productOptions?.map((e) => e.toJson()).toList(),
   'productAttrs': instance.productAttrs,
   'sourcePlatform': instance.sourcePlatform,
   'platformUrl': instance.platformUrl,
@@ -2697,7 +2718,7 @@ _$ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$ItemToJson(
   'targetSellPrice': instance.targetSellPrice,
   'targetSellCur': instance.targetSellCur,
   'sellQuantity': instance.sellQuantity,
-  'tags': instance.tags.map((e) => e.toJson()).toList(),
+  'tags': instance.tags?.map((e) => e.toJson()).toList(),
   'premiumBrandInfo': instance.premiumBrandInfo?.toJson(),
   'sellPoints': instance.sellPoints,
 };
@@ -2826,9 +2847,9 @@ ProductServiceProductNoAuthSkuListGet$Response$Data$Item$SkuImg
 _$ProductServiceProductNoAuthSkuListGet$Response$Data$Item$SkuImgFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceProductNoAuthSkuListGet$Response$Data$Item$SkuImg(
-  width: (json['width'] as num).toInt(),
-  height: (json['height'] as num).toInt(),
-  url: json['url'] as String,
+  width: (json['width'] as num?)?.toInt(),
+  height: (json['height'] as num?)?.toInt(),
+  url: json['url'] as String?,
 );
 
 Map<String, dynamic>
@@ -2844,8 +2865,8 @@ ProductServiceProductNoAuthSkuListGet$Response$Data$Item$SkuOptions$Item
 _$ProductServiceProductNoAuthSkuListGet$Response$Data$Item$SkuOptions$ItemFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceProductNoAuthSkuListGet$Response$Data$Item$SkuOptions$Item(
-  name: json['name'] as String,
-  value: json['value'] as String,
+  name: json['name'] as String?,
+  value: json['value'] as String?,
 );
 
 Map<String, dynamic>
@@ -2858,13 +2879,13 @@ ProductServiceProductNoAuthSkuListGet$Response$Data$Item$FlashSaleInfo
 _$ProductServiceProductNoAuthSkuListGet$Response$Data$Item$FlashSaleInfoFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceProductNoAuthSkuListGet$Response$Data$Item$FlashSaleInfo(
-  activityCode: json['activityCode'] as String,
-  activityTitle: json['activityTitle'] as String,
-  startTime: (json['startTime'] as num).toInt(),
-  endTime: (json['endTime'] as num).toInt(),
-  progressPercent: (json['progressPercent'] as num).toInt(),
-  progressText: json['progressText'] as String,
-  marketingIcon: json['marketingIcon'] as String,
+  activityCode: json['activityCode'] as String?,
+  activityTitle: json['activityTitle'] as String?,
+  startTime: (json['startTime'] as num?)?.toInt(),
+  endTime: (json['endTime'] as num?)?.toInt(),
+  progressPercent: (json['progressPercent'] as num?)?.toInt(),
+  progressText: json['progressText'] as String?,
+  marketingIcon: json['marketingIcon'] as String?,
 );
 
 Map<String, dynamic>
@@ -2928,9 +2949,9 @@ _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgCollection$ItemF
   Map<String, dynamic> json,
 ) =>
     ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgCollection$Item(
-      width: (json['width'] as num).toDouble(),
-      height: (json['height'] as num).toDouble(),
-      url: json['url'] as String,
+      width: (json['width'] as num?)?.toDouble(),
+      height: (json['height'] as num?)?.toDouble(),
+      url: json['url'] as String?,
     );
 
 Map<String, dynamic>
@@ -2947,9 +2968,9 @@ ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgDetail$Item
 _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgDetail$ItemFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgDetail$Item(
-  width: (json['width'] as num).toDouble(),
-  height: (json['height'] as num).toDouble(),
-  url: json['url'] as String,
+  width: (json['width'] as num?)?.toDouble(),
+  height: (json['height'] as num?)?.toDouble(),
+  url: json['url'] as String?,
 );
 
 Map<String, dynamic>
@@ -2966,10 +2987,10 @@ ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item
 _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$ItemFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item(
-  name: json['name'] as String,
-  type: (json['type'] as num).toDouble(),
-  optionValues: (json['optionValues'] as List<dynamic>)
-      .map(
+  name: json['name'] as String?,
+  type: (json['type'] as num?)?.toDouble(),
+  optionValues: (json['optionValues'] as List<dynamic>?)
+      ?.map(
         (e) =>
             ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item$OptionValues$Item.fromJson(
               e as Map<String, dynamic>,
@@ -2985,7 +3006,7 @@ _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item
 ) => <String, dynamic>{
   'name': instance.name,
   'type': instance.type,
-  'optionValues': instance.optionValues.map((e) => e.toJson()).toList(),
+  'optionValues': instance.optionValues?.map((e) => e.toJson()).toList(),
 };
 
 ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductAttrs$Item
@@ -2993,8 +3014,8 @@ _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductAttrs$ItemFr
   Map<String, dynamic> json,
 ) =>
     ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductAttrs$Item(
-      name: json['name'] as String,
-      value: json['value'] as String,
+      name: json['name'] as String?,
+      value: json['value'] as String?,
     );
 
 Map<String, dynamic>
@@ -3030,9 +3051,9 @@ ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Tags$Item
 _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Tags$ItemFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Tags$Item(
-  tagCode: json['tagCode'] as String,
-  tagName: json['tagName'] as String,
-  tagImg: json['tagImg'] as String,
+  tagCode: json['tagCode'] as String?,
+  tagName: json['tagName'] as String?,
+  tagImg: json['tagImg'] as String?,
 );
 
 Map<String, dynamic>
@@ -3066,8 +3087,8 @@ ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Ext
 _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ExtFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Ext(
-  sizeHelperOptionName: json['sizeHelperOptionName'] as String,
-  sizeHelperType: (json['sizeHelperType'] as num).toInt(),
+  sizeHelperOptionName: json['sizeHelperOptionName'] as String?,
+  sizeHelperType: (json['sizeHelperType'] as num?)?.toInt(),
   brand: json['brand'] == null
       ? null
       : ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Ext$Brand.fromJson(
@@ -3088,14 +3109,14 @@ ProductServiceProductNoAuthGetProductInfoGet$Response$Data$FlashSale
 _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$FlashSaleFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceProductNoAuthGetProductInfoGet$Response$Data$FlashSale(
-  activityCode: json['activityCode'] as String,
-  activityTitle: json['activityTitle'] as String,
-  startTime: json['startTime'] as String,
-  endTime: json['endTime'] as String,
-  progressPercent: json['progressPercent'] as String,
-  progressText: json['progressText'] as String,
-  marketingIcon: json['marketingIcon'] as String,
-  discountExpr: json['discountExpr'] as String,
+  activityCode: json['activityCode'] as String?,
+  activityTitle: json['activityTitle'] as String?,
+  startTime: json['startTime'] as String?,
+  endTime: json['endTime'] as String?,
+  progressPercent: json['progressPercent'] as String?,
+  progressText: json['progressText'] as String?,
+  marketingIcon: json['marketingIcon'] as String?,
+  discountExpr: json['discountExpr'] as String?,
 );
 
 Map<String, dynamic>
@@ -3116,14 +3137,14 @@ ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$
 _$ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$ItemFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item(
-  id: (json['id'] as num).toDouble(),
-  parentId: (json['parentId'] as num).toDouble(),
-  level: (json['level'] as num).toDouble(),
-  showOrder: (json['showOrder'] as num).toDouble(),
-  name: json['name'] as String,
-  iconUrl: json['iconUrl'] as String,
-  categoryList: (json['categoryList'] as List<dynamic>)
-      .map(
+  id: (json['id'] as num?)?.toDouble(),
+  parentId: (json['parentId'] as num?)?.toDouble(),
+  level: (json['level'] as num?)?.toDouble(),
+  showOrder: (json['showOrder'] as num?)?.toDouble(),
+  name: json['name'] as String?,
+  iconUrl: json['iconUrl'] as String?,
+  categoryList: (json['categoryList'] as List<dynamic>?)
+      ?.map(
         (e) =>
             ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item$CategoryList$Item.fromJson(
               e as Map<String, dynamic>,
@@ -3146,7 +3167,7 @@ _$ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data$CategoryLis
   'showOrder': instance.showOrder,
   'name': instance.name,
   'iconUrl': instance.iconUrl,
-  'categoryList': instance.categoryList.map((e) => e.toJson()).toList(),
+  'categoryList': instance.categoryList?.map((e) => e.toJson()).toList(),
   'brands': instance.brands,
 };
 
@@ -3154,9 +3175,9 @@ ProductServiceProductNoAuthHotProductGet$Response$Data$Item$Image
 _$ProductServiceProductNoAuthHotProductGet$Response$Data$Item$ImageFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceProductNoAuthHotProductGet$Response$Data$Item$Image(
-  width: (json['width'] as num).toInt(),
-  height: (json['height'] as num).toInt(),
-  url: json['url'] as String,
+  width: (json['width'] as num?)?.toInt(),
+  height: (json['height'] as num?)?.toInt(),
+  url: json['url'] as String?,
 );
 
 Map<String, dynamic>
@@ -3204,20 +3225,21 @@ ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item
 _$ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$ItemFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item(
-  productCode: json['productCode'] as String,
-  productName: json['productName'] as String,
-  image:
-      ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$Image.fromJson(
-        json['image'] as Map<String, dynamic>,
-      ),
-  skuCode: json['skuCode'] as String,
-  sellPriceCur: json['sellPriceCur'] as String,
-  sellPrice: json['sellPrice'] as String,
-  targetSellPrice: json['targetSellPrice'] as String,
-  targetSellCur: json['targetSellCur'] as String,
-  sellQuantity: json['sellQuantity'] as String,
-  tags: (json['tags'] as List<dynamic>)
-      .map(
+  productCode: json['productCode'] as String?,
+  productName: json['productName'] as String?,
+  image: json['image'] == null
+      ? null
+      : ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$Image.fromJson(
+          json['image'] as Map<String, dynamic>,
+        ),
+  skuCode: json['skuCode'] as String?,
+  sellPriceCur: json['sellPriceCur'] as String?,
+  sellPrice: json['sellPrice'] as String?,
+  targetSellPrice: json['targetSellPrice'] as String?,
+  targetSellCur: json['targetSellCur'] as String?,
+  sellQuantity: json['sellQuantity'] as String?,
+  tags: (json['tags'] as List<dynamic>?)
+      ?.map(
         (e) =>
             ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$Tags$Item.fromJson(
               e as Map<String, dynamic>,
@@ -3251,14 +3273,14 @@ _$ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$ItemToJson(
 ) => <String, dynamic>{
   'productCode': instance.productCode,
   'productName': instance.productName,
-  'image': instance.image.toJson(),
+  'image': instance.image?.toJson(),
   'skuCode': instance.skuCode,
   'sellPriceCur': instance.sellPriceCur,
   'sellPrice': instance.sellPrice,
   'targetSellPrice': instance.targetSellPrice,
   'targetSellCur': instance.targetSellCur,
   'sellQuantity': instance.sellQuantity,
-  'tags': instance.tags.map((e) => e.toJson()).toList(),
+  'tags': instance.tags?.map((e) => e.toJson()).toList(),
   'premiumBrandInfo': instance.premiumBrandInfo?.toJson(),
   'sellPoints': instance.sellPoints,
   'rate': instance.rate,
@@ -3271,25 +3293,26 @@ ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item
 _$ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$ItemFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item(
-  productCode: json['productCode'] as String,
-  productName: json['productName'] as String,
-  image:
-      ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$Image.fromJson(
-        json['image'] as Map<String, dynamic>,
-      ),
-  sourcePlatform: json['sourcePlatform'] as String,
-  platformProductId: json['platformProductId'] as String,
-  skuCode: json['skuCode'] as String,
-  sellPriceCur: json['sellPriceCur'] as String,
-  sellPrice: json['sellPrice'] as String,
-  targetSellPrice: json['targetSellPrice'] as String,
-  targetOriginPrice: json['targetOriginPrice'] as String,
-  targetSellCur: json['targetSellCur'] as String,
-  sellQuantity: json['sellQuantity'] as String,
-  skuCount: (json['skuCount'] as num).toDouble(),
-  marketingInfo: json['marketingInfo'] as String,
-  tags: (json['tags'] as List<dynamic>)
-      .map(
+  productCode: json['productCode'] as String?,
+  productName: json['productName'] as String?,
+  image: json['image'] == null
+      ? null
+      : ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$Image.fromJson(
+          json['image'] as Map<String, dynamic>,
+        ),
+  sourcePlatform: json['sourcePlatform'] as String?,
+  platformProductId: json['platformProductId'] as String?,
+  skuCode: json['skuCode'] as String?,
+  sellPriceCur: json['sellPriceCur'] as String?,
+  sellPrice: json['sellPrice'] as String?,
+  targetSellPrice: json['targetSellPrice'] as String?,
+  targetOriginPrice: json['targetOriginPrice'] as String?,
+  targetSellCur: json['targetSellCur'] as String?,
+  sellQuantity: json['sellQuantity'] as String?,
+  skuCount: (json['skuCount'] as num?)?.toDouble(),
+  marketingInfo: json['marketingInfo'] as String?,
+  tags: (json['tags'] as List<dynamic>?)
+      ?.map(
         (e) =>
             ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$Tags$Item.fromJson(
               e as Map<String, dynamic>,
@@ -3321,7 +3344,7 @@ _$ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$ItemToJson(
 ) => <String, dynamic>{
   'productCode': instance.productCode,
   'productName': instance.productName,
-  'image': instance.image.toJson(),
+  'image': instance.image?.toJson(),
   'sourcePlatform': instance.sourcePlatform,
   'platformProductId': instance.platformProductId,
   'skuCode': instance.skuCode,
@@ -3333,7 +3356,7 @@ _$ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$ItemToJson(
   'sellQuantity': instance.sellQuantity,
   'skuCount': instance.skuCount,
   'marketingInfo': instance.marketingInfo,
-  'tags': instance.tags.map((e) => e.toJson()).toList(),
+  'tags': instance.tags?.map((e) => e.toJson()).toList(),
   'premiumBrandInfo': instance.premiumBrandInfo?.toJson(),
   'sellPoints': instance.sellPoints,
   'rate': instance.rate,
@@ -3345,9 +3368,9 @@ _$ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$MainImg$Item
   Map<String, dynamic> json,
 ) =>
     ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$MainImg$Item(
-      width: (json['width'] as num).toDouble(),
-      height: (json['height'] as num).toDouble(),
-      url: json['url'] as String,
+      width: (json['width'] as num?)?.toDouble(),
+      height: (json['height'] as num?)?.toDouble(),
+      url: json['url'] as String?,
     );
 
 Map<String, dynamic>
@@ -3365,11 +3388,11 @@ _$ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$MainVideo$It
   Map<String, dynamic> json,
 ) =>
     ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$MainVideo$Item(
-      videoUrl: json['videoUrl'] as String,
-      vodUrl: json['vodUrl'] as String,
-      previewUrl: json['previewUrl'] as String,
-      width: (json['width'] as num).toDouble(),
-      height: (json['height'] as num).toDouble(),
+      videoUrl: json['videoUrl'] as String?,
+      vodUrl: json['vodUrl'] as String?,
+      previewUrl: json['previewUrl'] as String?,
+      width: (json['width'] as num?)?.toDouble(),
+      height: (json['height'] as num?)?.toDouble(),
     );
 
 Map<String, dynamic>
@@ -3389,9 +3412,9 @@ _$ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgCollectio
   Map<String, dynamic> json,
 ) =>
     ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgCollection$Item(
-      width: (json['width'] as num).toDouble(),
-      height: (json['height'] as num).toDouble(),
-      url: json['url'] as String,
+      width: (json['width'] as num?)?.toDouble(),
+      height: (json['height'] as num?)?.toDouble(),
+      url: json['url'] as String?,
     );
 
 Map<String, dynamic>
@@ -3409,9 +3432,9 @@ _$ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgDetail$It
   Map<String, dynamic> json,
 ) =>
     ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgDetail$Item(
-      width: (json['width'] as num).toDouble(),
-      height: (json['height'] as num).toDouble(),
-      url: json['url'] as String,
+      width: (json['width'] as num?)?.toDouble(),
+      height: (json['height'] as num?)?.toDouble(),
+      url: json['url'] as String?,
     );
 
 Map<String, dynamic>
@@ -3428,10 +3451,10 @@ ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions
 _$ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$ItemFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item(
-  name: json['name'] as String,
-  type: (json['type'] as num).toDouble(),
-  optionValues: (json['optionValues'] as List<dynamic>)
-      .map(
+  name: json['name'] as String?,
+  type: (json['type'] as num?)?.toDouble(),
+  optionValues: (json['optionValues'] as List<dynamic>?)
+      ?.map(
         (e) =>
             ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item.fromJson(
               e as Map<String, dynamic>,
@@ -3447,7 +3470,7 @@ _$ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptio
 ) => <String, dynamic>{
   'name': instance.name,
   'type': instance.type,
-  'optionValues': instance.optionValues.map((e) => e.toJson()).toList(),
+  'optionValues': instance.optionValues?.map((e) => e.toJson()).toList(),
 };
 
 ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductAttrs$Item
@@ -3455,8 +3478,8 @@ _$ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductAttrs
   Map<String, dynamic> json,
 ) =>
     ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductAttrs$Item(
-      name: json['name'] as String,
-      value: json['value'] as String,
+      name: json['name'] as String?,
+      value: json['value'] as String?,
     );
 
 Map<String, dynamic>
@@ -3622,20 +3645,21 @@ ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$Item
 _$ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$ItemFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$Item(
-  productCode: json['productCode'] as String,
-  productName: json['productName'] as String,
-  image:
-      ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$Item$Image.fromJson(
-        json['image'] as Map<String, dynamic>,
-      ),
-  skuCode: json['skuCode'] as String,
-  sellPriceCur: json['sellPriceCur'] as String,
-  sellPrice: json['sellPrice'] as String,
-  targetSellPrice: json['targetSellPrice'] as String,
-  targetSellCur: json['targetSellCur'] as String,
-  sellQuantity: json['sellQuantity'] as String,
-  marketingInfo: json['marketingInfo'] as String,
-  targetOriginPrice: json['targetOriginPrice'] as String,
+  productCode: json['productCode'] as String?,
+  productName: json['productName'] as String?,
+  image: json['image'] == null
+      ? null
+      : ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$Item$Image.fromJson(
+          json['image'] as Map<String, dynamic>,
+        ),
+  skuCode: json['skuCode'] as String?,
+  sellPriceCur: json['sellPriceCur'] as String?,
+  sellPrice: json['sellPrice'] as String?,
+  targetSellPrice: json['targetSellPrice'] as String?,
+  targetSellCur: json['targetSellCur'] as String?,
+  sellQuantity: json['sellQuantity'] as String?,
+  marketingInfo: json['marketingInfo'] as String?,
+  targetOriginPrice: json['targetOriginPrice'] as String?,
   premiumBrandInfo: json['premiumBrandInfo'] == null
       ? null
       : ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$Item$PremiumBrandInfo.fromJson(
@@ -3654,7 +3678,7 @@ _$ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$ItemToJson(
 ) => <String, dynamic>{
   'productCode': instance.productCode,
   'productName': instance.productName,
-  'image': instance.image.toJson(),
+  'image': instance.image?.toJson(),
   'skuCode': instance.skuCode,
   'sellPriceCur': instance.sellPriceCur,
   'sellPrice': instance.sellPrice,
@@ -3671,9 +3695,9 @@ ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainImg$Item
 _$ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainImg$ItemFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainImg$Item(
-  width: (json['width'] as num).toDouble(),
-  height: (json['height'] as num).toDouble(),
-  url: json['url'] as String,
+  width: (json['width'] as num?)?.toDouble(),
+  height: (json['height'] as num?)?.toDouble(),
+  url: json['url'] as String?,
 );
 
 Map<String, dynamic>
@@ -3690,11 +3714,11 @@ ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainVideo$Item
 _$ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainVideo$ItemFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainVideo$Item(
-  videoUrl: json['videoUrl'] as String,
-  vodUrl: json['vodUrl'] as String,
-  previewUrl: json['previewUrl'] as String,
-  width: (json['width'] as num).toDouble(),
-  height: (json['height'] as num).toDouble(),
+  videoUrl: json['videoUrl'] as String?,
+  vodUrl: json['vodUrl'] as String?,
+  previewUrl: json['previewUrl'] as String?,
+  width: (json['width'] as num?)?.toDouble(),
+  height: (json['height'] as num?)?.toDouble(),
 );
 
 Map<String, dynamic>
@@ -3714,9 +3738,9 @@ _$ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgCollection$Item
   Map<String, dynamic> json,
 ) =>
     ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgCollection$Item(
-      width: (json['width'] as num).toDouble(),
-      height: (json['height'] as num).toDouble(),
-      url: json['url'] as String,
+      width: (json['width'] as num?)?.toDouble(),
+      height: (json['height'] as num?)?.toDouble(),
+      url: json['url'] as String?,
     );
 
 Map<String, dynamic>
@@ -3733,9 +3757,9 @@ ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgDetail$Item
 _$ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgDetail$ItemFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgDetail$Item(
-  width: (json['width'] as num).toDouble(),
-  height: (json['height'] as num).toDouble(),
-  url: json['url'] as String,
+  width: (json['width'] as num?)?.toDouble(),
+  height: (json['height'] as num?)?.toDouble(),
+  url: json['url'] as String?,
 );
 
 Map<String, dynamic>
@@ -3752,10 +3776,10 @@ ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item
 _$ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$ItemFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item(
-  name: json['name'] as String,
-  type: (json['type'] as num).toDouble(),
-  optionValues: (json['optionValues'] as List<dynamic>)
-      .map(
+  name: json['name'] as String?,
+  type: (json['type'] as num?)?.toDouble(),
+  optionValues: (json['optionValues'] as List<dynamic>?)
+      ?.map(
         (e) =>
             ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item.fromJson(
               e as Map<String, dynamic>,
@@ -3771,7 +3795,7 @@ _$ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Ite
 ) => <String, dynamic>{
   'name': instance.name,
   'type': instance.type,
-  'optionValues': instance.optionValues.map((e) => e.toJson()).toList(),
+  'optionValues': instance.optionValues?.map((e) => e.toJson()).toList(),
 };
 
 ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductAttrs$Item
@@ -3779,8 +3803,8 @@ _$ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductAttrs$ItemF
   Map<String, dynamic> json,
 ) =>
     ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductAttrs$Item(
-      name: json['name'] as String,
-      value: json['value'] as String,
+      name: json['name'] as String?,
+      value: json['value'] as String?,
     );
 
 Map<String, dynamic>
@@ -3945,16 +3969,16 @@ ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$
 _$ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$ItemFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item(
-  categoryName: json['categoryName'] as String,
-  productInfos: (json['productInfos'] as List<dynamic>)
-      .map(
+  categoryName: json['categoryName'] as String?,
+  productInfos: (json['productInfos'] as List<dynamic>?)
+      ?.map(
         (e) =>
             ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item.fromJson(
               e as Map<String, dynamic>,
             ),
       )
       .toList(),
-  recommendationReason: json['recommendationReason'] as String,
+  recommendationReason: json['recommendationReason'] as String?,
 );
 
 Map<String, dynamic>
@@ -3963,7 +3987,7 @@ _$ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categorie
   instance,
 ) => <String, dynamic>{
   'categoryName': instance.categoryName,
-  'productInfos': instance.productInfos.map((e) => e.toJson()).toList(),
+  'productInfos': instance.productInfos?.map((e) => e.toJson()).toList(),
   'recommendationReason': instance.recommendationReason,
 };
 
@@ -3971,21 +3995,22 @@ ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item
 _$ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$ItemFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item(
-  productCode: json['productCode'] as String,
-  productName: json['productName'] as String,
-  image:
-      ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item$Image.fromJson(
-        json['image'] as Map<String, dynamic>,
-      ),
-  skuCode: json['skuCode'] as String,
-  sellPriceCur: json['sellPriceCur'] as String,
-  sellPrice: json['sellPrice'] as String,
-  targetSellPrice: json['targetSellPrice'] as String,
-  targetSellCur: json['targetSellCur'] as String,
-  sellQuantity: json['sellQuantity'] as String,
-  skuCount: (json['skuCount'] as num).toInt(),
-  tags: (json['tags'] as List<dynamic>)
-      .map(
+  productCode: json['productCode'] as String?,
+  productName: json['productName'] as String?,
+  image: json['image'] == null
+      ? null
+      : ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item$Image.fromJson(
+          json['image'] as Map<String, dynamic>,
+        ),
+  skuCode: json['skuCode'] as String?,
+  sellPriceCur: json['sellPriceCur'] as String?,
+  sellPrice: json['sellPrice'] as String?,
+  targetSellPrice: json['targetSellPrice'] as String?,
+  targetSellCur: json['targetSellCur'] as String?,
+  sellQuantity: json['sellQuantity'] as String?,
+  skuCount: (json['skuCount'] as num?)?.toInt(),
+  tags: (json['tags'] as List<dynamic>?)
+      ?.map(
         (e) =>
             ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item$Tags$Item.fromJson(
               e as Map<String, dynamic>,
@@ -4010,7 +4035,7 @@ _$ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$ItemToJson(
 ) => <String, dynamic>{
   'productCode': instance.productCode,
   'productName': instance.productName,
-  'image': instance.image.toJson(),
+  'image': instance.image?.toJson(),
   'skuCode': instance.skuCode,
   'sellPriceCur': instance.sellPriceCur,
   'sellPrice': instance.sellPrice,
@@ -4018,7 +4043,7 @@ _$ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$ItemToJson(
   'targetSellCur': instance.targetSellCur,
   'sellQuantity': instance.sellQuantity,
   'skuCount': instance.skuCount,
-  'tags': instance.tags.map((e) => e.toJson()).toList(),
+  'tags': instance.tags?.map((e) => e.toJson()).toList(),
   'premiumBrandInfo': instance.premiumBrandInfo?.toJson(),
   'sellPoints': instance.sellPoints,
 };
@@ -4027,23 +4052,24 @@ ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item
 _$ProductServiceRecommendNoAuthShopPost$Response$Data$Records$ItemFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item(
-  productCode: json['productCode'] as String,
-  productName: json['productName'] as String,
-  image:
-      ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item$Image.fromJson(
-        json['image'] as Map<String, dynamic>,
-      ),
-  skuCode: json['skuCode'] as String,
-  sellPriceCur: json['sellPriceCur'] as String,
-  sellPrice: json['sellPrice'] as String,
-  targetSellPrice: json['targetSellPrice'] as String,
-  targetSellCur: json['targetSellCur'] as String,
-  sellQuantity: json['sellQuantity'] as String,
-  skuCount: (json['skuCount'] as num).toInt(),
-  marketingInfo: json['marketingInfo'] as String,
-  targetOriginPrice: json['targetOriginPrice'] as String,
-  tags: (json['tags'] as List<dynamic>)
-      .map(
+  productCode: json['productCode'] as String?,
+  productName: json['productName'] as String?,
+  image: json['image'] == null
+      ? null
+      : ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item$Image.fromJson(
+          json['image'] as Map<String, dynamic>,
+        ),
+  skuCode: json['skuCode'] as String?,
+  sellPriceCur: json['sellPriceCur'] as String?,
+  sellPrice: json['sellPrice'] as String?,
+  targetSellPrice: json['targetSellPrice'] as String?,
+  targetSellCur: json['targetSellCur'] as String?,
+  sellQuantity: json['sellQuantity'] as String?,
+  skuCount: (json['skuCount'] as num?)?.toInt(),
+  marketingInfo: json['marketingInfo'] as String?,
+  targetOriginPrice: json['targetOriginPrice'] as String?,
+  tags: (json['tags'] as List<dynamic>?)
+      ?.map(
         (e) =>
             ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item$Tags$Item.fromJson(
               e as Map<String, dynamic>,
@@ -4068,7 +4094,7 @@ _$ProductServiceRecommendNoAuthShopPost$Response$Data$Records$ItemToJson(
 ) => <String, dynamic>{
   'productCode': instance.productCode,
   'productName': instance.productName,
-  'image': instance.image.toJson(),
+  'image': instance.image?.toJson(),
   'skuCode': instance.skuCode,
   'sellPriceCur': instance.sellPriceCur,
   'sellPrice': instance.sellPrice,
@@ -4078,7 +4104,7 @@ _$ProductServiceRecommendNoAuthShopPost$Response$Data$Records$ItemToJson(
   'skuCount': instance.skuCount,
   'marketingInfo': instance.marketingInfo,
   'targetOriginPrice': instance.targetOriginPrice,
-  'tags': instance.tags.map((e) => e.toJson()).toList(),
+  'tags': instance.tags?.map((e) => e.toJson()).toList(),
   'premiumBrandInfo': instance.premiumBrandInfo?.toJson(),
   'sellPoints': instance.sellPoints,
 };
@@ -4087,23 +4113,24 @@ ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item
 _$ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$ItemFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item(
-  productCode: json['productCode'] as String,
-  productName: json['productName'] as String,
-  image:
-      ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item$Image.fromJson(
-        json['image'] as Map<String, dynamic>,
-      ),
-  skuCode: json['skuCode'] as String,
-  sellPriceCur: json['sellPriceCur'] as String,
-  sellPrice: json['sellPrice'] as String,
-  targetSellPrice: json['targetSellPrice'] as String,
-  targetSellCur: json['targetSellCur'] as String,
-  sellQuantity: json['sellQuantity'] as String,
-  skuCount: (json['skuCount'] as num).toInt(),
-  marketingInfo: json['marketingInfo'] as String,
-  targetOriginPrice: json['targetOriginPrice'] as String,
-  tags: (json['tags'] as List<dynamic>)
-      .map(
+  productCode: json['productCode'] as String?,
+  productName: json['productName'] as String?,
+  image: json['image'] == null
+      ? null
+      : ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item$Image.fromJson(
+          json['image'] as Map<String, dynamic>,
+        ),
+  skuCode: json['skuCode'] as String?,
+  sellPriceCur: json['sellPriceCur'] as String?,
+  sellPrice: json['sellPrice'] as String?,
+  targetSellPrice: json['targetSellPrice'] as String?,
+  targetSellCur: json['targetSellCur'] as String?,
+  sellQuantity: json['sellQuantity'] as String?,
+  skuCount: (json['skuCount'] as num?)?.toInt(),
+  marketingInfo: json['marketingInfo'] as String?,
+  targetOriginPrice: json['targetOriginPrice'] as String?,
+  tags: (json['tags'] as List<dynamic>?)
+      ?.map(
         (e) =>
             ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item$Tags$Item.fromJson(
               e as Map<String, dynamic>,
@@ -4129,7 +4156,7 @@ _$ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$ItemToJs
 ) => <String, dynamic>{
   'productCode': instance.productCode,
   'productName': instance.productName,
-  'image': instance.image.toJson(),
+  'image': instance.image?.toJson(),
   'skuCode': instance.skuCode,
   'sellPriceCur': instance.sellPriceCur,
   'sellPrice': instance.sellPrice,
@@ -4139,7 +4166,7 @@ _$ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$ItemToJs
   'skuCount': instance.skuCount,
   'marketingInfo': instance.marketingInfo,
   'targetOriginPrice': instance.targetOriginPrice,
-  'tags': instance.tags.map((e) => e.toJson()).toList(),
+  'tags': instance.tags?.map((e) => e.toJson()).toList(),
   'premiumBrandInfo': instance.premiumBrandInfo?.toJson(),
   'sellPoints': instance.sellPoints,
 };
@@ -4148,14 +4175,14 @@ ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList
 _$ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$ItemFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item(
-  id: (json['id'] as num).toDouble(),
-  parentId: (json['parentId'] as num).toDouble(),
-  level: (json['level'] as num).toDouble(),
-  showOrder: (json['showOrder'] as num).toDouble(),
-  name: json['name'] as String,
-  iconUrl: json['iconUrl'] as String,
-  categoryList: (json['categoryList'] as List<dynamic>)
-      .map(
+  id: (json['id'] as num?)?.toDouble(),
+  parentId: (json['parentId'] as num?)?.toDouble(),
+  level: (json['level'] as num?)?.toDouble(),
+  showOrder: (json['showOrder'] as num?)?.toDouble(),
+  name: json['name'] as String?,
+  iconUrl: json['iconUrl'] as String?,
+  categoryList: (json['categoryList'] as List<dynamic>?)
+      ?.map(
         (e) =>
             ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item$CategoryList$Item.fromJson(
               e as Map<String, dynamic>,
@@ -4178,7 +4205,7 @@ _$ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryLi
   'showOrder': instance.showOrder,
   'name': instance.name,
   'iconUrl': instance.iconUrl,
-  'categoryList': instance.categoryList.map((e) => e.toJson()).toList(),
+  'categoryList': instance.categoryList?.map((e) => e.toJson()).toList(),
   'brands': instance.brands,
 };
 
@@ -4187,9 +4214,9 @@ _$ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$
   Map<String, dynamic> json,
 ) =>
     ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Image(
-      width: (json['width'] as num).toInt(),
-      height: (json['height'] as num).toInt(),
-      url: json['url'] as String,
+      width: (json['width'] as num?)?.toInt(),
+      height: (json['height'] as num?)?.toInt(),
+      url: json['url'] as String?,
     );
 
 Map<String, dynamic>
@@ -4207,10 +4234,10 @@ _$ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$
   Map<String, dynamic> json,
 ) =>
     ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Tags$Item(
-      tagCode: json['tagCode'] as String,
-      tagImg: json['tagImg'] as String,
-      order: (json['order'] as num).toInt(),
-      frontShow: (json['frontShow'] as num).toInt(),
+      tagCode: json['tagCode'] as String?,
+      tagImg: json['tagImg'] as String?,
+      order: (json['order'] as num?)?.toInt(),
+      frontShow: (json['frontShow'] as num?)?.toInt(),
     );
 
 Map<String, dynamic>
@@ -4338,9 +4365,9 @@ ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item$Image
 _$ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item$ImageFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item$Image(
-  width: (json['width'] as num).toInt(),
-  height: (json['height'] as num).toInt(),
-  url: json['url'] as String,
+  width: (json['width'] as num?)?.toInt(),
+  height: (json['height'] as num?)?.toInt(),
+  url: json['url'] as String?,
 );
 
 Map<String, dynamic>
@@ -4391,11 +4418,11 @@ _$ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item$Op
   Map<String, dynamic> json,
 ) =>
     ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item(
-      value: json['value'] as String,
-      enValue: json['enValue'] as String,
-      image: json['image'] as String,
-      imageWidth: (json['imageWidth'] as num).toInt(),
-      imageHeight: (json['imageHeight'] as num).toInt(),
+      value: json['value'] as String?,
+      enValue: json['enValue'] as String?,
+      image: json['image'] as String?,
+      imageWidth: (json['imageWidth'] as num?)?.toInt(),
+      imageHeight: (json['imageHeight'] as num?)?.toInt(),
     );
 
 Map<String, dynamic>
@@ -4415,9 +4442,9 @@ _$ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainImg
   Map<String, dynamic> json,
 ) =>
     ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainImg$Item(
-      width: (json['width'] as num).toDouble(),
-      height: (json['height'] as num).toDouble(),
-      url: json['url'] as String,
+      width: (json['width'] as num?)?.toDouble(),
+      height: (json['height'] as num?)?.toDouble(),
+      url: json['url'] as String?,
     );
 
 Map<String, dynamic>
@@ -4459,9 +4486,9 @@ _$ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgColl
   Map<String, dynamic> json,
 ) =>
     ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgCollection$Item(
-      width: (json['width'] as num).toDouble(),
-      height: (json['height'] as num).toDouble(),
-      url: json['url'] as String,
+      width: (json['width'] as num?)?.toDouble(),
+      height: (json['height'] as num?)?.toDouble(),
+      url: json['url'] as String?,
     );
 
 Map<String, dynamic>
@@ -4479,9 +4506,9 @@ _$ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgDeta
   Map<String, dynamic> json,
 ) =>
     ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgDetail$Item(
-      width: (json['width'] as num).toDouble(),
-      height: (json['height'] as num).toDouble(),
-      url: json['url'] as String,
+      width: (json['width'] as num?)?.toDouble(),
+      height: (json['height'] as num?)?.toDouble(),
+      url: json['url'] as String?,
     );
 
 Map<String, dynamic>
@@ -4498,10 +4525,10 @@ ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOp
 _$ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$ItemFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$Item(
-  name: json['name'] as String,
-  type: (json['type'] as num).toDouble(),
-  optionValues: (json['optionValues'] as List<dynamic>)
-      .map(
+  name: json['name'] as String?,
+  type: (json['type'] as num?)?.toDouble(),
+  optionValues: (json['optionValues'] as List<dynamic>?)
+      ?.map(
         (e) =>
             ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item.fromJson(
               e as Map<String, dynamic>,
@@ -4517,7 +4544,7 @@ _$ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$Product
 ) => <String, dynamic>{
   'name': instance.name,
   'type': instance.type,
-  'optionValues': instance.optionValues.map((e) => e.toJson()).toList(),
+  'optionValues': instance.optionValues?.map((e) => e.toJson()).toList(),
 };
 
 ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$Tags$Item
@@ -4578,9 +4605,9 @@ _$ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$Img
   Map<String, dynamic> json,
 ) =>
     ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgCollection$Item(
-      width: (json['width'] as num).toDouble(),
-      height: (json['height'] as num).toDouble(),
-      url: json['url'] as String,
+      width: (json['width'] as num?)?.toDouble(),
+      height: (json['height'] as num?)?.toDouble(),
+      url: json['url'] as String?,
     );
 
 Map<String, dynamic>
@@ -4598,9 +4625,9 @@ _$ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$Img
   Map<String, dynamic> json,
 ) =>
     ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgDetail$Item(
-      width: (json['width'] as num).toDouble(),
-      height: (json['height'] as num).toDouble(),
-      url: json['url'] as String,
+      width: (json['width'] as num?)?.toDouble(),
+      height: (json['height'] as num?)?.toDouble(),
+      url: json['url'] as String?,
     );
 
 Map<String, dynamic>
@@ -4677,10 +4704,10 @@ _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item
   Map<String, dynamic> json,
 ) =>
     ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item$OptionValues$Item(
-      value: json['value'] as String,
+      value: json['value'] as String?,
       image: json['image'] as String?,
-      imageWidth: json['imageWidth'] as Object,
-      imageHeight: json['imageHeight'] as Object,
+      imageWidth: json['imageWidth'],
+      imageHeight: json['imageHeight'],
     );
 
 Map<String, dynamic>
@@ -4713,12 +4740,12 @@ ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Ext$Brand
 _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Ext$BrandFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Ext$Brand(
-  brandTitle: json['brandTitle'] as String,
-  brandName: json['brandName'] as String,
-  background: json['background'] as String,
-  qualityAssured: json['qualityAssured'] as String,
-  qualityAssuredUrl: json['qualityAssuredUrl'] as String,
-  deliverAssured: json['deliverAssured'] as String,
+  brandTitle: json['brandTitle'] as String?,
+  brandName: json['brandName'] as String?,
+  background: json['background'] as String?,
+  qualityAssured: json['qualityAssured'] as String?,
+  qualityAssuredUrl: json['qualityAssuredUrl'] as String?,
+  deliverAssured: json['deliverAssured'] as String?,
 );
 
 Map<String, dynamic>
@@ -4738,12 +4765,12 @@ _$ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data$CategoryLis
   Map<String, dynamic> json,
 ) =>
     ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item$CategoryList$Item(
-      id: (json['id'] as num).toDouble(),
-      parentId: (json['parentId'] as num).toDouble(),
-      level: (json['level'] as num).toDouble(),
-      showOrder: (json['showOrder'] as num).toDouble(),
-      name: json['name'] as String,
-      iconUrl: json['iconUrl'] as String,
+      id: (json['id'] as num?)?.toDouble(),
+      parentId: (json['parentId'] as num?)?.toDouble(),
+      level: (json['level'] as num?)?.toDouble(),
+      showOrder: (json['showOrder'] as num?)?.toDouble(),
+      name: json['name'] as String?,
+      iconUrl: json['iconUrl'] as String?,
       categoryList:
           (json['categoryList'] as List<dynamic>?)
               ?.map((e) => e as Object)
@@ -4776,9 +4803,9 @@ _$ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$ImageFro
   Map<String, dynamic> json,
 ) =>
     ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$Image(
-      width: (json['width'] as num).toInt(),
-      height: (json['height'] as num).toInt(),
-      url: json['url'] as String,
+      width: (json['width'] as num?)?.toInt(),
+      height: (json['height'] as num?)?.toInt(),
+      url: json['url'] as String?,
     );
 
 Map<String, dynamic>
@@ -4829,14 +4856,14 @@ _$ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$FlashSal
   Map<String, dynamic> json,
 ) =>
     ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$FlashSale(
-      activityCode: json['activityCode'] as String,
-      activityTitle: json['activityTitle'] as String,
-      startTime: (json['startTime'] as num).toInt(),
-      endTime: (json['endTime'] as num).toInt(),
-      progressPercent: (json['progressPercent'] as num).toInt(),
-      progressText: json['progressText'] as String,
-      marketingIcon: json['marketingIcon'] as String,
-      discountExpr: json['discountExpr'] as String,
+      activityCode: json['activityCode'] as String?,
+      activityTitle: json['activityTitle'] as String?,
+      startTime: (json['startTime'] as num?)?.toInt(),
+      endTime: (json['endTime'] as num?)?.toInt(),
+      progressPercent: (json['progressPercent'] as num?)?.toInt(),
+      progressText: json['progressText'] as String?,
+      marketingIcon: json['marketingIcon'] as String?,
+      discountExpr: json['discountExpr'] as String?,
     );
 
 Map<String, dynamic>
@@ -4879,10 +4906,10 @@ _$ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$Tags$Ite
   Map<String, dynamic> json,
 ) =>
     ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$Tags$Item(
-      tagCode: json['tagCode'] as String,
-      tagImg: json['tagImg'] as String,
-      order: (json['order'] as num).toDouble(),
-      frontShow: (json['frontShow'] as num).toDouble(),
+      tagCode: json['tagCode'] as String?,
+      tagImg: json['tagImg'] as String?,
+      order: (json['order'] as num?)?.toDouble(),
+      frontShow: (json['frontShow'] as num?)?.toDouble(),
     );
 
 Map<String, dynamic>
@@ -4919,13 +4946,13 @@ _$ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$FlashSal
   Map<String, dynamic> json,
 ) =>
     ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$FlashSale(
-      activityCode: json['activityCode'] as String,
-      activityTitle: json['activityTitle'] as String,
-      startTime: (json['startTime'] as num).toInt(),
-      endTime: (json['endTime'] as num).toInt(),
-      progressPercent: (json['progressPercent'] as num).toInt(),
-      progressText: json['progressText'] as String,
-      marketingIcon: json['marketingIcon'] as String,
+      activityCode: json['activityCode'] as String?,
+      activityTitle: json['activityTitle'] as String?,
+      startTime: (json['startTime'] as num?)?.toInt(),
+      endTime: (json['endTime'] as num?)?.toInt(),
+      progressPercent: (json['progressPercent'] as num?)?.toInt(),
+      progressText: json['progressText'] as String?,
+      marketingIcon: json['marketingIcon'] as String?,
     );
 
 Map<String, dynamic>
@@ -4947,7 +4974,7 @@ _$ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptio
   Map<String, dynamic> json,
 ) =>
     ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item(
-      value: json['value'] as String,
+      value: json['value'] as String?,
       image: json['image'] as String?,
       imageWidth: (json['imageWidth'] as num?)?.toDouble(),
       imageHeight: (json['imageHeight'] as num?)?.toDouble(),
@@ -4989,9 +5016,9 @@ _$ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgColle
   Map<String, dynamic> json,
 ) =>
     ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgCollection$Item(
-      width: (json['width'] as num).toDouble(),
-      height: (json['height'] as num).toDouble(),
-      url: json['url'] as String,
+      width: (json['width'] as num?)?.toDouble(),
+      height: (json['height'] as num?)?.toDouble(),
+      url: json['url'] as String?,
     );
 
 Map<String, dynamic>
@@ -5009,9 +5036,9 @@ _$ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgDetai
   Map<String, dynamic> json,
 ) =>
     ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgDetail$Item(
-      width: (json['width'] as num).toDouble(),
-      height: (json['height'] as num).toDouble(),
-      url: json['url'] as String,
+      width: (json['width'] as num?)?.toDouble(),
+      height: (json['height'] as num?)?.toDouble(),
+      url: json['url'] as String?,
     );
 
 Map<String, dynamic>
@@ -5087,9 +5114,9 @@ ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$Item$Image
 _$ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$Item$ImageFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$Item$Image(
-  width: (json['width'] as num).toInt(),
-  height: (json['height'] as num).toInt(),
-  url: json['url'] as String,
+  width: (json['width'] as num?)?.toInt(),
+  height: (json['height'] as num?)?.toInt(),
+  url: json['url'] as String?,
 );
 
 Map<String, dynamic>
@@ -5125,7 +5152,7 @@ _$ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Ite
   Map<String, dynamic> json,
 ) =>
     ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item(
-      value: json['value'] as String,
+      value: json['value'] as String?,
       image: json['image'] as String?,
       imageWidth: (json['imageWidth'] as num?)?.toDouble(),
       imageHeight: (json['imageHeight'] as num?)?.toDouble(),
@@ -5167,9 +5194,9 @@ _$ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgCol
   Map<String, dynamic> json,
 ) =>
     ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgCollection$Item(
-      width: (json['width'] as num).toDouble(),
-      height: (json['height'] as num).toDouble(),
-      url: json['url'] as String,
+      width: (json['width'] as num?)?.toDouble(),
+      height: (json['height'] as num?)?.toDouble(),
+      url: json['url'] as String?,
     );
 
 Map<String, dynamic>
@@ -5187,9 +5214,9 @@ _$ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgDet
   Map<String, dynamic> json,
 ) =>
     ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgDetail$Item(
-      width: (json['width'] as num).toDouble(),
-      height: (json['height'] as num).toDouble(),
-      url: json['url'] as String,
+      width: (json['width'] as num?)?.toDouble(),
+      height: (json['height'] as num?)?.toDouble(),
+      url: json['url'] as String?,
     );
 
 Map<String, dynamic>
@@ -5265,23 +5292,24 @@ ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$
 _$ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$ItemFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item(
-  productCode: json['productCode'] as String,
-  productName: json['productName'] as String,
-  image:
-      ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item$Image.fromJson(
-        json['image'] as Map<String, dynamic>,
-      ),
-  sourcePlatform: json['sourcePlatform'] as String,
-  platformProductId: json['platformProductId'] as String,
-  skuCode: json['skuCode'] as String,
-  sellPriceCur: json['sellPriceCur'] as String,
-  sellPrice: json['sellPrice'] as String,
-  targetSellPrice: json['targetSellPrice'] as String,
-  targetOriginPrice: json['targetOriginPrice'] as String,
-  targetSellCur: json['targetSellCur'] as String,
-  sellQuantity: json['sellQuantity'] as String,
-  skuCount: (json['skuCount'] as num).toDouble(),
-  marketingInfo: json['marketingInfo'] as String,
+  productCode: json['productCode'] as String?,
+  productName: json['productName'] as String?,
+  image: json['image'] == null
+      ? null
+      : ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item$Image.fromJson(
+          json['image'] as Map<String, dynamic>,
+        ),
+  sourcePlatform: json['sourcePlatform'] as String?,
+  platformProductId: json['platformProductId'] as String?,
+  skuCode: json['skuCode'] as String?,
+  sellPriceCur: json['sellPriceCur'] as String?,
+  sellPrice: json['sellPrice'] as String?,
+  targetSellPrice: json['targetSellPrice'] as String?,
+  targetOriginPrice: json['targetOriginPrice'] as String?,
+  targetSellCur: json['targetSellCur'] as String?,
+  sellQuantity: json['sellQuantity'] as String?,
+  skuCount: (json['skuCount'] as num?)?.toDouble(),
+  marketingInfo: json['marketingInfo'] as String?,
   tags:
       (json['tags'] as List<dynamic>?)?.map((e) => e as Object).toList() ?? [],
   premiumBrandInfo: json['premiumBrandInfo'] == null
@@ -5298,7 +5326,7 @@ _$ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categorie
 ) => <String, dynamic>{
   'productCode': instance.productCode,
   'productName': instance.productName,
-  'image': instance.image.toJson(),
+  'image': instance.image?.toJson(),
   'sourcePlatform': instance.sourcePlatform,
   'platformProductId': instance.platformProductId,
   'skuCode': instance.skuCode,
@@ -5318,9 +5346,9 @@ ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item$Image
 _$ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item$ImageFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item$Image(
-  width: (json['width'] as num).toInt(),
-  height: (json['height'] as num).toInt(),
-  url: json['url'] as String,
+  width: (json['width'] as num?)?.toInt(),
+  height: (json['height'] as num?)?.toInt(),
+  url: json['url'] as String?,
 );
 
 Map<String, dynamic>
@@ -5370,9 +5398,9 @@ ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item$Image
 _$ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item$ImageFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item$Image(
-  width: (json['width'] as num).toInt(),
-  height: (json['height'] as num).toInt(),
-  url: json['url'] as String,
+  width: (json['width'] as num?)?.toInt(),
+  height: (json['height'] as num?)?.toInt(),
+  url: json['url'] as String?,
 );
 
 Map<String, dynamic>
@@ -5422,9 +5450,9 @@ _$ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item$Ima
   Map<String, dynamic> json,
 ) =>
     ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item$Image(
-      width: (json['width'] as num).toInt(),
-      height: (json['height'] as num).toInt(),
-      url: json['url'] as String,
+      width: (json['width'] as num?)?.toInt(),
+      height: (json['height'] as num?)?.toInt(),
+      url: json['url'] as String?,
     );
 
 Map<String, dynamic>
@@ -5475,11 +5503,11 @@ _$ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryLi
   Map<String, dynamic> json,
 ) =>
     ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item$CategoryList$Item(
-      id: (json['id'] as num).toDouble(),
-      name: json['name'] as String,
-      iconUrl: json['iconUrl'] as String,
-      parentId: (json['parentId'] as num).toDouble(),
-      level: (json['level'] as num).toDouble(),
+      id: (json['id'] as num?)?.toDouble(),
+      name: json['name'] as String?,
+      iconUrl: json['iconUrl'] as String?,
+      parentId: (json['parentId'] as num?)?.toDouble(),
+      level: (json['level'] as num?)?.toDouble(),
     );
 
 Map<String, dynamic>
@@ -5499,10 +5527,10 @@ _$ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$Product
   Map<String, dynamic> json,
 ) =>
     ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item(
-      value: json['value'] as String,
+      value: json['value'] as String?,
       image: json['image'] as String?,
-      imageWidth: json['imageWidth'] as Object,
-      imageHeight: json['imageHeight'] as Object,
+      imageWidth: json['imageWidth'],
+      imageHeight: json['imageHeight'],
     );
 
 Map<String, dynamic>
@@ -5521,10 +5549,10 @@ _$ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$Pro
   Map<String, dynamic> json,
 ) =>
     ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item(
-      value: json['value'] as String,
-      image: json['image'] as Object,
-      imageWidth: json['imageWidth'] as Object,
-      imageHeight: json['imageHeight'] as Object,
+      value: json['value'] as String?,
+      image: json['image'],
+      imageWidth: json['imageWidth'],
+      imageHeight: json['imageHeight'],
     );
 
 Map<String, dynamic>
@@ -5543,10 +5571,10 @@ _$ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductO
   Map<String, dynamic> json,
 ) =>
     ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item(
-      value: json['value'] as String,
-      image: json['image'] as Object,
-      imageWidth: json['imageWidth'] as Object,
-      imageHeight: json['imageHeight'] as Object,
+      value: json['value'] as String?,
+      image: json['image'],
+      imageWidth: json['imageWidth'],
+      imageHeight: json['imageHeight'],
     );
 
 Map<String, dynamic>
@@ -5565,10 +5593,10 @@ _$ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$Produc
   Map<String, dynamic> json,
 ) =>
     ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item(
-      value: json['value'] as String,
-      image: json['image'] as Object,
-      imageWidth: json['imageWidth'] as Object,
-      imageHeight: json['imageHeight'] as Object,
+      value: json['value'] as String?,
+      image: json['image'],
+      imageWidth: json['imageWidth'],
+      imageHeight: json['imageHeight'],
     );
 
 Map<String, dynamic>

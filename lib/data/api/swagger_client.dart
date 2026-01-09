@@ -99,6 +99,7 @@ class CombinedConverter extends JsonConverter {
       return super.convertResponse<ResultType, Item>(response);
     }
 
+    Object? lastError;
     for (final converter in converters) {
       try {
         final res = await converter.convertResponse<ResultType, Item>(response);
@@ -106,16 +107,17 @@ class CombinedConverter extends JsonConverter {
           return res;
         }
       } catch (e) {
-        // If we hit the brittle generated code's type cast error,
-        // we stop trying to be smart and return the raw Map/List via fallback.
-        if (e.toString().contains('subtype of type \'String\'')) {
-          break;
-        }
+        lastError = e;
       }
     }
 
-    // Fallback to default JsonConverter (returns Map/List)
-    return super.convertResponse<ResultType, Item>(response);
+    if (lastError != null) {
+      throw lastError;
+    }
+
+    throw StateError(
+      'No converter could deserialize response into $ResultType.',
+    );
   }
 
   @override

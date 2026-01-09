@@ -128,8 +128,7 @@
                     "value": {
                       "type": "string"
                     }
-                  },
-                  "required": []
+                  }
                 },
                 "traceId": {
                   "type": "string"

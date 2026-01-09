@@ -452,10 +452,10 @@ _$UserServiceNoAuthCommonConfigDefaultSettingGet$ResponseToJson(
 UserServiceFileImUploadPost$Response
 _$UserServiceFileImUploadPost$ResponseFromJson(Map<String, dynamic> json) =>
     UserServiceFileImUploadPost$Response(
-      code: (json['code'] as num).toInt(),
-      message: json['message'] as String,
-      data: (json['data'] as List<dynamic>)
-          .map(
+      code: (json['code'] as num?)?.toInt(),
+      message: json['message'] as String?,
+      data: (json['data'] as List<dynamic>?)
+          ?.map(
             (e) => UserServiceFileImUploadPost$Response$Data$Item.fromJson(
               e as Map<String, dynamic>,
             ),
@@ -468,7 +468,7 @@ Map<String, dynamic> _$UserServiceFileImUploadPost$ResponseToJson(
 ) => <String, dynamic>{
   'code': instance.code,
   'message': instance.message,
-  'data': instance.data.map((e) => e.toJson()).toList(),
+  'data': instance.data?.map((e) => e.toJson()).toList(),
 };
 
 UserServiceFileLogoUploadPost$Response
@@ -1223,28 +1223,28 @@ UserServiceAddressListGet$Response$Data$Item
 _$UserServiceAddressListGet$Response$Data$ItemFromJson(
   Map<String, dynamic> json,
 ) => UserServiceAddressListGet$Response$Data$Item(
-  id: (json['id'] as num).toDouble(),
-  tenantCode: json['tenantCode'] as String,
-  userId: json['userId'] as String,
-  isDefault: (json['isDefault'] as num).toDouble(),
-  country: json['country'] as String,
-  countryCode: json['countryCode'] as String,
-  state: json['state'] as String,
-  stateCode: json['stateCode'] as String,
-  city: json['city'] as String,
-  cityCode: json['cityCode'] as String,
-  street: json['street'] as String,
+  id: (json['id'] as num?)?.toDouble(),
+  tenantCode: json['tenantCode'] as String?,
+  userId: json['userId'] as String?,
+  isDefault: (json['isDefault'] as num?)?.toDouble(),
+  country: json['country'] as String?,
+  countryCode: json['countryCode'] as String?,
+  state: json['state'] as String?,
+  stateCode: json['stateCode'] as String?,
+  city: json['city'] as String?,
+  cityCode: json['cityCode'] as String?,
+  street: json['street'] as String?,
   apartment: json['apartment'] as String?,
-  address: json['address'] as String,
-  coordinate: json['coordinate'] as String,
-  firstName: json['firstName'] as String,
-  lastName: json['lastName'] as String,
-  phoneNumber: json['phoneNumber'] as String,
-  zipCode: json['zipCode'] as String,
-  deleted: (json['deleted'] as num).toDouble(),
-  isDelivered: (json['isDelivered'] as num).toDouble(),
-  gmtCreate: json['gmtCreate'] as String,
-  gmtUpdate: json['gmtUpdate'] as String,
+  address: json['address'] as String?,
+  coordinate: json['coordinate'] as String?,
+  firstName: json['firstName'] as String?,
+  lastName: json['lastName'] as String?,
+  phoneNumber: json['phoneNumber'] as String?,
+  zipCode: json['zipCode'] as String?,
+  deleted: (json['deleted'] as num?)?.toDouble(),
+  isDelivered: (json['isDelivered'] as num?)?.toDouble(),
+  gmtCreate: json['gmtCreate'] as String?,
+  gmtUpdate: json['gmtUpdate'] as String?,
   tin: json['tin'] as String?,
 );
 
@@ -1280,21 +1280,21 @@ UserServiceGetShippingAddressByCountryGet$Response$Data
 _$UserServiceGetShippingAddressByCountryGet$Response$DataFromJson(
   Map<String, dynamic> json,
 ) => UserServiceGetShippingAddressByCountryGet$Response$Data(
-  id: json['id'] as String,
-  isDefault: json['isDefault'] as bool,
-  country: json['country'] as String,
-  countryCode: json['countryCode'] as String,
-  state: json['state'] as String,
-  stateCode: json['stateCode'] as String,
-  simpleStateCode: json['simpleStateCode'] as String,
+  id: json['id'] as String?,
+  isDefault: json['isDefault'] as bool?,
+  country: json['country'] as String?,
+  countryCode: json['countryCode'] as String?,
+  state: json['state'] as String?,
+  stateCode: json['stateCode'] as String?,
+  simpleStateCode: json['simpleStateCode'] as String?,
   city: json['city'] as String?,
-  cityCode: json['cityCode'] as String,
+  cityCode: json['cityCode'] as String?,
   apartment: json['apartment'] as String?,
-  address: json['address'] as String,
+  address: json['address'] as String?,
   coordinate: json['coordinate'] as String?,
-  firstName: json['firstName'] as String,
-  lastName: json['lastName'] as String,
-  phoneNumber: json['phoneNumber'] as String,
+  firstName: json['firstName'] as String?,
+  lastName: json['lastName'] as String?,
+  phoneNumber: json['phoneNumber'] as String?,
 );
 
 Map<String, dynamic>
@@ -1322,24 +1322,24 @@ UserServiceGetDefaultShippingAddressGet$Response$Data
 _$UserServiceGetDefaultShippingAddressGet$Response$DataFromJson(
   Map<String, dynamic> json,
 ) => UserServiceGetDefaultShippingAddressGet$Response$Data(
-  id: json['id'] as String,
-  isDefault: json['isDefault'] as bool,
-  country: json['country'] as String,
-  countryCode: json['countryCode'] as String,
-  state: json['state'] as String,
-  stateCode: json['stateCode'] as String,
-  simpleStateCode: json['simpleStateCode'] as String,
+  id: json['id'] as String?,
+  isDefault: json['isDefault'] as bool?,
+  country: json['country'] as String?,
+  countryCode: json['countryCode'] as String?,
+  state: json['state'] as String?,
+  stateCode: json['stateCode'] as String?,
+  simpleStateCode: json['simpleStateCode'] as String?,
   city: json['city'] as String?,
-  cityCode: json['cityCode'] as String,
+  cityCode: json['cityCode'] as String?,
   apartment: json['apartment'] as String?,
-  address: json['address'] as String,
+  address: json['address'] as String?,
   coordinate: json['coordinate'] as String?,
-  firstName: json['firstName'] as String,
-  lastName: json['lastName'] as String,
-  phoneNumber: json['phoneNumber'] as String,
-  street: json['street'] as String,
-  zipCode: json['zipCode'] as String,
-  email: json['email'] as String,
+  firstName: json['firstName'] as String?,
+  lastName: json['lastName'] as String?,
+  phoneNumber: json['phoneNumber'] as String?,
+  street: json['street'] as String?,
+  zipCode: json['zipCode'] as String?,
+  email: json['email'] as String?,
 );
 
 Map<String, dynamic>
@@ -1370,9 +1370,9 @@ UserServiceAddressCountryGet$Response$Data$Item
 _$UserServiceAddressCountryGet$Response$Data$ItemFromJson(
   Map<String, dynamic> json,
 ) => UserServiceAddressCountryGet$Response$Data$Item(
-  areaCode: json['areaCode'] as String,
-  icon: json['icon'] as String,
-  name: json['name'] as String,
+  areaCode: json['areaCode'] as String?,
+  icon: json['icon'] as String?,
+  name: json['name'] as String?,
 );
 
 Map<String, dynamic> _$UserServiceAddressCountryGet$Response$Data$ItemToJson(
@@ -1387,18 +1387,18 @@ UserServiceAddressQueryByZipCodeGet$Response$Data$Item
 _$UserServiceAddressQueryByZipCodeGet$Response$Data$ItemFromJson(
   Map<String, dynamic> json,
 ) => UserServiceAddressQueryByZipCodeGet$Response$Data$Item(
-  apartment: json['apartment'] as Object,
-  street: json['street'] as String,
-  city: json['city'] as String,
-  cityCode: json['cityCode'] as String,
-  state: json['state'] as String,
-  stateCode: json['stateCode'] as String,
-  country: json['country'] as String,
-  countryCode: json['countryCode'] as String,
-  address: json['address'] as Object,
-  zipCode: json['zipCode'] as String,
-  latitude: json['latitude'] as Object,
-  longitude: json['longitude'] as Object,
+  apartment: json['apartment'],
+  street: json['street'] as String?,
+  city: json['city'] as String?,
+  cityCode: json['cityCode'] as String?,
+  state: json['state'] as String?,
+  stateCode: json['stateCode'] as String?,
+  country: json['country'] as String?,
+  countryCode: json['countryCode'] as String?,
+  address: json['address'],
+  zipCode: json['zipCode'] as String?,
+  latitude: json['latitude'],
+  longitude: json['longitude'],
 );
 
 Map<String, dynamic>
@@ -1483,9 +1483,9 @@ Map<String, dynamic> _$UserServiceSigninSwitchPortalPost$Response$DataToJson(
 UserServiceSignInInitPost$Response$Data
 _$UserServiceSignInInitPost$Response$DataFromJson(Map<String, dynamic> json) =>
     UserServiceSignInInitPost$Response$Data(
-      authWay: json['authWay'] as String,
-      code: json['code'] as String,
-      jumpUrl: json['jumpUrl'] as String,
+      authWay: json['authWay'] as String?,
+      code: json['code'] as String?,
+      jumpUrl: json['jumpUrl'] as String?,
     );
 
 Map<String, dynamic> _$UserServiceSignInInitPost$Response$DataToJson(
@@ -1698,8 +1698,8 @@ UserServiceFileImUploadPost$Response$Data$Item
 _$UserServiceFileImUploadPost$Response$Data$ItemFromJson(
   Map<String, dynamic> json,
 ) => UserServiceFileImUploadPost$Response$Data$Item(
-  url: json['url'] as String,
-  fileId: json['fileId'] as String,
+  url: json['url'] as String?,
+  fileId: json['fileId'] as String?,
 );
 
 Map<String, dynamic> _$UserServiceFileImUploadPost$Response$Data$ItemToJson(
@@ -1914,9 +1914,9 @@ UserServiceUserCouponGetGet$Response$Data$Item
 _$UserServiceUserCouponGetGet$Response$Data$ItemFromJson(
   Map<String, dynamic> json,
 ) => UserServiceUserCouponGetGet$Response$Data$Item(
-  userId: json['userId'] as String,
-  tenantCode: json['tenantCode'] as String,
-  couponCode: json['couponCode'] as String,
+  userId: json['userId'] as String?,
+  tenantCode: json['tenantCode'] as String?,
+  couponCode: json['couponCode'] as String?,
   couponTitle: json['couponTitle'] as String?,
   isUsed: (json['isUsed'] as num?)?.toDouble(),
   gmtInvalid: json['gmtInvalid'] as String?,
@@ -1928,7 +1928,7 @@ _$UserServiceUserCouponGetGet$Response$Data$ItemFromJson(
   limitAmountTarget: json['limitAmountTarget'] as String?,
   currencyTarget: json['currencyTarget'] as String?,
   couponImage: json['couponImage'] as String?,
-  couponStatus: json['couponStatus'] as String,
+  couponStatus: json['couponStatus'] as String?,
   msgInfo: json['msgInfo'] == null
       ? null
       : UserServiceUserCouponGetGet$Response$Data$Item$MsgInfo.fromJson(
@@ -1960,19 +1960,19 @@ Map<String, dynamic> _$UserServiceUserCouponGetGet$Response$Data$ItemToJson(
 UserServiceImGetInfoPost$Response$Data
 _$UserServiceImGetInfoPost$Response$DataFromJson(Map<String, dynamic> json) =>
     UserServiceImGetInfoPost$Response$Data(
-      api: json['api'] as String,
-      longConnectApi: json['longConnectApi'] as String,
-      wsApi: json['wsApi'] as String,
-      longConnectKeep: json['longConnectKeep'] as bool,
-      whiteList: (json['whiteList'] as List<dynamic>)
-          .map(
+      api: json['api'] as String?,
+      longConnectApi: json['longConnectApi'] as String?,
+      wsApi: json['wsApi'] as String?,
+      longConnectKeep: json['longConnectKeep'] as bool?,
+      whiteList: (json['whiteList'] as List<dynamic>?)
+          ?.map(
             (e) =>
                 UserServiceImGetInfoPost$Response$Data$WhiteList$Item.fromJson(
                   e as Map<String, dynamic>,
                 ),
           )
           .toList(),
-      uid: json['uid'] as String,
+      uid: json['uid'] as String?,
       appId: json['app_id'] as String?,
       name: json['name'] as String?,
       username: json['username'] as String?,
@@ -1981,7 +1981,7 @@ _$UserServiceImGetInfoPost$Response$DataFromJson(Map<String, dynamic> json) =>
       shortNo: json['short_no'] as String?,
       zone: json['zone'] as String?,
       phone: json['phone'] as String?,
-      token: json['token'] as String,
+      token: json['token'] as String?,
       chatPwd: json['chat_pwd'] as String?,
       lockScreenPwd: json['lock_screen_pwd'] as String?,
       lockAfterMinute: (json['lock_after_minute'] as num?)?.toDouble(),
@@ -1993,7 +1993,7 @@ _$UserServiceImGetInfoPost$Response$DataFromJson(Map<String, dynamic> json) =>
       rsaPublicKey: json['rsa_public_key'] as String?,
       shortStatus: (json['short_status'] as num?)?.toDouble(),
       msgExpireSecond: (json['msg_expire_second'] as num?)?.toDouble(),
-      showStatus: (json['showStatus'] as num).toDouble(),
+      showStatus: (json['showStatus'] as num?)?.toDouble(),
     );
 
 Map<String, dynamic> _$UserServiceImGetInfoPost$Response$DataToJson(
@@ -2003,7 +2003,7 @@ Map<String, dynamic> _$UserServiceImGetInfoPost$Response$DataToJson(
   'longConnectApi': instance.longConnectApi,
   'wsApi': instance.wsApi,
   'longConnectKeep': instance.longConnectKeep,
-  'whiteList': instance.whiteList.map((e) => e.toJson()).toList(),
+  'whiteList': instance.whiteList?.map((e) => e.toJson()).toList(),
   'uid': instance.uid,
   'app_id': instance.appId,
   'name': instance.name,
@@ -2317,10 +2317,10 @@ UserServiceUserCouponActivityInfoGet$Response$Data$CouponList$Item
 _$UserServiceUserCouponActivityInfoGet$Response$Data$CouponList$ItemFromJson(
   Map<String, dynamic> json,
 ) => UserServiceUserCouponActivityInfoGet$Response$Data$CouponList$Item(
-  currencySymbol: json['currencySymbol'] as String,
-  discountType: (json['discountType'] as num).toDouble(),
-  discountInfo: (json['discountInfo'] as num).toDouble(),
-  limitAmount: (json['limitAmount'] as num).toDouble(),
+  currencySymbol: json['currencySymbol'] as String?,
+  discountType: (json['discountType'] as num?)?.toDouble(),
+  discountInfo: (json['discountInfo'] as num?)?.toDouble(),
+  limitAmount: (json['limitAmount'] as num?)?.toDouble(),
   invalidPeriod: (json['invalidPeriod'] as num?)?.toDouble(),
   userCouponCode: json['userCouponCode'] as String?,
 );
@@ -2409,10 +2409,10 @@ UserServiceUserCouponNoAuthActivityInfoGet$Response$Data$CouponList$Item
 _$UserServiceUserCouponNoAuthActivityInfoGet$Response$Data$CouponList$ItemFromJson(
   Map<String, dynamic> json,
 ) => UserServiceUserCouponNoAuthActivityInfoGet$Response$Data$CouponList$Item(
-  currencySymbol: json['currencySymbol'] as String,
-  discountType: (json['discountType'] as num).toDouble(),
-  discountInfo: (json['discountInfo'] as num).toDouble(),
-  limitAmount: (json['limitAmount'] as num).toDouble(),
+  currencySymbol: json['currencySymbol'] as String?,
+  discountType: (json['discountType'] as num?)?.toDouble(),
+  discountInfo: (json['discountInfo'] as num?)?.toDouble(),
+  limitAmount: (json['limitAmount'] as num?)?.toDouble(),
 );
 
 Map<String, dynamic>
@@ -2433,8 +2433,8 @@ _$UserServiceUserCouponGetGet$Response$Data$Item$MsgInfoFromJson(
   name: json['name'] as String?,
   limit: json['limit'] as String?,
   usage: json['usage'] as String?,
-  discountStr: json['discountStr'] as String,
-  discountUnit: json['discountUnit'] as String,
+  discountStr: json['discountStr'] as String?,
+  discountUnit: json['discountUnit'] as String?,
 );
 
 Map<String, dynamic>
@@ -2452,8 +2452,8 @@ UserServiceImGetInfoPost$Response$Data$WhiteList$Item
 _$UserServiceImGetInfoPost$Response$Data$WhiteList$ItemFromJson(
   Map<String, dynamic> json,
 ) => UserServiceImGetInfoPost$Response$Data$WhiteList$Item(
-  channelId: json['channelId'] as String,
-  channelType: json['channelType'] as String,
+  channelId: json['channelId'] as String?,
+  channelType: json['channelType'] as String?,
 );
 
 Map<String, dynamic>

@@ -1330,9 +1330,9 @@ abstract class SwaggerApiOrder extends ChopperService {
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderAppCancelPost$Response {
   const OrderServiceOrderAppCancelPost$Response({
-    required this.message,
-    required this.code,
-    required this.data,
+    this.message,
+    this.code,
+    this.data,
   });
 
   factory OrderServiceOrderAppCancelPost$Response.fromJson(
@@ -1344,11 +1344,11 @@ class OrderServiceOrderAppCancelPost$Response {
       _$OrderServiceOrderAppCancelPost$ResponseToJson(this);
 
   @JsonKey(name: 'message')
-  final String message;
+  final String? message;
   @JsonKey(name: 'code')
-  final double code;
+  final double? code;
   @JsonKey(name: 'data')
-  final Object data;
+  final Object? data;
   static const fromJsonFactory =
       _$OrderServiceOrderAppCancelPost$ResponseFromJson;
 
@@ -1393,9 +1393,9 @@ extension $OrderServiceOrderAppCancelPost$ResponseExtension
   }
 
   OrderServiceOrderAppCancelPost$Response copyWithWrapped({
-    Wrapped<String>? message,
-    Wrapped<double>? code,
-    Wrapped<Object>? data,
+    Wrapped<String?>? message,
+    Wrapped<double?>? code,
+    Wrapped<Object?>? data,
   }) {
     return OrderServiceOrderAppCancelPost$Response(
       message: (message != null ? message.value : this.message),
@@ -1408,9 +1408,9 @@ extension $OrderServiceOrderAppCancelPost$ResponseExtension
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderAppBatchInfosGet$Response {
   const OrderServiceOrderAppBatchInfosGet$Response({
-    required this.data,
-    required this.code,
-    required this.message,
+    this.data,
+    this.code,
+    this.message,
   });
 
   factory OrderServiceOrderAppBatchInfosGet$Response.fromJson(
@@ -1423,11 +1423,11 @@ class OrderServiceOrderAppBatchInfosGet$Response {
       _$OrderServiceOrderAppBatchInfosGet$ResponseToJson(this);
 
   @JsonKey(name: 'data')
-  final OrderServiceOrderAppBatchInfosGet$Response$Data data;
+  final OrderServiceOrderAppBatchInfosGet$Response$Data? data;
   @JsonKey(name: 'code')
-  final double code;
+  final double? code;
   @JsonKey(name: 'message')
-  final String message;
+  final String? message;
   static const fromJsonFactory =
       _$OrderServiceOrderAppBatchInfosGet$ResponseFromJson;
 
@@ -1469,9 +1469,9 @@ extension $OrderServiceOrderAppBatchInfosGet$ResponseExtension
   }
 
   OrderServiceOrderAppBatchInfosGet$Response copyWithWrapped({
-    Wrapped<OrderServiceOrderAppBatchInfosGet$Response$Data>? data,
-    Wrapped<double>? code,
-    Wrapped<String>? message,
+    Wrapped<OrderServiceOrderAppBatchInfosGet$Response$Data?>? data,
+    Wrapped<double?>? code,
+    Wrapped<String?>? message,
   }) {
     return OrderServiceOrderAppBatchInfosGet$Response(
       data: (data != null ? data.value : this.data),
@@ -1484,9 +1484,9 @@ extension $OrderServiceOrderAppBatchInfosGet$ResponseExtension
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderAppSubmitPost$Response {
   const OrderServiceOrderAppSubmitPost$Response({
-    required this.data,
-    required this.code,
-    required this.message,
+    this.data,
+    this.code,
+    this.message,
   });
 
   factory OrderServiceOrderAppSubmitPost$Response.fromJson(
@@ -1498,11 +1498,11 @@ class OrderServiceOrderAppSubmitPost$Response {
       _$OrderServiceOrderAppSubmitPost$ResponseToJson(this);
 
   @JsonKey(name: 'data')
-  final OrderServiceOrderAppSubmitPost$Response$Data data;
+  final OrderServiceOrderAppSubmitPost$Response$Data? data;
   @JsonKey(name: 'code')
-  final double code;
+  final double? code;
   @JsonKey(name: 'message')
-  final String message;
+  final String? message;
   static const fromJsonFactory =
       _$OrderServiceOrderAppSubmitPost$ResponseFromJson;
 
@@ -1544,9 +1544,9 @@ extension $OrderServiceOrderAppSubmitPost$ResponseExtension
   }
 
   OrderServiceOrderAppSubmitPost$Response copyWithWrapped({
-    Wrapped<OrderServiceOrderAppSubmitPost$Response$Data>? data,
-    Wrapped<double>? code,
-    Wrapped<String>? message,
+    Wrapped<OrderServiceOrderAppSubmitPost$Response$Data?>? data,
+    Wrapped<double?>? code,
+    Wrapped<String?>? message,
   }) {
     return OrderServiceOrderAppSubmitPost$Response(
       data: (data != null ? data.value : this.data),
@@ -1559,9 +1559,9 @@ extension $OrderServiceOrderAppSubmitPost$ResponseExtension
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderAppUpdatePost$Response {
   const OrderServiceOrderAppUpdatePost$Response({
-    required this.data,
-    required this.code,
-    required this.message,
+    this.data,
+    this.code,
+    this.message,
   });
 
   factory OrderServiceOrderAppUpdatePost$Response.fromJson(
@@ -1573,11 +1573,11 @@ class OrderServiceOrderAppUpdatePost$Response {
       _$OrderServiceOrderAppUpdatePost$ResponseToJson(this);
 
   @JsonKey(name: 'data')
-  final Object data;
+  final Object? data;
   @JsonKey(name: 'code')
-  final double code;
+  final double? code;
   @JsonKey(name: 'message')
-  final String message;
+  final String? message;
   static const fromJsonFactory =
       _$OrderServiceOrderAppUpdatePost$ResponseFromJson;
 
@@ -1619,9 +1619,9 @@ extension $OrderServiceOrderAppUpdatePost$ResponseExtension
   }
 
   OrderServiceOrderAppUpdatePost$Response copyWithWrapped({
-    Wrapped<Object>? data,
-    Wrapped<double>? code,
-    Wrapped<String>? message,
+    Wrapped<Object?>? data,
+    Wrapped<double?>? code,
+    Wrapped<String?>? message,
   }) {
     return OrderServiceOrderAppUpdatePost$Response(
       data: (data != null ? data.value : this.data),
@@ -1861,9 +1861,9 @@ extension $OrderServiceOrderAppDetailGet$ResponseExtension
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderPrePricingGet$Response {
   const OrderServiceOrderPrePricingGet$Response({
-    required this.data,
-    required this.code,
-    required this.message,
+    this.data,
+    this.code,
+    this.message,
   });
 
   factory OrderServiceOrderPrePricingGet$Response.fromJson(
@@ -1875,11 +1875,11 @@ class OrderServiceOrderPrePricingGet$Response {
       _$OrderServiceOrderPrePricingGet$ResponseToJson(this);
 
   @JsonKey(name: 'data')
-  final OrderServiceOrderPrePricingGet$Response$Data data;
+  final OrderServiceOrderPrePricingGet$Response$Data? data;
   @JsonKey(name: 'code')
-  final double code;
+  final double? code;
   @JsonKey(name: 'message')
-  final String message;
+  final String? message;
   static const fromJsonFactory =
       _$OrderServiceOrderPrePricingGet$ResponseFromJson;
 
@@ -1921,9 +1921,9 @@ extension $OrderServiceOrderPrePricingGet$ResponseExtension
   }
 
   OrderServiceOrderPrePricingGet$Response copyWithWrapped({
-    Wrapped<OrderServiceOrderPrePricingGet$Response$Data>? data,
-    Wrapped<double>? code,
-    Wrapped<String>? message,
+    Wrapped<OrderServiceOrderPrePricingGet$Response$Data?>? data,
+    Wrapped<double?>? code,
+    Wrapped<String?>? message,
   }) {
     return OrderServiceOrderPrePricingGet$Response(
       data: (data != null ? data.value : this.data),
@@ -1936,9 +1936,9 @@ extension $OrderServiceOrderPrePricingGet$ResponseExtension
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderCancelPost$Response {
   const OrderServiceOrderCancelPost$Response({
-    required this.message,
-    required this.code,
-    required this.data,
+    this.message,
+    this.code,
+    this.data,
   });
 
   factory OrderServiceOrderCancelPost$Response.fromJson(
@@ -1950,11 +1950,11 @@ class OrderServiceOrderCancelPost$Response {
       _$OrderServiceOrderCancelPost$ResponseToJson(this);
 
   @JsonKey(name: 'message')
-  final String message;
+  final String? message;
   @JsonKey(name: 'code')
-  final double code;
+  final double? code;
   @JsonKey(name: 'data')
-  final Object data;
+  final Object? data;
   static const fromJsonFactory = _$OrderServiceOrderCancelPost$ResponseFromJson;
 
   @override
@@ -1998,9 +1998,9 @@ extension $OrderServiceOrderCancelPost$ResponseExtension
   }
 
   OrderServiceOrderCancelPost$Response copyWithWrapped({
-    Wrapped<String>? message,
-    Wrapped<double>? code,
-    Wrapped<Object>? data,
+    Wrapped<String?>? message,
+    Wrapped<double?>? code,
+    Wrapped<Object?>? data,
   }) {
     return OrderServiceOrderCancelPost$Response(
       message: (message != null ? message.value : this.message),
@@ -2013,9 +2013,9 @@ extension $OrderServiceOrderCancelPost$ResponseExtension
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderSubmitPost$Response {
   const OrderServiceOrderSubmitPost$Response({
-    required this.data,
-    required this.code,
-    required this.message,
+    this.data,
+    this.code,
+    this.message,
   });
 
   factory OrderServiceOrderSubmitPost$Response.fromJson(
@@ -2027,11 +2027,11 @@ class OrderServiceOrderSubmitPost$Response {
       _$OrderServiceOrderSubmitPost$ResponseToJson(this);
 
   @JsonKey(name: 'data')
-  final OrderServiceOrderSubmitPost$Response$Data data;
+  final OrderServiceOrderSubmitPost$Response$Data? data;
   @JsonKey(name: 'code')
-  final double code;
+  final double? code;
   @JsonKey(name: 'message')
-  final String message;
+  final String? message;
   static const fromJsonFactory = _$OrderServiceOrderSubmitPost$ResponseFromJson;
 
   @override
@@ -2072,9 +2072,9 @@ extension $OrderServiceOrderSubmitPost$ResponseExtension
   }
 
   OrderServiceOrderSubmitPost$Response copyWithWrapped({
-    Wrapped<OrderServiceOrderSubmitPost$Response$Data>? data,
-    Wrapped<double>? code,
-    Wrapped<String>? message,
+    Wrapped<OrderServiceOrderSubmitPost$Response$Data?>? data,
+    Wrapped<double?>? code,
+    Wrapped<String?>? message,
   }) {
     return OrderServiceOrderSubmitPost$Response(
       data: (data != null ? data.value : this.data),
@@ -2087,9 +2087,9 @@ extension $OrderServiceOrderSubmitPost$ResponseExtension
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderUpdatePost$Response {
   const OrderServiceOrderUpdatePost$Response({
-    required this.data,
-    required this.code,
-    required this.message,
+    this.data,
+    this.code,
+    this.message,
   });
 
   factory OrderServiceOrderUpdatePost$Response.fromJson(
@@ -2101,11 +2101,11 @@ class OrderServiceOrderUpdatePost$Response {
       _$OrderServiceOrderUpdatePost$ResponseToJson(this);
 
   @JsonKey(name: 'data')
-  final Object data;
+  final Object? data;
   @JsonKey(name: 'code')
-  final double code;
+  final double? code;
   @JsonKey(name: 'message')
-  final String message;
+  final String? message;
   static const fromJsonFactory = _$OrderServiceOrderUpdatePost$ResponseFromJson;
 
   @override
@@ -2146,9 +2146,9 @@ extension $OrderServiceOrderUpdatePost$ResponseExtension
   }
 
   OrderServiceOrderUpdatePost$Response copyWithWrapped({
-    Wrapped<Object>? data,
-    Wrapped<double>? code,
-    Wrapped<String>? message,
+    Wrapped<Object?>? data,
+    Wrapped<double?>? code,
+    Wrapped<String?>? message,
   }) {
     return OrderServiceOrderUpdatePost$Response(
       data: (data != null ? data.value : this.data),
@@ -2161,9 +2161,9 @@ extension $OrderServiceOrderUpdatePost$ResponseExtension
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderConfirmPost$Response {
   const OrderServiceOrderConfirmPost$Response({
-    required this.code,
-    required this.message,
-    required this.data,
+    this.code,
+    this.message,
+    this.data,
   });
 
   factory OrderServiceOrderConfirmPost$Response.fromJson(
@@ -2175,11 +2175,11 @@ class OrderServiceOrderConfirmPost$Response {
       _$OrderServiceOrderConfirmPost$ResponseToJson(this);
 
   @JsonKey(name: 'code')
-  final String code;
+  final String? code;
   @JsonKey(name: 'message')
-  final String message;
+  final String? message;
   @JsonKey(name: 'data')
-  final OrderServiceOrderConfirmPost$Response$Data data;
+  final OrderServiceOrderConfirmPost$Response$Data? data;
   static const fromJsonFactory =
       _$OrderServiceOrderConfirmPost$ResponseFromJson;
 
@@ -2224,9 +2224,9 @@ extension $OrderServiceOrderConfirmPost$ResponseExtension
   }
 
   OrderServiceOrderConfirmPost$Response copyWithWrapped({
-    Wrapped<String>? code,
-    Wrapped<String>? message,
-    Wrapped<OrderServiceOrderConfirmPost$Response$Data>? data,
+    Wrapped<String?>? code,
+    Wrapped<String?>? message,
+    Wrapped<OrderServiceOrderConfirmPost$Response$Data?>? data,
   }) {
     return OrderServiceOrderConfirmPost$Response(
       code: (code != null ? code.value : this.code),
@@ -2239,12 +2239,12 @@ extension $OrderServiceOrderConfirmPost$ResponseExtension
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderSettlementPost$Response {
   const OrderServiceOrderSettlementPost$Response({
-    required this.totalPrice,
-    required this.targetTotalPrice,
-    required this.currency,
-    required this.targetCurrency,
-    required this.rechargeBalance,
-    required this.rechargeStatus,
+    this.totalPrice,
+    this.targetTotalPrice,
+    this.currency,
+    this.targetCurrency,
+    this.rechargeBalance,
+    this.rechargeStatus,
   });
 
   factory OrderServiceOrderSettlementPost$Response.fromJson(
@@ -2256,17 +2256,17 @@ class OrderServiceOrderSettlementPost$Response {
       _$OrderServiceOrderSettlementPost$ResponseToJson(this);
 
   @JsonKey(name: 'totalPrice')
-  final String totalPrice;
+  final String? totalPrice;
   @JsonKey(name: 'targetTotalPrice')
-  final String targetTotalPrice;
+  final String? targetTotalPrice;
   @JsonKey(name: 'currency')
-  final String currency;
+  final String? currency;
   @JsonKey(name: 'targetCurrency')
-  final String targetCurrency;
+  final String? targetCurrency;
   @JsonKey(name: 'rechargeBalance')
-  final String rechargeBalance;
+  final String? rechargeBalance;
   @JsonKey(name: 'rechargeStatus')
-  final String rechargeStatus;
+  final String? rechargeStatus;
   static const fromJsonFactory =
       _$OrderServiceOrderSettlementPost$ResponseFromJson;
 
@@ -2341,12 +2341,12 @@ extension $OrderServiceOrderSettlementPost$ResponseExtension
   }
 
   OrderServiceOrderSettlementPost$Response copyWithWrapped({
-    Wrapped<String>? totalPrice,
-    Wrapped<String>? targetTotalPrice,
-    Wrapped<String>? currency,
-    Wrapped<String>? targetCurrency,
-    Wrapped<String>? rechargeBalance,
-    Wrapped<String>? rechargeStatus,
+    Wrapped<String?>? totalPrice,
+    Wrapped<String?>? targetTotalPrice,
+    Wrapped<String?>? currency,
+    Wrapped<String?>? targetCurrency,
+    Wrapped<String?>? rechargeBalance,
+    Wrapped<String?>? rechargeStatus,
   }) {
     return OrderServiceOrderSettlementPost$Response(
       totalPrice: (totalPrice != null ? totalPrice.value : this.totalPrice),
@@ -2370,12 +2370,12 @@ extension $OrderServiceOrderSettlementPost$ResponseExtension
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderPricingPost$Response {
   const OrderServiceOrderPricingPost$Response({
-    required this.totalAmount,
-    required this.targetTotalAmount,
-    required this.sellCur,
-    required this.targetSellCur,
-    required this.targetOrderLimitAmount,
-    required this.targetShipLimitAmount,
+    this.totalAmount,
+    this.targetTotalAmount,
+    this.sellCur,
+    this.targetSellCur,
+    this.targetOrderLimitAmount,
+    this.targetShipLimitAmount,
   });
 
   factory OrderServiceOrderPricingPost$Response.fromJson(
@@ -2387,17 +2387,17 @@ class OrderServiceOrderPricingPost$Response {
       _$OrderServiceOrderPricingPost$ResponseToJson(this);
 
   @JsonKey(name: 'totalAmount')
-  final String totalAmount;
+  final String? totalAmount;
   @JsonKey(name: 'targetTotalAmount')
-  final String targetTotalAmount;
+  final String? targetTotalAmount;
   @JsonKey(name: 'sellCur')
-  final String sellCur;
+  final String? sellCur;
   @JsonKey(name: 'targetSellCur')
-  final String targetSellCur;
+  final String? targetSellCur;
   @JsonKey(name: 'targetOrderLimitAmount')
-  final String targetOrderLimitAmount;
+  final String? targetOrderLimitAmount;
   @JsonKey(name: 'targetShipLimitAmount')
-  final String targetShipLimitAmount;
+  final String? targetShipLimitAmount;
   static const fromJsonFactory =
       _$OrderServiceOrderPricingPost$ResponseFromJson;
 
@@ -2474,12 +2474,12 @@ extension $OrderServiceOrderPricingPost$ResponseExtension
   }
 
   OrderServiceOrderPricingPost$Response copyWithWrapped({
-    Wrapped<String>? totalAmount,
-    Wrapped<String>? targetTotalAmount,
-    Wrapped<String>? sellCur,
-    Wrapped<String>? targetSellCur,
-    Wrapped<String>? targetOrderLimitAmount,
-    Wrapped<String>? targetShipLimitAmount,
+    Wrapped<String?>? totalAmount,
+    Wrapped<String?>? targetTotalAmount,
+    Wrapped<String?>? sellCur,
+    Wrapped<String?>? targetSellCur,
+    Wrapped<String?>? targetOrderLimitAmount,
+    Wrapped<String?>? targetShipLimitAmount,
   }) {
     return OrderServiceOrderPricingPost$Response(
       totalAmount: (totalAmount != null ? totalAmount.value : this.totalAmount),
@@ -2506,7 +2506,7 @@ typedef OrderServiceFeebillListGet$Response =
 @JsonSerializable(explicitToJson: true)
 class OrderServiceFeebillListGet$Response$Item {
   const OrderServiceFeebillListGet$Response$Item({
-    required this.billId,
+    this.billId,
     this.bizId,
     this.billType,
     this.status,
@@ -2527,7 +2527,7 @@ class OrderServiceFeebillListGet$Response$Item {
       _$OrderServiceFeebillListGet$Response$ItemToJson(this);
 
   @JsonKey(name: 'billId')
-  final String billId;
+  final String? billId;
   @JsonKey(name: 'bizId')
   final String? bizId;
   @JsonKey(name: 'billType')
@@ -2640,7 +2640,7 @@ extension $OrderServiceFeebillListGet$Response$ItemExtension
   }
 
   OrderServiceFeebillListGet$Response$Item copyWithWrapped({
-    Wrapped<String>? billId,
+    Wrapped<String?>? billId,
     Wrapped<String?>? bizId,
     Wrapped<String?>? billType,
     Wrapped<String?>? status,
@@ -4489,9 +4489,9 @@ extension $OrderServiceCartListGet$ResponseExtension
 @JsonSerializable(explicitToJson: true)
 class OrderServiceCartSettlementPost$Response {
   const OrderServiceCartSettlementPost$Response({
-    required this.code,
-    required this.message,
-    required this.data,
+    this.code,
+    this.message,
+    this.data,
   });
 
   factory OrderServiceCartSettlementPost$Response.fromJson(
@@ -4503,11 +4503,11 @@ class OrderServiceCartSettlementPost$Response {
       _$OrderServiceCartSettlementPost$ResponseToJson(this);
 
   @JsonKey(name: 'code')
-  final String code;
+  final String? code;
   @JsonKey(name: 'message')
-  final String message;
+  final String? message;
   @JsonKey(name: 'data')
-  final Object data;
+  final Object? data;
   static const fromJsonFactory =
       _$OrderServiceCartSettlementPost$ResponseFromJson;
 
@@ -4552,9 +4552,9 @@ extension $OrderServiceCartSettlementPost$ResponseExtension
   }
 
   OrderServiceCartSettlementPost$Response copyWithWrapped({
-    Wrapped<String>? code,
-    Wrapped<String>? message,
-    Wrapped<Object>? data,
+    Wrapped<String?>? code,
+    Wrapped<String?>? message,
+    Wrapped<Object?>? data,
   }) {
     return OrderServiceCartSettlementPost$Response(
       code: (code != null ? code.value : this.code),
@@ -4769,9 +4769,9 @@ extension $OrderServiceCartNoAuthPricingPost$ResponseExtension
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderAppBatchInfosGet$Response$Data {
   const OrderServiceOrderAppBatchInfosGet$Response$Data({
-    required this.title,
-    required this.description,
-    required this.parcelOrderId,
+    this.title,
+    this.description,
+    this.parcelOrderId,
     this.logisticsJoinInfoList,
   });
 
@@ -4785,11 +4785,11 @@ class OrderServiceOrderAppBatchInfosGet$Response$Data {
       _$OrderServiceOrderAppBatchInfosGet$Response$DataToJson(this);
 
   @JsonKey(name: 'title')
-  final String title;
+  final String? title;
   @JsonKey(name: 'description')
-  final String description;
+  final String? description;
   @JsonKey(name: 'parcelOrderId')
-  final String parcelOrderId;
+  final String? parcelOrderId;
   @JsonKey(name: 'logisticsJoinInfoList')
   final List<
     OrderServiceOrderAppBatchInfosGet$Response$Data$LogisticsJoinInfoList$Item
@@ -4854,9 +4854,9 @@ extension $OrderServiceOrderAppBatchInfosGet$Response$DataExtension
   }
 
   OrderServiceOrderAppBatchInfosGet$Response$Data copyWithWrapped({
-    Wrapped<String>? title,
-    Wrapped<String>? description,
-    Wrapped<String>? parcelOrderId,
+    Wrapped<String?>? title,
+    Wrapped<String?>? description,
+    Wrapped<String?>? parcelOrderId,
     Wrapped<
       List<
         OrderServiceOrderAppBatchInfosGet$Response$Data$LogisticsJoinInfoList$Item
@@ -4880,10 +4880,10 @@ extension $OrderServiceOrderAppBatchInfosGet$Response$DataExtension
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderAppSubmitPost$Response$Data {
   const OrderServiceOrderAppSubmitPost$Response$Data({
-    required this.orderId,
-    required this.single,
-    required this.orderStatus,
-    required this.timeoutPeriod,
+    this.orderId,
+    this.single,
+    this.orderStatus,
+    this.timeoutPeriod,
   });
 
   factory OrderServiceOrderAppSubmitPost$Response$Data.fromJson(
@@ -4896,13 +4896,13 @@ class OrderServiceOrderAppSubmitPost$Response$Data {
       _$OrderServiceOrderAppSubmitPost$Response$DataToJson(this);
 
   @JsonKey(name: 'orderId')
-  final String orderId;
+  final String? orderId;
   @JsonKey(name: 'single')
-  final bool single;
+  final bool? single;
   @JsonKey(name: 'orderStatus')
-  final double orderStatus;
+  final double? orderStatus;
   @JsonKey(name: 'timeoutPeriod')
-  final double timeoutPeriod;
+  final double? timeoutPeriod;
   static const fromJsonFactory =
       _$OrderServiceOrderAppSubmitPost$Response$DataFromJson;
 
@@ -4958,10 +4958,10 @@ extension $OrderServiceOrderAppSubmitPost$Response$DataExtension
   }
 
   OrderServiceOrderAppSubmitPost$Response$Data copyWithWrapped({
-    Wrapped<String>? orderId,
-    Wrapped<bool>? single,
-    Wrapped<double>? orderStatus,
-    Wrapped<double>? timeoutPeriod,
+    Wrapped<String?>? orderId,
+    Wrapped<bool?>? single,
+    Wrapped<double?>? orderStatus,
+    Wrapped<double?>? timeoutPeriod,
   }) {
     return OrderServiceOrderAppSubmitPost$Response$Data(
       orderId: (orderId != null ? orderId.value : this.orderId),
@@ -5091,7 +5091,7 @@ class OrderServiceOrderAppDetailGet$Response$Data {
     this.parcelOrder,
     this.orderTrace,
     this.discountInfos,
-    required this.orderList,
+    this.orderList,
   });
 
   factory OrderServiceOrderAppDetailGet$Response$Data.fromJson(
@@ -5122,7 +5122,7 @@ class OrderServiceOrderAppDetailGet$Response$Data {
   final List<OrderServiceOrderAppDetailGet$Response$Data$DiscountInfos$Item>?
   discountInfos;
   @JsonKey(name: 'orderList')
-  final List<OrderServiceOrderAppDetailGet$Response$Data$OrderList$Item>
+  final List<OrderServiceOrderAppDetailGet$Response$Data$OrderList$Item>?
   orderList;
   static const fromJsonFactory =
       _$OrderServiceOrderAppDetailGet$Response$DataFromJson;
@@ -5241,7 +5241,7 @@ extension $OrderServiceOrderAppDetailGet$Response$DataExtension
       List<OrderServiceOrderAppDetailGet$Response$Data$DiscountInfos$Item>?
     >?
     discountInfos,
-    Wrapped<List<OrderServiceOrderAppDetailGet$Response$Data$OrderList$Item>>?
+    Wrapped<List<OrderServiceOrderAppDetailGet$Response$Data$OrderList$Item>?>?
     orderList,
   }) {
     return OrderServiceOrderAppDetailGet$Response$Data(
@@ -5265,10 +5265,10 @@ extension $OrderServiceOrderAppDetailGet$Response$DataExtension
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderPrePricingGet$Response$Data {
   const OrderServiceOrderPrePricingGet$Response$Data({
-    required this.currency,
-    required this.totalPrice,
-    required this.targetCurrency,
-    required this.targetPrice,
+    this.currency,
+    this.totalPrice,
+    this.targetCurrency,
+    this.targetPrice,
   });
 
   factory OrderServiceOrderPrePricingGet$Response$Data.fromJson(
@@ -5281,13 +5281,13 @@ class OrderServiceOrderPrePricingGet$Response$Data {
       _$OrderServiceOrderPrePricingGet$Response$DataToJson(this);
 
   @JsonKey(name: 'currency')
-  final String currency;
+  final String? currency;
   @JsonKey(name: 'totalPrice')
-  final double totalPrice;
+  final double? totalPrice;
   @JsonKey(name: 'targetCurrency')
-  final double targetCurrency;
+  final double? targetCurrency;
   @JsonKey(name: 'targetPrice')
-  final String targetPrice;
+  final String? targetPrice;
   static const fromJsonFactory =
       _$OrderServiceOrderPrePricingGet$Response$DataFromJson;
 
@@ -5346,10 +5346,10 @@ extension $OrderServiceOrderPrePricingGet$Response$DataExtension
   }
 
   OrderServiceOrderPrePricingGet$Response$Data copyWithWrapped({
-    Wrapped<String>? currency,
-    Wrapped<double>? totalPrice,
-    Wrapped<double>? targetCurrency,
-    Wrapped<String>? targetPrice,
+    Wrapped<String?>? currency,
+    Wrapped<double?>? totalPrice,
+    Wrapped<double?>? targetCurrency,
+    Wrapped<String?>? targetPrice,
   }) {
     return OrderServiceOrderPrePricingGet$Response$Data(
       currency: (currency != null ? currency.value : this.currency),
@@ -5365,9 +5365,9 @@ extension $OrderServiceOrderPrePricingGet$Response$DataExtension
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderSubmitPost$Response$Data {
   const OrderServiceOrderSubmitPost$Response$Data({
-    required this.orderId,
-    required this.orderStatus,
-    required this.timeoutPeriod,
+    this.orderId,
+    this.orderStatus,
+    this.timeoutPeriod,
   });
 
   factory OrderServiceOrderSubmitPost$Response$Data.fromJson(
@@ -5380,11 +5380,11 @@ class OrderServiceOrderSubmitPost$Response$Data {
       _$OrderServiceOrderSubmitPost$Response$DataToJson(this);
 
   @JsonKey(name: 'orderId')
-  final String orderId;
+  final String? orderId;
   @JsonKey(name: 'orderStatus')
-  final double orderStatus;
+  final double? orderStatus;
   @JsonKey(name: 'timeoutPeriod')
-  final double timeoutPeriod;
+  final double? timeoutPeriod;
   static const fromJsonFactory =
       _$OrderServiceOrderSubmitPost$Response$DataFromJson;
 
@@ -5435,9 +5435,9 @@ extension $OrderServiceOrderSubmitPost$Response$DataExtension
   }
 
   OrderServiceOrderSubmitPost$Response$Data copyWithWrapped({
-    Wrapped<String>? orderId,
-    Wrapped<double>? orderStatus,
-    Wrapped<double>? timeoutPeriod,
+    Wrapped<String?>? orderId,
+    Wrapped<double?>? orderStatus,
+    Wrapped<double?>? timeoutPeriod,
   }) {
     return OrderServiceOrderSubmitPost$Response$Data(
       orderId: (orderId != null ? orderId.value : this.orderId),
@@ -5452,8 +5452,8 @@ extension $OrderServiceOrderSubmitPost$Response$DataExtension
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderConfirmPost$Response$Data {
   const OrderServiceOrderConfirmPost$Response$Data({
-    required this.pricing,
-    required this.paymentMethodList,
+    this.pricing,
+    this.paymentMethodList,
   });
 
   factory OrderServiceOrderConfirmPost$Response$Data.fromJson(
@@ -5466,9 +5466,9 @@ class OrderServiceOrderConfirmPost$Response$Data {
       _$OrderServiceOrderConfirmPost$Response$DataToJson(this);
 
   @JsonKey(name: 'pricing')
-  final OrderServiceOrderConfirmPost$Response$Data$Pricing pricing;
+  final OrderServiceOrderConfirmPost$Response$Data$Pricing? pricing;
   @JsonKey(name: 'paymentMethodList')
-  final List<OrderServiceOrderConfirmPost$Response$Data$PaymentMethodList$Item>
+  final List<OrderServiceOrderConfirmPost$Response$Data$PaymentMethodList$Item>?
   paymentMethodList;
   static const fromJsonFactory =
       _$OrderServiceOrderConfirmPost$Response$DataFromJson;
@@ -5513,9 +5513,9 @@ extension $OrderServiceOrderConfirmPost$Response$DataExtension
   }
 
   OrderServiceOrderConfirmPost$Response$Data copyWithWrapped({
-    Wrapped<OrderServiceOrderConfirmPost$Response$Data$Pricing>? pricing,
+    Wrapped<OrderServiceOrderConfirmPost$Response$Data$Pricing?>? pricing,
     Wrapped<
-      List<OrderServiceOrderConfirmPost$Response$Data$PaymentMethodList$Item>
+      List<OrderServiceOrderConfirmPost$Response$Data$PaymentMethodList$Item>?
     >?
     paymentMethodList,
   }) {
@@ -5539,7 +5539,7 @@ class OrderServiceOrderNoAuthDetailGet$Response$Data {
     this.parcelOrder,
     this.orderTrace,
     this.discountInfos,
-    required this.orderList,
+    this.orderList,
   });
 
   factory OrderServiceOrderNoAuthDetailGet$Response$Data.fromJson(
@@ -5570,7 +5570,7 @@ class OrderServiceOrderNoAuthDetailGet$Response$Data {
   final List<OrderServiceOrderNoAuthDetailGet$Response$Data$DiscountInfos$Item>?
   discountInfos;
   @JsonKey(name: 'orderList')
-  final List<OrderServiceOrderNoAuthDetailGet$Response$Data$OrderList$Item>
+  final List<OrderServiceOrderNoAuthDetailGet$Response$Data$OrderList$Item>?
   orderList;
   static const fromJsonFactory =
       _$OrderServiceOrderNoAuthDetailGet$Response$DataFromJson;
@@ -5692,7 +5692,7 @@ extension $OrderServiceOrderNoAuthDetailGet$Response$DataExtension
     >?
     discountInfos,
     Wrapped<
-      List<OrderServiceOrderNoAuthDetailGet$Response$Data$OrderList$Item>
+      List<OrderServiceOrderNoAuthDetailGet$Response$Data$OrderList$Item>?
     >?
     orderList,
   }) {
@@ -5907,14 +5907,14 @@ extension $OrderServiceOrderCouponListPost$Response$Data$ItemExtension
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderDiscountListPost$Response$Data$Item {
   const OrderServiceOrderDiscountListPost$Response$Data$Item({
-    required this.couponCode,
-    required this.discountInfo,
-    required this.discountType,
-    required this.discountAmount,
-    required this.currency,
-    required this.targetDiscountAmount,
-    required this.targetCurrency,
-    required this.available,
+    this.couponCode,
+    this.discountInfo,
+    this.discountType,
+    this.discountAmount,
+    this.currency,
+    this.targetDiscountAmount,
+    this.targetCurrency,
+    this.available,
     this.unavailableReason,
   });
 
@@ -5928,21 +5928,21 @@ class OrderServiceOrderDiscountListPost$Response$Data$Item {
       _$OrderServiceOrderDiscountListPost$Response$Data$ItemToJson(this);
 
   @JsonKey(name: 'couponCode')
-  final String couponCode;
+  final String? couponCode;
   @JsonKey(name: 'discountInfo')
-  final String discountInfo;
+  final String? discountInfo;
   @JsonKey(name: 'discountType')
-  final double discountType;
+  final double? discountType;
   @JsonKey(name: 'discountAmount')
-  final String discountAmount;
+  final String? discountAmount;
   @JsonKey(name: 'currency')
-  final String currency;
+  final String? currency;
   @JsonKey(name: 'targetDiscountAmount')
-  final String targetDiscountAmount;
+  final String? targetDiscountAmount;
   @JsonKey(name: 'targetCurrency')
-  final String targetCurrency;
+  final String? targetCurrency;
   @JsonKey(name: 'available')
-  final bool available;
+  final bool? available;
   @JsonKey(name: 'unavailableReason')
   final String? unavailableReason;
   static const fromJsonFactory =
@@ -6043,14 +6043,14 @@ extension $OrderServiceOrderDiscountListPost$Response$Data$ItemExtension
   }
 
   OrderServiceOrderDiscountListPost$Response$Data$Item copyWithWrapped({
-    Wrapped<String>? couponCode,
-    Wrapped<String>? discountInfo,
-    Wrapped<double>? discountType,
-    Wrapped<String>? discountAmount,
-    Wrapped<String>? currency,
-    Wrapped<String>? targetDiscountAmount,
-    Wrapped<String>? targetCurrency,
-    Wrapped<bool>? available,
+    Wrapped<String?>? couponCode,
+    Wrapped<String?>? discountInfo,
+    Wrapped<double?>? discountType,
+    Wrapped<String?>? discountAmount,
+    Wrapped<String?>? currency,
+    Wrapped<String?>? targetDiscountAmount,
+    Wrapped<String?>? targetCurrency,
+    Wrapped<bool?>? available,
     Wrapped<String?>? unavailableReason,
   }) {
     return OrderServiceOrderDiscountListPost$Response$Data$Item(
@@ -6257,16 +6257,16 @@ extension $OrderServiceOrderAvailableCouponPost$Response$DataExtension
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderGetReviewGet$Response$Data$Item {
   const OrderServiceOrderGetReviewGet$Response$Data$Item({
-    required this.productName,
-    required this.skuCode,
-    required this.productCode,
-    required this.image,
-    required this.targetSellPrice,
-    required this.targetSellCur,
-    required this.targetTotalPrice,
-    required this.quantity,
-    required this.skuSpecValues,
-    required this.review,
+    this.productName,
+    this.skuCode,
+    this.productCode,
+    this.image,
+    this.targetSellPrice,
+    this.targetSellCur,
+    this.targetTotalPrice,
+    this.quantity,
+    this.skuSpecValues,
+    this.review,
   });
 
   factory OrderServiceOrderGetReviewGet$Response$Data$Item.fromJson(
@@ -6279,28 +6279,28 @@ class OrderServiceOrderGetReviewGet$Response$Data$Item {
       _$OrderServiceOrderGetReviewGet$Response$Data$ItemToJson(this);
 
   @JsonKey(name: 'productName')
-  final String productName;
+  final String? productName;
   @JsonKey(name: 'skuCode')
-  final String skuCode;
+  final String? skuCode;
   @JsonKey(name: 'productCode')
-  final String productCode;
+  final String? productCode;
   @JsonKey(name: 'image')
-  final String image;
+  final String? image;
   @JsonKey(name: 'targetSellPrice')
-  final String targetSellPrice;
+  final String? targetSellPrice;
   @JsonKey(name: 'targetSellCur')
-  final String targetSellCur;
+  final String? targetSellCur;
   @JsonKey(name: 'targetTotalPrice')
-  final String targetTotalPrice;
+  final String? targetTotalPrice;
   @JsonKey(name: 'quantity')
-  final String quantity;
+  final String? quantity;
   @JsonKey(name: 'skuSpecValues')
   final List<
     OrderServiceOrderGetReviewGet$Response$Data$Item$SkuSpecValues$Item
-  >
+  >?
   skuSpecValues;
   @JsonKey(name: 'review')
-  final OrderServiceOrderGetReviewGet$Response$Data$Item$Review review;
+  final OrderServiceOrderGetReviewGet$Response$Data$Item$Review? review;
   static const fromJsonFactory =
       _$OrderServiceOrderGetReviewGet$Response$Data$ItemFromJson;
 
@@ -6402,19 +6402,19 @@ extension $OrderServiceOrderGetReviewGet$Response$Data$ItemExtension
   }
 
   OrderServiceOrderGetReviewGet$Response$Data$Item copyWithWrapped({
-    Wrapped<String>? productName,
-    Wrapped<String>? skuCode,
-    Wrapped<String>? productCode,
-    Wrapped<String>? image,
-    Wrapped<String>? targetSellPrice,
-    Wrapped<String>? targetSellCur,
-    Wrapped<String>? targetTotalPrice,
-    Wrapped<String>? quantity,
+    Wrapped<String?>? productName,
+    Wrapped<String?>? skuCode,
+    Wrapped<String?>? productCode,
+    Wrapped<String?>? image,
+    Wrapped<String?>? targetSellPrice,
+    Wrapped<String?>? targetSellCur,
+    Wrapped<String?>? targetTotalPrice,
+    Wrapped<String?>? quantity,
     Wrapped<
-      List<OrderServiceOrderGetReviewGet$Response$Data$Item$SkuSpecValues$Item>
+      List<OrderServiceOrderGetReviewGet$Response$Data$Item$SkuSpecValues$Item>?
     >?
     skuSpecValues,
-    Wrapped<OrderServiceOrderGetReviewGet$Response$Data$Item$Review>? review,
+    Wrapped<OrderServiceOrderGetReviewGet$Response$Data$Item$Review?>? review,
   }) {
     return OrderServiceOrderGetReviewGet$Response$Data$Item(
       productName: (productName != null ? productName.value : this.productName),
@@ -6779,7 +6779,7 @@ extension $OrderServiceOrderGetButtonGet$Response$DataExtension
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderDetailGet$Response$Data {
   const OrderServiceOrderDetailGet$Response$Data({
-    required this.orderList,
+    this.orderList,
     this.afterSalesList,
     this.orderBillList,
     this.baseInfo,
@@ -6800,7 +6800,8 @@ class OrderServiceOrderDetailGet$Response$Data {
       _$OrderServiceOrderDetailGet$Response$DataToJson(this);
 
   @JsonKey(name: 'orderList')
-  final List<OrderServiceOrderDetailGet$Response$Data$OrderList$Item> orderList;
+  final List<OrderServiceOrderDetailGet$Response$Data$OrderList$Item>?
+  orderList;
   @JsonKey(name: 'afterSalesList', defaultValue: <String>[])
   final List<String>? afterSalesList;
   @JsonKey(name: 'orderBillList', defaultValue: <String>[])
@@ -6927,7 +6928,7 @@ extension $OrderServiceOrderDetailGet$Response$DataExtension
   }
 
   OrderServiceOrderDetailGet$Response$Data copyWithWrapped({
-    Wrapped<List<OrderServiceOrderDetailGet$Response$Data$OrderList$Item>>?
+    Wrapped<List<OrderServiceOrderDetailGet$Response$Data$OrderList$Item>?>?
     orderList,
     Wrapped<List<String>?>? afterSalesList,
     Wrapped<List<String>?>? orderBillList,
@@ -6971,7 +6972,7 @@ class OrderServiceOpenapiOrderDetailGet$Response$Data {
     this.orderBillList,
     this.parcelOrder,
     this.orderTrace,
-    required this.orderList,
+    this.orderList,
   });
 
   factory OrderServiceOpenapiOrderDetailGet$Response$Data.fromJson(
@@ -7003,7 +7004,7 @@ class OrderServiceOpenapiOrderDetailGet$Response$Data {
   @JsonKey(name: 'orderTrace')
   final OrderServiceOpenapiOrderDetailGet$Response$Data$OrderTrace? orderTrace;
   @JsonKey(name: 'orderList')
-  final List<OrderServiceOpenapiOrderDetailGet$Response$Data$OrderList$Item>
+  final List<OrderServiceOpenapiOrderDetailGet$Response$Data$OrderList$Item>?
   orderList;
   static const fromJsonFactory =
       _$OrderServiceOpenapiOrderDetailGet$Response$DataFromJson;
@@ -7114,7 +7115,7 @@ extension $OrderServiceOpenapiOrderDetailGet$Response$DataExtension
     Wrapped<OrderServiceOpenapiOrderDetailGet$Response$Data$OrderTrace?>?
     orderTrace,
     Wrapped<
-      List<OrderServiceOpenapiOrderDetailGet$Response$Data$OrderList$Item>
+      List<OrderServiceOpenapiOrderDetailGet$Response$Data$OrderList$Item>?
     >?
     orderList,
   }) {
@@ -7399,7 +7400,7 @@ class OrderServiceCartListGet$Response$Data {
     this.orderLimitAmount,
     this.shipLimitAmount,
     this.country,
-    required this.list,
+    this.list,
   });
 
   factory OrderServiceCartListGet$Response$Data.fromJson(
@@ -7429,7 +7430,7 @@ class OrderServiceCartListGet$Response$Data {
   @JsonKey(name: 'country')
   final String? country;
   @JsonKey(name: 'list')
-  final List<OrderServiceCartListGet$Response$Data$List$Item> list;
+  final List<OrderServiceCartListGet$Response$Data$List$Item>? list;
   static const fromJsonFactory =
       _$OrderServiceCartListGet$Response$DataFromJson;
 
@@ -7542,7 +7543,7 @@ extension $OrderServiceCartListGet$Response$DataExtension
     Wrapped<double?>? orderLimitAmount,
     Wrapped<double?>? shipLimitAmount,
     Wrapped<String?>? country,
-    Wrapped<List<OrderServiceCartListGet$Response$Data$List$Item>>? list,
+    Wrapped<List<OrderServiceCartListGet$Response$Data$List$Item>?>? list,
   }) {
     return OrderServiceCartListGet$Response$Data(
       discountAmount: (discountAmount != null
@@ -7981,26 +7982,26 @@ extension $OrderServiceCartPricingPost$Response$DataExtension
 @JsonSerializable(explicitToJson: true)
 class OrderServiceCartNoAuthPricingPost$Response$Data {
   const OrderServiceCartNoAuthPricingPost$Response$Data({
-    required this.itemsTotalAmount,
-    required this.freightAmount,
-    required this.totalAmount,
-    required this.targetTotalAmount,
-    required this.discountAmount,
-    required this.targetDiscountAmount,
-    required this.settlementAmount,
-    required this.targetSettlementAmount,
-    required this.targetOrderLimitAmount,
-    required this.targetShipLimitAmount,
-    required this.targetSellCur,
-    required this.sellCur,
-    required this.userCouponCode,
-    required this.rechargeBalance,
+    this.itemsTotalAmount,
+    this.freightAmount,
+    this.totalAmount,
+    this.targetTotalAmount,
+    this.discountAmount,
+    this.targetDiscountAmount,
+    this.settlementAmount,
+    this.targetSettlementAmount,
+    this.targetOrderLimitAmount,
+    this.targetShipLimitAmount,
+    this.targetSellCur,
+    this.sellCur,
+    this.userCouponCode,
+    this.rechargeBalance,
     this.skuQuantityDTOList,
     this.remark,
     this.remarkImages,
     this.country,
     this.orderBatch,
-    required this.targetItemsTotalAmount,
+    this.targetItemsTotalAmount,
     this.amountValidContent,
     this.contentInfo,
   });
@@ -8015,33 +8016,33 @@ class OrderServiceCartNoAuthPricingPost$Response$Data {
       _$OrderServiceCartNoAuthPricingPost$Response$DataToJson(this);
 
   @JsonKey(name: 'itemsTotalAmount')
-  final String itemsTotalAmount;
+  final String? itemsTotalAmount;
   @JsonKey(name: 'freightAmount')
-  final String freightAmount;
+  final String? freightAmount;
   @JsonKey(name: 'totalAmount')
-  final String totalAmount;
+  final String? totalAmount;
   @JsonKey(name: 'targetTotalAmount')
-  final String targetTotalAmount;
+  final String? targetTotalAmount;
   @JsonKey(name: 'discountAmount')
-  final String discountAmount;
+  final String? discountAmount;
   @JsonKey(name: 'targetDiscountAmount')
-  final String targetDiscountAmount;
+  final String? targetDiscountAmount;
   @JsonKey(name: 'settlementAmount')
-  final String settlementAmount;
+  final String? settlementAmount;
   @JsonKey(name: 'targetSettlementAmount')
-  final String targetSettlementAmount;
+  final String? targetSettlementAmount;
   @JsonKey(name: 'targetOrderLimitAmount')
-  final String targetOrderLimitAmount;
+  final String? targetOrderLimitAmount;
   @JsonKey(name: 'targetShipLimitAmount')
-  final String targetShipLimitAmount;
+  final String? targetShipLimitAmount;
   @JsonKey(name: 'targetSellCur')
-  final String targetSellCur;
+  final String? targetSellCur;
   @JsonKey(name: 'sellCur')
-  final String sellCur;
+  final String? sellCur;
   @JsonKey(name: 'userCouponCode')
-  final String userCouponCode;
+  final String? userCouponCode;
   @JsonKey(name: 'rechargeBalance')
-  final String rechargeBalance;
+  final String? rechargeBalance;
   @JsonKey(name: 'skuQuantityDTOList')
   final List<
     OrderServiceCartNoAuthPricingPost$Response$Data$SkuQuantityDTOList$Item
@@ -8056,7 +8057,7 @@ class OrderServiceCartNoAuthPricingPost$Response$Data {
   @JsonKey(name: 'orderBatch')
   final bool? orderBatch;
   @JsonKey(name: 'targetItemsTotalAmount')
-  final String targetItemsTotalAmount;
+  final String? targetItemsTotalAmount;
   @JsonKey(name: 'amountValidContent')
   final String? amountValidContent;
   @JsonKey(name: 'contentInfo')
@@ -8268,20 +8269,20 @@ extension $OrderServiceCartNoAuthPricingPost$Response$DataExtension
   }
 
   OrderServiceCartNoAuthPricingPost$Response$Data copyWithWrapped({
-    Wrapped<String>? itemsTotalAmount,
-    Wrapped<String>? freightAmount,
-    Wrapped<String>? totalAmount,
-    Wrapped<String>? targetTotalAmount,
-    Wrapped<String>? discountAmount,
-    Wrapped<String>? targetDiscountAmount,
-    Wrapped<String>? settlementAmount,
-    Wrapped<String>? targetSettlementAmount,
-    Wrapped<String>? targetOrderLimitAmount,
-    Wrapped<String>? targetShipLimitAmount,
-    Wrapped<String>? targetSellCur,
-    Wrapped<String>? sellCur,
-    Wrapped<String>? userCouponCode,
-    Wrapped<String>? rechargeBalance,
+    Wrapped<String?>? itemsTotalAmount,
+    Wrapped<String?>? freightAmount,
+    Wrapped<String?>? totalAmount,
+    Wrapped<String?>? targetTotalAmount,
+    Wrapped<String?>? discountAmount,
+    Wrapped<String?>? targetDiscountAmount,
+    Wrapped<String?>? settlementAmount,
+    Wrapped<String?>? targetSettlementAmount,
+    Wrapped<String?>? targetOrderLimitAmount,
+    Wrapped<String?>? targetShipLimitAmount,
+    Wrapped<String?>? targetSellCur,
+    Wrapped<String?>? sellCur,
+    Wrapped<String?>? userCouponCode,
+    Wrapped<String?>? rechargeBalance,
     Wrapped<
       List<
         OrderServiceCartNoAuthPricingPost$Response$Data$SkuQuantityDTOList$Item
@@ -8292,7 +8293,7 @@ extension $OrderServiceCartNoAuthPricingPost$Response$DataExtension
     Wrapped<String?>? remarkImages,
     Wrapped<String?>? country,
     Wrapped<bool?>? orderBatch,
-    Wrapped<String>? targetItemsTotalAmount,
+    Wrapped<String?>? targetItemsTotalAmount,
     Wrapped<String?>? amountValidContent,
     Wrapped<OrderServiceCartNoAuthPricingPost$Response$Data$ContentInfo?>?
     contentInfo,
@@ -8464,26 +8465,26 @@ extension $OrderServiceOrderAppBatchInfosGet$Response$Data$LogisticsJoinInfoList
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderAppListGet$Response$Data$Records$Item {
   const OrderServiceOrderAppListGet$Response$Data$Records$Item({
-    required this.status,
-    required this.frontStatus,
-    required this.statusContent,
-    required this.orderStatus,
-    required this.orderId,
-    required this.parentOrderId,
-    required this.quantity,
-    required this.totalAmount,
-    required this.targetTotalAmount,
-    required this.discountAmount,
-    required this.targetDiscountAmount,
+    this.status,
+    this.frontStatus,
+    this.statusContent,
+    this.orderStatus,
+    this.orderId,
+    this.parentOrderId,
+    this.quantity,
+    this.totalAmount,
+    this.targetTotalAmount,
+    this.discountAmount,
+    this.targetDiscountAmount,
     this.targetPayFeeAmount,
     this.targetActualAmount,
     this.targetTipAmount,
     this.targetServiceAmount,
-    required this.currency,
-    required this.targetCurrency,
-    required this.description,
-    required this.remark,
-    required this.statusIcon,
+    this.currency,
+    this.targetCurrency,
+    this.description,
+    this.remark,
+    this.statusIcon,
     this.operates,
     this.isLogisticsTrace,
     this.orderSkuList,
@@ -8514,27 +8515,27 @@ class OrderServiceOrderAppListGet$Response$Data$Records$Item {
       _$OrderServiceOrderAppListGet$Response$Data$Records$ItemToJson(this);
 
   @JsonKey(name: 'status')
-  final double status;
+  final double? status;
   @JsonKey(name: 'frontStatus')
-  final double frontStatus;
+  final double? frontStatus;
   @JsonKey(name: 'statusContent')
-  final String statusContent;
+  final String? statusContent;
   @JsonKey(name: 'orderStatus')
-  final double orderStatus;
+  final double? orderStatus;
   @JsonKey(name: 'orderId')
-  final String orderId;
+  final String? orderId;
   @JsonKey(name: 'parentOrderId')
-  final String parentOrderId;
+  final String? parentOrderId;
   @JsonKey(name: 'quantity')
-  final double quantity;
+  final double? quantity;
   @JsonKey(name: 'totalAmount')
-  final String totalAmount;
+  final String? totalAmount;
   @JsonKey(name: 'targetTotalAmount')
-  final String targetTotalAmount;
+  final String? targetTotalAmount;
   @JsonKey(name: 'discountAmount')
-  final String discountAmount;
+  final String? discountAmount;
   @JsonKey(name: 'targetDiscountAmount')
-  final String targetDiscountAmount;
+  final String? targetDiscountAmount;
   @JsonKey(name: 'targetPayFeeAmount')
   final String? targetPayFeeAmount;
   @JsonKey(name: 'targetActualAmount')
@@ -8544,15 +8545,15 @@ class OrderServiceOrderAppListGet$Response$Data$Records$Item {
   @JsonKey(name: 'targetServiceAmount')
   final String? targetServiceAmount;
   @JsonKey(name: 'currency')
-  final String currency;
+  final String? currency;
   @JsonKey(name: 'targetCurrency')
-  final String targetCurrency;
+  final String? targetCurrency;
   @JsonKey(name: 'description')
-  final String description;
+  final String? description;
   @JsonKey(name: 'remark')
-  final String remark;
+  final String? remark;
   @JsonKey(name: 'statusIcon')
-  final String statusIcon;
+  final String? statusIcon;
   @JsonKey(name: 'operates', defaultValue: <Object>[])
   final List<Object>? operates;
   @JsonKey(name: 'isLogisticsTrace')
@@ -8933,26 +8934,26 @@ extension $OrderServiceOrderAppListGet$Response$Data$Records$ItemExtension
   }
 
   OrderServiceOrderAppListGet$Response$Data$Records$Item copyWithWrapped({
-    Wrapped<double>? status,
-    Wrapped<double>? frontStatus,
-    Wrapped<String>? statusContent,
-    Wrapped<double>? orderStatus,
-    Wrapped<String>? orderId,
-    Wrapped<String>? parentOrderId,
-    Wrapped<double>? quantity,
-    Wrapped<String>? totalAmount,
-    Wrapped<String>? targetTotalAmount,
-    Wrapped<String>? discountAmount,
-    Wrapped<String>? targetDiscountAmount,
+    Wrapped<double?>? status,
+    Wrapped<double?>? frontStatus,
+    Wrapped<String?>? statusContent,
+    Wrapped<double?>? orderStatus,
+    Wrapped<String?>? orderId,
+    Wrapped<String?>? parentOrderId,
+    Wrapped<double?>? quantity,
+    Wrapped<String?>? totalAmount,
+    Wrapped<String?>? targetTotalAmount,
+    Wrapped<String?>? discountAmount,
+    Wrapped<String?>? targetDiscountAmount,
     Wrapped<String?>? targetPayFeeAmount,
     Wrapped<String?>? targetActualAmount,
     Wrapped<String?>? targetTipAmount,
     Wrapped<String?>? targetServiceAmount,
-    Wrapped<String>? currency,
-    Wrapped<String>? targetCurrency,
-    Wrapped<String>? description,
-    Wrapped<String>? remark,
-    Wrapped<String>? statusIcon,
+    Wrapped<String?>? currency,
+    Wrapped<String?>? targetCurrency,
+    Wrapped<String?>? description,
+    Wrapped<String?>? remark,
+    Wrapped<String?>? statusIcon,
     Wrapped<List<Object>?>? operates,
     Wrapped<bool?>? isLogisticsTrace,
     Wrapped<
@@ -9090,7 +9091,7 @@ class OrderServiceOrderAppDetailGet$Response$Data$BaseInfo {
     this.skuSourceCode,
     this.parentOrderId,
     this.status,
-    required this.frontStatus,
+    this.frontStatus,
     this.statusContent,
     this.orderStatus,
     this.evaluateStatus,
@@ -9138,7 +9139,7 @@ class OrderServiceOrderAppDetailGet$Response$Data$BaseInfo {
   @JsonKey(name: 'status')
   final double? status;
   @JsonKey(name: 'frontStatus')
-  final double frontStatus;
+  final double? frontStatus;
   @JsonKey(name: 'statusContent')
   final String? statusContent;
   @JsonKey(name: 'orderStatus')
@@ -9462,7 +9463,7 @@ extension $OrderServiceOrderAppDetailGet$Response$Data$BaseInfoExtension
     Wrapped<String?>? skuSourceCode,
     Wrapped<String?>? parentOrderId,
     Wrapped<double?>? status,
-    Wrapped<double>? frontStatus,
+    Wrapped<double?>? frontStatus,
     Wrapped<String?>? statusContent,
     Wrapped<double?>? orderStatus,
     Wrapped<double?>? evaluateStatus,
@@ -9571,7 +9572,7 @@ class OrderServiceOrderAppDetailGet$Response$Data$UserAddress {
     this.lastName,
     this.phoneNumber,
     this.zipCode,
-    required this.id,
+    this.id,
   });
 
   factory OrderServiceOrderAppDetailGet$Response$Data$UserAddress.fromJson(
@@ -9610,7 +9611,7 @@ class OrderServiceOrderAppDetailGet$Response$Data$UserAddress {
   @JsonKey(name: 'zipCode')
   final String? zipCode;
   @JsonKey(name: 'id')
-  final double id;
+  final double? id;
   static const fromJsonFactory =
       _$OrderServiceOrderAppDetailGet$Response$Data$UserAddressFromJson;
 
@@ -9750,7 +9751,7 @@ extension $OrderServiceOrderAppDetailGet$Response$Data$UserAddressExtension
     Wrapped<String?>? lastName,
     Wrapped<String?>? phoneNumber,
     Wrapped<String?>? zipCode,
-    Wrapped<double>? id,
+    Wrapped<double?>? id,
   }) {
     return OrderServiceOrderAppDetailGet$Response$Data$UserAddress(
       country: (country != null ? country.value : this.country),
@@ -10279,10 +10280,10 @@ extension $OrderServiceOrderAppDetailGet$Response$Data$PaymentsExtension
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderAppDetailGet$Response$Data$OrderBillList$Item {
   const OrderServiceOrderAppDetailGet$Response$Data$OrderBillList$Item({
-    required this.status,
-    required this.targetCurrency,
-    required this.targetTotalPrice,
-    required this.billId,
+    this.status,
+    this.targetCurrency,
+    this.targetTotalPrice,
+    this.billId,
   });
 
   factory OrderServiceOrderAppDetailGet$Response$Data$OrderBillList$Item.fromJson(
@@ -10299,13 +10300,13 @@ class OrderServiceOrderAppDetailGet$Response$Data$OrderBillList$Item {
       );
 
   @JsonKey(name: 'status')
-  final String status;
+  final String? status;
   @JsonKey(name: 'targetCurrency')
-  final String targetCurrency;
+  final String? targetCurrency;
   @JsonKey(name: 'targetTotalPrice')
-  final String targetTotalPrice;
+  final String? targetTotalPrice;
   @JsonKey(name: 'billId')
-  final String billId;
+  final String? billId;
   static const fromJsonFactory =
       _$OrderServiceOrderAppDetailGet$Response$Data$OrderBillList$ItemFromJson;
 
@@ -10359,10 +10360,10 @@ extension $OrderServiceOrderAppDetailGet$Response$Data$OrderBillList$ItemExtensi
 
   OrderServiceOrderAppDetailGet$Response$Data$OrderBillList$Item
   copyWithWrapped({
-    Wrapped<String>? status,
-    Wrapped<String>? targetCurrency,
-    Wrapped<String>? targetTotalPrice,
-    Wrapped<String>? billId,
+    Wrapped<String?>? status,
+    Wrapped<String?>? targetCurrency,
+    Wrapped<String?>? targetTotalPrice,
+    Wrapped<String?>? billId,
   }) {
     return OrderServiceOrderAppDetailGet$Response$Data$OrderBillList$Item(
       status: (status != null ? status.value : this.status),
@@ -10380,19 +10381,19 @@ extension $OrderServiceOrderAppDetailGet$Response$Data$OrderBillList$ItemExtensi
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder {
   const OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder({
-    required this.parcelOrderId,
-    required this.parcelStatus,
-    required this.parcelStatusDesc,
-    required this.createTime,
-    required this.warehouseCode,
-    required this.warehouseName,
-    required this.freight,
-    required this.freightCurrency,
-    required this.lastMileMailNo,
-    required this.lastMileCompanyCode,
-    required this.lastMileCompanyName,
-    required this.parcelProductDTOList,
-    required this.buyerOperates,
+    this.parcelOrderId,
+    this.parcelStatus,
+    this.parcelStatusDesc,
+    this.createTime,
+    this.warehouseCode,
+    this.warehouseName,
+    this.freight,
+    this.freightCurrency,
+    this.lastMileMailNo,
+    this.lastMileCompanyCode,
+    this.lastMileCompanyName,
+    this.parcelProductDTOList,
+    this.buyerOperates,
     this.freightCompensate,
     this.solutionCode,
     this.actualFreight,
@@ -10413,35 +10414,35 @@ class OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder {
       _$OrderServiceOrderAppDetailGet$Response$Data$ParcelOrderToJson(this);
 
   @JsonKey(name: 'parcelOrderId')
-  final String parcelOrderId;
+  final String? parcelOrderId;
   @JsonKey(name: 'parcelStatus')
-  final String parcelStatus;
+  final String? parcelStatus;
   @JsonKey(name: 'parcelStatusDesc')
-  final String parcelStatusDesc;
+  final String? parcelStatusDesc;
   @JsonKey(name: 'createTime')
-  final double createTime;
+  final double? createTime;
   @JsonKey(name: 'warehouseCode')
-  final String warehouseCode;
+  final String? warehouseCode;
   @JsonKey(name: 'warehouseName')
-  final String warehouseName;
+  final String? warehouseName;
   @JsonKey(name: 'freight')
-  final String freight;
+  final String? freight;
   @JsonKey(name: 'freightCurrency')
-  final OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder$FreightCurrency
+  final OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder$FreightCurrency?
   freightCurrency;
   @JsonKey(name: 'lastMileMailNo')
-  final Object lastMileMailNo;
+  final Object? lastMileMailNo;
   @JsonKey(name: 'lastMileCompanyCode')
-  final Object lastMileCompanyCode;
+  final Object? lastMileCompanyCode;
   @JsonKey(name: 'lastMileCompanyName')
-  final Object lastMileCompanyName;
+  final Object? lastMileCompanyName;
   @JsonKey(name: 'parcelProductDTOList')
   final List<
     OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder$ParcelProductDTOList$Item
-  >
+  >?
   parcelProductDTOList;
   @JsonKey(name: 'buyerOperates', defaultValue: <String>[])
-  final List<String> buyerOperates;
+  final List<String>? buyerOperates;
   @JsonKey(name: 'freightCompensate')
   final OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder$FreightCompensate?
   freightCompensate;
@@ -10672,27 +10673,27 @@ extension $OrderServiceOrderAppDetailGet$Response$Data$ParcelOrderExtension
   }
 
   OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder copyWithWrapped({
-    Wrapped<String>? parcelOrderId,
-    Wrapped<String>? parcelStatus,
-    Wrapped<String>? parcelStatusDesc,
-    Wrapped<double>? createTime,
-    Wrapped<String>? warehouseCode,
-    Wrapped<String>? warehouseName,
-    Wrapped<String>? freight,
+    Wrapped<String?>? parcelOrderId,
+    Wrapped<String?>? parcelStatus,
+    Wrapped<String?>? parcelStatusDesc,
+    Wrapped<double?>? createTime,
+    Wrapped<String?>? warehouseCode,
+    Wrapped<String?>? warehouseName,
+    Wrapped<String?>? freight,
     Wrapped<
-      OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder$FreightCurrency
+      OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder$FreightCurrency?
     >?
     freightCurrency,
-    Wrapped<Object>? lastMileMailNo,
-    Wrapped<Object>? lastMileCompanyCode,
-    Wrapped<Object>? lastMileCompanyName,
+    Wrapped<Object?>? lastMileMailNo,
+    Wrapped<Object?>? lastMileCompanyCode,
+    Wrapped<Object?>? lastMileCompanyName,
     Wrapped<
       List<
         OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder$ParcelProductDTOList$Item
-      >
+      >?
     >?
     parcelProductDTOList,
-    Wrapped<List<String>>? buyerOperates,
+    Wrapped<List<String>?>? buyerOperates,
     Wrapped<
       OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder$FreightCompensate?
     >?
@@ -10781,7 +10782,7 @@ class OrderServiceOrderAppDetailGet$Response$Data$OrderTrace {
     this.logisticsOrderId,
     this.logisticsStatus,
     this.traceList,
-    required this.parcelOrderId,
+    this.parcelOrderId,
   });
 
   factory OrderServiceOrderAppDetailGet$Response$Data$OrderTrace.fromJson(
@@ -10805,7 +10806,7 @@ class OrderServiceOrderAppDetailGet$Response$Data$OrderTrace {
   >?
   traceList;
   @JsonKey(name: 'parcelOrderId')
-  final String parcelOrderId;
+  final String? parcelOrderId;
   static const fromJsonFactory =
       _$OrderServiceOrderAppDetailGet$Response$Data$OrderTraceFromJson;
 
@@ -10882,7 +10883,7 @@ extension $OrderServiceOrderAppDetailGet$Response$Data$OrderTraceExtension
       >?
     >?
     traceList,
-    Wrapped<String>? parcelOrderId,
+    Wrapped<String?>? parcelOrderId,
   }) {
     return OrderServiceOrderAppDetailGet$Response$Data$OrderTrace(
       tradeOrderId: (tradeOrderId != null
@@ -11030,7 +11031,7 @@ extension $OrderServiceOrderAppDetailGet$Response$Data$DiscountInfos$ItemExtensi
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderAppDetailGet$Response$Data$OrderList$Item {
   const OrderServiceOrderAppDetailGet$Response$Data$OrderList$Item({
-    required this.skuList,
+    this.skuList,
     this.sourceOption,
     this.skuSourceCode,
     this.skuSourceTitle,
@@ -11052,7 +11053,7 @@ class OrderServiceOrderAppDetailGet$Response$Data$OrderList$Item {
   @JsonKey(name: 'skuList')
   final List<
     OrderServiceOrderAppDetailGet$Response$Data$OrderList$Item$SkuList$Item
-  >
+  >?
   skuList;
   @JsonKey(name: 'sourceOption')
   final OrderServiceOrderAppDetailGet$Response$Data$OrderList$Item$SourceOption?
@@ -11154,7 +11155,7 @@ extension $OrderServiceOrderAppDetailGet$Response$Data$OrderList$ItemExtension
     Wrapped<
       List<
         OrderServiceOrderAppDetailGet$Response$Data$OrderList$Item$SkuList$Item
-      >
+      >?
     >?
     skuList,
     Wrapped<
@@ -11198,19 +11199,19 @@ extension $OrderServiceOrderAppDetailGet$Response$Data$OrderList$ItemExtension
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderConfirmPost$Response$Data$Pricing {
   const OrderServiceOrderConfirmPost$Response$Data$Pricing({
-    required this.itemsOriginTotalAmount,
-    required this.freightAmount,
-    required this.taxDetail,
-    required this.rechargeBalance,
-    required this.rechargeBalanceTips,
-    required this.isCouponCode,
-    required this.couponCodeReason,
-    required this.isVoucherCode,
-    required this.notSupportDeliveryDescription,
-    required this.taxLines,
-    required this.solutionList,
-    required this.giveaway,
-    required this.voucherMsg,
+    this.itemsOriginTotalAmount,
+    this.freightAmount,
+    this.taxDetail,
+    this.rechargeBalance,
+    this.rechargeBalanceTips,
+    this.isCouponCode,
+    this.couponCodeReason,
+    this.isVoucherCode,
+    this.notSupportDeliveryDescription,
+    this.taxLines,
+    this.solutionList,
+    this.giveaway,
+    this.voucherMsg,
   });
 
   factory OrderServiceOrderConfirmPost$Response$Data$Pricing.fromJson(
@@ -11223,36 +11224,36 @@ class OrderServiceOrderConfirmPost$Response$Data$Pricing {
       _$OrderServiceOrderConfirmPost$Response$Data$PricingToJson(this);
 
   @JsonKey(name: 'itemsOriginTotalAmount')
-  final String itemsOriginTotalAmount;
+  final String? itemsOriginTotalAmount;
   @JsonKey(name: 'freightAmount')
-  final String freightAmount;
+  final String? freightAmount;
   @JsonKey(name: 'taxDetail')
-  final String taxDetail;
+  final String? taxDetail;
   @JsonKey(name: 'rechargeBalance')
-  final String rechargeBalance;
+  final String? rechargeBalance;
   @JsonKey(name: 'rechargeBalanceTips')
-  final String rechargeBalanceTips;
+  final String? rechargeBalanceTips;
   @JsonKey(name: 'isCouponCode')
-  final String isCouponCode;
+  final String? isCouponCode;
   @JsonKey(name: 'couponCodeReason')
-  final String couponCodeReason;
+  final String? couponCodeReason;
   @JsonKey(name: 'isVoucherCode')
-  final String isVoucherCode;
+  final String? isVoucherCode;
   @JsonKey(name: 'notSupportDeliveryDescription')
-  final String notSupportDeliveryDescription;
+  final String? notSupportDeliveryDescription;
   @JsonKey(name: 'taxLines')
-  final List<OrderServiceOrderConfirmPost$Response$Data$Pricing$TaxLines$Item>
+  final List<OrderServiceOrderConfirmPost$Response$Data$Pricing$TaxLines$Item>?
   taxLines;
   @JsonKey(name: 'solutionList')
   final List<
     OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item
-  >
+  >?
   solutionList;
   @JsonKey(name: 'giveaway')
-  final List<OrderServiceOrderConfirmPost$Response$Data$Pricing$Giveaway$Item>
+  final List<OrderServiceOrderConfirmPost$Response$Data$Pricing$Giveaway$Item>?
   giveaway;
   @JsonKey(name: 'voucherMsg')
-  final OrderServiceOrderConfirmPost$Response$Data$Pricing$VoucherMsg
+  final OrderServiceOrderConfirmPost$Response$Data$Pricing$VoucherMsg?
   voucherMsg;
   static const fromJsonFactory =
       _$OrderServiceOrderConfirmPost$Response$Data$PricingFromJson;
@@ -11392,28 +11393,30 @@ extension $OrderServiceOrderConfirmPost$Response$Data$PricingExtension
   }
 
   OrderServiceOrderConfirmPost$Response$Data$Pricing copyWithWrapped({
-    Wrapped<String>? itemsOriginTotalAmount,
-    Wrapped<String>? freightAmount,
-    Wrapped<String>? taxDetail,
-    Wrapped<String>? rechargeBalance,
-    Wrapped<String>? rechargeBalanceTips,
-    Wrapped<String>? isCouponCode,
-    Wrapped<String>? couponCodeReason,
-    Wrapped<String>? isVoucherCode,
-    Wrapped<String>? notSupportDeliveryDescription,
+    Wrapped<String?>? itemsOriginTotalAmount,
+    Wrapped<String?>? freightAmount,
+    Wrapped<String?>? taxDetail,
+    Wrapped<String?>? rechargeBalance,
+    Wrapped<String?>? rechargeBalanceTips,
+    Wrapped<String?>? isCouponCode,
+    Wrapped<String?>? couponCodeReason,
+    Wrapped<String?>? isVoucherCode,
+    Wrapped<String?>? notSupportDeliveryDescription,
     Wrapped<
-      List<OrderServiceOrderConfirmPost$Response$Data$Pricing$TaxLines$Item>
+      List<OrderServiceOrderConfirmPost$Response$Data$Pricing$TaxLines$Item>?
     >?
     taxLines,
     Wrapped<
-      List<OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item>
+      List<
+        OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item
+      >?
     >?
     solutionList,
     Wrapped<
-      List<OrderServiceOrderConfirmPost$Response$Data$Pricing$Giveaway$Item>
+      List<OrderServiceOrderConfirmPost$Response$Data$Pricing$Giveaway$Item>?
     >?
     giveaway,
-    Wrapped<OrderServiceOrderConfirmPost$Response$Data$Pricing$VoucherMsg>?
+    Wrapped<OrderServiceOrderConfirmPost$Response$Data$Pricing$VoucherMsg?>?
     voucherMsg,
   }) {
     return OrderServiceOrderConfirmPost$Response$Data$Pricing(
@@ -11455,9 +11458,9 @@ extension $OrderServiceOrderConfirmPost$Response$Data$PricingExtension
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderConfirmPost$Response$Data$PaymentMethodList$Item {
   const OrderServiceOrderConfirmPost$Response$Data$PaymentMethodList$Item({
-    required this.payType,
-    required this.payTypeName,
-    required this.payTypeIcon,
+    this.payType,
+    this.payTypeName,
+    this.payTypeIcon,
   });
 
   factory OrderServiceOrderConfirmPost$Response$Data$PaymentMethodList$Item.fromJson(
@@ -11475,11 +11478,11 @@ class OrderServiceOrderConfirmPost$Response$Data$PaymentMethodList$Item {
       );
 
   @JsonKey(name: 'payType')
-  final String payType;
+  final String? payType;
   @JsonKey(name: 'payTypeName')
-  final String payTypeName;
+  final String? payTypeName;
   @JsonKey(name: 'payTypeIcon')
-  final String payTypeIcon;
+  final String? payTypeIcon;
   static const fromJsonFactory =
       _$OrderServiceOrderConfirmPost$Response$Data$PaymentMethodList$ItemFromJson;
 
@@ -11532,9 +11535,9 @@ extension $OrderServiceOrderConfirmPost$Response$Data$PaymentMethodList$ItemExte
 
   OrderServiceOrderConfirmPost$Response$Data$PaymentMethodList$Item
   copyWithWrapped({
-    Wrapped<String>? payType,
-    Wrapped<String>? payTypeName,
-    Wrapped<String>? payTypeIcon,
+    Wrapped<String?>? payType,
+    Wrapped<String?>? payTypeName,
+    Wrapped<String?>? payTypeIcon,
   }) {
     return OrderServiceOrderConfirmPost$Response$Data$PaymentMethodList$Item(
       payType: (payType != null ? payType.value : this.payType),
@@ -11552,7 +11555,7 @@ class OrderServiceOrderNoAuthDetailGet$Response$Data$BaseInfo {
     this.skuSourceCode,
     this.parentOrderId,
     this.status,
-    required this.frontStatus,
+    this.frontStatus,
     this.statusContent,
     this.orderStatus,
     this.evaluateStatus,
@@ -11600,7 +11603,7 @@ class OrderServiceOrderNoAuthDetailGet$Response$Data$BaseInfo {
   @JsonKey(name: 'status')
   final double? status;
   @JsonKey(name: 'frontStatus')
-  final double frontStatus;
+  final double? frontStatus;
   @JsonKey(name: 'statusContent')
   final String? statusContent;
   @JsonKey(name: 'orderStatus')
@@ -11924,7 +11927,7 @@ extension $OrderServiceOrderNoAuthDetailGet$Response$Data$BaseInfoExtension
     Wrapped<String?>? skuSourceCode,
     Wrapped<String?>? parentOrderId,
     Wrapped<double?>? status,
-    Wrapped<double>? frontStatus,
+    Wrapped<double?>? frontStatus,
     Wrapped<String?>? statusContent,
     Wrapped<double?>? orderStatus,
     Wrapped<double?>? evaluateStatus,
@@ -12033,7 +12036,7 @@ class OrderServiceOrderNoAuthDetailGet$Response$Data$UserAddress {
     this.lastName,
     this.phoneNumber,
     this.zipCode,
-    required this.id,
+    this.id,
   });
 
   factory OrderServiceOrderNoAuthDetailGet$Response$Data$UserAddress.fromJson(
@@ -12074,7 +12077,7 @@ class OrderServiceOrderNoAuthDetailGet$Response$Data$UserAddress {
   @JsonKey(name: 'zipCode')
   final String? zipCode;
   @JsonKey(name: 'id')
-  final double id;
+  final double? id;
   static const fromJsonFactory =
       _$OrderServiceOrderNoAuthDetailGet$Response$Data$UserAddressFromJson;
 
@@ -12214,7 +12217,7 @@ extension $OrderServiceOrderNoAuthDetailGet$Response$Data$UserAddressExtension
     Wrapped<String?>? lastName,
     Wrapped<String?>? phoneNumber,
     Wrapped<String?>? zipCode,
-    Wrapped<double>? id,
+    Wrapped<double?>? id,
   }) {
     return OrderServiceOrderNoAuthDetailGet$Response$Data$UserAddress(
       country: (country != null ? country.value : this.country),
@@ -12359,7 +12362,7 @@ class OrderServiceOrderNoAuthDetailGet$Response$Data$Payments {
     this.targetRechargePrice,
     this.targetPayFeeAmount,
     this.targetCurrency,
-    required this.targetItemsTotalAmount,
+    this.targetItemsTotalAmount,
     this.targetOriginAmount,
     this.targetActualAmount,
   });
@@ -12406,7 +12409,7 @@ class OrderServiceOrderNoAuthDetailGet$Response$Data$Payments {
   @JsonKey(name: 'targetCurrency')
   final String? targetCurrency;
   @JsonKey(name: 'targetItemsTotalAmount')
-  final String targetItemsTotalAmount;
+  final String? targetItemsTotalAmount;
   @JsonKey(name: 'targetOriginAmount')
   final String? targetOriginAmount;
   @JsonKey(name: 'targetActualAmount')
@@ -12607,7 +12610,7 @@ extension $OrderServiceOrderNoAuthDetailGet$Response$Data$PaymentsExtension
     Wrapped<String?>? targetRechargePrice,
     Wrapped<String?>? targetPayFeeAmount,
     Wrapped<String?>? targetCurrency,
-    Wrapped<String>? targetItemsTotalAmount,
+    Wrapped<String?>? targetItemsTotalAmount,
     Wrapped<String?>? targetOriginAmount,
     Wrapped<String?>? targetActualAmount,
   }) {
@@ -12668,10 +12671,10 @@ extension $OrderServiceOrderNoAuthDetailGet$Response$Data$PaymentsExtension
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderNoAuthDetailGet$Response$Data$OrderBillList$Item {
   const OrderServiceOrderNoAuthDetailGet$Response$Data$OrderBillList$Item({
-    required this.status,
-    required this.targetCurrency,
-    required this.targetTotalPrice,
-    required this.billId,
+    this.status,
+    this.targetCurrency,
+    this.targetTotalPrice,
+    this.billId,
   });
 
   factory OrderServiceOrderNoAuthDetailGet$Response$Data$OrderBillList$Item.fromJson(
@@ -12689,13 +12692,13 @@ class OrderServiceOrderNoAuthDetailGet$Response$Data$OrderBillList$Item {
       );
 
   @JsonKey(name: 'status')
-  final String status;
+  final String? status;
   @JsonKey(name: 'targetCurrency')
-  final String targetCurrency;
+  final String? targetCurrency;
   @JsonKey(name: 'targetTotalPrice')
-  final String targetTotalPrice;
+  final String? targetTotalPrice;
   @JsonKey(name: 'billId')
-  final String billId;
+  final String? billId;
   static const fromJsonFactory =
       _$OrderServiceOrderNoAuthDetailGet$Response$Data$OrderBillList$ItemFromJson;
 
@@ -12749,10 +12752,10 @@ extension $OrderServiceOrderNoAuthDetailGet$Response$Data$OrderBillList$ItemExte
 
   OrderServiceOrderNoAuthDetailGet$Response$Data$OrderBillList$Item
   copyWithWrapped({
-    Wrapped<String>? status,
-    Wrapped<String>? targetCurrency,
-    Wrapped<String>? targetTotalPrice,
-    Wrapped<String>? billId,
+    Wrapped<String?>? status,
+    Wrapped<String?>? targetCurrency,
+    Wrapped<String?>? targetTotalPrice,
+    Wrapped<String?>? billId,
   }) {
     return OrderServiceOrderNoAuthDetailGet$Response$Data$OrderBillList$Item(
       status: (status != null ? status.value : this.status),
@@ -12770,19 +12773,19 @@ extension $OrderServiceOrderNoAuthDetailGet$Response$Data$OrderBillList$ItemExte
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrder {
   const OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrder({
-    required this.parcelOrderId,
-    required this.parcelStatus,
-    required this.parcelStatusDesc,
-    required this.createTime,
-    required this.warehouseCode,
-    required this.warehouseName,
-    required this.freight,
-    required this.freightCurrency,
-    required this.lastMileMailNo,
-    required this.lastMileCompanyCode,
-    required this.lastMileCompanyName,
-    required this.parcelProductDTOList,
-    required this.buyerOperates,
+    this.parcelOrderId,
+    this.parcelStatus,
+    this.parcelStatusDesc,
+    this.createTime,
+    this.warehouseCode,
+    this.warehouseName,
+    this.freight,
+    this.freightCurrency,
+    this.lastMileMailNo,
+    this.lastMileCompanyCode,
+    this.lastMileCompanyName,
+    this.parcelProductDTOList,
+    this.buyerOperates,
     this.freightCompensate,
     this.solutionCode,
     this.actualFreight,
@@ -12805,35 +12808,35 @@ class OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrder {
       _$OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrderToJson(this);
 
   @JsonKey(name: 'parcelOrderId')
-  final String parcelOrderId;
+  final String? parcelOrderId;
   @JsonKey(name: 'parcelStatus')
-  final String parcelStatus;
+  final String? parcelStatus;
   @JsonKey(name: 'parcelStatusDesc')
-  final String parcelStatusDesc;
+  final String? parcelStatusDesc;
   @JsonKey(name: 'createTime')
-  final double createTime;
+  final double? createTime;
   @JsonKey(name: 'warehouseCode')
-  final String warehouseCode;
+  final String? warehouseCode;
   @JsonKey(name: 'warehouseName')
-  final String warehouseName;
+  final String? warehouseName;
   @JsonKey(name: 'freight')
-  final String freight;
+  final String? freight;
   @JsonKey(name: 'freightCurrency')
-  final OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrder$FreightCurrency
+  final OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrder$FreightCurrency?
   freightCurrency;
   @JsonKey(name: 'lastMileMailNo')
-  final Object lastMileMailNo;
+  final Object? lastMileMailNo;
   @JsonKey(name: 'lastMileCompanyCode')
-  final Object lastMileCompanyCode;
+  final Object? lastMileCompanyCode;
   @JsonKey(name: 'lastMileCompanyName')
-  final Object lastMileCompanyName;
+  final Object? lastMileCompanyName;
   @JsonKey(name: 'parcelProductDTOList')
   final List<
     OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrder$ParcelProductDTOList$Item
-  >
+  >?
   parcelProductDTOList;
   @JsonKey(name: 'buyerOperates', defaultValue: <String>[])
-  final List<String> buyerOperates;
+  final List<String>? buyerOperates;
   @JsonKey(name: 'freightCompensate')
   final OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrder$FreightCompensate?
   freightCompensate;
@@ -13064,27 +13067,27 @@ extension $OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrderExtension
   }
 
   OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrder copyWithWrapped({
-    Wrapped<String>? parcelOrderId,
-    Wrapped<String>? parcelStatus,
-    Wrapped<String>? parcelStatusDesc,
-    Wrapped<double>? createTime,
-    Wrapped<String>? warehouseCode,
-    Wrapped<String>? warehouseName,
-    Wrapped<String>? freight,
+    Wrapped<String?>? parcelOrderId,
+    Wrapped<String?>? parcelStatus,
+    Wrapped<String?>? parcelStatusDesc,
+    Wrapped<double?>? createTime,
+    Wrapped<String?>? warehouseCode,
+    Wrapped<String?>? warehouseName,
+    Wrapped<String?>? freight,
     Wrapped<
-      OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrder$FreightCurrency
+      OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrder$FreightCurrency?
     >?
     freightCurrency,
-    Wrapped<Object>? lastMileMailNo,
-    Wrapped<Object>? lastMileCompanyCode,
-    Wrapped<Object>? lastMileCompanyName,
+    Wrapped<Object?>? lastMileMailNo,
+    Wrapped<Object?>? lastMileCompanyCode,
+    Wrapped<Object?>? lastMileCompanyName,
     Wrapped<
       List<
         OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrder$ParcelProductDTOList$Item
-      >
+      >?
     >?
     parcelProductDTOList,
-    Wrapped<List<String>>? buyerOperates,
+    Wrapped<List<String>?>? buyerOperates,
     Wrapped<
       OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrder$FreightCompensate?
     >?
@@ -13173,8 +13176,8 @@ class OrderServiceOrderNoAuthDetailGet$Response$Data$OrderTrace {
     this.logisticsOrderId,
     this.logisticsStatus,
     this.traceList,
-    required this.parcelOrderId,
-    required this.groupTraceList,
+    this.parcelOrderId,
+    this.groupTraceList,
   });
 
   factory OrderServiceOrderNoAuthDetailGet$Response$Data$OrderTrace.fromJson(
@@ -13199,11 +13202,11 @@ class OrderServiceOrderNoAuthDetailGet$Response$Data$OrderTrace {
   >?
   traceList;
   @JsonKey(name: 'parcelOrderId')
-  final String parcelOrderId;
+  final String? parcelOrderId;
   @JsonKey(name: 'groupTraceList')
   final List<
     OrderServiceOrderNoAuthDetailGet$Response$Data$OrderTrace$GroupTraceList$Item
-  >
+  >?
   groupTraceList;
   static const fromJsonFactory =
       _$OrderServiceOrderNoAuthDetailGet$Response$Data$OrderTraceFromJson;
@@ -13294,11 +13297,11 @@ extension $OrderServiceOrderNoAuthDetailGet$Response$Data$OrderTraceExtension
       >?
     >?
     traceList,
-    Wrapped<String>? parcelOrderId,
+    Wrapped<String?>? parcelOrderId,
     Wrapped<
       List<
         OrderServiceOrderNoAuthDetailGet$Response$Data$OrderTrace$GroupTraceList$Item
-      >
+      >?
     >?
     groupTraceList,
   }) {
@@ -13452,13 +13455,13 @@ extension $OrderServiceOrderNoAuthDetailGet$Response$Data$DiscountInfos$ItemExte
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderNoAuthDetailGet$Response$Data$OrderList$Item {
   const OrderServiceOrderNoAuthDetailGet$Response$Data$OrderList$Item({
-    required this.skuList,
+    this.skuList,
     this.afterSalesList,
     this.supplyOrderList,
     this.sourceOption,
     this.logisticsInfo,
-    required this.skuSourceCode,
-    required this.remark,
+    this.skuSourceCode,
+    this.remark,
   });
 
   factory OrderServiceOrderNoAuthDetailGet$Response$Data$OrderList$Item.fromJson(
@@ -13477,7 +13480,7 @@ class OrderServiceOrderNoAuthDetailGet$Response$Data$OrderList$Item {
   @JsonKey(name: 'skuList')
   final List<
     OrderServiceOrderNoAuthDetailGet$Response$Data$OrderList$Item$SkuList$Item
-  >
+  >?
   skuList;
   @JsonKey(name: 'afterSalesList', defaultValue: <Object>[])
   final List<Object>? afterSalesList;
@@ -13493,9 +13496,9 @@ class OrderServiceOrderNoAuthDetailGet$Response$Data$OrderList$Item {
   final OrderServiceOrderNoAuthDetailGet$Response$Data$OrderList$Item$LogisticsInfo?
   logisticsInfo;
   @JsonKey(name: 'skuSourceCode')
-  final String skuSourceCode;
+  final String? skuSourceCode;
   @JsonKey(name: 'remark')
-  final String remark;
+  final String? remark;
   static const fromJsonFactory =
       _$OrderServiceOrderNoAuthDetailGet$Response$Data$OrderList$ItemFromJson;
 
@@ -13587,7 +13590,7 @@ extension $OrderServiceOrderNoAuthDetailGet$Response$Data$OrderList$ItemExtensio
     Wrapped<
       List<
         OrderServiceOrderNoAuthDetailGet$Response$Data$OrderList$Item$SkuList$Item
-      >
+      >?
     >?
     skuList,
     Wrapped<List<Object>?>? afterSalesList,
@@ -13605,8 +13608,8 @@ extension $OrderServiceOrderNoAuthDetailGet$Response$Data$OrderList$ItemExtensio
       OrderServiceOrderNoAuthDetailGet$Response$Data$OrderList$Item$LogisticsInfo?
     >?
     logisticsInfo,
-    Wrapped<String>? skuSourceCode,
-    Wrapped<String>? remark,
+    Wrapped<String?>? skuSourceCode,
+    Wrapped<String?>? remark,
   }) {
     return OrderServiceOrderNoAuthDetailGet$Response$Data$OrderList$Item(
       skuList: (skuList != null ? skuList.value : this.skuList),
@@ -13883,8 +13886,8 @@ extension $OrderServiceOrderCouponListPost$Response$Data$Item$UserCouponExtensio
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderGetReviewGet$Response$Data$Item$SkuSpecValues$Item {
   const OrderServiceOrderGetReviewGet$Response$Data$Item$SkuSpecValues$Item({
-    required this.name,
-    required this.value,
+    this.name,
+    this.value,
   });
 
   factory OrderServiceOrderGetReviewGet$Response$Data$Item$SkuSpecValues$Item.fromJson(
@@ -13902,9 +13905,9 @@ class OrderServiceOrderGetReviewGet$Response$Data$Item$SkuSpecValues$Item {
       );
 
   @JsonKey(name: 'name')
-  final String name;
+  final String? name;
   @JsonKey(name: 'value')
-  final String value;
+  final String? value;
   static const fromJsonFactory =
       _$OrderServiceOrderGetReviewGet$Response$Data$Item$SkuSpecValues$ItemFromJson;
 
@@ -13941,7 +13944,7 @@ extension $OrderServiceOrderGetReviewGet$Response$Data$Item$SkuSpecValues$ItemEx
   }
 
   OrderServiceOrderGetReviewGet$Response$Data$Item$SkuSpecValues$Item
-  copyWithWrapped({Wrapped<String>? name, Wrapped<String>? value}) {
+  copyWithWrapped({Wrapped<String?>? name, Wrapped<String?>? value}) {
     return OrderServiceOrderGetReviewGet$Response$Data$Item$SkuSpecValues$Item(
       name: (name != null ? name.value : this.name),
       value: (value != null ? value.value : this.value),
@@ -13952,10 +13955,10 @@ extension $OrderServiceOrderGetReviewGet$Response$Data$Item$SkuSpecValues$ItemEx
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderGetReviewGet$Response$Data$Item$Review {
   const OrderServiceOrderGetReviewGet$Response$Data$Item$Review({
-    required this.comment,
-    required this.score,
-    required this.images,
-    required this.extraComment,
+    this.comment,
+    this.score,
+    this.images,
+    this.extraComment,
   });
 
   factory OrderServiceOrderGetReviewGet$Response$Data$Item$Review.fromJson(
@@ -13968,13 +13971,13 @@ class OrderServiceOrderGetReviewGet$Response$Data$Item$Review {
       _$OrderServiceOrderGetReviewGet$Response$Data$Item$ReviewToJson(this);
 
   @JsonKey(name: 'comment')
-  final String comment;
+  final String? comment;
   @JsonKey(name: 'score')
-  final String score;
+  final String? score;
   @JsonKey(name: 'images', defaultValue: <String>[])
-  final List<String> images;
+  final List<String>? images;
   @JsonKey(name: 'extraComment')
-  final String extraComment;
+  final String? extraComment;
   static const fromJsonFactory =
       _$OrderServiceOrderGetReviewGet$Response$Data$Item$ReviewFromJson;
 
@@ -14027,10 +14030,10 @@ extension $OrderServiceOrderGetReviewGet$Response$Data$Item$ReviewExtension
   }
 
   OrderServiceOrderGetReviewGet$Response$Data$Item$Review copyWithWrapped({
-    Wrapped<String>? comment,
-    Wrapped<String>? score,
-    Wrapped<List<String>>? images,
-    Wrapped<String>? extraComment,
+    Wrapped<String?>? comment,
+    Wrapped<String?>? score,
+    Wrapped<List<String>?>? images,
+    Wrapped<String?>? extraComment,
   }) {
     return OrderServiceOrderGetReviewGet$Response$Data$Item$Review(
       comment: (comment != null ? comment.value : this.comment),
@@ -14046,24 +14049,24 @@ extension $OrderServiceOrderGetReviewGet$Response$Data$Item$ReviewExtension
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderListGet$Response$Data$Records$Item {
   const OrderServiceOrderListGet$Response$Data$Records$Item({
-    required this.status,
-    required this.frontStatus,
-    required this.statusContent,
-    required this.orderStatus,
-    required this.orderId,
-    required this.parentOrderId,
-    required this.quantity,
-    required this.totalAmount,
-    required this.targetTotalAmount,
-    required this.discountAmount,
-    required this.targetDiscountAmount,
+    this.status,
+    this.frontStatus,
+    this.statusContent,
+    this.orderStatus,
+    this.orderId,
+    this.parentOrderId,
+    this.quantity,
+    this.totalAmount,
+    this.targetTotalAmount,
+    this.discountAmount,
+    this.targetDiscountAmount,
     this.targetPayFeeAmount,
     this.targetActualAmount,
-    required this.currency,
-    required this.targetCurrency,
-    required this.description,
-    required this.remark,
-    required this.statusIcon,
+    this.currency,
+    this.targetCurrency,
+    this.description,
+    this.remark,
+    this.statusIcon,
     this.operates,
     this.isLogisticsTrace,
     this.orderSkuList,
@@ -14093,41 +14096,41 @@ class OrderServiceOrderListGet$Response$Data$Records$Item {
       _$OrderServiceOrderListGet$Response$Data$Records$ItemToJson(this);
 
   @JsonKey(name: 'status')
-  final double status;
+  final double? status;
   @JsonKey(name: 'frontStatus')
-  final double frontStatus;
+  final double? frontStatus;
   @JsonKey(name: 'statusContent')
-  final String statusContent;
+  final String? statusContent;
   @JsonKey(name: 'orderStatus')
-  final double orderStatus;
+  final double? orderStatus;
   @JsonKey(name: 'orderId')
-  final String orderId;
+  final String? orderId;
   @JsonKey(name: 'parentOrderId')
-  final String parentOrderId;
+  final String? parentOrderId;
   @JsonKey(name: 'quantity')
-  final double quantity;
+  final double? quantity;
   @JsonKey(name: 'totalAmount')
-  final String totalAmount;
+  final String? totalAmount;
   @JsonKey(name: 'targetTotalAmount')
-  final String targetTotalAmount;
+  final String? targetTotalAmount;
   @JsonKey(name: 'discountAmount')
-  final String discountAmount;
+  final String? discountAmount;
   @JsonKey(name: 'targetDiscountAmount')
-  final String targetDiscountAmount;
+  final String? targetDiscountAmount;
   @JsonKey(name: 'targetPayFeeAmount')
   final String? targetPayFeeAmount;
   @JsonKey(name: 'targetActualAmount')
   final String? targetActualAmount;
   @JsonKey(name: 'currency')
-  final String currency;
+  final String? currency;
   @JsonKey(name: 'targetCurrency')
-  final String targetCurrency;
+  final String? targetCurrency;
   @JsonKey(name: 'description')
-  final String description;
+  final String? description;
   @JsonKey(name: 'remark')
-  final String remark;
+  final String? remark;
   @JsonKey(name: 'statusIcon')
-  final String statusIcon;
+  final String? statusIcon;
   @JsonKey(name: 'operates', defaultValue: <Object>[])
   final List<Object>? operates;
   @JsonKey(name: 'isLogisticsTrace')
@@ -14480,24 +14483,24 @@ extension $OrderServiceOrderListGet$Response$Data$Records$ItemExtension
   }
 
   OrderServiceOrderListGet$Response$Data$Records$Item copyWithWrapped({
-    Wrapped<double>? status,
-    Wrapped<double>? frontStatus,
-    Wrapped<String>? statusContent,
-    Wrapped<double>? orderStatus,
-    Wrapped<String>? orderId,
-    Wrapped<String>? parentOrderId,
-    Wrapped<double>? quantity,
-    Wrapped<String>? totalAmount,
-    Wrapped<String>? targetTotalAmount,
-    Wrapped<String>? discountAmount,
-    Wrapped<String>? targetDiscountAmount,
+    Wrapped<double?>? status,
+    Wrapped<double?>? frontStatus,
+    Wrapped<String?>? statusContent,
+    Wrapped<double?>? orderStatus,
+    Wrapped<String?>? orderId,
+    Wrapped<String?>? parentOrderId,
+    Wrapped<double?>? quantity,
+    Wrapped<String?>? totalAmount,
+    Wrapped<String?>? targetTotalAmount,
+    Wrapped<String?>? discountAmount,
+    Wrapped<String?>? targetDiscountAmount,
     Wrapped<String?>? targetPayFeeAmount,
     Wrapped<String?>? targetActualAmount,
-    Wrapped<String>? currency,
-    Wrapped<String>? targetCurrency,
-    Wrapped<String>? description,
-    Wrapped<String>? remark,
-    Wrapped<String>? statusIcon,
+    Wrapped<String?>? currency,
+    Wrapped<String?>? targetCurrency,
+    Wrapped<String?>? description,
+    Wrapped<String?>? remark,
+    Wrapped<String?>? statusIcon,
     Wrapped<List<Object>?>? operates,
     Wrapped<bool?>? isLogisticsTrace,
     Wrapped<
@@ -15024,10 +15027,10 @@ extension $OrderServiceOrderCombineListGet$Response$Data$Records$ItemExtension
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderDetailGet$Response$Data$OrderList$Item {
   const OrderServiceOrderDetailGet$Response$Data$OrderList$Item({
-    required this.skuList,
+    this.skuList,
     this.supplyOrderList,
-    required this.skuSourceCode,
-    required this.skuSourceTitle,
+    this.skuSourceCode,
+    this.skuSourceTitle,
     this.remark,
     this.logisticsInfo,
     this.sourceOption,
@@ -15045,7 +15048,7 @@ class OrderServiceOrderDetailGet$Response$Data$OrderList$Item {
   @JsonKey(name: 'skuList')
   final List<
     OrderServiceOrderDetailGet$Response$Data$OrderList$Item$SkuList$Item
-  >
+  >?
   skuList;
   @JsonKey(name: 'supplyOrderList')
   final List<
@@ -15053,9 +15056,9 @@ class OrderServiceOrderDetailGet$Response$Data$OrderList$Item {
   >?
   supplyOrderList;
   @JsonKey(name: 'skuSourceCode')
-  final String skuSourceCode;
+  final String? skuSourceCode;
   @JsonKey(name: 'skuSourceTitle')
-  final String skuSourceTitle;
+  final String? skuSourceTitle;
   @JsonKey(name: 'remark')
   final String? remark;
   @JsonKey(name: 'logisticsInfo')
@@ -15150,7 +15153,9 @@ extension $OrderServiceOrderDetailGet$Response$Data$OrderList$ItemExtension
 
   OrderServiceOrderDetailGet$Response$Data$OrderList$Item copyWithWrapped({
     Wrapped<
-      List<OrderServiceOrderDetailGet$Response$Data$OrderList$Item$SkuList$Item>
+      List<
+        OrderServiceOrderDetailGet$Response$Data$OrderList$Item$SkuList$Item
+      >?
     >?
     skuList,
     Wrapped<
@@ -15159,8 +15164,8 @@ extension $OrderServiceOrderDetailGet$Response$Data$OrderList$ItemExtension
       >?
     >?
     supplyOrderList,
-    Wrapped<String>? skuSourceCode,
-    Wrapped<String>? skuSourceTitle,
+    Wrapped<String?>? skuSourceCode,
+    Wrapped<String?>? skuSourceTitle,
     Wrapped<String?>? remark,
     Wrapped<
       OrderServiceOrderDetailGet$Response$Data$OrderList$Item$LogisticsInfo?
@@ -17509,7 +17514,7 @@ class OrderServiceOpenapiOrderDetailGet$Response$Data$BaseInfo {
     this.skuSourceCode,
     this.parentOrderId,
     this.status,
-    required this.frontStatus,
+    this.frontStatus,
     this.statusContent,
     this.orderStatus,
     this.evaluateStatus,
@@ -17556,7 +17561,7 @@ class OrderServiceOpenapiOrderDetailGet$Response$Data$BaseInfo {
   @JsonKey(name: 'status')
   final double? status;
   @JsonKey(name: 'frontStatus')
-  final double frontStatus;
+  final double? frontStatus;
   @JsonKey(name: 'statusContent')
   final String? statusContent;
   @JsonKey(name: 'orderStatus')
@@ -17870,7 +17875,7 @@ extension $OrderServiceOpenapiOrderDetailGet$Response$Data$BaseInfoExtension
     Wrapped<String?>? skuSourceCode,
     Wrapped<String?>? parentOrderId,
     Wrapped<double?>? status,
-    Wrapped<double>? frontStatus,
+    Wrapped<double?>? frontStatus,
     Wrapped<String?>? statusContent,
     Wrapped<double?>? orderStatus,
     Wrapped<double?>? evaluateStatus,
@@ -17975,7 +17980,7 @@ class OrderServiceOpenapiOrderDetailGet$Response$Data$UserAddress {
     this.lastName,
     this.phoneNumber,
     this.zipCode,
-    required this.id,
+    this.id,
   });
 
   factory OrderServiceOpenapiOrderDetailGet$Response$Data$UserAddress.fromJson(
@@ -18016,7 +18021,7 @@ class OrderServiceOpenapiOrderDetailGet$Response$Data$UserAddress {
   @JsonKey(name: 'zipCode')
   final String? zipCode;
   @JsonKey(name: 'id')
-  final double id;
+  final double? id;
   static const fromJsonFactory =
       _$OrderServiceOpenapiOrderDetailGet$Response$Data$UserAddressFromJson;
 
@@ -18156,7 +18161,7 @@ extension $OrderServiceOpenapiOrderDetailGet$Response$Data$UserAddressExtension
     Wrapped<String?>? lastName,
     Wrapped<String?>? phoneNumber,
     Wrapped<String?>? zipCode,
-    Wrapped<double>? id,
+    Wrapped<double?>? id,
   }) {
     return OrderServiceOpenapiOrderDetailGet$Response$Data$UserAddress(
       country: (country != null ? country.value : this.country),
@@ -18300,7 +18305,7 @@ class OrderServiceOpenapiOrderDetailGet$Response$Data$Payments {
     this.rechargeAmount,
     this.targetRechargePrice,
     this.targetCurrency,
-    required this.targetItemsTotalAmount,
+    this.targetItemsTotalAmount,
   });
 
   factory OrderServiceOpenapiOrderDetailGet$Response$Data$Payments.fromJson(
@@ -18341,7 +18346,7 @@ class OrderServiceOpenapiOrderDetailGet$Response$Data$Payments {
   @JsonKey(name: 'targetCurrency')
   final String? targetCurrency;
   @JsonKey(name: 'targetItemsTotalAmount')
-  final String targetItemsTotalAmount;
+  final String? targetItemsTotalAmount;
   static const fromJsonFactory =
       _$OrderServiceOpenapiOrderDetailGet$Response$Data$PaymentsFromJson;
 
@@ -18504,7 +18509,7 @@ extension $OrderServiceOpenapiOrderDetailGet$Response$Data$PaymentsExtension
     Wrapped<String?>? rechargeAmount,
     Wrapped<String?>? targetRechargePrice,
     Wrapped<String?>? targetCurrency,
-    Wrapped<String>? targetItemsTotalAmount,
+    Wrapped<String?>? targetItemsTotalAmount,
   }) {
     return OrderServiceOpenapiOrderDetailGet$Response$Data$Payments(
       receiptAmount: (receiptAmount != null
@@ -18551,10 +18556,10 @@ extension $OrderServiceOpenapiOrderDetailGet$Response$Data$PaymentsExtension
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOpenapiOrderDetailGet$Response$Data$OrderBillList$Item {
   const OrderServiceOpenapiOrderDetailGet$Response$Data$OrderBillList$Item({
-    required this.status,
-    required this.targetCurrency,
-    required this.targetTotalPrice,
-    required this.billId,
+    this.status,
+    this.targetCurrency,
+    this.targetTotalPrice,
+    this.billId,
   });
 
   factory OrderServiceOpenapiOrderDetailGet$Response$Data$OrderBillList$Item.fromJson(
@@ -18572,13 +18577,13 @@ class OrderServiceOpenapiOrderDetailGet$Response$Data$OrderBillList$Item {
       );
 
   @JsonKey(name: 'status')
-  final String status;
+  final String? status;
   @JsonKey(name: 'targetCurrency')
-  final String targetCurrency;
+  final String? targetCurrency;
   @JsonKey(name: 'targetTotalPrice')
-  final String targetTotalPrice;
+  final String? targetTotalPrice;
   @JsonKey(name: 'billId')
-  final String billId;
+  final String? billId;
   static const fromJsonFactory =
       _$OrderServiceOpenapiOrderDetailGet$Response$Data$OrderBillList$ItemFromJson;
 
@@ -18632,10 +18637,10 @@ extension $OrderServiceOpenapiOrderDetailGet$Response$Data$OrderBillList$ItemExt
 
   OrderServiceOpenapiOrderDetailGet$Response$Data$OrderBillList$Item
   copyWithWrapped({
-    Wrapped<String>? status,
-    Wrapped<String>? targetCurrency,
-    Wrapped<String>? targetTotalPrice,
-    Wrapped<String>? billId,
+    Wrapped<String?>? status,
+    Wrapped<String?>? targetCurrency,
+    Wrapped<String?>? targetTotalPrice,
+    Wrapped<String?>? billId,
   }) {
     return OrderServiceOpenapiOrderDetailGet$Response$Data$OrderBillList$Item(
       status: (status != null ? status.value : this.status),
@@ -18653,19 +18658,19 @@ extension $OrderServiceOpenapiOrderDetailGet$Response$Data$OrderBillList$ItemExt
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrder {
   const OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrder({
-    required this.parcelOrderId,
-    required this.parcelStatus,
-    required this.parcelStatusDesc,
-    required this.createTime,
-    required this.warehouseCode,
-    required this.warehouseName,
-    required this.freight,
-    required this.freightCurrency,
-    required this.lastMileMailNo,
-    required this.lastMileCompanyCode,
-    required this.lastMileCompanyName,
-    required this.parcelProductDTOList,
-    required this.buyerOperates,
+    this.parcelOrderId,
+    this.parcelStatus,
+    this.parcelStatusDesc,
+    this.createTime,
+    this.warehouseCode,
+    this.warehouseName,
+    this.freight,
+    this.freightCurrency,
+    this.lastMileMailNo,
+    this.lastMileCompanyCode,
+    this.lastMileCompanyName,
+    this.parcelProductDTOList,
+    this.buyerOperates,
     this.freightCompensate,
     this.solutionCode,
     this.actualFreight,
@@ -18688,35 +18693,35 @@ class OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrder {
       _$OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrderToJson(this);
 
   @JsonKey(name: 'parcelOrderId')
-  final String parcelOrderId;
+  final String? parcelOrderId;
   @JsonKey(name: 'parcelStatus')
-  final String parcelStatus;
+  final String? parcelStatus;
   @JsonKey(name: 'parcelStatusDesc')
-  final String parcelStatusDesc;
+  final String? parcelStatusDesc;
   @JsonKey(name: 'createTime')
-  final double createTime;
+  final double? createTime;
   @JsonKey(name: 'warehouseCode')
-  final String warehouseCode;
+  final String? warehouseCode;
   @JsonKey(name: 'warehouseName')
-  final String warehouseName;
+  final String? warehouseName;
   @JsonKey(name: 'freight')
-  final String freight;
+  final String? freight;
   @JsonKey(name: 'freightCurrency')
-  final OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrder$FreightCurrency
+  final OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrder$FreightCurrency?
   freightCurrency;
   @JsonKey(name: 'lastMileMailNo')
-  final Object lastMileMailNo;
+  final Object? lastMileMailNo;
   @JsonKey(name: 'lastMileCompanyCode')
-  final Object lastMileCompanyCode;
+  final Object? lastMileCompanyCode;
   @JsonKey(name: 'lastMileCompanyName')
-  final Object lastMileCompanyName;
+  final Object? lastMileCompanyName;
   @JsonKey(name: 'parcelProductDTOList')
   final List<
     OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrder$ParcelProductDTOList$Item
-  >
+  >?
   parcelProductDTOList;
   @JsonKey(name: 'buyerOperates', defaultValue: <String>[])
-  final List<String> buyerOperates;
+  final List<String>? buyerOperates;
   @JsonKey(name: 'freightCompensate')
   final OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrder$FreightCompensate?
   freightCompensate;
@@ -18947,27 +18952,27 @@ extension $OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrderExtension
   }
 
   OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrder copyWithWrapped({
-    Wrapped<String>? parcelOrderId,
-    Wrapped<String>? parcelStatus,
-    Wrapped<String>? parcelStatusDesc,
-    Wrapped<double>? createTime,
-    Wrapped<String>? warehouseCode,
-    Wrapped<String>? warehouseName,
-    Wrapped<String>? freight,
+    Wrapped<String?>? parcelOrderId,
+    Wrapped<String?>? parcelStatus,
+    Wrapped<String?>? parcelStatusDesc,
+    Wrapped<double?>? createTime,
+    Wrapped<String?>? warehouseCode,
+    Wrapped<String?>? warehouseName,
+    Wrapped<String?>? freight,
     Wrapped<
-      OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrder$FreightCurrency
+      OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrder$FreightCurrency?
     >?
     freightCurrency,
-    Wrapped<Object>? lastMileMailNo,
-    Wrapped<Object>? lastMileCompanyCode,
-    Wrapped<Object>? lastMileCompanyName,
+    Wrapped<Object?>? lastMileMailNo,
+    Wrapped<Object?>? lastMileCompanyCode,
+    Wrapped<Object?>? lastMileCompanyName,
     Wrapped<
       List<
         OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrder$ParcelProductDTOList$Item
-      >
+      >?
     >?
     parcelProductDTOList,
-    Wrapped<List<String>>? buyerOperates,
+    Wrapped<List<String>?>? buyerOperates,
     Wrapped<
       OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrder$FreightCompensate?
     >?
@@ -19056,7 +19061,7 @@ class OrderServiceOpenapiOrderDetailGet$Response$Data$OrderTrace {
     this.logisticsOrderId,
     this.logisticsStatus,
     this.traceList,
-    required this.parcelOrderId,
+    this.parcelOrderId,
   });
 
   factory OrderServiceOpenapiOrderDetailGet$Response$Data$OrderTrace.fromJson(
@@ -19082,7 +19087,7 @@ class OrderServiceOpenapiOrderDetailGet$Response$Data$OrderTrace {
   >?
   traceList;
   @JsonKey(name: 'parcelOrderId')
-  final String parcelOrderId;
+  final String? parcelOrderId;
   static const fromJsonFactory =
       _$OrderServiceOpenapiOrderDetailGet$Response$Data$OrderTraceFromJson;
 
@@ -19161,7 +19166,7 @@ extension $OrderServiceOpenapiOrderDetailGet$Response$Data$OrderTraceExtension
       >?
     >?
     traceList,
-    Wrapped<String>? parcelOrderId,
+    Wrapped<String?>? parcelOrderId,
   }) {
     return OrderServiceOpenapiOrderDetailGet$Response$Data$OrderTrace(
       tradeOrderId: (tradeOrderId != null
@@ -19184,7 +19189,7 @@ extension $OrderServiceOpenapiOrderDetailGet$Response$Data$OrderTraceExtension
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOpenapiOrderDetailGet$Response$Data$OrderList$Item {
   const OrderServiceOpenapiOrderDetailGet$Response$Data$OrderList$Item({
-    required this.skuList,
+    this.skuList,
     this.afterSalesList,
     this.supplyOrderList,
   });
@@ -19205,7 +19210,7 @@ class OrderServiceOpenapiOrderDetailGet$Response$Data$OrderList$Item {
   @JsonKey(name: 'skuList')
   final List<
     OrderServiceOpenapiOrderDetailGet$Response$Data$OrderList$Item$SkuList$Item
-  >
+  >?
   skuList;
   @JsonKey(name: 'afterSalesList', defaultValue: <Object>[])
   final List<Object>? afterSalesList;
@@ -19275,7 +19280,7 @@ extension $OrderServiceOpenapiOrderDetailGet$Response$Data$OrderList$ItemExtensi
     Wrapped<
       List<
         OrderServiceOpenapiOrderDetailGet$Response$Data$OrderList$Item$SkuList$Item
-      >
+      >?
     >?
     skuList,
     Wrapped<List<Object>?>? afterSalesList,
@@ -19544,7 +19549,7 @@ class OrderServiceOrderCombineDetailGet$Response$Data$BaseInfo {
     this.skuSourceCode,
     this.parentOrderId,
     this.status,
-    required this.frontStatus,
+    this.frontStatus,
     this.statusContent,
     this.orderStatus,
     this.evaluateStatus,
@@ -19593,7 +19598,7 @@ class OrderServiceOrderCombineDetailGet$Response$Data$BaseInfo {
   @JsonKey(name: 'status')
   final double? status;
   @JsonKey(name: 'frontStatus')
-  final double frontStatus;
+  final double? frontStatus;
   @JsonKey(name: 'statusContent')
   final String? statusContent;
   @JsonKey(name: 'orderStatus')
@@ -19927,7 +19932,7 @@ extension $OrderServiceOrderCombineDetailGet$Response$Data$BaseInfoExtension
     Wrapped<String?>? skuSourceCode,
     Wrapped<String?>? parentOrderId,
     Wrapped<double?>? status,
-    Wrapped<double>? frontStatus,
+    Wrapped<double?>? frontStatus,
     Wrapped<String?>? statusContent,
     Wrapped<double?>? orderStatus,
     Wrapped<double?>? evaluateStatus,
@@ -20027,19 +20032,19 @@ extension $OrderServiceOrderCombineDetailGet$Response$Data$BaseInfoExtension
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrder {
   const OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrder({
-    required this.parcelOrderId,
-    required this.parcelStatus,
-    required this.parcelStatusDesc,
-    required this.createTime,
-    required this.warehouseCode,
-    required this.warehouseName,
-    required this.freight,
-    required this.freightCurrency,
-    required this.lastMileMailNo,
-    required this.lastMileCompanyCode,
-    required this.lastMileCompanyName,
-    required this.parcelProductDTOList,
-    required this.buyerOperates,
+    this.parcelOrderId,
+    this.parcelStatus,
+    this.parcelStatusDesc,
+    this.createTime,
+    this.warehouseCode,
+    this.warehouseName,
+    this.freight,
+    this.freightCurrency,
+    this.lastMileMailNo,
+    this.lastMileCompanyCode,
+    this.lastMileCompanyName,
+    this.parcelProductDTOList,
+    this.buyerOperates,
     this.freightCompensate,
     this.solutionCode,
     this.actualFreight,
@@ -20062,35 +20067,35 @@ class OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrder {
       _$OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrderToJson(this);
 
   @JsonKey(name: 'parcelOrderId')
-  final String parcelOrderId;
+  final String? parcelOrderId;
   @JsonKey(name: 'parcelStatus')
-  final String parcelStatus;
+  final String? parcelStatus;
   @JsonKey(name: 'parcelStatusDesc')
-  final String parcelStatusDesc;
+  final String? parcelStatusDesc;
   @JsonKey(name: 'createTime')
-  final double createTime;
+  final double? createTime;
   @JsonKey(name: 'warehouseCode')
-  final String warehouseCode;
+  final String? warehouseCode;
   @JsonKey(name: 'warehouseName')
-  final String warehouseName;
+  final String? warehouseName;
   @JsonKey(name: 'freight')
-  final String freight;
+  final String? freight;
   @JsonKey(name: 'freightCurrency')
-  final OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrder$FreightCurrency
+  final OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrder$FreightCurrency?
   freightCurrency;
   @JsonKey(name: 'lastMileMailNo')
-  final Object lastMileMailNo;
+  final Object? lastMileMailNo;
   @JsonKey(name: 'lastMileCompanyCode')
-  final Object lastMileCompanyCode;
+  final Object? lastMileCompanyCode;
   @JsonKey(name: 'lastMileCompanyName')
-  final Object lastMileCompanyName;
+  final Object? lastMileCompanyName;
   @JsonKey(name: 'parcelProductDTOList')
   final List<
     OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrder$ParcelProductDTOList$Item
-  >
+  >?
   parcelProductDTOList;
   @JsonKey(name: 'buyerOperates', defaultValue: <String>[])
-  final List<String> buyerOperates;
+  final List<String>? buyerOperates;
   @JsonKey(name: 'freightCompensate')
   final OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrder$FreightCompensate?
   freightCompensate;
@@ -20321,27 +20326,27 @@ extension $OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrderExtension
   }
 
   OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrder copyWithWrapped({
-    Wrapped<String>? parcelOrderId,
-    Wrapped<String>? parcelStatus,
-    Wrapped<String>? parcelStatusDesc,
-    Wrapped<double>? createTime,
-    Wrapped<String>? warehouseCode,
-    Wrapped<String>? warehouseName,
-    Wrapped<String>? freight,
+    Wrapped<String?>? parcelOrderId,
+    Wrapped<String?>? parcelStatus,
+    Wrapped<String?>? parcelStatusDesc,
+    Wrapped<double?>? createTime,
+    Wrapped<String?>? warehouseCode,
+    Wrapped<String?>? warehouseName,
+    Wrapped<String?>? freight,
     Wrapped<
-      OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrder$FreightCurrency
+      OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrder$FreightCurrency?
     >?
     freightCurrency,
-    Wrapped<Object>? lastMileMailNo,
-    Wrapped<Object>? lastMileCompanyCode,
-    Wrapped<Object>? lastMileCompanyName,
+    Wrapped<Object?>? lastMileMailNo,
+    Wrapped<Object?>? lastMileCompanyCode,
+    Wrapped<Object?>? lastMileCompanyName,
     Wrapped<
       List<
         OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrder$ParcelProductDTOList$Item
-      >
+      >?
     >?
     parcelProductDTOList,
-    Wrapped<List<String>>? buyerOperates,
+    Wrapped<List<String>?>? buyerOperates,
     Wrapped<
       OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrder$FreightCompensate?
     >?
@@ -20584,17 +20589,17 @@ extension $OrderServiceOrderCombineDetailGet$Response$Data$OrderTraceExtension
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderGetOrderTraceGet$Response$Data$TraceList$Item {
   const OrderServiceOrderGetOrderTraceGet$Response$Data$TraceList$Item({
-    required this.id,
-    required this.frontCode,
-    required this.icon,
-    required this.traceMessage,
-    required this.time,
-    required this.lastMileMailNo,
+    this.id,
+    this.frontCode,
+    this.icon,
+    this.traceMessage,
+    this.time,
+    this.lastMileMailNo,
     this.lastMileMailNoLink,
     this.lastMileMailNoTitle,
-    required this.traceStatus,
-    required this.frontTitle,
-    required this.frontTitleCode,
+    this.traceStatus,
+    this.frontTitle,
+    this.frontTitleCode,
   });
 
   factory OrderServiceOrderGetOrderTraceGet$Response$Data$TraceList$Item.fromJson(
@@ -20611,27 +20616,27 @@ class OrderServiceOrderGetOrderTraceGet$Response$Data$TraceList$Item {
       );
 
   @JsonKey(name: 'id')
-  final double id;
+  final double? id;
   @JsonKey(name: 'frontCode')
-  final String frontCode;
+  final String? frontCode;
   @JsonKey(name: 'icon')
-  final String icon;
+  final String? icon;
   @JsonKey(name: 'traceMessage')
-  final String traceMessage;
+  final String? traceMessage;
   @JsonKey(name: 'time')
-  final double time;
+  final double? time;
   @JsonKey(name: 'lastMileMailNo')
-  final Object lastMileMailNo;
+  final Object? lastMileMailNo;
   @JsonKey(name: 'lastMileMailNoLink')
   final String? lastMileMailNoLink;
   @JsonKey(name: 'lastMileMailNoTitle')
   final String? lastMileMailNoTitle;
   @JsonKey(name: 'traceStatus')
-  final String traceStatus;
+  final String? traceStatus;
   @JsonKey(name: 'frontTitle')
-  final String frontTitle;
+  final String? frontTitle;
   @JsonKey(name: 'frontTitleCode')
-  final String frontTitleCode;
+  final String? frontTitleCode;
   static const fromJsonFactory =
       _$OrderServiceOrderGetOrderTraceGet$Response$Data$TraceList$ItemFromJson;
 
@@ -20739,17 +20744,17 @@ extension $OrderServiceOrderGetOrderTraceGet$Response$Data$TraceList$ItemExtensi
 
   OrderServiceOrderGetOrderTraceGet$Response$Data$TraceList$Item
   copyWithWrapped({
-    Wrapped<double>? id,
-    Wrapped<String>? frontCode,
-    Wrapped<String>? icon,
-    Wrapped<String>? traceMessage,
-    Wrapped<double>? time,
-    Wrapped<Object>? lastMileMailNo,
+    Wrapped<double?>? id,
+    Wrapped<String?>? frontCode,
+    Wrapped<String?>? icon,
+    Wrapped<String?>? traceMessage,
+    Wrapped<double?>? time,
+    Wrapped<Object?>? lastMileMailNo,
     Wrapped<String?>? lastMileMailNoLink,
     Wrapped<String?>? lastMileMailNoTitle,
-    Wrapped<String>? traceStatus,
-    Wrapped<String>? frontTitle,
-    Wrapped<String>? frontTitleCode,
+    Wrapped<String?>? traceStatus,
+    Wrapped<String?>? frontTitle,
+    Wrapped<String?>? frontTitleCode,
   }) {
     return OrderServiceOrderGetOrderTraceGet$Response$Data$TraceList$Item(
       id: (id != null ? id.value : this.id),
@@ -21379,24 +21384,24 @@ extension $OrderServiceCartNoAuthPricingPost$Response$Data$ContentInfoExtension
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderAppListGet$Response$Data$Records$Item$OrderSkuList$Item {
   const OrderServiceOrderAppListGet$Response$Data$Records$Item$OrderSkuList$Item({
-    required this.productName,
-    required this.skuCode,
-    required this.productCode,
-    required this.image,
-    required this.sellPrice,
-    required this.sellCur,
-    required this.totalPrice,
-    required this.targetSellPrice,
-    required this.targetSellCur,
-    required this.targetTotalPrice,
+    this.productName,
+    this.skuCode,
+    this.productCode,
+    this.image,
+    this.sellPrice,
+    this.sellCur,
+    this.totalPrice,
+    this.targetSellPrice,
+    this.targetSellCur,
+    this.targetTotalPrice,
     this.targetSkuDiscountPrice,
-    required this.targetSkuFinalPrice,
-    required this.targetTotalFinalPrice,
+    this.targetSkuFinalPrice,
+    this.targetTotalFinalPrice,
     this.remark,
-    required this.quantity,
-    required this.skuSpecValues,
-    required this.isReturned,
-    required this.targetOriginPrice,
+    this.quantity,
+    this.skuSpecValues,
+    this.isReturned,
+    this.targetOriginPrice,
   });
 
   factory OrderServiceOrderAppListGet$Response$Data$Records$Item$OrderSkuList$Item.fromJson(
@@ -21414,44 +21419,44 @@ class OrderServiceOrderAppListGet$Response$Data$Records$Item$OrderSkuList$Item {
       );
 
   @JsonKey(name: 'productName')
-  final String productName;
+  final String? productName;
   @JsonKey(name: 'skuCode')
-  final String skuCode;
+  final String? skuCode;
   @JsonKey(name: 'productCode')
-  final String productCode;
+  final String? productCode;
   @JsonKey(name: 'image')
-  final String image;
+  final String? image;
   @JsonKey(name: 'sellPrice')
-  final String sellPrice;
+  final String? sellPrice;
   @JsonKey(name: 'sellCur')
-  final String sellCur;
+  final String? sellCur;
   @JsonKey(name: 'totalPrice')
-  final String totalPrice;
+  final String? totalPrice;
   @JsonKey(name: 'targetSellPrice')
-  final String targetSellPrice;
+  final String? targetSellPrice;
   @JsonKey(name: 'targetSellCur')
-  final String targetSellCur;
+  final String? targetSellCur;
   @JsonKey(name: 'targetTotalPrice')
-  final String targetTotalPrice;
+  final String? targetTotalPrice;
   @JsonKey(name: 'targetSkuDiscountPrice')
   final String? targetSkuDiscountPrice;
   @JsonKey(name: 'targetSkuFinalPrice')
-  final String targetSkuFinalPrice;
+  final String? targetSkuFinalPrice;
   @JsonKey(name: 'targetTotalFinalPrice')
-  final String targetTotalFinalPrice;
+  final String? targetTotalFinalPrice;
   @JsonKey(name: 'remark')
   final String? remark;
   @JsonKey(name: 'quantity')
-  final double quantity;
+  final double? quantity;
   @JsonKey(name: 'skuSpecValues')
   final List<
     OrderServiceOrderAppListGet$Response$Data$Records$Item$OrderSkuList$Item$SkuSpecValues$Item
-  >
+  >?
   skuSpecValues;
   @JsonKey(name: 'isReturned')
-  final bool isReturned;
+  final bool? isReturned;
   @JsonKey(name: 'targetOriginPrice')
-  final String targetOriginPrice;
+  final String? targetOriginPrice;
   static const fromJsonFactory =
       _$OrderServiceOrderAppListGet$Response$Data$Records$Item$OrderSkuList$ItemFromJson;
 
@@ -21624,29 +21629,29 @@ extension $OrderServiceOrderAppListGet$Response$Data$Records$Item$OrderSkuList$I
 
   OrderServiceOrderAppListGet$Response$Data$Records$Item$OrderSkuList$Item
   copyWithWrapped({
-    Wrapped<String>? productName,
-    Wrapped<String>? skuCode,
-    Wrapped<String>? productCode,
-    Wrapped<String>? image,
-    Wrapped<String>? sellPrice,
-    Wrapped<String>? sellCur,
-    Wrapped<String>? totalPrice,
-    Wrapped<String>? targetSellPrice,
-    Wrapped<String>? targetSellCur,
-    Wrapped<String>? targetTotalPrice,
+    Wrapped<String?>? productName,
+    Wrapped<String?>? skuCode,
+    Wrapped<String?>? productCode,
+    Wrapped<String?>? image,
+    Wrapped<String?>? sellPrice,
+    Wrapped<String?>? sellCur,
+    Wrapped<String?>? totalPrice,
+    Wrapped<String?>? targetSellPrice,
+    Wrapped<String?>? targetSellCur,
+    Wrapped<String?>? targetTotalPrice,
     Wrapped<String?>? targetSkuDiscountPrice,
-    Wrapped<String>? targetSkuFinalPrice,
-    Wrapped<String>? targetTotalFinalPrice,
+    Wrapped<String?>? targetSkuFinalPrice,
+    Wrapped<String?>? targetTotalFinalPrice,
     Wrapped<String?>? remark,
-    Wrapped<double>? quantity,
+    Wrapped<double?>? quantity,
     Wrapped<
       List<
         OrderServiceOrderAppListGet$Response$Data$Records$Item$OrderSkuList$Item$SkuSpecValues$Item
-      >
+      >?
     >?
     skuSpecValues,
-    Wrapped<bool>? isReturned,
-    Wrapped<String>? targetOriginPrice,
+    Wrapped<bool?>? isReturned,
+    Wrapped<String?>? targetOriginPrice,
   }) {
     return OrderServiceOrderAppListGet$Response$Data$Records$Item$OrderSkuList$Item(
       productName: (productName != null ? productName.value : this.productName),
@@ -22371,10 +22376,10 @@ extension $OrderServiceOrderAppListGet$Response$Data$Records$Item$ParcelOrderExt
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderAppListGet$Response$Data$Records$Item$OrderBillList$Item {
   const OrderServiceOrderAppListGet$Response$Data$Records$Item$OrderBillList$Item({
-    required this.billId,
-    required this.status,
-    required this.targetTotalPrice,
-    required this.targetCurrency,
+    this.billId,
+    this.status,
+    this.targetTotalPrice,
+    this.targetCurrency,
   });
 
   factory OrderServiceOrderAppListGet$Response$Data$Records$Item$OrderBillList$Item.fromJson(
@@ -22392,13 +22397,13 @@ class OrderServiceOrderAppListGet$Response$Data$Records$Item$OrderBillList$Item 
       );
 
   @JsonKey(name: 'billId')
-  final String billId;
+  final String? billId;
   @JsonKey(name: 'status')
-  final double status;
+  final double? status;
   @JsonKey(name: 'targetTotalPrice')
-  final String targetTotalPrice;
+  final String? targetTotalPrice;
   @JsonKey(name: 'targetCurrency')
-  final String targetCurrency;
+  final String? targetCurrency;
   static const fromJsonFactory =
       _$OrderServiceOrderAppListGet$Response$Data$Records$Item$OrderBillList$ItemFromJson;
 
@@ -22454,10 +22459,10 @@ extension $OrderServiceOrderAppListGet$Response$Data$Records$Item$OrderBillList$
 
   OrderServiceOrderAppListGet$Response$Data$Records$Item$OrderBillList$Item
   copyWithWrapped({
-    Wrapped<String>? billId,
-    Wrapped<double>? status,
-    Wrapped<String>? targetTotalPrice,
-    Wrapped<String>? targetCurrency,
+    Wrapped<String?>? billId,
+    Wrapped<double?>? status,
+    Wrapped<String?>? targetTotalPrice,
+    Wrapped<String?>? targetCurrency,
   }) {
     return OrderServiceOrderAppListGet$Response$Data$Records$Item$OrderBillList$Item(
       billId: (billId != null ? billId.value : this.billId),
@@ -22975,11 +22980,11 @@ extension $OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder$FreightCurren
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder$ParcelProductDTOList$Item {
   const OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder$ParcelProductDTOList$Item({
-    required this.skuCode,
-    required this.productCode,
-    required this.productName,
-    required this.quantity,
-    required this.imageUrl,
+    this.skuCode,
+    this.productCode,
+    this.productName,
+    this.quantity,
+    this.imageUrl,
   });
 
   factory OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder$ParcelProductDTOList$Item.fromJson(
@@ -22997,15 +23002,15 @@ class OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder$ParcelProductDTOLi
       );
 
   @JsonKey(name: 'skuCode')
-  final String skuCode;
+  final String? skuCode;
   @JsonKey(name: 'productCode')
-  final String productCode;
+  final String? productCode;
   @JsonKey(name: 'productName')
-  final String productName;
+  final String? productName;
   @JsonKey(name: 'quantity')
-  final double quantity;
+  final double? quantity;
   @JsonKey(name: 'imageUrl')
-  final String imageUrl;
+  final String? imageUrl;
   static const fromJsonFactory =
       _$OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder$ParcelProductDTOList$ItemFromJson;
 
@@ -23076,11 +23081,11 @@ extension $OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder$ParcelProduct
 
   OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder$ParcelProductDTOList$Item
   copyWithWrapped({
-    Wrapped<String>? skuCode,
-    Wrapped<String>? productCode,
-    Wrapped<String>? productName,
-    Wrapped<double>? quantity,
-    Wrapped<String>? imageUrl,
+    Wrapped<String?>? skuCode,
+    Wrapped<String?>? productCode,
+    Wrapped<String?>? productName,
+    Wrapped<double?>? quantity,
+    Wrapped<String?>? imageUrl,
   }) {
     return OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder$ParcelProductDTOList$Item(
       skuCode: (skuCode != null ? skuCode.value : this.skuCode),
@@ -23095,12 +23100,12 @@ extension $OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder$ParcelProduct
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder$FreightCompensate {
   const OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder$FreightCompensate({
-    required this.compensateBillId,
-    required this.compensatePrice,
-    required this.compensatePriceCurrency,
-    required this.compensateReason,
-    required this.targetCompensatePrice,
-    required this.targetCompensatePriceCurrency,
+    this.compensateBillId,
+    this.compensatePrice,
+    this.compensatePriceCurrency,
+    this.compensateReason,
+    this.targetCompensatePrice,
+    this.targetCompensatePriceCurrency,
   });
 
   factory OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder$FreightCompensate.fromJson(
@@ -23118,17 +23123,17 @@ class OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder$FreightCompensate 
       );
 
   @JsonKey(name: 'compensateBillId')
-  final String compensateBillId;
+  final String? compensateBillId;
   @JsonKey(name: 'compensatePrice')
-  final String compensatePrice;
+  final String? compensatePrice;
   @JsonKey(name: 'compensatePriceCurrency')
-  final String compensatePriceCurrency;
+  final String? compensatePriceCurrency;
   @JsonKey(name: 'compensateReason')
-  final String compensateReason;
+  final String? compensateReason;
   @JsonKey(name: 'targetCompensatePrice')
-  final String targetCompensatePrice;
+  final String? targetCompensatePrice;
   @JsonKey(name: 'targetCompensatePriceCurrency')
-  final String targetCompensatePriceCurrency;
+  final String? targetCompensatePriceCurrency;
   static const fromJsonFactory =
       _$OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder$FreightCompensateFromJson;
 
@@ -23215,12 +23220,12 @@ extension $OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder$FreightCompen
 
   OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder$FreightCompensate
   copyWithWrapped({
-    Wrapped<String>? compensateBillId,
-    Wrapped<String>? compensatePrice,
-    Wrapped<String>? compensatePriceCurrency,
-    Wrapped<String>? compensateReason,
-    Wrapped<String>? targetCompensatePrice,
-    Wrapped<String>? targetCompensatePriceCurrency,
+    Wrapped<String?>? compensateBillId,
+    Wrapped<String?>? compensatePrice,
+    Wrapped<String?>? compensatePriceCurrency,
+    Wrapped<String?>? compensateReason,
+    Wrapped<String?>? targetCompensatePrice,
+    Wrapped<String?>? targetCompensatePriceCurrency,
   }) {
     return OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder$FreightCompensate(
       compensateBillId: (compensateBillId != null
@@ -23248,8 +23253,8 @@ extension $OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder$FreightCompen
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder$TargetFreightCurrency {
   const OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder$TargetFreightCurrency({
-    required this.symbol,
-    required this.currency,
+    this.symbol,
+    this.currency,
   });
 
   factory OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder$TargetFreightCurrency.fromJson(
@@ -23267,9 +23272,9 @@ class OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder$TargetFreightCurre
       );
 
   @JsonKey(name: 'symbol')
-  final String symbol;
+  final String? symbol;
   @JsonKey(name: 'currency')
-  final String currency;
+  final String? currency;
   static const fromJsonFactory =
       _$OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder$TargetFreightCurrencyFromJson;
 
@@ -23308,7 +23313,7 @@ extension $OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder$TargetFreight
   }
 
   OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder$TargetFreightCurrency
-  copyWithWrapped({Wrapped<String>? symbol, Wrapped<String>? currency}) {
+  copyWithWrapped({Wrapped<String?>? symbol, Wrapped<String?>? currency}) {
     return OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder$TargetFreightCurrency(
       symbol: (symbol != null ? symbol.value : this.symbol),
       currency: (currency != null ? currency.value : this.currency),
@@ -23319,16 +23324,16 @@ extension $OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder$TargetFreight
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderAppDetailGet$Response$Data$OrderTrace$TraceList$Item {
   const OrderServiceOrderAppDetailGet$Response$Data$OrderTrace$TraceList$Item({
-    required this.id,
-    required this.frontCode,
-    required this.icon,
-    required this.traceMessage,
-    required this.time,
-    required this.lastMileMailNo,
-    required this.lastMileMailNoLink,
-    required this.lastMileMailNoTitle,
-    required this.traceStatus,
-    required this.logisticsOrderId,
+    this.id,
+    this.frontCode,
+    this.icon,
+    this.traceMessage,
+    this.time,
+    this.lastMileMailNo,
+    this.lastMileMailNoLink,
+    this.lastMileMailNoTitle,
+    this.traceStatus,
+    this.logisticsOrderId,
   });
 
   factory OrderServiceOrderAppDetailGet$Response$Data$OrderTrace$TraceList$Item.fromJson(
@@ -23346,25 +23351,25 @@ class OrderServiceOrderAppDetailGet$Response$Data$OrderTrace$TraceList$Item {
       );
 
   @JsonKey(name: 'id')
-  final double id;
+  final double? id;
   @JsonKey(name: 'frontCode')
-  final String frontCode;
+  final String? frontCode;
   @JsonKey(name: 'icon')
-  final String icon;
+  final String? icon;
   @JsonKey(name: 'traceMessage')
-  final String traceMessage;
+  final String? traceMessage;
   @JsonKey(name: 'time')
-  final double time;
+  final double? time;
   @JsonKey(name: 'lastMileMailNo')
-  final String lastMileMailNo;
+  final String? lastMileMailNo;
   @JsonKey(name: 'lastMileMailNoLink')
-  final String lastMileMailNoLink;
+  final String? lastMileMailNoLink;
   @JsonKey(name: 'lastMileMailNoTitle')
-  final String lastMileMailNoTitle;
+  final String? lastMileMailNoTitle;
   @JsonKey(name: 'traceStatus')
-  final String traceStatus;
+  final String? traceStatus;
   @JsonKey(name: 'logisticsOrderId')
-  final String logisticsOrderId;
+  final String? logisticsOrderId;
   static const fromJsonFactory =
       _$OrderServiceOrderAppDetailGet$Response$Data$OrderTrace$TraceList$ItemFromJson;
 
@@ -23465,16 +23470,16 @@ extension $OrderServiceOrderAppDetailGet$Response$Data$OrderTrace$TraceList$Item
 
   OrderServiceOrderAppDetailGet$Response$Data$OrderTrace$TraceList$Item
   copyWithWrapped({
-    Wrapped<double>? id,
-    Wrapped<String>? frontCode,
-    Wrapped<String>? icon,
-    Wrapped<String>? traceMessage,
-    Wrapped<double>? time,
-    Wrapped<String>? lastMileMailNo,
-    Wrapped<String>? lastMileMailNoLink,
-    Wrapped<String>? lastMileMailNoTitle,
-    Wrapped<String>? traceStatus,
-    Wrapped<String>? logisticsOrderId,
+    Wrapped<double?>? id,
+    Wrapped<String?>? frontCode,
+    Wrapped<String?>? icon,
+    Wrapped<String?>? traceMessage,
+    Wrapped<double?>? time,
+    Wrapped<String?>? lastMileMailNo,
+    Wrapped<String?>? lastMileMailNoLink,
+    Wrapped<String?>? lastMileMailNoTitle,
+    Wrapped<String?>? traceStatus,
+    Wrapped<String?>? logisticsOrderId,
   }) {
     return OrderServiceOrderAppDetailGet$Response$Data$OrderTrace$TraceList$Item(
       id: (id != null ? id.value : this.id),
@@ -23504,25 +23509,25 @@ extension $OrderServiceOrderAppDetailGet$Response$Data$OrderTrace$TraceList$Item
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderAppDetailGet$Response$Data$OrderList$Item$SkuList$Item {
   const OrderServiceOrderAppDetailGet$Response$Data$OrderList$Item$SkuList$Item({
-    required this.productName,
-    required this.productCode,
-    required this.skuCode,
-    required this.image,
-    required this.targetOriginPrice,
-    required this.targetOriginTotalPrice,
-    required this.sellPrice,
-    required this.targetSellPrice,
-    required this.totalPrice,
-    required this.targetTotalPrice,
-    required this.targetSkuDiscountPrice,
-    required this.targetTotalFinalPrice,
-    required this.targetSkuFinalPrice,
-    required this.currency,
-    required this.targetCurrency,
-    required this.quantity,
+    this.productName,
+    this.productCode,
+    this.skuCode,
+    this.image,
+    this.targetOriginPrice,
+    this.targetOriginTotalPrice,
+    this.sellPrice,
+    this.targetSellPrice,
+    this.totalPrice,
+    this.targetTotalPrice,
+    this.targetSkuDiscountPrice,
+    this.targetTotalFinalPrice,
+    this.targetSkuFinalPrice,
+    this.currency,
+    this.targetCurrency,
+    this.quantity,
     this.remark,
-    required this.skuSpecValues,
-    required this.isReturned,
+    this.skuSpecValues,
+    this.isReturned,
     this.skuSourceCode,
   });
 
@@ -23541,46 +23546,46 @@ class OrderServiceOrderAppDetailGet$Response$Data$OrderList$Item$SkuList$Item {
       );
 
   @JsonKey(name: 'productName')
-  final String productName;
+  final String? productName;
   @JsonKey(name: 'productCode')
-  final String productCode;
+  final String? productCode;
   @JsonKey(name: 'skuCode')
-  final String skuCode;
+  final String? skuCode;
   @JsonKey(name: 'image')
-  final String image;
+  final String? image;
   @JsonKey(name: 'targetOriginPrice')
-  final String targetOriginPrice;
+  final String? targetOriginPrice;
   @JsonKey(name: 'targetOriginTotalPrice')
-  final String targetOriginTotalPrice;
+  final String? targetOriginTotalPrice;
   @JsonKey(name: 'sellPrice')
-  final String sellPrice;
+  final String? sellPrice;
   @JsonKey(name: 'targetSellPrice')
-  final String targetSellPrice;
+  final String? targetSellPrice;
   @JsonKey(name: 'totalPrice')
-  final String totalPrice;
+  final String? totalPrice;
   @JsonKey(name: 'targetTotalPrice')
-  final String targetTotalPrice;
+  final String? targetTotalPrice;
   @JsonKey(name: 'targetSkuDiscountPrice')
-  final String targetSkuDiscountPrice;
+  final String? targetSkuDiscountPrice;
   @JsonKey(name: 'targetTotalFinalPrice')
-  final String targetTotalFinalPrice;
+  final String? targetTotalFinalPrice;
   @JsonKey(name: 'targetSkuFinalPrice')
-  final String targetSkuFinalPrice;
+  final String? targetSkuFinalPrice;
   @JsonKey(name: 'currency')
-  final String currency;
+  final String? currency;
   @JsonKey(name: 'targetCurrency')
-  final String targetCurrency;
+  final String? targetCurrency;
   @JsonKey(name: 'quantity')
-  final double quantity;
+  final double? quantity;
   @JsonKey(name: 'remark')
   final String? remark;
   @JsonKey(name: 'skuSpecValues')
   final List<
     OrderServiceOrderAppDetailGet$Response$Data$OrderList$Item$SkuList$Item$SkuSpecValues$Item
-  >
+  >?
   skuSpecValues;
   @JsonKey(name: 'isReturned')
-  final bool isReturned;
+  final bool? isReturned;
   @JsonKey(name: 'skuSourceCode')
   final String? skuSourceCode;
   static const fromJsonFactory =
@@ -23772,30 +23777,30 @@ extension $OrderServiceOrderAppDetailGet$Response$Data$OrderList$Item$SkuList$It
 
   OrderServiceOrderAppDetailGet$Response$Data$OrderList$Item$SkuList$Item
   copyWithWrapped({
-    Wrapped<String>? productName,
-    Wrapped<String>? productCode,
-    Wrapped<String>? skuCode,
-    Wrapped<String>? image,
-    Wrapped<String>? targetOriginPrice,
-    Wrapped<String>? targetOriginTotalPrice,
-    Wrapped<String>? sellPrice,
-    Wrapped<String>? targetSellPrice,
-    Wrapped<String>? totalPrice,
-    Wrapped<String>? targetTotalPrice,
-    Wrapped<String>? targetSkuDiscountPrice,
-    Wrapped<String>? targetTotalFinalPrice,
-    Wrapped<String>? targetSkuFinalPrice,
-    Wrapped<String>? currency,
-    Wrapped<String>? targetCurrency,
-    Wrapped<double>? quantity,
+    Wrapped<String?>? productName,
+    Wrapped<String?>? productCode,
+    Wrapped<String?>? skuCode,
+    Wrapped<String?>? image,
+    Wrapped<String?>? targetOriginPrice,
+    Wrapped<String?>? targetOriginTotalPrice,
+    Wrapped<String?>? sellPrice,
+    Wrapped<String?>? targetSellPrice,
+    Wrapped<String?>? totalPrice,
+    Wrapped<String?>? targetTotalPrice,
+    Wrapped<String?>? targetSkuDiscountPrice,
+    Wrapped<String?>? targetTotalFinalPrice,
+    Wrapped<String?>? targetSkuFinalPrice,
+    Wrapped<String?>? currency,
+    Wrapped<String?>? targetCurrency,
+    Wrapped<double?>? quantity,
     Wrapped<String?>? remark,
     Wrapped<
       List<
         OrderServiceOrderAppDetailGet$Response$Data$OrderList$Item$SkuList$Item$SkuSpecValues$Item
-      >
+      >?
     >?
     skuSpecValues,
-    Wrapped<bool>? isReturned,
+    Wrapped<bool?>? isReturned,
     Wrapped<String?>? skuSourceCode,
   }) {
     return OrderServiceOrderAppDetailGet$Response$Data$OrderList$Item$SkuList$Item(
@@ -24334,9 +24339,9 @@ extension $OrderServiceOrderAppDetailGet$Response$Data$OrderList$Item$SupplyOrde
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderConfirmPost$Response$Data$Pricing$TaxLines$Item {
   const OrderServiceOrderConfirmPost$Response$Data$Pricing$TaxLines$Item({
-    required this.type,
-    required this.title,
-    required this.tax,
+    this.type,
+    this.title,
+    this.tax,
   });
 
   factory OrderServiceOrderConfirmPost$Response$Data$Pricing$TaxLines$Item.fromJson(
@@ -24354,11 +24359,11 @@ class OrderServiceOrderConfirmPost$Response$Data$Pricing$TaxLines$Item {
       );
 
   @JsonKey(name: 'type')
-  final String type;
+  final String? type;
   @JsonKey(name: 'title')
-  final String title;
+  final String? title;
   @JsonKey(name: 'tax')
-  final String tax;
+  final String? tax;
   static const fromJsonFactory =
       _$OrderServiceOrderConfirmPost$Response$Data$Pricing$TaxLines$ItemFromJson;
 
@@ -24401,9 +24406,9 @@ extension $OrderServiceOrderConfirmPost$Response$Data$Pricing$TaxLines$ItemExten
 
   OrderServiceOrderConfirmPost$Response$Data$Pricing$TaxLines$Item
   copyWithWrapped({
-    Wrapped<String>? type,
-    Wrapped<String>? title,
-    Wrapped<String>? tax,
+    Wrapped<String?>? type,
+    Wrapped<String?>? title,
+    Wrapped<String?>? tax,
   }) {
     return OrderServiceOrderConfirmPost$Response$Data$Pricing$TaxLines$Item(
       type: (type != null ? type.value : this.type),
@@ -24416,9 +24421,9 @@ extension $OrderServiceOrderConfirmPost$Response$Data$Pricing$TaxLines$ItemExten
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item {
   const OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item({
-    required this.skuSourceCode,
-    required this.recommendSolution,
-    required this.lastMileList,
+    this.skuSourceCode,
+    this.recommendSolution,
+    this.lastMileList,
   });
 
   factory OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item.fromJson(
@@ -24436,14 +24441,14 @@ class OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item {
       );
 
   @JsonKey(name: 'skuSourceCode')
-  final String skuSourceCode;
+  final String? skuSourceCode;
   @JsonKey(name: 'recommendSolution')
-  final OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$RecommendSolution
+  final OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$RecommendSolution?
   recommendSolution;
   @JsonKey(name: 'lastMileList')
   final List<
     OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileList$Item
-  >
+  >?
   lastMileList;
   static const fromJsonFactory =
       _$OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$ItemFromJson;
@@ -24502,15 +24507,15 @@ extension $OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$ItemE
 
   OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item
   copyWithWrapped({
-    Wrapped<String>? skuSourceCode,
+    Wrapped<String?>? skuSourceCode,
     Wrapped<
-      OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$RecommendSolution
+      OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$RecommendSolution?
     >?
     recommendSolution,
     Wrapped<
       List<
         OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileList$Item
-      >
+      >?
     >?
     lastMileList,
   }) {
@@ -24531,8 +24536,8 @@ extension $OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$ItemE
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderConfirmPost$Response$Data$Pricing$Giveaway$Item {
   const OrderServiceOrderConfirmPost$Response$Data$Pricing$Giveaway$Item({
-    required this.records,
-    required this.skuSourceCode,
+    this.records,
+    this.skuSourceCode,
   });
 
   factory OrderServiceOrderConfirmPost$Response$Data$Pricing$Giveaway$Item.fromJson(
@@ -24552,10 +24557,10 @@ class OrderServiceOrderConfirmPost$Response$Data$Pricing$Giveaway$Item {
   @JsonKey(name: 'records')
   final List<
     OrderServiceOrderConfirmPost$Response$Data$Pricing$Giveaway$Item$Records$Item
-  >
+  >?
   records;
   @JsonKey(name: 'skuSourceCode')
-  final String skuSourceCode;
+  final String? skuSourceCode;
   static const fromJsonFactory =
       _$OrderServiceOrderConfirmPost$Response$Data$Pricing$Giveaway$ItemFromJson;
 
@@ -24606,10 +24611,10 @@ extension $OrderServiceOrderConfirmPost$Response$Data$Pricing$Giveaway$ItemExten
     Wrapped<
       List<
         OrderServiceOrderConfirmPost$Response$Data$Pricing$Giveaway$Item$Records$Item
-      >
+      >?
     >?
     records,
-    Wrapped<String>? skuSourceCode,
+    Wrapped<String?>? skuSourceCode,
   }) {
     return OrderServiceOrderConfirmPost$Response$Data$Pricing$Giveaway$Item(
       records: (records != null ? records.value : this.records),
@@ -24623,9 +24628,9 @@ extension $OrderServiceOrderConfirmPost$Response$Data$Pricing$Giveaway$ItemExten
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderConfirmPost$Response$Data$Pricing$VoucherMsg {
   const OrderServiceOrderConfirmPost$Response$Data$Pricing$VoucherMsg({
-    required this.voucherInfos,
-    required this.descprition,
-    required this.usedVoucherInfoColor,
+    this.voucherInfos,
+    this.descprition,
+    this.usedVoucherInfoColor,
   });
 
   factory OrderServiceOrderConfirmPost$Response$Data$Pricing$VoucherMsg.fromJson(
@@ -24644,12 +24649,12 @@ class OrderServiceOrderConfirmPost$Response$Data$Pricing$VoucherMsg {
   @JsonKey(name: 'voucherInfos')
   final List<
     OrderServiceOrderConfirmPost$Response$Data$Pricing$VoucherMsg$VoucherInfos$Item
-  >
+  >?
   voucherInfos;
   @JsonKey(name: 'descprition')
-  final String descprition;
+  final String? descprition;
   @JsonKey(name: 'usedVoucherInfoColor')
-  final String usedVoucherInfoColor;
+  final String? usedVoucherInfoColor;
   static const fromJsonFactory =
       _$OrderServiceOrderConfirmPost$Response$Data$Pricing$VoucherMsgFromJson;
 
@@ -24708,11 +24713,11 @@ extension $OrderServiceOrderConfirmPost$Response$Data$Pricing$VoucherMsgExtensio
     Wrapped<
       List<
         OrderServiceOrderConfirmPost$Response$Data$Pricing$VoucherMsg$VoucherInfos$Item
-      >
+      >?
     >?
     voucherInfos,
-    Wrapped<String>? descprition,
-    Wrapped<String>? usedVoucherInfoColor,
+    Wrapped<String?>? descprition,
+    Wrapped<String?>? usedVoucherInfoColor,
   }) {
     return OrderServiceOrderConfirmPost$Response$Data$Pricing$VoucherMsg(
       voucherInfos: (voucherInfos != null
@@ -24797,11 +24802,11 @@ extension $OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrder$FreightCur
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrder$ParcelProductDTOList$Item {
   const OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrder$ParcelProductDTOList$Item({
-    required this.skuCode,
-    required this.productCode,
-    required this.productName,
-    required this.quantity,
-    required this.imageUrl,
+    this.skuCode,
+    this.productCode,
+    this.productName,
+    this.quantity,
+    this.imageUrl,
   });
 
   factory OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrder$ParcelProductDTOList$Item.fromJson(
@@ -24819,15 +24824,15 @@ class OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrder$ParcelProductDT
       );
 
   @JsonKey(name: 'skuCode')
-  final String skuCode;
+  final String? skuCode;
   @JsonKey(name: 'productCode')
-  final String productCode;
+  final String? productCode;
   @JsonKey(name: 'productName')
-  final String productName;
+  final String? productName;
   @JsonKey(name: 'quantity')
-  final double quantity;
+  final double? quantity;
   @JsonKey(name: 'imageUrl')
-  final String imageUrl;
+  final String? imageUrl;
   static const fromJsonFactory =
       _$OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrder$ParcelProductDTOList$ItemFromJson;
 
@@ -24898,11 +24903,11 @@ extension $OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrder$ParcelProd
 
   OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrder$ParcelProductDTOList$Item
   copyWithWrapped({
-    Wrapped<String>? skuCode,
-    Wrapped<String>? productCode,
-    Wrapped<String>? productName,
-    Wrapped<double>? quantity,
-    Wrapped<String>? imageUrl,
+    Wrapped<String?>? skuCode,
+    Wrapped<String?>? productCode,
+    Wrapped<String?>? productName,
+    Wrapped<double?>? quantity,
+    Wrapped<String?>? imageUrl,
   }) {
     return OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrder$ParcelProductDTOList$Item(
       skuCode: (skuCode != null ? skuCode.value : this.skuCode),
@@ -24917,12 +24922,12 @@ extension $OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrder$ParcelProd
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrder$FreightCompensate {
   const OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrder$FreightCompensate({
-    required this.compensateBillId,
-    required this.compensatePrice,
-    required this.compensatePriceCurrency,
-    required this.compensateReason,
-    required this.targetCompensatePrice,
-    required this.targetCompensatePriceCurrency,
+    this.compensateBillId,
+    this.compensatePrice,
+    this.compensatePriceCurrency,
+    this.compensateReason,
+    this.targetCompensatePrice,
+    this.targetCompensatePriceCurrency,
   });
 
   factory OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrder$FreightCompensate.fromJson(
@@ -24940,17 +24945,17 @@ class OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrder$FreightCompensa
       );
 
   @JsonKey(name: 'compensateBillId')
-  final String compensateBillId;
+  final String? compensateBillId;
   @JsonKey(name: 'compensatePrice')
-  final String compensatePrice;
+  final String? compensatePrice;
   @JsonKey(name: 'compensatePriceCurrency')
-  final String compensatePriceCurrency;
+  final String? compensatePriceCurrency;
   @JsonKey(name: 'compensateReason')
-  final String compensateReason;
+  final String? compensateReason;
   @JsonKey(name: 'targetCompensatePrice')
-  final String targetCompensatePrice;
+  final String? targetCompensatePrice;
   @JsonKey(name: 'targetCompensatePriceCurrency')
-  final String targetCompensatePriceCurrency;
+  final String? targetCompensatePriceCurrency;
   static const fromJsonFactory =
       _$OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrder$FreightCompensateFromJson;
 
@@ -25037,12 +25042,12 @@ extension $OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrder$FreightCom
 
   OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrder$FreightCompensate
   copyWithWrapped({
-    Wrapped<String>? compensateBillId,
-    Wrapped<String>? compensatePrice,
-    Wrapped<String>? compensatePriceCurrency,
-    Wrapped<String>? compensateReason,
-    Wrapped<String>? targetCompensatePrice,
-    Wrapped<String>? targetCompensatePriceCurrency,
+    Wrapped<String?>? compensateBillId,
+    Wrapped<String?>? compensatePrice,
+    Wrapped<String?>? compensatePriceCurrency,
+    Wrapped<String?>? compensateReason,
+    Wrapped<String?>? targetCompensatePrice,
+    Wrapped<String?>? targetCompensatePriceCurrency,
   }) {
     return OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrder$FreightCompensate(
       compensateBillId: (compensateBillId != null
@@ -25070,8 +25075,8 @@ extension $OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrder$FreightCom
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrder$TargetFreightCurrency {
   const OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrder$TargetFreightCurrency({
-    required this.symbol,
-    required this.currency,
+    this.symbol,
+    this.currency,
   });
 
   factory OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrder$TargetFreightCurrency.fromJson(
@@ -25089,9 +25094,9 @@ class OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrder$TargetFreightCu
       );
 
   @JsonKey(name: 'symbol')
-  final String symbol;
+  final String? symbol;
   @JsonKey(name: 'currency')
-  final String currency;
+  final String? currency;
   static const fromJsonFactory =
       _$OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrder$TargetFreightCurrencyFromJson;
 
@@ -25131,7 +25136,7 @@ extension $OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrder$TargetFrei
   }
 
   OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrder$TargetFreightCurrency
-  copyWithWrapped({Wrapped<String>? symbol, Wrapped<String>? currency}) {
+  copyWithWrapped({Wrapped<String?>? symbol, Wrapped<String?>? currency}) {
     return OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrder$TargetFreightCurrency(
       symbol: (symbol != null ? symbol.value : this.symbol),
       currency: (currency != null ? currency.value : this.currency),
@@ -25142,16 +25147,16 @@ extension $OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrder$TargetFrei
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderNoAuthDetailGet$Response$Data$OrderTrace$TraceList$Item {
   const OrderServiceOrderNoAuthDetailGet$Response$Data$OrderTrace$TraceList$Item({
-    required this.id,
-    required this.frontCode,
-    required this.icon,
-    required this.traceMessage,
-    required this.time,
-    required this.lastMileMailNo,
-    required this.lastMileMailNoLink,
-    required this.lastMileMailNoTitle,
-    required this.traceStatus,
-    required this.logisticsOrderId,
+    this.id,
+    this.frontCode,
+    this.icon,
+    this.traceMessage,
+    this.time,
+    this.lastMileMailNo,
+    this.lastMileMailNoLink,
+    this.lastMileMailNoTitle,
+    this.traceStatus,
+    this.logisticsOrderId,
   });
 
   factory OrderServiceOrderNoAuthDetailGet$Response$Data$OrderTrace$TraceList$Item.fromJson(
@@ -25169,25 +25174,25 @@ class OrderServiceOrderNoAuthDetailGet$Response$Data$OrderTrace$TraceList$Item {
       );
 
   @JsonKey(name: 'id')
-  final double id;
+  final double? id;
   @JsonKey(name: 'frontCode')
-  final String frontCode;
+  final String? frontCode;
   @JsonKey(name: 'icon')
-  final String icon;
+  final String? icon;
   @JsonKey(name: 'traceMessage')
-  final String traceMessage;
+  final String? traceMessage;
   @JsonKey(name: 'time')
-  final double time;
+  final double? time;
   @JsonKey(name: 'lastMileMailNo')
-  final String lastMileMailNo;
+  final String? lastMileMailNo;
   @JsonKey(name: 'lastMileMailNoLink')
-  final String lastMileMailNoLink;
+  final String? lastMileMailNoLink;
   @JsonKey(name: 'lastMileMailNoTitle')
-  final String lastMileMailNoTitle;
+  final String? lastMileMailNoTitle;
   @JsonKey(name: 'traceStatus')
-  final String traceStatus;
+  final String? traceStatus;
   @JsonKey(name: 'logisticsOrderId')
-  final String logisticsOrderId;
+  final String? logisticsOrderId;
   static const fromJsonFactory =
       _$OrderServiceOrderNoAuthDetailGet$Response$Data$OrderTrace$TraceList$ItemFromJson;
 
@@ -25288,16 +25293,16 @@ extension $OrderServiceOrderNoAuthDetailGet$Response$Data$OrderTrace$TraceList$I
 
   OrderServiceOrderNoAuthDetailGet$Response$Data$OrderTrace$TraceList$Item
   copyWithWrapped({
-    Wrapped<double>? id,
-    Wrapped<String>? frontCode,
-    Wrapped<String>? icon,
-    Wrapped<String>? traceMessage,
-    Wrapped<double>? time,
-    Wrapped<String>? lastMileMailNo,
-    Wrapped<String>? lastMileMailNoLink,
-    Wrapped<String>? lastMileMailNoTitle,
-    Wrapped<String>? traceStatus,
-    Wrapped<String>? logisticsOrderId,
+    Wrapped<double?>? id,
+    Wrapped<String?>? frontCode,
+    Wrapped<String?>? icon,
+    Wrapped<String?>? traceMessage,
+    Wrapped<double?>? time,
+    Wrapped<String?>? lastMileMailNo,
+    Wrapped<String?>? lastMileMailNoLink,
+    Wrapped<String?>? lastMileMailNoTitle,
+    Wrapped<String?>? traceStatus,
+    Wrapped<String?>? logisticsOrderId,
   }) {
     return OrderServiceOrderNoAuthDetailGet$Response$Data$OrderTrace$TraceList$Item(
       id: (id != null ? id.value : this.id),
@@ -25327,15 +25332,15 @@ extension $OrderServiceOrderNoAuthDetailGet$Response$Data$OrderTrace$TraceList$I
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderNoAuthDetailGet$Response$Data$OrderTrace$GroupTraceList$Item {
   const OrderServiceOrderNoAuthDetailGet$Response$Data$OrderTrace$GroupTraceList$Item({
-    required this.subParcelOrderId,
-    required this.parcelOrderStatus,
+    this.subParcelOrderId,
+    this.parcelOrderStatus,
     this.lastMileMailNo,
     this.lastMileMailNoLink,
     this.lastMileCompanyName,
     this.lastMileCompanyPhone,
     this.lastMileCompanyEmail,
-    required this.traceList,
-    required this.sequenceTime,
+    this.traceList,
+    this.sequenceTime,
   });
 
   factory OrderServiceOrderNoAuthDetailGet$Response$Data$OrderTrace$GroupTraceList$Item.fromJson(
@@ -25353,9 +25358,9 @@ class OrderServiceOrderNoAuthDetailGet$Response$Data$OrderTrace$GroupTraceList$I
       );
 
   @JsonKey(name: 'subParcelOrderId')
-  final String subParcelOrderId;
+  final String? subParcelOrderId;
   @JsonKey(name: 'parcelOrderStatus')
-  final String parcelOrderStatus;
+  final String? parcelOrderStatus;
   @JsonKey(name: 'lastMileMailNo')
   final String? lastMileMailNo;
   @JsonKey(name: 'lastMileMailNoLink')
@@ -25369,10 +25374,10 @@ class OrderServiceOrderNoAuthDetailGet$Response$Data$OrderTrace$GroupTraceList$I
   @JsonKey(name: 'traceList')
   final List<
     OrderServiceOrderNoAuthDetailGet$Response$Data$OrderTrace$GroupTraceList$Item$TraceList$Item
-  >
+  >?
   traceList;
   @JsonKey(name: 'sequenceTime')
-  final int sequenceTime;
+  final int? sequenceTime;
   static const fromJsonFactory =
       _$OrderServiceOrderNoAuthDetailGet$Response$Data$OrderTrace$GroupTraceList$ItemFromJson;
 
@@ -25477,8 +25482,8 @@ extension $OrderServiceOrderNoAuthDetailGet$Response$Data$OrderTrace$GroupTraceL
 
   OrderServiceOrderNoAuthDetailGet$Response$Data$OrderTrace$GroupTraceList$Item
   copyWithWrapped({
-    Wrapped<String>? subParcelOrderId,
-    Wrapped<String>? parcelOrderStatus,
+    Wrapped<String?>? subParcelOrderId,
+    Wrapped<String?>? parcelOrderStatus,
     Wrapped<String?>? lastMileMailNo,
     Wrapped<String?>? lastMileMailNoLink,
     Wrapped<String?>? lastMileCompanyName,
@@ -25487,10 +25492,10 @@ extension $OrderServiceOrderNoAuthDetailGet$Response$Data$OrderTrace$GroupTraceL
     Wrapped<
       List<
         OrderServiceOrderNoAuthDetailGet$Response$Data$OrderTrace$GroupTraceList$Item$TraceList$Item
-      >
+      >?
     >?
     traceList,
-    Wrapped<int>? sequenceTime,
+    Wrapped<int?>? sequenceTime,
   }) {
     return OrderServiceOrderNoAuthDetailGet$Response$Data$OrderTrace$GroupTraceList$Item(
       subParcelOrderId: (subParcelOrderId != null
@@ -25525,25 +25530,25 @@ extension $OrderServiceOrderNoAuthDetailGet$Response$Data$OrderTrace$GroupTraceL
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderNoAuthDetailGet$Response$Data$OrderList$Item$SkuList$Item {
   const OrderServiceOrderNoAuthDetailGet$Response$Data$OrderList$Item$SkuList$Item({
-    required this.productName,
-    required this.productCode,
-    required this.skuCode,
-    required this.image,
-    required this.targetOriginPrice,
-    required this.targetOriginTotalPrice,
-    required this.sellPrice,
-    required this.targetSellPrice,
-    required this.totalPrice,
-    required this.targetTotalPrice,
-    required this.targetSkuDiscountPrice,
-    required this.targetTotalFinalPrice,
-    required this.targetSkuFinalPrice,
-    required this.currency,
-    required this.targetCurrency,
-    required this.quantity,
+    this.productName,
+    this.productCode,
+    this.skuCode,
+    this.image,
+    this.targetOriginPrice,
+    this.targetOriginTotalPrice,
+    this.sellPrice,
+    this.targetSellPrice,
+    this.totalPrice,
+    this.targetTotalPrice,
+    this.targetSkuDiscountPrice,
+    this.targetTotalFinalPrice,
+    this.targetSkuFinalPrice,
+    this.currency,
+    this.targetCurrency,
+    this.quantity,
     this.remark,
-    required this.skuSpecValues,
-    required this.isReturned,
+    this.skuSpecValues,
+    this.isReturned,
     this.skuSourceCode,
   });
 
@@ -25562,46 +25567,46 @@ class OrderServiceOrderNoAuthDetailGet$Response$Data$OrderList$Item$SkuList$Item
       );
 
   @JsonKey(name: 'productName')
-  final String productName;
+  final String? productName;
   @JsonKey(name: 'productCode')
-  final String productCode;
+  final String? productCode;
   @JsonKey(name: 'skuCode')
-  final String skuCode;
+  final String? skuCode;
   @JsonKey(name: 'image')
-  final String image;
+  final String? image;
   @JsonKey(name: 'targetOriginPrice')
-  final String targetOriginPrice;
+  final String? targetOriginPrice;
   @JsonKey(name: 'targetOriginTotalPrice')
-  final String targetOriginTotalPrice;
+  final String? targetOriginTotalPrice;
   @JsonKey(name: 'sellPrice')
-  final String sellPrice;
+  final String? sellPrice;
   @JsonKey(name: 'targetSellPrice')
-  final String targetSellPrice;
+  final String? targetSellPrice;
   @JsonKey(name: 'totalPrice')
-  final String totalPrice;
+  final String? totalPrice;
   @JsonKey(name: 'targetTotalPrice')
-  final String targetTotalPrice;
+  final String? targetTotalPrice;
   @JsonKey(name: 'targetSkuDiscountPrice')
-  final String targetSkuDiscountPrice;
+  final String? targetSkuDiscountPrice;
   @JsonKey(name: 'targetTotalFinalPrice')
-  final String targetTotalFinalPrice;
+  final String? targetTotalFinalPrice;
   @JsonKey(name: 'targetSkuFinalPrice')
-  final String targetSkuFinalPrice;
+  final String? targetSkuFinalPrice;
   @JsonKey(name: 'currency')
-  final String currency;
+  final String? currency;
   @JsonKey(name: 'targetCurrency')
-  final String targetCurrency;
+  final String? targetCurrency;
   @JsonKey(name: 'quantity')
-  final double quantity;
+  final double? quantity;
   @JsonKey(name: 'remark')
   final String? remark;
   @JsonKey(name: 'skuSpecValues')
   final List<
     OrderServiceOrderNoAuthDetailGet$Response$Data$OrderList$Item$SkuList$Item$SkuSpecValues$Item
-  >
+  >?
   skuSpecValues;
   @JsonKey(name: 'isReturned')
-  final bool isReturned;
+  final bool? isReturned;
   @JsonKey(name: 'skuSourceCode')
   final String? skuSourceCode;
   static const fromJsonFactory =
@@ -25793,30 +25798,30 @@ extension $OrderServiceOrderNoAuthDetailGet$Response$Data$OrderList$Item$SkuList
 
   OrderServiceOrderNoAuthDetailGet$Response$Data$OrderList$Item$SkuList$Item
   copyWithWrapped({
-    Wrapped<String>? productName,
-    Wrapped<String>? productCode,
-    Wrapped<String>? skuCode,
-    Wrapped<String>? image,
-    Wrapped<String>? targetOriginPrice,
-    Wrapped<String>? targetOriginTotalPrice,
-    Wrapped<String>? sellPrice,
-    Wrapped<String>? targetSellPrice,
-    Wrapped<String>? totalPrice,
-    Wrapped<String>? targetTotalPrice,
-    Wrapped<String>? targetSkuDiscountPrice,
-    Wrapped<String>? targetTotalFinalPrice,
-    Wrapped<String>? targetSkuFinalPrice,
-    Wrapped<String>? currency,
-    Wrapped<String>? targetCurrency,
-    Wrapped<double>? quantity,
+    Wrapped<String?>? productName,
+    Wrapped<String?>? productCode,
+    Wrapped<String?>? skuCode,
+    Wrapped<String?>? image,
+    Wrapped<String?>? targetOriginPrice,
+    Wrapped<String?>? targetOriginTotalPrice,
+    Wrapped<String?>? sellPrice,
+    Wrapped<String?>? targetSellPrice,
+    Wrapped<String?>? totalPrice,
+    Wrapped<String?>? targetTotalPrice,
+    Wrapped<String?>? targetSkuDiscountPrice,
+    Wrapped<String?>? targetTotalFinalPrice,
+    Wrapped<String?>? targetSkuFinalPrice,
+    Wrapped<String?>? currency,
+    Wrapped<String?>? targetCurrency,
+    Wrapped<double?>? quantity,
     Wrapped<String?>? remark,
     Wrapped<
       List<
         OrderServiceOrderNoAuthDetailGet$Response$Data$OrderList$Item$SkuList$Item$SkuSpecValues$Item
-      >
+      >?
     >?
     skuSpecValues,
-    Wrapped<bool>? isReturned,
+    Wrapped<bool?>? isReturned,
     Wrapped<String?>? skuSourceCode,
   }) {
     return OrderServiceOrderNoAuthDetailGet$Response$Data$OrderList$Item$SkuList$Item(
@@ -26396,24 +26401,24 @@ extension $OrderServiceOrderCouponListPost$Response$Data$Item$UserCoupon$MsgInfo
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderListGet$Response$Data$Records$Item$OrderSkuList$Item {
   const OrderServiceOrderListGet$Response$Data$Records$Item$OrderSkuList$Item({
-    required this.productName,
-    required this.skuCode,
-    required this.productCode,
-    required this.image,
-    required this.sellPrice,
-    required this.sellCur,
-    required this.totalPrice,
-    required this.targetSellPrice,
-    required this.targetSellCur,
-    required this.targetTotalPrice,
+    this.productName,
+    this.skuCode,
+    this.productCode,
+    this.image,
+    this.sellPrice,
+    this.sellCur,
+    this.totalPrice,
+    this.targetSellPrice,
+    this.targetSellCur,
+    this.targetTotalPrice,
     this.targetSkuDiscountPrice,
-    required this.targetSkuFinalPrice,
-    required this.targetTotalFinalPrice,
+    this.targetSkuFinalPrice,
+    this.targetTotalFinalPrice,
     this.remark,
-    required this.quantity,
-    required this.skuSpecValues,
-    required this.isReturned,
-    required this.targetOriginPrice,
+    this.quantity,
+    this.skuSpecValues,
+    this.isReturned,
+    this.targetOriginPrice,
   });
 
   factory OrderServiceOrderListGet$Response$Data$Records$Item$OrderSkuList$Item.fromJson(
@@ -26431,44 +26436,44 @@ class OrderServiceOrderListGet$Response$Data$Records$Item$OrderSkuList$Item {
       );
 
   @JsonKey(name: 'productName')
-  final String productName;
+  final String? productName;
   @JsonKey(name: 'skuCode')
-  final String skuCode;
+  final String? skuCode;
   @JsonKey(name: 'productCode')
-  final String productCode;
+  final String? productCode;
   @JsonKey(name: 'image')
-  final String image;
+  final String? image;
   @JsonKey(name: 'sellPrice')
-  final String sellPrice;
+  final String? sellPrice;
   @JsonKey(name: 'sellCur')
-  final String sellCur;
+  final String? sellCur;
   @JsonKey(name: 'totalPrice')
-  final String totalPrice;
+  final String? totalPrice;
   @JsonKey(name: 'targetSellPrice')
-  final String targetSellPrice;
+  final String? targetSellPrice;
   @JsonKey(name: 'targetSellCur')
-  final String targetSellCur;
+  final String? targetSellCur;
   @JsonKey(name: 'targetTotalPrice')
-  final String targetTotalPrice;
+  final String? targetTotalPrice;
   @JsonKey(name: 'targetSkuDiscountPrice')
   final String? targetSkuDiscountPrice;
   @JsonKey(name: 'targetSkuFinalPrice')
-  final String targetSkuFinalPrice;
+  final String? targetSkuFinalPrice;
   @JsonKey(name: 'targetTotalFinalPrice')
-  final String targetTotalFinalPrice;
+  final String? targetTotalFinalPrice;
   @JsonKey(name: 'remark')
   final String? remark;
   @JsonKey(name: 'quantity')
-  final double quantity;
+  final double? quantity;
   @JsonKey(name: 'skuSpecValues')
   final List<
     OrderServiceOrderListGet$Response$Data$Records$Item$OrderSkuList$Item$SkuSpecValues$Item
-  >
+  >?
   skuSpecValues;
   @JsonKey(name: 'isReturned')
-  final bool isReturned;
+  final bool? isReturned;
   @JsonKey(name: 'targetOriginPrice')
-  final String targetOriginPrice;
+  final String? targetOriginPrice;
   static const fromJsonFactory =
       _$OrderServiceOrderListGet$Response$Data$Records$Item$OrderSkuList$ItemFromJson;
 
@@ -26641,29 +26646,29 @@ extension $OrderServiceOrderListGet$Response$Data$Records$Item$OrderSkuList$Item
 
   OrderServiceOrderListGet$Response$Data$Records$Item$OrderSkuList$Item
   copyWithWrapped({
-    Wrapped<String>? productName,
-    Wrapped<String>? skuCode,
-    Wrapped<String>? productCode,
-    Wrapped<String>? image,
-    Wrapped<String>? sellPrice,
-    Wrapped<String>? sellCur,
-    Wrapped<String>? totalPrice,
-    Wrapped<String>? targetSellPrice,
-    Wrapped<String>? targetSellCur,
-    Wrapped<String>? targetTotalPrice,
+    Wrapped<String?>? productName,
+    Wrapped<String?>? skuCode,
+    Wrapped<String?>? productCode,
+    Wrapped<String?>? image,
+    Wrapped<String?>? sellPrice,
+    Wrapped<String?>? sellCur,
+    Wrapped<String?>? totalPrice,
+    Wrapped<String?>? targetSellPrice,
+    Wrapped<String?>? targetSellCur,
+    Wrapped<String?>? targetTotalPrice,
     Wrapped<String?>? targetSkuDiscountPrice,
-    Wrapped<String>? targetSkuFinalPrice,
-    Wrapped<String>? targetTotalFinalPrice,
+    Wrapped<String?>? targetSkuFinalPrice,
+    Wrapped<String?>? targetTotalFinalPrice,
     Wrapped<String?>? remark,
-    Wrapped<double>? quantity,
+    Wrapped<double?>? quantity,
     Wrapped<
       List<
         OrderServiceOrderListGet$Response$Data$Records$Item$OrderSkuList$Item$SkuSpecValues$Item
-      >
+      >?
     >?
     skuSpecValues,
-    Wrapped<bool>? isReturned,
-    Wrapped<String>? targetOriginPrice,
+    Wrapped<bool?>? isReturned,
+    Wrapped<String?>? targetOriginPrice,
   }) {
     return OrderServiceOrderListGet$Response$Data$Records$Item$OrderSkuList$Item(
       productName: (productName != null ? productName.value : this.productName),
@@ -27388,10 +27393,10 @@ extension $OrderServiceOrderListGet$Response$Data$Records$Item$ParcelOrderExtens
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderListGet$Response$Data$Records$Item$OrderBillList$Item {
   const OrderServiceOrderListGet$Response$Data$Records$Item$OrderBillList$Item({
-    required this.billId,
-    required this.status,
-    required this.targetTotalPrice,
-    required this.targetCurrency,
+    this.billId,
+    this.status,
+    this.targetTotalPrice,
+    this.targetCurrency,
   });
 
   factory OrderServiceOrderListGet$Response$Data$Records$Item$OrderBillList$Item.fromJson(
@@ -27409,13 +27414,13 @@ class OrderServiceOrderListGet$Response$Data$Records$Item$OrderBillList$Item {
       );
 
   @JsonKey(name: 'billId')
-  final String billId;
+  final String? billId;
   @JsonKey(name: 'status')
-  final double status;
+  final double? status;
   @JsonKey(name: 'targetTotalPrice')
-  final String targetTotalPrice;
+  final String? targetTotalPrice;
   @JsonKey(name: 'targetCurrency')
-  final String targetCurrency;
+  final String? targetCurrency;
   static const fromJsonFactory =
       _$OrderServiceOrderListGet$Response$Data$Records$Item$OrderBillList$ItemFromJson;
 
@@ -27471,10 +27476,10 @@ extension $OrderServiceOrderListGet$Response$Data$Records$Item$OrderBillList$Ite
 
   OrderServiceOrderListGet$Response$Data$Records$Item$OrderBillList$Item
   copyWithWrapped({
-    Wrapped<String>? billId,
-    Wrapped<double>? status,
-    Wrapped<String>? targetTotalPrice,
-    Wrapped<String>? targetCurrency,
+    Wrapped<String?>? billId,
+    Wrapped<double?>? status,
+    Wrapped<String?>? targetTotalPrice,
+    Wrapped<String?>? targetCurrency,
   }) {
     return OrderServiceOrderListGet$Response$Data$Records$Item$OrderBillList$Item(
       billId: (billId != null ? billId.value : this.billId),
@@ -28978,7 +28983,7 @@ class OrderServiceOrderDetailGet$Response$Data$OrderList$Item$SkuList$Item {
     this.productName,
     this.productCode,
     this.skuCode,
-    required this.image,
+    this.image,
     this.targetOriginTotalPrice,
     this.targetOriginPrice,
     this.sellPrice,
@@ -28992,12 +28997,12 @@ class OrderServiceOrderDetailGet$Response$Data$OrderList$Item$SkuList$Item {
     this.targetTotalFinalPrice,
     this.quantity,
     this.remark,
-    required this.skuSpecValues,
+    this.skuSpecValues,
     this.canAfterSales,
     this.isReturned,
     this.returnQuantity,
     this.realRemark,
-    required this.field2,
+    this.field2,
   });
 
   factory OrderServiceOrderDetailGet$Response$Data$OrderList$Item$SkuList$Item.fromJson(
@@ -29021,7 +29026,7 @@ class OrderServiceOrderDetailGet$Response$Data$OrderList$Item$SkuList$Item {
   @JsonKey(name: 'skuCode')
   final String? skuCode;
   @JsonKey(name: 'image')
-  final String image;
+  final String? image;
   @JsonKey(name: 'targetOriginTotalPrice')
   final String? targetOriginTotalPrice;
   @JsonKey(name: 'targetOriginPrice')
@@ -29051,7 +29056,7 @@ class OrderServiceOrderDetailGet$Response$Data$OrderList$Item$SkuList$Item {
   @JsonKey(name: 'skuSpecValues')
   final List<
     OrderServiceOrderDetailGet$Response$Data$OrderList$Item$SkuList$Item$SkuSpecValues$Item
-  >
+  >?
   skuSpecValues;
   @JsonKey(name: 'canAfterSales')
   final bool? canAfterSales;
@@ -29062,7 +29067,7 @@ class OrderServiceOrderDetailGet$Response$Data$OrderList$Item$SkuList$Item {
   @JsonKey(name: 'realRemark')
   final Object? realRemark;
   @JsonKey(name: 'field_2')
-  final String field2;
+  final String? field2;
   static const fromJsonFactory =
       _$OrderServiceOrderDetailGet$Response$Data$OrderList$Item$SkuList$ItemFromJson;
 
@@ -29275,7 +29280,7 @@ extension $OrderServiceOrderDetailGet$Response$Data$OrderList$Item$SkuList$ItemE
     Wrapped<String?>? productName,
     Wrapped<String?>? productCode,
     Wrapped<String?>? skuCode,
-    Wrapped<String>? image,
+    Wrapped<String?>? image,
     Wrapped<String?>? targetOriginTotalPrice,
     Wrapped<String?>? targetOriginPrice,
     Wrapped<String?>? sellPrice,
@@ -29292,14 +29297,14 @@ extension $OrderServiceOrderDetailGet$Response$Data$OrderList$Item$SkuList$ItemE
     Wrapped<
       List<
         OrderServiceOrderDetailGet$Response$Data$OrderList$Item$SkuList$Item$SkuSpecValues$Item
-      >
+      >?
     >?
     skuSpecValues,
     Wrapped<bool?>? canAfterSales,
     Wrapped<bool?>? isReturned,
     Wrapped<Object?>? returnQuantity,
     Wrapped<Object?>? realRemark,
-    Wrapped<String>? field2,
+    Wrapped<String?>? field2,
   }) {
     return OrderServiceOrderDetailGet$Response$Data$OrderList$Item$SkuList$Item(
       productName: (productName != null ? productName.value : this.productName),
@@ -29367,7 +29372,7 @@ class OrderServiceOrderDetailGet$Response$Data$OrderList$Item$SupplyOrderList$It
     this.width,
     this.height,
     this.logisticsAttr,
-    required this.inspectImageUrlList,
+    this.inspectImageUrlList,
     this.secretKeyList,
     this.qcRemark,
   });
@@ -29413,7 +29418,7 @@ class OrderServiceOrderDetailGet$Response$Data$OrderList$Item$SupplyOrderList$It
   @JsonKey(name: 'logisticsAttr')
   final String? logisticsAttr;
   @JsonKey(name: 'inspectImageUrlList', defaultValue: <Object>[])
-  final List<Object> inspectImageUrlList;
+  final List<Object>? inspectImageUrlList;
   @JsonKey(name: 'secretKeyList')
   final String? secretKeyList;
   @JsonKey(name: 'qcRemark')
@@ -29576,7 +29581,7 @@ extension $OrderServiceOrderDetailGet$Response$Data$OrderList$Item$SupplyOrderLi
     Wrapped<String?>? width,
     Wrapped<String?>? height,
     Wrapped<String?>? logisticsAttr,
-    Wrapped<List<Object>>? inspectImageUrlList,
+    Wrapped<List<Object>?>? inspectImageUrlList,
     Wrapped<String?>? secretKeyList,
     Wrapped<String?>? qcRemark,
   }) {
@@ -30007,8 +30012,8 @@ extension $OrderServiceOrderDetailGet$Response$Data$ParcelOrder$FreightCurrencyE
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderDetailGet$Response$Data$ParcelOrder$TargetFreightCurrency {
   const OrderServiceOrderDetailGet$Response$Data$ParcelOrder$TargetFreightCurrency({
-    required this.symbol,
-    required this.name,
+    this.symbol,
+    this.name,
   });
 
   factory OrderServiceOrderDetailGet$Response$Data$ParcelOrder$TargetFreightCurrency.fromJson(
@@ -30026,9 +30031,9 @@ class OrderServiceOrderDetailGet$Response$Data$ParcelOrder$TargetFreightCurrency
       );
 
   @JsonKey(name: 'symbol')
-  final String symbol;
+  final String? symbol;
   @JsonKey(name: 'name')
-  final String name;
+  final String? name;
   static const fromJsonFactory =
       _$OrderServiceOrderDetailGet$Response$Data$ParcelOrder$TargetFreightCurrencyFromJson;
 
@@ -30064,7 +30069,7 @@ extension $OrderServiceOrderDetailGet$Response$Data$ParcelOrder$TargetFreightCur
   }
 
   OrderServiceOrderDetailGet$Response$Data$ParcelOrder$TargetFreightCurrency
-  copyWithWrapped({Wrapped<String>? symbol, Wrapped<String>? name}) {
+  copyWithWrapped({Wrapped<String?>? symbol, Wrapped<String?>? name}) {
     return OrderServiceOrderDetailGet$Response$Data$ParcelOrder$TargetFreightCurrency(
       symbol: (symbol != null ? symbol.value : this.symbol),
       name: (name != null ? name.value : this.name),
@@ -31118,20 +31123,20 @@ extension $OrderServiceOrderDetailGet$Response$Data$OrderTrace$LogisticsSkuDetai
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderDetailGet$Response$Data$OrderTrace$TraceList$Item {
   const OrderServiceOrderDetailGet$Response$Data$OrderTrace$TraceList$Item({
-    required this.id,
-    required this.subParcelOrderId,
-    required this.frontCode,
-    required this.frontTitleCode,
-    required this.frontTitle,
-    required this.icon,
-    required this.traceMessage,
-    required this.time,
-    required this.lastMileMailNo,
-    required this.lastMileCompanyName,
-    required this.lastMileMailNoLink,
-    required this.lastMileMailNoTitle,
-    required this.traceStatus,
-    required this.traceTime,
+    this.id,
+    this.subParcelOrderId,
+    this.frontCode,
+    this.frontTitleCode,
+    this.frontTitle,
+    this.icon,
+    this.traceMessage,
+    this.time,
+    this.lastMileMailNo,
+    this.lastMileCompanyName,
+    this.lastMileMailNoLink,
+    this.lastMileMailNoTitle,
+    this.traceStatus,
+    this.traceTime,
   });
 
   factory OrderServiceOrderDetailGet$Response$Data$OrderTrace$TraceList$Item.fromJson(
@@ -31149,33 +31154,33 @@ class OrderServiceOrderDetailGet$Response$Data$OrderTrace$TraceList$Item {
       );
 
   @JsonKey(name: 'id')
-  final double id;
+  final double? id;
   @JsonKey(name: 'subParcelOrderId')
-  final String subParcelOrderId;
+  final String? subParcelOrderId;
   @JsonKey(name: 'frontCode')
-  final String frontCode;
+  final String? frontCode;
   @JsonKey(name: 'frontTitleCode')
-  final String frontTitleCode;
+  final String? frontTitleCode;
   @JsonKey(name: 'frontTitle')
-  final String frontTitle;
+  final String? frontTitle;
   @JsonKey(name: 'icon')
-  final String icon;
+  final String? icon;
   @JsonKey(name: 'traceMessage')
-  final String traceMessage;
+  final String? traceMessage;
   @JsonKey(name: 'time')
-  final double time;
+  final double? time;
   @JsonKey(name: 'lastMileMailNo')
-  final String lastMileMailNo;
+  final String? lastMileMailNo;
   @JsonKey(name: 'lastMileCompanyName')
-  final String lastMileCompanyName;
+  final String? lastMileCompanyName;
   @JsonKey(name: 'lastMileMailNoLink')
-  final String lastMileMailNoLink;
+  final String? lastMileMailNoLink;
   @JsonKey(name: 'lastMileMailNoTitle')
-  final String lastMileMailNoTitle;
+  final String? lastMileMailNoTitle;
   @JsonKey(name: 'traceStatus')
-  final String traceStatus;
+  final String? traceStatus;
   @JsonKey(name: 'traceTime')
-  final String traceTime;
+  final String? traceTime;
   static const fromJsonFactory =
       _$OrderServiceOrderDetailGet$Response$Data$OrderTrace$TraceList$ItemFromJson;
 
@@ -31307,20 +31312,20 @@ extension $OrderServiceOrderDetailGet$Response$Data$OrderTrace$TraceList$ItemExt
 
   OrderServiceOrderDetailGet$Response$Data$OrderTrace$TraceList$Item
   copyWithWrapped({
-    Wrapped<double>? id,
-    Wrapped<String>? subParcelOrderId,
-    Wrapped<String>? frontCode,
-    Wrapped<String>? frontTitleCode,
-    Wrapped<String>? frontTitle,
-    Wrapped<String>? icon,
-    Wrapped<String>? traceMessage,
-    Wrapped<double>? time,
-    Wrapped<String>? lastMileMailNo,
-    Wrapped<String>? lastMileCompanyName,
-    Wrapped<String>? lastMileMailNoLink,
-    Wrapped<String>? lastMileMailNoTitle,
-    Wrapped<String>? traceStatus,
-    Wrapped<String>? traceTime,
+    Wrapped<double?>? id,
+    Wrapped<String?>? subParcelOrderId,
+    Wrapped<String?>? frontCode,
+    Wrapped<String?>? frontTitleCode,
+    Wrapped<String?>? frontTitle,
+    Wrapped<String?>? icon,
+    Wrapped<String?>? traceMessage,
+    Wrapped<double?>? time,
+    Wrapped<String?>? lastMileMailNo,
+    Wrapped<String?>? lastMileCompanyName,
+    Wrapped<String?>? lastMileMailNoLink,
+    Wrapped<String?>? lastMileMailNoTitle,
+    Wrapped<String?>? traceStatus,
+    Wrapped<String?>? traceTime,
   }) {
     return OrderServiceOrderDetailGet$Response$Data$OrderTrace$TraceList$Item(
       id: (id != null ? id.value : this.id),
@@ -31426,11 +31431,11 @@ extension $OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrder$FreightCu
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrder$ParcelProductDTOList$Item {
   const OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrder$ParcelProductDTOList$Item({
-    required this.skuCode,
-    required this.productCode,
-    required this.productName,
-    required this.quantity,
-    required this.imageUrl,
+    this.skuCode,
+    this.productCode,
+    this.productName,
+    this.quantity,
+    this.imageUrl,
   });
 
   factory OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrder$ParcelProductDTOList$Item.fromJson(
@@ -31448,15 +31453,15 @@ class OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrder$ParcelProductD
       );
 
   @JsonKey(name: 'skuCode')
-  final String skuCode;
+  final String? skuCode;
   @JsonKey(name: 'productCode')
-  final String productCode;
+  final String? productCode;
   @JsonKey(name: 'productName')
-  final String productName;
+  final String? productName;
   @JsonKey(name: 'quantity')
-  final double quantity;
+  final double? quantity;
   @JsonKey(name: 'imageUrl')
-  final String imageUrl;
+  final String? imageUrl;
   static const fromJsonFactory =
       _$OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrder$ParcelProductDTOList$ItemFromJson;
 
@@ -31527,11 +31532,11 @@ extension $OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrder$ParcelPro
 
   OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrder$ParcelProductDTOList$Item
   copyWithWrapped({
-    Wrapped<String>? skuCode,
-    Wrapped<String>? productCode,
-    Wrapped<String>? productName,
-    Wrapped<double>? quantity,
-    Wrapped<String>? imageUrl,
+    Wrapped<String?>? skuCode,
+    Wrapped<String?>? productCode,
+    Wrapped<String?>? productName,
+    Wrapped<double?>? quantity,
+    Wrapped<String?>? imageUrl,
   }) {
     return OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrder$ParcelProductDTOList$Item(
       skuCode: (skuCode != null ? skuCode.value : this.skuCode),
@@ -31546,12 +31551,12 @@ extension $OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrder$ParcelPro
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrder$FreightCompensate {
   const OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrder$FreightCompensate({
-    required this.compensateBillId,
-    required this.compensatePrice,
-    required this.compensatePriceCurrency,
-    required this.compensateReason,
-    required this.targetCompensatePrice,
-    required this.targetCompensatePriceCurrency,
+    this.compensateBillId,
+    this.compensatePrice,
+    this.compensatePriceCurrency,
+    this.compensateReason,
+    this.targetCompensatePrice,
+    this.targetCompensatePriceCurrency,
   });
 
   factory OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrder$FreightCompensate.fromJson(
@@ -31569,17 +31574,17 @@ class OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrder$FreightCompens
       );
 
   @JsonKey(name: 'compensateBillId')
-  final String compensateBillId;
+  final String? compensateBillId;
   @JsonKey(name: 'compensatePrice')
-  final String compensatePrice;
+  final String? compensatePrice;
   @JsonKey(name: 'compensatePriceCurrency')
-  final String compensatePriceCurrency;
+  final String? compensatePriceCurrency;
   @JsonKey(name: 'compensateReason')
-  final String compensateReason;
+  final String? compensateReason;
   @JsonKey(name: 'targetCompensatePrice')
-  final String targetCompensatePrice;
+  final String? targetCompensatePrice;
   @JsonKey(name: 'targetCompensatePriceCurrency')
-  final String targetCompensatePriceCurrency;
+  final String? targetCompensatePriceCurrency;
   static const fromJsonFactory =
       _$OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrder$FreightCompensateFromJson;
 
@@ -31666,12 +31671,12 @@ extension $OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrder$FreightCo
 
   OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrder$FreightCompensate
   copyWithWrapped({
-    Wrapped<String>? compensateBillId,
-    Wrapped<String>? compensatePrice,
-    Wrapped<String>? compensatePriceCurrency,
-    Wrapped<String>? compensateReason,
-    Wrapped<String>? targetCompensatePrice,
-    Wrapped<String>? targetCompensatePriceCurrency,
+    Wrapped<String?>? compensateBillId,
+    Wrapped<String?>? compensatePrice,
+    Wrapped<String?>? compensatePriceCurrency,
+    Wrapped<String?>? compensateReason,
+    Wrapped<String?>? targetCompensatePrice,
+    Wrapped<String?>? targetCompensatePriceCurrency,
   }) {
     return OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrder$FreightCompensate(
       compensateBillId: (compensateBillId != null
@@ -31699,8 +31704,8 @@ extension $OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrder$FreightCo
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrder$TargetFreightCurrency {
   const OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrder$TargetFreightCurrency({
-    required this.symbol,
-    required this.currency,
+    this.symbol,
+    this.currency,
   });
 
   factory OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrder$TargetFreightCurrency.fromJson(
@@ -31718,9 +31723,9 @@ class OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrder$TargetFreightC
       );
 
   @JsonKey(name: 'symbol')
-  final String symbol;
+  final String? symbol;
   @JsonKey(name: 'currency')
-  final String currency;
+  final String? currency;
   static const fromJsonFactory =
       _$OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrder$TargetFreightCurrencyFromJson;
 
@@ -31760,7 +31765,7 @@ extension $OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrder$TargetFre
   }
 
   OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrder$TargetFreightCurrency
-  copyWithWrapped({Wrapped<String>? symbol, Wrapped<String>? currency}) {
+  copyWithWrapped({Wrapped<String?>? symbol, Wrapped<String?>? currency}) {
     return OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrder$TargetFreightCurrency(
       symbol: (symbol != null ? symbol.value : this.symbol),
       currency: (currency != null ? currency.value : this.currency),
@@ -31771,16 +31776,16 @@ extension $OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrder$TargetFre
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOpenapiOrderDetailGet$Response$Data$OrderTrace$TraceList$Item {
   const OrderServiceOpenapiOrderDetailGet$Response$Data$OrderTrace$TraceList$Item({
-    required this.id,
-    required this.frontCode,
-    required this.icon,
-    required this.traceMessage,
-    required this.time,
-    required this.lastMileMailNo,
-    required this.lastMileMailNoLink,
-    required this.lastMileMailNoTitle,
-    required this.traceStatus,
-    required this.logisticsOrderId,
+    this.id,
+    this.frontCode,
+    this.icon,
+    this.traceMessage,
+    this.time,
+    this.lastMileMailNo,
+    this.lastMileMailNoLink,
+    this.lastMileMailNoTitle,
+    this.traceStatus,
+    this.logisticsOrderId,
   });
 
   factory OrderServiceOpenapiOrderDetailGet$Response$Data$OrderTrace$TraceList$Item.fromJson(
@@ -31798,25 +31803,25 @@ class OrderServiceOpenapiOrderDetailGet$Response$Data$OrderTrace$TraceList$Item 
       );
 
   @JsonKey(name: 'id')
-  final double id;
+  final double? id;
   @JsonKey(name: 'frontCode')
-  final String frontCode;
+  final String? frontCode;
   @JsonKey(name: 'icon')
-  final String icon;
+  final String? icon;
   @JsonKey(name: 'traceMessage')
-  final String traceMessage;
+  final String? traceMessage;
   @JsonKey(name: 'time')
-  final double time;
+  final double? time;
   @JsonKey(name: 'lastMileMailNo')
-  final String lastMileMailNo;
+  final String? lastMileMailNo;
   @JsonKey(name: 'lastMileMailNoLink')
-  final String lastMileMailNoLink;
+  final String? lastMileMailNoLink;
   @JsonKey(name: 'lastMileMailNoTitle')
-  final String lastMileMailNoTitle;
+  final String? lastMileMailNoTitle;
   @JsonKey(name: 'traceStatus')
-  final String traceStatus;
+  final String? traceStatus;
   @JsonKey(name: 'logisticsOrderId')
-  final String logisticsOrderId;
+  final String? logisticsOrderId;
   static const fromJsonFactory =
       _$OrderServiceOpenapiOrderDetailGet$Response$Data$OrderTrace$TraceList$ItemFromJson;
 
@@ -31917,16 +31922,16 @@ extension $OrderServiceOpenapiOrderDetailGet$Response$Data$OrderTrace$TraceList$
 
   OrderServiceOpenapiOrderDetailGet$Response$Data$OrderTrace$TraceList$Item
   copyWithWrapped({
-    Wrapped<double>? id,
-    Wrapped<String>? frontCode,
-    Wrapped<String>? icon,
-    Wrapped<String>? traceMessage,
-    Wrapped<double>? time,
-    Wrapped<String>? lastMileMailNo,
-    Wrapped<String>? lastMileMailNoLink,
-    Wrapped<String>? lastMileMailNoTitle,
-    Wrapped<String>? traceStatus,
-    Wrapped<String>? logisticsOrderId,
+    Wrapped<double?>? id,
+    Wrapped<String?>? frontCode,
+    Wrapped<String?>? icon,
+    Wrapped<String?>? traceMessage,
+    Wrapped<double?>? time,
+    Wrapped<String?>? lastMileMailNo,
+    Wrapped<String?>? lastMileMailNoLink,
+    Wrapped<String?>? lastMileMailNoTitle,
+    Wrapped<String?>? traceStatus,
+    Wrapped<String?>? logisticsOrderId,
   }) {
     return OrderServiceOpenapiOrderDetailGet$Response$Data$OrderTrace$TraceList$Item(
       id: (id != null ? id.value : this.id),
@@ -31956,19 +31961,19 @@ extension $OrderServiceOpenapiOrderDetailGet$Response$Data$OrderTrace$TraceList$
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOpenapiOrderDetailGet$Response$Data$OrderList$Item$SkuList$Item {
   const OrderServiceOpenapiOrderDetailGet$Response$Data$OrderList$Item$SkuList$Item({
-    required this.productName,
-    required this.productCode,
-    required this.skuCode,
-    required this.image,
-    required this.sellPrice,
-    required this.targetSellPrice,
-    required this.totalPrice,
-    required this.targetTotalPrice,
-    required this.currency,
-    required this.targetCurrency,
-    required this.quantity,
+    this.productName,
+    this.productCode,
+    this.skuCode,
+    this.image,
+    this.sellPrice,
+    this.targetSellPrice,
+    this.totalPrice,
+    this.targetTotalPrice,
+    this.currency,
+    this.targetCurrency,
+    this.quantity,
     this.remark,
-    required this.skuSpecValues,
+    this.skuSpecValues,
   });
 
   factory OrderServiceOpenapiOrderDetailGet$Response$Data$OrderList$Item$SkuList$Item.fromJson(
@@ -31986,33 +31991,33 @@ class OrderServiceOpenapiOrderDetailGet$Response$Data$OrderList$Item$SkuList$Ite
       );
 
   @JsonKey(name: 'productName')
-  final String productName;
+  final String? productName;
   @JsonKey(name: 'productCode')
-  final String productCode;
+  final String? productCode;
   @JsonKey(name: 'skuCode')
-  final String skuCode;
+  final String? skuCode;
   @JsonKey(name: 'image')
-  final String image;
+  final String? image;
   @JsonKey(name: 'sellPrice')
-  final String sellPrice;
+  final String? sellPrice;
   @JsonKey(name: 'targetSellPrice')
-  final String targetSellPrice;
+  final String? targetSellPrice;
   @JsonKey(name: 'totalPrice')
-  final String totalPrice;
+  final String? totalPrice;
   @JsonKey(name: 'targetTotalPrice')
-  final String targetTotalPrice;
+  final String? targetTotalPrice;
   @JsonKey(name: 'currency')
-  final String currency;
+  final String? currency;
   @JsonKey(name: 'targetCurrency')
-  final String targetCurrency;
+  final String? targetCurrency;
   @JsonKey(name: 'quantity')
-  final double quantity;
+  final double? quantity;
   @JsonKey(name: 'remark')
   final String? remark;
   @JsonKey(name: 'skuSpecValues')
   final List<
     OrderServiceOpenapiOrderDetailGet$Response$Data$OrderList$Item$SkuList$Item$SkuSpecValues$Item
-  >
+  >?
   skuSpecValues;
   static const fromJsonFactory =
       _$OrderServiceOpenapiOrderDetailGet$Response$Data$OrderList$Item$SkuList$ItemFromJson;
@@ -32144,22 +32149,22 @@ extension $OrderServiceOpenapiOrderDetailGet$Response$Data$OrderList$Item$SkuLis
 
   OrderServiceOpenapiOrderDetailGet$Response$Data$OrderList$Item$SkuList$Item
   copyWithWrapped({
-    Wrapped<String>? productName,
-    Wrapped<String>? productCode,
-    Wrapped<String>? skuCode,
-    Wrapped<String>? image,
-    Wrapped<String>? sellPrice,
-    Wrapped<String>? targetSellPrice,
-    Wrapped<String>? totalPrice,
-    Wrapped<String>? targetTotalPrice,
-    Wrapped<String>? currency,
-    Wrapped<String>? targetCurrency,
-    Wrapped<double>? quantity,
+    Wrapped<String?>? productName,
+    Wrapped<String?>? productCode,
+    Wrapped<String?>? skuCode,
+    Wrapped<String?>? image,
+    Wrapped<String?>? sellPrice,
+    Wrapped<String?>? targetSellPrice,
+    Wrapped<String?>? totalPrice,
+    Wrapped<String?>? targetTotalPrice,
+    Wrapped<String?>? currency,
+    Wrapped<String?>? targetCurrency,
+    Wrapped<double?>? quantity,
     Wrapped<String?>? remark,
     Wrapped<
       List<
         OrderServiceOpenapiOrderDetailGet$Response$Data$OrderList$Item$SkuList$Item$SkuSpecValues$Item
-      >
+      >?
     >?
     skuSpecValues,
   }) {
@@ -32387,7 +32392,7 @@ class OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$Bas
     this.skuSourceCode,
     this.parentOrderId,
     this.status,
-    required this.frontStatus,
+    this.frontStatus,
     this.statusContent,
     this.orderStatus,
     this.evaluateStatus,
@@ -32441,7 +32446,7 @@ class OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$Bas
   @JsonKey(name: 'status')
   final double? status;
   @JsonKey(name: 'frontStatus')
-  final double frontStatus;
+  final double? frontStatus;
   @JsonKey(name: 'statusContent')
   final String? statusContent;
   @JsonKey(name: 'orderStatus')
@@ -32779,7 +32784,7 @@ extension $OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Ite
     Wrapped<String?>? skuSourceCode,
     Wrapped<String?>? parentOrderId,
     Wrapped<double?>? status,
-    Wrapped<double>? frontStatus,
+    Wrapped<double?>? frontStatus,
     Wrapped<String?>? statusContent,
     Wrapped<double?>? orderStatus,
     Wrapped<double?>? evaluateStatus,
@@ -32892,7 +32897,7 @@ class OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$Use
     this.lastName,
     this.phoneNumber,
     this.zipCode,
-    required this.id,
+    this.id,
   });
 
   factory OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$UserAddress.fromJson(
@@ -32936,7 +32941,7 @@ class OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$Use
   @JsonKey(name: 'zipCode')
   final String? zipCode;
   @JsonKey(name: 'id')
-  final double id;
+  final double? id;
   static const fromJsonFactory =
       _$OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$UserAddressFromJson;
 
@@ -33080,7 +33085,7 @@ extension $OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Ite
     Wrapped<String?>? lastName,
     Wrapped<String?>? phoneNumber,
     Wrapped<String?>? zipCode,
-    Wrapped<double>? id,
+    Wrapped<double?>? id,
   }) {
     return OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$UserAddress(
       country: (country != null ? country.value : this.country),
@@ -33235,11 +33240,11 @@ class OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$Pay
     this.targetRechargePrice,
     this.targetPayFeeAmount,
     this.targetCurrency,
-    required this.targetItemsTotalAmount,
-    required this.targetStockFeeAmount,
+    this.targetItemsTotalAmount,
+    this.targetStockFeeAmount,
     this.targetActualAmount,
-    required this.targetTipAmount,
-    required this.targetServiceAmount,
+    this.targetTipAmount,
+    this.targetServiceAmount,
   });
 
   factory OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$Payments.fromJson(
@@ -33291,15 +33296,15 @@ class OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$Pay
   @JsonKey(name: 'targetCurrency')
   final String? targetCurrency;
   @JsonKey(name: 'targetItemsTotalAmount')
-  final String targetItemsTotalAmount;
+  final String? targetItemsTotalAmount;
   @JsonKey(name: 'targetStockFeeAmount')
-  final String targetStockFeeAmount;
+  final String? targetStockFeeAmount;
   @JsonKey(name: 'targetActualAmount')
   final String? targetActualAmount;
   @JsonKey(name: 'targetTipAmount')
-  final String targetTipAmount;
+  final String? targetTipAmount;
   @JsonKey(name: 'targetServiceAmount')
-  final String targetServiceAmount;
+  final String? targetServiceAmount;
   static const fromJsonFactory =
       _$OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$PaymentsFromJson;
 
@@ -33525,11 +33530,11 @@ extension $OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Ite
     Wrapped<String?>? targetRechargePrice,
     Wrapped<String?>? targetPayFeeAmount,
     Wrapped<String?>? targetCurrency,
-    Wrapped<String>? targetItemsTotalAmount,
-    Wrapped<String>? targetStockFeeAmount,
+    Wrapped<String?>? targetItemsTotalAmount,
+    Wrapped<String?>? targetStockFeeAmount,
     Wrapped<String?>? targetActualAmount,
-    Wrapped<String>? targetTipAmount,
-    Wrapped<String>? targetServiceAmount,
+    Wrapped<String?>? targetTipAmount,
+    Wrapped<String?>? targetServiceAmount,
   }) {
     return OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$Payments(
       receiptAmount: (receiptAmount != null
@@ -33597,10 +33602,10 @@ extension $OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Ite
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$OrderBillList$Item {
   const OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$OrderBillList$Item({
-    required this.status,
-    required this.targetCurrency,
-    required this.targetTotalPrice,
-    required this.billId,
+    this.status,
+    this.targetCurrency,
+    this.targetTotalPrice,
+    this.billId,
   });
 
   factory OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$OrderBillList$Item.fromJson(
@@ -33618,13 +33623,13 @@ class OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$Ord
       );
 
   @JsonKey(name: 'status')
-  final String status;
+  final String? status;
   @JsonKey(name: 'targetCurrency')
-  final String targetCurrency;
+  final String? targetCurrency;
   @JsonKey(name: 'targetTotalPrice')
-  final String targetTotalPrice;
+  final String? targetTotalPrice;
   @JsonKey(name: 'billId')
-  final String billId;
+  final String? billId;
   static const fromJsonFactory =
       _$OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$OrderBillList$ItemFromJson;
 
@@ -33681,10 +33686,10 @@ extension $OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Ite
 
   OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$OrderBillList$Item
   copyWithWrapped({
-    Wrapped<String>? status,
-    Wrapped<String>? targetCurrency,
-    Wrapped<String>? targetTotalPrice,
-    Wrapped<String>? billId,
+    Wrapped<String?>? status,
+    Wrapped<String?>? targetCurrency,
+    Wrapped<String?>? targetTotalPrice,
+    Wrapped<String?>? billId,
   }) {
     return OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$OrderBillList$Item(
       status: (status != null ? status.value : this.status),
@@ -33702,19 +33707,19 @@ extension $OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Ite
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$ParcelOrder {
   const OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$ParcelOrder({
-    required this.parcelOrderId,
-    required this.parcelStatus,
-    required this.parcelStatusDesc,
-    required this.createTime,
-    required this.warehouseCode,
-    required this.warehouseName,
-    required this.freight,
-    required this.freightCurrency,
-    required this.lastMileMailNo,
-    required this.lastMileCompanyCode,
-    required this.lastMileCompanyName,
-    required this.parcelProductDTOList,
-    required this.buyerOperates,
+    this.parcelOrderId,
+    this.parcelStatus,
+    this.parcelStatusDesc,
+    this.createTime,
+    this.warehouseCode,
+    this.warehouseName,
+    this.freight,
+    this.freightCurrency,
+    this.lastMileMailNo,
+    this.lastMileCompanyCode,
+    this.lastMileCompanyName,
+    this.parcelProductDTOList,
+    this.buyerOperates,
     this.freightCompensate,
     this.solutionCode,
     this.actualFreight,
@@ -33740,35 +33745,35 @@ class OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$Par
       );
 
   @JsonKey(name: 'parcelOrderId')
-  final String parcelOrderId;
+  final String? parcelOrderId;
   @JsonKey(name: 'parcelStatus')
-  final String parcelStatus;
+  final String? parcelStatus;
   @JsonKey(name: 'parcelStatusDesc')
-  final String parcelStatusDesc;
+  final String? parcelStatusDesc;
   @JsonKey(name: 'createTime')
-  final double createTime;
+  final double? createTime;
   @JsonKey(name: 'warehouseCode')
-  final String warehouseCode;
+  final String? warehouseCode;
   @JsonKey(name: 'warehouseName')
-  final String warehouseName;
+  final String? warehouseName;
   @JsonKey(name: 'freight')
-  final String freight;
+  final String? freight;
   @JsonKey(name: 'freightCurrency')
-  final OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$ParcelOrder$FreightCurrency
+  final OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$ParcelOrder$FreightCurrency?
   freightCurrency;
   @JsonKey(name: 'lastMileMailNo')
-  final Object lastMileMailNo;
+  final Object? lastMileMailNo;
   @JsonKey(name: 'lastMileCompanyCode')
-  final Object lastMileCompanyCode;
+  final Object? lastMileCompanyCode;
   @JsonKey(name: 'lastMileCompanyName')
-  final Object lastMileCompanyName;
+  final Object? lastMileCompanyName;
   @JsonKey(name: 'parcelProductDTOList')
   final List<
     OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$ParcelOrder$ParcelProductDTOList$Item
-  >
+  >?
   parcelProductDTOList;
   @JsonKey(name: 'buyerOperates', defaultValue: <String>[])
-  final List<String> buyerOperates;
+  final List<String>? buyerOperates;
   @JsonKey(name: 'freightCompensate')
   final OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$ParcelOrder$FreightCompensate?
   freightCompensate;
@@ -34003,27 +34008,27 @@ extension $OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Ite
 
   OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$ParcelOrder
   copyWithWrapped({
-    Wrapped<String>? parcelOrderId,
-    Wrapped<String>? parcelStatus,
-    Wrapped<String>? parcelStatusDesc,
-    Wrapped<double>? createTime,
-    Wrapped<String>? warehouseCode,
-    Wrapped<String>? warehouseName,
-    Wrapped<String>? freight,
+    Wrapped<String?>? parcelOrderId,
+    Wrapped<String?>? parcelStatus,
+    Wrapped<String?>? parcelStatusDesc,
+    Wrapped<double?>? createTime,
+    Wrapped<String?>? warehouseCode,
+    Wrapped<String?>? warehouseName,
+    Wrapped<String?>? freight,
     Wrapped<
-      OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$ParcelOrder$FreightCurrency
+      OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$ParcelOrder$FreightCurrency?
     >?
     freightCurrency,
-    Wrapped<Object>? lastMileMailNo,
-    Wrapped<Object>? lastMileCompanyCode,
-    Wrapped<Object>? lastMileCompanyName,
+    Wrapped<Object?>? lastMileMailNo,
+    Wrapped<Object?>? lastMileCompanyCode,
+    Wrapped<Object?>? lastMileCompanyName,
     Wrapped<
       List<
         OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$ParcelOrder$ParcelProductDTOList$Item
-      >
+      >?
     >?
     parcelProductDTOList,
-    Wrapped<List<String>>? buyerOperates,
+    Wrapped<List<String>?>? buyerOperates,
     Wrapped<
       OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$ParcelOrder$FreightCompensate?
     >?
@@ -34112,7 +34117,7 @@ class OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$Ord
     this.logisticsOrderId,
     this.logisticsStatus,
     this.traceList,
-    required this.parcelOrderId,
+    this.parcelOrderId,
   });
 
   factory OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$OrderTrace.fromJson(
@@ -34141,7 +34146,7 @@ class OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$Ord
   >?
   traceList;
   @JsonKey(name: 'parcelOrderId')
-  final String parcelOrderId;
+  final String? parcelOrderId;
   static const fromJsonFactory =
       _$OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$OrderTraceFromJson;
 
@@ -34224,7 +34229,7 @@ extension $OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Ite
       >?
     >?
     traceList,
-    Wrapped<String>? parcelOrderId,
+    Wrapped<String?>? parcelOrderId,
   }) {
     return OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$OrderTrace(
       tradeOrderId: (tradeOrderId != null
@@ -34375,7 +34380,7 @@ extension $OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Ite
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$OrderList$Item {
   const OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$OrderList$Item({
-    required this.skuList,
+    this.skuList,
     this.afterSalesList,
     this.supplyOrderList,
   });
@@ -34397,7 +34402,7 @@ class OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$Ord
   @JsonKey(name: 'skuList')
   final List<
     OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$OrderList$Item$SkuList$Item
-  >
+  >?
   skuList;
   @JsonKey(name: 'afterSalesList', defaultValue: <Object>[])
   final List<Object>? afterSalesList;
@@ -34469,7 +34474,7 @@ extension $OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Ite
     Wrapped<
       List<
         OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$OrderList$Item$SkuList$Item
-      >
+      >?
     >?
     skuList,
     Wrapped<List<Object>?>? afterSalesList,
@@ -34563,11 +34568,11 @@ extension $OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrder$FreightCu
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrder$ParcelProductDTOList$Item {
   const OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrder$ParcelProductDTOList$Item({
-    required this.skuCode,
-    required this.productCode,
-    required this.productName,
-    required this.quantity,
-    required this.imageUrl,
+    this.skuCode,
+    this.productCode,
+    this.productName,
+    this.quantity,
+    this.imageUrl,
   });
 
   factory OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrder$ParcelProductDTOList$Item.fromJson(
@@ -34585,15 +34590,15 @@ class OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrder$ParcelProductD
       );
 
   @JsonKey(name: 'skuCode')
-  final String skuCode;
+  final String? skuCode;
   @JsonKey(name: 'productCode')
-  final String productCode;
+  final String? productCode;
   @JsonKey(name: 'productName')
-  final String productName;
+  final String? productName;
   @JsonKey(name: 'quantity')
-  final double quantity;
+  final double? quantity;
   @JsonKey(name: 'imageUrl')
-  final String imageUrl;
+  final String? imageUrl;
   static const fromJsonFactory =
       _$OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrder$ParcelProductDTOList$ItemFromJson;
 
@@ -34664,11 +34669,11 @@ extension $OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrder$ParcelPro
 
   OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrder$ParcelProductDTOList$Item
   copyWithWrapped({
-    Wrapped<String>? skuCode,
-    Wrapped<String>? productCode,
-    Wrapped<String>? productName,
-    Wrapped<double>? quantity,
-    Wrapped<String>? imageUrl,
+    Wrapped<String?>? skuCode,
+    Wrapped<String?>? productCode,
+    Wrapped<String?>? productName,
+    Wrapped<double?>? quantity,
+    Wrapped<String?>? imageUrl,
   }) {
     return OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrder$ParcelProductDTOList$Item(
       skuCode: (skuCode != null ? skuCode.value : this.skuCode),
@@ -34683,12 +34688,12 @@ extension $OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrder$ParcelPro
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrder$FreightCompensate {
   const OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrder$FreightCompensate({
-    required this.compensateBillId,
-    required this.compensatePrice,
-    required this.compensatePriceCurrency,
-    required this.compensateReason,
-    required this.targetCompensatePrice,
-    required this.targetCompensatePriceCurrency,
+    this.compensateBillId,
+    this.compensatePrice,
+    this.compensatePriceCurrency,
+    this.compensateReason,
+    this.targetCompensatePrice,
+    this.targetCompensatePriceCurrency,
   });
 
   factory OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrder$FreightCompensate.fromJson(
@@ -34706,17 +34711,17 @@ class OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrder$FreightCompens
       );
 
   @JsonKey(name: 'compensateBillId')
-  final String compensateBillId;
+  final String? compensateBillId;
   @JsonKey(name: 'compensatePrice')
-  final String compensatePrice;
+  final String? compensatePrice;
   @JsonKey(name: 'compensatePriceCurrency')
-  final String compensatePriceCurrency;
+  final String? compensatePriceCurrency;
   @JsonKey(name: 'compensateReason')
-  final String compensateReason;
+  final String? compensateReason;
   @JsonKey(name: 'targetCompensatePrice')
-  final String targetCompensatePrice;
+  final String? targetCompensatePrice;
   @JsonKey(name: 'targetCompensatePriceCurrency')
-  final String targetCompensatePriceCurrency;
+  final String? targetCompensatePriceCurrency;
   static const fromJsonFactory =
       _$OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrder$FreightCompensateFromJson;
 
@@ -34803,12 +34808,12 @@ extension $OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrder$FreightCo
 
   OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrder$FreightCompensate
   copyWithWrapped({
-    Wrapped<String>? compensateBillId,
-    Wrapped<String>? compensatePrice,
-    Wrapped<String>? compensatePriceCurrency,
-    Wrapped<String>? compensateReason,
-    Wrapped<String>? targetCompensatePrice,
-    Wrapped<String>? targetCompensatePriceCurrency,
+    Wrapped<String?>? compensateBillId,
+    Wrapped<String?>? compensatePrice,
+    Wrapped<String?>? compensatePriceCurrency,
+    Wrapped<String?>? compensateReason,
+    Wrapped<String?>? targetCompensatePrice,
+    Wrapped<String?>? targetCompensatePriceCurrency,
   }) {
     return OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrder$FreightCompensate(
       compensateBillId: (compensateBillId != null
@@ -34836,8 +34841,8 @@ extension $OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrder$FreightCo
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrder$TargetFreightCurrency {
   const OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrder$TargetFreightCurrency({
-    required this.symbol,
-    required this.currency,
+    this.symbol,
+    this.currency,
   });
 
   factory OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrder$TargetFreightCurrency.fromJson(
@@ -34855,9 +34860,9 @@ class OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrder$TargetFreightC
       );
 
   @JsonKey(name: 'symbol')
-  final String symbol;
+  final String? symbol;
   @JsonKey(name: 'currency')
-  final String currency;
+  final String? currency;
   static const fromJsonFactory =
       _$OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrder$TargetFreightCurrencyFromJson;
 
@@ -34897,7 +34902,7 @@ extension $OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrder$TargetFre
   }
 
   OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrder$TargetFreightCurrency
-  copyWithWrapped({Wrapped<String>? symbol, Wrapped<String>? currency}) {
+  copyWithWrapped({Wrapped<String?>? symbol, Wrapped<String?>? currency}) {
     return OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrder$TargetFreightCurrency(
       symbol: (symbol != null ? symbol.value : this.symbol),
       currency: (currency != null ? currency.value : this.currency),
@@ -34908,16 +34913,16 @@ extension $OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrder$TargetFre
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderCombineDetailGet$Response$Data$OrderTrace$TraceList$Item {
   const OrderServiceOrderCombineDetailGet$Response$Data$OrderTrace$TraceList$Item({
-    required this.id,
-    required this.frontCode,
-    required this.icon,
-    required this.traceMessage,
-    required this.time,
-    required this.lastMileMailNo,
-    required this.lastMileMailNoLink,
-    required this.lastMileMailNoTitle,
-    required this.traceStatus,
-    required this.logisticsOrderId,
+    this.id,
+    this.frontCode,
+    this.icon,
+    this.traceMessage,
+    this.time,
+    this.lastMileMailNo,
+    this.lastMileMailNoLink,
+    this.lastMileMailNoTitle,
+    this.traceStatus,
+    this.logisticsOrderId,
   });
 
   factory OrderServiceOrderCombineDetailGet$Response$Data$OrderTrace$TraceList$Item.fromJson(
@@ -34935,25 +34940,25 @@ class OrderServiceOrderCombineDetailGet$Response$Data$OrderTrace$TraceList$Item 
       );
 
   @JsonKey(name: 'id')
-  final double id;
+  final double? id;
   @JsonKey(name: 'frontCode')
-  final String frontCode;
+  final String? frontCode;
   @JsonKey(name: 'icon')
-  final String icon;
+  final String? icon;
   @JsonKey(name: 'traceMessage')
-  final String traceMessage;
+  final String? traceMessage;
   @JsonKey(name: 'time')
-  final double time;
+  final double? time;
   @JsonKey(name: 'lastMileMailNo')
-  final String lastMileMailNo;
+  final String? lastMileMailNo;
   @JsonKey(name: 'lastMileMailNoLink')
-  final String lastMileMailNoLink;
+  final String? lastMileMailNoLink;
   @JsonKey(name: 'lastMileMailNoTitle')
-  final String lastMileMailNoTitle;
+  final String? lastMileMailNoTitle;
   @JsonKey(name: 'traceStatus')
-  final String traceStatus;
+  final String? traceStatus;
   @JsonKey(name: 'logisticsOrderId')
-  final String logisticsOrderId;
+  final String? logisticsOrderId;
   static const fromJsonFactory =
       _$OrderServiceOrderCombineDetailGet$Response$Data$OrderTrace$TraceList$ItemFromJson;
 
@@ -35054,16 +35059,16 @@ extension $OrderServiceOrderCombineDetailGet$Response$Data$OrderTrace$TraceList$
 
   OrderServiceOrderCombineDetailGet$Response$Data$OrderTrace$TraceList$Item
   copyWithWrapped({
-    Wrapped<double>? id,
-    Wrapped<String>? frontCode,
-    Wrapped<String>? icon,
-    Wrapped<String>? traceMessage,
-    Wrapped<double>? time,
-    Wrapped<String>? lastMileMailNo,
-    Wrapped<String>? lastMileMailNoLink,
-    Wrapped<String>? lastMileMailNoTitle,
-    Wrapped<String>? traceStatus,
-    Wrapped<String>? logisticsOrderId,
+    Wrapped<double?>? id,
+    Wrapped<String?>? frontCode,
+    Wrapped<String?>? icon,
+    Wrapped<String?>? traceMessage,
+    Wrapped<double?>? time,
+    Wrapped<String?>? lastMileMailNo,
+    Wrapped<String?>? lastMileMailNoLink,
+    Wrapped<String?>? lastMileMailNoTitle,
+    Wrapped<String?>? traceStatus,
+    Wrapped<String?>? logisticsOrderId,
   }) {
     return OrderServiceOrderCombineDetailGet$Response$Data$OrderTrace$TraceList$Item(
       id: (id != null ? id.value : this.id),
@@ -35791,9 +35796,9 @@ extension $OrderServiceOrderAppListGet$Response$Data$Records$Item$OrderSkuList$I
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderAppListGet$Response$Data$Records$Item$SupplyOrderList$Item$SecretKeyList$Item {
   const OrderServiceOrderAppListGet$Response$Data$Records$Item$SupplyOrderList$Item$SecretKeyList$Item({
-    required this.barCodeImg,
-    required this.codeInfo,
-    required this.pin,
+    this.barCodeImg,
+    this.codeInfo,
+    this.pin,
   });
 
   factory OrderServiceOrderAppListGet$Response$Data$Records$Item$SupplyOrderList$Item$SecretKeyList$Item.fromJson(
@@ -35811,11 +35816,11 @@ class OrderServiceOrderAppListGet$Response$Data$Records$Item$SupplyOrderList$Ite
       );
 
   @JsonKey(name: 'barCodeImg')
-  final String barCodeImg;
+  final String? barCodeImg;
   @JsonKey(name: 'codeInfo')
-  final String codeInfo;
+  final String? codeInfo;
   @JsonKey(name: 'pin')
-  final String pin;
+  final String? pin;
   static const fromJsonFactory =
       _$OrderServiceOrderAppListGet$Response$Data$Records$Item$SupplyOrderList$Item$SecretKeyList$ItemFromJson;
 
@@ -35863,9 +35868,9 @@ extension $OrderServiceOrderAppListGet$Response$Data$Records$Item$SupplyOrderLis
 
   OrderServiceOrderAppListGet$Response$Data$Records$Item$SupplyOrderList$Item$SecretKeyList$Item
   copyWithWrapped({
-    Wrapped<String>? barCodeImg,
-    Wrapped<String>? codeInfo,
-    Wrapped<String>? pin,
+    Wrapped<String?>? barCodeImg,
+    Wrapped<String?>? codeInfo,
+    Wrapped<String?>? pin,
   }) {
     return OrderServiceOrderAppListGet$Response$Data$Records$Item$SupplyOrderList$Item$SecretKeyList$Item(
       barCodeImg: (barCodeImg != null ? barCodeImg.value : this.barCodeImg),
@@ -36641,16 +36646,16 @@ extension $OrderServiceOrderAppDetailGet$Response$Data$OrderList$Item$SkuList$It
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$RecommendSolution {
   const OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$RecommendSolution({
-    required this.solutionName,
-    required this.solutionCode,
-    required this.freight,
-    required this.freightCurrency,
-    required this.freightFreeThreshold,
-    required this.freightFreeThresholdCurrency,
-    required this.gmtExpectArriveStart,
-    required this.gmtExpectArriveEnd,
-    required this.lateCompensation,
-    required this.lateCompensationCurrency,
+    this.solutionName,
+    this.solutionCode,
+    this.freight,
+    this.freightCurrency,
+    this.freightFreeThreshold,
+    this.freightFreeThresholdCurrency,
+    this.gmtExpectArriveStart,
+    this.gmtExpectArriveEnd,
+    this.lateCompensation,
+    this.lateCompensationCurrency,
   });
 
   factory OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$RecommendSolution.fromJson(
@@ -36668,27 +36673,27 @@ class OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$Recom
       );
 
   @JsonKey(name: 'solutionName')
-  final String solutionName;
+  final String? solutionName;
   @JsonKey(name: 'solutionCode')
-  final String solutionCode;
+  final String? solutionCode;
   @JsonKey(name: 'freight')
-  final String freight;
+  final String? freight;
   @JsonKey(name: 'freightCurrency')
-  final OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$RecommendSolution$FreightCurrency
+  final OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$RecommendSolution$FreightCurrency?
   freightCurrency;
   @JsonKey(name: 'freightFreeThreshold')
-  final String freightFreeThreshold;
+  final String? freightFreeThreshold;
   @JsonKey(name: 'freightFreeThresholdCurrency')
-  final OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$RecommendSolution$FreightFreeThresholdCurrency
+  final OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$RecommendSolution$FreightFreeThresholdCurrency?
   freightFreeThresholdCurrency;
   @JsonKey(name: 'gmtExpectArriveStart')
-  final double gmtExpectArriveStart;
+  final double? gmtExpectArriveStart;
   @JsonKey(name: 'gmtExpectArriveEnd')
-  final double gmtExpectArriveEnd;
+  final double? gmtExpectArriveEnd;
   @JsonKey(name: 'lateCompensation')
-  final String lateCompensation;
+  final String? lateCompensation;
   @JsonKey(name: 'lateCompensationCurrency')
-  final OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$RecommendSolution$LateCompensationCurrency
+  final OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$RecommendSolution$LateCompensationCurrency?
   lateCompensationCurrency;
   static const fromJsonFactory =
       _$OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$RecommendSolutionFromJson;
@@ -36811,23 +36816,23 @@ extension $OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$
 
   OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$RecommendSolution
   copyWithWrapped({
-    Wrapped<String>? solutionName,
-    Wrapped<String>? solutionCode,
-    Wrapped<String>? freight,
+    Wrapped<String?>? solutionName,
+    Wrapped<String?>? solutionCode,
+    Wrapped<String?>? freight,
     Wrapped<
-      OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$RecommendSolution$FreightCurrency
+      OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$RecommendSolution$FreightCurrency?
     >?
     freightCurrency,
-    Wrapped<String>? freightFreeThreshold,
+    Wrapped<String?>? freightFreeThreshold,
     Wrapped<
-      OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$RecommendSolution$FreightFreeThresholdCurrency
+      OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$RecommendSolution$FreightFreeThresholdCurrency?
     >?
     freightFreeThresholdCurrency,
-    Wrapped<double>? gmtExpectArriveStart,
-    Wrapped<double>? gmtExpectArriveEnd,
-    Wrapped<String>? lateCompensation,
+    Wrapped<double?>? gmtExpectArriveStart,
+    Wrapped<double?>? gmtExpectArriveEnd,
+    Wrapped<String?>? lateCompensation,
     Wrapped<
-      OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$RecommendSolution$LateCompensationCurrency
+      OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$RecommendSolution$LateCompensationCurrency?
     >?
     lateCompensationCurrency,
   }) {
@@ -36867,8 +36872,8 @@ extension $OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileList$Item {
   const OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileList$Item({
-    required this.name,
-    required this.solutionList,
+    this.name,
+    this.solutionList,
   });
 
   factory OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileList$Item.fromJson(
@@ -36886,11 +36891,11 @@ class OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastM
       );
 
   @JsonKey(name: 'name')
-  final String name;
+  final String? name;
   @JsonKey(name: 'solutionList')
   final List<
     OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileList$Item$SolutionList$Item
-  >
+  >?
   solutionList;
   static const fromJsonFactory =
       _$OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileList$ItemFromJson;
@@ -36938,11 +36943,11 @@ extension $OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$
 
   OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileList$Item
   copyWithWrapped({
-    Wrapped<String>? name,
+    Wrapped<String?>? name,
     Wrapped<
       List<
         OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileList$Item$SolutionList$Item
-      >
+      >?
     >?
     solutionList,
   }) {
@@ -36958,19 +36963,19 @@ extension $OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderConfirmPost$Response$Data$Pricing$Giveaway$Item$Records$Item {
   const OrderServiceOrderConfirmPost$Response$Data$Pricing$Giveaway$Item$Records$Item({
-    required this.skuCode,
-    required this.skuImage,
-    required this.sellPrice,
-    required this.quantity,
-    required this.productName,
-    required this.currency,
-    required this.skuSpecValues,
-    required this.shopName,
-    required this.shopImage,
-    required this.lowStocks,
-    required this.giftCode,
-    required this.weight,
-    required this.weightUnit,
+    this.skuCode,
+    this.skuImage,
+    this.sellPrice,
+    this.quantity,
+    this.productName,
+    this.currency,
+    this.skuSpecValues,
+    this.shopName,
+    this.shopImage,
+    this.lowStocks,
+    this.giftCode,
+    this.weight,
+    this.weightUnit,
   });
 
   factory OrderServiceOrderConfirmPost$Response$Data$Pricing$Giveaway$Item$Records$Item.fromJson(
@@ -36988,32 +36993,32 @@ class OrderServiceOrderConfirmPost$Response$Data$Pricing$Giveaway$Item$Records$I
       );
 
   @JsonKey(name: 'skuCode')
-  final String skuCode;
+  final String? skuCode;
   @JsonKey(name: 'skuImage')
-  final String skuImage;
+  final String? skuImage;
   @JsonKey(name: 'sellPrice')
-  final String sellPrice;
+  final String? sellPrice;
   @JsonKey(name: 'quantity')
-  final String quantity;
+  final String? quantity;
   @JsonKey(name: 'productName')
-  final String productName;
+  final String? productName;
   @JsonKey(name: 'currency')
-  final OrderServiceOrderConfirmPost$Response$Data$Pricing$Giveaway$Item$Records$Item$Currency
+  final OrderServiceOrderConfirmPost$Response$Data$Pricing$Giveaway$Item$Records$Item$Currency?
   currency;
   @JsonKey(name: 'skuSpecValues', defaultValue: <Object>[])
-  final List<Object> skuSpecValues;
+  final List<Object>? skuSpecValues;
   @JsonKey(name: 'shopName')
-  final String shopName;
+  final String? shopName;
   @JsonKey(name: 'shopImage')
-  final String shopImage;
+  final String? shopImage;
   @JsonKey(name: 'lowStocks')
-  final String lowStocks;
+  final String? lowStocks;
   @JsonKey(name: 'giftCode')
-  final String giftCode;
+  final String? giftCode;
   @JsonKey(name: 'weight')
-  final String weight;
+  final String? weight;
   @JsonKey(name: 'weightUnit')
-  final String weightUnit;
+  final String? weightUnit;
   static const fromJsonFactory =
       _$OrderServiceOrderConfirmPost$Response$Data$Pricing$Giveaway$Item$Records$ItemFromJson;
 
@@ -37145,22 +37150,22 @@ extension $OrderServiceOrderConfirmPost$Response$Data$Pricing$Giveaway$Item$Reco
 
   OrderServiceOrderConfirmPost$Response$Data$Pricing$Giveaway$Item$Records$Item
   copyWithWrapped({
-    Wrapped<String>? skuCode,
-    Wrapped<String>? skuImage,
-    Wrapped<String>? sellPrice,
-    Wrapped<String>? quantity,
-    Wrapped<String>? productName,
+    Wrapped<String?>? skuCode,
+    Wrapped<String?>? skuImage,
+    Wrapped<String?>? sellPrice,
+    Wrapped<String?>? quantity,
+    Wrapped<String?>? productName,
     Wrapped<
-      OrderServiceOrderConfirmPost$Response$Data$Pricing$Giveaway$Item$Records$Item$Currency
+      OrderServiceOrderConfirmPost$Response$Data$Pricing$Giveaway$Item$Records$Item$Currency?
     >?
     currency,
-    Wrapped<List<Object>>? skuSpecValues,
-    Wrapped<String>? shopName,
-    Wrapped<String>? shopImage,
-    Wrapped<String>? lowStocks,
-    Wrapped<String>? giftCode,
-    Wrapped<String>? weight,
-    Wrapped<String>? weightUnit,
+    Wrapped<List<Object>?>? skuSpecValues,
+    Wrapped<String?>? shopName,
+    Wrapped<String?>? shopImage,
+    Wrapped<String?>? lowStocks,
+    Wrapped<String?>? giftCode,
+    Wrapped<String?>? weight,
+    Wrapped<String?>? weightUnit,
   }) {
     return OrderServiceOrderConfirmPost$Response$Data$Pricing$Giveaway$Item$Records$Item(
       skuCode: (skuCode != null ? skuCode.value : this.skuCode),
@@ -37185,8 +37190,8 @@ extension $OrderServiceOrderConfirmPost$Response$Data$Pricing$Giveaway$Item$Reco
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderConfirmPost$Response$Data$Pricing$VoucherMsg$VoucherInfos$Item {
   const OrderServiceOrderConfirmPost$Response$Data$Pricing$VoucherMsg$VoucherInfos$Item({
-    required this.title,
-    required this.list,
+    this.title,
+    this.list,
   });
 
   factory OrderServiceOrderConfirmPost$Response$Data$Pricing$VoucherMsg$VoucherInfos$Item.fromJson(
@@ -37204,11 +37209,11 @@ class OrderServiceOrderConfirmPost$Response$Data$Pricing$VoucherMsg$VoucherInfos
       );
 
   @JsonKey(name: 'title')
-  final String title;
+  final String? title;
   @JsonKey(name: 'list')
   final List<
     OrderServiceOrderConfirmPost$Response$Data$Pricing$VoucherMsg$VoucherInfos$Item$List$Item
-  >
+  >?
   list;
   static const fromJsonFactory =
       _$OrderServiceOrderConfirmPost$Response$Data$Pricing$VoucherMsg$VoucherInfos$ItemFromJson;
@@ -37253,11 +37258,11 @@ extension $OrderServiceOrderConfirmPost$Response$Data$Pricing$VoucherMsg$Voucher
 
   OrderServiceOrderConfirmPost$Response$Data$Pricing$VoucherMsg$VoucherInfos$Item
   copyWithWrapped({
-    Wrapped<String>? title,
+    Wrapped<String?>? title,
     Wrapped<
       List<
         OrderServiceOrderConfirmPost$Response$Data$Pricing$VoucherMsg$VoucherInfos$Item$List$Item
-      >
+      >?
     >?
     list,
   }) {
@@ -37271,20 +37276,20 @@ extension $OrderServiceOrderConfirmPost$Response$Data$Pricing$VoucherMsg$Voucher
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderNoAuthDetailGet$Response$Data$OrderTrace$GroupTraceList$Item$TraceList$Item {
   const OrderServiceOrderNoAuthDetailGet$Response$Data$OrderTrace$GroupTraceList$Item$TraceList$Item({
-    required this.id,
+    this.id,
     this.subParcelOrderId,
-    required this.frontCode,
-    required this.frontTitleCode,
-    required this.frontTitle,
-    required this.icon,
-    required this.traceMessage,
-    required this.time,
+    this.frontCode,
+    this.frontTitleCode,
+    this.frontTitle,
+    this.icon,
+    this.traceMessage,
+    this.time,
     this.lastMileMailNo,
     this.lastMileCompanyName,
     this.lastMileMailNoLink,
     this.lastMileMailNoTitle,
-    required this.traceStatus,
-    required this.traceTime,
+    this.traceStatus,
+    this.traceTime,
   });
 
   factory OrderServiceOrderNoAuthDetailGet$Response$Data$OrderTrace$GroupTraceList$Item$TraceList$Item.fromJson(
@@ -37302,21 +37307,21 @@ class OrderServiceOrderNoAuthDetailGet$Response$Data$OrderTrace$GroupTraceList$I
       );
 
   @JsonKey(name: 'id')
-  final int id;
+  final int? id;
   @JsonKey(name: 'subParcelOrderId')
   final String? subParcelOrderId;
   @JsonKey(name: 'frontCode')
-  final String frontCode;
+  final String? frontCode;
   @JsonKey(name: 'frontTitleCode')
-  final String frontTitleCode;
+  final String? frontTitleCode;
   @JsonKey(name: 'frontTitle')
-  final String frontTitle;
+  final String? frontTitle;
   @JsonKey(name: 'icon')
-  final String icon;
+  final String? icon;
   @JsonKey(name: 'traceMessage')
-  final String traceMessage;
+  final String? traceMessage;
   @JsonKey(name: 'time')
-  final int time;
+  final int? time;
   @JsonKey(name: 'lastMileMailNo')
   final String? lastMileMailNo;
   @JsonKey(name: 'lastMileCompanyName')
@@ -37326,9 +37331,9 @@ class OrderServiceOrderNoAuthDetailGet$Response$Data$OrderTrace$GroupTraceList$I
   @JsonKey(name: 'lastMileMailNoTitle')
   final String? lastMileMailNoTitle;
   @JsonKey(name: 'traceStatus')
-  final String traceStatus;
+  final String? traceStatus;
   @JsonKey(name: 'traceTime')
-  final DateTime traceTime;
+  final DateTime? traceTime;
   static const fromJsonFactory =
       _$OrderServiceOrderNoAuthDetailGet$Response$Data$OrderTrace$GroupTraceList$Item$TraceList$ItemFromJson;
 
@@ -37462,20 +37467,20 @@ extension $OrderServiceOrderNoAuthDetailGet$Response$Data$OrderTrace$GroupTraceL
 
   OrderServiceOrderNoAuthDetailGet$Response$Data$OrderTrace$GroupTraceList$Item$TraceList$Item
   copyWithWrapped({
-    Wrapped<int>? id,
+    Wrapped<int?>? id,
     Wrapped<String?>? subParcelOrderId,
-    Wrapped<String>? frontCode,
-    Wrapped<String>? frontTitleCode,
-    Wrapped<String>? frontTitle,
-    Wrapped<String>? icon,
-    Wrapped<String>? traceMessage,
-    Wrapped<int>? time,
+    Wrapped<String?>? frontCode,
+    Wrapped<String?>? frontTitleCode,
+    Wrapped<String?>? frontTitle,
+    Wrapped<String?>? icon,
+    Wrapped<String?>? traceMessage,
+    Wrapped<int?>? time,
     Wrapped<String?>? lastMileMailNo,
     Wrapped<String?>? lastMileCompanyName,
     Wrapped<String?>? lastMileMailNoLink,
     Wrapped<String?>? lastMileMailNoTitle,
-    Wrapped<String>? traceStatus,
-    Wrapped<DateTime>? traceTime,
+    Wrapped<String?>? traceStatus,
+    Wrapped<DateTime?>? traceTime,
   }) {
     return OrderServiceOrderNoAuthDetailGet$Response$Data$OrderTrace$GroupTraceList$Item$TraceList$Item(
       id: (id != null ? id.value : this.id),
@@ -37651,9 +37656,9 @@ extension $OrderServiceOrderListGet$Response$Data$Records$Item$OrderSkuList$Item
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderListGet$Response$Data$Records$Item$SupplyOrderList$Item$SecretKeyList$Item {
   const OrderServiceOrderListGet$Response$Data$Records$Item$SupplyOrderList$Item$SecretKeyList$Item({
-    required this.barCodeImg,
-    required this.codeInfo,
-    required this.pin,
+    this.barCodeImg,
+    this.codeInfo,
+    this.pin,
   });
 
   factory OrderServiceOrderListGet$Response$Data$Records$Item$SupplyOrderList$Item$SecretKeyList$Item.fromJson(
@@ -37671,11 +37676,11 @@ class OrderServiceOrderListGet$Response$Data$Records$Item$SupplyOrderList$Item$S
       );
 
   @JsonKey(name: 'barCodeImg')
-  final String barCodeImg;
+  final String? barCodeImg;
   @JsonKey(name: 'codeInfo')
-  final String codeInfo;
+  final String? codeInfo;
   @JsonKey(name: 'pin')
-  final String pin;
+  final String? pin;
   static const fromJsonFactory =
       _$OrderServiceOrderListGet$Response$Data$Records$Item$SupplyOrderList$Item$SecretKeyList$ItemFromJson;
 
@@ -37723,9 +37728,9 @@ extension $OrderServiceOrderListGet$Response$Data$Records$Item$SupplyOrderList$I
 
   OrderServiceOrderListGet$Response$Data$Records$Item$SupplyOrderList$Item$SecretKeyList$Item
   copyWithWrapped({
-    Wrapped<String>? barCodeImg,
-    Wrapped<String>? codeInfo,
-    Wrapped<String>? pin,
+    Wrapped<String?>? barCodeImg,
+    Wrapped<String?>? codeInfo,
+    Wrapped<String?>? pin,
   }) {
     return OrderServiceOrderListGet$Response$Data$Records$Item$SupplyOrderList$Item$SecretKeyList$Item(
       barCodeImg: (barCodeImg != null ? barCodeImg.value : this.barCodeImg),
@@ -40283,8 +40288,8 @@ extension $OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderDetailGet$Response$Data$OrderList$Item$SkuList$Item$SkuSpecValues$Item {
   const OrderServiceOrderDetailGet$Response$Data$OrderList$Item$SkuList$Item$SkuSpecValues$Item({
-    required this.name,
-    required this.value,
+    this.name,
+    this.value,
   });
 
   factory OrderServiceOrderDetailGet$Response$Data$OrderList$Item$SkuList$Item$SkuSpecValues$Item.fromJson(
@@ -40302,9 +40307,9 @@ class OrderServiceOrderDetailGet$Response$Data$OrderList$Item$SkuList$Item$SkuSp
       );
 
   @JsonKey(name: 'name')
-  final String name;
+  final String? name;
   @JsonKey(name: 'value')
-  final String value;
+  final String? value;
   static const fromJsonFactory =
       _$OrderServiceOrderDetailGet$Response$Data$OrderList$Item$SkuList$Item$SkuSpecValues$ItemFromJson;
 
@@ -40341,7 +40346,7 @@ extension $OrderServiceOrderDetailGet$Response$Data$OrderList$Item$SkuList$Item$
   }
 
   OrderServiceOrderDetailGet$Response$Data$OrderList$Item$SkuList$Item$SkuSpecValues$Item
-  copyWithWrapped({Wrapped<String>? name, Wrapped<String>? value}) {
+  copyWithWrapped({Wrapped<String?>? name, Wrapped<String?>? value}) {
     return OrderServiceOrderDetailGet$Response$Data$OrderList$Item$SkuList$Item$SkuSpecValues$Item(
       name: (name != null ? name.value : this.name),
       value: (value != null ? value.value : this.value),
@@ -40352,20 +40357,20 @@ extension $OrderServiceOrderDetailGet$Response$Data$OrderList$Item$SkuList$Item$
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderDetailGet$Response$Data$OrderTrace$GroupTraceList$Item$TraceList$Item {
   const OrderServiceOrderDetailGet$Response$Data$OrderTrace$GroupTraceList$Item$TraceList$Item({
-    required this.id,
-    required this.subParcelOrderId,
-    required this.frontCode,
-    required this.frontTitleCode,
-    required this.frontTitle,
-    required this.icon,
-    required this.traceMessage,
-    required this.time,
-    required this.lastMileMailNo,
-    required this.lastMileCompanyName,
-    required this.lastMileMailNoLink,
-    required this.lastMileMailNoTitle,
-    required this.traceStatus,
-    required this.traceTime,
+    this.id,
+    this.subParcelOrderId,
+    this.frontCode,
+    this.frontTitleCode,
+    this.frontTitle,
+    this.icon,
+    this.traceMessage,
+    this.time,
+    this.lastMileMailNo,
+    this.lastMileCompanyName,
+    this.lastMileMailNoLink,
+    this.lastMileMailNoTitle,
+    this.traceStatus,
+    this.traceTime,
   });
 
   factory OrderServiceOrderDetailGet$Response$Data$OrderTrace$GroupTraceList$Item$TraceList$Item.fromJson(
@@ -40383,33 +40388,33 @@ class OrderServiceOrderDetailGet$Response$Data$OrderTrace$GroupTraceList$Item$Tr
       );
 
   @JsonKey(name: 'id')
-  final double id;
+  final double? id;
   @JsonKey(name: 'subParcelOrderId')
-  final String subParcelOrderId;
+  final String? subParcelOrderId;
   @JsonKey(name: 'frontCode')
-  final String frontCode;
+  final String? frontCode;
   @JsonKey(name: 'frontTitleCode')
-  final String frontTitleCode;
+  final String? frontTitleCode;
   @JsonKey(name: 'frontTitle')
-  final String frontTitle;
+  final String? frontTitle;
   @JsonKey(name: 'icon')
-  final String icon;
+  final String? icon;
   @JsonKey(name: 'traceMessage')
-  final String traceMessage;
+  final String? traceMessage;
   @JsonKey(name: 'time')
-  final double time;
+  final double? time;
   @JsonKey(name: 'lastMileMailNo')
-  final String lastMileMailNo;
+  final String? lastMileMailNo;
   @JsonKey(name: 'lastMileCompanyName')
-  final String lastMileCompanyName;
+  final String? lastMileCompanyName;
   @JsonKey(name: 'lastMileMailNoLink')
-  final String lastMileMailNoLink;
+  final String? lastMileMailNoLink;
   @JsonKey(name: 'lastMileMailNoTitle')
-  final String lastMileMailNoTitle;
+  final String? lastMileMailNoTitle;
   @JsonKey(name: 'traceStatus')
-  final String traceStatus;
+  final String? traceStatus;
   @JsonKey(name: 'traceTime')
-  final String traceTime;
+  final String? traceTime;
   static const fromJsonFactory =
       _$OrderServiceOrderDetailGet$Response$Data$OrderTrace$GroupTraceList$Item$TraceList$ItemFromJson;
 
@@ -40543,20 +40548,20 @@ extension $OrderServiceOrderDetailGet$Response$Data$OrderTrace$GroupTraceList$It
 
   OrderServiceOrderDetailGet$Response$Data$OrderTrace$GroupTraceList$Item$TraceList$Item
   copyWithWrapped({
-    Wrapped<double>? id,
-    Wrapped<String>? subParcelOrderId,
-    Wrapped<String>? frontCode,
-    Wrapped<String>? frontTitleCode,
-    Wrapped<String>? frontTitle,
-    Wrapped<String>? icon,
-    Wrapped<String>? traceMessage,
-    Wrapped<double>? time,
-    Wrapped<String>? lastMileMailNo,
-    Wrapped<String>? lastMileCompanyName,
-    Wrapped<String>? lastMileMailNoLink,
-    Wrapped<String>? lastMileMailNoTitle,
-    Wrapped<String>? traceStatus,
-    Wrapped<String>? traceTime,
+    Wrapped<double?>? id,
+    Wrapped<String?>? subParcelOrderId,
+    Wrapped<String?>? frontCode,
+    Wrapped<String?>? frontTitleCode,
+    Wrapped<String?>? frontTitle,
+    Wrapped<String?>? icon,
+    Wrapped<String?>? traceMessage,
+    Wrapped<double?>? time,
+    Wrapped<String?>? lastMileMailNo,
+    Wrapped<String?>? lastMileCompanyName,
+    Wrapped<String?>? lastMileMailNoLink,
+    Wrapped<String?>? lastMileMailNoTitle,
+    Wrapped<String?>? traceStatus,
+    Wrapped<String?>? traceTime,
   }) {
     return OrderServiceOrderDetailGet$Response$Data$OrderTrace$GroupTraceList$Item$TraceList$Item(
       id: (id != null ? id.value : this.id),
@@ -40732,11 +40737,11 @@ extension $OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Ite
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$ParcelOrder$ParcelProductDTOList$Item {
   const OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$ParcelOrder$ParcelProductDTOList$Item({
-    required this.skuCode,
-    required this.productCode,
-    required this.productName,
-    required this.quantity,
-    required this.imageUrl,
+    this.skuCode,
+    this.productCode,
+    this.productName,
+    this.quantity,
+    this.imageUrl,
   });
 
   factory OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$ParcelOrder$ParcelProductDTOList$Item.fromJson(
@@ -40754,15 +40759,15 @@ class OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$Par
       );
 
   @JsonKey(name: 'skuCode')
-  final String skuCode;
+  final String? skuCode;
   @JsonKey(name: 'productCode')
-  final String productCode;
+  final String? productCode;
   @JsonKey(name: 'productName')
-  final String productName;
+  final String? productName;
   @JsonKey(name: 'quantity')
-  final double quantity;
+  final double? quantity;
   @JsonKey(name: 'imageUrl')
-  final String imageUrl;
+  final String? imageUrl;
   static const fromJsonFactory =
       _$OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$ParcelOrder$ParcelProductDTOList$ItemFromJson;
 
@@ -40833,11 +40838,11 @@ extension $OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Ite
 
   OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$ParcelOrder$ParcelProductDTOList$Item
   copyWithWrapped({
-    Wrapped<String>? skuCode,
-    Wrapped<String>? productCode,
-    Wrapped<String>? productName,
-    Wrapped<double>? quantity,
-    Wrapped<String>? imageUrl,
+    Wrapped<String?>? skuCode,
+    Wrapped<String?>? productCode,
+    Wrapped<String?>? productName,
+    Wrapped<double?>? quantity,
+    Wrapped<String?>? imageUrl,
   }) {
     return OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$ParcelOrder$ParcelProductDTOList$Item(
       skuCode: (skuCode != null ? skuCode.value : this.skuCode),
@@ -40852,12 +40857,12 @@ extension $OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Ite
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$ParcelOrder$FreightCompensate {
   const OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$ParcelOrder$FreightCompensate({
-    required this.compensateBillId,
-    required this.compensatePrice,
-    required this.compensatePriceCurrency,
-    required this.compensateReason,
-    required this.targetCompensatePrice,
-    required this.targetCompensatePriceCurrency,
+    this.compensateBillId,
+    this.compensatePrice,
+    this.compensatePriceCurrency,
+    this.compensateReason,
+    this.targetCompensatePrice,
+    this.targetCompensatePriceCurrency,
   });
 
   factory OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$ParcelOrder$FreightCompensate.fromJson(
@@ -40875,17 +40880,17 @@ class OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$Par
       );
 
   @JsonKey(name: 'compensateBillId')
-  final String compensateBillId;
+  final String? compensateBillId;
   @JsonKey(name: 'compensatePrice')
-  final String compensatePrice;
+  final String? compensatePrice;
   @JsonKey(name: 'compensatePriceCurrency')
-  final String compensatePriceCurrency;
+  final String? compensatePriceCurrency;
   @JsonKey(name: 'compensateReason')
-  final String compensateReason;
+  final String? compensateReason;
   @JsonKey(name: 'targetCompensatePrice')
-  final String targetCompensatePrice;
+  final String? targetCompensatePrice;
   @JsonKey(name: 'targetCompensatePriceCurrency')
-  final String targetCompensatePriceCurrency;
+  final String? targetCompensatePriceCurrency;
   static const fromJsonFactory =
       _$OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$ParcelOrder$FreightCompensateFromJson;
 
@@ -40973,12 +40978,12 @@ extension $OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Ite
 
   OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$ParcelOrder$FreightCompensate
   copyWithWrapped({
-    Wrapped<String>? compensateBillId,
-    Wrapped<String>? compensatePrice,
-    Wrapped<String>? compensatePriceCurrency,
-    Wrapped<String>? compensateReason,
-    Wrapped<String>? targetCompensatePrice,
-    Wrapped<String>? targetCompensatePriceCurrency,
+    Wrapped<String?>? compensateBillId,
+    Wrapped<String?>? compensatePrice,
+    Wrapped<String?>? compensatePriceCurrency,
+    Wrapped<String?>? compensateReason,
+    Wrapped<String?>? targetCompensatePrice,
+    Wrapped<String?>? targetCompensatePriceCurrency,
   }) {
     return OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$ParcelOrder$FreightCompensate(
       compensateBillId: (compensateBillId != null
@@ -41006,8 +41011,8 @@ extension $OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Ite
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$ParcelOrder$TargetFreightCurrency {
   const OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$ParcelOrder$TargetFreightCurrency({
-    required this.symbol,
-    required this.currency,
+    this.symbol,
+    this.currency,
   });
 
   factory OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$ParcelOrder$TargetFreightCurrency.fromJson(
@@ -41025,9 +41030,9 @@ class OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$Par
       );
 
   @JsonKey(name: 'symbol')
-  final String symbol;
+  final String? symbol;
   @JsonKey(name: 'currency')
-  final String currency;
+  final String? currency;
   static const fromJsonFactory =
       _$OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$ParcelOrder$TargetFreightCurrencyFromJson;
 
@@ -41067,7 +41072,7 @@ extension $OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Ite
   }
 
   OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$ParcelOrder$TargetFreightCurrency
-  copyWithWrapped({Wrapped<String>? symbol, Wrapped<String>? currency}) {
+  copyWithWrapped({Wrapped<String?>? symbol, Wrapped<String?>? currency}) {
     return OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$ParcelOrder$TargetFreightCurrency(
       symbol: (symbol != null ? symbol.value : this.symbol),
       currency: (currency != null ? currency.value : this.currency),
@@ -41078,16 +41083,16 @@ extension $OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Ite
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$OrderTrace$TraceList$Item {
   const OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$OrderTrace$TraceList$Item({
-    required this.id,
-    required this.frontCode,
-    required this.icon,
-    required this.traceMessage,
-    required this.time,
-    required this.lastMileMailNo,
-    required this.lastMileMailNoLink,
-    required this.lastMileMailNoTitle,
-    required this.traceStatus,
-    required this.logisticsOrderId,
+    this.id,
+    this.frontCode,
+    this.icon,
+    this.traceMessage,
+    this.time,
+    this.lastMileMailNo,
+    this.lastMileMailNoLink,
+    this.lastMileMailNoTitle,
+    this.traceStatus,
+    this.logisticsOrderId,
   });
 
   factory OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$OrderTrace$TraceList$Item.fromJson(
@@ -41105,25 +41110,25 @@ class OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$Ord
       );
 
   @JsonKey(name: 'id')
-  final double id;
+  final double? id;
   @JsonKey(name: 'frontCode')
-  final String frontCode;
+  final String? frontCode;
   @JsonKey(name: 'icon')
-  final String icon;
+  final String? icon;
   @JsonKey(name: 'traceMessage')
-  final String traceMessage;
+  final String? traceMessage;
   @JsonKey(name: 'time')
-  final double time;
+  final double? time;
   @JsonKey(name: 'lastMileMailNo')
-  final String lastMileMailNo;
+  final String? lastMileMailNo;
   @JsonKey(name: 'lastMileMailNoLink')
-  final String lastMileMailNoLink;
+  final String? lastMileMailNoLink;
   @JsonKey(name: 'lastMileMailNoTitle')
-  final String lastMileMailNoTitle;
+  final String? lastMileMailNoTitle;
   @JsonKey(name: 'traceStatus')
-  final String traceStatus;
+  final String? traceStatus;
   @JsonKey(name: 'logisticsOrderId')
-  final String logisticsOrderId;
+  final String? logisticsOrderId;
   static const fromJsonFactory =
       _$OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$OrderTrace$TraceList$ItemFromJson;
 
@@ -41225,16 +41230,16 @@ extension $OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Ite
 
   OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$OrderTrace$TraceList$Item
   copyWithWrapped({
-    Wrapped<double>? id,
-    Wrapped<String>? frontCode,
-    Wrapped<String>? icon,
-    Wrapped<String>? traceMessage,
-    Wrapped<double>? time,
-    Wrapped<String>? lastMileMailNo,
-    Wrapped<String>? lastMileMailNoLink,
-    Wrapped<String>? lastMileMailNoTitle,
-    Wrapped<String>? traceStatus,
-    Wrapped<String>? logisticsOrderId,
+    Wrapped<double?>? id,
+    Wrapped<String?>? frontCode,
+    Wrapped<String?>? icon,
+    Wrapped<String?>? traceMessage,
+    Wrapped<double?>? time,
+    Wrapped<String?>? lastMileMailNo,
+    Wrapped<String?>? lastMileMailNoLink,
+    Wrapped<String?>? lastMileMailNoTitle,
+    Wrapped<String?>? traceStatus,
+    Wrapped<String?>? logisticsOrderId,
   }) {
     return OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$OrderTrace$TraceList$Item(
       id: (id != null ? id.value : this.id),
@@ -41264,25 +41269,25 @@ extension $OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Ite
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$OrderList$Item$SkuList$Item {
   const OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$OrderList$Item$SkuList$Item({
-    required this.productName,
-    required this.productCode,
-    required this.skuCode,
-    required this.image,
-    required this.targetOriginPrice,
-    required this.targetOriginTotalPrice,
-    required this.sellPrice,
-    required this.targetSellPrice,
-    required this.totalPrice,
-    required this.targetTotalPrice,
-    required this.targetSkuDiscountPrice,
-    required this.targetSkuFinalPrice,
-    required this.targetTotalFinalPrice,
-    required this.currency,
-    required this.targetCurrency,
-    required this.quantity,
+    this.productName,
+    this.productCode,
+    this.skuCode,
+    this.image,
+    this.targetOriginPrice,
+    this.targetOriginTotalPrice,
+    this.sellPrice,
+    this.targetSellPrice,
+    this.totalPrice,
+    this.targetTotalPrice,
+    this.targetSkuDiscountPrice,
+    this.targetSkuFinalPrice,
+    this.targetTotalFinalPrice,
+    this.currency,
+    this.targetCurrency,
+    this.quantity,
     this.remark,
-    required this.skuSpecValues,
-    required this.isReturned,
+    this.skuSpecValues,
+    this.isReturned,
   });
 
   factory OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$OrderList$Item$SkuList$Item.fromJson(
@@ -41300,46 +41305,46 @@ class OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$Ord
       );
 
   @JsonKey(name: 'productName')
-  final String productName;
+  final String? productName;
   @JsonKey(name: 'productCode')
-  final String productCode;
+  final String? productCode;
   @JsonKey(name: 'skuCode')
-  final String skuCode;
+  final String? skuCode;
   @JsonKey(name: 'image')
-  final String image;
+  final String? image;
   @JsonKey(name: 'targetOriginPrice')
-  final String targetOriginPrice;
+  final String? targetOriginPrice;
   @JsonKey(name: 'targetOriginTotalPrice')
-  final String targetOriginTotalPrice;
+  final String? targetOriginTotalPrice;
   @JsonKey(name: 'sellPrice')
-  final String sellPrice;
+  final String? sellPrice;
   @JsonKey(name: 'targetSellPrice')
-  final String targetSellPrice;
+  final String? targetSellPrice;
   @JsonKey(name: 'totalPrice')
-  final String totalPrice;
+  final String? totalPrice;
   @JsonKey(name: 'targetTotalPrice')
-  final String targetTotalPrice;
+  final String? targetTotalPrice;
   @JsonKey(name: 'targetSkuDiscountPrice')
-  final String targetSkuDiscountPrice;
+  final String? targetSkuDiscountPrice;
   @JsonKey(name: 'targetSkuFinalPrice')
-  final String targetSkuFinalPrice;
+  final String? targetSkuFinalPrice;
   @JsonKey(name: 'targetTotalFinalPrice')
-  final String targetTotalFinalPrice;
+  final String? targetTotalFinalPrice;
   @JsonKey(name: 'currency')
-  final String currency;
+  final String? currency;
   @JsonKey(name: 'targetCurrency')
-  final String targetCurrency;
+  final String? targetCurrency;
   @JsonKey(name: 'quantity')
-  final double quantity;
+  final double? quantity;
   @JsonKey(name: 'remark')
   final String? remark;
   @JsonKey(name: 'skuSpecValues')
   final List<
     OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$OrderList$Item$SkuList$Item$SkuSpecValues$Item
-  >
+  >?
   skuSpecValues;
   @JsonKey(name: 'isReturned')
-  final bool isReturned;
+  final bool? isReturned;
   static const fromJsonFactory =
       _$OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$OrderList$Item$SkuList$ItemFromJson;
 
@@ -41522,30 +41527,30 @@ extension $OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Ite
 
   OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$OrderList$Item$SkuList$Item
   copyWithWrapped({
-    Wrapped<String>? productName,
-    Wrapped<String>? productCode,
-    Wrapped<String>? skuCode,
-    Wrapped<String>? image,
-    Wrapped<String>? targetOriginPrice,
-    Wrapped<String>? targetOriginTotalPrice,
-    Wrapped<String>? sellPrice,
-    Wrapped<String>? targetSellPrice,
-    Wrapped<String>? totalPrice,
-    Wrapped<String>? targetTotalPrice,
-    Wrapped<String>? targetSkuDiscountPrice,
-    Wrapped<String>? targetSkuFinalPrice,
-    Wrapped<String>? targetTotalFinalPrice,
-    Wrapped<String>? currency,
-    Wrapped<String>? targetCurrency,
-    Wrapped<double>? quantity,
+    Wrapped<String?>? productName,
+    Wrapped<String?>? productCode,
+    Wrapped<String?>? skuCode,
+    Wrapped<String?>? image,
+    Wrapped<String?>? targetOriginPrice,
+    Wrapped<String?>? targetOriginTotalPrice,
+    Wrapped<String?>? sellPrice,
+    Wrapped<String?>? targetSellPrice,
+    Wrapped<String?>? totalPrice,
+    Wrapped<String?>? targetTotalPrice,
+    Wrapped<String?>? targetSkuDiscountPrice,
+    Wrapped<String?>? targetSkuFinalPrice,
+    Wrapped<String?>? targetTotalFinalPrice,
+    Wrapped<String?>? currency,
+    Wrapped<String?>? targetCurrency,
+    Wrapped<double?>? quantity,
     Wrapped<String?>? remark,
     Wrapped<
       List<
         OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$OrderList$Item$SkuList$Item$SkuSpecValues$Item
-      >
+      >?
     >?
     skuSpecValues,
-    Wrapped<bool>? isReturned,
+    Wrapped<bool?>? isReturned,
   }) {
     return OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$OrderList$Item$SkuList$Item(
       productName: (productName != null ? productName.value : this.productName),
@@ -41795,17 +41800,17 @@ extension $OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Ite
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderCombineDetailGet$Response$Data$OrderTrace$GroupTraceList$Item$TraceList$Item {
   const OrderServiceOrderCombineDetailGet$Response$Data$OrderTrace$GroupTraceList$Item$TraceList$Item({
-    required this.id,
-    required this.frontCode,
-    required this.icon,
-    required this.traceMessage,
-    required this.time,
-    required this.lastMileMailNo,
+    this.id,
+    this.frontCode,
+    this.icon,
+    this.traceMessage,
+    this.time,
+    this.lastMileMailNo,
     this.lastMileMailNoLink,
     this.lastMileMailNoTitle,
-    required this.traceStatus,
-    required this.frontTitle,
-    required this.frontTitleCode,
+    this.traceStatus,
+    this.frontTitle,
+    this.frontTitleCode,
   });
 
   factory OrderServiceOrderCombineDetailGet$Response$Data$OrderTrace$GroupTraceList$Item$TraceList$Item.fromJson(
@@ -41823,27 +41828,27 @@ class OrderServiceOrderCombineDetailGet$Response$Data$OrderTrace$GroupTraceList$
       );
 
   @JsonKey(name: 'id')
-  final double id;
+  final double? id;
   @JsonKey(name: 'frontCode')
-  final String frontCode;
+  final String? frontCode;
   @JsonKey(name: 'icon')
-  final String icon;
+  final String? icon;
   @JsonKey(name: 'traceMessage')
-  final String traceMessage;
+  final String? traceMessage;
   @JsonKey(name: 'time')
-  final double time;
+  final double? time;
   @JsonKey(name: 'lastMileMailNo')
-  final Object lastMileMailNo;
+  final Object? lastMileMailNo;
   @JsonKey(name: 'lastMileMailNoLink')
   final String? lastMileMailNoLink;
   @JsonKey(name: 'lastMileMailNoTitle')
   final String? lastMileMailNoTitle;
   @JsonKey(name: 'traceStatus')
-  final String traceStatus;
+  final String? traceStatus;
   @JsonKey(name: 'frontTitle')
-  final String frontTitle;
+  final String? frontTitle;
   @JsonKey(name: 'frontTitleCode')
-  final String frontTitleCode;
+  final String? frontTitleCode;
   static const fromJsonFactory =
       _$OrderServiceOrderCombineDetailGet$Response$Data$OrderTrace$GroupTraceList$Item$TraceList$ItemFromJson;
 
@@ -41953,17 +41958,17 @@ extension $OrderServiceOrderCombineDetailGet$Response$Data$OrderTrace$GroupTrace
 
   OrderServiceOrderCombineDetailGet$Response$Data$OrderTrace$GroupTraceList$Item$TraceList$Item
   copyWithWrapped({
-    Wrapped<double>? id,
-    Wrapped<String>? frontCode,
-    Wrapped<String>? icon,
-    Wrapped<String>? traceMessage,
-    Wrapped<double>? time,
-    Wrapped<Object>? lastMileMailNo,
+    Wrapped<double?>? id,
+    Wrapped<String?>? frontCode,
+    Wrapped<String?>? icon,
+    Wrapped<String?>? traceMessage,
+    Wrapped<double?>? time,
+    Wrapped<Object?>? lastMileMailNo,
     Wrapped<String?>? lastMileMailNoLink,
     Wrapped<String?>? lastMileMailNoTitle,
-    Wrapped<String>? traceStatus,
-    Wrapped<String>? frontTitle,
-    Wrapped<String>? frontTitleCode,
+    Wrapped<String?>? traceStatus,
+    Wrapped<String?>? frontTitle,
+    Wrapped<String?>? frontTitleCode,
   }) {
     return OrderServiceOrderCombineDetailGet$Response$Data$OrderTrace$GroupTraceList$Item$TraceList$Item(
       id: (id != null ? id.value : this.id),
@@ -41994,8 +41999,8 @@ extension $OrderServiceOrderCombineDetailGet$Response$Data$OrderTrace$GroupTrace
 @JsonSerializable(explicitToJson: true)
 class OrderServiceCartListGet$Response$Data$List$Item$Records$Item$SkuOptions$Item {
   const OrderServiceCartListGet$Response$Data$List$Item$Records$Item$SkuOptions$Item({
-    required this.name,
-    required this.value,
+    this.name,
+    this.value,
   });
 
   factory OrderServiceCartListGet$Response$Data$List$Item$Records$Item$SkuOptions$Item.fromJson(
@@ -42013,9 +42018,9 @@ class OrderServiceCartListGet$Response$Data$List$Item$Records$Item$SkuOptions$It
       );
 
   @JsonKey(name: 'name')
-  final String name;
+  final String? name;
   @JsonKey(name: 'value')
-  final String value;
+  final String? value;
   static const fromJsonFactory =
       _$OrderServiceCartListGet$Response$Data$List$Item$Records$Item$SkuOptions$ItemFromJson;
 
@@ -42051,7 +42056,7 @@ extension $OrderServiceCartListGet$Response$Data$List$Item$Records$Item$SkuOptio
   }
 
   OrderServiceCartListGet$Response$Data$List$Item$Records$Item$SkuOptions$Item
-  copyWithWrapped({Wrapped<String>? name, Wrapped<String>? value}) {
+  copyWithWrapped({Wrapped<String?>? name, Wrapped<String?>? value}) {
     return OrderServiceCartListGet$Response$Data$List$Item$Records$Item$SkuOptions$Item(
       name: (name != null ? name.value : this.name),
       value: (value != null ? value.value : this.value),
@@ -42062,8 +42067,8 @@ extension $OrderServiceCartListGet$Response$Data$List$Item$Records$Item$SkuOptio
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$RecommendSolution$FreightCurrency {
   const OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$RecommendSolution$FreightCurrency({
-    required this.name,
-    required this.symbol,
+    this.name,
+    this.symbol,
   });
 
   factory OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$RecommendSolution$FreightCurrency.fromJson(
@@ -42081,9 +42086,9 @@ class OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$Recom
       );
 
   @JsonKey(name: 'name')
-  final String name;
+  final String? name;
   @JsonKey(name: 'symbol')
-  final String symbol;
+  final String? symbol;
   static const fromJsonFactory =
       _$OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$RecommendSolution$FreightCurrencyFromJson;
 
@@ -42120,7 +42125,7 @@ extension $OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$
   }
 
   OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$RecommendSolution$FreightCurrency
-  copyWithWrapped({Wrapped<String>? name, Wrapped<String>? symbol}) {
+  copyWithWrapped({Wrapped<String?>? name, Wrapped<String?>? symbol}) {
     return OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$RecommendSolution$FreightCurrency(
       name: (name != null ? name.value : this.name),
       symbol: (symbol != null ? symbol.value : this.symbol),
@@ -42131,8 +42136,8 @@ extension $OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$RecommendSolution$FreightFreeThresholdCurrency {
   const OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$RecommendSolution$FreightFreeThresholdCurrency({
-    required this.name,
-    required this.symbol,
+    this.name,
+    this.symbol,
   });
 
   factory OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$RecommendSolution$FreightFreeThresholdCurrency.fromJson(
@@ -42150,9 +42155,9 @@ class OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$Recom
       );
 
   @JsonKey(name: 'name')
-  final String name;
+  final String? name;
   @JsonKey(name: 'symbol')
-  final String symbol;
+  final String? symbol;
   static const fromJsonFactory =
       _$OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$RecommendSolution$FreightFreeThresholdCurrencyFromJson;
 
@@ -42189,7 +42194,7 @@ extension $OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$
   }
 
   OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$RecommendSolution$FreightFreeThresholdCurrency
-  copyWithWrapped({Wrapped<String>? name, Wrapped<String>? symbol}) {
+  copyWithWrapped({Wrapped<String?>? name, Wrapped<String?>? symbol}) {
     return OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$RecommendSolution$FreightFreeThresholdCurrency(
       name: (name != null ? name.value : this.name),
       symbol: (symbol != null ? symbol.value : this.symbol),
@@ -42200,8 +42205,8 @@ extension $OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$RecommendSolution$LateCompensationCurrency {
   const OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$RecommendSolution$LateCompensationCurrency({
-    required this.name,
-    required this.symbol,
+    this.name,
+    this.symbol,
   });
 
   factory OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$RecommendSolution$LateCompensationCurrency.fromJson(
@@ -42219,9 +42224,9 @@ class OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$Recom
       );
 
   @JsonKey(name: 'name')
-  final String name;
+  final String? name;
   @JsonKey(name: 'symbol')
-  final String symbol;
+  final String? symbol;
   static const fromJsonFactory =
       _$OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$RecommendSolution$LateCompensationCurrencyFromJson;
 
@@ -42258,7 +42263,7 @@ extension $OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$
   }
 
   OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$RecommendSolution$LateCompensationCurrency
-  copyWithWrapped({Wrapped<String>? name, Wrapped<String>? symbol}) {
+  copyWithWrapped({Wrapped<String?>? name, Wrapped<String?>? symbol}) {
     return OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$RecommendSolution$LateCompensationCurrency(
       name: (name != null ? name.value : this.name),
       symbol: (symbol != null ? symbol.value : this.symbol),
@@ -42269,17 +42274,17 @@ extension $OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileList$Item$SolutionList$Item {
   const OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileList$Item$SolutionList$Item({
-    required this.solutionName,
-    required this.solutionCode,
-    required this.freight,
-    required this.freightCurrency,
-    required this.freightFreeThreshold,
-    required this.freightFreeThresholdCurrency,
-    required this.gmtExpectArriveStart,
-    required this.gmtExpectArriveEnd,
-    required this.lateCompensation,
-    required this.lateCompensationCurrency,
-    required this.lateCompensationTimeframe,
+    this.solutionName,
+    this.solutionCode,
+    this.freight,
+    this.freightCurrency,
+    this.freightFreeThreshold,
+    this.freightFreeThresholdCurrency,
+    this.gmtExpectArriveStart,
+    this.gmtExpectArriveEnd,
+    this.lateCompensation,
+    this.lateCompensationCurrency,
+    this.lateCompensationTimeframe,
   });
 
   factory OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileList$Item$SolutionList$Item.fromJson(
@@ -42297,30 +42302,30 @@ class OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastM
       );
 
   @JsonKey(name: 'solutionName')
-  final String solutionName;
+  final String? solutionName;
   @JsonKey(name: 'solutionCode')
-  final String solutionCode;
+  final String? solutionCode;
   @JsonKey(name: 'freight')
-  final String freight;
+  final String? freight;
   @JsonKey(name: 'freightCurrency')
-  final OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileList$Item$SolutionList$Item$FreightCurrency
+  final OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileList$Item$SolutionList$Item$FreightCurrency?
   freightCurrency;
   @JsonKey(name: 'freightFreeThreshold')
-  final String freightFreeThreshold;
+  final String? freightFreeThreshold;
   @JsonKey(name: 'freightFreeThresholdCurrency')
-  final OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileList$Item$SolutionList$Item$FreightFreeThresholdCurrency
+  final OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileList$Item$SolutionList$Item$FreightFreeThresholdCurrency?
   freightFreeThresholdCurrency;
   @JsonKey(name: 'gmtExpectArriveStart')
-  final String gmtExpectArriveStart;
+  final String? gmtExpectArriveStart;
   @JsonKey(name: 'gmtExpectArriveEnd')
-  final String gmtExpectArriveEnd;
+  final String? gmtExpectArriveEnd;
   @JsonKey(name: 'lateCompensation')
-  final String lateCompensation;
+  final String? lateCompensation;
   @JsonKey(name: 'lateCompensationCurrency')
-  final OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileList$Item$SolutionList$Item$LateCompensationCurrency
+  final OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileList$Item$SolutionList$Item$LateCompensationCurrency?
   lateCompensationCurrency;
   @JsonKey(name: 'lateCompensationTimeframe')
-  final String lateCompensationTimeframe;
+  final String? lateCompensationTimeframe;
   static const fromJsonFactory =
       _$OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileList$Item$SolutionList$ItemFromJson;
 
@@ -42454,26 +42459,26 @@ extension $OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$
 
   OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileList$Item$SolutionList$Item
   copyWithWrapped({
-    Wrapped<String>? solutionName,
-    Wrapped<String>? solutionCode,
-    Wrapped<String>? freight,
+    Wrapped<String?>? solutionName,
+    Wrapped<String?>? solutionCode,
+    Wrapped<String?>? freight,
     Wrapped<
-      OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileList$Item$SolutionList$Item$FreightCurrency
+      OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileList$Item$SolutionList$Item$FreightCurrency?
     >?
     freightCurrency,
-    Wrapped<String>? freightFreeThreshold,
+    Wrapped<String?>? freightFreeThreshold,
     Wrapped<
-      OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileList$Item$SolutionList$Item$FreightFreeThresholdCurrency
+      OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileList$Item$SolutionList$Item$FreightFreeThresholdCurrency?
     >?
     freightFreeThresholdCurrency,
-    Wrapped<String>? gmtExpectArriveStart,
-    Wrapped<String>? gmtExpectArriveEnd,
-    Wrapped<String>? lateCompensation,
+    Wrapped<String?>? gmtExpectArriveStart,
+    Wrapped<String?>? gmtExpectArriveEnd,
+    Wrapped<String?>? lateCompensation,
     Wrapped<
-      OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileList$Item$SolutionList$Item$LateCompensationCurrency
+      OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileList$Item$SolutionList$Item$LateCompensationCurrency?
     >?
     lateCompensationCurrency,
-    Wrapped<String>? lateCompensationTimeframe,
+    Wrapped<String?>? lateCompensationTimeframe,
   }) {
     return OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileList$Item$SolutionList$Item(
       solutionName: (solutionName != null
@@ -42514,8 +42519,8 @@ extension $OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderConfirmPost$Response$Data$Pricing$Giveaway$Item$Records$Item$Currency {
   const OrderServiceOrderConfirmPost$Response$Data$Pricing$Giveaway$Item$Records$Item$Currency({
-    required this.symbol,
-    required this.name,
+    this.symbol,
+    this.name,
   });
 
   factory OrderServiceOrderConfirmPost$Response$Data$Pricing$Giveaway$Item$Records$Item$Currency.fromJson(
@@ -42533,9 +42538,9 @@ class OrderServiceOrderConfirmPost$Response$Data$Pricing$Giveaway$Item$Records$I
       );
 
   @JsonKey(name: 'symbol')
-  final String symbol;
+  final String? symbol;
   @JsonKey(name: 'name')
-  final String name;
+  final String? name;
   static const fromJsonFactory =
       _$OrderServiceOrderConfirmPost$Response$Data$Pricing$Giveaway$Item$Records$Item$CurrencyFromJson;
 
@@ -42572,7 +42577,7 @@ extension $OrderServiceOrderConfirmPost$Response$Data$Pricing$Giveaway$Item$Reco
   }
 
   OrderServiceOrderConfirmPost$Response$Data$Pricing$Giveaway$Item$Records$Item$Currency
-  copyWithWrapped({Wrapped<String>? symbol, Wrapped<String>? name}) {
+  copyWithWrapped({Wrapped<String?>? symbol, Wrapped<String?>? name}) {
     return OrderServiceOrderConfirmPost$Response$Data$Pricing$Giveaway$Item$Records$Item$Currency(
       symbol: (symbol != null ? symbol.value : this.symbol),
       name: (name != null ? name.value : this.name),
@@ -42583,23 +42588,23 @@ extension $OrderServiceOrderConfirmPost$Response$Data$Pricing$Giveaway$Item$Reco
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderConfirmPost$Response$Data$Pricing$VoucherMsg$VoucherInfos$Item$List$Item {
   const OrderServiceOrderConfirmPost$Response$Data$Pricing$VoucherMsg$VoucherInfos$Item$List$Item({
-    required this.name,
-    required this.description,
-    required this.voucherCode,
-    required this.discountType,
-    required this.discountInfo,
-    required this.currency,
-    required this.validStartStamp,
-    required this.validEndStamp,
-    required this.desc,
-    required this.status,
-    required this.isDefault,
-    required this.available,
-    required this.unavailableReason,
-    required this.sourceCode,
-    required this.validEndDesc,
-    required this.usedVoucherInfo,
-    required this.minOrderAmountInfo,
+    this.name,
+    this.description,
+    this.voucherCode,
+    this.discountType,
+    this.discountInfo,
+    this.currency,
+    this.validStartStamp,
+    this.validEndStamp,
+    this.desc,
+    this.status,
+    this.isDefault,
+    this.available,
+    this.unavailableReason,
+    this.sourceCode,
+    this.validEndDesc,
+    this.usedVoucherInfo,
+    this.minOrderAmountInfo,
   });
 
   factory OrderServiceOrderConfirmPost$Response$Data$Pricing$VoucherMsg$VoucherInfos$Item$List$Item.fromJson(
@@ -42617,40 +42622,40 @@ class OrderServiceOrderConfirmPost$Response$Data$Pricing$VoucherMsg$VoucherInfos
       );
 
   @JsonKey(name: 'name')
-  final String name;
+  final String? name;
   @JsonKey(name: 'description')
-  final String description;
+  final String? description;
   @JsonKey(name: 'voucherCode')
-  final String voucherCode;
+  final String? voucherCode;
   @JsonKey(name: 'discountType')
-  final String discountType;
+  final String? discountType;
   @JsonKey(name: 'discountInfo')
-  final String discountInfo;
+  final String? discountInfo;
   @JsonKey(name: 'currency')
-  final OrderServiceOrderConfirmPost$Response$Data$Pricing$VoucherMsg$VoucherInfos$Item$List$Item$Currency
+  final OrderServiceOrderConfirmPost$Response$Data$Pricing$VoucherMsg$VoucherInfos$Item$List$Item$Currency?
   currency;
   @JsonKey(name: 'validStartStamp')
-  final String validStartStamp;
+  final String? validStartStamp;
   @JsonKey(name: 'validEndStamp')
-  final String validEndStamp;
+  final String? validEndStamp;
   @JsonKey(name: 'desc')
-  final String desc;
+  final String? desc;
   @JsonKey(name: 'status')
-  final String status;
+  final String? status;
   @JsonKey(name: 'isDefault')
-  final String isDefault;
+  final String? isDefault;
   @JsonKey(name: 'available')
-  final String available;
+  final String? available;
   @JsonKey(name: 'unavailableReason')
-  final String unavailableReason;
+  final String? unavailableReason;
   @JsonKey(name: 'sourceCode')
-  final String sourceCode;
+  final String? sourceCode;
   @JsonKey(name: 'validEndDesc')
-  final String validEndDesc;
+  final String? validEndDesc;
   @JsonKey(name: 'usedVoucherInfo')
-  final String usedVoucherInfo;
+  final String? usedVoucherInfo;
   @JsonKey(name: 'minOrderAmountInfo')
-  final String minOrderAmountInfo;
+  final String? minOrderAmountInfo;
   static const fromJsonFactory =
       _$OrderServiceOrderConfirmPost$Response$Data$Pricing$VoucherMsg$VoucherInfos$Item$List$ItemFromJson;
 
@@ -42809,26 +42814,26 @@ extension $OrderServiceOrderConfirmPost$Response$Data$Pricing$VoucherMsg$Voucher
 
   OrderServiceOrderConfirmPost$Response$Data$Pricing$VoucherMsg$VoucherInfos$Item$List$Item
   copyWithWrapped({
-    Wrapped<String>? name,
-    Wrapped<String>? description,
-    Wrapped<String>? voucherCode,
-    Wrapped<String>? discountType,
-    Wrapped<String>? discountInfo,
+    Wrapped<String?>? name,
+    Wrapped<String?>? description,
+    Wrapped<String?>? voucherCode,
+    Wrapped<String?>? discountType,
+    Wrapped<String?>? discountInfo,
     Wrapped<
-      OrderServiceOrderConfirmPost$Response$Data$Pricing$VoucherMsg$VoucherInfos$Item$List$Item$Currency
+      OrderServiceOrderConfirmPost$Response$Data$Pricing$VoucherMsg$VoucherInfos$Item$List$Item$Currency?
     >?
     currency,
-    Wrapped<String>? validStartStamp,
-    Wrapped<String>? validEndStamp,
-    Wrapped<String>? desc,
-    Wrapped<String>? status,
-    Wrapped<String>? isDefault,
-    Wrapped<String>? available,
-    Wrapped<String>? unavailableReason,
-    Wrapped<String>? sourceCode,
-    Wrapped<String>? validEndDesc,
-    Wrapped<String>? usedVoucherInfo,
-    Wrapped<String>? minOrderAmountInfo,
+    Wrapped<String?>? validStartStamp,
+    Wrapped<String?>? validEndStamp,
+    Wrapped<String?>? desc,
+    Wrapped<String?>? status,
+    Wrapped<String?>? isDefault,
+    Wrapped<String?>? available,
+    Wrapped<String?>? unavailableReason,
+    Wrapped<String?>? sourceCode,
+    Wrapped<String?>? validEndDesc,
+    Wrapped<String?>? usedVoucherInfo,
+    Wrapped<String?>? minOrderAmountInfo,
   }) {
     return OrderServiceOrderConfirmPost$Response$Data$Pricing$VoucherMsg$VoucherInfos$Item$List$Item(
       name: (name != null ? name.value : this.name),
@@ -42940,9 +42945,9 @@ extension $OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$SupplyOrderList$Item$SecretKeyList$Item {
   const OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$SupplyOrderList$Item$SecretKeyList$Item({
-    required this.barCodeImg,
-    required this.codeInfo,
-    required this.pin,
+    this.barCodeImg,
+    this.codeInfo,
+    this.pin,
   });
 
   factory OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$SupplyOrderList$Item$SecretKeyList$Item.fromJson(
@@ -42960,11 +42965,11 @@ class OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$
       );
 
   @JsonKey(name: 'barCodeImg')
-  final String barCodeImg;
+  final String? barCodeImg;
   @JsonKey(name: 'codeInfo')
-  final String codeInfo;
+  final String? codeInfo;
   @JsonKey(name: 'pin')
-  final String pin;
+  final String? pin;
   static const fromJsonFactory =
       _$OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$SupplyOrderList$Item$SecretKeyList$ItemFromJson;
 
@@ -43012,9 +43017,9 @@ extension $OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$
 
   OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$SupplyOrderList$Item$SecretKeyList$Item
   copyWithWrapped({
-    Wrapped<String>? barCodeImg,
-    Wrapped<String>? codeInfo,
-    Wrapped<String>? pin,
+    Wrapped<String?>? barCodeImg,
+    Wrapped<String?>? codeInfo,
+    Wrapped<String?>? pin,
   }) {
     return OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$SupplyOrderList$Item$SecretKeyList$Item(
       barCodeImg: (barCodeImg != null ? barCodeImg.value : this.barCodeImg),
@@ -43691,8 +43696,8 @@ extension $OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Ite
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileList$Item$SolutionList$Item$FreightCurrency {
   const OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileList$Item$SolutionList$Item$FreightCurrency({
-    required this.name,
-    required this.symbol,
+    this.name,
+    this.symbol,
   });
 
   factory OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileList$Item$SolutionList$Item$FreightCurrency.fromJson(
@@ -43710,9 +43715,9 @@ class OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastM
       );
 
   @JsonKey(name: 'name')
-  final String name;
+  final String? name;
   @JsonKey(name: 'symbol')
-  final String symbol;
+  final String? symbol;
   static const fromJsonFactory =
       _$OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileList$Item$SolutionList$Item$FreightCurrencyFromJson;
 
@@ -43749,7 +43754,7 @@ extension $OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$
   }
 
   OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileList$Item$SolutionList$Item$FreightCurrency
-  copyWithWrapped({Wrapped<String>? name, Wrapped<String>? symbol}) {
+  copyWithWrapped({Wrapped<String?>? name, Wrapped<String?>? symbol}) {
     return OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileList$Item$SolutionList$Item$FreightCurrency(
       name: (name != null ? name.value : this.name),
       symbol: (symbol != null ? symbol.value : this.symbol),
@@ -43760,8 +43765,8 @@ extension $OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileList$Item$SolutionList$Item$FreightFreeThresholdCurrency {
   const OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileList$Item$SolutionList$Item$FreightFreeThresholdCurrency({
-    required this.name,
-    required this.symbol,
+    this.name,
+    this.symbol,
   });
 
   factory OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileList$Item$SolutionList$Item$FreightFreeThresholdCurrency.fromJson(
@@ -43779,9 +43784,9 @@ class OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastM
       );
 
   @JsonKey(name: 'name')
-  final String name;
+  final String? name;
   @JsonKey(name: 'symbol')
-  final String symbol;
+  final String? symbol;
   static const fromJsonFactory =
       _$OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileList$Item$SolutionList$Item$FreightFreeThresholdCurrencyFromJson;
 
@@ -43818,7 +43823,7 @@ extension $OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$
   }
 
   OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileList$Item$SolutionList$Item$FreightFreeThresholdCurrency
-  copyWithWrapped({Wrapped<String>? name, Wrapped<String>? symbol}) {
+  copyWithWrapped({Wrapped<String?>? name, Wrapped<String?>? symbol}) {
     return OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileList$Item$SolutionList$Item$FreightFreeThresholdCurrency(
       name: (name != null ? name.value : this.name),
       symbol: (symbol != null ? symbol.value : this.symbol),
@@ -43829,8 +43834,8 @@ extension $OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileList$Item$SolutionList$Item$LateCompensationCurrency {
   const OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileList$Item$SolutionList$Item$LateCompensationCurrency({
-    required this.name,
-    required this.symbol,
+    this.name,
+    this.symbol,
   });
 
   factory OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileList$Item$SolutionList$Item$LateCompensationCurrency.fromJson(
@@ -43848,9 +43853,9 @@ class OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastM
       );
 
   @JsonKey(name: 'name')
-  final String name;
+  final String? name;
   @JsonKey(name: 'symbol')
-  final String symbol;
+  final String? symbol;
   static const fromJsonFactory =
       _$OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileList$Item$SolutionList$Item$LateCompensationCurrencyFromJson;
 
@@ -43887,7 +43892,7 @@ extension $OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$
   }
 
   OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileList$Item$SolutionList$Item$LateCompensationCurrency
-  copyWithWrapped({Wrapped<String>? name, Wrapped<String>? symbol}) {
+  copyWithWrapped({Wrapped<String?>? name, Wrapped<String?>? symbol}) {
     return OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileList$Item$SolutionList$Item$LateCompensationCurrency(
       name: (name != null ? name.value : this.name),
       symbol: (symbol != null ? symbol.value : this.symbol),
@@ -43898,8 +43903,8 @@ extension $OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$
 @JsonSerializable(explicitToJson: true)
 class OrderServiceOrderConfirmPost$Response$Data$Pricing$VoucherMsg$VoucherInfos$Item$List$Item$Currency {
   const OrderServiceOrderConfirmPost$Response$Data$Pricing$VoucherMsg$VoucherInfos$Item$List$Item$Currency({
-    required this.symbol,
-    required this.name,
+    this.symbol,
+    this.name,
   });
 
   factory OrderServiceOrderConfirmPost$Response$Data$Pricing$VoucherMsg$VoucherInfos$Item$List$Item$Currency.fromJson(
@@ -43917,9 +43922,9 @@ class OrderServiceOrderConfirmPost$Response$Data$Pricing$VoucherMsg$VoucherInfos
       );
 
   @JsonKey(name: 'symbol')
-  final String symbol;
+  final String? symbol;
   @JsonKey(name: 'name')
-  final String name;
+  final String? name;
   static const fromJsonFactory =
       _$OrderServiceOrderConfirmPost$Response$Data$Pricing$VoucherMsg$VoucherInfos$Item$List$Item$CurrencyFromJson;
 
@@ -43956,7 +43961,7 @@ extension $OrderServiceOrderConfirmPost$Response$Data$Pricing$VoucherMsg$Voucher
   }
 
   OrderServiceOrderConfirmPost$Response$Data$Pricing$VoucherMsg$VoucherInfos$Item$List$Item$Currency
-  copyWithWrapped({Wrapped<String>? symbol, Wrapped<String>? name}) {
+  copyWithWrapped({Wrapped<String?>? symbol, Wrapped<String?>? name}) {
     return OrderServiceOrderConfirmPost$Response$Data$Pricing$VoucherMsg$VoucherInfos$Item$List$Item$Currency(
       symbol: (symbol != null ? symbol.value : this.symbol),
       name: (name != null ? name.value : this.name),

@@ -1744,10 +1744,10 @@ extension $ProductServiceActivityNoAuthFlashSaleActivityGet$ResponseExtension
 @JsonSerializable(explicitToJson: true)
 class ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response {
   const ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response({
-    required this.code,
-    required this.message,
-    required this.data,
-    required this.traceId,
+    this.code,
+    this.message,
+    this.data,
+    this.traceId,
   });
 
   factory ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response.fromJson(
@@ -1765,14 +1765,14 @@ class ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response {
       );
 
   @JsonKey(name: 'code')
-  final String code;
+  final String? code;
   @JsonKey(name: 'message')
-  final String message;
+  final String? message;
   @JsonKey(name: 'data')
-  final ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data
+  final ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data?
   data;
   @JsonKey(name: 'traceId')
-  final String traceId;
+  final String? traceId;
   static const fromJsonFactory =
       _$ProductServiceActivityNoAuthFlashSaleActivityProductGet$ResponseFromJson;
 
@@ -1823,13 +1823,13 @@ extension $ProductServiceActivityNoAuthFlashSaleActivityProductGet$ResponseExten
 
   ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response
   copyWithWrapped({
-    Wrapped<String>? code,
-    Wrapped<String>? message,
+    Wrapped<String?>? code,
+    Wrapped<String?>? message,
     Wrapped<
-      ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data
+      ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data?
     >?
     data,
-    Wrapped<String>? traceId,
+    Wrapped<String?>? traceId,
   }) {
     return ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response(
       code: (code != null ? code.value : this.code),
@@ -2201,10 +2201,10 @@ extension $ProductServiceExternalPurchaseRecordPost$ResponseExtension
 @JsonSerializable(explicitToJson: true)
 class ProductServiceProductNoAuthPushProductGet$Response {
   const ProductServiceProductNoAuthPushProductGet$Response({
-    required this.code,
-    required this.message,
-    required this.data,
-    required this.traceId,
+    this.code,
+    this.message,
+    this.data,
+    this.traceId,
   });
 
   factory ProductServiceProductNoAuthPushProductGet$Response.fromJson(
@@ -2217,13 +2217,13 @@ class ProductServiceProductNoAuthPushProductGet$Response {
       _$ProductServiceProductNoAuthPushProductGet$ResponseToJson(this);
 
   @JsonKey(name: 'code')
-  final int code;
+  final int? code;
   @JsonKey(name: 'message')
-  final String message;
+  final String? message;
   @JsonKey(name: 'data')
-  final ProductServiceProductNoAuthPushProductGet$Response$Data data;
+  final ProductServiceProductNoAuthPushProductGet$Response$Data? data;
   @JsonKey(name: 'traceId')
-  final String traceId;
+  final String? traceId;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthPushProductGet$ResponseFromJson;
 
@@ -2273,10 +2273,10 @@ extension $ProductServiceProductNoAuthPushProductGet$ResponseExtension
   }
 
   ProductServiceProductNoAuthPushProductGet$Response copyWithWrapped({
-    Wrapped<int>? code,
-    Wrapped<String>? message,
-    Wrapped<ProductServiceProductNoAuthPushProductGet$Response$Data>? data,
-    Wrapped<String>? traceId,
+    Wrapped<int?>? code,
+    Wrapped<String?>? message,
+    Wrapped<ProductServiceProductNoAuthPushProductGet$Response$Data?>? data,
+    Wrapped<String?>? traceId,
   }) {
     return ProductServiceProductNoAuthPushProductGet$Response(
       code: (code != null ? code.value : this.code),
@@ -2290,10 +2290,10 @@ extension $ProductServiceProductNoAuthPushProductGet$ResponseExtension
 @JsonSerializable(explicitToJson: true)
 class ProductServiceProductNoAuthSearchGet$Response {
   const ProductServiceProductNoAuthSearchGet$Response({
-    required this.code,
-    required this.message,
-    required this.data,
-    required this.traceId,
+    this.code,
+    this.message,
+    this.data,
+    this.traceId,
   });
 
   factory ProductServiceProductNoAuthSearchGet$Response.fromJson(
@@ -2306,13 +2306,13 @@ class ProductServiceProductNoAuthSearchGet$Response {
       _$ProductServiceProductNoAuthSearchGet$ResponseToJson(this);
 
   @JsonKey(name: 'code')
-  final int code;
+  final int? code;
   @JsonKey(name: 'message')
-  final String message;
+  final String? message;
   @JsonKey(name: 'data')
-  final List<ProductServiceProductNoAuthSearchGet$Response$Data$Item> data;
+  final List<ProductServiceProductNoAuthSearchGet$Response$Data$Item>? data;
   @JsonKey(name: 'traceId')
-  final String traceId;
+  final String? traceId;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthSearchGet$ResponseFromJson;
 
@@ -2362,11 +2362,11 @@ extension $ProductServiceProductNoAuthSearchGet$ResponseExtension
   }
 
   ProductServiceProductNoAuthSearchGet$Response copyWithWrapped({
-    Wrapped<int>? code,
-    Wrapped<String>? message,
-    Wrapped<List<ProductServiceProductNoAuthSearchGet$Response$Data$Item>>?
+    Wrapped<int?>? code,
+    Wrapped<String?>? message,
+    Wrapped<List<ProductServiceProductNoAuthSearchGet$Response$Data$Item>?>?
     data,
-    Wrapped<String>? traceId,
+    Wrapped<String?>? traceId,
   }) {
     return ProductServiceProductNoAuthSearchGet$Response(
       code: (code != null ? code.value : this.code),
@@ -2731,10 +2731,10 @@ extension $ProductServiceProductNoAuthNewArrivalProductBrandGet$ResponseExtensio
 @JsonSerializable(explicitToJson: true)
 class ProductServiceProductNoAuthSkuListGet$Response {
   const ProductServiceProductNoAuthSkuListGet$Response({
-    required this.code,
-    required this.message,
-    required this.data,
-    required this.traceId,
+    this.code,
+    this.message,
+    this.data,
+    this.traceId,
   });
 
   factory ProductServiceProductNoAuthSkuListGet$Response.fromJson(
@@ -2747,13 +2747,13 @@ class ProductServiceProductNoAuthSkuListGet$Response {
       _$ProductServiceProductNoAuthSkuListGet$ResponseToJson(this);
 
   @JsonKey(name: 'code')
-  final int code;
+  final int? code;
   @JsonKey(name: 'message')
-  final String message;
+  final String? message;
   @JsonKey(name: 'data')
-  final List<ProductServiceProductNoAuthSkuListGet$Response$Data$Item> data;
+  final List<ProductServiceProductNoAuthSkuListGet$Response$Data$Item>? data;
   @JsonKey(name: 'traceId')
-  final String traceId;
+  final String? traceId;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthSkuListGet$ResponseFromJson;
 
@@ -2803,11 +2803,11 @@ extension $ProductServiceProductNoAuthSkuListGet$ResponseExtension
   }
 
   ProductServiceProductNoAuthSkuListGet$Response copyWithWrapped({
-    Wrapped<int>? code,
-    Wrapped<String>? message,
-    Wrapped<List<ProductServiceProductNoAuthSkuListGet$Response$Data$Item>>?
+    Wrapped<int?>? code,
+    Wrapped<String?>? message,
+    Wrapped<List<ProductServiceProductNoAuthSkuListGet$Response$Data$Item>?>?
     data,
-    Wrapped<String>? traceId,
+    Wrapped<String?>? traceId,
   }) {
     return ProductServiceProductNoAuthSkuListGet$Response(
       code: (code != null ? code.value : this.code),
@@ -3060,10 +3060,10 @@ extension $ProductServiceProductNoAuthPremierProductCategoryGet$ResponseExtensio
 @JsonSerializable(explicitToJson: true)
 class ProductServiceProductNoAuthHotProductGet$Response {
   const ProductServiceProductNoAuthHotProductGet$Response({
-    required this.code,
-    required this.message,
-    required this.data,
-    required this.traceId,
+    this.code,
+    this.message,
+    this.data,
+    this.traceId,
   });
 
   factory ProductServiceProductNoAuthHotProductGet$Response.fromJson(
@@ -3076,13 +3076,13 @@ class ProductServiceProductNoAuthHotProductGet$Response {
       _$ProductServiceProductNoAuthHotProductGet$ResponseToJson(this);
 
   @JsonKey(name: 'code')
-  final int code;
+  final int? code;
   @JsonKey(name: 'message')
-  final String message;
+  final String? message;
   @JsonKey(name: 'data')
-  final List<ProductServiceProductNoAuthHotProductGet$Response$Data$Item> data;
+  final List<ProductServiceProductNoAuthHotProductGet$Response$Data$Item>? data;
   @JsonKey(name: 'traceId')
-  final String traceId;
+  final String? traceId;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthHotProductGet$ResponseFromJson;
 
@@ -3132,11 +3132,11 @@ extension $ProductServiceProductNoAuthHotProductGet$ResponseExtension
   }
 
   ProductServiceProductNoAuthHotProductGet$Response copyWithWrapped({
-    Wrapped<int>? code,
-    Wrapped<String>? message,
-    Wrapped<List<ProductServiceProductNoAuthHotProductGet$Response$Data$Item>>?
+    Wrapped<int?>? code,
+    Wrapped<String?>? message,
+    Wrapped<List<ProductServiceProductNoAuthHotProductGet$Response$Data$Item>?>?
     data,
-    Wrapped<String>? traceId,
+    Wrapped<String?>? traceId,
   }) {
     return ProductServiceProductNoAuthHotProductGet$Response(
       code: (code != null ? code.value : this.code),
@@ -3150,10 +3150,10 @@ extension $ProductServiceProductNoAuthHotProductGet$ResponseExtension
 @JsonSerializable(explicitToJson: true)
 class ProductServiceProductNoAuthHotProductV2Get$Response {
   const ProductServiceProductNoAuthHotProductV2Get$Response({
-    required this.code,
-    required this.message,
-    required this.data,
-    required this.traceId,
+    this.code,
+    this.message,
+    this.data,
+    this.traceId,
   });
 
   factory ProductServiceProductNoAuthHotProductV2Get$Response.fromJson(
@@ -3166,13 +3166,13 @@ class ProductServiceProductNoAuthHotProductV2Get$Response {
       _$ProductServiceProductNoAuthHotProductV2Get$ResponseToJson(this);
 
   @JsonKey(name: 'code')
-  final int code;
+  final int? code;
   @JsonKey(name: 'message')
-  final String message;
+  final String? message;
   @JsonKey(name: 'data')
-  final ProductServiceProductNoAuthHotProductV2Get$Response$Data data;
+  final ProductServiceProductNoAuthHotProductV2Get$Response$Data? data;
   @JsonKey(name: 'traceId')
-  final String traceId;
+  final String? traceId;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthHotProductV2Get$ResponseFromJson;
 
@@ -3222,10 +3222,10 @@ extension $ProductServiceProductNoAuthHotProductV2Get$ResponseExtension
   }
 
   ProductServiceProductNoAuthHotProductV2Get$Response copyWithWrapped({
-    Wrapped<int>? code,
-    Wrapped<String>? message,
-    Wrapped<ProductServiceProductNoAuthHotProductV2Get$Response$Data>? data,
-    Wrapped<String>? traceId,
+    Wrapped<int?>? code,
+    Wrapped<String?>? message,
+    Wrapped<ProductServiceProductNoAuthHotProductV2Get$Response$Data?>? data,
+    Wrapped<String?>? traceId,
   }) {
     return ProductServiceProductNoAuthHotProductV2Get$Response(
       code: (code != null ? code.value : this.code),
@@ -3576,10 +3576,10 @@ extension $ProductServiceProductNoAuthAlbumProductGet$ResponseExtension
 @JsonSerializable(explicitToJson: true)
 class ProductServiceShopNoAuthGetThirdShopGet$Response {
   const ProductServiceShopNoAuthGetThirdShopGet$Response({
-    required this.code,
-    required this.message,
-    required this.data,
-    required this.traceId,
+    this.code,
+    this.message,
+    this.data,
+    this.traceId,
   });
 
   factory ProductServiceShopNoAuthGetThirdShopGet$Response.fromJson(
@@ -3592,13 +3592,13 @@ class ProductServiceShopNoAuthGetThirdShopGet$Response {
       _$ProductServiceShopNoAuthGetThirdShopGet$ResponseToJson(this);
 
   @JsonKey(name: 'code')
-  final int code;
+  final int? code;
   @JsonKey(name: 'message')
-  final String message;
+  final String? message;
   @JsonKey(name: 'data')
-  final ProductServiceShopNoAuthGetThirdShopGet$Response$Data data;
+  final ProductServiceShopNoAuthGetThirdShopGet$Response$Data? data;
   @JsonKey(name: 'traceId')
-  final String traceId;
+  final String? traceId;
   static const fromJsonFactory =
       _$ProductServiceShopNoAuthGetThirdShopGet$ResponseFromJson;
 
@@ -3648,10 +3648,10 @@ extension $ProductServiceShopNoAuthGetThirdShopGet$ResponseExtension
   }
 
   ProductServiceShopNoAuthGetThirdShopGet$Response copyWithWrapped({
-    Wrapped<int>? code,
-    Wrapped<String>? message,
-    Wrapped<ProductServiceShopNoAuthGetThirdShopGet$Response$Data>? data,
-    Wrapped<String>? traceId,
+    Wrapped<int?>? code,
+    Wrapped<String?>? message,
+    Wrapped<ProductServiceShopNoAuthGetThirdShopGet$Response$Data?>? data,
+    Wrapped<String?>? traceId,
   }) {
     return ProductServiceShopNoAuthGetThirdShopGet$Response(
       code: (code != null ? code.value : this.code),
@@ -4125,10 +4125,10 @@ extension $ProductServiceRecommendNoAuthCategoryRecommendationGet$ResponseExtens
 @JsonSerializable(explicitToJson: true)
 class ProductServiceRecommendNoAuthCategoryPost$Response {
   const ProductServiceRecommendNoAuthCategoryPost$Response({
-    required this.code,
-    required this.message,
-    required this.data,
-    required this.traceId,
+    this.code,
+    this.message,
+    this.data,
+    this.traceId,
   });
 
   factory ProductServiceRecommendNoAuthCategoryPost$Response.fromJson(
@@ -4141,13 +4141,13 @@ class ProductServiceRecommendNoAuthCategoryPost$Response {
       _$ProductServiceRecommendNoAuthCategoryPost$ResponseToJson(this);
 
   @JsonKey(name: 'code')
-  final int code;
+  final int? code;
   @JsonKey(name: 'message')
-  final String message;
+  final String? message;
   @JsonKey(name: 'data')
-  final ProductServiceRecommendNoAuthCategoryPost$Response$Data data;
+  final ProductServiceRecommendNoAuthCategoryPost$Response$Data? data;
   @JsonKey(name: 'traceId')
-  final String traceId;
+  final String? traceId;
   static const fromJsonFactory =
       _$ProductServiceRecommendNoAuthCategoryPost$ResponseFromJson;
 
@@ -4197,10 +4197,10 @@ extension $ProductServiceRecommendNoAuthCategoryPost$ResponseExtension
   }
 
   ProductServiceRecommendNoAuthCategoryPost$Response copyWithWrapped({
-    Wrapped<int>? code,
-    Wrapped<String>? message,
-    Wrapped<ProductServiceRecommendNoAuthCategoryPost$Response$Data>? data,
-    Wrapped<String>? traceId,
+    Wrapped<int?>? code,
+    Wrapped<String?>? message,
+    Wrapped<ProductServiceRecommendNoAuthCategoryPost$Response$Data?>? data,
+    Wrapped<String?>? traceId,
   }) {
     return ProductServiceRecommendNoAuthCategoryPost$Response(
       code: (code != null ? code.value : this.code),
@@ -4214,10 +4214,10 @@ extension $ProductServiceRecommendNoAuthCategoryPost$ResponseExtension
 @JsonSerializable(explicitToJson: true)
 class ProductServiceRecommendNoAuthShopPost$Response {
   const ProductServiceRecommendNoAuthShopPost$Response({
-    required this.code,
-    required this.message,
-    required this.data,
-    required this.traceId,
+    this.code,
+    this.message,
+    this.data,
+    this.traceId,
   });
 
   factory ProductServiceRecommendNoAuthShopPost$Response.fromJson(
@@ -4230,13 +4230,13 @@ class ProductServiceRecommendNoAuthShopPost$Response {
       _$ProductServiceRecommendNoAuthShopPost$ResponseToJson(this);
 
   @JsonKey(name: 'code')
-  final int code;
+  final int? code;
   @JsonKey(name: 'message')
-  final String message;
+  final String? message;
   @JsonKey(name: 'data')
-  final ProductServiceRecommendNoAuthShopPost$Response$Data data;
+  final ProductServiceRecommendNoAuthShopPost$Response$Data? data;
   @JsonKey(name: 'traceId')
-  final String traceId;
+  final String? traceId;
   static const fromJsonFactory =
       _$ProductServiceRecommendNoAuthShopPost$ResponseFromJson;
 
@@ -4286,10 +4286,10 @@ extension $ProductServiceRecommendNoAuthShopPost$ResponseExtension
   }
 
   ProductServiceRecommendNoAuthShopPost$Response copyWithWrapped({
-    Wrapped<int>? code,
-    Wrapped<String>? message,
-    Wrapped<ProductServiceRecommendNoAuthShopPost$Response$Data>? data,
-    Wrapped<String>? traceId,
+    Wrapped<int?>? code,
+    Wrapped<String?>? message,
+    Wrapped<ProductServiceRecommendNoAuthShopPost$Response$Data?>? data,
+    Wrapped<String?>? traceId,
   }) {
     return ProductServiceRecommendNoAuthShopPost$Response(
       code: (code != null ? code.value : this.code),
@@ -4303,10 +4303,10 @@ extension $ProductServiceRecommendNoAuthShopPost$ResponseExtension
 @JsonSerializable(explicitToJson: true)
 class ProductServiceRecommendNoAuthSimilarProductPost$Response {
   const ProductServiceRecommendNoAuthSimilarProductPost$Response({
-    required this.code,
-    required this.message,
-    required this.data,
-    required this.traceId,
+    this.code,
+    this.message,
+    this.data,
+    this.traceId,
   });
 
   factory ProductServiceRecommendNoAuthSimilarProductPost$Response.fromJson(
@@ -4319,13 +4319,13 @@ class ProductServiceRecommendNoAuthSimilarProductPost$Response {
       _$ProductServiceRecommendNoAuthSimilarProductPost$ResponseToJson(this);
 
   @JsonKey(name: 'code')
-  final int code;
+  final int? code;
   @JsonKey(name: 'message')
-  final String message;
+  final String? message;
   @JsonKey(name: 'data')
-  final ProductServiceRecommendNoAuthSimilarProductPost$Response$Data data;
+  final ProductServiceRecommendNoAuthSimilarProductPost$Response$Data? data;
   @JsonKey(name: 'traceId')
-  final String traceId;
+  final String? traceId;
   static const fromJsonFactory =
       _$ProductServiceRecommendNoAuthSimilarProductPost$ResponseFromJson;
 
@@ -4375,11 +4375,11 @@ extension $ProductServiceRecommendNoAuthSimilarProductPost$ResponseExtension
   }
 
   ProductServiceRecommendNoAuthSimilarProductPost$Response copyWithWrapped({
-    Wrapped<int>? code,
-    Wrapped<String>? message,
-    Wrapped<ProductServiceRecommendNoAuthSimilarProductPost$Response$Data>?
+    Wrapped<int?>? code,
+    Wrapped<String?>? message,
+    Wrapped<ProductServiceRecommendNoAuthSimilarProductPost$Response$Data?>?
     data,
-    Wrapped<String>? traceId,
+    Wrapped<String?>? traceId,
   }) {
     return ProductServiceRecommendNoAuthSimilarProductPost$Response(
       code: (code != null ? code.value : this.code),
@@ -4790,11 +4790,11 @@ extension $ProductServiceActivityNoAuthFlashSaleActivityGet$Response$DataExtensi
 @JsonSerializable(explicitToJson: true)
 class ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data {
   const ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data({
-    required this.records,
-    required this.total,
-    required this.pageSize,
-    required this.totalPages,
-    required this.current,
+    this.records,
+    this.total,
+    this.pageSize,
+    this.totalPages,
+    this.current,
   });
 
   factory ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data.fromJson(
@@ -4814,16 +4814,16 @@ class ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data {
   @JsonKey(name: 'records')
   final List<
     ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item
-  >
+  >?
   records;
   @JsonKey(name: 'total')
-  final int total;
+  final int? total;
   @JsonKey(name: 'pageSize')
-  final int pageSize;
+  final int? pageSize;
   @JsonKey(name: 'totalPages')
-  final int totalPages;
+  final int? totalPages;
   @JsonKey(name: 'current')
-  final int current;
+  final int? current;
   static const fromJsonFactory =
       _$ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$DataFromJson;
 
@@ -4893,13 +4893,13 @@ extension $ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data
     Wrapped<
       List<
         ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item
-      >
+      >?
     >?
     records,
-    Wrapped<int>? total,
-    Wrapped<int>? pageSize,
-    Wrapped<int>? totalPages,
-    Wrapped<int>? current,
+    Wrapped<int?>? total,
+    Wrapped<int?>? pageSize,
+    Wrapped<int?>? totalPages,
+    Wrapped<int?>? current,
   }) {
     return ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data(
       records: (records != null ? records.value : this.records),
@@ -5479,11 +5479,11 @@ extension $ProductServiceProductPremiumDupeNoAuthSelectionGet$Response$Data$Item
 @JsonSerializable(explicitToJson: true)
 class ProductServiceProductNoAuthPushProductGet$Response$Data {
   const ProductServiceProductNoAuthPushProductGet$Response$Data({
-    required this.total,
-    required this.pageSize,
-    required this.current,
-    required this.totalPages,
-    required this.records,
+    this.total,
+    this.pageSize,
+    this.current,
+    this.totalPages,
+    this.records,
   });
 
   factory ProductServiceProductNoAuthPushProductGet$Response$Data.fromJson(
@@ -5496,17 +5496,17 @@ class ProductServiceProductNoAuthPushProductGet$Response$Data {
       _$ProductServiceProductNoAuthPushProductGet$Response$DataToJson(this);
 
   @JsonKey(name: 'total')
-  final int total;
+  final int? total;
   @JsonKey(name: 'pageSize')
-  final int pageSize;
+  final int? pageSize;
   @JsonKey(name: 'current')
-  final int current;
+  final int? current;
   @JsonKey(name: 'totalPages')
-  final int totalPages;
+  final int? totalPages;
   @JsonKey(name: 'records')
   final List<
     ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item
-  >
+  >?
   records;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthPushProductGet$Response$DataFromJson;
@@ -5569,12 +5569,14 @@ extension $ProductServiceProductNoAuthPushProductGet$Response$DataExtension
   }
 
   ProductServiceProductNoAuthPushProductGet$Response$Data copyWithWrapped({
-    Wrapped<int>? total,
-    Wrapped<int>? pageSize,
-    Wrapped<int>? current,
-    Wrapped<int>? totalPages,
+    Wrapped<int?>? total,
+    Wrapped<int?>? pageSize,
+    Wrapped<int?>? current,
+    Wrapped<int?>? totalPages,
     Wrapped<
-      List<ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item>
+      List<
+        ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item
+      >?
     >?
     records,
   }) {
@@ -5591,31 +5593,31 @@ extension $ProductServiceProductNoAuthPushProductGet$Response$DataExtension
 @JsonSerializable(explicitToJson: true)
 class ProductServiceProductNoAuthSearchGet$Response$Data$Item {
   const ProductServiceProductNoAuthSearchGet$Response$Data$Item({
-    required this.shopCode,
-    required this.productCode,
-    required this.productName,
-    required this.tenantCode,
-    required this.brandName,
-    required this.mainImg,
-    required this.subImg,
-    required this.mainVideo,
-    required this.imgCollection,
-    required this.textDetail,
-    required this.categoryId,
-    required this.productOptions,
-    required this.productAttrs,
-    required this.sourcePlatform,
-    required this.platformUrl,
-    required this.platformProductId,
-    required this.skuCode,
-    required this.sellPriceCur,
-    required this.sellPrice,
-    required this.targetSellPrice,
-    required this.targetSellCur,
-    required this.marketingInfo,
-    required this.targetOriginPrice,
+    this.shopCode,
+    this.productCode,
+    this.productName,
+    this.tenantCode,
+    this.brandName,
+    this.mainImg,
+    this.subImg,
+    this.mainVideo,
+    this.imgCollection,
+    this.textDetail,
+    this.categoryId,
+    this.productOptions,
+    this.productAttrs,
+    this.sourcePlatform,
+    this.platformUrl,
+    this.platformProductId,
+    this.skuCode,
+    this.sellPriceCur,
+    this.sellPrice,
+    this.targetSellPrice,
+    this.targetSellCur,
+    this.marketingInfo,
+    this.targetOriginPrice,
     this.premiumBrandInfo,
-    required this.sellPoints,
+    this.sellPoints,
   });
 
   factory ProductServiceProductNoAuthSearchGet$Response$Data$Item.fromJson(
@@ -5628,66 +5630,67 @@ class ProductServiceProductNoAuthSearchGet$Response$Data$Item {
       _$ProductServiceProductNoAuthSearchGet$Response$Data$ItemToJson(this);
 
   @JsonKey(name: 'shopCode')
-  final String shopCode;
+  final String? shopCode;
   @JsonKey(name: 'productCode')
-  final String productCode;
+  final String? productCode;
   @JsonKey(name: 'productName')
-  final String productName;
+  final String? productName;
   @JsonKey(name: 'tenantCode')
-  final String tenantCode;
+  final String? tenantCode;
   @JsonKey(name: 'brandName')
-  final String brandName;
+  final String? brandName;
   @JsonKey(name: 'mainImg')
-  final ProductServiceProductNoAuthSearchGet$Response$Data$Item$MainImg mainImg;
+  final ProductServiceProductNoAuthSearchGet$Response$Data$Item$MainImg?
+  mainImg;
   @JsonKey(name: 'subImg')
-  final ProductServiceProductNoAuthSearchGet$Response$Data$Item$SubImg subImg;
+  final ProductServiceProductNoAuthSearchGet$Response$Data$Item$SubImg? subImg;
   @JsonKey(name: 'mainVideo')
-  final ProductServiceProductNoAuthSearchGet$Response$Data$Item$MainVideo
+  final ProductServiceProductNoAuthSearchGet$Response$Data$Item$MainVideo?
   mainVideo;
   @JsonKey(name: 'imgCollection')
   final List<
     ProductServiceProductNoAuthSearchGet$Response$Data$Item$ImgCollection$Item
-  >
+  >?
   imgCollection;
   @JsonKey(name: 'textDetail')
-  final String textDetail;
+  final String? textDetail;
   @JsonKey(name: 'categoryId')
-  final String categoryId;
+  final String? categoryId;
   @JsonKey(name: 'productOptions')
   final List<
     ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item
-  >
+  >?
   productOptions;
   @JsonKey(name: 'productAttrs')
   final List<
     ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductAttrs$Item
-  >
+  >?
   productAttrs;
   @JsonKey(name: 'sourcePlatform')
-  final String sourcePlatform;
+  final String? sourcePlatform;
   @JsonKey(name: 'platformUrl')
-  final String platformUrl;
+  final String? platformUrl;
   @JsonKey(name: 'platformProductId')
-  final String platformProductId;
+  final String? platformProductId;
   @JsonKey(name: 'skuCode')
-  final String skuCode;
+  final String? skuCode;
   @JsonKey(name: 'sellPriceCur')
-  final String sellPriceCur;
+  final String? sellPriceCur;
   @JsonKey(name: 'sellPrice')
-  final String sellPrice;
+  final String? sellPrice;
   @JsonKey(name: 'targetSellPrice')
-  final String targetSellPrice;
+  final String? targetSellPrice;
   @JsonKey(name: 'targetSellCur')
-  final String targetSellCur;
+  final String? targetSellCur;
   @JsonKey(name: 'marketingInfo')
-  final String marketingInfo;
+  final String? marketingInfo;
   @JsonKey(name: 'targetOriginPrice')
-  final String targetOriginPrice;
+  final String? targetOriginPrice;
   @JsonKey(name: 'premiumBrandInfo')
   final ProductServiceProductNoAuthSearchGet$Response$Data$Item$PremiumBrandInfo?
   premiumBrandInfo;
   @JsonKey(name: 'sellPoints', defaultValue: <Object>[])
-  final List<Object> sellPoints;
+  final List<Object>? sellPoints;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthSearchGet$Response$Data$ItemFromJson;
 
@@ -5922,52 +5925,52 @@ extension $ProductServiceProductNoAuthSearchGet$Response$Data$ItemExtension
   }
 
   ProductServiceProductNoAuthSearchGet$Response$Data$Item copyWithWrapped({
-    Wrapped<String>? shopCode,
-    Wrapped<String>? productCode,
-    Wrapped<String>? productName,
-    Wrapped<String>? tenantCode,
-    Wrapped<String>? brandName,
-    Wrapped<ProductServiceProductNoAuthSearchGet$Response$Data$Item$MainImg>?
+    Wrapped<String?>? shopCode,
+    Wrapped<String?>? productCode,
+    Wrapped<String?>? productName,
+    Wrapped<String?>? tenantCode,
+    Wrapped<String?>? brandName,
+    Wrapped<ProductServiceProductNoAuthSearchGet$Response$Data$Item$MainImg?>?
     mainImg,
-    Wrapped<ProductServiceProductNoAuthSearchGet$Response$Data$Item$SubImg>?
+    Wrapped<ProductServiceProductNoAuthSearchGet$Response$Data$Item$SubImg?>?
     subImg,
-    Wrapped<ProductServiceProductNoAuthSearchGet$Response$Data$Item$MainVideo>?
+    Wrapped<ProductServiceProductNoAuthSearchGet$Response$Data$Item$MainVideo?>?
     mainVideo,
     Wrapped<
       List<
         ProductServiceProductNoAuthSearchGet$Response$Data$Item$ImgCollection$Item
-      >
+      >?
     >?
     imgCollection,
-    Wrapped<String>? textDetail,
-    Wrapped<String>? categoryId,
+    Wrapped<String?>? textDetail,
+    Wrapped<String?>? categoryId,
     Wrapped<
       List<
         ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item
-      >
+      >?
     >?
     productOptions,
     Wrapped<
       List<
         ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductAttrs$Item
-      >
+      >?
     >?
     productAttrs,
-    Wrapped<String>? sourcePlatform,
-    Wrapped<String>? platformUrl,
-    Wrapped<String>? platformProductId,
-    Wrapped<String>? skuCode,
-    Wrapped<String>? sellPriceCur,
-    Wrapped<String>? sellPrice,
-    Wrapped<String>? targetSellPrice,
-    Wrapped<String>? targetSellCur,
-    Wrapped<String>? marketingInfo,
-    Wrapped<String>? targetOriginPrice,
+    Wrapped<String?>? sourcePlatform,
+    Wrapped<String?>? platformUrl,
+    Wrapped<String?>? platformProductId,
+    Wrapped<String?>? skuCode,
+    Wrapped<String?>? sellPriceCur,
+    Wrapped<String?>? sellPrice,
+    Wrapped<String?>? targetSellPrice,
+    Wrapped<String?>? targetSellCur,
+    Wrapped<String?>? marketingInfo,
+    Wrapped<String?>? targetOriginPrice,
     Wrapped<
       ProductServiceProductNoAuthSearchGet$Response$Data$Item$PremiumBrandInfo?
     >?
     premiumBrandInfo,
-    Wrapped<List<Object>>? sellPoints,
+    Wrapped<List<Object>?>? sellPoints,
   }) {
     return ProductServiceProductNoAuthSearchGet$Response$Data$Item(
       shopCode: (shopCode != null ? shopCode.value : this.shopCode),
@@ -6265,16 +6268,16 @@ extension $ProductServiceProductNoAuthNewArrivalProductGet$Response$DataExtensio
 @JsonSerializable(explicitToJson: true)
 class ProductServiceProductNoAuthSkuListGet$Response$Data$Item {
   const ProductServiceProductNoAuthSkuListGet$Response$Data$Item({
-    required this.productCode,
-    required this.skuCode,
-    required this.tenantCode,
-    required this.extUrl,
-    required this.skuImg,
-    required this.skuOptions,
-    required this.sellPrice,
-    required this.sellCur,
-    required this.targetSellPrice,
-    required this.targetSellCur,
+    this.productCode,
+    this.skuCode,
+    this.tenantCode,
+    this.extUrl,
+    this.skuImg,
+    this.skuOptions,
+    this.sellPrice,
+    this.sellCur,
+    this.targetSellPrice,
+    this.targetSellCur,
     this.length,
     this.width,
     this.height,
@@ -6282,7 +6285,7 @@ class ProductServiceProductNoAuthSkuListGet$Response$Data$Item {
     this.estimateUnitFreight,
     this.marketingInfo,
     this.targetOriginPrice,
-    required this.skuSourceCode,
+    this.skuSourceCode,
     this.flashSaleInfo,
   });
 
@@ -6296,28 +6299,28 @@ class ProductServiceProductNoAuthSkuListGet$Response$Data$Item {
       _$ProductServiceProductNoAuthSkuListGet$Response$Data$ItemToJson(this);
 
   @JsonKey(name: 'productCode')
-  final String productCode;
+  final String? productCode;
   @JsonKey(name: 'skuCode')
-  final String skuCode;
+  final String? skuCode;
   @JsonKey(name: 'tenantCode')
-  final String tenantCode;
+  final String? tenantCode;
   @JsonKey(name: 'extUrl')
-  final String extUrl;
+  final String? extUrl;
   @JsonKey(name: 'skuImg')
-  final ProductServiceProductNoAuthSkuListGet$Response$Data$Item$SkuImg skuImg;
+  final ProductServiceProductNoAuthSkuListGet$Response$Data$Item$SkuImg? skuImg;
   @JsonKey(name: 'skuOptions')
   final List<
     ProductServiceProductNoAuthSkuListGet$Response$Data$Item$SkuOptions$Item
-  >
+  >?
   skuOptions;
   @JsonKey(name: 'sellPrice')
-  final String sellPrice;
+  final String? sellPrice;
   @JsonKey(name: 'sellCur')
-  final String sellCur;
+  final String? sellCur;
   @JsonKey(name: 'targetSellPrice')
-  final String targetSellPrice;
+  final String? targetSellPrice;
   @JsonKey(name: 'targetSellCur')
-  final String targetSellCur;
+  final String? targetSellCur;
   @JsonKey(name: 'length')
   final String? length;
   @JsonKey(name: 'width')
@@ -6333,7 +6336,7 @@ class ProductServiceProductNoAuthSkuListGet$Response$Data$Item {
   @JsonKey(name: 'targetOriginPrice')
   final String? targetOriginPrice;
   @JsonKey(name: 'skuSourceCode')
-  final String skuSourceCode;
+  final String? skuSourceCode;
   @JsonKey(name: 'flashSaleInfo')
   final ProductServiceProductNoAuthSkuListGet$Response$Data$Item$FlashSaleInfo?
   flashSaleInfo;
@@ -6501,22 +6504,22 @@ extension $ProductServiceProductNoAuthSkuListGet$Response$Data$ItemExtension
   }
 
   ProductServiceProductNoAuthSkuListGet$Response$Data$Item copyWithWrapped({
-    Wrapped<String>? productCode,
-    Wrapped<String>? skuCode,
-    Wrapped<String>? tenantCode,
-    Wrapped<String>? extUrl,
-    Wrapped<ProductServiceProductNoAuthSkuListGet$Response$Data$Item$SkuImg>?
+    Wrapped<String?>? productCode,
+    Wrapped<String?>? skuCode,
+    Wrapped<String?>? tenantCode,
+    Wrapped<String?>? extUrl,
+    Wrapped<ProductServiceProductNoAuthSkuListGet$Response$Data$Item$SkuImg?>?
     skuImg,
     Wrapped<
       List<
         ProductServiceProductNoAuthSkuListGet$Response$Data$Item$SkuOptions$Item
-      >
+      >?
     >?
     skuOptions,
-    Wrapped<String>? sellPrice,
-    Wrapped<String>? sellCur,
-    Wrapped<String>? targetSellPrice,
-    Wrapped<String>? targetSellCur,
+    Wrapped<String?>? sellPrice,
+    Wrapped<String?>? sellCur,
+    Wrapped<String?>? targetSellPrice,
+    Wrapped<String?>? targetSellCur,
     Wrapped<String?>? length,
     Wrapped<String?>? width,
     Wrapped<String?>? height,
@@ -6524,7 +6527,7 @@ extension $ProductServiceProductNoAuthSkuListGet$Response$Data$ItemExtension
     Wrapped<String?>? estimateUnitFreight,
     Wrapped<String?>? marketingInfo,
     Wrapped<String?>? targetOriginPrice,
-    Wrapped<String>? skuSourceCode,
+    Wrapped<String?>? skuSourceCode,
     Wrapped<
       ProductServiceProductNoAuthSkuListGet$Response$Data$Item$FlashSaleInfo?
     >?
@@ -6598,11 +6601,11 @@ class ProductServiceProductNoAuthGetProductInfoGet$Response$Data {
     this.tags,
     this.premiumBrandInfo,
     this.sellPoints,
-    required this.categoryTree,
+    this.categoryTree,
     this.ext,
-    required this.productFlag,
-    required this.marketingInfo,
-    required this.targetOriginPrice,
+    this.productFlag,
+    this.marketingInfo,
+    this.targetOriginPrice,
     this.flashSale,
   });
 
@@ -6697,15 +6700,15 @@ class ProductServiceProductNoAuthGetProductInfoGet$Response$Data {
   @JsonKey(name: 'sellPoints', defaultValue: <String>[])
   final List<String>? sellPoints;
   @JsonKey(name: 'categoryTree', defaultValue: <double>[])
-  final List<double> categoryTree;
+  final List<double>? categoryTree;
   @JsonKey(name: 'ext')
   final ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Ext? ext;
   @JsonKey(name: 'productFlag')
-  final String productFlag;
+  final String? productFlag;
   @JsonKey(name: 'marketingInfo')
-  final String marketingInfo;
+  final String? marketingInfo;
   @JsonKey(name: 'targetOriginPrice')
-  final String targetOriginPrice;
+  final String? targetOriginPrice;
   @JsonKey(name: 'flashSale')
   final ProductServiceProductNoAuthGetProductInfoGet$Response$Data$FlashSale?
   flashSale;
@@ -7084,12 +7087,12 @@ extension $ProductServiceProductNoAuthGetProductInfoGet$Response$DataExtension
     >?
     premiumBrandInfo,
     Wrapped<List<String>?>? sellPoints,
-    Wrapped<List<double>>? categoryTree,
+    Wrapped<List<double>?>? categoryTree,
     Wrapped<ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Ext?>?
     ext,
-    Wrapped<String>? productFlag,
-    Wrapped<String>? marketingInfo,
-    Wrapped<String>? targetOriginPrice,
+    Wrapped<String?>? productFlag,
+    Wrapped<String?>? marketingInfo,
+    Wrapped<String?>? targetOriginPrice,
     Wrapped<
       ProductServiceProductNoAuthGetProductInfoGet$Response$Data$FlashSale?
     >?
@@ -7242,18 +7245,18 @@ extension $ProductServiceProductNoAuthPremierProductCategoryGet$Response$DataExt
 @JsonSerializable(explicitToJson: true)
 class ProductServiceProductNoAuthHotProductGet$Response$Data$Item {
   const ProductServiceProductNoAuthHotProductGet$Response$Data$Item({
-    required this.productCode,
-    required this.productName,
-    required this.image,
-    required this.skuCode,
-    required this.sellPriceCur,
-    required this.sellPrice,
-    required this.targetSellPrice,
-    required this.targetSellCur,
-    required this.sellQuantity,
-    required this.marketingInfo,
-    required this.targetOriginPrice,
-    required this.tags,
+    this.productCode,
+    this.productName,
+    this.image,
+    this.skuCode,
+    this.sellPriceCur,
+    this.sellPrice,
+    this.targetSellPrice,
+    this.targetSellCur,
+    this.sellQuantity,
+    this.marketingInfo,
+    this.targetOriginPrice,
+    this.tags,
     this.premiumBrandInfo,
     this.sellPoints,
   });
@@ -7270,31 +7273,32 @@ class ProductServiceProductNoAuthHotProductGet$Response$Data$Item {
       _$ProductServiceProductNoAuthHotProductGet$Response$Data$ItemToJson(this);
 
   @JsonKey(name: 'productCode')
-  final String productCode;
+  final String? productCode;
   @JsonKey(name: 'productName')
-  final String productName;
+  final String? productName;
   @JsonKey(name: 'image')
-  final ProductServiceProductNoAuthHotProductGet$Response$Data$Item$Image image;
+  final ProductServiceProductNoAuthHotProductGet$Response$Data$Item$Image?
+  image;
   @JsonKey(name: 'skuCode')
-  final String skuCode;
+  final String? skuCode;
   @JsonKey(name: 'sellPriceCur')
-  final String sellPriceCur;
+  final String? sellPriceCur;
   @JsonKey(name: 'sellPrice')
-  final String sellPrice;
+  final String? sellPrice;
   @JsonKey(name: 'targetSellPrice')
-  final String targetSellPrice;
+  final String? targetSellPrice;
   @JsonKey(name: 'targetSellCur')
-  final String targetSellCur;
+  final String? targetSellCur;
   @JsonKey(name: 'sellQuantity')
-  final String sellQuantity;
+  final String? sellQuantity;
   @JsonKey(name: 'marketingInfo')
-  final String marketingInfo;
+  final String? marketingInfo;
   @JsonKey(name: 'targetOriginPrice')
-  final String targetOriginPrice;
+  final String? targetOriginPrice;
   @JsonKey(name: 'tags')
   final List<
     ProductServiceProductNoAuthHotProductGet$Response$Data$Item$Tags$Item
-  >
+  >?
   tags;
   @JsonKey(name: 'premiumBrandInfo')
   final ProductServiceProductNoAuthHotProductGet$Response$Data$Item$PremiumBrandInfo?
@@ -7435,22 +7439,22 @@ extension $ProductServiceProductNoAuthHotProductGet$Response$Data$ItemExtension
   }
 
   ProductServiceProductNoAuthHotProductGet$Response$Data$Item copyWithWrapped({
-    Wrapped<String>? productCode,
-    Wrapped<String>? productName,
-    Wrapped<ProductServiceProductNoAuthHotProductGet$Response$Data$Item$Image>?
+    Wrapped<String?>? productCode,
+    Wrapped<String?>? productName,
+    Wrapped<ProductServiceProductNoAuthHotProductGet$Response$Data$Item$Image?>?
     image,
-    Wrapped<String>? skuCode,
-    Wrapped<String>? sellPriceCur,
-    Wrapped<String>? sellPrice,
-    Wrapped<String>? targetSellPrice,
-    Wrapped<String>? targetSellCur,
-    Wrapped<String>? sellQuantity,
-    Wrapped<String>? marketingInfo,
-    Wrapped<String>? targetOriginPrice,
+    Wrapped<String?>? skuCode,
+    Wrapped<String?>? sellPriceCur,
+    Wrapped<String?>? sellPrice,
+    Wrapped<String?>? targetSellPrice,
+    Wrapped<String?>? targetSellCur,
+    Wrapped<String?>? sellQuantity,
+    Wrapped<String?>? marketingInfo,
+    Wrapped<String?>? targetOriginPrice,
     Wrapped<
       List<
         ProductServiceProductNoAuthHotProductGet$Response$Data$Item$Tags$Item
-      >
+      >?
     >?
     tags,
     Wrapped<
@@ -7495,11 +7499,11 @@ extension $ProductServiceProductNoAuthHotProductGet$Response$Data$ItemExtension
 @JsonSerializable(explicitToJson: true)
 class ProductServiceProductNoAuthHotProductV2Get$Response$Data {
   const ProductServiceProductNoAuthHotProductV2Get$Response$Data({
-    required this.total,
-    required this.pageSize,
-    required this.current,
-    required this.totalPages,
-    required this.records,
+    this.total,
+    this.pageSize,
+    this.current,
+    this.totalPages,
+    this.records,
   });
 
   factory ProductServiceProductNoAuthHotProductV2Get$Response$Data.fromJson(
@@ -7512,17 +7516,17 @@ class ProductServiceProductNoAuthHotProductV2Get$Response$Data {
       _$ProductServiceProductNoAuthHotProductV2Get$Response$DataToJson(this);
 
   @JsonKey(name: 'total')
-  final int total;
+  final int? total;
   @JsonKey(name: 'pageSize')
-  final int pageSize;
+  final int? pageSize;
   @JsonKey(name: 'current')
-  final int current;
+  final int? current;
   @JsonKey(name: 'totalPages')
-  final int totalPages;
+  final int? totalPages;
   @JsonKey(name: 'records')
   final List<
     ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item
-  >
+  >?
   records;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthHotProductV2Get$Response$DataFromJson;
@@ -7585,14 +7589,14 @@ extension $ProductServiceProductNoAuthHotProductV2Get$Response$DataExtension
   }
 
   ProductServiceProductNoAuthHotProductV2Get$Response$Data copyWithWrapped({
-    Wrapped<int>? total,
-    Wrapped<int>? pageSize,
-    Wrapped<int>? current,
-    Wrapped<int>? totalPages,
+    Wrapped<int?>? total,
+    Wrapped<int?>? pageSize,
+    Wrapped<int?>? current,
+    Wrapped<int?>? totalPages,
     Wrapped<
       List<
         ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item
-      >
+      >?
     >?
     records,
   }) {
@@ -7723,32 +7727,32 @@ extension $ProductServiceProductNoAuthHotProductV3Get$Response$DataExtension
 @JsonSerializable(explicitToJson: true)
 class ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item {
   const ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item({
-    required this.shopCode,
-    required this.productCode,
-    required this.productName,
-    required this.tenantCode,
-    required this.brandName,
-    required this.mainImg,
-    required this.subImg,
-    required this.mainVideo,
-    required this.imgCollection,
+    this.shopCode,
+    this.productCode,
+    this.productName,
+    this.tenantCode,
+    this.brandName,
+    this.mainImg,
+    this.subImg,
+    this.mainVideo,
+    this.imgCollection,
     this.textDetail,
-    required this.imgDetail,
-    required this.categoryId,
-    required this.productOptions,
-    required this.productAttrs,
-    required this.sourcePlatform,
-    required this.platformUrl,
-    required this.platformProductId,
-    required this.skuCode,
-    required this.sellPriceCur,
-    required this.sellPrice,
-    required this.targetSellPrice,
-    required this.targetSellCur,
-    required this.productFlag,
-    required this.marketingInfo,
-    required this.sellQuantity,
-    required this.tags,
+    this.imgDetail,
+    this.categoryId,
+    this.productOptions,
+    this.productAttrs,
+    this.sourcePlatform,
+    this.platformUrl,
+    this.platformProductId,
+    this.skuCode,
+    this.sellPriceCur,
+    this.sellPrice,
+    this.targetSellPrice,
+    this.targetSellCur,
+    this.productFlag,
+    this.marketingInfo,
+    this.sellQuantity,
+    this.tags,
     this.premiumBrandInfo,
     this.sellPoints,
   });
@@ -7768,77 +7772,77 @@ class ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item {
       );
 
   @JsonKey(name: 'shopCode')
-  final String shopCode;
+  final String? shopCode;
   @JsonKey(name: 'productCode')
-  final String productCode;
+  final String? productCode;
   @JsonKey(name: 'productName')
-  final String productName;
+  final String? productName;
   @JsonKey(name: 'tenantCode')
-  final String tenantCode;
+  final String? tenantCode;
   @JsonKey(name: 'brandName')
-  final String brandName;
+  final String? brandName;
   @JsonKey(name: 'mainImg')
   final List<
     ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$MainImg$Item
-  >
+  >?
   mainImg;
   @JsonKey(name: 'subImg')
-  final Object subImg;
+  final Object? subImg;
   @JsonKey(name: 'mainVideo')
   final List<
     ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$MainVideo$Item
-  >
+  >?
   mainVideo;
   @JsonKey(name: 'imgCollection')
   final List<
     ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgCollection$Item
-  >
+  >?
   imgCollection;
   @JsonKey(name: 'textDetail')
   final String? textDetail;
   @JsonKey(name: 'imgDetail')
   final List<
     ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgDetail$Item
-  >
+  >?
   imgDetail;
   @JsonKey(name: 'categoryId')
-  final double categoryId;
+  final double? categoryId;
   @JsonKey(name: 'productOptions')
   final List<
     ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item
-  >
+  >?
   productOptions;
   @JsonKey(name: 'productAttrs')
   final List<
     ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductAttrs$Item
-  >
+  >?
   productAttrs;
   @JsonKey(name: 'sourcePlatform')
-  final String sourcePlatform;
+  final String? sourcePlatform;
   @JsonKey(name: 'platformUrl')
-  final String platformUrl;
+  final String? platformUrl;
   @JsonKey(name: 'platformProductId')
-  final String platformProductId;
+  final String? platformProductId;
   @JsonKey(name: 'skuCode')
-  final String skuCode;
+  final String? skuCode;
   @JsonKey(name: 'sellPriceCur')
-  final String sellPriceCur;
+  final String? sellPriceCur;
   @JsonKey(name: 'sellPrice')
-  final String sellPrice;
+  final String? sellPrice;
   @JsonKey(name: 'targetSellPrice')
-  final String targetSellPrice;
+  final String? targetSellPrice;
   @JsonKey(name: 'targetSellCur')
-  final String targetSellCur;
+  final String? targetSellCur;
   @JsonKey(name: 'productFlag')
-  final String productFlag;
+  final String? productFlag;
   @JsonKey(name: 'marketingInfo')
-  final String marketingInfo;
+  final String? marketingInfo;
   @JsonKey(name: 'sellQuantity')
-  final String sellQuantity;
+  final String? sellQuantity;
   @JsonKey(name: 'tags')
   final List<
     ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$Tags$Item
-  >
+  >?
   tags;
   @JsonKey(name: 'premiumBrandInfo')
   final ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$PremiumBrandInfo?
@@ -8113,65 +8117,65 @@ extension $ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$ItemExte
 
   ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item
   copyWithWrapped({
-    Wrapped<String>? shopCode,
-    Wrapped<String>? productCode,
-    Wrapped<String>? productName,
-    Wrapped<String>? tenantCode,
-    Wrapped<String>? brandName,
+    Wrapped<String?>? shopCode,
+    Wrapped<String?>? productCode,
+    Wrapped<String?>? productName,
+    Wrapped<String?>? tenantCode,
+    Wrapped<String?>? brandName,
     Wrapped<
       List<
         ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$MainImg$Item
-      >
+      >?
     >?
     mainImg,
-    Wrapped<Object>? subImg,
+    Wrapped<Object?>? subImg,
     Wrapped<
       List<
         ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$MainVideo$Item
-      >
+      >?
     >?
     mainVideo,
     Wrapped<
       List<
         ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgCollection$Item
-      >
+      >?
     >?
     imgCollection,
     Wrapped<String?>? textDetail,
     Wrapped<
       List<
         ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgDetail$Item
-      >
+      >?
     >?
     imgDetail,
-    Wrapped<double>? categoryId,
+    Wrapped<double?>? categoryId,
     Wrapped<
       List<
         ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item
-      >
+      >?
     >?
     productOptions,
     Wrapped<
       List<
         ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductAttrs$Item
-      >
+      >?
     >?
     productAttrs,
-    Wrapped<String>? sourcePlatform,
-    Wrapped<String>? platformUrl,
-    Wrapped<String>? platformProductId,
-    Wrapped<String>? skuCode,
-    Wrapped<String>? sellPriceCur,
-    Wrapped<String>? sellPrice,
-    Wrapped<String>? targetSellPrice,
-    Wrapped<String>? targetSellCur,
-    Wrapped<String>? productFlag,
-    Wrapped<String>? marketingInfo,
-    Wrapped<String>? sellQuantity,
+    Wrapped<String?>? sourcePlatform,
+    Wrapped<String?>? platformUrl,
+    Wrapped<String?>? platformProductId,
+    Wrapped<String?>? skuCode,
+    Wrapped<String?>? sellPriceCur,
+    Wrapped<String?>? sellPrice,
+    Wrapped<String?>? targetSellPrice,
+    Wrapped<String?>? targetSellCur,
+    Wrapped<String?>? productFlag,
+    Wrapped<String?>? marketingInfo,
+    Wrapped<String?>? sellQuantity,
     Wrapped<
       List<
         ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$Tags$Item
-      >
+      >?
     >?
     tags,
     Wrapped<
@@ -8352,11 +8356,11 @@ extension $ProductServiceProductNoAuthAlbumProductGet$Response$DataExtension
 @JsonSerializable(explicitToJson: true)
 class ProductServiceShopNoAuthGetThirdShopGet$Response$Data {
   const ProductServiceShopNoAuthGetThirdShopGet$Response$Data({
-    required this.shopCode,
-    required this.shopName,
-    required this.icon,
-    required this.recordSource,
-    required this.records,
+    this.shopCode,
+    this.shopName,
+    this.icon,
+    this.recordSource,
+    this.records,
   });
 
   factory ProductServiceShopNoAuthGetThirdShopGet$Response$Data.fromJson(
@@ -8369,15 +8373,17 @@ class ProductServiceShopNoAuthGetThirdShopGet$Response$Data {
       _$ProductServiceShopNoAuthGetThirdShopGet$Response$DataToJson(this);
 
   @JsonKey(name: 'shopCode')
-  final String shopCode;
+  final String? shopCode;
   @JsonKey(name: 'shopName')
-  final String shopName;
+  final String? shopName;
   @JsonKey(name: 'icon')
-  final String icon;
+  final String? icon;
   @JsonKey(name: 'recordSource')
-  final int recordSource;
+  final int? recordSource;
   @JsonKey(name: 'records')
-  final List<ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$Item>
+  final List<
+    ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$Item
+  >?
   records;
   static const fromJsonFactory =
       _$ProductServiceShopNoAuthGetThirdShopGet$Response$DataFromJson;
@@ -8440,12 +8446,12 @@ extension $ProductServiceShopNoAuthGetThirdShopGet$Response$DataExtension
   }
 
   ProductServiceShopNoAuthGetThirdShopGet$Response$Data copyWithWrapped({
-    Wrapped<String>? shopCode,
-    Wrapped<String>? shopName,
-    Wrapped<String>? icon,
-    Wrapped<int>? recordSource,
+    Wrapped<String?>? shopCode,
+    Wrapped<String?>? shopName,
+    Wrapped<String?>? icon,
+    Wrapped<int?>? recordSource,
     Wrapped<
-      List<ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$Item>
+      List<ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$Item>?
     >?
     records,
   }) {
@@ -8464,32 +8470,32 @@ extension $ProductServiceShopNoAuthGetThirdShopGet$Response$DataExtension
 @JsonSerializable(explicitToJson: true)
 class ProductServiceProductNoAuthKolProductGet$Response$Data$Item {
   const ProductServiceProductNoAuthKolProductGet$Response$Data$Item({
-    required this.shopCode,
-    required this.productCode,
-    required this.productName,
-    required this.tenantCode,
-    required this.brandName,
-    required this.mainImg,
-    required this.subImg,
-    required this.mainVideo,
-    required this.imgCollection,
+    this.shopCode,
+    this.productCode,
+    this.productName,
+    this.tenantCode,
+    this.brandName,
+    this.mainImg,
+    this.subImg,
+    this.mainVideo,
+    this.imgCollection,
     this.textDetail,
-    required this.imgDetail,
-    required this.categoryId,
-    required this.productOptions,
-    required this.productAttrs,
-    required this.sourcePlatform,
-    required this.platformUrl,
-    required this.platformProductId,
-    required this.skuCode,
-    required this.sellPriceCur,
-    required this.sellPrice,
-    required this.targetSellPrice,
-    required this.targetSellCur,
-    required this.productFlag,
-    required this.marketingInfo,
-    required this.sellQuantity,
-    required this.tags,
+    this.imgDetail,
+    this.categoryId,
+    this.productOptions,
+    this.productAttrs,
+    this.sourcePlatform,
+    this.platformUrl,
+    this.platformProductId,
+    this.skuCode,
+    this.sellPriceCur,
+    this.sellPrice,
+    this.targetSellPrice,
+    this.targetSellCur,
+    this.productFlag,
+    this.marketingInfo,
+    this.sellQuantity,
+    this.tags,
     this.premiumBrandInfo,
     this.sellPoints,
   });
@@ -8506,77 +8512,77 @@ class ProductServiceProductNoAuthKolProductGet$Response$Data$Item {
       _$ProductServiceProductNoAuthKolProductGet$Response$Data$ItemToJson(this);
 
   @JsonKey(name: 'shopCode')
-  final String shopCode;
+  final String? shopCode;
   @JsonKey(name: 'productCode')
-  final String productCode;
+  final String? productCode;
   @JsonKey(name: 'productName')
-  final String productName;
+  final String? productName;
   @JsonKey(name: 'tenantCode')
-  final String tenantCode;
+  final String? tenantCode;
   @JsonKey(name: 'brandName')
-  final String brandName;
+  final String? brandName;
   @JsonKey(name: 'mainImg')
   final List<
     ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainImg$Item
-  >
+  >?
   mainImg;
   @JsonKey(name: 'subImg')
-  final Object subImg;
+  final Object? subImg;
   @JsonKey(name: 'mainVideo')
   final List<
     ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainVideo$Item
-  >
+  >?
   mainVideo;
   @JsonKey(name: 'imgCollection')
   final List<
     ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgCollection$Item
-  >
+  >?
   imgCollection;
   @JsonKey(name: 'textDetail')
   final String? textDetail;
   @JsonKey(name: 'imgDetail')
   final List<
     ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgDetail$Item
-  >
+  >?
   imgDetail;
   @JsonKey(name: 'categoryId')
-  final double categoryId;
+  final double? categoryId;
   @JsonKey(name: 'productOptions')
   final List<
     ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item
-  >
+  >?
   productOptions;
   @JsonKey(name: 'productAttrs')
   final List<
     ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductAttrs$Item
-  >
+  >?
   productAttrs;
   @JsonKey(name: 'sourcePlatform')
-  final String sourcePlatform;
+  final String? sourcePlatform;
   @JsonKey(name: 'platformUrl')
-  final String platformUrl;
+  final String? platformUrl;
   @JsonKey(name: 'platformProductId')
-  final String platformProductId;
+  final String? platformProductId;
   @JsonKey(name: 'skuCode')
-  final String skuCode;
+  final String? skuCode;
   @JsonKey(name: 'sellPriceCur')
-  final String sellPriceCur;
+  final String? sellPriceCur;
   @JsonKey(name: 'sellPrice')
-  final String sellPrice;
+  final String? sellPrice;
   @JsonKey(name: 'targetSellPrice')
-  final String targetSellPrice;
+  final String? targetSellPrice;
   @JsonKey(name: 'targetSellCur')
-  final String targetSellCur;
+  final String? targetSellCur;
   @JsonKey(name: 'productFlag')
-  final String productFlag;
+  final String? productFlag;
   @JsonKey(name: 'marketingInfo')
-  final String marketingInfo;
+  final String? marketingInfo;
   @JsonKey(name: 'sellQuantity')
-  final String sellQuantity;
+  final String? sellQuantity;
   @JsonKey(name: 'tags')
   final List<
     ProductServiceProductNoAuthKolProductGet$Response$Data$Item$Tags$Item
-  >
+  >?
   tags;
   @JsonKey(name: 'premiumBrandInfo')
   final ProductServiceProductNoAuthKolProductGet$Response$Data$Item$PremiumBrandInfo?
@@ -8847,65 +8853,65 @@ extension $ProductServiceProductNoAuthKolProductGet$Response$Data$ItemExtension
   }
 
   ProductServiceProductNoAuthKolProductGet$Response$Data$Item copyWithWrapped({
-    Wrapped<String>? shopCode,
-    Wrapped<String>? productCode,
-    Wrapped<String>? productName,
-    Wrapped<String>? tenantCode,
-    Wrapped<String>? brandName,
+    Wrapped<String?>? shopCode,
+    Wrapped<String?>? productCode,
+    Wrapped<String?>? productName,
+    Wrapped<String?>? tenantCode,
+    Wrapped<String?>? brandName,
     Wrapped<
       List<
         ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainImg$Item
-      >
+      >?
     >?
     mainImg,
-    Wrapped<Object>? subImg,
+    Wrapped<Object?>? subImg,
     Wrapped<
       List<
         ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainVideo$Item
-      >
+      >?
     >?
     mainVideo,
     Wrapped<
       List<
         ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgCollection$Item
-      >
+      >?
     >?
     imgCollection,
     Wrapped<String?>? textDetail,
     Wrapped<
       List<
         ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgDetail$Item
-      >
+      >?
     >?
     imgDetail,
-    Wrapped<double>? categoryId,
+    Wrapped<double?>? categoryId,
     Wrapped<
       List<
         ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item
-      >
+      >?
     >?
     productOptions,
     Wrapped<
       List<
         ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductAttrs$Item
-      >
+      >?
     >?
     productAttrs,
-    Wrapped<String>? sourcePlatform,
-    Wrapped<String>? platformUrl,
-    Wrapped<String>? platformProductId,
-    Wrapped<String>? skuCode,
-    Wrapped<String>? sellPriceCur,
-    Wrapped<String>? sellPrice,
-    Wrapped<String>? targetSellPrice,
-    Wrapped<String>? targetSellCur,
-    Wrapped<String>? productFlag,
-    Wrapped<String>? marketingInfo,
-    Wrapped<String>? sellQuantity,
+    Wrapped<String?>? sourcePlatform,
+    Wrapped<String?>? platformUrl,
+    Wrapped<String?>? platformProductId,
+    Wrapped<String?>? skuCode,
+    Wrapped<String?>? sellPriceCur,
+    Wrapped<String?>? sellPrice,
+    Wrapped<String?>? targetSellPrice,
+    Wrapped<String?>? targetSellCur,
+    Wrapped<String?>? productFlag,
+    Wrapped<String?>? marketingInfo,
+    Wrapped<String?>? sellQuantity,
     Wrapped<
       List<
         ProductServiceProductNoAuthKolProductGet$Response$Data$Item$Tags$Item
-      >
+      >?
     >?
     tags,
     Wrapped<
@@ -9181,11 +9187,11 @@ extension $ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$DataE
 @JsonSerializable(explicitToJson: true)
 class ProductServiceRecommendNoAuthCategoryPost$Response$Data {
   const ProductServiceRecommendNoAuthCategoryPost$Response$Data({
-    required this.total,
-    required this.pageSize,
-    required this.totalPages,
-    required this.current,
-    required this.records,
+    this.total,
+    this.pageSize,
+    this.totalPages,
+    this.current,
+    this.records,
   });
 
   factory ProductServiceRecommendNoAuthCategoryPost$Response$Data.fromJson(
@@ -9198,17 +9204,17 @@ class ProductServiceRecommendNoAuthCategoryPost$Response$Data {
       _$ProductServiceRecommendNoAuthCategoryPost$Response$DataToJson(this);
 
   @JsonKey(name: 'total')
-  final String total;
+  final String? total;
   @JsonKey(name: 'pageSize')
-  final String pageSize;
+  final String? pageSize;
   @JsonKey(name: 'totalPages')
-  final String totalPages;
+  final String? totalPages;
   @JsonKey(name: 'current')
-  final String current;
+  final String? current;
   @JsonKey(name: 'records')
   final List<
     ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item
-  >
+  >?
   records;
   static const fromJsonFactory =
       _$ProductServiceRecommendNoAuthCategoryPost$Response$DataFromJson;
@@ -9271,12 +9277,14 @@ extension $ProductServiceRecommendNoAuthCategoryPost$Response$DataExtension
   }
 
   ProductServiceRecommendNoAuthCategoryPost$Response$Data copyWithWrapped({
-    Wrapped<String>? total,
-    Wrapped<String>? pageSize,
-    Wrapped<String>? totalPages,
-    Wrapped<String>? current,
+    Wrapped<String?>? total,
+    Wrapped<String?>? pageSize,
+    Wrapped<String?>? totalPages,
+    Wrapped<String?>? current,
     Wrapped<
-      List<ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item>
+      List<
+        ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item
+      >?
     >?
     records,
   }) {
@@ -9293,11 +9301,11 @@ extension $ProductServiceRecommendNoAuthCategoryPost$Response$DataExtension
 @JsonSerializable(explicitToJson: true)
 class ProductServiceRecommendNoAuthShopPost$Response$Data {
   const ProductServiceRecommendNoAuthShopPost$Response$Data({
-    required this.total,
-    required this.pageSize,
-    required this.totalPages,
-    required this.current,
-    required this.records,
+    this.total,
+    this.pageSize,
+    this.totalPages,
+    this.current,
+    this.records,
   });
 
   factory ProductServiceRecommendNoAuthShopPost$Response$Data.fromJson(
@@ -9310,15 +9318,15 @@ class ProductServiceRecommendNoAuthShopPost$Response$Data {
       _$ProductServiceRecommendNoAuthShopPost$Response$DataToJson(this);
 
   @JsonKey(name: 'total')
-  final String total;
+  final String? total;
   @JsonKey(name: 'pageSize')
-  final String pageSize;
+  final String? pageSize;
   @JsonKey(name: 'totalPages')
-  final String totalPages;
+  final String? totalPages;
   @JsonKey(name: 'current')
-  final String current;
+  final String? current;
   @JsonKey(name: 'records')
-  final List<ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item>
+  final List<ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item>?
   records;
   static const fromJsonFactory =
       _$ProductServiceRecommendNoAuthShopPost$Response$DataFromJson;
@@ -9381,12 +9389,12 @@ extension $ProductServiceRecommendNoAuthShopPost$Response$DataExtension
   }
 
   ProductServiceRecommendNoAuthShopPost$Response$Data copyWithWrapped({
-    Wrapped<String>? total,
-    Wrapped<String>? pageSize,
-    Wrapped<String>? totalPages,
-    Wrapped<String>? current,
+    Wrapped<String?>? total,
+    Wrapped<String?>? pageSize,
+    Wrapped<String?>? totalPages,
+    Wrapped<String?>? current,
     Wrapped<
-      List<ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item>
+      List<ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item>?
     >?
     records,
   }) {
@@ -9403,11 +9411,11 @@ extension $ProductServiceRecommendNoAuthShopPost$Response$DataExtension
 @JsonSerializable(explicitToJson: true)
 class ProductServiceRecommendNoAuthSimilarProductPost$Response$Data {
   const ProductServiceRecommendNoAuthSimilarProductPost$Response$Data({
-    required this.records,
-    required this.total,
-    required this.pageSize,
-    required this.totalPages,
-    required this.current,
+    this.records,
+    this.total,
+    this.pageSize,
+    this.totalPages,
+    this.current,
   });
 
   factory ProductServiceRecommendNoAuthSimilarProductPost$Response$Data.fromJson(
@@ -9426,16 +9434,16 @@ class ProductServiceRecommendNoAuthSimilarProductPost$Response$Data {
   @JsonKey(name: 'records')
   final List<
     ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item
-  >
+  >?
   records;
   @JsonKey(name: 'total')
-  final String total;
+  final String? total;
   @JsonKey(name: 'pageSize')
-  final String pageSize;
+  final String? pageSize;
   @JsonKey(name: 'totalPages')
-  final String totalPages;
+  final String? totalPages;
   @JsonKey(name: 'current')
-  final String current;
+  final String? current;
   static const fromJsonFactory =
       _$ProductServiceRecommendNoAuthSimilarProductPost$Response$DataFromJson;
 
@@ -9503,13 +9511,13 @@ extension $ProductServiceRecommendNoAuthSimilarProductPost$Response$DataExtensio
     Wrapped<
       List<
         ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item
-      >
+      >?
     >?
     records,
-    Wrapped<String>? total,
-    Wrapped<String>? pageSize,
-    Wrapped<String>? totalPages,
-    Wrapped<String>? current,
+    Wrapped<String?>? total,
+    Wrapped<String?>? pageSize,
+    Wrapped<String?>? totalPages,
+    Wrapped<String?>? current,
   }) {
     return ProductServiceRecommendNoAuthSimilarProductPost$Response$Data(
       records: (records != null ? records.value : this.records),
@@ -9829,14 +9837,14 @@ extension $ProductServiceProductReviewNoAuthSummaryGet$Response$Data$FeaturedRev
 @JsonSerializable(explicitToJson: true)
 class ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item {
   const ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item({
-    required this.id,
-    required this.parentId,
-    required this.level,
-    required this.showOrder,
-    required this.name,
-    required this.iconUrl,
-    required this.categoryList,
-    required this.brands,
+    this.id,
+    this.parentId,
+    this.level,
+    this.showOrder,
+    this.name,
+    this.iconUrl,
+    this.categoryList,
+    this.brands,
   });
 
   factory ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item.fromJson(
@@ -9854,24 +9862,24 @@ class ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item {
       );
 
   @JsonKey(name: 'id')
-  final double id;
+  final double? id;
   @JsonKey(name: 'parentId')
-  final double parentId;
+  final double? parentId;
   @JsonKey(name: 'level')
-  final double level;
+  final double? level;
   @JsonKey(name: 'showOrder')
-  final double showOrder;
+  final double? showOrder;
   @JsonKey(name: 'name')
-  final String name;
+  final String? name;
   @JsonKey(name: 'iconUrl')
-  final String iconUrl;
+  final String? iconUrl;
   @JsonKey(name: 'categoryList')
   final List<
     ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item
-  >
+  >?
   categoryList;
   @JsonKey(name: 'brands', defaultValue: <Object>[])
-  final List<Object> brands;
+  final List<Object>? brands;
   static const fromJsonFactory =
       _$ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$ItemFromJson;
 
@@ -9954,19 +9962,19 @@ extension $ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$ItemEx
 
   ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item
   copyWithWrapped({
-    Wrapped<double>? id,
-    Wrapped<double>? parentId,
-    Wrapped<double>? level,
-    Wrapped<double>? showOrder,
-    Wrapped<String>? name,
-    Wrapped<String>? iconUrl,
+    Wrapped<double?>? id,
+    Wrapped<double?>? parentId,
+    Wrapped<double?>? level,
+    Wrapped<double?>? showOrder,
+    Wrapped<String?>? name,
+    Wrapped<String?>? iconUrl,
     Wrapped<
       List<
         ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item
-      >
+      >?
     >?
     categoryList,
-    Wrapped<List<Object>>? brands,
+    Wrapped<List<Object>?>? brands,
   }) {
     return ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item(
       id: (id != null ? id.value : this.id),
@@ -10111,20 +10119,20 @@ extension $ProductServiceActivityNoAuthFlashSaleActivityGet$Response$Data$Activi
 @JsonSerializable(explicitToJson: true)
 class ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item {
   const ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item({
-    required this.productCode,
-    required this.productName,
-    required this.image,
-    required this.skuCode,
-    required this.sellPriceCur,
-    required this.sellPrice,
-    required this.targetSellPrice,
-    required this.targetOriginPrice,
-    required this.targetSellCur,
-    required this.sellQuantity,
-    required this.skuCount,
-    required this.marketingInfo,
-    required this.tags,
-    required this.flashSale,
+    this.productCode,
+    this.productName,
+    this.image,
+    this.skuCode,
+    this.sellPriceCur,
+    this.sellPrice,
+    this.targetSellPrice,
+    this.targetOriginPrice,
+    this.targetSellCur,
+    this.sellQuantity,
+    this.skuCount,
+    this.marketingInfo,
+    this.tags,
+    this.flashSale,
   });
 
   factory ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item.fromJson(
@@ -10142,37 +10150,37 @@ class ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Reco
       );
 
   @JsonKey(name: 'productCode')
-  final String productCode;
+  final String? productCode;
   @JsonKey(name: 'productName')
-  final String productName;
+  final String? productName;
   @JsonKey(name: 'image')
-  final ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Image
+  final ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Image?
   image;
   @JsonKey(name: 'skuCode')
-  final String skuCode;
+  final String? skuCode;
   @JsonKey(name: 'sellPriceCur')
-  final String sellPriceCur;
+  final String? sellPriceCur;
   @JsonKey(name: 'sellPrice')
-  final String sellPrice;
+  final String? sellPrice;
   @JsonKey(name: 'targetSellPrice')
-  final String targetSellPrice;
+  final String? targetSellPrice;
   @JsonKey(name: 'targetOriginPrice')
-  final String targetOriginPrice;
+  final String? targetOriginPrice;
   @JsonKey(name: 'targetSellCur')
-  final String targetSellCur;
+  final String? targetSellCur;
   @JsonKey(name: 'sellQuantity')
-  final String sellQuantity;
+  final String? sellQuantity;
   @JsonKey(name: 'skuCount')
-  final int skuCount;
+  final int? skuCount;
   @JsonKey(name: 'marketingInfo')
-  final String marketingInfo;
+  final String? marketingInfo;
   @JsonKey(name: 'tags')
   final List<
     ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Tags$Item
-  >
+  >?
   tags;
   @JsonKey(name: 'flashSale')
-  final ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$FlashSale
+  final ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$FlashSale?
   flashSale;
   static const fromJsonFactory =
       _$ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$ItemFromJson;
@@ -10315,29 +10323,29 @@ extension $ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data
 
   ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item
   copyWithWrapped({
-    Wrapped<String>? productCode,
-    Wrapped<String>? productName,
+    Wrapped<String?>? productCode,
+    Wrapped<String?>? productName,
     Wrapped<
-      ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Image
+      ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Image?
     >?
     image,
-    Wrapped<String>? skuCode,
-    Wrapped<String>? sellPriceCur,
-    Wrapped<String>? sellPrice,
-    Wrapped<String>? targetSellPrice,
-    Wrapped<String>? targetOriginPrice,
-    Wrapped<String>? targetSellCur,
-    Wrapped<String>? sellQuantity,
-    Wrapped<int>? skuCount,
-    Wrapped<String>? marketingInfo,
+    Wrapped<String?>? skuCode,
+    Wrapped<String?>? sellPriceCur,
+    Wrapped<String?>? sellPrice,
+    Wrapped<String?>? targetSellPrice,
+    Wrapped<String?>? targetOriginPrice,
+    Wrapped<String?>? targetSellCur,
+    Wrapped<String?>? sellQuantity,
+    Wrapped<int?>? skuCount,
+    Wrapped<String?>? marketingInfo,
     Wrapped<
       List<
         ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Tags$Item
-      >
+      >?
     >?
     tags,
     Wrapped<
-      ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$FlashSale
+      ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$FlashSale?
     >?
     flashSale,
   }) {
@@ -11234,20 +11242,20 @@ extension $ProductServiceProductPremiumDupeNoAuthSelectionGet$Response$Data$Item
 @JsonSerializable(explicitToJson: true)
 class ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item {
   const ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item({
-    required this.productCode,
-    required this.productName,
-    required this.image,
-    required this.skuCode,
-    required this.sellPriceCur,
-    required this.sellPrice,
-    required this.targetSellPrice,
-    required this.targetSellCur,
-    required this.sellQuantity,
-    required this.tags,
+    this.productCode,
+    this.productName,
+    this.image,
+    this.skuCode,
+    this.sellPriceCur,
+    this.sellPrice,
+    this.targetSellPrice,
+    this.targetSellCur,
+    this.sellQuantity,
+    this.tags,
     this.premiumBrandInfo,
     this.sellPoints,
-    required this.targetOriginPrice,
-    required this.marketingInfo,
+    this.targetOriginPrice,
+    this.marketingInfo,
   });
 
   factory ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item.fromJson(
@@ -11265,28 +11273,28 @@ class ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item {
       );
 
   @JsonKey(name: 'productCode')
-  final String productCode;
+  final String? productCode;
   @JsonKey(name: 'productName')
-  final String productName;
+  final String? productName;
   @JsonKey(name: 'image')
-  final ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item$Image
+  final ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item$Image?
   image;
   @JsonKey(name: 'skuCode')
-  final String skuCode;
+  final String? skuCode;
   @JsonKey(name: 'sellPriceCur')
-  final String sellPriceCur;
+  final String? sellPriceCur;
   @JsonKey(name: 'sellPrice')
-  final String sellPrice;
+  final String? sellPrice;
   @JsonKey(name: 'targetSellPrice')
-  final String targetSellPrice;
+  final String? targetSellPrice;
   @JsonKey(name: 'targetSellCur')
-  final String targetSellCur;
+  final String? targetSellCur;
   @JsonKey(name: 'sellQuantity')
-  final String sellQuantity;
+  final String? sellQuantity;
   @JsonKey(name: 'tags')
   final List<
     ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item$Tags$Item
-  >
+  >?
   tags;
   @JsonKey(name: 'premiumBrandInfo')
   final ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item$PremiumBrandInfo?
@@ -11294,9 +11302,9 @@ class ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item {
   @JsonKey(name: 'sellPoints', defaultValue: <Object>[])
   final List<Object>? sellPoints;
   @JsonKey(name: 'targetOriginPrice')
-  final String targetOriginPrice;
+  final String? targetOriginPrice;
   @JsonKey(name: 'marketingInfo')
-  final String marketingInfo;
+  final String? marketingInfo;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthPushProductGet$Response$Data$Records$ItemFromJson;
 
@@ -11437,22 +11445,22 @@ extension $ProductServiceProductNoAuthPushProductGet$Response$Data$Records$ItemE
 
   ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item
   copyWithWrapped({
-    Wrapped<String>? productCode,
-    Wrapped<String>? productName,
+    Wrapped<String?>? productCode,
+    Wrapped<String?>? productName,
     Wrapped<
-      ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item$Image
+      ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item$Image?
     >?
     image,
-    Wrapped<String>? skuCode,
-    Wrapped<String>? sellPriceCur,
-    Wrapped<String>? sellPrice,
-    Wrapped<String>? targetSellPrice,
-    Wrapped<String>? targetSellCur,
-    Wrapped<String>? sellQuantity,
+    Wrapped<String?>? skuCode,
+    Wrapped<String?>? sellPriceCur,
+    Wrapped<String?>? sellPrice,
+    Wrapped<String?>? targetSellPrice,
+    Wrapped<String?>? targetSellCur,
+    Wrapped<String?>? sellQuantity,
     Wrapped<
       List<
         ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item$Tags$Item
-      >
+      >?
     >?
     tags,
     Wrapped<
@@ -11460,8 +11468,8 @@ extension $ProductServiceProductNoAuthPushProductGet$Response$Data$Records$ItemE
     >?
     premiumBrandInfo,
     Wrapped<List<Object>?>? sellPoints,
-    Wrapped<String>? targetOriginPrice,
-    Wrapped<String>? marketingInfo,
+    Wrapped<String?>? targetOriginPrice,
+    Wrapped<String?>? marketingInfo,
   }) {
     return ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item(
       productCode: (productCode != null ? productCode.value : this.productCode),
@@ -11499,9 +11507,9 @@ extension $ProductServiceProductNoAuthPushProductGet$Response$Data$Records$ItemE
 @JsonSerializable(explicitToJson: true)
 class ProductServiceProductNoAuthSearchGet$Response$Data$Item$MainImg {
   const ProductServiceProductNoAuthSearchGet$Response$Data$Item$MainImg({
-    required this.width,
-    required this.height,
-    required this.url,
+    this.width,
+    this.height,
+    this.url,
   });
 
   factory ProductServiceProductNoAuthSearchGet$Response$Data$Item$MainImg.fromJson(
@@ -11519,11 +11527,11 @@ class ProductServiceProductNoAuthSearchGet$Response$Data$Item$MainImg {
       );
 
   @JsonKey(name: 'width')
-  final int width;
+  final int? width;
   @JsonKey(name: 'height')
-  final int height;
+  final int? height;
   @JsonKey(name: 'url')
-  final String url;
+  final String? url;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthSearchGet$Response$Data$Item$MainImgFromJson;
 
@@ -11566,9 +11574,9 @@ extension $ProductServiceProductNoAuthSearchGet$Response$Data$Item$MainImgExtens
 
   ProductServiceProductNoAuthSearchGet$Response$Data$Item$MainImg
   copyWithWrapped({
-    Wrapped<int>? width,
-    Wrapped<int>? height,
-    Wrapped<String>? url,
+    Wrapped<int?>? width,
+    Wrapped<int?>? height,
+    Wrapped<String?>? url,
   }) {
     return ProductServiceProductNoAuthSearchGet$Response$Data$Item$MainImg(
       width: (width != null ? width.value : this.width),
@@ -11581,9 +11589,9 @@ extension $ProductServiceProductNoAuthSearchGet$Response$Data$Item$MainImgExtens
 @JsonSerializable(explicitToJson: true)
 class ProductServiceProductNoAuthSearchGet$Response$Data$Item$SubImg {
   const ProductServiceProductNoAuthSearchGet$Response$Data$Item$SubImg({
-    required this.width,
-    required this.height,
-    required this.url,
+    this.width,
+    this.height,
+    this.url,
   });
 
   factory ProductServiceProductNoAuthSearchGet$Response$Data$Item$SubImg.fromJson(
@@ -11600,11 +11608,11 @@ class ProductServiceProductNoAuthSearchGet$Response$Data$Item$SubImg {
       );
 
   @JsonKey(name: 'width')
-  final int width;
+  final int? width;
   @JsonKey(name: 'height')
-  final int height;
+  final int? height;
   @JsonKey(name: 'url')
-  final String url;
+  final String? url;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthSearchGet$Response$Data$Item$SubImgFromJson;
 
@@ -11647,9 +11655,9 @@ extension $ProductServiceProductNoAuthSearchGet$Response$Data$Item$SubImgExtensi
 
   ProductServiceProductNoAuthSearchGet$Response$Data$Item$SubImg
   copyWithWrapped({
-    Wrapped<int>? width,
-    Wrapped<int>? height,
-    Wrapped<String>? url,
+    Wrapped<int?>? width,
+    Wrapped<int?>? height,
+    Wrapped<String?>? url,
   }) {
     return ProductServiceProductNoAuthSearchGet$Response$Data$Item$SubImg(
       width: (width != null ? width.value : this.width),
@@ -11662,7 +11670,7 @@ extension $ProductServiceProductNoAuthSearchGet$Response$Data$Item$SubImgExtensi
 @JsonSerializable(explicitToJson: true)
 class ProductServiceProductNoAuthSearchGet$Response$Data$Item$MainVideo {
   const ProductServiceProductNoAuthSearchGet$Response$Data$Item$MainVideo({
-    required this.videoUrl,
+    this.videoUrl,
   });
 
   factory ProductServiceProductNoAuthSearchGet$Response$Data$Item$MainVideo.fromJson(
@@ -11680,7 +11688,7 @@ class ProductServiceProductNoAuthSearchGet$Response$Data$Item$MainVideo {
       );
 
   @JsonKey(name: 'videoUrl')
-  final String videoUrl;
+  final String? videoUrl;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthSearchGet$Response$Data$Item$MainVideoFromJson;
 
@@ -11715,7 +11723,7 @@ extension $ProductServiceProductNoAuthSearchGet$Response$Data$Item$MainVideoExte
   }
 
   ProductServiceProductNoAuthSearchGet$Response$Data$Item$MainVideo
-  copyWithWrapped({Wrapped<String>? videoUrl}) {
+  copyWithWrapped({Wrapped<String?>? videoUrl}) {
     return ProductServiceProductNoAuthSearchGet$Response$Data$Item$MainVideo(
       videoUrl: (videoUrl != null ? videoUrl.value : this.videoUrl),
     );
@@ -11725,9 +11733,9 @@ extension $ProductServiceProductNoAuthSearchGet$Response$Data$Item$MainVideoExte
 @JsonSerializable(explicitToJson: true)
 class ProductServiceProductNoAuthSearchGet$Response$Data$Item$ImgCollection$Item {
   const ProductServiceProductNoAuthSearchGet$Response$Data$Item$ImgCollection$Item({
-    required this.width,
-    required this.height,
-    required this.url,
+    this.width,
+    this.height,
+    this.url,
   });
 
   factory ProductServiceProductNoAuthSearchGet$Response$Data$Item$ImgCollection$Item.fromJson(
@@ -11745,11 +11753,11 @@ class ProductServiceProductNoAuthSearchGet$Response$Data$Item$ImgCollection$Item
       );
 
   @JsonKey(name: 'width')
-  final String width;
+  final String? width;
   @JsonKey(name: 'height')
-  final String height;
+  final String? height;
   @JsonKey(name: 'url')
-  final String url;
+  final String? url;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthSearchGet$Response$Data$Item$ImgCollection$ItemFromJson;
 
@@ -11790,9 +11798,9 @@ extension $ProductServiceProductNoAuthSearchGet$Response$Data$Item$ImgCollection
 
   ProductServiceProductNoAuthSearchGet$Response$Data$Item$ImgCollection$Item
   copyWithWrapped({
-    Wrapped<String>? width,
-    Wrapped<String>? height,
-    Wrapped<String>? url,
+    Wrapped<String?>? width,
+    Wrapped<String?>? height,
+    Wrapped<String?>? url,
   }) {
     return ProductServiceProductNoAuthSearchGet$Response$Data$Item$ImgCollection$Item(
       width: (width != null ? width.value : this.width),
@@ -11805,11 +11813,11 @@ extension $ProductServiceProductNoAuthSearchGet$Response$Data$Item$ImgCollection
 @JsonSerializable(explicitToJson: true)
 class ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item {
   const ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item({
-    required this.name,
-    required this.enName,
-    required this.styleType,
-    required this.type,
-    required this.optionValues,
+    this.name,
+    this.enName,
+    this.styleType,
+    this.type,
+    this.optionValues,
   });
 
   factory ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item.fromJson(
@@ -11827,17 +11835,17 @@ class ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Ite
       );
 
   @JsonKey(name: 'name')
-  final String name;
+  final String? name;
   @JsonKey(name: 'enName')
-  final String enName;
+  final String? enName;
   @JsonKey(name: 'styleType')
-  final int styleType;
+  final int? styleType;
   @JsonKey(name: 'type')
-  final String type;
+  final String? type;
   @JsonKey(name: 'optionValues')
   final List<
     ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item
-  >
+  >?
   optionValues;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductOptions$ItemFromJson;
@@ -11902,14 +11910,14 @@ extension $ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductOption
 
   ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item
   copyWithWrapped({
-    Wrapped<String>? name,
-    Wrapped<String>? enName,
-    Wrapped<int>? styleType,
-    Wrapped<String>? type,
+    Wrapped<String?>? name,
+    Wrapped<String?>? enName,
+    Wrapped<int?>? styleType,
+    Wrapped<String?>? type,
     Wrapped<
       List<
         ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item
-      >
+      >?
     >?
     optionValues,
   }) {
@@ -11928,8 +11936,8 @@ extension $ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductOption
 @JsonSerializable(explicitToJson: true)
 class ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductAttrs$Item {
   const ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductAttrs$Item({
-    required this.name,
-    required this.value,
+    this.name,
+    this.value,
   });
 
   factory ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductAttrs$Item.fromJson(
@@ -11947,9 +11955,9 @@ class ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductAttrs$Item 
       );
 
   @JsonKey(name: 'name')
-  final String name;
+  final String? name;
   @JsonKey(name: 'value')
-  final String value;
+  final String? value;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductAttrs$ItemFromJson;
 
@@ -11985,7 +11993,7 @@ extension $ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductAttrs$
   }
 
   ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductAttrs$Item
-  copyWithWrapped({Wrapped<String>? name, Wrapped<String>? value}) {
+  copyWithWrapped({Wrapped<String?>? name, Wrapped<String?>? value}) {
     return ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductAttrs$Item(
       name: (name != null ? name.value : this.name),
       value: (value != null ? value.value : this.value),
@@ -12070,30 +12078,30 @@ extension $ProductServiceProductNoAuthSearchGet$Response$Data$Item$PremiumBrandI
 @JsonSerializable(explicitToJson: true)
 class ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item {
   const ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item({
-    required this.shopCode,
-    required this.productCode,
-    required this.productName,
-    required this.tenantCode,
+    this.shopCode,
+    this.productCode,
+    this.productName,
+    this.tenantCode,
     this.brandName,
-    required this.mainImg,
-    required this.subImg,
-    required this.mainVideo,
-    required this.imgCollection,
-    required this.textDetail,
-    required this.imgDetail,
-    required this.categoryId,
-    required this.productOptions,
-    required this.productAttrs,
-    required this.sourcePlatform,
-    required this.platformUrl,
-    required this.platformProductId,
-    required this.skuCode,
-    required this.sellPriceCur,
-    required this.sellPrice,
-    required this.targetSellPrice,
-    required this.targetSellCur,
-    required this.sellQuantity,
-    required this.tags,
+    this.mainImg,
+    this.subImg,
+    this.mainVideo,
+    this.imgCollection,
+    this.textDetail,
+    this.imgDetail,
+    this.categoryId,
+    this.productOptions,
+    this.productAttrs,
+    this.sourcePlatform,
+    this.platformUrl,
+    this.platformProductId,
+    this.skuCode,
+    this.sellPriceCur,
+    this.sellPrice,
+    this.targetSellPrice,
+    this.targetSellCur,
+    this.sellQuantity,
+    this.tags,
     this.premiumBrandInfo,
     this.sellPoints,
   });
@@ -12113,70 +12121,70 @@ class ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item {
       );
 
   @JsonKey(name: 'shopCode')
-  final String shopCode;
+  final String? shopCode;
   @JsonKey(name: 'productCode')
-  final String productCode;
+  final String? productCode;
   @JsonKey(name: 'productName')
-  final String productName;
+  final String? productName;
   @JsonKey(name: 'tenantCode')
-  final String tenantCode;
+  final String? tenantCode;
   @JsonKey(name: 'brandName')
   final String? brandName;
   @JsonKey(name: 'mainImg')
   final List<
     ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainImg$Item
-  >
+  >?
   mainImg;
   @JsonKey(name: 'subImg')
-  final Object subImg;
+  final Object? subImg;
   @JsonKey(name: 'mainVideo')
   final List<
     ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainVideo$Item
-  >
+  >?
   mainVideo;
   @JsonKey(name: 'imgCollection')
   final List<
     ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgCollection$Item
-  >
+  >?
   imgCollection;
   @JsonKey(name: 'textDetail')
-  final Object textDetail;
+  final Object? textDetail;
   @JsonKey(name: 'imgDetail')
   final List<
     ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgDetail$Item
-  >
+  >?
   imgDetail;
   @JsonKey(name: 'categoryId')
-  final double categoryId;
+  final double? categoryId;
   @JsonKey(name: 'productOptions')
   final List<
     ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$Item
-  >
+  >?
   productOptions;
   @JsonKey(name: 'productAttrs', defaultValue: <Object>[])
-  final List<Object> productAttrs;
+  final List<Object>? productAttrs;
   @JsonKey(name: 'sourcePlatform')
-  final String sourcePlatform;
+  final String? sourcePlatform;
   @JsonKey(name: 'platformUrl')
-  final String platformUrl;
+  final String? platformUrl;
   @JsonKey(name: 'platformProductId')
-  final String platformProductId;
+  final String? platformProductId;
   @JsonKey(name: 'skuCode')
-  final String skuCode;
+  final String? skuCode;
   @JsonKey(name: 'sellPriceCur')
-  final String sellPriceCur;
+  final String? sellPriceCur;
   @JsonKey(name: 'sellPrice')
-  final String sellPrice;
+  final String? sellPrice;
   @JsonKey(name: 'targetSellPrice')
-  final String targetSellPrice;
+  final String? targetSellPrice;
   @JsonKey(name: 'targetSellCur')
-  final String targetSellCur;
+  final String? targetSellCur;
   @JsonKey(name: 'sellQuantity')
-  final String sellQuantity;
+  final String? sellQuantity;
   @JsonKey(name: 'tags')
   final List<
     ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$Tags$Item
-  >
+  >?
   tags;
   @JsonKey(name: 'premiumBrandInfo')
   final ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$PremiumBrandInfo?
@@ -12433,58 +12441,58 @@ extension $ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Ite
 
   ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item
   copyWithWrapped({
-    Wrapped<String>? shopCode,
-    Wrapped<String>? productCode,
-    Wrapped<String>? productName,
-    Wrapped<String>? tenantCode,
+    Wrapped<String?>? shopCode,
+    Wrapped<String?>? productCode,
+    Wrapped<String?>? productName,
+    Wrapped<String?>? tenantCode,
     Wrapped<String?>? brandName,
     Wrapped<
       List<
         ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainImg$Item
-      >
+      >?
     >?
     mainImg,
-    Wrapped<Object>? subImg,
+    Wrapped<Object?>? subImg,
     Wrapped<
       List<
         ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainVideo$Item
-      >
+      >?
     >?
     mainVideo,
     Wrapped<
       List<
         ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgCollection$Item
-      >
+      >?
     >?
     imgCollection,
-    Wrapped<Object>? textDetail,
+    Wrapped<Object?>? textDetail,
     Wrapped<
       List<
         ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgDetail$Item
-      >
+      >?
     >?
     imgDetail,
-    Wrapped<double>? categoryId,
+    Wrapped<double?>? categoryId,
     Wrapped<
       List<
         ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$Item
-      >
+      >?
     >?
     productOptions,
-    Wrapped<List<Object>>? productAttrs,
-    Wrapped<String>? sourcePlatform,
-    Wrapped<String>? platformUrl,
-    Wrapped<String>? platformProductId,
-    Wrapped<String>? skuCode,
-    Wrapped<String>? sellPriceCur,
-    Wrapped<String>? sellPrice,
-    Wrapped<String>? targetSellPrice,
-    Wrapped<String>? targetSellCur,
-    Wrapped<String>? sellQuantity,
+    Wrapped<List<Object>?>? productAttrs,
+    Wrapped<String?>? sourcePlatform,
+    Wrapped<String?>? platformUrl,
+    Wrapped<String?>? platformProductId,
+    Wrapped<String?>? skuCode,
+    Wrapped<String?>? sellPriceCur,
+    Wrapped<String?>? sellPrice,
+    Wrapped<String?>? targetSellPrice,
+    Wrapped<String?>? targetSellCur,
+    Wrapped<String?>? sellQuantity,
     Wrapped<
       List<
         ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$Tags$Item
-      >
+      >?
     >?
     tags,
     Wrapped<
@@ -13056,9 +13064,9 @@ extension $ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records
 @JsonSerializable(explicitToJson: true)
 class ProductServiceProductNoAuthSkuListGet$Response$Data$Item$SkuImg {
   const ProductServiceProductNoAuthSkuListGet$Response$Data$Item$SkuImg({
-    required this.width,
-    required this.height,
-    required this.url,
+    this.width,
+    this.height,
+    this.url,
   });
 
   factory ProductServiceProductNoAuthSkuListGet$Response$Data$Item$SkuImg.fromJson(
@@ -13076,11 +13084,11 @@ class ProductServiceProductNoAuthSkuListGet$Response$Data$Item$SkuImg {
       );
 
   @JsonKey(name: 'width')
-  final int width;
+  final int? width;
   @JsonKey(name: 'height')
-  final int height;
+  final int? height;
   @JsonKey(name: 'url')
-  final String url;
+  final String? url;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthSkuListGet$Response$Data$Item$SkuImgFromJson;
 
@@ -13123,9 +13131,9 @@ extension $ProductServiceProductNoAuthSkuListGet$Response$Data$Item$SkuImgExtens
 
   ProductServiceProductNoAuthSkuListGet$Response$Data$Item$SkuImg
   copyWithWrapped({
-    Wrapped<int>? width,
-    Wrapped<int>? height,
-    Wrapped<String>? url,
+    Wrapped<int?>? width,
+    Wrapped<int?>? height,
+    Wrapped<String?>? url,
   }) {
     return ProductServiceProductNoAuthSkuListGet$Response$Data$Item$SkuImg(
       width: (width != null ? width.value : this.width),
@@ -13138,8 +13146,8 @@ extension $ProductServiceProductNoAuthSkuListGet$Response$Data$Item$SkuImgExtens
 @JsonSerializable(explicitToJson: true)
 class ProductServiceProductNoAuthSkuListGet$Response$Data$Item$SkuOptions$Item {
   const ProductServiceProductNoAuthSkuListGet$Response$Data$Item$SkuOptions$Item({
-    required this.name,
-    required this.value,
+    this.name,
+    this.value,
   });
 
   factory ProductServiceProductNoAuthSkuListGet$Response$Data$Item$SkuOptions$Item.fromJson(
@@ -13157,9 +13165,9 @@ class ProductServiceProductNoAuthSkuListGet$Response$Data$Item$SkuOptions$Item {
       );
 
   @JsonKey(name: 'name')
-  final String name;
+  final String? name;
   @JsonKey(name: 'value')
-  final String value;
+  final String? value;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthSkuListGet$Response$Data$Item$SkuOptions$ItemFromJson;
 
@@ -13195,7 +13203,7 @@ extension $ProductServiceProductNoAuthSkuListGet$Response$Data$Item$SkuOptions$I
   }
 
   ProductServiceProductNoAuthSkuListGet$Response$Data$Item$SkuOptions$Item
-  copyWithWrapped({Wrapped<String>? name, Wrapped<String>? value}) {
+  copyWithWrapped({Wrapped<String?>? name, Wrapped<String?>? value}) {
     return ProductServiceProductNoAuthSkuListGet$Response$Data$Item$SkuOptions$Item(
       name: (name != null ? name.value : this.name),
       value: (value != null ? value.value : this.value),
@@ -13206,13 +13214,13 @@ extension $ProductServiceProductNoAuthSkuListGet$Response$Data$Item$SkuOptions$I
 @JsonSerializable(explicitToJson: true)
 class ProductServiceProductNoAuthSkuListGet$Response$Data$Item$FlashSaleInfo {
   const ProductServiceProductNoAuthSkuListGet$Response$Data$Item$FlashSaleInfo({
-    required this.activityCode,
-    required this.activityTitle,
-    required this.startTime,
-    required this.endTime,
-    required this.progressPercent,
-    required this.progressText,
-    required this.marketingIcon,
+    this.activityCode,
+    this.activityTitle,
+    this.startTime,
+    this.endTime,
+    this.progressPercent,
+    this.progressText,
+    this.marketingIcon,
   });
 
   factory ProductServiceProductNoAuthSkuListGet$Response$Data$Item$FlashSaleInfo.fromJson(
@@ -13230,19 +13238,19 @@ class ProductServiceProductNoAuthSkuListGet$Response$Data$Item$FlashSaleInfo {
       );
 
   @JsonKey(name: 'activityCode')
-  final String activityCode;
+  final String? activityCode;
   @JsonKey(name: 'activityTitle')
-  final String activityTitle;
+  final String? activityTitle;
   @JsonKey(name: 'startTime')
-  final int startTime;
+  final int? startTime;
   @JsonKey(name: 'endTime')
-  final int endTime;
+  final int? endTime;
   @JsonKey(name: 'progressPercent')
-  final int progressPercent;
+  final int? progressPercent;
   @JsonKey(name: 'progressText')
-  final String progressText;
+  final String? progressText;
   @JsonKey(name: 'marketingIcon')
-  final String marketingIcon;
+  final String? marketingIcon;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthSkuListGet$Response$Data$Item$FlashSaleInfoFromJson;
 
@@ -13328,13 +13336,13 @@ extension $ProductServiceProductNoAuthSkuListGet$Response$Data$Item$FlashSaleInf
 
   ProductServiceProductNoAuthSkuListGet$Response$Data$Item$FlashSaleInfo
   copyWithWrapped({
-    Wrapped<String>? activityCode,
-    Wrapped<String>? activityTitle,
-    Wrapped<int>? startTime,
-    Wrapped<int>? endTime,
-    Wrapped<int>? progressPercent,
-    Wrapped<String>? progressText,
-    Wrapped<String>? marketingIcon,
+    Wrapped<String?>? activityCode,
+    Wrapped<String?>? activityTitle,
+    Wrapped<int?>? startTime,
+    Wrapped<int?>? endTime,
+    Wrapped<int?>? progressPercent,
+    Wrapped<String?>? progressText,
+    Wrapped<String?>? marketingIcon,
   }) {
     return ProductServiceProductNoAuthSkuListGet$Response$Data$Item$FlashSaleInfo(
       activityCode: (activityCode != null
@@ -13551,9 +13559,9 @@ extension $ProductServiceProductNoAuthGetProductInfoGet$Response$Data$MainVideo$
 @JsonSerializable(explicitToJson: true)
 class ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgCollection$Item {
   const ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgCollection$Item({
-    required this.width,
-    required this.height,
-    required this.url,
+    this.width,
+    this.height,
+    this.url,
   });
 
   factory ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgCollection$Item.fromJson(
@@ -13571,11 +13579,11 @@ class ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgCollection$I
       );
 
   @JsonKey(name: 'width')
-  final double width;
+  final double? width;
   @JsonKey(name: 'height')
-  final double height;
+  final double? height;
   @JsonKey(name: 'url')
-  final String url;
+  final String? url;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgCollection$ItemFromJson;
 
@@ -13616,9 +13624,9 @@ extension $ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgCollect
 
   ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgCollection$Item
   copyWithWrapped({
-    Wrapped<double>? width,
-    Wrapped<double>? height,
-    Wrapped<String>? url,
+    Wrapped<double?>? width,
+    Wrapped<double?>? height,
+    Wrapped<String?>? url,
   }) {
     return ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgCollection$Item(
       width: (width != null ? width.value : this.width),
@@ -13631,9 +13639,9 @@ extension $ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgCollect
 @JsonSerializable(explicitToJson: true)
 class ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgDetail$Item {
   const ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgDetail$Item({
-    required this.width,
-    required this.height,
-    required this.url,
+    this.width,
+    this.height,
+    this.url,
   });
 
   factory ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgDetail$Item.fromJson(
@@ -13651,11 +13659,11 @@ class ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgDetail$Item 
       );
 
   @JsonKey(name: 'width')
-  final double width;
+  final double? width;
   @JsonKey(name: 'height')
-  final double height;
+  final double? height;
   @JsonKey(name: 'url')
-  final String url;
+  final String? url;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgDetail$ItemFromJson;
 
@@ -13696,9 +13704,9 @@ extension $ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgDetail$
 
   ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgDetail$Item
   copyWithWrapped({
-    Wrapped<double>? width,
-    Wrapped<double>? height,
-    Wrapped<String>? url,
+    Wrapped<double?>? width,
+    Wrapped<double?>? height,
+    Wrapped<String?>? url,
   }) {
     return ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgDetail$Item(
       width: (width != null ? width.value : this.width),
@@ -13711,9 +13719,9 @@ extension $ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgDetail$
 @JsonSerializable(explicitToJson: true)
 class ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item {
   const ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item({
-    required this.name,
-    required this.type,
-    required this.optionValues,
+    this.name,
+    this.type,
+    this.optionValues,
   });
 
   factory ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item.fromJson(
@@ -13731,13 +13739,13 @@ class ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$
       );
 
   @JsonKey(name: 'name')
-  final String name;
+  final String? name;
   @JsonKey(name: 'type')
-  final double type;
+  final double? type;
   @JsonKey(name: 'optionValues')
   final List<
     ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item$OptionValues$Item
-  >
+  >?
   optionValues;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$ItemFromJson;
@@ -13789,12 +13797,12 @@ extension $ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductOpt
 
   ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item
   copyWithWrapped({
-    Wrapped<String>? name,
-    Wrapped<double>? type,
+    Wrapped<String?>? name,
+    Wrapped<double?>? type,
     Wrapped<
       List<
         ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item$OptionValues$Item
-      >
+      >?
     >?
     optionValues,
   }) {
@@ -13811,8 +13819,8 @@ extension $ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductOpt
 @JsonSerializable(explicitToJson: true)
 class ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductAttrs$Item {
   const ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductAttrs$Item({
-    required this.name,
-    required this.value,
+    this.name,
+    this.value,
   });
 
   factory ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductAttrs$Item.fromJson(
@@ -13830,9 +13838,9 @@ class ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductAttrs$It
       );
 
   @JsonKey(name: 'name')
-  final String name;
+  final String? name;
   @JsonKey(name: 'value')
-  final String value;
+  final String? value;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductAttrs$ItemFromJson;
 
@@ -13868,7 +13876,7 @@ extension $ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductAtt
   }
 
   ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductAttrs$Item
-  copyWithWrapped({Wrapped<String>? name, Wrapped<String>? value}) {
+  copyWithWrapped({Wrapped<String?>? name, Wrapped<String?>? value}) {
     return ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductAttrs$Item(
       name: (name != null ? name.value : this.name),
       value: (value != null ? value.value : this.value),
@@ -13961,9 +13969,9 @@ extension $ProductServiceProductNoAuthGetProductInfoGet$Response$Data$InspectIma
 @JsonSerializable(explicitToJson: true)
 class ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Tags$Item {
   const ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Tags$Item({
-    required this.tagCode,
-    required this.tagName,
-    required this.tagImg,
+    this.tagCode,
+    this.tagName,
+    this.tagImg,
   });
 
   factory ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Tags$Item.fromJson(
@@ -13981,11 +13989,11 @@ class ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Tags$Item {
       );
 
   @JsonKey(name: 'tagCode')
-  final String tagCode;
+  final String? tagCode;
   @JsonKey(name: 'tagName')
-  final String tagName;
+  final String? tagName;
   @JsonKey(name: 'tagImg')
-  final String tagImg;
+  final String? tagImg;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Tags$ItemFromJson;
 
@@ -14031,9 +14039,9 @@ extension $ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Tags$ItemE
 
   ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Tags$Item
   copyWithWrapped({
-    Wrapped<String>? tagCode,
-    Wrapped<String>? tagName,
-    Wrapped<String>? tagImg,
+    Wrapped<String?>? tagCode,
+    Wrapped<String?>? tagName,
+    Wrapped<String?>? tagImg,
   }) {
     return ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Tags$Item(
       tagCode: (tagCode != null ? tagCode.value : this.tagCode),
@@ -14120,8 +14128,8 @@ extension $ProductServiceProductNoAuthGetProductInfoGet$Response$Data$PremiumBra
 @JsonSerializable(explicitToJson: true)
 class ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Ext {
   const ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Ext({
-    required this.sizeHelperOptionName,
-    required this.sizeHelperType,
+    this.sizeHelperOptionName,
+    this.sizeHelperType,
     this.brand,
   });
 
@@ -14139,9 +14147,9 @@ class ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Ext {
       );
 
   @JsonKey(name: 'sizeHelperOptionName')
-  final String sizeHelperOptionName;
+  final String? sizeHelperOptionName;
   @JsonKey(name: 'sizeHelperType')
-  final int sizeHelperType;
+  final int? sizeHelperType;
   @JsonKey(name: 'brand')
   final ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Ext$Brand?
   brand;
@@ -14193,8 +14201,8 @@ extension $ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ExtExtensi
 
   ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Ext
   copyWithWrapped({
-    Wrapped<String>? sizeHelperOptionName,
-    Wrapped<int>? sizeHelperType,
+    Wrapped<String?>? sizeHelperOptionName,
+    Wrapped<int?>? sizeHelperType,
     Wrapped<
       ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Ext$Brand?
     >?
@@ -14215,14 +14223,14 @@ extension $ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ExtExtensi
 @JsonSerializable(explicitToJson: true)
 class ProductServiceProductNoAuthGetProductInfoGet$Response$Data$FlashSale {
   const ProductServiceProductNoAuthGetProductInfoGet$Response$Data$FlashSale({
-    required this.activityCode,
-    required this.activityTitle,
-    required this.startTime,
-    required this.endTime,
-    required this.progressPercent,
-    required this.progressText,
-    required this.marketingIcon,
-    required this.discountExpr,
+    this.activityCode,
+    this.activityTitle,
+    this.startTime,
+    this.endTime,
+    this.progressPercent,
+    this.progressText,
+    this.marketingIcon,
+    this.discountExpr,
   });
 
   factory ProductServiceProductNoAuthGetProductInfoGet$Response$Data$FlashSale.fromJson(
@@ -14240,21 +14248,21 @@ class ProductServiceProductNoAuthGetProductInfoGet$Response$Data$FlashSale {
       );
 
   @JsonKey(name: 'activityCode')
-  final String activityCode;
+  final String? activityCode;
   @JsonKey(name: 'activityTitle')
-  final String activityTitle;
+  final String? activityTitle;
   @JsonKey(name: 'startTime')
-  final String startTime;
+  final String? startTime;
   @JsonKey(name: 'endTime')
-  final String endTime;
+  final String? endTime;
   @JsonKey(name: 'progressPercent')
-  final String progressPercent;
+  final String? progressPercent;
   @JsonKey(name: 'progressText')
-  final String progressText;
+  final String? progressText;
   @JsonKey(name: 'marketingIcon')
-  final String marketingIcon;
+  final String? marketingIcon;
   @JsonKey(name: 'discountExpr')
-  final String discountExpr;
+  final String? discountExpr;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$FlashSaleFromJson;
 
@@ -14348,14 +14356,14 @@ extension $ProductServiceProductNoAuthGetProductInfoGet$Response$Data$FlashSaleE
 
   ProductServiceProductNoAuthGetProductInfoGet$Response$Data$FlashSale
   copyWithWrapped({
-    Wrapped<String>? activityCode,
-    Wrapped<String>? activityTitle,
-    Wrapped<String>? startTime,
-    Wrapped<String>? endTime,
-    Wrapped<String>? progressPercent,
-    Wrapped<String>? progressText,
-    Wrapped<String>? marketingIcon,
-    Wrapped<String>? discountExpr,
+    Wrapped<String?>? activityCode,
+    Wrapped<String?>? activityTitle,
+    Wrapped<String?>? startTime,
+    Wrapped<String?>? endTime,
+    Wrapped<String?>? progressPercent,
+    Wrapped<String?>? progressText,
+    Wrapped<String?>? marketingIcon,
+    Wrapped<String?>? discountExpr,
   }) {
     return ProductServiceProductNoAuthGetProductInfoGet$Response$Data$FlashSale(
       activityCode: (activityCode != null
@@ -14385,14 +14393,14 @@ extension $ProductServiceProductNoAuthGetProductInfoGet$Response$Data$FlashSaleE
 @JsonSerializable(explicitToJson: true)
 class ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item {
   const ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item({
-    required this.id,
-    required this.parentId,
-    required this.level,
-    required this.showOrder,
-    required this.name,
-    required this.iconUrl,
-    required this.categoryList,
-    required this.brands,
+    this.id,
+    this.parentId,
+    this.level,
+    this.showOrder,
+    this.name,
+    this.iconUrl,
+    this.categoryList,
+    this.brands,
   });
 
   factory ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item.fromJson(
@@ -14410,24 +14418,24 @@ class ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data$Categor
       );
 
   @JsonKey(name: 'id')
-  final double id;
+  final double? id;
   @JsonKey(name: 'parentId')
-  final double parentId;
+  final double? parentId;
   @JsonKey(name: 'level')
-  final double level;
+  final double? level;
   @JsonKey(name: 'showOrder')
-  final double showOrder;
+  final double? showOrder;
   @JsonKey(name: 'name')
-  final String name;
+  final String? name;
   @JsonKey(name: 'iconUrl')
-  final String iconUrl;
+  final String? iconUrl;
   @JsonKey(name: 'categoryList')
   final List<
     ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item$CategoryList$Item
-  >
+  >?
   categoryList;
   @JsonKey(name: 'brands', defaultValue: <Object>[])
-  final List<Object> brands;
+  final List<Object>? brands;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$ItemFromJson;
 
@@ -14513,19 +14521,19 @@ extension $ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data$Ca
 
   ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item
   copyWithWrapped({
-    Wrapped<double>? id,
-    Wrapped<double>? parentId,
-    Wrapped<double>? level,
-    Wrapped<double>? showOrder,
-    Wrapped<String>? name,
-    Wrapped<String>? iconUrl,
+    Wrapped<double?>? id,
+    Wrapped<double?>? parentId,
+    Wrapped<double?>? level,
+    Wrapped<double?>? showOrder,
+    Wrapped<String?>? name,
+    Wrapped<String?>? iconUrl,
     Wrapped<
       List<
         ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item$CategoryList$Item
-      >
+      >?
     >?
     categoryList,
-    Wrapped<List<Object>>? brands,
+    Wrapped<List<Object>?>? brands,
   }) {
     return ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item(
       id: (id != null ? id.value : this.id),
@@ -14545,9 +14553,9 @@ extension $ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data$Ca
 @JsonSerializable(explicitToJson: true)
 class ProductServiceProductNoAuthHotProductGet$Response$Data$Item$Image {
   const ProductServiceProductNoAuthHotProductGet$Response$Data$Item$Image({
-    required this.width,
-    required this.height,
-    required this.url,
+    this.width,
+    this.height,
+    this.url,
   });
 
   factory ProductServiceProductNoAuthHotProductGet$Response$Data$Item$Image.fromJson(
@@ -14565,11 +14573,11 @@ class ProductServiceProductNoAuthHotProductGet$Response$Data$Item$Image {
       );
 
   @JsonKey(name: 'width')
-  final int width;
+  final int? width;
   @JsonKey(name: 'height')
-  final int height;
+  final int? height;
   @JsonKey(name: 'url')
-  final String url;
+  final String? url;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthHotProductGet$Response$Data$Item$ImageFromJson;
 
@@ -14612,9 +14620,9 @@ extension $ProductServiceProductNoAuthHotProductGet$Response$Data$Item$ImageExte
 
   ProductServiceProductNoAuthHotProductGet$Response$Data$Item$Image
   copyWithWrapped({
-    Wrapped<int>? width,
-    Wrapped<int>? height,
-    Wrapped<String>? url,
+    Wrapped<int?>? width,
+    Wrapped<int?>? height,
+    Wrapped<String?>? url,
   }) {
     return ProductServiceProductNoAuthHotProductGet$Response$Data$Item$Image(
       width: (width != null ? width.value : this.width),
@@ -14772,16 +14780,16 @@ extension $ProductServiceProductNoAuthHotProductGet$Response$Data$Item$PremiumBr
 @JsonSerializable(explicitToJson: true)
 class ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item {
   const ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item({
-    required this.productCode,
-    required this.productName,
-    required this.image,
-    required this.skuCode,
-    required this.sellPriceCur,
-    required this.sellPrice,
-    required this.targetSellPrice,
-    required this.targetSellCur,
-    required this.sellQuantity,
-    required this.tags,
+    this.productCode,
+    this.productName,
+    this.image,
+    this.skuCode,
+    this.sellPriceCur,
+    this.sellPrice,
+    this.targetSellPrice,
+    this.targetSellCur,
+    this.sellQuantity,
+    this.tags,
     this.premiumBrandInfo,
     this.sellPoints,
     this.rate,
@@ -14805,28 +14813,28 @@ class ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item {
       );
 
   @JsonKey(name: 'productCode')
-  final String productCode;
+  final String? productCode;
   @JsonKey(name: 'productName')
-  final String productName;
+  final String? productName;
   @JsonKey(name: 'image')
-  final ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$Image
+  final ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$Image?
   image;
   @JsonKey(name: 'skuCode')
-  final String skuCode;
+  final String? skuCode;
   @JsonKey(name: 'sellPriceCur')
-  final String sellPriceCur;
+  final String? sellPriceCur;
   @JsonKey(name: 'sellPrice')
-  final String sellPrice;
+  final String? sellPrice;
   @JsonKey(name: 'targetSellPrice')
-  final String targetSellPrice;
+  final String? targetSellPrice;
   @JsonKey(name: 'targetSellCur')
-  final String targetSellCur;
+  final String? targetSellCur;
   @JsonKey(name: 'sellQuantity')
-  final String sellQuantity;
+  final String? sellQuantity;
   @JsonKey(name: 'tags')
   final List<
     ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$Tags$Item
-  >
+  >?
   tags;
   @JsonKey(name: 'premiumBrandInfo')
   final ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$PremiumBrandInfo?
@@ -14996,22 +15004,22 @@ extension $ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item
 
   ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item
   copyWithWrapped({
-    Wrapped<String>? productCode,
-    Wrapped<String>? productName,
+    Wrapped<String?>? productCode,
+    Wrapped<String?>? productName,
     Wrapped<
-      ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$Image
+      ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$Image?
     >?
     image,
-    Wrapped<String>? skuCode,
-    Wrapped<String>? sellPriceCur,
-    Wrapped<String>? sellPrice,
-    Wrapped<String>? targetSellPrice,
-    Wrapped<String>? targetSellCur,
-    Wrapped<String>? sellQuantity,
+    Wrapped<String?>? skuCode,
+    Wrapped<String?>? sellPriceCur,
+    Wrapped<String?>? sellPrice,
+    Wrapped<String?>? targetSellPrice,
+    Wrapped<String?>? targetSellCur,
+    Wrapped<String?>? sellQuantity,
     Wrapped<
       List<
         ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$Tags$Item
-      >
+      >?
     >?
     tags,
     Wrapped<
@@ -15065,21 +15073,21 @@ extension $ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item
 @JsonSerializable(explicitToJson: true)
 class ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item {
   const ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item({
-    required this.productCode,
-    required this.productName,
-    required this.image,
-    required this.sourcePlatform,
-    required this.platformProductId,
-    required this.skuCode,
-    required this.sellPriceCur,
-    required this.sellPrice,
-    required this.targetSellPrice,
-    required this.targetOriginPrice,
-    required this.targetSellCur,
-    required this.sellQuantity,
-    required this.skuCount,
-    required this.marketingInfo,
-    required this.tags,
+    this.productCode,
+    this.productName,
+    this.image,
+    this.sourcePlatform,
+    this.platformProductId,
+    this.skuCode,
+    this.sellPriceCur,
+    this.sellPrice,
+    this.targetSellPrice,
+    this.targetOriginPrice,
+    this.targetSellCur,
+    this.sellQuantity,
+    this.skuCount,
+    this.marketingInfo,
+    this.tags,
     this.premiumBrandInfo,
     this.sellPoints,
     this.rate,
@@ -15101,38 +15109,38 @@ class ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item {
       );
 
   @JsonKey(name: 'productCode')
-  final String productCode;
+  final String? productCode;
   @JsonKey(name: 'productName')
-  final String productName;
+  final String? productName;
   @JsonKey(name: 'image')
-  final ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$Image
+  final ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$Image?
   image;
   @JsonKey(name: 'sourcePlatform')
-  final String sourcePlatform;
+  final String? sourcePlatform;
   @JsonKey(name: 'platformProductId')
-  final String platformProductId;
+  final String? platformProductId;
   @JsonKey(name: 'skuCode')
-  final String skuCode;
+  final String? skuCode;
   @JsonKey(name: 'sellPriceCur')
-  final String sellPriceCur;
+  final String? sellPriceCur;
   @JsonKey(name: 'sellPrice')
-  final String sellPrice;
+  final String? sellPrice;
   @JsonKey(name: 'targetSellPrice')
-  final String targetSellPrice;
+  final String? targetSellPrice;
   @JsonKey(name: 'targetOriginPrice')
-  final String targetOriginPrice;
+  final String? targetOriginPrice;
   @JsonKey(name: 'targetSellCur')
-  final String targetSellCur;
+  final String? targetSellCur;
   @JsonKey(name: 'sellQuantity')
-  final String sellQuantity;
+  final String? sellQuantity;
   @JsonKey(name: 'skuCount')
-  final double skuCount;
+  final double? skuCount;
   @JsonKey(name: 'marketingInfo')
-  final String marketingInfo;
+  final String? marketingInfo;
   @JsonKey(name: 'tags')
   final List<
     ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$Tags$Item
-  >
+  >?
   tags;
   @JsonKey(name: 'premiumBrandInfo')
   final ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$PremiumBrandInfo?
@@ -15322,27 +15330,27 @@ extension $ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item
 
   ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item
   copyWithWrapped({
-    Wrapped<String>? productCode,
-    Wrapped<String>? productName,
+    Wrapped<String?>? productCode,
+    Wrapped<String?>? productName,
     Wrapped<
-      ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$Image
+      ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$Image?
     >?
     image,
-    Wrapped<String>? sourcePlatform,
-    Wrapped<String>? platformProductId,
-    Wrapped<String>? skuCode,
-    Wrapped<String>? sellPriceCur,
-    Wrapped<String>? sellPrice,
-    Wrapped<String>? targetSellPrice,
-    Wrapped<String>? targetOriginPrice,
-    Wrapped<String>? targetSellCur,
-    Wrapped<String>? sellQuantity,
-    Wrapped<double>? skuCount,
-    Wrapped<String>? marketingInfo,
+    Wrapped<String?>? sourcePlatform,
+    Wrapped<String?>? platformProductId,
+    Wrapped<String?>? skuCode,
+    Wrapped<String?>? sellPriceCur,
+    Wrapped<String?>? sellPrice,
+    Wrapped<String?>? targetSellPrice,
+    Wrapped<String?>? targetOriginPrice,
+    Wrapped<String?>? targetSellCur,
+    Wrapped<String?>? sellQuantity,
+    Wrapped<double?>? skuCount,
+    Wrapped<String?>? marketingInfo,
     Wrapped<
       List<
         ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$Tags$Item
-      >
+      >?
     >?
     tags,
     Wrapped<
@@ -15401,9 +15409,9 @@ extension $ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item
 @JsonSerializable(explicitToJson: true)
 class ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$MainImg$Item {
   const ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$MainImg$Item({
-    required this.width,
-    required this.height,
-    required this.url,
+    this.width,
+    this.height,
+    this.url,
   });
 
   factory ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$MainImg$Item.fromJson(
@@ -15421,11 +15429,11 @@ class ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$MainImg$
       );
 
   @JsonKey(name: 'width')
-  final double width;
+  final double? width;
   @JsonKey(name: 'height')
-  final double height;
+  final double? height;
   @JsonKey(name: 'url')
-  final String url;
+  final String? url;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$MainImg$ItemFromJson;
 
@@ -15466,9 +15474,9 @@ extension $ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$Mai
 
   ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$MainImg$Item
   copyWithWrapped({
-    Wrapped<double>? width,
-    Wrapped<double>? height,
-    Wrapped<String>? url,
+    Wrapped<double?>? width,
+    Wrapped<double?>? height,
+    Wrapped<String?>? url,
   }) {
     return ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$MainImg$Item(
       width: (width != null ? width.value : this.width),
@@ -15481,11 +15489,11 @@ extension $ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$Mai
 @JsonSerializable(explicitToJson: true)
 class ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$MainVideo$Item {
   const ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$MainVideo$Item({
-    required this.videoUrl,
-    required this.vodUrl,
-    required this.previewUrl,
-    required this.width,
-    required this.height,
+    this.videoUrl,
+    this.vodUrl,
+    this.previewUrl,
+    this.width,
+    this.height,
   });
 
   factory ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$MainVideo$Item.fromJson(
@@ -15503,15 +15511,15 @@ class ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$MainVide
       );
 
   @JsonKey(name: 'videoUrl')
-  final String videoUrl;
+  final String? videoUrl;
   @JsonKey(name: 'vodUrl')
-  final String vodUrl;
+  final String? vodUrl;
   @JsonKey(name: 'previewUrl')
-  final String previewUrl;
+  final String? previewUrl;
   @JsonKey(name: 'width')
-  final double width;
+  final double? width;
   @JsonKey(name: 'height')
-  final double height;
+  final double? height;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$MainVideo$ItemFromJson;
 
@@ -15573,11 +15581,11 @@ extension $ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$Mai
 
   ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$MainVideo$Item
   copyWithWrapped({
-    Wrapped<String>? videoUrl,
-    Wrapped<String>? vodUrl,
-    Wrapped<String>? previewUrl,
-    Wrapped<double>? width,
-    Wrapped<double>? height,
+    Wrapped<String?>? videoUrl,
+    Wrapped<String?>? vodUrl,
+    Wrapped<String?>? previewUrl,
+    Wrapped<double?>? width,
+    Wrapped<double?>? height,
   }) {
     return ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$MainVideo$Item(
       videoUrl: (videoUrl != null ? videoUrl.value : this.videoUrl),
@@ -15592,9 +15600,9 @@ extension $ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$Mai
 @JsonSerializable(explicitToJson: true)
 class ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgCollection$Item {
   const ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgCollection$Item({
-    required this.width,
-    required this.height,
-    required this.url,
+    this.width,
+    this.height,
+    this.url,
   });
 
   factory ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgCollection$Item.fromJson(
@@ -15612,11 +15620,11 @@ class ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgColle
       );
 
   @JsonKey(name: 'width')
-  final double width;
+  final double? width;
   @JsonKey(name: 'height')
-  final double height;
+  final double? height;
   @JsonKey(name: 'url')
-  final String url;
+  final String? url;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgCollection$ItemFromJson;
 
@@ -15658,9 +15666,9 @@ extension $ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$Img
 
   ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgCollection$Item
   copyWithWrapped({
-    Wrapped<double>? width,
-    Wrapped<double>? height,
-    Wrapped<String>? url,
+    Wrapped<double?>? width,
+    Wrapped<double?>? height,
+    Wrapped<String?>? url,
   }) {
     return ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgCollection$Item(
       width: (width != null ? width.value : this.width),
@@ -15673,9 +15681,9 @@ extension $ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$Img
 @JsonSerializable(explicitToJson: true)
 class ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgDetail$Item {
   const ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgDetail$Item({
-    required this.width,
-    required this.height,
-    required this.url,
+    this.width,
+    this.height,
+    this.url,
   });
 
   factory ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgDetail$Item.fromJson(
@@ -15693,11 +15701,11 @@ class ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgDetai
       );
 
   @JsonKey(name: 'width')
-  final double width;
+  final double? width;
   @JsonKey(name: 'height')
-  final double height;
+  final double? height;
   @JsonKey(name: 'url')
-  final String url;
+  final String? url;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgDetail$ItemFromJson;
 
@@ -15739,9 +15747,9 @@ extension $ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$Img
 
   ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgDetail$Item
   copyWithWrapped({
-    Wrapped<double>? width,
-    Wrapped<double>? height,
-    Wrapped<String>? url,
+    Wrapped<double?>? width,
+    Wrapped<double?>? height,
+    Wrapped<String?>? url,
   }) {
     return ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgDetail$Item(
       width: (width != null ? width.value : this.width),
@@ -15754,9 +15762,9 @@ extension $ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$Img
 @JsonSerializable(explicitToJson: true)
 class ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item {
   const ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item({
-    required this.name,
-    required this.type,
-    required this.optionValues,
+    this.name,
+    this.type,
+    this.optionValues,
   });
 
   factory ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item.fromJson(
@@ -15774,13 +15782,13 @@ class ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductO
       );
 
   @JsonKey(name: 'name')
-  final String name;
+  final String? name;
   @JsonKey(name: 'type')
-  final double type;
+  final double? type;
   @JsonKey(name: 'optionValues')
   final List<
     ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item
-  >
+  >?
   optionValues;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$ItemFromJson;
@@ -15833,12 +15841,12 @@ extension $ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$Pro
 
   ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item
   copyWithWrapped({
-    Wrapped<String>? name,
-    Wrapped<double>? type,
+    Wrapped<String?>? name,
+    Wrapped<double?>? type,
     Wrapped<
       List<
         ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item
-      >
+      >?
     >?
     optionValues,
   }) {
@@ -15855,8 +15863,8 @@ extension $ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$Pro
 @JsonSerializable(explicitToJson: true)
 class ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductAttrs$Item {
   const ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductAttrs$Item({
-    required this.name,
-    required this.value,
+    this.name,
+    this.value,
   });
 
   factory ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductAttrs$Item.fromJson(
@@ -15874,9 +15882,9 @@ class ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductA
       );
 
   @JsonKey(name: 'name')
-  final String name;
+  final String? name;
   @JsonKey(name: 'value')
-  final String value;
+  final String? value;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductAttrs$ItemFromJson;
 
@@ -15913,7 +15921,7 @@ extension $ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$Pro
   }
 
   ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductAttrs$Item
-  copyWithWrapped({Wrapped<String>? name, Wrapped<String>? value}) {
+  copyWithWrapped({Wrapped<String?>? name, Wrapped<String?>? value}) {
     return ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductAttrs$Item(
       name: (name != null ? name.value : this.name),
       value: (value != null ? value.value : this.value),
@@ -16579,17 +16587,17 @@ extension $ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item
 @JsonSerializable(explicitToJson: true)
 class ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$Item {
   const ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$Item({
-    required this.productCode,
-    required this.productName,
-    required this.image,
-    required this.skuCode,
-    required this.sellPriceCur,
-    required this.sellPrice,
-    required this.targetSellPrice,
-    required this.targetSellCur,
-    required this.sellQuantity,
-    required this.marketingInfo,
-    required this.targetOriginPrice,
+    this.productCode,
+    this.productName,
+    this.image,
+    this.skuCode,
+    this.sellPriceCur,
+    this.sellPrice,
+    this.targetSellPrice,
+    this.targetSellCur,
+    this.sellQuantity,
+    this.marketingInfo,
+    this.targetOriginPrice,
     this.premiumBrandInfo,
     this.sellPoints,
   });
@@ -16609,28 +16617,28 @@ class ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$Item {
       );
 
   @JsonKey(name: 'productCode')
-  final String productCode;
+  final String? productCode;
   @JsonKey(name: 'productName')
-  final String productName;
+  final String? productName;
   @JsonKey(name: 'image')
-  final ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$Item$Image
+  final ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$Item$Image?
   image;
   @JsonKey(name: 'skuCode')
-  final String skuCode;
+  final String? skuCode;
   @JsonKey(name: 'sellPriceCur')
-  final String sellPriceCur;
+  final String? sellPriceCur;
   @JsonKey(name: 'sellPrice')
-  final String sellPrice;
+  final String? sellPrice;
   @JsonKey(name: 'targetSellPrice')
-  final String targetSellPrice;
+  final String? targetSellPrice;
   @JsonKey(name: 'targetSellCur')
-  final String targetSellCur;
+  final String? targetSellCur;
   @JsonKey(name: 'sellQuantity')
-  final String sellQuantity;
+  final String? sellQuantity;
   @JsonKey(name: 'marketingInfo')
-  final String marketingInfo;
+  final String? marketingInfo;
   @JsonKey(name: 'targetOriginPrice')
-  final String targetOriginPrice;
+  final String? targetOriginPrice;
   @JsonKey(name: 'premiumBrandInfo')
   final ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$Item$PremiumBrandInfo?
   premiumBrandInfo;
@@ -16767,20 +16775,20 @@ extension $ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$ItemExt
 
   ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$Item
   copyWithWrapped({
-    Wrapped<String>? productCode,
-    Wrapped<String>? productName,
+    Wrapped<String?>? productCode,
+    Wrapped<String?>? productName,
     Wrapped<
-      ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$Item$Image
+      ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$Item$Image?
     >?
     image,
-    Wrapped<String>? skuCode,
-    Wrapped<String>? sellPriceCur,
-    Wrapped<String>? sellPrice,
-    Wrapped<String>? targetSellPrice,
-    Wrapped<String>? targetSellCur,
-    Wrapped<String>? sellQuantity,
-    Wrapped<String>? marketingInfo,
-    Wrapped<String>? targetOriginPrice,
+    Wrapped<String?>? skuCode,
+    Wrapped<String?>? sellPriceCur,
+    Wrapped<String?>? sellPrice,
+    Wrapped<String?>? targetSellPrice,
+    Wrapped<String?>? targetSellCur,
+    Wrapped<String?>? sellQuantity,
+    Wrapped<String?>? marketingInfo,
+    Wrapped<String?>? targetOriginPrice,
     Wrapped<
       ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$Item$PremiumBrandInfo?
     >?
@@ -16822,9 +16830,9 @@ extension $ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$ItemExt
 @JsonSerializable(explicitToJson: true)
 class ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainImg$Item {
   const ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainImg$Item({
-    required this.width,
-    required this.height,
-    required this.url,
+    this.width,
+    this.height,
+    this.url,
   });
 
   factory ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainImg$Item.fromJson(
@@ -16842,11 +16850,11 @@ class ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainImg$Item {
       );
 
   @JsonKey(name: 'width')
-  final double width;
+  final double? width;
   @JsonKey(name: 'height')
-  final double height;
+  final double? height;
   @JsonKey(name: 'url')
-  final String url;
+  final String? url;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainImg$ItemFromJson;
 
@@ -16887,9 +16895,9 @@ extension $ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainImg$I
 
   ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainImg$Item
   copyWithWrapped({
-    Wrapped<double>? width,
-    Wrapped<double>? height,
-    Wrapped<String>? url,
+    Wrapped<double?>? width,
+    Wrapped<double?>? height,
+    Wrapped<String?>? url,
   }) {
     return ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainImg$Item(
       width: (width != null ? width.value : this.width),
@@ -16902,11 +16910,11 @@ extension $ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainImg$I
 @JsonSerializable(explicitToJson: true)
 class ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainVideo$Item {
   const ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainVideo$Item({
-    required this.videoUrl,
-    required this.vodUrl,
-    required this.previewUrl,
-    required this.width,
-    required this.height,
+    this.videoUrl,
+    this.vodUrl,
+    this.previewUrl,
+    this.width,
+    this.height,
   });
 
   factory ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainVideo$Item.fromJson(
@@ -16924,15 +16932,15 @@ class ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainVideo$Item
       );
 
   @JsonKey(name: 'videoUrl')
-  final String videoUrl;
+  final String? videoUrl;
   @JsonKey(name: 'vodUrl')
-  final String vodUrl;
+  final String? vodUrl;
   @JsonKey(name: 'previewUrl')
-  final String previewUrl;
+  final String? previewUrl;
   @JsonKey(name: 'width')
-  final double width;
+  final double? width;
   @JsonKey(name: 'height')
-  final double height;
+  final double? height;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainVideo$ItemFromJson;
 
@@ -16993,11 +17001,11 @@ extension $ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainVideo
 
   ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainVideo$Item
   copyWithWrapped({
-    Wrapped<String>? videoUrl,
-    Wrapped<String>? vodUrl,
-    Wrapped<String>? previewUrl,
-    Wrapped<double>? width,
-    Wrapped<double>? height,
+    Wrapped<String?>? videoUrl,
+    Wrapped<String?>? vodUrl,
+    Wrapped<String?>? previewUrl,
+    Wrapped<double?>? width,
+    Wrapped<double?>? height,
   }) {
     return ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainVideo$Item(
       videoUrl: (videoUrl != null ? videoUrl.value : this.videoUrl),
@@ -17012,9 +17020,9 @@ extension $ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainVideo
 @JsonSerializable(explicitToJson: true)
 class ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgCollection$Item {
   const ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgCollection$Item({
-    required this.width,
-    required this.height,
-    required this.url,
+    this.width,
+    this.height,
+    this.url,
   });
 
   factory ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgCollection$Item.fromJson(
@@ -17032,11 +17040,11 @@ class ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgCollection$
       );
 
   @JsonKey(name: 'width')
-  final double width;
+  final double? width;
   @JsonKey(name: 'height')
-  final double height;
+  final double? height;
   @JsonKey(name: 'url')
-  final String url;
+  final String? url;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgCollection$ItemFromJson;
 
@@ -17077,9 +17085,9 @@ extension $ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgCollec
 
   ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgCollection$Item
   copyWithWrapped({
-    Wrapped<double>? width,
-    Wrapped<double>? height,
-    Wrapped<String>? url,
+    Wrapped<double?>? width,
+    Wrapped<double?>? height,
+    Wrapped<String?>? url,
   }) {
     return ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgCollection$Item(
       width: (width != null ? width.value : this.width),
@@ -17092,9 +17100,9 @@ extension $ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgCollec
 @JsonSerializable(explicitToJson: true)
 class ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgDetail$Item {
   const ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgDetail$Item({
-    required this.width,
-    required this.height,
-    required this.url,
+    this.width,
+    this.height,
+    this.url,
   });
 
   factory ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgDetail$Item.fromJson(
@@ -17112,11 +17120,11 @@ class ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgDetail$Item
       );
 
   @JsonKey(name: 'width')
-  final double width;
+  final double? width;
   @JsonKey(name: 'height')
-  final double height;
+  final double? height;
   @JsonKey(name: 'url')
-  final String url;
+  final String? url;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgDetail$ItemFromJson;
 
@@ -17157,9 +17165,9 @@ extension $ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgDetail
 
   ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgDetail$Item
   copyWithWrapped({
-    Wrapped<double>? width,
-    Wrapped<double>? height,
-    Wrapped<String>? url,
+    Wrapped<double?>? width,
+    Wrapped<double?>? height,
+    Wrapped<String?>? url,
   }) {
     return ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgDetail$Item(
       width: (width != null ? width.value : this.width),
@@ -17172,9 +17180,9 @@ extension $ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgDetail
 @JsonSerializable(explicitToJson: true)
 class ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item {
   const ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item({
-    required this.name,
-    required this.type,
-    required this.optionValues,
+    this.name,
+    this.type,
+    this.optionValues,
   });
 
   factory ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item.fromJson(
@@ -17192,13 +17200,13 @@ class ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductOptions
       );
 
   @JsonKey(name: 'name')
-  final String name;
+  final String? name;
   @JsonKey(name: 'type')
-  final double type;
+  final double? type;
   @JsonKey(name: 'optionValues')
   final List<
     ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item
-  >
+  >?
   optionValues;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$ItemFromJson;
@@ -17251,12 +17259,12 @@ extension $ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductOp
 
   ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item
   copyWithWrapped({
-    Wrapped<String>? name,
-    Wrapped<double>? type,
+    Wrapped<String?>? name,
+    Wrapped<double?>? type,
     Wrapped<
       List<
         ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item
-      >
+      >?
     >?
     optionValues,
   }) {
@@ -17273,8 +17281,8 @@ extension $ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductOp
 @JsonSerializable(explicitToJson: true)
 class ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductAttrs$Item {
   const ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductAttrs$Item({
-    required this.name,
-    required this.value,
+    this.name,
+    this.value,
   });
 
   factory ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductAttrs$Item.fromJson(
@@ -17292,9 +17300,9 @@ class ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductAttrs$I
       );
 
   @JsonKey(name: 'name')
-  final String name;
+  final String? name;
   @JsonKey(name: 'value')
-  final String value;
+  final String? value;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductAttrs$ItemFromJson;
 
@@ -17330,7 +17338,7 @@ extension $ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductAt
   }
 
   ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductAttrs$Item
-  copyWithWrapped({Wrapped<String>? name, Wrapped<String>? value}) {
+  copyWithWrapped({Wrapped<String?>? name, Wrapped<String?>? value}) {
     return ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductAttrs$Item(
       name: (name != null ? name.value : this.name),
       value: (value != null ? value.value : this.value),
@@ -17995,9 +18003,9 @@ extension $ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$It
 @JsonSerializable(explicitToJson: true)
 class ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item {
   const ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item({
-    required this.categoryName,
-    required this.productInfos,
-    required this.recommendationReason,
+    this.categoryName,
+    this.productInfos,
+    this.recommendationReason,
   });
 
   factory ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item.fromJson(
@@ -18015,14 +18023,14 @@ class ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categ
       );
 
   @JsonKey(name: 'categoryName')
-  final String categoryName;
+  final String? categoryName;
   @JsonKey(name: 'productInfos')
   final List<
     ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item
-  >
+  >?
   productInfos;
   @JsonKey(name: 'recommendationReason')
-  final String recommendationReason;
+  final String? recommendationReason;
   static const fromJsonFactory =
       _$ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$ItemFromJson;
 
@@ -18080,14 +18088,14 @@ extension $ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$
 
   ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item
   copyWithWrapped({
-    Wrapped<String>? categoryName,
+    Wrapped<String?>? categoryName,
     Wrapped<
       List<
         ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item
-      >
+      >?
     >?
     productInfos,
-    Wrapped<String>? recommendationReason,
+    Wrapped<String?>? recommendationReason,
   }) {
     return ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item(
       categoryName: (categoryName != null
@@ -18106,17 +18114,17 @@ extension $ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$
 @JsonSerializable(explicitToJson: true)
 class ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item {
   const ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item({
-    required this.productCode,
-    required this.productName,
-    required this.image,
-    required this.skuCode,
-    required this.sellPriceCur,
-    required this.sellPrice,
-    required this.targetSellPrice,
-    required this.targetSellCur,
-    required this.sellQuantity,
-    required this.skuCount,
-    required this.tags,
+    this.productCode,
+    this.productName,
+    this.image,
+    this.skuCode,
+    this.sellPriceCur,
+    this.sellPrice,
+    this.targetSellPrice,
+    this.targetSellCur,
+    this.sellQuantity,
+    this.skuCount,
+    this.tags,
     this.premiumBrandInfo,
     this.sellPoints,
   });
@@ -18136,30 +18144,30 @@ class ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item {
       );
 
   @JsonKey(name: 'productCode')
-  final String productCode;
+  final String? productCode;
   @JsonKey(name: 'productName')
-  final String productName;
+  final String? productName;
   @JsonKey(name: 'image')
-  final ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item$Image
+  final ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item$Image?
   image;
   @JsonKey(name: 'skuCode')
-  final String skuCode;
+  final String? skuCode;
   @JsonKey(name: 'sellPriceCur')
-  final String sellPriceCur;
+  final String? sellPriceCur;
   @JsonKey(name: 'sellPrice')
-  final String sellPrice;
+  final String? sellPrice;
   @JsonKey(name: 'targetSellPrice')
-  final String targetSellPrice;
+  final String? targetSellPrice;
   @JsonKey(name: 'targetSellCur')
-  final String targetSellCur;
+  final String? targetSellCur;
   @JsonKey(name: 'sellQuantity')
-  final String sellQuantity;
+  final String? sellQuantity;
   @JsonKey(name: 'skuCount')
-  final int skuCount;
+  final int? skuCount;
   @JsonKey(name: 'tags')
   final List<
     ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item$Tags$Item
-  >
+  >?
   tags;
   @JsonKey(name: 'premiumBrandInfo')
   final ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item$PremiumBrandInfo?
@@ -18298,23 +18306,23 @@ extension $ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$ItemE
 
   ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item
   copyWithWrapped({
-    Wrapped<String>? productCode,
-    Wrapped<String>? productName,
+    Wrapped<String?>? productCode,
+    Wrapped<String?>? productName,
     Wrapped<
-      ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item$Image
+      ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item$Image?
     >?
     image,
-    Wrapped<String>? skuCode,
-    Wrapped<String>? sellPriceCur,
-    Wrapped<String>? sellPrice,
-    Wrapped<String>? targetSellPrice,
-    Wrapped<String>? targetSellCur,
-    Wrapped<String>? sellQuantity,
-    Wrapped<int>? skuCount,
+    Wrapped<String?>? skuCode,
+    Wrapped<String?>? sellPriceCur,
+    Wrapped<String?>? sellPrice,
+    Wrapped<String?>? targetSellPrice,
+    Wrapped<String?>? targetSellCur,
+    Wrapped<String?>? sellQuantity,
+    Wrapped<int?>? skuCount,
     Wrapped<
       List<
         ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item$Tags$Item
-      >
+      >?
     >?
     tags,
     Wrapped<
@@ -18354,19 +18362,19 @@ extension $ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$ItemE
 @JsonSerializable(explicitToJson: true)
 class ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item {
   const ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item({
-    required this.productCode,
-    required this.productName,
-    required this.image,
-    required this.skuCode,
-    required this.sellPriceCur,
-    required this.sellPrice,
-    required this.targetSellPrice,
-    required this.targetSellCur,
-    required this.sellQuantity,
-    required this.skuCount,
-    required this.marketingInfo,
-    required this.targetOriginPrice,
-    required this.tags,
+    this.productCode,
+    this.productName,
+    this.image,
+    this.skuCode,
+    this.sellPriceCur,
+    this.sellPrice,
+    this.targetSellPrice,
+    this.targetSellCur,
+    this.sellQuantity,
+    this.skuCount,
+    this.marketingInfo,
+    this.targetOriginPrice,
+    this.tags,
     this.premiumBrandInfo,
     this.sellPoints,
   });
@@ -18386,34 +18394,34 @@ class ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item {
       );
 
   @JsonKey(name: 'productCode')
-  final String productCode;
+  final String? productCode;
   @JsonKey(name: 'productName')
-  final String productName;
+  final String? productName;
   @JsonKey(name: 'image')
-  final ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item$Image
+  final ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item$Image?
   image;
   @JsonKey(name: 'skuCode')
-  final String skuCode;
+  final String? skuCode;
   @JsonKey(name: 'sellPriceCur')
-  final String sellPriceCur;
+  final String? sellPriceCur;
   @JsonKey(name: 'sellPrice')
-  final String sellPrice;
+  final String? sellPrice;
   @JsonKey(name: 'targetSellPrice')
-  final String targetSellPrice;
+  final String? targetSellPrice;
   @JsonKey(name: 'targetSellCur')
-  final String targetSellCur;
+  final String? targetSellCur;
   @JsonKey(name: 'sellQuantity')
-  final String sellQuantity;
+  final String? sellQuantity;
   @JsonKey(name: 'skuCount')
-  final int skuCount;
+  final int? skuCount;
   @JsonKey(name: 'marketingInfo')
-  final String marketingInfo;
+  final String? marketingInfo;
   @JsonKey(name: 'targetOriginPrice')
-  final String targetOriginPrice;
+  final String? targetOriginPrice;
   @JsonKey(name: 'tags')
   final List<
     ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item$Tags$Item
-  >
+  >?
   tags;
   @JsonKey(name: 'premiumBrandInfo')
   final ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item$PremiumBrandInfo?
@@ -18567,25 +18575,25 @@ extension $ProductServiceRecommendNoAuthShopPost$Response$Data$Records$ItemExten
 
   ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item
   copyWithWrapped({
-    Wrapped<String>? productCode,
-    Wrapped<String>? productName,
+    Wrapped<String?>? productCode,
+    Wrapped<String?>? productName,
     Wrapped<
-      ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item$Image
+      ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item$Image?
     >?
     image,
-    Wrapped<String>? skuCode,
-    Wrapped<String>? sellPriceCur,
-    Wrapped<String>? sellPrice,
-    Wrapped<String>? targetSellPrice,
-    Wrapped<String>? targetSellCur,
-    Wrapped<String>? sellQuantity,
-    Wrapped<int>? skuCount,
-    Wrapped<String>? marketingInfo,
-    Wrapped<String>? targetOriginPrice,
+    Wrapped<String?>? skuCode,
+    Wrapped<String?>? sellPriceCur,
+    Wrapped<String?>? sellPrice,
+    Wrapped<String?>? targetSellPrice,
+    Wrapped<String?>? targetSellCur,
+    Wrapped<String?>? sellQuantity,
+    Wrapped<int?>? skuCount,
+    Wrapped<String?>? marketingInfo,
+    Wrapped<String?>? targetOriginPrice,
     Wrapped<
       List<
         ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item$Tags$Item
-      >
+      >?
     >?
     tags,
     Wrapped<
@@ -18631,19 +18639,19 @@ extension $ProductServiceRecommendNoAuthShopPost$Response$Data$Records$ItemExten
 @JsonSerializable(explicitToJson: true)
 class ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item {
   const ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item({
-    required this.productCode,
-    required this.productName,
-    required this.image,
-    required this.skuCode,
-    required this.sellPriceCur,
-    required this.sellPrice,
-    required this.targetSellPrice,
-    required this.targetSellCur,
-    required this.sellQuantity,
-    required this.skuCount,
-    required this.marketingInfo,
-    required this.targetOriginPrice,
-    required this.tags,
+    this.productCode,
+    this.productName,
+    this.image,
+    this.skuCode,
+    this.sellPriceCur,
+    this.sellPrice,
+    this.targetSellPrice,
+    this.targetSellCur,
+    this.sellQuantity,
+    this.skuCount,
+    this.marketingInfo,
+    this.targetOriginPrice,
+    this.tags,
     this.premiumBrandInfo,
     this.sellPoints,
   });
@@ -18663,34 +18671,34 @@ class ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item
       );
 
   @JsonKey(name: 'productCode')
-  final String productCode;
+  final String? productCode;
   @JsonKey(name: 'productName')
-  final String productName;
+  final String? productName;
   @JsonKey(name: 'image')
-  final ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item$Image
+  final ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item$Image?
   image;
   @JsonKey(name: 'skuCode')
-  final String skuCode;
+  final String? skuCode;
   @JsonKey(name: 'sellPriceCur')
-  final String sellPriceCur;
+  final String? sellPriceCur;
   @JsonKey(name: 'sellPrice')
-  final String sellPrice;
+  final String? sellPrice;
   @JsonKey(name: 'targetSellPrice')
-  final String targetSellPrice;
+  final String? targetSellPrice;
   @JsonKey(name: 'targetSellCur')
-  final String targetSellCur;
+  final String? targetSellCur;
   @JsonKey(name: 'sellQuantity')
-  final String sellQuantity;
+  final String? sellQuantity;
   @JsonKey(name: 'skuCount')
-  final int skuCount;
+  final int? skuCount;
   @JsonKey(name: 'marketingInfo')
-  final String marketingInfo;
+  final String? marketingInfo;
   @JsonKey(name: 'targetOriginPrice')
-  final String targetOriginPrice;
+  final String? targetOriginPrice;
   @JsonKey(name: 'tags')
   final List<
     ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item$Tags$Item
-  >
+  >?
   tags;
   @JsonKey(name: 'premiumBrandInfo')
   final ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item$PremiumBrandInfo?
@@ -18845,25 +18853,25 @@ extension $ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records
 
   ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item
   copyWithWrapped({
-    Wrapped<String>? productCode,
-    Wrapped<String>? productName,
+    Wrapped<String?>? productCode,
+    Wrapped<String?>? productName,
     Wrapped<
-      ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item$Image
+      ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item$Image?
     >?
     image,
-    Wrapped<String>? skuCode,
-    Wrapped<String>? sellPriceCur,
-    Wrapped<String>? sellPrice,
-    Wrapped<String>? targetSellPrice,
-    Wrapped<String>? targetSellCur,
-    Wrapped<String>? sellQuantity,
-    Wrapped<int>? skuCount,
-    Wrapped<String>? marketingInfo,
-    Wrapped<String>? targetOriginPrice,
+    Wrapped<String?>? skuCode,
+    Wrapped<String?>? sellPriceCur,
+    Wrapped<String?>? sellPrice,
+    Wrapped<String?>? targetSellPrice,
+    Wrapped<String?>? targetSellCur,
+    Wrapped<String?>? sellQuantity,
+    Wrapped<int?>? skuCount,
+    Wrapped<String?>? marketingInfo,
+    Wrapped<String?>? targetOriginPrice,
     Wrapped<
       List<
         ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item$Tags$Item
-      >
+      >?
     >?
     tags,
     Wrapped<
@@ -18909,14 +18917,14 @@ extension $ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records
 @JsonSerializable(explicitToJson: true)
 class ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item {
   const ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item({
-    required this.id,
-    required this.parentId,
-    required this.level,
-    required this.showOrder,
-    required this.name,
-    required this.iconUrl,
-    required this.categoryList,
-    required this.brands,
+    this.id,
+    this.parentId,
+    this.level,
+    this.showOrder,
+    this.name,
+    this.iconUrl,
+    this.categoryList,
+    this.brands,
   });
 
   factory ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item.fromJson(
@@ -18934,24 +18942,24 @@ class ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$Catego
       );
 
   @JsonKey(name: 'id')
-  final double id;
+  final double? id;
   @JsonKey(name: 'parentId')
-  final double parentId;
+  final double? parentId;
   @JsonKey(name: 'level')
-  final double level;
+  final double? level;
   @JsonKey(name: 'showOrder')
-  final double showOrder;
+  final double? showOrder;
   @JsonKey(name: 'name')
-  final String name;
+  final String? name;
   @JsonKey(name: 'iconUrl')
-  final String iconUrl;
+  final String? iconUrl;
   @JsonKey(name: 'categoryList')
   final List<
     ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item$CategoryList$Item
-  >
+  >?
   categoryList;
   @JsonKey(name: 'brands', defaultValue: <Object>[])
-  final List<Object> brands;
+  final List<Object>? brands;
   static const fromJsonFactory =
       _$ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$ItemFromJson;
 
@@ -19037,19 +19045,19 @@ extension $ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$C
 
   ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item
   copyWithWrapped({
-    Wrapped<double>? id,
-    Wrapped<double>? parentId,
-    Wrapped<double>? level,
-    Wrapped<double>? showOrder,
-    Wrapped<String>? name,
-    Wrapped<String>? iconUrl,
+    Wrapped<double?>? id,
+    Wrapped<double?>? parentId,
+    Wrapped<double?>? level,
+    Wrapped<double?>? showOrder,
+    Wrapped<String?>? name,
+    Wrapped<String?>? iconUrl,
     Wrapped<
       List<
         ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item$CategoryList$Item
-      >
+      >?
     >?
     categoryList,
-    Wrapped<List<Object>>? brands,
+    Wrapped<List<Object>?>? brands,
   }) {
     return ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item(
       id: (id != null ? id.value : this.id),
@@ -19069,9 +19077,9 @@ extension $ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$C
 @JsonSerializable(explicitToJson: true)
 class ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Image {
   const ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Image({
-    required this.width,
-    required this.height,
-    required this.url,
+    this.width,
+    this.height,
+    this.url,
   });
 
   factory ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Image.fromJson(
@@ -19089,11 +19097,11 @@ class ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Reco
       );
 
   @JsonKey(name: 'width')
-  final int width;
+  final int? width;
   @JsonKey(name: 'height')
-  final int height;
+  final int? height;
   @JsonKey(name: 'url')
-  final String url;
+  final String? url;
   static const fromJsonFactory =
       _$ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$ImageFromJson;
 
@@ -19135,9 +19143,9 @@ extension $ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data
 
   ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Image
   copyWithWrapped({
-    Wrapped<int>? width,
-    Wrapped<int>? height,
-    Wrapped<String>? url,
+    Wrapped<int?>? width,
+    Wrapped<int?>? height,
+    Wrapped<String?>? url,
   }) {
     return ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Image(
       width: (width != null ? width.value : this.width),
@@ -19150,10 +19158,10 @@ extension $ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data
 @JsonSerializable(explicitToJson: true)
 class ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Tags$Item {
   const ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Tags$Item({
-    required this.tagCode,
-    required this.tagImg,
-    required this.order,
-    required this.frontShow,
+    this.tagCode,
+    this.tagImg,
+    this.order,
+    this.frontShow,
   });
 
   factory ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Tags$Item.fromJson(
@@ -19171,13 +19179,13 @@ class ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Reco
       );
 
   @JsonKey(name: 'tagCode')
-  final String tagCode;
+  final String? tagCode;
   @JsonKey(name: 'tagImg')
-  final String tagImg;
+  final String? tagImg;
   @JsonKey(name: 'order')
-  final int order;
+  final int? order;
   @JsonKey(name: 'frontShow')
-  final int frontShow;
+  final int? frontShow;
   static const fromJsonFactory =
       _$ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Tags$ItemFromJson;
 
@@ -19229,10 +19237,10 @@ extension $ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data
 
   ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Tags$Item
   copyWithWrapped({
-    Wrapped<String>? tagCode,
-    Wrapped<String>? tagImg,
-    Wrapped<int>? order,
-    Wrapped<int>? frontShow,
+    Wrapped<String?>? tagCode,
+    Wrapped<String?>? tagImg,
+    Wrapped<int?>? order,
+    Wrapped<int?>? frontShow,
   }) {
     return ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Tags$Item(
       tagCode: (tagCode != null ? tagCode.value : this.tagCode),
@@ -19763,9 +19771,9 @@ extension $ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Config$Li
 @JsonSerializable(explicitToJson: true)
 class ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item$Image {
   const ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item$Image({
-    required this.width,
-    required this.height,
-    required this.url,
+    this.width,
+    this.height,
+    this.url,
   });
 
   factory ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item$Image.fromJson(
@@ -19783,11 +19791,11 @@ class ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item$Image
       );
 
   @JsonKey(name: 'width')
-  final int width;
+  final int? width;
   @JsonKey(name: 'height')
-  final int height;
+  final int? height;
   @JsonKey(name: 'url')
-  final String url;
+  final String? url;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item$ImageFromJson;
 
@@ -19828,9 +19836,9 @@ extension $ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item$
 
   ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item$Image
   copyWithWrapped({
-    Wrapped<int>? width,
-    Wrapped<int>? height,
-    Wrapped<String>? url,
+    Wrapped<int?>? width,
+    Wrapped<int?>? height,
+    Wrapped<String?>? url,
   }) {
     return ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item$Image(
       width: (width != null ? width.value : this.width),
@@ -19989,11 +19997,11 @@ extension $ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item$
 @JsonSerializable(explicitToJson: true)
 class ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item {
   const ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item({
-    required this.value,
-    required this.enValue,
-    required this.image,
-    required this.imageWidth,
-    required this.imageHeight,
+    this.value,
+    this.enValue,
+    this.image,
+    this.imageWidth,
+    this.imageHeight,
   });
 
   factory ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item.fromJson(
@@ -20011,15 +20019,15 @@ class ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Ite
       );
 
   @JsonKey(name: 'value')
-  final String value;
+  final String? value;
   @JsonKey(name: 'enValue')
-  final String enValue;
+  final String? enValue;
   @JsonKey(name: 'image')
-  final String image;
+  final String? image;
   @JsonKey(name: 'imageWidth')
-  final int imageWidth;
+  final int? imageWidth;
   @JsonKey(name: 'imageHeight')
-  final int imageHeight;
+  final int? imageHeight;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item$OptionValues$ItemFromJson;
 
@@ -20084,11 +20092,11 @@ extension $ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductOption
 
   ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item
   copyWithWrapped({
-    Wrapped<String>? value,
-    Wrapped<String>? enValue,
-    Wrapped<String>? image,
-    Wrapped<int>? imageWidth,
-    Wrapped<int>? imageHeight,
+    Wrapped<String?>? value,
+    Wrapped<String?>? enValue,
+    Wrapped<String?>? image,
+    Wrapped<int?>? imageWidth,
+    Wrapped<int?>? imageHeight,
   }) {
     return ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item(
       value: (value != null ? value.value : this.value),
@@ -20103,9 +20111,9 @@ extension $ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductOption
 @JsonSerializable(explicitToJson: true)
 class ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainImg$Item {
   const ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainImg$Item({
-    required this.width,
-    required this.height,
-    required this.url,
+    this.width,
+    this.height,
+    this.url,
   });
 
   factory ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainImg$Item.fromJson(
@@ -20123,11 +20131,11 @@ class ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$Mai
       );
 
   @JsonKey(name: 'width')
-  final double width;
+  final double? width;
   @JsonKey(name: 'height')
-  final double height;
+  final double? height;
   @JsonKey(name: 'url')
-  final String url;
+  final String? url;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainImg$ItemFromJson;
 
@@ -20169,9 +20177,9 @@ extension $ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Ite
 
   ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainImg$Item
   copyWithWrapped({
-    Wrapped<double>? width,
-    Wrapped<double>? height,
-    Wrapped<String>? url,
+    Wrapped<double?>? width,
+    Wrapped<double?>? height,
+    Wrapped<String?>? url,
   }) {
     return ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainImg$Item(
       width: (width != null ? width.value : this.width),
@@ -20295,9 +20303,9 @@ extension $ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Ite
 @JsonSerializable(explicitToJson: true)
 class ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgCollection$Item {
   const ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgCollection$Item({
-    required this.width,
-    required this.height,
-    required this.url,
+    this.width,
+    this.height,
+    this.url,
   });
 
   factory ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgCollection$Item.fromJson(
@@ -20315,11 +20323,11 @@ class ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$Img
       );
 
   @JsonKey(name: 'width')
-  final double width;
+  final double? width;
   @JsonKey(name: 'height')
-  final double height;
+  final double? height;
   @JsonKey(name: 'url')
-  final String url;
+  final String? url;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgCollection$ItemFromJson;
 
@@ -20361,9 +20369,9 @@ extension $ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Ite
 
   ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgCollection$Item
   copyWithWrapped({
-    Wrapped<double>? width,
-    Wrapped<double>? height,
-    Wrapped<String>? url,
+    Wrapped<double?>? width,
+    Wrapped<double?>? height,
+    Wrapped<String?>? url,
   }) {
     return ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgCollection$Item(
       width: (width != null ? width.value : this.width),
@@ -20376,9 +20384,9 @@ extension $ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Ite
 @JsonSerializable(explicitToJson: true)
 class ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgDetail$Item {
   const ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgDetail$Item({
-    required this.width,
-    required this.height,
-    required this.url,
+    this.width,
+    this.height,
+    this.url,
   });
 
   factory ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgDetail$Item.fromJson(
@@ -20396,11 +20404,11 @@ class ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$Img
       );
 
   @JsonKey(name: 'width')
-  final double width;
+  final double? width;
   @JsonKey(name: 'height')
-  final double height;
+  final double? height;
   @JsonKey(name: 'url')
-  final String url;
+  final String? url;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgDetail$ItemFromJson;
 
@@ -20442,9 +20450,9 @@ extension $ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Ite
 
   ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgDetail$Item
   copyWithWrapped({
-    Wrapped<double>? width,
-    Wrapped<double>? height,
-    Wrapped<String>? url,
+    Wrapped<double?>? width,
+    Wrapped<double?>? height,
+    Wrapped<String?>? url,
   }) {
     return ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgDetail$Item(
       width: (width != null ? width.value : this.width),
@@ -20457,9 +20465,9 @@ extension $ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Ite
 @JsonSerializable(explicitToJson: true)
 class ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$Item {
   const ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$Item({
-    required this.name,
-    required this.type,
-    required this.optionValues,
+    this.name,
+    this.type,
+    this.optionValues,
   });
 
   factory ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$Item.fromJson(
@@ -20477,13 +20485,13 @@ class ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$Pro
       );
 
   @JsonKey(name: 'name')
-  final String name;
+  final String? name;
   @JsonKey(name: 'type')
-  final double type;
+  final double? type;
   @JsonKey(name: 'optionValues')
   final List<
     ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item
-  >
+  >?
   optionValues;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$ItemFromJson;
@@ -20536,12 +20544,12 @@ extension $ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Ite
 
   ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$Item
   copyWithWrapped({
-    Wrapped<String>? name,
-    Wrapped<double>? type,
+    Wrapped<String?>? name,
+    Wrapped<double?>? type,
     Wrapped<
       List<
         ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item
-      >
+      >?
     >?
     optionValues,
   }) {
@@ -20786,9 +20794,9 @@ extension $ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records
 @JsonSerializable(explicitToJson: true)
 class ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgCollection$Item {
   const ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgCollection$Item({
-    required this.width,
-    required this.height,
-    required this.url,
+    this.width,
+    this.height,
+    this.url,
   });
 
   factory ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgCollection$Item.fromJson(
@@ -20806,11 +20814,11 @@ class ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item
       );
 
   @JsonKey(name: 'width')
-  final double width;
+  final double? width;
   @JsonKey(name: 'height')
-  final double height;
+  final double? height;
   @JsonKey(name: 'url')
-  final String url;
+  final String? url;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgCollection$ItemFromJson;
 
@@ -20852,9 +20860,9 @@ extension $ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records
 
   ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgCollection$Item
   copyWithWrapped({
-    Wrapped<double>? width,
-    Wrapped<double>? height,
-    Wrapped<String>? url,
+    Wrapped<double?>? width,
+    Wrapped<double?>? height,
+    Wrapped<String?>? url,
   }) {
     return ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgCollection$Item(
       width: (width != null ? width.value : this.width),
@@ -20867,9 +20875,9 @@ extension $ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records
 @JsonSerializable(explicitToJson: true)
 class ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgDetail$Item {
   const ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgDetail$Item({
-    required this.width,
-    required this.height,
-    required this.url,
+    this.width,
+    this.height,
+    this.url,
   });
 
   factory ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgDetail$Item.fromJson(
@@ -20887,11 +20895,11 @@ class ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item
       );
 
   @JsonKey(name: 'width')
-  final double width;
+  final double? width;
   @JsonKey(name: 'height')
-  final double height;
+  final double? height;
   @JsonKey(name: 'url')
-  final String url;
+  final String? url;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgDetail$ItemFromJson;
 
@@ -20933,9 +20941,9 @@ extension $ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records
 
   ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgDetail$Item
   copyWithWrapped({
-    Wrapped<double>? width,
-    Wrapped<double>? height,
-    Wrapped<String>? url,
+    Wrapped<double?>? width,
+    Wrapped<double?>? height,
+    Wrapped<String?>? url,
   }) {
     return ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgDetail$Item(
       width: (width != null ? width.value : this.width),
@@ -21196,10 +21204,10 @@ extension $ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records
 @JsonSerializable(explicitToJson: true)
 class ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item$OptionValues$Item {
   const ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item$OptionValues$Item({
-    required this.value,
+    this.value,
     this.image,
-    required this.imageWidth,
-    required this.imageHeight,
+    this.imageWidth,
+    this.imageHeight,
   });
 
   factory ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item$OptionValues$Item.fromJson(
@@ -21217,13 +21225,13 @@ class ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$
       );
 
   @JsonKey(name: 'value')
-  final String value;
+  final String? value;
   @JsonKey(name: 'image')
   final String? image;
   @JsonKey(name: 'imageWidth')
-  final Object imageWidth;
+  final Object? imageWidth;
   @JsonKey(name: 'imageHeight')
-  final Object imageHeight;
+  final Object? imageHeight;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item$OptionValues$ItemFromJson;
 
@@ -21280,10 +21288,10 @@ extension $ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductOpt
 
   ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item$OptionValues$Item
   copyWithWrapped({
-    Wrapped<String>? value,
+    Wrapped<String?>? value,
     Wrapped<String?>? image,
-    Wrapped<Object>? imageWidth,
-    Wrapped<Object>? imageHeight,
+    Wrapped<Object?>? imageWidth,
+    Wrapped<Object?>? imageHeight,
   }) {
     return ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item$OptionValues$Item(
       value: (value != null ? value.value : this.value),
@@ -21366,12 +21374,12 @@ extension $ProductServiceProductNoAuthGetProductInfoGet$Response$Data$InspectIma
 @JsonSerializable(explicitToJson: true)
 class ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Ext$Brand {
   const ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Ext$Brand({
-    required this.brandTitle,
-    required this.brandName,
-    required this.background,
-    required this.qualityAssured,
-    required this.qualityAssuredUrl,
-    required this.deliverAssured,
+    this.brandTitle,
+    this.brandName,
+    this.background,
+    this.qualityAssured,
+    this.qualityAssuredUrl,
+    this.deliverAssured,
   });
 
   factory ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Ext$Brand.fromJson(
@@ -21389,17 +21397,17 @@ class ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Ext$Brand {
       );
 
   @JsonKey(name: 'brandTitle')
-  final String brandTitle;
+  final String? brandTitle;
   @JsonKey(name: 'brandName')
-  final String brandName;
+  final String? brandName;
   @JsonKey(name: 'background')
-  final String background;
+  final String? background;
   @JsonKey(name: 'qualityAssured')
-  final String qualityAssured;
+  final String? qualityAssured;
   @JsonKey(name: 'qualityAssuredUrl')
-  final String qualityAssuredUrl;
+  final String? qualityAssuredUrl;
   @JsonKey(name: 'deliverAssured')
-  final String deliverAssured;
+  final String? deliverAssured;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Ext$BrandFromJson;
 
@@ -21477,12 +21485,12 @@ extension $ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Ext$BrandE
 
   ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Ext$Brand
   copyWithWrapped({
-    Wrapped<String>? brandTitle,
-    Wrapped<String>? brandName,
-    Wrapped<String>? background,
-    Wrapped<String>? qualityAssured,
-    Wrapped<String>? qualityAssuredUrl,
-    Wrapped<String>? deliverAssured,
+    Wrapped<String?>? brandTitle,
+    Wrapped<String?>? brandName,
+    Wrapped<String?>? background,
+    Wrapped<String?>? qualityAssured,
+    Wrapped<String?>? qualityAssuredUrl,
+    Wrapped<String?>? deliverAssured,
   }) {
     return ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Ext$Brand(
       brandTitle: (brandTitle != null ? brandTitle.value : this.brandTitle),
@@ -21504,14 +21512,14 @@ extension $ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Ext$BrandE
 @JsonSerializable(explicitToJson: true)
 class ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item$CategoryList$Item {
   const ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item$CategoryList$Item({
-    required this.id,
-    required this.parentId,
-    required this.level,
-    required this.showOrder,
-    required this.name,
-    required this.iconUrl,
-    required this.categoryList,
-    required this.brands,
+    this.id,
+    this.parentId,
+    this.level,
+    this.showOrder,
+    this.name,
+    this.iconUrl,
+    this.categoryList,
+    this.brands,
   });
 
   factory ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item$CategoryList$Item.fromJson(
@@ -21529,21 +21537,21 @@ class ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data$Categor
       );
 
   @JsonKey(name: 'id')
-  final double id;
+  final double? id;
   @JsonKey(name: 'parentId')
-  final double parentId;
+  final double? parentId;
   @JsonKey(name: 'level')
-  final double level;
+  final double? level;
   @JsonKey(name: 'showOrder')
-  final double showOrder;
+  final double? showOrder;
   @JsonKey(name: 'name')
-  final String name;
+  final String? name;
   @JsonKey(name: 'iconUrl')
-  final String iconUrl;
+  final String? iconUrl;
   @JsonKey(name: 'categoryList', defaultValue: <Object>[])
-  final List<Object> categoryList;
+  final List<Object>? categoryList;
   @JsonKey(name: 'brands', defaultValue: <Object>[])
-  final List<Object> brands;
+  final List<Object>? brands;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item$CategoryList$ItemFromJson;
 
@@ -21626,14 +21634,14 @@ extension $ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data$Ca
 
   ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item$CategoryList$Item
   copyWithWrapped({
-    Wrapped<double>? id,
-    Wrapped<double>? parentId,
-    Wrapped<double>? level,
-    Wrapped<double>? showOrder,
-    Wrapped<String>? name,
-    Wrapped<String>? iconUrl,
-    Wrapped<List<Object>>? categoryList,
-    Wrapped<List<Object>>? brands,
+    Wrapped<double?>? id,
+    Wrapped<double?>? parentId,
+    Wrapped<double?>? level,
+    Wrapped<double?>? showOrder,
+    Wrapped<String?>? name,
+    Wrapped<String?>? iconUrl,
+    Wrapped<List<Object>?>? categoryList,
+    Wrapped<List<Object>?>? brands,
   }) {
     return ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item$CategoryList$Item(
       id: (id != null ? id.value : this.id),
@@ -21653,9 +21661,9 @@ extension $ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data$Ca
 @JsonSerializable(explicitToJson: true)
 class ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$Image {
   const ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$Image({
-    required this.width,
-    required this.height,
-    required this.url,
+    this.width,
+    this.height,
+    this.url,
   });
 
   factory ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$Image.fromJson(
@@ -21673,11 +21681,11 @@ class ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$Imag
       );
 
   @JsonKey(name: 'width')
-  final int width;
+  final int? width;
   @JsonKey(name: 'height')
-  final int height;
+  final int? height;
   @JsonKey(name: 'url')
-  final String url;
+  final String? url;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$ImageFromJson;
 
@@ -21718,9 +21726,9 @@ extension $ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item
 
   ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$Image
   copyWithWrapped({
-    Wrapped<int>? width,
-    Wrapped<int>? height,
-    Wrapped<String>? url,
+    Wrapped<int?>? width,
+    Wrapped<int?>? height,
+    Wrapped<String?>? url,
   }) {
     return ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$Image(
       width: (width != null ? width.value : this.width),
@@ -21880,14 +21888,14 @@ extension $ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item
 @JsonSerializable(explicitToJson: true)
 class ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$FlashSale {
   const ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$FlashSale({
-    required this.activityCode,
-    required this.activityTitle,
-    required this.startTime,
-    required this.endTime,
-    required this.progressPercent,
-    required this.progressText,
-    required this.marketingIcon,
-    required this.discountExpr,
+    this.activityCode,
+    this.activityTitle,
+    this.startTime,
+    this.endTime,
+    this.progressPercent,
+    this.progressText,
+    this.marketingIcon,
+    this.discountExpr,
   });
 
   factory ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$FlashSale.fromJson(
@@ -21905,21 +21913,21 @@ class ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$Flas
       );
 
   @JsonKey(name: 'activityCode')
-  final String activityCode;
+  final String? activityCode;
   @JsonKey(name: 'activityTitle')
-  final String activityTitle;
+  final String? activityTitle;
   @JsonKey(name: 'startTime')
-  final int startTime;
+  final int? startTime;
   @JsonKey(name: 'endTime')
-  final int endTime;
+  final int? endTime;
   @JsonKey(name: 'progressPercent')
-  final int progressPercent;
+  final int? progressPercent;
   @JsonKey(name: 'progressText')
-  final String progressText;
+  final String? progressText;
   @JsonKey(name: 'marketingIcon')
-  final String marketingIcon;
+  final String? marketingIcon;
   @JsonKey(name: 'discountExpr')
-  final String discountExpr;
+  final String? discountExpr;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$FlashSaleFromJson;
 
@@ -22014,14 +22022,14 @@ extension $ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item
 
   ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$FlashSale
   copyWithWrapped({
-    Wrapped<String>? activityCode,
-    Wrapped<String>? activityTitle,
-    Wrapped<int>? startTime,
-    Wrapped<int>? endTime,
-    Wrapped<int>? progressPercent,
-    Wrapped<String>? progressText,
-    Wrapped<String>? marketingIcon,
-    Wrapped<String>? discountExpr,
+    Wrapped<String?>? activityCode,
+    Wrapped<String?>? activityTitle,
+    Wrapped<int?>? startTime,
+    Wrapped<int?>? endTime,
+    Wrapped<int?>? progressPercent,
+    Wrapped<String?>? progressText,
+    Wrapped<String?>? marketingIcon,
+    Wrapped<String?>? discountExpr,
   }) {
     return ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$FlashSale(
       activityCode: (activityCode != null
@@ -22131,10 +22139,10 @@ extension $ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item
 @JsonSerializable(explicitToJson: true)
 class ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$Tags$Item {
   const ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$Tags$Item({
-    required this.tagCode,
-    required this.tagImg,
-    required this.order,
-    required this.frontShow,
+    this.tagCode,
+    this.tagImg,
+    this.order,
+    this.frontShow,
   });
 
   factory ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$Tags$Item.fromJson(
@@ -22152,13 +22160,13 @@ class ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$Tags
       );
 
   @JsonKey(name: 'tagCode')
-  final String tagCode;
+  final String? tagCode;
   @JsonKey(name: 'tagImg')
-  final String tagImg;
+  final String? tagImg;
   @JsonKey(name: 'order')
-  final double order;
+  final double? order;
   @JsonKey(name: 'frontShow')
-  final double frontShow;
+  final double? frontShow;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$Tags$ItemFromJson;
 
@@ -22215,10 +22223,10 @@ extension $ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item
 
   ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$Tags$Item
   copyWithWrapped({
-    Wrapped<String>? tagCode,
-    Wrapped<String>? tagImg,
-    Wrapped<double>? order,
-    Wrapped<double>? frontShow,
+    Wrapped<String?>? tagCode,
+    Wrapped<String?>? tagImg,
+    Wrapped<double?>? order,
+    Wrapped<double?>? frontShow,
   }) {
     return ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$Tags$Item(
       tagCode: (tagCode != null ? tagCode.value : this.tagCode),
@@ -22307,13 +22315,13 @@ extension $ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item
 @JsonSerializable(explicitToJson: true)
 class ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$FlashSale {
   const ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$FlashSale({
-    required this.activityCode,
-    required this.activityTitle,
-    required this.startTime,
-    required this.endTime,
-    required this.progressPercent,
-    required this.progressText,
-    required this.marketingIcon,
+    this.activityCode,
+    this.activityTitle,
+    this.startTime,
+    this.endTime,
+    this.progressPercent,
+    this.progressText,
+    this.marketingIcon,
   });
 
   factory ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$FlashSale.fromJson(
@@ -22331,19 +22339,19 @@ class ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$Flas
       );
 
   @JsonKey(name: 'activityCode')
-  final String activityCode;
+  final String? activityCode;
   @JsonKey(name: 'activityTitle')
-  final String activityTitle;
+  final String? activityTitle;
   @JsonKey(name: 'startTime')
-  final int startTime;
+  final int? startTime;
   @JsonKey(name: 'endTime')
-  final int endTime;
+  final int? endTime;
   @JsonKey(name: 'progressPercent')
-  final int progressPercent;
+  final int? progressPercent;
   @JsonKey(name: 'progressText')
-  final String progressText;
+  final String? progressText;
   @JsonKey(name: 'marketingIcon')
-  final String marketingIcon;
+  final String? marketingIcon;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$FlashSaleFromJson;
 
@@ -22430,13 +22438,13 @@ extension $ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item
 
   ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$FlashSale
   copyWithWrapped({
-    Wrapped<String>? activityCode,
-    Wrapped<String>? activityTitle,
-    Wrapped<int>? startTime,
-    Wrapped<int>? endTime,
-    Wrapped<int>? progressPercent,
-    Wrapped<String>? progressText,
-    Wrapped<String>? marketingIcon,
+    Wrapped<String?>? activityCode,
+    Wrapped<String?>? activityTitle,
+    Wrapped<int?>? startTime,
+    Wrapped<int?>? endTime,
+    Wrapped<int?>? progressPercent,
+    Wrapped<String?>? progressText,
+    Wrapped<String?>? marketingIcon,
   }) {
     return ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$FlashSale(
       activityCode: (activityCode != null
@@ -22463,7 +22471,7 @@ extension $ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item
 @JsonSerializable(explicitToJson: true)
 class ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item {
   const ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item({
-    required this.value,
+    this.value,
     this.image,
     this.imageWidth,
     this.imageHeight,
@@ -22484,7 +22492,7 @@ class ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductO
       );
 
   @JsonKey(name: 'value')
-  final String value;
+  final String? value;
   @JsonKey(name: 'image')
   final String? image;
   @JsonKey(name: 'imageWidth')
@@ -22547,7 +22555,7 @@ extension $ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$Pro
 
   ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item
   copyWithWrapped({
-    Wrapped<String>? value,
+    Wrapped<String?>? value,
     Wrapped<String?>? image,
     Wrapped<double?>? imageWidth,
     Wrapped<double?>? imageHeight,
@@ -22645,9 +22653,9 @@ extension $ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item
 @JsonSerializable(explicitToJson: true)
 class ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgCollection$Item {
   const ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgCollection$Item({
-    required this.width,
-    required this.height,
-    required this.url,
+    this.width,
+    this.height,
+    this.url,
   });
 
   factory ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgCollection$Item.fromJson(
@@ -22665,11 +22673,11 @@ class ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgC
       );
 
   @JsonKey(name: 'width')
-  final double width;
+  final double? width;
   @JsonKey(name: 'height')
-  final double height;
+  final double? height;
   @JsonKey(name: 'url')
-  final String url;
+  final String? url;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgCollection$ItemFromJson;
 
@@ -22711,9 +22719,9 @@ extension $ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item
 
   ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgCollection$Item
   copyWithWrapped({
-    Wrapped<double>? width,
-    Wrapped<double>? height,
-    Wrapped<String>? url,
+    Wrapped<double?>? width,
+    Wrapped<double?>? height,
+    Wrapped<String?>? url,
   }) {
     return ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgCollection$Item(
       width: (width != null ? width.value : this.width),
@@ -22726,9 +22734,9 @@ extension $ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item
 @JsonSerializable(explicitToJson: true)
 class ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgDetail$Item {
   const ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgDetail$Item({
-    required this.width,
-    required this.height,
-    required this.url,
+    this.width,
+    this.height,
+    this.url,
   });
 
   factory ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgDetail$Item.fromJson(
@@ -22746,11 +22754,11 @@ class ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgD
       );
 
   @JsonKey(name: 'width')
-  final double width;
+  final double? width;
   @JsonKey(name: 'height')
-  final double height;
+  final double? height;
   @JsonKey(name: 'url')
-  final String url;
+  final String? url;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgDetail$ItemFromJson;
 
@@ -22792,9 +22800,9 @@ extension $ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item
 
   ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgDetail$Item
   copyWithWrapped({
-    Wrapped<double>? width,
-    Wrapped<double>? height,
-    Wrapped<String>? url,
+    Wrapped<double?>? width,
+    Wrapped<double?>? height,
+    Wrapped<String?>? url,
   }) {
     return ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgDetail$Item(
       width: (width != null ? width.value : this.width),
@@ -23055,9 +23063,9 @@ extension $ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item
 @JsonSerializable(explicitToJson: true)
 class ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$Item$Image {
   const ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$Item$Image({
-    required this.width,
-    required this.height,
-    required this.url,
+    this.width,
+    this.height,
+    this.url,
   });
 
   factory ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$Item$Image.fromJson(
@@ -23075,11 +23083,11 @@ class ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$Item$Image {
       );
 
   @JsonKey(name: 'width')
-  final int width;
+  final int? width;
   @JsonKey(name: 'height')
-  final int height;
+  final int? height;
   @JsonKey(name: 'url')
-  final String url;
+  final String? url;
   static const fromJsonFactory =
       _$ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$Item$ImageFromJson;
 
@@ -23120,9 +23128,9 @@ extension $ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$Item$Im
 
   ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$Item$Image
   copyWithWrapped({
-    Wrapped<int>? width,
-    Wrapped<int>? height,
-    Wrapped<String>? url,
+    Wrapped<int?>? width,
+    Wrapped<int?>? height,
+    Wrapped<String?>? url,
   }) {
     return ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$Item$Image(
       width: (width != null ? width.value : this.width),
@@ -23210,7 +23218,7 @@ extension $ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$Item$Pr
 @JsonSerializable(explicitToJson: true)
 class ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item {
   const ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item({
-    required this.value,
+    this.value,
     this.image,
     this.imageWidth,
     this.imageHeight,
@@ -23231,7 +23239,7 @@ class ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductOptions
       );
 
   @JsonKey(name: 'value')
-  final String value;
+  final String? value;
   @JsonKey(name: 'image')
   final String? image;
   @JsonKey(name: 'imageWidth')
@@ -23294,7 +23302,7 @@ extension $ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductOp
 
   ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item
   copyWithWrapped({
-    Wrapped<String>? value,
+    Wrapped<String?>? value,
     Wrapped<String?>? image,
     Wrapped<double?>? imageWidth,
     Wrapped<double?>? imageHeight,
@@ -23392,9 +23400,9 @@ extension $ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$It
 @JsonSerializable(explicitToJson: true)
 class ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgCollection$Item {
   const ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgCollection$Item({
-    required this.width,
-    required this.height,
-    required this.url,
+    this.width,
+    this.height,
+    this.url,
   });
 
   factory ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgCollection$Item.fromJson(
@@ -23412,11 +23420,11 @@ class ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$Im
       );
 
   @JsonKey(name: 'width')
-  final double width;
+  final double? width;
   @JsonKey(name: 'height')
-  final double height;
+  final double? height;
   @JsonKey(name: 'url')
-  final String url;
+  final String? url;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgCollection$ItemFromJson;
 
@@ -23458,9 +23466,9 @@ extension $ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$It
 
   ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgCollection$Item
   copyWithWrapped({
-    Wrapped<double>? width,
-    Wrapped<double>? height,
-    Wrapped<String>? url,
+    Wrapped<double?>? width,
+    Wrapped<double?>? height,
+    Wrapped<String?>? url,
   }) {
     return ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgCollection$Item(
       width: (width != null ? width.value : this.width),
@@ -23473,9 +23481,9 @@ extension $ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$It
 @JsonSerializable(explicitToJson: true)
 class ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgDetail$Item {
   const ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgDetail$Item({
-    required this.width,
-    required this.height,
-    required this.url,
+    this.width,
+    this.height,
+    this.url,
   });
 
   factory ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgDetail$Item.fromJson(
@@ -23493,11 +23501,11 @@ class ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$Im
       );
 
   @JsonKey(name: 'width')
-  final double width;
+  final double? width;
   @JsonKey(name: 'height')
-  final double height;
+  final double? height;
   @JsonKey(name: 'url')
-  final String url;
+  final String? url;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgDetail$ItemFromJson;
 
@@ -23539,9 +23547,9 @@ extension $ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$It
 
   ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgDetail$Item
   copyWithWrapped({
-    Wrapped<double>? width,
-    Wrapped<double>? height,
-    Wrapped<String>? url,
+    Wrapped<double?>? width,
+    Wrapped<double?>? height,
+    Wrapped<String?>? url,
   }) {
     return ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgDetail$Item(
       width: (width != null ? width.value : this.width),
@@ -23802,21 +23810,21 @@ extension $ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$It
 @JsonSerializable(explicitToJson: true)
 class ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item {
   const ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item({
-    required this.productCode,
-    required this.productName,
-    required this.image,
-    required this.sourcePlatform,
-    required this.platformProductId,
-    required this.skuCode,
-    required this.sellPriceCur,
-    required this.sellPrice,
-    required this.targetSellPrice,
-    required this.targetOriginPrice,
-    required this.targetSellCur,
-    required this.sellQuantity,
-    required this.skuCount,
-    required this.marketingInfo,
-    required this.tags,
+    this.productCode,
+    this.productName,
+    this.image,
+    this.sourcePlatform,
+    this.platformProductId,
+    this.skuCode,
+    this.sellPriceCur,
+    this.sellPrice,
+    this.targetSellPrice,
+    this.targetOriginPrice,
+    this.targetSellCur,
+    this.sellQuantity,
+    this.skuCount,
+    this.marketingInfo,
+    this.tags,
     this.premiumBrandInfo,
   });
 
@@ -23835,36 +23843,36 @@ class ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categ
       );
 
   @JsonKey(name: 'productCode')
-  final String productCode;
+  final String? productCode;
   @JsonKey(name: 'productName')
-  final String productName;
+  final String? productName;
   @JsonKey(name: 'image')
-  final ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item$Image
+  final ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item$Image?
   image;
   @JsonKey(name: 'sourcePlatform')
-  final String sourcePlatform;
+  final String? sourcePlatform;
   @JsonKey(name: 'platformProductId')
-  final String platformProductId;
+  final String? platformProductId;
   @JsonKey(name: 'skuCode')
-  final String skuCode;
+  final String? skuCode;
   @JsonKey(name: 'sellPriceCur')
-  final String sellPriceCur;
+  final String? sellPriceCur;
   @JsonKey(name: 'sellPrice')
-  final String sellPrice;
+  final String? sellPrice;
   @JsonKey(name: 'targetSellPrice')
-  final String targetSellPrice;
+  final String? targetSellPrice;
   @JsonKey(name: 'targetOriginPrice')
-  final String targetOriginPrice;
+  final String? targetOriginPrice;
   @JsonKey(name: 'targetSellCur')
-  final String targetSellCur;
+  final String? targetSellCur;
   @JsonKey(name: 'sellQuantity')
-  final String sellQuantity;
+  final String? sellQuantity;
   @JsonKey(name: 'skuCount')
-  final double skuCount;
+  final double? skuCount;
   @JsonKey(name: 'marketingInfo')
-  final String marketingInfo;
+  final String? marketingInfo;
   @JsonKey(name: 'tags', defaultValue: <Object>[])
-  final List<Object> tags;
+  final List<Object>? tags;
   @JsonKey(name: 'premiumBrandInfo')
   final ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item$PremiumBrandInfo?
   premiumBrandInfo;
@@ -24022,24 +24030,24 @@ extension $ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$
 
   ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item
   copyWithWrapped({
-    Wrapped<String>? productCode,
-    Wrapped<String>? productName,
+    Wrapped<String?>? productCode,
+    Wrapped<String?>? productName,
     Wrapped<
-      ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item$Image
+      ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item$Image?
     >?
     image,
-    Wrapped<String>? sourcePlatform,
-    Wrapped<String>? platformProductId,
-    Wrapped<String>? skuCode,
-    Wrapped<String>? sellPriceCur,
-    Wrapped<String>? sellPrice,
-    Wrapped<String>? targetSellPrice,
-    Wrapped<String>? targetOriginPrice,
-    Wrapped<String>? targetSellCur,
-    Wrapped<String>? sellQuantity,
-    Wrapped<double>? skuCount,
-    Wrapped<String>? marketingInfo,
-    Wrapped<List<Object>>? tags,
+    Wrapped<String?>? sourcePlatform,
+    Wrapped<String?>? platformProductId,
+    Wrapped<String?>? skuCode,
+    Wrapped<String?>? sellPriceCur,
+    Wrapped<String?>? sellPrice,
+    Wrapped<String?>? targetSellPrice,
+    Wrapped<String?>? targetOriginPrice,
+    Wrapped<String?>? targetSellCur,
+    Wrapped<String?>? sellQuantity,
+    Wrapped<double?>? skuCount,
+    Wrapped<String?>? marketingInfo,
+    Wrapped<List<Object>?>? tags,
     Wrapped<
       ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item$PremiumBrandInfo?
     >?
@@ -24087,9 +24095,9 @@ extension $ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$
 @JsonSerializable(explicitToJson: true)
 class ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item$Image {
   const ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item$Image({
-    required this.width,
-    required this.height,
-    required this.url,
+    this.width,
+    this.height,
+    this.url,
   });
 
   factory ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item$Image.fromJson(
@@ -24107,11 +24115,11 @@ class ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item$Image
       );
 
   @JsonKey(name: 'width')
-  final int width;
+  final int? width;
   @JsonKey(name: 'height')
-  final int height;
+  final int? height;
   @JsonKey(name: 'url')
-  final String url;
+  final String? url;
   static const fromJsonFactory =
       _$ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item$ImageFromJson;
 
@@ -24152,9 +24160,9 @@ extension $ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item$
 
   ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item$Image
   copyWithWrapped({
-    Wrapped<int>? width,
-    Wrapped<int>? height,
-    Wrapped<String>? url,
+    Wrapped<int?>? width,
+    Wrapped<int?>? height,
+    Wrapped<String?>? url,
   }) {
     return ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item$Image(
       width: (width != null ? width.value : this.width),
@@ -24313,9 +24321,9 @@ extension $ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item$
 @JsonSerializable(explicitToJson: true)
 class ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item$Image {
   const ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item$Image({
-    required this.width,
-    required this.height,
-    required this.url,
+    this.width,
+    this.height,
+    this.url,
   });
 
   factory ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item$Image.fromJson(
@@ -24333,11 +24341,11 @@ class ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item$Image {
       );
 
   @JsonKey(name: 'width')
-  final int width;
+  final int? width;
   @JsonKey(name: 'height')
-  final int height;
+  final int? height;
   @JsonKey(name: 'url')
-  final String url;
+  final String? url;
   static const fromJsonFactory =
       _$ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item$ImageFromJson;
 
@@ -24378,9 +24386,9 @@ extension $ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item$Imag
 
   ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item$Image
   copyWithWrapped({
-    Wrapped<int>? width,
-    Wrapped<int>? height,
-    Wrapped<String>? url,
+    Wrapped<int?>? width,
+    Wrapped<int?>? height,
+    Wrapped<String?>? url,
   }) {
     return ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item$Image(
       width: (width != null ? width.value : this.width),
@@ -24539,9 +24547,9 @@ extension $ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item$Prem
 @JsonSerializable(explicitToJson: true)
 class ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item$Image {
   const ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item$Image({
-    required this.width,
-    required this.height,
-    required this.url,
+    this.width,
+    this.height,
+    this.url,
   });
 
   factory ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item$Image.fromJson(
@@ -24559,11 +24567,11 @@ class ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item
       );
 
   @JsonKey(name: 'width')
-  final int width;
+  final int? width;
   @JsonKey(name: 'height')
-  final int height;
+  final int? height;
   @JsonKey(name: 'url')
-  final String url;
+  final String? url;
   static const fromJsonFactory =
       _$ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item$ImageFromJson;
 
@@ -24605,9 +24613,9 @@ extension $ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records
 
   ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item$Image
   copyWithWrapped({
-    Wrapped<int>? width,
-    Wrapped<int>? height,
-    Wrapped<String>? url,
+    Wrapped<int?>? width,
+    Wrapped<int?>? height,
+    Wrapped<String?>? url,
   }) {
     return ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item$Image(
       width: (width != null ? width.value : this.width),
@@ -24767,11 +24775,11 @@ extension $ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records
 @JsonSerializable(explicitToJson: true)
 class ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item$CategoryList$Item {
   const ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item$CategoryList$Item({
-    required this.id,
-    required this.name,
-    required this.iconUrl,
-    required this.parentId,
-    required this.level,
+    this.id,
+    this.name,
+    this.iconUrl,
+    this.parentId,
+    this.level,
   });
 
   factory ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item$CategoryList$Item.fromJson(
@@ -24789,15 +24797,15 @@ class ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$Catego
       );
 
   @JsonKey(name: 'id')
-  final double id;
+  final double? id;
   @JsonKey(name: 'name')
-  final String name;
+  final String? name;
   @JsonKey(name: 'iconUrl')
-  final String iconUrl;
+  final String? iconUrl;
   @JsonKey(name: 'parentId')
-  final double parentId;
+  final double? parentId;
   @JsonKey(name: 'level')
-  final double level;
+  final double? level;
   static const fromJsonFactory =
       _$ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item$CategoryList$ItemFromJson;
 
@@ -24859,11 +24867,11 @@ extension $ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$C
 
   ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item$CategoryList$Item
   copyWithWrapped({
-    Wrapped<double>? id,
-    Wrapped<String>? name,
-    Wrapped<String>? iconUrl,
-    Wrapped<double>? parentId,
-    Wrapped<double>? level,
+    Wrapped<double?>? id,
+    Wrapped<String?>? name,
+    Wrapped<String?>? iconUrl,
+    Wrapped<double?>? parentId,
+    Wrapped<double?>? level,
   }) {
     return ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item$CategoryList$Item(
       id: (id != null ? id.value : this.id),
@@ -24878,10 +24886,10 @@ extension $ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$C
 @JsonSerializable(explicitToJson: true)
 class ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item {
   const ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item({
-    required this.value,
+    this.value,
     this.image,
-    required this.imageWidth,
-    required this.imageHeight,
+    this.imageWidth,
+    this.imageHeight,
   });
 
   factory ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item.fromJson(
@@ -24899,13 +24907,13 @@ class ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$Pro
       );
 
   @JsonKey(name: 'value')
-  final String value;
+  final String? value;
   @JsonKey(name: 'image')
   final String? image;
   @JsonKey(name: 'imageWidth')
-  final Object imageWidth;
+  final Object? imageWidth;
   @JsonKey(name: 'imageHeight')
-  final Object imageHeight;
+  final Object? imageHeight;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$ItemFromJson;
 
@@ -24962,10 +24970,10 @@ extension $ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Ite
 
   ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item
   copyWithWrapped({
-    Wrapped<String>? value,
+    Wrapped<String?>? value,
     Wrapped<String?>? image,
-    Wrapped<Object>? imageWidth,
-    Wrapped<Object>? imageHeight,
+    Wrapped<Object?>? imageWidth,
+    Wrapped<Object?>? imageHeight,
   }) {
     return ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item(
       value: (value != null ? value.value : this.value),
@@ -24979,10 +24987,10 @@ extension $ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Ite
 @JsonSerializable(explicitToJson: true)
 class ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item {
   const ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item({
-    required this.value,
-    required this.image,
-    required this.imageWidth,
-    required this.imageHeight,
+    this.value,
+    this.image,
+    this.imageWidth,
+    this.imageHeight,
   });
 
   factory ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item.fromJson(
@@ -25000,13 +25008,13 @@ class ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item
       );
 
   @JsonKey(name: 'value')
-  final String value;
+  final String? value;
   @JsonKey(name: 'image')
-  final Object image;
+  final Object? image;
   @JsonKey(name: 'imageWidth')
-  final Object imageWidth;
+  final Object? imageWidth;
   @JsonKey(name: 'imageHeight')
-  final Object imageHeight;
+  final Object? imageHeight;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$ItemFromJson;
 
@@ -25063,10 +25071,10 @@ extension $ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records
 
   ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item
   copyWithWrapped({
-    Wrapped<String>? value,
-    Wrapped<Object>? image,
-    Wrapped<Object>? imageWidth,
-    Wrapped<Object>? imageHeight,
+    Wrapped<String?>? value,
+    Wrapped<Object?>? image,
+    Wrapped<Object?>? imageWidth,
+    Wrapped<Object?>? imageHeight,
   }) {
     return ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item(
       value: (value != null ? value.value : this.value),
@@ -25080,10 +25088,10 @@ extension $ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records
 @JsonSerializable(explicitToJson: true)
 class ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item {
   const ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item({
-    required this.value,
-    required this.image,
-    required this.imageWidth,
-    required this.imageHeight,
+    this.value,
+    this.image,
+    this.imageWidth,
+    this.imageHeight,
   });
 
   factory ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item.fromJson(
@@ -25101,13 +25109,13 @@ class ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$Prod
       );
 
   @JsonKey(name: 'value')
-  final String value;
+  final String? value;
   @JsonKey(name: 'image')
-  final Object image;
+  final Object? image;
   @JsonKey(name: 'imageWidth')
-  final Object imageWidth;
+  final Object? imageWidth;
   @JsonKey(name: 'imageHeight')
-  final Object imageHeight;
+  final Object? imageHeight;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$ItemFromJson;
 
@@ -25164,10 +25172,10 @@ extension $ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item
 
   ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item
   copyWithWrapped({
-    Wrapped<String>? value,
-    Wrapped<Object>? image,
-    Wrapped<Object>? imageWidth,
-    Wrapped<Object>? imageHeight,
+    Wrapped<String?>? value,
+    Wrapped<Object?>? image,
+    Wrapped<Object?>? imageWidth,
+    Wrapped<Object?>? imageHeight,
   }) {
     return ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item(
       value: (value != null ? value.value : this.value),
@@ -25181,10 +25189,10 @@ extension $ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item
 @JsonSerializable(explicitToJson: true)
 class ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item {
   const ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item({
-    required this.value,
-    required this.image,
-    required this.imageWidth,
-    required this.imageHeight,
+    this.value,
+    this.image,
+    this.imageWidth,
+    this.imageHeight,
   });
 
   factory ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item.fromJson(
@@ -25202,13 +25210,13 @@ class ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$Pr
       );
 
   @JsonKey(name: 'value')
-  final String value;
+  final String? value;
   @JsonKey(name: 'image')
-  final Object image;
+  final Object? image;
   @JsonKey(name: 'imageWidth')
-  final Object imageWidth;
+  final Object? imageWidth;
   @JsonKey(name: 'imageHeight')
-  final Object imageHeight;
+  final Object? imageHeight;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$ItemFromJson;
 
@@ -25265,10 +25273,10 @@ extension $ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$It
 
   ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item
   copyWithWrapped({
-    Wrapped<String>? value,
-    Wrapped<Object>? image,
-    Wrapped<Object>? imageWidth,
-    Wrapped<Object>? imageHeight,
+    Wrapped<String?>? value,
+    Wrapped<Object?>? image,
+    Wrapped<Object?>? imageWidth,
+    Wrapped<Object?>? imageHeight,
   }) {
     return ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item(
       value: (value != null ? value.value : this.value),

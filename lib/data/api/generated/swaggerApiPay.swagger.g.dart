@@ -57,11 +57,13 @@ Map<String, dynamic> _$PayServiceWithdrawApplyPost$ResponseToJson(
 PayServiceCommissionSummaryGet$Response
 _$PayServiceCommissionSummaryGet$ResponseFromJson(Map<String, dynamic> json) =>
     PayServiceCommissionSummaryGet$Response(
-      code: (json['code'] as num).toDouble(),
-      message: json['message'] as String,
-      data: PayServiceCommissionSummaryGet$Response$Data.fromJson(
-        json['data'] as Map<String, dynamic>,
-      ),
+      code: (json['code'] as num?)?.toDouble(),
+      message: json['message'] as String?,
+      data: json['data'] == null
+          ? null
+          : PayServiceCommissionSummaryGet$Response$Data.fromJson(
+              json['data'] as Map<String, dynamic>,
+            ),
     );
 
 Map<String, dynamic> _$PayServiceCommissionSummaryGet$ResponseToJson(
@@ -69,7 +71,7 @@ Map<String, dynamic> _$PayServiceCommissionSummaryGet$ResponseToJson(
 ) => <String, dynamic>{
   'code': instance.code,
   'message': instance.message,
-  'data': instance.data.toJson(),
+  'data': instance.data?.toJson(),
 };
 
 PayServiceCommissionTransactionGet$Response
@@ -390,13 +392,13 @@ PayServiceCommissionSummaryGet$Response$Data
 _$PayServiceCommissionSummaryGet$Response$DataFromJson(
   Map<String, dynamic> json,
 ) => PayServiceCommissionSummaryGet$Response$Data(
-  commissionTotal: json['commissionTotal'] as String,
-  targetCurrencyTotal: json['targetCurrencyTotal'] as String,
-  withdrawAmount: json['withdrawAmount'] as String,
-  withdrawableBalance: json['withdrawableBalance'] as String,
-  pendingCommission: json['pendingCommission'] as String,
-  totalPoints: (json['totalPoints'] as num).toDouble(),
-  pendingWithdrawAmount: json['pendingWithdrawAmount'] as String,
+  commissionTotal: json['commissionTotal'] as String?,
+  targetCurrencyTotal: json['targetCurrencyTotal'] as String?,
+  withdrawAmount: json['withdrawAmount'] as String?,
+  withdrawableBalance: json['withdrawableBalance'] as String?,
+  pendingCommission: json['pendingCommission'] as String?,
+  totalPoints: (json['totalPoints'] as num?)?.toDouble(),
+  pendingWithdrawAmount: json['pendingWithdrawAmount'] as String?,
 );
 
 Map<String, dynamic> _$PayServiceCommissionSummaryGet$Response$DataToJson(
@@ -526,7 +528,7 @@ PayServicePayPayPost$Response$Data _$PayServicePayPayPost$Response$DataFromJson(
   Map<String, dynamic> json,
 ) => PayServicePayPayPost$Response$Data(
   thirdPayParam: json['thirdPayParam'] as String?,
-  receiptAddress: json['receiptAddress'] as String,
+  receiptAddress: json['receiptAddress'] as String?,
 );
 
 Map<String, dynamic> _$PayServicePayPayPost$Response$DataToJson(
@@ -578,8 +580,8 @@ PayServiceEchoooCoinTypeGet$Response$Data$Item
 _$PayServiceEchoooCoinTypeGet$Response$Data$ItemFromJson(
   Map<String, dynamic> json,
 ) => PayServiceEchoooCoinTypeGet$Response$Data$Item(
-  type: (json['type'] as num).toDouble(),
-  name: json['name'] as String,
+  type: (json['type'] as num?)?.toDouble(),
+  name: json['name'] as String?,
 );
 
 Map<String, dynamic> _$PayServiceEchoooCoinTypeGet$Response$Data$ItemToJson(
@@ -590,13 +592,15 @@ PayServiceEchoooCoinInfoGet$Response$Data
 _$PayServiceEchoooCoinInfoGet$Response$DataFromJson(
   Map<String, dynamic> json,
 ) => PayServiceEchoooCoinInfoGet$Response$Data(
-  balance: (json['balance'] as num).toDouble(),
-  percentage: json['percentage'] as String,
-  deductibleAmount: json['deductibleAmount'] as String,
-  accumulateAmount: json['accumulateAmount'] as String,
-  currency: PayServiceEchoooCoinInfoGet$Response$Data$Currency.fromJson(
-    json['currency'] as Map<String, dynamic>,
-  ),
+  balance: (json['balance'] as num?)?.toDouble(),
+  percentage: json['percentage'] as String?,
+  deductibleAmount: json['deductibleAmount'] as String?,
+  accumulateAmount: json['accumulateAmount'] as String?,
+  currency: json['currency'] == null
+      ? null
+      : PayServiceEchoooCoinInfoGet$Response$Data$Currency.fromJson(
+          json['currency'] as Map<String, dynamic>,
+        ),
 );
 
 Map<String, dynamic> _$PayServiceEchoooCoinInfoGet$Response$DataToJson(
@@ -606,7 +610,7 @@ Map<String, dynamic> _$PayServiceEchoooCoinInfoGet$Response$DataToJson(
   'percentage': instance.percentage,
   'deductibleAmount': instance.deductibleAmount,
   'accumulateAmount': instance.accumulateAmount,
-  'currency': instance.currency.toJson(),
+  'currency': instance.currency?.toJson(),
 };
 
 PayServiceEchoooCoinLogGet$Response$Data
@@ -672,10 +676,10 @@ PayServiceCommissionTransactionGet$Response$Data$Records$Item
 _$PayServiceCommissionTransactionGet$Response$Data$Records$ItemFromJson(
   Map<String, dynamic> json,
 ) => PayServiceCommissionTransactionGet$Response$Data$Records$Item(
-  amount: json['amount'] as String,
-  time: json['time'] as String,
-  typeName: json['typeName'] as String,
-  currency: json['currency'] as String,
+  amount: json['amount'] as String?,
+  time: json['time'] as String?,
+  typeName: json['typeName'] as String?,
+  currency: json['currency'] as String?,
 );
 
 Map<String, dynamic>
@@ -821,8 +825,8 @@ PayServiceEchoooCoinInfoGet$Response$Data$Currency
 _$PayServiceEchoooCoinInfoGet$Response$Data$CurrencyFromJson(
   Map<String, dynamic> json,
 ) => PayServiceEchoooCoinInfoGet$Response$Data$Currency(
-  name: json['name'] as String,
-  symbol: json['symbol'] as String,
+  name: json['name'] as String?,
+  symbol: json['symbol'] as String?,
 );
 
 Map<String, dynamic> _$PayServiceEchoooCoinInfoGet$Response$Data$CurrencyToJson(
@@ -833,10 +837,10 @@ PayServiceEchoooCoinLogGet$Response$Data$Records$Item
 _$PayServiceEchoooCoinLogGet$Response$Data$Records$ItemFromJson(
   Map<String, dynamic> json,
 ) => PayServiceEchoooCoinLogGet$Response$Data$Records$Item(
-  actualAmount: (json['actualAmount'] as num).toDouble(),
-  gmtCreate: (json['gmtCreate'] as num).toDouble(),
-  type: (json['type'] as num).toDouble(),
-  name: json['name'] as String,
+  actualAmount: (json['actualAmount'] as num?)?.toDouble(),
+  gmtCreate: (json['gmtCreate'] as num?)?.toDouble(),
+  type: (json['type'] as num?)?.toDouble(),
+  name: json['name'] as String?,
 );
 
 Map<String, dynamic>

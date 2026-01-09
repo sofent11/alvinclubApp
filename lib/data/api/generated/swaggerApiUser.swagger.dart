@@ -3676,9 +3676,9 @@ extension $UserServiceNoAuthCommonConfigDefaultSettingGet$ResponseExtension
 @JsonSerializable(explicitToJson: true)
 class UserServiceFileImUploadPost$Response {
   const UserServiceFileImUploadPost$Response({
-    required this.code,
-    required this.message,
-    required this.data,
+    this.code,
+    this.message,
+    this.data,
   });
 
   factory UserServiceFileImUploadPost$Response.fromJson(
@@ -3690,11 +3690,11 @@ class UserServiceFileImUploadPost$Response {
       _$UserServiceFileImUploadPost$ResponseToJson(this);
 
   @JsonKey(name: 'code')
-  final int code;
+  final int? code;
   @JsonKey(name: 'message')
-  final String message;
+  final String? message;
   @JsonKey(name: 'data')
-  final List<UserServiceFileImUploadPost$Response$Data$Item> data;
+  final List<UserServiceFileImUploadPost$Response$Data$Item>? data;
   static const fromJsonFactory = _$UserServiceFileImUploadPost$ResponseFromJson;
 
   @override
@@ -3738,9 +3738,9 @@ extension $UserServiceFileImUploadPost$ResponseExtension
   }
 
   UserServiceFileImUploadPost$Response copyWithWrapped({
-    Wrapped<int>? code,
-    Wrapped<String>? message,
-    Wrapped<List<UserServiceFileImUploadPost$Response$Data$Item>>? data,
+    Wrapped<int?>? code,
+    Wrapped<String?>? message,
+    Wrapped<List<UserServiceFileImUploadPost$Response$Data$Item>?>? data,
   }) {
     return UserServiceFileImUploadPost$Response(
       code: (code != null ? code.value : this.code),
@@ -6962,28 +6962,28 @@ extension $UserServiceAddressQueryGet$Response$Data$ItemExtension
 @JsonSerializable(explicitToJson: true)
 class UserServiceAddressListGet$Response$Data$Item {
   const UserServiceAddressListGet$Response$Data$Item({
-    required this.id,
-    required this.tenantCode,
-    required this.userId,
-    required this.isDefault,
-    required this.country,
-    required this.countryCode,
-    required this.state,
-    required this.stateCode,
-    required this.city,
-    required this.cityCode,
-    required this.street,
+    this.id,
+    this.tenantCode,
+    this.userId,
+    this.isDefault,
+    this.country,
+    this.countryCode,
+    this.state,
+    this.stateCode,
+    this.city,
+    this.cityCode,
+    this.street,
     this.apartment,
-    required this.address,
-    required this.coordinate,
-    required this.firstName,
-    required this.lastName,
-    required this.phoneNumber,
-    required this.zipCode,
-    required this.deleted,
-    required this.isDelivered,
-    required this.gmtCreate,
-    required this.gmtUpdate,
+    this.address,
+    this.coordinate,
+    this.firstName,
+    this.lastName,
+    this.phoneNumber,
+    this.zipCode,
+    this.deleted,
+    this.isDelivered,
+    this.gmtCreate,
+    this.gmtUpdate,
     this.tin,
   });
 
@@ -6997,49 +6997,49 @@ class UserServiceAddressListGet$Response$Data$Item {
       _$UserServiceAddressListGet$Response$Data$ItemToJson(this);
 
   @JsonKey(name: 'id')
-  final double id;
+  final double? id;
   @JsonKey(name: 'tenantCode')
-  final String tenantCode;
+  final String? tenantCode;
   @JsonKey(name: 'userId')
-  final String userId;
+  final String? userId;
   @JsonKey(name: 'isDefault')
-  final double isDefault;
+  final double? isDefault;
   @JsonKey(name: 'country')
-  final String country;
+  final String? country;
   @JsonKey(name: 'countryCode')
-  final String countryCode;
+  final String? countryCode;
   @JsonKey(name: 'state')
-  final String state;
+  final String? state;
   @JsonKey(name: 'stateCode')
-  final String stateCode;
+  final String? stateCode;
   @JsonKey(name: 'city')
-  final String city;
+  final String? city;
   @JsonKey(name: 'cityCode')
-  final String cityCode;
+  final String? cityCode;
   @JsonKey(name: 'street')
-  final String street;
+  final String? street;
   @JsonKey(name: 'apartment')
   final String? apartment;
   @JsonKey(name: 'address')
-  final String address;
+  final String? address;
   @JsonKey(name: 'coordinate')
-  final String coordinate;
+  final String? coordinate;
   @JsonKey(name: 'firstName')
-  final String firstName;
+  final String? firstName;
   @JsonKey(name: 'lastName')
-  final String lastName;
+  final String? lastName;
   @JsonKey(name: 'phoneNumber')
-  final String phoneNumber;
+  final String? phoneNumber;
   @JsonKey(name: 'zipCode')
-  final String zipCode;
+  final String? zipCode;
   @JsonKey(name: 'deleted')
-  final double deleted;
+  final double? deleted;
   @JsonKey(name: 'isDelivered')
-  final double isDelivered;
+  final double? isDelivered;
   @JsonKey(name: 'gmtCreate')
-  final String gmtCreate;
+  final String? gmtCreate;
   @JsonKey(name: 'gmtUpdate')
-  final String gmtUpdate;
+  final String? gmtUpdate;
   @JsonKey(name: 'tin')
   final String? tin;
   static const fromJsonFactory =
@@ -7234,28 +7234,28 @@ extension $UserServiceAddressListGet$Response$Data$ItemExtension
   }
 
   UserServiceAddressListGet$Response$Data$Item copyWithWrapped({
-    Wrapped<double>? id,
-    Wrapped<String>? tenantCode,
-    Wrapped<String>? userId,
-    Wrapped<double>? isDefault,
-    Wrapped<String>? country,
-    Wrapped<String>? countryCode,
-    Wrapped<String>? state,
-    Wrapped<String>? stateCode,
-    Wrapped<String>? city,
-    Wrapped<String>? cityCode,
-    Wrapped<String>? street,
+    Wrapped<double?>? id,
+    Wrapped<String?>? tenantCode,
+    Wrapped<String?>? userId,
+    Wrapped<double?>? isDefault,
+    Wrapped<String?>? country,
+    Wrapped<String?>? countryCode,
+    Wrapped<String?>? state,
+    Wrapped<String?>? stateCode,
+    Wrapped<String?>? city,
+    Wrapped<String?>? cityCode,
+    Wrapped<String?>? street,
     Wrapped<String?>? apartment,
-    Wrapped<String>? address,
-    Wrapped<String>? coordinate,
-    Wrapped<String>? firstName,
-    Wrapped<String>? lastName,
-    Wrapped<String>? phoneNumber,
-    Wrapped<String>? zipCode,
-    Wrapped<double>? deleted,
-    Wrapped<double>? isDelivered,
-    Wrapped<String>? gmtCreate,
-    Wrapped<String>? gmtUpdate,
+    Wrapped<String?>? address,
+    Wrapped<String?>? coordinate,
+    Wrapped<String?>? firstName,
+    Wrapped<String?>? lastName,
+    Wrapped<String?>? phoneNumber,
+    Wrapped<String?>? zipCode,
+    Wrapped<double?>? deleted,
+    Wrapped<double?>? isDelivered,
+    Wrapped<String?>? gmtCreate,
+    Wrapped<String?>? gmtUpdate,
     Wrapped<String?>? tin,
   }) {
     return UserServiceAddressListGet$Response$Data$Item(
@@ -7289,21 +7289,21 @@ extension $UserServiceAddressListGet$Response$Data$ItemExtension
 @JsonSerializable(explicitToJson: true)
 class UserServiceGetShippingAddressByCountryGet$Response$Data {
   const UserServiceGetShippingAddressByCountryGet$Response$Data({
-    required this.id,
-    required this.isDefault,
-    required this.country,
-    required this.countryCode,
-    required this.state,
-    required this.stateCode,
-    required this.simpleStateCode,
+    this.id,
+    this.isDefault,
+    this.country,
+    this.countryCode,
+    this.state,
+    this.stateCode,
+    this.simpleStateCode,
     this.city,
-    required this.cityCode,
+    this.cityCode,
     this.apartment,
-    required this.address,
+    this.address,
     this.coordinate,
-    required this.firstName,
-    required this.lastName,
-    required this.phoneNumber,
+    this.firstName,
+    this.lastName,
+    this.phoneNumber,
   });
 
   factory UserServiceGetShippingAddressByCountryGet$Response$Data.fromJson(
@@ -7316,35 +7316,35 @@ class UserServiceGetShippingAddressByCountryGet$Response$Data {
       _$UserServiceGetShippingAddressByCountryGet$Response$DataToJson(this);
 
   @JsonKey(name: 'id')
-  final String id;
+  final String? id;
   @JsonKey(name: 'isDefault')
-  final bool isDefault;
+  final bool? isDefault;
   @JsonKey(name: 'country')
-  final String country;
+  final String? country;
   @JsonKey(name: 'countryCode')
-  final String countryCode;
+  final String? countryCode;
   @JsonKey(name: 'state')
-  final String state;
+  final String? state;
   @JsonKey(name: 'stateCode')
-  final String stateCode;
+  final String? stateCode;
   @JsonKey(name: 'simpleStateCode')
-  final String simpleStateCode;
+  final String? simpleStateCode;
   @JsonKey(name: 'city')
   final String? city;
   @JsonKey(name: 'cityCode')
-  final String cityCode;
+  final String? cityCode;
   @JsonKey(name: 'apartment')
   final String? apartment;
   @JsonKey(name: 'address')
-  final String address;
+  final String? address;
   @JsonKey(name: 'coordinate')
   final String? coordinate;
   @JsonKey(name: 'firstName')
-  final String firstName;
+  final String? firstName;
   @JsonKey(name: 'lastName')
-  final String lastName;
+  final String? lastName;
   @JsonKey(name: 'phoneNumber')
-  final String phoneNumber;
+  final String? phoneNumber;
   static const fromJsonFactory =
       _$UserServiceGetShippingAddressByCountryGet$Response$DataFromJson;
 
@@ -7482,21 +7482,21 @@ extension $UserServiceGetShippingAddressByCountryGet$Response$DataExtension
   }
 
   UserServiceGetShippingAddressByCountryGet$Response$Data copyWithWrapped({
-    Wrapped<String>? id,
-    Wrapped<bool>? isDefault,
-    Wrapped<String>? country,
-    Wrapped<String>? countryCode,
-    Wrapped<String>? state,
-    Wrapped<String>? stateCode,
-    Wrapped<String>? simpleStateCode,
+    Wrapped<String?>? id,
+    Wrapped<bool?>? isDefault,
+    Wrapped<String?>? country,
+    Wrapped<String?>? countryCode,
+    Wrapped<String?>? state,
+    Wrapped<String?>? stateCode,
+    Wrapped<String?>? simpleStateCode,
     Wrapped<String?>? city,
-    Wrapped<String>? cityCode,
+    Wrapped<String?>? cityCode,
     Wrapped<String?>? apartment,
-    Wrapped<String>? address,
+    Wrapped<String?>? address,
     Wrapped<String?>? coordinate,
-    Wrapped<String>? firstName,
-    Wrapped<String>? lastName,
-    Wrapped<String>? phoneNumber,
+    Wrapped<String?>? firstName,
+    Wrapped<String?>? lastName,
+    Wrapped<String?>? phoneNumber,
   }) {
     return UserServiceGetShippingAddressByCountryGet$Response$Data(
       id: (id != null ? id.value : this.id),
@@ -7523,24 +7523,24 @@ extension $UserServiceGetShippingAddressByCountryGet$Response$DataExtension
 @JsonSerializable(explicitToJson: true)
 class UserServiceGetDefaultShippingAddressGet$Response$Data {
   const UserServiceGetDefaultShippingAddressGet$Response$Data({
-    required this.id,
-    required this.isDefault,
-    required this.country,
-    required this.countryCode,
-    required this.state,
-    required this.stateCode,
-    required this.simpleStateCode,
+    this.id,
+    this.isDefault,
+    this.country,
+    this.countryCode,
+    this.state,
+    this.stateCode,
+    this.simpleStateCode,
     this.city,
-    required this.cityCode,
+    this.cityCode,
     this.apartment,
-    required this.address,
+    this.address,
     this.coordinate,
-    required this.firstName,
-    required this.lastName,
-    required this.phoneNumber,
-    required this.street,
-    required this.zipCode,
-    required this.email,
+    this.firstName,
+    this.lastName,
+    this.phoneNumber,
+    this.street,
+    this.zipCode,
+    this.email,
   });
 
   factory UserServiceGetDefaultShippingAddressGet$Response$Data.fromJson(
@@ -7553,41 +7553,41 @@ class UserServiceGetDefaultShippingAddressGet$Response$Data {
       _$UserServiceGetDefaultShippingAddressGet$Response$DataToJson(this);
 
   @JsonKey(name: 'id')
-  final String id;
+  final String? id;
   @JsonKey(name: 'isDefault')
-  final bool isDefault;
+  final bool? isDefault;
   @JsonKey(name: 'country')
-  final String country;
+  final String? country;
   @JsonKey(name: 'countryCode')
-  final String countryCode;
+  final String? countryCode;
   @JsonKey(name: 'state')
-  final String state;
+  final String? state;
   @JsonKey(name: 'stateCode')
-  final String stateCode;
+  final String? stateCode;
   @JsonKey(name: 'simpleStateCode')
-  final String simpleStateCode;
+  final String? simpleStateCode;
   @JsonKey(name: 'city')
   final String? city;
   @JsonKey(name: 'cityCode')
-  final String cityCode;
+  final String? cityCode;
   @JsonKey(name: 'apartment')
   final String? apartment;
   @JsonKey(name: 'address')
-  final String address;
+  final String? address;
   @JsonKey(name: 'coordinate')
   final String? coordinate;
   @JsonKey(name: 'firstName')
-  final String firstName;
+  final String? firstName;
   @JsonKey(name: 'lastName')
-  final String lastName;
+  final String? lastName;
   @JsonKey(name: 'phoneNumber')
-  final String phoneNumber;
+  final String? phoneNumber;
   @JsonKey(name: 'street')
-  final String street;
+  final String? street;
   @JsonKey(name: 'zipCode')
-  final String zipCode;
+  final String? zipCode;
   @JsonKey(name: 'email')
-  final String email;
+  final String? email;
   static const fromJsonFactory =
       _$UserServiceGetDefaultShippingAddressGet$Response$DataFromJson;
 
@@ -7743,24 +7743,24 @@ extension $UserServiceGetDefaultShippingAddressGet$Response$DataExtension
   }
 
   UserServiceGetDefaultShippingAddressGet$Response$Data copyWithWrapped({
-    Wrapped<String>? id,
-    Wrapped<bool>? isDefault,
-    Wrapped<String>? country,
-    Wrapped<String>? countryCode,
-    Wrapped<String>? state,
-    Wrapped<String>? stateCode,
-    Wrapped<String>? simpleStateCode,
+    Wrapped<String?>? id,
+    Wrapped<bool?>? isDefault,
+    Wrapped<String?>? country,
+    Wrapped<String?>? countryCode,
+    Wrapped<String?>? state,
+    Wrapped<String?>? stateCode,
+    Wrapped<String?>? simpleStateCode,
     Wrapped<String?>? city,
-    Wrapped<String>? cityCode,
+    Wrapped<String?>? cityCode,
     Wrapped<String?>? apartment,
-    Wrapped<String>? address,
+    Wrapped<String?>? address,
     Wrapped<String?>? coordinate,
-    Wrapped<String>? firstName,
-    Wrapped<String>? lastName,
-    Wrapped<String>? phoneNumber,
-    Wrapped<String>? street,
-    Wrapped<String>? zipCode,
-    Wrapped<String>? email,
+    Wrapped<String?>? firstName,
+    Wrapped<String?>? lastName,
+    Wrapped<String?>? phoneNumber,
+    Wrapped<String?>? street,
+    Wrapped<String?>? zipCode,
+    Wrapped<String?>? email,
   }) {
     return UserServiceGetDefaultShippingAddressGet$Response$Data(
       id: (id != null ? id.value : this.id),
@@ -7790,9 +7790,9 @@ extension $UserServiceGetDefaultShippingAddressGet$Response$DataExtension
 @JsonSerializable(explicitToJson: true)
 class UserServiceAddressCountryGet$Response$Data$Item {
   const UserServiceAddressCountryGet$Response$Data$Item({
-    required this.areaCode,
-    required this.icon,
-    required this.name,
+    this.areaCode,
+    this.icon,
+    this.name,
   });
 
   factory UserServiceAddressCountryGet$Response$Data$Item.fromJson(
@@ -7805,11 +7805,11 @@ class UserServiceAddressCountryGet$Response$Data$Item {
       _$UserServiceAddressCountryGet$Response$Data$ItemToJson(this);
 
   @JsonKey(name: 'areaCode')
-  final String areaCode;
+  final String? areaCode;
   @JsonKey(name: 'icon')
-  final String icon;
+  final String? icon;
   @JsonKey(name: 'name')
-  final String name;
+  final String? name;
   static const fromJsonFactory =
       _$UserServiceAddressCountryGet$Response$Data$ItemFromJson;
 
@@ -7854,9 +7854,9 @@ extension $UserServiceAddressCountryGet$Response$Data$ItemExtension
   }
 
   UserServiceAddressCountryGet$Response$Data$Item copyWithWrapped({
-    Wrapped<String>? areaCode,
-    Wrapped<String>? icon,
-    Wrapped<String>? name,
+    Wrapped<String?>? areaCode,
+    Wrapped<String?>? icon,
+    Wrapped<String?>? name,
   }) {
     return UserServiceAddressCountryGet$Response$Data$Item(
       areaCode: (areaCode != null ? areaCode.value : this.areaCode),
@@ -7869,18 +7869,18 @@ extension $UserServiceAddressCountryGet$Response$Data$ItemExtension
 @JsonSerializable(explicitToJson: true)
 class UserServiceAddressQueryByZipCodeGet$Response$Data$Item {
   const UserServiceAddressQueryByZipCodeGet$Response$Data$Item({
-    required this.apartment,
-    required this.street,
-    required this.city,
-    required this.cityCode,
-    required this.state,
-    required this.stateCode,
-    required this.country,
-    required this.countryCode,
-    required this.address,
-    required this.zipCode,
-    required this.latitude,
-    required this.longitude,
+    this.apartment,
+    this.street,
+    this.city,
+    this.cityCode,
+    this.state,
+    this.stateCode,
+    this.country,
+    this.countryCode,
+    this.address,
+    this.zipCode,
+    this.latitude,
+    this.longitude,
   });
 
   factory UserServiceAddressQueryByZipCodeGet$Response$Data$Item.fromJson(
@@ -7893,29 +7893,29 @@ class UserServiceAddressQueryByZipCodeGet$Response$Data$Item {
       _$UserServiceAddressQueryByZipCodeGet$Response$Data$ItemToJson(this);
 
   @JsonKey(name: 'apartment')
-  final Object apartment;
+  final Object? apartment;
   @JsonKey(name: 'street')
-  final String street;
+  final String? street;
   @JsonKey(name: 'city')
-  final String city;
+  final String? city;
   @JsonKey(name: 'cityCode')
-  final String cityCode;
+  final String? cityCode;
   @JsonKey(name: 'state')
-  final String state;
+  final String? state;
   @JsonKey(name: 'stateCode')
-  final String stateCode;
+  final String? stateCode;
   @JsonKey(name: 'country')
-  final String country;
+  final String? country;
   @JsonKey(name: 'countryCode')
-  final String countryCode;
+  final String? countryCode;
   @JsonKey(name: 'address')
-  final Object address;
+  final Object? address;
   @JsonKey(name: 'zipCode')
-  final String zipCode;
+  final String? zipCode;
   @JsonKey(name: 'latitude')
-  final Object latitude;
+  final Object? latitude;
   @JsonKey(name: 'longitude')
-  final Object longitude;
+  final Object? longitude;
   static const fromJsonFactory =
       _$UserServiceAddressQueryByZipCodeGet$Response$Data$ItemFromJson;
 
@@ -8029,18 +8029,18 @@ extension $UserServiceAddressQueryByZipCodeGet$Response$Data$ItemExtension
   }
 
   UserServiceAddressQueryByZipCodeGet$Response$Data$Item copyWithWrapped({
-    Wrapped<Object>? apartment,
-    Wrapped<String>? street,
-    Wrapped<String>? city,
-    Wrapped<String>? cityCode,
-    Wrapped<String>? state,
-    Wrapped<String>? stateCode,
-    Wrapped<String>? country,
-    Wrapped<String>? countryCode,
-    Wrapped<Object>? address,
-    Wrapped<String>? zipCode,
-    Wrapped<Object>? latitude,
-    Wrapped<Object>? longitude,
+    Wrapped<Object?>? apartment,
+    Wrapped<String?>? street,
+    Wrapped<String?>? city,
+    Wrapped<String?>? cityCode,
+    Wrapped<String?>? state,
+    Wrapped<String?>? stateCode,
+    Wrapped<String?>? country,
+    Wrapped<String?>? countryCode,
+    Wrapped<Object?>? address,
+    Wrapped<String?>? zipCode,
+    Wrapped<Object?>? latitude,
+    Wrapped<Object?>? longitude,
   }) {
     return UserServiceAddressQueryByZipCodeGet$Response$Data$Item(
       apartment: (apartment != null ? apartment.value : this.apartment),
@@ -8425,9 +8425,9 @@ extension $UserServiceSigninSwitchPortalPost$Response$DataExtension
 @JsonSerializable(explicitToJson: true)
 class UserServiceSignInInitPost$Response$Data {
   const UserServiceSignInInitPost$Response$Data({
-    required this.authWay,
-    required this.code,
-    required this.jumpUrl,
+    this.authWay,
+    this.code,
+    this.jumpUrl,
   });
 
   factory UserServiceSignInInitPost$Response$Data.fromJson(
@@ -8439,11 +8439,11 @@ class UserServiceSignInInitPost$Response$Data {
       _$UserServiceSignInInitPost$Response$DataToJson(this);
 
   @JsonKey(name: 'authWay')
-  final String authWay;
+  final String? authWay;
   @JsonKey(name: 'code')
-  final String code;
+  final String? code;
   @JsonKey(name: 'jumpUrl')
-  final String jumpUrl;
+  final String? jumpUrl;
   static const fromJsonFactory =
       _$UserServiceSignInInitPost$Response$DataFromJson;
 
@@ -8488,9 +8488,9 @@ extension $UserServiceSignInInitPost$Response$DataExtension
   }
 
   UserServiceSignInInitPost$Response$Data copyWithWrapped({
-    Wrapped<String>? authWay,
-    Wrapped<String>? code,
-    Wrapped<String>? jumpUrl,
+    Wrapped<String?>? authWay,
+    Wrapped<String?>? code,
+    Wrapped<String?>? jumpUrl,
   }) {
     return UserServiceSignInInitPost$Response$Data(
       authWay: (authWay != null ? authWay.value : this.authWay),
@@ -9661,10 +9661,7 @@ extension $UserServiceNoAuthCommonConfigDefaultSettingGet$Response$DataExtension
 
 @JsonSerializable(explicitToJson: true)
 class UserServiceFileImUploadPost$Response$Data$Item {
-  const UserServiceFileImUploadPost$Response$Data$Item({
-    required this.url,
-    required this.fileId,
-  });
+  const UserServiceFileImUploadPost$Response$Data$Item({this.url, this.fileId});
 
   factory UserServiceFileImUploadPost$Response$Data$Item.fromJson(
     Map<String, dynamic> json,
@@ -9676,9 +9673,9 @@ class UserServiceFileImUploadPost$Response$Data$Item {
       _$UserServiceFileImUploadPost$Response$Data$ItemToJson(this);
 
   @JsonKey(name: 'url')
-  final String url;
+  final String? url;
   @JsonKey(name: 'fileId')
-  final String fileId;
+  final String? fileId;
   static const fromJsonFactory =
       _$UserServiceFileImUploadPost$Response$Data$ItemFromJson;
 
@@ -9715,8 +9712,8 @@ extension $UserServiceFileImUploadPost$Response$Data$ItemExtension
   }
 
   UserServiceFileImUploadPost$Response$Data$Item copyWithWrapped({
-    Wrapped<String>? url,
-    Wrapped<String>? fileId,
+    Wrapped<String?>? url,
+    Wrapped<String?>? fileId,
   }) {
     return UserServiceFileImUploadPost$Response$Data$Item(
       url: (url != null ? url.value : this.url),
@@ -10687,9 +10684,9 @@ extension $UserServiceUserCouponGetCouponByActivityPost$Response$Data$ItemExtens
 @JsonSerializable(explicitToJson: true)
 class UserServiceUserCouponGetGet$Response$Data$Item {
   const UserServiceUserCouponGetGet$Response$Data$Item({
-    required this.userId,
-    required this.tenantCode,
-    required this.couponCode,
+    this.userId,
+    this.tenantCode,
+    this.couponCode,
     this.couponTitle,
     this.isUsed,
     this.gmtInvalid,
@@ -10701,7 +10698,7 @@ class UserServiceUserCouponGetGet$Response$Data$Item {
     this.limitAmountTarget,
     this.currencyTarget,
     this.couponImage,
-    required this.couponStatus,
+    this.couponStatus,
     this.msgInfo,
   });
 
@@ -10715,11 +10712,11 @@ class UserServiceUserCouponGetGet$Response$Data$Item {
       _$UserServiceUserCouponGetGet$Response$Data$ItemToJson(this);
 
   @JsonKey(name: 'userId')
-  final String userId;
+  final String? userId;
   @JsonKey(name: 'tenantCode')
-  final String tenantCode;
+  final String? tenantCode;
   @JsonKey(name: 'couponCode')
-  final String couponCode;
+  final String? couponCode;
   @JsonKey(name: 'couponTitle')
   final String? couponTitle;
   @JsonKey(name: 'isUsed')
@@ -10743,7 +10740,7 @@ class UserServiceUserCouponGetGet$Response$Data$Item {
   @JsonKey(name: 'couponImage')
   final String? couponImage;
   @JsonKey(name: 'couponStatus')
-  final String couponStatus;
+  final String? couponStatus;
   @JsonKey(name: 'msgInfo')
   final UserServiceUserCouponGetGet$Response$Data$Item$MsgInfo? msgInfo;
   static const fromJsonFactory =
@@ -10888,9 +10885,9 @@ extension $UserServiceUserCouponGetGet$Response$Data$ItemExtension
   }
 
   UserServiceUserCouponGetGet$Response$Data$Item copyWithWrapped({
-    Wrapped<String>? userId,
-    Wrapped<String>? tenantCode,
-    Wrapped<String>? couponCode,
+    Wrapped<String?>? userId,
+    Wrapped<String?>? tenantCode,
+    Wrapped<String?>? couponCode,
     Wrapped<String?>? couponTitle,
     Wrapped<double?>? isUsed,
     Wrapped<String?>? gmtInvalid,
@@ -10902,7 +10899,7 @@ extension $UserServiceUserCouponGetGet$Response$Data$ItemExtension
     Wrapped<String?>? limitAmountTarget,
     Wrapped<String?>? currencyTarget,
     Wrapped<String?>? couponImage,
-    Wrapped<String>? couponStatus,
+    Wrapped<String?>? couponStatus,
     Wrapped<UserServiceUserCouponGetGet$Response$Data$Item$MsgInfo?>? msgInfo,
   }) {
     return UserServiceUserCouponGetGet$Response$Data$Item(
@@ -10937,12 +10934,12 @@ extension $UserServiceUserCouponGetGet$Response$Data$ItemExtension
 @JsonSerializable(explicitToJson: true)
 class UserServiceImGetInfoPost$Response$Data {
   const UserServiceImGetInfoPost$Response$Data({
-    required this.api,
-    required this.longConnectApi,
-    required this.wsApi,
-    required this.longConnectKeep,
-    required this.whiteList,
-    required this.uid,
+    this.api,
+    this.longConnectApi,
+    this.wsApi,
+    this.longConnectKeep,
+    this.whiteList,
+    this.uid,
     this.appId,
     this.name,
     this.username,
@@ -10951,7 +10948,7 @@ class UserServiceImGetInfoPost$Response$Data {
     this.shortNo,
     this.zone,
     this.phone,
-    required this.token,
+    this.token,
     this.chatPwd,
     this.lockScreenPwd,
     this.lockAfterMinute,
@@ -10959,7 +10956,7 @@ class UserServiceImGetInfoPost$Response$Data {
     this.rsaPublicKey,
     this.shortStatus,
     this.msgExpireSecond,
-    required this.showStatus,
+    this.showStatus,
   });
 
   factory UserServiceImGetInfoPost$Response$Data.fromJson(
@@ -10971,17 +10968,17 @@ class UserServiceImGetInfoPost$Response$Data {
       _$UserServiceImGetInfoPost$Response$DataToJson(this);
 
   @JsonKey(name: 'api')
-  final String api;
+  final String? api;
   @JsonKey(name: 'longConnectApi')
-  final String longConnectApi;
+  final String? longConnectApi;
   @JsonKey(name: 'wsApi')
-  final String wsApi;
+  final String? wsApi;
   @JsonKey(name: 'longConnectKeep')
-  final bool longConnectKeep;
+  final bool? longConnectKeep;
   @JsonKey(name: 'whiteList')
-  final List<UserServiceImGetInfoPost$Response$Data$WhiteList$Item> whiteList;
+  final List<UserServiceImGetInfoPost$Response$Data$WhiteList$Item>? whiteList;
   @JsonKey(name: 'uid')
-  final String uid;
+  final String? uid;
   @JsonKey(name: 'app_id')
   final String? appId;
   @JsonKey(name: 'name')
@@ -10999,7 +10996,7 @@ class UserServiceImGetInfoPost$Response$Data {
   @JsonKey(name: 'phone')
   final String? phone;
   @JsonKey(name: 'token')
-  final String token;
+  final String? token;
   @JsonKey(name: 'chat_pwd')
   final String? chatPwd;
   @JsonKey(name: 'lock_screen_pwd')
@@ -11015,7 +11012,7 @@ class UserServiceImGetInfoPost$Response$Data {
   @JsonKey(name: 'msg_expire_second')
   final double? msgExpireSecond;
   @JsonKey(name: 'showStatus')
-  final double showStatus;
+  final double? showStatus;
   static const fromJsonFactory =
       _$UserServiceImGetInfoPost$Response$DataFromJson;
 
@@ -11199,13 +11196,13 @@ extension $UserServiceImGetInfoPost$Response$DataExtension
   }
 
   UserServiceImGetInfoPost$Response$Data copyWithWrapped({
-    Wrapped<String>? api,
-    Wrapped<String>? longConnectApi,
-    Wrapped<String>? wsApi,
-    Wrapped<bool>? longConnectKeep,
-    Wrapped<List<UserServiceImGetInfoPost$Response$Data$WhiteList$Item>>?
+    Wrapped<String?>? api,
+    Wrapped<String?>? longConnectApi,
+    Wrapped<String?>? wsApi,
+    Wrapped<bool?>? longConnectKeep,
+    Wrapped<List<UserServiceImGetInfoPost$Response$Data$WhiteList$Item>?>?
     whiteList,
-    Wrapped<String>? uid,
+    Wrapped<String?>? uid,
     Wrapped<String?>? appId,
     Wrapped<String?>? name,
     Wrapped<String?>? username,
@@ -11214,7 +11211,7 @@ extension $UserServiceImGetInfoPost$Response$DataExtension
     Wrapped<String?>? shortNo,
     Wrapped<String?>? zone,
     Wrapped<String?>? phone,
-    Wrapped<String>? token,
+    Wrapped<String?>? token,
     Wrapped<String?>? chatPwd,
     Wrapped<String?>? lockScreenPwd,
     Wrapped<double?>? lockAfterMinute,
@@ -11222,7 +11219,7 @@ extension $UserServiceImGetInfoPost$Response$DataExtension
     Wrapped<String?>? rsaPublicKey,
     Wrapped<double?>? shortStatus,
     Wrapped<double?>? msgExpireSecond,
-    Wrapped<double>? showStatus,
+    Wrapped<double?>? showStatus,
   }) {
     return UserServiceImGetInfoPost$Response$Data(
       api: (api != null ? api.value : this.api),
@@ -12782,10 +12779,10 @@ extension $UserServiceUserCouponAppHomeActivityPost$Response$Data$ItemExtension
 @JsonSerializable(explicitToJson: true)
 class UserServiceUserCouponActivityInfoGet$Response$Data$CouponList$Item {
   const UserServiceUserCouponActivityInfoGet$Response$Data$CouponList$Item({
-    required this.currencySymbol,
-    required this.discountType,
-    required this.discountInfo,
-    required this.limitAmount,
+    this.currencySymbol,
+    this.discountType,
+    this.discountInfo,
+    this.limitAmount,
     this.invalidPeriod,
     this.userCouponCode,
   });
@@ -12805,13 +12802,13 @@ class UserServiceUserCouponActivityInfoGet$Response$Data$CouponList$Item {
       );
 
   @JsonKey(name: 'currencySymbol')
-  final String currencySymbol;
+  final String? currencySymbol;
   @JsonKey(name: 'discountType')
-  final double discountType;
+  final double? discountType;
   @JsonKey(name: 'discountInfo')
-  final double discountInfo;
+  final double? discountInfo;
   @JsonKey(name: 'limitAmount')
-  final double limitAmount;
+  final double? limitAmount;
   @JsonKey(name: 'invalidPeriod')
   final double? invalidPeriod;
   @JsonKey(name: 'userCouponCode')
@@ -12892,10 +12889,10 @@ extension $UserServiceUserCouponActivityInfoGet$Response$Data$CouponList$ItemExt
 
   UserServiceUserCouponActivityInfoGet$Response$Data$CouponList$Item
   copyWithWrapped({
-    Wrapped<String>? currencySymbol,
-    Wrapped<double>? discountType,
-    Wrapped<double>? discountInfo,
-    Wrapped<double>? limitAmount,
+    Wrapped<String?>? currencySymbol,
+    Wrapped<double?>? discountType,
+    Wrapped<double?>? discountInfo,
+    Wrapped<double?>? limitAmount,
     Wrapped<double?>? invalidPeriod,
     Wrapped<String?>? userCouponCode,
   }) {
@@ -13311,10 +13308,10 @@ extension $UserServiceUserCouponGetListGet$Response$Data$Item$UserCouponDtos$Ite
 @JsonSerializable(explicitToJson: true)
 class UserServiceUserCouponNoAuthActivityInfoGet$Response$Data$CouponList$Item {
   const UserServiceUserCouponNoAuthActivityInfoGet$Response$Data$CouponList$Item({
-    required this.currencySymbol,
-    required this.discountType,
-    required this.discountInfo,
-    required this.limitAmount,
+    this.currencySymbol,
+    this.discountType,
+    this.discountInfo,
+    this.limitAmount,
   });
 
   factory UserServiceUserCouponNoAuthActivityInfoGet$Response$Data$CouponList$Item.fromJson(
@@ -13332,13 +13329,13 @@ class UserServiceUserCouponNoAuthActivityInfoGet$Response$Data$CouponList$Item {
       );
 
   @JsonKey(name: 'currencySymbol')
-  final String currencySymbol;
+  final String? currencySymbol;
   @JsonKey(name: 'discountType')
-  final double discountType;
+  final double? discountType;
   @JsonKey(name: 'discountInfo')
-  final double discountInfo;
+  final double? discountInfo;
   @JsonKey(name: 'limitAmount')
-  final double limitAmount;
+  final double? limitAmount;
   static const fromJsonFactory =
       _$UserServiceUserCouponNoAuthActivityInfoGet$Response$Data$CouponList$ItemFromJson;
 
@@ -13400,10 +13397,10 @@ extension $UserServiceUserCouponNoAuthActivityInfoGet$Response$Data$CouponList$I
 
   UserServiceUserCouponNoAuthActivityInfoGet$Response$Data$CouponList$Item
   copyWithWrapped({
-    Wrapped<String>? currencySymbol,
-    Wrapped<double>? discountType,
-    Wrapped<double>? discountInfo,
-    Wrapped<double>? limitAmount,
+    Wrapped<String?>? currencySymbol,
+    Wrapped<double?>? discountType,
+    Wrapped<double?>? discountInfo,
+    Wrapped<double?>? limitAmount,
   }) {
     return UserServiceUserCouponNoAuthActivityInfoGet$Response$Data$CouponList$Item(
       currencySymbol: (currencySymbol != null
@@ -13426,8 +13423,8 @@ class UserServiceUserCouponGetGet$Response$Data$Item$MsgInfo {
     this.name,
     this.limit,
     this.usage,
-    required this.discountStr,
-    required this.discountUnit,
+    this.discountStr,
+    this.discountUnit,
   });
 
   factory UserServiceUserCouponGetGet$Response$Data$Item$MsgInfo.fromJson(
@@ -13446,9 +13443,9 @@ class UserServiceUserCouponGetGet$Response$Data$Item$MsgInfo {
   @JsonKey(name: 'usage')
   final String? usage;
   @JsonKey(name: 'discountStr')
-  final String discountStr;
+  final String? discountStr;
   @JsonKey(name: 'discountUnit')
-  final String discountUnit;
+  final String? discountUnit;
   static const fromJsonFactory =
       _$UserServiceUserCouponGetGet$Response$Data$Item$MsgInfoFromJson;
 
@@ -13509,8 +13506,8 @@ extension $UserServiceUserCouponGetGet$Response$Data$Item$MsgInfoExtension
     Wrapped<String?>? name,
     Wrapped<String?>? limit,
     Wrapped<String?>? usage,
-    Wrapped<String>? discountStr,
-    Wrapped<String>? discountUnit,
+    Wrapped<String?>? discountStr,
+    Wrapped<String?>? discountUnit,
   }) {
     return UserServiceUserCouponGetGet$Response$Data$Item$MsgInfo(
       name: (name != null ? name.value : this.name),
@@ -13527,8 +13524,8 @@ extension $UserServiceUserCouponGetGet$Response$Data$Item$MsgInfoExtension
 @JsonSerializable(explicitToJson: true)
 class UserServiceImGetInfoPost$Response$Data$WhiteList$Item {
   const UserServiceImGetInfoPost$Response$Data$WhiteList$Item({
-    required this.channelId,
-    required this.channelType,
+    this.channelId,
+    this.channelType,
   });
 
   factory UserServiceImGetInfoPost$Response$Data$WhiteList$Item.fromJson(
@@ -13541,9 +13538,9 @@ class UserServiceImGetInfoPost$Response$Data$WhiteList$Item {
       _$UserServiceImGetInfoPost$Response$Data$WhiteList$ItemToJson(this);
 
   @JsonKey(name: 'channelId')
-  final String channelId;
+  final String? channelId;
   @JsonKey(name: 'channelType')
-  final String channelType;
+  final String? channelType;
   static const fromJsonFactory =
       _$UserServiceImGetInfoPost$Response$Data$WhiteList$ItemFromJson;
 
@@ -13586,8 +13583,8 @@ extension $UserServiceImGetInfoPost$Response$Data$WhiteList$ItemExtension
   }
 
   UserServiceImGetInfoPost$Response$Data$WhiteList$Item copyWithWrapped({
-    Wrapped<String>? channelId,
-    Wrapped<String>? channelType,
+    Wrapped<String?>? channelId,
+    Wrapped<String?>? channelType,
   }) {
     return UserServiceImGetInfoPost$Response$Data$WhiteList$Item(
       channelId: (channelId != null ? channelId.value : this.channelId),

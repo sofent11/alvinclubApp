@@ -431,57 +431,63 @@ class ProductRepository {
   }) async {
     final api = _ref.read(swaggerProductApiProvider);
 
-    // Use raw client call to bypass brittle generated converter that fails on null strings
-    final response = await api.client
-        .get<Map<String, dynamic>, Map<String, dynamic>>(
-          Uri.parse('/product-service/product/no-auth/hotProduct/v2'),
-          parameters: {
-            'current': (params?.page ?? 1).toString(),
-            'size': (params?.pageSize ?? 20).toString(),
-            if (params?.categoryId != null) 'categoryId': params!.categoryId!,
-          },
-        );
+    final response = await api.productServiceProductNoAuthHotProductV2Get(
+      current: (params?.page ?? 1).toString(),
+      size: (params?.pageSize ?? 20).toString(),
+      categoryId: params?.categoryId,
+    );
 
-    final body = response.body;
-    final code = _parseInt(body?['code']);
-    if (code != 0) {
-      throw _createApiError(body?['message']?.toString() ?? '获取热门商品失败', body);
+    if (!response.isSuccessful || response.body == null) {
+      throw _createApiError('获取热门商品失败', {
+        'statusCode': response.statusCode,
+        'error': response.error,
+      });
     }
 
-    final data = _toMap(body?['data']);
-    final records = _toMapList(data?['records']);
+    final body = response.body!;
+    final code = body.code ?? -1;
+    final message = body.message ?? '';
+    if (code != 0) {
+      throw _createApiError(message.isNotEmpty ? message : '获取热门商品失败', body);
+    }
+
+    final data = body.data;
+    final records = data?.records ?? const [];
     if (records.isEmpty) {
       return const ProductListResponse(products: [], total: 0, hasMore: false);
     }
 
-    final total = _parseInt(data?['total']);
-    final pageSize = _parseInt(
-      data?['pageSize'],
-      fallback: params?.pageSize ?? 20,
-    );
-    final current = _parseInt(data?['current'], fallback: params?.page ?? 1);
-
     final products = records.map((item) {
-      final image = _toMap(item['image']);
+      final tagCodes = (item.tags ?? const [])
+          .map((t) => t.tagCode)
+          .whereType<String>()
+          .map((t) => t.trim())
+          .where((t) => t.isNotEmpty)
+          .toList();
+      final imageUrl = item.image?.url ?? '';
       return ProductItem(
-        id: item['productCode']?.toString() ?? '',
-        skuCode: item['skuCode']?.toString(),
-        recommendedSkuCode: item['skuCode']?.toString(),
-        name: item['productName']?.toString() ?? '',
-        price: _parsePrice(item['targetSellPrice']),
-        originalPrice: _extractTargetOriginPrice(item),
-        currency: item['targetSellCur']?.toString(),
-        imageUrl: image?['url']?.toString() ?? '',
-        images: image?['url'] != null ? [image!['url'].toString()] : [],
-        sales: _parseInt(item['sellQuantity']),
-        tags: _extractTags(item['tags']),
+        id: item.productCode ?? '',
+        skuCode: item.skuCode,
+        recommendedSkuCode: item.skuCode,
+        name: item.productName ?? '',
+        price: _parsePrice(item.targetSellPrice),
+        originalPrice: _parseOptionalPrice(item.targetOriginPrice),
+        currency: item.targetSellCur ?? '',
+        imageUrl: imageUrl,
+        images: imageUrl.isNotEmpty ? [imageUrl] : const [],
+        sales: _parseInt(item.sellQuantity),
+        tags: tagCodes.isEmpty ? null : tagCodes,
       );
     }).toList();
+
+    final total = data?.total ?? 0;
+    final current = data?.current ?? 0;
+    final pageSizeValue = data?.pageSize ?? 0;
 
     return ProductListResponse(
       products: products,
       total: total,
-      hasMore: current * pageSize < total,
+      hasMore: current * pageSizeValue < total,
     );
   }
 
@@ -490,48 +496,57 @@ class ProductRepository {
   }) async {
     final api = _ref.read(swaggerProductApiProvider);
 
-    // Use raw client call to bypass brittle generated converter
-    final response = await api.client
-        .get<Map<String, dynamic>, Map<String, dynamic>>(
-          Uri.parse('/product-service/product/no-auth/flashSaleProduct'),
-          parameters: {
-            'current': (params?.page ?? 1).toString(),
-            'size': (params?.pageSize ?? 10).toString(),
-          },
-        );
+    final response = await api.productServiceProductNoAuthFlashSaleProductGet(
+      current: (params?.page ?? 1).toString(),
+      size: (params?.pageSize ?? 10).toString(),
+    );
 
-    final body = response.body;
-    final code = _parseInt(body?['code']);
-    if (code != 0) {
-      throw _createApiError(body?['message']?.toString() ?? '获取特价商品失败', body);
+    if (!response.isSuccessful || response.body == null) {
+      throw _createApiError('获取特价商品失败', {
+        'statusCode': response.statusCode,
+        'error': response.error,
+      });
     }
 
-    final dataList = _toList(body?['data']);
+    final body = response.body!;
+    final code = body.code?.toInt() ?? -1;
+    if (code != 0) {
+      throw _createApiError(body.message ?? '获取特价商品失败', body);
+    }
+
+    final dataList = body.data ?? const [];
     if (dataList.isEmpty) {
       return const ProductListResponse(products: [], total: 0, hasMore: false);
     }
 
-    final products = dataList.map((raw) {
-      final item = _toMap(raw) ?? const {};
-      final mainImg = _toList(item['mainImg']);
-      final imageUrls = mainImg
-          .map((img) => _toMap(img)?['url']?.toString())
+    final products = dataList.map((item) {
+      final imageUrls = (item.mainImg ?? const [])
+          .map((img) => img.url)
           .whereType<String>()
+          .map((u) => u.trim())
+          .where((u) => u.isNotEmpty)
           .toList();
+      final tagCodes = (item.tags ?? const [])
+          .map((t) => t.tagCode)
+          .whereType<String>()
+          .map((t) => t.trim())
+          .where((t) => t.isNotEmpty)
+          .toList();
+
       return ProductItem(
-        id: item['productCode']?.toString() ?? '',
-        skuCode: item['skuCode']?.toString(),
-        recommendedSkuCode: item['skuCode']?.toString(),
-        name: item['productName']?.toString() ?? '',
-        price: _parsePrice(item['targetSellPrice']),
-        originalPrice: _extractTargetOriginPrice(item),
-        currency: item['targetSellCur']?.toString(),
+        id: item.productCode ?? '',
+        skuCode: item.skuCode,
+        recommendedSkuCode: item.skuCode,
+        name: item.productName ?? '',
+        price: _parsePrice(item.targetSellPrice),
+        originalPrice: null,
+        currency: item.targetSellCur ?? '',
         imageUrl: imageUrls.isNotEmpty ? imageUrls.first : '',
         images: imageUrls,
-        sales: _parseInt(item['sellQuantity']),
-        brandName: item['brandName']?.toString(),
-        categoryId: item['categoryId']?.toString(),
-        tags: _extractTags(item['tags']),
+        sales: _parseInt(item.sellQuantity),
+        brandName: item.brandName,
+        categoryId: (item.categoryId ?? '').toString(),
+        tags: tagCodes.isEmpty ? null : tagCodes,
       );
     }).toList();
 
@@ -545,30 +560,35 @@ class ProductRepository {
   Future<List<FlashSaleActivity>> getFlashSaleActivities() async {
     final api = _ref.read(swaggerProductApiProvider);
 
-    // Use raw client call to bypass brittle generated converter
-    final response = await api.client
-        .get<Map<String, dynamic>, Map<String, dynamic>>(
-          Uri.parse('/product-service/activity/no-auth/flashSaleActivity'),
-        );
+    final response = await api
+        .productServiceActivityNoAuthFlashSaleActivityGet();
 
-    final body = response.body;
-    if (body == null || _parseInt(body['code']) != 0) {
-      throw _createApiError('获取秒杀活动失败', body);
+    if (!response.isSuccessful || response.body == null) {
+      throw _createApiError('获取秒杀活动失败', {
+        'statusCode': response.statusCode,
+        'error': response.error,
+      });
     }
 
-    final data = _toMap(body['data']);
-    final list = _toList(data?['activities']);
-    return list
-        .map((itemRaw) {
-          final item = _toMap(itemRaw);
-          if (item == null) return null;
+    final body = response.body!;
+    final code = body.code?.toInt() ?? -1;
+    if (code != 0) {
+      throw _createApiError(body.message ?? '获取秒杀活动失败', body);
+    }
+
+    final activities = body.data?.activities ?? const [];
+    return activities
+        .map((item) {
+          final id = item.activityCode ?? '';
+          final title = item.title ?? '';
+          if (id.isEmpty || title.isEmpty) return null;
           return FlashSaleActivity(
-            id: item['id']?.toString() ?? '',
-            title: item['name']?.toString() ?? '',
-            startTime: item['startTime']?.toString() ?? '',
-            endTime: item['endTime']?.toString() ?? '',
-            status: _parseInt(item['status']),
-            banner: item['bannerUrl']?.toString(),
+            id: id,
+            title: title,
+            startTime: item.startTime?.toString() ?? '',
+            endTime: item.endTime?.toString() ?? '',
+            status: _parseInt(item.status),
+            banner: body.data?.pic,
           );
         })
         .whereType<FlashSaleActivity>()
@@ -589,45 +609,57 @@ class ProductRepository {
           size: pageSize.toString(),
         );
 
-    final body = _toMap(response.body);
-    if (body == null || _parseInt(body['code']) != 0) {
-      throw _createApiError('获取秒杀商品失败', body);
+    if (!response.isSuccessful || response.body == null) {
+      throw _createApiError('获取秒杀商品失败', {
+        'statusCode': response.statusCode,
+        'error': response.error,
+      });
     }
 
-    final data = _toMap(body['data']);
-    final records = _toMapList(data?['records']);
+    final body = response.body!;
+    final code = int.tryParse(body.code ?? '') ?? -1;
+    if (code != 0) {
+      final message = body.message ?? '';
+      throw _createApiError(message.isNotEmpty ? message : '获取秒杀商品失败', body);
+    }
+
+    final data = body.data;
+    final records = data?.records ?? const [];
     if (records.isEmpty) {
       return const ProductListResponse(products: [], total: 0, hasMore: false);
     }
 
-    final total = _parseInt(data?['total']);
-    final current = _parseInt(data?['current'], fallback: page);
-    final size = _parseInt(data?['pageSize'], fallback: pageSize);
-
     final products = records.map((item) {
-      final image = _toMap(item['image']);
-      final flashSaleInfo = _toMap(item['flashSaleInfo']);
-
+      final tagCodes = (item.tags ?? const [])
+          .map((t) => t.tagCode)
+          .whereType<String>()
+          .map((t) => t.trim())
+          .where((t) => t.isNotEmpty)
+          .toList();
+      final imageUrl = item.image?.url ?? '';
       return ProductItem(
-        id: item['productCode']?.toString() ?? '',
-        skuCode: item['skuCode']?.toString(),
-        name: item['productName']?.toString() ?? '',
-        price: _parsePrice(
-          flashSaleInfo?['flashSalePrice'] ?? item['targetSellPrice'],
-        ),
-        originalPrice: _parseOptionalPrice(item['targetSellPrice']),
-        currency: item['targetSellCur']?.toString(),
-        imageUrl: image?['url']?.toString() ?? '',
-        images: image?['url'] != null ? [image!['url'].toString()] : [],
-        sales: _parseInt(item['sellQuantity']),
-        stock: _parseInt(flashSaleInfo?['stock']),
+        id: item.productCode ?? '',
+        skuCode: item.skuCode,
+        name: item.productName ?? '',
+        price: _parsePrice(item.targetSellPrice),
+        originalPrice: _parseOptionalPrice(item.targetOriginPrice),
+        currency: item.targetSellCur ?? '',
+        imageUrl: imageUrl,
+        images: imageUrl.isNotEmpty ? [imageUrl] : const [],
+        sales: _parseInt(item.sellQuantity),
+        tags: tagCodes.isEmpty ? null : tagCodes,
+        stock: null,
       );
     }).toList();
+
+    final total = data?.total ?? 0;
+    final current = data?.current ?? 0;
+    final pageSizeValue = data?.pageSize ?? 0;
 
     return ProductListResponse(
       products: products,
       total: total,
-      hasMore: current * size < total,
+      hasMore: current * pageSizeValue < total,
     );
   }
 
@@ -864,75 +896,88 @@ class ProductRepository {
 
   Future<List<PremiumDupeProduct>> getPremiumDupeSelection() async {
     final api = _ref.read(swaggerProductApiProvider);
-    // Use raw client call to bypass brittle generated converter
-    final response = await api.client.get<Map<String, dynamic>, Map<String, dynamic>>(
-      Uri.parse('/product-service/product/premium-dupe/no-auth/selection'),
-    );
 
-    final body = response.body;
-    final code = _parseInt(body?['code']);
-    if (code != 0) {
-      throw _createApiError(body?['message']?.toString() ?? '获取精选平替商品失败', body);
+    final response = await api
+        .productServiceProductPremiumDupeNoAuthSelectionGet();
+
+    if (!response.isSuccessful || response.body == null) {
+      throw _createApiError('获取精选平替商品失败', {
+        'statusCode': response.statusCode,
+        'error': response.error,
+      });
     }
 
-    final data = _toList(body?['data']);
+    final body = response.body!;
+    final code = body.code ?? -1;
+    if (code != 0) {
+      throw _createApiError(body.message ?? '获取精选平替商品失败', body);
+    }
+
+    final data = body.data ?? const [];
     if (data.isEmpty) return [];
 
-    return data.map((itemRaw) {
-      final item = _toMap(itemRaw) ?? {};
-      final image = _toMap(item['image']);
+    return data.map((item) {
+      final premiumBrandInfo = item.premiumBrandInfo;
       return PremiumDupeProduct(
-        id: item['productCode']?.toString() ?? '',
-        name: item['productName']?.toString() ?? '',
-        price: _parsePrice(item['targetSellPrice'] ?? item['sellPrice']),
-        originalPrice: _parseOptionalPrice(item['targetOriginPrice'] ?? item['originPrice']),
-        currency: item['targetSellCur']?.toString() ?? item['sellPriceCur']?.toString() ?? 'USD',
-        imageUrl: image?['url']?.toString() ?? '',
-        sales: item['sellQuantity']?.toString(),
-        marketingInfo: item['marketingInfo']?.toString(),
-        premiumBrandInfo: item['premiumBrandInfo'] is Map<String, dynamic>
-            ? item['premiumBrandInfo'] as Map<String, dynamic>
-            : null,
+        id: item.productCode ?? '',
+        name: item.productName ?? '',
+        price: item.targetSellPrice ?? item.sellPrice ?? 0,
+        originalPrice: item.targetOriginPrice,
+        currency: item.targetSellCur ?? item.sellPriceCur ?? 'USD',
+        imageUrl: item.image?.url ?? '',
+        sales: item.sellQuantity,
+        marketingInfo: item.marketingInfo,
+        premiumBrandInfo: premiumBrandInfo == null
+            ? null
+            : {
+                'brandCode': premiumBrandInfo.brandCode,
+                'brandImg': premiumBrandInfo.brandImg,
+              },
       );
     }).toList();
   }
 
   Future<List<PremiumDupeCategory>> getPremiumDupeMeta() async {
     final api = _ref.read(swaggerProductApiProvider);
-    // Use raw client call to bypass brittle generated converter
-    final response = await api.client.get<Map<String, dynamic>, Map<String, dynamic>>(
-      Uri.parse('/product-service/product/premium-dupe/no-auth/meta'),
-    );
 
-    final body = response.body;
-    final code = _parseInt(body?['code']);
-    if (code != 0) {
-      throw _createApiError(body?['message']?.toString() ?? '获取平替分类失败', body);
+    final response = await api.productServiceProductPremiumDupeNoAuthMetaGet();
+
+    if (!response.isSuccessful || response.body == null) {
+      throw _createApiError('获取平替分类失败', {
+        'statusCode': response.statusCode,
+        'error': response.error,
+      });
     }
 
-    final data = _toMap(body?['data']);
-    final categories = _toMapList(data?['categories']);
+    final body = response.body!;
+    final code = body.code ?? -1;
+    if (code != 0) {
+      throw _createApiError(body.message ?? '获取平替分类失败', body);
+    }
+
+    final categories = body.data?.categories ?? const [];
     if (categories.isEmpty) return [];
 
     return categories
         .map((item) {
           return PremiumDupeCategory(
-            id: item['categoryId']?.toString() ?? '',
-            name: item['categoryName']?.toString() ?? '',
-            count: _parseInt(item['count']),
-            imageUrl: item['categoryImage']?.toString(),
+            id: item.categoryId?.toString() ?? '',
+            name: item.categoryName ?? '',
+            count: item.count ?? 0,
+            imageUrl: item.categoryImage,
           );
         })
         .where((item) => item.id.isNotEmpty && item.name.isNotEmpty)
         .toList();
   }
 
-  Future<PremiumDupePage> getPremiumDupePage(PremiumDupePageParams params) async {
+  Future<PremiumDupePage> getPremiumDupePage(
+    PremiumDupePageParams params,
+  ) async {
     final api = _ref.read(swaggerProductApiProvider);
-    // Use raw client call to bypass brittle generated converter
-    final response = await api.client.post<Map<String, dynamic>, Map<String, dynamic>>(
-      Uri.parse('/product-service/product/premium-dupe/no-auth/page'),
-      body: {
+
+    final response = await api.productServiceProductPremiumDupeNoAuthPagePost(
+      root: {
         'current': params.current ?? 1,
         'pageSize': params.pageSize ?? 20,
         if (params.categoryId != null) 'categoryId': params.categoryId,
@@ -942,37 +987,47 @@ class ProductRepository {
       },
     );
 
-    final body = response.body;
-    final code = _parseInt(body?['code']);
-    if (code != 0) {
-      throw _createApiError(body?['message']?.toString() ?? '获取平替商品失败', body);
+    if (!response.isSuccessful || response.body == null) {
+      throw _createApiError('获取平替商品失败', {
+        'statusCode': response.statusCode,
+        'error': response.error,
+      });
     }
 
-    final data = _toMap(body?['data']);
-    final records = _toMapList(data?['records']);
+    final body = response.body!;
+    final code = body.code ?? -1;
+    if (code != 0) {
+      throw _createApiError(body.message ?? '获取平替商品失败', body);
+    }
+
+    final data = body.data;
+    final records = data?.records ?? const [];
     final products = records.map((item) {
-      final image = _toMap(item['image']);
+      final premiumBrandInfo = item.premiumBrandInfo;
       return PremiumDupeProduct(
-        id: item['productCode']?.toString() ?? '',
-        name: item['productName']?.toString() ?? '',
-        price: _parsePrice(item['targetSellPrice'] ?? item['sellPrice']),
-        originalPrice: _parseOptionalPrice(item['targetOriginPrice'] ?? item['originPrice']),
-        currency: item['targetSellCur']?.toString() ?? item['sellPriceCur']?.toString() ?? 'USD',
-        imageUrl: image?['url']?.toString() ?? '',
-        sales: item['sellQuantity']?.toString(),
-        marketingInfo: item['marketingInfo']?.toString(),
-        premiumBrandInfo: item['premiumBrandInfo'] is Map<String, dynamic>
-            ? item['premiumBrandInfo'] as Map<String, dynamic>
-            : null,
+        id: item.productCode ?? '',
+        name: item.productName ?? '',
+        price: item.targetSellPrice ?? item.sellPrice ?? 0,
+        originalPrice: item.targetOriginPrice,
+        currency: item.targetSellCur ?? item.sellPriceCur ?? 'USD',
+        imageUrl: item.image?.url ?? '',
+        sales: item.sellQuantity,
+        marketingInfo: item.marketingInfo,
+        premiumBrandInfo: premiumBrandInfo == null
+            ? null
+            : {
+                'brandCode': premiumBrandInfo.brandCode,
+                'brandImg': premiumBrandInfo.brandImg,
+              },
       );
     }).toList();
 
     return PremiumDupePage(
       products: products,
-      total: _parseInt(data?['total']),
-      pageSize: _parseInt(data?['pageSize'], fallback: params.pageSize ?? 20),
-      totalPages: _parseInt(data?['totalPages']),
-      current: _parseInt(data?['current'], fallback: params.current ?? 1),
+      total: data?.total ?? 0,
+      pageSize: data?.pageSize ?? (params.pageSize ?? 20),
+      totalPages: data?.totalPages ?? 0,
+      current: data?.current ?? (params.current ?? 1),
     );
   }
 

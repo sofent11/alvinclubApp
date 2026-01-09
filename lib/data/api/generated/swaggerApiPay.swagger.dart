@@ -777,9 +777,9 @@ extension $PayServiceWithdrawApplyPost$ResponseExtension
 @JsonSerializable(explicitToJson: true)
 class PayServiceCommissionSummaryGet$Response {
   const PayServiceCommissionSummaryGet$Response({
-    required this.code,
-    required this.message,
-    required this.data,
+    this.code,
+    this.message,
+    this.data,
   });
 
   factory PayServiceCommissionSummaryGet$Response.fromJson(
@@ -791,11 +791,11 @@ class PayServiceCommissionSummaryGet$Response {
       _$PayServiceCommissionSummaryGet$ResponseToJson(this);
 
   @JsonKey(name: 'code')
-  final double code;
+  final double? code;
   @JsonKey(name: 'message')
-  final String message;
+  final String? message;
   @JsonKey(name: 'data')
-  final PayServiceCommissionSummaryGet$Response$Data data;
+  final PayServiceCommissionSummaryGet$Response$Data? data;
   static const fromJsonFactory =
       _$PayServiceCommissionSummaryGet$ResponseFromJson;
 
@@ -840,9 +840,9 @@ extension $PayServiceCommissionSummaryGet$ResponseExtension
   }
 
   PayServiceCommissionSummaryGet$Response copyWithWrapped({
-    Wrapped<double>? code,
-    Wrapped<String>? message,
-    Wrapped<PayServiceCommissionSummaryGet$Response$Data>? data,
+    Wrapped<double?>? code,
+    Wrapped<String?>? message,
+    Wrapped<PayServiceCommissionSummaryGet$Response$Data?>? data,
   }) {
     return PayServiceCommissionSummaryGet$Response(
       code: (code != null ? code.value : this.code),
@@ -2213,13 +2213,13 @@ extension $PayServiceWithdrawApplyPost$Response$DataExtension
 @JsonSerializable(explicitToJson: true)
 class PayServiceCommissionSummaryGet$Response$Data {
   const PayServiceCommissionSummaryGet$Response$Data({
-    required this.commissionTotal,
-    required this.targetCurrencyTotal,
-    required this.withdrawAmount,
-    required this.withdrawableBalance,
-    required this.pendingCommission,
-    required this.totalPoints,
-    required this.pendingWithdrawAmount,
+    this.commissionTotal,
+    this.targetCurrencyTotal,
+    this.withdrawAmount,
+    this.withdrawableBalance,
+    this.pendingCommission,
+    this.totalPoints,
+    this.pendingWithdrawAmount,
   });
 
   factory PayServiceCommissionSummaryGet$Response$Data.fromJson(
@@ -2232,19 +2232,19 @@ class PayServiceCommissionSummaryGet$Response$Data {
       _$PayServiceCommissionSummaryGet$Response$DataToJson(this);
 
   @JsonKey(name: 'commissionTotal')
-  final String commissionTotal;
+  final String? commissionTotal;
   @JsonKey(name: 'targetCurrencyTotal')
-  final String targetCurrencyTotal;
+  final String? targetCurrencyTotal;
   @JsonKey(name: 'withdrawAmount')
-  final String withdrawAmount;
+  final String? withdrawAmount;
   @JsonKey(name: 'withdrawableBalance')
-  final String withdrawableBalance;
+  final String? withdrawableBalance;
   @JsonKey(name: 'pendingCommission')
-  final String pendingCommission;
+  final String? pendingCommission;
   @JsonKey(name: 'totalPoints')
-  final double totalPoints;
+  final double? totalPoints;
   @JsonKey(name: 'pendingWithdrawAmount')
-  final String pendingWithdrawAmount;
+  final String? pendingWithdrawAmount;
   static const fromJsonFactory =
       _$PayServiceCommissionSummaryGet$Response$DataFromJson;
 
@@ -2328,13 +2328,13 @@ extension $PayServiceCommissionSummaryGet$Response$DataExtension
   }
 
   PayServiceCommissionSummaryGet$Response$Data copyWithWrapped({
-    Wrapped<String>? commissionTotal,
-    Wrapped<String>? targetCurrencyTotal,
-    Wrapped<String>? withdrawAmount,
-    Wrapped<String>? withdrawableBalance,
-    Wrapped<String>? pendingCommission,
-    Wrapped<double>? totalPoints,
-    Wrapped<String>? pendingWithdrawAmount,
+    Wrapped<String?>? commissionTotal,
+    Wrapped<String?>? targetCurrencyTotal,
+    Wrapped<String?>? withdrawAmount,
+    Wrapped<String?>? withdrawableBalance,
+    Wrapped<String?>? pendingCommission,
+    Wrapped<double?>? totalPoints,
+    Wrapped<String?>? pendingWithdrawAmount,
   }) {
     return PayServiceCommissionSummaryGet$Response$Data(
       commissionTotal: (commissionTotal != null
@@ -2837,7 +2837,7 @@ extension $PayServiceRechargeCreateOrderPost$Response$DataExtension
 class PayServicePayPayPost$Response$Data {
   const PayServicePayPayPost$Response$Data({
     this.thirdPayParam,
-    required this.receiptAddress,
+    this.receiptAddress,
   });
 
   factory PayServicePayPayPost$Response$Data.fromJson(
@@ -2851,7 +2851,7 @@ class PayServicePayPayPost$Response$Data {
   @JsonKey(name: 'thirdPayParam')
   final String? thirdPayParam;
   @JsonKey(name: 'receiptAddress')
-  final String receiptAddress;
+  final String? receiptAddress;
   static const fromJsonFactory = _$PayServicePayPayPost$Response$DataFromJson;
 
   @override
@@ -2894,7 +2894,7 @@ extension $PayServicePayPayPost$Response$DataExtension
 
   PayServicePayPayPost$Response$Data copyWithWrapped({
     Wrapped<String?>? thirdPayParam,
-    Wrapped<String>? receiptAddress,
+    Wrapped<String?>? receiptAddress,
   }) {
     return PayServicePayPayPost$Response$Data(
       thirdPayParam: (thirdPayParam != null
@@ -3056,10 +3056,7 @@ extension $PayServicePayPayTypeGet$Response$DataExtension
 
 @JsonSerializable(explicitToJson: true)
 class PayServiceEchoooCoinTypeGet$Response$Data$Item {
-  const PayServiceEchoooCoinTypeGet$Response$Data$Item({
-    required this.type,
-    required this.name,
-  });
+  const PayServiceEchoooCoinTypeGet$Response$Data$Item({this.type, this.name});
 
   factory PayServiceEchoooCoinTypeGet$Response$Data$Item.fromJson(
     Map<String, dynamic> json,
@@ -3071,9 +3068,9 @@ class PayServiceEchoooCoinTypeGet$Response$Data$Item {
       _$PayServiceEchoooCoinTypeGet$Response$Data$ItemToJson(this);
 
   @JsonKey(name: 'type')
-  final double type;
+  final double? type;
   @JsonKey(name: 'name')
-  final String name;
+  final String? name;
   static const fromJsonFactory =
       _$PayServiceEchoooCoinTypeGet$Response$Data$ItemFromJson;
 
@@ -3110,8 +3107,8 @@ extension $PayServiceEchoooCoinTypeGet$Response$Data$ItemExtension
   }
 
   PayServiceEchoooCoinTypeGet$Response$Data$Item copyWithWrapped({
-    Wrapped<double>? type,
-    Wrapped<String>? name,
+    Wrapped<double?>? type,
+    Wrapped<String?>? name,
   }) {
     return PayServiceEchoooCoinTypeGet$Response$Data$Item(
       type: (type != null ? type.value : this.type),
@@ -3123,11 +3120,11 @@ extension $PayServiceEchoooCoinTypeGet$Response$Data$ItemExtension
 @JsonSerializable(explicitToJson: true)
 class PayServiceEchoooCoinInfoGet$Response$Data {
   const PayServiceEchoooCoinInfoGet$Response$Data({
-    required this.balance,
-    required this.percentage,
-    required this.deductibleAmount,
-    required this.accumulateAmount,
-    required this.currency,
+    this.balance,
+    this.percentage,
+    this.deductibleAmount,
+    this.accumulateAmount,
+    this.currency,
   });
 
   factory PayServiceEchoooCoinInfoGet$Response$Data.fromJson(
@@ -3140,15 +3137,15 @@ class PayServiceEchoooCoinInfoGet$Response$Data {
       _$PayServiceEchoooCoinInfoGet$Response$DataToJson(this);
 
   @JsonKey(name: 'balance')
-  final double balance;
+  final double? balance;
   @JsonKey(name: 'percentage')
-  final String percentage;
+  final String? percentage;
   @JsonKey(name: 'deductibleAmount')
-  final String deductibleAmount;
+  final String? deductibleAmount;
   @JsonKey(name: 'accumulateAmount')
-  final String accumulateAmount;
+  final String? accumulateAmount;
   @JsonKey(name: 'currency')
-  final PayServiceEchoooCoinInfoGet$Response$Data$Currency currency;
+  final PayServiceEchoooCoinInfoGet$Response$Data$Currency? currency;
   static const fromJsonFactory =
       _$PayServiceEchoooCoinInfoGet$Response$DataFromJson;
 
@@ -3215,11 +3212,11 @@ extension $PayServiceEchoooCoinInfoGet$Response$DataExtension
   }
 
   PayServiceEchoooCoinInfoGet$Response$Data copyWithWrapped({
-    Wrapped<double>? balance,
-    Wrapped<String>? percentage,
-    Wrapped<String>? deductibleAmount,
-    Wrapped<String>? accumulateAmount,
-    Wrapped<PayServiceEchoooCoinInfoGet$Response$Data$Currency>? currency,
+    Wrapped<double?>? balance,
+    Wrapped<String?>? percentage,
+    Wrapped<String?>? deductibleAmount,
+    Wrapped<String?>? accumulateAmount,
+    Wrapped<PayServiceEchoooCoinInfoGet$Response$Data$Currency?>? currency,
   }) {
     return PayServiceEchoooCoinInfoGet$Response$Data(
       balance: (balance != null ? balance.value : this.balance),
@@ -3509,10 +3506,10 @@ extension $PayServiceWithdrawOrdersGet$Response$Data$Records$ItemExtension
 @JsonSerializable(explicitToJson: true)
 class PayServiceCommissionTransactionGet$Response$Data$Records$Item {
   const PayServiceCommissionTransactionGet$Response$Data$Records$Item({
-    required this.amount,
-    required this.time,
-    required this.typeName,
-    required this.currency,
+    this.amount,
+    this.time,
+    this.typeName,
+    this.currency,
   });
 
   factory PayServiceCommissionTransactionGet$Response$Data$Records$Item.fromJson(
@@ -3529,13 +3526,13 @@ class PayServiceCommissionTransactionGet$Response$Data$Records$Item {
       );
 
   @JsonKey(name: 'amount')
-  final String amount;
+  final String? amount;
   @JsonKey(name: 'time')
-  final String time;
+  final String? time;
   @JsonKey(name: 'typeName')
-  final String typeName;
+  final String? typeName;
   @JsonKey(name: 'currency')
-  final String currency;
+  final String? currency;
   static const fromJsonFactory =
       _$PayServiceCommissionTransactionGet$Response$Data$Records$ItemFromJson;
 
@@ -3590,10 +3587,10 @@ extension $PayServiceCommissionTransactionGet$Response$Data$Records$ItemExtensio
 
   PayServiceCommissionTransactionGet$Response$Data$Records$Item
   copyWithWrapped({
-    Wrapped<String>? amount,
-    Wrapped<String>? time,
-    Wrapped<String>? typeName,
-    Wrapped<String>? currency,
+    Wrapped<String?>? amount,
+    Wrapped<String?>? time,
+    Wrapped<String?>? typeName,
+    Wrapped<String?>? currency,
   }) {
     return PayServiceCommissionTransactionGet$Response$Data$Records$Item(
       amount: (amount != null ? amount.value : this.amount),
@@ -4271,8 +4268,8 @@ extension $PayServicePayPayTypeGet$Response$Data$List$ItemExtension
 @JsonSerializable(explicitToJson: true)
 class PayServiceEchoooCoinInfoGet$Response$Data$Currency {
   const PayServiceEchoooCoinInfoGet$Response$Data$Currency({
-    required this.name,
-    required this.symbol,
+    this.name,
+    this.symbol,
   });
 
   factory PayServiceEchoooCoinInfoGet$Response$Data$Currency.fromJson(
@@ -4285,9 +4282,9 @@ class PayServiceEchoooCoinInfoGet$Response$Data$Currency {
       _$PayServiceEchoooCoinInfoGet$Response$Data$CurrencyToJson(this);
 
   @JsonKey(name: 'name')
-  final String name;
+  final String? name;
   @JsonKey(name: 'symbol')
-  final String symbol;
+  final String? symbol;
   static const fromJsonFactory =
       _$PayServiceEchoooCoinInfoGet$Response$Data$CurrencyFromJson;
 
@@ -4324,8 +4321,8 @@ extension $PayServiceEchoooCoinInfoGet$Response$Data$CurrencyExtension
   }
 
   PayServiceEchoooCoinInfoGet$Response$Data$Currency copyWithWrapped({
-    Wrapped<String>? name,
-    Wrapped<String>? symbol,
+    Wrapped<String?>? name,
+    Wrapped<String?>? symbol,
   }) {
     return PayServiceEchoooCoinInfoGet$Response$Data$Currency(
       name: (name != null ? name.value : this.name),
@@ -4337,10 +4334,10 @@ extension $PayServiceEchoooCoinInfoGet$Response$Data$CurrencyExtension
 @JsonSerializable(explicitToJson: true)
 class PayServiceEchoooCoinLogGet$Response$Data$Records$Item {
   const PayServiceEchoooCoinLogGet$Response$Data$Records$Item({
-    required this.actualAmount,
-    required this.gmtCreate,
-    required this.type,
-    required this.name,
+    this.actualAmount,
+    this.gmtCreate,
+    this.type,
+    this.name,
   });
 
   factory PayServiceEchoooCoinLogGet$Response$Data$Records$Item.fromJson(
@@ -4353,13 +4350,13 @@ class PayServiceEchoooCoinLogGet$Response$Data$Records$Item {
       _$PayServiceEchoooCoinLogGet$Response$Data$Records$ItemToJson(this);
 
   @JsonKey(name: 'actualAmount')
-  final double actualAmount;
+  final double? actualAmount;
   @JsonKey(name: 'gmtCreate')
-  final double gmtCreate;
+  final double? gmtCreate;
   @JsonKey(name: 'type')
-  final double type;
+  final double? type;
   @JsonKey(name: 'name')
-  final String name;
+  final String? name;
   static const fromJsonFactory =
       _$PayServiceEchoooCoinLogGet$Response$Data$Records$ItemFromJson;
 
@@ -4412,10 +4409,10 @@ extension $PayServiceEchoooCoinLogGet$Response$Data$Records$ItemExtension
   }
 
   PayServiceEchoooCoinLogGet$Response$Data$Records$Item copyWithWrapped({
-    Wrapped<double>? actualAmount,
-    Wrapped<double>? gmtCreate,
-    Wrapped<double>? type,
-    Wrapped<String>? name,
+    Wrapped<double?>? actualAmount,
+    Wrapped<double?>? gmtCreate,
+    Wrapped<double?>? type,
+    Wrapped<String?>? name,
   }) {
     return PayServiceEchoooCoinLogGet$Response$Data$Records$Item(
       actualAmount: (actualAmount != null

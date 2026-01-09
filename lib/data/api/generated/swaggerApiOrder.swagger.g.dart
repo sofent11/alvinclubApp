@@ -9,9 +9,9 @@ part of 'swaggerApiOrder.swagger.dart';
 OrderServiceOrderAppCancelPost$Response
 _$OrderServiceOrderAppCancelPost$ResponseFromJson(Map<String, dynamic> json) =>
     OrderServiceOrderAppCancelPost$Response(
-      message: json['message'] as String,
-      code: (json['code'] as num).toDouble(),
-      data: json['data'] as Object,
+      message: json['message'] as String?,
+      code: (json['code'] as num?)?.toDouble(),
+      data: json['data'],
     );
 
 Map<String, dynamic> _$OrderServiceOrderAppCancelPost$ResponseToJson(
@@ -26,17 +26,19 @@ OrderServiceOrderAppBatchInfosGet$Response
 _$OrderServiceOrderAppBatchInfosGet$ResponseFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderAppBatchInfosGet$Response(
-  data: OrderServiceOrderAppBatchInfosGet$Response$Data.fromJson(
-    json['data'] as Map<String, dynamic>,
-  ),
-  code: (json['code'] as num).toDouble(),
-  message: json['message'] as String,
+  data: json['data'] == null
+      ? null
+      : OrderServiceOrderAppBatchInfosGet$Response$Data.fromJson(
+          json['data'] as Map<String, dynamic>,
+        ),
+  code: (json['code'] as num?)?.toDouble(),
+  message: json['message'] as String?,
 );
 
 Map<String, dynamic> _$OrderServiceOrderAppBatchInfosGet$ResponseToJson(
   OrderServiceOrderAppBatchInfosGet$Response instance,
 ) => <String, dynamic>{
-  'data': instance.data.toJson(),
+  'data': instance.data?.toJson(),
   'code': instance.code,
   'message': instance.message,
 };
@@ -44,17 +46,19 @@ Map<String, dynamic> _$OrderServiceOrderAppBatchInfosGet$ResponseToJson(
 OrderServiceOrderAppSubmitPost$Response
 _$OrderServiceOrderAppSubmitPost$ResponseFromJson(Map<String, dynamic> json) =>
     OrderServiceOrderAppSubmitPost$Response(
-      data: OrderServiceOrderAppSubmitPost$Response$Data.fromJson(
-        json['data'] as Map<String, dynamic>,
-      ),
-      code: (json['code'] as num).toDouble(),
-      message: json['message'] as String,
+      data: json['data'] == null
+          ? null
+          : OrderServiceOrderAppSubmitPost$Response$Data.fromJson(
+              json['data'] as Map<String, dynamic>,
+            ),
+      code: (json['code'] as num?)?.toDouble(),
+      message: json['message'] as String?,
     );
 
 Map<String, dynamic> _$OrderServiceOrderAppSubmitPost$ResponseToJson(
   OrderServiceOrderAppSubmitPost$Response instance,
 ) => <String, dynamic>{
-  'data': instance.data.toJson(),
+  'data': instance.data?.toJson(),
   'code': instance.code,
   'message': instance.message,
 };
@@ -62,9 +66,9 @@ Map<String, dynamic> _$OrderServiceOrderAppSubmitPost$ResponseToJson(
 OrderServiceOrderAppUpdatePost$Response
 _$OrderServiceOrderAppUpdatePost$ResponseFromJson(Map<String, dynamic> json) =>
     OrderServiceOrderAppUpdatePost$Response(
-      data: json['data'] as Object,
-      code: (json['code'] as num).toDouble(),
-      message: json['message'] as String,
+      data: json['data'],
+      code: (json['code'] as num?)?.toDouble(),
+      message: json['message'] as String?,
     );
 
 Map<String, dynamic> _$OrderServiceOrderAppUpdatePost$ResponseToJson(
@@ -130,17 +134,19 @@ Map<String, dynamic> _$OrderServiceOrderAppDetailGet$ResponseToJson(
 OrderServiceOrderPrePricingGet$Response
 _$OrderServiceOrderPrePricingGet$ResponseFromJson(Map<String, dynamic> json) =>
     OrderServiceOrderPrePricingGet$Response(
-      data: OrderServiceOrderPrePricingGet$Response$Data.fromJson(
-        json['data'] as Map<String, dynamic>,
-      ),
-      code: (json['code'] as num).toDouble(),
-      message: json['message'] as String,
+      data: json['data'] == null
+          ? null
+          : OrderServiceOrderPrePricingGet$Response$Data.fromJson(
+              json['data'] as Map<String, dynamic>,
+            ),
+      code: (json['code'] as num?)?.toDouble(),
+      message: json['message'] as String?,
     );
 
 Map<String, dynamic> _$OrderServiceOrderPrePricingGet$ResponseToJson(
   OrderServiceOrderPrePricingGet$Response instance,
 ) => <String, dynamic>{
-  'data': instance.data.toJson(),
+  'data': instance.data?.toJson(),
   'code': instance.code,
   'message': instance.message,
 };
@@ -148,9 +154,9 @@ Map<String, dynamic> _$OrderServiceOrderPrePricingGet$ResponseToJson(
 OrderServiceOrderCancelPost$Response
 _$OrderServiceOrderCancelPost$ResponseFromJson(Map<String, dynamic> json) =>
     OrderServiceOrderCancelPost$Response(
-      message: json['message'] as String,
-      code: (json['code'] as num).toDouble(),
-      data: json['data'] as Object,
+      message: json['message'] as String?,
+      code: (json['code'] as num?)?.toDouble(),
+      data: json['data'],
     );
 
 Map<String, dynamic> _$OrderServiceOrderCancelPost$ResponseToJson(
@@ -164,17 +170,19 @@ Map<String, dynamic> _$OrderServiceOrderCancelPost$ResponseToJson(
 OrderServiceOrderSubmitPost$Response
 _$OrderServiceOrderSubmitPost$ResponseFromJson(Map<String, dynamic> json) =>
     OrderServiceOrderSubmitPost$Response(
-      data: OrderServiceOrderSubmitPost$Response$Data.fromJson(
-        json['data'] as Map<String, dynamic>,
-      ),
-      code: (json['code'] as num).toDouble(),
-      message: json['message'] as String,
+      data: json['data'] == null
+          ? null
+          : OrderServiceOrderSubmitPost$Response$Data.fromJson(
+              json['data'] as Map<String, dynamic>,
+            ),
+      code: (json['code'] as num?)?.toDouble(),
+      message: json['message'] as String?,
     );
 
 Map<String, dynamic> _$OrderServiceOrderSubmitPost$ResponseToJson(
   OrderServiceOrderSubmitPost$Response instance,
 ) => <String, dynamic>{
-  'data': instance.data.toJson(),
+  'data': instance.data?.toJson(),
   'code': instance.code,
   'message': instance.message,
 };
@@ -182,9 +190,9 @@ Map<String, dynamic> _$OrderServiceOrderSubmitPost$ResponseToJson(
 OrderServiceOrderUpdatePost$Response
 _$OrderServiceOrderUpdatePost$ResponseFromJson(Map<String, dynamic> json) =>
     OrderServiceOrderUpdatePost$Response(
-      data: json['data'] as Object,
-      code: (json['code'] as num).toDouble(),
-      message: json['message'] as String,
+      data: json['data'],
+      code: (json['code'] as num?)?.toDouble(),
+      message: json['message'] as String?,
     );
 
 Map<String, dynamic> _$OrderServiceOrderUpdatePost$ResponseToJson(
@@ -198,11 +206,13 @@ Map<String, dynamic> _$OrderServiceOrderUpdatePost$ResponseToJson(
 OrderServiceOrderConfirmPost$Response
 _$OrderServiceOrderConfirmPost$ResponseFromJson(Map<String, dynamic> json) =>
     OrderServiceOrderConfirmPost$Response(
-      code: json['code'] as String,
-      message: json['message'] as String,
-      data: OrderServiceOrderConfirmPost$Response$Data.fromJson(
-        json['data'] as Map<String, dynamic>,
-      ),
+      code: json['code'] as String?,
+      message: json['message'] as String?,
+      data: json['data'] == null
+          ? null
+          : OrderServiceOrderConfirmPost$Response$Data.fromJson(
+              json['data'] as Map<String, dynamic>,
+            ),
     );
 
 Map<String, dynamic> _$OrderServiceOrderConfirmPost$ResponseToJson(
@@ -210,18 +220,18 @@ Map<String, dynamic> _$OrderServiceOrderConfirmPost$ResponseToJson(
 ) => <String, dynamic>{
   'code': instance.code,
   'message': instance.message,
-  'data': instance.data.toJson(),
+  'data': instance.data?.toJson(),
 };
 
 OrderServiceOrderSettlementPost$Response
 _$OrderServiceOrderSettlementPost$ResponseFromJson(Map<String, dynamic> json) =>
     OrderServiceOrderSettlementPost$Response(
-      totalPrice: json['totalPrice'] as String,
-      targetTotalPrice: json['targetTotalPrice'] as String,
-      currency: json['currency'] as String,
-      targetCurrency: json['targetCurrency'] as String,
-      rechargeBalance: json['rechargeBalance'] as String,
-      rechargeStatus: json['rechargeStatus'] as String,
+      totalPrice: json['totalPrice'] as String?,
+      targetTotalPrice: json['targetTotalPrice'] as String?,
+      currency: json['currency'] as String?,
+      targetCurrency: json['targetCurrency'] as String?,
+      rechargeBalance: json['rechargeBalance'] as String?,
+      rechargeStatus: json['rechargeStatus'] as String?,
     );
 
 Map<String, dynamic> _$OrderServiceOrderSettlementPost$ResponseToJson(
@@ -238,12 +248,12 @@ Map<String, dynamic> _$OrderServiceOrderSettlementPost$ResponseToJson(
 OrderServiceOrderPricingPost$Response
 _$OrderServiceOrderPricingPost$ResponseFromJson(Map<String, dynamic> json) =>
     OrderServiceOrderPricingPost$Response(
-      totalAmount: json['totalAmount'] as String,
-      targetTotalAmount: json['targetTotalAmount'] as String,
-      sellCur: json['sellCur'] as String,
-      targetSellCur: json['targetSellCur'] as String,
-      targetOrderLimitAmount: json['targetOrderLimitAmount'] as String,
-      targetShipLimitAmount: json['targetShipLimitAmount'] as String,
+      totalAmount: json['totalAmount'] as String?,
+      targetTotalAmount: json['targetTotalAmount'] as String?,
+      sellCur: json['sellCur'] as String?,
+      targetSellCur: json['targetSellCur'] as String?,
+      targetOrderLimitAmount: json['targetOrderLimitAmount'] as String?,
+      targetShipLimitAmount: json['targetShipLimitAmount'] as String?,
     );
 
 Map<String, dynamic> _$OrderServiceOrderPricingPost$ResponseToJson(
@@ -260,7 +270,7 @@ Map<String, dynamic> _$OrderServiceOrderPricingPost$ResponseToJson(
 OrderServiceFeebillListGet$Response$Item
 _$OrderServiceFeebillListGet$Response$ItemFromJson(Map<String, dynamic> json) =>
     OrderServiceFeebillListGet$Response$Item(
-      billId: json['billId'] as String,
+      billId: json['billId'] as String?,
       bizId: json['bizId'] as String?,
       billType: json['billType'] as String?,
       status: json['status'] as String?,
@@ -709,9 +719,9 @@ Map<String, dynamic> _$OrderServiceCartListGet$ResponseToJson(
 OrderServiceCartSettlementPost$Response
 _$OrderServiceCartSettlementPost$ResponseFromJson(Map<String, dynamic> json) =>
     OrderServiceCartSettlementPost$Response(
-      code: json['code'] as String,
-      message: json['message'] as String,
-      data: json['data'] as Object,
+      code: json['code'] as String?,
+      message: json['message'] as String?,
+      data: json['data'],
     );
 
 Map<String, dynamic> _$OrderServiceCartSettlementPost$ResponseToJson(
@@ -775,9 +785,9 @@ OrderServiceOrderAppBatchInfosGet$Response$Data
 _$OrderServiceOrderAppBatchInfosGet$Response$DataFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderAppBatchInfosGet$Response$Data(
-  title: json['title'] as String,
-  description: json['description'] as String,
-  parcelOrderId: json['parcelOrderId'] as String,
+  title: json['title'] as String?,
+  description: json['description'] as String?,
+  parcelOrderId: json['parcelOrderId'] as String?,
   logisticsJoinInfoList: (json['logisticsJoinInfoList'] as List<dynamic>?)
       ?.map(
         (e) =>
@@ -803,10 +813,10 @@ OrderServiceOrderAppSubmitPost$Response$Data
 _$OrderServiceOrderAppSubmitPost$Response$DataFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderAppSubmitPost$Response$Data(
-  orderId: json['orderId'] as String,
-  single: json['single'] as bool,
-  orderStatus: (json['orderStatus'] as num).toDouble(),
-  timeoutPeriod: (json['timeoutPeriod'] as num).toDouble(),
+  orderId: json['orderId'] as String?,
+  single: json['single'] as bool?,
+  orderStatus: (json['orderStatus'] as num?)?.toDouble(),
+  timeoutPeriod: (json['timeoutPeriod'] as num?)?.toDouble(),
 );
 
 Map<String, dynamic> _$OrderServiceOrderAppSubmitPost$Response$DataToJson(
@@ -895,8 +905,8 @@ _$OrderServiceOrderAppDetailGet$Response$DataFromJson(
             ),
       )
       .toList(),
-  orderList: (json['orderList'] as List<dynamic>)
-      .map(
+  orderList: (json['orderList'] as List<dynamic>?)
+      ?.map(
         (e) =>
             OrderServiceOrderAppDetailGet$Response$Data$OrderList$Item.fromJson(
               e as Map<String, dynamic>,
@@ -916,17 +926,17 @@ Map<String, dynamic> _$OrderServiceOrderAppDetailGet$Response$DataToJson(
   'parcelOrder': instance.parcelOrder?.toJson(),
   'orderTrace': instance.orderTrace?.toJson(),
   'discountInfos': instance.discountInfos?.map((e) => e.toJson()).toList(),
-  'orderList': instance.orderList.map((e) => e.toJson()).toList(),
+  'orderList': instance.orderList?.map((e) => e.toJson()).toList(),
 };
 
 OrderServiceOrderPrePricingGet$Response$Data
 _$OrderServiceOrderPrePricingGet$Response$DataFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderPrePricingGet$Response$Data(
-  currency: json['currency'] as String,
-  totalPrice: (json['totalPrice'] as num).toDouble(),
-  targetCurrency: (json['targetCurrency'] as num).toDouble(),
-  targetPrice: json['targetPrice'] as String,
+  currency: json['currency'] as String?,
+  totalPrice: (json['totalPrice'] as num?)?.toDouble(),
+  targetCurrency: (json['targetCurrency'] as num?)?.toDouble(),
+  targetPrice: json['targetPrice'] as String?,
 );
 
 Map<String, dynamic> _$OrderServiceOrderPrePricingGet$Response$DataToJson(
@@ -942,9 +952,9 @@ OrderServiceOrderSubmitPost$Response$Data
 _$OrderServiceOrderSubmitPost$Response$DataFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderSubmitPost$Response$Data(
-  orderId: json['orderId'] as String,
-  orderStatus: (json['orderStatus'] as num).toDouble(),
-  timeoutPeriod: (json['timeoutPeriod'] as num).toDouble(),
+  orderId: json['orderId'] as String?,
+  orderStatus: (json['orderStatus'] as num?)?.toDouble(),
+  timeoutPeriod: (json['timeoutPeriod'] as num?)?.toDouble(),
 );
 
 Map<String, dynamic> _$OrderServiceOrderSubmitPost$Response$DataToJson(
@@ -959,11 +969,13 @@ OrderServiceOrderConfirmPost$Response$Data
 _$OrderServiceOrderConfirmPost$Response$DataFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderConfirmPost$Response$Data(
-  pricing: OrderServiceOrderConfirmPost$Response$Data$Pricing.fromJson(
-    json['pricing'] as Map<String, dynamic>,
-  ),
-  paymentMethodList: (json['paymentMethodList'] as List<dynamic>)
-      .map(
+  pricing: json['pricing'] == null
+      ? null
+      : OrderServiceOrderConfirmPost$Response$Data$Pricing.fromJson(
+          json['pricing'] as Map<String, dynamic>,
+        ),
+  paymentMethodList: (json['paymentMethodList'] as List<dynamic>?)
+      ?.map(
         (e) =>
             OrderServiceOrderConfirmPost$Response$Data$PaymentMethodList$Item.fromJson(
               e as Map<String, dynamic>,
@@ -975,9 +987,9 @@ _$OrderServiceOrderConfirmPost$Response$DataFromJson(
 Map<String, dynamic> _$OrderServiceOrderConfirmPost$Response$DataToJson(
   OrderServiceOrderConfirmPost$Response$Data instance,
 ) => <String, dynamic>{
-  'pricing': instance.pricing.toJson(),
+  'pricing': instance.pricing?.toJson(),
   'paymentMethodList': instance.paymentMethodList
-      .map((e) => e.toJson())
+      ?.map((e) => e.toJson())
       .toList(),
 };
 
@@ -1031,8 +1043,8 @@ _$OrderServiceOrderNoAuthDetailGet$Response$DataFromJson(
             ),
       )
       .toList(),
-  orderList: (json['orderList'] as List<dynamic>)
-      .map(
+  orderList: (json['orderList'] as List<dynamic>?)
+      ?.map(
         (e) =>
             OrderServiceOrderNoAuthDetailGet$Response$Data$OrderList$Item.fromJson(
               e as Map<String, dynamic>,
@@ -1052,7 +1064,7 @@ Map<String, dynamic> _$OrderServiceOrderNoAuthDetailGet$Response$DataToJson(
   'parcelOrder': instance.parcelOrder?.toJson(),
   'orderTrace': instance.orderTrace?.toJson(),
   'discountInfos': instance.discountInfos?.map((e) => e.toJson()).toList(),
-  'orderList': instance.orderList.map((e) => e.toJson()).toList(),
+  'orderList': instance.orderList?.map((e) => e.toJson()).toList(),
 };
 
 OrderServiceOrderCouponListPost$Response$Data$Item
@@ -1094,14 +1106,14 @@ OrderServiceOrderDiscountListPost$Response$Data$Item
 _$OrderServiceOrderDiscountListPost$Response$Data$ItemFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderDiscountListPost$Response$Data$Item(
-  couponCode: json['couponCode'] as String,
-  discountInfo: json['discountInfo'] as String,
-  discountType: (json['discountType'] as num).toDouble(),
-  discountAmount: json['discountAmount'] as String,
-  currency: json['currency'] as String,
-  targetDiscountAmount: json['targetDiscountAmount'] as String,
-  targetCurrency: json['targetCurrency'] as String,
-  available: json['available'] as bool,
+  couponCode: json['couponCode'] as String?,
+  discountInfo: json['discountInfo'] as String?,
+  discountType: (json['discountType'] as num?)?.toDouble(),
+  discountAmount: json['discountAmount'] as String?,
+  currency: json['currency'] as String?,
+  targetDiscountAmount: json['targetDiscountAmount'] as String?,
+  targetCurrency: json['targetCurrency'] as String?,
+  available: json['available'] as bool?,
   unavailableReason: json['unavailableReason'] as String?,
 );
 
@@ -1153,25 +1165,27 @@ OrderServiceOrderGetReviewGet$Response$Data$Item
 _$OrderServiceOrderGetReviewGet$Response$Data$ItemFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderGetReviewGet$Response$Data$Item(
-  productName: json['productName'] as String,
-  skuCode: json['skuCode'] as String,
-  productCode: json['productCode'] as String,
-  image: json['image'] as String,
-  targetSellPrice: json['targetSellPrice'] as String,
-  targetSellCur: json['targetSellCur'] as String,
-  targetTotalPrice: json['targetTotalPrice'] as String,
-  quantity: json['quantity'] as String,
-  skuSpecValues: (json['skuSpecValues'] as List<dynamic>)
-      .map(
+  productName: json['productName'] as String?,
+  skuCode: json['skuCode'] as String?,
+  productCode: json['productCode'] as String?,
+  image: json['image'] as String?,
+  targetSellPrice: json['targetSellPrice'] as String?,
+  targetSellCur: json['targetSellCur'] as String?,
+  targetTotalPrice: json['targetTotalPrice'] as String?,
+  quantity: json['quantity'] as String?,
+  skuSpecValues: (json['skuSpecValues'] as List<dynamic>?)
+      ?.map(
         (e) =>
             OrderServiceOrderGetReviewGet$Response$Data$Item$SkuSpecValues$Item.fromJson(
               e as Map<String, dynamic>,
             ),
       )
       .toList(),
-  review: OrderServiceOrderGetReviewGet$Response$Data$Item$Review.fromJson(
-    json['review'] as Map<String, dynamic>,
-  ),
+  review: json['review'] == null
+      ? null
+      : OrderServiceOrderGetReviewGet$Response$Data$Item$Review.fromJson(
+          json['review'] as Map<String, dynamic>,
+        ),
 );
 
 Map<String, dynamic> _$OrderServiceOrderGetReviewGet$Response$Data$ItemToJson(
@@ -1185,8 +1199,8 @@ Map<String, dynamic> _$OrderServiceOrderGetReviewGet$Response$Data$ItemToJson(
   'targetSellCur': instance.targetSellCur,
   'targetTotalPrice': instance.targetTotalPrice,
   'quantity': instance.quantity,
-  'skuSpecValues': instance.skuSpecValues.map((e) => e.toJson()).toList(),
-  'review': instance.review.toJson(),
+  'skuSpecValues': instance.skuSpecValues?.map((e) => e.toJson()).toList(),
+  'review': instance.review?.toJson(),
 };
 
 OrderServiceOrderListGet$Response$Data
@@ -1273,8 +1287,8 @@ OrderServiceOrderDetailGet$Response$Data
 _$OrderServiceOrderDetailGet$Response$DataFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderDetailGet$Response$Data(
-  orderList: (json['orderList'] as List<dynamic>)
-      .map(
+  orderList: (json['orderList'] as List<dynamic>?)
+      ?.map(
         (e) => OrderServiceOrderDetailGet$Response$Data$OrderList$Item.fromJson(
           e as Map<String, dynamic>,
         ),
@@ -1333,7 +1347,7 @@ _$OrderServiceOrderDetailGet$Response$DataFromJson(
 Map<String, dynamic> _$OrderServiceOrderDetailGet$Response$DataToJson(
   OrderServiceOrderDetailGet$Response$Data instance,
 ) => <String, dynamic>{
-  'orderList': instance.orderList.map((e) => e.toJson()).toList(),
+  'orderList': instance.orderList?.map((e) => e.toJson()).toList(),
   'afterSalesList': instance.afterSalesList,
   'orderBillList': instance.orderBillList,
   'baseInfo': instance.baseInfo?.toJson(),
@@ -1387,8 +1401,8 @@ _$OrderServiceOpenapiOrderDetailGet$Response$DataFromJson(
       : OrderServiceOpenapiOrderDetailGet$Response$Data$OrderTrace.fromJson(
           json['orderTrace'] as Map<String, dynamic>,
         ),
-  orderList: (json['orderList'] as List<dynamic>)
-      .map(
+  orderList: (json['orderList'] as List<dynamic>?)
+      ?.map(
         (e) =>
             OrderServiceOpenapiOrderDetailGet$Response$Data$OrderList$Item.fromJson(
               e as Map<String, dynamic>,
@@ -1407,7 +1421,7 @@ Map<String, dynamic> _$OrderServiceOpenapiOrderDetailGet$Response$DataToJson(
   'orderBillList': instance.orderBillList?.map((e) => e.toJson()).toList(),
   'parcelOrder': instance.parcelOrder?.toJson(),
   'orderTrace': instance.orderTrace?.toJson(),
-  'orderList': instance.orderList.map((e) => e.toJson()).toList(),
+  'orderList': instance.orderList?.map((e) => e.toJson()).toList(),
 };
 
 OrderServiceOrderCombineDetailGet$Response$Data
@@ -1492,8 +1506,8 @@ _$OrderServiceCartListGet$Response$DataFromJson(Map<String, dynamic> json) =>
       orderLimitAmount: (json['orderLimitAmount'] as num?)?.toDouble(),
       shipLimitAmount: (json['shipLimitAmount'] as num?)?.toDouble(),
       country: json['country'] as String?,
-      list: (json['list'] as List<dynamic>)
-          .map(
+      list: (json['list'] as List<dynamic>?)
+          ?.map(
             (e) => OrderServiceCartListGet$Response$Data$List$Item.fromJson(
               e as Map<String, dynamic>,
             ),
@@ -1513,7 +1527,7 @@ Map<String, dynamic> _$OrderServiceCartListGet$Response$DataToJson(
   'orderLimitAmount': instance.orderLimitAmount,
   'shipLimitAmount': instance.shipLimitAmount,
   'country': instance.country,
-  'list': instance.list.map((e) => e.toJson()).toList(),
+  'list': instance.list?.map((e) => e.toJson()).toList(),
 };
 
 OrderServiceCartPricingPost$Response$Data
@@ -1592,20 +1606,20 @@ OrderServiceCartNoAuthPricingPost$Response$Data
 _$OrderServiceCartNoAuthPricingPost$Response$DataFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceCartNoAuthPricingPost$Response$Data(
-  itemsTotalAmount: json['itemsTotalAmount'] as String,
-  freightAmount: json['freightAmount'] as String,
-  totalAmount: json['totalAmount'] as String,
-  targetTotalAmount: json['targetTotalAmount'] as String,
-  discountAmount: json['discountAmount'] as String,
-  targetDiscountAmount: json['targetDiscountAmount'] as String,
-  settlementAmount: json['settlementAmount'] as String,
-  targetSettlementAmount: json['targetSettlementAmount'] as String,
-  targetOrderLimitAmount: json['targetOrderLimitAmount'] as String,
-  targetShipLimitAmount: json['targetShipLimitAmount'] as String,
-  targetSellCur: json['targetSellCur'] as String,
-  sellCur: json['sellCur'] as String,
-  userCouponCode: json['userCouponCode'] as String,
-  rechargeBalance: json['rechargeBalance'] as String,
+  itemsTotalAmount: json['itemsTotalAmount'] as String?,
+  freightAmount: json['freightAmount'] as String?,
+  totalAmount: json['totalAmount'] as String?,
+  targetTotalAmount: json['targetTotalAmount'] as String?,
+  discountAmount: json['discountAmount'] as String?,
+  targetDiscountAmount: json['targetDiscountAmount'] as String?,
+  settlementAmount: json['settlementAmount'] as String?,
+  targetSettlementAmount: json['targetSettlementAmount'] as String?,
+  targetOrderLimitAmount: json['targetOrderLimitAmount'] as String?,
+  targetShipLimitAmount: json['targetShipLimitAmount'] as String?,
+  targetSellCur: json['targetSellCur'] as String?,
+  sellCur: json['sellCur'] as String?,
+  userCouponCode: json['userCouponCode'] as String?,
+  rechargeBalance: json['rechargeBalance'] as String?,
   skuQuantityDTOList: (json['skuQuantityDTOList'] as List<dynamic>?)
       ?.map(
         (e) =>
@@ -1618,7 +1632,7 @@ _$OrderServiceCartNoAuthPricingPost$Response$DataFromJson(
   remarkImages: json['remarkImages'] as String?,
   country: json['country'] as String?,
   orderBatch: json['orderBatch'] as bool?,
-  targetItemsTotalAmount: json['targetItemsTotalAmount'] as String,
+  targetItemsTotalAmount: json['targetItemsTotalAmount'] as String?,
   amountValidContent: json['amountValidContent'] as String?,
   contentInfo: json['contentInfo'] == null
       ? null
@@ -1681,26 +1695,26 @@ OrderServiceOrderAppListGet$Response$Data$Records$Item
 _$OrderServiceOrderAppListGet$Response$Data$Records$ItemFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderAppListGet$Response$Data$Records$Item(
-  status: (json['status'] as num).toDouble(),
-  frontStatus: (json['frontStatus'] as num).toDouble(),
-  statusContent: json['statusContent'] as String,
-  orderStatus: (json['orderStatus'] as num).toDouble(),
-  orderId: json['orderId'] as String,
-  parentOrderId: json['parentOrderId'] as String,
-  quantity: (json['quantity'] as num).toDouble(),
-  totalAmount: json['totalAmount'] as String,
-  targetTotalAmount: json['targetTotalAmount'] as String,
-  discountAmount: json['discountAmount'] as String,
-  targetDiscountAmount: json['targetDiscountAmount'] as String,
+  status: (json['status'] as num?)?.toDouble(),
+  frontStatus: (json['frontStatus'] as num?)?.toDouble(),
+  statusContent: json['statusContent'] as String?,
+  orderStatus: (json['orderStatus'] as num?)?.toDouble(),
+  orderId: json['orderId'] as String?,
+  parentOrderId: json['parentOrderId'] as String?,
+  quantity: (json['quantity'] as num?)?.toDouble(),
+  totalAmount: json['totalAmount'] as String?,
+  targetTotalAmount: json['targetTotalAmount'] as String?,
+  discountAmount: json['discountAmount'] as String?,
+  targetDiscountAmount: json['targetDiscountAmount'] as String?,
   targetPayFeeAmount: json['targetPayFeeAmount'] as String?,
   targetActualAmount: json['targetActualAmount'] as String?,
   targetTipAmount: json['targetTipAmount'] as String?,
   targetServiceAmount: json['targetServiceAmount'] as String?,
-  currency: json['currency'] as String,
-  targetCurrency: json['targetCurrency'] as String,
-  description: json['description'] as String,
-  remark: json['remark'] as String,
-  statusIcon: json['statusIcon'] as String,
+  currency: json['currency'] as String?,
+  targetCurrency: json['targetCurrency'] as String?,
+  description: json['description'] as String?,
+  remark: json['remark'] as String?,
+  statusIcon: json['statusIcon'] as String?,
   operates:
       (json['operates'] as List<dynamic>?)?.map((e) => e as Object).toList() ??
       [],
@@ -1805,7 +1819,7 @@ _$OrderServiceOrderAppDetailGet$Response$Data$BaseInfoFromJson(
   skuSourceCode: json['skuSourceCode'] as String?,
   parentOrderId: json['parentOrderId'] as String?,
   status: (json['status'] as num?)?.toDouble(),
-  frontStatus: (json['frontStatus'] as num).toDouble(),
+  frontStatus: (json['frontStatus'] as num?)?.toDouble(),
   statusContent: json['statusContent'] as String?,
   orderStatus: (json['orderStatus'] as num?)?.toDouble(),
   evaluateStatus: (json['evaluateStatus'] as num?)?.toDouble(),
@@ -1891,7 +1905,7 @@ _$OrderServiceOrderAppDetailGet$Response$Data$UserAddressFromJson(
   lastName: json['lastName'] as String?,
   phoneNumber: json['phoneNumber'] as String?,
   zipCode: json['zipCode'] as String?,
-  id: (json['id'] as num).toDouble(),
+  id: (json['id'] as num?)?.toDouble(),
 );
 
 Map<String, dynamic>
@@ -2005,10 +2019,10 @@ OrderServiceOrderAppDetailGet$Response$Data$OrderBillList$Item
 _$OrderServiceOrderAppDetailGet$Response$Data$OrderBillList$ItemFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderAppDetailGet$Response$Data$OrderBillList$Item(
-  status: json['status'] as String,
-  targetCurrency: json['targetCurrency'] as String,
-  targetTotalPrice: json['targetTotalPrice'] as String,
-  billId: json['billId'] as String,
+  status: json['status'] as String?,
+  targetCurrency: json['targetCurrency'] as String?,
+  targetTotalPrice: json['targetTotalPrice'] as String?,
+  billId: json['billId'] as String?,
 );
 
 Map<String, dynamic>
@@ -2025,22 +2039,23 @@ OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder
 _$OrderServiceOrderAppDetailGet$Response$Data$ParcelOrderFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder(
-  parcelOrderId: json['parcelOrderId'] as String,
-  parcelStatus: json['parcelStatus'] as String,
-  parcelStatusDesc: json['parcelStatusDesc'] as String,
-  createTime: (json['createTime'] as num).toDouble(),
-  warehouseCode: json['warehouseCode'] as String,
-  warehouseName: json['warehouseName'] as String,
-  freight: json['freight'] as String,
-  freightCurrency:
-      OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder$FreightCurrency.fromJson(
-        json['freightCurrency'] as Map<String, dynamic>,
-      ),
-  lastMileMailNo: json['lastMileMailNo'] as Object,
-  lastMileCompanyCode: json['lastMileCompanyCode'] as Object,
-  lastMileCompanyName: json['lastMileCompanyName'] as Object,
-  parcelProductDTOList: (json['parcelProductDTOList'] as List<dynamic>)
-      .map(
+  parcelOrderId: json['parcelOrderId'] as String?,
+  parcelStatus: json['parcelStatus'] as String?,
+  parcelStatusDesc: json['parcelStatusDesc'] as String?,
+  createTime: (json['createTime'] as num?)?.toDouble(),
+  warehouseCode: json['warehouseCode'] as String?,
+  warehouseName: json['warehouseName'] as String?,
+  freight: json['freight'] as String?,
+  freightCurrency: json['freightCurrency'] == null
+      ? null
+      : OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder$FreightCurrency.fromJson(
+          json['freightCurrency'] as Map<String, dynamic>,
+        ),
+  lastMileMailNo: json['lastMileMailNo'],
+  lastMileCompanyCode: json['lastMileCompanyCode'],
+  lastMileCompanyName: json['lastMileCompanyName'],
+  parcelProductDTOList: (json['parcelProductDTOList'] as List<dynamic>?)
+      ?.map(
         (e) =>
             OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder$ParcelProductDTOList$Item.fromJson(
               e as Map<String, dynamic>,
@@ -2083,12 +2098,12 @@ _$OrderServiceOrderAppDetailGet$Response$Data$ParcelOrderToJson(
   'warehouseCode': instance.warehouseCode,
   'warehouseName': instance.warehouseName,
   'freight': instance.freight,
-  'freightCurrency': instance.freightCurrency.toJson(),
+  'freightCurrency': instance.freightCurrency?.toJson(),
   'lastMileMailNo': instance.lastMileMailNo,
   'lastMileCompanyCode': instance.lastMileCompanyCode,
   'lastMileCompanyName': instance.lastMileCompanyName,
   'parcelProductDTOList': instance.parcelProductDTOList
-      .map((e) => e.toJson())
+      ?.map((e) => e.toJson())
       .toList(),
   'buyerOperates': instance.buyerOperates,
   'freightCompensate': instance.freightCompensate?.toJson(),
@@ -2118,7 +2133,7 @@ _$OrderServiceOrderAppDetailGet$Response$Data$OrderTraceFromJson(
             ),
       )
       .toList(),
-  parcelOrderId: json['parcelOrderId'] as String,
+  parcelOrderId: json['parcelOrderId'] as String?,
 );
 
 Map<String, dynamic>
@@ -2158,8 +2173,8 @@ OrderServiceOrderAppDetailGet$Response$Data$OrderList$Item
 _$OrderServiceOrderAppDetailGet$Response$Data$OrderList$ItemFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderAppDetailGet$Response$Data$OrderList$Item(
-  skuList: (json['skuList'] as List<dynamic>)
-      .map(
+  skuList: (json['skuList'] as List<dynamic>?)
+      ?.map(
         (e) =>
             OrderServiceOrderAppDetailGet$Response$Data$OrderList$Item$SkuList$Item.fromJson(
               e as Map<String, dynamic>,
@@ -2192,7 +2207,7 @@ Map<String, dynamic>
 _$OrderServiceOrderAppDetailGet$Response$Data$OrderList$ItemToJson(
   OrderServiceOrderAppDetailGet$Response$Data$OrderList$Item instance,
 ) => <String, dynamic>{
-  'skuList': instance.skuList.map((e) => e.toJson()).toList(),
+  'skuList': instance.skuList?.map((e) => e.toJson()).toList(),
   'sourceOption': instance.sourceOption?.toJson(),
   'skuSourceCode': instance.skuSourceCode,
   'skuSourceTitle': instance.skuSourceTitle,
@@ -2204,44 +2219,45 @@ OrderServiceOrderConfirmPost$Response$Data$Pricing
 _$OrderServiceOrderConfirmPost$Response$Data$PricingFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderConfirmPost$Response$Data$Pricing(
-  itemsOriginTotalAmount: json['itemsOriginTotalAmount'] as String,
-  freightAmount: json['freightAmount'] as String,
-  taxDetail: json['taxDetail'] as String,
-  rechargeBalance: json['rechargeBalance'] as String,
-  rechargeBalanceTips: json['rechargeBalanceTips'] as String,
-  isCouponCode: json['isCouponCode'] as String,
-  couponCodeReason: json['couponCodeReason'] as String,
-  isVoucherCode: json['isVoucherCode'] as String,
+  itemsOriginTotalAmount: json['itemsOriginTotalAmount'] as String?,
+  freightAmount: json['freightAmount'] as String?,
+  taxDetail: json['taxDetail'] as String?,
+  rechargeBalance: json['rechargeBalance'] as String?,
+  rechargeBalanceTips: json['rechargeBalanceTips'] as String?,
+  isCouponCode: json['isCouponCode'] as String?,
+  couponCodeReason: json['couponCodeReason'] as String?,
+  isVoucherCode: json['isVoucherCode'] as String?,
   notSupportDeliveryDescription:
-      json['notSupportDeliveryDescription'] as String,
-  taxLines: (json['taxLines'] as List<dynamic>)
-      .map(
+      json['notSupportDeliveryDescription'] as String?,
+  taxLines: (json['taxLines'] as List<dynamic>?)
+      ?.map(
         (e) =>
             OrderServiceOrderConfirmPost$Response$Data$Pricing$TaxLines$Item.fromJson(
               e as Map<String, dynamic>,
             ),
       )
       .toList(),
-  solutionList: (json['solutionList'] as List<dynamic>)
-      .map(
+  solutionList: (json['solutionList'] as List<dynamic>?)
+      ?.map(
         (e) =>
             OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item.fromJson(
               e as Map<String, dynamic>,
             ),
       )
       .toList(),
-  giveaway: (json['giveaway'] as List<dynamic>)
-      .map(
+  giveaway: (json['giveaway'] as List<dynamic>?)
+      ?.map(
         (e) =>
             OrderServiceOrderConfirmPost$Response$Data$Pricing$Giveaway$Item.fromJson(
               e as Map<String, dynamic>,
             ),
       )
       .toList(),
-  voucherMsg:
-      OrderServiceOrderConfirmPost$Response$Data$Pricing$VoucherMsg.fromJson(
-        json['voucherMsg'] as Map<String, dynamic>,
-      ),
+  voucherMsg: json['voucherMsg'] == null
+      ? null
+      : OrderServiceOrderConfirmPost$Response$Data$Pricing$VoucherMsg.fromJson(
+          json['voucherMsg'] as Map<String, dynamic>,
+        ),
 );
 
 Map<String, dynamic> _$OrderServiceOrderConfirmPost$Response$Data$PricingToJson(
@@ -2256,19 +2272,19 @@ Map<String, dynamic> _$OrderServiceOrderConfirmPost$Response$Data$PricingToJson(
   'couponCodeReason': instance.couponCodeReason,
   'isVoucherCode': instance.isVoucherCode,
   'notSupportDeliveryDescription': instance.notSupportDeliveryDescription,
-  'taxLines': instance.taxLines.map((e) => e.toJson()).toList(),
-  'solutionList': instance.solutionList.map((e) => e.toJson()).toList(),
-  'giveaway': instance.giveaway.map((e) => e.toJson()).toList(),
-  'voucherMsg': instance.voucherMsg.toJson(),
+  'taxLines': instance.taxLines?.map((e) => e.toJson()).toList(),
+  'solutionList': instance.solutionList?.map((e) => e.toJson()).toList(),
+  'giveaway': instance.giveaway?.map((e) => e.toJson()).toList(),
+  'voucherMsg': instance.voucherMsg?.toJson(),
 };
 
 OrderServiceOrderConfirmPost$Response$Data$PaymentMethodList$Item
 _$OrderServiceOrderConfirmPost$Response$Data$PaymentMethodList$ItemFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderConfirmPost$Response$Data$PaymentMethodList$Item(
-  payType: json['payType'] as String,
-  payTypeName: json['payTypeName'] as String,
-  payTypeIcon: json['payTypeIcon'] as String,
+  payType: json['payType'] as String?,
+  payTypeName: json['payTypeName'] as String?,
+  payTypeIcon: json['payTypeIcon'] as String?,
 );
 
 Map<String, dynamic>
@@ -2289,7 +2305,7 @@ _$OrderServiceOrderNoAuthDetailGet$Response$Data$BaseInfoFromJson(
   skuSourceCode: json['skuSourceCode'] as String?,
   parentOrderId: json['parentOrderId'] as String?,
   status: (json['status'] as num?)?.toDouble(),
-  frontStatus: (json['frontStatus'] as num).toDouble(),
+  frontStatus: (json['frontStatus'] as num?)?.toDouble(),
   statusContent: json['statusContent'] as String?,
   orderStatus: (json['orderStatus'] as num?)?.toDouble(),
   evaluateStatus: (json['evaluateStatus'] as num?)?.toDouble(),
@@ -2375,7 +2391,7 @@ _$OrderServiceOrderNoAuthDetailGet$Response$Data$UserAddressFromJson(
   lastName: json['lastName'] as String?,
   phoneNumber: json['phoneNumber'] as String?,
   zipCode: json['zipCode'] as String?,
-  id: (json['id'] as num).toDouble(),
+  id: (json['id'] as num?)?.toDouble(),
 );
 
 Map<String, dynamic>
@@ -2440,7 +2456,7 @@ _$OrderServiceOrderNoAuthDetailGet$Response$Data$PaymentsFromJson(
   targetRechargePrice: json['targetRechargePrice'] as String?,
   targetPayFeeAmount: json['targetPayFeeAmount'] as String?,
   targetCurrency: json['targetCurrency'] as String?,
-  targetItemsTotalAmount: json['targetItemsTotalAmount'] as String,
+  targetItemsTotalAmount: json['targetItemsTotalAmount'] as String?,
   targetOriginAmount: json['targetOriginAmount'] as String?,
   targetActualAmount: json['targetActualAmount'] as String?,
 );
@@ -2474,10 +2490,10 @@ OrderServiceOrderNoAuthDetailGet$Response$Data$OrderBillList$Item
 _$OrderServiceOrderNoAuthDetailGet$Response$Data$OrderBillList$ItemFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderNoAuthDetailGet$Response$Data$OrderBillList$Item(
-  status: json['status'] as String,
-  targetCurrency: json['targetCurrency'] as String,
-  targetTotalPrice: json['targetTotalPrice'] as String,
-  billId: json['billId'] as String,
+  status: json['status'] as String?,
+  targetCurrency: json['targetCurrency'] as String?,
+  targetTotalPrice: json['targetTotalPrice'] as String?,
+  billId: json['billId'] as String?,
 );
 
 Map<String, dynamic>
@@ -2494,22 +2510,23 @@ OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrder
 _$OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrderFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrder(
-  parcelOrderId: json['parcelOrderId'] as String,
-  parcelStatus: json['parcelStatus'] as String,
-  parcelStatusDesc: json['parcelStatusDesc'] as String,
-  createTime: (json['createTime'] as num).toDouble(),
-  warehouseCode: json['warehouseCode'] as String,
-  warehouseName: json['warehouseName'] as String,
-  freight: json['freight'] as String,
-  freightCurrency:
-      OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrder$FreightCurrency.fromJson(
-        json['freightCurrency'] as Map<String, dynamic>,
-      ),
-  lastMileMailNo: json['lastMileMailNo'] as Object,
-  lastMileCompanyCode: json['lastMileCompanyCode'] as Object,
-  lastMileCompanyName: json['lastMileCompanyName'] as Object,
-  parcelProductDTOList: (json['parcelProductDTOList'] as List<dynamic>)
-      .map(
+  parcelOrderId: json['parcelOrderId'] as String?,
+  parcelStatus: json['parcelStatus'] as String?,
+  parcelStatusDesc: json['parcelStatusDesc'] as String?,
+  createTime: (json['createTime'] as num?)?.toDouble(),
+  warehouseCode: json['warehouseCode'] as String?,
+  warehouseName: json['warehouseName'] as String?,
+  freight: json['freight'] as String?,
+  freightCurrency: json['freightCurrency'] == null
+      ? null
+      : OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrder$FreightCurrency.fromJson(
+          json['freightCurrency'] as Map<String, dynamic>,
+        ),
+  lastMileMailNo: json['lastMileMailNo'],
+  lastMileCompanyCode: json['lastMileCompanyCode'],
+  lastMileCompanyName: json['lastMileCompanyName'],
+  parcelProductDTOList: (json['parcelProductDTOList'] as List<dynamic>?)
+      ?.map(
         (e) =>
             OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrder$ParcelProductDTOList$Item.fromJson(
               e as Map<String, dynamic>,
@@ -2552,12 +2569,12 @@ _$OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrderToJson(
   'warehouseCode': instance.warehouseCode,
   'warehouseName': instance.warehouseName,
   'freight': instance.freight,
-  'freightCurrency': instance.freightCurrency.toJson(),
+  'freightCurrency': instance.freightCurrency?.toJson(),
   'lastMileMailNo': instance.lastMileMailNo,
   'lastMileCompanyCode': instance.lastMileCompanyCode,
   'lastMileCompanyName': instance.lastMileCompanyName,
   'parcelProductDTOList': instance.parcelProductDTOList
-      .map((e) => e.toJson())
+      ?.map((e) => e.toJson())
       .toList(),
   'buyerOperates': instance.buyerOperates,
   'freightCompensate': instance.freightCompensate?.toJson(),
@@ -2587,9 +2604,9 @@ _$OrderServiceOrderNoAuthDetailGet$Response$Data$OrderTraceFromJson(
             ),
       )
       .toList(),
-  parcelOrderId: json['parcelOrderId'] as String,
-  groupTraceList: (json['groupTraceList'] as List<dynamic>)
-      .map(
+  parcelOrderId: json['parcelOrderId'] as String?,
+  groupTraceList: (json['groupTraceList'] as List<dynamic>?)
+      ?.map(
         (e) =>
             OrderServiceOrderNoAuthDetailGet$Response$Data$OrderTrace$GroupTraceList$Item.fromJson(
               e as Map<String, dynamic>,
@@ -2607,7 +2624,7 @@ _$OrderServiceOrderNoAuthDetailGet$Response$Data$OrderTraceToJson(
   'logisticsStatus': instance.logisticsStatus,
   'traceList': instance.traceList?.map((e) => e.toJson()).toList(),
   'parcelOrderId': instance.parcelOrderId,
-  'groupTraceList': instance.groupTraceList.map((e) => e.toJson()).toList(),
+  'groupTraceList': instance.groupTraceList?.map((e) => e.toJson()).toList(),
 };
 
 OrderServiceOrderNoAuthDetailGet$Response$Data$DiscountInfos$Item
@@ -2636,8 +2653,8 @@ OrderServiceOrderNoAuthDetailGet$Response$Data$OrderList$Item
 _$OrderServiceOrderNoAuthDetailGet$Response$Data$OrderList$ItemFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderNoAuthDetailGet$Response$Data$OrderList$Item(
-  skuList: (json['skuList'] as List<dynamic>)
-      .map(
+  skuList: (json['skuList'] as List<dynamic>?)
+      ?.map(
         (e) =>
             OrderServiceOrderNoAuthDetailGet$Response$Data$OrderList$Item$SkuList$Item.fromJson(
               e as Map<String, dynamic>,
@@ -2667,15 +2684,15 @@ _$OrderServiceOrderNoAuthDetailGet$Response$Data$OrderList$ItemFromJson(
       : OrderServiceOrderNoAuthDetailGet$Response$Data$OrderList$Item$LogisticsInfo.fromJson(
           json['logisticsInfo'] as Map<String, dynamic>,
         ),
-  skuSourceCode: json['skuSourceCode'] as String,
-  remark: json['remark'] as String,
+  skuSourceCode: json['skuSourceCode'] as String?,
+  remark: json['remark'] as String?,
 );
 
 Map<String, dynamic>
 _$OrderServiceOrderNoAuthDetailGet$Response$Data$OrderList$ItemToJson(
   OrderServiceOrderNoAuthDetailGet$Response$Data$OrderList$Item instance,
 ) => <String, dynamic>{
-  'skuList': instance.skuList.map((e) => e.toJson()).toList(),
+  'skuList': instance.skuList?.map((e) => e.toJson()).toList(),
   'afterSalesList': instance.afterSalesList,
   'supplyOrderList': instance.supplyOrderList?.map((e) => e.toJson()).toList(),
   'sourceOption': instance.sourceOption?.toJson(),
@@ -2734,8 +2751,8 @@ OrderServiceOrderGetReviewGet$Response$Data$Item$SkuSpecValues$Item
 _$OrderServiceOrderGetReviewGet$Response$Data$Item$SkuSpecValues$ItemFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderGetReviewGet$Response$Data$Item$SkuSpecValues$Item(
-  name: json['name'] as String,
-  value: json['value'] as String,
+  name: json['name'] as String?,
+  value: json['value'] as String?,
 );
 
 Map<String, dynamic>
@@ -2747,12 +2764,12 @@ OrderServiceOrderGetReviewGet$Response$Data$Item$Review
 _$OrderServiceOrderGetReviewGet$Response$Data$Item$ReviewFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderGetReviewGet$Response$Data$Item$Review(
-  comment: json['comment'] as String,
-  score: json['score'] as String,
+  comment: json['comment'] as String?,
+  score: json['score'] as String?,
   images:
       (json['images'] as List<dynamic>?)?.map((e) => e as String).toList() ??
       [],
-  extraComment: json['extraComment'] as String,
+  extraComment: json['extraComment'] as String?,
 );
 
 Map<String, dynamic>
@@ -2769,24 +2786,24 @@ OrderServiceOrderListGet$Response$Data$Records$Item
 _$OrderServiceOrderListGet$Response$Data$Records$ItemFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderListGet$Response$Data$Records$Item(
-  status: (json['status'] as num).toDouble(),
-  frontStatus: (json['frontStatus'] as num).toDouble(),
-  statusContent: json['statusContent'] as String,
-  orderStatus: (json['orderStatus'] as num).toDouble(),
-  orderId: json['orderId'] as String,
-  parentOrderId: json['parentOrderId'] as String,
-  quantity: (json['quantity'] as num).toDouble(),
-  totalAmount: json['totalAmount'] as String,
-  targetTotalAmount: json['targetTotalAmount'] as String,
-  discountAmount: json['discountAmount'] as String,
-  targetDiscountAmount: json['targetDiscountAmount'] as String,
+  status: (json['status'] as num?)?.toDouble(),
+  frontStatus: (json['frontStatus'] as num?)?.toDouble(),
+  statusContent: json['statusContent'] as String?,
+  orderStatus: (json['orderStatus'] as num?)?.toDouble(),
+  orderId: json['orderId'] as String?,
+  parentOrderId: json['parentOrderId'] as String?,
+  quantity: (json['quantity'] as num?)?.toDouble(),
+  totalAmount: json['totalAmount'] as String?,
+  targetTotalAmount: json['targetTotalAmount'] as String?,
+  discountAmount: json['discountAmount'] as String?,
+  targetDiscountAmount: json['targetDiscountAmount'] as String?,
   targetPayFeeAmount: json['targetPayFeeAmount'] as String?,
   targetActualAmount: json['targetActualAmount'] as String?,
-  currency: json['currency'] as String,
-  targetCurrency: json['targetCurrency'] as String,
-  description: json['description'] as String,
-  remark: json['remark'] as String,
-  statusIcon: json['statusIcon'] as String,
+  currency: json['currency'] as String?,
+  targetCurrency: json['targetCurrency'] as String?,
+  description: json['description'] as String?,
+  remark: json['remark'] as String?,
+  statusIcon: json['statusIcon'] as String?,
   operates:
       (json['operates'] as List<dynamic>?)?.map((e) => e as Object).toList() ??
       [],
@@ -2961,8 +2978,8 @@ OrderServiceOrderDetailGet$Response$Data$OrderList$Item
 _$OrderServiceOrderDetailGet$Response$Data$OrderList$ItemFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderDetailGet$Response$Data$OrderList$Item(
-  skuList: (json['skuList'] as List<dynamic>)
-      .map(
+  skuList: (json['skuList'] as List<dynamic>?)
+      ?.map(
         (e) =>
             OrderServiceOrderDetailGet$Response$Data$OrderList$Item$SkuList$Item.fromJson(
               e as Map<String, dynamic>,
@@ -2977,8 +2994,8 @@ _$OrderServiceOrderDetailGet$Response$Data$OrderList$ItemFromJson(
             ),
       )
       .toList(),
-  skuSourceCode: json['skuSourceCode'] as String,
-  skuSourceTitle: json['skuSourceTitle'] as String,
+  skuSourceCode: json['skuSourceCode'] as String?,
+  skuSourceTitle: json['skuSourceTitle'] as String?,
   remark: json['remark'] as String?,
   logisticsInfo: json['logisticsInfo'] == null
       ? null
@@ -2996,7 +3013,7 @@ Map<String, dynamic>
 _$OrderServiceOrderDetailGet$Response$Data$OrderList$ItemToJson(
   OrderServiceOrderDetailGet$Response$Data$OrderList$Item instance,
 ) => <String, dynamic>{
-  'skuList': instance.skuList.map((e) => e.toJson()).toList(),
+  'skuList': instance.skuList?.map((e) => e.toJson()).toList(),
   'supplyOrderList': instance.supplyOrderList?.map((e) => e.toJson()).toList(),
   'skuSourceCode': instance.skuSourceCode,
   'skuSourceTitle': instance.skuSourceTitle,
@@ -3428,7 +3445,7 @@ _$OrderServiceOpenapiOrderDetailGet$Response$Data$BaseInfoFromJson(
   skuSourceCode: json['skuSourceCode'] as String?,
   parentOrderId: json['parentOrderId'] as String?,
   status: (json['status'] as num?)?.toDouble(),
-  frontStatus: (json['frontStatus'] as num).toDouble(),
+  frontStatus: (json['frontStatus'] as num?)?.toDouble(),
   statusContent: json['statusContent'] as String?,
   orderStatus: (json['orderStatus'] as num?)?.toDouble(),
   evaluateStatus: (json['evaluateStatus'] as num?)?.toDouble(),
@@ -3512,7 +3529,7 @@ _$OrderServiceOpenapiOrderDetailGet$Response$Data$UserAddressFromJson(
   lastName: json['lastName'] as String?,
   phoneNumber: json['phoneNumber'] as String?,
   zipCode: json['zipCode'] as String?,
-  id: (json['id'] as num).toDouble(),
+  id: (json['id'] as num?)?.toDouble(),
 );
 
 Map<String, dynamic>
@@ -3575,7 +3592,7 @@ _$OrderServiceOpenapiOrderDetailGet$Response$Data$PaymentsFromJson(
   rechargeAmount: json['rechargeAmount'] as String?,
   targetRechargePrice: json['targetRechargePrice'] as String?,
   targetCurrency: json['targetCurrency'] as String?,
-  targetItemsTotalAmount: json['targetItemsTotalAmount'] as String,
+  targetItemsTotalAmount: json['targetItemsTotalAmount'] as String?,
 );
 
 Map<String, dynamic>
@@ -3603,10 +3620,10 @@ OrderServiceOpenapiOrderDetailGet$Response$Data$OrderBillList$Item
 _$OrderServiceOpenapiOrderDetailGet$Response$Data$OrderBillList$ItemFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOpenapiOrderDetailGet$Response$Data$OrderBillList$Item(
-  status: json['status'] as String,
-  targetCurrency: json['targetCurrency'] as String,
-  targetTotalPrice: json['targetTotalPrice'] as String,
-  billId: json['billId'] as String,
+  status: json['status'] as String?,
+  targetCurrency: json['targetCurrency'] as String?,
+  targetTotalPrice: json['targetTotalPrice'] as String?,
+  billId: json['billId'] as String?,
 );
 
 Map<String, dynamic>
@@ -3623,22 +3640,23 @@ OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrder
 _$OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrderFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrder(
-  parcelOrderId: json['parcelOrderId'] as String,
-  parcelStatus: json['parcelStatus'] as String,
-  parcelStatusDesc: json['parcelStatusDesc'] as String,
-  createTime: (json['createTime'] as num).toDouble(),
-  warehouseCode: json['warehouseCode'] as String,
-  warehouseName: json['warehouseName'] as String,
-  freight: json['freight'] as String,
-  freightCurrency:
-      OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrder$FreightCurrency.fromJson(
-        json['freightCurrency'] as Map<String, dynamic>,
-      ),
-  lastMileMailNo: json['lastMileMailNo'] as Object,
-  lastMileCompanyCode: json['lastMileCompanyCode'] as Object,
-  lastMileCompanyName: json['lastMileCompanyName'] as Object,
-  parcelProductDTOList: (json['parcelProductDTOList'] as List<dynamic>)
-      .map(
+  parcelOrderId: json['parcelOrderId'] as String?,
+  parcelStatus: json['parcelStatus'] as String?,
+  parcelStatusDesc: json['parcelStatusDesc'] as String?,
+  createTime: (json['createTime'] as num?)?.toDouble(),
+  warehouseCode: json['warehouseCode'] as String?,
+  warehouseName: json['warehouseName'] as String?,
+  freight: json['freight'] as String?,
+  freightCurrency: json['freightCurrency'] == null
+      ? null
+      : OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrder$FreightCurrency.fromJson(
+          json['freightCurrency'] as Map<String, dynamic>,
+        ),
+  lastMileMailNo: json['lastMileMailNo'],
+  lastMileCompanyCode: json['lastMileCompanyCode'],
+  lastMileCompanyName: json['lastMileCompanyName'],
+  parcelProductDTOList: (json['parcelProductDTOList'] as List<dynamic>?)
+      ?.map(
         (e) =>
             OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrder$ParcelProductDTOList$Item.fromJson(
               e as Map<String, dynamic>,
@@ -3681,12 +3699,12 @@ _$OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrderToJson(
   'warehouseCode': instance.warehouseCode,
   'warehouseName': instance.warehouseName,
   'freight': instance.freight,
-  'freightCurrency': instance.freightCurrency.toJson(),
+  'freightCurrency': instance.freightCurrency?.toJson(),
   'lastMileMailNo': instance.lastMileMailNo,
   'lastMileCompanyCode': instance.lastMileCompanyCode,
   'lastMileCompanyName': instance.lastMileCompanyName,
   'parcelProductDTOList': instance.parcelProductDTOList
-      .map((e) => e.toJson())
+      ?.map((e) => e.toJson())
       .toList(),
   'buyerOperates': instance.buyerOperates,
   'freightCompensate': instance.freightCompensate?.toJson(),
@@ -3716,7 +3734,7 @@ _$OrderServiceOpenapiOrderDetailGet$Response$Data$OrderTraceFromJson(
             ),
       )
       .toList(),
-  parcelOrderId: json['parcelOrderId'] as String,
+  parcelOrderId: json['parcelOrderId'] as String?,
 );
 
 Map<String, dynamic>
@@ -3734,8 +3752,8 @@ OrderServiceOpenapiOrderDetailGet$Response$Data$OrderList$Item
 _$OrderServiceOpenapiOrderDetailGet$Response$Data$OrderList$ItemFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOpenapiOrderDetailGet$Response$Data$OrderList$Item(
-  skuList: (json['skuList'] as List<dynamic>)
-      .map(
+  skuList: (json['skuList'] as List<dynamic>?)
+      ?.map(
         (e) =>
             OrderServiceOpenapiOrderDetailGet$Response$Data$OrderList$Item$SkuList$Item.fromJson(
               e as Map<String, dynamic>,
@@ -3761,7 +3779,7 @@ Map<String, dynamic>
 _$OrderServiceOpenapiOrderDetailGet$Response$Data$OrderList$ItemToJson(
   OrderServiceOpenapiOrderDetailGet$Response$Data$OrderList$Item instance,
 ) => <String, dynamic>{
-  'skuList': instance.skuList.map((e) => e.toJson()).toList(),
+  'skuList': instance.skuList?.map((e) => e.toJson()).toList(),
   'afterSalesList': instance.afterSalesList,
   'supplyOrderList': instance.supplyOrderList?.map((e) => e.toJson()).toList(),
 };
@@ -3851,7 +3869,7 @@ _$OrderServiceOrderCombineDetailGet$Response$Data$BaseInfoFromJson(
   skuSourceCode: json['skuSourceCode'] as String?,
   parentOrderId: json['parentOrderId'] as String?,
   status: (json['status'] as num?)?.toDouble(),
-  frontStatus: (json['frontStatus'] as num).toDouble(),
+  frontStatus: (json['frontStatus'] as num?)?.toDouble(),
   statusContent: json['statusContent'] as String?,
   orderStatus: (json['orderStatus'] as num?)?.toDouble(),
   evaluateStatus: (json['evaluateStatus'] as num?)?.toDouble(),
@@ -3926,22 +3944,23 @@ OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrder
 _$OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrderFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrder(
-  parcelOrderId: json['parcelOrderId'] as String,
-  parcelStatus: json['parcelStatus'] as String,
-  parcelStatusDesc: json['parcelStatusDesc'] as String,
-  createTime: (json['createTime'] as num).toDouble(),
-  warehouseCode: json['warehouseCode'] as String,
-  warehouseName: json['warehouseName'] as String,
-  freight: json['freight'] as String,
-  freightCurrency:
-      OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrder$FreightCurrency.fromJson(
-        json['freightCurrency'] as Map<String, dynamic>,
-      ),
-  lastMileMailNo: json['lastMileMailNo'] as Object,
-  lastMileCompanyCode: json['lastMileCompanyCode'] as Object,
-  lastMileCompanyName: json['lastMileCompanyName'] as Object,
-  parcelProductDTOList: (json['parcelProductDTOList'] as List<dynamic>)
-      .map(
+  parcelOrderId: json['parcelOrderId'] as String?,
+  parcelStatus: json['parcelStatus'] as String?,
+  parcelStatusDesc: json['parcelStatusDesc'] as String?,
+  createTime: (json['createTime'] as num?)?.toDouble(),
+  warehouseCode: json['warehouseCode'] as String?,
+  warehouseName: json['warehouseName'] as String?,
+  freight: json['freight'] as String?,
+  freightCurrency: json['freightCurrency'] == null
+      ? null
+      : OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrder$FreightCurrency.fromJson(
+          json['freightCurrency'] as Map<String, dynamic>,
+        ),
+  lastMileMailNo: json['lastMileMailNo'],
+  lastMileCompanyCode: json['lastMileCompanyCode'],
+  lastMileCompanyName: json['lastMileCompanyName'],
+  parcelProductDTOList: (json['parcelProductDTOList'] as List<dynamic>?)
+      ?.map(
         (e) =>
             OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrder$ParcelProductDTOList$Item.fromJson(
               e as Map<String, dynamic>,
@@ -3984,12 +4003,12 @@ _$OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrderToJson(
   'warehouseCode': instance.warehouseCode,
   'warehouseName': instance.warehouseName,
   'freight': instance.freight,
-  'freightCurrency': instance.freightCurrency.toJson(),
+  'freightCurrency': instance.freightCurrency?.toJson(),
   'lastMileMailNo': instance.lastMileMailNo,
   'lastMileCompanyCode': instance.lastMileCompanyCode,
   'lastMileCompanyName': instance.lastMileCompanyName,
   'parcelProductDTOList': instance.parcelProductDTOList
-      .map((e) => e.toJson())
+      ?.map((e) => e.toJson())
       .toList(),
   'buyerOperates': instance.buyerOperates,
   'freightCompensate': instance.freightCompensate?.toJson(),
@@ -4046,17 +4065,17 @@ OrderServiceOrderGetOrderTraceGet$Response$Data$TraceList$Item
 _$OrderServiceOrderGetOrderTraceGet$Response$Data$TraceList$ItemFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderGetOrderTraceGet$Response$Data$TraceList$Item(
-  id: (json['id'] as num).toDouble(),
-  frontCode: json['frontCode'] as String,
-  icon: json['icon'] as String,
-  traceMessage: json['traceMessage'] as String,
-  time: (json['time'] as num).toDouble(),
-  lastMileMailNo: json['lastMileMailNo'] as Object,
+  id: (json['id'] as num?)?.toDouble(),
+  frontCode: json['frontCode'] as String?,
+  icon: json['icon'] as String?,
+  traceMessage: json['traceMessage'] as String?,
+  time: (json['time'] as num?)?.toDouble(),
+  lastMileMailNo: json['lastMileMailNo'],
   lastMileMailNoLink: json['lastMileMailNoLink'] as String?,
   lastMileMailNoTitle: json['lastMileMailNoTitle'] as String?,
-  traceStatus: json['traceStatus'] as String,
-  frontTitle: json['frontTitle'] as String,
-  frontTitleCode: json['frontTitleCode'] as String,
+  traceStatus: json['traceStatus'] as String?,
+  frontTitle: json['frontTitle'] as String?,
+  frontTitleCode: json['frontTitleCode'] as String?,
 );
 
 Map<String, dynamic>
@@ -4199,31 +4218,31 @@ OrderServiceOrderAppListGet$Response$Data$Records$Item$OrderSkuList$Item
 _$OrderServiceOrderAppListGet$Response$Data$Records$Item$OrderSkuList$ItemFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderAppListGet$Response$Data$Records$Item$OrderSkuList$Item(
-  productName: json['productName'] as String,
-  skuCode: json['skuCode'] as String,
-  productCode: json['productCode'] as String,
-  image: json['image'] as String,
-  sellPrice: json['sellPrice'] as String,
-  sellCur: json['sellCur'] as String,
-  totalPrice: json['totalPrice'] as String,
-  targetSellPrice: json['targetSellPrice'] as String,
-  targetSellCur: json['targetSellCur'] as String,
-  targetTotalPrice: json['targetTotalPrice'] as String,
+  productName: json['productName'] as String?,
+  skuCode: json['skuCode'] as String?,
+  productCode: json['productCode'] as String?,
+  image: json['image'] as String?,
+  sellPrice: json['sellPrice'] as String?,
+  sellCur: json['sellCur'] as String?,
+  totalPrice: json['totalPrice'] as String?,
+  targetSellPrice: json['targetSellPrice'] as String?,
+  targetSellCur: json['targetSellCur'] as String?,
+  targetTotalPrice: json['targetTotalPrice'] as String?,
   targetSkuDiscountPrice: json['targetSkuDiscountPrice'] as String?,
-  targetSkuFinalPrice: json['targetSkuFinalPrice'] as String,
-  targetTotalFinalPrice: json['targetTotalFinalPrice'] as String,
+  targetSkuFinalPrice: json['targetSkuFinalPrice'] as String?,
+  targetTotalFinalPrice: json['targetTotalFinalPrice'] as String?,
   remark: json['remark'] as String?,
-  quantity: (json['quantity'] as num).toDouble(),
-  skuSpecValues: (json['skuSpecValues'] as List<dynamic>)
-      .map(
+  quantity: (json['quantity'] as num?)?.toDouble(),
+  skuSpecValues: (json['skuSpecValues'] as List<dynamic>?)
+      ?.map(
         (e) =>
             OrderServiceOrderAppListGet$Response$Data$Records$Item$OrderSkuList$Item$SkuSpecValues$Item.fromJson(
               e as Map<String, dynamic>,
             ),
       )
       .toList(),
-  isReturned: json['isReturned'] as bool,
-  targetOriginPrice: json['targetOriginPrice'] as String,
+  isReturned: json['isReturned'] as bool?,
+  targetOriginPrice: json['targetOriginPrice'] as String?,
 );
 
 Map<String, dynamic>
@@ -4246,7 +4265,7 @@ _$OrderServiceOrderAppListGet$Response$Data$Records$Item$OrderSkuList$ItemToJson
   'targetTotalFinalPrice': instance.targetTotalFinalPrice,
   'remark': instance.remark,
   'quantity': instance.quantity,
-  'skuSpecValues': instance.skuSpecValues.map((e) => e.toJson()).toList(),
+  'skuSpecValues': instance.skuSpecValues?.map((e) => e.toJson()).toList(),
   'isReturned': instance.isReturned,
   'targetOriginPrice': instance.targetOriginPrice,
 };
@@ -4397,10 +4416,10 @@ OrderServiceOrderAppListGet$Response$Data$Records$Item$OrderBillList$Item
 _$OrderServiceOrderAppListGet$Response$Data$Records$Item$OrderBillList$ItemFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderAppListGet$Response$Data$Records$Item$OrderBillList$Item(
-  billId: json['billId'] as String,
-  status: (json['status'] as num).toDouble(),
-  targetTotalPrice: json['targetTotalPrice'] as String,
-  targetCurrency: json['targetCurrency'] as String,
+  billId: json['billId'] as String?,
+  status: (json['status'] as num?)?.toDouble(),
+  targetTotalPrice: json['targetTotalPrice'] as String?,
+  targetCurrency: json['targetCurrency'] as String?,
 );
 
 Map<String, dynamic>
@@ -4516,11 +4535,11 @@ _$OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder$ParcelProductDTOList$I
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder$ParcelProductDTOList$Item(
-      skuCode: json['skuCode'] as String,
-      productCode: json['productCode'] as String,
-      productName: json['productName'] as String,
-      quantity: (json['quantity'] as num).toDouble(),
-      imageUrl: json['imageUrl'] as String,
+      skuCode: json['skuCode'] as String?,
+      productCode: json['productCode'] as String?,
+      productName: json['productName'] as String?,
+      quantity: (json['quantity'] as num?)?.toDouble(),
+      imageUrl: json['imageUrl'] as String?,
     );
 
 Map<String, dynamic>
@@ -4539,13 +4558,13 @@ OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder$FreightCompensate
 _$OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder$FreightCompensateFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder$FreightCompensate(
-  compensateBillId: json['compensateBillId'] as String,
-  compensatePrice: json['compensatePrice'] as String,
-  compensatePriceCurrency: json['compensatePriceCurrency'] as String,
-  compensateReason: json['compensateReason'] as String,
-  targetCompensatePrice: json['targetCompensatePrice'] as String,
+  compensateBillId: json['compensateBillId'] as String?,
+  compensatePrice: json['compensatePrice'] as String?,
+  compensatePriceCurrency: json['compensatePriceCurrency'] as String?,
+  compensateReason: json['compensateReason'] as String?,
+  targetCompensatePrice: json['targetCompensatePrice'] as String?,
   targetCompensatePriceCurrency:
-      json['targetCompensatePriceCurrency'] as String,
+      json['targetCompensatePriceCurrency'] as String?,
 );
 
 Map<String, dynamic>
@@ -4566,8 +4585,8 @@ _$OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder$TargetFreightCurrencyF
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder$TargetFreightCurrency(
-      symbol: json['symbol'] as String,
-      currency: json['currency'] as String,
+      symbol: json['symbol'] as String?,
+      currency: json['currency'] as String?,
     );
 
 Map<String, dynamic>
@@ -4583,16 +4602,16 @@ OrderServiceOrderAppDetailGet$Response$Data$OrderTrace$TraceList$Item
 _$OrderServiceOrderAppDetailGet$Response$Data$OrderTrace$TraceList$ItemFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderAppDetailGet$Response$Data$OrderTrace$TraceList$Item(
-  id: (json['id'] as num).toDouble(),
-  frontCode: json['frontCode'] as String,
-  icon: json['icon'] as String,
-  traceMessage: json['traceMessage'] as String,
-  time: (json['time'] as num).toDouble(),
-  lastMileMailNo: json['lastMileMailNo'] as String,
-  lastMileMailNoLink: json['lastMileMailNoLink'] as String,
-  lastMileMailNoTitle: json['lastMileMailNoTitle'] as String,
-  traceStatus: json['traceStatus'] as String,
-  logisticsOrderId: json['logisticsOrderId'] as String,
+  id: (json['id'] as num?)?.toDouble(),
+  frontCode: json['frontCode'] as String?,
+  icon: json['icon'] as String?,
+  traceMessage: json['traceMessage'] as String?,
+  time: (json['time'] as num?)?.toDouble(),
+  lastMileMailNo: json['lastMileMailNo'] as String?,
+  lastMileMailNoLink: json['lastMileMailNoLink'] as String?,
+  lastMileMailNoTitle: json['lastMileMailNoTitle'] as String?,
+  traceStatus: json['traceStatus'] as String?,
+  logisticsOrderId: json['logisticsOrderId'] as String?,
 );
 
 Map<String, dynamic>
@@ -4616,32 +4635,32 @@ OrderServiceOrderAppDetailGet$Response$Data$OrderList$Item$SkuList$Item
 _$OrderServiceOrderAppDetailGet$Response$Data$OrderList$Item$SkuList$ItemFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderAppDetailGet$Response$Data$OrderList$Item$SkuList$Item(
-  productName: json['productName'] as String,
-  productCode: json['productCode'] as String,
-  skuCode: json['skuCode'] as String,
-  image: json['image'] as String,
-  targetOriginPrice: json['targetOriginPrice'] as String,
-  targetOriginTotalPrice: json['targetOriginTotalPrice'] as String,
-  sellPrice: json['sellPrice'] as String,
-  targetSellPrice: json['targetSellPrice'] as String,
-  totalPrice: json['totalPrice'] as String,
-  targetTotalPrice: json['targetTotalPrice'] as String,
-  targetSkuDiscountPrice: json['targetSkuDiscountPrice'] as String,
-  targetTotalFinalPrice: json['targetTotalFinalPrice'] as String,
-  targetSkuFinalPrice: json['targetSkuFinalPrice'] as String,
-  currency: json['currency'] as String,
-  targetCurrency: json['targetCurrency'] as String,
-  quantity: (json['quantity'] as num).toDouble(),
+  productName: json['productName'] as String?,
+  productCode: json['productCode'] as String?,
+  skuCode: json['skuCode'] as String?,
+  image: json['image'] as String?,
+  targetOriginPrice: json['targetOriginPrice'] as String?,
+  targetOriginTotalPrice: json['targetOriginTotalPrice'] as String?,
+  sellPrice: json['sellPrice'] as String?,
+  targetSellPrice: json['targetSellPrice'] as String?,
+  totalPrice: json['totalPrice'] as String?,
+  targetTotalPrice: json['targetTotalPrice'] as String?,
+  targetSkuDiscountPrice: json['targetSkuDiscountPrice'] as String?,
+  targetTotalFinalPrice: json['targetTotalFinalPrice'] as String?,
+  targetSkuFinalPrice: json['targetSkuFinalPrice'] as String?,
+  currency: json['currency'] as String?,
+  targetCurrency: json['targetCurrency'] as String?,
+  quantity: (json['quantity'] as num?)?.toDouble(),
   remark: json['remark'] as String?,
-  skuSpecValues: (json['skuSpecValues'] as List<dynamic>)
-      .map(
+  skuSpecValues: (json['skuSpecValues'] as List<dynamic>?)
+      ?.map(
         (e) =>
             OrderServiceOrderAppDetailGet$Response$Data$OrderList$Item$SkuList$Item$SkuSpecValues$Item.fromJson(
               e as Map<String, dynamic>,
             ),
       )
       .toList(),
-  isReturned: json['isReturned'] as bool,
+  isReturned: json['isReturned'] as bool?,
   skuSourceCode: json['skuSourceCode'] as String?,
 );
 
@@ -4667,7 +4686,7 @@ _$OrderServiceOrderAppDetailGet$Response$Data$OrderList$Item$SkuList$ItemToJson(
   'targetCurrency': instance.targetCurrency,
   'quantity': instance.quantity,
   'remark': instance.remark,
-  'skuSpecValues': instance.skuSpecValues.map((e) => e.toJson()).toList(),
+  'skuSpecValues': instance.skuSpecValues?.map((e) => e.toJson()).toList(),
   'isReturned': instance.isReturned,
   'skuSourceCode': instance.skuSourceCode,
 };
@@ -4768,9 +4787,9 @@ OrderServiceOrderConfirmPost$Response$Data$Pricing$TaxLines$Item
 _$OrderServiceOrderConfirmPost$Response$Data$Pricing$TaxLines$ItemFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderConfirmPost$Response$Data$Pricing$TaxLines$Item(
-  type: json['type'] as String,
-  title: json['title'] as String,
-  tax: json['tax'] as String,
+  type: json['type'] as String?,
+  title: json['title'] as String?,
+  tax: json['tax'] as String?,
 );
 
 Map<String, dynamic>
@@ -4786,13 +4805,14 @@ OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item
 _$OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$ItemFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item(
-  skuSourceCode: json['skuSourceCode'] as String,
-  recommendSolution:
-      OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$RecommendSolution.fromJson(
-        json['recommendSolution'] as Map<String, dynamic>,
-      ),
-  lastMileList: (json['lastMileList'] as List<dynamic>)
-      .map(
+  skuSourceCode: json['skuSourceCode'] as String?,
+  recommendSolution: json['recommendSolution'] == null
+      ? null
+      : OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$RecommendSolution.fromJson(
+          json['recommendSolution'] as Map<String, dynamic>,
+        ),
+  lastMileList: (json['lastMileList'] as List<dynamic>?)
+      ?.map(
         (e) =>
             OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileList$Item.fromJson(
               e as Map<String, dynamic>,
@@ -4806,30 +4826,30 @@ _$OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$ItemToJson(
   OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item instance,
 ) => <String, dynamic>{
   'skuSourceCode': instance.skuSourceCode,
-  'recommendSolution': instance.recommendSolution.toJson(),
-  'lastMileList': instance.lastMileList.map((e) => e.toJson()).toList(),
+  'recommendSolution': instance.recommendSolution?.toJson(),
+  'lastMileList': instance.lastMileList?.map((e) => e.toJson()).toList(),
 };
 
 OrderServiceOrderConfirmPost$Response$Data$Pricing$Giveaway$Item
 _$OrderServiceOrderConfirmPost$Response$Data$Pricing$Giveaway$ItemFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderConfirmPost$Response$Data$Pricing$Giveaway$Item(
-  records: (json['records'] as List<dynamic>)
-      .map(
+  records: (json['records'] as List<dynamic>?)
+      ?.map(
         (e) =>
             OrderServiceOrderConfirmPost$Response$Data$Pricing$Giveaway$Item$Records$Item.fromJson(
               e as Map<String, dynamic>,
             ),
       )
       .toList(),
-  skuSourceCode: json['skuSourceCode'] as String,
+  skuSourceCode: json['skuSourceCode'] as String?,
 );
 
 Map<String, dynamic>
 _$OrderServiceOrderConfirmPost$Response$Data$Pricing$Giveaway$ItemToJson(
   OrderServiceOrderConfirmPost$Response$Data$Pricing$Giveaway$Item instance,
 ) => <String, dynamic>{
-  'records': instance.records.map((e) => e.toJson()).toList(),
+  'records': instance.records?.map((e) => e.toJson()).toList(),
   'skuSourceCode': instance.skuSourceCode,
 };
 
@@ -4837,23 +4857,23 @@ OrderServiceOrderConfirmPost$Response$Data$Pricing$VoucherMsg
 _$OrderServiceOrderConfirmPost$Response$Data$Pricing$VoucherMsgFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderConfirmPost$Response$Data$Pricing$VoucherMsg(
-  voucherInfos: (json['voucherInfos'] as List<dynamic>)
-      .map(
+  voucherInfos: (json['voucherInfos'] as List<dynamic>?)
+      ?.map(
         (e) =>
             OrderServiceOrderConfirmPost$Response$Data$Pricing$VoucherMsg$VoucherInfos$Item.fromJson(
               e as Map<String, dynamic>,
             ),
       )
       .toList(),
-  descprition: json['descprition'] as String,
-  usedVoucherInfoColor: json['usedVoucherInfoColor'] as String,
+  descprition: json['descprition'] as String?,
+  usedVoucherInfoColor: json['usedVoucherInfoColor'] as String?,
 );
 
 Map<String, dynamic>
 _$OrderServiceOrderConfirmPost$Response$Data$Pricing$VoucherMsgToJson(
   OrderServiceOrderConfirmPost$Response$Data$Pricing$VoucherMsg instance,
 ) => <String, dynamic>{
-  'voucherInfos': instance.voucherInfos.map((e) => e.toJson()).toList(),
+  'voucherInfos': instance.voucherInfos?.map((e) => e.toJson()).toList(),
   'descprition': instance.descprition,
   'usedVoucherInfoColor': instance.usedVoucherInfoColor,
 };
@@ -4877,11 +4897,11 @@ _$OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrder$ParcelProductDTOLis
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrder$ParcelProductDTOList$Item(
-      skuCode: json['skuCode'] as String,
-      productCode: json['productCode'] as String,
-      productName: json['productName'] as String,
-      quantity: (json['quantity'] as num).toDouble(),
-      imageUrl: json['imageUrl'] as String,
+      skuCode: json['skuCode'] as String?,
+      productCode: json['productCode'] as String?,
+      productName: json['productName'] as String?,
+      quantity: (json['quantity'] as num?)?.toDouble(),
+      imageUrl: json['imageUrl'] as String?,
     );
 
 Map<String, dynamic>
@@ -4901,13 +4921,13 @@ _$OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrder$FreightCompensateFr
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrder$FreightCompensate(
-      compensateBillId: json['compensateBillId'] as String,
-      compensatePrice: json['compensatePrice'] as String,
-      compensatePriceCurrency: json['compensatePriceCurrency'] as String,
-      compensateReason: json['compensateReason'] as String,
-      targetCompensatePrice: json['targetCompensatePrice'] as String,
+      compensateBillId: json['compensateBillId'] as String?,
+      compensatePrice: json['compensatePrice'] as String?,
+      compensatePriceCurrency: json['compensatePriceCurrency'] as String?,
+      compensateReason: json['compensateReason'] as String?,
+      targetCompensatePrice: json['targetCompensatePrice'] as String?,
       targetCompensatePriceCurrency:
-          json['targetCompensatePriceCurrency'] as String,
+          json['targetCompensatePriceCurrency'] as String?,
     );
 
 Map<String, dynamic>
@@ -4928,8 +4948,8 @@ _$OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrder$TargetFreightCurren
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrder$TargetFreightCurrency(
-      symbol: json['symbol'] as String,
-      currency: json['currency'] as String,
+      symbol: json['symbol'] as String?,
+      currency: json['currency'] as String?,
     );
 
 Map<String, dynamic>
@@ -4945,16 +4965,16 @@ OrderServiceOrderNoAuthDetailGet$Response$Data$OrderTrace$TraceList$Item
 _$OrderServiceOrderNoAuthDetailGet$Response$Data$OrderTrace$TraceList$ItemFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderNoAuthDetailGet$Response$Data$OrderTrace$TraceList$Item(
-  id: (json['id'] as num).toDouble(),
-  frontCode: json['frontCode'] as String,
-  icon: json['icon'] as String,
-  traceMessage: json['traceMessage'] as String,
-  time: (json['time'] as num).toDouble(),
-  lastMileMailNo: json['lastMileMailNo'] as String,
-  lastMileMailNoLink: json['lastMileMailNoLink'] as String,
-  lastMileMailNoTitle: json['lastMileMailNoTitle'] as String,
-  traceStatus: json['traceStatus'] as String,
-  logisticsOrderId: json['logisticsOrderId'] as String,
+  id: (json['id'] as num?)?.toDouble(),
+  frontCode: json['frontCode'] as String?,
+  icon: json['icon'] as String?,
+  traceMessage: json['traceMessage'] as String?,
+  time: (json['time'] as num?)?.toDouble(),
+  lastMileMailNo: json['lastMileMailNo'] as String?,
+  lastMileMailNoLink: json['lastMileMailNoLink'] as String?,
+  lastMileMailNoTitle: json['lastMileMailNoTitle'] as String?,
+  traceStatus: json['traceStatus'] as String?,
+  logisticsOrderId: json['logisticsOrderId'] as String?,
 );
 
 Map<String, dynamic>
@@ -4978,22 +4998,22 @@ OrderServiceOrderNoAuthDetailGet$Response$Data$OrderTrace$GroupTraceList$Item
 _$OrderServiceOrderNoAuthDetailGet$Response$Data$OrderTrace$GroupTraceList$ItemFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderNoAuthDetailGet$Response$Data$OrderTrace$GroupTraceList$Item(
-  subParcelOrderId: json['subParcelOrderId'] as String,
-  parcelOrderStatus: json['parcelOrderStatus'] as String,
+  subParcelOrderId: json['subParcelOrderId'] as String?,
+  parcelOrderStatus: json['parcelOrderStatus'] as String?,
   lastMileMailNo: json['lastMileMailNo'] as String?,
   lastMileMailNoLink: json['lastMileMailNoLink'] as String?,
   lastMileCompanyName: json['lastMileCompanyName'] as String?,
   lastMileCompanyPhone: json['lastMileCompanyPhone'] as String?,
   lastMileCompanyEmail: json['lastMileCompanyEmail'] as String?,
-  traceList: (json['traceList'] as List<dynamic>)
-      .map(
+  traceList: (json['traceList'] as List<dynamic>?)
+      ?.map(
         (e) =>
             OrderServiceOrderNoAuthDetailGet$Response$Data$OrderTrace$GroupTraceList$Item$TraceList$Item.fromJson(
               e as Map<String, dynamic>,
             ),
       )
       .toList(),
-  sequenceTime: (json['sequenceTime'] as num).toInt(),
+  sequenceTime: (json['sequenceTime'] as num?)?.toInt(),
 );
 
 Map<String, dynamic>
@@ -5008,7 +5028,7 @@ _$OrderServiceOrderNoAuthDetailGet$Response$Data$OrderTrace$GroupTraceList$ItemT
   'lastMileCompanyName': instance.lastMileCompanyName,
   'lastMileCompanyPhone': instance.lastMileCompanyPhone,
   'lastMileCompanyEmail': instance.lastMileCompanyEmail,
-  'traceList': instance.traceList.map((e) => e.toJson()).toList(),
+  'traceList': instance.traceList?.map((e) => e.toJson()).toList(),
   'sequenceTime': instance.sequenceTime,
 };
 
@@ -5016,32 +5036,32 @@ OrderServiceOrderNoAuthDetailGet$Response$Data$OrderList$Item$SkuList$Item
 _$OrderServiceOrderNoAuthDetailGet$Response$Data$OrderList$Item$SkuList$ItemFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderNoAuthDetailGet$Response$Data$OrderList$Item$SkuList$Item(
-  productName: json['productName'] as String,
-  productCode: json['productCode'] as String,
-  skuCode: json['skuCode'] as String,
-  image: json['image'] as String,
-  targetOriginPrice: json['targetOriginPrice'] as String,
-  targetOriginTotalPrice: json['targetOriginTotalPrice'] as String,
-  sellPrice: json['sellPrice'] as String,
-  targetSellPrice: json['targetSellPrice'] as String,
-  totalPrice: json['totalPrice'] as String,
-  targetTotalPrice: json['targetTotalPrice'] as String,
-  targetSkuDiscountPrice: json['targetSkuDiscountPrice'] as String,
-  targetTotalFinalPrice: json['targetTotalFinalPrice'] as String,
-  targetSkuFinalPrice: json['targetSkuFinalPrice'] as String,
-  currency: json['currency'] as String,
-  targetCurrency: json['targetCurrency'] as String,
-  quantity: (json['quantity'] as num).toDouble(),
+  productName: json['productName'] as String?,
+  productCode: json['productCode'] as String?,
+  skuCode: json['skuCode'] as String?,
+  image: json['image'] as String?,
+  targetOriginPrice: json['targetOriginPrice'] as String?,
+  targetOriginTotalPrice: json['targetOriginTotalPrice'] as String?,
+  sellPrice: json['sellPrice'] as String?,
+  targetSellPrice: json['targetSellPrice'] as String?,
+  totalPrice: json['totalPrice'] as String?,
+  targetTotalPrice: json['targetTotalPrice'] as String?,
+  targetSkuDiscountPrice: json['targetSkuDiscountPrice'] as String?,
+  targetTotalFinalPrice: json['targetTotalFinalPrice'] as String?,
+  targetSkuFinalPrice: json['targetSkuFinalPrice'] as String?,
+  currency: json['currency'] as String?,
+  targetCurrency: json['targetCurrency'] as String?,
+  quantity: (json['quantity'] as num?)?.toDouble(),
   remark: json['remark'] as String?,
-  skuSpecValues: (json['skuSpecValues'] as List<dynamic>)
-      .map(
+  skuSpecValues: (json['skuSpecValues'] as List<dynamic>?)
+      ?.map(
         (e) =>
             OrderServiceOrderNoAuthDetailGet$Response$Data$OrderList$Item$SkuList$Item$SkuSpecValues$Item.fromJson(
               e as Map<String, dynamic>,
             ),
       )
       .toList(),
-  isReturned: json['isReturned'] as bool,
+  isReturned: json['isReturned'] as bool?,
   skuSourceCode: json['skuSourceCode'] as String?,
 );
 
@@ -5067,7 +5087,7 @@ _$OrderServiceOrderNoAuthDetailGet$Response$Data$OrderList$Item$SkuList$ItemToJs
   'targetCurrency': instance.targetCurrency,
   'quantity': instance.quantity,
   'remark': instance.remark,
-  'skuSpecValues': instance.skuSpecValues.map((e) => e.toJson()).toList(),
+  'skuSpecValues': instance.skuSpecValues?.map((e) => e.toJson()).toList(),
   'isReturned': instance.isReturned,
   'skuSourceCode': instance.skuSourceCode,
 };
@@ -5182,31 +5202,31 @@ OrderServiceOrderListGet$Response$Data$Records$Item$OrderSkuList$Item
 _$OrderServiceOrderListGet$Response$Data$Records$Item$OrderSkuList$ItemFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderListGet$Response$Data$Records$Item$OrderSkuList$Item(
-  productName: json['productName'] as String,
-  skuCode: json['skuCode'] as String,
-  productCode: json['productCode'] as String,
-  image: json['image'] as String,
-  sellPrice: json['sellPrice'] as String,
-  sellCur: json['sellCur'] as String,
-  totalPrice: json['totalPrice'] as String,
-  targetSellPrice: json['targetSellPrice'] as String,
-  targetSellCur: json['targetSellCur'] as String,
-  targetTotalPrice: json['targetTotalPrice'] as String,
+  productName: json['productName'] as String?,
+  skuCode: json['skuCode'] as String?,
+  productCode: json['productCode'] as String?,
+  image: json['image'] as String?,
+  sellPrice: json['sellPrice'] as String?,
+  sellCur: json['sellCur'] as String?,
+  totalPrice: json['totalPrice'] as String?,
+  targetSellPrice: json['targetSellPrice'] as String?,
+  targetSellCur: json['targetSellCur'] as String?,
+  targetTotalPrice: json['targetTotalPrice'] as String?,
   targetSkuDiscountPrice: json['targetSkuDiscountPrice'] as String?,
-  targetSkuFinalPrice: json['targetSkuFinalPrice'] as String,
-  targetTotalFinalPrice: json['targetTotalFinalPrice'] as String,
+  targetSkuFinalPrice: json['targetSkuFinalPrice'] as String?,
+  targetTotalFinalPrice: json['targetTotalFinalPrice'] as String?,
   remark: json['remark'] as String?,
-  quantity: (json['quantity'] as num).toDouble(),
-  skuSpecValues: (json['skuSpecValues'] as List<dynamic>)
-      .map(
+  quantity: (json['quantity'] as num?)?.toDouble(),
+  skuSpecValues: (json['skuSpecValues'] as List<dynamic>?)
+      ?.map(
         (e) =>
             OrderServiceOrderListGet$Response$Data$Records$Item$OrderSkuList$Item$SkuSpecValues$Item.fromJson(
               e as Map<String, dynamic>,
             ),
       )
       .toList(),
-  isReturned: json['isReturned'] as bool,
-  targetOriginPrice: json['targetOriginPrice'] as String,
+  isReturned: json['isReturned'] as bool?,
+  targetOriginPrice: json['targetOriginPrice'] as String?,
 );
 
 Map<String, dynamic>
@@ -5229,7 +5249,7 @@ _$OrderServiceOrderListGet$Response$Data$Records$Item$OrderSkuList$ItemToJson(
   'targetTotalFinalPrice': instance.targetTotalFinalPrice,
   'remark': instance.remark,
   'quantity': instance.quantity,
-  'skuSpecValues': instance.skuSpecValues.map((e) => e.toJson()).toList(),
+  'skuSpecValues': instance.skuSpecValues?.map((e) => e.toJson()).toList(),
   'isReturned': instance.isReturned,
   'targetOriginPrice': instance.targetOriginPrice,
 };
@@ -5380,10 +5400,10 @@ OrderServiceOrderListGet$Response$Data$Records$Item$OrderBillList$Item
 _$OrderServiceOrderListGet$Response$Data$Records$Item$OrderBillList$ItemFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderListGet$Response$Data$Records$Item$OrderBillList$Item(
-  billId: json['billId'] as String,
-  status: (json['status'] as num).toDouble(),
-  targetTotalPrice: json['targetTotalPrice'] as String,
-  targetCurrency: json['targetCurrency'] as String,
+  billId: json['billId'] as String?,
+  status: (json['status'] as num?)?.toDouble(),
+  targetTotalPrice: json['targetTotalPrice'] as String?,
+  targetCurrency: json['targetCurrency'] as String?,
 );
 
 Map<String, dynamic>
@@ -5692,7 +5712,7 @@ _$OrderServiceOrderDetailGet$Response$Data$OrderList$Item$SkuList$ItemFromJson(
   productName: json['productName'] as String?,
   productCode: json['productCode'] as String?,
   skuCode: json['skuCode'] as String?,
-  image: json['image'] as String,
+  image: json['image'] as String?,
   targetOriginTotalPrice: json['targetOriginTotalPrice'] as String?,
   targetOriginPrice: json['targetOriginPrice'] as String?,
   sellPrice: json['sellPrice'] as String?,
@@ -5706,8 +5726,8 @@ _$OrderServiceOrderDetailGet$Response$Data$OrderList$Item$SkuList$ItemFromJson(
   targetTotalFinalPrice: json['targetTotalFinalPrice'] as String?,
   quantity: (json['quantity'] as num?)?.toDouble(),
   remark: json['remark'] as String?,
-  skuSpecValues: (json['skuSpecValues'] as List<dynamic>)
-      .map(
+  skuSpecValues: (json['skuSpecValues'] as List<dynamic>?)
+      ?.map(
         (e) =>
             OrderServiceOrderDetailGet$Response$Data$OrderList$Item$SkuList$Item$SkuSpecValues$Item.fromJson(
               e as Map<String, dynamic>,
@@ -5718,7 +5738,7 @@ _$OrderServiceOrderDetailGet$Response$Data$OrderList$Item$SkuList$ItemFromJson(
   isReturned: json['isReturned'] as bool?,
   returnQuantity: json['returnQuantity'],
   realRemark: json['realRemark'],
-  field2: json['field_2'] as String,
+  field2: json['field_2'] as String?,
 );
 
 Map<String, dynamic>
@@ -5742,7 +5762,7 @@ _$OrderServiceOrderDetailGet$Response$Data$OrderList$Item$SkuList$ItemToJson(
   'targetTotalFinalPrice': instance.targetTotalFinalPrice,
   'quantity': instance.quantity,
   'remark': instance.remark,
-  'skuSpecValues': instance.skuSpecValues.map((e) => e.toJson()).toList(),
+  'skuSpecValues': instance.skuSpecValues?.map((e) => e.toJson()).toList(),
   'canAfterSales': instance.canAfterSales,
   'isReturned': instance.isReturned,
   'returnQuantity': instance.returnQuantity,
@@ -5872,8 +5892,8 @@ OrderServiceOrderDetailGet$Response$Data$ParcelOrder$TargetFreightCurrency
 _$OrderServiceOrderDetailGet$Response$Data$ParcelOrder$TargetFreightCurrencyFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderDetailGet$Response$Data$ParcelOrder$TargetFreightCurrency(
-  symbol: json['symbol'] as String,
-  name: json['name'] as String,
+  symbol: json['symbol'] as String?,
+  name: json['name'] as String?,
 );
 
 Map<String, dynamic>
@@ -6078,20 +6098,20 @@ OrderServiceOrderDetailGet$Response$Data$OrderTrace$TraceList$Item
 _$OrderServiceOrderDetailGet$Response$Data$OrderTrace$TraceList$ItemFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderDetailGet$Response$Data$OrderTrace$TraceList$Item(
-  id: (json['id'] as num).toDouble(),
-  subParcelOrderId: json['subParcelOrderId'] as String,
-  frontCode: json['frontCode'] as String,
-  frontTitleCode: json['frontTitleCode'] as String,
-  frontTitle: json['frontTitle'] as String,
-  icon: json['icon'] as String,
-  traceMessage: json['traceMessage'] as String,
-  time: (json['time'] as num).toDouble(),
-  lastMileMailNo: json['lastMileMailNo'] as String,
-  lastMileCompanyName: json['lastMileCompanyName'] as String,
-  lastMileMailNoLink: json['lastMileMailNoLink'] as String,
-  lastMileMailNoTitle: json['lastMileMailNoTitle'] as String,
-  traceStatus: json['traceStatus'] as String,
-  traceTime: json['traceTime'] as String,
+  id: (json['id'] as num?)?.toDouble(),
+  subParcelOrderId: json['subParcelOrderId'] as String?,
+  frontCode: json['frontCode'] as String?,
+  frontTitleCode: json['frontTitleCode'] as String?,
+  frontTitle: json['frontTitle'] as String?,
+  icon: json['icon'] as String?,
+  traceMessage: json['traceMessage'] as String?,
+  time: (json['time'] as num?)?.toDouble(),
+  lastMileMailNo: json['lastMileMailNo'] as String?,
+  lastMileCompanyName: json['lastMileCompanyName'] as String?,
+  lastMileMailNoLink: json['lastMileMailNoLink'] as String?,
+  lastMileMailNoTitle: json['lastMileMailNoTitle'] as String?,
+  traceStatus: json['traceStatus'] as String?,
+  traceTime: json['traceTime'] as String?,
 );
 
 Map<String, dynamic>
@@ -6134,11 +6154,11 @@ _$OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrder$ParcelProductDTOLi
   Map<String, dynamic> json,
 ) =>
     OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrder$ParcelProductDTOList$Item(
-      skuCode: json['skuCode'] as String,
-      productCode: json['productCode'] as String,
-      productName: json['productName'] as String,
-      quantity: (json['quantity'] as num).toDouble(),
-      imageUrl: json['imageUrl'] as String,
+      skuCode: json['skuCode'] as String?,
+      productCode: json['productCode'] as String?,
+      productName: json['productName'] as String?,
+      quantity: (json['quantity'] as num?)?.toDouble(),
+      imageUrl: json['imageUrl'] as String?,
     );
 
 Map<String, dynamic>
@@ -6158,13 +6178,13 @@ _$OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrder$FreightCompensateF
   Map<String, dynamic> json,
 ) =>
     OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrder$FreightCompensate(
-      compensateBillId: json['compensateBillId'] as String,
-      compensatePrice: json['compensatePrice'] as String,
-      compensatePriceCurrency: json['compensatePriceCurrency'] as String,
-      compensateReason: json['compensateReason'] as String,
-      targetCompensatePrice: json['targetCompensatePrice'] as String,
+      compensateBillId: json['compensateBillId'] as String?,
+      compensatePrice: json['compensatePrice'] as String?,
+      compensatePriceCurrency: json['compensatePriceCurrency'] as String?,
+      compensateReason: json['compensateReason'] as String?,
+      targetCompensatePrice: json['targetCompensatePrice'] as String?,
       targetCompensatePriceCurrency:
-          json['targetCompensatePriceCurrency'] as String,
+          json['targetCompensatePriceCurrency'] as String?,
     );
 
 Map<String, dynamic>
@@ -6185,8 +6205,8 @@ _$OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrder$TargetFreightCurre
   Map<String, dynamic> json,
 ) =>
     OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrder$TargetFreightCurrency(
-      symbol: json['symbol'] as String,
-      currency: json['currency'] as String,
+      symbol: json['symbol'] as String?,
+      currency: json['currency'] as String?,
     );
 
 Map<String, dynamic>
@@ -6202,16 +6222,16 @@ OrderServiceOpenapiOrderDetailGet$Response$Data$OrderTrace$TraceList$Item
 _$OrderServiceOpenapiOrderDetailGet$Response$Data$OrderTrace$TraceList$ItemFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOpenapiOrderDetailGet$Response$Data$OrderTrace$TraceList$Item(
-  id: (json['id'] as num).toDouble(),
-  frontCode: json['frontCode'] as String,
-  icon: json['icon'] as String,
-  traceMessage: json['traceMessage'] as String,
-  time: (json['time'] as num).toDouble(),
-  lastMileMailNo: json['lastMileMailNo'] as String,
-  lastMileMailNoLink: json['lastMileMailNoLink'] as String,
-  lastMileMailNoTitle: json['lastMileMailNoTitle'] as String,
-  traceStatus: json['traceStatus'] as String,
-  logisticsOrderId: json['logisticsOrderId'] as String,
+  id: (json['id'] as num?)?.toDouble(),
+  frontCode: json['frontCode'] as String?,
+  icon: json['icon'] as String?,
+  traceMessage: json['traceMessage'] as String?,
+  time: (json['time'] as num?)?.toDouble(),
+  lastMileMailNo: json['lastMileMailNo'] as String?,
+  lastMileMailNoLink: json['lastMileMailNoLink'] as String?,
+  lastMileMailNoTitle: json['lastMileMailNoTitle'] as String?,
+  traceStatus: json['traceStatus'] as String?,
+  logisticsOrderId: json['logisticsOrderId'] as String?,
 );
 
 Map<String, dynamic>
@@ -6235,20 +6255,20 @@ OrderServiceOpenapiOrderDetailGet$Response$Data$OrderList$Item$SkuList$Item
 _$OrderServiceOpenapiOrderDetailGet$Response$Data$OrderList$Item$SkuList$ItemFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOpenapiOrderDetailGet$Response$Data$OrderList$Item$SkuList$Item(
-  productName: json['productName'] as String,
-  productCode: json['productCode'] as String,
-  skuCode: json['skuCode'] as String,
-  image: json['image'] as String,
-  sellPrice: json['sellPrice'] as String,
-  targetSellPrice: json['targetSellPrice'] as String,
-  totalPrice: json['totalPrice'] as String,
-  targetTotalPrice: json['targetTotalPrice'] as String,
-  currency: json['currency'] as String,
-  targetCurrency: json['targetCurrency'] as String,
-  quantity: (json['quantity'] as num).toDouble(),
+  productName: json['productName'] as String?,
+  productCode: json['productCode'] as String?,
+  skuCode: json['skuCode'] as String?,
+  image: json['image'] as String?,
+  sellPrice: json['sellPrice'] as String?,
+  targetSellPrice: json['targetSellPrice'] as String?,
+  totalPrice: json['totalPrice'] as String?,
+  targetTotalPrice: json['targetTotalPrice'] as String?,
+  currency: json['currency'] as String?,
+  targetCurrency: json['targetCurrency'] as String?,
+  quantity: (json['quantity'] as num?)?.toDouble(),
   remark: json['remark'] as String?,
-  skuSpecValues: (json['skuSpecValues'] as List<dynamic>)
-      .map(
+  skuSpecValues: (json['skuSpecValues'] as List<dynamic>?)
+      ?.map(
         (e) =>
             OrderServiceOpenapiOrderDetailGet$Response$Data$OrderList$Item$SkuList$Item$SkuSpecValues$Item.fromJson(
               e as Map<String, dynamic>,
@@ -6274,7 +6294,7 @@ _$OrderServiceOpenapiOrderDetailGet$Response$Data$OrderList$Item$SkuList$ItemToJ
   'targetCurrency': instance.targetCurrency,
   'quantity': instance.quantity,
   'remark': instance.remark,
-  'skuSpecValues': instance.skuSpecValues.map((e) => e.toJson()).toList(),
+  'skuSpecValues': instance.skuSpecValues?.map((e) => e.toJson()).toList(),
 };
 
 OrderServiceOpenapiOrderDetailGet$Response$Data$OrderList$Item$SupplyOrderList$Item
@@ -6327,7 +6347,7 @@ _$OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$BaseInf
       skuSourceCode: json['skuSourceCode'] as String?,
       parentOrderId: json['parentOrderId'] as String?,
       status: (json['status'] as num?)?.toDouble(),
-      frontStatus: (json['frontStatus'] as num).toDouble(),
+      frontStatus: (json['frontStatus'] as num?)?.toDouble(),
       statusContent: json['statusContent'] as String?,
       orderStatus: (json['orderStatus'] as num?)?.toDouble(),
       evaluateStatus: (json['evaluateStatus'] as num?)?.toDouble(),
@@ -6419,7 +6439,7 @@ _$OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$UserAdd
       lastName: json['lastName'] as String?,
       phoneNumber: json['phoneNumber'] as String?,
       zipCode: json['zipCode'] as String?,
-      id: (json['id'] as num).toDouble(),
+      id: (json['id'] as num?)?.toDouble(),
     );
 
 Map<String, dynamic>
@@ -6489,11 +6509,11 @@ _$OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$Payment
       targetRechargePrice: json['targetRechargePrice'] as String?,
       targetPayFeeAmount: json['targetPayFeeAmount'] as String?,
       targetCurrency: json['targetCurrency'] as String?,
-      targetItemsTotalAmount: json['targetItemsTotalAmount'] as String,
-      targetStockFeeAmount: json['targetStockFeeAmount'] as String,
+      targetItemsTotalAmount: json['targetItemsTotalAmount'] as String?,
+      targetStockFeeAmount: json['targetStockFeeAmount'] as String?,
       targetActualAmount: json['targetActualAmount'] as String?,
-      targetTipAmount: json['targetTipAmount'] as String,
-      targetServiceAmount: json['targetServiceAmount'] as String,
+      targetTipAmount: json['targetTipAmount'] as String?,
+      targetServiceAmount: json['targetServiceAmount'] as String?,
     );
 
 Map<String, dynamic>
@@ -6530,10 +6550,10 @@ _$OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$OrderBi
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$OrderBillList$Item(
-      status: json['status'] as String,
-      targetCurrency: json['targetCurrency'] as String,
-      targetTotalPrice: json['targetTotalPrice'] as String,
-      billId: json['billId'] as String,
+      status: json['status'] as String?,
+      targetCurrency: json['targetCurrency'] as String?,
+      targetTotalPrice: json['targetTotalPrice'] as String?,
+      billId: json['billId'] as String?,
     );
 
 Map<String, dynamic>
@@ -6551,22 +6571,23 @@ OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$ParcelOrd
 _$OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$ParcelOrderFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$ParcelOrder(
-  parcelOrderId: json['parcelOrderId'] as String,
-  parcelStatus: json['parcelStatus'] as String,
-  parcelStatusDesc: json['parcelStatusDesc'] as String,
-  createTime: (json['createTime'] as num).toDouble(),
-  warehouseCode: json['warehouseCode'] as String,
-  warehouseName: json['warehouseName'] as String,
-  freight: json['freight'] as String,
-  freightCurrency:
-      OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$ParcelOrder$FreightCurrency.fromJson(
-        json['freightCurrency'] as Map<String, dynamic>,
-      ),
-  lastMileMailNo: json['lastMileMailNo'] as Object,
-  lastMileCompanyCode: json['lastMileCompanyCode'] as Object,
-  lastMileCompanyName: json['lastMileCompanyName'] as Object,
-  parcelProductDTOList: (json['parcelProductDTOList'] as List<dynamic>)
-      .map(
+  parcelOrderId: json['parcelOrderId'] as String?,
+  parcelStatus: json['parcelStatus'] as String?,
+  parcelStatusDesc: json['parcelStatusDesc'] as String?,
+  createTime: (json['createTime'] as num?)?.toDouble(),
+  warehouseCode: json['warehouseCode'] as String?,
+  warehouseName: json['warehouseName'] as String?,
+  freight: json['freight'] as String?,
+  freightCurrency: json['freightCurrency'] == null
+      ? null
+      : OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$ParcelOrder$FreightCurrency.fromJson(
+          json['freightCurrency'] as Map<String, dynamic>,
+        ),
+  lastMileMailNo: json['lastMileMailNo'],
+  lastMileCompanyCode: json['lastMileCompanyCode'],
+  lastMileCompanyName: json['lastMileCompanyName'],
+  parcelProductDTOList: (json['parcelProductDTOList'] as List<dynamic>?)
+      ?.map(
         (e) =>
             OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$ParcelOrder$ParcelProductDTOList$Item.fromJson(
               e as Map<String, dynamic>,
@@ -6610,12 +6631,12 @@ _$OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$ParcelO
   'warehouseCode': instance.warehouseCode,
   'warehouseName': instance.warehouseName,
   'freight': instance.freight,
-  'freightCurrency': instance.freightCurrency.toJson(),
+  'freightCurrency': instance.freightCurrency?.toJson(),
   'lastMileMailNo': instance.lastMileMailNo,
   'lastMileCompanyCode': instance.lastMileCompanyCode,
   'lastMileCompanyName': instance.lastMileCompanyName,
   'parcelProductDTOList': instance.parcelProductDTOList
-      .map((e) => e.toJson())
+      ?.map((e) => e.toJson())
       .toList(),
   'buyerOperates': instance.buyerOperates,
   'freightCompensate': instance.freightCompensate?.toJson(),
@@ -6645,7 +6666,7 @@ _$OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$OrderTr
             ),
       )
       .toList(),
-  parcelOrderId: json['parcelOrderId'] as String,
+  parcelOrderId: json['parcelOrderId'] as String?,
 );
 
 Map<String, dynamic>
@@ -6688,8 +6709,8 @@ OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$OrderList
 _$OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$OrderList$ItemFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$OrderList$Item(
-  skuList: (json['skuList'] as List<dynamic>)
-      .map(
+  skuList: (json['skuList'] as List<dynamic>?)
+      ?.map(
         (e) =>
             OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$OrderList$Item$SkuList$Item.fromJson(
               e as Map<String, dynamic>,
@@ -6716,7 +6737,7 @@ _$OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$OrderLi
   OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$OrderList$Item
   instance,
 ) => <String, dynamic>{
-  'skuList': instance.skuList.map((e) => e.toJson()).toList(),
+  'skuList': instance.skuList?.map((e) => e.toJson()).toList(),
   'afterSalesList': instance.afterSalesList,
   'supplyOrderList': instance.supplyOrderList?.map((e) => e.toJson()).toList(),
 };
@@ -6741,11 +6762,11 @@ _$OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrder$ParcelProductDTOLi
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrder$ParcelProductDTOList$Item(
-      skuCode: json['skuCode'] as String,
-      productCode: json['productCode'] as String,
-      productName: json['productName'] as String,
-      quantity: (json['quantity'] as num).toDouble(),
-      imageUrl: json['imageUrl'] as String,
+      skuCode: json['skuCode'] as String?,
+      productCode: json['productCode'] as String?,
+      productName: json['productName'] as String?,
+      quantity: (json['quantity'] as num?)?.toDouble(),
+      imageUrl: json['imageUrl'] as String?,
     );
 
 Map<String, dynamic>
@@ -6765,13 +6786,13 @@ _$OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrder$FreightCompensateF
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrder$FreightCompensate(
-      compensateBillId: json['compensateBillId'] as String,
-      compensatePrice: json['compensatePrice'] as String,
-      compensatePriceCurrency: json['compensatePriceCurrency'] as String,
-      compensateReason: json['compensateReason'] as String,
-      targetCompensatePrice: json['targetCompensatePrice'] as String,
+      compensateBillId: json['compensateBillId'] as String?,
+      compensatePrice: json['compensatePrice'] as String?,
+      compensatePriceCurrency: json['compensatePriceCurrency'] as String?,
+      compensateReason: json['compensateReason'] as String?,
+      targetCompensatePrice: json['targetCompensatePrice'] as String?,
       targetCompensatePriceCurrency:
-          json['targetCompensatePriceCurrency'] as String,
+          json['targetCompensatePriceCurrency'] as String?,
     );
 
 Map<String, dynamic>
@@ -6792,8 +6813,8 @@ _$OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrder$TargetFreightCurre
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrder$TargetFreightCurrency(
-      symbol: json['symbol'] as String,
-      currency: json['currency'] as String,
+      symbol: json['symbol'] as String?,
+      currency: json['currency'] as String?,
     );
 
 Map<String, dynamic>
@@ -6809,16 +6830,16 @@ OrderServiceOrderCombineDetailGet$Response$Data$OrderTrace$TraceList$Item
 _$OrderServiceOrderCombineDetailGet$Response$Data$OrderTrace$TraceList$ItemFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderCombineDetailGet$Response$Data$OrderTrace$TraceList$Item(
-  id: (json['id'] as num).toDouble(),
-  frontCode: json['frontCode'] as String,
-  icon: json['icon'] as String,
-  traceMessage: json['traceMessage'] as String,
-  time: (json['time'] as num).toDouble(),
-  lastMileMailNo: json['lastMileMailNo'] as String,
-  lastMileMailNoLink: json['lastMileMailNoLink'] as String,
-  lastMileMailNoTitle: json['lastMileMailNoTitle'] as String,
-  traceStatus: json['traceStatus'] as String,
-  logisticsOrderId: json['logisticsOrderId'] as String,
+  id: (json['id'] as num?)?.toDouble(),
+  frontCode: json['frontCode'] as String?,
+  icon: json['icon'] as String?,
+  traceMessage: json['traceMessage'] as String?,
+  time: (json['time'] as num?)?.toDouble(),
+  lastMileMailNo: json['lastMileMailNo'] as String?,
+  lastMileMailNoLink: json['lastMileMailNoLink'] as String?,
+  lastMileMailNoTitle: json['lastMileMailNoTitle'] as String?,
+  traceStatus: json['traceStatus'] as String?,
+  logisticsOrderId: json['logisticsOrderId'] as String?,
 );
 
 Map<String, dynamic>
@@ -6975,9 +6996,9 @@ _$OrderServiceOrderAppListGet$Response$Data$Records$Item$SupplyOrderList$Item$Se
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderAppListGet$Response$Data$Records$Item$SupplyOrderList$Item$SecretKeyList$Item(
-      barCodeImg: json['barCodeImg'] as String,
-      codeInfo: json['codeInfo'] as String,
-      pin: json['pin'] as String,
+      barCodeImg: json['barCodeImg'] as String?,
+      codeInfo: json['codeInfo'] as String?,
+      pin: json['pin'] as String?,
     );
 
 Map<String, dynamic>
@@ -7148,25 +7169,28 @@ OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$RecommendSo
 _$OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$RecommendSolutionFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$RecommendSolution(
-  solutionName: json['solutionName'] as String,
-  solutionCode: json['solutionCode'] as String,
-  freight: json['freight'] as String,
-  freightCurrency:
-      OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$RecommendSolution$FreightCurrency.fromJson(
-        json['freightCurrency'] as Map<String, dynamic>,
-      ),
-  freightFreeThreshold: json['freightFreeThreshold'] as String,
-  freightFreeThresholdCurrency:
-      OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$RecommendSolution$FreightFreeThresholdCurrency.fromJson(
-        json['freightFreeThresholdCurrency'] as Map<String, dynamic>,
-      ),
-  gmtExpectArriveStart: (json['gmtExpectArriveStart'] as num).toDouble(),
-  gmtExpectArriveEnd: (json['gmtExpectArriveEnd'] as num).toDouble(),
-  lateCompensation: json['lateCompensation'] as String,
-  lateCompensationCurrency:
-      OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$RecommendSolution$LateCompensationCurrency.fromJson(
-        json['lateCompensationCurrency'] as Map<String, dynamic>,
-      ),
+  solutionName: json['solutionName'] as String?,
+  solutionCode: json['solutionCode'] as String?,
+  freight: json['freight'] as String?,
+  freightCurrency: json['freightCurrency'] == null
+      ? null
+      : OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$RecommendSolution$FreightCurrency.fromJson(
+          json['freightCurrency'] as Map<String, dynamic>,
+        ),
+  freightFreeThreshold: json['freightFreeThreshold'] as String?,
+  freightFreeThresholdCurrency: json['freightFreeThresholdCurrency'] == null
+      ? null
+      : OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$RecommendSolution$FreightFreeThresholdCurrency.fromJson(
+          json['freightFreeThresholdCurrency'] as Map<String, dynamic>,
+        ),
+  gmtExpectArriveStart: (json['gmtExpectArriveStart'] as num?)?.toDouble(),
+  gmtExpectArriveEnd: (json['gmtExpectArriveEnd'] as num?)?.toDouble(),
+  lateCompensation: json['lateCompensation'] as String?,
+  lateCompensationCurrency: json['lateCompensationCurrency'] == null
+      ? null
+      : OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$RecommendSolution$LateCompensationCurrency.fromJson(
+          json['lateCompensationCurrency'] as Map<String, dynamic>,
+        ),
 );
 
 Map<String, dynamic>
@@ -7177,23 +7201,23 @@ _$OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$Recommend
   'solutionName': instance.solutionName,
   'solutionCode': instance.solutionCode,
   'freight': instance.freight,
-  'freightCurrency': instance.freightCurrency.toJson(),
+  'freightCurrency': instance.freightCurrency?.toJson(),
   'freightFreeThreshold': instance.freightFreeThreshold,
   'freightFreeThresholdCurrency': instance.freightFreeThresholdCurrency
-      .toJson(),
+      ?.toJson(),
   'gmtExpectArriveStart': instance.gmtExpectArriveStart,
   'gmtExpectArriveEnd': instance.gmtExpectArriveEnd,
   'lateCompensation': instance.lateCompensation,
-  'lateCompensationCurrency': instance.lateCompensationCurrency.toJson(),
+  'lateCompensationCurrency': instance.lateCompensationCurrency?.toJson(),
 };
 
 OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileList$Item
 _$OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileList$ItemFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileList$Item(
-  name: json['name'] as String,
-  solutionList: (json['solutionList'] as List<dynamic>)
-      .map(
+  name: json['name'] as String?,
+  solutionList: (json['solutionList'] as List<dynamic>?)
+      ?.map(
         (e) =>
             OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileList$Item$SolutionList$Item.fromJson(
               e as Map<String, dynamic>,
@@ -7208,33 +7232,34 @@ _$OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileL
   instance,
 ) => <String, dynamic>{
   'name': instance.name,
-  'solutionList': instance.solutionList.map((e) => e.toJson()).toList(),
+  'solutionList': instance.solutionList?.map((e) => e.toJson()).toList(),
 };
 
 OrderServiceOrderConfirmPost$Response$Data$Pricing$Giveaway$Item$Records$Item
 _$OrderServiceOrderConfirmPost$Response$Data$Pricing$Giveaway$Item$Records$ItemFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderConfirmPost$Response$Data$Pricing$Giveaway$Item$Records$Item(
-  skuCode: json['skuCode'] as String,
-  skuImage: json['skuImage'] as String,
-  sellPrice: json['sellPrice'] as String,
-  quantity: json['quantity'] as String,
-  productName: json['productName'] as String,
-  currency:
-      OrderServiceOrderConfirmPost$Response$Data$Pricing$Giveaway$Item$Records$Item$Currency.fromJson(
-        json['currency'] as Map<String, dynamic>,
-      ),
+  skuCode: json['skuCode'] as String?,
+  skuImage: json['skuImage'] as String?,
+  sellPrice: json['sellPrice'] as String?,
+  quantity: json['quantity'] as String?,
+  productName: json['productName'] as String?,
+  currency: json['currency'] == null
+      ? null
+      : OrderServiceOrderConfirmPost$Response$Data$Pricing$Giveaway$Item$Records$Item$Currency.fromJson(
+          json['currency'] as Map<String, dynamic>,
+        ),
   skuSpecValues:
       (json['skuSpecValues'] as List<dynamic>?)
           ?.map((e) => e as Object)
           .toList() ??
       [],
-  shopName: json['shopName'] as String,
-  shopImage: json['shopImage'] as String,
-  lowStocks: json['lowStocks'] as String,
-  giftCode: json['giftCode'] as String,
-  weight: json['weight'] as String,
-  weightUnit: json['weightUnit'] as String,
+  shopName: json['shopName'] as String?,
+  shopImage: json['shopImage'] as String?,
+  lowStocks: json['lowStocks'] as String?,
+  giftCode: json['giftCode'] as String?,
+  weight: json['weight'] as String?,
+  weightUnit: json['weightUnit'] as String?,
 );
 
 Map<String, dynamic>
@@ -7247,7 +7272,7 @@ _$OrderServiceOrderConfirmPost$Response$Data$Pricing$Giveaway$Item$Records$ItemT
   'sellPrice': instance.sellPrice,
   'quantity': instance.quantity,
   'productName': instance.productName,
-  'currency': instance.currency.toJson(),
+  'currency': instance.currency?.toJson(),
   'skuSpecValues': instance.skuSpecValues,
   'shopName': instance.shopName,
   'shopImage': instance.shopImage,
@@ -7261,9 +7286,9 @@ OrderServiceOrderConfirmPost$Response$Data$Pricing$VoucherMsg$VoucherInfos$Item
 _$OrderServiceOrderConfirmPost$Response$Data$Pricing$VoucherMsg$VoucherInfos$ItemFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderConfirmPost$Response$Data$Pricing$VoucherMsg$VoucherInfos$Item(
-  title: json['title'] as String,
-  list: (json['list'] as List<dynamic>)
-      .map(
+  title: json['title'] as String?,
+  list: (json['list'] as List<dynamic>?)
+      ?.map(
         (e) =>
             OrderServiceOrderConfirmPost$Response$Data$Pricing$VoucherMsg$VoucherInfos$Item$List$Item.fromJson(
               e as Map<String, dynamic>,
@@ -7278,7 +7303,7 @@ _$OrderServiceOrderConfirmPost$Response$Data$Pricing$VoucherMsg$VoucherInfos$Ite
   instance,
 ) => <String, dynamic>{
   'title': instance.title,
-  'list': instance.list.map((e) => e.toJson()).toList(),
+  'list': instance.list?.map((e) => e.toJson()).toList(),
 };
 
 OrderServiceOrderNoAuthDetailGet$Response$Data$OrderTrace$GroupTraceList$Item$TraceList$Item
@@ -7286,20 +7311,22 @@ _$OrderServiceOrderNoAuthDetailGet$Response$Data$OrderTrace$GroupTraceList$Item$
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderNoAuthDetailGet$Response$Data$OrderTrace$GroupTraceList$Item$TraceList$Item(
-      id: (json['id'] as num).toInt(),
+      id: (json['id'] as num?)?.toInt(),
       subParcelOrderId: json['subParcelOrderId'] as String?,
-      frontCode: json['frontCode'] as String,
-      frontTitleCode: json['frontTitleCode'] as String,
-      frontTitle: json['frontTitle'] as String,
-      icon: json['icon'] as String,
-      traceMessage: json['traceMessage'] as String,
-      time: (json['time'] as num).toInt(),
+      frontCode: json['frontCode'] as String?,
+      frontTitleCode: json['frontTitleCode'] as String?,
+      frontTitle: json['frontTitle'] as String?,
+      icon: json['icon'] as String?,
+      traceMessage: json['traceMessage'] as String?,
+      time: (json['time'] as num?)?.toInt(),
       lastMileMailNo: json['lastMileMailNo'] as String?,
       lastMileCompanyName: json['lastMileCompanyName'] as String?,
       lastMileMailNoLink: json['lastMileMailNoLink'] as String?,
       lastMileMailNoTitle: json['lastMileMailNoTitle'] as String?,
-      traceStatus: json['traceStatus'] as String,
-      traceTime: DateTime.parse(json['traceTime'] as String),
+      traceStatus: json['traceStatus'] as String?,
+      traceTime: json['traceTime'] == null
+          ? null
+          : DateTime.parse(json['traceTime'] as String),
     );
 
 Map<String, dynamic>
@@ -7320,7 +7347,7 @@ _$OrderServiceOrderNoAuthDetailGet$Response$Data$OrderTrace$GroupTraceList$Item$
   'lastMileMailNoLink': instance.lastMileMailNoLink,
   'lastMileMailNoTitle': instance.lastMileMailNoTitle,
   'traceStatus': instance.traceStatus,
-  'traceTime': instance.traceTime.toIso8601String(),
+  'traceTime': instance.traceTime?.toIso8601String(),
 };
 
 OrderServiceOrderNoAuthDetailGet$Response$Data$OrderList$Item$SkuList$Item$SkuSpecValues$Item
@@ -7358,9 +7385,9 @@ _$OrderServiceOrderListGet$Response$Data$Records$Item$SupplyOrderList$Item$Secre
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderListGet$Response$Data$Records$Item$SupplyOrderList$Item$SecretKeyList$Item(
-      barCodeImg: json['barCodeImg'] as String,
-      codeInfo: json['codeInfo'] as String,
-      pin: json['pin'] as String,
+      barCodeImg: json['barCodeImg'] as String?,
+      codeInfo: json['codeInfo'] as String?,
+      pin: json['pin'] as String?,
     );
 
 Map<String, dynamic>
@@ -7879,8 +7906,8 @@ _$OrderServiceOrderDetailGet$Response$Data$OrderList$Item$SkuList$Item$SkuSpecVa
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderDetailGet$Response$Data$OrderList$Item$SkuList$Item$SkuSpecValues$Item(
-      name: json['name'] as String,
-      value: json['value'] as String,
+      name: json['name'] as String?,
+      value: json['value'] as String?,
     );
 
 Map<String, dynamic>
@@ -7894,20 +7921,20 @@ _$OrderServiceOrderDetailGet$Response$Data$OrderTrace$GroupTraceList$Item$TraceL
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderDetailGet$Response$Data$OrderTrace$GroupTraceList$Item$TraceList$Item(
-      id: (json['id'] as num).toDouble(),
-      subParcelOrderId: json['subParcelOrderId'] as String,
-      frontCode: json['frontCode'] as String,
-      frontTitleCode: json['frontTitleCode'] as String,
-      frontTitle: json['frontTitle'] as String,
-      icon: json['icon'] as String,
-      traceMessage: json['traceMessage'] as String,
-      time: (json['time'] as num).toDouble(),
-      lastMileMailNo: json['lastMileMailNo'] as String,
-      lastMileCompanyName: json['lastMileCompanyName'] as String,
-      lastMileMailNoLink: json['lastMileMailNoLink'] as String,
-      lastMileMailNoTitle: json['lastMileMailNoTitle'] as String,
-      traceStatus: json['traceStatus'] as String,
-      traceTime: json['traceTime'] as String,
+      id: (json['id'] as num?)?.toDouble(),
+      subParcelOrderId: json['subParcelOrderId'] as String?,
+      frontCode: json['frontCode'] as String?,
+      frontTitleCode: json['frontTitleCode'] as String?,
+      frontTitle: json['frontTitle'] as String?,
+      icon: json['icon'] as String?,
+      traceMessage: json['traceMessage'] as String?,
+      time: (json['time'] as num?)?.toDouble(),
+      lastMileMailNo: json['lastMileMailNo'] as String?,
+      lastMileCompanyName: json['lastMileCompanyName'] as String?,
+      lastMileMailNoLink: json['lastMileMailNoLink'] as String?,
+      lastMileMailNoTitle: json['lastMileMailNoTitle'] as String?,
+      traceStatus: json['traceStatus'] as String?,
+      traceTime: json['traceTime'] as String?,
     );
 
 Map<String, dynamic>
@@ -7966,11 +7993,11 @@ _$OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$ParcelO
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$ParcelOrder$ParcelProductDTOList$Item(
-      skuCode: json['skuCode'] as String,
-      productCode: json['productCode'] as String,
-      productName: json['productName'] as String,
-      quantity: (json['quantity'] as num).toDouble(),
-      imageUrl: json['imageUrl'] as String,
+      skuCode: json['skuCode'] as String?,
+      productCode: json['productCode'] as String?,
+      productName: json['productName'] as String?,
+      quantity: (json['quantity'] as num?)?.toDouble(),
+      imageUrl: json['imageUrl'] as String?,
     );
 
 Map<String, dynamic>
@@ -7990,13 +8017,13 @@ _$OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$ParcelO
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$ParcelOrder$FreightCompensate(
-      compensateBillId: json['compensateBillId'] as String,
-      compensatePrice: json['compensatePrice'] as String,
-      compensatePriceCurrency: json['compensatePriceCurrency'] as String,
-      compensateReason: json['compensateReason'] as String,
-      targetCompensatePrice: json['targetCompensatePrice'] as String,
+      compensateBillId: json['compensateBillId'] as String?,
+      compensatePrice: json['compensatePrice'] as String?,
+      compensatePriceCurrency: json['compensatePriceCurrency'] as String?,
+      compensateReason: json['compensateReason'] as String?,
+      targetCompensatePrice: json['targetCompensatePrice'] as String?,
       targetCompensatePriceCurrency:
-          json['targetCompensatePriceCurrency'] as String,
+          json['targetCompensatePriceCurrency'] as String?,
     );
 
 Map<String, dynamic>
@@ -8017,8 +8044,8 @@ _$OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$ParcelO
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$ParcelOrder$TargetFreightCurrency(
-      symbol: json['symbol'] as String,
-      currency: json['currency'] as String,
+      symbol: json['symbol'] as String?,
+      currency: json['currency'] as String?,
     );
 
 Map<String, dynamic>
@@ -8035,16 +8062,16 @@ _$OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$OrderTr
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$OrderTrace$TraceList$Item(
-      id: (json['id'] as num).toDouble(),
-      frontCode: json['frontCode'] as String,
-      icon: json['icon'] as String,
-      traceMessage: json['traceMessage'] as String,
-      time: (json['time'] as num).toDouble(),
-      lastMileMailNo: json['lastMileMailNo'] as String,
-      lastMileMailNoLink: json['lastMileMailNoLink'] as String,
-      lastMileMailNoTitle: json['lastMileMailNoTitle'] as String,
-      traceStatus: json['traceStatus'] as String,
-      logisticsOrderId: json['logisticsOrderId'] as String,
+      id: (json['id'] as num?)?.toDouble(),
+      frontCode: json['frontCode'] as String?,
+      icon: json['icon'] as String?,
+      traceMessage: json['traceMessage'] as String?,
+      time: (json['time'] as num?)?.toDouble(),
+      lastMileMailNo: json['lastMileMailNo'] as String?,
+      lastMileMailNoLink: json['lastMileMailNoLink'] as String?,
+      lastMileMailNoTitle: json['lastMileMailNoTitle'] as String?,
+      traceStatus: json['traceStatus'] as String?,
+      logisticsOrderId: json['logisticsOrderId'] as String?,
     );
 
 Map<String, dynamic>
@@ -8068,32 +8095,32 @@ OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$OrderList
 _$OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$OrderList$Item$SkuList$ItemFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$OrderList$Item$SkuList$Item(
-  productName: json['productName'] as String,
-  productCode: json['productCode'] as String,
-  skuCode: json['skuCode'] as String,
-  image: json['image'] as String,
-  targetOriginPrice: json['targetOriginPrice'] as String,
-  targetOriginTotalPrice: json['targetOriginTotalPrice'] as String,
-  sellPrice: json['sellPrice'] as String,
-  targetSellPrice: json['targetSellPrice'] as String,
-  totalPrice: json['totalPrice'] as String,
-  targetTotalPrice: json['targetTotalPrice'] as String,
-  targetSkuDiscountPrice: json['targetSkuDiscountPrice'] as String,
-  targetSkuFinalPrice: json['targetSkuFinalPrice'] as String,
-  targetTotalFinalPrice: json['targetTotalFinalPrice'] as String,
-  currency: json['currency'] as String,
-  targetCurrency: json['targetCurrency'] as String,
-  quantity: (json['quantity'] as num).toDouble(),
+  productName: json['productName'] as String?,
+  productCode: json['productCode'] as String?,
+  skuCode: json['skuCode'] as String?,
+  image: json['image'] as String?,
+  targetOriginPrice: json['targetOriginPrice'] as String?,
+  targetOriginTotalPrice: json['targetOriginTotalPrice'] as String?,
+  sellPrice: json['sellPrice'] as String?,
+  targetSellPrice: json['targetSellPrice'] as String?,
+  totalPrice: json['totalPrice'] as String?,
+  targetTotalPrice: json['targetTotalPrice'] as String?,
+  targetSkuDiscountPrice: json['targetSkuDiscountPrice'] as String?,
+  targetSkuFinalPrice: json['targetSkuFinalPrice'] as String?,
+  targetTotalFinalPrice: json['targetTotalFinalPrice'] as String?,
+  currency: json['currency'] as String?,
+  targetCurrency: json['targetCurrency'] as String?,
+  quantity: (json['quantity'] as num?)?.toDouble(),
   remark: json['remark'] as String?,
-  skuSpecValues: (json['skuSpecValues'] as List<dynamic>)
-      .map(
+  skuSpecValues: (json['skuSpecValues'] as List<dynamic>?)
+      ?.map(
         (e) =>
             OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$OrderList$Item$SkuList$Item$SkuSpecValues$Item.fromJson(
               e as Map<String, dynamic>,
             ),
       )
       .toList(),
-  isReturned: json['isReturned'] as bool,
+  isReturned: json['isReturned'] as bool?,
 );
 
 Map<String, dynamic>
@@ -8118,7 +8145,7 @@ _$OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$OrderLi
   'targetCurrency': instance.targetCurrency,
   'quantity': instance.quantity,
   'remark': instance.remark,
-  'skuSpecValues': instance.skuSpecValues.map((e) => e.toJson()).toList(),
+  'skuSpecValues': instance.skuSpecValues?.map((e) => e.toJson()).toList(),
   'isReturned': instance.isReturned,
 };
 
@@ -8169,17 +8196,17 @@ _$OrderServiceOrderCombineDetailGet$Response$Data$OrderTrace$GroupTraceList$Item
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderCombineDetailGet$Response$Data$OrderTrace$GroupTraceList$Item$TraceList$Item(
-      id: (json['id'] as num).toDouble(),
-      frontCode: json['frontCode'] as String,
-      icon: json['icon'] as String,
-      traceMessage: json['traceMessage'] as String,
-      time: (json['time'] as num).toDouble(),
-      lastMileMailNo: json['lastMileMailNo'] as Object,
+      id: (json['id'] as num?)?.toDouble(),
+      frontCode: json['frontCode'] as String?,
+      icon: json['icon'] as String?,
+      traceMessage: json['traceMessage'] as String?,
+      time: (json['time'] as num?)?.toDouble(),
+      lastMileMailNo: json['lastMileMailNo'],
       lastMileMailNoLink: json['lastMileMailNoLink'] as String?,
       lastMileMailNoTitle: json['lastMileMailNoTitle'] as String?,
-      traceStatus: json['traceStatus'] as String,
-      frontTitle: json['frontTitle'] as String,
-      frontTitleCode: json['frontTitleCode'] as String,
+      traceStatus: json['traceStatus'] as String?,
+      frontTitle: json['frontTitle'] as String?,
+      frontTitleCode: json['frontTitleCode'] as String?,
     );
 
 Map<String, dynamic>
@@ -8205,8 +8232,8 @@ _$OrderServiceCartListGet$Response$Data$List$Item$Records$Item$SkuOptions$ItemFr
   Map<String, dynamic> json,
 ) =>
     OrderServiceCartListGet$Response$Data$List$Item$Records$Item$SkuOptions$Item(
-      name: json['name'] as String,
-      value: json['value'] as String,
+      name: json['name'] as String?,
+      value: json['value'] as String?,
     );
 
 Map<String, dynamic>
@@ -8220,8 +8247,8 @@ _$OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$Recommend
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$RecommendSolution$FreightCurrency(
-      name: json['name'] as String,
-      symbol: json['symbol'] as String,
+      name: json['name'] as String?,
+      symbol: json['symbol'] as String?,
     );
 
 Map<String, dynamic>
@@ -8235,8 +8262,8 @@ _$OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$Recommend
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$RecommendSolution$FreightFreeThresholdCurrency(
-      name: json['name'] as String,
-      symbol: json['symbol'] as String,
+      name: json['name'] as String?,
+      symbol: json['symbol'] as String?,
     );
 
 Map<String, dynamic>
@@ -8250,8 +8277,8 @@ _$OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$Recommend
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$RecommendSolution$LateCompensationCurrency(
-      name: json['name'] as String,
-      symbol: json['symbol'] as String,
+      name: json['name'] as String?,
+      symbol: json['symbol'] as String?,
     );
 
 Map<String, dynamic>
@@ -8264,26 +8291,29 @@ OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileLis
 _$OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileList$Item$SolutionList$ItemFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileList$Item$SolutionList$Item(
-  solutionName: json['solutionName'] as String,
-  solutionCode: json['solutionCode'] as String,
-  freight: json['freight'] as String,
-  freightCurrency:
-      OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileList$Item$SolutionList$Item$FreightCurrency.fromJson(
-        json['freightCurrency'] as Map<String, dynamic>,
-      ),
-  freightFreeThreshold: json['freightFreeThreshold'] as String,
-  freightFreeThresholdCurrency:
-      OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileList$Item$SolutionList$Item$FreightFreeThresholdCurrency.fromJson(
-        json['freightFreeThresholdCurrency'] as Map<String, dynamic>,
-      ),
-  gmtExpectArriveStart: json['gmtExpectArriveStart'] as String,
-  gmtExpectArriveEnd: json['gmtExpectArriveEnd'] as String,
-  lateCompensation: json['lateCompensation'] as String,
-  lateCompensationCurrency:
-      OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileList$Item$SolutionList$Item$LateCompensationCurrency.fromJson(
-        json['lateCompensationCurrency'] as Map<String, dynamic>,
-      ),
-  lateCompensationTimeframe: json['lateCompensationTimeframe'] as String,
+  solutionName: json['solutionName'] as String?,
+  solutionCode: json['solutionCode'] as String?,
+  freight: json['freight'] as String?,
+  freightCurrency: json['freightCurrency'] == null
+      ? null
+      : OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileList$Item$SolutionList$Item$FreightCurrency.fromJson(
+          json['freightCurrency'] as Map<String, dynamic>,
+        ),
+  freightFreeThreshold: json['freightFreeThreshold'] as String?,
+  freightFreeThresholdCurrency: json['freightFreeThresholdCurrency'] == null
+      ? null
+      : OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileList$Item$SolutionList$Item$FreightFreeThresholdCurrency.fromJson(
+          json['freightFreeThresholdCurrency'] as Map<String, dynamic>,
+        ),
+  gmtExpectArriveStart: json['gmtExpectArriveStart'] as String?,
+  gmtExpectArriveEnd: json['gmtExpectArriveEnd'] as String?,
+  lateCompensation: json['lateCompensation'] as String?,
+  lateCompensationCurrency: json['lateCompensationCurrency'] == null
+      ? null
+      : OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileList$Item$SolutionList$Item$LateCompensationCurrency.fromJson(
+          json['lateCompensationCurrency'] as Map<String, dynamic>,
+        ),
+  lateCompensationTimeframe: json['lateCompensationTimeframe'] as String?,
 );
 
 Map<String, dynamic>
@@ -8294,14 +8324,14 @@ _$OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileL
   'solutionName': instance.solutionName,
   'solutionCode': instance.solutionCode,
   'freight': instance.freight,
-  'freightCurrency': instance.freightCurrency.toJson(),
+  'freightCurrency': instance.freightCurrency?.toJson(),
   'freightFreeThreshold': instance.freightFreeThreshold,
   'freightFreeThresholdCurrency': instance.freightFreeThresholdCurrency
-      .toJson(),
+      ?.toJson(),
   'gmtExpectArriveStart': instance.gmtExpectArriveStart,
   'gmtExpectArriveEnd': instance.gmtExpectArriveEnd,
   'lateCompensation': instance.lateCompensation,
-  'lateCompensationCurrency': instance.lateCompensationCurrency.toJson(),
+  'lateCompensationCurrency': instance.lateCompensationCurrency?.toJson(),
   'lateCompensationTimeframe': instance.lateCompensationTimeframe,
 };
 
@@ -8310,8 +8340,8 @@ _$OrderServiceOrderConfirmPost$Response$Data$Pricing$Giveaway$Item$Records$Item$
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderConfirmPost$Response$Data$Pricing$Giveaway$Item$Records$Item$Currency(
-      symbol: json['symbol'] as String,
-      name: json['name'] as String,
+      symbol: json['symbol'] as String?,
+      name: json['name'] as String?,
     );
 
 Map<String, dynamic>
@@ -8324,26 +8354,27 @@ OrderServiceOrderConfirmPost$Response$Data$Pricing$VoucherMsg$VoucherInfos$Item$
 _$OrderServiceOrderConfirmPost$Response$Data$Pricing$VoucherMsg$VoucherInfos$Item$List$ItemFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderConfirmPost$Response$Data$Pricing$VoucherMsg$VoucherInfos$Item$List$Item(
-  name: json['name'] as String,
-  description: json['description'] as String,
-  voucherCode: json['voucherCode'] as String,
-  discountType: json['discountType'] as String,
-  discountInfo: json['discountInfo'] as String,
-  currency:
-      OrderServiceOrderConfirmPost$Response$Data$Pricing$VoucherMsg$VoucherInfos$Item$List$Item$Currency.fromJson(
-        json['currency'] as Map<String, dynamic>,
-      ),
-  validStartStamp: json['validStartStamp'] as String,
-  validEndStamp: json['validEndStamp'] as String,
-  desc: json['desc'] as String,
-  status: json['status'] as String,
-  isDefault: json['isDefault'] as String,
-  available: json['available'] as String,
-  unavailableReason: json['unavailableReason'] as String,
-  sourceCode: json['sourceCode'] as String,
-  validEndDesc: json['validEndDesc'] as String,
-  usedVoucherInfo: json['usedVoucherInfo'] as String,
-  minOrderAmountInfo: json['minOrderAmountInfo'] as String,
+  name: json['name'] as String?,
+  description: json['description'] as String?,
+  voucherCode: json['voucherCode'] as String?,
+  discountType: json['discountType'] as String?,
+  discountInfo: json['discountInfo'] as String?,
+  currency: json['currency'] == null
+      ? null
+      : OrderServiceOrderConfirmPost$Response$Data$Pricing$VoucherMsg$VoucherInfos$Item$List$Item$Currency.fromJson(
+          json['currency'] as Map<String, dynamic>,
+        ),
+  validStartStamp: json['validStartStamp'] as String?,
+  validEndStamp: json['validEndStamp'] as String?,
+  desc: json['desc'] as String?,
+  status: json['status'] as String?,
+  isDefault: json['isDefault'] as String?,
+  available: json['available'] as String?,
+  unavailableReason: json['unavailableReason'] as String?,
+  sourceCode: json['sourceCode'] as String?,
+  validEndDesc: json['validEndDesc'] as String?,
+  usedVoucherInfo: json['usedVoucherInfo'] as String?,
+  minOrderAmountInfo: json['minOrderAmountInfo'] as String?,
 );
 
 Map<String, dynamic>
@@ -8356,7 +8387,7 @@ _$OrderServiceOrderConfirmPost$Response$Data$Pricing$VoucherMsg$VoucherInfos$Ite
   'voucherCode': instance.voucherCode,
   'discountType': instance.discountType,
   'discountInfo': instance.discountInfo,
-  'currency': instance.currency.toJson(),
+  'currency': instance.currency?.toJson(),
   'validStartStamp': instance.validStartStamp,
   'validEndStamp': instance.validEndStamp,
   'desc': instance.desc,
@@ -8390,9 +8421,9 @@ _$OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$Supp
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$SupplyOrderList$Item$SecretKeyList$Item(
-      barCodeImg: json['barCodeImg'] as String,
-      codeInfo: json['codeInfo'] as String,
-      pin: json['pin'] as String,
+      barCodeImg: json['barCodeImg'] as String?,
+      codeInfo: json['codeInfo'] as String?,
+      pin: json['pin'] as String?,
     );
 
 Map<String, dynamic>
@@ -8542,8 +8573,8 @@ _$OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileL
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileList$Item$SolutionList$Item$FreightCurrency(
-      name: json['name'] as String,
-      symbol: json['symbol'] as String,
+      name: json['name'] as String?,
+      symbol: json['symbol'] as String?,
     );
 
 Map<String, dynamic>
@@ -8557,8 +8588,8 @@ _$OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileL
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileList$Item$SolutionList$Item$FreightFreeThresholdCurrency(
-      name: json['name'] as String,
-      symbol: json['symbol'] as String,
+      name: json['name'] as String?,
+      symbol: json['symbol'] as String?,
     );
 
 Map<String, dynamic>
@@ -8572,8 +8603,8 @@ _$OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileL
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileList$Item$SolutionList$Item$LateCompensationCurrency(
-      name: json['name'] as String,
-      symbol: json['symbol'] as String,
+      name: json['name'] as String?,
+      symbol: json['symbol'] as String?,
     );
 
 Map<String, dynamic>
@@ -8587,8 +8618,8 @@ _$OrderServiceOrderConfirmPost$Response$Data$Pricing$VoucherMsg$VoucherInfos$Ite
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderConfirmPost$Response$Data$Pricing$VoucherMsg$VoucherInfos$Item$List$Item$Currency(
-      symbol: json['symbol'] as String,
-      name: json['name'] as String,
+      symbol: json['symbol'] as String?,
+      name: json['name'] as String?,
     );
 
 Map<String, dynamic>

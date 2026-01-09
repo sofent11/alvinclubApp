@@ -44,7 +44,7 @@ flutter clean
 ### API Generation Workflow
 ```bash
 # Sanitize swagger specs (when raw specs change)
-python3 scripts/sanitize_swagger.py docs/api/swaggerApiCombo.json docs/api/sanitized/swaggerApiCombo.json
+python3 scripts/sanitize_all_swagger.py
 
 # Generate API clients and models
 flutter pub run build_runner build --delete-conflicting-outputs

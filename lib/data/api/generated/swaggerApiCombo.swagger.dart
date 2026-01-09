@@ -1183,10 +1183,10 @@ extension $ComboServiceNoAuthBizKolKolInfoGet$ResponseExtension
 @JsonSerializable(explicitToJson: true)
 class ComboServiceNoAuthPopupPromiseGet$Response {
   const ComboServiceNoAuthPopupPromiseGet$Response({
-    required this.code,
-    required this.message,
-    required this.data,
-    required this.traceId,
+    this.code,
+    this.message,
+    this.data,
+    this.traceId,
   });
 
   factory ComboServiceNoAuthPopupPromiseGet$Response.fromJson(
@@ -1199,13 +1199,13 @@ class ComboServiceNoAuthPopupPromiseGet$Response {
       _$ComboServiceNoAuthPopupPromiseGet$ResponseToJson(this);
 
   @JsonKey(name: 'code')
-  final String code;
+  final String? code;
   @JsonKey(name: 'message')
-  final String message;
+  final String? message;
   @JsonKey(name: 'data')
-  final ComboServiceNoAuthPopupPromiseGet$Response$Data data;
+  final ComboServiceNoAuthPopupPromiseGet$Response$Data? data;
   @JsonKey(name: 'traceId')
-  final String traceId;
+  final String? traceId;
   static const fromJsonFactory =
       _$ComboServiceNoAuthPopupPromiseGet$ResponseFromJson;
 
@@ -1255,10 +1255,10 @@ extension $ComboServiceNoAuthPopupPromiseGet$ResponseExtension
   }
 
   ComboServiceNoAuthPopupPromiseGet$Response copyWithWrapped({
-    Wrapped<String>? code,
-    Wrapped<String>? message,
-    Wrapped<ComboServiceNoAuthPopupPromiseGet$Response$Data>? data,
-    Wrapped<String>? traceId,
+    Wrapped<String?>? code,
+    Wrapped<String?>? message,
+    Wrapped<ComboServiceNoAuthPopupPromiseGet$Response$Data?>? data,
+    Wrapped<String?>? traceId,
   }) {
     return ComboServiceNoAuthPopupPromiseGet$Response(
       code: (code != null ? code.value : this.code),
@@ -3990,9 +3990,7 @@ extension $ComboServiceNoAuthBizKolKolInfoGet$Response$DataExtension
 
 @JsonSerializable(explicitToJson: true)
 class ComboServiceNoAuthPopupPromiseGet$Response$Data {
-  const ComboServiceNoAuthPopupPromiseGet$Response$Data({
-    required this.content,
-  });
+  const ComboServiceNoAuthPopupPromiseGet$Response$Data({this.content});
 
   factory ComboServiceNoAuthPopupPromiseGet$Response$Data.fromJson(
     Map<String, dynamic> json,
@@ -4004,7 +4002,7 @@ class ComboServiceNoAuthPopupPromiseGet$Response$Data {
       _$ComboServiceNoAuthPopupPromiseGet$Response$DataToJson(this);
 
   @JsonKey(name: 'content')
-  final List<ComboServiceNoAuthPopupPromiseGet$Response$Data$Content$Item>
+  final List<ComboServiceNoAuthPopupPromiseGet$Response$Data$Content$Item>?
   content;
   static const fromJsonFactory =
       _$ComboServiceNoAuthPopupPromiseGet$Response$DataFromJson;
@@ -4036,7 +4034,9 @@ extension $ComboServiceNoAuthPopupPromiseGet$Response$DataExtension
   }
 
   ComboServiceNoAuthPopupPromiseGet$Response$Data copyWithWrapped({
-    Wrapped<List<ComboServiceNoAuthPopupPromiseGet$Response$Data$Content$Item>>?
+    Wrapped<
+      List<ComboServiceNoAuthPopupPromiseGet$Response$Data$Content$Item>?
+    >?
     content,
   }) {
     return ComboServiceNoAuthPopupPromiseGet$Response$Data(
@@ -4048,9 +4048,9 @@ extension $ComboServiceNoAuthPopupPromiseGet$Response$DataExtension
 @JsonSerializable(explicitToJson: true)
 class ComboServiceNoAuthCommonAppConfigVersionCheckGet$Response$Data {
   const ComboServiceNoAuthCommonAppConfigVersionCheckGet$Response$Data({
-    required this.allowClose,
-    required this.storeUrl,
-    required this.haveUpdate,
+    this.allowClose,
+    this.storeUrl,
+    this.haveUpdate,
   });
 
   factory ComboServiceNoAuthCommonAppConfigVersionCheckGet$Response$Data.fromJson(
@@ -4067,11 +4067,11 @@ class ComboServiceNoAuthCommonAppConfigVersionCheckGet$Response$Data {
       );
 
   @JsonKey(name: 'allowClose')
-  final bool allowClose;
+  final bool? allowClose;
   @JsonKey(name: 'storeUrl')
-  final String storeUrl;
+  final String? storeUrl;
   @JsonKey(name: 'haveUpdate')
-  final bool haveUpdate;
+  final bool? haveUpdate;
   static const fromJsonFactory =
       _$ComboServiceNoAuthCommonAppConfigVersionCheckGet$Response$DataFromJson;
 
@@ -4124,9 +4124,9 @@ extension $ComboServiceNoAuthCommonAppConfigVersionCheckGet$Response$DataExtensi
 
   ComboServiceNoAuthCommonAppConfigVersionCheckGet$Response$Data
   copyWithWrapped({
-    Wrapped<bool>? allowClose,
-    Wrapped<String>? storeUrl,
-    Wrapped<bool>? haveUpdate,
+    Wrapped<bool?>? allowClose,
+    Wrapped<String?>? storeUrl,
+    Wrapped<bool?>? haveUpdate,
   }) {
     return ComboServiceNoAuthCommonAppConfigVersionCheckGet$Response$Data(
       allowClose: (allowClose != null ? allowClose.value : this.allowClose),
@@ -6861,9 +6861,9 @@ extension $ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$DataExtension
 @JsonSerializable(explicitToJson: true)
 class ComboServiceNoAuthBizKolKolInfoGet$Response$Data$ExcelLinks$Item {
   const ComboServiceNoAuthBizKolKolInfoGet$Response$Data$ExcelLinks$Item({
-    required this.title,
-    required this.excelLink,
-    required this.desc,
+    this.title,
+    this.excelLink,
+    this.desc,
   });
 
   factory ComboServiceNoAuthBizKolKolInfoGet$Response$Data$ExcelLinks$Item.fromJson(
@@ -6881,11 +6881,11 @@ class ComboServiceNoAuthBizKolKolInfoGet$Response$Data$ExcelLinks$Item {
       );
 
   @JsonKey(name: 'title')
-  final String title;
+  final String? title;
   @JsonKey(name: 'excelLink')
-  final String excelLink;
+  final String? excelLink;
   @JsonKey(name: 'desc')
-  final String desc;
+  final String? desc;
   static const fromJsonFactory =
       _$ComboServiceNoAuthBizKolKolInfoGet$Response$Data$ExcelLinks$ItemFromJson;
 
@@ -6931,9 +6931,9 @@ extension $ComboServiceNoAuthBizKolKolInfoGet$Response$Data$ExcelLinks$ItemExten
 
   ComboServiceNoAuthBizKolKolInfoGet$Response$Data$ExcelLinks$Item
   copyWithWrapped({
-    Wrapped<String>? title,
-    Wrapped<String>? excelLink,
-    Wrapped<String>? desc,
+    Wrapped<String?>? title,
+    Wrapped<String?>? excelLink,
+    Wrapped<String?>? desc,
   }) {
     return ComboServiceNoAuthBizKolKolInfoGet$Response$Data$ExcelLinks$Item(
       title: (title != null ? title.value : this.title),
@@ -6946,12 +6946,12 @@ extension $ComboServiceNoAuthBizKolKolInfoGet$Response$Data$ExcelLinks$ItemExten
 @JsonSerializable(explicitToJson: true)
 class ComboServiceNoAuthPopupPromiseGet$Response$Data$Content$Item {
   const ComboServiceNoAuthPopupPromiseGet$Response$Data$Content$Item({
-    required this.title,
-    required this.icon,
-    required this.paragraphs,
-    required this.images,
-    required this.schema,
-    required this.schemaText,
+    this.title,
+    this.icon,
+    this.paragraphs,
+    this.images,
+    this.schema,
+    this.schemaText,
   });
 
   factory ComboServiceNoAuthPopupPromiseGet$Response$Data$Content$Item.fromJson(
@@ -6968,17 +6968,17 @@ class ComboServiceNoAuthPopupPromiseGet$Response$Data$Content$Item {
       );
 
   @JsonKey(name: 'title')
-  final String title;
+  final String? title;
   @JsonKey(name: 'icon')
-  final String icon;
+  final String? icon;
   @JsonKey(name: 'paragraphs', defaultValue: <Object>[])
-  final List<Object> paragraphs;
+  final List<Object>? paragraphs;
   @JsonKey(name: 'images', defaultValue: <Object>[])
-  final List<Object> images;
+  final List<Object>? images;
   @JsonKey(name: 'schema')
-  final String schema;
+  final String? schema;
   @JsonKey(name: 'schemaText')
-  final String schemaText;
+  final String? schemaText;
   static const fromJsonFactory =
       _$ComboServiceNoAuthPopupPromiseGet$Response$Data$Content$ItemFromJson;
 
@@ -7042,12 +7042,12 @@ extension $ComboServiceNoAuthPopupPromiseGet$Response$Data$Content$ItemExtension
   }
 
   ComboServiceNoAuthPopupPromiseGet$Response$Data$Content$Item copyWithWrapped({
-    Wrapped<String>? title,
-    Wrapped<String>? icon,
-    Wrapped<List<Object>>? paragraphs,
-    Wrapped<List<Object>>? images,
-    Wrapped<String>? schema,
-    Wrapped<String>? schemaText,
+    Wrapped<String?>? title,
+    Wrapped<String?>? icon,
+    Wrapped<List<Object>?>? paragraphs,
+    Wrapped<List<Object>?>? images,
+    Wrapped<String?>? schema,
+    Wrapped<String?>? schemaText,
   }) {
     return ComboServiceNoAuthPopupPromiseGet$Response$Data$Content$Item(
       title: (title != null ? title.value : this.title),
@@ -7524,14 +7524,14 @@ extension $ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$ItemExt
 @JsonSerializable(explicitToJson: true)
 class ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data$Female$Item {
   const ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data$Female$Item({
-    required this.age,
-    required this.glass,
-    required this.body,
-    required this.style,
-    required this.race,
-    required this.gender,
-    required this.sort,
-    required this.image,
+    this.age,
+    this.glass,
+    this.body,
+    this.style,
+    this.race,
+    this.gender,
+    this.sort,
+    this.image,
   });
 
   factory ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data$Female$Item.fromJson(
@@ -7549,21 +7549,21 @@ class ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data$Female$Item {
       );
 
   @JsonKey(name: 'age')
-  final String age;
+  final String? age;
   @JsonKey(name: 'glass')
-  final String glass;
+  final String? glass;
   @JsonKey(name: 'body')
-  final String body;
+  final String? body;
   @JsonKey(name: 'style')
-  final String style;
+  final String? style;
   @JsonKey(name: 'race')
-  final String race;
+  final String? race;
   @JsonKey(name: 'gender')
-  final String gender;
+  final String? gender;
   @JsonKey(name: 'sort')
-  final String sort;
+  final String? sort;
   @JsonKey(name: 'image')
-  final String image;
+  final String? image;
   static const fromJsonFactory =
       _$ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data$Female$ItemFromJson;
 
@@ -7632,14 +7632,14 @@ extension $ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data$Female$ItemE
 
   ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data$Female$Item
   copyWithWrapped({
-    Wrapped<String>? age,
-    Wrapped<String>? glass,
-    Wrapped<String>? body,
-    Wrapped<String>? style,
-    Wrapped<String>? race,
-    Wrapped<String>? gender,
-    Wrapped<String>? sort,
-    Wrapped<String>? image,
+    Wrapped<String?>? age,
+    Wrapped<String?>? glass,
+    Wrapped<String?>? body,
+    Wrapped<String?>? style,
+    Wrapped<String?>? race,
+    Wrapped<String?>? gender,
+    Wrapped<String?>? sort,
+    Wrapped<String?>? image,
   }) {
     return ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data$Female$Item(
       age: (age != null ? age.value : this.age),
@@ -7657,14 +7657,14 @@ extension $ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data$Female$ItemE
 @JsonSerializable(explicitToJson: true)
 class ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data$Male$Item {
   const ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data$Male$Item({
-    required this.age,
-    required this.glass,
-    required this.body,
-    required this.style,
-    required this.race,
-    required this.gender,
-    required this.sort,
-    required this.image,
+    this.age,
+    this.glass,
+    this.body,
+    this.style,
+    this.race,
+    this.gender,
+    this.sort,
+    this.image,
   });
 
   factory ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data$Male$Item.fromJson(
@@ -7682,21 +7682,21 @@ class ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data$Male$Item {
       );
 
   @JsonKey(name: 'age')
-  final String age;
+  final String? age;
   @JsonKey(name: 'glass')
-  final String glass;
+  final String? glass;
   @JsonKey(name: 'body')
-  final String body;
+  final String? body;
   @JsonKey(name: 'style')
-  final String style;
+  final String? style;
   @JsonKey(name: 'race')
-  final String race;
+  final String? race;
   @JsonKey(name: 'gender')
-  final String gender;
+  final String? gender;
   @JsonKey(name: 'sort')
-  final String sort;
+  final String? sort;
   @JsonKey(name: 'image')
-  final String image;
+  final String? image;
   static const fromJsonFactory =
       _$ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data$Male$ItemFromJson;
 
@@ -7764,14 +7764,14 @@ extension $ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data$Male$ItemExt
 
   ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data$Male$Item
   copyWithWrapped({
-    Wrapped<String>? age,
-    Wrapped<String>? glass,
-    Wrapped<String>? body,
-    Wrapped<String>? style,
-    Wrapped<String>? race,
-    Wrapped<String>? gender,
-    Wrapped<String>? sort,
-    Wrapped<String>? image,
+    Wrapped<String?>? age,
+    Wrapped<String?>? glass,
+    Wrapped<String?>? body,
+    Wrapped<String?>? style,
+    Wrapped<String?>? race,
+    Wrapped<String?>? gender,
+    Wrapped<String?>? sort,
+    Wrapped<String?>? image,
   }) {
     return ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data$Male$Item(
       age: (age != null ? age.value : this.age),
@@ -8101,8 +8101,8 @@ extension $ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item
 @JsonSerializable(explicitToJson: true)
 class ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response$Data$GeneratedModels$Item {
   const ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response$Data$GeneratedModels$Item({
-    required this.index,
-    required this.url,
+    this.index,
+    this.url,
   });
 
   factory ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response$Data$GeneratedModels$Item.fromJson(
@@ -8120,9 +8120,9 @@ class ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response$Data$GeneratedModel
       );
 
   @JsonKey(name: 'index')
-  final double index;
+  final double? index;
   @JsonKey(name: 'url')
-  final String url;
+  final String? url;
   static const fromJsonFactory =
       _$ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response$Data$GeneratedModels$ItemFromJson;
 
@@ -8159,7 +8159,7 @@ extension $ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response$Data$Generated
   }
 
   ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response$Data$GeneratedModels$Item
-  copyWithWrapped({Wrapped<double>? index, Wrapped<String>? url}) {
+  copyWithWrapped({Wrapped<double?>? index, Wrapped<String?>? url}) {
     return ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response$Data$GeneratedModels$Item(
       index: (index != null ? index.value : this.index),
       url: (url != null ? url.value : this.url),
@@ -8942,9 +8942,9 @@ extension $ComboServiceBizAiFashionModelListGet$Response$Data$Models$ItemExtensi
 @JsonSerializable(explicitToJson: true)
 class ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$ReferenceImages$Item {
   const ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$ReferenceImages$Item({
-    required this.width,
-    required this.height,
-    required this.url,
+    this.width,
+    this.height,
+    this.url,
   });
 
   factory ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$ReferenceImages$Item.fromJson(
@@ -8962,11 +8962,11 @@ class ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$ReferenceImages
       );
 
   @JsonKey(name: 'width')
-  final int width;
+  final int? width;
   @JsonKey(name: 'height')
-  final int height;
+  final int? height;
   @JsonKey(name: 'url')
-  final String url;
+  final String? url;
   static const fromJsonFactory =
       _$ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$ReferenceImages$ItemFromJson;
 
@@ -9008,9 +9008,9 @@ extension $ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$ReferenceI
 
   ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$ReferenceImages$Item
   copyWithWrapped({
-    Wrapped<int>? width,
-    Wrapped<int>? height,
-    Wrapped<String>? url,
+    Wrapped<int?>? width,
+    Wrapped<int?>? height,
+    Wrapped<String?>? url,
   }) {
     return ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$ReferenceImages$Item(
       width: (width != null ? width.value : this.width),
@@ -9666,9 +9666,9 @@ extension $ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$ModelImageE
 @JsonSerializable(explicitToJson: true)
 class ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$Images$Item {
   const ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$Images$Item({
-    required this.width,
-    required this.height,
-    required this.url,
+    this.width,
+    this.height,
+    this.url,
   });
 
   factory ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$Images$Item.fromJson(
@@ -9686,11 +9686,11 @@ class ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$Images$Item {
       );
 
   @JsonKey(name: 'width')
-  final double width;
+  final double? width;
   @JsonKey(name: 'height')
-  final double height;
+  final double? height;
   @JsonKey(name: 'url')
-  final String url;
+  final String? url;
   static const fromJsonFactory =
       _$ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$Images$ItemFromJson;
 
@@ -9731,9 +9731,9 @@ extension $ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$Images$Item
 
   ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$Images$Item
   copyWithWrapped({
-    Wrapped<double>? width,
-    Wrapped<double>? height,
-    Wrapped<String>? url,
+    Wrapped<double?>? width,
+    Wrapped<double?>? height,
+    Wrapped<String?>? url,
   }) {
     return ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$Images$Item(
       width: (width != null ? width.value : this.width),
@@ -9746,9 +9746,9 @@ extension $ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$Images$Item
 @JsonSerializable(explicitToJson: true)
 class ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FooterImages$Item {
   const ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FooterImages$Item({
-    required this.width,
-    required this.height,
-    required this.url,
+    this.width,
+    this.height,
+    this.url,
   });
 
   factory ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FooterImages$Item.fromJson(
@@ -9766,11 +9766,11 @@ class ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FooterImages$Ite
       );
 
   @JsonKey(name: 'width')
-  final double width;
+  final double? width;
   @JsonKey(name: 'height')
-  final double height;
+  final double? height;
   @JsonKey(name: 'url')
-  final String url;
+  final String? url;
   static const fromJsonFactory =
       _$ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FooterImages$ItemFromJson;
 
@@ -9811,9 +9811,9 @@ extension $ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FooterImage
 
   ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FooterImages$Item
   copyWithWrapped({
-    Wrapped<double>? width,
-    Wrapped<double>? height,
-    Wrapped<String>? url,
+    Wrapped<double?>? width,
+    Wrapped<double?>? height,
+    Wrapped<String?>? url,
   }) {
     return ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FooterImages$Item(
       width: (width != null ? width.value : this.width),
@@ -10401,7 +10401,7 @@ extension $ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$Related$ItemExte
 @JsonSerializable(explicitToJson: true)
 class ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto {
   const ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto({
-    required this.categoryList,
+    this.categoryList,
   });
 
   factory ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto.fromJson(
@@ -10421,7 +10421,7 @@ class ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto {
   @JsonKey(name: 'categoryList')
   final List<
     ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item
-  >
+  >?
   categoryList;
   static const fromJsonFactory =
       _$ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDtoFromJson;
@@ -10465,7 +10465,7 @@ extension $ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDtoE
     Wrapped<
       List<
         ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item
-      >
+      >?
     >?
     categoryList,
   }) {
@@ -13052,13 +13052,13 @@ extension $ComboServiceBizAiFashionNoAuthSelectOptionGet$Response$Data$Selection
 @JsonSerializable(explicitToJson: true)
 class ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item {
   const ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item({
-    required this.id,
-    required this.parentId,
-    required this.level,
-    required this.showOrder,
-    required this.name,
-    required this.iconUrl,
-    required this.categoryList,
+    this.id,
+    this.parentId,
+    this.level,
+    this.showOrder,
+    this.name,
+    this.iconUrl,
+    this.categoryList,
   });
 
   factory ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item.fromJson(
@@ -13076,21 +13076,21 @@ class ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$Categ
       );
 
   @JsonKey(name: 'id')
-  final int id;
+  final int? id;
   @JsonKey(name: 'parentId')
-  final int parentId;
+  final int? parentId;
   @JsonKey(name: 'level')
-  final int level;
+  final int? level;
   @JsonKey(name: 'showOrder')
-  final int showOrder;
+  final int? showOrder;
   @JsonKey(name: 'name')
-  final String name;
+  final String? name;
   @JsonKey(name: 'iconUrl')
-  final String iconUrl;
+  final String? iconUrl;
   @JsonKey(name: 'categoryList')
   final List<
     ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item$CategoryList$Item
-  >
+  >?
   categoryList;
   static const fromJsonFactory =
       _$ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$ItemFromJson;
@@ -13172,16 +13172,16 @@ extension $ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$
 
   ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item
   copyWithWrapped({
-    Wrapped<int>? id,
-    Wrapped<int>? parentId,
-    Wrapped<int>? level,
-    Wrapped<int>? showOrder,
-    Wrapped<String>? name,
-    Wrapped<String>? iconUrl,
+    Wrapped<int?>? id,
+    Wrapped<int?>? parentId,
+    Wrapped<int?>? level,
+    Wrapped<int?>? showOrder,
+    Wrapped<String?>? name,
+    Wrapped<String?>? iconUrl,
     Wrapped<
       List<
         ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item$CategoryList$Item
-      >
+      >?
     >?
     categoryList,
   }) {
@@ -15355,12 +15355,12 @@ extension $ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$It
 @JsonSerializable(explicitToJson: true)
 class ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item$CategoryList$Item {
   const ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item$CategoryList$Item({
-    required this.id,
-    required this.parentId,
-    required this.level,
-    required this.showOrder,
-    required this.name,
-    required this.iconUrl,
+    this.id,
+    this.parentId,
+    this.level,
+    this.showOrder,
+    this.name,
+    this.iconUrl,
   });
 
   factory ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item$CategoryList$Item.fromJson(
@@ -15378,17 +15378,17 @@ class ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$Categ
       );
 
   @JsonKey(name: 'id')
-  final int id;
+  final int? id;
   @JsonKey(name: 'parentId')
-  final int parentId;
+  final int? parentId;
   @JsonKey(name: 'level')
-  final int level;
+  final int? level;
   @JsonKey(name: 'showOrder')
-  final int showOrder;
+  final int? showOrder;
   @JsonKey(name: 'name')
-  final String name;
+  final String? name;
   @JsonKey(name: 'iconUrl')
-  final String iconUrl;
+  final String? iconUrl;
   static const fromJsonFactory =
       _$ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item$CategoryList$ItemFromJson;
 
@@ -15455,12 +15455,12 @@ extension $ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$
 
   ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item$CategoryList$Item
   copyWithWrapped({
-    Wrapped<int>? id,
-    Wrapped<int>? parentId,
-    Wrapped<int>? level,
-    Wrapped<int>? showOrder,
-    Wrapped<String>? name,
-    Wrapped<String>? iconUrl,
+    Wrapped<int?>? id,
+    Wrapped<int?>? parentId,
+    Wrapped<int?>? level,
+    Wrapped<int?>? showOrder,
+    Wrapped<String?>? name,
+    Wrapped<String?>? iconUrl,
   }) {
     return ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item$CategoryList$Item(
       id: (id != null ? id.value : this.id),

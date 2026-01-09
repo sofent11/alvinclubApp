@@ -37,12 +37,14 @@ ComboServiceNoAuthPopupPromiseGet$Response
 _$ComboServiceNoAuthPopupPromiseGet$ResponseFromJson(
   Map<String, dynamic> json,
 ) => ComboServiceNoAuthPopupPromiseGet$Response(
-  code: json['code'] as String,
-  message: json['message'] as String,
-  data: ComboServiceNoAuthPopupPromiseGet$Response$Data.fromJson(
-    json['data'] as Map<String, dynamic>,
-  ),
-  traceId: json['traceId'] as String,
+  code: json['code'] as String?,
+  message: json['message'] as String?,
+  data: json['data'] == null
+      ? null
+      : ComboServiceNoAuthPopupPromiseGet$Response$Data.fromJson(
+          json['data'] as Map<String, dynamic>,
+        ),
+  traceId: json['traceId'] as String?,
 );
 
 Map<String, dynamic> _$ComboServiceNoAuthPopupPromiseGet$ResponseToJson(
@@ -50,7 +52,7 @@ Map<String, dynamic> _$ComboServiceNoAuthPopupPromiseGet$ResponseToJson(
 ) => <String, dynamic>{
   'code': instance.code,
   'message': instance.message,
-  'data': instance.data.toJson(),
+  'data': instance.data?.toJson(),
   'traceId': instance.traceId,
 };
 
@@ -716,8 +718,8 @@ ComboServiceNoAuthPopupPromiseGet$Response$Data
 _$ComboServiceNoAuthPopupPromiseGet$Response$DataFromJson(
   Map<String, dynamic> json,
 ) => ComboServiceNoAuthPopupPromiseGet$Response$Data(
-  content: (json['content'] as List<dynamic>)
-      .map(
+  content: (json['content'] as List<dynamic>?)
+      ?.map(
         (e) =>
             ComboServiceNoAuthPopupPromiseGet$Response$Data$Content$Item.fromJson(
               e as Map<String, dynamic>,
@@ -729,16 +731,16 @@ _$ComboServiceNoAuthPopupPromiseGet$Response$DataFromJson(
 Map<String, dynamic> _$ComboServiceNoAuthPopupPromiseGet$Response$DataToJson(
   ComboServiceNoAuthPopupPromiseGet$Response$Data instance,
 ) => <String, dynamic>{
-  'content': instance.content.map((e) => e.toJson()).toList(),
+  'content': instance.content?.map((e) => e.toJson()).toList(),
 };
 
 ComboServiceNoAuthCommonAppConfigVersionCheckGet$Response$Data
 _$ComboServiceNoAuthCommonAppConfigVersionCheckGet$Response$DataFromJson(
   Map<String, dynamic> json,
 ) => ComboServiceNoAuthCommonAppConfigVersionCheckGet$Response$Data(
-  allowClose: json['allowClose'] as bool,
-  storeUrl: json['storeUrl'] as String,
-  haveUpdate: json['haveUpdate'] as bool,
+  allowClose: json['allowClose'] as bool?,
+  storeUrl: json['storeUrl'] as String?,
+  haveUpdate: json['haveUpdate'] as bool?,
 );
 
 Map<String, dynamic>
@@ -1402,9 +1404,9 @@ ComboServiceNoAuthBizKolKolInfoGet$Response$Data$ExcelLinks$Item
 _$ComboServiceNoAuthBizKolKolInfoGet$Response$Data$ExcelLinks$ItemFromJson(
   Map<String, dynamic> json,
 ) => ComboServiceNoAuthBizKolKolInfoGet$Response$Data$ExcelLinks$Item(
-  title: json['title'] as String,
-  excelLink: json['excelLink'] as String,
-  desc: json['desc'] as String,
+  title: json['title'] as String?,
+  excelLink: json['excelLink'] as String?,
+  desc: json['desc'] as String?,
 );
 
 Map<String, dynamic>
@@ -1420,8 +1422,8 @@ ComboServiceNoAuthPopupPromiseGet$Response$Data$Content$Item
 _$ComboServiceNoAuthPopupPromiseGet$Response$Data$Content$ItemFromJson(
   Map<String, dynamic> json,
 ) => ComboServiceNoAuthPopupPromiseGet$Response$Data$Content$Item(
-  title: json['title'] as String,
-  icon: json['icon'] as String,
+  title: json['title'] as String?,
+  icon: json['icon'] as String?,
   paragraphs:
       (json['paragraphs'] as List<dynamic>?)
           ?.map((e) => e as Object)
@@ -1430,8 +1432,8 @@ _$ComboServiceNoAuthPopupPromiseGet$Response$Data$Content$ItemFromJson(
   images:
       (json['images'] as List<dynamic>?)?.map((e) => e as Object).toList() ??
       [],
-  schema: json['schema'] as String,
-  schemaText: json['schemaText'] as String,
+  schema: json['schema'] as String?,
+  schemaText: json['schemaText'] as String?,
 );
 
 Map<String, dynamic>
@@ -1560,14 +1562,14 @@ ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data$Female$Item
 _$ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data$Female$ItemFromJson(
   Map<String, dynamic> json,
 ) => ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data$Female$Item(
-  age: json['age'] as String,
-  glass: json['glass'] as String,
-  body: json['body'] as String,
-  style: json['style'] as String,
-  race: json['race'] as String,
-  gender: json['gender'] as String,
-  sort: json['sort'] as String,
-  image: json['image'] as String,
+  age: json['age'] as String?,
+  glass: json['glass'] as String?,
+  body: json['body'] as String?,
+  style: json['style'] as String?,
+  race: json['race'] as String?,
+  gender: json['gender'] as String?,
+  sort: json['sort'] as String?,
+  image: json['image'] as String?,
 );
 
 Map<String, dynamic>
@@ -1588,14 +1590,14 @@ ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data$Male$Item
 _$ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data$Male$ItemFromJson(
   Map<String, dynamic> json,
 ) => ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data$Male$Item(
-  age: json['age'] as String,
-  glass: json['glass'] as String,
-  body: json['body'] as String,
-  style: json['style'] as String,
-  race: json['race'] as String,
-  gender: json['gender'] as String,
-  sort: json['sort'] as String,
-  image: json['image'] as String,
+  age: json['age'] as String?,
+  glass: json['glass'] as String?,
+  body: json['body'] as String?,
+  style: json['style'] as String?,
+  race: json['race'] as String?,
+  gender: json['gender'] as String?,
+  sort: json['sort'] as String?,
+  image: json['image'] as String?,
 );
 
 Map<String, dynamic>
@@ -1685,8 +1687,8 @@ _$ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response$Data$GeneratedModels$It
   Map<String, dynamic> json,
 ) =>
     ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response$Data$GeneratedModels$Item(
-      index: (json['index'] as num).toDouble(),
-      url: json['url'] as String,
+      index: (json['index'] as num?)?.toDouble(),
+      url: json['url'] as String?,
     );
 
 Map<String, dynamic>
@@ -1871,9 +1873,9 @@ _$ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$ReferenceImages$Ite
   Map<String, dynamic> json,
 ) =>
     ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$ReferenceImages$Item(
-      width: (json['width'] as num).toInt(),
-      height: (json['height'] as num).toInt(),
-      url: json['url'] as String,
+      width: (json['width'] as num?)?.toInt(),
+      height: (json['height'] as num?)?.toInt(),
+      url: json['url'] as String?,
     );
 
 Map<String, dynamic>
@@ -2034,9 +2036,9 @@ ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$Images$Item
 _$ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$Images$ItemFromJson(
   Map<String, dynamic> json,
 ) => ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$Images$Item(
-  width: (json['width'] as num).toDouble(),
-  height: (json['height'] as num).toDouble(),
-  url: json['url'] as String,
+  width: (json['width'] as num?)?.toDouble(),
+  height: (json['height'] as num?)?.toDouble(),
+  url: json['url'] as String?,
 );
 
 Map<String, dynamic>
@@ -2054,9 +2056,9 @@ _$ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FooterImages$ItemFro
   Map<String, dynamic> json,
 ) =>
     ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FooterImages$Item(
-      width: (json['width'] as num).toDouble(),
-      height: (json['height'] as num).toDouble(),
-      url: json['url'] as String,
+      width: (json['width'] as num?)?.toDouble(),
+      height: (json['height'] as num?)?.toDouble(),
+      url: json['url'] as String?,
     );
 
 Map<String, dynamic>
@@ -2187,8 +2189,8 @@ ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto
 _$ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDtoFromJson(
   Map<String, dynamic> json,
 ) => ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto(
-  categoryList: (json['categoryList'] as List<dynamic>)
-      .map(
+  categoryList: (json['categoryList'] as List<dynamic>?)
+      ?.map(
         (e) =>
             ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item.fromJson(
               e as Map<String, dynamic>,
@@ -2201,7 +2203,7 @@ Map<String, dynamic>
 _$ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDtoToJson(
   ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto instance,
 ) => <String, dynamic>{
-  'categoryList': instance.categoryList.map((e) => e.toJson()).toList(),
+  'categoryList': instance.categoryList?.map((e) => e.toJson()).toList(),
 };
 
 ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item
@@ -2807,14 +2809,14 @@ ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryLis
 _$ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$ItemFromJson(
   Map<String, dynamic> json,
 ) => ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item(
-  id: (json['id'] as num).toInt(),
-  parentId: (json['parentId'] as num).toInt(),
-  level: (json['level'] as num).toInt(),
-  showOrder: (json['showOrder'] as num).toInt(),
-  name: json['name'] as String,
-  iconUrl: json['iconUrl'] as String,
-  categoryList: (json['categoryList'] as List<dynamic>)
-      .map(
+  id: (json['id'] as num?)?.toInt(),
+  parentId: (json['parentId'] as num?)?.toInt(),
+  level: (json['level'] as num?)?.toInt(),
+  showOrder: (json['showOrder'] as num?)?.toInt(),
+  name: json['name'] as String?,
+  iconUrl: json['iconUrl'] as String?,
+  categoryList: (json['categoryList'] as List<dynamic>?)
+      ?.map(
         (e) =>
             ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item$CategoryList$Item.fromJson(
               e as Map<String, dynamic>,
@@ -2834,7 +2836,7 @@ _$ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryL
   'showOrder': instance.showOrder,
   'name': instance.name,
   'iconUrl': instance.iconUrl,
-  'categoryList': instance.categoryList.map((e) => e.toJson()).toList(),
+  'categoryList': instance.categoryList?.map((e) => e.toJson()).toList(),
 };
 
 ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainImg$Item
@@ -3351,12 +3353,12 @@ _$ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryL
   Map<String, dynamic> json,
 ) =>
     ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item$CategoryList$Item(
-      id: (json['id'] as num).toInt(),
-      parentId: (json['parentId'] as num).toInt(),
-      level: (json['level'] as num).toInt(),
-      showOrder: (json['showOrder'] as num).toInt(),
-      name: json['name'] as String,
-      iconUrl: json['iconUrl'] as String,
+      id: (json['id'] as num?)?.toInt(),
+      parentId: (json['parentId'] as num?)?.toInt(),
+      level: (json['level'] as num?)?.toInt(),
+      showOrder: (json['showOrder'] as num?)?.toInt(),
+      name: json['name'] as String?,
+      iconUrl: json['iconUrl'] as String?,
     );
 
 Map<String, dynamic>

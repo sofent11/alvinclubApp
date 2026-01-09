@@ -21,7 +21,7 @@ Swagger/OpenAPI specs are stored under `docs/api/` (raw) and `docs/api/sanitized
 If the raw spec changes, re-sanitize the combo file:
 
 ```sh
-python3 scripts/sanitize_swagger.py docs/api/swaggerApiCombo.json docs/api/sanitized/swaggerApiCombo.json
+python3 scripts/sanitize_all_swagger.py
 ```
 
 Generate clients/models with:

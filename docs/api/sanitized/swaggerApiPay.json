@@ -96,8 +96,7 @@
                           "accountNo": {
                             "type": "string"
                           }
-                        },
-                        "required": []
+                        }
                       }
                     },
                     "total": {
@@ -263,23 +262,9 @@
                       "type": "string",
                       "description": "提现中金额"
                     }
-                  },
-                  "required": [
-                    "commissionTotal",
-                    "withdrawAmount",
-                    "withdrawableBalance",
-                    "pendingCommission",
-                    "targetCurrencyTotal",
-                    "totalPoints",
-                    "pendingWithdrawAmount"
-                  ]
+                  }
                 }
-              },
-              "required": [
-                "code",
-                "message",
-                "data"
-              ]
+              }
             }
           }
         }
@@ -364,13 +349,7 @@
                             "type": "string",
                             "description": "货币"
                           }
-                        },
-                        "required": [
-                          "amount",
-                          "time",
-                          "typeName",
-                          "currency"
-                        ]
+                        }
                       }
                     }
                   }
@@ -668,11 +647,7 @@
                 "relatedOrderType": {
                   "type": "number"
                 }
-              },
-              "required": [
-                "amount",
-                "currency"
-              ]
+              }
             }
           }
         ],
@@ -756,12 +731,7 @@
                   "type": "number",
                   "description": "0默认，1自定义"
                 }
-              },
-              "required": [
-                "orderId",
-                "payType",
-                "orderType"
-              ]
+              }
             }
           }
         ],
@@ -789,10 +759,7 @@
                       "type": "string",
                       "description": "加密货币收款地址"
                     }
-                  },
-                  "required": [
-                    "receiptAddress"
-                  ]
+                  }
                 },
                 "traceId": {
                   "type": "string"
@@ -977,8 +944,7 @@
                           "isDefault": {
                             "type": "boolean"
                           }
-                        },
-                        "required": []
+                        }
                       }
                     }
                   }
@@ -1068,11 +1034,7 @@
                         "type": "string",
                         "description": "类型名称"
                       }
-                    },
-                    "required": [
-                      "type",
-                      "name"
-                    ]
+                    }
                   }
                 },
                 "traceId": {
@@ -1140,20 +1102,9 @@
                           "type": "string"
                         }
                       },
-                      "required": [
-                        "name",
-                        "symbol"
-                      ],
                       "description": "货币单位"
                     }
-                  },
-                  "required": [
-                    "deductibleAmount",
-                    "balance",
-                    "accumulateAmount",
-                    "currency",
-                    "percentage"
-                  ]
+                  }
                 },
                 "traceId": {
                   "type": "string"
@@ -1247,13 +1198,7 @@
                             "type": "string",
                             "description": "获取、扣减文案"
                           }
-                        },
-                        "required": [
-                          "actualAmount",
-                          "gmtCreate",
-                          "type",
-                          "name"
-                        ]
+                        }
                       }
                     }
                   }

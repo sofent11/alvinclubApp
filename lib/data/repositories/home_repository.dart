@@ -44,13 +44,9 @@ class HomeRepository {
   Future<Map<String, dynamic>> _getConfig(String key) async {
     final api = _ref.read(swaggerConfigApiProvider);
 
-    // Use raw client call to bypass brittle generated converter
-    final response = await api.client.get<Map<String, dynamic>, Map<String, dynamic>>(
-      Uri.parse('/config-service/user/config/no-auth/instance'),
-      parameters: {
-        'configKey': key,
-        'instanceId': _configInstanceId,
-      },
+    final response = await api.configServiceUserConfigNoAuthInstanceGet(
+      configKey: key,
+      instanceId: _configInstanceId,
     );
 
     if (!response.isSuccessful) {
@@ -61,35 +57,14 @@ class HomeRepository {
     }
 
     final body = response.body;
-    if (body != null) {
-      final code = _parseInt(body['code']);
-      if (code != 0) {
-        throw _createApiError(
-          body['message']?.toString() ?? 'Failed to load config: $key',
-          body,
-        );
-      }
-      return _parseConfigData(body['data']);
+    final code = (body?.code ?? -1).toInt();
+    if (code != 0) {
+      throw _createApiError(
+        body?.message?.toString() ?? 'Failed to load config: $key',
+        body ?? response.bodyString,
+      );
     }
-
-    final rawBody = response.bodyString;
-    if (rawBody != null && rawBody.isNotEmpty) {
-      try {
-        final decoded = jsonDecode(rawBody);
-        if (decoded is Map<String, dynamic>) {
-          final code = _parseInt(decoded['code']);
-          if (code != 0) {
-            throw _createApiError(
-              decoded['message']?.toString() ?? 'Failed to load config: $key',
-              decoded,
-            );
-          }
-          return _parseConfigData(decoded['data']);
-        }
-      } catch (_) {}
-    }
-
-    return {};
+    return _parseConfigData(body?.data);
   }
 }
 
@@ -119,17 +94,4 @@ Map<String, dynamic> _parseConfigData(Object? value) {
     return {'list': value};
   }
   return {};
-}
-
-int _parseInt(Object? value, {int fallback = 0}) {
-  if (value == null || value == '') {
-    return fallback;
-  }
-  if (value is int) {
-    return value;
-  }
-  if (value is num) {
-    return value.toInt();
-  }
-  return int.tryParse(value.toString()) ?? fallback;
 }

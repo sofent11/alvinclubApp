@@ -6,6 +6,37 @@ from pathlib import Path
 KEYS = {'description', 'summary', 'example', 'examples', 'x-example', 'x-examples'}
 
 
+def _strip_required_for_response_schemas(data: dict) -> None:
+    """Make generated models more tolerant by removing schema-level `required`.
+
+    We remove only `required` values that are a list of strings (OpenAPI schema
+    required-properties lists). We intentionally do NOT remove boolean
+    `required: true/false` flags that appear on parameters.
+
+    This is done *before* general sanitization so json_serializable emits
+    null-safe casts for missing fields / nulls.
+    """
+
+    def _strip_required_in_schema(schema: object) -> None:
+        if not isinstance(schema, dict):
+            return
+
+        # Only remove well-formed `required` lists.
+        required = schema.get('required')
+        if isinstance(required, list) and all(isinstance(x, str) for x in required):
+            schema.pop('required', None)
+
+        for v in schema.values():
+            if isinstance(v, dict):
+                _strip_required_in_schema(v)
+            elif isinstance(v, list):
+                for item in v:
+                    _strip_required_in_schema(item)
+
+    # Apply globally (covers inline schemas under `paths`, not just `components`).
+    _strip_required_in_schema(data)
+
+
 def _sanitize_properties(value):
     if not isinstance(value, dict):
         return value
@@ -45,6 +76,8 @@ def main() -> int:
     output_path = Path(sys.argv[2])
 
     data = json.loads(input_path.read_text(encoding='utf-8'))
+
+    _strip_required_for_response_schemas(data)
 
     # Flatten basePath into paths if present
     base_path = data.get('basePath', '')

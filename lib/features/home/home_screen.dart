@@ -223,7 +223,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                           }
                         },
                         loading: () => const SizedBox.shrink(),
-                        error: (_, __) => const SizedBox.shrink(),
+                        error: (_, _) => const SizedBox.shrink(),
                       ),
                     ),
                   if (isForYou)

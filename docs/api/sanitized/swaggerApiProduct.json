@@ -100,18 +100,9 @@
                       "type": "string",
                       "description": "ASC或DESC"
                     }
-                  },
-                  "required": [
-                    "name",
-                    "order"
-                  ]
+                  }
                 }
-              },
-              "required": [
-                "current",
-                "pageSize",
-                "categoryId"
-              ]
+              }
             }
           }
         ],
@@ -234,18 +225,9 @@
                       "type": "string",
                       "description": "ASC或DESC"
                     }
-                  },
-                  "required": [
-                    "name",
-                    "order"
-                  ]
+                  }
                 }
-              },
-              "required": [
-                "current",
-                "pageSize",
-                "categoryId"
-              ]
+              }
             }
           }
         ],
@@ -410,14 +392,7 @@
                                       "level": {
                                         "type": "number"
                                       }
-                                    },
-                                    "required": [
-                                      "id",
-                                      "name",
-                                      "iconUrl",
-                                      "parentId",
-                                      "level"
-                                    ]
+                                    }
                                   }
                                 },
                                 "brands": {
@@ -426,17 +401,7 @@
                                     "type": "string"
                                   }
                                 }
-                              },
-                              "required": [
-                                "id",
-                                "parentId",
-                                "level",
-                                "showOrder",
-                                "name",
-                                "iconUrl",
-                                "categoryList",
-                                "brands"
-                              ]
+                              }
                             }
                           },
                           "brands": {
@@ -445,17 +410,7 @@
                               "type": "string"
                             }
                           }
-                        },
-                        "required": [
-                          "id",
-                          "parentId",
-                          "level",
-                          "showOrder",
-                          "name",
-                          "iconUrl",
-                          "categoryList",
-                          "brands"
-                        ]
+                        }
                       }
                     }
                   }
@@ -633,12 +588,7 @@
                               "url": {
                                 "type": "string"
                               }
-                            },
-                            "required": [
-                              "width",
-                              "url",
-                              "height"
-                            ]
+                            }
                           },
                           "skuCode": {
                             "type": "string"
@@ -686,13 +636,7 @@
                                 "frontShow": {
                                   "type": "integer"
                                 }
-                              },
-                              "required": [
-                                "tagCode",
-                                "tagImg",
-                                "order",
-                                "frontShow"
-                              ]
+                              }
                             }
                           },
                           "flashSale": {
@@ -724,23 +668,7 @@
                               }
                             }
                           }
-                        },
-                        "required": [
-                          "productCode",
-                          "flashSale",
-                          "tags",
-                          "marketingInfo",
-                          "skuCount",
-                          "sellQuantity",
-                          "targetSellCur",
-                          "targetOriginPrice",
-                          "targetSellPrice",
-                          "sellPrice",
-                          "sellPriceCur",
-                          "skuCode",
-                          "image",
-                          "productName"
-                        ]
+                        }
                       }
                     },
                     "total": {
@@ -755,25 +683,12 @@
                     "current": {
                       "type": "integer"
                     }
-                  },
-                  "required": [
-                    "records",
-                    "totalPages",
-                    "pageSize",
-                    "current",
-                    "total"
-                  ]
+                  }
                 },
                 "traceId": {
                   "type": "string"
                 }
-              },
-              "required": [
-                "code",
-                "data",
-                "message",
-                "traceId"
-              ]
+              }
             }
           }
         }
@@ -846,8 +761,7 @@
                   "example": "DESC"
                 }
               },
-              "$$ref": "#/components/schemas/PremiumDupePageReq",
-              "required": []
+              "$$ref": "#/components/schemas/PremiumDupePageReq"
             }
           }
         ],
@@ -1149,8 +1063,7 @@
                             "description": "分类图片"
                           }
                         },
-                        "$$ref": "#/components/schemas/PremiumDupeCategoryInfo",
-                        "required": []
+                        "$$ref": "#/components/schemas/PremiumDupeCategoryInfo"
                       }
                     },
                     "sorts": {
@@ -1208,8 +1121,7 @@
                               "tabsBackgroundColor": {
                                 "type": "string"
                               }
-                            },
-                            "required": []
+                            }
                           }
                         }
                       }
@@ -1444,8 +1356,7 @@
                         }
                       }
                     },
-                    "$$ref": "#/components/schemas/FeedProductInfo",
-                    "required": []
+                    "$$ref": "#/components/schemas/FeedProductInfo"
                   }
                 },
                 "traceId": {
@@ -1454,8 +1365,7 @@
                   "example": "abc123def456"
                 }
               },
-              "$$ref": "#/components/schemas/ResultListFeedProductInfo",
-              "required": []
+              "$$ref": "#/components/schemas/ResultListFeedProductInfo"
             }
           }
         }
@@ -1549,15 +1459,7 @@
                     "type": "string",
                     "description": "原始数据"
                   }
-                },
-                "required": [
-                  "platform",
-                  "externalOrderId",
-                  "productName",
-                  "purchaseDate",
-                  "importSource",
-                  "rawData"
-                ]
+                }
               }
             }
           }
@@ -1669,12 +1571,7 @@
                               "url": {
                                 "type": "string"
                               }
-                            },
-                            "required": [
-                              "width",
-                              "height",
-                              "url"
-                            ]
+                            }
                           },
                           "skuCode": {
                             "type": "string"
@@ -1709,8 +1606,7 @@
                                 "tagImg": {
                                   "type": "string"
                                 }
-                              },
-                              "required": []
+                              }
                             }
                           },
                           "premiumBrandInfo": {
@@ -1742,43 +1638,16 @@
                           "marketingInfo": {
                             "type": "string"
                           }
-                        },
-                        "required": [
-                          "productCode",
-                          "productName",
-                          "image",
-                          "skuCode",
-                          "sellPriceCur",
-                          "targetSellCur",
-                          "targetSellPrice",
-                          "sellPrice",
-                          "sellQuantity",
-                          "tags",
-                          "targetOriginPrice",
-                          "marketingInfo"
-                        ]
+                        }
                       },
                       "description": "记录数"
                     }
-                  },
-                  "required": [
-                    "total",
-                    "pageSize",
-                    "current",
-                    "totalPages",
-                    "records"
-                  ]
+                  }
                 },
                 "traceId": {
                   "type": "string"
                 }
-              },
-              "required": [
-                "code",
-                "message",
-                "traceId",
-                "data"
-              ]
+              }
             }
           }
         }
@@ -1846,11 +1715,6 @@
                             "type": "string"
                           }
                         },
-                        "required": [
-                          "width",
-                          "url",
-                          "height"
-                        ],
                         "description": "主图"
                       },
                       "subImg": {
@@ -1865,12 +1729,7 @@
                           "url": {
                             "type": "string"
                           }
-                        },
-                        "required": [
-                          "width",
-                          "url",
-                          "height"
-                        ]
+                        }
                       },
                       "mainVideo": {
                         "type": "object",
@@ -1880,9 +1739,6 @@
                             "description": "视频URL"
                           }
                         },
-                        "required": [
-                          "videoUrl"
-                        ],
                         "description": "视频"
                       },
                       "imgCollection": {
@@ -1899,12 +1755,7 @@
                             "url": {
                               "type": "string"
                             }
-                          },
-                          "required": [
-                            "width",
-                            "height",
-                            "url"
-                          ]
+                          }
                         },
                         "description": "图集"
                       },
@@ -1952,24 +1803,10 @@
                                   "imageHeight": {
                                     "type": "integer"
                                   }
-                                },
-                                "required": [
-                                  "value",
-                                  "enValue",
-                                  "imageHeight",
-                                  "imageWidth",
-                                  "image"
-                                ]
+                                }
                               }
                             }
-                          },
-                          "required": [
-                            "name",
-                            "enName",
-                            "optionValues",
-                            "type",
-                            "styleType"
-                          ]
+                          }
                         }
                       },
                       "productAttrs": {
@@ -1983,11 +1820,7 @@
                             "value": {
                               "type": "string"
                             }
-                          },
-                          "required": [
-                            "name",
-                            "value"
-                          ]
+                          }
                         }
                       },
                       "sourcePlatform": {
@@ -2049,45 +1882,13 @@
                           "type": "string"
                         }
                       }
-                    },
-                    "required": [
-                      "shopCode",
-                      "platformProductId",
-                      "platformUrl",
-                      "sourcePlatform",
-                      "productAttrs",
-                      "categoryId",
-                      "textDetail",
-                      "imgCollection",
-                      "mainVideo",
-                      "subImg",
-                      "mainImg",
-                      "brandName",
-                      "tenantCode",
-                      "productName",
-                      "productCode",
-                      "productOptions",
-                      "targetSellCur",
-                      "targetSellPrice",
-                      "sellPrice",
-                      "sellPriceCur",
-                      "skuCode",
-                      "marketingInfo",
-                      "targetOriginPrice",
-                      "sellPoints"
-                    ]
+                    }
                   }
                 },
                 "traceId": {
                   "type": "string"
                 }
-              },
-              "required": [
-                "code",
-                "message",
-                "data",
-                "traceId"
-              ]
+              }
             }
           }
         }
@@ -2262,12 +2063,7 @@
                                 "url": {
                                   "type": "string"
                                 }
-                              },
-                              "required": [
-                                "width",
-                                "height",
-                                "url"
-                              ]
+                              }
                             }
                           },
                           "subImg": {
@@ -2310,12 +2106,7 @@
                                 "url": {
                                   "type": "string"
                                 }
-                              },
-                              "required": [
-                                "width",
-                                "height",
-                                "url"
-                              ]
+                              }
                             }
                           },
                           "textDetail": {
@@ -2335,12 +2126,7 @@
                                 "url": {
                                   "type": "string"
                                 }
-                              },
-                              "required": [
-                                "width",
-                                "height",
-                                "url"
-                              ]
+                              }
                             }
                           },
                           "categoryId": {
@@ -2377,21 +2163,10 @@
                                       "imageHeight": {
                                         "type": "null"
                                       }
-                                    },
-                                    "required": [
-                                      "value",
-                                      "image",
-                                      "imageWidth",
-                                      "imageHeight"
-                                    ]
+                                    }
                                   }
                                 }
-                              },
-                              "required": [
-                                "name",
-                                "type",
-                                "optionValues"
-                              ]
+                              }
                             }
                           },
                           "productAttrs": {
@@ -2438,8 +2213,7 @@
                                 "tagImg": {
                                   "type": "string"
                                 }
-                              },
-                              "required": []
+                              }
                             }
                           },
                           "premiumBrandInfo": {
@@ -2465,33 +2239,7 @@
                               "type": "string"
                             }
                           }
-                        },
-                        "required": [
-                          "shopCode",
-                          "productCode",
-                          "productName",
-                          "tenantCode",
-                          "brandName",
-                          "mainImg",
-                          "subImg",
-                          "mainVideo",
-                          "imgCollection",
-                          "textDetail",
-                          "imgDetail",
-                          "categoryId",
-                          "productOptions",
-                          "productAttrs",
-                          "sourcePlatform",
-                          "platformUrl",
-                          "platformProductId",
-                          "skuCode",
-                          "sellPriceCur",
-                          "sellPrice",
-                          "targetSellPrice",
-                          "targetSellCur",
-                          "sellQuantity",
-                          "tags"
-                        ]
+                        }
                       }
                     },
                     "total": {
@@ -2506,8 +2254,7 @@
                     "totalPages": {
                       "type": "number"
                     }
-                  },
-                  "required": []
+                  }
                 },
                 "traceId": {
                   "type": "string"
@@ -2642,12 +2389,7 @@
                                 "url": {
                                   "type": "string"
                                 }
-                              },
-                              "required": [
-                                "width",
-                                "height",
-                                "url"
-                              ]
+                              }
                             }
                           },
                           "textDetail": {
@@ -2667,12 +2409,7 @@
                                 "url": {
                                   "type": "string"
                                 }
-                              },
-                              "required": [
-                                "width",
-                                "height",
-                                "url"
-                              ]
+                              }
                             }
                           },
                           "categoryId": {
@@ -2706,13 +2443,7 @@
                                       "imageHeight": {
                                         "type": "null"
                                       }
-                                    },
-                                    "required": [
-                                      "value",
-                                      "image",
-                                      "imageWidth",
-                                      "imageHeight"
-                                    ]
+                                    }
                                   }
                                 }
                               }
@@ -2771,8 +2502,7 @@
                                 "tagImg": {
                                   "type": "string"
                                 }
-                              },
-                              "required": []
+                              }
                             }
                           },
                           "premiumBrandInfo": {
@@ -2932,12 +2662,7 @@
                           "url": {
                             "type": "string"
                           }
-                        },
-                        "required": [
-                          "width",
-                          "height",
-                          "url"
-                        ]
+                        }
                       },
                       "skuOptions": {
                         "type": "array",
@@ -2950,11 +2675,7 @@
                             "value": {
                               "type": "string"
                             }
-                          },
-                          "required": [
-                            "name",
-                            "value"
-                          ]
+                          }
                         }
                       },
                       "sellPrice": {
@@ -3024,43 +2745,15 @@
                           "marketingIcon": {
                             "type": "string"
                           }
-                        },
-                        "required": [
-                          "activityCode",
-                          "activityTitle",
-                          "startTime",
-                          "endTime",
-                          "progressPercent",
-                          "progressText",
-                          "marketingIcon"
-                        ]
+                        }
                       }
-                    },
-                    "required": [
-                      "productCode",
-                      "skuCode",
-                      "tenantCode",
-                      "extUrl",
-                      "skuImg",
-                      "skuOptions",
-                      "targetSellCur",
-                      "targetSellPrice",
-                      "sellCur",
-                      "sellPrice",
-                      "skuSourceCode"
-                    ]
+                    }
                   }
                 },
                 "traceId": {
                   "type": "string"
                 }
-              },
-              "required": [
-                "code",
-                "message",
-                "data",
-                "traceId"
-              ]
+              }
             }
           }
         }
@@ -3184,12 +2877,7 @@
                           "url": {
                             "type": "string"
                           }
-                        },
-                        "required": [
-                          "width",
-                          "height",
-                          "url"
-                        ]
+                        }
                       }
                     },
                     "textDetail": {
@@ -3209,12 +2897,7 @@
                           "url": {
                             "type": "string"
                           }
-                        },
-                        "required": [
-                          "width",
-                          "height",
-                          "url"
-                        ]
+                        }
                       }
                     },
                     "categoryId": {
@@ -3251,21 +2934,10 @@
                                 "imageHeight": {
                                   "type": "null"
                                 }
-                              },
-                              "required": [
-                                "value",
-                                "image",
-                                "imageWidth",
-                                "imageHeight"
-                              ]
+                              }
                             }
                           }
-                        },
-                        "required": [
-                          "name",
-                          "type",
-                          "optionValues"
-                        ]
+                        }
                       }
                     },
                     "productAttrs": {
@@ -3279,11 +2951,7 @@
                           "value": {
                             "type": "string"
                           }
-                        },
-                        "required": [
-                          "name",
-                          "value"
-                        ]
+                        }
                       }
                     },
                     "sourcePlatform": {
@@ -3338,8 +3006,7 @@
                               "value": {
                                 "type": "string"
                               }
-                            },
-                            "required": []
+                            }
                           }
                         }
                       }
@@ -3358,12 +3025,7 @@
                           "tagImg": {
                             "type": "string"
                           }
-                        },
-                        "required": [
-                          "tagName",
-                          "tagImg",
-                          "tagCode"
-                        ]
+                        }
                       }
                     },
                     "premiumBrandInfo": {
@@ -3430,21 +3092,9 @@
                               "type": "string"
                             }
                           },
-                          "description": "品牌banner 【只对APP返回数据】",
-                          "required": [
-                            "brandTitle",
-                            "qualityAssured",
-                            "deliverAssured",
-                            "qualityAssuredUrl",
-                            "brandName",
-                            "background"
-                          ]
+                          "description": "品牌banner 【只对APP返回数据】"
                         }
-                      },
-                      "required": [
-                        "sizeHelperOptionName",
-                        "sizeHelperType"
-                      ]
+                      }
                     },
                     "productFlag": {
                       "type": "string"
@@ -3483,25 +3133,9 @@
                           "type": "string",
                           "description": "折扣表达，格式一： -50%  格式二: -$270"
                         }
-                      },
-                      "required": [
-                        "activityCode",
-                        "activityTitle",
-                        "startTime",
-                        "endTime",
-                        "progressPercent",
-                        "progressText",
-                        "marketingIcon",
-                        "discountExpr"
-                      ]
+                      }
                     }
-                  },
-                  "required": [
-                    "categoryTree",
-                    "productFlag",
-                    "marketingInfo",
-                    "targetOriginPrice"
-                  ]
+                  }
                 },
                 "traceId": {
                   "type": "string"
@@ -3600,17 +3234,7 @@
                                     "type": "string"
                                   }
                                 }
-                              },
-                              "required": [
-                                "id",
-                                "parentId",
-                                "level",
-                                "showOrder",
-                                "name",
-                                "iconUrl",
-                                "categoryList",
-                                "brands"
-                              ]
+                              }
                             }
                           },
                           "brands": {
@@ -3619,17 +3243,7 @@
                               "type": "string"
                             }
                           }
-                        },
-                        "required": [
-                          "id",
-                          "parentId",
-                          "level",
-                          "showOrder",
-                          "name",
-                          "iconUrl",
-                          "categoryList",
-                          "brands"
-                        ]
+                        }
                       }
                     }
                   }
@@ -3693,12 +3307,7 @@
                           "url": {
                             "type": "string"
                           }
-                        },
-                        "required": [
-                          "width",
-                          "height",
-                          "url"
-                        ]
+                        }
                       },
                       "skuCode": {
                         "type": "string"
@@ -3739,8 +3348,7 @@
                             "tagImg": {
                               "type": "string"
                             }
-                          },
-                          "required": []
+                          }
                         }
                       },
                       "premiumBrandInfo": {
@@ -3766,33 +3374,13 @@
                           "type": "string"
                         }
                       }
-                    },
-                    "required": [
-                      "productCode",
-                      "productName",
-                      "image",
-                      "skuCode",
-                      "sellPriceCur",
-                      "sellPrice",
-                      "targetSellPrice",
-                      "targetSellCur",
-                      "sellQuantity",
-                      "marketingInfo",
-                      "targetOriginPrice",
-                      "tags"
-                    ]
+                    }
                   }
                 },
                 "traceId": {
                   "type": "string"
                 }
-              },
-              "required": [
-                "code",
-                "message",
-                "data",
-                "traceId"
-              ]
+              }
             }
           }
         }
@@ -3890,12 +3478,7 @@
                               "url": {
                                 "type": "string"
                               }
-                            },
-                            "required": [
-                              "width",
-                              "height",
-                              "url"
-                            ]
+                            }
                           },
                           "skuCode": {
                             "type": "string"
@@ -3930,8 +3513,7 @@
                                 "tagImg": {
                                   "type": "string"
                                 }
-                              },
-                              "required": []
+                              }
                             }
                           },
                           "premiumBrandInfo": {
@@ -3991,17 +3573,7 @@
                               "discountExpr": {
                                 "type": "string"
                               }
-                            },
-                            "required": [
-                              "activityCode",
-                              "endTime",
-                              "startTime",
-                              "activityTitle",
-                              "progressText",
-                              "progressPercent",
-                              "marketingIcon",
-                              "discountExpr"
-                            ]
+                            }
                           },
                           "targetOriginPrice": {
                             "type": "string"
@@ -4009,41 +3581,16 @@
                           "marketingInfo": {
                             "type": "string"
                           }
-                        },
-                        "required": [
-                          "productCode",
-                          "productName",
-                          "image",
-                          "skuCode",
-                          "sellPriceCur",
-                          "targetSellCur",
-                          "targetSellPrice",
-                          "sellPrice",
-                          "sellQuantity",
-                          "tags"
-                        ]
+                        }
                       },
                       "description": "记录数"
                     }
-                  },
-                  "required": [
-                    "total",
-                    "pageSize",
-                    "current",
-                    "totalPages",
-                    "records"
-                  ]
+                  }
                 },
                 "traceId": {
                   "type": "string"
                 }
-              },
-              "required": [
-                "code",
-                "message",
-                "traceId",
-                "data"
-              ]
+              }
             }
           }
         }
@@ -4175,13 +3722,7 @@
                                 "frontShow": {
                                   "type": "number"
                                 }
-                              },
-                              "required": [
-                                "tagCode",
-                                "tagImg",
-                                "order",
-                                "frontShow"
-                              ]
+                              }
                             }
                           },
                           "premiumBrandInfo": {
@@ -4238,35 +3779,9 @@
                               "marketingIcon": {
                                 "type": "string"
                               }
-                            },
-                            "required": [
-                              "activityCode",
-                              "progressText",
-                              "progressPercent",
-                              "endTime",
-                              "startTime",
-                              "activityTitle",
-                              "marketingIcon"
-                            ]
+                            }
                           }
-                        },
-                        "required": [
-                          "productCode",
-                          "productName",
-                          "image",
-                          "sourcePlatform",
-                          "platformProductId",
-                          "skuCode",
-                          "sellPriceCur",
-                          "sellPrice",
-                          "targetSellPrice",
-                          "targetOriginPrice",
-                          "targetSellCur",
-                          "sellQuantity",
-                          "skuCount",
-                          "marketingInfo",
-                          "tags"
-                        ]
+                        }
                       }
                     }
                   }
@@ -4360,12 +3875,7 @@
                             "url": {
                               "type": "string"
                             }
-                          },
-                          "required": [
-                            "width",
-                            "height",
-                            "url"
-                          ]
+                          }
                         }
                       },
                       "subImg": {
@@ -4391,14 +3901,7 @@
                             "height": {
                               "type": "number"
                             }
-                          },
-                          "required": [
-                            "videoUrl",
-                            "vodUrl",
-                            "previewUrl",
-                            "width",
-                            "height"
-                          ]
+                          }
                         }
                       },
                       "imgCollection": {
@@ -4415,12 +3918,7 @@
                             "url": {
                               "type": "string"
                             }
-                          },
-                          "required": [
-                            "width",
-                            "height",
-                            "url"
-                          ]
+                          }
                         }
                       },
                       "textDetail": {
@@ -4443,12 +3941,7 @@
                             "url": {
                               "type": "string"
                             }
-                          },
-                          "required": [
-                            "width",
-                            "height",
-                            "url"
-                          ]
+                          }
                         }
                       },
                       "categoryId": {
@@ -4491,21 +3984,10 @@
                                       "number"
                                     ]
                                   }
-                                },
-                                "required": [
-                                  "value",
-                                  "image",
-                                  "imageWidth",
-                                  "imageHeight"
-                                ]
+                                }
                               }
                             }
-                          },
-                          "required": [
-                            "name",
-                            "type",
-                            "optionValues"
-                          ]
+                          }
                         }
                       },
                       "productAttrs": {
@@ -4519,11 +4001,7 @@
                             "value": {
                               "type": "string"
                             }
-                          },
-                          "required": [
-                            "name",
-                            "value"
-                          ]
+                          }
                         }
                       },
                       "sourcePlatform": {
@@ -4570,8 +4048,7 @@
                             "tagImg": {
                               "type": "string"
                             }
-                          },
-                          "required": []
+                          }
                         }
                       },
                       "premiumBrandInfo": {
@@ -4597,35 +4074,7 @@
                           "type": "string"
                         }
                       }
-                    },
-                    "required": [
-                      "shopCode",
-                      "productCode",
-                      "productName",
-                      "tenantCode",
-                      "brandName",
-                      "mainImg",
-                      "subImg",
-                      "mainVideo",
-                      "imgCollection",
-                      "textDetail",
-                      "imgDetail",
-                      "categoryId",
-                      "productOptions",
-                      "productAttrs",
-                      "sourcePlatform",
-                      "platformUrl",
-                      "platformProductId",
-                      "skuCode",
-                      "sellPriceCur",
-                      "sellPrice",
-                      "targetSellPrice",
-                      "targetSellCur",
-                      "productFlag",
-                      "marketingInfo",
-                      "sellQuantity",
-                      "tags"
-                    ]
+                    }
                   }
                 },
                 "traceId": {
@@ -4803,12 +4252,7 @@
                                 "url": {
                                   "type": "string"
                                 }
-                              },
-                              "required": [
-                                "width",
-                                "height",
-                                "url"
-                              ]
+                              }
                             }
                           },
                           "textDetail": {
@@ -4828,12 +4272,7 @@
                                 "url": {
                                   "type": "string"
                                 }
-                              },
-                              "required": [
-                                "width",
-                                "height",
-                                "url"
-                              ]
+                              }
                             }
                           },
                           "categoryId": {
@@ -4867,13 +4306,7 @@
                                       "imageHeight": {
                                         "type": "null"
                                       }
-                                    },
-                                    "required": [
-                                      "value",
-                                      "image",
-                                      "imageWidth",
-                                      "imageHeight"
-                                    ]
+                                    }
                                   }
                                 }
                               }
@@ -4932,8 +4365,7 @@
                                 "tagImg": {
                                   "type": "string"
                                 }
-                              },
-                              "required": []
+                              }
                             }
                           },
                           "premiumBrandInfo": {
@@ -5054,12 +4486,7 @@
                               "url": {
                                 "type": "string"
                               }
-                            },
-                            "required": [
-                              "width",
-                              "height",
-                              "url"
-                            ]
+                            }
                           },
                           "skuCode": {
                             "type": "string"
@@ -5108,41 +4535,15 @@
                               "type": "string"
                             }
                           }
-                        },
-                        "required": [
-                          "productCode",
-                          "productName",
-                          "image",
-                          "skuCode",
-                          "sellPriceCur",
-                          "sellPrice",
-                          "targetSellPrice",
-                          "targetSellCur",
-                          "sellQuantity",
-                          "marketingInfo",
-                          "targetOriginPrice"
-                        ]
+                        }
                       }
                     }
-                  },
-                  "required": [
-                    "shopCode",
-                    "shopName",
-                    "icon",
-                    "records",
-                    "recordSource"
-                  ]
+                  }
                 },
                 "traceId": {
                   "type": "string"
                 }
-              },
-              "required": [
-                "code",
-                "data",
-                "message",
-                "traceId"
-              ]
+              }
             }
           }
         }
@@ -5211,12 +4612,7 @@
                             "url": {
                               "type": "string"
                             }
-                          },
-                          "required": [
-                            "width",
-                            "height",
-                            "url"
-                          ]
+                          }
                         }
                       },
                       "subImg": {
@@ -5242,14 +4638,7 @@
                             "height": {
                               "type": "number"
                             }
-                          },
-                          "required": [
-                            "videoUrl",
-                            "vodUrl",
-                            "previewUrl",
-                            "width",
-                            "height"
-                          ]
+                          }
                         }
                       },
                       "imgCollection": {
@@ -5266,12 +4655,7 @@
                             "url": {
                               "type": "string"
                             }
-                          },
-                          "required": [
-                            "width",
-                            "height",
-                            "url"
-                          ]
+                          }
                         }
                       },
                       "textDetail": {
@@ -5294,12 +4678,7 @@
                             "url": {
                               "type": "string"
                             }
-                          },
-                          "required": [
-                            "width",
-                            "height",
-                            "url"
-                          ]
+                          }
                         }
                       },
                       "categoryId": {
@@ -5342,21 +4721,10 @@
                                       "number"
                                     ]
                                   }
-                                },
-                                "required": [
-                                  "value",
-                                  "image",
-                                  "imageWidth",
-                                  "imageHeight"
-                                ]
+                                }
                               }
                             }
-                          },
-                          "required": [
-                            "name",
-                            "type",
-                            "optionValues"
-                          ]
+                          }
                         }
                       },
                       "productAttrs": {
@@ -5370,11 +4738,7 @@
                             "value": {
                               "type": "string"
                             }
-                          },
-                          "required": [
-                            "name",
-                            "value"
-                          ]
+                          }
                         }
                       },
                       "sourcePlatform": {
@@ -5421,8 +4785,7 @@
                             "tagImg": {
                               "type": "string"
                             }
-                          },
-                          "required": []
+                          }
                         }
                       },
                       "premiumBrandInfo": {
@@ -5448,35 +4811,7 @@
                           "type": "string"
                         }
                       }
-                    },
-                    "required": [
-                      "shopCode",
-                      "productCode",
-                      "productName",
-                      "tenantCode",
-                      "brandName",
-                      "mainImg",
-                      "subImg",
-                      "mainVideo",
-                      "imgCollection",
-                      "textDetail",
-                      "imgDetail",
-                      "categoryId",
-                      "productOptions",
-                      "productAttrs",
-                      "sourcePlatform",
-                      "platformUrl",
-                      "platformProductId",
-                      "skuCode",
-                      "sellPriceCur",
-                      "sellPrice",
-                      "targetSellPrice",
-                      "targetSellCur",
-                      "productFlag",
-                      "marketingInfo",
-                      "sellQuantity",
-                      "tags"
-                    ]
+                    }
                   }
                 },
                 "traceId": {
@@ -5626,12 +4961,7 @@
                                 "url": {
                                   "type": "string"
                                 }
-                              },
-                              "required": [
-                                "width",
-                                "height",
-                                "url"
-                              ]
+                              }
                             }
                           },
                           "textDetail": {
@@ -5651,12 +4981,7 @@
                                 "url": {
                                   "type": "string"
                                 }
-                              },
-                              "required": [
-                                "width",
-                                "height",
-                                "url"
-                              ]
+                              }
                             }
                           },
                           "categoryId": {
@@ -5690,13 +5015,7 @@
                                       "imageHeight": {
                                         "type": "null"
                                       }
-                                    },
-                                    "required": [
-                                      "value",
-                                      "image",
-                                      "imageWidth",
-                                      "imageHeight"
-                                    ]
+                                    }
                                   }
                                 }
                               }
@@ -5755,8 +5074,7 @@
                                 "tagImg": {
                                   "type": "string"
                                 }
-                              },
-                              "required": []
+                              }
                             }
                           },
                           "premiumBrandInfo": {
@@ -5885,18 +5203,9 @@
                       "type": "string",
                       "description": "ASC或DESC"
                     }
-                  },
-                  "required": [
-                    "name",
-                    "order"
-                  ]
+                  }
                 }
-              },
-              "required": [
-                "current",
-                "pageSize",
-                "categoryId"
-              ]
+              }
             }
           }
         ],
@@ -6008,35 +5317,13 @@
                                   },
                                   "$$ref": "#/components/schemas/PremiumBrandInfo"
                                 }
-                              },
-                              "required": [
-                                "productCode",
-                                "productName",
-                                "image",
-                                "sourcePlatform",
-                                "platformProductId",
-                                "skuCode",
-                                "sellPriceCur",
-                                "sellPrice",
-                                "targetSellPrice",
-                                "targetOriginPrice",
-                                "targetSellCur",
-                                "sellQuantity",
-                                "skuCount",
-                                "marketingInfo",
-                                "tags"
-                              ]
+                              }
                             }
                           },
                           "recommendationReason": {
                             "type": "string"
                           }
-                        },
-                        "required": [
-                          "categoryName",
-                          "productInfos",
-                          "recommendationReason"
-                        ]
+                        }
                       }
                     }
                   }
@@ -6100,20 +5387,12 @@
                       "type": "string",
                       "description": "ASC或DESC"
                     }
-                  },
-                  "required": [
-                    "name",
-                    "order"
-                  ]
+                  }
                 },
                 "productCode": {
                   "type": "string"
                 }
-              },
-              "required": [
-                "current",
-                "pageSize"
-              ]
+              }
             }
           }
         ],
@@ -6168,12 +5447,7 @@
                               "url": {
                                 "type": "string"
                               }
-                            },
-                            "required": [
-                              "width",
-                              "height",
-                              "url"
-                            ]
+                            }
                           },
                           "skuCode": {
                             "type": "string"
@@ -6207,8 +5481,7 @@
                                 "tagImg": {
                                   "type": "string"
                                 }
-                              },
-                              "required": []
+                              }
                             }
                           },
                           "premiumBrandInfo": {
@@ -6234,41 +5507,15 @@
                               "type": "string"
                             }
                           }
-                        },
-                        "required": [
-                          "productCode",
-                          "sellPrice",
-                          "targetSellPrice",
-                          "targetSellCur",
-                          "sellPriceCur",
-                          "skuCode",
-                          "image",
-                          "productName",
-                          "sellQuantity",
-                          "skuCount",
-                          "tags"
-                        ]
+                        }
                       }
                     }
-                  },
-                  "required": [
-                    "total",
-                    "current",
-                    "records",
-                    "totalPages",
-                    "pageSize"
-                  ]
+                  }
                 },
                 "traceId": {
                   "type": "string"
                 }
-              },
-              "required": [
-                "code",
-                "message",
-                "data",
-                "traceId"
-              ]
+              }
             }
           }
         }
@@ -6312,17 +5559,9 @@
                       "type": "string",
                       "description": "升序:ASC,降序:DESC"
                     }
-                  },
-                  "required": [
-                    "name"
-                  ]
+                  }
                 }
-              },
-              "required": [
-                "current",
-                "pageSize",
-                "shopCode"
-              ]
+              }
             }
           }
         ],
@@ -6377,12 +5616,7 @@
                               "url": {
                                 "type": "string"
                               }
-                            },
-                            "required": [
-                              "width",
-                              "height",
-                              "url"
-                            ]
+                            }
                           },
                           "skuCode": {
                             "type": "string"
@@ -6422,8 +5656,7 @@
                                 "tagImg": {
                                   "type": "string"
                                 }
-                              },
-                              "required": []
+                              }
                             }
                           },
                           "premiumBrandInfo": {
@@ -6449,43 +5682,15 @@
                               "type": "string"
                             }
                           }
-                        },
-                        "required": [
-                          "productCode",
-                          "sellPrice",
-                          "targetSellPrice",
-                          "targetSellCur",
-                          "sellPriceCur",
-                          "skuCode",
-                          "image",
-                          "productName",
-                          "sellQuantity",
-                          "skuCount",
-                          "marketingInfo",
-                          "targetOriginPrice",
-                          "tags"
-                        ]
+                        }
                       }
                     }
-                  },
-                  "required": [
-                    "total",
-                    "current",
-                    "records",
-                    "totalPages",
-                    "pageSize"
-                  ]
+                  }
                 },
                 "traceId": {
                   "type": "string"
                 }
-              },
-              "required": [
-                "code",
-                "message",
-                "data",
-                "traceId"
-              ]
+              }
             }
           }
         }
@@ -6521,10 +5726,7 @@
                   "type": "string",
                   "description": "默认为1"
                 }
-              },
-              "required": [
-                "productCode"
-              ]
+              }
             }
           }
         ],
@@ -6567,12 +5769,7 @@
                               "url": {
                                 "type": "string"
                               }
-                            },
-                            "required": [
-                              "width",
-                              "height",
-                              "url"
-                            ]
+                            }
                           },
                           "skuCode": {
                             "type": "string"
@@ -6612,8 +5809,7 @@
                                 "tagImg": {
                                   "type": "string"
                                 }
-                              },
-                              "required": []
+                              }
                             }
                           },
                           "premiumBrandInfo": {
@@ -6639,22 +5835,7 @@
                               "type": "string"
                             }
                           }
-                        },
-                        "required": [
-                          "productCode",
-                          "sellPrice",
-                          "targetSellPrice",
-                          "targetSellCur",
-                          "sellPriceCur",
-                          "skuCode",
-                          "image",
-                          "productName",
-                          "sellQuantity",
-                          "skuCount",
-                          "marketingInfo",
-                          "targetOriginPrice",
-                          "tags"
-                        ]
+                        }
                       }
                     },
                     "total": {
@@ -6669,25 +5850,12 @@
                     "current": {
                       "type": "string"
                     }
-                  },
-                  "required": [
-                    "records",
-                    "total",
-                    "current",
-                    "totalPages",
-                    "pageSize"
-                  ]
+                  }
                 },
                 "traceId": {
                   "type": "string"
                 }
-              },
-              "required": [
-                "code",
-                "message",
-                "data",
-                "traceId"
-              ]
+              }
             }
           }
         }
