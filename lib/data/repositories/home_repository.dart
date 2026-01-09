@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../core/portal/portals.dart';
 import '../../core/error/api_error.dart';
 import '../api/swagger_client.dart';
 
@@ -11,6 +10,7 @@ class HomeRepository {
 
   final Ref _ref;
 
+  static const String _configInstanceId = 'en_US';
   static const String _homeConfigKey = 'app_home_page_config';
   static const String _premiumDupeConfigKey = 'app_premium_dupe_config';
   static const String _homeTopNavKey = '04_home_top_nav';
@@ -46,7 +46,7 @@ class HomeRepository {
 
     final response = await api.configServiceUserConfigNoAuthInstanceGet(
       configKey: key,
-      instanceId: defaultPortal.id.toString(),
+      instanceId: _configInstanceId,
     );
 
     if (!response.isSuccessful) {
