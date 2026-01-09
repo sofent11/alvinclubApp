@@ -85,7 +85,11 @@ class ProductOptionValue {
 }
 
 class ProductOption {
-  const ProductOption({required this.name, required this.type, required this.values});
+  const ProductOption({
+    required this.name,
+    required this.type,
+    required this.values,
+  });
 
   final String name;
   final int type;
@@ -350,15 +354,23 @@ class ProductRepository {
     return ApiError(status: 400, message: message, raw: raw);
   }
 
-  Future<ProductListResponse> getHotProductsV2({ProductListParams? params}) async {
+  Future<ProductListResponse> getHotProductsV2({
+    ProductListParams? params,
+  }) async {
     final api = _ref.read(swaggerProductApiProvider);
-    final response = await api.productServiceProductNoAuthHotProductV2Get(
-      current: (params?.page ?? 1).toString(),
-      size: (params?.pageSize ?? 20).toString(),
-      categoryId: params?.categoryId,
-    );
 
-    final body = _toMap(response.body);
+    // Use raw client call to bypass brittle generated converter that fails on null strings
+    final response = await api.client
+        .get<Map<String, dynamic>, Map<String, dynamic>>(
+          Uri.parse('/product-service/product/no-auth/hotProduct/v2'),
+          parameters: {
+            'current': (params?.page ?? 1).toString(),
+            'size': (params?.pageSize ?? 20).toString(),
+            if (params?.categoryId != null) 'categoryId': params!.categoryId!,
+          },
+        );
+
+    final body = response.body;
     final code = _parseInt(body?['code']);
     if (code != 0) {
       throw _createApiError(body?['message']?.toString() ?? '获取热门商品失败', body);
@@ -371,7 +383,10 @@ class ProductRepository {
     }
 
     final total = _parseInt(data?['total']);
-    final pageSize = _parseInt(data?['pageSize'], fallback: params?.pageSize ?? 20);
+    final pageSize = _parseInt(
+      data?['pageSize'],
+      fallback: params?.pageSize ?? 20,
+    );
     final current = _parseInt(data?['current'], fallback: params?.page ?? 1);
 
     final products = records.map((item) {
@@ -398,14 +413,22 @@ class ProductRepository {
     );
   }
 
-  Future<ProductListResponse> getFlashSaleProducts({ProductListParams? params}) async {
+  Future<ProductListResponse> getFlashSaleProducts({
+    ProductListParams? params,
+  }) async {
     final api = _ref.read(swaggerProductApiProvider);
-    final response = await api.productServiceProductNoAuthFlashSaleProductGet(
-      current: (params?.page ?? 1).toString(),
-      size: (params?.pageSize ?? 10).toString(),
-    );
 
-    final body = _toMap(response.body);
+    // Use raw client call to bypass brittle generated converter
+    final response = await api.client
+        .get<Map<String, dynamic>, Map<String, dynamic>>(
+          Uri.parse('/product-service/product/no-auth/flashSaleProduct'),
+          parameters: {
+            'current': (params?.page ?? 1).toString(),
+            'size': (params?.pageSize ?? 10).toString(),
+          },
+        );
+
+    final body = response.body;
     final code = _parseInt(body?['code']);
     if (code != 0) {
       throw _createApiError(body?['message']?.toString() ?? '获取特价商品失败', body);
@@ -449,37 +472,50 @@ class ProductRepository {
 
   Future<List<FlashSaleActivity>> getFlashSaleActivities() async {
     final api = _ref.read(swaggerProductApiProvider);
-    final response = await api.productServiceActivityNoAuthFlashSaleActivityGet();
 
-    final body = _toMap(response.body);
+    // Use raw client call to bypass brittle generated converter
+    final response = await api.client
+        .get<Map<String, dynamic>, Map<String, dynamic>>(
+          Uri.parse('/product-service/activity/no-auth/flashSaleActivity'),
+        );
+
+    final body = response.body;
     if (body == null || _parseInt(body['code']) != 0) {
       throw _createApiError('获取秒杀活动失败', body);
     }
 
     final data = _toMap(body['data']);
     final list = _toList(data?['activities']);
-    return list.map((itemRaw) {
-      final item = _toMap(itemRaw);
-      if (item == null) return null;
-      return FlashSaleActivity(
-        id: item['id']?.toString() ?? '',
-        title: item['name']?.toString() ?? '',
-        startTime: item['startTime']?.toString() ?? '',
-        endTime: item['endTime']?.toString() ?? '',
-        status: _parseInt(item['status']),
-        banner: item['bannerUrl']?.toString(),
-      );
-    }).whereType<FlashSaleActivity>().toList();
+    return list
+        .map((itemRaw) {
+          final item = _toMap(itemRaw);
+          if (item == null) return null;
+          return FlashSaleActivity(
+            id: item['id']?.toString() ?? '',
+            title: item['name']?.toString() ?? '',
+            startTime: item['startTime']?.toString() ?? '',
+            endTime: item['endTime']?.toString() ?? '',
+            status: _parseInt(item['status']),
+            banner: item['bannerUrl']?.toString(),
+          );
+        })
+        .whereType<FlashSaleActivity>()
+        .toList();
   }
 
-  Future<ProductListResponse> getFlashSaleActivityProducts(String activityId, {int page = 1, int pageSize = 20}) async {
+  Future<ProductListResponse> getFlashSaleActivityProducts(
+    String activityId, {
+    int page = 1,
+    int pageSize = 20,
+  }) async {
     final api = _ref.read(swaggerProductApiProvider);
-    final response = await api.productServiceActivityNoAuthFlashSaleActivityProductGet(
-      activityCode: activityId,
-      name: null,
-      current: page.toString(),
-      size: pageSize.toString(),
-    );
+    final response = await api
+        .productServiceActivityNoAuthFlashSaleActivityProductGet(
+          activityCode: activityId,
+          name: null,
+          current: page.toString(),
+          size: pageSize.toString(),
+        );
 
     final body = _toMap(response.body);
     if (body == null || _parseInt(body['code']) != 0) {
@@ -499,12 +535,14 @@ class ProductRepository {
     final products = records.map((item) {
       final image = _toMap(item['image']);
       final flashSaleInfo = _toMap(item['flashSaleInfo']);
-      
+
       return ProductItem(
         id: item['productCode']?.toString() ?? '',
         skuCode: item['skuCode']?.toString(),
         name: item['productName']?.toString() ?? '',
-        price: _parsePrice(flashSaleInfo?['flashSalePrice'] ?? item['targetSellPrice']),
+        price: _parsePrice(
+          flashSaleInfo?['flashSalePrice'] ?? item['targetSellPrice'],
+        ),
         originalPrice: _parseOptionalPrice(item['targetSellPrice']),
         currency: item['targetSellCur']?.toString(),
         imageUrl: image?['url']?.toString() ?? '',
@@ -521,7 +559,9 @@ class ProductRepository {
     );
   }
 
-  Future<ProductListResponse> getPremierProducts({ProductListParams? params}) async {
+  Future<ProductListResponse> getPremierProducts({
+    ProductListParams? params,
+  }) async {
     final api = _ref.read(swaggerProductApiProvider);
     final response = await api.productServiceProductNoAuthPremierProductGet(
       pageNum: (params?.page ?? 1).toString(),
@@ -542,7 +582,10 @@ class ProductRepository {
     }
 
     final total = _parseInt(data?['total']);
-    final pageSize = _parseInt(data?['pageSize'], fallback: params?.pageSize ?? 10);
+    final pageSize = _parseInt(
+      data?['pageSize'],
+      fallback: params?.pageSize ?? 10,
+    );
     final current = _parseInt(data?['current'], fallback: params?.page ?? 1);
 
     final products = records.map((item) {
@@ -595,7 +638,9 @@ class ProductRepository {
         .toList();
   }
 
-  Future<ProductListResponse> getCategoryProducts(CategoryProductsParams params) async {
+  Future<ProductListResponse> getCategoryProducts(
+    CategoryProductsParams params,
+  ) async {
     if (params.categoryId.isEmpty) {
       throw _createApiError('categoryId is required', params);
     }
@@ -629,19 +674,28 @@ class ProductRepository {
     }
 
     final total = _parseInt(data?['total']);
-    final pageSize = _parseInt(data?['pageSize'], fallback: params.pageSize ?? 20);
+    final pageSize = _parseInt(
+      data?['pageSize'],
+      fallback: params.pageSize ?? 20,
+    );
     final current = _parseInt(data?['current'], fallback: params.page ?? 1);
 
     final products = records.map((item) {
       final image = _toMap(item['image']);
       return ProductItem(
-        id: item['productCode']?.toString() ?? item['skuCode']?.toString() ?? '',
+        id:
+            item['productCode']?.toString() ??
+            item['skuCode']?.toString() ??
+            '',
         skuCode: item['skuCode']?.toString(),
         recommendedSkuCode: item['skuCode']?.toString(),
         name: item['productName']?.toString() ?? '',
         price: _parsePrice(item['targetSellPrice'] ?? item['sellPrice']),
         originalPrice: _extractTargetOriginPrice(item),
-        currency: item['targetSellCur']?.toString() ?? item['sellPriceCur']?.toString() ?? 'USD',
+        currency:
+            item['targetSellCur']?.toString() ??
+            item['sellPriceCur']?.toString() ??
+            'USD',
         imageUrl: image?['url']?.toString() ?? '',
         images: image?['url'] != null ? [image!['url'].toString()] : [],
         sales: _parseInt(item['sellQuantity']),
@@ -657,8 +711,12 @@ class ProductRepository {
     );
   }
 
-  Future<ProductListResponse> getCategoryRecommendProducts(CategoryRecommendParams params) async {
-    final categoryId = params.categoryId == null ? null : int.tryParse(params.categoryId!);
+  Future<ProductListResponse> getCategoryRecommendProducts(
+    CategoryRecommendParams params,
+  ) async {
+    final categoryId = params.categoryId == null
+        ? null
+        : int.tryParse(params.categoryId!);
     final categoryIds = params.categoryIds
         ?.map(int.tryParse)
         .whereType<int>()
@@ -695,19 +753,28 @@ class ProductRepository {
     }
 
     final total = _parseInt(data?['total']);
-    final pageSize = _parseInt(data?['pageSize'], fallback: params.pageSize ?? 20);
+    final pageSize = _parseInt(
+      data?['pageSize'],
+      fallback: params.pageSize ?? 20,
+    );
     final current = _parseInt(data?['current'], fallback: params.page ?? 1);
 
     final products = records.map((item) {
       final image = _toMap(item['image']);
       return ProductItem(
-        id: item['productCode']?.toString() ?? item['skuCode']?.toString() ?? '',
+        id:
+            item['productCode']?.toString() ??
+            item['skuCode']?.toString() ??
+            '',
         skuCode: item['skuCode']?.toString(),
         recommendedSkuCode: item['skuCode']?.toString(),
         name: item['productName']?.toString() ?? '',
         price: _parsePrice(item['targetSellPrice'] ?? item['sellPrice']),
         originalPrice: _extractTargetOriginPrice(item),
-        currency: item['targetSellCur']?.toString() ?? item['sellPriceCur']?.toString() ?? 'USD',
+        currency:
+            item['targetSellCur']?.toString() ??
+            item['sellPriceCur']?.toString() ??
+            'USD',
         imageUrl: image?['url']?.toString() ?? '',
         images: image?['url'] != null ? [image!['url'].toString()] : [],
         sales: _parseInt(item['sellQuantity']),
@@ -723,7 +790,9 @@ class ProductRepository {
     );
   }
 
-  Future<ProductListResponse> searchProducts(SearchProductsParams params) async {
+  Future<ProductListResponse> searchProducts(
+    SearchProductsParams params,
+  ) async {
     final api = _ref.read(swaggerProductApiProvider);
     final response = await api.productServiceProductNoAuthCombineSearchGet(
       query: params.query,
@@ -748,7 +817,10 @@ class ProductRepository {
     }
 
     final total = _parseInt(data?['total']);
-    final pageSize = _parseInt(data?['pageSize'], fallback: params.pageSize ?? 20);
+    final pageSize = _parseInt(
+      data?['pageSize'],
+      fallback: params.pageSize ?? 20,
+    );
     final current = _parseInt(data?['current'], fallback: params.page ?? 1);
 
     final products = records.map((item) {
@@ -789,7 +861,9 @@ class ProductRepository {
     }
 
     final api = _ref.read(swaggerProductApiProvider);
-    final response = await api.productServiceProductNoAuthGetProductInfoGet(productCode: productCode);
+    final response = await api.productServiceProductNoAuthGetProductInfoGet(
+      productCode: productCode,
+    );
 
     final body = _toMap(response.body);
     final code = _parseInt(body?['code']);
@@ -811,45 +885,58 @@ class ProductRepository {
         .map((img) => _toMap(img)?['url']?.toString())
         .whereType<String>()
         .toList();
-    final gallery = {...mainImages, ...collectionImages, ...subImages}.where((url) => url.isNotEmpty).toList();
+    final gallery = {
+      ...mainImages,
+      ...collectionImages,
+      ...subImages,
+    }.where((url) => url.isNotEmpty).toList();
 
-    final options = _toList(data['productOptions']).map((optionRaw) {
-      final option = _toMap(optionRaw);
-      final name = option?['name']?.toString();
-      if (name == null || name.isEmpty) {
-        return null;
-      }
-      final values = _toList(option?['optionValues']).map((valueRaw) {
-        final value = _toMap(valueRaw);
-        final valueText = value?['value']?.toString();
-        if (valueText == null || valueText.isEmpty) {
-          return null;
-        }
-        return ProductOptionValue(
-          value: valueText,
-          image: value?['image']?.toString(),
-        );
-      }).whereType<ProductOptionValue>().toList();
+    final options = _toList(data['productOptions'])
+        .map((optionRaw) {
+          final option = _toMap(optionRaw);
+          final name = option?['name']?.toString();
+          if (name == null || name.isEmpty) {
+            return null;
+          }
+          final values = _toList(option?['optionValues'])
+              .map((valueRaw) {
+                final value = _toMap(valueRaw);
+                final valueText = value?['value']?.toString();
+                if (valueText == null || valueText.isEmpty) {
+                  return null;
+                }
+                return ProductOptionValue(
+                  value: valueText,
+                  image: value?['image']?.toString(),
+                );
+              })
+              .whereType<ProductOptionValue>()
+              .toList();
 
-      if (values.isEmpty) {
-        return null;
-      }
-      return ProductOption(
-        name: name,
-        type: _parseInt(option?['type']),
-        values: values,
-      );
-    }).whereType<ProductOption>().toList();
+          if (values.isEmpty) {
+            return null;
+          }
+          return ProductOption(
+            name: name,
+            type: _parseInt(option?['type']),
+            values: values,
+          );
+        })
+        .whereType<ProductOption>()
+        .toList();
 
-    final attributes = _toList(data['productAttrs']).map((attrRaw) {
-      final attr = _toMap(attrRaw);
-      final name = attr?['name']?.toString();
-      final value = attr?['value']?.toString();
-      if (name == null || value == null || name.isEmpty || value.isEmpty) {
-        return null;
-      }
-      return ProductAttribute(name: name, value: value);
-    }).whereType<ProductAttribute>().toList();
+    final attributes = _toList(data['productAttrs'])
+        .map((attrRaw) {
+          final attr = _toMap(attrRaw);
+          final name = attr?['name']?.toString();
+          final value = attr?['value']?.toString();
+          if (name == null || value == null || name.isEmpty || value.isEmpty) {
+            return null;
+          }
+          return ProductAttribute(name: name, value: value);
+        })
+        .whereType<ProductAttribute>()
+        .toList();
 
     final tags = _toList(data['tags'])
         .map((tag) {
@@ -882,25 +969,33 @@ class ProductRepository {
       attributes: attributes,
       price: _parsePrice(data['targetSellPrice'] ?? data['sellPrice']),
       originalPrice: _extractTargetOriginPrice(data),
-      currency: data['targetSellCur']?.toString() ?? data['sellPriceCur']?.toString(),
+      currency:
+          data['targetSellCur']?.toString() ?? data['sellPriceCur']?.toString(),
       recommendedSkuCode: data['skuCode']?.toString(),
-      sellQuantity: data['sellQuantity'] == null ? null : _parseInt(data['sellQuantity']),
+      sellQuantity: data['sellQuantity'] == null
+          ? null
+          : _parseInt(data['sellQuantity']),
       sourcePlatform: data['sourcePlatform']?.toString(),
       sourceProductUrl: data['platformUrl']?.toString(),
-      sizeHelperOptionName: _toMap(data['ext'])?['sizeHelperOptionName']?.toString(),
+      sizeHelperOptionName: _toMap(
+        data['ext'],
+      )?['sizeHelperOptionName']?.toString(),
       sizeHelperType: _parseOptionalInt(_toMap(data['ext'])?['sizeHelperType']),
     );
   }
 
   Future<List<ProductSku>> getProductSkus(String productCode) async {
     if (productCode.isEmpty) {
-      throw _createApiError('productCode is required to fetch product sku list', {
-        'productCode': productCode,
-      });
+      throw _createApiError(
+        'productCode is required to fetch product sku list',
+        {'productCode': productCode},
+      );
     }
 
     final api = _ref.read(swaggerProductApiProvider);
-    final response = await api.productServiceProductNoAuthSkuListGet(productCode: productCode);
+    final response = await api.productServiceProductNoAuthSkuListGet(
+      productCode: productCode,
+    );
 
     final body = _toMap(response.body);
     final code = _parseInt(body?['code']);
@@ -932,7 +1027,10 @@ class ProductRepository {
         imageUrl: _toMap(item['skuImg'])?['url']?.toString(),
         price: _parsePrice(item['targetSellPrice'] ?? item['sellPrice']),
         originalPrice: _parseOptionalPrice(item['targetOriginPrice']),
-        currency: item['targetSellCur']?.toString() ?? item['sellCur']?.toString() ?? 'USD',
+        currency:
+            item['targetSellCur']?.toString() ??
+            item['sellCur']?.toString() ??
+            'USD',
         targetCurrency: item['targetSellCur']?.toString(),
         options: options,
         length: item['length']?.toString(),
@@ -947,15 +1045,17 @@ class ProductRepository {
     }).toList();
   }
 
-  Future<({List<ProductReview> reviews, int total, bool hasMore})> getProductReviews(
+  Future<({List<ProductReview> reviews, int total, bool hasMore})>
+  getProductReviews(
     String productCode, {
     int page = 1,
     int pageSize = 10,
   }) async {
     if (productCode.isEmpty) {
-      throw _createApiError('productCode is required to fetch product reviews', {
-        'productCode': productCode,
-      });
+      throw _createApiError(
+        'productCode is required to fetch product reviews',
+        {'productCode': productCode},
+      );
     }
 
     final api = _ref.read(swaggerProductApiProvider);
@@ -963,11 +1063,7 @@ class ProductRepository {
       productCode: productCode,
       current: page.toString(),
       size: pageSize.toString(),
-      root: {
-        'current': page,
-        'pageSize': pageSize,
-        'categoryId': 0,
-      },
+      root: {'current': page, 'pageSize': pageSize, 'categoryId': 0},
     );
 
     final body = _toMap(response.body);
@@ -983,10 +1079,9 @@ class ProductRepository {
     }
 
     final reviews = records.map((item) {
-      final images = _toList(item['images'])
-          .map((value) => value?.toString())
-          .whereType<String>()
-          .toList();
+      final images = _toList(
+        item['images'],
+      ).map((value) => value?.toString()).whereType<String>().toList();
       return ProductReview(
         id: item['id']?.toString() ?? '',
         userId: item['id']?.toString() ?? '',
@@ -1012,21 +1107,20 @@ class ProductRepository {
     );
   }
 
-  Future<ProductReviewSummary?> getProductReviewSummary(String productCode) async {
+  Future<ProductReviewSummary?> getProductReviewSummary(
+    String productCode,
+  ) async {
     if (productCode.isEmpty) {
-      throw _createApiError('productCode is required to fetch product review summary', {
-        'productCode': productCode,
-      });
+      throw _createApiError(
+        'productCode is required to fetch product review summary',
+        {'productCode': productCode},
+      );
     }
 
     final api = _ref.read(swaggerProductApiProvider);
     final response = await api.productServiceProductReviewNoAuthSummaryGet(
       productCode: productCode,
-      root: {
-        'current': 1,
-        'pageSize': 1,
-        'categoryId': 0,
-      },
+      root: {'current': 1, 'pageSize': 1, 'categoryId': 0},
     );
 
     final body = _toMap(response.body);
@@ -1051,16 +1145,19 @@ class ProductRepository {
         } else {
           percentage = 10;
         }
-        distribution.add(ProductReviewDistribution(
-          rating: rating,
-          count: (totalReviews * percentage / 100).floor(),
-          percentage: percentage,
-        ));
+        distribution.add(
+          ProductReviewDistribution(
+            rating: rating,
+            count: (totalReviews * percentage / 100).floor(),
+            percentage: percentage,
+          ),
+        );
       }
     }
 
     final positiveRate = totalReviews > 0
-        ? ((distribution[0].count + distribution[1].count) / totalReviews * 100).round()
+        ? ((distribution[0].count + distribution[1].count) / totalReviews * 100)
+              .round()
         : 0;
 
     return ProductReviewSummary(
@@ -1071,18 +1168,20 @@ class ProductRepository {
     );
   }
 
-  Future<List<ProductItem>> getSimilarProducts(String productCode, {int limit = 10}) async {
+  Future<List<ProductItem>> getSimilarProducts(
+    String productCode, {
+    int limit = 10,
+  }) async {
     if (productCode.isEmpty) {
-      throw _createApiError('productCode is required to fetch similar products', {
-        'productCode': productCode,
-      });
+      throw _createApiError(
+        'productCode is required to fetch similar products',
+        {'productCode': productCode},
+      );
     }
 
     final api = _ref.read(swaggerProductApiProvider);
     final response = await api.productServiceRecommendNoAuthSimilarProductPost(
-      root: {
-        'productCode': productCode,
-      },
+      root: {'productCode': productCode},
     );
 
     final body = _toMap(response.body);
@@ -1262,10 +1361,9 @@ List<dynamic> _toList(Object? value) {
 }
 
 List<Map<String, dynamic>> _toMapList(Object? value) {
-  return _toList(value)
-      .map((item) => _toMap(item))
-      .whereType<Map<String, dynamic>>()
-      .toList();
+  return _toList(
+    value,
+  ).map((item) => _toMap(item)).whereType<Map<String, dynamic>>().toList();
 }
 
 List<String> _splitComma(Object? value) {

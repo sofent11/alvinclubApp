@@ -129,6 +129,8 @@ class _FlashSaleList extends ConsumerWidget {
                 final product = state.products[index];
                 return ProductCard(
                   product: product,
+                  variant: ProductCardVariant.compact,
+                  aspectRatio: _staggeredAspectRatio(index),
                   onTap: () => context.pushNamed(
                     RoutePaths.productDetail,
                     pathParameters: {'productCode': product.id},
@@ -147,6 +149,12 @@ class _FlashSaleList extends ConsumerWidget {
       ],
     );
   }
+}
+
+double _staggeredAspectRatio(int index) {
+  if (index % 3 == 0) return 1;
+  if (index % 2 == 0) return 1.2;
+  return 0.8;
 }
 
 class _FlashSaleHeader extends StatefulWidget {

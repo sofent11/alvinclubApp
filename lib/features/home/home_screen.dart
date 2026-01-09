@@ -60,27 +60,44 @@ class HomeScreen extends ConsumerWidget {
       floating: true,
       pinned: true,
       elevation: 0,
-      backgroundColor: colors.surface,
-      title: GestureDetector(
-        onTap: () => context.push(RoutePaths.search),
-        child: Container(
-          height: 40,
-          padding: const EdgeInsets.symmetric(horizontal: 12),
-          decoration: BoxDecoration(
-            color: colors.mutedBackground,
-            borderRadius: BorderRadius.circular(20),
+      backgroundColor: colors.background,
+      titleSpacing: 16,
+      title: Row(
+        children: [
+          const ThemedText(
+            "Alvin's Club",
+            type: ThemedTextType.title,
+            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
           ),
-          child: Row(
-            children: [
-              Icon(Icons.search, color: colors.textMuted),
-              const SizedBox(width: 8),
-              Text(
-                'Search products...',
-                style: TextStyle(color: colors.textMuted, fontSize: 14),
+          const SizedBox(width: 12),
+          Expanded(
+            child: GestureDetector(
+              onTap: () => context.push(RoutePaths.search),
+              child: Container(
+                height: 36,
+                padding: const EdgeInsets.symmetric(horizontal: 12),
+                decoration: BoxDecoration(
+                  color: const Color(0xFFF5F5F5),
+                  borderRadius: BorderRadius.circular(18),
+                ),
+                child: Row(
+                  children: [
+                    Icon(Icons.search, color: colors.textMuted, size: 18),
+                    const SizedBox(width: 8),
+                    Expanded(
+                      child: Text(
+                        "I'm going for a look th...",
+                        style: TextStyle(color: colors.textMuted, fontSize: 14),
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                    ),
+                    Icon(Icons.photo_camera_outlined, color: colors.textMuted, size: 18),
+                  ],
+                ),
               ),
-            ],
+            ),
           ),
-        ),
+        ],
       ),
     );
   }
@@ -168,6 +185,7 @@ class HomeScreen extends ConsumerWidget {
                   width: 140,
                   child: ProductCard(
                     product: product,
+                    variant: ProductCardVariant.compact,
                     onTap: () => context.push(
                       RoutePaths.productDetail.replaceFirst(
                         ':productCode',
@@ -218,6 +236,8 @@ class HomeScreen extends ConsumerWidget {
               final product = products[index];
               return ProductCard(
                 product: product,
+                variant: ProductCardVariant.compact,
+                aspectRatio: _staggeredAspectRatio(index),
                 onTap: () => context.push(
                   RoutePaths.productDetail.replaceFirst(
                     ':productCode',
@@ -246,6 +266,12 @@ class HomeScreen extends ConsumerWidget {
       ),
     );
   }
+}
+
+double _staggeredAspectRatio(int index) {
+  if (index % 3 == 0) return 1;
+  if (index % 2 == 0) return 1.2;
+  return 0.8;
 }
 
 class _BannerCarousel extends StatefulWidget {

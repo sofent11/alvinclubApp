@@ -91,6 +91,7 @@ class _CategoryDetailScreenState extends ConsumerState<CategoryDetailScreen> {
         final product = state.products[index];
         return ProductCard(
           product: product,
+          aspectRatio: _staggeredAspectRatio(index),
           onTap: () => context.pushNamed(
             RoutePaths.productDetail,
             pathParameters: {'productCode': product.id},
@@ -99,4 +100,10 @@ class _CategoryDetailScreenState extends ConsumerState<CategoryDetailScreen> {
       },
     );
   }
+}
+
+double _staggeredAspectRatio(int index) {
+  if (index % 3 == 0) return 1;
+  if (index % 2 == 0) return 1.2;
+  return 0.8;
 }

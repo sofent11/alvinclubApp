@@ -1,3 +1,4 @@
+import 'dart:async';
 import 'dart:convert';
 
 import 'package:chopper/chopper.dart';
@@ -82,10 +83,63 @@ String _encodeJson(Object? body) {
   }
 }
 
+class CombinedConverter extends JsonConverter {
+  const CombinedConverter(this.converters);
+  final List<JsonConverter> converters;
+
+  @override
+  FutureOr<Response<ResultType>> convertResponse<ResultType, Item>(
+    Response response,
+  ) async {
+    // If it's a simple type, use standard converter
+    if (ResultType == Map ||
+        ResultType == List ||
+        ResultType == dynamic ||
+        ResultType == String) {
+      return super.convertResponse<ResultType, Item>(response);
+    }
+
+    for (final converter in converters) {
+      try {
+        final res = await converter.convertResponse<ResultType, Item>(response);
+        if (res.body is ResultType && res.body != null) {
+          return res;
+        }
+      } catch (e) {
+        // If we hit the brittle generated code's type cast error,
+        // we stop trying to be smart and return the raw Map/List via fallback.
+        if (e.toString().contains('subtype of type \'String\'')) {
+          break;
+        }
+      }
+    }
+
+    // Fallback to default JsonConverter (returns Map/List)
+    return super.convertResponse<ResultType, Item>(response);
+  }
+
+  @override
+  Request convertRequest(Request request) {
+    for (final converter in converters) {
+      try {
+        return converter.convertRequest(request);
+      } catch (_) {}
+    }
+    return super.convertRequest(request);
+  }
+}
+
 final chopperClientProvider = Provider<ChopperClient>((ref) {
   return ChopperClient(
     baseUrl: Uri.parse(EnvConfig.current.apiBaseUrl),
-    converter: user.$JsonSerializableConverter(),
+    converter: CombinedConverter([
+      user.$JsonSerializableConverter(),
+      product.$JsonSerializableConverter(),
+      order.$JsonSerializableConverter(),
+      pay.$JsonSerializableConverter(),
+      config.$JsonSerializableConverter(),
+      combo.$JsonSerializableConverter(),
+    ]),
     interceptors: [ApiInterceptor(ref)],
   );
 });
@@ -95,7 +149,9 @@ final swaggerUserApiProvider = Provider<user.SwaggerApiUser>((ref) {
 });
 
 final swaggerProductApiProvider = Provider<product.SwaggerApiProduct>((ref) {
-  return product.SwaggerApiProduct.create(client: ref.read(chopperClientProvider));
+  return product.SwaggerApiProduct.create(
+    client: ref.read(chopperClientProvider),
+  );
 });
 
 final swaggerOrderApiProvider = Provider<order.SwaggerApiOrder>((ref) {
@@ -107,7 +163,9 @@ final swaggerPayApiProvider = Provider<pay.SwaggerApiPay>((ref) {
 });
 
 final swaggerConfigApiProvider = Provider<config.SwaggerApiConfig>((ref) {
-  return config.SwaggerApiConfig.create(client: ref.read(chopperClientProvider));
+  return config.SwaggerApiConfig.create(
+    client: ref.read(chopperClientProvider),
+  );
 });
 
 final swaggerComboApiProvider = Provider<combo.SwaggerApiCombo>((ref) {

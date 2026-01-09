@@ -10,10 +10,13 @@ import 'package:photo_view/photo_view_gallery.dart';
 import '../../core/navigation/route_paths.dart';
 import '../../core/storage/favorites_store.dart';
 import '../../core/theme/app_theme.dart';
+import '../../core/auth/auth_store.dart';
+import '../../data/repositories/cart_repository.dart';
 import '../../data/repositories/product_repository.dart';
 import '../../shared/widgets/product_card.dart';
 import '../../shared/widgets/themed_button.dart';
 import '../../shared/widgets/themed_text.dart';
+import '../../shared/widgets/toast.dart';
 import '../favorites/application/favorites_notifier.dart'
     hide isFavoriteProvider;
 import 'product_detail_controller.dart';
@@ -57,6 +60,8 @@ class _ProductDetailContent extends ConsumerStatefulWidget {
 }
 
 class _ProductDetailContentState extends ConsumerState<_ProductDetailContent> {
+  bool _isAddingToCart = false;
+
   @override
   void initState() {
     super.initState();
@@ -85,6 +90,79 @@ class _ProductDetailContentState extends ConsumerState<_ProductDetailContent> {
             addedAt: DateTime.now().toIso8601String(),
           ),
         );
+  }
+
+  bool _ensureAuthenticated(BuildContext context) {
+    final authState = ref.read(authControllerProvider);
+    if (authState.status == AuthStatus.authenticated) {
+      return true;
+    }
+
+    showDialog<void>(
+      context: context,
+      builder: (dialogContext) => AlertDialog(
+        title: const Text('请先登录'),
+        content: const Text('加入购物车需要登录账号'),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(dialogContext).pop(),
+            child: const Text('取消'),
+          ),
+          TextButton(
+            onPressed: () {
+              Navigator.of(dialogContext).pop();
+              context.push(RoutePaths.signIn);
+            },
+            child: const Text('去登录'),
+          ),
+        ],
+      ),
+    );
+    return false;
+  }
+
+  Future<void> _handleAddToCart(ProductSku selectedSku) async {
+    if (_isAddingToCart) return;
+    if (!_ensureAuthenticated(context)) return;
+
+    setState(() {
+      _isAddingToCart = true;
+    });
+
+    try {
+      await ref.read(cartRepositoryProvider).addToCart(
+            AddToCartInput(skuCode: selectedSku.code, quantity: 1),
+          );
+      if (!mounted) return;
+      AppToast.success(context, '已加入购物车');
+    } catch (e) {
+      if (!mounted) return;
+      AppToast.error(context, '加入购物车失败');
+    } finally {
+      if (mounted) {
+        setState(() {
+          _isAddingToCart = false;
+        });
+      }
+    }
+  }
+
+  Future<void> _handleBuyNow(ProductSku selectedSku) async {
+    if (!_ensureAuthenticated(context)) return;
+    if (!mounted) return;
+    showDialog<void>(
+      context: context,
+      builder: (dialogContext) => AlertDialog(
+        title: const Text('提示'),
+        content: const Text('立即购买流程将在后续迭代开放。'),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(dialogContext).pop(),
+            child: const Text('好的'),
+          ),
+        ],
+      ),
+    );
   }
 
   void _openGallery(BuildContext context, List<String> images, int initialIndex) {
@@ -350,6 +428,7 @@ class _ProductDetailContentState extends ConsumerState<_ProductDetailContent> {
               final product = products[index];
               return ProductCard(
                 product: product,
+                aspectRatio: _staggeredAspectRatio(index),
                 onTap: () => context.pushNamed(
                   RoutePaths.productDetail,
                   pathParameters: {'productCode': product.id},
@@ -475,13 +554,26 @@ class _ProductDetailContentState extends ConsumerState<_ProductDetailContent> {
             ),
             const SizedBox(width: 16),
             Expanded(
-              child: ThemedButton(
-                label: selectedSku != null ? 'Add to Cart' : 'Select Options',
-                onPressed: selectedSku != null
-                    ? () {
-                        // TODO: Implement Add to Cart
-                      }
-                    : null,
+              child: Row(
+                children: [
+                  Expanded(
+                    child: ThemedButton(
+                      label: '加入购物车',
+                      variant: ThemedButtonVariant.secondary,
+                      loading: _isAddingToCart,
+                      onPressed: selectedSku == null || _isAddingToCart
+                          ? null
+                          : () => _handleAddToCart(selectedSku),
+                    ),
+                  ),
+                  const SizedBox(width: 8),
+                  Expanded(
+                    child: ThemedButton(
+                      label: '立即购买',
+                      onPressed: selectedSku == null ? null : () => _handleBuyNow(selectedSku),
+                    ),
+                  ),
+                ],
               ),
             ),
           ],
@@ -715,4 +807,10 @@ bool _isOptionEnabled(
     if (matches) return true;
   }
   return false;
+}
+
+double _staggeredAspectRatio(int index) {
+  if (index % 3 == 0) return 1;
+  if (index % 2 == 0) return 1.2;
+  return 0.8;
 }

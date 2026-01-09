@@ -28,12 +28,17 @@ class HomeRepository {
 
   Future<Map<String, dynamic>> _getConfig(String key) async {
     final api = _ref.read(swaggerConfigApiProvider);
-    final response = await api.configServiceUserConfigNoAuthInstanceGet(
-      configKey: key,
-      instanceId: defaultPortal.id.toString(),
+    
+    // Use raw client call to bypass brittle generated converter
+    final response = await api.client.get<Map<String, dynamic>, Map<String, dynamic>>(
+      Uri.parse('/config-service/user-config/no-auth/instance'),
+      parameters: {
+        'configKey': key,
+        'instanceId': defaultPortal.id.toString(),
+      },
     );
 
-    final body = _toMap(response.body);
+    final body = response.body;
     final code = _parseInt(body?['code']);
     if (code != 0) {
       throw _createApiError(body?['message']?.toString() ?? 'Failed to load config: $key', body);

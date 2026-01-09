@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../core/auth/auth_store.dart';
+import '../../core/theme/app_theme.dart';
 import '../../features/account/account_screen.dart';
 import '../../features/auth/sign_in_screen.dart';
 import '../../features/cart/cart_screen.dart';
@@ -273,18 +274,36 @@ class TabsScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final currentIndex = _indexForLocation();
+    final colors = context.appColors;
 
     return Scaffold(
       body: SafeArea(child: child),
-      bottomNavigationBar: BottomNavigationBar(
-        currentIndex: currentIndex,
-        onTap: (index) => _onTap(context, index),
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home_outlined), label: 'Home'),
-          BottomNavigationBarItem(icon: Icon(Icons.category_outlined), label: 'Categories'),
-          BottomNavigationBarItem(icon: Icon(Icons.shopping_cart_outlined), label: 'Cart'),
-          BottomNavigationBarItem(icon: Icon(Icons.person_outline), label: 'Account'),
-        ],
+      bottomNavigationBar: DecoratedBox(
+        decoration: BoxDecoration(
+          color: colors.surface,
+          border: Border(
+            top: BorderSide(color: colors.border),
+          ),
+        ),
+        child: BottomNavigationBar(
+          currentIndex: currentIndex,
+          onTap: (index) => _onTap(context, index),
+          type: BottomNavigationBarType.fixed,
+          elevation: 0,
+          iconSize: 28,
+          backgroundColor: colors.surface,
+          selectedItemColor: colors.tint,
+          unselectedItemColor: colors.textMuted,
+          selectedLabelStyle: const TextStyle(fontSize: 12),
+          unselectedLabelStyle: const TextStyle(fontSize: 12),
+          showUnselectedLabels: true,
+          items: const [
+            BottomNavigationBarItem(icon: Icon(Icons.home), label: '首页'),
+            BottomNavigationBarItem(icon: Icon(Icons.grid_view), label: '分类'),
+            BottomNavigationBarItem(icon: Icon(Icons.shopping_cart), label: '购物车'),
+            BottomNavigationBarItem(icon: Icon(Icons.account_circle), label: '我的'),
+          ],
+        ),
       ),
     );
   }

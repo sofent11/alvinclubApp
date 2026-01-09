@@ -198,6 +198,7 @@ class _SearchResultsScreenState extends ConsumerState<SearchResultsScreen> {
         final product = state.results[index];
         return ProductCard(
           product: product,
+          aspectRatio: _staggeredAspectRatio(index),
           onTap: () => context.pushNamed(
             RoutePaths.productDetail,
             pathParameters: {'productCode': product.id},
@@ -206,6 +207,12 @@ class _SearchResultsScreenState extends ConsumerState<SearchResultsScreen> {
       },
     );
   }
+}
+
+double _staggeredAspectRatio(int index) {
+  if (index % 3 == 0) return 1;
+  if (index % 2 == 0) return 1.2;
+  return 0.8;
 }
 
 class _FilterButton extends StatelessWidget {
