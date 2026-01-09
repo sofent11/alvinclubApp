@@ -14,7 +14,8 @@ import '../../shared/widgets/flash_sale_timer.dart';
 import '../../shared/widgets/product_card.dart';
 import '../../shared/widgets/themed_text.dart';
 import '../catalog/catalog_providers.dart';
-import '../flash_sale/application/flash_sale_providers.dart' hide flashSaleProductsProvider;
+import '../flash_sale/application/flash_sale_providers.dart'
+    hide flashSaleProductsProvider;
 import 'home_models.dart';
 import 'home_providers.dart';
 import 'widgets/fashion_feed.dart';
@@ -68,7 +69,9 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
   }
 
   HomeRecommendParams _recommendParamsForActive() {
-    final topNavItems = _buildTopNavItems(ref.read(homeTopNavProvider).valueOrNull ?? []);
+    final topNavItems = _buildTopNavItems(
+      ref.read(homeTopNavProvider).valueOrNull ?? [],
+    );
     final activeItem = topNavItems.firstWhere(
       (item) => item.key == _activeTopNav,
       orElse: () => topNavItems.first,
@@ -96,7 +99,9 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     ref.read(homeHotProductsProvider.notifier).loadFirstPage();
 
     if (_activeTopNav != 'for-you' && _activeTopNav != 'fashion') {
-      ref.invalidate(homeRecommendProductsProvider(_recommendParamsForActive()));
+      ref.invalidate(
+        homeRecommendProductsProvider(_recommendParamsForActive()),
+      );
     }
 
     await Future<void>.delayed(const Duration(milliseconds: 200));
@@ -137,15 +142,17 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     final isFashion = activeKey == 'fashion';
     final activeItem = topNavItems.firstWhere((item) => item.key == activeKey);
 
-    final categoryNameMap = _buildCategoryNameMap(categoriesAsync.valueOrNull ?? []);
+    final categoryNameMap = _buildCategoryNameMap(
+      categoriesAsync.valueOrNull ?? [],
+    );
     final categoryIds = _parseCategoryIds(activeItem.categoryId);
     final categoryTabs = _buildCategoryTabs(categoryIds, categoryNameMap);
 
     final recommendParams = isForYou || isFashion
         ? const HomeRecommendParams()
         : (_activeCategoryId != null && _activeCategoryId!.isNotEmpty)
-            ? HomeRecommendParams(categoryId: _activeCategoryId)
-            : HomeRecommendParams(categoryIds: categoryIds);
+        ? HomeRecommendParams(categoryId: _activeCategoryId)
+        : HomeRecommendParams(categoryIds: categoryIds);
 
     final recommendState = isForYou || isFashion
         ? const PagedProductsState()
@@ -214,7 +221,8 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                           try {
                             return PremiumDupeList(
                               products: products,
-                              onProductTap: (_) => PremiumDupeSheet.show(context),
+                              onProductTap: (_) =>
+                                  PremiumDupeSheet.show(context),
                               onMoreTap: () => PremiumDupeSheet.show(context),
                             );
                           } catch (e) {
@@ -227,9 +235,11 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                       ),
                     ),
                   if (isForYou)
-                    _buildFlashSaleSectionHeader(context, flashSaleActivitiesAsync),
-                  if (isForYou)
-                    _buildFlashSaleList(context, flashSaleAsync),
+                    _buildFlashSaleSectionHeader(
+                      context,
+                      flashSaleActivitiesAsync,
+                    ),
+                  if (isForYou) _buildFlashSaleList(context, flashSaleAsync),
                   if (isForYou)
                     SliverToBoxAdapter(
                       child: albumAsync.when(
@@ -253,12 +263,9 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                         error: (_, _) => const SizedBox.shrink(),
                       ),
                     ),
-                  if (isForYou)
-                    _buildSectionTitle(context, 'Hot Products'),
-                  if (isForYou)
-                    _buildProductGrid(context, hotState),
-                  if (!isForYou)
-                    _buildProductGrid(context, recommendState),
+                  if (isForYou) _buildSectionTitle(context, 'Hot Products'),
+                  if (isForYou) _buildProductGrid(context, hotState),
+                  if (!isForYou) _buildProductGrid(context, recommendState),
                   SliverToBoxAdapter(
                     child: SizedBox(height: isForYou ? 90 : 24),
                   ),
@@ -327,12 +334,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     }
 
     final tabs = categoryIds
-        .map(
-          (id) => HomeCategoryTab(
-            id: id,
-            name: categoryNameMap[id] ?? id,
-          ),
-        )
+        .map((id) => HomeCategoryTab(id: id, name: categoryNameMap[id] ?? id))
         .where((item) => item.name.isNotEmpty)
         .toList();
 
@@ -380,17 +382,15 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
       return const SliverToBoxAdapter(child: SizedBox.shrink());
     }
 
-    final ratio = (bgImage.width != null && bgImage.height != null && bgImage.height != 0)
+    final ratio =
+        (bgImage.width != null && bgImage.height != null && bgImage.height != 0)
         ? bgImage.width! / bgImage.height!
         : 16 / 9;
 
     return SliverToBoxAdapter(
       child: AspectRatio(
         aspectRatio: ratio,
-        child: CachedNetworkImage(
-          imageUrl: bgImage.url,
-          fit: BoxFit.cover,
-        ),
+        child: CachedNetworkImage(imageUrl: bgImage.url, fit: BoxFit.cover),
       ),
     );
   }
@@ -526,10 +526,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
             variant: ProductCardVariant.compact,
             aspectRatio: _staggeredAspectRatio(index),
             onTap: () => context.push(
-              RoutePaths.productDetail.replaceFirst(
-                ':productCode',
-                product.id,
-              ),
+              RoutePaths.productDetail.replaceFirst(':productCode', product.id),
             ),
           );
         },
@@ -578,7 +575,11 @@ class _HomeHeaderBar extends StatelessWidget {
                         overflow: TextOverflow.ellipsis,
                       ),
                     ),
-                    Icon(Icons.photo_camera_outlined, color: colors.textMuted, size: 18),
+                    Icon(
+                      Icons.photo_camera_outlined,
+                      color: colors.textMuted,
+                      size: 18,
+                    ),
                   ],
                 ),
               ),
@@ -603,7 +604,11 @@ class _FixedHeaderDelegate extends SliverPersistentHeaderDelegate {
   double get maxExtent => height;
 
   @override
-  Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {
+  Widget build(
+    BuildContext context,
+    double shrinkOffset,
+    bool overlapsContent,
+  ) {
     return SizedBox(height: height, child: child);
   }
 
@@ -700,7 +705,9 @@ class _BannerCarouselState extends State<_BannerCarousel> {
                     width: _currentPage == index ? 20 : 6,
                     height: 6,
                     decoration: BoxDecoration(
-                      color: _currentPage == index ? Colors.white : Colors.white54,
+                      color: _currentPage == index
+                          ? Colors.white
+                          : Colors.white54,
                       borderRadius: BorderRadius.circular(3),
                     ),
                   ),
