@@ -6,7 +6,6 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import '../../../core/theme/app_theme.dart';
 import '../../../data/repositories/community_repository.dart';
 import '../../../shared/widgets/empty_state.dart';
-import '../../../shared/widgets/themed_text.dart';
 import '../application/community_providers.dart';
 
 class CommunityScreen extends ConsumerWidget {

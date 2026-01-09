@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../core/auth/auth_store.dart';
 import '../../core/error/api_error.dart';
 import '../api/swagger_client.dart';
 

@@ -4,7 +4,6 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../core/navigation/route_paths.dart';
-import '../../data/repositories/product_repository.dart';
 import '../../shared/widgets/empty_state.dart';
 import '../../shared/widgets/product_card.dart';
 import 'catalog_providers.dart';

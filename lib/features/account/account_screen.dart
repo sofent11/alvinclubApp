@@ -6,6 +6,7 @@ import 'package:go_router/go_router.dart';
 import '../../core/auth/auth_store.dart';
 import '../../core/navigation/route_paths.dart';
 import '../../core/theme/app_theme.dart';
+import '../../data/repositories/user_repository.dart';
 import '../../shared/widgets/empty_state.dart';
 import '../../shared/widgets/themed_text.dart';
 import 'application/profile_providers.dart';

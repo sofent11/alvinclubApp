@@ -1,4 +1,3 @@
-import 'dart:io';
 import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../api/api_client.dart';
@@ -12,7 +11,6 @@ class UploadRepository {
 
   Future<String> uploadFile(String filePath) async {
     final dio = _ref.read(dioProvider);
-    final file = File(filePath);
     final fileName = filePath.split('/').last;
 
     final formData = FormData.fromMap({

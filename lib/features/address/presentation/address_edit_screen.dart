@@ -157,14 +157,14 @@ class _AddressEditScreenState extends ConsumerState<AddressEditScreen> {
               const SizedBox(height: 16),
               countriesAsync.when(
                 data: (countries) => DropdownButtonFormField<String>(
-                  value: _selectedCountry,
+                  initialValue: _selectedCountry,
                   decoration: const InputDecoration(labelText: 'Country', border: OutlineInputBorder()),
                   items: countries.map((c) => DropdownMenuItem(value: c, child: Text(c))).toList(),
                   onChanged: (val) => setState(() => _selectedCountry = val),
                   validator: (val) => val == null ? 'Required' : null,
                 ),
                 loading: () => const LinearProgressIndicator(),
-                error: (_, __) => _buildTextField('Country', TextEditingController(text: _selectedCountry)),
+                error: (_, _) => _buildTextField('Country', TextEditingController(text: _selectedCountry)),
               ),
               
               const SizedBox(height: 16),
@@ -178,7 +178,7 @@ class _AddressEditScreenState extends ConsumerState<AddressEditScreen> {
                 title: const Text('Set as Default Address'),
                 value: _isDefault,
                 onChanged: (val) => setState(() => _isDefault = val),
-                activeColor: context.appColors.tint,
+                activeThumbColor: context.appColors.tint,
               ),
               
               const SizedBox(height: 32),

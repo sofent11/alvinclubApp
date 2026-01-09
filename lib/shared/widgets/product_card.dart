@@ -204,7 +204,7 @@ class ProductCard extends ConsumerWidget {
                         child: CircularProgressIndicator(strokeWidth: 2),
                       ),
                     ),
-                    error: (_, __) => IconButton(
+                    error: (_, _) => IconButton(
                       icon: Icon(
                         Icons.favorite_border,
                         color: Colors.grey,

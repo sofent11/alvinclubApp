@@ -32,10 +32,11 @@ class _CartScreenState extends ConsumerState<CartScreen> {
       appBar: AppBar(
         title: const Text('Shopping Cart'),
         actions: [
-          IconButton(
-            icon: const Icon(Icons.delete_outline),
-            onPressed: selection.isEmpty ? null : () => _confirmDelete(context),
-          ),
+            IconButton(
+              icon: const Icon(Icons.delete_outline, color: Colors.red),
+              onPressed: selection.isEmpty ? null : _confirmDelete,
+            ),
+
         ],
       ),
       body: cartAsync.when(
@@ -78,7 +79,7 @@ class _CartScreenState extends ConsumerState<CartScreen> {
     );
   }
 
-  Future<void> _confirmDelete(BuildContext context) async {
+  Future<void> _confirmDelete() async {
     final selection = ref.read(cartControllerProvider).selectedSkuCodes;
     if (selection.isEmpty) return;
 

@@ -31,9 +31,7 @@ class WalletTransaction {
 }
 
 class WalletRepository {
-  WalletRepository(this._ref);
-
-  final Ref _ref;
+  WalletRepository();
 
   Future<WalletBalance> getBalance() async {
     // Mocking API call
@@ -71,5 +69,5 @@ class WalletRepository {
 }
 
 final walletRepositoryProvider = Provider<WalletRepository>((ref) {
-  return WalletRepository(ref);
+  return WalletRepository();
 });

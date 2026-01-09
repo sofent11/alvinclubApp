@@ -8,7 +8,6 @@ import '../../../core/theme/app_theme.dart';
 import '../../../data/repositories/order_repository.dart';
 import '../../../shared/widgets/empty_state.dart';
 import '../../../shared/widgets/themed_button.dart';
-import '../../../shared/widgets/themed_text.dart';
 import '../application/order_providers.dart';
 
 class OrderListScreen extends ConsumerStatefulWidget {
@@ -113,7 +112,7 @@ class _OrderListTabState extends ConsumerState<_OrderListTab> with AutomaticKeep
       child: ListView.separated(
         padding: const EdgeInsets.all(16),
         itemCount: state.orders.length + (state.isLoading ? 1 : 0),
-        separatorBuilder: (_, __) => const SizedBox(height: 16),
+        separatorBuilder: (_, _) => const SizedBox(height: 16),
         itemBuilder: (context, index) {
           if (index == state.orders.length) {
             return const Padding(
@@ -197,7 +196,7 @@ class OrderCard extends StatelessWidget {
                       width: 60,
                       height: 60,
                       fit: BoxFit.cover,
-                      errorWidget: (_, __, ___) => Container(color: Colors.grey[200]),
+                      errorWidget: (_, _, _) => Container(color: Colors.grey[200]),
                     ),
                   ),
                   const SizedBox(width: 12),

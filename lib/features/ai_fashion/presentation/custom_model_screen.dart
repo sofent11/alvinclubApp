@@ -120,8 +120,9 @@ class _CustomModelScreenState extends ConsumerState<CustomModelScreen> {
   }
 
   Future<void> _handleSave() async {
-    if (_taskId == null || _status == null || _status!.generatedModels.isEmpty)
+    if (_taskId == null || _status == null || _status!.generatedModels.isEmpty) {
       return;
+    }
 
     try {
       final repo = ref.read(aiFashionRepositoryProvider);

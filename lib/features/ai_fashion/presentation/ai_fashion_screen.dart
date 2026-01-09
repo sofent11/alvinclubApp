@@ -7,7 +7,6 @@ import 'package:go_router/go_router.dart';
 import 'package:image_picker/image_picker.dart';
 
 import '../../../core/navigation/route_paths.dart';
-import '../../../core/theme/app_theme.dart';
 import '../../../shared/widgets/themed_text.dart';
 import '../../../data/repositories/ai_fashion_repository.dart';
 import '../../../data/repositories/upload_repository.dart';
@@ -345,7 +344,7 @@ class _AiFashionScreenState extends ConsumerState<AiFashionScreen> {
                             child: Container(
                               padding: const EdgeInsets.all(2),
                               decoration: BoxDecoration(
-                                color: Colors.black.withOpacity(0.5),
+                                color: Colors.black.withValues(alpha: 0.5),
                                 borderRadius: BorderRadius.circular(8),
                               ),
                               child: const Icon(
@@ -386,7 +385,7 @@ class _AiFashionScreenState extends ConsumerState<AiFashionScreen> {
                                 Positioned.fill(
                                   child: Container(
                                     decoration: BoxDecoration(
-                                      color: Colors.black.withOpacity(0.3),
+                                      color: Colors.black.withValues(alpha: 0.3),
                                       borderRadius: BorderRadius.circular(12),
                                     ),
                                     child: const Center(
@@ -411,7 +410,7 @@ class _AiFashionScreenState extends ConsumerState<AiFashionScreen> {
                                     child: Container(
                                       padding: const EdgeInsets.all(2),
                                       decoration: BoxDecoration(
-                                        color: Colors.black.withOpacity(0.5),
+                                        color: Colors.black.withValues(alpha: 0.5),
                                         borderRadius: BorderRadius.circular(8),
                                       ),
                                       child: const Icon(

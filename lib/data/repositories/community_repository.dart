@@ -2,7 +2,6 @@ import 'dart:convert';
 
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
-import '../../core/error/api_error.dart';
 import '../api/swagger_client.dart';
 
 class CommunityPost {
@@ -31,10 +30,6 @@ class CommunityRepository {
   CommunityRepository(this._ref);
 
   final Ref _ref;
-
-  ApiError _createApiError(String message, Object? raw) {
-    return ApiError(status: 400, message: message, raw: raw);
-  }
 
   Future<List<CommunityPost>> getPosts({String? cursor}) async {
     try {

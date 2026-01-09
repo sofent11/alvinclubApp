@@ -270,7 +270,7 @@ class _PaymentScreenState extends ConsumerState<PaymentScreen> {
     final hours = seconds ~/ 3600;
     final minutes = (seconds % 3600) ~/ 60;
     final secs = seconds % 60;
-    final twoDigits = (int value) => value.toString().padLeft(2, '0');
+    String twoDigits(int value) => value.toString().padLeft(2, '0');
 
     if (hours > 0) {
       return '${twoDigits(hours)}:${twoDigits(minutes)}:${twoDigits(secs)}';

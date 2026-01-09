@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import '../../../../core/theme/app_theme.dart';
 import '../../../../shared/widgets/themed_text.dart';
-import '../../../../data/repositories/ai_fashion_repository.dart';
 
 class FashionOptionItem {
   const FashionOptionItem({

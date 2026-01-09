@@ -1,6 +1,6 @@
 # Flutter Migration Verification Plan
 
-> **Goal**: Evaluate the current Flutter implementation against the original React Native application to identify missing content, style discrepancies, and functional gaps.
+> **Goal**: Evaluate the current Flutter implementation against the original React Native application( in `/Volumes/sofentSamsung/Code/w2cApp`) to identify missing content, style discrepancies, and functional gaps.
 
 ## 0. Verification Strategy
 **Golden Rule**: The React Native (RN) app (or its recordings/screenshots) is the **single source of truth**.

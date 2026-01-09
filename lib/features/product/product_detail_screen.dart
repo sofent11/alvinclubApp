@@ -146,7 +146,7 @@ class _ProductDetailContentState extends ConsumerState<_ProductDetailContent> {
                           ),
                         ),
                       ),
-                      error: (_, __) => IconButton(
+                      error: (_, _) => IconButton(
                         icon: const Icon(
                           Icons.favorite_border,
                           color: Colors.black,
@@ -288,8 +288,9 @@ class _ProductDetailContentState extends ConsumerState<_ProductDetailContent> {
 
     return similarAsync.when(
       data: (products) {
-        if (products.isEmpty)
+        if (products.isEmpty) {
           return const SliverToBoxAdapter(child: SizedBox.shrink());
+        }
         return SliverPadding(
           padding: const EdgeInsets.symmetric(horizontal: 10),
           sliver: SliverMasonryGrid.count(
@@ -471,7 +472,7 @@ class _ProductDetailContentState extends ConsumerState<_ProductDetailContent> {
         width: 120,
         child: LinearProgressIndicator(minHeight: 2),
       ),
-      error: (_, __) => const SizedBox.shrink(),
+      error: (_, _) => const SizedBox.shrink(),
     );
   }
 
@@ -526,7 +527,7 @@ class _ProductDetailContentState extends ConsumerState<_ProductDetailContent> {
             height: 12,
             child: LinearProgressIndicator(minHeight: 2),
           ),
-          error: (_, __) => const SizedBox.shrink(),
+          error: (_, _) => const SizedBox.shrink(),
         ),
         const SizedBox(height: 12),
         reviewsAsync.when(
@@ -544,7 +545,7 @@ class _ProductDetailContentState extends ConsumerState<_ProductDetailContent> {
             );
           },
           loading: () => const SizedBox.shrink(),
-          error: (_, __) => const SizedBox.shrink(),
+          error: (_, _) => const SizedBox.shrink(),
         ),
       ],
     );

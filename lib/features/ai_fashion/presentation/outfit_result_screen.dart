@@ -99,7 +99,7 @@ class _OutfitResultScreenState extends ConsumerState<OutfitResultScreen> {
                             borderRadius: BorderRadius.circular(12),
                             boxShadow: [
                               BoxShadow(
-                                color: Colors.black.withOpacity(0.05),
+                                color: Colors.black.withValues(alpha: 0.05),
                                 blurRadius: 10,
                                 offset: const Offset(0, 4),
                               ),
@@ -142,7 +142,7 @@ class _OutfitResultScreenState extends ConsumerState<OutfitResultScreen> {
                         );
                       },
                       loading: () => const SizedBox.shrink(),
-                      error: (_, __) => const SizedBox.shrink(),
+                      error: (_, _) => const SizedBox.shrink(),
                     ),
 
                     const SizedBox(height: 24),
@@ -274,7 +274,7 @@ class _OutfitResultScreenState extends ConsumerState<OutfitResultScreen> {
             child: GestureDetector(
               onTap: () => setState(() => _zoomedImage = null),
               child: Container(
-                color: Colors.black.withOpacity(0.9),
+                color: Colors.black.withValues(alpha: 0.9),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
@@ -325,7 +325,7 @@ class _OutfitResultScreenState extends ConsumerState<OutfitResultScreen> {
             left: 0,
             right: 0,
             child: Container(
-              color: Colors.black.withOpacity(0.5),
+              color: Colors.black.withValues(alpha: 0.5),
               padding: const EdgeInsets.symmetric(vertical: 2),
               child: Text(
                 label,
@@ -374,7 +374,7 @@ class _FlyingClothesAnimationState extends State<_FlyingClothesAnimation>
   @override
   Widget build(BuildContext context) {
     final tintColor = Theme.of(context).primaryColor;
-    return Container(
+    return SizedBox(
       width: 200,
       height: 200,
       child: Stack(

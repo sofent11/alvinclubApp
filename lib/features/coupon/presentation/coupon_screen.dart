@@ -81,7 +81,7 @@ class _CouponList extends ConsumerWidget {
         return ListView.separated(
           padding: const EdgeInsets.all(16),
           itemCount: coupons.length,
-          separatorBuilder: (_, __) => const SizedBox(height: 12),
+          separatorBuilder: (_, _) => const SizedBox(height: 12),
           itemBuilder: (context, index) {
             final coupon = coupons[index];
             return _CouponCard(coupon: coupon, isInactive: status != '0');
@@ -124,7 +124,7 @@ class _CouponCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    '$currency',
+                    currency,
                     style: TextStyle(
                       color: isInactive ? Colors.grey[600] : colors.tint,
                       fontSize: 12,
@@ -132,7 +132,7 @@ class _CouponCard extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    '${coupon.discountAmount?.toStringAsFixed(0) ?? '0'}',
+                    coupon.discountAmount?.toStringAsFixed(0) ?? '0',
                     style: TextStyle(
                       color: isInactive ? Colors.grey[600] : colors.tint,
                       fontSize: 28,
