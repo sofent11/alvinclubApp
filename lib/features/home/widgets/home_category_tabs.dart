@@ -33,10 +33,12 @@ class HomeCategoryTabs extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         padding: const EdgeInsets.symmetric(horizontal: 16),
         child: Row(
-          children: items.map((item) {
+          children: items.asMap().entries.map((entry) {
+            final index = entry.key;
+            final item = entry.value;
             final isActive = item.id == activeId || (item.id == null && activeId == null);
             return Padding(
-              padding: const EdgeInsets.only(right: 18),
+              padding: EdgeInsets.only(right: index == items.length - 1 ? 0 : 18),
               child: GestureDetector(
                 onTap: () => onChange(item.id),
                 child: Column(

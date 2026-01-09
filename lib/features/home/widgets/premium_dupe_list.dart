@@ -43,7 +43,11 @@ class PremiumDupeList extends StatelessWidget {
                 const ThemedText(
                   'Premium Inspired',
                   type: ThemedTextType.subtitle,
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                    fontSize: 18,
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'serif',
+                  ),
                 ),
                 GestureDetector(
                   onTap: onMoreTap,

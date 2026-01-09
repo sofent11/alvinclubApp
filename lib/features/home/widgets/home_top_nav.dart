@@ -27,14 +27,16 @@ class HomeTopNavBar extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         padding: const EdgeInsets.symmetric(horizontal: 16),
         child: Row(
-          children: items.map((item) {
+          children: items.asMap().entries.map((entry) {
+            final index = entry.key;
+            final item = entry.value;
             final isActive = item.key == activeKey;
             final backgroundColor = isActive ? const Color(0xFF1A1A1A) : Colors.transparent;
             final borderColor = isActive ? const Color(0xFF1A1A1A) : Colors.transparent;
             final textColor = isActive ? Colors.white : colors.text;
 
             return Padding(
-              padding: const EdgeInsets.only(right: 12),
+              padding: EdgeInsets.only(right: index == items.length - 1 ? 0 : 12),
               child: GestureDetector(
                 onTap: () => onItemTap(item),
                 child: Container(

@@ -864,9 +864,12 @@ class ProductRepository {
 
   Future<List<PremiumDupeProduct>> getPremiumDupeSelection() async {
     final api = _ref.read(swaggerProductApiProvider);
-    final response = await api.productServiceProductPremiumDupeNoAuthSelectionGet();
+    // Use raw client call to bypass brittle generated converter
+    final response = await api.client.get<Map<String, dynamic>, Map<String, dynamic>>(
+      Uri.parse('/product-service/product/premium-dupe/no-auth/selection'),
+    );
 
-    final body = _toMap(response.body);
+    final body = response.body;
     final code = _parseInt(body?['code']);
     if (code != 0) {
       throw _createApiError(body?['message']?.toString() ?? '获取精选平替商品失败', body);
@@ -896,9 +899,12 @@ class ProductRepository {
 
   Future<List<PremiumDupeCategory>> getPremiumDupeMeta() async {
     final api = _ref.read(swaggerProductApiProvider);
-    final response = await api.productServiceProductPremiumDupeNoAuthMetaGet();
+    // Use raw client call to bypass brittle generated converter
+    final response = await api.client.get<Map<String, dynamic>, Map<String, dynamic>>(
+      Uri.parse('/product-service/product/premium-dupe/no-auth/meta'),
+    );
 
-    final body = _toMap(response.body);
+    final body = response.body;
     final code = _parseInt(body?['code']);
     if (code != 0) {
       throw _createApiError(body?['message']?.toString() ?? '获取平替分类失败', body);
@@ -923,8 +929,10 @@ class ProductRepository {
 
   Future<PremiumDupePage> getPremiumDupePage(PremiumDupePageParams params) async {
     final api = _ref.read(swaggerProductApiProvider);
-    final response = await api.productServiceProductPremiumDupeNoAuthPagePost(
-      root: {
+    // Use raw client call to bypass brittle generated converter
+    final response = await api.client.post<Map<String, dynamic>, Map<String, dynamic>>(
+      Uri.parse('/product-service/product/premium-dupe/no-auth/page'),
+      body: {
         'current': params.current ?? 1,
         'pageSize': params.pageSize ?? 20,
         if (params.categoryId != null) 'categoryId': params.categoryId,
@@ -934,7 +942,7 @@ class ProductRepository {
       },
     );
 
-    final body = _toMap(response.body);
+    final body = response.body;
     final code = _parseInt(body?['code']);
     if (code != 0) {
       throw _createApiError(body?['message']?.toString() ?? '获取平替商品失败', body);
