@@ -2,7 +2,10 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+import 'package:flutter_widget_from_html/flutter_widget_from_html.dart';
 import 'package:go_router/go_router.dart';
+import 'package:photo_view/photo_view.dart';
+import 'package:photo_view/photo_view_gallery.dart';
 
 import '../../core/navigation/route_paths.dart';
 import '../../core/storage/favorites_store.dart';
@@ -84,6 +87,40 @@ class _ProductDetailContentState extends ConsumerState<_ProductDetailContent> {
         );
   }
 
+  void _openGallery(BuildContext context, List<String> images, int initialIndex) {
+    Navigator.of(context).push(
+      MaterialPageRoute(
+        builder: (context) => Scaffold(
+          backgroundColor: Colors.black,
+          appBar: AppBar(
+            backgroundColor: Colors.black,
+            iconTheme: const IconThemeData(color: Colors.white),
+            leading: IconButton(
+              icon: const Icon(Icons.close),
+              onPressed: () => Navigator.of(context).pop(),
+            ),
+          ),
+          body: PhotoViewGallery.builder(
+            itemCount: images.length,
+            builder: (context, index) {
+              return PhotoViewGalleryPageOptions(
+                imageProvider: CachedNetworkImageProvider(images[index]),
+                minScale: PhotoViewComputedScale.contained,
+                maxScale: PhotoViewComputedScale.covered * 2,
+              );
+            },
+            pageController: PageController(initialPage: initialIndex),
+            scrollPhysics: const BouncingScrollPhysics(),
+            backgroundDecoration: const BoxDecoration(color: Colors.black),
+            loadingBuilder: (context, event) => const Center(
+              child: CircularProgressIndicator(color: Colors.white),
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final state = ref.watch(productDetailControllerProvider);
@@ -158,12 +195,22 @@ class _ProductDetailContentState extends ConsumerState<_ProductDetailContent> {
                 ],
                 flexibleSpace: FlexibleSpaceBar(
                   background: mainImage.isNotEmpty
-                      ? Stack(
-                          children: [
-                            CachedNetworkImage(
-                              imageUrl: mainImage,
-                              fit: BoxFit.cover,
-                            ),
+                      ? GestureDetector(
+                          onTap: () {
+                            if (widget.detail.images.isNotEmpty) {
+                              var index = widget.detail.images.indexOf(mainImage);
+                              if (index == -1) index = 0;
+                              _openGallery(context, widget.detail.images, index);
+                            }
+                          },
+                          child: Stack(
+                            children: [
+                              Positioned.fill(
+                                child: CachedNetworkImage(
+                                  imageUrl: mainImage,
+                                  fit: BoxFit.cover,
+                                ),
+                              ),
                             if (widget.detail.images.length > 1)
                               Positioned(
                                 bottom: 12,
@@ -188,7 +235,8 @@ class _ProductDetailContentState extends ConsumerState<_ProductDetailContent> {
                                 ),
                               ),
                           ],
-                        )
+                        ),
+                      )
                       : Container(color: Colors.grey[200]),
                 ),
               ),
@@ -253,9 +301,9 @@ class _ProductDetailContentState extends ConsumerState<_ProductDetailContent> {
                         type: ThemedTextType.defaultSemiBold,
                       ),
                       const SizedBox(height: 8),
-                      Text(
+                      HtmlWidget(
                         widget.detail.description ?? 'No description.',
-                        style: TextStyle(color: colors.textMuted),
+                        textStyle: TextStyle(color: colors.textMuted),
                       ),
                       const SizedBox(height: 24),
                       _buildReviewSection(reviewSummaryAsync, reviewsAsync, colors),

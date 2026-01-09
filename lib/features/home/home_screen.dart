@@ -8,7 +8,10 @@ import 'package:cached_network_image/cached_network_image.dart';
 
 import '../../core/navigation/route_paths.dart';
 import '../../core/theme/app_theme.dart';
+import '../../data/repositories/product_repository.dart';
+import '../../features/flash_sale/application/flash_sale_providers.dart' hide flashSaleProductsProvider;
 import '../../shared/widgets/empty_state.dart';
+import '../../shared/widgets/flash_sale_timer.dart';
 import '../../shared/widgets/product_card.dart';
 import '../../shared/widgets/themed_text.dart';
 import 'home_providers.dart';
@@ -21,6 +24,7 @@ class HomeScreen extends ConsumerWidget {
     final configAsync = ref.watch(homeConfigProvider);
     final hotProductsAsync = ref.watch(hotProductsProvider);
     final flashSaleAsync = ref.watch(flashSaleProductsProvider);
+    final flashSaleActivitiesAsync = ref.watch(flashSaleActivitiesProvider);
     final colors = context.appColors;
 
     return Scaffold(
@@ -31,12 +35,13 @@ class HomeScreen extends ConsumerWidget {
             ref.invalidate(homeConfigProvider);
             ref.invalidate(hotProductsProvider);
             ref.invalidate(flashSaleProductsProvider);
+            ref.invalidate(flashSaleActivitiesProvider);
           },
           child: CustomScrollView(
             slivers: [
               _buildSearchHeader(context),
               _buildBanners(context, configAsync),
-              _buildSectionTitle(context, 'Flash Sale'),
+              _buildFlashSaleSectionHeader(context, flashSaleActivitiesAsync),
               _buildFlashSaleList(context, flashSaleAsync),
               _buildSectionTitle(context, 'Hot Products'),
               _buildProductGrid(context, hotProductsAsync),
@@ -98,6 +103,37 @@ class HomeScreen extends ConsumerWidget {
           child: Center(child: CircularProgressIndicator()),
         ),
         error: (_, _) => const SizedBox.shrink(),
+      ),
+    );
+  }
+
+  Widget _buildFlashSaleSectionHeader(
+    BuildContext context,
+    AsyncValue<List<FlashSaleActivity>> activitiesAsync,
+  ) {
+    return SliverToBoxAdapter(
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(16, 24, 16, 12),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            const ThemedText('Flash Sale', type: ThemedTextType.subtitle),
+            activitiesAsync.when(
+              data: (activities) {
+                if (activities.isEmpty) return const SizedBox.shrink();
+                // Pick the first activity for Home Screen display
+                final activity = activities.first;
+                final endTime = DateTime.tryParse(activity.endTime);
+                if (endTime != null) {
+                  return FlashSaleTimer(endTime: endTime);
+                }
+                return const SizedBox.shrink();
+              },
+              loading: () => const SizedBox.shrink(),
+              error: (_, _) => const SizedBox.shrink(),
+            ),
+          ],
+        ),
       ),
     );
   }
