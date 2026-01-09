@@ -145,14 +145,16 @@ class _PremiumDupeCard extends StatelessWidget {
         child: Stack(
           children: [
             Center(
-              child: CachedNetworkImage(
-                imageUrl: product.imageUrl,
-                width: height * 0.8,
-                height: height * 0.8,
-                fit: BoxFit.contain,
-                placeholder: (context, url) => Container(color: colors.muted),
-                errorWidget: (context, url, error) => Container(color: colors.muted),
-              ),
+              child: product.imageUrl.isNotEmpty
+                  ? CachedNetworkImage(
+                      imageUrl: product.imageUrl,
+                      width: height * 0.8,
+                      height: height * 0.8,
+                      fit: BoxFit.contain,
+                      placeholder: (context, url) => Container(color: colors.muted),
+                      errorWidget: (context, url, error) => Container(color: colors.muted),
+                    )
+                  : Container(color: colors.muted),
             ),
             Positioned(
               right: 6,

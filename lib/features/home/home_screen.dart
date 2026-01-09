@@ -184,7 +184,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                   SliverPersistentHeader(
                     pinned: isForYou,
                     delegate: _FixedHeaderDelegate(
-                      height: 48,
+                      height: 56,
                       child: HomeTopNavBar(
                         items: topNavItems,
                         activeKey: activeKey,
@@ -209,13 +209,21 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                   if (isForYou)
                     SliverToBoxAdapter(
                       child: premiumDupeAsync.when(
-                        data: (products) => PremiumDupeList(
-                          products: products,
-                          onProductTap: (_) => PremiumDupeSheet.show(context),
-                          onMoreTap: () => PremiumDupeSheet.show(context),
-                        ),
+                        data: (products) {
+                          if (products.isEmpty) return const SizedBox.shrink();
+                          try {
+                            return PremiumDupeList(
+                              products: products,
+                              onProductTap: (_) => PremiumDupeSheet.show(context),
+                              onMoreTap: () => PremiumDupeSheet.show(context),
+                            );
+                          } catch (e) {
+                            debugPrint('Error building PremiumDupeList: $e');
+                            return const SizedBox.shrink();
+                          }
+                        },
                         loading: () => const SizedBox.shrink(),
-                        error: (_, _) => const SizedBox.shrink(),
+                        error: (_, __) => const SizedBox.shrink(),
                       ),
                     ),
                   if (isForYou)
@@ -596,7 +604,7 @@ class _FixedHeaderDelegate extends SliverPersistentHeaderDelegate {
 
   @override
   Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {
-    return child;
+    return SizedBox(height: height, child: child);
   }
 
   @override
