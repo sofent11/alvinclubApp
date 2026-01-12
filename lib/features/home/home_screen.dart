@@ -3,7 +3,7 @@ import 'dart:async';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
+
 import 'package:go_router/go_router.dart';
 
 import '../../core/navigation/route_paths.dart';
@@ -235,11 +235,11 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                       ),
                     ),
                   if (isForYou)
-                    _buildFlashSaleSectionHeader(
+                    _buildFlashSaleSection(
                       context,
                       flashSaleActivitiesAsync,
+                      flashSaleAsync,
                     ),
-                  if (isForYou) _buildFlashSaleList(context, flashSaleAsync),
                   if (isForYou)
                     SliverToBoxAdapter(
                       child: albumAsync.when(
@@ -257,7 +257,10 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                                 ),
                               )
                               .toList();
-                          return QuickEntryGrid(entries: quickEntries);
+                          return Padding(
+                            padding: const EdgeInsets.symmetric(vertical: 8.0),
+                            child: QuickEntryGrid(entries: quickEntries),
+                          );
                         },
                         loading: () => const SizedBox.shrink(),
                         error: (_, _) => const SizedBox.shrink(),
@@ -395,35 +398,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     );
   }
 
-  Widget _buildFlashSaleSectionHeader(
-    BuildContext context,
-    AsyncValue<List<FlashSaleActivity>> activitiesAsync,
-  ) {
-    return SliverToBoxAdapter(
-      child: Padding(
-        padding: const EdgeInsets.fromLTRB(16, 24, 16, 12),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            const ThemedText('Flash Sale', type: ThemedTextType.subtitle),
-            activitiesAsync.when(
-              data: (activities) {
-                if (activities.isEmpty) return const SizedBox.shrink();
-                final activity = activities.first;
-                final endTime = DateTime.tryParse(activity.endTime);
-                if (endTime != null) {
-                  return FlashSaleTimer(endTime: endTime);
-                }
-                return const SizedBox.shrink();
-              },
-              loading: () => const SizedBox.shrink(),
-              error: (_, _) => const SizedBox.shrink(),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
+
 
   Widget _buildSectionTitle(BuildContext context, String title) {
     return SliverToBoxAdapter(
@@ -434,45 +409,91 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     );
   }
 
-  Widget _buildFlashSaleList(
+  Widget _buildFlashSaleSection(
     BuildContext context,
+    AsyncValue<List<FlashSaleActivity>> activitiesAsync,
     AsyncValue<List<ProductItem>> productsAsync,
   ) {
+    final colors = context.appColors;
+
+    // Determine if we should show the section based on data availability
+    final hasActivities = activitiesAsync.valueOrNull?.isNotEmpty ?? false;
+    final hasProducts = productsAsync.valueOrNull?.isNotEmpty ?? false;
+
+    if (!hasActivities && !hasProducts && !activitiesAsync.isLoading && !productsAsync.isLoading) {
+      return const SliverToBoxAdapter(child: SizedBox.shrink());
+    }
+
     return SliverToBoxAdapter(
-      child: productsAsync.when(
-        data: (products) {
-          if (products.isEmpty) return const SizedBox.shrink();
-          return SizedBox(
-            height: 220,
-            child: ListView.separated(
-              scrollDirection: Axis.horizontal,
-              padding: const EdgeInsets.symmetric(horizontal: 16),
-              itemCount: products.length,
-              separatorBuilder: (_, _) => const SizedBox(width: 12),
-              itemBuilder: (context, index) {
-                final product = products[index];
+      child: Container(
+        margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
+        decoration: BoxDecoration(
+          color: colors.mutedBackground,
+          borderRadius: BorderRadius.circular(20),
+        ),
+        padding: const EdgeInsets.only(bottom: 12),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.fromLTRB(16, 12, 16, 12),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const ThemedText('Flash Sale', type: ThemedTextType.subtitle),
+                  activitiesAsync.when(
+                    data: (activities) {
+                      if (activities.isEmpty) return const SizedBox.shrink();
+                      final activity = activities.first;
+                      final endTime = DateTime.tryParse(activity.endTime);
+                      if (endTime != null) {
+                        return FlashSaleTimer(endTime: endTime);
+                      }
+                      return const SizedBox.shrink();
+                    },
+                    loading: () => const SizedBox.shrink(),
+                    error: (_, _) => const SizedBox.shrink(),
+                  ),
+                ],
+              ),
+            ),
+            productsAsync.when(
+              data: (products) {
+                if (products.isEmpty) return const SizedBox.shrink();
                 return SizedBox(
-                  width: 140,
-                  child: ProductCard(
-                    product: product,
-                    variant: ProductCardVariant.compact,
-                    onTap: () => context.push(
-                      RoutePaths.productDetail.replaceFirst(
-                        ':productCode',
-                        product.id,
-                      ),
-                    ),
+                  height: 220,
+                  child: ListView.separated(
+                    scrollDirection: Axis.horizontal,
+                    padding: const EdgeInsets.symmetric(horizontal: 16),
+                    itemCount: products.length,
+                    separatorBuilder: (_, _) => const SizedBox(width: 12),
+                    itemBuilder: (context, index) {
+                      final product = products[index];
+                      return SizedBox(
+                        width: 140,
+                        child: ProductCard(
+                          product: product,
+                          variant: ProductCardVariant.compact,
+                          onTap: () => context.push(
+                            RoutePaths.productDetail.replaceFirst(
+                              ':productCode',
+                              product.id,
+                            ),
+                          ),
+                        ),
+                      );
+                    },
                   ),
                 );
               },
+              loading: () => const SizedBox(
+                height: 100,
+                child: Center(child: CircularProgressIndicator()),
+              ),
+              error: (_, _) => const SizedBox.shrink(),
             ),
-          );
-        },
-        loading: () => const SizedBox(
-          height: 100,
-          child: Center(child: CircularProgressIndicator()),
+          ],
         ),
-        error: (_, _) => const SizedBox.shrink(),
       ),
     );
   }
@@ -512,24 +533,57 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
       );
     }
 
+    final itemCount = (state.products.length / 2).ceil();
+
     return SliverPadding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
-      sliver: SliverMasonryGrid.count(
-        crossAxisCount: 2,
-        mainAxisSpacing: 12,
-        crossAxisSpacing: 12,
-        childCount: state.products.length,
-        itemBuilder: (context, index) {
-          final product = state.products[index];
-          return ProductCard(
-            product: product,
-            variant: ProductCardVariant.compact,
-            aspectRatio: _staggeredAspectRatio(index),
-            onTap: () => context.push(
-              RoutePaths.productDetail.replaceFirst(':productCode', product.id),
-            ),
-          );
-        },
+      sliver: SliverList(
+        delegate: SliverChildBuilderDelegate(
+          (context, index) {
+            final firstIndex = index * 2;
+            final secondIndex = firstIndex + 1;
+            final hasSecond = secondIndex < state.products.length;
+
+            return Padding(
+              padding: const EdgeInsets.only(bottom: 12),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Expanded(
+                    child: ProductCard(
+                      product: state.products[firstIndex],
+                      variant: ProductCardVariant.compact,
+                      aspectRatio: 1.05,
+                      onTap: () => context.push(
+                        RoutePaths.productDetail.replaceFirst(
+                          ':productCode',
+                          state.products[firstIndex].id,
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: hasSecond
+                        ? ProductCard(
+                            product: state.products[secondIndex],
+                            variant: ProductCardVariant.compact,
+                            aspectRatio: 1.05,
+                            onTap: () => context.push(
+                              RoutePaths.productDetail.replaceFirst(
+                                ':productCode',
+                                state.products[secondIndex].id,
+                              ),
+                            ),
+                          )
+                        : const SizedBox.shrink(),
+                  ),
+                ],
+              ),
+            );
+          },
+          childCount: itemCount,
+        ),
       ),
     );
   }
@@ -721,8 +775,4 @@ class _BannerCarouselState extends State<_BannerCarousel> {
   }
 }
 
-double _staggeredAspectRatio(int index) {
-  if (index % 3 == 0) return 1;
-  if (index % 2 == 0) return 1.2;
-  return 0.8;
-}
+

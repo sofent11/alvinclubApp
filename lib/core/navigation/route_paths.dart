@@ -1,5 +1,6 @@
 class RoutePaths {
   static const home = '/';
+  static const splash = '/splash';
   static const categories = '/categories';
   static const cart = '/cart';
   static const account = '/account';

@@ -7,6 +7,7 @@ import '../../core/auth/auth_store.dart';
 import '../../core/theme/app_theme.dart';
 import '../../features/account/account_screen.dart';
 import '../../features/auth/sign_in_screen.dart';
+import '../../features/splash/splash_screen.dart';
 import '../../features/cart/cart_screen.dart';
 import '../../features/catalog/categories_screen.dart';
 import '../../features/catalog/category_detail_screen.dart';
@@ -44,7 +45,7 @@ final routerProvider = Provider<GoRouter>((ref) {
   final authState = ref.watch(authControllerProvider);
 
   return GoRouter(
-    initialLocation: RoutePaths.home,
+    initialLocation: RoutePaths.splash,
     routes: [
       ShellRoute(
         builder: (context, state, child) => TabsScaffold(location: state.uri.toString(), child: child),
@@ -56,6 +57,7 @@ final routerProvider = Provider<GoRouter>((ref) {
         ],
       ),
       GoRoute(path: RoutePaths.signIn, name: RoutePaths.signIn, builder: (context, state) => const SignInScreen()),
+      GoRoute(path: RoutePaths.splash, name: RoutePaths.splash, builder: (context, state) => const SplashScreen()),
       GoRoute(
         path: RoutePaths.search,
         name: RoutePaths.search,
