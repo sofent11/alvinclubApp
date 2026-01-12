@@ -44,7 +44,7 @@ class PremiumDupeList extends StatelessWidget {
                   'Premium Inspired',
                   type: ThemedTextType.subtitle,
                   style: TextStyle(
-                    fontSize: 22,
+                    fontSize: 19,
                     height: 1.1,
                     fontWeight: FontWeight.w600,
                     fontFamily: 'serif',
@@ -137,6 +137,7 @@ class _PremiumDupeCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final colors = context.appColors;
     final priceParts = _formatPriceParts(product.price);
+    final currency = _getCurrencySymbol(product.currency);
 
     return GestureDetector(
       onTap: () => onTap(product),
@@ -178,7 +179,7 @@ class _PremiumDupeCard extends StatelessWidget {
                   textBaseline: TextBaseline.alphabetic,
                   children: [
                     Text(
-                      '${product.currency}${priceParts.$1}',
+                      '$currency${priceParts.$1}',
                       style: const TextStyle(
                         color: Colors.white,
                         fontSize: 12,
@@ -230,4 +231,20 @@ class _PremiumDupeCard extends StatelessWidget {
   }
   final parts = value.toStringAsFixed(2).split('.');
   return (parts[0], parts[1]);
+}
+
+String _getCurrencySymbol(String currency) {
+  final normalized = currency.trim().toUpperCase();
+  const symbolMap = {
+    'CNY': '¥',
+    'RMB': '¥',
+    'USD': '\$',
+    'AUD': 'A\$',
+    'CAD': 'C\$',
+    'GBP': '£',
+    'EUR': '€',
+    'JPY': '¥',
+    'HKD': 'HK\$',
+  };
+  return symbolMap[normalized] ?? currency;
 }

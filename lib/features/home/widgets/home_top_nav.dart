@@ -42,13 +42,13 @@ class HomeTopNavBar extends StatelessWidget {
 
             return Padding(
               padding: EdgeInsets.only(
-                right: index == items.length - 1 ? 0 : 12,
+                right: index == items.length - 1 ? 0 : 8,
               ),
               child: GestureDetector(
                 onTap: () => onItemTap(item),
                 child: Container(
                   padding: const EdgeInsets.symmetric(
-                    horizontal: 18,
+                    horizontal: 12,
                     vertical: 6,
                   ),
                   decoration: BoxDecoration(

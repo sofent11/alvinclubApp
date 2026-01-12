@@ -40,6 +40,29 @@ class ProductCard extends ConsumerStatefulWidget {
 class _ProductCardState extends ConsumerState<ProductCard> {
   bool _isPressed = false;
 
+  Widget _buildRatingStars(double rating, double size) {
+    return Row(
+      mainAxisSize: MainAxisSize.min,
+      children: List.generate(5, (index) {
+        if (index < rating.floor()) {
+          return Icon(Icons.star, size: size, color: const Color(0xFFFFD54F));
+        }
+        if (index == rating.floor() && rating % 1 != 0) {
+          return Icon(
+            Icons.star_half,
+            size: size,
+            color: const Color(0xFFFFD54F),
+          );
+        }
+        return Icon(
+          Icons.star_border,
+          size: size,
+          color: const Color(0xFFE0E0E0),
+        );
+      }),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final colors = context.appColors;
@@ -152,6 +175,14 @@ class _ProductCardState extends ConsumerState<ProductCard> {
                               color: colors.text,
                             ),
                           ),
+                          if (widget.product.rating != null &&
+                              widget.product.rating! > 0) ...[
+                            SizedBox(height: isCompact ? 2 : 4),
+                            _buildRatingStars(
+                              widget.product.rating!,
+                              isCompact ? 10 : 12,
+                            ),
+                          ],
                           SizedBox(height: isCompact ? 3 : 6),
                           Row(
                             children: [
@@ -370,6 +401,9 @@ String _currencySymbol(String? currency) {
     'CNY': '¥',
     'RMB': '¥',
     'USD': '\$',
+    'AUD': 'A\$',
+    'CAD': 'C\$',
+    'GBP': '£',
     'EUR': '€',
     'JPY': '¥',
     'HKD': 'HK\$',

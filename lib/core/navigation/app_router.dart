@@ -4,7 +4,6 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../core/auth/auth_store.dart';
-import '../../core/theme/app_theme.dart';
 import '../../features/account/account_screen.dart';
 import '../../features/auth/sign_in_screen.dart';
 import '../../features/splash/splash_screen.dart';
@@ -351,7 +350,6 @@ class TabsScaffold extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final currentIndex = _indexForLocation();
-    final colors = context.appColors;
     const selectedColor = Color(0xFFFF6B81);
     final unselectedColor = const Color(0xFF1A1A1A).withValues(alpha: 0.55);
 

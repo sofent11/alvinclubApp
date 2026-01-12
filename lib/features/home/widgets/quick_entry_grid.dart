@@ -40,18 +40,18 @@ class QuickEntryGrid extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: entries.map((entry) {
             return Container(
-              width: 68.0,
+              width: 60.0,
               margin: const EdgeInsets.only(right: gap),
               child: GestureDetector(
                 onTap: entry.onTap,
                 child: Column(
                   children: [
                     Container(
-                      width: 58,
-                      height: 58,
+                      width: 50,
+                      height: 50,
                       decoration: BoxDecoration(
                         color: Colors.white,
-                        borderRadius: BorderRadius.circular(29),
+                        borderRadius: BorderRadius.circular(25),
                         boxShadow: [
                           BoxShadow(
                             color: Colors.black.withValues(alpha: 0.06),
@@ -68,11 +68,11 @@ class QuickEntryGrid extends StatelessWidget {
                                 entry.iconUrl != null &&
                                     entry.iconUrl!.isNotEmpty
                                 ? ClipRRect(
-                                    borderRadius: BorderRadius.circular(29),
+                                    borderRadius: BorderRadius.circular(25),
                                     child: CachedNetworkImage(
                                       imageUrl: entry.iconUrl!,
-                                      width: 58,
-                                      height: 58,
+                                      width: 50,
+                                      height: 50,
                                       fit: BoxFit.cover,
                                     ),
                                   )

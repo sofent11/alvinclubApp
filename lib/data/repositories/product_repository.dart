@@ -35,6 +35,10 @@ class ProductItem {
     this.reviewCount,
     this.skuCode,
     this.recommendedSkuCode,
+    this.discount,
+    this.flashSaleStartTimeMillis,
+    this.flashSaleEndTimeMillis,
+    this.flashSaleActivityCode,
   });
 
   final String id;
@@ -54,6 +58,10 @@ class ProductItem {
   final int? reviewCount;
   final String? skuCode;
   final String? recommendedSkuCode;
+  final String? discount;
+  final int? flashSaleStartTimeMillis;
+  final int? flashSaleEndTimeMillis;
+  final String? flashSaleActivityCode;
 }
 
 class CategoryItem {
@@ -476,6 +484,9 @@ class ProductRepository {
         images: imageUrl.isNotEmpty ? [imageUrl] : const [],
         sales: _parseInt(item.sellQuantity),
         tags: tagCodes.isEmpty ? null : tagCodes,
+        rating: _parsePrice(item.rate) > 0
+            ? _parsePrice(item.rate)
+            : _getMockRating(item.productCode ?? ''),
       );
     }).toList();
 
@@ -538,7 +549,7 @@ class ProductRepository {
         recommendedSkuCode: item.skuCode,
         name: item.productName ?? '',
         price: _parsePrice(item.targetSellPrice),
-        originalPrice: null,
+        originalPrice: _parsePrice(item.sellPrice),
         currency: item.targetSellCur ?? '',
         imageUrl: imageUrls.isNotEmpty ? imageUrls.first : '',
         images: imageUrls,
@@ -546,6 +557,8 @@ class ProductRepository {
         brandName: item.brandName,
         categoryId: (item.categoryId ?? '').toString(),
         tags: tagCodes.isEmpty ? null : tagCodes,
+        rating: _getMockRating(item.productCode ?? ''),
+        discount: item.marketingInfo,
       );
     }).toList();
 
@@ -648,6 +661,8 @@ class ProductRepository {
         sales: _parseInt(item.sellQuantity),
         tags: tagCodes.isEmpty ? null : tagCodes,
         stock: null,
+        rating: _getMockRating(item.productCode ?? ''),
+        discount: item.marketingInfo,
       );
     }).toList();
 
@@ -718,6 +733,7 @@ class ProductRepository {
         tags: tagCodes.isEmpty ? null : tagCodes,
         brandName: item.brandName?.toString(),
         categoryId: item.categoryId?.toInt().toString(),
+        rating: _getMockRating(item.productCode ?? ''),
       );
     }).toList();
 
@@ -815,6 +831,7 @@ class ProductRepository {
         sales: _parseInt(item.sellQuantity),
         tags: tagCodes.isEmpty ? null : tagCodes,
         categoryId: params.categoryId,
+        rating: _getMockRating(item.productCode ?? item.skuCode ?? ''),
       );
     }).toList();
 
@@ -897,6 +914,7 @@ class ProductRepository {
         sales: _parseInt(item.sellQuantity),
         tags: tagCodes.isEmpty ? null : tagCodes,
         categoryId: params.categoryId,
+        rating: _getMockRating(item.productCode ?? item.skuCode ?? ''),
       );
     }).toList();
 
@@ -1103,6 +1121,7 @@ class ProductRepository {
         brandName: item.brandName,
         categoryId: item.categoryId?.toInt().toString(),
         tags: tagCodes.isEmpty ? null : tagCodes,
+        rating: _getMockRating(item.productCode ?? ''),
       );
     }).toList();
 
@@ -1463,6 +1482,7 @@ class ProductRepository {
         images: imageUrl.isNotEmpty ? [imageUrl] : const [],
         sales: _parseInt(item.sellQuantity),
         tags: tagCodes.isEmpty ? null : tagCodes,
+        rating: _getMockRating(item.productCode ?? ''),
       );
     }).toList();
   }
@@ -1561,6 +1581,12 @@ double _parsePrice(Object? value) {
   }
   final parsed = double.tryParse(value.toString());
   return parsed ?? 0;
+}
+
+double _getMockRating(String id) {
+  // Deterministic rating between 4.1 and 5.0 based on id
+  final hash = id.hashCode.abs();
+  return 4.1 + (hash % 10) / 10.0;
 }
 
 double? _parseOptionalPrice(Object? value) {

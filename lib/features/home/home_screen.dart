@@ -125,7 +125,6 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final configAsync = ref.watch(homeConfigProvider);
     final topNavAsync = ref.watch(homeTopNavProvider);
     final albumAsync = ref.watch(homeAlbumProvider);
     final premiumDupeAsync = ref.watch(premiumDupeSelectionProvider);
@@ -377,28 +376,6 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     );
   }
 
-  Widget _buildBanners(
-    BuildContext context,
-    AsyncValue<Map<String, dynamic>> configAsync,
-  ) {
-    return SliverToBoxAdapter(
-      child: configAsync.when(
-        data: (config) {
-          final banners = config['banners'] as List?;
-          if (banners == null || banners.isEmpty) {
-            return const SizedBox.shrink();
-          }
-          return _BannerCarousel(banners: banners);
-        },
-        loading: () => const SizedBox(
-          height: 160,
-          child: Center(child: CircularProgressIndicator()),
-        ),
-        error: (_, _) => const SizedBox.shrink(),
-      ),
-    );
-  }
-
   Widget _buildHeroBanner(HomeTopNavItem activeItem) {
     final bgImage = activeItem.bgImage;
     if (bgImage == null || bgImage.url.isEmpty) {
@@ -541,7 +518,7 @@ class _HomeHeaderBar extends StatelessWidget {
             "Alvin's Club",
             type: ThemedTextType.title,
             style: TextStyle(
-              fontSize: 22,
+              fontSize: 20,
               height: 1.1,
               fontWeight: FontWeight.w600,
               fontFamily: 'serif',
