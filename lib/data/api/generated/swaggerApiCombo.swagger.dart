@@ -15,6 +15,7 @@ import 'package:http/http.dart' as http;
 import 'package:http/http.dart' show MultipartFile;
 import 'package:chopper/chopper.dart' as chopper;
 import 'swaggerApiCombo.metadata.swagger.dart';
+import 'package:w2capp/shared/utils/json_coerce.dart';
 
 part 'swaggerApiCombo.swagger.chopper.dart';
 part 'swaggerApiCombo.swagger.g.dart';
@@ -1085,17 +1086,17 @@ class ComboServiceNoAuthBizKolKolInfoGet$Response {
   Map<String, dynamic> toJson() =>
       _$ComboServiceNoAuthBizKolKolInfoGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final ComboServiceNoAuthBizKolKolInfoGet$Response$Data? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   static const fromJsonFactory =
       _$ComboServiceNoAuthBizKolKolInfoGet$ResponseFromJson;
@@ -1198,13 +1199,13 @@ class ComboServiceNoAuthPopupPromiseGet$Response {
   Map<String, dynamic> toJson() =>
       _$ComboServiceNoAuthPopupPromiseGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asString)
   final String? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final ComboServiceNoAuthPopupPromiseGet$Response$Data? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   static const fromJsonFactory =
       _$ComboServiceNoAuthPopupPromiseGet$ResponseFromJson;
@@ -1289,15 +1290,15 @@ class ComboServiceNoAuthCommonAppConfigVersionCheckGet$Response {
   Map<String, dynamic> toJson() =>
       _$ComboServiceNoAuthCommonAppConfigVersionCheckGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final ComboServiceNoAuthCommonAppConfigVersionCheckGet$Response$Data? data;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   static const fromJsonFactory =
       _$ComboServiceNoAuthCommonAppConfigVersionCheckGet$ResponseFromJson;
@@ -1391,13 +1392,13 @@ class ComboServiceBizCommunityPostUnlikePost$Response {
   Map<String, dynamic> toJson() =>
       _$ComboServiceBizCommunityPostUnlikePost$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
   final int? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
-  @JsonKey(name: 'data')
+  @JsonKey(name: 'data', fromJson: JsonCoerce.asBool)
   final bool? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   static const fromJsonFactory =
       _$ComboServiceBizCommunityPostUnlikePost$ResponseFromJson;
@@ -1480,13 +1481,13 @@ class ComboServiceBizCommunityPostLikedGet$Response {
   Map<String, dynamic> toJson() =>
       _$ComboServiceBizCommunityPostLikedGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
   final int? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final ComboServiceBizCommunityPostLikedGet$Response$Data? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   static const fromJsonFactory =
       _$ComboServiceBizCommunityPostLikedGet$ResponseFromJson;
@@ -1569,13 +1570,13 @@ class ComboServiceBizCommunityPostNoAuthListGet$Response {
   Map<String, dynamic> toJson() =>
       _$ComboServiceBizCommunityPostNoAuthListGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
   final int? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final ComboServiceBizCommunityPostNoAuthListGet$Response$Data? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   static const fromJsonFactory =
       _$ComboServiceBizCommunityPostNoAuthListGet$ResponseFromJson;
@@ -1658,13 +1659,13 @@ class ComboServiceBizCommunityPostLikePost$Response {
   Map<String, dynamic> toJson() =>
       _$ComboServiceBizCommunityPostLikePost$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
   final int? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
-  @JsonKey(name: 'data')
+  @JsonKey(name: 'data', fromJson: JsonCoerce.asBool)
   final bool? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   static const fromJsonFactory =
       _$ComboServiceBizCommunityPostLikePost$ResponseFromJson;
@@ -1749,17 +1750,17 @@ class ComboServiceNoAuthBizImageTransTranslatePost$Response {
   Map<String, dynamic> toJson() =>
       _$ComboServiceNoAuthBizImageTransTranslatePost$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
-  @JsonKey(name: 'data')
+  @JsonKey(name: 'data', fromJson: JsonCoerce.asString)
   final String? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   static const fromJsonFactory =
       _$ComboServiceNoAuthBizImageTransTranslatePost$ResponseFromJson;
@@ -1864,17 +1865,17 @@ class ComboServiceBizUserOrderPendingGet$Response {
   Map<String, dynamic> toJson() =>
       _$ComboServiceBizUserOrderPendingGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final ComboServiceBizUserOrderPendingGet$Response$Data? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   static const fromJsonFactory =
       _$ComboServiceBizUserOrderPendingGet$ResponseFromJson;
@@ -1978,13 +1979,13 @@ class ComboServiceApiV1StyleOutfitsGenerateModelPost$Response {
   Map<String, dynamic> toJson() =>
       _$ComboServiceApiV1StyleOutfitsGenerateModelPost$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   @JsonKey(name: 'data')
   final ComboServiceApiV1StyleOutfitsGenerateModelPost$Response$Data? data;
@@ -2082,9 +2083,9 @@ class ComboServiceBizAiFashionNoAuthBodyShapeGet$Response {
   Map<String, dynamic> toJson() =>
       _$ComboServiceBizAiFashionNoAuthBodyShapeGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'msg')
+  @JsonKey(name: 'msg', fromJson: JsonCoerce.asString)
   final String? msg;
   @JsonKey(name: 'data')
   final ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data? data;
@@ -2159,11 +2160,11 @@ class ComboServiceBizAiFashionModelSavePost$Response {
   Map<String, dynamic> toJson() =>
       _$ComboServiceBizAiFashionModelSavePost$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   @JsonKey(name: 'data')
   final ComboServiceBizAiFashionModelSavePost$Response$Data? data;
@@ -2253,17 +2254,17 @@ class ComboServiceApiV1StyleOutfitsResultPageGet$Response {
   Map<String, dynamic> toJson() =>
       _$ComboServiceApiV1StyleOutfitsResultPageGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   static const fromJsonFactory =
       _$ComboServiceApiV1StyleOutfitsResultPageGet$ResponseFromJson;
@@ -2367,13 +2368,13 @@ class ComboServiceBizAiFashionModelRecentlyUsedGet$Response {
   Map<String, dynamic> toJson() =>
       _$ComboServiceBizAiFashionModelRecentlyUsedGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   @JsonKey(name: 'data')
   final ComboServiceBizAiFashionModelRecentlyUsedGet$Response$Data? data;
@@ -2472,13 +2473,13 @@ class ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response {
   Map<String, dynamic> toJson() =>
       _$ComboServiceApiV1StyleOutfitsModelIdStatusGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   @JsonKey(name: 'data')
   final ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response$Data? data;
@@ -2577,13 +2578,13 @@ class ComboServiceApiV1StyleOutfitsResultGet$Response {
   Map<String, dynamic> toJson() =>
       _$ComboServiceApiV1StyleOutfitsResultGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   @JsonKey(name: 'data')
   final ComboServiceApiV1StyleOutfitsResultGet$Response$Data? data;
@@ -2680,9 +2681,9 @@ class ComboServiceBizAiFashionModelModelIdGet$Response {
   Map<String, dynamic> toJson() =>
       _$ComboServiceBizAiFashionModelModelIdGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final ComboServiceBizAiFashionModelModelIdGet$Response$Data? data;
@@ -2760,11 +2761,11 @@ class ComboServiceBizAiFashionModelListGet$Response {
   Map<String, dynamic> toJson() =>
       _$ComboServiceBizAiFashionModelListGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   @JsonKey(name: 'data')
   final ComboServiceBizAiFashionModelListGet$Response$Data? data;
@@ -2853,13 +2854,13 @@ class ComboServiceApiV1StyleOutfitsGeneratePost$Response {
   Map<String, dynamic> toJson() =>
       _$ComboServiceApiV1StyleOutfitsGeneratePost$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   @JsonKey(name: 'data')
   final ComboServiceApiV1StyleOutfitsGeneratePost$Response$Data? data;
@@ -2956,9 +2957,9 @@ class ComboServiceBizAiFashionNoAuthStylePresetGet$Response {
   Map<String, dynamic> toJson() =>
       _$ComboServiceBizAiFashionNoAuthStylePresetGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data? data;
@@ -3036,11 +3037,11 @@ class ComboServiceBizAiFashionNoAuthPostListGet$Response {
   Map<String, dynamic> toJson() =>
       _$ComboServiceBizAiFashionNoAuthPostListGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   @JsonKey(name: 'data')
   final ComboServiceBizAiFashionNoAuthPostListGet$Response$Data? data;
@@ -3129,15 +3130,15 @@ class ComboServiceBizAiFashionNoAuthPostDetailGet$Response {
   Map<String, dynamic> toJson() =>
       _$ComboServiceBizAiFashionNoAuthPostDetailGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data? data;
   @JsonKey(name: 'reasonCode')
   final Object? reasonCode;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   static const fromJsonFactory =
       _$ComboServiceBizAiFashionNoAuthPostDetailGet$ResponseFromJson;
@@ -3230,11 +3231,11 @@ class ComboServiceBizAiFashionNoAuthSelectOptionGet$Response {
   Map<String, dynamic> toJson() =>
       _$ComboServiceBizAiFashionNoAuthSelectOptionGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   @JsonKey(name: 'data')
   final ComboServiceBizAiFashionNoAuthSelectOptionGet$Response$Data? data;
@@ -3328,13 +3329,13 @@ class ComboServiceApiV1StyleOutfitsGenerateModelRegeneratePost$Response {
         this,
       );
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   @JsonKey(name: 'data')
   final ComboServiceApiV1StyleOutfitsGenerateModelRegeneratePost$Response$Data?
@@ -3443,13 +3444,13 @@ class ComboServiceApiV1StyleOutfitsGenerateRegeneratePost$Response {
         this,
       );
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   @JsonKey(name: 'data')
   final ComboServiceApiV1StyleOutfitsGenerateRegeneratePost$Response$Data? data;
@@ -3550,17 +3551,17 @@ class ComboServiceBizUserShareRewardPageGet$Response {
   Map<String, dynamic> toJson() =>
       _$ComboServiceBizUserShareRewardPageGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final ComboServiceBizUserShareRewardPageGet$Response$Data? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   static const fromJsonFactory =
       _$ComboServiceBizUserShareRewardPageGet$ResponseFromJson;
@@ -3665,17 +3666,17 @@ class ComboServiceBizUserShareRewardPost$Response {
   Map<String, dynamic> toJson() =>
       _$ComboServiceBizUserShareRewardPost$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
-  @JsonKey(name: 'data')
+  @JsonKey(name: 'data', fromJson: JsonCoerce.asString)
   final String? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   static const fromJsonFactory =
       _$ComboServiceBizUserShareRewardPost$ResponseFromJson;
@@ -3780,17 +3781,17 @@ class ComboServiceNoAuthBizAlbumAlbumInfoGet$Response {
   Map<String, dynamic> toJson() =>
       _$ComboServiceNoAuthBizAlbumAlbumInfoGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   static const fromJsonFactory =
       _$ComboServiceNoAuthBizAlbumAlbumInfoGet$ResponseFromJson;
@@ -3894,16 +3895,16 @@ class ComboServiceNoAuthBizKolKolInfoGet$Response$Data {
   Map<String, dynamic> toJson() =>
       _$ComboServiceNoAuthBizKolKolInfoGet$Response$DataToJson(this);
 
-  @JsonKey(name: 'inviteCode')
+  @JsonKey(name: 'inviteCode', fromJson: JsonCoerce.asString)
   final String? inviteCode;
-  @JsonKey(name: 'tenantCode')
+  @JsonKey(name: 'tenantCode', fromJson: JsonCoerce.asString)
   final String? tenantCode;
-  @JsonKey(name: 'shareLink')
+  @JsonKey(name: 'shareLink', fromJson: JsonCoerce.asString)
   final String? shareLink;
   @JsonKey(name: 'excelLinks')
   final List<ComboServiceNoAuthBizKolKolInfoGet$Response$Data$ExcelLinks$Item>?
   excelLinks;
-  @JsonKey(name: 'jumpTo')
+  @JsonKey(name: 'jumpTo', fromJson: JsonCoerce.asString)
   final String? jumpTo;
   static const fromJsonFactory =
       _$ComboServiceNoAuthBizKolKolInfoGet$Response$DataFromJson;
@@ -4066,11 +4067,11 @@ class ComboServiceNoAuthCommonAppConfigVersionCheckGet$Response$Data {
         this,
       );
 
-  @JsonKey(name: 'allowClose')
+  @JsonKey(name: 'allowClose', fromJson: JsonCoerce.asBool)
   final bool? allowClose;
-  @JsonKey(name: 'storeUrl')
+  @JsonKey(name: 'storeUrl', fromJson: JsonCoerce.asString)
   final String? storeUrl;
-  @JsonKey(name: 'haveUpdate')
+  @JsonKey(name: 'haveUpdate', fromJson: JsonCoerce.asBool)
   final bool? haveUpdate;
   static const fromJsonFactory =
       _$ComboServiceNoAuthCommonAppConfigVersionCheckGet$Response$DataFromJson;
@@ -4156,9 +4157,9 @@ class ComboServiceBizCommunityPostLikedGet$Response$Data {
   @JsonKey(name: 'posts')
   final List<ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item>?
   posts;
-  @JsonKey(name: 'nextCursor')
+  @JsonKey(name: 'nextCursor', fromJson: JsonCoerce.asString)
   final String? nextCursor;
-  @JsonKey(name: 'hasMore')
+  @JsonKey(name: 'hasMore', fromJson: JsonCoerce.asBool)
   final bool? hasMore;
   static const fromJsonFactory =
       _$ComboServiceBizCommunityPostLikedGet$Response$DataFromJson;
@@ -4241,9 +4242,9 @@ class ComboServiceBizCommunityPostNoAuthListGet$Response$Data {
     ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item
   >?
   posts;
-  @JsonKey(name: 'nextCursor')
+  @JsonKey(name: 'nextCursor', fromJson: JsonCoerce.asString)
   final String? nextCursor;
-  @JsonKey(name: 'hasMore')
+  @JsonKey(name: 'hasMore', fromJson: JsonCoerce.asBool)
   final bool? hasMore;
   static const fromJsonFactory =
       _$ComboServiceBizCommunityPostNoAuthListGet$Response$DataFromJson;
@@ -4324,15 +4325,15 @@ class ComboServiceBizUserOrderPendingGet$Response$Data {
   Map<String, dynamic> toJson() =>
       _$ComboServiceBizUserOrderPendingGet$Response$DataToJson(this);
 
-  @JsonKey(name: 'pendingOrderCount')
+  @JsonKey(name: 'pendingOrderCount', fromJson: JsonCoerce.asDouble)
   final double? pendingOrderCount;
-  @JsonKey(name: 'totalOrderCount')
+  @JsonKey(name: 'totalOrderCount', fromJson: JsonCoerce.asDouble)
   final double? totalOrderCount;
-  @JsonKey(name: 'pendingWarehouseItemCount')
+  @JsonKey(name: 'pendingWarehouseItemCount', fromJson: JsonCoerce.asDouble)
   final double? pendingWarehouseItemCount;
-  @JsonKey(name: 'pendingPackageCount')
+  @JsonKey(name: 'pendingPackageCount', fromJson: JsonCoerce.asDouble)
   final double? pendingPackageCount;
-  @JsonKey(name: 'totalPackageCount')
+  @JsonKey(name: 'totalPackageCount', fromJson: JsonCoerce.asDouble)
   final double? totalPackageCount;
   static const fromJsonFactory =
       _$ComboServiceBizUserOrderPendingGet$Response$DataFromJson;
@@ -4451,11 +4452,11 @@ class ComboServiceApiV1StyleOutfitsGenerateModelPost$Response$Data {
         this,
       );
 
-  @JsonKey(name: 'taskId')
+  @JsonKey(name: 'taskId', fromJson: JsonCoerce.asString)
   final String? taskId;
-  @JsonKey(name: 'status')
+  @JsonKey(name: 'status', fromJson: JsonCoerce.asString)
   final String? status;
-  @JsonKey(name: 'estimatedTime')
+  @JsonKey(name: 'estimatedTime', fromJson: JsonCoerce.asString)
   final String? estimatedTime;
   static const fromJsonFactory =
       _$ComboServiceApiV1StyleOutfitsGenerateModelPost$Response$DataFromJson;
@@ -4623,27 +4624,27 @@ class ComboServiceBizAiFashionModelSavePost$Response$Data {
   Map<String, dynamic> toJson() =>
       _$ComboServiceBizAiFashionModelSavePost$Response$DataToJson(this);
 
-  @JsonKey(name: 'id')
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asDouble)
   final double? id;
-  @JsonKey(name: 'tenantCode')
+  @JsonKey(name: 'tenantCode', fromJson: JsonCoerce.asString)
   final String? tenantCode;
-  @JsonKey(name: 'userId')
+  @JsonKey(name: 'userId', fromJson: JsonCoerce.asString)
   final String? userId;
-  @JsonKey(name: 'modelDesc')
+  @JsonKey(name: 'modelDesc', fromJson: JsonCoerce.asString)
   final String? modelDesc;
-  @JsonKey(name: 'modelId')
+  @JsonKey(name: 'modelId', fromJson: JsonCoerce.asString)
   final String? modelId;
-  @JsonKey(name: 'modelImage')
+  @JsonKey(name: 'modelImage', fromJson: JsonCoerce.asString)
   final String? modelImage;
   @JsonKey(name: 'ext')
   final Object? ext;
-  @JsonKey(name: 'isDeleted')
+  @JsonKey(name: 'isDeleted', fromJson: JsonCoerce.asDouble)
   final double? isDeleted;
-  @JsonKey(name: 'gmtCreate')
+  @JsonKey(name: 'gmtCreate', fromJson: JsonCoerce.asString)
   final String? gmtCreate;
-  @JsonKey(name: 'gmtUpdate')
+  @JsonKey(name: 'gmtUpdate', fromJson: JsonCoerce.asString)
   final String? gmtUpdate;
-  @JsonKey(name: 'groupId')
+  @JsonKey(name: 'groupId', fromJson: JsonCoerce.asDouble)
   final double? groupId;
   static const fromJsonFactory =
       _$ComboServiceBizAiFashionModelSavePost$Response$DataFromJson;
@@ -4799,13 +4800,13 @@ class ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data {
     ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item
   >?
   records;
-  @JsonKey(name: 'total')
+  @JsonKey(name: 'total', fromJson: JsonCoerce.asDouble)
   final double? total;
-  @JsonKey(name: 'size')
+  @JsonKey(name: 'size', fromJson: JsonCoerce.asDouble)
   final double? size;
-  @JsonKey(name: 'current')
+  @JsonKey(name: 'current', fromJson: JsonCoerce.asDouble)
   final double? current;
-  @JsonKey(name: 'pages')
+  @JsonKey(name: 'pages', fromJson: JsonCoerce.asDouble)
   final double? pages;
   static const fromJsonFactory =
       _$ComboServiceApiV1StyleOutfitsResultPageGet$Response$DataFromJson;
@@ -4914,29 +4915,29 @@ class ComboServiceBizAiFashionModelRecentlyUsedGet$Response$Data {
   Map<String, dynamic> toJson() =>
       _$ComboServiceBizAiFashionModelRecentlyUsedGet$Response$DataToJson(this);
 
-  @JsonKey(name: 'id')
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asDouble)
   final double? id;
-  @JsonKey(name: 'tenantCode')
+  @JsonKey(name: 'tenantCode', fromJson: JsonCoerce.asString)
   final String? tenantCode;
-  @JsonKey(name: 'userId')
+  @JsonKey(name: 'userId', fromJson: JsonCoerce.asString)
   final String? userId;
-  @JsonKey(name: 'modelDesc')
+  @JsonKey(name: 'modelDesc', fromJson: JsonCoerce.asString)
   final String? modelDesc;
-  @JsonKey(name: 'modelId')
+  @JsonKey(name: 'modelId', fromJson: JsonCoerce.asString)
   final String? modelId;
-  @JsonKey(name: 'modelImage')
+  @JsonKey(name: 'modelImage', fromJson: JsonCoerce.asString)
   final String? modelImage;
-  @JsonKey(name: 'modelHeaderImage')
+  @JsonKey(name: 'modelHeaderImage', fromJson: JsonCoerce.asString)
   final String? modelHeaderImage;
   @JsonKey(name: 'ext')
   final Object? ext;
-  @JsonKey(name: 'isDeleted')
+  @JsonKey(name: 'isDeleted', fromJson: JsonCoerce.asDouble)
   final double? isDeleted;
-  @JsonKey(name: 'gmtCreate')
+  @JsonKey(name: 'gmtCreate', fromJson: JsonCoerce.asString)
   final String? gmtCreate;
-  @JsonKey(name: 'gmtUpdate')
+  @JsonKey(name: 'gmtUpdate', fromJson: JsonCoerce.asString)
   final String? gmtUpdate;
-  @JsonKey(name: 'groupId')
+  @JsonKey(name: 'groupId', fromJson: JsonCoerce.asDouble)
   final double? groupId;
   static const fromJsonFactory =
       _$ComboServiceBizAiFashionModelRecentlyUsedGet$Response$DataFromJson;
@@ -5108,25 +5109,25 @@ class ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response$Data {
   Map<String, dynamic> toJson() =>
       _$ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response$DataToJson(this);
 
-  @JsonKey(name: 'taskId')
+  @JsonKey(name: 'taskId', fromJson: JsonCoerce.asString)
   final String? taskId;
-  @JsonKey(name: 'status')
+  @JsonKey(name: 'status', fromJson: JsonCoerce.asString)
   final String? status;
-  @JsonKey(name: 'totalCount')
+  @JsonKey(name: 'totalCount', fromJson: JsonCoerce.asDouble)
   final double? totalCount;
-  @JsonKey(name: 'completedCount')
+  @JsonKey(name: 'completedCount', fromJson: JsonCoerce.asDouble)
   final double? completedCount;
-  @JsonKey(name: 'selectedIndex')
+  @JsonKey(name: 'selectedIndex', fromJson: JsonCoerce.asDouble)
   final double? selectedIndex;
-  @JsonKey(name: 'originalImageUrl')
+  @JsonKey(name: 'originalImageUrl', fromJson: JsonCoerce.asString)
   final String? originalImageUrl;
-  @JsonKey(name: 'gender')
+  @JsonKey(name: 'gender', fromJson: JsonCoerce.asDouble)
   final double? gender;
-  @JsonKey(name: 'isDefault')
+  @JsonKey(name: 'isDefault', fromJson: JsonCoerce.asBool)
   final bool? isDefault;
-  @JsonKey(name: 'usageCount')
+  @JsonKey(name: 'usageCount', fromJson: JsonCoerce.asDouble)
   final double? usageCount;
-  @JsonKey(name: 'createdAt')
+  @JsonKey(name: 'createdAt', fromJson: JsonCoerce.asString)
   final String? createdAt;
   @JsonKey(name: 'error')
   final Object? error;
@@ -5322,39 +5323,43 @@ class ComboServiceApiV1StyleOutfitsResultGet$Response$Data {
   Map<String, dynamic> toJson() =>
       _$ComboServiceApiV1StyleOutfitsResultGet$Response$DataToJson(this);
 
-  @JsonKey(name: 'taskId')
+  @JsonKey(name: 'taskId', fromJson: JsonCoerce.asString)
   final String? taskId;
-  @JsonKey(name: 'status')
+  @JsonKey(name: 'status', fromJson: JsonCoerce.asString)
   final String? status;
-  @JsonKey(name: 'count')
+  @JsonKey(name: 'count', fromJson: JsonCoerce.asDouble)
   final double? count;
-  @JsonKey(name: 'createdAt')
+  @JsonKey(name: 'createdAt', fromJson: JsonCoerce.asDouble)
   final double? createdAt;
-  @JsonKey(name: 'completedAt')
+  @JsonKey(name: 'completedAt', fromJson: JsonCoerce.asDouble)
   final double? completedAt;
-  @JsonKey(name: 'totalDuration')
+  @JsonKey(name: 'totalDuration', fromJson: JsonCoerce.asDouble)
   final double? totalDuration;
   @JsonKey(name: 'requestParams')
   final ComboServiceApiV1StyleOutfitsResultGet$Response$Data$RequestParams?
   requestParams;
-  @JsonKey(name: 'images', defaultValue: <String>[])
+  @JsonKey(
+    name: 'images',
+    fromJson: JsonCoerce.asStringList,
+    defaultValue: <String>[],
+  )
   final List<String>? images;
-  @JsonKey(name: 'aiSuggestionImage')
+  @JsonKey(name: 'aiSuggestionImage', fromJson: JsonCoerce.asString)
   final String? aiSuggestionImage;
-  @JsonKey(name: 'userModelImage')
+  @JsonKey(name: 'userModelImage', fromJson: JsonCoerce.asString)
   final String? userModelImage;
-  @JsonKey(name: 'regeneratedModelImage')
+  @JsonKey(name: 'regeneratedModelImage', fromJson: JsonCoerce.asString)
   final String? regeneratedModelImage;
-  @JsonKey(name: 'flattenedItemsImage')
+  @JsonKey(name: 'flattenedItemsImage', fromJson: JsonCoerce.asString)
   final String? flattenedItemsImage;
-  @JsonKey(name: 'finalOutfitImage')
+  @JsonKey(name: 'finalOutfitImage', fromJson: JsonCoerce.asString)
   final String? finalOutfitImage;
   @JsonKey(name: 'productLinks')
   final List<
     ComboServiceApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item
   >?
   productLinks;
-  @JsonKey(name: 'generationTime')
+  @JsonKey(name: 'generationTime', fromJson: JsonCoerce.asString)
   final String? generationTime;
   @JsonKey(name: 'sharingImages')
   final ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages?
@@ -5621,29 +5626,29 @@ class ComboServiceBizAiFashionModelModelIdGet$Response$Data {
   Map<String, dynamic> toJson() =>
       _$ComboServiceBizAiFashionModelModelIdGet$Response$DataToJson(this);
 
-  @JsonKey(name: 'id')
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asDouble)
   final double? id;
-  @JsonKey(name: 'tenantCode')
+  @JsonKey(name: 'tenantCode', fromJson: JsonCoerce.asString)
   final String? tenantCode;
-  @JsonKey(name: 'userId')
+  @JsonKey(name: 'userId', fromJson: JsonCoerce.asString)
   final String? userId;
-  @JsonKey(name: 'modelDesc')
+  @JsonKey(name: 'modelDesc', fromJson: JsonCoerce.asString)
   final String? modelDesc;
-  @JsonKey(name: 'modelId')
+  @JsonKey(name: 'modelId', fromJson: JsonCoerce.asString)
   final String? modelId;
-  @JsonKey(name: 'modelImage')
+  @JsonKey(name: 'modelImage', fromJson: JsonCoerce.asString)
   final String? modelImage;
-  @JsonKey(name: 'modelHeaderImage')
+  @JsonKey(name: 'modelHeaderImage', fromJson: JsonCoerce.asString)
   final String? modelHeaderImage;
-  @JsonKey(name: 'ext')
+  @JsonKey(name: 'ext', fromJson: JsonCoerce.asString)
   final String? ext;
-  @JsonKey(name: 'isDeleted')
+  @JsonKey(name: 'isDeleted', fromJson: JsonCoerce.asDouble)
   final double? isDeleted;
-  @JsonKey(name: 'gmtCreate')
+  @JsonKey(name: 'gmtCreate', fromJson: JsonCoerce.asString)
   final String? gmtCreate;
-  @JsonKey(name: 'gmtUpdate')
+  @JsonKey(name: 'gmtUpdate', fromJson: JsonCoerce.asString)
   final String? gmtUpdate;
-  @JsonKey(name: 'groupId')
+  @JsonKey(name: 'groupId', fromJson: JsonCoerce.asDouble)
   final double? groupId;
   static const fromJsonFactory =
       _$ComboServiceBizAiFashionModelModelIdGet$Response$DataFromJson;
@@ -5806,7 +5811,7 @@ class ComboServiceBizAiFashionModelListGet$Response$Data {
   @JsonKey(name: 'models')
   final List<ComboServiceBizAiFashionModelListGet$Response$Data$Models$Item>?
   models;
-  @JsonKey(name: 'fstModel')
+  @JsonKey(name: 'fstModel', fromJson: JsonCoerce.asBool)
   final bool? fstModel;
   static const fromJsonFactory =
       _$ComboServiceBizAiFashionModelListGet$Response$DataFromJson;
@@ -5880,15 +5885,15 @@ class ComboServiceApiV1StyleOutfitsGeneratePost$Response$Data {
   Map<String, dynamic> toJson() =>
       _$ComboServiceApiV1StyleOutfitsGeneratePost$Response$DataToJson(this);
 
-  @JsonKey(name: 'taskId')
+  @JsonKey(name: 'taskId', fromJson: JsonCoerce.asString)
   final String? taskId;
-  @JsonKey(name: 'status')
+  @JsonKey(name: 'status', fromJson: JsonCoerce.asString)
   final String? status;
-  @JsonKey(name: 'count')
+  @JsonKey(name: 'count', fromJson: JsonCoerce.asDouble)
   final double? count;
-  @JsonKey(name: 'estimatedTime')
+  @JsonKey(name: 'estimatedTime', fromJson: JsonCoerce.asString)
   final String? estimatedTime;
-  @JsonKey(name: 'createdAt')
+  @JsonKey(name: 'createdAt', fromJson: JsonCoerce.asDouble)
   final double? createdAt;
   static const fromJsonFactory =
       _$ComboServiceApiV1StyleOutfitsGeneratePost$Response$DataFromJson;
@@ -5994,12 +5999,12 @@ class ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data {
   @JsonKey(name: 'option')
   final ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$Option?
   option;
-  @JsonKey(name: 'prompt')
+  @JsonKey(name: 'prompt', fromJson: JsonCoerce.asString)
   final String? prompt;
   @JsonKey(name: 'modelInfo')
   final ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$ModelInfo?
   modelInfo;
-  @JsonKey(name: 'templateId')
+  @JsonKey(name: 'templateId', fromJson: JsonCoerce.asInt)
   final int? templateId;
   static const fromJsonFactory =
       _$ComboServiceBizAiFashionNoAuthStylePresetGet$Response$DataFromJson;
@@ -6114,9 +6119,9 @@ class ComboServiceBizAiFashionNoAuthPostListGet$Response$Data {
     ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item
   >?
   posts;
-  @JsonKey(name: 'nextCursor')
+  @JsonKey(name: 'nextCursor', fromJson: JsonCoerce.asString)
   final String? nextCursor;
-  @JsonKey(name: 'hasMore')
+  @JsonKey(name: 'hasMore', fromJson: JsonCoerce.asBool)
   final bool? hasMore;
   static const fromJsonFactory =
       _$ComboServiceBizAiFashionNoAuthPostListGet$Response$DataFromJson;
@@ -6203,9 +6208,9 @@ class ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data {
   Map<String, dynamic> toJson() =>
       _$ComboServiceBizAiFashionNoAuthPostDetailGet$Response$DataToJson(this);
 
-  @JsonKey(name: 'postId')
+  @JsonKey(name: 'postId', fromJson: JsonCoerce.asDouble)
   final double? postId;
-  @JsonKey(name: 'postTitle')
+  @JsonKey(name: 'postTitle', fromJson: JsonCoerce.asString)
   final String? postTitle;
   @JsonKey(name: 'frontImage')
   final ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FrontImage?
@@ -6226,12 +6231,12 @@ class ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data {
     ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FooterImages$Item
   >?
   footerImages;
-  @JsonKey(name: 'prompt')
+  @JsonKey(name: 'prompt', fromJson: JsonCoerce.asString)
   final String? prompt;
   @JsonKey(name: 'option')
   final ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$Option?
   option;
-  @JsonKey(name: 'templateId')
+  @JsonKey(name: 'templateId', fromJson: JsonCoerce.asDouble)
   final double? templateId;
   static const fromJsonFactory =
       _$ComboServiceBizAiFashionNoAuthPostDetailGet$Response$DataFromJson;
@@ -6476,9 +6481,9 @@ class ComboServiceApiV1StyleOutfitsGenerateModelRegeneratePost$Response$Data {
         this,
       );
 
-  @JsonKey(name: 'modelId')
+  @JsonKey(name: 'modelId', fromJson: JsonCoerce.asString)
   final String? modelId;
-  @JsonKey(name: 'status')
+  @JsonKey(name: 'status', fromJson: JsonCoerce.asString)
   final String? status;
   static const fromJsonFactory =
       _$ComboServiceApiV1StyleOutfitsGenerateModelRegeneratePost$Response$DataFromJson;
@@ -6547,9 +6552,9 @@ class ComboServiceApiV1StyleOutfitsGenerateRegeneratePost$Response$Data {
         this,
       );
 
-  @JsonKey(name: 'taskId')
+  @JsonKey(name: 'taskId', fromJson: JsonCoerce.asString)
   final String? taskId;
-  @JsonKey(name: 'status')
+  @JsonKey(name: 'status', fromJson: JsonCoerce.asString)
   final String? status;
   static const fromJsonFactory =
       _$ComboServiceApiV1StyleOutfitsGenerateRegeneratePost$Response$DataFromJson;
@@ -6617,13 +6622,13 @@ class ComboServiceBizUserShareRewardPageGet$Response$Data {
   @JsonKey(name: 'records')
   final List<ComboServiceBizUserShareRewardPageGet$Response$Data$Records$Item>?
   records;
-  @JsonKey(name: 'total')
+  @JsonKey(name: 'total', fromJson: JsonCoerce.asDouble)
   final double? total;
-  @JsonKey(name: 'size')
+  @JsonKey(name: 'size', fromJson: JsonCoerce.asDouble)
   final double? size;
-  @JsonKey(name: 'current')
+  @JsonKey(name: 'current', fromJson: JsonCoerce.asDouble)
   final double? current;
-  @JsonKey(name: 'pages')
+  @JsonKey(name: 'pages', fromJson: JsonCoerce.asDouble)
   final double? pages;
   static const fromJsonFactory =
       _$ComboServiceBizUserShareRewardPageGet$Response$DataFromJson;
@@ -6724,17 +6729,17 @@ class ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data {
   Map<String, dynamic> toJson() =>
       _$ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$DataToJson(this);
 
-  @JsonKey(name: 'albumCode')
+  @JsonKey(name: 'albumCode', fromJson: JsonCoerce.asString)
   final String? albumCode;
-  @JsonKey(name: 'tenantCode')
+  @JsonKey(name: 'tenantCode', fromJson: JsonCoerce.asString)
   final String? tenantCode;
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
-  @JsonKey(name: 'description')
+  @JsonKey(name: 'description', fromJson: JsonCoerce.asString)
   final String? description;
-  @JsonKey(name: 'backImg')
+  @JsonKey(name: 'backImg', fromJson: JsonCoerce.asString)
   final String? backImg;
-  @JsonKey(name: 'pcImg')
+  @JsonKey(name: 'pcImg', fromJson: JsonCoerce.asString)
   final String? pcImg;
   @JsonKey(name: 'related')
   final List<ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$Related$Item>?
@@ -6880,11 +6885,11 @@ class ComboServiceNoAuthBizKolKolInfoGet$Response$Data$ExcelLinks$Item {
         this,
       );
 
-  @JsonKey(name: 'title')
+  @JsonKey(name: 'title', fromJson: JsonCoerce.asString)
   final String? title;
-  @JsonKey(name: 'excelLink')
+  @JsonKey(name: 'excelLink', fromJson: JsonCoerce.asString)
   final String? excelLink;
-  @JsonKey(name: 'desc')
+  @JsonKey(name: 'desc', fromJson: JsonCoerce.asString)
   final String? desc;
   static const fromJsonFactory =
       _$ComboServiceNoAuthBizKolKolInfoGet$Response$Data$ExcelLinks$ItemFromJson;
@@ -6967,17 +6972,17 @@ class ComboServiceNoAuthPopupPromiseGet$Response$Data$Content$Item {
         this,
       );
 
-  @JsonKey(name: 'title')
+  @JsonKey(name: 'title', fromJson: JsonCoerce.asString)
   final String? title;
-  @JsonKey(name: 'icon')
+  @JsonKey(name: 'icon', fromJson: JsonCoerce.asString)
   final String? icon;
   @JsonKey(name: 'paragraphs', defaultValue: <Object>[])
   final List<Object>? paragraphs;
   @JsonKey(name: 'images', defaultValue: <Object>[])
   final List<Object>? images;
-  @JsonKey(name: 'schema')
+  @JsonKey(name: 'schema', fromJson: JsonCoerce.asString)
   final String? schema;
-  @JsonKey(name: 'schemaText')
+  @JsonKey(name: 'schemaText', fromJson: JsonCoerce.asString)
   final String? schemaText;
   static const fromJsonFactory =
       _$ComboServiceNoAuthPopupPromiseGet$Response$Data$Content$ItemFromJson;
@@ -7091,19 +7096,19 @@ class ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item {
         this,
       );
 
-  @JsonKey(name: 'postId')
+  @JsonKey(name: 'postId', fromJson: JsonCoerce.asInt)
   final int? postId;
-  @JsonKey(name: 'postCode')
+  @JsonKey(name: 'postCode', fromJson: JsonCoerce.asString)
   final String? postCode;
-  @JsonKey(name: 'tenantCode')
+  @JsonKey(name: 'tenantCode', fromJson: JsonCoerce.asString)
   final String? tenantCode;
-  @JsonKey(name: 'posterUserId')
+  @JsonKey(name: 'posterUserId', fromJson: JsonCoerce.asString)
   final String? posterUserId;
-  @JsonKey(name: 'title')
+  @JsonKey(name: 'title', fromJson: JsonCoerce.asString)
   final String? title;
-  @JsonKey(name: 'description')
+  @JsonKey(name: 'description', fromJson: JsonCoerce.asString)
   final String? description;
-  @JsonKey(name: 'translatedDescription')
+  @JsonKey(name: 'translatedDescription', fromJson: JsonCoerce.asString)
   final String? translatedDescription;
   @JsonKey(name: 'postImages', defaultValue: <Object>[])
   final List<Object>? postImages;
@@ -7114,11 +7119,11 @@ class ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item {
     ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item
   >?
   products;
-  @JsonKey(name: 'likeCount')
+  @JsonKey(name: 'likeCount', fromJson: JsonCoerce.asInt)
   final int? likeCount;
-  @JsonKey(name: 'liked')
+  @JsonKey(name: 'liked', fromJson: JsonCoerce.asBool)
   final bool? liked;
-  @JsonKey(name: 'publishTime')
+  @JsonKey(name: 'publishTime', fromJson: JsonCoerce.asDateTime)
   final DateTime? publishTime;
   static const fromJsonFactory =
       _$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$ItemFromJson;
@@ -7322,19 +7327,19 @@ class ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item {
         this,
       );
 
-  @JsonKey(name: 'postId')
+  @JsonKey(name: 'postId', fromJson: JsonCoerce.asInt)
   final int? postId;
-  @JsonKey(name: 'postCode')
+  @JsonKey(name: 'postCode', fromJson: JsonCoerce.asString)
   final String? postCode;
-  @JsonKey(name: 'tenantCode')
+  @JsonKey(name: 'tenantCode', fromJson: JsonCoerce.asString)
   final String? tenantCode;
-  @JsonKey(name: 'posterUserId')
+  @JsonKey(name: 'posterUserId', fromJson: JsonCoerce.asString)
   final String? posterUserId;
-  @JsonKey(name: 'title')
+  @JsonKey(name: 'title', fromJson: JsonCoerce.asString)
   final String? title;
-  @JsonKey(name: 'description')
+  @JsonKey(name: 'description', fromJson: JsonCoerce.asString)
   final String? description;
-  @JsonKey(name: 'translatedDescription')
+  @JsonKey(name: 'translatedDescription', fromJson: JsonCoerce.asString)
   final String? translatedDescription;
   @JsonKey(name: 'postImages', defaultValue: <Object>[])
   final List<Object>? postImages;
@@ -7345,11 +7350,11 @@ class ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item {
     ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item
   >?
   products;
-  @JsonKey(name: 'likeCount')
+  @JsonKey(name: 'likeCount', fromJson: JsonCoerce.asInt)
   final int? likeCount;
-  @JsonKey(name: 'liked')
+  @JsonKey(name: 'liked', fromJson: JsonCoerce.asBool)
   final bool? liked;
-  @JsonKey(name: 'publishTime')
+  @JsonKey(name: 'publishTime', fromJson: JsonCoerce.asDateTime)
   final DateTime? publishTime;
   static const fromJsonFactory =
       _$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$ItemFromJson;
@@ -7548,21 +7553,21 @@ class ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data$Female$Item {
         this,
       );
 
-  @JsonKey(name: 'age')
+  @JsonKey(name: 'age', fromJson: JsonCoerce.asString)
   final String? age;
-  @JsonKey(name: 'glass')
+  @JsonKey(name: 'glass', fromJson: JsonCoerce.asString)
   final String? glass;
-  @JsonKey(name: 'body')
+  @JsonKey(name: 'body', fromJson: JsonCoerce.asString)
   final String? body;
-  @JsonKey(name: 'style')
+  @JsonKey(name: 'style', fromJson: JsonCoerce.asString)
   final String? style;
-  @JsonKey(name: 'race')
+  @JsonKey(name: 'race', fromJson: JsonCoerce.asString)
   final String? race;
-  @JsonKey(name: 'gender')
+  @JsonKey(name: 'gender', fromJson: JsonCoerce.asString)
   final String? gender;
-  @JsonKey(name: 'sort')
+  @JsonKey(name: 'sort', fromJson: JsonCoerce.asString)
   final String? sort;
-  @JsonKey(name: 'image')
+  @JsonKey(name: 'image', fromJson: JsonCoerce.asString)
   final String? image;
   static const fromJsonFactory =
       _$ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data$Female$ItemFromJson;
@@ -7681,21 +7686,21 @@ class ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data$Male$Item {
         this,
       );
 
-  @JsonKey(name: 'age')
+  @JsonKey(name: 'age', fromJson: JsonCoerce.asString)
   final String? age;
-  @JsonKey(name: 'glass')
+  @JsonKey(name: 'glass', fromJson: JsonCoerce.asString)
   final String? glass;
-  @JsonKey(name: 'body')
+  @JsonKey(name: 'body', fromJson: JsonCoerce.asString)
   final String? body;
-  @JsonKey(name: 'style')
+  @JsonKey(name: 'style', fromJson: JsonCoerce.asString)
   final String? style;
-  @JsonKey(name: 'race')
+  @JsonKey(name: 'race', fromJson: JsonCoerce.asString)
   final String? race;
-  @JsonKey(name: 'gender')
+  @JsonKey(name: 'gender', fromJson: JsonCoerce.asString)
   final String? gender;
-  @JsonKey(name: 'sort')
+  @JsonKey(name: 'sort', fromJson: JsonCoerce.asString)
   final String? sort;
-  @JsonKey(name: 'image')
+  @JsonKey(name: 'image', fromJson: JsonCoerce.asString)
   final String? image;
   static const fromJsonFactory =
       _$ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data$Male$ItemFromJson;
@@ -7822,39 +7827,39 @@ class ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item {
         this,
       );
 
-  @JsonKey(name: 'taskId')
+  @JsonKey(name: 'taskId', fromJson: JsonCoerce.asString)
   final String? taskId;
-  @JsonKey(name: 'status')
+  @JsonKey(name: 'status', fromJson: JsonCoerce.asString)
   final String? status;
-  @JsonKey(name: 'count')
+  @JsonKey(name: 'count', fromJson: JsonCoerce.asDouble)
   final double? count;
-  @JsonKey(name: 'createdAt')
+  @JsonKey(name: 'createdAt', fromJson: JsonCoerce.asDouble)
   final double? createdAt;
-  @JsonKey(name: 'completedAt')
+  @JsonKey(name: 'completedAt', fromJson: JsonCoerce.asDouble)
   final double? completedAt;
-  @JsonKey(name: 'totalDuration')
+  @JsonKey(name: 'totalDuration', fromJson: JsonCoerce.asDouble)
   final double? totalDuration;
   @JsonKey(name: 'requestParams')
   final ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$RequestParams?
   requestParams;
   @JsonKey(name: 'images', defaultValue: <Object>[])
   final List<Object>? images;
-  @JsonKey(name: 'aiSuggestionImage')
+  @JsonKey(name: 'aiSuggestionImage', fromJson: JsonCoerce.asString)
   final String? aiSuggestionImage;
-  @JsonKey(name: 'userModelImage')
+  @JsonKey(name: 'userModelImage', fromJson: JsonCoerce.asString)
   final String? userModelImage;
-  @JsonKey(name: 'regeneratedModelImage')
+  @JsonKey(name: 'regeneratedModelImage', fromJson: JsonCoerce.asString)
   final String? regeneratedModelImage;
-  @JsonKey(name: 'flattenedItemsImage')
+  @JsonKey(name: 'flattenedItemsImage', fromJson: JsonCoerce.asString)
   final String? flattenedItemsImage;
-  @JsonKey(name: 'finalOutfitImage')
+  @JsonKey(name: 'finalOutfitImage', fromJson: JsonCoerce.asString)
   final String? finalOutfitImage;
   @JsonKey(name: 'productLinks')
   final List<
     ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item
   >?
   productLinks;
-  @JsonKey(name: 'generationTime')
+  @JsonKey(name: 'generationTime', fromJson: JsonCoerce.asString)
   final String? generationTime;
   @JsonKey(name: 'sharingImages')
   final ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages?
@@ -8119,9 +8124,9 @@ class ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response$Data$GeneratedModel
         this,
       );
 
-  @JsonKey(name: 'index')
+  @JsonKey(name: 'index', fromJson: JsonCoerce.asDouble)
   final double? index;
-  @JsonKey(name: 'url')
+  @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory =
       _$ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response$Data$GeneratedModels$ItemFromJson;
@@ -8199,31 +8204,35 @@ class ComboServiceApiV1StyleOutfitsResultGet$Response$Data$RequestParams {
         this,
       );
 
-  @JsonKey(name: 'referenceImages', defaultValue: <String>[])
+  @JsonKey(
+    name: 'referenceImages',
+    fromJson: JsonCoerce.asStringList,
+    defaultValue: <String>[],
+  )
   final List<String>? referenceImages;
-  @JsonKey(name: 'customPrompt')
+  @JsonKey(name: 'customPrompt', fromJson: JsonCoerce.asString)
   final String? customPrompt;
-  @JsonKey(name: 'gender')
+  @JsonKey(name: 'gender', fromJson: JsonCoerce.asDouble)
   final double? gender;
-  @JsonKey(name: 'age')
+  @JsonKey(name: 'age', fromJson: JsonCoerce.asString)
   final String? age;
-  @JsonKey(name: 'physicalAppearance')
+  @JsonKey(name: 'physicalAppearance', fromJson: JsonCoerce.asString)
   final String? physicalAppearance;
-  @JsonKey(name: 'styleTrendyElements')
+  @JsonKey(name: 'styleTrendyElements', fromJson: JsonCoerce.asString)
   final String? styleTrendyElements;
-  @JsonKey(name: 'brand')
+  @JsonKey(name: 'brand', fromJson: JsonCoerce.asString)
   final String? brand;
-  @JsonKey(name: 'budget')
+  @JsonKey(name: 'budget', fromJson: JsonCoerce.asString)
   final String? budget;
-  @JsonKey(name: 'customModelId')
+  @JsonKey(name: 'customModelId', fromJson: JsonCoerce.asString)
   final String? customModelId;
-  @JsonKey(name: 'modelImageUrl')
+  @JsonKey(name: 'modelImageUrl', fromJson: JsonCoerce.asString)
   final String? modelImageUrl;
-  @JsonKey(name: 'referenceMode')
+  @JsonKey(name: 'referenceMode', fromJson: JsonCoerce.asString)
   final String? referenceMode;
-  @JsonKey(name: 'occasion')
+  @JsonKey(name: 'occasion', fromJson: JsonCoerce.asString)
   final String? occasion;
-  @JsonKey(name: 'useMultiModelImage')
+  @JsonKey(name: 'useMultiModelImage', fromJson: JsonCoerce.asBool)
   final bool? useMultiModelImage;
   static const fromJsonFactory =
       _$ComboServiceApiV1StyleOutfitsResultGet$Response$Data$RequestParamsFromJson;
@@ -8426,36 +8435,36 @@ class ComboServiceApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item {
         this,
       );
 
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
-  @JsonKey(name: 'title')
+  @JsonKey(name: 'title', fromJson: JsonCoerce.asString)
   final String? title;
-  @JsonKey(name: 'link')
+  @JsonKey(name: 'link', fromJson: JsonCoerce.asString)
   final String? link;
-  @JsonKey(name: 'source')
+  @JsonKey(name: 'source', fromJson: JsonCoerce.asString)
   final String? source;
-  @JsonKey(name: 'price')
+  @JsonKey(name: 'price', fromJson: JsonCoerce.asString)
   final String? price;
-  @JsonKey(name: 'image')
+  @JsonKey(name: 'image', fromJson: JsonCoerce.asString)
   final String? image;
-  @JsonKey(name: 'fallback')
+  @JsonKey(name: 'fallback', fromJson: JsonCoerce.asBool)
   final bool? fallback;
-  @JsonKey(name: 'pending')
+  @JsonKey(name: 'pending', fromJson: JsonCoerce.asString)
   final String? pending;
-  @JsonKey(name: 'selectedId')
+  @JsonKey(name: 'selectedId', fromJson: JsonCoerce.asDouble)
   final double? selectedId;
   @JsonKey(name: 'options')
   final List<
     ComboServiceApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item$Options$Item
   >?
   options;
-  @JsonKey(name: 'cachedImage')
+  @JsonKey(name: 'cachedImage', fromJson: JsonCoerce.asString)
   final String? cachedImage;
-  @JsonKey(name: 'cachedImageMime')
+  @JsonKey(name: 'cachedImageMime', fromJson: JsonCoerce.asString)
   final String? cachedImageMime;
-  @JsonKey(name: 'cachedImageSelectedId')
+  @JsonKey(name: 'cachedImageSelectedId', fromJson: JsonCoerce.asDouble)
   final double? cachedImageSelectedId;
-  @JsonKey(name: 'cachedImageUpdatedAt')
+  @JsonKey(name: 'cachedImageUpdatedAt', fromJson: JsonCoerce.asDouble)
   final double? cachedImageUpdatedAt;
   static const fromJsonFactory =
       _$ComboServiceApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$ItemFromJson;
@@ -8654,18 +8663,22 @@ class ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages {
         this,
       );
 
-  @JsonKey(name: 'title')
+  @JsonKey(name: 'title', fromJson: JsonCoerce.asString)
   final String? title;
   @JsonKey(name: 'items')
   final List<
     ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item
   >?
   items;
-  @JsonKey(name: 'generated_at')
+  @JsonKey(name: 'generated_at', fromJson: JsonCoerce.asDouble)
   final double? generatedAt;
-  @JsonKey(name: 'multi_model_image_url')
+  @JsonKey(name: 'multi_model_image_url', fromJson: JsonCoerce.asString)
   final String? multiModelImageUrl;
-  @JsonKey(name: 'white_bg_images', defaultValue: <String>[])
+  @JsonKey(
+    name: 'white_bg_images',
+    fromJson: JsonCoerce.asStringList,
+    defaultValue: <String>[],
+  )
   final List<String>? whiteBgImages;
   @JsonKey(name: 'images')
   final List<
@@ -8797,9 +8810,9 @@ class ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImagesStatus {
         this,
       );
 
-  @JsonKey(name: 'ready')
+  @JsonKey(name: 'ready', fromJson: JsonCoerce.asBool)
   final bool? ready;
-  @JsonKey(name: 'count')
+  @JsonKey(name: 'count', fromJson: JsonCoerce.asDouble)
   final double? count;
   static const fromJsonFactory =
       _$ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImagesStatusFromJson;
@@ -8865,9 +8878,9 @@ class ComboServiceBizAiFashionModelListGet$Response$Data$Models$Item {
         this,
       );
 
-  @JsonKey(name: 'groupId')
+  @JsonKey(name: 'groupId', fromJson: JsonCoerce.asDouble)
   final double? groupId;
-  @JsonKey(name: 'title')
+  @JsonKey(name: 'title', fromJson: JsonCoerce.asString)
   final String? title;
   @JsonKey(name: 'data')
   final List<
@@ -8961,11 +8974,11 @@ class ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$ReferenceImages
         this,
       );
 
-  @JsonKey(name: 'width')
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asInt)
   final int? width;
-  @JsonKey(name: 'height')
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asInt)
   final int? height;
-  @JsonKey(name: 'url')
+  @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory =
       _$ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$ReferenceImages$ItemFromJson;
@@ -9041,9 +9054,9 @@ class ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$Option {
         this,
       );
 
-  @JsonKey(name: 'occasion')
+  @JsonKey(name: 'occasion', fromJson: JsonCoerce.asString)
   final String? occasion;
-  @JsonKey(name: 'styleTrendyElements')
+  @JsonKey(name: 'styleTrendyElements', fromJson: JsonCoerce.asString)
   final String? styleTrendyElements;
   static const fromJsonFactory =
       _$ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$OptionFromJson;
@@ -9132,29 +9145,29 @@ class ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$ModelInfo {
         this,
       );
 
-  @JsonKey(name: 'id')
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asInt)
   final int? id;
-  @JsonKey(name: 'tenantCode')
+  @JsonKey(name: 'tenantCode', fromJson: JsonCoerce.asString)
   final String? tenantCode;
-  @JsonKey(name: 'userId')
+  @JsonKey(name: 'userId', fromJson: JsonCoerce.asString)
   final String? userId;
-  @JsonKey(name: 'modelDesc')
+  @JsonKey(name: 'modelDesc', fromJson: JsonCoerce.asString)
   final String? modelDesc;
-  @JsonKey(name: 'modelId')
+  @JsonKey(name: 'modelId', fromJson: JsonCoerce.asString)
   final String? modelId;
-  @JsonKey(name: 'modelImage')
+  @JsonKey(name: 'modelImage', fromJson: JsonCoerce.asString)
   final String? modelImage;
-  @JsonKey(name: 'modelHeaderImage')
+  @JsonKey(name: 'modelHeaderImage', fromJson: JsonCoerce.asString)
   final String? modelHeaderImage;
-  @JsonKey(name: 'ext')
+  @JsonKey(name: 'ext', fromJson: JsonCoerce.asString)
   final String? ext;
-  @JsonKey(name: 'isDeleted')
+  @JsonKey(name: 'isDeleted', fromJson: JsonCoerce.asInt)
   final int? isDeleted;
-  @JsonKey(name: 'gmtCreate')
+  @JsonKey(name: 'gmtCreate', fromJson: JsonCoerce.asDateTime)
   final DateTime? gmtCreate;
-  @JsonKey(name: 'gmtUpdate')
+  @JsonKey(name: 'gmtUpdate', fromJson: JsonCoerce.asDateTime)
   final DateTime? gmtUpdate;
-  @JsonKey(name: 'groupId')
+  @JsonKey(name: 'groupId', fromJson: JsonCoerce.asInt)
   final int? groupId;
   static const fromJsonFactory =
       _$ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data$ModelInfoFromJson;
@@ -9329,11 +9342,11 @@ class ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item {
     ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$Images$Item
   >?
   images;
-  @JsonKey(name: 'prompt')
+  @JsonKey(name: 'prompt', fromJson: JsonCoerce.asString)
   final String? prompt;
-  @JsonKey(name: 'postTitle')
+  @JsonKey(name: 'postTitle', fromJson: JsonCoerce.asString)
   final String? postTitle;
-  @JsonKey(name: 'postId')
+  @JsonKey(name: 'postId', fromJson: JsonCoerce.asDouble)
   final double? postId;
   @JsonKey(name: 'frontImage')
   final ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$FrontImage?
@@ -9447,11 +9460,11 @@ class ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FrontImage {
         this,
       );
 
-  @JsonKey(name: 'width')
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asDouble)
   final double? width;
-  @JsonKey(name: 'height')
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asDouble)
   final double? height;
-  @JsonKey(name: 'url')
+  @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory =
       _$ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FrontImageFromJson;
@@ -9526,11 +9539,11 @@ class ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$HeaderImage {
         this,
       );
 
-  @JsonKey(name: 'width')
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asDouble)
   final double? width;
-  @JsonKey(name: 'height')
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asDouble)
   final double? height;
-  @JsonKey(name: 'url')
+  @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory =
       _$ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$HeaderImageFromJson;
@@ -9606,11 +9619,11 @@ class ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$ModelImage {
         this,
       );
 
-  @JsonKey(name: 'url')
+  @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
-  @JsonKey(name: 'height')
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asDouble)
   final double? height;
-  @JsonKey(name: 'width')
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asDouble)
   final double? width;
   static const fromJsonFactory =
       _$ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$ModelImageFromJson;
@@ -9685,11 +9698,11 @@ class ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$Images$Item {
         this,
       );
 
-  @JsonKey(name: 'width')
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asDouble)
   final double? width;
-  @JsonKey(name: 'height')
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asDouble)
   final double? height;
-  @JsonKey(name: 'url')
+  @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory =
       _$ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$Images$ItemFromJson;
@@ -9765,11 +9778,11 @@ class ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FooterImages$Ite
         this,
       );
 
-  @JsonKey(name: 'width')
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asDouble)
   final double? width;
-  @JsonKey(name: 'height')
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asDouble)
   final double? height;
-  @JsonKey(name: 'url')
+  @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory =
       _$ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FooterImages$ItemFromJson;
@@ -9856,33 +9869,33 @@ class ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$Option {
         this,
       );
 
-  @JsonKey(name: 'category')
+  @JsonKey(name: 'category', fromJson: JsonCoerce.asString)
   final String? category;
-  @JsonKey(name: 'styleTrendyElements')
+  @JsonKey(name: 'styleTrendyElements', fromJson: JsonCoerce.asString)
   final String? styleTrendyElements;
-  @JsonKey(name: 'gender')
+  @JsonKey(name: 'gender', fromJson: JsonCoerce.asString)
   final String? gender;
-  @JsonKey(name: 'occasion')
+  @JsonKey(name: 'occasion', fromJson: JsonCoerce.asString)
   final String? occasion;
-  @JsonKey(name: 'theme')
+  @JsonKey(name: 'theme', fromJson: JsonCoerce.asString)
   final String? theme;
-  @JsonKey(name: 'style')
+  @JsonKey(name: 'style', fromJson: JsonCoerce.asString)
   final String? style;
-  @JsonKey(name: 'brand')
+  @JsonKey(name: 'brand', fromJson: JsonCoerce.asString)
   final String? brand;
-  @JsonKey(name: 'scene')
+  @JsonKey(name: 'scene', fromJson: JsonCoerce.asString)
   final String? scene;
-  @JsonKey(name: 'keywords')
+  @JsonKey(name: 'keywords', fromJson: JsonCoerce.asString)
   final String? keywords;
-  @JsonKey(name: 'mood')
+  @JsonKey(name: 'mood', fromJson: JsonCoerce.asString)
   final String? mood;
-  @JsonKey(name: 'age')
+  @JsonKey(name: 'age', fromJson: JsonCoerce.asString)
   final String? age;
-  @JsonKey(name: 'comparableBrandsBudget')
+  @JsonKey(name: 'comparableBrandsBudget', fromJson: JsonCoerce.asString)
   final String? comparableBrandsBudget;
-  @JsonKey(name: 'physicalAppearance')
+  @JsonKey(name: 'physicalAppearance', fromJson: JsonCoerce.asString)
   final String? physicalAppearance;
-  @JsonKey(name: 'skinColor')
+  @JsonKey(name: 'skinColor', fromJson: JsonCoerce.asString)
   final String? skinColor;
   static const fromJsonFactory =
       _$ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$OptionFromJson;
@@ -10065,7 +10078,7 @@ class ComboServiceBizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$
         this,
       );
 
-  @JsonKey(name: 'key')
+  @JsonKey(name: 'key', fromJson: JsonCoerce.asString)
   final String? key;
   @JsonKey(name: 'data')
   final List<
@@ -10156,21 +10169,21 @@ class ComboServiceBizUserShareRewardPageGet$Response$Data$Records$Item {
         this,
       );
 
-  @JsonKey(name: 'rewardId')
+  @JsonKey(name: 'rewardId', fromJson: JsonCoerce.asString)
   final String? rewardId;
-  @JsonKey(name: 'userId')
+  @JsonKey(name: 'userId', fromJson: JsonCoerce.asString)
   final String? userId;
-  @JsonKey(name: 'content')
+  @JsonKey(name: 'content', fromJson: JsonCoerce.asString)
   final String? content;
-  @JsonKey(name: 'auditStatus')
+  @JsonKey(name: 'auditStatus', fromJson: JsonCoerce.asDouble)
   final double? auditStatus;
-  @JsonKey(name: 'rewardAmount')
+  @JsonKey(name: 'rewardAmount', fromJson: JsonCoerce.asString)
   final String? rewardAmount;
-  @JsonKey(name: 'rewardType')
+  @JsonKey(name: 'rewardType', fromJson: JsonCoerce.asDouble)
   final double? rewardType;
-  @JsonKey(name: 'rewardStatus')
+  @JsonKey(name: 'rewardStatus', fromJson: JsonCoerce.asDouble)
   final double? rewardStatus;
-  @JsonKey(name: 'rewardTime')
+  @JsonKey(name: 'rewardTime', fromJson: JsonCoerce.asString)
   final String? rewardTime;
   static const fromJsonFactory =
       _$ComboServiceBizUserShareRewardPageGet$Response$Data$Records$ItemFromJson;
@@ -10311,15 +10324,15 @@ class ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$Related$Item {
         this,
       );
 
-  @JsonKey(name: 'albumCode')
+  @JsonKey(name: 'albumCode', fromJson: JsonCoerce.asString)
   final String? albumCode;
-  @JsonKey(name: 'tenantCode')
+  @JsonKey(name: 'tenantCode', fromJson: JsonCoerce.asString)
   final String? tenantCode;
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
-  @JsonKey(name: 'description')
+  @JsonKey(name: 'description', fromJson: JsonCoerce.asString)
   final String? description;
-  @JsonKey(name: 'backImg')
+  @JsonKey(name: 'backImg', fromJson: JsonCoerce.asString)
   final String? backImg;
   static const fromJsonFactory =
       _$ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$Related$ItemFromJson;
@@ -10526,15 +10539,15 @@ class ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Ite
         this,
       );
 
-  @JsonKey(name: 'shopCode')
+  @JsonKey(name: 'shopCode', fromJson: JsonCoerce.asString)
   final String? shopCode;
-  @JsonKey(name: 'productCode')
+  @JsonKey(name: 'productCode', fromJson: JsonCoerce.asString)
   final String? productCode;
-  @JsonKey(name: 'productName')
+  @JsonKey(name: 'productName', fromJson: JsonCoerce.asString)
   final String? productName;
-  @JsonKey(name: 'tenantCode')
+  @JsonKey(name: 'tenantCode', fromJson: JsonCoerce.asString)
   final String? tenantCode;
-  @JsonKey(name: 'brandName')
+  @JsonKey(name: 'brandName', fromJson: JsonCoerce.asString)
   final String? brandName;
   @JsonKey(name: 'mainImg')
   final List<
@@ -10556,14 +10569,14 @@ class ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Ite
     ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgCollection$Item
   >?
   imgCollection;
-  @JsonKey(name: 'textDetail')
+  @JsonKey(name: 'textDetail', fromJson: JsonCoerce.asString)
   final String? textDetail;
   @JsonKey(name: 'imgDetail')
   final List<
     ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgDetail$Item
   >?
   imgDetail;
-  @JsonKey(name: 'categoryId')
+  @JsonKey(name: 'categoryId', fromJson: JsonCoerce.asInt)
   final int? categoryId;
   @JsonKey(name: 'categoryTree', defaultValue: <Object>[])
   final List<Object>? categoryTree;
@@ -10577,31 +10590,31 @@ class ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Ite
     ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$Item
   >?
   productAttrs;
-  @JsonKey(name: 'sourcePlatform')
+  @JsonKey(name: 'sourcePlatform', fromJson: JsonCoerce.asString)
   final String? sourcePlatform;
-  @JsonKey(name: 'platformUrl')
+  @JsonKey(name: 'platformUrl', fromJson: JsonCoerce.asString)
   final String? platformUrl;
-  @JsonKey(name: 'platformProductId')
+  @JsonKey(name: 'platformProductId', fromJson: JsonCoerce.asString)
   final String? platformProductId;
-  @JsonKey(name: 'skuCode')
+  @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
   final String? skuCode;
-  @JsonKey(name: 'skuSourceCode')
+  @JsonKey(name: 'skuSourceCode', fromJson: JsonCoerce.asString)
   final String? skuSourceCode;
-  @JsonKey(name: 'sellPriceCur')
+  @JsonKey(name: 'sellPriceCur', fromJson: JsonCoerce.asString)
   final String? sellPriceCur;
-  @JsonKey(name: 'sellPrice')
+  @JsonKey(name: 'sellPrice', fromJson: JsonCoerce.asString)
   final String? sellPrice;
-  @JsonKey(name: 'targetSellPrice')
+  @JsonKey(name: 'targetSellPrice', fromJson: JsonCoerce.asString)
   final String? targetSellPrice;
-  @JsonKey(name: 'targetSellCur')
+  @JsonKey(name: 'targetSellCur', fromJson: JsonCoerce.asString)
   final String? targetSellCur;
-  @JsonKey(name: 'targetOriginPrice')
+  @JsonKey(name: 'targetOriginPrice', fromJson: JsonCoerce.asString)
   final String? targetOriginPrice;
-  @JsonKey(name: 'productFlag')
+  @JsonKey(name: 'productFlag', fromJson: JsonCoerce.asString)
   final String? productFlag;
-  @JsonKey(name: 'marketingInfo')
+  @JsonKey(name: 'marketingInfo', fromJson: JsonCoerce.asString)
   final String? marketingInfo;
-  @JsonKey(name: 'sellQuantity')
+  @JsonKey(name: 'sellQuantity', fromJson: JsonCoerce.asString)
   final String? sellQuantity;
   @JsonKey(name: 'inspectImages')
   final List<
@@ -11091,15 +11104,15 @@ class ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Product
         this,
       );
 
-  @JsonKey(name: 'shopCode')
+  @JsonKey(name: 'shopCode', fromJson: JsonCoerce.asString)
   final String? shopCode;
-  @JsonKey(name: 'productCode')
+  @JsonKey(name: 'productCode', fromJson: JsonCoerce.asString)
   final String? productCode;
-  @JsonKey(name: 'productName')
+  @JsonKey(name: 'productName', fromJson: JsonCoerce.asString)
   final String? productName;
-  @JsonKey(name: 'tenantCode')
+  @JsonKey(name: 'tenantCode', fromJson: JsonCoerce.asString)
   final String? tenantCode;
-  @JsonKey(name: 'brandName')
+  @JsonKey(name: 'brandName', fromJson: JsonCoerce.asString)
   final String? brandName;
   @JsonKey(name: 'mainImg')
   final List<
@@ -11121,14 +11134,14 @@ class ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Product
     ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgCollection$Item
   >?
   imgCollection;
-  @JsonKey(name: 'textDetail')
+  @JsonKey(name: 'textDetail', fromJson: JsonCoerce.asString)
   final String? textDetail;
   @JsonKey(name: 'imgDetail')
   final List<
     ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgDetail$Item
   >?
   imgDetail;
-  @JsonKey(name: 'categoryId')
+  @JsonKey(name: 'categoryId', fromJson: JsonCoerce.asInt)
   final int? categoryId;
   @JsonKey(name: 'categoryTree', defaultValue: <Object>[])
   final List<Object>? categoryTree;
@@ -11142,31 +11155,31 @@ class ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Product
     ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$Item
   >?
   productAttrs;
-  @JsonKey(name: 'sourcePlatform')
+  @JsonKey(name: 'sourcePlatform', fromJson: JsonCoerce.asString)
   final String? sourcePlatform;
-  @JsonKey(name: 'platformUrl')
+  @JsonKey(name: 'platformUrl', fromJson: JsonCoerce.asString)
   final String? platformUrl;
-  @JsonKey(name: 'platformProductId')
+  @JsonKey(name: 'platformProductId', fromJson: JsonCoerce.asString)
   final String? platformProductId;
-  @JsonKey(name: 'skuCode')
+  @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
   final String? skuCode;
-  @JsonKey(name: 'skuSourceCode')
+  @JsonKey(name: 'skuSourceCode', fromJson: JsonCoerce.asString)
   final String? skuSourceCode;
-  @JsonKey(name: 'sellPriceCur')
+  @JsonKey(name: 'sellPriceCur', fromJson: JsonCoerce.asString)
   final String? sellPriceCur;
-  @JsonKey(name: 'sellPrice')
+  @JsonKey(name: 'sellPrice', fromJson: JsonCoerce.asString)
   final String? sellPrice;
-  @JsonKey(name: 'targetSellPrice')
+  @JsonKey(name: 'targetSellPrice', fromJson: JsonCoerce.asString)
   final String? targetSellPrice;
-  @JsonKey(name: 'targetSellCur')
+  @JsonKey(name: 'targetSellCur', fromJson: JsonCoerce.asString)
   final String? targetSellCur;
-  @JsonKey(name: 'targetOriginPrice')
+  @JsonKey(name: 'targetOriginPrice', fromJson: JsonCoerce.asString)
   final String? targetOriginPrice;
-  @JsonKey(name: 'productFlag')
+  @JsonKey(name: 'productFlag', fromJson: JsonCoerce.asString)
   final String? productFlag;
-  @JsonKey(name: 'marketingInfo')
+  @JsonKey(name: 'marketingInfo', fromJson: JsonCoerce.asString)
   final String? marketingInfo;
-  @JsonKey(name: 'sellQuantity')
+  @JsonKey(name: 'sellQuantity', fromJson: JsonCoerce.asString)
   final String? sellQuantity;
   @JsonKey(name: 'inspectImages')
   final List<
@@ -11640,31 +11653,35 @@ class ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$Requ
         this,
       );
 
-  @JsonKey(name: 'referenceImages', defaultValue: <String>[])
+  @JsonKey(
+    name: 'referenceImages',
+    fromJson: JsonCoerce.asStringList,
+    defaultValue: <String>[],
+  )
   final List<String>? referenceImages;
-  @JsonKey(name: 'customPrompt')
+  @JsonKey(name: 'customPrompt', fromJson: JsonCoerce.asString)
   final String? customPrompt;
-  @JsonKey(name: 'gender')
+  @JsonKey(name: 'gender', fromJson: JsonCoerce.asDouble)
   final double? gender;
-  @JsonKey(name: 'age')
+  @JsonKey(name: 'age', fromJson: JsonCoerce.asString)
   final String? age;
-  @JsonKey(name: 'physicalAppearance')
+  @JsonKey(name: 'physicalAppearance', fromJson: JsonCoerce.asString)
   final String? physicalAppearance;
-  @JsonKey(name: 'styleTrendyElements')
+  @JsonKey(name: 'styleTrendyElements', fromJson: JsonCoerce.asString)
   final String? styleTrendyElements;
-  @JsonKey(name: 'brand')
+  @JsonKey(name: 'brand', fromJson: JsonCoerce.asString)
   final String? brand;
-  @JsonKey(name: 'budget')
+  @JsonKey(name: 'budget', fromJson: JsonCoerce.asString)
   final String? budget;
-  @JsonKey(name: 'customModelId')
+  @JsonKey(name: 'customModelId', fromJson: JsonCoerce.asString)
   final String? customModelId;
-  @JsonKey(name: 'modelImageUrl')
+  @JsonKey(name: 'modelImageUrl', fromJson: JsonCoerce.asString)
   final String? modelImageUrl;
-  @JsonKey(name: 'referenceMode')
+  @JsonKey(name: 'referenceMode', fromJson: JsonCoerce.asString)
   final String? referenceMode;
-  @JsonKey(name: 'occasion')
+  @JsonKey(name: 'occasion', fromJson: JsonCoerce.asString)
   final String? occasion;
-  @JsonKey(name: 'useMultiModelImage')
+  @JsonKey(name: 'useMultiModelImage', fromJson: JsonCoerce.asBool)
   final bool? useMultiModelImage;
   static const fromJsonFactory =
       _$ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$RequestParamsFromJson;
@@ -11869,36 +11886,36 @@ class ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$Prod
         this,
       );
 
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
-  @JsonKey(name: 'title')
+  @JsonKey(name: 'title', fromJson: JsonCoerce.asString)
   final String? title;
-  @JsonKey(name: 'link')
+  @JsonKey(name: 'link', fromJson: JsonCoerce.asString)
   final String? link;
-  @JsonKey(name: 'source')
+  @JsonKey(name: 'source', fromJson: JsonCoerce.asString)
   final String? source;
-  @JsonKey(name: 'price')
+  @JsonKey(name: 'price', fromJson: JsonCoerce.asString)
   final String? price;
-  @JsonKey(name: 'image')
+  @JsonKey(name: 'image', fromJson: JsonCoerce.asString)
   final String? image;
-  @JsonKey(name: 'fallback')
+  @JsonKey(name: 'fallback', fromJson: JsonCoerce.asBool)
   final bool? fallback;
-  @JsonKey(name: 'pending')
+  @JsonKey(name: 'pending', fromJson: JsonCoerce.asString)
   final String? pending;
-  @JsonKey(name: 'selectedId')
+  @JsonKey(name: 'selectedId', fromJson: JsonCoerce.asDouble)
   final double? selectedId;
   @JsonKey(name: 'options')
   final List<
     ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item$Options$Item
   >?
   options;
-  @JsonKey(name: 'cachedImage')
+  @JsonKey(name: 'cachedImage', fromJson: JsonCoerce.asString)
   final String? cachedImage;
-  @JsonKey(name: 'cachedImageMime')
+  @JsonKey(name: 'cachedImageMime', fromJson: JsonCoerce.asString)
   final String? cachedImageMime;
-  @JsonKey(name: 'cachedImageSelectedId')
+  @JsonKey(name: 'cachedImageSelectedId', fromJson: JsonCoerce.asDouble)
   final double? cachedImageSelectedId;
-  @JsonKey(name: 'cachedImageUpdatedAt')
+  @JsonKey(name: 'cachedImageUpdatedAt', fromJson: JsonCoerce.asDouble)
   final double? cachedImageUpdatedAt;
   static const fromJsonFactory =
       _$ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$ItemFromJson;
@@ -12098,18 +12115,22 @@ class ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$Shar
         this,
       );
 
-  @JsonKey(name: 'title')
+  @JsonKey(name: 'title', fromJson: JsonCoerce.asString)
   final String? title;
   @JsonKey(name: 'items')
   final List<
     ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item
   >?
   items;
-  @JsonKey(name: 'generated_at')
+  @JsonKey(name: 'generated_at', fromJson: JsonCoerce.asDouble)
   final double? generatedAt;
-  @JsonKey(name: 'multi_model_image_url')
+  @JsonKey(name: 'multi_model_image_url', fromJson: JsonCoerce.asString)
   final String? multiModelImageUrl;
-  @JsonKey(name: 'white_bg_images', defaultValue: <String>[])
+  @JsonKey(
+    name: 'white_bg_images',
+    fromJson: JsonCoerce.asStringList,
+    defaultValue: <String>[],
+  )
   final List<String>? whiteBgImages;
   @JsonKey(name: 'images')
   final List<
@@ -12244,9 +12265,9 @@ class ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$Shar
         this,
       );
 
-  @JsonKey(name: 'ready')
+  @JsonKey(name: 'ready', fromJson: JsonCoerce.asBool)
   final bool? ready;
-  @JsonKey(name: 'count')
+  @JsonKey(name: 'count', fromJson: JsonCoerce.asDouble)
   final double? count;
   static const fromJsonFactory =
       _$ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImagesStatusFromJson;
@@ -12317,17 +12338,17 @@ class ComboServiceApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item$Opt
         this,
       );
 
-  @JsonKey(name: 'id')
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asDouble)
   final double? id;
-  @JsonKey(name: 'title')
+  @JsonKey(name: 'title', fromJson: JsonCoerce.asString)
   final String? title;
-  @JsonKey(name: 'link')
+  @JsonKey(name: 'link', fromJson: JsonCoerce.asString)
   final String? link;
-  @JsonKey(name: 'source')
+  @JsonKey(name: 'source', fromJson: JsonCoerce.asString)
   final String? source;
-  @JsonKey(name: 'price')
+  @JsonKey(name: 'price', fromJson: JsonCoerce.asString)
   final String? price;
-  @JsonKey(name: 'image')
+  @JsonKey(name: 'image', fromJson: JsonCoerce.asString)
   final String? image;
   static const fromJsonFactory =
       _$ComboServiceApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item$Options$ItemFromJson;
@@ -12430,9 +12451,9 @@ class ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$I
         this,
       );
 
-  @JsonKey(name: 'sharingImageId')
+  @JsonKey(name: 'sharingImageId', fromJson: JsonCoerce.asDouble)
   final double? sharingImageId;
-  @JsonKey(name: 'imageUrl')
+  @JsonKey(name: 'imageUrl', fromJson: JsonCoerce.asString)
   final String? imageUrl;
   @JsonKey(name: 'caption')
   final ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$Caption?
@@ -12546,9 +12567,9 @@ class ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Images$
         this,
       );
 
-  @JsonKey(name: 'sharingImageId')
+  @JsonKey(name: 'sharingImageId', fromJson: JsonCoerce.asDouble)
   final double? sharingImageId;
-  @JsonKey(name: 'imageUrl')
+  @JsonKey(name: 'imageUrl', fromJson: JsonCoerce.asString)
   final String? imageUrl;
   static const fromJsonFactory =
       _$ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Images$ItemFromJson;
@@ -12636,29 +12657,29 @@ class ComboServiceBizAiFashionModelListGet$Response$Data$Models$Item$Data$Item {
         this,
       );
 
-  @JsonKey(name: 'id')
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asDouble)
   final double? id;
-  @JsonKey(name: 'tenantCode')
+  @JsonKey(name: 'tenantCode', fromJson: JsonCoerce.asString)
   final String? tenantCode;
-  @JsonKey(name: 'userId')
+  @JsonKey(name: 'userId', fromJson: JsonCoerce.asString)
   final String? userId;
-  @JsonKey(name: 'modelDesc')
+  @JsonKey(name: 'modelDesc', fromJson: JsonCoerce.asString)
   final String? modelDesc;
-  @JsonKey(name: 'modelId')
+  @JsonKey(name: 'modelId', fromJson: JsonCoerce.asString)
   final String? modelId;
-  @JsonKey(name: 'modelImage')
+  @JsonKey(name: 'modelImage', fromJson: JsonCoerce.asString)
   final String? modelImage;
-  @JsonKey(name: 'modelHeaderImage')
+  @JsonKey(name: 'modelHeaderImage', fromJson: JsonCoerce.asString)
   final String? modelHeaderImage;
   @JsonKey(name: 'ext')
   final Object? ext;
-  @JsonKey(name: 'isDeleted')
+  @JsonKey(name: 'isDeleted', fromJson: JsonCoerce.asDouble)
   final double? isDeleted;
-  @JsonKey(name: 'gmtCreate')
+  @JsonKey(name: 'gmtCreate', fromJson: JsonCoerce.asString)
   final String? gmtCreate;
-  @JsonKey(name: 'gmtUpdate')
+  @JsonKey(name: 'gmtUpdate', fromJson: JsonCoerce.asString)
   final String? gmtUpdate;
-  @JsonKey(name: 'groupId')
+  @JsonKey(name: 'groupId', fromJson: JsonCoerce.asDouble)
   final double? groupId;
   @JsonKey(name: 'modelData', defaultValue: <Object>[])
   final List<Object>? modelData;
@@ -12842,11 +12863,11 @@ class ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$Images$
         this,
       );
 
-  @JsonKey(name: 'width')
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asDouble)
   final double? width;
-  @JsonKey(name: 'height')
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asDouble)
   final double? height;
-  @JsonKey(name: 'url')
+  @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory =
       _$ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$Images$ItemFromJson;
@@ -12922,11 +12943,11 @@ class ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$FrontIm
         this,
       );
 
-  @JsonKey(name: 'width')
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asDouble)
   final double? width;
-  @JsonKey(name: 'height')
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asDouble)
   final double? height;
-  @JsonKey(name: 'url')
+  @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory =
       _$ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$FrontImageFromJson;
@@ -13001,9 +13022,9 @@ class ComboServiceBizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$
         this,
       );
 
-  @JsonKey(name: 'label')
+  @JsonKey(name: 'label', fromJson: JsonCoerce.asString)
   final String? label;
-  @JsonKey(name: 'value')
+  @JsonKey(name: 'value', fromJson: JsonCoerce.asString)
   final String? value;
   static const fromJsonFactory =
       _$ComboServiceBizAiFashionNoAuthSelectOptionGet$Response$Data$SelectionList$Item$Data$ItemFromJson;
@@ -13075,17 +13096,17 @@ class ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$Categ
         this,
       );
 
-  @JsonKey(name: 'id')
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asInt)
   final int? id;
-  @JsonKey(name: 'parentId')
+  @JsonKey(name: 'parentId', fromJson: JsonCoerce.asInt)
   final int? parentId;
-  @JsonKey(name: 'level')
+  @JsonKey(name: 'level', fromJson: JsonCoerce.asInt)
   final int? level;
-  @JsonKey(name: 'showOrder')
+  @JsonKey(name: 'showOrder', fromJson: JsonCoerce.asInt)
   final int? showOrder;
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
-  @JsonKey(name: 'iconUrl')
+  @JsonKey(name: 'iconUrl', fromJson: JsonCoerce.asString)
   final String? iconUrl;
   @JsonKey(name: 'categoryList')
   final List<
@@ -13221,11 +13242,11 @@ class ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Ite
         this,
       );
 
-  @JsonKey(name: 'width')
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asInt)
   final int? width;
-  @JsonKey(name: 'height')
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asInt)
   final int? height;
-  @JsonKey(name: 'url')
+  @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory =
       _$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainImg$ItemFromJson;
@@ -13302,11 +13323,11 @@ class ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Ite
         this,
       );
 
-  @JsonKey(name: 'width')
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asInt)
   final int? width;
-  @JsonKey(name: 'height')
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asInt)
   final int? height;
-  @JsonKey(name: 'url')
+  @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory =
       _$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$SubImg$ItemFromJson;
@@ -13385,15 +13406,15 @@ class ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Ite
         this,
       );
 
-  @JsonKey(name: 'videoUrl')
+  @JsonKey(name: 'videoUrl', fromJson: JsonCoerce.asString)
   final String? videoUrl;
-  @JsonKey(name: 'vodUrl')
+  @JsonKey(name: 'vodUrl', fromJson: JsonCoerce.asString)
   final String? vodUrl;
-  @JsonKey(name: 'previewUrl')
+  @JsonKey(name: 'previewUrl', fromJson: JsonCoerce.asString)
   final String? previewUrl;
-  @JsonKey(name: 'width')
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asInt)
   final int? width;
-  @JsonKey(name: 'height')
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asInt)
   final int? height;
   static const fromJsonFactory =
       _$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$MainVideo$ItemFromJson;
@@ -13494,11 +13515,11 @@ class ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Ite
         this,
       );
 
-  @JsonKey(name: 'width')
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asInt)
   final int? width;
-  @JsonKey(name: 'height')
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asInt)
   final int? height;
-  @JsonKey(name: 'url')
+  @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory =
       _$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgCollection$ItemFromJson;
@@ -13575,11 +13596,11 @@ class ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Ite
         this,
       );
 
-  @JsonKey(name: 'width')
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asInt)
   final int? width;
-  @JsonKey(name: 'height')
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asInt)
   final int? height;
-  @JsonKey(name: 'url')
+  @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory =
       _$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ImgDetail$ItemFromJson;
@@ -13656,9 +13677,9 @@ class ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Ite
         this,
       );
 
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
-  @JsonKey(name: 'type')
+  @JsonKey(name: 'type', fromJson: JsonCoerce.asInt)
   final int? type;
   @JsonKey(name: 'optionValues')
   final List<
@@ -13756,9 +13777,9 @@ class ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Ite
         this,
       );
 
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
-  @JsonKey(name: 'value')
+  @JsonKey(name: 'value', fromJson: JsonCoerce.asString)
   final String? value;
   static const fromJsonFactory =
       _$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$ItemFromJson;
@@ -13910,13 +13931,13 @@ class ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Ite
         this,
       );
 
-  @JsonKey(name: 'tagCode')
+  @JsonKey(name: 'tagCode', fromJson: JsonCoerce.asString)
   final String? tagCode;
-  @JsonKey(name: 'tagImg')
+  @JsonKey(name: 'tagImg', fromJson: JsonCoerce.asString)
   final String? tagImg;
-  @JsonKey(name: 'order')
+  @JsonKey(name: 'order', fromJson: JsonCoerce.asInt)
   final int? order;
-  @JsonKey(name: 'frontShow')
+  @JsonKey(name: 'frontShow', fromJson: JsonCoerce.asInt)
   final int? frontShow;
   static const fromJsonFactory =
       _$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$Tags$ItemFromJson;
@@ -14005,11 +14026,11 @@ class ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Product
         this,
       );
 
-  @JsonKey(name: 'width')
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asInt)
   final int? width;
-  @JsonKey(name: 'height')
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asInt)
   final int? height;
-  @JsonKey(name: 'url')
+  @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory =
       _$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainImg$ItemFromJson;
@@ -14086,11 +14107,11 @@ class ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Product
         this,
       );
 
-  @JsonKey(name: 'width')
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asInt)
   final int? width;
-  @JsonKey(name: 'height')
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asInt)
   final int? height;
-  @JsonKey(name: 'url')
+  @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory =
       _$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$SubImg$ItemFromJson;
@@ -14169,15 +14190,15 @@ class ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Product
         this,
       );
 
-  @JsonKey(name: 'videoUrl')
+  @JsonKey(name: 'videoUrl', fromJson: JsonCoerce.asString)
   final String? videoUrl;
-  @JsonKey(name: 'vodUrl')
+  @JsonKey(name: 'vodUrl', fromJson: JsonCoerce.asString)
   final String? vodUrl;
-  @JsonKey(name: 'previewUrl')
+  @JsonKey(name: 'previewUrl', fromJson: JsonCoerce.asString)
   final String? previewUrl;
-  @JsonKey(name: 'width')
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asInt)
   final int? width;
-  @JsonKey(name: 'height')
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asInt)
   final int? height;
   static const fromJsonFactory =
       _$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$MainVideo$ItemFromJson;
@@ -14278,11 +14299,11 @@ class ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Product
         this,
       );
 
-  @JsonKey(name: 'width')
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asInt)
   final int? width;
-  @JsonKey(name: 'height')
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asInt)
   final int? height;
-  @JsonKey(name: 'url')
+  @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory =
       _$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgCollection$ItemFromJson;
@@ -14359,11 +14380,11 @@ class ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Product
         this,
       );
 
-  @JsonKey(name: 'width')
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asInt)
   final int? width;
-  @JsonKey(name: 'height')
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asInt)
   final int? height;
-  @JsonKey(name: 'url')
+  @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory =
       _$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ImgDetail$ItemFromJson;
@@ -14440,9 +14461,9 @@ class ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Product
         this,
       );
 
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
-  @JsonKey(name: 'type')
+  @JsonKey(name: 'type', fromJson: JsonCoerce.asInt)
   final int? type;
   @JsonKey(name: 'optionValues')
   final List<
@@ -14540,9 +14561,9 @@ class ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Product
         this,
       );
 
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
-  @JsonKey(name: 'value')
+  @JsonKey(name: 'value', fromJson: JsonCoerce.asString)
   final String? value;
   static const fromJsonFactory =
       _$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductAttrs$ItemFromJson;
@@ -14694,13 +14715,13 @@ class ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Product
         this,
       );
 
-  @JsonKey(name: 'tagCode')
+  @JsonKey(name: 'tagCode', fromJson: JsonCoerce.asString)
   final String? tagCode;
-  @JsonKey(name: 'tagImg')
+  @JsonKey(name: 'tagImg', fromJson: JsonCoerce.asString)
   final String? tagImg;
-  @JsonKey(name: 'order')
+  @JsonKey(name: 'order', fromJson: JsonCoerce.asInt)
   final int? order;
-  @JsonKey(name: 'frontShow')
+  @JsonKey(name: 'frontShow', fromJson: JsonCoerce.asInt)
   final int? frontShow;
   static const fromJsonFactory =
       _$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$Tags$ItemFromJson;
@@ -14792,17 +14813,17 @@ class ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$Prod
         this,
       );
 
-  @JsonKey(name: 'id')
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asDouble)
   final double? id;
-  @JsonKey(name: 'title')
+  @JsonKey(name: 'title', fromJson: JsonCoerce.asString)
   final String? title;
-  @JsonKey(name: 'link')
+  @JsonKey(name: 'link', fromJson: JsonCoerce.asString)
   final String? link;
-  @JsonKey(name: 'source')
+  @JsonKey(name: 'source', fromJson: JsonCoerce.asString)
   final String? source;
-  @JsonKey(name: 'price')
+  @JsonKey(name: 'price', fromJson: JsonCoerce.asString)
   final String? price;
-  @JsonKey(name: 'image')
+  @JsonKey(name: 'image', fromJson: JsonCoerce.asString)
   final String? image;
   static const fromJsonFactory =
       _$ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item$Options$ItemFromJson;
@@ -14905,9 +14926,9 @@ class ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$Shar
         this,
       );
 
-  @JsonKey(name: 'sharingImageId')
+  @JsonKey(name: 'sharingImageId', fromJson: JsonCoerce.asDouble)
   final double? sharingImageId;
-  @JsonKey(name: 'imageUrl')
+  @JsonKey(name: 'imageUrl', fromJson: JsonCoerce.asString)
   final String? imageUrl;
   @JsonKey(name: 'caption')
   final ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$Caption?
@@ -15022,9 +15043,9 @@ class ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$Shar
         this,
       );
 
-  @JsonKey(name: 'sharingImageId')
+  @JsonKey(name: 'sharingImageId', fromJson: JsonCoerce.asDouble)
   final double? sharingImageId;
-  @JsonKey(name: 'imageUrl')
+  @JsonKey(name: 'imageUrl', fromJson: JsonCoerce.asString)
   final String? imageUrl;
   static const fromJsonFactory =
       _$ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Images$ItemFromJson;
@@ -15104,13 +15125,17 @@ class ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$I
         this,
       );
 
-  @JsonKey(name: 'description')
+  @JsonKey(name: 'description', fromJson: JsonCoerce.asString)
   final String? description;
-  @JsonKey(name: 'brand')
+  @JsonKey(name: 'brand', fromJson: JsonCoerce.asString)
   final String? brand;
-  @JsonKey(name: 'hashtags', defaultValue: <String>[])
+  @JsonKey(
+    name: 'hashtags',
+    fromJson: JsonCoerce.asStringList,
+    defaultValue: <String>[],
+  )
   final List<String>? hashtags;
-  @JsonKey(name: 'full_text')
+  @JsonKey(name: 'full_text', fromJson: JsonCoerce.asString)
   final String? fullText;
   static const fromJsonFactory =
       _$ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$CaptionFromJson;
@@ -15212,21 +15237,21 @@ class ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$I
         this,
       );
 
-  @JsonKey(name: 'segmentedImageUrl')
+  @JsonKey(name: 'segmentedImageUrl', fromJson: JsonCoerce.asString)
   final String? segmentedImageUrl;
-  @JsonKey(name: 'styleDescription')
+  @JsonKey(name: 'styleDescription', fromJson: JsonCoerce.asString)
   final String? styleDescription;
-  @JsonKey(name: 'occasion')
+  @JsonKey(name: 'occasion', fromJson: JsonCoerce.asString)
   final String? occasion;
-  @JsonKey(name: 'customPrompt')
+  @JsonKey(name: 'customPrompt', fromJson: JsonCoerce.asString)
   final String? customPrompt;
-  @JsonKey(name: 'generatedAt')
+  @JsonKey(name: 'generatedAt', fromJson: JsonCoerce.asDouble)
   final double? generatedAt;
-  @JsonKey(name: 'version')
+  @JsonKey(name: 'version', fromJson: JsonCoerce.asDouble)
   final double? version;
-  @JsonKey(name: 'temperature')
+  @JsonKey(name: 'temperature', fromJson: JsonCoerce.asDouble)
   final double? temperature;
-  @JsonKey(name: 'regenerationStatus')
+  @JsonKey(name: 'regenerationStatus', fromJson: JsonCoerce.asString)
   final String? regenerationStatus;
   static const fromJsonFactory =
       _$ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$MetadataFromJson;
@@ -15377,17 +15402,17 @@ class ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$Categ
         this,
       );
 
-  @JsonKey(name: 'id')
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asInt)
   final int? id;
-  @JsonKey(name: 'parentId')
+  @JsonKey(name: 'parentId', fromJson: JsonCoerce.asInt)
   final int? parentId;
-  @JsonKey(name: 'level')
+  @JsonKey(name: 'level', fromJson: JsonCoerce.asInt)
   final int? level;
-  @JsonKey(name: 'showOrder')
+  @JsonKey(name: 'showOrder', fromJson: JsonCoerce.asInt)
   final int? showOrder;
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
-  @JsonKey(name: 'iconUrl')
+  @JsonKey(name: 'iconUrl', fromJson: JsonCoerce.asString)
   final String? iconUrl;
   static const fromJsonFactory =
       _$ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data$CategoryTreeDto$CategoryList$Item$CategoryList$ItemFromJson;
@@ -15496,13 +15521,13 @@ class ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Ite
         this,
       );
 
-  @JsonKey(name: 'value')
+  @JsonKey(name: 'value', fromJson: JsonCoerce.asString)
   final String? value;
-  @JsonKey(name: 'image')
+  @JsonKey(name: 'image', fromJson: JsonCoerce.asString)
   final String? image;
-  @JsonKey(name: 'imageWidth')
+  @JsonKey(name: 'imageWidth', fromJson: JsonCoerce.asInt)
   final int? imageWidth;
-  @JsonKey(name: 'imageHeight')
+  @JsonKey(name: 'imageHeight', fromJson: JsonCoerce.asInt)
   final int? imageHeight;
   static const fromJsonFactory =
       _$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$ItemFromJson;
@@ -15590,9 +15615,9 @@ class ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Ite
         this,
       );
 
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
-  @JsonKey(name: 'value')
+  @JsonKey(name: 'value', fromJson: JsonCoerce.asString)
   final String? value;
   static const fromJsonFactory =
       _$ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOptionFromJson;
@@ -15661,13 +15686,13 @@ class ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Product
         this,
       );
 
-  @JsonKey(name: 'value')
+  @JsonKey(name: 'value', fromJson: JsonCoerce.asString)
   final String? value;
-  @JsonKey(name: 'image')
+  @JsonKey(name: 'image', fromJson: JsonCoerce.asString)
   final String? image;
-  @JsonKey(name: 'imageWidth')
+  @JsonKey(name: 'imageWidth', fromJson: JsonCoerce.asInt)
   final int? imageWidth;
-  @JsonKey(name: 'imageHeight')
+  @JsonKey(name: 'imageHeight', fromJson: JsonCoerce.asInt)
   final int? imageHeight;
   static const fromJsonFactory =
       _$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$ProductOptions$Item$OptionValues$ItemFromJson;
@@ -15755,9 +15780,9 @@ class ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Product
         this,
       );
 
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
-  @JsonKey(name: 'value')
+  @JsonKey(name: 'value', fromJson: JsonCoerce.asString)
   final String? value;
   static const fromJsonFactory =
       _$ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Products$Item$InspectImages$Item$SkuOptionFromJson;
@@ -15826,13 +15851,17 @@ class ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$Shar
         this,
       );
 
-  @JsonKey(name: 'description')
+  @JsonKey(name: 'description', fromJson: JsonCoerce.asString)
   final String? description;
-  @JsonKey(name: 'brand')
+  @JsonKey(name: 'brand', fromJson: JsonCoerce.asString)
   final String? brand;
-  @JsonKey(name: 'hashtags', defaultValue: <String>[])
+  @JsonKey(
+    name: 'hashtags',
+    fromJson: JsonCoerce.asStringList,
+    defaultValue: <String>[],
+  )
   final List<String>? hashtags;
-  @JsonKey(name: 'full_text')
+  @JsonKey(name: 'full_text', fromJson: JsonCoerce.asString)
   final String? fullText;
   static const fromJsonFactory =
       _$ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$CaptionFromJson;
@@ -15934,21 +15963,21 @@ class ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$Shar
         this,
       );
 
-  @JsonKey(name: 'segmentedImageUrl')
+  @JsonKey(name: 'segmentedImageUrl', fromJson: JsonCoerce.asString)
   final String? segmentedImageUrl;
-  @JsonKey(name: 'styleDescription')
+  @JsonKey(name: 'styleDescription', fromJson: JsonCoerce.asString)
   final String? styleDescription;
-  @JsonKey(name: 'occasion')
+  @JsonKey(name: 'occasion', fromJson: JsonCoerce.asString)
   final String? occasion;
-  @JsonKey(name: 'customPrompt')
+  @JsonKey(name: 'customPrompt', fromJson: JsonCoerce.asString)
   final String? customPrompt;
-  @JsonKey(name: 'generatedAt')
+  @JsonKey(name: 'generatedAt', fromJson: JsonCoerce.asDouble)
   final double? generatedAt;
-  @JsonKey(name: 'version')
+  @JsonKey(name: 'version', fromJson: JsonCoerce.asDouble)
   final double? version;
-  @JsonKey(name: 'temperature')
+  @JsonKey(name: 'temperature', fromJson: JsonCoerce.asDouble)
   final double? temperature;
-  @JsonKey(name: 'regenerationStatus')
+  @JsonKey(name: 'regenerationStatus', fromJson: JsonCoerce.asString)
   final String? regenerationStatus;
   static const fromJsonFactory =
       _$ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$MetadataFromJson;

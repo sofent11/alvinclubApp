@@ -15,6 +15,7 @@ import 'package:http/http.dart' as http;
 import 'package:http/http.dart' show MultipartFile;
 import 'package:chopper/chopper.dart' as chopper;
 import 'swaggerApiConfig.metadata.swagger.dart';
+import 'package:w2capp/shared/utils/json_coerce.dart';
 
 part 'swaggerApiConfig.swagger.chopper.dart';
 part 'swaggerApiConfig.swagger.g.dart';
@@ -180,17 +181,17 @@ class ConfigServiceUserConfigPost$Response {
   Map<String, dynamic> toJson() =>
       _$ConfigServiceUserConfigPost$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
-  @JsonKey(name: 'data')
+  @JsonKey(name: 'data', fromJson: JsonCoerce.asBool)
   final bool? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   static const fromJsonFactory = _$ConfigServiceUserConfigPost$ResponseFromJson;
 
@@ -293,17 +294,17 @@ class ConfigServiceUserConfigGet$Response {
   Map<String, dynamic> toJson() =>
       _$ConfigServiceUserConfigGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final ConfigServiceUserConfigGet$Response$Data? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   static const fromJsonFactory = _$ConfigServiceUserConfigGet$ResponseFromJson;
 
@@ -406,15 +407,15 @@ class ConfigServiceUserConfigNoAuthInstanceGet$Response {
   Map<String, dynamic> toJson() =>
       _$ConfigServiceUserConfigNoAuthInstanceGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'data')
+  @JsonKey(name: 'data', fromJson: JsonCoerce.asString)
   final String? data;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   static const fromJsonFactory =
       _$ConfigServiceUserConfigNoAuthInstanceGet$ResponseFromJson;
@@ -501,9 +502,9 @@ class ConfigServiceUserConfigGet$Response$Data {
   Map<String, dynamic> toJson() =>
       _$ConfigServiceUserConfigGet$Response$DataToJson(this);
 
-  @JsonKey(name: 'key')
+  @JsonKey(name: 'key', fromJson: JsonCoerce.asString)
   final String? key;
-  @JsonKey(name: 'value')
+  @JsonKey(name: 'value', fromJson: JsonCoerce.asString)
   final String? value;
   static const fromJsonFactory =
       _$ConfigServiceUserConfigGet$Response$DataFromJson;

@@ -1216,10 +1216,9 @@ packages:
   swagger_dart_code_generator:
     dependency: "direct dev"
     description:
-      name: swagger_dart_code_generator
-      sha256: "23e5c0748fa9328faf39f6d8c92e06021f55b9b9ef68352af8f376088a44e5ff"
-      url: "https://pub.dev"
-    source: hosted
+      path: "tools/swagger_dart_code_generator"
+      relative: true
+    source: path
     version: "4.1.1"
   synchronized:
     dependency: transitive

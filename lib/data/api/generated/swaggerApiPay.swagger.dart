@@ -15,6 +15,7 @@ import 'package:http/http.dart' as http;
 import 'package:http/http.dart' show MultipartFile;
 import 'package:chopper/chopper.dart' as chopper;
 import 'swaggerApiPay.metadata.swagger.dart';
+import 'package:w2capp/shared/utils/json_coerce.dart';
 
 part 'swaggerApiPay.swagger.chopper.dart';
 part 'swaggerApiPay.swagger.g.dart';
@@ -592,15 +593,15 @@ class PayServiceWithdrawOrdersGet$Response {
   Map<String, dynamic> toJson() =>
       _$PayServiceWithdrawOrdersGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final PayServiceWithdrawOrdersGet$Response$Data? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   static const fromJsonFactory = _$PayServiceWithdrawOrdersGet$ResponseFromJson;
 
@@ -692,15 +693,15 @@ class PayServiceWithdrawApplyPost$Response {
   Map<String, dynamic> toJson() =>
       _$PayServiceWithdrawApplyPost$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final PayServiceWithdrawApplyPost$Response$Data? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   static const fromJsonFactory = _$PayServiceWithdrawApplyPost$ResponseFromJson;
 
@@ -790,9 +791,9 @@ class PayServiceCommissionSummaryGet$Response {
   Map<String, dynamic> toJson() =>
       _$PayServiceCommissionSummaryGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final PayServiceCommissionSummaryGet$Response$Data? data;
@@ -872,17 +873,17 @@ class PayServiceCommissionTransactionGet$Response {
   Map<String, dynamic> toJson() =>
       _$PayServiceCommissionTransactionGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final PayServiceCommissionTransactionGet$Response$Data? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   static const fromJsonFactory =
       _$PayServiceCommissionTransactionGet$ResponseFromJson;
@@ -986,17 +987,17 @@ class PayServiceRechargeBalanceGet$Response {
   Map<String, dynamic> toJson() =>
       _$PayServiceRechargeBalanceGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final PayServiceRechargeBalanceGet$Response$Data? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   static const fromJsonFactory =
       _$PayServiceRechargeBalanceGet$ResponseFromJson;
@@ -1099,15 +1100,15 @@ class PayServiceRechargeOrdersGet$Response {
   Map<String, dynamic> toJson() =>
       _$PayServiceRechargeOrdersGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final PayServiceRechargeOrdersGet$Response$Data? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   static const fromJsonFactory = _$PayServiceRechargeOrdersGet$ResponseFromJson;
 
@@ -1201,17 +1202,17 @@ class PayServiceRechargeCreateOrderPost$Response {
   Map<String, dynamic> toJson() =>
       _$PayServiceRechargeCreateOrderPost$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final PayServiceRechargeCreateOrderPost$Response$Data? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   static const fromJsonFactory =
       _$PayServiceRechargeCreateOrderPost$ResponseFromJson;
@@ -1313,17 +1314,17 @@ class PayServicePayPayPost$Response {
   static const toJsonFactory = _$PayServicePayPayPost$ResponseToJson;
   Map<String, dynamic> toJson() => _$PayServicePayPayPost$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final PayServicePayPayPost$Response$Data? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   static const fromJsonFactory = _$PayServicePayPayPost$ResponseFromJson;
 
@@ -1426,17 +1427,17 @@ class PayServicePayPayResultGet$Response {
   Map<String, dynamic> toJson() =>
       _$PayServicePayPayResultGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final PayServicePayPayResultGet$Response$Data? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   static const fromJsonFactory = _$PayServicePayPayResultGet$ResponseFromJson;
 
@@ -1539,17 +1540,17 @@ class PayServicePayPayTypeGet$Response {
   Map<String, dynamic> toJson() =>
       _$PayServicePayPayTypeGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final PayServicePayPayTypeGet$Response$Data? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   static const fromJsonFactory = _$PayServicePayPayTypeGet$ResponseFromJson;
 
@@ -1652,17 +1653,17 @@ class PayServiceEchoooCoinTypeGet$Response {
   Map<String, dynamic> toJson() =>
       _$PayServiceEchoooCoinTypeGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final List<PayServiceEchoooCoinTypeGet$Response$Data$Item>? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   static const fromJsonFactory = _$PayServiceEchoooCoinTypeGet$ResponseFromJson;
 
@@ -1765,17 +1766,17 @@ class PayServiceEchoooCoinInfoGet$Response {
   Map<String, dynamic> toJson() =>
       _$PayServiceEchoooCoinInfoGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final PayServiceEchoooCoinInfoGet$Response$Data? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   static const fromJsonFactory = _$PayServiceEchoooCoinInfoGet$ResponseFromJson;
 
@@ -1878,17 +1879,17 @@ class PayServiceEchoooCoinLogGet$Response {
   Map<String, dynamic> toJson() =>
       _$PayServiceEchoooCoinLogGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final PayServiceEchoooCoinLogGet$Response$Data? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   static const fromJsonFactory = _$PayServiceEchoooCoinLogGet$ResponseFromJson;
 
@@ -1993,13 +1994,13 @@ class PayServiceWithdrawOrdersGet$Response$Data {
 
   @JsonKey(name: 'records')
   final List<PayServiceWithdrawOrdersGet$Response$Data$Records$Item>? records;
-  @JsonKey(name: 'total')
+  @JsonKey(name: 'total', fromJson: JsonCoerce.asDouble)
   final double? total;
-  @JsonKey(name: 'size')
+  @JsonKey(name: 'size', fromJson: JsonCoerce.asDouble)
   final double? size;
-  @JsonKey(name: 'current')
+  @JsonKey(name: 'current', fromJson: JsonCoerce.asDouble)
   final double? current;
-  @JsonKey(name: 'pages')
+  @JsonKey(name: 'pages', fromJson: JsonCoerce.asDouble)
   final double? pages;
   static const fromJsonFactory =
       _$PayServiceWithdrawOrdersGet$Response$DataFromJson;
@@ -2096,19 +2097,19 @@ class PayServiceWithdrawApplyPost$Response$Data {
   Map<String, dynamic> toJson() =>
       _$PayServiceWithdrawApplyPost$Response$DataToJson(this);
 
-  @JsonKey(name: 'orderNo')
+  @JsonKey(name: 'orderNo', fromJson: JsonCoerce.asString)
   final String? orderNo;
-  @JsonKey(name: 'amount')
+  @JsonKey(name: 'amount', fromJson: JsonCoerce.asString)
   final String? amount;
-  @JsonKey(name: 'currency')
+  @JsonKey(name: 'currency', fromJson: JsonCoerce.asString)
   final String? currency;
-  @JsonKey(name: 'status')
+  @JsonKey(name: 'status', fromJson: JsonCoerce.asDouble)
   final double? status;
-  @JsonKey(name: 'rejectReason')
+  @JsonKey(name: 'rejectReason', fromJson: JsonCoerce.asString)
   final String? rejectReason;
-  @JsonKey(name: 'createTime')
+  @JsonKey(name: 'createTime', fromJson: JsonCoerce.asString)
   final String? createTime;
-  @JsonKey(name: 'completedTime')
+  @JsonKey(name: 'completedTime', fromJson: JsonCoerce.asString)
   final String? completedTime;
   static const fromJsonFactory =
       _$PayServiceWithdrawApplyPost$Response$DataFromJson;
@@ -2231,19 +2232,19 @@ class PayServiceCommissionSummaryGet$Response$Data {
   Map<String, dynamic> toJson() =>
       _$PayServiceCommissionSummaryGet$Response$DataToJson(this);
 
-  @JsonKey(name: 'commissionTotal')
+  @JsonKey(name: 'commissionTotal', fromJson: JsonCoerce.asString)
   final String? commissionTotal;
-  @JsonKey(name: 'targetCurrencyTotal')
+  @JsonKey(name: 'targetCurrencyTotal', fromJson: JsonCoerce.asString)
   final String? targetCurrencyTotal;
-  @JsonKey(name: 'withdrawAmount')
+  @JsonKey(name: 'withdrawAmount', fromJson: JsonCoerce.asString)
   final String? withdrawAmount;
-  @JsonKey(name: 'withdrawableBalance')
+  @JsonKey(name: 'withdrawableBalance', fromJson: JsonCoerce.asString)
   final String? withdrawableBalance;
-  @JsonKey(name: 'pendingCommission')
+  @JsonKey(name: 'pendingCommission', fromJson: JsonCoerce.asString)
   final String? pendingCommission;
-  @JsonKey(name: 'totalPoints')
+  @JsonKey(name: 'totalPoints', fromJson: JsonCoerce.asDouble)
   final double? totalPoints;
-  @JsonKey(name: 'pendingWithdrawAmount')
+  @JsonKey(name: 'pendingWithdrawAmount', fromJson: JsonCoerce.asString)
   final String? pendingWithdrawAmount;
   static const fromJsonFactory =
       _$PayServiceCommissionSummaryGet$Response$DataFromJson;
@@ -2379,13 +2380,13 @@ class PayServiceCommissionTransactionGet$Response$Data {
   Map<String, dynamic> toJson() =>
       _$PayServiceCommissionTransactionGet$Response$DataToJson(this);
 
-  @JsonKey(name: 'total')
+  @JsonKey(name: 'total', fromJson: JsonCoerce.asDouble)
   final double? total;
-  @JsonKey(name: 'pageSize')
+  @JsonKey(name: 'pageSize', fromJson: JsonCoerce.asDouble)
   final double? pageSize;
-  @JsonKey(name: 'totalPages')
+  @JsonKey(name: 'totalPages', fromJson: JsonCoerce.asDouble)
   final double? totalPages;
-  @JsonKey(name: 'current')
+  @JsonKey(name: 'current', fromJson: JsonCoerce.asDouble)
   final double? current;
   @JsonKey(name: 'records')
   final List<PayServiceCommissionTransactionGet$Response$Data$Records$Item>?
@@ -2495,23 +2496,23 @@ class PayServiceRechargeBalanceGet$Response$Data {
   Map<String, dynamic> toJson() =>
       _$PayServiceRechargeBalanceGet$Response$DataToJson(this);
 
-  @JsonKey(name: 'balance')
+  @JsonKey(name: 'balance', fromJson: JsonCoerce.asString)
   final String? balance;
   @JsonKey(name: 'currency')
   final PayServiceRechargeBalanceGet$Response$Data$Currency? currency;
-  @JsonKey(name: 'yesterdayProfit')
+  @JsonKey(name: 'yesterdayProfit', fromJson: JsonCoerce.asString)
   final String? yesterdayProfit;
-  @JsonKey(name: 'totalProfit')
+  @JsonKey(name: 'totalProfit', fromJson: JsonCoerce.asString)
   final String? totalProfit;
-  @JsonKey(name: 'rechargeAmounts')
+  @JsonKey(name: 'rechargeAmounts', fromJson: JsonCoerce.asString)
   final String? rechargeAmounts;
-  @JsonKey(name: 'rechargeAmountsText')
+  @JsonKey(name: 'rechargeAmountsText', fromJson: JsonCoerce.asString)
   final String? rechargeAmountsText;
-  @JsonKey(name: 'rechargeRuleText')
+  @JsonKey(name: 'rechargeRuleText', fromJson: JsonCoerce.asString)
   final String? rechargeRuleText;
-  @JsonKey(name: 'rechargeRuleTitle')
+  @JsonKey(name: 'rechargeRuleTitle', fromJson: JsonCoerce.asString)
   final String? rechargeRuleTitle;
-  @JsonKey(name: 'targetBalance')
+  @JsonKey(name: 'targetBalance', fromJson: JsonCoerce.asString)
   final String? targetBalance;
   @JsonKey(name: 'rechargeReward')
   final PayServiceRechargeBalanceGet$Response$Data$RechargeReward?
@@ -2700,13 +2701,13 @@ class PayServiceRechargeOrdersGet$Response$Data {
 
   @JsonKey(name: 'records')
   final List<PayServiceRechargeOrdersGet$Response$Data$Records$Item>? records;
-  @JsonKey(name: 'total')
+  @JsonKey(name: 'total', fromJson: JsonCoerce.asDouble)
   final double? total;
-  @JsonKey(name: 'size')
+  @JsonKey(name: 'size', fromJson: JsonCoerce.asDouble)
   final double? size;
-  @JsonKey(name: 'current')
+  @JsonKey(name: 'current', fromJson: JsonCoerce.asDouble)
   final double? current;
-  @JsonKey(name: 'pages')
+  @JsonKey(name: 'pages', fromJson: JsonCoerce.asDouble)
   final double? pages;
   static const fromJsonFactory =
       _$PayServiceRechargeOrdersGet$Response$DataFromJson;
@@ -2795,7 +2796,7 @@ class PayServiceRechargeCreateOrderPost$Response$Data {
   Map<String, dynamic> toJson() =>
       _$PayServiceRechargeCreateOrderPost$Response$DataToJson(this);
 
-  @JsonKey(name: 'orderId')
+  @JsonKey(name: 'orderId', fromJson: JsonCoerce.asString)
   final String? orderId;
   static const fromJsonFactory =
       _$PayServiceRechargeCreateOrderPost$Response$DataFromJson;
@@ -2848,9 +2849,9 @@ class PayServicePayPayPost$Response$Data {
   Map<String, dynamic> toJson() =>
       _$PayServicePayPayPost$Response$DataToJson(this);
 
-  @JsonKey(name: 'thirdPayParam')
+  @JsonKey(name: 'thirdPayParam', fromJson: JsonCoerce.asString)
   final String? thirdPayParam;
-  @JsonKey(name: 'receiptAddress')
+  @JsonKey(name: 'receiptAddress', fromJson: JsonCoerce.asString)
   final String? receiptAddress;
   static const fromJsonFactory = _$PayServicePayPayPost$Response$DataFromJson;
 
@@ -2924,13 +2925,13 @@ class PayServicePayPayResultGet$Response$Data {
   Map<String, dynamic> toJson() =>
       _$PayServicePayPayResultGet$Response$DataToJson(this);
 
-  @JsonKey(name: 'payStatus')
+  @JsonKey(name: 'payStatus', fromJson: JsonCoerce.asDouble)
   final double? payStatus;
-  @JsonKey(name: 'orderType')
+  @JsonKey(name: 'orderType', fromJson: JsonCoerce.asDouble)
   final double? orderType;
   @JsonKey(name: 'currency')
   final PayServicePayPayResultGet$Response$Data$Currency? currency;
-  @JsonKey(name: 'payAmount')
+  @JsonKey(name: 'payAmount', fromJson: JsonCoerce.asString)
   final String? payAmount;
   static const fromJsonFactory =
       _$PayServicePayPayResultGet$Response$DataFromJson;
@@ -3067,9 +3068,9 @@ class PayServiceEchoooCoinTypeGet$Response$Data$Item {
   Map<String, dynamic> toJson() =>
       _$PayServiceEchoooCoinTypeGet$Response$Data$ItemToJson(this);
 
-  @JsonKey(name: 'type')
+  @JsonKey(name: 'type', fromJson: JsonCoerce.asDouble)
   final double? type;
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
   static const fromJsonFactory =
       _$PayServiceEchoooCoinTypeGet$Response$Data$ItemFromJson;
@@ -3136,13 +3137,13 @@ class PayServiceEchoooCoinInfoGet$Response$Data {
   Map<String, dynamic> toJson() =>
       _$PayServiceEchoooCoinInfoGet$Response$DataToJson(this);
 
-  @JsonKey(name: 'balance')
+  @JsonKey(name: 'balance', fromJson: JsonCoerce.asDouble)
   final double? balance;
-  @JsonKey(name: 'percentage')
+  @JsonKey(name: 'percentage', fromJson: JsonCoerce.asString)
   final String? percentage;
-  @JsonKey(name: 'deductibleAmount')
+  @JsonKey(name: 'deductibleAmount', fromJson: JsonCoerce.asString)
   final String? deductibleAmount;
-  @JsonKey(name: 'accumulateAmount')
+  @JsonKey(name: 'accumulateAmount', fromJson: JsonCoerce.asString)
   final String? accumulateAmount;
   @JsonKey(name: 'currency')
   final PayServiceEchoooCoinInfoGet$Response$Data$Currency? currency;
@@ -3250,13 +3251,13 @@ class PayServiceEchoooCoinLogGet$Response$Data {
   Map<String, dynamic> toJson() =>
       _$PayServiceEchoooCoinLogGet$Response$DataToJson(this);
 
-  @JsonKey(name: 'total')
+  @JsonKey(name: 'total', fromJson: JsonCoerce.asDouble)
   final double? total;
-  @JsonKey(name: 'pageSize')
+  @JsonKey(name: 'pageSize', fromJson: JsonCoerce.asDouble)
   final double? pageSize;
-  @JsonKey(name: 'totalPages')
+  @JsonKey(name: 'totalPages', fromJson: JsonCoerce.asDouble)
   final double? totalPages;
-  @JsonKey(name: 'current')
+  @JsonKey(name: 'current', fromJson: JsonCoerce.asDouble)
   final double? current;
   @JsonKey(name: 'records')
   final List<PayServiceEchoooCoinLogGet$Response$Data$Records$Item>? records;
@@ -3361,25 +3362,25 @@ class PayServiceWithdrawOrdersGet$Response$Data$Records$Item {
   Map<String, dynamic> toJson() =>
       _$PayServiceWithdrawOrdersGet$Response$Data$Records$ItemToJson(this);
 
-  @JsonKey(name: 'orderNo')
+  @JsonKey(name: 'orderNo', fromJson: JsonCoerce.asString)
   final String? orderNo;
-  @JsonKey(name: 'amount')
+  @JsonKey(name: 'amount', fromJson: JsonCoerce.asString)
   final String? amount;
-  @JsonKey(name: 'currency')
+  @JsonKey(name: 'currency', fromJson: JsonCoerce.asString)
   final String? currency;
-  @JsonKey(name: 'status')
+  @JsonKey(name: 'status', fromJson: JsonCoerce.asDouble)
   final double? status;
-  @JsonKey(name: 'remark')
+  @JsonKey(name: 'remark', fromJson: JsonCoerce.asString)
   final String? remark;
-  @JsonKey(name: 'createTime')
+  @JsonKey(name: 'createTime', fromJson: JsonCoerce.asString)
   final String? createTime;
-  @JsonKey(name: 'completedTime')
+  @JsonKey(name: 'completedTime', fromJson: JsonCoerce.asString)
   final String? completedTime;
-  @JsonKey(name: 'attach')
+  @JsonKey(name: 'attach', fromJson: JsonCoerce.asString)
   final String? attach;
-  @JsonKey(name: 'accountType')
+  @JsonKey(name: 'accountType', fromJson: JsonCoerce.asString)
   final String? accountType;
-  @JsonKey(name: 'accountNo')
+  @JsonKey(name: 'accountNo', fromJson: JsonCoerce.asString)
   final String? accountNo;
   static const fromJsonFactory =
       _$PayServiceWithdrawOrdersGet$Response$Data$Records$ItemFromJson;
@@ -3525,13 +3526,13 @@ class PayServiceCommissionTransactionGet$Response$Data$Records$Item {
         this,
       );
 
-  @JsonKey(name: 'amount')
+  @JsonKey(name: 'amount', fromJson: JsonCoerce.asString)
   final String? amount;
-  @JsonKey(name: 'time')
+  @JsonKey(name: 'time', fromJson: JsonCoerce.asString)
   final String? time;
-  @JsonKey(name: 'typeName')
+  @JsonKey(name: 'typeName', fromJson: JsonCoerce.asString)
   final String? typeName;
-  @JsonKey(name: 'currency')
+  @JsonKey(name: 'currency', fromJson: JsonCoerce.asString)
   final String? currency;
   static const fromJsonFactory =
       _$PayServiceCommissionTransactionGet$Response$Data$Records$ItemFromJson;
@@ -3617,9 +3618,9 @@ class PayServiceRechargeBalanceGet$Response$Data$Currency {
   Map<String, dynamic> toJson() =>
       _$PayServiceRechargeBalanceGet$Response$Data$CurrencyToJson(this);
 
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
-  @JsonKey(name: 'symbol')
+  @JsonKey(name: 'symbol', fromJson: JsonCoerce.asString)
   final String? symbol;
   static const fromJsonFactory =
       _$PayServiceRechargeBalanceGet$Response$Data$CurrencyFromJson;
@@ -3684,9 +3685,9 @@ class PayServiceRechargeBalanceGet$Response$Data$RechargeReward {
   Map<String, dynamic> toJson() =>
       _$PayServiceRechargeBalanceGet$Response$Data$RechargeRewardToJson(this);
 
-  @JsonKey(name: 'amount')
+  @JsonKey(name: 'amount', fromJson: JsonCoerce.asString)
   final String? amount;
-  @JsonKey(name: 'expireAt')
+  @JsonKey(name: 'expireAt', fromJson: JsonCoerce.asDouble)
   final double? expireAt;
   static const fromJsonFactory =
       _$PayServiceRechargeBalanceGet$Response$Data$RechargeRewardFromJson;
@@ -3754,9 +3755,9 @@ class PayServiceRechargeBalanceGet$Response$Data$TargetCurrency {
   Map<String, dynamic> toJson() =>
       _$PayServiceRechargeBalanceGet$Response$Data$TargetCurrencyToJson(this);
 
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
-  @JsonKey(name: 'symbol')
+  @JsonKey(name: 'symbol', fromJson: JsonCoerce.asString)
   final String? symbol;
   static const fromJsonFactory =
       _$PayServiceRechargeBalanceGet$Response$Data$TargetCurrencyFromJson;
@@ -3832,33 +3833,33 @@ class PayServiceRechargeOrdersGet$Response$Data$Records$Item {
   Map<String, dynamic> toJson() =>
       _$PayServiceRechargeOrdersGet$Response$Data$Records$ItemToJson(this);
 
-  @JsonKey(name: 'id')
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asDouble)
   final double? id;
-  @JsonKey(name: 'userId')
+  @JsonKey(name: 'userId', fromJson: JsonCoerce.asString)
   final String? userId;
-  @JsonKey(name: 'tenantCode')
+  @JsonKey(name: 'tenantCode', fromJson: JsonCoerce.asString)
   final String? tenantCode;
-  @JsonKey(name: 'amount')
+  @JsonKey(name: 'amount', fromJson: JsonCoerce.asString)
   final String? amount;
-  @JsonKey(name: 'currency')
+  @JsonKey(name: 'currency', fromJson: JsonCoerce.asString)
   final String? currency;
-  @JsonKey(name: 'targetAmount')
+  @JsonKey(name: 'targetAmount', fromJson: JsonCoerce.asString)
   final String? targetAmount;
-  @JsonKey(name: 'targetCurrency')
+  @JsonKey(name: 'targetCurrency', fromJson: JsonCoerce.asString)
   final String? targetCurrency;
-  @JsonKey(name: 'gmtCreate')
+  @JsonKey(name: 'gmtCreate', fromJson: JsonCoerce.asString)
   final String? gmtCreate;
-  @JsonKey(name: 'gmtUpdate')
+  @JsonKey(name: 'gmtUpdate', fromJson: JsonCoerce.asString)
   final String? gmtUpdate;
-  @JsonKey(name: 'status')
+  @JsonKey(name: 'status', fromJson: JsonCoerce.asDouble)
   final double? status;
-  @JsonKey(name: 'payType')
+  @JsonKey(name: 'payType', fromJson: JsonCoerce.asDouble)
   final double? payType;
-  @JsonKey(name: 'payAmount')
+  @JsonKey(name: 'payAmount', fromJson: JsonCoerce.asString)
   final String? payAmount;
-  @JsonKey(name: 'payFee')
+  @JsonKey(name: 'payFee', fromJson: JsonCoerce.asString)
   final String? payFee;
-  @JsonKey(name: 'payOrderId')
+  @JsonKey(name: 'payOrderId', fromJson: JsonCoerce.asString)
   final String? payOrderId;
   static const fromJsonFactory =
       _$PayServiceRechargeOrdersGet$Response$Data$Records$ItemFromJson;
@@ -4037,9 +4038,9 @@ class PayServicePayPayResultGet$Response$Data$Currency {
   Map<String, dynamic> toJson() =>
       _$PayServicePayPayResultGet$Response$Data$CurrencyToJson(this);
 
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
-  @JsonKey(name: 'symbol')
+  @JsonKey(name: 'symbol', fromJson: JsonCoerce.asString)
   final String? symbol;
   static const fromJsonFactory =
       _$PayServicePayPayResultGet$Response$Data$CurrencyFromJson;
@@ -4111,25 +4112,25 @@ class PayServicePayPayTypeGet$Response$Data$List$Item {
   Map<String, dynamic> toJson() =>
       _$PayServicePayPayTypeGet$Response$Data$List$ItemToJson(this);
 
-  @JsonKey(name: 'payType')
+  @JsonKey(name: 'payType', fromJson: JsonCoerce.asString)
   final String? payType;
-  @JsonKey(name: 'payAmount')
+  @JsonKey(name: 'payAmount', fromJson: JsonCoerce.asString)
   final String? payAmount;
   @JsonKey(name: 'currency')
   final PayServicePayPayTypeGet$Response$Data$List$Item$Currency? currency;
-  @JsonKey(name: 'payTypeName')
+  @JsonKey(name: 'payTypeName', fromJson: JsonCoerce.asString)
   final String? payTypeName;
-  @JsonKey(name: 'payTypeIcon')
+  @JsonKey(name: 'payTypeIcon', fromJson: JsonCoerce.asString)
   final String? payTypeIcon;
-  @JsonKey(name: 'payTypeDesc')
+  @JsonKey(name: 'payTypeDesc', fromJson: JsonCoerce.asString)
   final String? payTypeDesc;
-  @JsonKey(name: 'payFee')
+  @JsonKey(name: 'payFee', fromJson: JsonCoerce.asString)
   final String? payFee;
-  @JsonKey(name: 'rechargeOnly')
+  @JsonKey(name: 'rechargeOnly', fromJson: JsonCoerce.asString)
   final String? rechargeOnly;
-  @JsonKey(name: 'rechargeDifference')
+  @JsonKey(name: 'rechargeDifference', fromJson: JsonCoerce.asString)
   final String? rechargeDifference;
-  @JsonKey(name: 'isDefault')
+  @JsonKey(name: 'isDefault', fromJson: JsonCoerce.asBool)
   final bool? isDefault;
   static const fromJsonFactory =
       _$PayServicePayPayTypeGet$Response$Data$List$ItemFromJson;
@@ -4281,9 +4282,9 @@ class PayServiceEchoooCoinInfoGet$Response$Data$Currency {
   Map<String, dynamic> toJson() =>
       _$PayServiceEchoooCoinInfoGet$Response$Data$CurrencyToJson(this);
 
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
-  @JsonKey(name: 'symbol')
+  @JsonKey(name: 'symbol', fromJson: JsonCoerce.asString)
   final String? symbol;
   static const fromJsonFactory =
       _$PayServiceEchoooCoinInfoGet$Response$Data$CurrencyFromJson;
@@ -4349,13 +4350,13 @@ class PayServiceEchoooCoinLogGet$Response$Data$Records$Item {
   Map<String, dynamic> toJson() =>
       _$PayServiceEchoooCoinLogGet$Response$Data$Records$ItemToJson(this);
 
-  @JsonKey(name: 'actualAmount')
+  @JsonKey(name: 'actualAmount', fromJson: JsonCoerce.asDouble)
   final double? actualAmount;
-  @JsonKey(name: 'gmtCreate')
+  @JsonKey(name: 'gmtCreate', fromJson: JsonCoerce.asDouble)
   final double? gmtCreate;
-  @JsonKey(name: 'type')
+  @JsonKey(name: 'type', fromJson: JsonCoerce.asDouble)
   final double? type;
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
   static const fromJsonFactory =
       _$PayServiceEchoooCoinLogGet$Response$Data$Records$ItemFromJson;
@@ -4441,9 +4442,9 @@ class PayServicePayPayTypeGet$Response$Data$List$Item$Currency {
   Map<String, dynamic> toJson() =>
       _$PayServicePayPayTypeGet$Response$Data$List$Item$CurrencyToJson(this);
 
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
-  @JsonKey(name: 'symbol')
+  @JsonKey(name: 'symbol', fromJson: JsonCoerce.asString)
   final String? symbol;
   static const fromJsonFactory =
       _$PayServicePayPayTypeGet$Response$Data$List$Item$CurrencyFromJson;

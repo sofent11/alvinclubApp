@@ -15,6 +15,7 @@ import 'package:http/http.dart' as http;
 import 'package:http/http.dart' show MultipartFile;
 import 'package:chopper/chopper.dart' as chopper;
 import 'swaggerApiOrder.metadata.swagger.dart';
+import 'package:w2capp/shared/utils/json_coerce.dart';
 
 part 'swaggerApiOrder.swagger.chopper.dart';
 part 'swaggerApiOrder.swagger.g.dart';
@@ -1343,9 +1344,9 @@ class OrderServiceOrderAppCancelPost$Response {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderAppCancelPost$ResponseToJson(this);
 
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
   @JsonKey(name: 'data')
   final Object? data;
@@ -1424,9 +1425,9 @@ class OrderServiceOrderAppBatchInfosGet$Response {
 
   @JsonKey(name: 'data')
   final OrderServiceOrderAppBatchInfosGet$Response$Data? data;
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   static const fromJsonFactory =
       _$OrderServiceOrderAppBatchInfosGet$ResponseFromJson;
@@ -1499,9 +1500,9 @@ class OrderServiceOrderAppSubmitPost$Response {
 
   @JsonKey(name: 'data')
   final OrderServiceOrderAppSubmitPost$Response$Data? data;
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   static const fromJsonFactory =
       _$OrderServiceOrderAppSubmitPost$ResponseFromJson;
@@ -1574,9 +1575,9 @@ class OrderServiceOrderAppUpdatePost$Response {
 
   @JsonKey(name: 'data')
   final Object? data;
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   static const fromJsonFactory =
       _$OrderServiceOrderAppUpdatePost$ResponseFromJson;
@@ -1650,17 +1651,17 @@ class OrderServiceOrderAppListGet$Response {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderAppListGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final OrderServiceOrderAppListGet$Response$Data? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   static const fromJsonFactory = _$OrderServiceOrderAppListGet$ResponseFromJson;
 
@@ -1763,17 +1764,17 @@ class OrderServiceOrderAppDetailGet$Response {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderAppDetailGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final OrderServiceOrderAppDetailGet$Response$Data? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   static const fromJsonFactory =
       _$OrderServiceOrderAppDetailGet$ResponseFromJson;
@@ -1876,9 +1877,9 @@ class OrderServiceOrderPrePricingGet$Response {
 
   @JsonKey(name: 'data')
   final OrderServiceOrderPrePricingGet$Response$Data? data;
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   static const fromJsonFactory =
       _$OrderServiceOrderPrePricingGet$ResponseFromJson;
@@ -1949,9 +1950,9 @@ class OrderServiceOrderCancelPost$Response {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderCancelPost$ResponseToJson(this);
 
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
   @JsonKey(name: 'data')
   final Object? data;
@@ -2028,9 +2029,9 @@ class OrderServiceOrderSubmitPost$Response {
 
   @JsonKey(name: 'data')
   final OrderServiceOrderSubmitPost$Response$Data? data;
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   static const fromJsonFactory = _$OrderServiceOrderSubmitPost$ResponseFromJson;
 
@@ -2102,9 +2103,9 @@ class OrderServiceOrderUpdatePost$Response {
 
   @JsonKey(name: 'data')
   final Object? data;
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   static const fromJsonFactory = _$OrderServiceOrderUpdatePost$ResponseFromJson;
 
@@ -2174,9 +2175,9 @@ class OrderServiceOrderConfirmPost$Response {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderConfirmPost$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asString)
   final String? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final OrderServiceOrderConfirmPost$Response$Data? data;
@@ -2255,17 +2256,17 @@ class OrderServiceOrderSettlementPost$Response {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderSettlementPost$ResponseToJson(this);
 
-  @JsonKey(name: 'totalPrice')
+  @JsonKey(name: 'totalPrice', fromJson: JsonCoerce.asString)
   final String? totalPrice;
-  @JsonKey(name: 'targetTotalPrice')
+  @JsonKey(name: 'targetTotalPrice', fromJson: JsonCoerce.asString)
   final String? targetTotalPrice;
-  @JsonKey(name: 'currency')
+  @JsonKey(name: 'currency', fromJson: JsonCoerce.asString)
   final String? currency;
-  @JsonKey(name: 'targetCurrency')
+  @JsonKey(name: 'targetCurrency', fromJson: JsonCoerce.asString)
   final String? targetCurrency;
-  @JsonKey(name: 'rechargeBalance')
+  @JsonKey(name: 'rechargeBalance', fromJson: JsonCoerce.asString)
   final String? rechargeBalance;
-  @JsonKey(name: 'rechargeStatus')
+  @JsonKey(name: 'rechargeStatus', fromJson: JsonCoerce.asString)
   final String? rechargeStatus;
   static const fromJsonFactory =
       _$OrderServiceOrderSettlementPost$ResponseFromJson;
@@ -2386,17 +2387,17 @@ class OrderServiceOrderPricingPost$Response {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderPricingPost$ResponseToJson(this);
 
-  @JsonKey(name: 'totalAmount')
+  @JsonKey(name: 'totalAmount', fromJson: JsonCoerce.asString)
   final String? totalAmount;
-  @JsonKey(name: 'targetTotalAmount')
+  @JsonKey(name: 'targetTotalAmount', fromJson: JsonCoerce.asString)
   final String? targetTotalAmount;
-  @JsonKey(name: 'sellCur')
+  @JsonKey(name: 'sellCur', fromJson: JsonCoerce.asString)
   final String? sellCur;
-  @JsonKey(name: 'targetSellCur')
+  @JsonKey(name: 'targetSellCur', fromJson: JsonCoerce.asString)
   final String? targetSellCur;
-  @JsonKey(name: 'targetOrderLimitAmount')
+  @JsonKey(name: 'targetOrderLimitAmount', fromJson: JsonCoerce.asString)
   final String? targetOrderLimitAmount;
-  @JsonKey(name: 'targetShipLimitAmount')
+  @JsonKey(name: 'targetShipLimitAmount', fromJson: JsonCoerce.asString)
   final String? targetShipLimitAmount;
   static const fromJsonFactory =
       _$OrderServiceOrderPricingPost$ResponseFromJson;
@@ -2526,25 +2527,25 @@ class OrderServiceFeebillListGet$Response$Item {
   Map<String, dynamic> toJson() =>
       _$OrderServiceFeebillListGet$Response$ItemToJson(this);
 
-  @JsonKey(name: 'billId')
+  @JsonKey(name: 'billId', fromJson: JsonCoerce.asString)
   final String? billId;
-  @JsonKey(name: 'bizId')
+  @JsonKey(name: 'bizId', fromJson: JsonCoerce.asString)
   final String? bizId;
-  @JsonKey(name: 'billType')
+  @JsonKey(name: 'billType', fromJson: JsonCoerce.asString)
   final String? billType;
-  @JsonKey(name: 'status')
+  @JsonKey(name: 'status', fromJson: JsonCoerce.asString)
   final String? status;
-  @JsonKey(name: 'gmtTimeout')
+  @JsonKey(name: 'gmtTimeout', fromJson: JsonCoerce.asString)
   final String? gmtTimeout;
-  @JsonKey(name: 'gmtPay')
+  @JsonKey(name: 'gmtPay', fromJson: JsonCoerce.asString)
   final String? gmtPay;
-  @JsonKey(name: 'settlementPrice')
+  @JsonKey(name: 'settlementPrice', fromJson: JsonCoerce.asString)
   final String? settlementPrice;
-  @JsonKey(name: 'currency')
+  @JsonKey(name: 'currency', fromJson: JsonCoerce.asString)
   final String? currency;
-  @JsonKey(name: 'targetCurrency')
+  @JsonKey(name: 'targetCurrency', fromJson: JsonCoerce.asString)
   final String? targetCurrency;
-  @JsonKey(name: 'targetTotalPrice')
+  @JsonKey(name: 'targetTotalPrice', fromJson: JsonCoerce.asString)
   final String? targetTotalPrice;
   static const fromJsonFactory =
       _$OrderServiceFeebillListGet$Response$ItemFromJson;
@@ -2692,17 +2693,17 @@ class OrderServiceOrderNoAuthDetailGet$Response {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderNoAuthDetailGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final OrderServiceOrderNoAuthDetailGet$Response$Data? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   static const fromJsonFactory =
       _$OrderServiceOrderNoAuthDetailGet$ResponseFromJson;
@@ -2806,17 +2807,17 @@ class OrderServiceOrderCouponListPost$Response {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderCouponListPost$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final List<OrderServiceOrderCouponListPost$Response$Data$Item>? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   static const fromJsonFactory =
       _$OrderServiceOrderCouponListPost$ResponseFromJson;
@@ -2921,17 +2922,17 @@ class OrderServiceOrderDiscountListPost$Response {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderDiscountListPost$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final List<OrderServiceOrderDiscountListPost$Response$Data$Item>? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   static const fromJsonFactory =
       _$OrderServiceOrderDiscountListPost$ResponseFromJson;
@@ -3036,17 +3037,17 @@ class OrderServiceOrderAvailableCouponPost$Response {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderAvailableCouponPost$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final OrderServiceOrderAvailableCouponPost$Response$Data? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   static const fromJsonFactory =
       _$OrderServiceOrderAvailableCouponPost$ResponseFromJson;
@@ -3151,17 +3152,17 @@ class OrderServiceOrderCouponTitlePost$Response {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderCouponTitlePost$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
-  @JsonKey(name: 'data')
+  @JsonKey(name: 'data', fromJson: JsonCoerce.asString)
   final String? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   static const fromJsonFactory =
       _$OrderServiceOrderCouponTitlePost$ResponseFromJson;
@@ -3265,17 +3266,17 @@ class OrderServiceOrderGetReviewGet$Response {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderGetReviewGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final List<OrderServiceOrderGetReviewGet$Response$Data$Item>? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   static const fromJsonFactory =
       _$OrderServiceOrderGetReviewGet$ResponseFromJson;
@@ -3379,17 +3380,17 @@ class OrderServiceOrderListGet$Response {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderListGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final OrderServiceOrderListGet$Response$Data? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   static const fromJsonFactory = _$OrderServiceOrderListGet$ResponseFromJson;
 
@@ -3492,17 +3493,17 @@ class OrderServiceOrderCombineListGet$Response {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderCombineListGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final OrderServiceOrderCombineListGet$Response$Data? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   static const fromJsonFactory =
       _$OrderServiceOrderCombineListGet$ResponseFromJson;
@@ -3606,17 +3607,17 @@ class OrderServiceOrderGetBatchNoGet$Response {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderGetBatchNoGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final OrderServiceOrderGetBatchNoGet$Response$Data? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   static const fromJsonFactory =
       _$OrderServiceOrderGetBatchNoGet$ResponseFromJson;
@@ -3720,17 +3721,17 @@ class OrderServiceOrderGetButtonGet$Response {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderGetButtonGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final OrderServiceOrderGetButtonGet$Response$Data? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   static const fromJsonFactory =
       _$OrderServiceOrderGetButtonGet$ResponseFromJson;
@@ -3834,17 +3835,17 @@ class OrderServiceOrderReviewPost$Response {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderReviewPost$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
-  @JsonKey(name: 'data')
+  @JsonKey(name: 'data', fromJson: JsonCoerce.asString)
   final String? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   static const fromJsonFactory = _$OrderServiceOrderReviewPost$ResponseFromJson;
 
@@ -3946,15 +3947,15 @@ class OrderServiceOrderDetailGet$Response {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderDetailGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final OrderServiceOrderDetailGet$Response$Data? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   static const fromJsonFactory = _$OrderServiceOrderDetailGet$ResponseFromJson;
 
@@ -4048,17 +4049,17 @@ class OrderServiceOpenapiOrderDetailGet$Response {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOpenapiOrderDetailGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final OrderServiceOpenapiOrderDetailGet$Response$Data? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   static const fromJsonFactory =
       _$OrderServiceOpenapiOrderDetailGet$ResponseFromJson;
@@ -4163,17 +4164,17 @@ class OrderServiceOrderCombineDetailGet$Response {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderCombineDetailGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final OrderServiceOrderCombineDetailGet$Response$Data? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   static const fromJsonFactory =
       _$OrderServiceOrderCombineDetailGet$ResponseFromJson;
@@ -4278,17 +4279,17 @@ class OrderServiceOrderGetOrderTraceGet$Response {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderGetOrderTraceGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final OrderServiceOrderGetOrderTraceGet$Response$Data? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   static const fromJsonFactory =
       _$OrderServiceOrderGetOrderTraceGet$ResponseFromJson;
@@ -4392,17 +4393,17 @@ class OrderServiceCartListGet$Response {
   Map<String, dynamic> toJson() =>
       _$OrderServiceCartListGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final OrderServiceCartListGet$Response$Data? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
-  @JsonKey(name: 'placeholder')
+  @JsonKey(name: 'placeholder', fromJson: JsonCoerce.asString)
   final String? placeholder;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   static const fromJsonFactory = _$OrderServiceCartListGet$ResponseFromJson;
 
@@ -4502,9 +4503,9 @@ class OrderServiceCartSettlementPost$Response {
   Map<String, dynamic> toJson() =>
       _$OrderServiceCartSettlementPost$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asString)
   final String? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final Object? data;
@@ -4582,15 +4583,15 @@ class OrderServiceCartPricingPost$Response {
   Map<String, dynamic> toJson() =>
       _$OrderServiceCartPricingPost$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final OrderServiceCartPricingPost$Response$Data? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   static const fromJsonFactory = _$OrderServiceCartPricingPost$ResponseFromJson;
 
@@ -4683,15 +4684,15 @@ class OrderServiceCartNoAuthPricingPost$Response {
   Map<String, dynamic> toJson() =>
       _$OrderServiceCartNoAuthPricingPost$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final OrderServiceCartNoAuthPricingPost$Response$Data? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   static const fromJsonFactory =
       _$OrderServiceCartNoAuthPricingPost$ResponseFromJson;
@@ -4784,11 +4785,11 @@ class OrderServiceOrderAppBatchInfosGet$Response$Data {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderAppBatchInfosGet$Response$DataToJson(this);
 
-  @JsonKey(name: 'title')
+  @JsonKey(name: 'title', fromJson: JsonCoerce.asString)
   final String? title;
-  @JsonKey(name: 'description')
+  @JsonKey(name: 'description', fromJson: JsonCoerce.asString)
   final String? description;
-  @JsonKey(name: 'parcelOrderId')
+  @JsonKey(name: 'parcelOrderId', fromJson: JsonCoerce.asString)
   final String? parcelOrderId;
   @JsonKey(name: 'logisticsJoinInfoList')
   final List<
@@ -4895,13 +4896,13 @@ class OrderServiceOrderAppSubmitPost$Response$Data {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderAppSubmitPost$Response$DataToJson(this);
 
-  @JsonKey(name: 'orderId')
+  @JsonKey(name: 'orderId', fromJson: JsonCoerce.asString)
   final String? orderId;
-  @JsonKey(name: 'single')
+  @JsonKey(name: 'single', fromJson: JsonCoerce.asBool)
   final bool? single;
-  @JsonKey(name: 'orderStatus')
+  @JsonKey(name: 'orderStatus', fromJson: JsonCoerce.asDouble)
   final double? orderStatus;
-  @JsonKey(name: 'timeoutPeriod')
+  @JsonKey(name: 'timeoutPeriod', fromJson: JsonCoerce.asDouble)
   final double? timeoutPeriod;
   static const fromJsonFactory =
       _$OrderServiceOrderAppSubmitPost$Response$DataFromJson;
@@ -4993,13 +4994,13 @@ class OrderServiceOrderAppListGet$Response$Data {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderAppListGet$Response$DataToJson(this);
 
-  @JsonKey(name: 'total')
+  @JsonKey(name: 'total', fromJson: JsonCoerce.asDouble)
   final double? total;
-  @JsonKey(name: 'pageSize')
+  @JsonKey(name: 'pageSize', fromJson: JsonCoerce.asDouble)
   final double? pageSize;
-  @JsonKey(name: 'totalPages')
+  @JsonKey(name: 'totalPages', fromJson: JsonCoerce.asDouble)
   final double? totalPages;
-  @JsonKey(name: 'current')
+  @JsonKey(name: 'current', fromJson: JsonCoerce.asDouble)
   final double? current;
   @JsonKey(name: 'records')
   final List<OrderServiceOrderAppListGet$Response$Data$Records$Item>? records;
@@ -5280,13 +5281,13 @@ class OrderServiceOrderPrePricingGet$Response$Data {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderPrePricingGet$Response$DataToJson(this);
 
-  @JsonKey(name: 'currency')
+  @JsonKey(name: 'currency', fromJson: JsonCoerce.asString)
   final String? currency;
-  @JsonKey(name: 'totalPrice')
+  @JsonKey(name: 'totalPrice', fromJson: JsonCoerce.asString)
   final String? totalPrice;
-  @JsonKey(name: 'targetCurrency')
+  @JsonKey(name: 'targetCurrency', fromJson: JsonCoerce.asDouble)
   final double? targetCurrency;
-  @JsonKey(name: 'targetPrice')
+  @JsonKey(name: 'targetPrice', fromJson: JsonCoerce.asString)
   final String? targetPrice;
   static const fromJsonFactory =
       _$OrderServiceOrderPrePricingGet$Response$DataFromJson;
@@ -5379,11 +5380,11 @@ class OrderServiceOrderSubmitPost$Response$Data {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderSubmitPost$Response$DataToJson(this);
 
-  @JsonKey(name: 'orderId')
+  @JsonKey(name: 'orderId', fromJson: JsonCoerce.asString)
   final String? orderId;
-  @JsonKey(name: 'orderStatus')
+  @JsonKey(name: 'orderStatus', fromJson: JsonCoerce.asDouble)
   final double? orderStatus;
-  @JsonKey(name: 'timeoutPeriod')
+  @JsonKey(name: 'timeoutPeriod', fromJson: JsonCoerce.asDouble)
   final double? timeoutPeriod;
   static const fromJsonFactory =
       _$OrderServiceOrderSubmitPost$Response$DataFromJson;
@@ -5738,23 +5739,23 @@ class OrderServiceOrderCouponListPost$Response$Data$Item {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderCouponListPost$Response$Data$ItemToJson(this);
 
-  @JsonKey(name: 'couponCode')
+  @JsonKey(name: 'couponCode', fromJson: JsonCoerce.asString)
   final String? couponCode;
-  @JsonKey(name: 'discountInfo')
+  @JsonKey(name: 'discountInfo', fromJson: JsonCoerce.asString)
   final String? discountInfo;
-  @JsonKey(name: 'discountType')
+  @JsonKey(name: 'discountType', fromJson: JsonCoerce.asDouble)
   final double? discountType;
-  @JsonKey(name: 'discountAmount')
+  @JsonKey(name: 'discountAmount', fromJson: JsonCoerce.asString)
   final String? discountAmount;
-  @JsonKey(name: 'currency')
+  @JsonKey(name: 'currency', fromJson: JsonCoerce.asString)
   final String? currency;
-  @JsonKey(name: 'targetDiscountAmount')
+  @JsonKey(name: 'targetDiscountAmount', fromJson: JsonCoerce.asString)
   final String? targetDiscountAmount;
-  @JsonKey(name: 'targetCurrency')
+  @JsonKey(name: 'targetCurrency', fromJson: JsonCoerce.asString)
   final String? targetCurrency;
-  @JsonKey(name: 'available')
+  @JsonKey(name: 'available', fromJson: JsonCoerce.asBool)
   final bool? available;
-  @JsonKey(name: 'unavailableReason')
+  @JsonKey(name: 'unavailableReason', fromJson: JsonCoerce.asString)
   final String? unavailableReason;
   @JsonKey(name: 'userCoupon')
   final OrderServiceOrderCouponListPost$Response$Data$Item$UserCoupon?
@@ -5927,23 +5928,23 @@ class OrderServiceOrderDiscountListPost$Response$Data$Item {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderDiscountListPost$Response$Data$ItemToJson(this);
 
-  @JsonKey(name: 'couponCode')
+  @JsonKey(name: 'couponCode', fromJson: JsonCoerce.asString)
   final String? couponCode;
-  @JsonKey(name: 'discountInfo')
+  @JsonKey(name: 'discountInfo', fromJson: JsonCoerce.asString)
   final String? discountInfo;
-  @JsonKey(name: 'discountType')
+  @JsonKey(name: 'discountType', fromJson: JsonCoerce.asDouble)
   final double? discountType;
-  @JsonKey(name: 'discountAmount')
+  @JsonKey(name: 'discountAmount', fromJson: JsonCoerce.asString)
   final String? discountAmount;
-  @JsonKey(name: 'currency')
+  @JsonKey(name: 'currency', fromJson: JsonCoerce.asString)
   final String? currency;
-  @JsonKey(name: 'targetDiscountAmount')
+  @JsonKey(name: 'targetDiscountAmount', fromJson: JsonCoerce.asString)
   final String? targetDiscountAmount;
-  @JsonKey(name: 'targetCurrency')
+  @JsonKey(name: 'targetCurrency', fromJson: JsonCoerce.asString)
   final String? targetCurrency;
-  @JsonKey(name: 'available')
+  @JsonKey(name: 'available', fromJson: JsonCoerce.asBool)
   final bool? available;
-  @JsonKey(name: 'unavailableReason')
+  @JsonKey(name: 'unavailableReason', fromJson: JsonCoerce.asString)
   final String? unavailableReason;
   static const fromJsonFactory =
       _$OrderServiceOrderDiscountListPost$Response$Data$ItemFromJson;
@@ -6102,23 +6103,23 @@ class OrderServiceOrderAvailableCouponPost$Response$Data {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderAvailableCouponPost$Response$DataToJson(this);
 
-  @JsonKey(name: 'couponCode')
+  @JsonKey(name: 'couponCode', fromJson: JsonCoerce.asString)
   final String? couponCode;
-  @JsonKey(name: 'discountInfo')
+  @JsonKey(name: 'discountInfo', fromJson: JsonCoerce.asString)
   final String? discountInfo;
-  @JsonKey(name: 'discountType')
+  @JsonKey(name: 'discountType', fromJson: JsonCoerce.asDouble)
   final double? discountType;
-  @JsonKey(name: 'discountAmount')
+  @JsonKey(name: 'discountAmount', fromJson: JsonCoerce.asString)
   final String? discountAmount;
-  @JsonKey(name: 'currency')
+  @JsonKey(name: 'currency', fromJson: JsonCoerce.asString)
   final String? currency;
-  @JsonKey(name: 'targetDiscountAmount')
+  @JsonKey(name: 'targetDiscountAmount', fromJson: JsonCoerce.asString)
   final String? targetDiscountAmount;
-  @JsonKey(name: 'targetCurrency')
+  @JsonKey(name: 'targetCurrency', fromJson: JsonCoerce.asString)
   final String? targetCurrency;
-  @JsonKey(name: 'available')
+  @JsonKey(name: 'available', fromJson: JsonCoerce.asBool)
   final bool? available;
-  @JsonKey(name: 'unavailableReason')
+  @JsonKey(name: 'unavailableReason', fromJson: JsonCoerce.asString)
   final String? unavailableReason;
   static const fromJsonFactory =
       _$OrderServiceOrderAvailableCouponPost$Response$DataFromJson;
@@ -6278,21 +6279,21 @@ class OrderServiceOrderGetReviewGet$Response$Data$Item {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderGetReviewGet$Response$Data$ItemToJson(this);
 
-  @JsonKey(name: 'productName')
+  @JsonKey(name: 'productName', fromJson: JsonCoerce.asString)
   final String? productName;
-  @JsonKey(name: 'skuCode')
+  @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
   final String? skuCode;
-  @JsonKey(name: 'productCode')
+  @JsonKey(name: 'productCode', fromJson: JsonCoerce.asString)
   final String? productCode;
-  @JsonKey(name: 'image')
+  @JsonKey(name: 'image', fromJson: JsonCoerce.asString)
   final String? image;
-  @JsonKey(name: 'targetSellPrice')
+  @JsonKey(name: 'targetSellPrice', fromJson: JsonCoerce.asString)
   final String? targetSellPrice;
-  @JsonKey(name: 'targetSellCur')
+  @JsonKey(name: 'targetSellCur', fromJson: JsonCoerce.asString)
   final String? targetSellCur;
-  @JsonKey(name: 'targetTotalPrice')
+  @JsonKey(name: 'targetTotalPrice', fromJson: JsonCoerce.asString)
   final String? targetTotalPrice;
-  @JsonKey(name: 'quantity')
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asString)
   final String? quantity;
   @JsonKey(name: 'skuSpecValues')
   final List<
@@ -6457,13 +6458,13 @@ class OrderServiceOrderListGet$Response$Data {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderListGet$Response$DataToJson(this);
 
-  @JsonKey(name: 'total')
+  @JsonKey(name: 'total', fromJson: JsonCoerce.asDouble)
   final double? total;
-  @JsonKey(name: 'pageSize')
+  @JsonKey(name: 'pageSize', fromJson: JsonCoerce.asDouble)
   final double? pageSize;
-  @JsonKey(name: 'totalPages')
+  @JsonKey(name: 'totalPages', fromJson: JsonCoerce.asDouble)
   final double? totalPages;
-  @JsonKey(name: 'current')
+  @JsonKey(name: 'current', fromJson: JsonCoerce.asDouble)
   final double? current;
   @JsonKey(name: 'records')
   final List<OrderServiceOrderListGet$Response$Data$Records$Item>? records;
@@ -6563,13 +6564,13 @@ class OrderServiceOrderCombineListGet$Response$Data {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderCombineListGet$Response$DataToJson(this);
 
-  @JsonKey(name: 'total')
+  @JsonKey(name: 'total', fromJson: JsonCoerce.asDouble)
   final double? total;
-  @JsonKey(name: 'pageSize')
+  @JsonKey(name: 'pageSize', fromJson: JsonCoerce.asDouble)
   final double? pageSize;
-  @JsonKey(name: 'totalPages')
+  @JsonKey(name: 'totalPages', fromJson: JsonCoerce.asDouble)
   final double? totalPages;
-  @JsonKey(name: 'current')
+  @JsonKey(name: 'current', fromJson: JsonCoerce.asDouble)
   final double? current;
   @JsonKey(name: 'records')
   final List<OrderServiceOrderCombineListGet$Response$Data$Records$Item>?
@@ -6664,7 +6665,7 @@ class OrderServiceOrderGetBatchNoGet$Response$Data {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderGetBatchNoGet$Response$DataToJson(this);
 
-  @JsonKey(name: 'batchNo')
+  @JsonKey(name: 'batchNo', fromJson: JsonCoerce.asString)
   final String? batchNo;
   static const fromJsonFactory =
       _$OrderServiceOrderGetBatchNoGet$Response$DataFromJson;
@@ -6718,9 +6719,9 @@ class OrderServiceOrderGetButtonGet$Response$Data {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderGetButtonGet$Response$DataToJson(this);
 
-  @JsonKey(name: 'canBatch')
+  @JsonKey(name: 'canBatch', fromJson: JsonCoerce.asBool)
   final bool? canBatch;
-  @JsonKey(name: 'canFreightCalc')
+  @JsonKey(name: 'canFreightCalc', fromJson: JsonCoerce.asBool)
   final bool? canFreightCalc;
   static const fromJsonFactory =
       _$OrderServiceOrderGetButtonGet$Response$DataFromJson;
@@ -6802,9 +6803,17 @@ class OrderServiceOrderDetailGet$Response$Data {
   @JsonKey(name: 'orderList')
   final List<OrderServiceOrderDetailGet$Response$Data$OrderList$Item>?
   orderList;
-  @JsonKey(name: 'afterSalesList', defaultValue: <String>[])
+  @JsonKey(
+    name: 'afterSalesList',
+    fromJson: JsonCoerce.asStringList,
+    defaultValue: <String>[],
+  )
   final List<String>? afterSalesList;
-  @JsonKey(name: 'orderBillList', defaultValue: <String>[])
+  @JsonKey(
+    name: 'orderBillList',
+    fromJson: JsonCoerce.asStringList,
+    defaultValue: <String>[],
+  )
   final List<String>? orderBillList;
   @JsonKey(name: 'baseInfo')
   final OrderServiceOrderDetailGet$Response$Data$BaseInfo? baseInfo;
@@ -7269,15 +7278,15 @@ class OrderServiceOrderGetOrderTraceGet$Response$Data {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderGetOrderTraceGet$Response$DataToJson(this);
 
-  @JsonKey(name: 'parcelOrderId')
+  @JsonKey(name: 'parcelOrderId', fromJson: JsonCoerce.asString)
   final String? parcelOrderId;
-  @JsonKey(name: 'parcelOrderStatus')
+  @JsonKey(name: 'parcelOrderStatus', fromJson: JsonCoerce.asString)
   final String? parcelOrderStatus;
-  @JsonKey(name: 'lastMileMailNo')
+  @JsonKey(name: 'lastMileMailNo', fromJson: JsonCoerce.asString)
   final String? lastMileMailNo;
-  @JsonKey(name: 'lastMileCompanyName')
+  @JsonKey(name: 'lastMileCompanyName', fromJson: JsonCoerce.asString)
   final String? lastMileCompanyName;
-  @JsonKey(name: 'lastMileMailNoLink')
+  @JsonKey(name: 'lastMileMailNoLink', fromJson: JsonCoerce.asString)
   final String? lastMileMailNoLink;
   @JsonKey(name: 'traceList')
   final List<OrderServiceOrderGetOrderTraceGet$Response$Data$TraceList$Item>?
@@ -7411,23 +7420,23 @@ class OrderServiceCartListGet$Response$Data {
   Map<String, dynamic> toJson() =>
       _$OrderServiceCartListGet$Response$DataToJson(this);
 
-  @JsonKey(name: 'discountAmount')
+  @JsonKey(name: 'discountAmount', fromJson: JsonCoerce.asString)
   final String? discountAmount;
-  @JsonKey(name: 'totalDiscountAmount')
+  @JsonKey(name: 'totalDiscountAmount', fromJson: JsonCoerce.asString)
   final String? totalDiscountAmount;
-  @JsonKey(name: 'totalAmount')
+  @JsonKey(name: 'totalAmount', fromJson: JsonCoerce.asString)
   final String? totalAmount;
-  @JsonKey(name: 'targetTotalAmount')
+  @JsonKey(name: 'targetTotalAmount', fromJson: JsonCoerce.asString)
   final String? targetTotalAmount;
-  @JsonKey(name: 'totalAmountCur')
+  @JsonKey(name: 'totalAmountCur', fromJson: JsonCoerce.asString)
   final String? totalAmountCur;
-  @JsonKey(name: 'targetTotalAmountCur')
+  @JsonKey(name: 'targetTotalAmountCur', fromJson: JsonCoerce.asString)
   final String? targetTotalAmountCur;
-  @JsonKey(name: 'orderLimitAmount')
+  @JsonKey(name: 'orderLimitAmount', fromJson: JsonCoerce.asDouble)
   final double? orderLimitAmount;
-  @JsonKey(name: 'shipLimitAmount')
+  @JsonKey(name: 'shipLimitAmount', fromJson: JsonCoerce.asDouble)
   final double? shipLimitAmount;
-  @JsonKey(name: 'country')
+  @JsonKey(name: 'country', fromJson: JsonCoerce.asString)
   final String? country;
   @JsonKey(name: 'list')
   final List<OrderServiceCartListGet$Response$Data$List$Item>? list;
@@ -7612,52 +7621,52 @@ class OrderServiceCartPricingPost$Response$Data {
   Map<String, dynamic> toJson() =>
       _$OrderServiceCartPricingPost$Response$DataToJson(this);
 
-  @JsonKey(name: 'itemsTotalAmount')
+  @JsonKey(name: 'itemsTotalAmount', fromJson: JsonCoerce.asString)
   final String? itemsTotalAmount;
-  @JsonKey(name: 'targetOriginAmount')
+  @JsonKey(name: 'targetOriginAmount', fromJson: JsonCoerce.asString)
   final String? targetOriginAmount;
-  @JsonKey(name: 'freightAmount')
+  @JsonKey(name: 'freightAmount', fromJson: JsonCoerce.asString)
   final String? freightAmount;
-  @JsonKey(name: 'totalAmount')
+  @JsonKey(name: 'totalAmount', fromJson: JsonCoerce.asString)
   final String? totalAmount;
-  @JsonKey(name: 'targetTotalAmount')
+  @JsonKey(name: 'targetTotalAmount', fromJson: JsonCoerce.asString)
   final String? targetTotalAmount;
-  @JsonKey(name: 'discountAmount')
+  @JsonKey(name: 'discountAmount', fromJson: JsonCoerce.asString)
   final String? discountAmount;
-  @JsonKey(name: 'targetDiscountAmount')
+  @JsonKey(name: 'targetDiscountAmount', fromJson: JsonCoerce.asString)
   final String? targetDiscountAmount;
-  @JsonKey(name: 'settlementAmount')
+  @JsonKey(name: 'settlementAmount', fromJson: JsonCoerce.asString)
   final String? settlementAmount;
-  @JsonKey(name: 'targetSettlementAmount')
+  @JsonKey(name: 'targetSettlementAmount', fromJson: JsonCoerce.asString)
   final String? targetSettlementAmount;
-  @JsonKey(name: 'targetOrderLimitAmount')
+  @JsonKey(name: 'targetOrderLimitAmount', fromJson: JsonCoerce.asString)
   final String? targetOrderLimitAmount;
-  @JsonKey(name: 'targetShipLimitAmount')
+  @JsonKey(name: 'targetShipLimitAmount', fromJson: JsonCoerce.asString)
   final String? targetShipLimitAmount;
-  @JsonKey(name: 'targetSellCur')
+  @JsonKey(name: 'targetSellCur', fromJson: JsonCoerce.asString)
   final String? targetSellCur;
-  @JsonKey(name: 'sellCur')
+  @JsonKey(name: 'sellCur', fromJson: JsonCoerce.asString)
   final String? sellCur;
-  @JsonKey(name: 'userCouponCode')
+  @JsonKey(name: 'userCouponCode', fromJson: JsonCoerce.asString)
   final String? userCouponCode;
-  @JsonKey(name: 'rechargeBalance')
+  @JsonKey(name: 'rechargeBalance', fromJson: JsonCoerce.asString)
   final String? rechargeBalance;
-  @JsonKey(name: 'targetItemDiscountAmount')
+  @JsonKey(name: 'targetItemDiscountAmount', fromJson: JsonCoerce.asString)
   final String? targetItemDiscountAmount;
   @JsonKey(name: 'skuQuantityDTOList')
   final List<OrderServiceCartPricingPost$Response$Data$SkuQuantityDTOList$Item>?
   skuQuantityDTOList;
-  @JsonKey(name: 'remark')
+  @JsonKey(name: 'remark', fromJson: JsonCoerce.asString)
   final String? remark;
-  @JsonKey(name: 'remarkImages')
+  @JsonKey(name: 'remarkImages', fromJson: JsonCoerce.asString)
   final String? remarkImages;
-  @JsonKey(name: 'country')
+  @JsonKey(name: 'country', fromJson: JsonCoerce.asString)
   final String? country;
-  @JsonKey(name: 'orderBatch')
+  @JsonKey(name: 'orderBatch', fromJson: JsonCoerce.asBool)
   final bool? orderBatch;
-  @JsonKey(name: 'targetItemsTotalAmount')
+  @JsonKey(name: 'targetItemsTotalAmount', fromJson: JsonCoerce.asString)
   final String? targetItemsTotalAmount;
-  @JsonKey(name: 'amountValidContent')
+  @JsonKey(name: 'amountValidContent', fromJson: JsonCoerce.asString)
   final String? amountValidContent;
   @JsonKey(name: 'contentInfo')
   final OrderServiceCartPricingPost$Response$Data$ContentInfo? contentInfo;
@@ -8015,50 +8024,50 @@ class OrderServiceCartNoAuthPricingPost$Response$Data {
   Map<String, dynamic> toJson() =>
       _$OrderServiceCartNoAuthPricingPost$Response$DataToJson(this);
 
-  @JsonKey(name: 'itemsTotalAmount')
+  @JsonKey(name: 'itemsTotalAmount', fromJson: JsonCoerce.asString)
   final String? itemsTotalAmount;
-  @JsonKey(name: 'freightAmount')
+  @JsonKey(name: 'freightAmount', fromJson: JsonCoerce.asString)
   final String? freightAmount;
-  @JsonKey(name: 'totalAmount')
+  @JsonKey(name: 'totalAmount', fromJson: JsonCoerce.asString)
   final String? totalAmount;
-  @JsonKey(name: 'targetTotalAmount')
+  @JsonKey(name: 'targetTotalAmount', fromJson: JsonCoerce.asString)
   final String? targetTotalAmount;
-  @JsonKey(name: 'discountAmount')
+  @JsonKey(name: 'discountAmount', fromJson: JsonCoerce.asString)
   final String? discountAmount;
-  @JsonKey(name: 'targetDiscountAmount')
+  @JsonKey(name: 'targetDiscountAmount', fromJson: JsonCoerce.asString)
   final String? targetDiscountAmount;
-  @JsonKey(name: 'settlementAmount')
+  @JsonKey(name: 'settlementAmount', fromJson: JsonCoerce.asString)
   final String? settlementAmount;
-  @JsonKey(name: 'targetSettlementAmount')
+  @JsonKey(name: 'targetSettlementAmount', fromJson: JsonCoerce.asString)
   final String? targetSettlementAmount;
-  @JsonKey(name: 'targetOrderLimitAmount')
+  @JsonKey(name: 'targetOrderLimitAmount', fromJson: JsonCoerce.asString)
   final String? targetOrderLimitAmount;
-  @JsonKey(name: 'targetShipLimitAmount')
+  @JsonKey(name: 'targetShipLimitAmount', fromJson: JsonCoerce.asString)
   final String? targetShipLimitAmount;
-  @JsonKey(name: 'targetSellCur')
+  @JsonKey(name: 'targetSellCur', fromJson: JsonCoerce.asString)
   final String? targetSellCur;
-  @JsonKey(name: 'sellCur')
+  @JsonKey(name: 'sellCur', fromJson: JsonCoerce.asString)
   final String? sellCur;
-  @JsonKey(name: 'userCouponCode')
+  @JsonKey(name: 'userCouponCode', fromJson: JsonCoerce.asString)
   final String? userCouponCode;
-  @JsonKey(name: 'rechargeBalance')
+  @JsonKey(name: 'rechargeBalance', fromJson: JsonCoerce.asString)
   final String? rechargeBalance;
   @JsonKey(name: 'skuQuantityDTOList')
   final List<
     OrderServiceCartNoAuthPricingPost$Response$Data$SkuQuantityDTOList$Item
   >?
   skuQuantityDTOList;
-  @JsonKey(name: 'remark')
+  @JsonKey(name: 'remark', fromJson: JsonCoerce.asString)
   final String? remark;
-  @JsonKey(name: 'remarkImages')
+  @JsonKey(name: 'remarkImages', fromJson: JsonCoerce.asString)
   final String? remarkImages;
-  @JsonKey(name: 'country')
+  @JsonKey(name: 'country', fromJson: JsonCoerce.asString)
   final String? country;
-  @JsonKey(name: 'orderBatch')
+  @JsonKey(name: 'orderBatch', fromJson: JsonCoerce.asBool)
   final bool? orderBatch;
-  @JsonKey(name: 'targetItemsTotalAmount')
+  @JsonKey(name: 'targetItemsTotalAmount', fromJson: JsonCoerce.asString)
   final String? targetItemsTotalAmount;
-  @JsonKey(name: 'amountValidContent')
+  @JsonKey(name: 'amountValidContent', fromJson: JsonCoerce.asString)
   final String? amountValidContent;
   @JsonKey(name: 'contentInfo')
   final OrderServiceCartNoAuthPricingPost$Response$Data$ContentInfo?
@@ -8380,13 +8389,13 @@ class OrderServiceOrderAppBatchInfosGet$Response$Data$LogisticsJoinInfoList$Item
         this,
       );
 
-  @JsonKey(name: 'title')
+  @JsonKey(name: 'title', fromJson: JsonCoerce.asString)
   final String? title;
-  @JsonKey(name: 'orderId')
+  @JsonKey(name: 'orderId', fromJson: JsonCoerce.asString)
   final String? orderId;
-  @JsonKey(name: 'itemCount')
+  @JsonKey(name: 'itemCount', fromJson: JsonCoerce.asInt)
   final int? itemCount;
-  @JsonKey(name: 'itemCountDescription')
+  @JsonKey(name: 'itemCountDescription', fromJson: JsonCoerce.asString)
   final String? itemCountDescription;
   static const fromJsonFactory =
       _$OrderServiceOrderAppBatchInfosGet$Response$Data$LogisticsJoinInfoList$ItemFromJson;
@@ -8514,49 +8523,49 @@ class OrderServiceOrderAppListGet$Response$Data$Records$Item {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderAppListGet$Response$Data$Records$ItemToJson(this);
 
-  @JsonKey(name: 'status')
+  @JsonKey(name: 'status', fromJson: JsonCoerce.asDouble)
   final double? status;
-  @JsonKey(name: 'frontStatus')
+  @JsonKey(name: 'frontStatus', fromJson: JsonCoerce.asDouble)
   final double? frontStatus;
-  @JsonKey(name: 'statusContent')
+  @JsonKey(name: 'statusContent', fromJson: JsonCoerce.asString)
   final String? statusContent;
-  @JsonKey(name: 'orderStatus')
+  @JsonKey(name: 'orderStatus', fromJson: JsonCoerce.asDouble)
   final double? orderStatus;
-  @JsonKey(name: 'orderId')
+  @JsonKey(name: 'orderId', fromJson: JsonCoerce.asString)
   final String? orderId;
-  @JsonKey(name: 'parentOrderId')
+  @JsonKey(name: 'parentOrderId', fromJson: JsonCoerce.asString)
   final String? parentOrderId;
-  @JsonKey(name: 'quantity')
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asDouble)
   final double? quantity;
-  @JsonKey(name: 'totalAmount')
+  @JsonKey(name: 'totalAmount', fromJson: JsonCoerce.asString)
   final String? totalAmount;
-  @JsonKey(name: 'targetTotalAmount')
+  @JsonKey(name: 'targetTotalAmount', fromJson: JsonCoerce.asString)
   final String? targetTotalAmount;
-  @JsonKey(name: 'discountAmount')
+  @JsonKey(name: 'discountAmount', fromJson: JsonCoerce.asString)
   final String? discountAmount;
-  @JsonKey(name: 'targetDiscountAmount')
+  @JsonKey(name: 'targetDiscountAmount', fromJson: JsonCoerce.asString)
   final String? targetDiscountAmount;
-  @JsonKey(name: 'targetPayFeeAmount')
+  @JsonKey(name: 'targetPayFeeAmount', fromJson: JsonCoerce.asString)
   final String? targetPayFeeAmount;
-  @JsonKey(name: 'targetActualAmount')
+  @JsonKey(name: 'targetActualAmount', fromJson: JsonCoerce.asString)
   final String? targetActualAmount;
-  @JsonKey(name: 'targetTipAmount')
+  @JsonKey(name: 'targetTipAmount', fromJson: JsonCoerce.asString)
   final String? targetTipAmount;
-  @JsonKey(name: 'targetServiceAmount')
+  @JsonKey(name: 'targetServiceAmount', fromJson: JsonCoerce.asString)
   final String? targetServiceAmount;
-  @JsonKey(name: 'currency')
+  @JsonKey(name: 'currency', fromJson: JsonCoerce.asString)
   final String? currency;
-  @JsonKey(name: 'targetCurrency')
+  @JsonKey(name: 'targetCurrency', fromJson: JsonCoerce.asString)
   final String? targetCurrency;
-  @JsonKey(name: 'description')
+  @JsonKey(name: 'description', fromJson: JsonCoerce.asString)
   final String? description;
-  @JsonKey(name: 'remark')
+  @JsonKey(name: 'remark', fromJson: JsonCoerce.asString)
   final String? remark;
-  @JsonKey(name: 'statusIcon')
+  @JsonKey(name: 'statusIcon', fromJson: JsonCoerce.asString)
   final String? statusIcon;
   @JsonKey(name: 'operates', defaultValue: <Object>[])
   final List<Object>? operates;
-  @JsonKey(name: 'isLogisticsTrace')
+  @JsonKey(name: 'isLogisticsTrace', fromJson: JsonCoerce.asBool)
   final bool? isLogisticsTrace;
   @JsonKey(name: 'orderSkuList')
   final List<
@@ -8571,7 +8580,7 @@ class OrderServiceOrderAppListGet$Response$Data$Records$Item {
   @JsonKey(name: 'parcelOrder')
   final OrderServiceOrderAppListGet$Response$Data$Records$Item$ParcelOrder?
   parcelOrder;
-  @JsonKey(name: 'afterSalesList')
+  @JsonKey(name: 'afterSalesList', fromJson: JsonCoerce.asString)
   final String? afterSalesList;
   @JsonKey(name: 'orderBillList')
   final List<
@@ -8581,25 +8590,25 @@ class OrderServiceOrderAppListGet$Response$Data$Records$Item {
   @JsonKey(name: 'userAddress')
   final OrderServiceOrderAppListGet$Response$Data$Records$Item$UserAddress?
   userAddress;
-  @JsonKey(name: 'createTime')
+  @JsonKey(name: 'createTime', fromJson: JsonCoerce.asDouble)
   final double? createTime;
-  @JsonKey(name: 'wish')
+  @JsonKey(name: 'wish', fromJson: JsonCoerce.asBool)
   final bool? wish;
-  @JsonKey(name: 'targetItemTotalAmount')
+  @JsonKey(name: 'targetItemTotalAmount', fromJson: JsonCoerce.asString)
   final String? targetItemTotalAmount;
-  @JsonKey(name: 'targetFreightAmount')
+  @JsonKey(name: 'targetFreightAmount', fromJson: JsonCoerce.asString)
   final String? targetFreightAmount;
-  @JsonKey(name: 'giveawayGift')
+  @JsonKey(name: 'giveawayGift', fromJson: JsonCoerce.asDouble)
   final double? giveawayGift;
-  @JsonKey(name: 'orderFreight')
+  @JsonKey(name: 'orderFreight', fromJson: JsonCoerce.asBool)
   final bool? orderFreight;
-  @JsonKey(name: 'skuSourceCode')
+  @JsonKey(name: 'skuSourceCode', fromJson: JsonCoerce.asString)
   final String? skuSourceCode;
-  @JsonKey(name: 'skuSourceCodeTitle')
+  @JsonKey(name: 'skuSourceCodeTitle', fromJson: JsonCoerce.asString)
   final String? skuSourceCodeTitle;
-  @JsonKey(name: 'tabStatusContent')
+  @JsonKey(name: 'tabStatusContent', fromJson: JsonCoerce.asString)
   final String? tabStatusContent;
-  @JsonKey(name: 'tabStatusDescription')
+  @JsonKey(name: 'tabStatusDescription', fromJson: JsonCoerce.asString)
   final String? tabStatusDescription;
   static const fromJsonFactory =
       _$OrderServiceOrderAppListGet$Response$Data$Records$ItemFromJson;
@@ -9128,67 +9137,71 @@ class OrderServiceOrderAppDetailGet$Response$Data$BaseInfo {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderAppDetailGet$Response$Data$BaseInfoToJson(this);
 
-  @JsonKey(name: 'userId')
+  @JsonKey(name: 'userId', fromJson: JsonCoerce.asString)
   final String? userId;
-  @JsonKey(name: 'orderId')
+  @JsonKey(name: 'orderId', fromJson: JsonCoerce.asString)
   final String? orderId;
-  @JsonKey(name: 'skuSourceCode')
+  @JsonKey(name: 'skuSourceCode', fromJson: JsonCoerce.asString)
   final String? skuSourceCode;
-  @JsonKey(name: 'parentOrderId')
+  @JsonKey(name: 'parentOrderId', fromJson: JsonCoerce.asString)
   final String? parentOrderId;
-  @JsonKey(name: 'status')
+  @JsonKey(name: 'status', fromJson: JsonCoerce.asDouble)
   final double? status;
-  @JsonKey(name: 'frontStatus')
+  @JsonKey(name: 'frontStatus', fromJson: JsonCoerce.asDouble)
   final double? frontStatus;
-  @JsonKey(name: 'statusContent')
+  @JsonKey(name: 'statusContent', fromJson: JsonCoerce.asString)
   final String? statusContent;
-  @JsonKey(name: 'orderStatus')
+  @JsonKey(name: 'orderStatus', fromJson: JsonCoerce.asDouble)
   final double? orderStatus;
-  @JsonKey(name: 'evaluateStatus')
+  @JsonKey(name: 'evaluateStatus', fromJson: JsonCoerce.asDouble)
   final double? evaluateStatus;
-  @JsonKey(name: 'timeoutPeriod')
+  @JsonKey(name: 'timeoutPeriod', fromJson: JsonCoerce.asDouble)
   final double? timeoutPeriod;
-  @JsonKey(name: 'createTime')
+  @JsonKey(name: 'createTime', fromJson: JsonCoerce.asDouble)
   final double? createTime;
-  @JsonKey(name: 'leftTime')
+  @JsonKey(name: 'leftTime', fromJson: JsonCoerce.asDouble)
   final double? leftTime;
-  @JsonKey(name: 'title')
+  @JsonKey(name: 'title', fromJson: JsonCoerce.asString)
   final String? title;
-  @JsonKey(name: 'subTitle')
+  @JsonKey(name: 'subTitle', fromJson: JsonCoerce.asString)
   final String? subTitle;
-  @JsonKey(name: 'operates', defaultValue: <String>[])
+  @JsonKey(
+    name: 'operates',
+    fromJson: JsonCoerce.asStringList,
+    defaultValue: <String>[],
+  )
   final List<String>? operates;
-  @JsonKey(name: 'description')
+  @JsonKey(name: 'description', fromJson: JsonCoerce.asString)
   final String? description;
-  @JsonKey(name: 'paySuccessDescription')
+  @JsonKey(name: 'paySuccessDescription', fromJson: JsonCoerce.asString)
   final String? paySuccessDescription;
-  @JsonKey(name: 'afterSalesExpressMethod')
+  @JsonKey(name: 'afterSalesExpressMethod', fromJson: JsonCoerce.asDouble)
   final double? afterSalesExpressMethod;
-  @JsonKey(name: 'afterSalesState')
+  @JsonKey(name: 'afterSalesState', fromJson: JsonCoerce.asDouble)
   final double? afterSalesState;
-  @JsonKey(name: 'remark')
+  @JsonKey(name: 'remark', fromJson: JsonCoerce.asString)
   final String? remark;
-  @JsonKey(name: 'remarkImages')
+  @JsonKey(name: 'remarkImages', fromJson: JsonCoerce.asString)
   final String? remarkImages;
-  @JsonKey(name: 'supportOnlineAfterSales')
+  @JsonKey(name: 'supportOnlineAfterSales', fromJson: JsonCoerce.asDouble)
   final double? supportOnlineAfterSales;
-  @JsonKey(name: 'receiptPdfLink')
+  @JsonKey(name: 'receiptPdfLink', fromJson: JsonCoerce.asString)
   final String? receiptPdfLink;
-  @JsonKey(name: 'afterSalesSupport')
+  @JsonKey(name: 'afterSalesSupport', fromJson: JsonCoerce.asString)
   final String? afterSalesSupport;
-  @JsonKey(name: 'tenantCode')
+  @JsonKey(name: 'tenantCode', fromJson: JsonCoerce.asString)
   final String? tenantCode;
-  @JsonKey(name: 'shippingCountry')
+  @JsonKey(name: 'shippingCountry', fromJson: JsonCoerce.asString)
   final String? shippingCountry;
-  @JsonKey(name: 'payTime')
+  @JsonKey(name: 'payTime', fromJson: JsonCoerce.asDouble)
   final double? payTime;
-  @JsonKey(name: 'afterSales')
+  @JsonKey(name: 'afterSales', fromJson: JsonCoerce.asBool)
   final bool? afterSales;
-  @JsonKey(name: 'wish')
+  @JsonKey(name: 'wish', fromJson: JsonCoerce.asBool)
   final bool? wish;
-  @JsonKey(name: 'removePackage')
+  @JsonKey(name: 'removePackage', fromJson: JsonCoerce.asBool)
   final bool? removePackage;
-  @JsonKey(name: 'orderFreight')
+  @JsonKey(name: 'orderFreight', fromJson: JsonCoerce.asBool)
   final bool? orderFreight;
   static const fromJsonFactory =
       _$OrderServiceOrderAppDetailGet$Response$Data$BaseInfoFromJson;
@@ -9584,33 +9597,33 @@ class OrderServiceOrderAppDetailGet$Response$Data$UserAddress {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderAppDetailGet$Response$Data$UserAddressToJson(this);
 
-  @JsonKey(name: 'country')
+  @JsonKey(name: 'country', fromJson: JsonCoerce.asString)
   final String? country;
-  @JsonKey(name: 'countryCode')
+  @JsonKey(name: 'countryCode', fromJson: JsonCoerce.asString)
   final String? countryCode;
-  @JsonKey(name: 'state')
+  @JsonKey(name: 'state', fromJson: JsonCoerce.asString)
   final String? state;
-  @JsonKey(name: 'stateCode')
+  @JsonKey(name: 'stateCode', fromJson: JsonCoerce.asString)
   final String? stateCode;
-  @JsonKey(name: 'city')
+  @JsonKey(name: 'city', fromJson: JsonCoerce.asString)
   final String? city;
-  @JsonKey(name: 'cityCode')
+  @JsonKey(name: 'cityCode', fromJson: JsonCoerce.asString)
   final String? cityCode;
-  @JsonKey(name: 'street')
+  @JsonKey(name: 'street', fromJson: JsonCoerce.asString)
   final String? street;
-  @JsonKey(name: 'apartment')
+  @JsonKey(name: 'apartment', fromJson: JsonCoerce.asString)
   final String? apartment;
-  @JsonKey(name: 'address')
+  @JsonKey(name: 'address', fromJson: JsonCoerce.asString)
   final String? address;
-  @JsonKey(name: 'firstName')
+  @JsonKey(name: 'firstName', fromJson: JsonCoerce.asString)
   final String? firstName;
-  @JsonKey(name: 'lastName')
+  @JsonKey(name: 'lastName', fromJson: JsonCoerce.asString)
   final String? lastName;
-  @JsonKey(name: 'phoneNumber')
+  @JsonKey(name: 'phoneNumber', fromJson: JsonCoerce.asString)
   final String? phoneNumber;
-  @JsonKey(name: 'zipCode')
+  @JsonKey(name: 'zipCode', fromJson: JsonCoerce.asString)
   final String? zipCode;
-  @JsonKey(name: 'id')
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asDouble)
   final double? id;
   static const fromJsonFactory =
       _$OrderServiceOrderAppDetailGet$Response$Data$UserAddressFromJson;
@@ -9791,15 +9804,15 @@ class OrderServiceOrderAppDetailGet$Response$Data$PayMethod {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderAppDetailGet$Response$Data$PayMethodToJson(this);
 
-  @JsonKey(name: 'method')
+  @JsonKey(name: 'method', fromJson: JsonCoerce.asString)
   final String? method;
-  @JsonKey(name: 'methodName')
+  @JsonKey(name: 'methodName', fromJson: JsonCoerce.asString)
   final String? methodName;
-  @JsonKey(name: 'payOrderId')
+  @JsonKey(name: 'payOrderId', fromJson: JsonCoerce.asString)
   final String? payOrderId;
-  @JsonKey(name: 'cardMsg')
+  @JsonKey(name: 'cardMsg', fromJson: JsonCoerce.asString)
   final String? cardMsg;
-  @JsonKey(name: 'image')
+  @JsonKey(name: 'image', fromJson: JsonCoerce.asString)
   final String? image;
   static const fromJsonFactory =
       _$OrderServiceOrderAppDetailGet$Response$Data$PayMethodFromJson;
@@ -9914,49 +9927,49 @@ class OrderServiceOrderAppDetailGet$Response$Data$Payments {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderAppDetailGet$Response$Data$PaymentsToJson(this);
 
-  @JsonKey(name: 'receiptAmount')
+  @JsonKey(name: 'receiptAmount', fromJson: JsonCoerce.asString)
   final String? receiptAmount;
-  @JsonKey(name: 'itemsTotalAmount')
+  @JsonKey(name: 'itemsTotalAmount', fromJson: JsonCoerce.asString)
   final String? itemsTotalAmount;
-  @JsonKey(name: 'freightAmount')
+  @JsonKey(name: 'freightAmount', fromJson: JsonCoerce.asString)
   final String? freightAmount;
-  @JsonKey(name: 'targetFreightAmount')
+  @JsonKey(name: 'targetFreightAmount', fromJson: JsonCoerce.asString)
   final String? targetFreightAmount;
-  @JsonKey(name: 'skuQuantity')
+  @JsonKey(name: 'skuQuantity', fromJson: JsonCoerce.asDouble)
   final double? skuQuantity;
-  @JsonKey(name: 'currency')
+  @JsonKey(name: 'currency', fromJson: JsonCoerce.asString)
   final String? currency;
-  @JsonKey(name: 'totalPrice')
+  @JsonKey(name: 'totalPrice', fromJson: JsonCoerce.asString)
   final String? totalPrice;
-  @JsonKey(name: 'targetPrice')
+  @JsonKey(name: 'targetPrice', fromJson: JsonCoerce.asString)
   final String? targetPrice;
-  @JsonKey(name: 'targetSettlementAmount')
+  @JsonKey(name: 'targetSettlementAmount', fromJson: JsonCoerce.asString)
   final String? targetSettlementAmount;
-  @JsonKey(name: 'settlementAmount')
+  @JsonKey(name: 'settlementAmount', fromJson: JsonCoerce.asString)
   final String? settlementAmount;
-  @JsonKey(name: 'discountAmount')
+  @JsonKey(name: 'discountAmount', fromJson: JsonCoerce.asString)
   final String? discountAmount;
-  @JsonKey(name: 'targetDiscountAmount')
+  @JsonKey(name: 'targetDiscountAmount', fromJson: JsonCoerce.asString)
   final String? targetDiscountAmount;
-  @JsonKey(name: 'rechargeAmount')
+  @JsonKey(name: 'rechargeAmount', fromJson: JsonCoerce.asString)
   final String? rechargeAmount;
-  @JsonKey(name: 'targetRechargePrice')
+  @JsonKey(name: 'targetRechargePrice', fromJson: JsonCoerce.asString)
   final String? targetRechargePrice;
-  @JsonKey(name: 'targetPayFeeAmount')
+  @JsonKey(name: 'targetPayFeeAmount', fromJson: JsonCoerce.asString)
   final String? targetPayFeeAmount;
-  @JsonKey(name: 'targetCurrency')
+  @JsonKey(name: 'targetCurrency', fromJson: JsonCoerce.asString)
   final String? targetCurrency;
-  @JsonKey(name: 'targetItemsTotalAmount')
+  @JsonKey(name: 'targetItemsTotalAmount', fromJson: JsonCoerce.asString)
   final String? targetItemsTotalAmount;
-  @JsonKey(name: 'targetOriginAmount')
+  @JsonKey(name: 'targetOriginAmount', fromJson: JsonCoerce.asString)
   final String? targetOriginAmount;
-  @JsonKey(name: 'targetItemDiscountAmount')
+  @JsonKey(name: 'targetItemDiscountAmount', fromJson: JsonCoerce.asString)
   final String? targetItemDiscountAmount;
-  @JsonKey(name: 'targetActualAmount')
+  @JsonKey(name: 'targetActualAmount', fromJson: JsonCoerce.asString)
   final String? targetActualAmount;
-  @JsonKey(name: 'targetTipAmount')
+  @JsonKey(name: 'targetTipAmount', fromJson: JsonCoerce.asString)
   final String? targetTipAmount;
-  @JsonKey(name: 'targetServiceAmount')
+  @JsonKey(name: 'targetServiceAmount', fromJson: JsonCoerce.asString)
   final String? targetServiceAmount;
   @JsonKey(name: 'paymentSubjoins')
   final List<
@@ -10299,13 +10312,13 @@ class OrderServiceOrderAppDetailGet$Response$Data$OrderBillList$Item {
         this,
       );
 
-  @JsonKey(name: 'status')
+  @JsonKey(name: 'status', fromJson: JsonCoerce.asString)
   final String? status;
-  @JsonKey(name: 'targetCurrency')
+  @JsonKey(name: 'targetCurrency', fromJson: JsonCoerce.asString)
   final String? targetCurrency;
-  @JsonKey(name: 'targetTotalPrice')
+  @JsonKey(name: 'targetTotalPrice', fromJson: JsonCoerce.asString)
   final String? targetTotalPrice;
-  @JsonKey(name: 'billId')
+  @JsonKey(name: 'billId', fromJson: JsonCoerce.asString)
   final String? billId;
   static const fromJsonFactory =
       _$OrderServiceOrderAppDetailGet$Response$Data$OrderBillList$ItemFromJson;
@@ -10413,19 +10426,19 @@ class OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderAppDetailGet$Response$Data$ParcelOrderToJson(this);
 
-  @JsonKey(name: 'parcelOrderId')
+  @JsonKey(name: 'parcelOrderId', fromJson: JsonCoerce.asString)
   final String? parcelOrderId;
-  @JsonKey(name: 'parcelStatus')
+  @JsonKey(name: 'parcelStatus', fromJson: JsonCoerce.asString)
   final String? parcelStatus;
-  @JsonKey(name: 'parcelStatusDesc')
+  @JsonKey(name: 'parcelStatusDesc', fromJson: JsonCoerce.asString)
   final String? parcelStatusDesc;
-  @JsonKey(name: 'createTime')
+  @JsonKey(name: 'createTime', fromJson: JsonCoerce.asDouble)
   final double? createTime;
-  @JsonKey(name: 'warehouseCode')
+  @JsonKey(name: 'warehouseCode', fromJson: JsonCoerce.asString)
   final String? warehouseCode;
-  @JsonKey(name: 'warehouseName')
+  @JsonKey(name: 'warehouseName', fromJson: JsonCoerce.asString)
   final String? warehouseName;
-  @JsonKey(name: 'freight')
+  @JsonKey(name: 'freight', fromJson: JsonCoerce.asString)
   final String? freight;
   @JsonKey(name: 'freightCurrency')
   final OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder$FreightCurrency?
@@ -10441,22 +10454,32 @@ class OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder {
     OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder$ParcelProductDTOList$Item
   >?
   parcelProductDTOList;
-  @JsonKey(name: 'buyerOperates', defaultValue: <String>[])
+  @JsonKey(
+    name: 'buyerOperates',
+    fromJson: JsonCoerce.asStringList,
+    defaultValue: <String>[],
+  )
   final List<String>? buyerOperates;
   @JsonKey(name: 'freightCompensate')
   final OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder$FreightCompensate?
   freightCompensate;
-  @JsonKey(name: 'solutionCode')
+  @JsonKey(name: 'solutionCode', fromJson: JsonCoerce.asString)
   final String? solutionCode;
-  @JsonKey(name: 'actualFreight')
+  @JsonKey(name: 'actualFreight', fromJson: JsonCoerce.asString)
   final String? actualFreight;
-  @JsonKey(name: 'actualFreightCurrency')
+  @JsonKey(name: 'actualFreightCurrency', fromJson: JsonCoerce.asString)
   final String? actualFreightCurrency;
-  @JsonKey(name: 'targetFreightCouponDiscountAmount')
+  @JsonKey(
+    name: 'targetFreightCouponDiscountAmount',
+    fromJson: JsonCoerce.asString,
+  )
   final String? targetFreightCouponDiscountAmount;
-  @JsonKey(name: 'targetFreightCouponDiscountCurrency')
+  @JsonKey(
+    name: 'targetFreightCouponDiscountCurrency',
+    fromJson: JsonCoerce.asString,
+  )
   final String? targetFreightCouponDiscountCurrency;
-  @JsonKey(name: 'targetFreight')
+  @JsonKey(name: 'targetFreight', fromJson: JsonCoerce.asString)
   final String? targetFreight;
   @JsonKey(name: 'targetFreightCurrency')
   final OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder$TargetFreightCurrency?
@@ -10794,18 +10817,18 @@ class OrderServiceOrderAppDetailGet$Response$Data$OrderTrace {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderAppDetailGet$Response$Data$OrderTraceToJson(this);
 
-  @JsonKey(name: 'tradeOrderId')
+  @JsonKey(name: 'tradeOrderId', fromJson: JsonCoerce.asString)
   final String? tradeOrderId;
-  @JsonKey(name: 'logisticsOrderId')
+  @JsonKey(name: 'logisticsOrderId', fromJson: JsonCoerce.asString)
   final String? logisticsOrderId;
-  @JsonKey(name: 'logisticsStatus')
+  @JsonKey(name: 'logisticsStatus', fromJson: JsonCoerce.asString)
   final String? logisticsStatus;
   @JsonKey(name: 'traceList')
   final List<
     OrderServiceOrderAppDetailGet$Response$Data$OrderTrace$TraceList$Item
   >?
   traceList;
-  @JsonKey(name: 'parcelOrderId')
+  @JsonKey(name: 'parcelOrderId', fromJson: JsonCoerce.asString)
   final String? parcelOrderId;
   static const fromJsonFactory =
       _$OrderServiceOrderAppDetailGet$Response$Data$OrderTraceFromJson;
@@ -10926,15 +10949,15 @@ class OrderServiceOrderAppDetailGet$Response$Data$DiscountInfos$Item {
         this,
       );
 
-  @JsonKey(name: 'discountType')
+  @JsonKey(name: 'discountType', fromJson: JsonCoerce.asDouble)
   final double? discountType;
-  @JsonKey(name: 'userCouponCode')
+  @JsonKey(name: 'userCouponCode', fromJson: JsonCoerce.asString)
   final String? userCouponCode;
-  @JsonKey(name: 'discountAmount')
+  @JsonKey(name: 'discountAmount', fromJson: JsonCoerce.asString)
   final String? discountAmount;
-  @JsonKey(name: 'targetDiscountAmount')
+  @JsonKey(name: 'targetDiscountAmount', fromJson: JsonCoerce.asString)
   final String? targetDiscountAmount;
-  @JsonKey(name: 'couponCode')
+  @JsonKey(name: 'couponCode', fromJson: JsonCoerce.asString)
   final String? couponCode;
   static const fromJsonFactory =
       _$OrderServiceOrderAppDetailGet$Response$Data$DiscountInfos$ItemFromJson;
@@ -11058,9 +11081,9 @@ class OrderServiceOrderAppDetailGet$Response$Data$OrderList$Item {
   @JsonKey(name: 'sourceOption')
   final OrderServiceOrderAppDetailGet$Response$Data$OrderList$Item$SourceOption?
   sourceOption;
-  @JsonKey(name: 'skuSourceCode')
+  @JsonKey(name: 'skuSourceCode', fromJson: JsonCoerce.asString)
   final String? skuSourceCode;
-  @JsonKey(name: 'skuSourceTitle')
+  @JsonKey(name: 'skuSourceTitle', fromJson: JsonCoerce.asString)
   final String? skuSourceTitle;
   @JsonKey(name: 'logisticsInfo')
   final OrderServiceOrderAppDetailGet$Response$Data$OrderList$Item$LogisticsInfo?
@@ -11223,23 +11246,23 @@ class OrderServiceOrderConfirmPost$Response$Data$Pricing {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderConfirmPost$Response$Data$PricingToJson(this);
 
-  @JsonKey(name: 'itemsOriginTotalAmount')
+  @JsonKey(name: 'itemsOriginTotalAmount', fromJson: JsonCoerce.asString)
   final String? itemsOriginTotalAmount;
-  @JsonKey(name: 'freightAmount')
+  @JsonKey(name: 'freightAmount', fromJson: JsonCoerce.asString)
   final String? freightAmount;
-  @JsonKey(name: 'taxDetail')
+  @JsonKey(name: 'taxDetail', fromJson: JsonCoerce.asString)
   final String? taxDetail;
-  @JsonKey(name: 'rechargeBalance')
+  @JsonKey(name: 'rechargeBalance', fromJson: JsonCoerce.asString)
   final String? rechargeBalance;
-  @JsonKey(name: 'rechargeBalanceTips')
+  @JsonKey(name: 'rechargeBalanceTips', fromJson: JsonCoerce.asString)
   final String? rechargeBalanceTips;
-  @JsonKey(name: 'isCouponCode')
+  @JsonKey(name: 'isCouponCode', fromJson: JsonCoerce.asString)
   final String? isCouponCode;
-  @JsonKey(name: 'couponCodeReason')
+  @JsonKey(name: 'couponCodeReason', fromJson: JsonCoerce.asString)
   final String? couponCodeReason;
-  @JsonKey(name: 'isVoucherCode')
+  @JsonKey(name: 'isVoucherCode', fromJson: JsonCoerce.asString)
   final String? isVoucherCode;
-  @JsonKey(name: 'notSupportDeliveryDescription')
+  @JsonKey(name: 'notSupportDeliveryDescription', fromJson: JsonCoerce.asString)
   final String? notSupportDeliveryDescription;
   @JsonKey(name: 'taxLines')
   final List<OrderServiceOrderConfirmPost$Response$Data$Pricing$TaxLines$Item>?
@@ -11477,11 +11500,11 @@ class OrderServiceOrderConfirmPost$Response$Data$PaymentMethodList$Item {
         this,
       );
 
-  @JsonKey(name: 'payType')
+  @JsonKey(name: 'payType', fromJson: JsonCoerce.asString)
   final String? payType;
-  @JsonKey(name: 'payTypeName')
+  @JsonKey(name: 'payTypeName', fromJson: JsonCoerce.asString)
   final String? payTypeName;
-  @JsonKey(name: 'payTypeIcon')
+  @JsonKey(name: 'payTypeIcon', fromJson: JsonCoerce.asString)
   final String? payTypeIcon;
   static const fromJsonFactory =
       _$OrderServiceOrderConfirmPost$Response$Data$PaymentMethodList$ItemFromJson;
@@ -11592,67 +11615,71 @@ class OrderServiceOrderNoAuthDetailGet$Response$Data$BaseInfo {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderNoAuthDetailGet$Response$Data$BaseInfoToJson(this);
 
-  @JsonKey(name: 'userId')
+  @JsonKey(name: 'userId', fromJson: JsonCoerce.asString)
   final String? userId;
-  @JsonKey(name: 'orderId')
+  @JsonKey(name: 'orderId', fromJson: JsonCoerce.asString)
   final String? orderId;
-  @JsonKey(name: 'skuSourceCode')
+  @JsonKey(name: 'skuSourceCode', fromJson: JsonCoerce.asString)
   final String? skuSourceCode;
-  @JsonKey(name: 'parentOrderId')
+  @JsonKey(name: 'parentOrderId', fromJson: JsonCoerce.asString)
   final String? parentOrderId;
-  @JsonKey(name: 'status')
+  @JsonKey(name: 'status', fromJson: JsonCoerce.asDouble)
   final double? status;
-  @JsonKey(name: 'frontStatus')
+  @JsonKey(name: 'frontStatus', fromJson: JsonCoerce.asDouble)
   final double? frontStatus;
-  @JsonKey(name: 'statusContent')
+  @JsonKey(name: 'statusContent', fromJson: JsonCoerce.asString)
   final String? statusContent;
-  @JsonKey(name: 'orderStatus')
+  @JsonKey(name: 'orderStatus', fromJson: JsonCoerce.asDouble)
   final double? orderStatus;
-  @JsonKey(name: 'evaluateStatus')
+  @JsonKey(name: 'evaluateStatus', fromJson: JsonCoerce.asDouble)
   final double? evaluateStatus;
-  @JsonKey(name: 'timeoutPeriod')
+  @JsonKey(name: 'timeoutPeriod', fromJson: JsonCoerce.asDouble)
   final double? timeoutPeriod;
-  @JsonKey(name: 'createTime')
+  @JsonKey(name: 'createTime', fromJson: JsonCoerce.asDouble)
   final double? createTime;
-  @JsonKey(name: 'leftTime')
+  @JsonKey(name: 'leftTime', fromJson: JsonCoerce.asDouble)
   final double? leftTime;
-  @JsonKey(name: 'title')
+  @JsonKey(name: 'title', fromJson: JsonCoerce.asString)
   final String? title;
-  @JsonKey(name: 'subTitle')
+  @JsonKey(name: 'subTitle', fromJson: JsonCoerce.asString)
   final String? subTitle;
-  @JsonKey(name: 'operates', defaultValue: <String>[])
+  @JsonKey(
+    name: 'operates',
+    fromJson: JsonCoerce.asStringList,
+    defaultValue: <String>[],
+  )
   final List<String>? operates;
-  @JsonKey(name: 'description')
+  @JsonKey(name: 'description', fromJson: JsonCoerce.asString)
   final String? description;
-  @JsonKey(name: 'paySuccessDescription')
+  @JsonKey(name: 'paySuccessDescription', fromJson: JsonCoerce.asString)
   final String? paySuccessDescription;
-  @JsonKey(name: 'afterSalesExpressMethod')
+  @JsonKey(name: 'afterSalesExpressMethod', fromJson: JsonCoerce.asDouble)
   final double? afterSalesExpressMethod;
-  @JsonKey(name: 'afterSalesState')
+  @JsonKey(name: 'afterSalesState', fromJson: JsonCoerce.asDouble)
   final double? afterSalesState;
-  @JsonKey(name: 'remark')
+  @JsonKey(name: 'remark', fromJson: JsonCoerce.asString)
   final String? remark;
-  @JsonKey(name: 'remarkImages')
+  @JsonKey(name: 'remarkImages', fromJson: JsonCoerce.asString)
   final String? remarkImages;
-  @JsonKey(name: 'supportOnlineAfterSales')
+  @JsonKey(name: 'supportOnlineAfterSales', fromJson: JsonCoerce.asDouble)
   final double? supportOnlineAfterSales;
-  @JsonKey(name: 'receiptPdfLink')
+  @JsonKey(name: 'receiptPdfLink', fromJson: JsonCoerce.asString)
   final String? receiptPdfLink;
-  @JsonKey(name: 'afterSalesSupport')
+  @JsonKey(name: 'afterSalesSupport', fromJson: JsonCoerce.asString)
   final String? afterSalesSupport;
-  @JsonKey(name: 'tenantCode')
+  @JsonKey(name: 'tenantCode', fromJson: JsonCoerce.asString)
   final String? tenantCode;
-  @JsonKey(name: 'shippingCountry')
+  @JsonKey(name: 'shippingCountry', fromJson: JsonCoerce.asString)
   final String? shippingCountry;
-  @JsonKey(name: 'payTime')
+  @JsonKey(name: 'payTime', fromJson: JsonCoerce.asDouble)
   final double? payTime;
-  @JsonKey(name: 'afterSales')
+  @JsonKey(name: 'afterSales', fromJson: JsonCoerce.asBool)
   final bool? afterSales;
-  @JsonKey(name: 'wish')
+  @JsonKey(name: 'wish', fromJson: JsonCoerce.asBool)
   final bool? wish;
-  @JsonKey(name: 'removePackage')
+  @JsonKey(name: 'removePackage', fromJson: JsonCoerce.asBool)
   final bool? removePackage;
-  @JsonKey(name: 'orderFreight')
+  @JsonKey(name: 'orderFreight', fromJson: JsonCoerce.asBool)
   final bool? orderFreight;
   static const fromJsonFactory =
       _$OrderServiceOrderNoAuthDetailGet$Response$Data$BaseInfoFromJson;
@@ -12050,33 +12077,33 @@ class OrderServiceOrderNoAuthDetailGet$Response$Data$UserAddress {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderNoAuthDetailGet$Response$Data$UserAddressToJson(this);
 
-  @JsonKey(name: 'country')
+  @JsonKey(name: 'country', fromJson: JsonCoerce.asString)
   final String? country;
-  @JsonKey(name: 'countryCode')
+  @JsonKey(name: 'countryCode', fromJson: JsonCoerce.asString)
   final String? countryCode;
-  @JsonKey(name: 'state')
+  @JsonKey(name: 'state', fromJson: JsonCoerce.asString)
   final String? state;
-  @JsonKey(name: 'stateCode')
+  @JsonKey(name: 'stateCode', fromJson: JsonCoerce.asString)
   final String? stateCode;
-  @JsonKey(name: 'city')
+  @JsonKey(name: 'city', fromJson: JsonCoerce.asString)
   final String? city;
-  @JsonKey(name: 'cityCode')
+  @JsonKey(name: 'cityCode', fromJson: JsonCoerce.asString)
   final String? cityCode;
-  @JsonKey(name: 'street')
+  @JsonKey(name: 'street', fromJson: JsonCoerce.asString)
   final String? street;
-  @JsonKey(name: 'apartment')
+  @JsonKey(name: 'apartment', fromJson: JsonCoerce.asString)
   final String? apartment;
-  @JsonKey(name: 'address')
+  @JsonKey(name: 'address', fromJson: JsonCoerce.asString)
   final String? address;
-  @JsonKey(name: 'firstName')
+  @JsonKey(name: 'firstName', fromJson: JsonCoerce.asString)
   final String? firstName;
-  @JsonKey(name: 'lastName')
+  @JsonKey(name: 'lastName', fromJson: JsonCoerce.asString)
   final String? lastName;
-  @JsonKey(name: 'phoneNumber')
+  @JsonKey(name: 'phoneNumber', fromJson: JsonCoerce.asString)
   final String? phoneNumber;
-  @JsonKey(name: 'zipCode')
+  @JsonKey(name: 'zipCode', fromJson: JsonCoerce.asString)
   final String? zipCode;
-  @JsonKey(name: 'id')
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asDouble)
   final double? id;
   static const fromJsonFactory =
       _$OrderServiceOrderNoAuthDetailGet$Response$Data$UserAddressFromJson;
@@ -12257,15 +12284,15 @@ class OrderServiceOrderNoAuthDetailGet$Response$Data$PayMethod {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderNoAuthDetailGet$Response$Data$PayMethodToJson(this);
 
-  @JsonKey(name: 'method')
+  @JsonKey(name: 'method', fromJson: JsonCoerce.asString)
   final String? method;
-  @JsonKey(name: 'methodName')
+  @JsonKey(name: 'methodName', fromJson: JsonCoerce.asString)
   final String? methodName;
-  @JsonKey(name: 'payOrderId')
+  @JsonKey(name: 'payOrderId', fromJson: JsonCoerce.asString)
   final String? payOrderId;
-  @JsonKey(name: 'cardMsg')
+  @JsonKey(name: 'cardMsg', fromJson: JsonCoerce.asString)
   final String? cardMsg;
-  @JsonKey(name: 'image')
+  @JsonKey(name: 'image', fromJson: JsonCoerce.asString)
   final String? image;
   static const fromJsonFactory =
       _$OrderServiceOrderNoAuthDetailGet$Response$Data$PayMethodFromJson;
@@ -12376,43 +12403,43 @@ class OrderServiceOrderNoAuthDetailGet$Response$Data$Payments {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderNoAuthDetailGet$Response$Data$PaymentsToJson(this);
 
-  @JsonKey(name: 'receiptAmount')
+  @JsonKey(name: 'receiptAmount', fromJson: JsonCoerce.asString)
   final String? receiptAmount;
-  @JsonKey(name: 'itemsTotalAmount')
+  @JsonKey(name: 'itemsTotalAmount', fromJson: JsonCoerce.asString)
   final String? itemsTotalAmount;
-  @JsonKey(name: 'freightAmount')
+  @JsonKey(name: 'freightAmount', fromJson: JsonCoerce.asString)
   final String? freightAmount;
-  @JsonKey(name: 'targetFreightAmount')
+  @JsonKey(name: 'targetFreightAmount', fromJson: JsonCoerce.asString)
   final String? targetFreightAmount;
-  @JsonKey(name: 'skuQuantity')
+  @JsonKey(name: 'skuQuantity', fromJson: JsonCoerce.asDouble)
   final double? skuQuantity;
-  @JsonKey(name: 'currency')
+  @JsonKey(name: 'currency', fromJson: JsonCoerce.asString)
   final String? currency;
-  @JsonKey(name: 'totalPrice')
+  @JsonKey(name: 'totalPrice', fromJson: JsonCoerce.asString)
   final String? totalPrice;
-  @JsonKey(name: 'targetPrice')
+  @JsonKey(name: 'targetPrice', fromJson: JsonCoerce.asString)
   final String? targetPrice;
-  @JsonKey(name: 'targetSettlementAmount')
+  @JsonKey(name: 'targetSettlementAmount', fromJson: JsonCoerce.asString)
   final String? targetSettlementAmount;
-  @JsonKey(name: 'settlementAmount')
+  @JsonKey(name: 'settlementAmount', fromJson: JsonCoerce.asString)
   final String? settlementAmount;
-  @JsonKey(name: 'discountAmount')
+  @JsonKey(name: 'discountAmount', fromJson: JsonCoerce.asString)
   final String? discountAmount;
-  @JsonKey(name: 'targetDiscountAmount')
+  @JsonKey(name: 'targetDiscountAmount', fromJson: JsonCoerce.asString)
   final String? targetDiscountAmount;
-  @JsonKey(name: 'rechargeAmount')
+  @JsonKey(name: 'rechargeAmount', fromJson: JsonCoerce.asString)
   final String? rechargeAmount;
-  @JsonKey(name: 'targetRechargePrice')
+  @JsonKey(name: 'targetRechargePrice', fromJson: JsonCoerce.asString)
   final String? targetRechargePrice;
-  @JsonKey(name: 'targetPayFeeAmount')
+  @JsonKey(name: 'targetPayFeeAmount', fromJson: JsonCoerce.asString)
   final String? targetPayFeeAmount;
-  @JsonKey(name: 'targetCurrency')
+  @JsonKey(name: 'targetCurrency', fromJson: JsonCoerce.asString)
   final String? targetCurrency;
-  @JsonKey(name: 'targetItemsTotalAmount')
+  @JsonKey(name: 'targetItemsTotalAmount', fromJson: JsonCoerce.asString)
   final String? targetItemsTotalAmount;
-  @JsonKey(name: 'targetOriginAmount')
+  @JsonKey(name: 'targetOriginAmount', fromJson: JsonCoerce.asString)
   final String? targetOriginAmount;
-  @JsonKey(name: 'targetActualAmount')
+  @JsonKey(name: 'targetActualAmount', fromJson: JsonCoerce.asString)
   final String? targetActualAmount;
   static const fromJsonFactory =
       _$OrderServiceOrderNoAuthDetailGet$Response$Data$PaymentsFromJson;
@@ -12691,13 +12718,13 @@ class OrderServiceOrderNoAuthDetailGet$Response$Data$OrderBillList$Item {
         this,
       );
 
-  @JsonKey(name: 'status')
+  @JsonKey(name: 'status', fromJson: JsonCoerce.asString)
   final String? status;
-  @JsonKey(name: 'targetCurrency')
+  @JsonKey(name: 'targetCurrency', fromJson: JsonCoerce.asString)
   final String? targetCurrency;
-  @JsonKey(name: 'targetTotalPrice')
+  @JsonKey(name: 'targetTotalPrice', fromJson: JsonCoerce.asString)
   final String? targetTotalPrice;
-  @JsonKey(name: 'billId')
+  @JsonKey(name: 'billId', fromJson: JsonCoerce.asString)
   final String? billId;
   static const fromJsonFactory =
       _$OrderServiceOrderNoAuthDetailGet$Response$Data$OrderBillList$ItemFromJson;
@@ -12807,19 +12834,19 @@ class OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrder {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrderToJson(this);
 
-  @JsonKey(name: 'parcelOrderId')
+  @JsonKey(name: 'parcelOrderId', fromJson: JsonCoerce.asString)
   final String? parcelOrderId;
-  @JsonKey(name: 'parcelStatus')
+  @JsonKey(name: 'parcelStatus', fromJson: JsonCoerce.asString)
   final String? parcelStatus;
-  @JsonKey(name: 'parcelStatusDesc')
+  @JsonKey(name: 'parcelStatusDesc', fromJson: JsonCoerce.asString)
   final String? parcelStatusDesc;
-  @JsonKey(name: 'createTime')
+  @JsonKey(name: 'createTime', fromJson: JsonCoerce.asDouble)
   final double? createTime;
-  @JsonKey(name: 'warehouseCode')
+  @JsonKey(name: 'warehouseCode', fromJson: JsonCoerce.asString)
   final String? warehouseCode;
-  @JsonKey(name: 'warehouseName')
+  @JsonKey(name: 'warehouseName', fromJson: JsonCoerce.asString)
   final String? warehouseName;
-  @JsonKey(name: 'freight')
+  @JsonKey(name: 'freight', fromJson: JsonCoerce.asString)
   final String? freight;
   @JsonKey(name: 'freightCurrency')
   final OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrder$FreightCurrency?
@@ -12835,22 +12862,32 @@ class OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrder {
     OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrder$ParcelProductDTOList$Item
   >?
   parcelProductDTOList;
-  @JsonKey(name: 'buyerOperates', defaultValue: <String>[])
+  @JsonKey(
+    name: 'buyerOperates',
+    fromJson: JsonCoerce.asStringList,
+    defaultValue: <String>[],
+  )
   final List<String>? buyerOperates;
   @JsonKey(name: 'freightCompensate')
   final OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrder$FreightCompensate?
   freightCompensate;
-  @JsonKey(name: 'solutionCode')
+  @JsonKey(name: 'solutionCode', fromJson: JsonCoerce.asString)
   final String? solutionCode;
-  @JsonKey(name: 'actualFreight')
+  @JsonKey(name: 'actualFreight', fromJson: JsonCoerce.asString)
   final String? actualFreight;
-  @JsonKey(name: 'actualFreightCurrency')
+  @JsonKey(name: 'actualFreightCurrency', fromJson: JsonCoerce.asString)
   final String? actualFreightCurrency;
-  @JsonKey(name: 'targetFreightCouponDiscountAmount')
+  @JsonKey(
+    name: 'targetFreightCouponDiscountAmount',
+    fromJson: JsonCoerce.asString,
+  )
   final String? targetFreightCouponDiscountAmount;
-  @JsonKey(name: 'targetFreightCouponDiscountCurrency')
+  @JsonKey(
+    name: 'targetFreightCouponDiscountCurrency',
+    fromJson: JsonCoerce.asString,
+  )
   final String? targetFreightCouponDiscountCurrency;
-  @JsonKey(name: 'targetFreight')
+  @JsonKey(name: 'targetFreight', fromJson: JsonCoerce.asString)
   final String? targetFreight;
   @JsonKey(name: 'targetFreightCurrency')
   final OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrder$TargetFreightCurrency?
@@ -13190,18 +13227,18 @@ class OrderServiceOrderNoAuthDetailGet$Response$Data$OrderTrace {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderNoAuthDetailGet$Response$Data$OrderTraceToJson(this);
 
-  @JsonKey(name: 'tradeOrderId')
+  @JsonKey(name: 'tradeOrderId', fromJson: JsonCoerce.asString)
   final String? tradeOrderId;
-  @JsonKey(name: 'logisticsOrderId')
+  @JsonKey(name: 'logisticsOrderId', fromJson: JsonCoerce.asString)
   final String? logisticsOrderId;
-  @JsonKey(name: 'logisticsStatus')
+  @JsonKey(name: 'logisticsStatus', fromJson: JsonCoerce.asString)
   final String? logisticsStatus;
   @JsonKey(name: 'traceList')
   final List<
     OrderServiceOrderNoAuthDetailGet$Response$Data$OrderTrace$TraceList$Item
   >?
   traceList;
-  @JsonKey(name: 'parcelOrderId')
+  @JsonKey(name: 'parcelOrderId', fromJson: JsonCoerce.asString)
   final String? parcelOrderId;
   @JsonKey(name: 'groupTraceList')
   final List<
@@ -13350,15 +13387,15 @@ class OrderServiceOrderNoAuthDetailGet$Response$Data$DiscountInfos$Item {
         this,
       );
 
-  @JsonKey(name: 'discountType')
+  @JsonKey(name: 'discountType', fromJson: JsonCoerce.asDouble)
   final double? discountType;
-  @JsonKey(name: 'userCouponCode')
+  @JsonKey(name: 'userCouponCode', fromJson: JsonCoerce.asString)
   final String? userCouponCode;
-  @JsonKey(name: 'discountAmount')
+  @JsonKey(name: 'discountAmount', fromJson: JsonCoerce.asString)
   final String? discountAmount;
-  @JsonKey(name: 'targetDiscountAmount')
+  @JsonKey(name: 'targetDiscountAmount', fromJson: JsonCoerce.asString)
   final String? targetDiscountAmount;
-  @JsonKey(name: 'couponCode')
+  @JsonKey(name: 'couponCode', fromJson: JsonCoerce.asString)
   final String? couponCode;
   static const fromJsonFactory =
       _$OrderServiceOrderNoAuthDetailGet$Response$Data$DiscountInfos$ItemFromJson;
@@ -13495,9 +13532,9 @@ class OrderServiceOrderNoAuthDetailGet$Response$Data$OrderList$Item {
   @JsonKey(name: 'logisticsInfo')
   final OrderServiceOrderNoAuthDetailGet$Response$Data$OrderList$Item$LogisticsInfo?
   logisticsInfo;
-  @JsonKey(name: 'skuSourceCode')
+  @JsonKey(name: 'skuSourceCode', fromJson: JsonCoerce.asString)
   final String? skuSourceCode;
-  @JsonKey(name: 'remark')
+  @JsonKey(name: 'remark', fromJson: JsonCoerce.asString)
   final String? remark;
   static const fromJsonFactory =
       _$OrderServiceOrderNoAuthDetailGet$Response$Data$OrderList$ItemFromJson;
@@ -13669,33 +13706,33 @@ class OrderServiceOrderCouponListPost$Response$Data$Item$UserCoupon {
   @JsonKey(name: 'msgInfo')
   final OrderServiceOrderCouponListPost$Response$Data$Item$UserCoupon$MsgInfo?
   msgInfo;
-  @JsonKey(name: 'userCouponCode')
+  @JsonKey(name: 'userCouponCode', fromJson: JsonCoerce.asString)
   final String? userCouponCode;
-  @JsonKey(name: 'couponCode')
+  @JsonKey(name: 'couponCode', fromJson: JsonCoerce.asString)
   final String? couponCode;
-  @JsonKey(name: 'couponTitle')
+  @JsonKey(name: 'couponTitle', fromJson: JsonCoerce.asDouble)
   final double? couponTitle;
-  @JsonKey(name: 'isUsed')
+  @JsonKey(name: 'isUsed', fromJson: JsonCoerce.asString)
   final String? isUsed;
-  @JsonKey(name: 'gmtInvalid')
+  @JsonKey(name: 'gmtInvalid', fromJson: JsonCoerce.asString)
   final String? gmtInvalid;
-  @JsonKey(name: 'type')
+  @JsonKey(name: 'type', fromJson: JsonCoerce.asInt)
   final int? type;
-  @JsonKey(name: 'discount')
+  @JsonKey(name: 'discount', fromJson: JsonCoerce.asDouble)
   final double? discount;
-  @JsonKey(name: 'limitAmount')
+  @JsonKey(name: 'limitAmount', fromJson: JsonCoerce.asDouble)
   final double? limitAmount;
-  @JsonKey(name: 'currency')
+  @JsonKey(name: 'currency', fromJson: JsonCoerce.asString)
   final String? currency;
-  @JsonKey(name: 'discountTarget')
+  @JsonKey(name: 'discountTarget', fromJson: JsonCoerce.asString)
   final String? discountTarget;
-  @JsonKey(name: 'limitAmountTarget')
+  @JsonKey(name: 'limitAmountTarget', fromJson: JsonCoerce.asString)
   final String? limitAmountTarget;
-  @JsonKey(name: 'currencyTarget')
+  @JsonKey(name: 'currencyTarget', fromJson: JsonCoerce.asString)
   final String? currencyTarget;
-  @JsonKey(name: 'sourceCode')
+  @JsonKey(name: 'sourceCode', fromJson: JsonCoerce.asString)
   final String? sourceCode;
-  @JsonKey(name: 'scence')
+  @JsonKey(name: 'scence', fromJson: JsonCoerce.asString)
   final String? scence;
   static const fromJsonFactory =
       _$OrderServiceOrderCouponListPost$Response$Data$Item$UserCouponFromJson;
@@ -13904,9 +13941,9 @@ class OrderServiceOrderGetReviewGet$Response$Data$Item$SkuSpecValues$Item {
         this,
       );
 
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
-  @JsonKey(name: 'value')
+  @JsonKey(name: 'value', fromJson: JsonCoerce.asString)
   final String? value;
   static const fromJsonFactory =
       _$OrderServiceOrderGetReviewGet$Response$Data$Item$SkuSpecValues$ItemFromJson;
@@ -13970,13 +14007,17 @@ class OrderServiceOrderGetReviewGet$Response$Data$Item$Review {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderGetReviewGet$Response$Data$Item$ReviewToJson(this);
 
-  @JsonKey(name: 'comment')
+  @JsonKey(name: 'comment', fromJson: JsonCoerce.asString)
   final String? comment;
-  @JsonKey(name: 'score')
+  @JsonKey(name: 'score', fromJson: JsonCoerce.asString)
   final String? score;
-  @JsonKey(name: 'images', defaultValue: <String>[])
+  @JsonKey(
+    name: 'images',
+    fromJson: JsonCoerce.asStringList,
+    defaultValue: <String>[],
+  )
   final List<String>? images;
-  @JsonKey(name: 'extraComment')
+  @JsonKey(name: 'extraComment', fromJson: JsonCoerce.asString)
   final String? extraComment;
   static const fromJsonFactory =
       _$OrderServiceOrderGetReviewGet$Response$Data$Item$ReviewFromJson;
@@ -14095,45 +14136,45 @@ class OrderServiceOrderListGet$Response$Data$Records$Item {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderListGet$Response$Data$Records$ItemToJson(this);
 
-  @JsonKey(name: 'status')
+  @JsonKey(name: 'status', fromJson: JsonCoerce.asDouble)
   final double? status;
-  @JsonKey(name: 'frontStatus')
+  @JsonKey(name: 'frontStatus', fromJson: JsonCoerce.asDouble)
   final double? frontStatus;
-  @JsonKey(name: 'statusContent')
+  @JsonKey(name: 'statusContent', fromJson: JsonCoerce.asString)
   final String? statusContent;
-  @JsonKey(name: 'orderStatus')
+  @JsonKey(name: 'orderStatus', fromJson: JsonCoerce.asDouble)
   final double? orderStatus;
-  @JsonKey(name: 'orderId')
+  @JsonKey(name: 'orderId', fromJson: JsonCoerce.asString)
   final String? orderId;
-  @JsonKey(name: 'parentOrderId')
+  @JsonKey(name: 'parentOrderId', fromJson: JsonCoerce.asString)
   final String? parentOrderId;
-  @JsonKey(name: 'quantity')
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asDouble)
   final double? quantity;
-  @JsonKey(name: 'totalAmount')
+  @JsonKey(name: 'totalAmount', fromJson: JsonCoerce.asString)
   final String? totalAmount;
-  @JsonKey(name: 'targetTotalAmount')
+  @JsonKey(name: 'targetTotalAmount', fromJson: JsonCoerce.asString)
   final String? targetTotalAmount;
-  @JsonKey(name: 'discountAmount')
+  @JsonKey(name: 'discountAmount', fromJson: JsonCoerce.asString)
   final String? discountAmount;
-  @JsonKey(name: 'targetDiscountAmount')
+  @JsonKey(name: 'targetDiscountAmount', fromJson: JsonCoerce.asString)
   final String? targetDiscountAmount;
-  @JsonKey(name: 'targetPayFeeAmount')
+  @JsonKey(name: 'targetPayFeeAmount', fromJson: JsonCoerce.asString)
   final String? targetPayFeeAmount;
-  @JsonKey(name: 'targetActualAmount')
+  @JsonKey(name: 'targetActualAmount', fromJson: JsonCoerce.asString)
   final String? targetActualAmount;
-  @JsonKey(name: 'currency')
+  @JsonKey(name: 'currency', fromJson: JsonCoerce.asString)
   final String? currency;
-  @JsonKey(name: 'targetCurrency')
+  @JsonKey(name: 'targetCurrency', fromJson: JsonCoerce.asString)
   final String? targetCurrency;
-  @JsonKey(name: 'description')
+  @JsonKey(name: 'description', fromJson: JsonCoerce.asString)
   final String? description;
-  @JsonKey(name: 'remark')
+  @JsonKey(name: 'remark', fromJson: JsonCoerce.asString)
   final String? remark;
-  @JsonKey(name: 'statusIcon')
+  @JsonKey(name: 'statusIcon', fromJson: JsonCoerce.asString)
   final String? statusIcon;
   @JsonKey(name: 'operates', defaultValue: <Object>[])
   final List<Object>? operates;
-  @JsonKey(name: 'isLogisticsTrace')
+  @JsonKey(name: 'isLogisticsTrace', fromJson: JsonCoerce.asBool)
   final bool? isLogisticsTrace;
   @JsonKey(name: 'orderSkuList')
   final List<
@@ -14148,7 +14189,7 @@ class OrderServiceOrderListGet$Response$Data$Records$Item {
   @JsonKey(name: 'parcelOrder')
   final OrderServiceOrderListGet$Response$Data$Records$Item$ParcelOrder?
   parcelOrder;
-  @JsonKey(name: 'afterSalesList')
+  @JsonKey(name: 'afterSalesList', fromJson: JsonCoerce.asString)
   final String? afterSalesList;
   @JsonKey(name: 'orderBillList')
   final List<
@@ -14158,23 +14199,23 @@ class OrderServiceOrderListGet$Response$Data$Records$Item {
   @JsonKey(name: 'userAddress')
   final OrderServiceOrderListGet$Response$Data$Records$Item$UserAddress?
   userAddress;
-  @JsonKey(name: 'createTime')
+  @JsonKey(name: 'createTime', fromJson: JsonCoerce.asDouble)
   final double? createTime;
-  @JsonKey(name: 'wish')
+  @JsonKey(name: 'wish', fromJson: JsonCoerce.asBool)
   final bool? wish;
-  @JsonKey(name: 'targetItemTotalAmount')
+  @JsonKey(name: 'targetItemTotalAmount', fromJson: JsonCoerce.asString)
   final String? targetItemTotalAmount;
-  @JsonKey(name: 'targetFreightAmount')
+  @JsonKey(name: 'targetFreightAmount', fromJson: JsonCoerce.asString)
   final String? targetFreightAmount;
-  @JsonKey(name: 'giveawayGift')
+  @JsonKey(name: 'giveawayGift', fromJson: JsonCoerce.asDouble)
   final double? giveawayGift;
-  @JsonKey(name: 'skuSourceCode')
+  @JsonKey(name: 'skuSourceCode', fromJson: JsonCoerce.asString)
   final String? skuSourceCode;
-  @JsonKey(name: 'skuSourceCodeTitle')
+  @JsonKey(name: 'skuSourceCodeTitle', fromJson: JsonCoerce.asString)
   final String? skuSourceCodeTitle;
-  @JsonKey(name: 'targetTipAmount')
+  @JsonKey(name: 'targetTipAmount', fromJson: JsonCoerce.asString)
   final String? targetTipAmount;
-  @JsonKey(name: 'targetServiceAmount')
+  @JsonKey(name: 'targetServiceAmount', fromJson: JsonCoerce.asString)
   final String? targetServiceAmount;
   static const fromJsonFactory =
       _$OrderServiceOrderListGet$Response$Data$Records$ItemFromJson;
@@ -14657,45 +14698,45 @@ class OrderServiceOrderCombineListGet$Response$Data$Records$Item {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderCombineListGet$Response$Data$Records$ItemToJson(this);
 
-  @JsonKey(name: 'status')
+  @JsonKey(name: 'status', fromJson: JsonCoerce.asDouble)
   final double? status;
-  @JsonKey(name: 'frontStatus')
+  @JsonKey(name: 'frontStatus', fromJson: JsonCoerce.asDouble)
   final double? frontStatus;
-  @JsonKey(name: 'statusContent')
+  @JsonKey(name: 'statusContent', fromJson: JsonCoerce.asString)
   final String? statusContent;
-  @JsonKey(name: 'orderStatus')
+  @JsonKey(name: 'orderStatus', fromJson: JsonCoerce.asDouble)
   final double? orderStatus;
-  @JsonKey(name: 'quantity')
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asDouble)
   final double? quantity;
-  @JsonKey(name: 'totalAmount')
+  @JsonKey(name: 'totalAmount', fromJson: JsonCoerce.asString)
   final String? totalAmount;
-  @JsonKey(name: 'targetTotalAmount')
+  @JsonKey(name: 'targetTotalAmount', fromJson: JsonCoerce.asString)
   final String? targetTotalAmount;
-  @JsonKey(name: 'discountAmount')
+  @JsonKey(name: 'discountAmount', fromJson: JsonCoerce.asString)
   final String? discountAmount;
-  @JsonKey(name: 'targetDiscountAmount')
+  @JsonKey(name: 'targetDiscountAmount', fromJson: JsonCoerce.asString)
   final String? targetDiscountAmount;
-  @JsonKey(name: 'itemTotalAmount')
+  @JsonKey(name: 'itemTotalAmount', fromJson: JsonCoerce.asString)
   final String? itemTotalAmount;
-  @JsonKey(name: 'freightAmount')
+  @JsonKey(name: 'freightAmount', fromJson: JsonCoerce.asString)
   final String? freightAmount;
-  @JsonKey(name: 'targetItemTotalAmount')
+  @JsonKey(name: 'targetItemTotalAmount', fromJson: JsonCoerce.asString)
   final String? targetItemTotalAmount;
-  @JsonKey(name: 'targetFreightAmount')
+  @JsonKey(name: 'targetFreightAmount', fromJson: JsonCoerce.asString)
   final String? targetFreightAmount;
-  @JsonKey(name: 'targetPayFeeAmount')
+  @JsonKey(name: 'targetPayFeeAmount', fromJson: JsonCoerce.asString)
   final String? targetPayFeeAmount;
-  @JsonKey(name: 'currency')
+  @JsonKey(name: 'currency', fromJson: JsonCoerce.asString)
   final String? currency;
-  @JsonKey(name: 'targetCurrency')
+  @JsonKey(name: 'targetCurrency', fromJson: JsonCoerce.asString)
   final String? targetCurrency;
-  @JsonKey(name: 'description')
+  @JsonKey(name: 'description', fromJson: JsonCoerce.asString)
   final String? description;
-  @JsonKey(name: 'remark')
+  @JsonKey(name: 'remark', fromJson: JsonCoerce.asString)
   final String? remark;
   @JsonKey(name: 'operates', defaultValue: <Object>[])
   final List<Object>? operates;
-  @JsonKey(name: 'isLogisticsTrace')
+  @JsonKey(name: 'isLogisticsTrace', fromJson: JsonCoerce.asBool)
   final bool? isLogisticsTrace;
   @JsonKey(name: 'parcelOrder')
   final OrderServiceOrderCombineListGet$Response$Data$Records$Item$ParcelOrder?
@@ -14703,9 +14744,9 @@ class OrderServiceOrderCombineListGet$Response$Data$Records$Item {
   @JsonKey(name: 'userAddress')
   final OrderServiceOrderCombineListGet$Response$Data$Records$Item$UserAddress?
   userAddress;
-  @JsonKey(name: 'createTime')
+  @JsonKey(name: 'createTime', fromJson: JsonCoerce.asDouble)
   final double? createTime;
-  @JsonKey(name: 'wish')
+  @JsonKey(name: 'wish', fromJson: JsonCoerce.asBool)
   final bool? wish;
   @JsonKey(name: 'orderList')
   final List<
@@ -15055,11 +15096,11 @@ class OrderServiceOrderDetailGet$Response$Data$OrderList$Item {
     OrderServiceOrderDetailGet$Response$Data$OrderList$Item$SupplyOrderList$Item
   >?
   supplyOrderList;
-  @JsonKey(name: 'skuSourceCode')
+  @JsonKey(name: 'skuSourceCode', fromJson: JsonCoerce.asString)
   final String? skuSourceCode;
-  @JsonKey(name: 'skuSourceTitle')
+  @JsonKey(name: 'skuSourceTitle', fromJson: JsonCoerce.asString)
   final String? skuSourceTitle;
-  @JsonKey(name: 'remark')
+  @JsonKey(name: 'remark', fromJson: JsonCoerce.asString)
   final String? remark;
   @JsonKey(name: 'logisticsInfo')
   final OrderServiceOrderDetailGet$Response$Data$OrderList$Item$LogisticsInfo?
@@ -15250,81 +15291,85 @@ class OrderServiceOrderDetailGet$Response$Data$BaseInfo {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderDetailGet$Response$Data$BaseInfoToJson(this);
 
-  @JsonKey(name: 'userId')
+  @JsonKey(name: 'userId', fromJson: JsonCoerce.asString)
   final String? userId;
-  @JsonKey(name: 'orderId')
+  @JsonKey(name: 'orderId', fromJson: JsonCoerce.asString)
   final String? orderId;
-  @JsonKey(name: 'skuSourceCode')
+  @JsonKey(name: 'skuSourceCode', fromJson: JsonCoerce.asString)
   final String? skuSourceCode;
-  @JsonKey(name: 'skuSourceTitle')
+  @JsonKey(name: 'skuSourceTitle', fromJson: JsonCoerce.asString)
   final String? skuSourceTitle;
-  @JsonKey(name: 'parentOrderId')
+  @JsonKey(name: 'parentOrderId', fromJson: JsonCoerce.asString)
   final String? parentOrderId;
-  @JsonKey(name: 'status')
+  @JsonKey(name: 'status', fromJson: JsonCoerce.asDouble)
   final double? status;
-  @JsonKey(name: 'frontStatus')
+  @JsonKey(name: 'frontStatus', fromJson: JsonCoerce.asDouble)
   final double? frontStatus;
-  @JsonKey(name: 'statusContent')
+  @JsonKey(name: 'statusContent', fromJson: JsonCoerce.asString)
   final String? statusContent;
-  @JsonKey(name: 'orderStatus')
+  @JsonKey(name: 'orderStatus', fromJson: JsonCoerce.asDouble)
   final double? orderStatus;
-  @JsonKey(name: 'evaluateStatus')
+  @JsonKey(name: 'evaluateStatus', fromJson: JsonCoerce.asDouble)
   final double? evaluateStatus;
-  @JsonKey(name: 'timeoutPeriod')
+  @JsonKey(name: 'timeoutPeriod', fromJson: JsonCoerce.asDouble)
   final double? timeoutPeriod;
-  @JsonKey(name: 'createTime')
+  @JsonKey(name: 'createTime', fromJson: JsonCoerce.asDouble)
   final double? createTime;
-  @JsonKey(name: 'leftTime')
+  @JsonKey(name: 'leftTime', fromJson: JsonCoerce.asDouble)
   final double? leftTime;
-  @JsonKey(name: 'title')
+  @JsonKey(name: 'title', fromJson: JsonCoerce.asString)
   final String? title;
-  @JsonKey(name: 'subTitle')
+  @JsonKey(name: 'subTitle', fromJson: JsonCoerce.asString)
   final String? subTitle;
-  @JsonKey(name: 'operates', defaultValue: <String>[])
+  @JsonKey(
+    name: 'operates',
+    fromJson: JsonCoerce.asStringList,
+    defaultValue: <String>[],
+  )
   final List<String>? operates;
-  @JsonKey(name: 'description')
+  @JsonKey(name: 'description', fromJson: JsonCoerce.asString)
   final String? description;
-  @JsonKey(name: 'paySuccessDescription')
+  @JsonKey(name: 'paySuccessDescription', fromJson: JsonCoerce.asString)
   final String? paySuccessDescription;
-  @JsonKey(name: 'afterSalesExpressMethod')
+  @JsonKey(name: 'afterSalesExpressMethod', fromJson: JsonCoerce.asDouble)
   final double? afterSalesExpressMethod;
-  @JsonKey(name: 'afterSalesState')
+  @JsonKey(name: 'afterSalesState', fromJson: JsonCoerce.asDouble)
   final double? afterSalesState;
-  @JsonKey(name: 'remark')
+  @JsonKey(name: 'remark', fromJson: JsonCoerce.asString)
   final String? remark;
-  @JsonKey(name: 'remarkImages')
+  @JsonKey(name: 'remarkImages', fromJson: JsonCoerce.asString)
   final String? remarkImages;
-  @JsonKey(name: 'supportOnlineAfterSales')
+  @JsonKey(name: 'supportOnlineAfterSales', fromJson: JsonCoerce.asDouble)
   final double? supportOnlineAfterSales;
-  @JsonKey(name: 'receiptPdfLink')
+  @JsonKey(name: 'receiptPdfLink', fromJson: JsonCoerce.asString)
   final String? receiptPdfLink;
-  @JsonKey(name: 'afterSalesSupport')
+  @JsonKey(name: 'afterSalesSupport', fromJson: JsonCoerce.asString)
   final String? afterSalesSupport;
-  @JsonKey(name: 'tenantCode')
+  @JsonKey(name: 'tenantCode', fromJson: JsonCoerce.asString)
   final String? tenantCode;
-  @JsonKey(name: 'shippingCountry')
+  @JsonKey(name: 'shippingCountry', fromJson: JsonCoerce.asString)
   final String? shippingCountry;
-  @JsonKey(name: 'payTime')
+  @JsonKey(name: 'payTime', fromJson: JsonCoerce.asDouble)
   final double? payTime;
-  @JsonKey(name: 'batchNo')
+  @JsonKey(name: 'batchNo', fromJson: JsonCoerce.asString)
   final String? batchNo;
-  @JsonKey(name: 'parcelBatch')
+  @JsonKey(name: 'parcelBatch', fromJson: JsonCoerce.asBool)
   final bool? parcelBatch;
-  @JsonKey(name: 'removePackage')
+  @JsonKey(name: 'removePackage', fromJson: JsonCoerce.asBool)
   final bool? removePackage;
-  @JsonKey(name: 'orderFreight')
+  @JsonKey(name: 'orderFreight', fromJson: JsonCoerce.asBool)
   final bool? orderFreight;
   @JsonKey(name: 'logisticsSolutionCode')
   final Object? logisticsSolutionCode;
-  @JsonKey(name: 'returnType')
+  @JsonKey(name: 'returnType', fromJson: JsonCoerce.asDouble)
   final double? returnType;
   @JsonKey(name: 'language')
   final Object? language;
-  @JsonKey(name: 'giveawayGift')
+  @JsonKey(name: 'giveawayGift', fromJson: JsonCoerce.asDouble)
   final double? giveawayGift;
-  @JsonKey(name: 'afterSales')
+  @JsonKey(name: 'afterSales', fromJson: JsonCoerce.asBool)
   final bool? afterSales;
-  @JsonKey(name: 'wish')
+  @JsonKey(name: 'wish', fromJson: JsonCoerce.asBool)
   final bool? wish;
   static const fromJsonFactory =
       _$OrderServiceOrderDetailGet$Response$Data$BaseInfoFromJson;
@@ -15788,15 +15833,15 @@ class OrderServiceOrderDetailGet$Response$Data$PayMethod {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderDetailGet$Response$Data$PayMethodToJson(this);
 
-  @JsonKey(name: 'method')
+  @JsonKey(name: 'method', fromJson: JsonCoerce.asDouble)
   final double? method;
-  @JsonKey(name: 'methodName')
+  @JsonKey(name: 'methodName', fromJson: JsonCoerce.asString)
   final String? methodName;
   @JsonKey(name: 'payOrderId')
   final Object? payOrderId;
   @JsonKey(name: 'cardMsg')
   final Object? cardMsg;
-  @JsonKey(name: 'image')
+  @JsonKey(name: 'image', fromJson: JsonCoerce.asString)
   final String? image;
   static const fromJsonFactory =
       _$OrderServiceOrderDetailGet$Response$Data$PayMethodFromJson;
@@ -15913,55 +15958,55 @@ class OrderServiceOrderDetailGet$Response$Data$Payments {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderDetailGet$Response$Data$PaymentsToJson(this);
 
-  @JsonKey(name: 'targetOriginAmount')
+  @JsonKey(name: 'targetOriginAmount', fromJson: JsonCoerce.asString)
   final String? targetOriginAmount;
-  @JsonKey(name: 'receiptAmount')
+  @JsonKey(name: 'receiptAmount', fromJson: JsonCoerce.asString)
   final String? receiptAmount;
-  @JsonKey(name: 'itemsTotalAmount')
+  @JsonKey(name: 'itemsTotalAmount', fromJson: JsonCoerce.asString)
   final String? itemsTotalAmount;
-  @JsonKey(name: 'targetItemsTotalAmount')
+  @JsonKey(name: 'targetItemsTotalAmount', fromJson: JsonCoerce.asString)
   final String? targetItemsTotalAmount;
-  @JsonKey(name: 'targetItemDiscountAmount')
+  @JsonKey(name: 'targetItemDiscountAmount', fromJson: JsonCoerce.asString)
   final String? targetItemDiscountAmount;
-  @JsonKey(name: 'freightAmount')
+  @JsonKey(name: 'freightAmount', fromJson: JsonCoerce.asString)
   final String? freightAmount;
-  @JsonKey(name: 'targetFreightAmount')
+  @JsonKey(name: 'targetFreightAmount', fromJson: JsonCoerce.asString)
   final String? targetFreightAmount;
-  @JsonKey(name: 'skuQuantity')
+  @JsonKey(name: 'skuQuantity', fromJson: JsonCoerce.asDouble)
   final double? skuQuantity;
-  @JsonKey(name: 'currency')
+  @JsonKey(name: 'currency', fromJson: JsonCoerce.asString)
   final String? currency;
-  @JsonKey(name: 'totalPrice')
+  @JsonKey(name: 'totalPrice', fromJson: JsonCoerce.asString)
   final String? totalPrice;
-  @JsonKey(name: 'targetPrice')
+  @JsonKey(name: 'targetPrice', fromJson: JsonCoerce.asString)
   final String? targetPrice;
-  @JsonKey(name: 'discountAmount')
+  @JsonKey(name: 'discountAmount', fromJson: JsonCoerce.asString)
   final String? discountAmount;
-  @JsonKey(name: 'targetDiscountAmount')
+  @JsonKey(name: 'targetDiscountAmount', fromJson: JsonCoerce.asString)
   final String? targetDiscountAmount;
-  @JsonKey(name: 'targetActualAmount')
+  @JsonKey(name: 'targetActualAmount', fromJson: JsonCoerce.asString)
   final String? targetActualAmount;
-  @JsonKey(name: 'targetStockFeeAmount')
+  @JsonKey(name: 'targetStockFeeAmount', fromJson: JsonCoerce.asString)
   final String? targetStockFeeAmount;
-  @JsonKey(name: 'rechargeAmount')
+  @JsonKey(name: 'rechargeAmount', fromJson: JsonCoerce.asString)
   final String? rechargeAmount;
-  @JsonKey(name: 'targetRechargePrice')
+  @JsonKey(name: 'targetRechargePrice', fromJson: JsonCoerce.asString)
   final String? targetRechargePrice;
-  @JsonKey(name: 'targetCurrency')
+  @JsonKey(name: 'targetCurrency', fromJson: JsonCoerce.asString)
   final String? targetCurrency;
-  @JsonKey(name: 'targetPurchaseDiffPrice')
+  @JsonKey(name: 'targetPurchaseDiffPrice', fromJson: JsonCoerce.asString)
   final String? targetPurchaseDiffPrice;
-  @JsonKey(name: 'targetPurchasePrice')
+  @JsonKey(name: 'targetPurchasePrice', fromJson: JsonCoerce.asString)
   final String? targetPurchasePrice;
   @JsonKey(name: 'purchasePrice')
   final Object? purchasePrice;
-  @JsonKey(name: 'targetPayFeeAmount')
+  @JsonKey(name: 'targetPayFeeAmount', fromJson: JsonCoerce.asString)
   final String? targetPayFeeAmount;
-  @JsonKey(name: 'targetTipAmount')
+  @JsonKey(name: 'targetTipAmount', fromJson: JsonCoerce.asString)
   final String? targetTipAmount;
-  @JsonKey(name: 'targetServiceAmount')
+  @JsonKey(name: 'targetServiceAmount', fromJson: JsonCoerce.asString)
   final String? targetServiceAmount;
-  @JsonKey(name: 'wdSourcePlatform')
+  @JsonKey(name: 'wdSourcePlatform', fromJson: JsonCoerce.asBool)
   final bool? wdSourcePlatform;
   static const fromJsonFactory =
       _$OrderServiceOrderDetailGet$Response$Data$PaymentsFromJson;
@@ -16328,33 +16373,33 @@ class OrderServiceOrderDetailGet$Response$Data$UserAddress {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderDetailGet$Response$Data$UserAddressToJson(this);
 
-  @JsonKey(name: 'country')
+  @JsonKey(name: 'country', fromJson: JsonCoerce.asString)
   final String? country;
-  @JsonKey(name: 'countryCode')
+  @JsonKey(name: 'countryCode', fromJson: JsonCoerce.asString)
   final String? countryCode;
-  @JsonKey(name: 'state')
+  @JsonKey(name: 'state', fromJson: JsonCoerce.asString)
   final String? state;
-  @JsonKey(name: 'stateCode')
+  @JsonKey(name: 'stateCode', fromJson: JsonCoerce.asString)
   final String? stateCode;
-  @JsonKey(name: 'city')
+  @JsonKey(name: 'city', fromJson: JsonCoerce.asString)
   final String? city;
-  @JsonKey(name: 'cityCode')
+  @JsonKey(name: 'cityCode', fromJson: JsonCoerce.asString)
   final String? cityCode;
-  @JsonKey(name: 'street')
+  @JsonKey(name: 'street', fromJson: JsonCoerce.asString)
   final String? street;
-  @JsonKey(name: 'apartment')
+  @JsonKey(name: 'apartment', fromJson: JsonCoerce.asString)
   final String? apartment;
-  @JsonKey(name: 'address')
+  @JsonKey(name: 'address', fromJson: JsonCoerce.asString)
   final String? address;
-  @JsonKey(name: 'firstName')
+  @JsonKey(name: 'firstName', fromJson: JsonCoerce.asString)
   final String? firstName;
-  @JsonKey(name: 'lastName')
+  @JsonKey(name: 'lastName', fromJson: JsonCoerce.asString)
   final String? lastName;
-  @JsonKey(name: 'phoneNumber')
+  @JsonKey(name: 'phoneNumber', fromJson: JsonCoerce.asString)
   final String? phoneNumber;
-  @JsonKey(name: 'zipCode')
+  @JsonKey(name: 'zipCode', fromJson: JsonCoerce.asString)
   final String? zipCode;
-  @JsonKey(name: 'id')
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asDouble)
   final double? id;
   @JsonKey(name: 'remark')
   final Object? remark;
@@ -16602,67 +16647,73 @@ class OrderServiceOrderDetailGet$Response$Data$ParcelOrder {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderDetailGet$Response$Data$ParcelOrderToJson(this);
 
-  @JsonKey(name: 'parcelOrderId')
+  @JsonKey(name: 'parcelOrderId', fromJson: JsonCoerce.asString)
   final String? parcelOrderId;
-  @JsonKey(name: 'parcelStatus')
+  @JsonKey(name: 'parcelStatus', fromJson: JsonCoerce.asString)
   final String? parcelStatus;
-  @JsonKey(name: 'parcelStatusDesc')
+  @JsonKey(name: 'parcelStatusDesc', fromJson: JsonCoerce.asString)
   final String? parcelStatusDesc;
-  @JsonKey(name: 'batchNo')
+  @JsonKey(name: 'batchNo', fromJson: JsonCoerce.asString)
   final String? batchNo;
-  @JsonKey(name: 'createTime')
+  @JsonKey(name: 'createTime', fromJson: JsonCoerce.asDouble)
   final double? createTime;
-  @JsonKey(name: 'warehouseCode')
+  @JsonKey(name: 'warehouseCode', fromJson: JsonCoerce.asString)
   final String? warehouseCode;
-  @JsonKey(name: 'warehouseName')
+  @JsonKey(name: 'warehouseName', fromJson: JsonCoerce.asString)
   final String? warehouseName;
-  @JsonKey(name: 'solutionCode')
+  @JsonKey(name: 'solutionCode', fromJson: JsonCoerce.asString)
   final String? solutionCode;
-  @JsonKey(name: 'freight')
+  @JsonKey(name: 'freight', fromJson: JsonCoerce.asString)
   final String? freight;
   @JsonKey(name: 'freightCurrency')
   final OrderServiceOrderDetailGet$Response$Data$ParcelOrder$FreightCurrency?
   freightCurrency;
-  @JsonKey(name: 'targetFreight')
+  @JsonKey(name: 'targetFreight', fromJson: JsonCoerce.asString)
   final String? targetFreight;
   @JsonKey(name: 'targetFreightCurrency')
   final OrderServiceOrderDetailGet$Response$Data$ParcelOrder$TargetFreightCurrency?
   targetFreightCurrency;
-  @JsonKey(name: 'actualFreight')
+  @JsonKey(name: 'actualFreight', fromJson: JsonCoerce.asString)
   final String? actualFreight;
-  @JsonKey(name: 'actualFreightCurrency')
+  @JsonKey(name: 'actualFreightCurrency', fromJson: JsonCoerce.asString)
   final String? actualFreightCurrency;
-  @JsonKey(name: 'targetActualFreight')
+  @JsonKey(name: 'targetActualFreight', fromJson: JsonCoerce.asString)
   final String? targetActualFreight;
-  @JsonKey(name: 'targetActualFreightCurrency')
+  @JsonKey(name: 'targetActualFreightCurrency', fromJson: JsonCoerce.asString)
   final String? targetActualFreightCurrency;
-  @JsonKey(name: 'freightCouponCode')
+  @JsonKey(name: 'freightCouponCode', fromJson: JsonCoerce.asString)
   final String? freightCouponCode;
-  @JsonKey(name: 'freightCouponDiscountAmount')
+  @JsonKey(name: 'freightCouponDiscountAmount', fromJson: JsonCoerce.asString)
   final String? freightCouponDiscountAmount;
-  @JsonKey(name: 'freightCouponDiscountCurrency')
+  @JsonKey(name: 'freightCouponDiscountCurrency', fromJson: JsonCoerce.asString)
   final String? freightCouponDiscountCurrency;
-  @JsonKey(name: 'targetFreightCouponDiscountAmount')
+  @JsonKey(
+    name: 'targetFreightCouponDiscountAmount',
+    fromJson: JsonCoerce.asString,
+  )
   final String? targetFreightCouponDiscountAmount;
-  @JsonKey(name: 'targetFreightCouponDiscountCurrency')
+  @JsonKey(
+    name: 'targetFreightCouponDiscountCurrency',
+    fromJson: JsonCoerce.asString,
+  )
   final String? targetFreightCouponDiscountCurrency;
-  @JsonKey(name: 'targetServiceAmount')
+  @JsonKey(name: 'targetServiceAmount', fromJson: JsonCoerce.asString)
   final String? targetServiceAmount;
-  @JsonKey(name: 'targetServiceAmountCurrency')
+  @JsonKey(name: 'targetServiceAmountCurrency', fromJson: JsonCoerce.asString)
   final String? targetServiceAmountCurrency;
-  @JsonKey(name: 'weight')
+  @JsonKey(name: 'weight', fromJson: JsonCoerce.asString)
   final String? weight;
-  @JsonKey(name: 'length')
+  @JsonKey(name: 'length', fromJson: JsonCoerce.asString)
   final String? length;
-  @JsonKey(name: 'width')
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asString)
   final String? width;
-  @JsonKey(name: 'height')
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asString)
   final String? height;
-  @JsonKey(name: 'lastMileMailNo')
+  @JsonKey(name: 'lastMileMailNo', fromJson: JsonCoerce.asString)
   final String? lastMileMailNo;
-  @JsonKey(name: 'lastMileCompanyCode')
+  @JsonKey(name: 'lastMileCompanyCode', fromJson: JsonCoerce.asString)
   final String? lastMileCompanyCode;
-  @JsonKey(name: 'lastMileCompanyName')
+  @JsonKey(name: 'lastMileCompanyName', fromJson: JsonCoerce.asString)
   final String? lastMileCompanyName;
   @JsonKey(name: 'receiverAddress')
   final OrderServiceOrderDetailGet$Response$Data$ParcelOrder$ReceiverAddress?
@@ -16672,7 +16723,11 @@ class OrderServiceOrderDetailGet$Response$Data$ParcelOrder {
     OrderServiceOrderDetailGet$Response$Data$ParcelOrder$ParcelProductDTOList$Item
   >?
   parcelProductDTOList;
-  @JsonKey(name: 'buyerOperates', defaultValue: <String>[])
+  @JsonKey(
+    name: 'buyerOperates',
+    fromJson: JsonCoerce.asStringList,
+    defaultValue: <String>[],
+  )
   final List<String>? buyerOperates;
   static const fromJsonFactory =
       _$OrderServiceOrderDetailGet$Response$Data$ParcelOrderFromJson;
@@ -17152,15 +17207,15 @@ class OrderServiceOrderDetailGet$Response$Data$OrderTrace {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderDetailGet$Response$Data$OrderTraceToJson(this);
 
-  @JsonKey(name: 'tradeOrderId')
+  @JsonKey(name: 'tradeOrderId', fromJson: JsonCoerce.asString)
   final String? tradeOrderId;
-  @JsonKey(name: 'logisticsOrderId')
+  @JsonKey(name: 'logisticsOrderId', fromJson: JsonCoerce.asString)
   final String? logisticsOrderId;
-  @JsonKey(name: 'logisticsStatus')
+  @JsonKey(name: 'logisticsStatus', fromJson: JsonCoerce.asString)
   final String? logisticsStatus;
-  @JsonKey(name: 'parcelOrderId')
+  @JsonKey(name: 'parcelOrderId', fromJson: JsonCoerce.asString)
   final String? parcelOrderId;
-  @JsonKey(name: 'parcelOrderStatus')
+  @JsonKey(name: 'parcelOrderStatus', fromJson: JsonCoerce.asString)
   final String? parcelOrderStatus;
   @JsonKey(name: 'groupTraceList')
   final List<
@@ -17175,11 +17230,11 @@ class OrderServiceOrderDetailGet$Response$Data$OrderTrace {
     OrderServiceOrderDetailGet$Response$Data$OrderTrace$LogisticsSkuDetailList$Item
   >?
   logisticsSkuDetailList;
-  @JsonKey(name: 'lastMileMailNo')
+  @JsonKey(name: 'lastMileMailNo', fromJson: JsonCoerce.asString)
   final String? lastMileMailNo;
-  @JsonKey(name: 'lastMileMailNoLink')
+  @JsonKey(name: 'lastMileMailNoLink', fromJson: JsonCoerce.asString)
   final String? lastMileMailNoLink;
-  @JsonKey(name: 'lastMileCompanyName')
+  @JsonKey(name: 'lastMileCompanyName', fromJson: JsonCoerce.asString)
   final String? lastMileCompanyName;
   @JsonKey(name: 'traceList')
   final List<
@@ -17406,15 +17461,15 @@ class OrderServiceOrderDetailGet$Response$Data$DiscountInfos$Item {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderDetailGet$Response$Data$DiscountInfos$ItemToJson(this);
 
-  @JsonKey(name: 'discountType')
+  @JsonKey(name: 'discountType', fromJson: JsonCoerce.asDouble)
   final double? discountType;
-  @JsonKey(name: 'userCouponCode')
+  @JsonKey(name: 'userCouponCode', fromJson: JsonCoerce.asString)
   final String? userCouponCode;
-  @JsonKey(name: 'discountAmount')
+  @JsonKey(name: 'discountAmount', fromJson: JsonCoerce.asString)
   final String? discountAmount;
-  @JsonKey(name: 'targetDiscountAmount')
+  @JsonKey(name: 'targetDiscountAmount', fromJson: JsonCoerce.asString)
   final String? targetDiscountAmount;
-  @JsonKey(name: 'couponCode')
+  @JsonKey(name: 'couponCode', fromJson: JsonCoerce.asString)
   final String? couponCode;
   static const fromJsonFactory =
       _$OrderServiceOrderDetailGet$Response$Data$DiscountInfos$ItemFromJson;
@@ -17550,65 +17605,69 @@ class OrderServiceOpenapiOrderDetailGet$Response$Data$BaseInfo {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOpenapiOrderDetailGet$Response$Data$BaseInfoToJson(this);
 
-  @JsonKey(name: 'userId')
+  @JsonKey(name: 'userId', fromJson: JsonCoerce.asString)
   final String? userId;
-  @JsonKey(name: 'orderId')
+  @JsonKey(name: 'orderId', fromJson: JsonCoerce.asString)
   final String? orderId;
-  @JsonKey(name: 'skuSourceCode')
+  @JsonKey(name: 'skuSourceCode', fromJson: JsonCoerce.asString)
   final String? skuSourceCode;
-  @JsonKey(name: 'parentOrderId')
+  @JsonKey(name: 'parentOrderId', fromJson: JsonCoerce.asString)
   final String? parentOrderId;
-  @JsonKey(name: 'status')
+  @JsonKey(name: 'status', fromJson: JsonCoerce.asDouble)
   final double? status;
-  @JsonKey(name: 'frontStatus')
+  @JsonKey(name: 'frontStatus', fromJson: JsonCoerce.asDouble)
   final double? frontStatus;
-  @JsonKey(name: 'statusContent')
+  @JsonKey(name: 'statusContent', fromJson: JsonCoerce.asString)
   final String? statusContent;
-  @JsonKey(name: 'orderStatus')
+  @JsonKey(name: 'orderStatus', fromJson: JsonCoerce.asDouble)
   final double? orderStatus;
-  @JsonKey(name: 'evaluateStatus')
+  @JsonKey(name: 'evaluateStatus', fromJson: JsonCoerce.asDouble)
   final double? evaluateStatus;
-  @JsonKey(name: 'timeoutPeriod')
+  @JsonKey(name: 'timeoutPeriod', fromJson: JsonCoerce.asDouble)
   final double? timeoutPeriod;
-  @JsonKey(name: 'createTime')
+  @JsonKey(name: 'createTime', fromJson: JsonCoerce.asDouble)
   final double? createTime;
-  @JsonKey(name: 'leftTime')
+  @JsonKey(name: 'leftTime', fromJson: JsonCoerce.asDouble)
   final double? leftTime;
-  @JsonKey(name: 'title')
+  @JsonKey(name: 'title', fromJson: JsonCoerce.asString)
   final String? title;
-  @JsonKey(name: 'subTitle')
+  @JsonKey(name: 'subTitle', fromJson: JsonCoerce.asString)
   final String? subTitle;
-  @JsonKey(name: 'operates', defaultValue: <String>[])
+  @JsonKey(
+    name: 'operates',
+    fromJson: JsonCoerce.asStringList,
+    defaultValue: <String>[],
+  )
   final List<String>? operates;
-  @JsonKey(name: 'description')
+  @JsonKey(name: 'description', fromJson: JsonCoerce.asString)
   final String? description;
-  @JsonKey(name: 'paySuccessDescription')
+  @JsonKey(name: 'paySuccessDescription', fromJson: JsonCoerce.asString)
   final String? paySuccessDescription;
-  @JsonKey(name: 'afterSalesExpressMethod')
+  @JsonKey(name: 'afterSalesExpressMethod', fromJson: JsonCoerce.asDouble)
   final double? afterSalesExpressMethod;
-  @JsonKey(name: 'afterSalesState')
+  @JsonKey(name: 'afterSalesState', fromJson: JsonCoerce.asDouble)
   final double? afterSalesState;
-  @JsonKey(name: 'remark')
+  @JsonKey(name: 'remark', fromJson: JsonCoerce.asString)
   final String? remark;
-  @JsonKey(name: 'remarkImages')
+  @JsonKey(name: 'remarkImages', fromJson: JsonCoerce.asString)
   final String? remarkImages;
-  @JsonKey(name: 'supportOnlineAfterSales')
+  @JsonKey(name: 'supportOnlineAfterSales', fromJson: JsonCoerce.asDouble)
   final double? supportOnlineAfterSales;
-  @JsonKey(name: 'receiptPdfLink')
+  @JsonKey(name: 'receiptPdfLink', fromJson: JsonCoerce.asString)
   final String? receiptPdfLink;
-  @JsonKey(name: 'afterSalesSupport')
+  @JsonKey(name: 'afterSalesSupport', fromJson: JsonCoerce.asString)
   final String? afterSalesSupport;
-  @JsonKey(name: 'tenantCode')
+  @JsonKey(name: 'tenantCode', fromJson: JsonCoerce.asString)
   final String? tenantCode;
-  @JsonKey(name: 'shippingCountry')
+  @JsonKey(name: 'shippingCountry', fromJson: JsonCoerce.asString)
   final String? shippingCountry;
-  @JsonKey(name: 'payTime')
+  @JsonKey(name: 'payTime', fromJson: JsonCoerce.asDouble)
   final double? payTime;
-  @JsonKey(name: 'afterSales')
+  @JsonKey(name: 'afterSales', fromJson: JsonCoerce.asBool)
   final bool? afterSales;
-  @JsonKey(name: 'wish')
+  @JsonKey(name: 'wish', fromJson: JsonCoerce.asBool)
   final bool? wish;
-  @JsonKey(name: 'removePackage')
+  @JsonKey(name: 'removePackage', fromJson: JsonCoerce.asBool)
   final bool? removePackage;
   static const fromJsonFactory =
       _$OrderServiceOpenapiOrderDetailGet$Response$Data$BaseInfoFromJson;
@@ -17994,33 +18053,33 @@ class OrderServiceOpenapiOrderDetailGet$Response$Data$UserAddress {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOpenapiOrderDetailGet$Response$Data$UserAddressToJson(this);
 
-  @JsonKey(name: 'country')
+  @JsonKey(name: 'country', fromJson: JsonCoerce.asString)
   final String? country;
-  @JsonKey(name: 'countryCode')
+  @JsonKey(name: 'countryCode', fromJson: JsonCoerce.asString)
   final String? countryCode;
-  @JsonKey(name: 'state')
+  @JsonKey(name: 'state', fromJson: JsonCoerce.asString)
   final String? state;
-  @JsonKey(name: 'stateCode')
+  @JsonKey(name: 'stateCode', fromJson: JsonCoerce.asString)
   final String? stateCode;
-  @JsonKey(name: 'city')
+  @JsonKey(name: 'city', fromJson: JsonCoerce.asString)
   final String? city;
-  @JsonKey(name: 'cityCode')
+  @JsonKey(name: 'cityCode', fromJson: JsonCoerce.asString)
   final String? cityCode;
-  @JsonKey(name: 'street')
+  @JsonKey(name: 'street', fromJson: JsonCoerce.asString)
   final String? street;
-  @JsonKey(name: 'apartment')
+  @JsonKey(name: 'apartment', fromJson: JsonCoerce.asString)
   final String? apartment;
-  @JsonKey(name: 'address')
+  @JsonKey(name: 'address', fromJson: JsonCoerce.asString)
   final String? address;
-  @JsonKey(name: 'firstName')
+  @JsonKey(name: 'firstName', fromJson: JsonCoerce.asString)
   final String? firstName;
-  @JsonKey(name: 'lastName')
+  @JsonKey(name: 'lastName', fromJson: JsonCoerce.asString)
   final String? lastName;
-  @JsonKey(name: 'phoneNumber')
+  @JsonKey(name: 'phoneNumber', fromJson: JsonCoerce.asString)
   final String? phoneNumber;
-  @JsonKey(name: 'zipCode')
+  @JsonKey(name: 'zipCode', fromJson: JsonCoerce.asString)
   final String? zipCode;
-  @JsonKey(name: 'id')
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asDouble)
   final double? id;
   static const fromJsonFactory =
       _$OrderServiceOpenapiOrderDetailGet$Response$Data$UserAddressFromJson;
@@ -18202,15 +18261,15 @@ class OrderServiceOpenapiOrderDetailGet$Response$Data$PayMethod {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOpenapiOrderDetailGet$Response$Data$PayMethodToJson(this);
 
-  @JsonKey(name: 'method')
+  @JsonKey(name: 'method', fromJson: JsonCoerce.asString)
   final String? method;
-  @JsonKey(name: 'methodName')
+  @JsonKey(name: 'methodName', fromJson: JsonCoerce.asString)
   final String? methodName;
-  @JsonKey(name: 'payOrderId')
+  @JsonKey(name: 'payOrderId', fromJson: JsonCoerce.asString)
   final String? payOrderId;
-  @JsonKey(name: 'cardMsg')
+  @JsonKey(name: 'cardMsg', fromJson: JsonCoerce.asString)
   final String? cardMsg;
-  @JsonKey(name: 'image')
+  @JsonKey(name: 'image', fromJson: JsonCoerce.asString)
   final String? image;
   static const fromJsonFactory =
       _$OrderServiceOpenapiOrderDetailGet$Response$Data$PayMethodFromJson;
@@ -18317,35 +18376,35 @@ class OrderServiceOpenapiOrderDetailGet$Response$Data$Payments {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOpenapiOrderDetailGet$Response$Data$PaymentsToJson(this);
 
-  @JsonKey(name: 'receiptAmount')
+  @JsonKey(name: 'receiptAmount', fromJson: JsonCoerce.asString)
   final String? receiptAmount;
-  @JsonKey(name: 'itemsTotalAmount')
+  @JsonKey(name: 'itemsTotalAmount', fromJson: JsonCoerce.asString)
   final String? itemsTotalAmount;
-  @JsonKey(name: 'freightAmount')
+  @JsonKey(name: 'freightAmount', fromJson: JsonCoerce.asString)
   final String? freightAmount;
-  @JsonKey(name: 'skuQuantity')
+  @JsonKey(name: 'skuQuantity', fromJson: JsonCoerce.asDouble)
   final double? skuQuantity;
-  @JsonKey(name: 'currency')
+  @JsonKey(name: 'currency', fromJson: JsonCoerce.asString)
   final String? currency;
-  @JsonKey(name: 'totalPrice')
+  @JsonKey(name: 'totalPrice', fromJson: JsonCoerce.asString)
   final String? totalPrice;
-  @JsonKey(name: 'targetPrice')
+  @JsonKey(name: 'targetPrice', fromJson: JsonCoerce.asString)
   final String? targetPrice;
-  @JsonKey(name: 'targetSettlementAmount')
+  @JsonKey(name: 'targetSettlementAmount', fromJson: JsonCoerce.asString)
   final String? targetSettlementAmount;
-  @JsonKey(name: 'settlementAmount')
+  @JsonKey(name: 'settlementAmount', fromJson: JsonCoerce.asString)
   final String? settlementAmount;
-  @JsonKey(name: 'discountAmount')
+  @JsonKey(name: 'discountAmount', fromJson: JsonCoerce.asString)
   final String? discountAmount;
-  @JsonKey(name: 'targetDiscountAmount')
+  @JsonKey(name: 'targetDiscountAmount', fromJson: JsonCoerce.asString)
   final String? targetDiscountAmount;
-  @JsonKey(name: 'rechargeAmount')
+  @JsonKey(name: 'rechargeAmount', fromJson: JsonCoerce.asString)
   final String? rechargeAmount;
-  @JsonKey(name: 'targetRechargePrice')
+  @JsonKey(name: 'targetRechargePrice', fromJson: JsonCoerce.asString)
   final String? targetRechargePrice;
-  @JsonKey(name: 'targetCurrency')
+  @JsonKey(name: 'targetCurrency', fromJson: JsonCoerce.asString)
   final String? targetCurrency;
-  @JsonKey(name: 'targetItemsTotalAmount')
+  @JsonKey(name: 'targetItemsTotalAmount', fromJson: JsonCoerce.asString)
   final String? targetItemsTotalAmount;
   static const fromJsonFactory =
       _$OrderServiceOpenapiOrderDetailGet$Response$Data$PaymentsFromJson;
@@ -18576,13 +18635,13 @@ class OrderServiceOpenapiOrderDetailGet$Response$Data$OrderBillList$Item {
         this,
       );
 
-  @JsonKey(name: 'status')
+  @JsonKey(name: 'status', fromJson: JsonCoerce.asString)
   final String? status;
-  @JsonKey(name: 'targetCurrency')
+  @JsonKey(name: 'targetCurrency', fromJson: JsonCoerce.asString)
   final String? targetCurrency;
-  @JsonKey(name: 'targetTotalPrice')
+  @JsonKey(name: 'targetTotalPrice', fromJson: JsonCoerce.asString)
   final String? targetTotalPrice;
-  @JsonKey(name: 'billId')
+  @JsonKey(name: 'billId', fromJson: JsonCoerce.asString)
   final String? billId;
   static const fromJsonFactory =
       _$OrderServiceOpenapiOrderDetailGet$Response$Data$OrderBillList$ItemFromJson;
@@ -18692,19 +18751,19 @@ class OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrder {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrderToJson(this);
 
-  @JsonKey(name: 'parcelOrderId')
+  @JsonKey(name: 'parcelOrderId', fromJson: JsonCoerce.asString)
   final String? parcelOrderId;
-  @JsonKey(name: 'parcelStatus')
+  @JsonKey(name: 'parcelStatus', fromJson: JsonCoerce.asString)
   final String? parcelStatus;
-  @JsonKey(name: 'parcelStatusDesc')
+  @JsonKey(name: 'parcelStatusDesc', fromJson: JsonCoerce.asString)
   final String? parcelStatusDesc;
-  @JsonKey(name: 'createTime')
+  @JsonKey(name: 'createTime', fromJson: JsonCoerce.asDouble)
   final double? createTime;
-  @JsonKey(name: 'warehouseCode')
+  @JsonKey(name: 'warehouseCode', fromJson: JsonCoerce.asString)
   final String? warehouseCode;
-  @JsonKey(name: 'warehouseName')
+  @JsonKey(name: 'warehouseName', fromJson: JsonCoerce.asString)
   final String? warehouseName;
-  @JsonKey(name: 'freight')
+  @JsonKey(name: 'freight', fromJson: JsonCoerce.asString)
   final String? freight;
   @JsonKey(name: 'freightCurrency')
   final OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrder$FreightCurrency?
@@ -18720,22 +18779,32 @@ class OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrder {
     OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrder$ParcelProductDTOList$Item
   >?
   parcelProductDTOList;
-  @JsonKey(name: 'buyerOperates', defaultValue: <String>[])
+  @JsonKey(
+    name: 'buyerOperates',
+    fromJson: JsonCoerce.asStringList,
+    defaultValue: <String>[],
+  )
   final List<String>? buyerOperates;
   @JsonKey(name: 'freightCompensate')
   final OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrder$FreightCompensate?
   freightCompensate;
-  @JsonKey(name: 'solutionCode')
+  @JsonKey(name: 'solutionCode', fromJson: JsonCoerce.asString)
   final String? solutionCode;
-  @JsonKey(name: 'actualFreight')
+  @JsonKey(name: 'actualFreight', fromJson: JsonCoerce.asString)
   final String? actualFreight;
-  @JsonKey(name: 'actualFreightCurrency')
+  @JsonKey(name: 'actualFreightCurrency', fromJson: JsonCoerce.asString)
   final String? actualFreightCurrency;
-  @JsonKey(name: 'targetFreightCouponDiscountAmount')
+  @JsonKey(
+    name: 'targetFreightCouponDiscountAmount',
+    fromJson: JsonCoerce.asString,
+  )
   final String? targetFreightCouponDiscountAmount;
-  @JsonKey(name: 'targetFreightCouponDiscountCurrency')
+  @JsonKey(
+    name: 'targetFreightCouponDiscountCurrency',
+    fromJson: JsonCoerce.asString,
+  )
   final String? targetFreightCouponDiscountCurrency;
-  @JsonKey(name: 'targetFreight')
+  @JsonKey(name: 'targetFreight', fromJson: JsonCoerce.asString)
   final String? targetFreight;
   @JsonKey(name: 'targetFreightCurrency')
   final OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrder$TargetFreightCurrency?
@@ -19075,18 +19144,18 @@ class OrderServiceOpenapiOrderDetailGet$Response$Data$OrderTrace {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOpenapiOrderDetailGet$Response$Data$OrderTraceToJson(this);
 
-  @JsonKey(name: 'tradeOrderId')
+  @JsonKey(name: 'tradeOrderId', fromJson: JsonCoerce.asString)
   final String? tradeOrderId;
-  @JsonKey(name: 'logisticsOrderId')
+  @JsonKey(name: 'logisticsOrderId', fromJson: JsonCoerce.asString)
   final String? logisticsOrderId;
-  @JsonKey(name: 'logisticsStatus')
+  @JsonKey(name: 'logisticsStatus', fromJson: JsonCoerce.asString)
   final String? logisticsStatus;
   @JsonKey(name: 'traceList')
   final List<
     OrderServiceOpenapiOrderDetailGet$Response$Data$OrderTrace$TraceList$Item
   >?
   traceList;
-  @JsonKey(name: 'parcelOrderId')
+  @JsonKey(name: 'parcelOrderId', fromJson: JsonCoerce.asString)
   final String? parcelOrderId;
   static const fromJsonFactory =
       _$OrderServiceOpenapiOrderDetailGet$Response$Data$OrderTraceFromJson;
@@ -19587,69 +19656,73 @@ class OrderServiceOrderCombineDetailGet$Response$Data$BaseInfo {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderCombineDetailGet$Response$Data$BaseInfoToJson(this);
 
-  @JsonKey(name: 'userId')
+  @JsonKey(name: 'userId', fromJson: JsonCoerce.asString)
   final String? userId;
-  @JsonKey(name: 'orderId')
+  @JsonKey(name: 'orderId', fromJson: JsonCoerce.asString)
   final String? orderId;
-  @JsonKey(name: 'skuSourceCode')
+  @JsonKey(name: 'skuSourceCode', fromJson: JsonCoerce.asString)
   final String? skuSourceCode;
-  @JsonKey(name: 'parentOrderId')
+  @JsonKey(name: 'parentOrderId', fromJson: JsonCoerce.asString)
   final String? parentOrderId;
-  @JsonKey(name: 'status')
+  @JsonKey(name: 'status', fromJson: JsonCoerce.asDouble)
   final double? status;
-  @JsonKey(name: 'frontStatus')
+  @JsonKey(name: 'frontStatus', fromJson: JsonCoerce.asDouble)
   final double? frontStatus;
-  @JsonKey(name: 'statusContent')
+  @JsonKey(name: 'statusContent', fromJson: JsonCoerce.asString)
   final String? statusContent;
-  @JsonKey(name: 'orderStatus')
+  @JsonKey(name: 'orderStatus', fromJson: JsonCoerce.asDouble)
   final double? orderStatus;
-  @JsonKey(name: 'evaluateStatus')
+  @JsonKey(name: 'evaluateStatus', fromJson: JsonCoerce.asDouble)
   final double? evaluateStatus;
-  @JsonKey(name: 'timeoutPeriod')
+  @JsonKey(name: 'timeoutPeriod', fromJson: JsonCoerce.asDouble)
   final double? timeoutPeriod;
-  @JsonKey(name: 'createTime')
+  @JsonKey(name: 'createTime', fromJson: JsonCoerce.asDouble)
   final double? createTime;
-  @JsonKey(name: 'leftTime')
+  @JsonKey(name: 'leftTime', fromJson: JsonCoerce.asDouble)
   final double? leftTime;
-  @JsonKey(name: 'title')
+  @JsonKey(name: 'title', fromJson: JsonCoerce.asString)
   final String? title;
-  @JsonKey(name: 'subTitle')
+  @JsonKey(name: 'subTitle', fromJson: JsonCoerce.asString)
   final String? subTitle;
-  @JsonKey(name: 'operates', defaultValue: <String>[])
+  @JsonKey(
+    name: 'operates',
+    fromJson: JsonCoerce.asStringList,
+    defaultValue: <String>[],
+  )
   final List<String>? operates;
-  @JsonKey(name: 'description')
+  @JsonKey(name: 'description', fromJson: JsonCoerce.asString)
   final String? description;
-  @JsonKey(name: 'paySuccessDescription')
+  @JsonKey(name: 'paySuccessDescription', fromJson: JsonCoerce.asString)
   final String? paySuccessDescription;
-  @JsonKey(name: 'afterSalesExpressMethod')
+  @JsonKey(name: 'afterSalesExpressMethod', fromJson: JsonCoerce.asDouble)
   final double? afterSalesExpressMethod;
-  @JsonKey(name: 'afterSalesState')
+  @JsonKey(name: 'afterSalesState', fromJson: JsonCoerce.asDouble)
   final double? afterSalesState;
-  @JsonKey(name: 'remark')
+  @JsonKey(name: 'remark', fromJson: JsonCoerce.asString)
   final String? remark;
-  @JsonKey(name: 'remarkImages')
+  @JsonKey(name: 'remarkImages', fromJson: JsonCoerce.asString)
   final String? remarkImages;
-  @JsonKey(name: 'supportOnlineAfterSales')
+  @JsonKey(name: 'supportOnlineAfterSales', fromJson: JsonCoerce.asDouble)
   final double? supportOnlineAfterSales;
-  @JsonKey(name: 'receiptPdfLink')
+  @JsonKey(name: 'receiptPdfLink', fromJson: JsonCoerce.asString)
   final String? receiptPdfLink;
-  @JsonKey(name: 'afterSalesSupport')
+  @JsonKey(name: 'afterSalesSupport', fromJson: JsonCoerce.asString)
   final String? afterSalesSupport;
-  @JsonKey(name: 'tenantCode')
+  @JsonKey(name: 'tenantCode', fromJson: JsonCoerce.asString)
   final String? tenantCode;
-  @JsonKey(name: 'shippingCountry')
+  @JsonKey(name: 'shippingCountry', fromJson: JsonCoerce.asString)
   final String? shippingCountry;
-  @JsonKey(name: 'payTime')
+  @JsonKey(name: 'payTime', fromJson: JsonCoerce.asDouble)
   final double? payTime;
-  @JsonKey(name: 'afterSales')
+  @JsonKey(name: 'afterSales', fromJson: JsonCoerce.asBool)
   final bool? afterSales;
-  @JsonKey(name: 'wish')
+  @JsonKey(name: 'wish', fromJson: JsonCoerce.asBool)
   final bool? wish;
-  @JsonKey(name: 'removePackage')
+  @JsonKey(name: 'removePackage', fromJson: JsonCoerce.asBool)
   final bool? removePackage;
-  @JsonKey(name: 'orderFreight')
+  @JsonKey(name: 'orderFreight', fromJson: JsonCoerce.asBool)
   final bool? orderFreight;
-  @JsonKey(name: 'giveawayGift')
+  @JsonKey(name: 'giveawayGift', fromJson: JsonCoerce.asInt)
   final int? giveawayGift;
   static const fromJsonFactory =
       _$OrderServiceOrderCombineDetailGet$Response$Data$BaseInfoFromJson;
@@ -20066,19 +20139,19 @@ class OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrder {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrderToJson(this);
 
-  @JsonKey(name: 'parcelOrderId')
+  @JsonKey(name: 'parcelOrderId', fromJson: JsonCoerce.asString)
   final String? parcelOrderId;
-  @JsonKey(name: 'parcelStatus')
+  @JsonKey(name: 'parcelStatus', fromJson: JsonCoerce.asString)
   final String? parcelStatus;
-  @JsonKey(name: 'parcelStatusDesc')
+  @JsonKey(name: 'parcelStatusDesc', fromJson: JsonCoerce.asString)
   final String? parcelStatusDesc;
-  @JsonKey(name: 'createTime')
+  @JsonKey(name: 'createTime', fromJson: JsonCoerce.asDouble)
   final double? createTime;
-  @JsonKey(name: 'warehouseCode')
+  @JsonKey(name: 'warehouseCode', fromJson: JsonCoerce.asString)
   final String? warehouseCode;
-  @JsonKey(name: 'warehouseName')
+  @JsonKey(name: 'warehouseName', fromJson: JsonCoerce.asString)
   final String? warehouseName;
-  @JsonKey(name: 'freight')
+  @JsonKey(name: 'freight', fromJson: JsonCoerce.asString)
   final String? freight;
   @JsonKey(name: 'freightCurrency')
   final OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrder$FreightCurrency?
@@ -20094,22 +20167,32 @@ class OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrder {
     OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrder$ParcelProductDTOList$Item
   >?
   parcelProductDTOList;
-  @JsonKey(name: 'buyerOperates', defaultValue: <String>[])
+  @JsonKey(
+    name: 'buyerOperates',
+    fromJson: JsonCoerce.asStringList,
+    defaultValue: <String>[],
+  )
   final List<String>? buyerOperates;
   @JsonKey(name: 'freightCompensate')
   final OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrder$FreightCompensate?
   freightCompensate;
-  @JsonKey(name: 'solutionCode')
+  @JsonKey(name: 'solutionCode', fromJson: JsonCoerce.asString)
   final String? solutionCode;
-  @JsonKey(name: 'actualFreight')
+  @JsonKey(name: 'actualFreight', fromJson: JsonCoerce.asString)
   final String? actualFreight;
-  @JsonKey(name: 'actualFreightCurrency')
+  @JsonKey(name: 'actualFreightCurrency', fromJson: JsonCoerce.asString)
   final String? actualFreightCurrency;
-  @JsonKey(name: 'targetFreightCouponDiscountAmount')
+  @JsonKey(
+    name: 'targetFreightCouponDiscountAmount',
+    fromJson: JsonCoerce.asString,
+  )
   final String? targetFreightCouponDiscountAmount;
-  @JsonKey(name: 'targetFreightCouponDiscountCurrency')
+  @JsonKey(
+    name: 'targetFreightCouponDiscountCurrency',
+    fromJson: JsonCoerce.asString,
+  )
   final String? targetFreightCouponDiscountCurrency;
-  @JsonKey(name: 'targetFreight')
+  @JsonKey(name: 'targetFreight', fromJson: JsonCoerce.asString)
   final String? targetFreight;
   @JsonKey(name: 'targetFreightCurrency')
   final OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrder$TargetFreightCurrency?
@@ -20450,18 +20533,18 @@ class OrderServiceOrderCombineDetailGet$Response$Data$OrderTrace {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderCombineDetailGet$Response$Data$OrderTraceToJson(this);
 
-  @JsonKey(name: 'tradeOrderId')
+  @JsonKey(name: 'tradeOrderId', fromJson: JsonCoerce.asString)
   final String? tradeOrderId;
-  @JsonKey(name: 'logisticsOrderId')
+  @JsonKey(name: 'logisticsOrderId', fromJson: JsonCoerce.asString)
   final String? logisticsOrderId;
-  @JsonKey(name: 'logisticsStatus')
+  @JsonKey(name: 'logisticsStatus', fromJson: JsonCoerce.asString)
   final String? logisticsStatus;
   @JsonKey(name: 'traceList')
   final List<
     OrderServiceOrderCombineDetailGet$Response$Data$OrderTrace$TraceList$Item
   >?
   traceList;
-  @JsonKey(name: 'parcelOrderId')
+  @JsonKey(name: 'parcelOrderId', fromJson: JsonCoerce.asString)
   final String? parcelOrderId;
   @JsonKey(name: 'groupTraceList')
   final List<
@@ -20615,27 +20698,27 @@ class OrderServiceOrderGetOrderTraceGet$Response$Data$TraceList$Item {
         this,
       );
 
-  @JsonKey(name: 'id')
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asDouble)
   final double? id;
-  @JsonKey(name: 'frontCode')
+  @JsonKey(name: 'frontCode', fromJson: JsonCoerce.asString)
   final String? frontCode;
-  @JsonKey(name: 'icon')
+  @JsonKey(name: 'icon', fromJson: JsonCoerce.asString)
   final String? icon;
-  @JsonKey(name: 'traceMessage')
+  @JsonKey(name: 'traceMessage', fromJson: JsonCoerce.asString)
   final String? traceMessage;
-  @JsonKey(name: 'time')
+  @JsonKey(name: 'time', fromJson: JsonCoerce.asDouble)
   final double? time;
   @JsonKey(name: 'lastMileMailNo')
   final Object? lastMileMailNo;
-  @JsonKey(name: 'lastMileMailNoLink')
+  @JsonKey(name: 'lastMileMailNoLink', fromJson: JsonCoerce.asString)
   final String? lastMileMailNoLink;
-  @JsonKey(name: 'lastMileMailNoTitle')
+  @JsonKey(name: 'lastMileMailNoTitle', fromJson: JsonCoerce.asString)
   final String? lastMileMailNoTitle;
-  @JsonKey(name: 'traceStatus')
+  @JsonKey(name: 'traceStatus', fromJson: JsonCoerce.asString)
   final String? traceStatus;
-  @JsonKey(name: 'frontTitle')
+  @JsonKey(name: 'frontTitle', fromJson: JsonCoerce.asString)
   final String? frontTitle;
-  @JsonKey(name: 'frontTitleCode')
+  @JsonKey(name: 'frontTitleCode', fromJson: JsonCoerce.asString)
   final String? frontTitleCode;
   static const fromJsonFactory =
       _$OrderServiceOrderGetOrderTraceGet$Response$Data$TraceList$ItemFromJson;
@@ -20809,23 +20892,23 @@ class OrderServiceCartListGet$Response$Data$List$Item {
   @JsonKey(name: 'records')
   final List<OrderServiceCartListGet$Response$Data$List$Item$Records$Item>?
   records;
-  @JsonKey(name: 'productCode')
+  @JsonKey(name: 'productCode', fromJson: JsonCoerce.asString)
   final String? productCode;
-  @JsonKey(name: 'totalWeight')
+  @JsonKey(name: 'totalWeight', fromJson: JsonCoerce.asString)
   final String? totalWeight;
-  @JsonKey(name: 'weightUnit')
+  @JsonKey(name: 'weightUnit', fromJson: JsonCoerce.asString)
   final String? weightUnit;
-  @JsonKey(name: 'skuSourceCode')
+  @JsonKey(name: 'skuSourceCode', fromJson: JsonCoerce.asString)
   final String? skuSourceCode;
-  @JsonKey(name: 'skuSourceTitle')
+  @JsonKey(name: 'skuSourceTitle', fromJson: JsonCoerce.asString)
   final String? skuSourceTitle;
-  @JsonKey(name: 'orderFreight')
+  @JsonKey(name: 'orderFreight', fromJson: JsonCoerce.asBool)
   final bool? orderFreight;
-  @JsonKey(name: 'orderFreightUrl')
+  @JsonKey(name: 'orderFreightUrl', fromJson: JsonCoerce.asString)
   final String? orderFreightUrl;
-  @JsonKey(name: 'billDescription')
+  @JsonKey(name: 'billDescription', fromJson: JsonCoerce.asString)
   final String? billDescription;
-  @JsonKey(name: 'billSchema')
+  @JsonKey(name: 'billSchema', fromJson: JsonCoerce.asString)
   final String? billSchema;
   static const fromJsonFactory =
       _$OrderServiceCartListGet$Response$Data$List$ItemFromJson;
@@ -20998,9 +21081,9 @@ class OrderServiceCartPricingPost$Response$Data$SkuQuantityDTOList$Item {
         this,
       );
 
-  @JsonKey(name: 'skuCode')
+  @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
   final String? skuCode;
-  @JsonKey(name: 'quantity')
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asDouble)
   final double? quantity;
   @JsonKey(name: 'price')
   final Object? price;
@@ -21122,9 +21205,9 @@ class OrderServiceCartPricingPost$Response$Data$ContentInfo {
   Map<String, dynamic> toJson() =>
       _$OrderServiceCartPricingPost$Response$Data$ContentInfoToJson(this);
 
-  @JsonKey(name: 'rewardMarketing')
+  @JsonKey(name: 'rewardMarketing', fromJson: JsonCoerce.asString)
   final String? rewardMarketing;
-  @JsonKey(name: 'payFreightNotice')
+  @JsonKey(name: 'payFreightNotice', fromJson: JsonCoerce.asString)
   final String? payFreightNotice;
   static const fromJsonFactory =
       _$OrderServiceCartPricingPost$Response$Data$ContentInfoFromJson;
@@ -21208,9 +21291,9 @@ class OrderServiceCartNoAuthPricingPost$Response$Data$SkuQuantityDTOList$Item {
         this,
       );
 
-  @JsonKey(name: 'skuCode')
+  @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
   final String? skuCode;
-  @JsonKey(name: 'quantity')
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asDouble)
   final double? quantity;
   @JsonKey(name: 'price')
   final Object? price;
@@ -21335,7 +21418,7 @@ class OrderServiceCartNoAuthPricingPost$Response$Data$ContentInfo {
   Map<String, dynamic> toJson() =>
       _$OrderServiceCartNoAuthPricingPost$Response$Data$ContentInfoToJson(this);
 
-  @JsonKey(name: 'rewardMarketing')
+  @JsonKey(name: 'rewardMarketing', fromJson: JsonCoerce.asString)
   final String? rewardMarketing;
   static const fromJsonFactory =
       _$OrderServiceCartNoAuthPricingPost$Response$Data$ContentInfoFromJson;
@@ -21418,44 +21501,44 @@ class OrderServiceOrderAppListGet$Response$Data$Records$Item$OrderSkuList$Item {
         this,
       );
 
-  @JsonKey(name: 'productName')
+  @JsonKey(name: 'productName', fromJson: JsonCoerce.asString)
   final String? productName;
-  @JsonKey(name: 'skuCode')
+  @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
   final String? skuCode;
-  @JsonKey(name: 'productCode')
+  @JsonKey(name: 'productCode', fromJson: JsonCoerce.asString)
   final String? productCode;
-  @JsonKey(name: 'image')
+  @JsonKey(name: 'image', fromJson: JsonCoerce.asString)
   final String? image;
-  @JsonKey(name: 'sellPrice')
+  @JsonKey(name: 'sellPrice', fromJson: JsonCoerce.asString)
   final String? sellPrice;
-  @JsonKey(name: 'sellCur')
+  @JsonKey(name: 'sellCur', fromJson: JsonCoerce.asString)
   final String? sellCur;
-  @JsonKey(name: 'totalPrice')
+  @JsonKey(name: 'totalPrice', fromJson: JsonCoerce.asString)
   final String? totalPrice;
-  @JsonKey(name: 'targetSellPrice')
+  @JsonKey(name: 'targetSellPrice', fromJson: JsonCoerce.asString)
   final String? targetSellPrice;
-  @JsonKey(name: 'targetSellCur')
+  @JsonKey(name: 'targetSellCur', fromJson: JsonCoerce.asString)
   final String? targetSellCur;
-  @JsonKey(name: 'targetTotalPrice')
+  @JsonKey(name: 'targetTotalPrice', fromJson: JsonCoerce.asString)
   final String? targetTotalPrice;
-  @JsonKey(name: 'targetSkuDiscountPrice')
+  @JsonKey(name: 'targetSkuDiscountPrice', fromJson: JsonCoerce.asString)
   final String? targetSkuDiscountPrice;
-  @JsonKey(name: 'targetSkuFinalPrice')
+  @JsonKey(name: 'targetSkuFinalPrice', fromJson: JsonCoerce.asString)
   final String? targetSkuFinalPrice;
-  @JsonKey(name: 'targetTotalFinalPrice')
+  @JsonKey(name: 'targetTotalFinalPrice', fromJson: JsonCoerce.asString)
   final String? targetTotalFinalPrice;
-  @JsonKey(name: 'remark')
+  @JsonKey(name: 'remark', fromJson: JsonCoerce.asString)
   final String? remark;
-  @JsonKey(name: 'quantity')
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asDouble)
   final double? quantity;
   @JsonKey(name: 'skuSpecValues')
   final List<
     OrderServiceOrderAppListGet$Response$Data$Records$Item$OrderSkuList$Item$SkuSpecValues$Item
   >?
   skuSpecValues;
-  @JsonKey(name: 'isReturned')
+  @JsonKey(name: 'isReturned', fromJson: JsonCoerce.asBool)
   final bool? isReturned;
-  @JsonKey(name: 'targetOriginPrice')
+  @JsonKey(name: 'targetOriginPrice', fromJson: JsonCoerce.asString)
   final String? targetOriginPrice;
   static const fromJsonFactory =
       _$OrderServiceOrderAppListGet$Response$Data$Records$Item$OrderSkuList$ItemFromJson;
@@ -21722,23 +21805,23 @@ class OrderServiceOrderAppListGet$Response$Data$Records$Item$SupplyOrderList$Ite
         this,
       );
 
-  @JsonKey(name: 'skuCode')
+  @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
   final String? skuCode;
-  @JsonKey(name: 'productCode')
+  @JsonKey(name: 'productCode', fromJson: JsonCoerce.asString)
   final String? productCode;
-  @JsonKey(name: 'productName')
+  @JsonKey(name: 'productName', fromJson: JsonCoerce.asString)
   final String? productName;
   @JsonKey(name: 'imageUrl')
   final Object? imageUrl;
-  @JsonKey(name: 'quantity')
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asDouble)
   final double? quantity;
-  @JsonKey(name: 'weight')
+  @JsonKey(name: 'weight', fromJson: JsonCoerce.asString)
   final String? weight;
-  @JsonKey(name: 'length')
+  @JsonKey(name: 'length', fromJson: JsonCoerce.asString)
   final String? length;
-  @JsonKey(name: 'width')
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asString)
   final String? width;
-  @JsonKey(name: 'height')
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asString)
   final String? height;
   @JsonKey(name: 'inspectImageUrlList', defaultValue: <Object>[])
   final List<Object>? inspectImageUrlList;
@@ -21936,52 +22019,58 @@ class OrderServiceOrderAppListGet$Response$Data$Records$Item$ParcelOrder {
         this,
       );
 
-  @JsonKey(name: 'parcelOrderId')
+  @JsonKey(name: 'parcelOrderId', fromJson: JsonCoerce.asString)
   final String? parcelOrderId;
-  @JsonKey(name: 'parcelStatus')
+  @JsonKey(name: 'parcelStatus', fromJson: JsonCoerce.asString)
   final String? parcelStatus;
-  @JsonKey(name: 'parcelStatusDesc')
+  @JsonKey(name: 'parcelStatusDesc', fromJson: JsonCoerce.asString)
   final String? parcelStatusDesc;
-  @JsonKey(name: 'createTime')
+  @JsonKey(name: 'createTime', fromJson: JsonCoerce.asDouble)
   final double? createTime;
-  @JsonKey(name: 'warehouseCode')
+  @JsonKey(name: 'warehouseCode', fromJson: JsonCoerce.asString)
   final String? warehouseCode;
-  @JsonKey(name: 'warehouseName')
+  @JsonKey(name: 'warehouseName', fromJson: JsonCoerce.asString)
   final String? warehouseName;
-  @JsonKey(name: 'solutionCode')
+  @JsonKey(name: 'solutionCode', fromJson: JsonCoerce.asString)
   final String? solutionCode;
-  @JsonKey(name: 'freight')
+  @JsonKey(name: 'freight', fromJson: JsonCoerce.asString)
   final String? freight;
   @JsonKey(name: 'freightCurrency')
   final OrderServiceOrderAppListGet$Response$Data$Records$Item$ParcelOrder$FreightCurrency?
   freightCurrency;
-  @JsonKey(name: 'targetFreight')
+  @JsonKey(name: 'targetFreight', fromJson: JsonCoerce.asString)
   final String? targetFreight;
   @JsonKey(name: 'targetFreightCurrency')
   final OrderServiceOrderAppListGet$Response$Data$Records$Item$ParcelOrder$TargetFreightCurrency?
   targetFreightCurrency;
-  @JsonKey(name: 'actualFreight')
+  @JsonKey(name: 'actualFreight', fromJson: JsonCoerce.asString)
   final String? actualFreight;
-  @JsonKey(name: 'actualFreightCurrency')
+  @JsonKey(name: 'actualFreightCurrency', fromJson: JsonCoerce.asString)
   final String? actualFreightCurrency;
-  @JsonKey(name: 'targetActualFreight')
+  @JsonKey(name: 'targetActualFreight', fromJson: JsonCoerce.asString)
   final String? targetActualFreight;
-  @JsonKey(name: 'targetActualFreightCurrency')
+  @JsonKey(name: 'targetActualFreightCurrency', fromJson: JsonCoerce.asString)
   final String? targetActualFreightCurrency;
-  @JsonKey(name: 'freightCouponDiscountAmount')
+  @JsonKey(name: 'freightCouponDiscountAmount', fromJson: JsonCoerce.asString)
   final String? freightCouponDiscountAmount;
-  @JsonKey(name: 'targetFreightCouponDiscountAmount')
+  @JsonKey(
+    name: 'targetFreightCouponDiscountAmount',
+    fromJson: JsonCoerce.asString,
+  )
   final String? targetFreightCouponDiscountAmount;
   @JsonKey(name: 'freightCouponDiscountCurrency')
   final OrderServiceOrderAppListGet$Response$Data$Records$Item$ParcelOrder$FreightCouponDiscountCurrency?
   freightCouponDiscountCurrency;
-  @JsonKey(name: 'targetFreightCouponDiscountCurrency')
+  @JsonKey(
+    name: 'targetFreightCouponDiscountCurrency',
+    fromJson: JsonCoerce.asString,
+  )
   final String? targetFreightCouponDiscountCurrency;
-  @JsonKey(name: 'lastMileMailNo')
+  @JsonKey(name: 'lastMileMailNo', fromJson: JsonCoerce.asString)
   final String? lastMileMailNo;
-  @JsonKey(name: 'lastMileCompanyCode')
+  @JsonKey(name: 'lastMileCompanyCode', fromJson: JsonCoerce.asString)
   final String? lastMileCompanyCode;
-  @JsonKey(name: 'lastMileCompanyName')
+  @JsonKey(name: 'lastMileCompanyName', fromJson: JsonCoerce.asString)
   final String? lastMileCompanyName;
   @JsonKey(name: 'receiverAddress')
   final OrderServiceOrderAppListGet$Response$Data$Records$Item$ParcelOrder$ReceiverAddress?
@@ -21991,7 +22080,11 @@ class OrderServiceOrderAppListGet$Response$Data$Records$Item$ParcelOrder {
     OrderServiceOrderAppListGet$Response$Data$Records$Item$ParcelOrder$ParcelProductDTOList$Item
   >?
   parcelProductDTOList;
-  @JsonKey(name: 'buyerOperates', defaultValue: <String>[])
+  @JsonKey(
+    name: 'buyerOperates',
+    fromJson: JsonCoerce.asStringList,
+    defaultValue: <String>[],
+  )
   final List<String>? buyerOperates;
   static const fromJsonFactory =
       _$OrderServiceOrderAppListGet$Response$Data$Records$Item$ParcelOrderFromJson;
@@ -22396,13 +22489,13 @@ class OrderServiceOrderAppListGet$Response$Data$Records$Item$OrderBillList$Item 
         this,
       );
 
-  @JsonKey(name: 'billId')
+  @JsonKey(name: 'billId', fromJson: JsonCoerce.asString)
   final String? billId;
-  @JsonKey(name: 'status')
+  @JsonKey(name: 'status', fromJson: JsonCoerce.asDouble)
   final double? status;
-  @JsonKey(name: 'targetTotalPrice')
+  @JsonKey(name: 'targetTotalPrice', fromJson: JsonCoerce.asString)
   final String? targetTotalPrice;
-  @JsonKey(name: 'targetCurrency')
+  @JsonKey(name: 'targetCurrency', fromJson: JsonCoerce.asString)
   final String? targetCurrency;
   static const fromJsonFactory =
       _$OrderServiceOrderAppListGet$Response$Data$Records$Item$OrderBillList$ItemFromJson;
@@ -22510,33 +22603,33 @@ class OrderServiceOrderAppListGet$Response$Data$Records$Item$UserAddress {
         this,
       );
 
-  @JsonKey(name: 'country')
+  @JsonKey(name: 'country', fromJson: JsonCoerce.asString)
   final String? country;
-  @JsonKey(name: 'countryCode')
+  @JsonKey(name: 'countryCode', fromJson: JsonCoerce.asString)
   final String? countryCode;
-  @JsonKey(name: 'state')
+  @JsonKey(name: 'state', fromJson: JsonCoerce.asString)
   final String? state;
-  @JsonKey(name: 'stateCode')
+  @JsonKey(name: 'stateCode', fromJson: JsonCoerce.asString)
   final String? stateCode;
-  @JsonKey(name: 'city')
+  @JsonKey(name: 'city', fromJson: JsonCoerce.asString)
   final String? city;
-  @JsonKey(name: 'cityCode')
+  @JsonKey(name: 'cityCode', fromJson: JsonCoerce.asString)
   final String? cityCode;
-  @JsonKey(name: 'street')
+  @JsonKey(name: 'street', fromJson: JsonCoerce.asString)
   final String? street;
-  @JsonKey(name: 'apartment')
+  @JsonKey(name: 'apartment', fromJson: JsonCoerce.asString)
   final String? apartment;
-  @JsonKey(name: 'address')
+  @JsonKey(name: 'address', fromJson: JsonCoerce.asString)
   final String? address;
-  @JsonKey(name: 'firstName')
+  @JsonKey(name: 'firstName', fromJson: JsonCoerce.asString)
   final String? firstName;
-  @JsonKey(name: 'lastName')
+  @JsonKey(name: 'lastName', fromJson: JsonCoerce.asString)
   final String? lastName;
-  @JsonKey(name: 'phoneNumber')
+  @JsonKey(name: 'phoneNumber', fromJson: JsonCoerce.asString)
   final String? phoneNumber;
-  @JsonKey(name: 'zipCode')
+  @JsonKey(name: 'zipCode', fromJson: JsonCoerce.asString)
   final String? zipCode;
-  @JsonKey(name: 'id')
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asDouble)
   final double? id;
   static const fromJsonFactory =
       _$OrderServiceOrderAppListGet$Response$Data$Records$Item$UserAddressFromJson;
@@ -22731,28 +22824,28 @@ class OrderServiceOrderAppDetailGet$Response$Data$Payments$PaymentSubjoins$Item 
         this,
       );
 
-  @JsonKey(name: 'type')
+  @JsonKey(name: 'type', fromJson: JsonCoerce.asString)
   final String? type;
-  @JsonKey(name: 'title')
+  @JsonKey(name: 'title', fromJson: JsonCoerce.asString)
   final String? title;
   @JsonKey(name: 'description')
   final OrderServiceOrderAppDetailGet$Response$Data$Payments$PaymentSubjoins$Item$Description?
   description;
-  @JsonKey(name: 'lineContent')
+  @JsonKey(name: 'lineContent', fromJson: JsonCoerce.asString)
   final String? lineContent;
-  @JsonKey(name: 'content')
+  @JsonKey(name: 'content', fromJson: JsonCoerce.asString)
   final String? content;
-  @JsonKey(name: 'amount')
+  @JsonKey(name: 'amount', fromJson: JsonCoerce.asString)
   final String? amount;
-  @JsonKey(name: 'contentColor')
+  @JsonKey(name: 'contentColor', fromJson: JsonCoerce.asString)
   final String? contentColor;
-  @JsonKey(name: 'showIcon')
+  @JsonKey(name: 'showIcon', fromJson: JsonCoerce.asBool)
   final bool? showIcon;
-  @JsonKey(name: 'expandIcon')
+  @JsonKey(name: 'expandIcon', fromJson: JsonCoerce.asBool)
   final bool? expandIcon;
-  @JsonKey(name: 'showQuestionIcon')
+  @JsonKey(name: 'showQuestionIcon', fromJson: JsonCoerce.asBool)
   final bool? showQuestionIcon;
-  @JsonKey(name: 'questionIconContent')
+  @JsonKey(name: 'questionIconContent', fromJson: JsonCoerce.asString)
   final String? questionIconContent;
   @JsonKey(name: 'subList', defaultValue: <Object>[])
   final List<Object>? subList;
@@ -22930,9 +23023,9 @@ class OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder$FreightCurrency {
         this,
       );
 
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
-  @JsonKey(name: 'symbol')
+  @JsonKey(name: 'symbol', fromJson: JsonCoerce.asString)
   final String? symbol;
   static const fromJsonFactory =
       _$OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder$FreightCurrencyFromJson;
@@ -23001,15 +23094,15 @@ class OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder$ParcelProductDTOLi
         this,
       );
 
-  @JsonKey(name: 'skuCode')
+  @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
   final String? skuCode;
-  @JsonKey(name: 'productCode')
+  @JsonKey(name: 'productCode', fromJson: JsonCoerce.asString)
   final String? productCode;
-  @JsonKey(name: 'productName')
+  @JsonKey(name: 'productName', fromJson: JsonCoerce.asString)
   final String? productName;
-  @JsonKey(name: 'quantity')
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asDouble)
   final double? quantity;
-  @JsonKey(name: 'imageUrl')
+  @JsonKey(name: 'imageUrl', fromJson: JsonCoerce.asString)
   final String? imageUrl;
   static const fromJsonFactory =
       _$OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder$ParcelProductDTOList$ItemFromJson;
@@ -23122,17 +23215,17 @@ class OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder$FreightCompensate 
         this,
       );
 
-  @JsonKey(name: 'compensateBillId')
+  @JsonKey(name: 'compensateBillId', fromJson: JsonCoerce.asString)
   final String? compensateBillId;
-  @JsonKey(name: 'compensatePrice')
+  @JsonKey(name: 'compensatePrice', fromJson: JsonCoerce.asString)
   final String? compensatePrice;
-  @JsonKey(name: 'compensatePriceCurrency')
+  @JsonKey(name: 'compensatePriceCurrency', fromJson: JsonCoerce.asString)
   final String? compensatePriceCurrency;
-  @JsonKey(name: 'compensateReason')
+  @JsonKey(name: 'compensateReason', fromJson: JsonCoerce.asString)
   final String? compensateReason;
-  @JsonKey(name: 'targetCompensatePrice')
+  @JsonKey(name: 'targetCompensatePrice', fromJson: JsonCoerce.asString)
   final String? targetCompensatePrice;
-  @JsonKey(name: 'targetCompensatePriceCurrency')
+  @JsonKey(name: 'targetCompensatePriceCurrency', fromJson: JsonCoerce.asString)
   final String? targetCompensatePriceCurrency;
   static const fromJsonFactory =
       _$OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder$FreightCompensateFromJson;
@@ -23271,9 +23364,9 @@ class OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder$TargetFreightCurre
         this,
       );
 
-  @JsonKey(name: 'symbol')
+  @JsonKey(name: 'symbol', fromJson: JsonCoerce.asString)
   final String? symbol;
-  @JsonKey(name: 'currency')
+  @JsonKey(name: 'currency', fromJson: JsonCoerce.asString)
   final String? currency;
   static const fromJsonFactory =
       _$OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder$TargetFreightCurrencyFromJson;
@@ -23350,25 +23443,25 @@ class OrderServiceOrderAppDetailGet$Response$Data$OrderTrace$TraceList$Item {
         this,
       );
 
-  @JsonKey(name: 'id')
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asDouble)
   final double? id;
-  @JsonKey(name: 'frontCode')
+  @JsonKey(name: 'frontCode', fromJson: JsonCoerce.asString)
   final String? frontCode;
-  @JsonKey(name: 'icon')
+  @JsonKey(name: 'icon', fromJson: JsonCoerce.asString)
   final String? icon;
-  @JsonKey(name: 'traceMessage')
+  @JsonKey(name: 'traceMessage', fromJson: JsonCoerce.asString)
   final String? traceMessage;
-  @JsonKey(name: 'time')
+  @JsonKey(name: 'time', fromJson: JsonCoerce.asDouble)
   final double? time;
-  @JsonKey(name: 'lastMileMailNo')
+  @JsonKey(name: 'lastMileMailNo', fromJson: JsonCoerce.asString)
   final String? lastMileMailNo;
-  @JsonKey(name: 'lastMileMailNoLink')
+  @JsonKey(name: 'lastMileMailNoLink', fromJson: JsonCoerce.asString)
   final String? lastMileMailNoLink;
-  @JsonKey(name: 'lastMileMailNoTitle')
+  @JsonKey(name: 'lastMileMailNoTitle', fromJson: JsonCoerce.asString)
   final String? lastMileMailNoTitle;
-  @JsonKey(name: 'traceStatus')
+  @JsonKey(name: 'traceStatus', fromJson: JsonCoerce.asString)
   final String? traceStatus;
-  @JsonKey(name: 'logisticsOrderId')
+  @JsonKey(name: 'logisticsOrderId', fromJson: JsonCoerce.asString)
   final String? logisticsOrderId;
   static const fromJsonFactory =
       _$OrderServiceOrderAppDetailGet$Response$Data$OrderTrace$TraceList$ItemFromJson;
@@ -23545,48 +23638,48 @@ class OrderServiceOrderAppDetailGet$Response$Data$OrderList$Item$SkuList$Item {
         this,
       );
 
-  @JsonKey(name: 'productName')
+  @JsonKey(name: 'productName', fromJson: JsonCoerce.asString)
   final String? productName;
-  @JsonKey(name: 'productCode')
+  @JsonKey(name: 'productCode', fromJson: JsonCoerce.asString)
   final String? productCode;
-  @JsonKey(name: 'skuCode')
+  @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
   final String? skuCode;
-  @JsonKey(name: 'image')
+  @JsonKey(name: 'image', fromJson: JsonCoerce.asString)
   final String? image;
-  @JsonKey(name: 'targetOriginPrice')
+  @JsonKey(name: 'targetOriginPrice', fromJson: JsonCoerce.asString)
   final String? targetOriginPrice;
-  @JsonKey(name: 'targetOriginTotalPrice')
+  @JsonKey(name: 'targetOriginTotalPrice', fromJson: JsonCoerce.asString)
   final String? targetOriginTotalPrice;
-  @JsonKey(name: 'sellPrice')
+  @JsonKey(name: 'sellPrice', fromJson: JsonCoerce.asString)
   final String? sellPrice;
-  @JsonKey(name: 'targetSellPrice')
+  @JsonKey(name: 'targetSellPrice', fromJson: JsonCoerce.asString)
   final String? targetSellPrice;
-  @JsonKey(name: 'totalPrice')
+  @JsonKey(name: 'totalPrice', fromJson: JsonCoerce.asString)
   final String? totalPrice;
-  @JsonKey(name: 'targetTotalPrice')
+  @JsonKey(name: 'targetTotalPrice', fromJson: JsonCoerce.asString)
   final String? targetTotalPrice;
-  @JsonKey(name: 'targetSkuDiscountPrice')
+  @JsonKey(name: 'targetSkuDiscountPrice', fromJson: JsonCoerce.asString)
   final String? targetSkuDiscountPrice;
-  @JsonKey(name: 'targetTotalFinalPrice')
+  @JsonKey(name: 'targetTotalFinalPrice', fromJson: JsonCoerce.asString)
   final String? targetTotalFinalPrice;
-  @JsonKey(name: 'targetSkuFinalPrice')
+  @JsonKey(name: 'targetSkuFinalPrice', fromJson: JsonCoerce.asString)
   final String? targetSkuFinalPrice;
-  @JsonKey(name: 'currency')
+  @JsonKey(name: 'currency', fromJson: JsonCoerce.asString)
   final String? currency;
-  @JsonKey(name: 'targetCurrency')
+  @JsonKey(name: 'targetCurrency', fromJson: JsonCoerce.asString)
   final String? targetCurrency;
-  @JsonKey(name: 'quantity')
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asDouble)
   final double? quantity;
-  @JsonKey(name: 'remark')
+  @JsonKey(name: 'remark', fromJson: JsonCoerce.asString)
   final String? remark;
   @JsonKey(name: 'skuSpecValues')
   final List<
     OrderServiceOrderAppDetailGet$Response$Data$OrderList$Item$SkuList$Item$SkuSpecValues$Item
   >?
   skuSpecValues;
-  @JsonKey(name: 'isReturned')
+  @JsonKey(name: 'isReturned', fromJson: JsonCoerce.asBool)
   final bool? isReturned;
-  @JsonKey(name: 'skuSourceCode')
+  @JsonKey(name: 'skuSourceCode', fromJson: JsonCoerce.asString)
   final String? skuSourceCode;
   static const fromJsonFactory =
       _$OrderServiceOrderAppDetailGet$Response$Data$OrderList$Item$SkuList$ItemFromJson;
@@ -23874,19 +23967,19 @@ class OrderServiceOrderAppDetailGet$Response$Data$OrderList$Item$SourceOption {
         this,
       );
 
-  @JsonKey(name: 'canBatch')
+  @JsonKey(name: 'canBatch', fromJson: JsonCoerce.asInt)
   final int? canBatch;
-  @JsonKey(name: 'canPayFreight')
+  @JsonKey(name: 'canPayFreight', fromJson: JsonCoerce.asInt)
   final int? canPayFreight;
-  @JsonKey(name: 'canRemovePackage')
+  @JsonKey(name: 'canRemovePackage', fromJson: JsonCoerce.asInt)
   final int? canRemovePackage;
-  @JsonKey(name: 'parcelBatch')
+  @JsonKey(name: 'parcelBatch', fromJson: JsonCoerce.asBool)
   final bool? parcelBatch;
-  @JsonKey(name: 'removePackage')
+  @JsonKey(name: 'removePackage', fromJson: JsonCoerce.asBool)
   final bool? removePackage;
-  @JsonKey(name: 'orderFreight')
+  @JsonKey(name: 'orderFreight', fromJson: JsonCoerce.asBool)
   final bool? orderFreight;
-  @JsonKey(name: 'orderFreightUrl')
+  @JsonKey(name: 'orderFreightUrl', fromJson: JsonCoerce.asString)
   final String? orderFreightUrl;
   static const fromJsonFactory =
       _$OrderServiceOrderAppDetailGet$Response$Data$OrderList$Item$SourceOptionFromJson;
@@ -24028,17 +24121,17 @@ class OrderServiceOrderAppDetailGet$Response$Data$OrderList$Item$LogisticsInfo {
         this,
       );
 
-  @JsonKey(name: 'freightContent')
+  @JsonKey(name: 'freightContent', fromJson: JsonCoerce.asString)
   final String? freightContent;
-  @JsonKey(name: 'expressionDateContent')
+  @JsonKey(name: 'expressionDateContent', fromJson: JsonCoerce.asString)
   final String? expressionDateContent;
-  @JsonKey(name: 'expressionDateHtml')
+  @JsonKey(name: 'expressionDateHtml', fromJson: JsonCoerce.asString)
   final String? expressionDateHtml;
-  @JsonKey(name: 'targetFreight')
+  @JsonKey(name: 'targetFreight', fromJson: JsonCoerce.asString)
   final String? targetFreight;
-  @JsonKey(name: 'orderFreightUrl')
+  @JsonKey(name: 'orderFreightUrl', fromJson: JsonCoerce.asString)
   final String? orderFreightUrl;
-  @JsonKey(name: 'freightTag')
+  @JsonKey(name: 'freightTag', fromJson: JsonCoerce.asString)
   final String? freightTag;
   static const fromJsonFactory =
       _$OrderServiceOrderAppDetailGet$Response$Data$OrderList$Item$LogisticsInfoFromJson;
@@ -24176,27 +24269,27 @@ class OrderServiceOrderAppDetailGet$Response$Data$OrderList$Item$SupplyOrderList
         this,
       );
 
-  @JsonKey(name: 'skuCode')
+  @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
   final String? skuCode;
-  @JsonKey(name: 'productCode')
+  @JsonKey(name: 'productCode', fromJson: JsonCoerce.asString)
   final String? productCode;
-  @JsonKey(name: 'productName')
+  @JsonKey(name: 'productName', fromJson: JsonCoerce.asString)
   final String? productName;
-  @JsonKey(name: 'imageUrl')
+  @JsonKey(name: 'imageUrl', fromJson: JsonCoerce.asString)
   final String? imageUrl;
-  @JsonKey(name: 'quantity')
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asDouble)
   final double? quantity;
-  @JsonKey(name: 'weight')
+  @JsonKey(name: 'weight', fromJson: JsonCoerce.asString)
   final String? weight;
-  @JsonKey(name: 'length')
+  @JsonKey(name: 'length', fromJson: JsonCoerce.asString)
   final String? length;
-  @JsonKey(name: 'width')
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asString)
   final String? width;
-  @JsonKey(name: 'height')
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asString)
   final String? height;
   @JsonKey(name: 'inspectImageUrlList', defaultValue: <Object>[])
   final List<Object>? inspectImageUrlList;
-  @JsonKey(name: 'secretKeyList')
+  @JsonKey(name: 'secretKeyList', fromJson: JsonCoerce.asString)
   final String? secretKeyList;
   static const fromJsonFactory =
       _$OrderServiceOrderAppDetailGet$Response$Data$OrderList$Item$SupplyOrderList$ItemFromJson;
@@ -24358,11 +24451,11 @@ class OrderServiceOrderConfirmPost$Response$Data$Pricing$TaxLines$Item {
         this,
       );
 
-  @JsonKey(name: 'type')
+  @JsonKey(name: 'type', fromJson: JsonCoerce.asString)
   final String? type;
-  @JsonKey(name: 'title')
+  @JsonKey(name: 'title', fromJson: JsonCoerce.asString)
   final String? title;
-  @JsonKey(name: 'tax')
+  @JsonKey(name: 'tax', fromJson: JsonCoerce.asString)
   final String? tax;
   static const fromJsonFactory =
       _$OrderServiceOrderConfirmPost$Response$Data$Pricing$TaxLines$ItemFromJson;
@@ -24440,7 +24533,7 @@ class OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item {
         this,
       );
 
-  @JsonKey(name: 'skuSourceCode')
+  @JsonKey(name: 'skuSourceCode', fromJson: JsonCoerce.asString)
   final String? skuSourceCode;
   @JsonKey(name: 'recommendSolution')
   final OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$RecommendSolution?
@@ -24559,7 +24652,7 @@ class OrderServiceOrderConfirmPost$Response$Data$Pricing$Giveaway$Item {
     OrderServiceOrderConfirmPost$Response$Data$Pricing$Giveaway$Item$Records$Item
   >?
   records;
-  @JsonKey(name: 'skuSourceCode')
+  @JsonKey(name: 'skuSourceCode', fromJson: JsonCoerce.asString)
   final String? skuSourceCode;
   static const fromJsonFactory =
       _$OrderServiceOrderConfirmPost$Response$Data$Pricing$Giveaway$ItemFromJson;
@@ -24651,9 +24744,9 @@ class OrderServiceOrderConfirmPost$Response$Data$Pricing$VoucherMsg {
     OrderServiceOrderConfirmPost$Response$Data$Pricing$VoucherMsg$VoucherInfos$Item
   >?
   voucherInfos;
-  @JsonKey(name: 'descprition')
+  @JsonKey(name: 'descprition', fromJson: JsonCoerce.asString)
   final String? descprition;
-  @JsonKey(name: 'usedVoucherInfoColor')
+  @JsonKey(name: 'usedVoucherInfoColor', fromJson: JsonCoerce.asString)
   final String? usedVoucherInfoColor;
   static const fromJsonFactory =
       _$OrderServiceOrderConfirmPost$Response$Data$Pricing$VoucherMsgFromJson;
@@ -24752,9 +24845,9 @@ class OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrder$FreightCurrency
         this,
       );
 
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
-  @JsonKey(name: 'symbol')
+  @JsonKey(name: 'symbol', fromJson: JsonCoerce.asString)
   final String? symbol;
   static const fromJsonFactory =
       _$OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrder$FreightCurrencyFromJson;
@@ -24823,15 +24916,15 @@ class OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrder$ParcelProductDT
         this,
       );
 
-  @JsonKey(name: 'skuCode')
+  @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
   final String? skuCode;
-  @JsonKey(name: 'productCode')
+  @JsonKey(name: 'productCode', fromJson: JsonCoerce.asString)
   final String? productCode;
-  @JsonKey(name: 'productName')
+  @JsonKey(name: 'productName', fromJson: JsonCoerce.asString)
   final String? productName;
-  @JsonKey(name: 'quantity')
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asDouble)
   final double? quantity;
-  @JsonKey(name: 'imageUrl')
+  @JsonKey(name: 'imageUrl', fromJson: JsonCoerce.asString)
   final String? imageUrl;
   static const fromJsonFactory =
       _$OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrder$ParcelProductDTOList$ItemFromJson;
@@ -24944,17 +25037,17 @@ class OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrder$FreightCompensa
         this,
       );
 
-  @JsonKey(name: 'compensateBillId')
+  @JsonKey(name: 'compensateBillId', fromJson: JsonCoerce.asString)
   final String? compensateBillId;
-  @JsonKey(name: 'compensatePrice')
+  @JsonKey(name: 'compensatePrice', fromJson: JsonCoerce.asString)
   final String? compensatePrice;
-  @JsonKey(name: 'compensatePriceCurrency')
+  @JsonKey(name: 'compensatePriceCurrency', fromJson: JsonCoerce.asString)
   final String? compensatePriceCurrency;
-  @JsonKey(name: 'compensateReason')
+  @JsonKey(name: 'compensateReason', fromJson: JsonCoerce.asString)
   final String? compensateReason;
-  @JsonKey(name: 'targetCompensatePrice')
+  @JsonKey(name: 'targetCompensatePrice', fromJson: JsonCoerce.asString)
   final String? targetCompensatePrice;
-  @JsonKey(name: 'targetCompensatePriceCurrency')
+  @JsonKey(name: 'targetCompensatePriceCurrency', fromJson: JsonCoerce.asString)
   final String? targetCompensatePriceCurrency;
   static const fromJsonFactory =
       _$OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrder$FreightCompensateFromJson;
@@ -25093,9 +25186,9 @@ class OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrder$TargetFreightCu
         this,
       );
 
-  @JsonKey(name: 'symbol')
+  @JsonKey(name: 'symbol', fromJson: JsonCoerce.asString)
   final String? symbol;
-  @JsonKey(name: 'currency')
+  @JsonKey(name: 'currency', fromJson: JsonCoerce.asString)
   final String? currency;
   static const fromJsonFactory =
       _$OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrder$TargetFreightCurrencyFromJson;
@@ -25173,25 +25266,25 @@ class OrderServiceOrderNoAuthDetailGet$Response$Data$OrderTrace$TraceList$Item {
         this,
       );
 
-  @JsonKey(name: 'id')
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asDouble)
   final double? id;
-  @JsonKey(name: 'frontCode')
+  @JsonKey(name: 'frontCode', fromJson: JsonCoerce.asString)
   final String? frontCode;
-  @JsonKey(name: 'icon')
+  @JsonKey(name: 'icon', fromJson: JsonCoerce.asString)
   final String? icon;
-  @JsonKey(name: 'traceMessage')
+  @JsonKey(name: 'traceMessage', fromJson: JsonCoerce.asString)
   final String? traceMessage;
-  @JsonKey(name: 'time')
+  @JsonKey(name: 'time', fromJson: JsonCoerce.asDouble)
   final double? time;
-  @JsonKey(name: 'lastMileMailNo')
+  @JsonKey(name: 'lastMileMailNo', fromJson: JsonCoerce.asString)
   final String? lastMileMailNo;
-  @JsonKey(name: 'lastMileMailNoLink')
+  @JsonKey(name: 'lastMileMailNoLink', fromJson: JsonCoerce.asString)
   final String? lastMileMailNoLink;
-  @JsonKey(name: 'lastMileMailNoTitle')
+  @JsonKey(name: 'lastMileMailNoTitle', fromJson: JsonCoerce.asString)
   final String? lastMileMailNoTitle;
-  @JsonKey(name: 'traceStatus')
+  @JsonKey(name: 'traceStatus', fromJson: JsonCoerce.asString)
   final String? traceStatus;
-  @JsonKey(name: 'logisticsOrderId')
+  @JsonKey(name: 'logisticsOrderId', fromJson: JsonCoerce.asString)
   final String? logisticsOrderId;
   static const fromJsonFactory =
       _$OrderServiceOrderNoAuthDetailGet$Response$Data$OrderTrace$TraceList$ItemFromJson;
@@ -25357,26 +25450,26 @@ class OrderServiceOrderNoAuthDetailGet$Response$Data$OrderTrace$GroupTraceList$I
         this,
       );
 
-  @JsonKey(name: 'subParcelOrderId')
+  @JsonKey(name: 'subParcelOrderId', fromJson: JsonCoerce.asString)
   final String? subParcelOrderId;
-  @JsonKey(name: 'parcelOrderStatus')
+  @JsonKey(name: 'parcelOrderStatus', fromJson: JsonCoerce.asString)
   final String? parcelOrderStatus;
-  @JsonKey(name: 'lastMileMailNo')
+  @JsonKey(name: 'lastMileMailNo', fromJson: JsonCoerce.asString)
   final String? lastMileMailNo;
-  @JsonKey(name: 'lastMileMailNoLink')
+  @JsonKey(name: 'lastMileMailNoLink', fromJson: JsonCoerce.asString)
   final String? lastMileMailNoLink;
-  @JsonKey(name: 'lastMileCompanyName')
+  @JsonKey(name: 'lastMileCompanyName', fromJson: JsonCoerce.asString)
   final String? lastMileCompanyName;
-  @JsonKey(name: 'lastMileCompanyPhone')
+  @JsonKey(name: 'lastMileCompanyPhone', fromJson: JsonCoerce.asString)
   final String? lastMileCompanyPhone;
-  @JsonKey(name: 'lastMileCompanyEmail')
+  @JsonKey(name: 'lastMileCompanyEmail', fromJson: JsonCoerce.asString)
   final String? lastMileCompanyEmail;
   @JsonKey(name: 'traceList')
   final List<
     OrderServiceOrderNoAuthDetailGet$Response$Data$OrderTrace$GroupTraceList$Item$TraceList$Item
   >?
   traceList;
-  @JsonKey(name: 'sequenceTime')
+  @JsonKey(name: 'sequenceTime', fromJson: JsonCoerce.asInt)
   final int? sequenceTime;
   static const fromJsonFactory =
       _$OrderServiceOrderNoAuthDetailGet$Response$Data$OrderTrace$GroupTraceList$ItemFromJson;
@@ -25566,48 +25659,48 @@ class OrderServiceOrderNoAuthDetailGet$Response$Data$OrderList$Item$SkuList$Item
         this,
       );
 
-  @JsonKey(name: 'productName')
+  @JsonKey(name: 'productName', fromJson: JsonCoerce.asString)
   final String? productName;
-  @JsonKey(name: 'productCode')
+  @JsonKey(name: 'productCode', fromJson: JsonCoerce.asString)
   final String? productCode;
-  @JsonKey(name: 'skuCode')
+  @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
   final String? skuCode;
-  @JsonKey(name: 'image')
+  @JsonKey(name: 'image', fromJson: JsonCoerce.asString)
   final String? image;
-  @JsonKey(name: 'targetOriginPrice')
+  @JsonKey(name: 'targetOriginPrice', fromJson: JsonCoerce.asString)
   final String? targetOriginPrice;
-  @JsonKey(name: 'targetOriginTotalPrice')
+  @JsonKey(name: 'targetOriginTotalPrice', fromJson: JsonCoerce.asString)
   final String? targetOriginTotalPrice;
-  @JsonKey(name: 'sellPrice')
+  @JsonKey(name: 'sellPrice', fromJson: JsonCoerce.asString)
   final String? sellPrice;
-  @JsonKey(name: 'targetSellPrice')
+  @JsonKey(name: 'targetSellPrice', fromJson: JsonCoerce.asString)
   final String? targetSellPrice;
-  @JsonKey(name: 'totalPrice')
+  @JsonKey(name: 'totalPrice', fromJson: JsonCoerce.asString)
   final String? totalPrice;
-  @JsonKey(name: 'targetTotalPrice')
+  @JsonKey(name: 'targetTotalPrice', fromJson: JsonCoerce.asString)
   final String? targetTotalPrice;
-  @JsonKey(name: 'targetSkuDiscountPrice')
+  @JsonKey(name: 'targetSkuDiscountPrice', fromJson: JsonCoerce.asString)
   final String? targetSkuDiscountPrice;
-  @JsonKey(name: 'targetTotalFinalPrice')
+  @JsonKey(name: 'targetTotalFinalPrice', fromJson: JsonCoerce.asString)
   final String? targetTotalFinalPrice;
-  @JsonKey(name: 'targetSkuFinalPrice')
+  @JsonKey(name: 'targetSkuFinalPrice', fromJson: JsonCoerce.asString)
   final String? targetSkuFinalPrice;
-  @JsonKey(name: 'currency')
+  @JsonKey(name: 'currency', fromJson: JsonCoerce.asString)
   final String? currency;
-  @JsonKey(name: 'targetCurrency')
+  @JsonKey(name: 'targetCurrency', fromJson: JsonCoerce.asString)
   final String? targetCurrency;
-  @JsonKey(name: 'quantity')
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asDouble)
   final double? quantity;
-  @JsonKey(name: 'remark')
+  @JsonKey(name: 'remark', fromJson: JsonCoerce.asString)
   final String? remark;
   @JsonKey(name: 'skuSpecValues')
   final List<
     OrderServiceOrderNoAuthDetailGet$Response$Data$OrderList$Item$SkuList$Item$SkuSpecValues$Item
   >?
   skuSpecValues;
-  @JsonKey(name: 'isReturned')
+  @JsonKey(name: 'isReturned', fromJson: JsonCoerce.asBool)
   final bool? isReturned;
-  @JsonKey(name: 'skuSourceCode')
+  @JsonKey(name: 'skuSourceCode', fromJson: JsonCoerce.asString)
   final String? skuSourceCode;
   static const fromJsonFactory =
       _$OrderServiceOrderNoAuthDetailGet$Response$Data$OrderList$Item$SkuList$ItemFromJson;
@@ -25899,27 +25992,27 @@ class OrderServiceOrderNoAuthDetailGet$Response$Data$OrderList$Item$SupplyOrderL
         this,
       );
 
-  @JsonKey(name: 'skuCode')
+  @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
   final String? skuCode;
-  @JsonKey(name: 'productCode')
+  @JsonKey(name: 'productCode', fromJson: JsonCoerce.asString)
   final String? productCode;
-  @JsonKey(name: 'productName')
+  @JsonKey(name: 'productName', fromJson: JsonCoerce.asString)
   final String? productName;
-  @JsonKey(name: 'imageUrl')
+  @JsonKey(name: 'imageUrl', fromJson: JsonCoerce.asString)
   final String? imageUrl;
-  @JsonKey(name: 'quantity')
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asDouble)
   final double? quantity;
-  @JsonKey(name: 'weight')
+  @JsonKey(name: 'weight', fromJson: JsonCoerce.asString)
   final String? weight;
-  @JsonKey(name: 'length')
+  @JsonKey(name: 'length', fromJson: JsonCoerce.asString)
   final String? length;
-  @JsonKey(name: 'width')
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asString)
   final String? width;
-  @JsonKey(name: 'height')
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asString)
   final String? height;
   @JsonKey(name: 'inspectImageUrlList', defaultValue: <Object>[])
   final List<Object>? inspectImageUrlList;
-  @JsonKey(name: 'secretKeyList')
+  @JsonKey(name: 'secretKeyList', fromJson: JsonCoerce.asString)
   final String? secretKeyList;
   static const fromJsonFactory =
       _$OrderServiceOrderNoAuthDetailGet$Response$Data$OrderList$Item$SupplyOrderList$ItemFromJson;
@@ -26084,17 +26177,17 @@ class OrderServiceOrderNoAuthDetailGet$Response$Data$OrderList$Item$SourceOption
         this,
       );
 
-  @JsonKey(name: 'canBatch')
+  @JsonKey(name: 'canBatch', fromJson: JsonCoerce.asInt)
   final int? canBatch;
-  @JsonKey(name: 'canFreightPay')
+  @JsonKey(name: 'canFreightPay', fromJson: JsonCoerce.asInt)
   final int? canFreightPay;
-  @JsonKey(name: 'canRemovePackage')
+  @JsonKey(name: 'canRemovePackage', fromJson: JsonCoerce.asInt)
   final int? canRemovePackage;
-  @JsonKey(name: 'removePackage')
+  @JsonKey(name: 'removePackage', fromJson: JsonCoerce.asBool)
   final bool? removePackage;
-  @JsonKey(name: 'orderFreight')
+  @JsonKey(name: 'orderFreight', fromJson: JsonCoerce.asBool)
   final bool? orderFreight;
-  @JsonKey(name: 'parcelBatch')
+  @JsonKey(name: 'parcelBatch', fromJson: JsonCoerce.asBool)
   final bool? parcelBatch;
   static const fromJsonFactory =
       _$OrderServiceOrderNoAuthDetailGet$Response$Data$OrderList$Item$SourceOptionFromJson;
@@ -26220,9 +26313,9 @@ class OrderServiceOrderNoAuthDetailGet$Response$Data$OrderList$Item$LogisticsInf
         this,
       );
 
-  @JsonKey(name: 'expressionDateContent')
+  @JsonKey(name: 'expressionDateContent', fromJson: JsonCoerce.asString)
   final String? expressionDateContent;
-  @JsonKey(name: 'freightContent')
+  @JsonKey(name: 'freightContent', fromJson: JsonCoerce.asString)
   final String? freightContent;
   static const fromJsonFactory =
       _$OrderServiceOrderNoAuthDetailGet$Response$Data$OrderList$Item$LogisticsInfoFromJson;
@@ -26305,15 +26398,15 @@ class OrderServiceOrderCouponListPost$Response$Data$Item$UserCoupon$MsgInfo {
         this,
       );
 
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
-  @JsonKey(name: 'usage')
+  @JsonKey(name: 'usage', fromJson: JsonCoerce.asString)
   final String? usage;
-  @JsonKey(name: 'invalidPeriod')
+  @JsonKey(name: 'invalidPeriod', fromJson: JsonCoerce.asInt)
   final int? invalidPeriod;
-  @JsonKey(name: 'discountStr')
+  @JsonKey(name: 'discountStr', fromJson: JsonCoerce.asString)
   final String? discountStr;
-  @JsonKey(name: 'discountUnit')
+  @JsonKey(name: 'discountUnit', fromJson: JsonCoerce.asString)
   final String? discountUnit;
   static const fromJsonFactory =
       _$OrderServiceOrderCouponListPost$Response$Data$Item$UserCoupon$MsgInfoFromJson;
@@ -26435,44 +26528,44 @@ class OrderServiceOrderListGet$Response$Data$Records$Item$OrderSkuList$Item {
         this,
       );
 
-  @JsonKey(name: 'productName')
+  @JsonKey(name: 'productName', fromJson: JsonCoerce.asString)
   final String? productName;
-  @JsonKey(name: 'skuCode')
+  @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
   final String? skuCode;
-  @JsonKey(name: 'productCode')
+  @JsonKey(name: 'productCode', fromJson: JsonCoerce.asString)
   final String? productCode;
-  @JsonKey(name: 'image')
+  @JsonKey(name: 'image', fromJson: JsonCoerce.asString)
   final String? image;
-  @JsonKey(name: 'sellPrice')
+  @JsonKey(name: 'sellPrice', fromJson: JsonCoerce.asString)
   final String? sellPrice;
-  @JsonKey(name: 'sellCur')
+  @JsonKey(name: 'sellCur', fromJson: JsonCoerce.asString)
   final String? sellCur;
-  @JsonKey(name: 'totalPrice')
+  @JsonKey(name: 'totalPrice', fromJson: JsonCoerce.asString)
   final String? totalPrice;
-  @JsonKey(name: 'targetSellPrice')
+  @JsonKey(name: 'targetSellPrice', fromJson: JsonCoerce.asString)
   final String? targetSellPrice;
-  @JsonKey(name: 'targetSellCur')
+  @JsonKey(name: 'targetSellCur', fromJson: JsonCoerce.asString)
   final String? targetSellCur;
-  @JsonKey(name: 'targetTotalPrice')
+  @JsonKey(name: 'targetTotalPrice', fromJson: JsonCoerce.asString)
   final String? targetTotalPrice;
-  @JsonKey(name: 'targetSkuDiscountPrice')
+  @JsonKey(name: 'targetSkuDiscountPrice', fromJson: JsonCoerce.asString)
   final String? targetSkuDiscountPrice;
-  @JsonKey(name: 'targetSkuFinalPrice')
+  @JsonKey(name: 'targetSkuFinalPrice', fromJson: JsonCoerce.asString)
   final String? targetSkuFinalPrice;
-  @JsonKey(name: 'targetTotalFinalPrice')
+  @JsonKey(name: 'targetTotalFinalPrice', fromJson: JsonCoerce.asString)
   final String? targetTotalFinalPrice;
-  @JsonKey(name: 'remark')
+  @JsonKey(name: 'remark', fromJson: JsonCoerce.asString)
   final String? remark;
-  @JsonKey(name: 'quantity')
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asDouble)
   final double? quantity;
   @JsonKey(name: 'skuSpecValues')
   final List<
     OrderServiceOrderListGet$Response$Data$Records$Item$OrderSkuList$Item$SkuSpecValues$Item
   >?
   skuSpecValues;
-  @JsonKey(name: 'isReturned')
+  @JsonKey(name: 'isReturned', fromJson: JsonCoerce.asBool)
   final bool? isReturned;
-  @JsonKey(name: 'targetOriginPrice')
+  @JsonKey(name: 'targetOriginPrice', fromJson: JsonCoerce.asString)
   final String? targetOriginPrice;
   static const fromJsonFactory =
       _$OrderServiceOrderListGet$Response$Data$Records$Item$OrderSkuList$ItemFromJson;
@@ -26739,23 +26832,23 @@ class OrderServiceOrderListGet$Response$Data$Records$Item$SupplyOrderList$Item {
         this,
       );
 
-  @JsonKey(name: 'skuCode')
+  @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
   final String? skuCode;
-  @JsonKey(name: 'productCode')
+  @JsonKey(name: 'productCode', fromJson: JsonCoerce.asString)
   final String? productCode;
-  @JsonKey(name: 'productName')
+  @JsonKey(name: 'productName', fromJson: JsonCoerce.asString)
   final String? productName;
   @JsonKey(name: 'imageUrl')
   final Object? imageUrl;
-  @JsonKey(name: 'quantity')
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asDouble)
   final double? quantity;
-  @JsonKey(name: 'weight')
+  @JsonKey(name: 'weight', fromJson: JsonCoerce.asString)
   final String? weight;
-  @JsonKey(name: 'length')
+  @JsonKey(name: 'length', fromJson: JsonCoerce.asString)
   final String? length;
-  @JsonKey(name: 'width')
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asString)
   final String? width;
-  @JsonKey(name: 'height')
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asString)
   final String? height;
   @JsonKey(name: 'inspectImageUrlList', defaultValue: <Object>[])
   final List<Object>? inspectImageUrlList;
@@ -26953,52 +27046,58 @@ class OrderServiceOrderListGet$Response$Data$Records$Item$ParcelOrder {
         this,
       );
 
-  @JsonKey(name: 'parcelOrderId')
+  @JsonKey(name: 'parcelOrderId', fromJson: JsonCoerce.asString)
   final String? parcelOrderId;
-  @JsonKey(name: 'parcelStatus')
+  @JsonKey(name: 'parcelStatus', fromJson: JsonCoerce.asString)
   final String? parcelStatus;
-  @JsonKey(name: 'parcelStatusDesc')
+  @JsonKey(name: 'parcelStatusDesc', fromJson: JsonCoerce.asString)
   final String? parcelStatusDesc;
-  @JsonKey(name: 'createTime')
+  @JsonKey(name: 'createTime', fromJson: JsonCoerce.asDouble)
   final double? createTime;
-  @JsonKey(name: 'warehouseCode')
+  @JsonKey(name: 'warehouseCode', fromJson: JsonCoerce.asString)
   final String? warehouseCode;
-  @JsonKey(name: 'warehouseName')
+  @JsonKey(name: 'warehouseName', fromJson: JsonCoerce.asString)
   final String? warehouseName;
-  @JsonKey(name: 'solutionCode')
+  @JsonKey(name: 'solutionCode', fromJson: JsonCoerce.asString)
   final String? solutionCode;
-  @JsonKey(name: 'freight')
+  @JsonKey(name: 'freight', fromJson: JsonCoerce.asString)
   final String? freight;
   @JsonKey(name: 'freightCurrency')
   final OrderServiceOrderListGet$Response$Data$Records$Item$ParcelOrder$FreightCurrency?
   freightCurrency;
-  @JsonKey(name: 'targetFreight')
+  @JsonKey(name: 'targetFreight', fromJson: JsonCoerce.asString)
   final String? targetFreight;
   @JsonKey(name: 'targetFreightCurrency')
   final OrderServiceOrderListGet$Response$Data$Records$Item$ParcelOrder$TargetFreightCurrency?
   targetFreightCurrency;
-  @JsonKey(name: 'actualFreight')
+  @JsonKey(name: 'actualFreight', fromJson: JsonCoerce.asString)
   final String? actualFreight;
-  @JsonKey(name: 'actualFreightCurrency')
+  @JsonKey(name: 'actualFreightCurrency', fromJson: JsonCoerce.asString)
   final String? actualFreightCurrency;
-  @JsonKey(name: 'targetActualFreight')
+  @JsonKey(name: 'targetActualFreight', fromJson: JsonCoerce.asString)
   final String? targetActualFreight;
-  @JsonKey(name: 'targetActualFreightCurrency')
+  @JsonKey(name: 'targetActualFreightCurrency', fromJson: JsonCoerce.asString)
   final String? targetActualFreightCurrency;
-  @JsonKey(name: 'freightCouponDiscountAmount')
+  @JsonKey(name: 'freightCouponDiscountAmount', fromJson: JsonCoerce.asString)
   final String? freightCouponDiscountAmount;
-  @JsonKey(name: 'targetFreightCouponDiscountAmount')
+  @JsonKey(
+    name: 'targetFreightCouponDiscountAmount',
+    fromJson: JsonCoerce.asString,
+  )
   final String? targetFreightCouponDiscountAmount;
   @JsonKey(name: 'freightCouponDiscountCurrency')
   final OrderServiceOrderListGet$Response$Data$Records$Item$ParcelOrder$FreightCouponDiscountCurrency?
   freightCouponDiscountCurrency;
-  @JsonKey(name: 'targetFreightCouponDiscountCurrency')
+  @JsonKey(
+    name: 'targetFreightCouponDiscountCurrency',
+    fromJson: JsonCoerce.asString,
+  )
   final String? targetFreightCouponDiscountCurrency;
-  @JsonKey(name: 'lastMileMailNo')
+  @JsonKey(name: 'lastMileMailNo', fromJson: JsonCoerce.asString)
   final String? lastMileMailNo;
-  @JsonKey(name: 'lastMileCompanyCode')
+  @JsonKey(name: 'lastMileCompanyCode', fromJson: JsonCoerce.asString)
   final String? lastMileCompanyCode;
-  @JsonKey(name: 'lastMileCompanyName')
+  @JsonKey(name: 'lastMileCompanyName', fromJson: JsonCoerce.asString)
   final String? lastMileCompanyName;
   @JsonKey(name: 'receiverAddress')
   final OrderServiceOrderListGet$Response$Data$Records$Item$ParcelOrder$ReceiverAddress?
@@ -27008,7 +27107,11 @@ class OrderServiceOrderListGet$Response$Data$Records$Item$ParcelOrder {
     OrderServiceOrderListGet$Response$Data$Records$Item$ParcelOrder$ParcelProductDTOList$Item
   >?
   parcelProductDTOList;
-  @JsonKey(name: 'buyerOperates', defaultValue: <String>[])
+  @JsonKey(
+    name: 'buyerOperates',
+    fromJson: JsonCoerce.asStringList,
+    defaultValue: <String>[],
+  )
   final List<String>? buyerOperates;
   static const fromJsonFactory =
       _$OrderServiceOrderListGet$Response$Data$Records$Item$ParcelOrderFromJson;
@@ -27413,13 +27516,13 @@ class OrderServiceOrderListGet$Response$Data$Records$Item$OrderBillList$Item {
         this,
       );
 
-  @JsonKey(name: 'billId')
+  @JsonKey(name: 'billId', fromJson: JsonCoerce.asString)
   final String? billId;
-  @JsonKey(name: 'status')
+  @JsonKey(name: 'status', fromJson: JsonCoerce.asDouble)
   final double? status;
-  @JsonKey(name: 'targetTotalPrice')
+  @JsonKey(name: 'targetTotalPrice', fromJson: JsonCoerce.asString)
   final String? targetTotalPrice;
-  @JsonKey(name: 'targetCurrency')
+  @JsonKey(name: 'targetCurrency', fromJson: JsonCoerce.asString)
   final String? targetCurrency;
   static const fromJsonFactory =
       _$OrderServiceOrderListGet$Response$Data$Records$Item$OrderBillList$ItemFromJson;
@@ -27527,33 +27630,33 @@ class OrderServiceOrderListGet$Response$Data$Records$Item$UserAddress {
         this,
       );
 
-  @JsonKey(name: 'country')
+  @JsonKey(name: 'country', fromJson: JsonCoerce.asString)
   final String? country;
-  @JsonKey(name: 'countryCode')
+  @JsonKey(name: 'countryCode', fromJson: JsonCoerce.asString)
   final String? countryCode;
-  @JsonKey(name: 'state')
+  @JsonKey(name: 'state', fromJson: JsonCoerce.asString)
   final String? state;
-  @JsonKey(name: 'stateCode')
+  @JsonKey(name: 'stateCode', fromJson: JsonCoerce.asString)
   final String? stateCode;
-  @JsonKey(name: 'city')
+  @JsonKey(name: 'city', fromJson: JsonCoerce.asString)
   final String? city;
-  @JsonKey(name: 'cityCode')
+  @JsonKey(name: 'cityCode', fromJson: JsonCoerce.asString)
   final String? cityCode;
-  @JsonKey(name: 'street')
+  @JsonKey(name: 'street', fromJson: JsonCoerce.asString)
   final String? street;
-  @JsonKey(name: 'apartment')
+  @JsonKey(name: 'apartment', fromJson: JsonCoerce.asString)
   final String? apartment;
-  @JsonKey(name: 'address')
+  @JsonKey(name: 'address', fromJson: JsonCoerce.asString)
   final String? address;
-  @JsonKey(name: 'firstName')
+  @JsonKey(name: 'firstName', fromJson: JsonCoerce.asString)
   final String? firstName;
-  @JsonKey(name: 'lastName')
+  @JsonKey(name: 'lastName', fromJson: JsonCoerce.asString)
   final String? lastName;
-  @JsonKey(name: 'phoneNumber')
+  @JsonKey(name: 'phoneNumber', fromJson: JsonCoerce.asString)
   final String? phoneNumber;
-  @JsonKey(name: 'zipCode')
+  @JsonKey(name: 'zipCode', fromJson: JsonCoerce.asString)
   final String? zipCode;
-  @JsonKey(name: 'id')
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asDouble)
   final double? id;
   static const fromJsonFactory =
       _$OrderServiceOrderListGet$Response$Data$Records$Item$UserAddressFromJson;
@@ -27761,52 +27864,58 @@ class OrderServiceOrderCombineListGet$Response$Data$Records$Item$ParcelOrder {
         this,
       );
 
-  @JsonKey(name: 'parcelOrderId')
+  @JsonKey(name: 'parcelOrderId', fromJson: JsonCoerce.asString)
   final String? parcelOrderId;
-  @JsonKey(name: 'parcelStatus')
+  @JsonKey(name: 'parcelStatus', fromJson: JsonCoerce.asString)
   final String? parcelStatus;
-  @JsonKey(name: 'parcelStatusDesc')
+  @JsonKey(name: 'parcelStatusDesc', fromJson: JsonCoerce.asString)
   final String? parcelStatusDesc;
-  @JsonKey(name: 'createTime')
+  @JsonKey(name: 'createTime', fromJson: JsonCoerce.asDouble)
   final double? createTime;
-  @JsonKey(name: 'warehouseCode')
+  @JsonKey(name: 'warehouseCode', fromJson: JsonCoerce.asString)
   final String? warehouseCode;
-  @JsonKey(name: 'warehouseName')
+  @JsonKey(name: 'warehouseName', fromJson: JsonCoerce.asString)
   final String? warehouseName;
-  @JsonKey(name: 'solutionCode')
+  @JsonKey(name: 'solutionCode', fromJson: JsonCoerce.asString)
   final String? solutionCode;
-  @JsonKey(name: 'freight')
+  @JsonKey(name: 'freight', fromJson: JsonCoerce.asString)
   final String? freight;
   @JsonKey(name: 'freightCurrency')
   final OrderServiceOrderCombineListGet$Response$Data$Records$Item$ParcelOrder$FreightCurrency?
   freightCurrency;
-  @JsonKey(name: 'targetFreight')
+  @JsonKey(name: 'targetFreight', fromJson: JsonCoerce.asString)
   final String? targetFreight;
   @JsonKey(name: 'targetFreightCurrency')
   final OrderServiceOrderCombineListGet$Response$Data$Records$Item$ParcelOrder$TargetFreightCurrency?
   targetFreightCurrency;
-  @JsonKey(name: 'actualFreight')
+  @JsonKey(name: 'actualFreight', fromJson: JsonCoerce.asString)
   final String? actualFreight;
-  @JsonKey(name: 'actualFreightCurrency')
+  @JsonKey(name: 'actualFreightCurrency', fromJson: JsonCoerce.asString)
   final String? actualFreightCurrency;
-  @JsonKey(name: 'targetActualFreight')
+  @JsonKey(name: 'targetActualFreight', fromJson: JsonCoerce.asString)
   final String? targetActualFreight;
-  @JsonKey(name: 'targetActualFreightCurrency')
+  @JsonKey(name: 'targetActualFreightCurrency', fromJson: JsonCoerce.asString)
   final String? targetActualFreightCurrency;
-  @JsonKey(name: 'freightCouponDiscountAmount')
+  @JsonKey(name: 'freightCouponDiscountAmount', fromJson: JsonCoerce.asString)
   final String? freightCouponDiscountAmount;
-  @JsonKey(name: 'targetFreightCouponDiscountAmount')
+  @JsonKey(
+    name: 'targetFreightCouponDiscountAmount',
+    fromJson: JsonCoerce.asString,
+  )
   final String? targetFreightCouponDiscountAmount;
   @JsonKey(name: 'freightCouponDiscountCurrency')
   final OrderServiceOrderCombineListGet$Response$Data$Records$Item$ParcelOrder$FreightCouponDiscountCurrency?
   freightCouponDiscountCurrency;
-  @JsonKey(name: 'targetFreightCouponDiscountCurrency')
+  @JsonKey(
+    name: 'targetFreightCouponDiscountCurrency',
+    fromJson: JsonCoerce.asString,
+  )
   final String? targetFreightCouponDiscountCurrency;
-  @JsonKey(name: 'lastMileMailNo')
+  @JsonKey(name: 'lastMileMailNo', fromJson: JsonCoerce.asString)
   final String? lastMileMailNo;
-  @JsonKey(name: 'lastMileCompanyCode')
+  @JsonKey(name: 'lastMileCompanyCode', fromJson: JsonCoerce.asString)
   final String? lastMileCompanyCode;
-  @JsonKey(name: 'lastMileCompanyName')
+  @JsonKey(name: 'lastMileCompanyName', fromJson: JsonCoerce.asString)
   final String? lastMileCompanyName;
   @JsonKey(name: 'receiverAddress')
   final OrderServiceOrderCombineListGet$Response$Data$Records$Item$ParcelOrder$ReceiverAddress?
@@ -27816,7 +27925,11 @@ class OrderServiceOrderCombineListGet$Response$Data$Records$Item$ParcelOrder {
     OrderServiceOrderCombineListGet$Response$Data$Records$Item$ParcelOrder$ParcelProductDTOList$Item
   >?
   parcelProductDTOList;
-  @JsonKey(name: 'buyerOperates', defaultValue: <String>[])
+  @JsonKey(
+    name: 'buyerOperates',
+    fromJson: JsonCoerce.asStringList,
+    defaultValue: <String>[],
+  )
   final List<String>? buyerOperates;
   static const fromJsonFactory =
       _$OrderServiceOrderCombineListGet$Response$Data$Records$Item$ParcelOrderFromJson;
@@ -28232,33 +28345,33 @@ class OrderServiceOrderCombineListGet$Response$Data$Records$Item$UserAddress {
         this,
       );
 
-  @JsonKey(name: 'country')
+  @JsonKey(name: 'country', fromJson: JsonCoerce.asString)
   final String? country;
-  @JsonKey(name: 'countryCode')
+  @JsonKey(name: 'countryCode', fromJson: JsonCoerce.asString)
   final String? countryCode;
-  @JsonKey(name: 'state')
+  @JsonKey(name: 'state', fromJson: JsonCoerce.asString)
   final String? state;
-  @JsonKey(name: 'stateCode')
+  @JsonKey(name: 'stateCode', fromJson: JsonCoerce.asString)
   final String? stateCode;
-  @JsonKey(name: 'city')
+  @JsonKey(name: 'city', fromJson: JsonCoerce.asString)
   final String? city;
-  @JsonKey(name: 'cityCode')
+  @JsonKey(name: 'cityCode', fromJson: JsonCoerce.asString)
   final String? cityCode;
-  @JsonKey(name: 'street')
+  @JsonKey(name: 'street', fromJson: JsonCoerce.asString)
   final String? street;
-  @JsonKey(name: 'apartment')
+  @JsonKey(name: 'apartment', fromJson: JsonCoerce.asString)
   final String? apartment;
-  @JsonKey(name: 'address')
+  @JsonKey(name: 'address', fromJson: JsonCoerce.asString)
   final String? address;
-  @JsonKey(name: 'firstName')
+  @JsonKey(name: 'firstName', fromJson: JsonCoerce.asString)
   final String? firstName;
-  @JsonKey(name: 'lastName')
+  @JsonKey(name: 'lastName', fromJson: JsonCoerce.asString)
   final String? lastName;
-  @JsonKey(name: 'phoneNumber')
+  @JsonKey(name: 'phoneNumber', fromJson: JsonCoerce.asString)
   final String? phoneNumber;
-  @JsonKey(name: 'zipCode')
+  @JsonKey(name: 'zipCode', fromJson: JsonCoerce.asString)
   final String? zipCode;
-  @JsonKey(name: 'id')
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asDouble)
   final double? id;
   static const fromJsonFactory =
       _$OrderServiceOrderCombineListGet$Response$Data$Records$Item$UserAddressFromJson;
@@ -28475,53 +28588,53 @@ class OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item 
         this,
       );
 
-  @JsonKey(name: 'status')
+  @JsonKey(name: 'status', fromJson: JsonCoerce.asDouble)
   final double? status;
-  @JsonKey(name: 'frontStatus')
+  @JsonKey(name: 'frontStatus', fromJson: JsonCoerce.asDouble)
   final double? frontStatus;
-  @JsonKey(name: 'statusContent')
+  @JsonKey(name: 'statusContent', fromJson: JsonCoerce.asString)
   final String? statusContent;
-  @JsonKey(name: 'orderStatus')
+  @JsonKey(name: 'orderStatus', fromJson: JsonCoerce.asDouble)
   final double? orderStatus;
-  @JsonKey(name: 'orderId')
+  @JsonKey(name: 'orderId', fromJson: JsonCoerce.asString)
   final String? orderId;
-  @JsonKey(name: 'parentOrderId')
+  @JsonKey(name: 'parentOrderId', fromJson: JsonCoerce.asString)
   final String? parentOrderId;
-  @JsonKey(name: 'quantity')
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asDouble)
   final double? quantity;
-  @JsonKey(name: 'targetOriginAmount')
+  @JsonKey(name: 'targetOriginAmount', fromJson: JsonCoerce.asString)
   final String? targetOriginAmount;
-  @JsonKey(name: 'itemTotalAmount')
+  @JsonKey(name: 'itemTotalAmount', fromJson: JsonCoerce.asString)
   final String? itemTotalAmount;
-  @JsonKey(name: 'totalAmount')
+  @JsonKey(name: 'totalAmount', fromJson: JsonCoerce.asString)
   final String? totalAmount;
-  @JsonKey(name: 'targetTotalAmount')
+  @JsonKey(name: 'targetTotalAmount', fromJson: JsonCoerce.asString)
   final String? targetTotalAmount;
-  @JsonKey(name: 'discountAmount')
+  @JsonKey(name: 'discountAmount', fromJson: JsonCoerce.asString)
   final String? discountAmount;
-  @JsonKey(name: 'targetDiscountAmount')
+  @JsonKey(name: 'targetDiscountAmount', fromJson: JsonCoerce.asString)
   final String? targetDiscountAmount;
-  @JsonKey(name: 'targetItemTotalAmount')
+  @JsonKey(name: 'targetItemTotalAmount', fromJson: JsonCoerce.asString)
   final String? targetItemTotalAmount;
-  @JsonKey(name: 'freightAmount')
+  @JsonKey(name: 'freightAmount', fromJson: JsonCoerce.asString)
   final String? freightAmount;
-  @JsonKey(name: 'targetFreightAmount')
+  @JsonKey(name: 'targetFreightAmount', fromJson: JsonCoerce.asString)
   final String? targetFreightAmount;
-  @JsonKey(name: 'targetActualAmount')
+  @JsonKey(name: 'targetActualAmount', fromJson: JsonCoerce.asString)
   final String? targetActualAmount;
-  @JsonKey(name: 'currency')
+  @JsonKey(name: 'currency', fromJson: JsonCoerce.asString)
   final String? currency;
-  @JsonKey(name: 'targetCurrency')
+  @JsonKey(name: 'targetCurrency', fromJson: JsonCoerce.asString)
   final String? targetCurrency;
-  @JsonKey(name: 'description')
+  @JsonKey(name: 'description', fromJson: JsonCoerce.asString)
   final String? description;
-  @JsonKey(name: 'remark')
+  @JsonKey(name: 'remark', fromJson: JsonCoerce.asString)
   final String? remark;
-  @JsonKey(name: 'statusIcon')
+  @JsonKey(name: 'statusIcon', fromJson: JsonCoerce.asString)
   final String? statusIcon;
   @JsonKey(name: 'operates', defaultValue: <Object>[])
   final List<Object>? operates;
-  @JsonKey(name: 'isLogisticsTrace')
+  @JsonKey(name: 'isLogisticsTrace', fromJson: JsonCoerce.asBool)
   final bool? isLogisticsTrace;
   @JsonKey(name: 'orderSkuList')
   final List<
@@ -28536,7 +28649,7 @@ class OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item 
   @JsonKey(name: 'parcelOrder')
   final OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$ParcelOrder?
   parcelOrder;
-  @JsonKey(name: 'afterSalesList')
+  @JsonKey(name: 'afterSalesList', fromJson: JsonCoerce.asString)
   final String? afterSalesList;
   @JsonKey(name: 'orderBillList')
   final List<
@@ -28546,11 +28659,11 @@ class OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item 
   @JsonKey(name: 'userAddress')
   final OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$UserAddress?
   userAddress;
-  @JsonKey(name: 'createTime')
+  @JsonKey(name: 'createTime', fromJson: JsonCoerce.asDouble)
   final double? createTime;
-  @JsonKey(name: 'wish')
+  @JsonKey(name: 'wish', fromJson: JsonCoerce.asBool)
   final bool? wish;
-  @JsonKey(name: 'giveawayGift')
+  @JsonKey(name: 'giveawayGift', fromJson: JsonCoerce.asInt)
   final int? giveawayGift;
   static const fromJsonFactory =
       _$OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$ItemFromJson;
@@ -29019,54 +29132,54 @@ class OrderServiceOrderDetailGet$Response$Data$OrderList$Item$SkuList$Item {
         this,
       );
 
-  @JsonKey(name: 'productName')
+  @JsonKey(name: 'productName', fromJson: JsonCoerce.asString)
   final String? productName;
-  @JsonKey(name: 'productCode')
+  @JsonKey(name: 'productCode', fromJson: JsonCoerce.asString)
   final String? productCode;
-  @JsonKey(name: 'skuCode')
+  @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
   final String? skuCode;
-  @JsonKey(name: 'image')
+  @JsonKey(name: 'image', fromJson: JsonCoerce.asString)
   final String? image;
-  @JsonKey(name: 'targetOriginTotalPrice')
+  @JsonKey(name: 'targetOriginTotalPrice', fromJson: JsonCoerce.asString)
   final String? targetOriginTotalPrice;
-  @JsonKey(name: 'targetOriginPrice')
+  @JsonKey(name: 'targetOriginPrice', fromJson: JsonCoerce.asString)
   final String? targetOriginPrice;
-  @JsonKey(name: 'sellPrice')
+  @JsonKey(name: 'sellPrice', fromJson: JsonCoerce.asString)
   final String? sellPrice;
-  @JsonKey(name: 'targetSellPrice')
+  @JsonKey(name: 'targetSellPrice', fromJson: JsonCoerce.asString)
   final String? targetSellPrice;
-  @JsonKey(name: 'totalPrice')
+  @JsonKey(name: 'totalPrice', fromJson: JsonCoerce.asString)
   final String? totalPrice;
-  @JsonKey(name: 'targetTotalPrice')
+  @JsonKey(name: 'targetTotalPrice', fromJson: JsonCoerce.asString)
   final String? targetTotalPrice;
-  @JsonKey(name: 'currency')
+  @JsonKey(name: 'currency', fromJson: JsonCoerce.asString)
   final String? currency;
-  @JsonKey(name: 'targetCurrency')
+  @JsonKey(name: 'targetCurrency', fromJson: JsonCoerce.asString)
   final String? targetCurrency;
-  @JsonKey(name: 'targetSkuDiscountPrice')
+  @JsonKey(name: 'targetSkuDiscountPrice', fromJson: JsonCoerce.asString)
   final String? targetSkuDiscountPrice;
-  @JsonKey(name: 'targetSkuFinalPrice')
+  @JsonKey(name: 'targetSkuFinalPrice', fromJson: JsonCoerce.asString)
   final String? targetSkuFinalPrice;
-  @JsonKey(name: 'targetTotalFinalPrice')
+  @JsonKey(name: 'targetTotalFinalPrice', fromJson: JsonCoerce.asString)
   final String? targetTotalFinalPrice;
-  @JsonKey(name: 'quantity')
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asDouble)
   final double? quantity;
-  @JsonKey(name: 'remark')
+  @JsonKey(name: 'remark', fromJson: JsonCoerce.asString)
   final String? remark;
   @JsonKey(name: 'skuSpecValues')
   final List<
     OrderServiceOrderDetailGet$Response$Data$OrderList$Item$SkuList$Item$SkuSpecValues$Item
   >?
   skuSpecValues;
-  @JsonKey(name: 'canAfterSales')
+  @JsonKey(name: 'canAfterSales', fromJson: JsonCoerce.asBool)
   final bool? canAfterSales;
-  @JsonKey(name: 'isReturned')
+  @JsonKey(name: 'isReturned', fromJson: JsonCoerce.asBool)
   final bool? isReturned;
   @JsonKey(name: 'returnQuantity')
   final Object? returnQuantity;
   @JsonKey(name: 'realRemark')
   final Object? realRemark;
-  @JsonKey(name: 'field_2')
+  @JsonKey(name: 'field_2', fromJson: JsonCoerce.asString)
   final String? field2;
   static const fromJsonFactory =
       _$OrderServiceOrderDetailGet$Response$Data$OrderList$Item$SkuList$ItemFromJson;
@@ -29391,37 +29504,37 @@ class OrderServiceOrderDetailGet$Response$Data$OrderList$Item$SupplyOrderList$It
         this,
       );
 
-  @JsonKey(name: 'skuCode')
+  @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
   final String? skuCode;
-  @JsonKey(name: 'productCode')
+  @JsonKey(name: 'productCode', fromJson: JsonCoerce.asString)
   final String? productCode;
-  @JsonKey(name: 'productName')
+  @JsonKey(name: 'productName', fromJson: JsonCoerce.asString)
   final String? productName;
-  @JsonKey(name: 'sellPrice')
+  @JsonKey(name: 'sellPrice', fromJson: JsonCoerce.asString)
   final String? sellPrice;
   @JsonKey(name: 'purchasePrice')
   final Object? purchasePrice;
-  @JsonKey(name: 'actualPurchasePrice')
+  @JsonKey(name: 'actualPurchasePrice', fromJson: JsonCoerce.asString)
   final String? actualPurchasePrice;
-  @JsonKey(name: 'imageUrl')
+  @JsonKey(name: 'imageUrl', fromJson: JsonCoerce.asString)
   final String? imageUrl;
-  @JsonKey(name: 'quantity')
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asDouble)
   final double? quantity;
-  @JsonKey(name: 'weight')
+  @JsonKey(name: 'weight', fromJson: JsonCoerce.asString)
   final String? weight;
-  @JsonKey(name: 'length')
+  @JsonKey(name: 'length', fromJson: JsonCoerce.asString)
   final String? length;
-  @JsonKey(name: 'width')
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asString)
   final String? width;
-  @JsonKey(name: 'height')
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asString)
   final String? height;
-  @JsonKey(name: 'logisticsAttr')
+  @JsonKey(name: 'logisticsAttr', fromJson: JsonCoerce.asString)
   final String? logisticsAttr;
   @JsonKey(name: 'inspectImageUrlList', defaultValue: <Object>[])
   final List<Object>? inspectImageUrlList;
-  @JsonKey(name: 'secretKeyList')
+  @JsonKey(name: 'secretKeyList', fromJson: JsonCoerce.asString)
   final String? secretKeyList;
-  @JsonKey(name: 'qcRemark')
+  @JsonKey(name: 'qcRemark', fromJson: JsonCoerce.asString)
   final String? qcRemark;
   static const fromJsonFactory =
       _$OrderServiceOrderDetailGet$Response$Data$OrderList$Item$SupplyOrderList$ItemFromJson;
@@ -29642,19 +29755,19 @@ class OrderServiceOrderDetailGet$Response$Data$OrderList$Item$LogisticsInfo {
         this,
       );
 
-  @JsonKey(name: 'targetFreight')
+  @JsonKey(name: 'targetFreight', fromJson: JsonCoerce.asString)
   final String? targetFreight;
-  @JsonKey(name: 'expressionDate')
+  @JsonKey(name: 'expressionDate', fromJson: JsonCoerce.asString)
   final String? expressionDate;
-  @JsonKey(name: 'freightContent')
+  @JsonKey(name: 'freightContent', fromJson: JsonCoerce.asString)
   final String? freightContent;
-  @JsonKey(name: 'expressionDateContent')
+  @JsonKey(name: 'expressionDateContent', fromJson: JsonCoerce.asString)
   final String? expressionDateContent;
-  @JsonKey(name: 'expressionDateHtml')
+  @JsonKey(name: 'expressionDateHtml', fromJson: JsonCoerce.asString)
   final String? expressionDateHtml;
-  @JsonKey(name: 'orderFreightUrl')
+  @JsonKey(name: 'orderFreightUrl', fromJson: JsonCoerce.asString)
   final String? orderFreightUrl;
-  @JsonKey(name: 'freightTag')
+  @JsonKey(name: 'freightTag', fromJson: JsonCoerce.asString)
   final String? freightTag;
   static const fromJsonFactory =
       _$OrderServiceOrderDetailGet$Response$Data$OrderList$Item$LogisticsInfoFromJson;
@@ -29801,21 +29914,21 @@ class OrderServiceOrderDetailGet$Response$Data$OrderList$Item$SourceOption {
         this,
       );
 
-  @JsonKey(name: 'batchNo')
+  @JsonKey(name: 'batchNo', fromJson: JsonCoerce.asString)
   final String? batchNo;
-  @JsonKey(name: 'parcelBatch')
+  @JsonKey(name: 'parcelBatch', fromJson: JsonCoerce.asBool)
   final bool? parcelBatch;
-  @JsonKey(name: 'removePackage')
+  @JsonKey(name: 'removePackage', fromJson: JsonCoerce.asBool)
   final bool? removePackage;
-  @JsonKey(name: 'orderFreight')
+  @JsonKey(name: 'orderFreight', fromJson: JsonCoerce.asBool)
   final bool? orderFreight;
-  @JsonKey(name: 'canBatch')
+  @JsonKey(name: 'canBatch', fromJson: JsonCoerce.asInt)
   final int? canBatch;
-  @JsonKey(name: 'canPayFreight')
+  @JsonKey(name: 'canPayFreight', fromJson: JsonCoerce.asInt)
   final int? canPayFreight;
-  @JsonKey(name: 'canRemovePackage')
+  @JsonKey(name: 'canRemovePackage', fromJson: JsonCoerce.asInt)
   final int? canRemovePackage;
-  @JsonKey(name: 'orderFreightUrl')
+  @JsonKey(name: 'orderFreightUrl', fromJson: JsonCoerce.asString)
   final String? orderFreightUrl;
   static const fromJsonFactory =
       _$OrderServiceOrderDetailGet$Response$Data$OrderList$Item$SourceOptionFromJson;
@@ -29963,9 +30076,9 @@ class OrderServiceOrderDetailGet$Response$Data$ParcelOrder$FreightCurrency {
         this,
       );
 
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
-  @JsonKey(name: 'symbol')
+  @JsonKey(name: 'symbol', fromJson: JsonCoerce.asString)
   final String? symbol;
   static const fromJsonFactory =
       _$OrderServiceOrderDetailGet$Response$Data$ParcelOrder$FreightCurrencyFromJson;
@@ -30030,9 +30143,9 @@ class OrderServiceOrderDetailGet$Response$Data$ParcelOrder$TargetFreightCurrency
         this,
       );
 
-  @JsonKey(name: 'symbol')
+  @JsonKey(name: 'symbol', fromJson: JsonCoerce.asString)
   final String? symbol;
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
   static const fromJsonFactory =
       _$OrderServiceOrderDetailGet$Response$Data$ParcelOrder$TargetFreightCurrencyFromJson;
@@ -30114,33 +30227,33 @@ class OrderServiceOrderDetailGet$Response$Data$ParcelOrder$ReceiverAddress {
         this,
       );
 
-  @JsonKey(name: 'country')
+  @JsonKey(name: 'country', fromJson: JsonCoerce.asString)
   final String? country;
-  @JsonKey(name: 'countryCode')
+  @JsonKey(name: 'countryCode', fromJson: JsonCoerce.asString)
   final String? countryCode;
-  @JsonKey(name: 'state')
+  @JsonKey(name: 'state', fromJson: JsonCoerce.asString)
   final String? state;
-  @JsonKey(name: 'stateCode')
+  @JsonKey(name: 'stateCode', fromJson: JsonCoerce.asString)
   final String? stateCode;
-  @JsonKey(name: 'city')
+  @JsonKey(name: 'city', fromJson: JsonCoerce.asString)
   final String? city;
-  @JsonKey(name: 'cityCode')
+  @JsonKey(name: 'cityCode', fromJson: JsonCoerce.asString)
   final String? cityCode;
-  @JsonKey(name: 'street')
+  @JsonKey(name: 'street', fromJson: JsonCoerce.asString)
   final String? street;
-  @JsonKey(name: 'apartment')
+  @JsonKey(name: 'apartment', fromJson: JsonCoerce.asString)
   final String? apartment;
-  @JsonKey(name: 'address')
+  @JsonKey(name: 'address', fromJson: JsonCoerce.asString)
   final String? address;
-  @JsonKey(name: 'firstName')
+  @JsonKey(name: 'firstName', fromJson: JsonCoerce.asString)
   final String? firstName;
-  @JsonKey(name: 'lastName')
+  @JsonKey(name: 'lastName', fromJson: JsonCoerce.asString)
   final String? lastName;
-  @JsonKey(name: 'phoneNumber')
+  @JsonKey(name: 'phoneNumber', fromJson: JsonCoerce.asString)
   final String? phoneNumber;
-  @JsonKey(name: 'zipCode')
+  @JsonKey(name: 'zipCode', fromJson: JsonCoerce.asString)
   final String? zipCode;
-  @JsonKey(name: 'id')
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asDouble)
   final double? id;
   @JsonKey(name: 'remark')
   final Object? remark;
@@ -30371,23 +30484,23 @@ class OrderServiceOrderDetailGet$Response$Data$ParcelOrder$ParcelProductDTOList$
         this,
       );
 
-  @JsonKey(name: 'skuCode')
+  @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
   final String? skuCode;
-  @JsonKey(name: 'productCode')
+  @JsonKey(name: 'productCode', fromJson: JsonCoerce.asString)
   final String? productCode;
-  @JsonKey(name: 'productName')
+  @JsonKey(name: 'productName', fromJson: JsonCoerce.asString)
   final String? productName;
-  @JsonKey(name: 'logisticsOrderId')
+  @JsonKey(name: 'logisticsOrderId', fromJson: JsonCoerce.asString)
   final String? logisticsOrderId;
-  @JsonKey(name: 'tradeOrderId')
+  @JsonKey(name: 'tradeOrderId', fromJson: JsonCoerce.asString)
   final String? tradeOrderId;
-  @JsonKey(name: 'quantity')
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asDouble)
   final double? quantity;
-  @JsonKey(name: 'imageUrl')
+  @JsonKey(name: 'imageUrl', fromJson: JsonCoerce.asString)
   final String? imageUrl;
-  @JsonKey(name: 'declareName')
+  @JsonKey(name: 'declareName', fromJson: JsonCoerce.asString)
   final String? declareName;
-  @JsonKey(name: 'declareNameEn')
+  @JsonKey(name: 'declareNameEn', fromJson: JsonCoerce.asString)
   final String? declareNameEn;
   static const fromJsonFactory =
       _$OrderServiceOrderDetailGet$Response$Data$ParcelOrder$ParcelProductDTOList$ItemFromJson;
@@ -30548,26 +30661,26 @@ class OrderServiceOrderDetailGet$Response$Data$OrderTrace$GroupTraceList$Item {
         this,
       );
 
-  @JsonKey(name: 'subParcelOrderId')
+  @JsonKey(name: 'subParcelOrderId', fromJson: JsonCoerce.asString)
   final String? subParcelOrderId;
-  @JsonKey(name: 'parcelOrderStatus')
+  @JsonKey(name: 'parcelOrderStatus', fromJson: JsonCoerce.asString)
   final String? parcelOrderStatus;
-  @JsonKey(name: 'lastMileMailNo')
+  @JsonKey(name: 'lastMileMailNo', fromJson: JsonCoerce.asString)
   final String? lastMileMailNo;
-  @JsonKey(name: 'lastMileMailNoLink')
+  @JsonKey(name: 'lastMileMailNoLink', fromJson: JsonCoerce.asString)
   final String? lastMileMailNoLink;
-  @JsonKey(name: 'lastMileCompanyName')
+  @JsonKey(name: 'lastMileCompanyName', fromJson: JsonCoerce.asString)
   final String? lastMileCompanyName;
-  @JsonKey(name: 'lastMileCompanyPhone')
+  @JsonKey(name: 'lastMileCompanyPhone', fromJson: JsonCoerce.asString)
   final String? lastMileCompanyPhone;
-  @JsonKey(name: 'lastMileCompanyEmail')
+  @JsonKey(name: 'lastMileCompanyEmail', fromJson: JsonCoerce.asString)
   final String? lastMileCompanyEmail;
   @JsonKey(name: 'traceList')
   final List<
     OrderServiceOrderDetailGet$Response$Data$OrderTrace$GroupTraceList$Item$TraceList$Item
   >?
   traceList;
-  @JsonKey(name: 'sequenceTime')
+  @JsonKey(name: 'sequenceTime', fromJson: JsonCoerce.asDouble)
   final double? sequenceTime;
   static const fromJsonFactory =
       _$OrderServiceOrderDetailGet$Response$Data$OrderTrace$GroupTraceList$ItemFromJson;
@@ -30755,41 +30868,41 @@ class OrderServiceOrderDetailGet$Response$Data$OrderTrace$ReceiverAddress {
         this,
       );
 
-  @JsonKey(name: 'country')
+  @JsonKey(name: 'country', fromJson: JsonCoerce.asString)
   final String? country;
-  @JsonKey(name: 'countryCode')
+  @JsonKey(name: 'countryCode', fromJson: JsonCoerce.asString)
   final String? countryCode;
-  @JsonKey(name: 'state')
+  @JsonKey(name: 'state', fromJson: JsonCoerce.asString)
   final String? state;
-  @JsonKey(name: 'stateCode')
+  @JsonKey(name: 'stateCode', fromJson: JsonCoerce.asString)
   final String? stateCode;
-  @JsonKey(name: 'city')
+  @JsonKey(name: 'city', fromJson: JsonCoerce.asString)
   final String? city;
-  @JsonKey(name: 'cityCode')
+  @JsonKey(name: 'cityCode', fromJson: JsonCoerce.asString)
   final String? cityCode;
-  @JsonKey(name: 'street')
+  @JsonKey(name: 'street', fromJson: JsonCoerce.asString)
   final String? street;
-  @JsonKey(name: 'apartment')
+  @JsonKey(name: 'apartment', fromJson: JsonCoerce.asString)
   final String? apartment;
-  @JsonKey(name: 'address')
+  @JsonKey(name: 'address', fromJson: JsonCoerce.asString)
   final String? address;
-  @JsonKey(name: 'firstName')
+  @JsonKey(name: 'firstName', fromJson: JsonCoerce.asString)
   final String? firstName;
-  @JsonKey(name: 'lastName')
+  @JsonKey(name: 'lastName', fromJson: JsonCoerce.asString)
   final String? lastName;
-  @JsonKey(name: 'phoneNumber')
+  @JsonKey(name: 'phoneNumber', fromJson: JsonCoerce.asString)
   final String? phoneNumber;
-  @JsonKey(name: 'zipCode')
+  @JsonKey(name: 'zipCode', fromJson: JsonCoerce.asString)
   final String? zipCode;
-  @JsonKey(name: 'id')
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asDouble)
   final double? id;
-  @JsonKey(name: 'remark')
+  @JsonKey(name: 'remark', fromJson: JsonCoerce.asString)
   final String? remark;
-  @JsonKey(name: 'accessCode')
+  @JsonKey(name: 'accessCode', fromJson: JsonCoerce.asString)
   final String? accessCode;
-  @JsonKey(name: 'email')
+  @JsonKey(name: 'email', fromJson: JsonCoerce.asString)
   final String? email;
-  @JsonKey(name: 'tin')
+  @JsonKey(name: 'tin', fromJson: JsonCoerce.asString)
   final String? tin;
   static const fromJsonFactory =
       _$OrderServiceOrderDetailGet$Response$Data$OrderTrace$ReceiverAddressFromJson;
@@ -31008,17 +31121,17 @@ class OrderServiceOrderDetailGet$Response$Data$OrderTrace$LogisticsSkuDetailList
         this,
       );
 
-  @JsonKey(name: 'skuCode')
+  @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
   final String? skuCode;
-  @JsonKey(name: 'quantity')
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asDouble)
   final double? quantity;
-  @JsonKey(name: 'imageUrl')
+  @JsonKey(name: 'imageUrl', fromJson: JsonCoerce.asString)
   final String? imageUrl;
-  @JsonKey(name: 'skuName')
+  @JsonKey(name: 'skuName', fromJson: JsonCoerce.asString)
   final String? skuName;
-  @JsonKey(name: 'skuSpecValues')
+  @JsonKey(name: 'skuSpecValues', fromJson: JsonCoerce.asString)
   final String? skuSpecValues;
-  @JsonKey(name: 'skuTotalWeight')
+  @JsonKey(name: 'skuTotalWeight', fromJson: JsonCoerce.asString)
   final String? skuTotalWeight;
   static const fromJsonFactory =
       _$OrderServiceOrderDetailGet$Response$Data$OrderTrace$LogisticsSkuDetailList$ItemFromJson;
@@ -31153,33 +31266,33 @@ class OrderServiceOrderDetailGet$Response$Data$OrderTrace$TraceList$Item {
         this,
       );
 
-  @JsonKey(name: 'id')
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asDouble)
   final double? id;
-  @JsonKey(name: 'subParcelOrderId')
+  @JsonKey(name: 'subParcelOrderId', fromJson: JsonCoerce.asString)
   final String? subParcelOrderId;
-  @JsonKey(name: 'frontCode')
+  @JsonKey(name: 'frontCode', fromJson: JsonCoerce.asString)
   final String? frontCode;
-  @JsonKey(name: 'frontTitleCode')
+  @JsonKey(name: 'frontTitleCode', fromJson: JsonCoerce.asString)
   final String? frontTitleCode;
-  @JsonKey(name: 'frontTitle')
+  @JsonKey(name: 'frontTitle', fromJson: JsonCoerce.asString)
   final String? frontTitle;
-  @JsonKey(name: 'icon')
+  @JsonKey(name: 'icon', fromJson: JsonCoerce.asString)
   final String? icon;
-  @JsonKey(name: 'traceMessage')
+  @JsonKey(name: 'traceMessage', fromJson: JsonCoerce.asString)
   final String? traceMessage;
-  @JsonKey(name: 'time')
+  @JsonKey(name: 'time', fromJson: JsonCoerce.asDouble)
   final double? time;
-  @JsonKey(name: 'lastMileMailNo')
+  @JsonKey(name: 'lastMileMailNo', fromJson: JsonCoerce.asString)
   final String? lastMileMailNo;
-  @JsonKey(name: 'lastMileCompanyName')
+  @JsonKey(name: 'lastMileCompanyName', fromJson: JsonCoerce.asString)
   final String? lastMileCompanyName;
-  @JsonKey(name: 'lastMileMailNoLink')
+  @JsonKey(name: 'lastMileMailNoLink', fromJson: JsonCoerce.asString)
   final String? lastMileMailNoLink;
-  @JsonKey(name: 'lastMileMailNoTitle')
+  @JsonKey(name: 'lastMileMailNoTitle', fromJson: JsonCoerce.asString)
   final String? lastMileMailNoTitle;
-  @JsonKey(name: 'traceStatus')
+  @JsonKey(name: 'traceStatus', fromJson: JsonCoerce.asString)
   final String? traceStatus;
-  @JsonKey(name: 'traceTime')
+  @JsonKey(name: 'traceTime', fromJson: JsonCoerce.asString)
   final String? traceTime;
   static const fromJsonFactory =
       _$OrderServiceOrderDetailGet$Response$Data$OrderTrace$TraceList$ItemFromJson;
@@ -31381,9 +31494,9 @@ class OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrder$FreightCurrenc
         this,
       );
 
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
-  @JsonKey(name: 'symbol')
+  @JsonKey(name: 'symbol', fromJson: JsonCoerce.asString)
   final String? symbol;
   static const fromJsonFactory =
       _$OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrder$FreightCurrencyFromJson;
@@ -31452,15 +31565,15 @@ class OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrder$ParcelProductD
         this,
       );
 
-  @JsonKey(name: 'skuCode')
+  @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
   final String? skuCode;
-  @JsonKey(name: 'productCode')
+  @JsonKey(name: 'productCode', fromJson: JsonCoerce.asString)
   final String? productCode;
-  @JsonKey(name: 'productName')
+  @JsonKey(name: 'productName', fromJson: JsonCoerce.asString)
   final String? productName;
-  @JsonKey(name: 'quantity')
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asDouble)
   final double? quantity;
-  @JsonKey(name: 'imageUrl')
+  @JsonKey(name: 'imageUrl', fromJson: JsonCoerce.asString)
   final String? imageUrl;
   static const fromJsonFactory =
       _$OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrder$ParcelProductDTOList$ItemFromJson;
@@ -31573,17 +31686,17 @@ class OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrder$FreightCompens
         this,
       );
 
-  @JsonKey(name: 'compensateBillId')
+  @JsonKey(name: 'compensateBillId', fromJson: JsonCoerce.asString)
   final String? compensateBillId;
-  @JsonKey(name: 'compensatePrice')
+  @JsonKey(name: 'compensatePrice', fromJson: JsonCoerce.asString)
   final String? compensatePrice;
-  @JsonKey(name: 'compensatePriceCurrency')
+  @JsonKey(name: 'compensatePriceCurrency', fromJson: JsonCoerce.asString)
   final String? compensatePriceCurrency;
-  @JsonKey(name: 'compensateReason')
+  @JsonKey(name: 'compensateReason', fromJson: JsonCoerce.asString)
   final String? compensateReason;
-  @JsonKey(name: 'targetCompensatePrice')
+  @JsonKey(name: 'targetCompensatePrice', fromJson: JsonCoerce.asString)
   final String? targetCompensatePrice;
-  @JsonKey(name: 'targetCompensatePriceCurrency')
+  @JsonKey(name: 'targetCompensatePriceCurrency', fromJson: JsonCoerce.asString)
   final String? targetCompensatePriceCurrency;
   static const fromJsonFactory =
       _$OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrder$FreightCompensateFromJson;
@@ -31722,9 +31835,9 @@ class OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrder$TargetFreightC
         this,
       );
 
-  @JsonKey(name: 'symbol')
+  @JsonKey(name: 'symbol', fromJson: JsonCoerce.asString)
   final String? symbol;
-  @JsonKey(name: 'currency')
+  @JsonKey(name: 'currency', fromJson: JsonCoerce.asString)
   final String? currency;
   static const fromJsonFactory =
       _$OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrder$TargetFreightCurrencyFromJson;
@@ -31802,25 +31915,25 @@ class OrderServiceOpenapiOrderDetailGet$Response$Data$OrderTrace$TraceList$Item 
         this,
       );
 
-  @JsonKey(name: 'id')
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asDouble)
   final double? id;
-  @JsonKey(name: 'frontCode')
+  @JsonKey(name: 'frontCode', fromJson: JsonCoerce.asString)
   final String? frontCode;
-  @JsonKey(name: 'icon')
+  @JsonKey(name: 'icon', fromJson: JsonCoerce.asString)
   final String? icon;
-  @JsonKey(name: 'traceMessage')
+  @JsonKey(name: 'traceMessage', fromJson: JsonCoerce.asString)
   final String? traceMessage;
-  @JsonKey(name: 'time')
+  @JsonKey(name: 'time', fromJson: JsonCoerce.asDouble)
   final double? time;
-  @JsonKey(name: 'lastMileMailNo')
+  @JsonKey(name: 'lastMileMailNo', fromJson: JsonCoerce.asString)
   final String? lastMileMailNo;
-  @JsonKey(name: 'lastMileMailNoLink')
+  @JsonKey(name: 'lastMileMailNoLink', fromJson: JsonCoerce.asString)
   final String? lastMileMailNoLink;
-  @JsonKey(name: 'lastMileMailNoTitle')
+  @JsonKey(name: 'lastMileMailNoTitle', fromJson: JsonCoerce.asString)
   final String? lastMileMailNoTitle;
-  @JsonKey(name: 'traceStatus')
+  @JsonKey(name: 'traceStatus', fromJson: JsonCoerce.asString)
   final String? traceStatus;
-  @JsonKey(name: 'logisticsOrderId')
+  @JsonKey(name: 'logisticsOrderId', fromJson: JsonCoerce.asString)
   final String? logisticsOrderId;
   static const fromJsonFactory =
       _$OrderServiceOpenapiOrderDetailGet$Response$Data$OrderTrace$TraceList$ItemFromJson;
@@ -31990,29 +32103,29 @@ class OrderServiceOpenapiOrderDetailGet$Response$Data$OrderList$Item$SkuList$Ite
         this,
       );
 
-  @JsonKey(name: 'productName')
+  @JsonKey(name: 'productName', fromJson: JsonCoerce.asString)
   final String? productName;
-  @JsonKey(name: 'productCode')
+  @JsonKey(name: 'productCode', fromJson: JsonCoerce.asString)
   final String? productCode;
-  @JsonKey(name: 'skuCode')
+  @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
   final String? skuCode;
-  @JsonKey(name: 'image')
+  @JsonKey(name: 'image', fromJson: JsonCoerce.asString)
   final String? image;
-  @JsonKey(name: 'sellPrice')
+  @JsonKey(name: 'sellPrice', fromJson: JsonCoerce.asString)
   final String? sellPrice;
-  @JsonKey(name: 'targetSellPrice')
+  @JsonKey(name: 'targetSellPrice', fromJson: JsonCoerce.asString)
   final String? targetSellPrice;
-  @JsonKey(name: 'totalPrice')
+  @JsonKey(name: 'totalPrice', fromJson: JsonCoerce.asString)
   final String? totalPrice;
-  @JsonKey(name: 'targetTotalPrice')
+  @JsonKey(name: 'targetTotalPrice', fromJson: JsonCoerce.asString)
   final String? targetTotalPrice;
-  @JsonKey(name: 'currency')
+  @JsonKey(name: 'currency', fromJson: JsonCoerce.asString)
   final String? currency;
-  @JsonKey(name: 'targetCurrency')
+  @JsonKey(name: 'targetCurrency', fromJson: JsonCoerce.asString)
   final String? targetCurrency;
-  @JsonKey(name: 'quantity')
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asDouble)
   final double? quantity;
-  @JsonKey(name: 'remark')
+  @JsonKey(name: 'remark', fromJson: JsonCoerce.asString)
   final String? remark;
   @JsonKey(name: 'skuSpecValues')
   final List<
@@ -32224,27 +32337,27 @@ class OrderServiceOpenapiOrderDetailGet$Response$Data$OrderList$Item$SupplyOrder
         this,
       );
 
-  @JsonKey(name: 'skuCode')
+  @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
   final String? skuCode;
-  @JsonKey(name: 'productCode')
+  @JsonKey(name: 'productCode', fromJson: JsonCoerce.asString)
   final String? productCode;
-  @JsonKey(name: 'productName')
+  @JsonKey(name: 'productName', fromJson: JsonCoerce.asString)
   final String? productName;
-  @JsonKey(name: 'imageUrl')
+  @JsonKey(name: 'imageUrl', fromJson: JsonCoerce.asString)
   final String? imageUrl;
-  @JsonKey(name: 'quantity')
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asDouble)
   final double? quantity;
-  @JsonKey(name: 'weight')
+  @JsonKey(name: 'weight', fromJson: JsonCoerce.asString)
   final String? weight;
-  @JsonKey(name: 'length')
+  @JsonKey(name: 'length', fromJson: JsonCoerce.asString)
   final String? length;
-  @JsonKey(name: 'width')
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asString)
   final String? width;
-  @JsonKey(name: 'height')
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asString)
   final String? height;
   @JsonKey(name: 'inspectImageUrlList', defaultValue: <Object>[])
   final List<Object>? inspectImageUrlList;
-  @JsonKey(name: 'secretKeyList')
+  @JsonKey(name: 'secretKeyList', fromJson: JsonCoerce.asString)
   final String? secretKeyList;
   static const fromJsonFactory =
       _$OrderServiceOpenapiOrderDetailGet$Response$Data$OrderList$Item$SupplyOrderList$ItemFromJson;
@@ -32435,69 +32548,73 @@ class OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$Bas
         this,
       );
 
-  @JsonKey(name: 'userId')
+  @JsonKey(name: 'userId', fromJson: JsonCoerce.asString)
   final String? userId;
-  @JsonKey(name: 'orderId')
+  @JsonKey(name: 'orderId', fromJson: JsonCoerce.asString)
   final String? orderId;
-  @JsonKey(name: 'skuSourceCode')
+  @JsonKey(name: 'skuSourceCode', fromJson: JsonCoerce.asString)
   final String? skuSourceCode;
-  @JsonKey(name: 'parentOrderId')
+  @JsonKey(name: 'parentOrderId', fromJson: JsonCoerce.asString)
   final String? parentOrderId;
-  @JsonKey(name: 'status')
+  @JsonKey(name: 'status', fromJson: JsonCoerce.asDouble)
   final double? status;
-  @JsonKey(name: 'frontStatus')
+  @JsonKey(name: 'frontStatus', fromJson: JsonCoerce.asDouble)
   final double? frontStatus;
-  @JsonKey(name: 'statusContent')
+  @JsonKey(name: 'statusContent', fromJson: JsonCoerce.asString)
   final String? statusContent;
-  @JsonKey(name: 'orderStatus')
+  @JsonKey(name: 'orderStatus', fromJson: JsonCoerce.asDouble)
   final double? orderStatus;
-  @JsonKey(name: 'evaluateStatus')
+  @JsonKey(name: 'evaluateStatus', fromJson: JsonCoerce.asDouble)
   final double? evaluateStatus;
-  @JsonKey(name: 'timeoutPeriod')
+  @JsonKey(name: 'timeoutPeriod', fromJson: JsonCoerce.asDouble)
   final double? timeoutPeriod;
-  @JsonKey(name: 'createTime')
+  @JsonKey(name: 'createTime', fromJson: JsonCoerce.asDouble)
   final double? createTime;
-  @JsonKey(name: 'leftTime')
+  @JsonKey(name: 'leftTime', fromJson: JsonCoerce.asDouble)
   final double? leftTime;
-  @JsonKey(name: 'title')
+  @JsonKey(name: 'title', fromJson: JsonCoerce.asString)
   final String? title;
-  @JsonKey(name: 'subTitle')
+  @JsonKey(name: 'subTitle', fromJson: JsonCoerce.asString)
   final String? subTitle;
-  @JsonKey(name: 'operates', defaultValue: <String>[])
+  @JsonKey(
+    name: 'operates',
+    fromJson: JsonCoerce.asStringList,
+    defaultValue: <String>[],
+  )
   final List<String>? operates;
-  @JsonKey(name: 'description')
+  @JsonKey(name: 'description', fromJson: JsonCoerce.asString)
   final String? description;
-  @JsonKey(name: 'paySuccessDescription')
+  @JsonKey(name: 'paySuccessDescription', fromJson: JsonCoerce.asString)
   final String? paySuccessDescription;
-  @JsonKey(name: 'afterSalesExpressMethod')
+  @JsonKey(name: 'afterSalesExpressMethod', fromJson: JsonCoerce.asDouble)
   final double? afterSalesExpressMethod;
-  @JsonKey(name: 'afterSalesState')
+  @JsonKey(name: 'afterSalesState', fromJson: JsonCoerce.asDouble)
   final double? afterSalesState;
-  @JsonKey(name: 'remark')
+  @JsonKey(name: 'remark', fromJson: JsonCoerce.asString)
   final String? remark;
-  @JsonKey(name: 'remarkImages')
+  @JsonKey(name: 'remarkImages', fromJson: JsonCoerce.asString)
   final String? remarkImages;
-  @JsonKey(name: 'supportOnlineAfterSales')
+  @JsonKey(name: 'supportOnlineAfterSales', fromJson: JsonCoerce.asDouble)
   final double? supportOnlineAfterSales;
-  @JsonKey(name: 'receiptPdfLink')
+  @JsonKey(name: 'receiptPdfLink', fromJson: JsonCoerce.asString)
   final String? receiptPdfLink;
-  @JsonKey(name: 'afterSalesSupport')
+  @JsonKey(name: 'afterSalesSupport', fromJson: JsonCoerce.asString)
   final String? afterSalesSupport;
-  @JsonKey(name: 'tenantCode')
+  @JsonKey(name: 'tenantCode', fromJson: JsonCoerce.asString)
   final String? tenantCode;
-  @JsonKey(name: 'shippingCountry')
+  @JsonKey(name: 'shippingCountry', fromJson: JsonCoerce.asString)
   final String? shippingCountry;
-  @JsonKey(name: 'payTime')
+  @JsonKey(name: 'payTime', fromJson: JsonCoerce.asDouble)
   final double? payTime;
-  @JsonKey(name: 'afterSales')
+  @JsonKey(name: 'afterSales', fromJson: JsonCoerce.asBool)
   final bool? afterSales;
-  @JsonKey(name: 'wish')
+  @JsonKey(name: 'wish', fromJson: JsonCoerce.asBool)
   final bool? wish;
-  @JsonKey(name: 'removePackage')
+  @JsonKey(name: 'removePackage', fromJson: JsonCoerce.asBool)
   final bool? removePackage;
-  @JsonKey(name: 'orderFreight')
+  @JsonKey(name: 'orderFreight', fromJson: JsonCoerce.asBool)
   final bool? orderFreight;
-  @JsonKey(name: 'giveawayGift')
+  @JsonKey(name: 'giveawayGift', fromJson: JsonCoerce.asDouble)
   final double? giveawayGift;
   static const fromJsonFactory =
       _$OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$BaseInfoFromJson;
@@ -32914,33 +33031,33 @@ class OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$Use
         this,
       );
 
-  @JsonKey(name: 'country')
+  @JsonKey(name: 'country', fromJson: JsonCoerce.asString)
   final String? country;
-  @JsonKey(name: 'countryCode')
+  @JsonKey(name: 'countryCode', fromJson: JsonCoerce.asString)
   final String? countryCode;
-  @JsonKey(name: 'state')
+  @JsonKey(name: 'state', fromJson: JsonCoerce.asString)
   final String? state;
-  @JsonKey(name: 'stateCode')
+  @JsonKey(name: 'stateCode', fromJson: JsonCoerce.asString)
   final String? stateCode;
-  @JsonKey(name: 'city')
+  @JsonKey(name: 'city', fromJson: JsonCoerce.asString)
   final String? city;
-  @JsonKey(name: 'cityCode')
+  @JsonKey(name: 'cityCode', fromJson: JsonCoerce.asString)
   final String? cityCode;
-  @JsonKey(name: 'street')
+  @JsonKey(name: 'street', fromJson: JsonCoerce.asString)
   final String? street;
-  @JsonKey(name: 'apartment')
+  @JsonKey(name: 'apartment', fromJson: JsonCoerce.asString)
   final String? apartment;
-  @JsonKey(name: 'address')
+  @JsonKey(name: 'address', fromJson: JsonCoerce.asString)
   final String? address;
-  @JsonKey(name: 'firstName')
+  @JsonKey(name: 'firstName', fromJson: JsonCoerce.asString)
   final String? firstName;
-  @JsonKey(name: 'lastName')
+  @JsonKey(name: 'lastName', fromJson: JsonCoerce.asString)
   final String? lastName;
-  @JsonKey(name: 'phoneNumber')
+  @JsonKey(name: 'phoneNumber', fromJson: JsonCoerce.asString)
   final String? phoneNumber;
-  @JsonKey(name: 'zipCode')
+  @JsonKey(name: 'zipCode', fromJson: JsonCoerce.asString)
   final String? zipCode;
-  @JsonKey(name: 'id')
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asDouble)
   final double? id;
   static const fromJsonFactory =
       _$OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$UserAddressFromJson;
@@ -33130,15 +33247,15 @@ class OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$Pay
         this,
       );
 
-  @JsonKey(name: 'method')
+  @JsonKey(name: 'method', fromJson: JsonCoerce.asString)
   final String? method;
-  @JsonKey(name: 'methodName')
+  @JsonKey(name: 'methodName', fromJson: JsonCoerce.asString)
   final String? methodName;
-  @JsonKey(name: 'payOrderId')
+  @JsonKey(name: 'payOrderId', fromJson: JsonCoerce.asString)
   final String? payOrderId;
-  @JsonKey(name: 'cardMsg')
+  @JsonKey(name: 'cardMsg', fromJson: JsonCoerce.asString)
   final String? cardMsg;
-  @JsonKey(name: 'image')
+  @JsonKey(name: 'image', fromJson: JsonCoerce.asString)
   final String? image;
   static const fromJsonFactory =
       _$OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$PayMethodFromJson;
@@ -33261,49 +33378,49 @@ class OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$Pay
         this,
       );
 
-  @JsonKey(name: 'receiptAmount')
+  @JsonKey(name: 'receiptAmount', fromJson: JsonCoerce.asString)
   final String? receiptAmount;
-  @JsonKey(name: 'targetOriginAmount')
+  @JsonKey(name: 'targetOriginAmount', fromJson: JsonCoerce.asString)
   final String? targetOriginAmount;
-  @JsonKey(name: 'itemsTotalAmount')
+  @JsonKey(name: 'itemsTotalAmount', fromJson: JsonCoerce.asString)
   final String? itemsTotalAmount;
-  @JsonKey(name: 'freightAmount')
+  @JsonKey(name: 'freightAmount', fromJson: JsonCoerce.asString)
   final String? freightAmount;
-  @JsonKey(name: 'targetFreightAmount')
+  @JsonKey(name: 'targetFreightAmount', fromJson: JsonCoerce.asString)
   final String? targetFreightAmount;
-  @JsonKey(name: 'skuQuantity')
+  @JsonKey(name: 'skuQuantity', fromJson: JsonCoerce.asDouble)
   final double? skuQuantity;
-  @JsonKey(name: 'currency')
+  @JsonKey(name: 'currency', fromJson: JsonCoerce.asString)
   final String? currency;
-  @JsonKey(name: 'totalPrice')
+  @JsonKey(name: 'totalPrice', fromJson: JsonCoerce.asString)
   final String? totalPrice;
-  @JsonKey(name: 'targetPrice')
+  @JsonKey(name: 'targetPrice', fromJson: JsonCoerce.asString)
   final String? targetPrice;
-  @JsonKey(name: 'targetSettlementAmount')
+  @JsonKey(name: 'targetSettlementAmount', fromJson: JsonCoerce.asString)
   final String? targetSettlementAmount;
-  @JsonKey(name: 'settlementAmount')
+  @JsonKey(name: 'settlementAmount', fromJson: JsonCoerce.asString)
   final String? settlementAmount;
-  @JsonKey(name: 'discountAmount')
+  @JsonKey(name: 'discountAmount', fromJson: JsonCoerce.asString)
   final String? discountAmount;
-  @JsonKey(name: 'targetDiscountAmount')
+  @JsonKey(name: 'targetDiscountAmount', fromJson: JsonCoerce.asString)
   final String? targetDiscountAmount;
-  @JsonKey(name: 'rechargeAmount')
+  @JsonKey(name: 'rechargeAmount', fromJson: JsonCoerce.asString)
   final String? rechargeAmount;
-  @JsonKey(name: 'targetRechargePrice')
+  @JsonKey(name: 'targetRechargePrice', fromJson: JsonCoerce.asString)
   final String? targetRechargePrice;
-  @JsonKey(name: 'targetPayFeeAmount')
+  @JsonKey(name: 'targetPayFeeAmount', fromJson: JsonCoerce.asString)
   final String? targetPayFeeAmount;
-  @JsonKey(name: 'targetCurrency')
+  @JsonKey(name: 'targetCurrency', fromJson: JsonCoerce.asString)
   final String? targetCurrency;
-  @JsonKey(name: 'targetItemsTotalAmount')
+  @JsonKey(name: 'targetItemsTotalAmount', fromJson: JsonCoerce.asString)
   final String? targetItemsTotalAmount;
-  @JsonKey(name: 'targetStockFeeAmount')
+  @JsonKey(name: 'targetStockFeeAmount', fromJson: JsonCoerce.asString)
   final String? targetStockFeeAmount;
-  @JsonKey(name: 'targetActualAmount')
+  @JsonKey(name: 'targetActualAmount', fromJson: JsonCoerce.asString)
   final String? targetActualAmount;
-  @JsonKey(name: 'targetTipAmount')
+  @JsonKey(name: 'targetTipAmount', fromJson: JsonCoerce.asString)
   final String? targetTipAmount;
-  @JsonKey(name: 'targetServiceAmount')
+  @JsonKey(name: 'targetServiceAmount', fromJson: JsonCoerce.asString)
   final String? targetServiceAmount;
   static const fromJsonFactory =
       _$OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$PaymentsFromJson;
@@ -33622,13 +33739,13 @@ class OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$Ord
         this,
       );
 
-  @JsonKey(name: 'status')
+  @JsonKey(name: 'status', fromJson: JsonCoerce.asString)
   final String? status;
-  @JsonKey(name: 'targetCurrency')
+  @JsonKey(name: 'targetCurrency', fromJson: JsonCoerce.asString)
   final String? targetCurrency;
-  @JsonKey(name: 'targetTotalPrice')
+  @JsonKey(name: 'targetTotalPrice', fromJson: JsonCoerce.asString)
   final String? targetTotalPrice;
-  @JsonKey(name: 'billId')
+  @JsonKey(name: 'billId', fromJson: JsonCoerce.asString)
   final String? billId;
   static const fromJsonFactory =
       _$OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$OrderBillList$ItemFromJson;
@@ -33744,19 +33861,19 @@ class OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$Par
         this,
       );
 
-  @JsonKey(name: 'parcelOrderId')
+  @JsonKey(name: 'parcelOrderId', fromJson: JsonCoerce.asString)
   final String? parcelOrderId;
-  @JsonKey(name: 'parcelStatus')
+  @JsonKey(name: 'parcelStatus', fromJson: JsonCoerce.asString)
   final String? parcelStatus;
-  @JsonKey(name: 'parcelStatusDesc')
+  @JsonKey(name: 'parcelStatusDesc', fromJson: JsonCoerce.asString)
   final String? parcelStatusDesc;
-  @JsonKey(name: 'createTime')
+  @JsonKey(name: 'createTime', fromJson: JsonCoerce.asDouble)
   final double? createTime;
-  @JsonKey(name: 'warehouseCode')
+  @JsonKey(name: 'warehouseCode', fromJson: JsonCoerce.asString)
   final String? warehouseCode;
-  @JsonKey(name: 'warehouseName')
+  @JsonKey(name: 'warehouseName', fromJson: JsonCoerce.asString)
   final String? warehouseName;
-  @JsonKey(name: 'freight')
+  @JsonKey(name: 'freight', fromJson: JsonCoerce.asString)
   final String? freight;
   @JsonKey(name: 'freightCurrency')
   final OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$ParcelOrder$FreightCurrency?
@@ -33772,22 +33889,32 @@ class OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$Par
     OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$ParcelOrder$ParcelProductDTOList$Item
   >?
   parcelProductDTOList;
-  @JsonKey(name: 'buyerOperates', defaultValue: <String>[])
+  @JsonKey(
+    name: 'buyerOperates',
+    fromJson: JsonCoerce.asStringList,
+    defaultValue: <String>[],
+  )
   final List<String>? buyerOperates;
   @JsonKey(name: 'freightCompensate')
   final OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$ParcelOrder$FreightCompensate?
   freightCompensate;
-  @JsonKey(name: 'solutionCode')
+  @JsonKey(name: 'solutionCode', fromJson: JsonCoerce.asString)
   final String? solutionCode;
-  @JsonKey(name: 'actualFreight')
+  @JsonKey(name: 'actualFreight', fromJson: JsonCoerce.asString)
   final String? actualFreight;
-  @JsonKey(name: 'actualFreightCurrency')
+  @JsonKey(name: 'actualFreightCurrency', fromJson: JsonCoerce.asString)
   final String? actualFreightCurrency;
-  @JsonKey(name: 'targetFreightCouponDiscountAmount')
+  @JsonKey(
+    name: 'targetFreightCouponDiscountAmount',
+    fromJson: JsonCoerce.asString,
+  )
   final String? targetFreightCouponDiscountAmount;
-  @JsonKey(name: 'targetFreightCouponDiscountCurrency')
+  @JsonKey(
+    name: 'targetFreightCouponDiscountCurrency',
+    fromJson: JsonCoerce.asString,
+  )
   final String? targetFreightCouponDiscountCurrency;
-  @JsonKey(name: 'targetFreight')
+  @JsonKey(name: 'targetFreight', fromJson: JsonCoerce.asString)
   final String? targetFreight;
   @JsonKey(name: 'targetFreightCurrency')
   final OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$ParcelOrder$TargetFreightCurrency?
@@ -34134,18 +34261,18 @@ class OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$Ord
         this,
       );
 
-  @JsonKey(name: 'tradeOrderId')
+  @JsonKey(name: 'tradeOrderId', fromJson: JsonCoerce.asString)
   final String? tradeOrderId;
-  @JsonKey(name: 'logisticsOrderId')
+  @JsonKey(name: 'logisticsOrderId', fromJson: JsonCoerce.asString)
   final String? logisticsOrderId;
-  @JsonKey(name: 'logisticsStatus')
+  @JsonKey(name: 'logisticsStatus', fromJson: JsonCoerce.asString)
   final String? logisticsStatus;
   @JsonKey(name: 'traceList')
   final List<
     OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$OrderTrace$TraceList$Item
   >?
   traceList;
-  @JsonKey(name: 'parcelOrderId')
+  @JsonKey(name: 'parcelOrderId', fromJson: JsonCoerce.asString)
   final String? parcelOrderId;
   static const fromJsonFactory =
       _$OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$OrderTraceFromJson;
@@ -34273,15 +34400,15 @@ class OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$Dis
         this,
       );
 
-  @JsonKey(name: 'discountType')
+  @JsonKey(name: 'discountType', fromJson: JsonCoerce.asDouble)
   final double? discountType;
-  @JsonKey(name: 'userCouponCode')
+  @JsonKey(name: 'userCouponCode', fromJson: JsonCoerce.asString)
   final String? userCouponCode;
-  @JsonKey(name: 'discountAmount')
+  @JsonKey(name: 'discountAmount', fromJson: JsonCoerce.asString)
   final String? discountAmount;
-  @JsonKey(name: 'targetDiscountAmount')
+  @JsonKey(name: 'targetDiscountAmount', fromJson: JsonCoerce.asString)
   final String? targetDiscountAmount;
-  @JsonKey(name: 'couponCode')
+  @JsonKey(name: 'couponCode', fromJson: JsonCoerce.asString)
   final String? couponCode;
   static const fromJsonFactory =
       _$OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$DiscountInfos$ItemFromJson;
@@ -34518,9 +34645,9 @@ class OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrder$FreightCurrenc
         this,
       );
 
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
-  @JsonKey(name: 'symbol')
+  @JsonKey(name: 'symbol', fromJson: JsonCoerce.asString)
   final String? symbol;
   static const fromJsonFactory =
       _$OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrder$FreightCurrencyFromJson;
@@ -34589,15 +34716,15 @@ class OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrder$ParcelProductD
         this,
       );
 
-  @JsonKey(name: 'skuCode')
+  @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
   final String? skuCode;
-  @JsonKey(name: 'productCode')
+  @JsonKey(name: 'productCode', fromJson: JsonCoerce.asString)
   final String? productCode;
-  @JsonKey(name: 'productName')
+  @JsonKey(name: 'productName', fromJson: JsonCoerce.asString)
   final String? productName;
-  @JsonKey(name: 'quantity')
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asDouble)
   final double? quantity;
-  @JsonKey(name: 'imageUrl')
+  @JsonKey(name: 'imageUrl', fromJson: JsonCoerce.asString)
   final String? imageUrl;
   static const fromJsonFactory =
       _$OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrder$ParcelProductDTOList$ItemFromJson;
@@ -34710,17 +34837,17 @@ class OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrder$FreightCompens
         this,
       );
 
-  @JsonKey(name: 'compensateBillId')
+  @JsonKey(name: 'compensateBillId', fromJson: JsonCoerce.asString)
   final String? compensateBillId;
-  @JsonKey(name: 'compensatePrice')
+  @JsonKey(name: 'compensatePrice', fromJson: JsonCoerce.asString)
   final String? compensatePrice;
-  @JsonKey(name: 'compensatePriceCurrency')
+  @JsonKey(name: 'compensatePriceCurrency', fromJson: JsonCoerce.asString)
   final String? compensatePriceCurrency;
-  @JsonKey(name: 'compensateReason')
+  @JsonKey(name: 'compensateReason', fromJson: JsonCoerce.asString)
   final String? compensateReason;
-  @JsonKey(name: 'targetCompensatePrice')
+  @JsonKey(name: 'targetCompensatePrice', fromJson: JsonCoerce.asString)
   final String? targetCompensatePrice;
-  @JsonKey(name: 'targetCompensatePriceCurrency')
+  @JsonKey(name: 'targetCompensatePriceCurrency', fromJson: JsonCoerce.asString)
   final String? targetCompensatePriceCurrency;
   static const fromJsonFactory =
       _$OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrder$FreightCompensateFromJson;
@@ -34859,9 +34986,9 @@ class OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrder$TargetFreightC
         this,
       );
 
-  @JsonKey(name: 'symbol')
+  @JsonKey(name: 'symbol', fromJson: JsonCoerce.asString)
   final String? symbol;
-  @JsonKey(name: 'currency')
+  @JsonKey(name: 'currency', fromJson: JsonCoerce.asString)
   final String? currency;
   static const fromJsonFactory =
       _$OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrder$TargetFreightCurrencyFromJson;
@@ -34939,25 +35066,25 @@ class OrderServiceOrderCombineDetailGet$Response$Data$OrderTrace$TraceList$Item 
         this,
       );
 
-  @JsonKey(name: 'id')
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asDouble)
   final double? id;
-  @JsonKey(name: 'frontCode')
+  @JsonKey(name: 'frontCode', fromJson: JsonCoerce.asString)
   final String? frontCode;
-  @JsonKey(name: 'icon')
+  @JsonKey(name: 'icon', fromJson: JsonCoerce.asString)
   final String? icon;
-  @JsonKey(name: 'traceMessage')
+  @JsonKey(name: 'traceMessage', fromJson: JsonCoerce.asString)
   final String? traceMessage;
-  @JsonKey(name: 'time')
+  @JsonKey(name: 'time', fromJson: JsonCoerce.asDouble)
   final double? time;
-  @JsonKey(name: 'lastMileMailNo')
+  @JsonKey(name: 'lastMileMailNo', fromJson: JsonCoerce.asString)
   final String? lastMileMailNo;
-  @JsonKey(name: 'lastMileMailNoLink')
+  @JsonKey(name: 'lastMileMailNoLink', fromJson: JsonCoerce.asString)
   final String? lastMileMailNoLink;
-  @JsonKey(name: 'lastMileMailNoTitle')
+  @JsonKey(name: 'lastMileMailNoTitle', fromJson: JsonCoerce.asString)
   final String? lastMileMailNoTitle;
-  @JsonKey(name: 'traceStatus')
+  @JsonKey(name: 'traceStatus', fromJson: JsonCoerce.asString)
   final String? traceStatus;
-  @JsonKey(name: 'logisticsOrderId')
+  @JsonKey(name: 'logisticsOrderId', fromJson: JsonCoerce.asString)
   final String? logisticsOrderId;
   static const fromJsonFactory =
       _$OrderServiceOrderCombineDetailGet$Response$Data$OrderTrace$TraceList$ItemFromJson;
@@ -35120,15 +35247,15 @@ class OrderServiceOrderCombineDetailGet$Response$Data$OrderTrace$GroupTraceList$
         this,
       );
 
-  @JsonKey(name: 'parcelOrderId')
+  @JsonKey(name: 'parcelOrderId', fromJson: JsonCoerce.asString)
   final String? parcelOrderId;
-  @JsonKey(name: 'parcelOrderStatus')
+  @JsonKey(name: 'parcelOrderStatus', fromJson: JsonCoerce.asString)
   final String? parcelOrderStatus;
-  @JsonKey(name: 'lastMileMailNo')
+  @JsonKey(name: 'lastMileMailNo', fromJson: JsonCoerce.asString)
   final String? lastMileMailNo;
-  @JsonKey(name: 'lastMileCompanyName')
+  @JsonKey(name: 'lastMileCompanyName', fromJson: JsonCoerce.asString)
   final String? lastMileCompanyName;
-  @JsonKey(name: 'lastMileMailNoLink')
+  @JsonKey(name: 'lastMileMailNoLink', fromJson: JsonCoerce.asString)
   final String? lastMileMailNoLink;
   @JsonKey(name: 'traceList')
   final List<
@@ -35297,70 +35424,70 @@ class OrderServiceCartListGet$Response$Data$List$Item$Records$Item {
         this,
       );
 
-  @JsonKey(name: 'skuCode')
+  @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
   final String? skuCode;
-  @JsonKey(name: 'skuImage')
+  @JsonKey(name: 'skuImage', fromJson: JsonCoerce.asString)
   final String? skuImage;
-  @JsonKey(name: 'offerPrice')
+  @JsonKey(name: 'offerPrice', fromJson: JsonCoerce.asString)
   final String? offerPrice;
-  @JsonKey(name: 'shopName')
+  @JsonKey(name: 'shopName', fromJson: JsonCoerce.asString)
   final String? shopName;
-  @JsonKey(name: 'shopImage')
+  @JsonKey(name: 'shopImage', fromJson: JsonCoerce.asString)
   final String? shopImage;
-  @JsonKey(name: 'shopId')
+  @JsonKey(name: 'shopId', fromJson: JsonCoerce.asString)
   final String? shopId;
-  @JsonKey(name: 'quantity')
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asDouble)
   final double? quantity;
-  @JsonKey(name: 'targetOriginPrice')
+  @JsonKey(name: 'targetOriginPrice', fromJson: JsonCoerce.asString)
   final String? targetOriginPrice;
-  @JsonKey(name: 'targetOriginTotalPrice')
+  @JsonKey(name: 'targetOriginTotalPrice', fromJson: JsonCoerce.asString)
   final String? targetOriginTotalPrice;
-  @JsonKey(name: 'totalPrice')
+  @JsonKey(name: 'totalPrice', fromJson: JsonCoerce.asString)
   final String? totalPrice;
-  @JsonKey(name: 'targetTotalPrice')
+  @JsonKey(name: 'targetTotalPrice', fromJson: JsonCoerce.asString)
   final String? targetTotalPrice;
-  @JsonKey(name: 'productName')
+  @JsonKey(name: 'productName', fromJson: JsonCoerce.asString)
   final String? productName;
-  @JsonKey(name: 'productCode')
+  @JsonKey(name: 'productCode', fromJson: JsonCoerce.asString)
   final String? productCode;
-  @JsonKey(name: 'remarkList')
+  @JsonKey(name: 'remarkList', fromJson: JsonCoerce.asString)
   final String? remarkList;
-  @JsonKey(name: 'status')
+  @JsonKey(name: 'status', fromJson: JsonCoerce.asDouble)
   final double? status;
-  @JsonKey(name: 'sellPrice')
+  @JsonKey(name: 'sellPrice', fromJson: JsonCoerce.asString)
   final String? sellPrice;
-  @JsonKey(name: 'sellCur')
+  @JsonKey(name: 'sellCur', fromJson: JsonCoerce.asString)
   final String? sellCur;
-  @JsonKey(name: 'targetSellPrice')
+  @JsonKey(name: 'targetSellPrice', fromJson: JsonCoerce.asString)
   final String? targetSellPrice;
-  @JsonKey(name: 'targetSellCur')
+  @JsonKey(name: 'targetSellCur', fromJson: JsonCoerce.asString)
   final String? targetSellCur;
   @JsonKey(name: 'skuOptions')
   final List<
     OrderServiceCartListGet$Response$Data$List$Item$Records$Item$SkuOptions$Item
   >?
   skuOptions;
-  @JsonKey(name: 'discountAmount')
+  @JsonKey(name: 'discountAmount', fromJson: JsonCoerce.asDouble)
   final double? discountAmount;
-  @JsonKey(name: 'discountRemark')
+  @JsonKey(name: 'discountRemark', fromJson: JsonCoerce.asString)
   final String? discountRemark;
-  @JsonKey(name: 'skuSourceCode')
+  @JsonKey(name: 'skuSourceCode', fromJson: JsonCoerce.asString)
   final String? skuSourceCode;
-  @JsonKey(name: 'skuSourceTitle')
+  @JsonKey(name: 'skuSourceTitle', fromJson: JsonCoerce.asString)
   final String? skuSourceTitle;
-  @JsonKey(name: 'weight')
+  @JsonKey(name: 'weight', fromJson: JsonCoerce.asString)
   final String? weight;
-  @JsonKey(name: 'weightUnit')
+  @JsonKey(name: 'weightUnit', fromJson: JsonCoerce.asString)
   final String? weightUnit;
-  @JsonKey(name: 'canDeliver')
+  @JsonKey(name: 'canDeliver', fromJson: JsonCoerce.asDouble)
   final double? canDeliver;
-  @JsonKey(name: 'inviteCode')
+  @JsonKey(name: 'inviteCode', fromJson: JsonCoerce.asString)
   final String? inviteCode;
   @JsonKey(name: 'qualityImages', defaultValue: <Object>[])
   final List<Object>? qualityImages;
-  @JsonKey(name: 'remark')
+  @JsonKey(name: 'remark', fromJson: JsonCoerce.asString)
   final String? remark;
-  @JsonKey(name: 'sourceDetail')
+  @JsonKey(name: 'sourceDetail', fromJson: JsonCoerce.asString)
   final String? sourceDetail;
   static const fromJsonFactory =
       _$OrderServiceCartListGet$Response$Data$List$Item$Records$ItemFromJson;
@@ -35745,9 +35872,9 @@ class OrderServiceOrderAppListGet$Response$Data$Records$Item$OrderSkuList$Item$S
         this,
       );
 
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
-  @JsonKey(name: 'value')
+  @JsonKey(name: 'value', fromJson: JsonCoerce.asString)
   final String? value;
   static const fromJsonFactory =
       _$OrderServiceOrderAppListGet$Response$Data$Records$Item$OrderSkuList$Item$SkuSpecValues$ItemFromJson;
@@ -35815,11 +35942,11 @@ class OrderServiceOrderAppListGet$Response$Data$Records$Item$SupplyOrderList$Ite
         this,
       );
 
-  @JsonKey(name: 'barCodeImg')
+  @JsonKey(name: 'barCodeImg', fromJson: JsonCoerce.asString)
   final String? barCodeImg;
-  @JsonKey(name: 'codeInfo')
+  @JsonKey(name: 'codeInfo', fromJson: JsonCoerce.asString)
   final String? codeInfo;
-  @JsonKey(name: 'pin')
+  @JsonKey(name: 'pin', fromJson: JsonCoerce.asString)
   final String? pin;
   static const fromJsonFactory =
       _$OrderServiceOrderAppListGet$Response$Data$Records$Item$SupplyOrderList$Item$SecretKeyList$ItemFromJson;
@@ -35901,9 +36028,9 @@ class OrderServiceOrderAppListGet$Response$Data$Records$Item$ParcelOrder$Freight
         this,
       );
 
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
-  @JsonKey(name: 'symbol')
+  @JsonKey(name: 'symbol', fromJson: JsonCoerce.asString)
   final String? symbol;
   static const fromJsonFactory =
       _$OrderServiceOrderAppListGet$Response$Data$Records$Item$ParcelOrder$FreightCurrencyFromJson;
@@ -35970,9 +36097,9 @@ class OrderServiceOrderAppListGet$Response$Data$Records$Item$ParcelOrder$TargetF
         this,
       );
 
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
-  @JsonKey(name: 'symbol')
+  @JsonKey(name: 'symbol', fromJson: JsonCoerce.asString)
   final String? symbol;
   static const fromJsonFactory =
       _$OrderServiceOrderAppListGet$Response$Data$Records$Item$ParcelOrder$TargetFreightCurrencyFromJson;
@@ -36039,9 +36166,9 @@ class OrderServiceOrderAppListGet$Response$Data$Records$Item$ParcelOrder$Freight
         this,
       );
 
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
-  @JsonKey(name: 'symbol')
+  @JsonKey(name: 'symbol', fromJson: JsonCoerce.asString)
   final String? symbol;
   static const fromJsonFactory =
       _$OrderServiceOrderAppListGet$Response$Data$Records$Item$ParcelOrder$FreightCouponDiscountCurrencyFromJson;
@@ -36120,33 +36247,33 @@ class OrderServiceOrderAppListGet$Response$Data$Records$Item$ParcelOrder$Receive
         this,
       );
 
-  @JsonKey(name: 'country')
+  @JsonKey(name: 'country', fromJson: JsonCoerce.asString)
   final String? country;
-  @JsonKey(name: 'countryCode')
+  @JsonKey(name: 'countryCode', fromJson: JsonCoerce.asString)
   final String? countryCode;
-  @JsonKey(name: 'state')
+  @JsonKey(name: 'state', fromJson: JsonCoerce.asString)
   final String? state;
-  @JsonKey(name: 'stateCode')
+  @JsonKey(name: 'stateCode', fromJson: JsonCoerce.asString)
   final String? stateCode;
-  @JsonKey(name: 'city')
+  @JsonKey(name: 'city', fromJson: JsonCoerce.asString)
   final String? city;
-  @JsonKey(name: 'cityCode')
+  @JsonKey(name: 'cityCode', fromJson: JsonCoerce.asString)
   final String? cityCode;
-  @JsonKey(name: 'street')
+  @JsonKey(name: 'street', fromJson: JsonCoerce.asString)
   final String? street;
-  @JsonKey(name: 'apartment')
+  @JsonKey(name: 'apartment', fromJson: JsonCoerce.asString)
   final String? apartment;
-  @JsonKey(name: 'address')
+  @JsonKey(name: 'address', fromJson: JsonCoerce.asString)
   final String? address;
-  @JsonKey(name: 'firstName')
+  @JsonKey(name: 'firstName', fromJson: JsonCoerce.asString)
   final String? firstName;
-  @JsonKey(name: 'lastName')
+  @JsonKey(name: 'lastName', fromJson: JsonCoerce.asString)
   final String? lastName;
-  @JsonKey(name: 'phoneNumber')
+  @JsonKey(name: 'phoneNumber', fromJson: JsonCoerce.asString)
   final String? phoneNumber;
-  @JsonKey(name: 'zipCode')
+  @JsonKey(name: 'zipCode', fromJson: JsonCoerce.asString)
   final String? zipCode;
-  @JsonKey(name: 'id')
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asDouble)
   final double? id;
   static const fromJsonFactory =
       _$OrderServiceOrderAppListGet$Response$Data$Records$Item$ParcelOrder$ReceiverAddressFromJson;
@@ -36339,21 +36466,21 @@ class OrderServiceOrderAppListGet$Response$Data$Records$Item$ParcelOrder$ParcelP
         this,
       );
 
-  @JsonKey(name: 'skuCode')
+  @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
   final String? skuCode;
-  @JsonKey(name: 'productCode')
+  @JsonKey(name: 'productCode', fromJson: JsonCoerce.asString)
   final String? productCode;
-  @JsonKey(name: 'productName')
+  @JsonKey(name: 'productName', fromJson: JsonCoerce.asString)
   final String? productName;
-  @JsonKey(name: 'logisticsOrderId')
+  @JsonKey(name: 'logisticsOrderId', fromJson: JsonCoerce.asString)
   final String? logisticsOrderId;
-  @JsonKey(name: 'quantity')
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asDouble)
   final double? quantity;
-  @JsonKey(name: 'imageUrl')
+  @JsonKey(name: 'imageUrl', fromJson: JsonCoerce.asString)
   final String? imageUrl;
-  @JsonKey(name: 'declareName')
+  @JsonKey(name: 'declareName', fromJson: JsonCoerce.asString)
   final String? declareName;
-  @JsonKey(name: 'declareNameEn')
+  @JsonKey(name: 'declareNameEn', fromJson: JsonCoerce.asString)
   final String? declareNameEn;
   static const fromJsonFactory =
       _$OrderServiceOrderAppListGet$Response$Data$Records$Item$ParcelOrder$ParcelProductDTOList$ItemFromJson;
@@ -36498,13 +36625,13 @@ class OrderServiceOrderAppDetailGet$Response$Data$Payments$PaymentSubjoins$Item$
         this,
       );
 
-  @JsonKey(name: 'desc')
+  @JsonKey(name: 'desc', fromJson: JsonCoerce.asString)
   final String? desc;
-  @JsonKey(name: 'fontSize')
+  @JsonKey(name: 'fontSize', fromJson: JsonCoerce.asString)
   final String? fontSize;
-  @JsonKey(name: 'fontColor')
+  @JsonKey(name: 'fontColor', fromJson: JsonCoerce.asString)
   final String? fontColor;
-  @JsonKey(name: 'position')
+  @JsonKey(name: 'position', fromJson: JsonCoerce.asInt)
   final int? position;
   static const fromJsonFactory =
       _$OrderServiceOrderAppDetailGet$Response$Data$Payments$PaymentSubjoins$Item$DescriptionFromJson;
@@ -36595,9 +36722,9 @@ class OrderServiceOrderAppDetailGet$Response$Data$OrderList$Item$SkuList$Item$Sk
         this,
       );
 
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
-  @JsonKey(name: 'value')
+  @JsonKey(name: 'value', fromJson: JsonCoerce.asString)
   final String? value;
   static const fromJsonFactory =
       _$OrderServiceOrderAppDetailGet$Response$Data$OrderList$Item$SkuList$Item$SkuSpecValues$ItemFromJson;
@@ -36672,25 +36799,25 @@ class OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$Recom
         this,
       );
 
-  @JsonKey(name: 'solutionName')
+  @JsonKey(name: 'solutionName', fromJson: JsonCoerce.asString)
   final String? solutionName;
-  @JsonKey(name: 'solutionCode')
+  @JsonKey(name: 'solutionCode', fromJson: JsonCoerce.asString)
   final String? solutionCode;
-  @JsonKey(name: 'freight')
+  @JsonKey(name: 'freight', fromJson: JsonCoerce.asString)
   final String? freight;
   @JsonKey(name: 'freightCurrency')
   final OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$RecommendSolution$FreightCurrency?
   freightCurrency;
-  @JsonKey(name: 'freightFreeThreshold')
+  @JsonKey(name: 'freightFreeThreshold', fromJson: JsonCoerce.asString)
   final String? freightFreeThreshold;
   @JsonKey(name: 'freightFreeThresholdCurrency')
   final OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$RecommendSolution$FreightFreeThresholdCurrency?
   freightFreeThresholdCurrency;
-  @JsonKey(name: 'gmtExpectArriveStart')
+  @JsonKey(name: 'gmtExpectArriveStart', fromJson: JsonCoerce.asDouble)
   final double? gmtExpectArriveStart;
-  @JsonKey(name: 'gmtExpectArriveEnd')
+  @JsonKey(name: 'gmtExpectArriveEnd', fromJson: JsonCoerce.asDouble)
   final double? gmtExpectArriveEnd;
-  @JsonKey(name: 'lateCompensation')
+  @JsonKey(name: 'lateCompensation', fromJson: JsonCoerce.asString)
   final String? lateCompensation;
   @JsonKey(name: 'lateCompensationCurrency')
   final OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$RecommendSolution$LateCompensationCurrency?
@@ -36890,7 +37017,7 @@ class OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastM
         this,
       );
 
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
   @JsonKey(name: 'solutionList')
   final List<
@@ -36992,32 +37119,32 @@ class OrderServiceOrderConfirmPost$Response$Data$Pricing$Giveaway$Item$Records$I
         this,
       );
 
-  @JsonKey(name: 'skuCode')
+  @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
   final String? skuCode;
-  @JsonKey(name: 'skuImage')
+  @JsonKey(name: 'skuImage', fromJson: JsonCoerce.asString)
   final String? skuImage;
-  @JsonKey(name: 'sellPrice')
+  @JsonKey(name: 'sellPrice', fromJson: JsonCoerce.asString)
   final String? sellPrice;
-  @JsonKey(name: 'quantity')
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asString)
   final String? quantity;
-  @JsonKey(name: 'productName')
+  @JsonKey(name: 'productName', fromJson: JsonCoerce.asString)
   final String? productName;
   @JsonKey(name: 'currency')
   final OrderServiceOrderConfirmPost$Response$Data$Pricing$Giveaway$Item$Records$Item$Currency?
   currency;
   @JsonKey(name: 'skuSpecValues', defaultValue: <Object>[])
   final List<Object>? skuSpecValues;
-  @JsonKey(name: 'shopName')
+  @JsonKey(name: 'shopName', fromJson: JsonCoerce.asString)
   final String? shopName;
-  @JsonKey(name: 'shopImage')
+  @JsonKey(name: 'shopImage', fromJson: JsonCoerce.asString)
   final String? shopImage;
-  @JsonKey(name: 'lowStocks')
+  @JsonKey(name: 'lowStocks', fromJson: JsonCoerce.asString)
   final String? lowStocks;
-  @JsonKey(name: 'giftCode')
+  @JsonKey(name: 'giftCode', fromJson: JsonCoerce.asString)
   final String? giftCode;
-  @JsonKey(name: 'weight')
+  @JsonKey(name: 'weight', fromJson: JsonCoerce.asString)
   final String? weight;
-  @JsonKey(name: 'weightUnit')
+  @JsonKey(name: 'weightUnit', fromJson: JsonCoerce.asString)
   final String? weightUnit;
   static const fromJsonFactory =
       _$OrderServiceOrderConfirmPost$Response$Data$Pricing$Giveaway$Item$Records$ItemFromJson;
@@ -37208,7 +37335,7 @@ class OrderServiceOrderConfirmPost$Response$Data$Pricing$VoucherMsg$VoucherInfos
         this,
       );
 
-  @JsonKey(name: 'title')
+  @JsonKey(name: 'title', fromJson: JsonCoerce.asString)
   final String? title;
   @JsonKey(name: 'list')
   final List<
@@ -37306,33 +37433,33 @@ class OrderServiceOrderNoAuthDetailGet$Response$Data$OrderTrace$GroupTraceList$I
         this,
       );
 
-  @JsonKey(name: 'id')
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asInt)
   final int? id;
-  @JsonKey(name: 'subParcelOrderId')
+  @JsonKey(name: 'subParcelOrderId', fromJson: JsonCoerce.asString)
   final String? subParcelOrderId;
-  @JsonKey(name: 'frontCode')
+  @JsonKey(name: 'frontCode', fromJson: JsonCoerce.asString)
   final String? frontCode;
-  @JsonKey(name: 'frontTitleCode')
+  @JsonKey(name: 'frontTitleCode', fromJson: JsonCoerce.asString)
   final String? frontTitleCode;
-  @JsonKey(name: 'frontTitle')
+  @JsonKey(name: 'frontTitle', fromJson: JsonCoerce.asString)
   final String? frontTitle;
-  @JsonKey(name: 'icon')
+  @JsonKey(name: 'icon', fromJson: JsonCoerce.asString)
   final String? icon;
-  @JsonKey(name: 'traceMessage')
+  @JsonKey(name: 'traceMessage', fromJson: JsonCoerce.asString)
   final String? traceMessage;
-  @JsonKey(name: 'time')
+  @JsonKey(name: 'time', fromJson: JsonCoerce.asInt)
   final int? time;
-  @JsonKey(name: 'lastMileMailNo')
+  @JsonKey(name: 'lastMileMailNo', fromJson: JsonCoerce.asString)
   final String? lastMileMailNo;
-  @JsonKey(name: 'lastMileCompanyName')
+  @JsonKey(name: 'lastMileCompanyName', fromJson: JsonCoerce.asString)
   final String? lastMileCompanyName;
-  @JsonKey(name: 'lastMileMailNoLink')
+  @JsonKey(name: 'lastMileMailNoLink', fromJson: JsonCoerce.asString)
   final String? lastMileMailNoLink;
-  @JsonKey(name: 'lastMileMailNoTitle')
+  @JsonKey(name: 'lastMileMailNoTitle', fromJson: JsonCoerce.asString)
   final String? lastMileMailNoTitle;
-  @JsonKey(name: 'traceStatus')
+  @JsonKey(name: 'traceStatus', fromJson: JsonCoerce.asString)
   final String? traceStatus;
-  @JsonKey(name: 'traceTime')
+  @JsonKey(name: 'traceTime', fromJson: JsonCoerce.asDateTime)
   final DateTime? traceTime;
   static const fromJsonFactory =
       _$OrderServiceOrderNoAuthDetailGet$Response$Data$OrderTrace$GroupTraceList$Item$TraceList$ItemFromJson;
@@ -37536,9 +37663,9 @@ class OrderServiceOrderNoAuthDetailGet$Response$Data$OrderList$Item$SkuList$Item
         this,
       );
 
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
-  @JsonKey(name: 'value')
+  @JsonKey(name: 'value', fromJson: JsonCoerce.asString)
   final String? value;
   static const fromJsonFactory =
       _$OrderServiceOrderNoAuthDetailGet$Response$Data$OrderList$Item$SkuList$Item$SkuSpecValues$ItemFromJson;
@@ -37605,9 +37732,9 @@ class OrderServiceOrderListGet$Response$Data$Records$Item$OrderSkuList$Item$SkuS
         this,
       );
 
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
-  @JsonKey(name: 'value')
+  @JsonKey(name: 'value', fromJson: JsonCoerce.asString)
   final String? value;
   static const fromJsonFactory =
       _$OrderServiceOrderListGet$Response$Data$Records$Item$OrderSkuList$Item$SkuSpecValues$ItemFromJson;
@@ -37675,11 +37802,11 @@ class OrderServiceOrderListGet$Response$Data$Records$Item$SupplyOrderList$Item$S
         this,
       );
 
-  @JsonKey(name: 'barCodeImg')
+  @JsonKey(name: 'barCodeImg', fromJson: JsonCoerce.asString)
   final String? barCodeImg;
-  @JsonKey(name: 'codeInfo')
+  @JsonKey(name: 'codeInfo', fromJson: JsonCoerce.asString)
   final String? codeInfo;
-  @JsonKey(name: 'pin')
+  @JsonKey(name: 'pin', fromJson: JsonCoerce.asString)
   final String? pin;
   static const fromJsonFactory =
       _$OrderServiceOrderListGet$Response$Data$Records$Item$SupplyOrderList$Item$SecretKeyList$ItemFromJson;
@@ -37761,9 +37888,9 @@ class OrderServiceOrderListGet$Response$Data$Records$Item$ParcelOrder$FreightCur
         this,
       );
 
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
-  @JsonKey(name: 'symbol')
+  @JsonKey(name: 'symbol', fromJson: JsonCoerce.asString)
   final String? symbol;
   static const fromJsonFactory =
       _$OrderServiceOrderListGet$Response$Data$Records$Item$ParcelOrder$FreightCurrencyFromJson;
@@ -37830,9 +37957,9 @@ class OrderServiceOrderListGet$Response$Data$Records$Item$ParcelOrder$TargetFrei
         this,
       );
 
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
-  @JsonKey(name: 'symbol')
+  @JsonKey(name: 'symbol', fromJson: JsonCoerce.asString)
   final String? symbol;
   static const fromJsonFactory =
       _$OrderServiceOrderListGet$Response$Data$Records$Item$ParcelOrder$TargetFreightCurrencyFromJson;
@@ -37899,9 +38026,9 @@ class OrderServiceOrderListGet$Response$Data$Records$Item$ParcelOrder$FreightCou
         this,
       );
 
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
-  @JsonKey(name: 'symbol')
+  @JsonKey(name: 'symbol', fromJson: JsonCoerce.asString)
   final String? symbol;
   static const fromJsonFactory =
       _$OrderServiceOrderListGet$Response$Data$Records$Item$ParcelOrder$FreightCouponDiscountCurrencyFromJson;
@@ -37980,33 +38107,33 @@ class OrderServiceOrderListGet$Response$Data$Records$Item$ParcelOrder$ReceiverAd
         this,
       );
 
-  @JsonKey(name: 'country')
+  @JsonKey(name: 'country', fromJson: JsonCoerce.asString)
   final String? country;
-  @JsonKey(name: 'countryCode')
+  @JsonKey(name: 'countryCode', fromJson: JsonCoerce.asString)
   final String? countryCode;
-  @JsonKey(name: 'state')
+  @JsonKey(name: 'state', fromJson: JsonCoerce.asString)
   final String? state;
-  @JsonKey(name: 'stateCode')
+  @JsonKey(name: 'stateCode', fromJson: JsonCoerce.asString)
   final String? stateCode;
-  @JsonKey(name: 'city')
+  @JsonKey(name: 'city', fromJson: JsonCoerce.asString)
   final String? city;
-  @JsonKey(name: 'cityCode')
+  @JsonKey(name: 'cityCode', fromJson: JsonCoerce.asString)
   final String? cityCode;
-  @JsonKey(name: 'street')
+  @JsonKey(name: 'street', fromJson: JsonCoerce.asString)
   final String? street;
-  @JsonKey(name: 'apartment')
+  @JsonKey(name: 'apartment', fromJson: JsonCoerce.asString)
   final String? apartment;
-  @JsonKey(name: 'address')
+  @JsonKey(name: 'address', fromJson: JsonCoerce.asString)
   final String? address;
-  @JsonKey(name: 'firstName')
+  @JsonKey(name: 'firstName', fromJson: JsonCoerce.asString)
   final String? firstName;
-  @JsonKey(name: 'lastName')
+  @JsonKey(name: 'lastName', fromJson: JsonCoerce.asString)
   final String? lastName;
-  @JsonKey(name: 'phoneNumber')
+  @JsonKey(name: 'phoneNumber', fromJson: JsonCoerce.asString)
   final String? phoneNumber;
-  @JsonKey(name: 'zipCode')
+  @JsonKey(name: 'zipCode', fromJson: JsonCoerce.asString)
   final String? zipCode;
-  @JsonKey(name: 'id')
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asDouble)
   final double? id;
   static const fromJsonFactory =
       _$OrderServiceOrderListGet$Response$Data$Records$Item$ParcelOrder$ReceiverAddressFromJson;
@@ -38199,21 +38326,21 @@ class OrderServiceOrderListGet$Response$Data$Records$Item$ParcelOrder$ParcelProd
         this,
       );
 
-  @JsonKey(name: 'skuCode')
+  @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
   final String? skuCode;
-  @JsonKey(name: 'productCode')
+  @JsonKey(name: 'productCode', fromJson: JsonCoerce.asString)
   final String? productCode;
-  @JsonKey(name: 'productName')
+  @JsonKey(name: 'productName', fromJson: JsonCoerce.asString)
   final String? productName;
-  @JsonKey(name: 'logisticsOrderId')
+  @JsonKey(name: 'logisticsOrderId', fromJson: JsonCoerce.asString)
   final String? logisticsOrderId;
-  @JsonKey(name: 'quantity')
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asDouble)
   final double? quantity;
-  @JsonKey(name: 'imageUrl')
+  @JsonKey(name: 'imageUrl', fromJson: JsonCoerce.asString)
   final String? imageUrl;
-  @JsonKey(name: 'declareName')
+  @JsonKey(name: 'declareName', fromJson: JsonCoerce.asString)
   final String? declareName;
-  @JsonKey(name: 'declareNameEn')
+  @JsonKey(name: 'declareNameEn', fromJson: JsonCoerce.asString)
   final String? declareNameEn;
   static const fromJsonFactory =
       _$OrderServiceOrderListGet$Response$Data$Records$Item$ParcelOrder$ParcelProductDTOList$ItemFromJson;
@@ -38356,9 +38483,9 @@ class OrderServiceOrderCombineListGet$Response$Data$Records$Item$ParcelOrder$Fre
         this,
       );
 
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
-  @JsonKey(name: 'symbol')
+  @JsonKey(name: 'symbol', fromJson: JsonCoerce.asString)
   final String? symbol;
   static const fromJsonFactory =
       _$OrderServiceOrderCombineListGet$Response$Data$Records$Item$ParcelOrder$FreightCurrencyFromJson;
@@ -38425,9 +38552,9 @@ class OrderServiceOrderCombineListGet$Response$Data$Records$Item$ParcelOrder$Tar
         this,
       );
 
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
-  @JsonKey(name: 'symbol')
+  @JsonKey(name: 'symbol', fromJson: JsonCoerce.asString)
   final String? symbol;
   static const fromJsonFactory =
       _$OrderServiceOrderCombineListGet$Response$Data$Records$Item$ParcelOrder$TargetFreightCurrencyFromJson;
@@ -38494,9 +38621,9 @@ class OrderServiceOrderCombineListGet$Response$Data$Records$Item$ParcelOrder$Fre
         this,
       );
 
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
-  @JsonKey(name: 'symbol')
+  @JsonKey(name: 'symbol', fromJson: JsonCoerce.asString)
   final String? symbol;
   static const fromJsonFactory =
       _$OrderServiceOrderCombineListGet$Response$Data$Records$Item$ParcelOrder$FreightCouponDiscountCurrencyFromJson;
@@ -38575,33 +38702,33 @@ class OrderServiceOrderCombineListGet$Response$Data$Records$Item$ParcelOrder$Rec
         this,
       );
 
-  @JsonKey(name: 'country')
+  @JsonKey(name: 'country', fromJson: JsonCoerce.asString)
   final String? country;
-  @JsonKey(name: 'countryCode')
+  @JsonKey(name: 'countryCode', fromJson: JsonCoerce.asString)
   final String? countryCode;
-  @JsonKey(name: 'state')
+  @JsonKey(name: 'state', fromJson: JsonCoerce.asString)
   final String? state;
-  @JsonKey(name: 'stateCode')
+  @JsonKey(name: 'stateCode', fromJson: JsonCoerce.asString)
   final String? stateCode;
-  @JsonKey(name: 'city')
+  @JsonKey(name: 'city', fromJson: JsonCoerce.asString)
   final String? city;
-  @JsonKey(name: 'cityCode')
+  @JsonKey(name: 'cityCode', fromJson: JsonCoerce.asString)
   final String? cityCode;
-  @JsonKey(name: 'street')
+  @JsonKey(name: 'street', fromJson: JsonCoerce.asString)
   final String? street;
-  @JsonKey(name: 'apartment')
+  @JsonKey(name: 'apartment', fromJson: JsonCoerce.asString)
   final String? apartment;
-  @JsonKey(name: 'address')
+  @JsonKey(name: 'address', fromJson: JsonCoerce.asString)
   final String? address;
-  @JsonKey(name: 'firstName')
+  @JsonKey(name: 'firstName', fromJson: JsonCoerce.asString)
   final String? firstName;
-  @JsonKey(name: 'lastName')
+  @JsonKey(name: 'lastName', fromJson: JsonCoerce.asString)
   final String? lastName;
-  @JsonKey(name: 'phoneNumber')
+  @JsonKey(name: 'phoneNumber', fromJson: JsonCoerce.asString)
   final String? phoneNumber;
-  @JsonKey(name: 'zipCode')
+  @JsonKey(name: 'zipCode', fromJson: JsonCoerce.asString)
   final String? zipCode;
-  @JsonKey(name: 'id')
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asDouble)
   final double? id;
   static const fromJsonFactory =
       _$OrderServiceOrderCombineListGet$Response$Data$Records$Item$ParcelOrder$ReceiverAddressFromJson;
@@ -38794,21 +38921,21 @@ class OrderServiceOrderCombineListGet$Response$Data$Records$Item$ParcelOrder$Par
         this,
       );
 
-  @JsonKey(name: 'skuCode')
+  @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
   final String? skuCode;
-  @JsonKey(name: 'productCode')
+  @JsonKey(name: 'productCode', fromJson: JsonCoerce.asString)
   final String? productCode;
-  @JsonKey(name: 'productName')
+  @JsonKey(name: 'productName', fromJson: JsonCoerce.asString)
   final String? productName;
-  @JsonKey(name: 'logisticsOrderId')
+  @JsonKey(name: 'logisticsOrderId', fromJson: JsonCoerce.asString)
   final String? logisticsOrderId;
-  @JsonKey(name: 'quantity')
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asDouble)
   final double? quantity;
-  @JsonKey(name: 'imageUrl')
+  @JsonKey(name: 'imageUrl', fromJson: JsonCoerce.asString)
   final String? imageUrl;
-  @JsonKey(name: 'declareName')
+  @JsonKey(name: 'declareName', fromJson: JsonCoerce.asString)
   final String? declareName;
-  @JsonKey(name: 'declareNameEn')
+  @JsonKey(name: 'declareNameEn', fromJson: JsonCoerce.asString)
   final String? declareNameEn;
   static const fromJsonFactory =
       _$OrderServiceOrderCombineListGet$Response$Data$Records$Item$ParcelOrder$ParcelProductDTOList$ItemFromJson;
@@ -38968,46 +39095,46 @@ class OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$
         this,
       );
 
-  @JsonKey(name: 'productName')
+  @JsonKey(name: 'productName', fromJson: JsonCoerce.asString)
   final String? productName;
-  @JsonKey(name: 'skuCode')
+  @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
   final String? skuCode;
-  @JsonKey(name: 'productCode')
+  @JsonKey(name: 'productCode', fromJson: JsonCoerce.asString)
   final String? productCode;
-  @JsonKey(name: 'image')
+  @JsonKey(name: 'image', fromJson: JsonCoerce.asString)
   final String? image;
-  @JsonKey(name: 'targetOriginTotalPrice')
+  @JsonKey(name: 'targetOriginTotalPrice', fromJson: JsonCoerce.asString)
   final String? targetOriginTotalPrice;
-  @JsonKey(name: 'targetOriginPrice')
+  @JsonKey(name: 'targetOriginPrice', fromJson: JsonCoerce.asString)
   final String? targetOriginPrice;
-  @JsonKey(name: 'sellPrice')
+  @JsonKey(name: 'sellPrice', fromJson: JsonCoerce.asString)
   final String? sellPrice;
-  @JsonKey(name: 'sellCur')
+  @JsonKey(name: 'sellCur', fromJson: JsonCoerce.asString)
   final String? sellCur;
-  @JsonKey(name: 'totalPrice')
+  @JsonKey(name: 'totalPrice', fromJson: JsonCoerce.asString)
   final String? totalPrice;
-  @JsonKey(name: 'targetSellPrice')
+  @JsonKey(name: 'targetSellPrice', fromJson: JsonCoerce.asString)
   final String? targetSellPrice;
-  @JsonKey(name: 'targetSellCur')
+  @JsonKey(name: 'targetSellCur', fromJson: JsonCoerce.asString)
   final String? targetSellCur;
-  @JsonKey(name: 'targetTotalPrice')
+  @JsonKey(name: 'targetTotalPrice', fromJson: JsonCoerce.asString)
   final String? targetTotalPrice;
-  @JsonKey(name: 'targetSkuDiscountPrice')
+  @JsonKey(name: 'targetSkuDiscountPrice', fromJson: JsonCoerce.asString)
   final String? targetSkuDiscountPrice;
-  @JsonKey(name: 'targetSkuFinalPrice')
+  @JsonKey(name: 'targetSkuFinalPrice', fromJson: JsonCoerce.asString)
   final String? targetSkuFinalPrice;
-  @JsonKey(name: 'targetTotalFinalPrice')
+  @JsonKey(name: 'targetTotalFinalPrice', fromJson: JsonCoerce.asString)
   final String? targetTotalFinalPrice;
-  @JsonKey(name: 'remark')
+  @JsonKey(name: 'remark', fromJson: JsonCoerce.asString)
   final String? remark;
-  @JsonKey(name: 'quantity')
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asDouble)
   final double? quantity;
   @JsonKey(name: 'skuSpecValues')
   final List<
     OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$OrderSkuList$Item$SkuSpecValues$Item
   >?
   skuSpecValues;
-  @JsonKey(name: 'isReturned')
+  @JsonKey(name: 'isReturned', fromJson: JsonCoerce.asBool)
   final bool? isReturned;
   static const fromJsonFactory =
       _$OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$OrderSkuList$ItemFromJson;
@@ -39289,25 +39416,25 @@ class OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$
         this,
       );
 
-  @JsonKey(name: 'skuCode')
+  @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
   final String? skuCode;
-  @JsonKey(name: 'productCode')
+  @JsonKey(name: 'productCode', fromJson: JsonCoerce.asString)
   final String? productCode;
-  @JsonKey(name: 'productName')
+  @JsonKey(name: 'productName', fromJson: JsonCoerce.asString)
   final String? productName;
   @JsonKey(name: 'imageUrl')
   final Object? imageUrl;
-  @JsonKey(name: 'quantity')
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asDouble)
   final double? quantity;
-  @JsonKey(name: 'weight')
+  @JsonKey(name: 'weight', fromJson: JsonCoerce.asString)
   final String? weight;
-  @JsonKey(name: 'length')
+  @JsonKey(name: 'length', fromJson: JsonCoerce.asString)
   final String? length;
-  @JsonKey(name: 'width')
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asString)
   final String? width;
-  @JsonKey(name: 'height')
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asString)
   final String? height;
-  @JsonKey(name: 'qcRemark')
+  @JsonKey(name: 'qcRemark', fromJson: JsonCoerce.asString)
   final String? qcRemark;
   @JsonKey(name: 'inspectImageUrlList', defaultValue: <Object>[])
   final List<Object>? inspectImageUrlList;
@@ -39516,52 +39643,58 @@ class OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$
         this,
       );
 
-  @JsonKey(name: 'parcelOrderId')
+  @JsonKey(name: 'parcelOrderId', fromJson: JsonCoerce.asString)
   final String? parcelOrderId;
-  @JsonKey(name: 'parcelStatus')
+  @JsonKey(name: 'parcelStatus', fromJson: JsonCoerce.asString)
   final String? parcelStatus;
-  @JsonKey(name: 'parcelStatusDesc')
+  @JsonKey(name: 'parcelStatusDesc', fromJson: JsonCoerce.asString)
   final String? parcelStatusDesc;
-  @JsonKey(name: 'createTime')
+  @JsonKey(name: 'createTime', fromJson: JsonCoerce.asDouble)
   final double? createTime;
-  @JsonKey(name: 'warehouseCode')
+  @JsonKey(name: 'warehouseCode', fromJson: JsonCoerce.asString)
   final String? warehouseCode;
-  @JsonKey(name: 'warehouseName')
+  @JsonKey(name: 'warehouseName', fromJson: JsonCoerce.asString)
   final String? warehouseName;
-  @JsonKey(name: 'solutionCode')
+  @JsonKey(name: 'solutionCode', fromJson: JsonCoerce.asString)
   final String? solutionCode;
-  @JsonKey(name: 'freight')
+  @JsonKey(name: 'freight', fromJson: JsonCoerce.asString)
   final String? freight;
   @JsonKey(name: 'freightCurrency')
   final OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$ParcelOrder$FreightCurrency?
   freightCurrency;
-  @JsonKey(name: 'targetFreight')
+  @JsonKey(name: 'targetFreight', fromJson: JsonCoerce.asString)
   final String? targetFreight;
   @JsonKey(name: 'targetFreightCurrency')
   final OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$ParcelOrder$TargetFreightCurrency?
   targetFreightCurrency;
-  @JsonKey(name: 'actualFreight')
+  @JsonKey(name: 'actualFreight', fromJson: JsonCoerce.asString)
   final String? actualFreight;
-  @JsonKey(name: 'actualFreightCurrency')
+  @JsonKey(name: 'actualFreightCurrency', fromJson: JsonCoerce.asString)
   final String? actualFreightCurrency;
-  @JsonKey(name: 'targetActualFreight')
+  @JsonKey(name: 'targetActualFreight', fromJson: JsonCoerce.asString)
   final String? targetActualFreight;
-  @JsonKey(name: 'targetActualFreightCurrency')
+  @JsonKey(name: 'targetActualFreightCurrency', fromJson: JsonCoerce.asString)
   final String? targetActualFreightCurrency;
-  @JsonKey(name: 'freightCouponDiscountAmount')
+  @JsonKey(name: 'freightCouponDiscountAmount', fromJson: JsonCoerce.asString)
   final String? freightCouponDiscountAmount;
-  @JsonKey(name: 'targetFreightCouponDiscountAmount')
+  @JsonKey(
+    name: 'targetFreightCouponDiscountAmount',
+    fromJson: JsonCoerce.asString,
+  )
   final String? targetFreightCouponDiscountAmount;
   @JsonKey(name: 'freightCouponDiscountCurrency')
   final OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$ParcelOrder$FreightCouponDiscountCurrency?
   freightCouponDiscountCurrency;
-  @JsonKey(name: 'targetFreightCouponDiscountCurrency')
+  @JsonKey(
+    name: 'targetFreightCouponDiscountCurrency',
+    fromJson: JsonCoerce.asString,
+  )
   final String? targetFreightCouponDiscountCurrency;
-  @JsonKey(name: 'lastMileMailNo')
+  @JsonKey(name: 'lastMileMailNo', fromJson: JsonCoerce.asString)
   final String? lastMileMailNo;
-  @JsonKey(name: 'lastMileCompanyCode')
+  @JsonKey(name: 'lastMileCompanyCode', fromJson: JsonCoerce.asString)
   final String? lastMileCompanyCode;
-  @JsonKey(name: 'lastMileCompanyName')
+  @JsonKey(name: 'lastMileCompanyName', fromJson: JsonCoerce.asString)
   final String? lastMileCompanyName;
   @JsonKey(name: 'receiverAddress')
   final OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$ParcelOrder$ReceiverAddress?
@@ -39571,7 +39704,11 @@ class OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$
     OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$ParcelOrder$ParcelProductDTOList$Item
   >?
   parcelProductDTOList;
-  @JsonKey(name: 'buyerOperates', defaultValue: <String>[])
+  @JsonKey(
+    name: 'buyerOperates',
+    fromJson: JsonCoerce.asStringList,
+    defaultValue: <String>[],
+  )
   final List<String>? buyerOperates;
   static const fromJsonFactory =
       _$OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$ParcelOrderFromJson;
@@ -39978,13 +40115,13 @@ class OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$
         this,
       );
 
-  @JsonKey(name: 'billId')
+  @JsonKey(name: 'billId', fromJson: JsonCoerce.asString)
   final String? billId;
-  @JsonKey(name: 'status')
+  @JsonKey(name: 'status', fromJson: JsonCoerce.asDouble)
   final double? status;
-  @JsonKey(name: 'targetTotalPrice')
+  @JsonKey(name: 'targetTotalPrice', fromJson: JsonCoerce.asString)
   final String? targetTotalPrice;
-  @JsonKey(name: 'targetCurrency')
+  @JsonKey(name: 'targetCurrency', fromJson: JsonCoerce.asString)
   final String? targetCurrency;
   static const fromJsonFactory =
       _$OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$OrderBillList$ItemFromJson;
@@ -40093,33 +40230,33 @@ class OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$
         this,
       );
 
-  @JsonKey(name: 'country')
+  @JsonKey(name: 'country', fromJson: JsonCoerce.asString)
   final String? country;
-  @JsonKey(name: 'countryCode')
+  @JsonKey(name: 'countryCode', fromJson: JsonCoerce.asString)
   final String? countryCode;
-  @JsonKey(name: 'state')
+  @JsonKey(name: 'state', fromJson: JsonCoerce.asString)
   final String? state;
-  @JsonKey(name: 'stateCode')
+  @JsonKey(name: 'stateCode', fromJson: JsonCoerce.asString)
   final String? stateCode;
-  @JsonKey(name: 'city')
+  @JsonKey(name: 'city', fromJson: JsonCoerce.asString)
   final String? city;
-  @JsonKey(name: 'cityCode')
+  @JsonKey(name: 'cityCode', fromJson: JsonCoerce.asString)
   final String? cityCode;
-  @JsonKey(name: 'street')
+  @JsonKey(name: 'street', fromJson: JsonCoerce.asString)
   final String? street;
-  @JsonKey(name: 'apartment')
+  @JsonKey(name: 'apartment', fromJson: JsonCoerce.asString)
   final String? apartment;
-  @JsonKey(name: 'address')
+  @JsonKey(name: 'address', fromJson: JsonCoerce.asString)
   final String? address;
-  @JsonKey(name: 'firstName')
+  @JsonKey(name: 'firstName', fromJson: JsonCoerce.asString)
   final String? firstName;
-  @JsonKey(name: 'lastName')
+  @JsonKey(name: 'lastName', fromJson: JsonCoerce.asString)
   final String? lastName;
-  @JsonKey(name: 'phoneNumber')
+  @JsonKey(name: 'phoneNumber', fromJson: JsonCoerce.asString)
   final String? phoneNumber;
-  @JsonKey(name: 'zipCode')
+  @JsonKey(name: 'zipCode', fromJson: JsonCoerce.asString)
   final String? zipCode;
-  @JsonKey(name: 'id')
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asDouble)
   final double? id;
   static const fromJsonFactory =
       _$OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$UserAddressFromJson;
@@ -40306,9 +40443,9 @@ class OrderServiceOrderDetailGet$Response$Data$OrderList$Item$SkuList$Item$SkuSp
         this,
       );
 
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
-  @JsonKey(name: 'value')
+  @JsonKey(name: 'value', fromJson: JsonCoerce.asString)
   final String? value;
   static const fromJsonFactory =
       _$OrderServiceOrderDetailGet$Response$Data$OrderList$Item$SkuList$Item$SkuSpecValues$ItemFromJson;
@@ -40387,33 +40524,33 @@ class OrderServiceOrderDetailGet$Response$Data$OrderTrace$GroupTraceList$Item$Tr
         this,
       );
 
-  @JsonKey(name: 'id')
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asDouble)
   final double? id;
-  @JsonKey(name: 'subParcelOrderId')
+  @JsonKey(name: 'subParcelOrderId', fromJson: JsonCoerce.asString)
   final String? subParcelOrderId;
-  @JsonKey(name: 'frontCode')
+  @JsonKey(name: 'frontCode', fromJson: JsonCoerce.asString)
   final String? frontCode;
-  @JsonKey(name: 'frontTitleCode')
+  @JsonKey(name: 'frontTitleCode', fromJson: JsonCoerce.asString)
   final String? frontTitleCode;
-  @JsonKey(name: 'frontTitle')
+  @JsonKey(name: 'frontTitle', fromJson: JsonCoerce.asString)
   final String? frontTitle;
-  @JsonKey(name: 'icon')
+  @JsonKey(name: 'icon', fromJson: JsonCoerce.asString)
   final String? icon;
-  @JsonKey(name: 'traceMessage')
+  @JsonKey(name: 'traceMessage', fromJson: JsonCoerce.asString)
   final String? traceMessage;
-  @JsonKey(name: 'time')
+  @JsonKey(name: 'time', fromJson: JsonCoerce.asDouble)
   final double? time;
-  @JsonKey(name: 'lastMileMailNo')
+  @JsonKey(name: 'lastMileMailNo', fromJson: JsonCoerce.asString)
   final String? lastMileMailNo;
-  @JsonKey(name: 'lastMileCompanyName')
+  @JsonKey(name: 'lastMileCompanyName', fromJson: JsonCoerce.asString)
   final String? lastMileCompanyName;
-  @JsonKey(name: 'lastMileMailNoLink')
+  @JsonKey(name: 'lastMileMailNoLink', fromJson: JsonCoerce.asString)
   final String? lastMileMailNoLink;
-  @JsonKey(name: 'lastMileMailNoTitle')
+  @JsonKey(name: 'lastMileMailNoTitle', fromJson: JsonCoerce.asString)
   final String? lastMileMailNoTitle;
-  @JsonKey(name: 'traceStatus')
+  @JsonKey(name: 'traceStatus', fromJson: JsonCoerce.asString)
   final String? traceStatus;
-  @JsonKey(name: 'traceTime')
+  @JsonKey(name: 'traceTime', fromJson: JsonCoerce.asString)
   final String? traceTime;
   static const fromJsonFactory =
       _$OrderServiceOrderDetailGet$Response$Data$OrderTrace$GroupTraceList$Item$TraceList$ItemFromJson;
@@ -40617,9 +40754,9 @@ class OrderServiceOpenapiOrderDetailGet$Response$Data$OrderList$Item$SkuList$Ite
         this,
       );
 
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
-  @JsonKey(name: 'value')
+  @JsonKey(name: 'value', fromJson: JsonCoerce.asString)
   final String? value;
   static const fromJsonFactory =
       _$OrderServiceOpenapiOrderDetailGet$Response$Data$OrderList$Item$SkuList$Item$SkuSpecValues$ItemFromJson;
@@ -40686,9 +40823,9 @@ class OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$Par
         this,
       );
 
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
-  @JsonKey(name: 'symbol')
+  @JsonKey(name: 'symbol', fromJson: JsonCoerce.asString)
   final String? symbol;
   static const fromJsonFactory =
       _$OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$ParcelOrder$FreightCurrencyFromJson;
@@ -40758,15 +40895,15 @@ class OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$Par
         this,
       );
 
-  @JsonKey(name: 'skuCode')
+  @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
   final String? skuCode;
-  @JsonKey(name: 'productCode')
+  @JsonKey(name: 'productCode', fromJson: JsonCoerce.asString)
   final String? productCode;
-  @JsonKey(name: 'productName')
+  @JsonKey(name: 'productName', fromJson: JsonCoerce.asString)
   final String? productName;
-  @JsonKey(name: 'quantity')
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asDouble)
   final double? quantity;
-  @JsonKey(name: 'imageUrl')
+  @JsonKey(name: 'imageUrl', fromJson: JsonCoerce.asString)
   final String? imageUrl;
   static const fromJsonFactory =
       _$OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$ParcelOrder$ParcelProductDTOList$ItemFromJson;
@@ -40879,17 +41016,17 @@ class OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$Par
         this,
       );
 
-  @JsonKey(name: 'compensateBillId')
+  @JsonKey(name: 'compensateBillId', fromJson: JsonCoerce.asString)
   final String? compensateBillId;
-  @JsonKey(name: 'compensatePrice')
+  @JsonKey(name: 'compensatePrice', fromJson: JsonCoerce.asString)
   final String? compensatePrice;
-  @JsonKey(name: 'compensatePriceCurrency')
+  @JsonKey(name: 'compensatePriceCurrency', fromJson: JsonCoerce.asString)
   final String? compensatePriceCurrency;
-  @JsonKey(name: 'compensateReason')
+  @JsonKey(name: 'compensateReason', fromJson: JsonCoerce.asString)
   final String? compensateReason;
-  @JsonKey(name: 'targetCompensatePrice')
+  @JsonKey(name: 'targetCompensatePrice', fromJson: JsonCoerce.asString)
   final String? targetCompensatePrice;
-  @JsonKey(name: 'targetCompensatePriceCurrency')
+  @JsonKey(name: 'targetCompensatePriceCurrency', fromJson: JsonCoerce.asString)
   final String? targetCompensatePriceCurrency;
   static const fromJsonFactory =
       _$OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$ParcelOrder$FreightCompensateFromJson;
@@ -41029,9 +41166,9 @@ class OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$Par
         this,
       );
 
-  @JsonKey(name: 'symbol')
+  @JsonKey(name: 'symbol', fromJson: JsonCoerce.asString)
   final String? symbol;
-  @JsonKey(name: 'currency')
+  @JsonKey(name: 'currency', fromJson: JsonCoerce.asString)
   final String? currency;
   static const fromJsonFactory =
       _$OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$ParcelOrder$TargetFreightCurrencyFromJson;
@@ -41109,25 +41246,25 @@ class OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$Ord
         this,
       );
 
-  @JsonKey(name: 'id')
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asDouble)
   final double? id;
-  @JsonKey(name: 'frontCode')
+  @JsonKey(name: 'frontCode', fromJson: JsonCoerce.asString)
   final String? frontCode;
-  @JsonKey(name: 'icon')
+  @JsonKey(name: 'icon', fromJson: JsonCoerce.asString)
   final String? icon;
-  @JsonKey(name: 'traceMessage')
+  @JsonKey(name: 'traceMessage', fromJson: JsonCoerce.asString)
   final String? traceMessage;
-  @JsonKey(name: 'time')
+  @JsonKey(name: 'time', fromJson: JsonCoerce.asDouble)
   final double? time;
-  @JsonKey(name: 'lastMileMailNo')
+  @JsonKey(name: 'lastMileMailNo', fromJson: JsonCoerce.asString)
   final String? lastMileMailNo;
-  @JsonKey(name: 'lastMileMailNoLink')
+  @JsonKey(name: 'lastMileMailNoLink', fromJson: JsonCoerce.asString)
   final String? lastMileMailNoLink;
-  @JsonKey(name: 'lastMileMailNoTitle')
+  @JsonKey(name: 'lastMileMailNoTitle', fromJson: JsonCoerce.asString)
   final String? lastMileMailNoTitle;
-  @JsonKey(name: 'traceStatus')
+  @JsonKey(name: 'traceStatus', fromJson: JsonCoerce.asString)
   final String? traceStatus;
-  @JsonKey(name: 'logisticsOrderId')
+  @JsonKey(name: 'logisticsOrderId', fromJson: JsonCoerce.asString)
   final String? logisticsOrderId;
   static const fromJsonFactory =
       _$OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$OrderTrace$TraceList$ItemFromJson;
@@ -41304,46 +41441,46 @@ class OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$Ord
         this,
       );
 
-  @JsonKey(name: 'productName')
+  @JsonKey(name: 'productName', fromJson: JsonCoerce.asString)
   final String? productName;
-  @JsonKey(name: 'productCode')
+  @JsonKey(name: 'productCode', fromJson: JsonCoerce.asString)
   final String? productCode;
-  @JsonKey(name: 'skuCode')
+  @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
   final String? skuCode;
-  @JsonKey(name: 'image')
+  @JsonKey(name: 'image', fromJson: JsonCoerce.asString)
   final String? image;
-  @JsonKey(name: 'targetOriginPrice')
+  @JsonKey(name: 'targetOriginPrice', fromJson: JsonCoerce.asString)
   final String? targetOriginPrice;
-  @JsonKey(name: 'targetOriginTotalPrice')
+  @JsonKey(name: 'targetOriginTotalPrice', fromJson: JsonCoerce.asString)
   final String? targetOriginTotalPrice;
-  @JsonKey(name: 'sellPrice')
+  @JsonKey(name: 'sellPrice', fromJson: JsonCoerce.asString)
   final String? sellPrice;
-  @JsonKey(name: 'targetSellPrice')
+  @JsonKey(name: 'targetSellPrice', fromJson: JsonCoerce.asString)
   final String? targetSellPrice;
-  @JsonKey(name: 'totalPrice')
+  @JsonKey(name: 'totalPrice', fromJson: JsonCoerce.asString)
   final String? totalPrice;
-  @JsonKey(name: 'targetTotalPrice')
+  @JsonKey(name: 'targetTotalPrice', fromJson: JsonCoerce.asString)
   final String? targetTotalPrice;
-  @JsonKey(name: 'targetSkuDiscountPrice')
+  @JsonKey(name: 'targetSkuDiscountPrice', fromJson: JsonCoerce.asString)
   final String? targetSkuDiscountPrice;
-  @JsonKey(name: 'targetSkuFinalPrice')
+  @JsonKey(name: 'targetSkuFinalPrice', fromJson: JsonCoerce.asString)
   final String? targetSkuFinalPrice;
-  @JsonKey(name: 'targetTotalFinalPrice')
+  @JsonKey(name: 'targetTotalFinalPrice', fromJson: JsonCoerce.asString)
   final String? targetTotalFinalPrice;
-  @JsonKey(name: 'currency')
+  @JsonKey(name: 'currency', fromJson: JsonCoerce.asString)
   final String? currency;
-  @JsonKey(name: 'targetCurrency')
+  @JsonKey(name: 'targetCurrency', fromJson: JsonCoerce.asString)
   final String? targetCurrency;
-  @JsonKey(name: 'quantity')
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asDouble)
   final double? quantity;
-  @JsonKey(name: 'remark')
+  @JsonKey(name: 'remark', fromJson: JsonCoerce.asString)
   final String? remark;
   @JsonKey(name: 'skuSpecValues')
   final List<
     OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$OrderList$Item$SkuList$Item$SkuSpecValues$Item
   >?
   skuSpecValues;
-  @JsonKey(name: 'isReturned')
+  @JsonKey(name: 'isReturned', fromJson: JsonCoerce.asBool)
   final bool? isReturned;
   static const fromJsonFactory =
       _$OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$OrderList$Item$SkuList$ItemFromJson;
@@ -41625,29 +41762,29 @@ class OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$Ord
         this,
       );
 
-  @JsonKey(name: 'skuCode')
+  @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
   final String? skuCode;
-  @JsonKey(name: 'productCode')
+  @JsonKey(name: 'productCode', fromJson: JsonCoerce.asString)
   final String? productCode;
-  @JsonKey(name: 'productName')
+  @JsonKey(name: 'productName', fromJson: JsonCoerce.asString)
   final String? productName;
-  @JsonKey(name: 'imageUrl')
+  @JsonKey(name: 'imageUrl', fromJson: JsonCoerce.asString)
   final String? imageUrl;
-  @JsonKey(name: 'quantity')
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asDouble)
   final double? quantity;
-  @JsonKey(name: 'weight')
+  @JsonKey(name: 'weight', fromJson: JsonCoerce.asString)
   final String? weight;
-  @JsonKey(name: 'length')
+  @JsonKey(name: 'length', fromJson: JsonCoerce.asString)
   final String? length;
-  @JsonKey(name: 'width')
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asString)
   final String? width;
-  @JsonKey(name: 'height')
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asString)
   final String? height;
   @JsonKey(name: 'inspectImageUrlList', defaultValue: <Object>[])
   final List<Object>? inspectImageUrlList;
-  @JsonKey(name: 'secretKeyList')
+  @JsonKey(name: 'secretKeyList', fromJson: JsonCoerce.asString)
   final String? secretKeyList;
-  @JsonKey(name: 'qcRemark')
+  @JsonKey(name: 'qcRemark', fromJson: JsonCoerce.asString)
   final String? qcRemark;
   static const fromJsonFactory =
       _$OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$OrderList$Item$SupplyOrderList$ItemFromJson;
@@ -41827,27 +41964,27 @@ class OrderServiceOrderCombineDetailGet$Response$Data$OrderTrace$GroupTraceList$
         this,
       );
 
-  @JsonKey(name: 'id')
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asDouble)
   final double? id;
-  @JsonKey(name: 'frontCode')
+  @JsonKey(name: 'frontCode', fromJson: JsonCoerce.asString)
   final String? frontCode;
-  @JsonKey(name: 'icon')
+  @JsonKey(name: 'icon', fromJson: JsonCoerce.asString)
   final String? icon;
-  @JsonKey(name: 'traceMessage')
+  @JsonKey(name: 'traceMessage', fromJson: JsonCoerce.asString)
   final String? traceMessage;
-  @JsonKey(name: 'time')
+  @JsonKey(name: 'time', fromJson: JsonCoerce.asDouble)
   final double? time;
   @JsonKey(name: 'lastMileMailNo')
   final Object? lastMileMailNo;
-  @JsonKey(name: 'lastMileMailNoLink')
+  @JsonKey(name: 'lastMileMailNoLink', fromJson: JsonCoerce.asString)
   final String? lastMileMailNoLink;
-  @JsonKey(name: 'lastMileMailNoTitle')
+  @JsonKey(name: 'lastMileMailNoTitle', fromJson: JsonCoerce.asString)
   final String? lastMileMailNoTitle;
-  @JsonKey(name: 'traceStatus')
+  @JsonKey(name: 'traceStatus', fromJson: JsonCoerce.asString)
   final String? traceStatus;
-  @JsonKey(name: 'frontTitle')
+  @JsonKey(name: 'frontTitle', fromJson: JsonCoerce.asString)
   final String? frontTitle;
-  @JsonKey(name: 'frontTitleCode')
+  @JsonKey(name: 'frontTitleCode', fromJson: JsonCoerce.asString)
   final String? frontTitleCode;
   static const fromJsonFactory =
       _$OrderServiceOrderCombineDetailGet$Response$Data$OrderTrace$GroupTraceList$Item$TraceList$ItemFromJson;
@@ -42017,9 +42154,9 @@ class OrderServiceCartListGet$Response$Data$List$Item$Records$Item$SkuOptions$It
         this,
       );
 
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
-  @JsonKey(name: 'value')
+  @JsonKey(name: 'value', fromJson: JsonCoerce.asString)
   final String? value;
   static const fromJsonFactory =
       _$OrderServiceCartListGet$Response$Data$List$Item$Records$Item$SkuOptions$ItemFromJson;
@@ -42085,9 +42222,9 @@ class OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$Recom
         this,
       );
 
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
-  @JsonKey(name: 'symbol')
+  @JsonKey(name: 'symbol', fromJson: JsonCoerce.asString)
   final String? symbol;
   static const fromJsonFactory =
       _$OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$RecommendSolution$FreightCurrencyFromJson;
@@ -42154,9 +42291,9 @@ class OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$Recom
         this,
       );
 
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
-  @JsonKey(name: 'symbol')
+  @JsonKey(name: 'symbol', fromJson: JsonCoerce.asString)
   final String? symbol;
   static const fromJsonFactory =
       _$OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$RecommendSolution$FreightFreeThresholdCurrencyFromJson;
@@ -42223,9 +42360,9 @@ class OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$Recom
         this,
       );
 
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
-  @JsonKey(name: 'symbol')
+  @JsonKey(name: 'symbol', fromJson: JsonCoerce.asString)
   final String? symbol;
   static const fromJsonFactory =
       _$OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$RecommendSolution$LateCompensationCurrencyFromJson;
@@ -42301,30 +42438,30 @@ class OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastM
         this,
       );
 
-  @JsonKey(name: 'solutionName')
+  @JsonKey(name: 'solutionName', fromJson: JsonCoerce.asString)
   final String? solutionName;
-  @JsonKey(name: 'solutionCode')
+  @JsonKey(name: 'solutionCode', fromJson: JsonCoerce.asString)
   final String? solutionCode;
-  @JsonKey(name: 'freight')
+  @JsonKey(name: 'freight', fromJson: JsonCoerce.asString)
   final String? freight;
   @JsonKey(name: 'freightCurrency')
   final OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileList$Item$SolutionList$Item$FreightCurrency?
   freightCurrency;
-  @JsonKey(name: 'freightFreeThreshold')
+  @JsonKey(name: 'freightFreeThreshold', fromJson: JsonCoerce.asString)
   final String? freightFreeThreshold;
   @JsonKey(name: 'freightFreeThresholdCurrency')
   final OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileList$Item$SolutionList$Item$FreightFreeThresholdCurrency?
   freightFreeThresholdCurrency;
-  @JsonKey(name: 'gmtExpectArriveStart')
+  @JsonKey(name: 'gmtExpectArriveStart', fromJson: JsonCoerce.asString)
   final String? gmtExpectArriveStart;
-  @JsonKey(name: 'gmtExpectArriveEnd')
+  @JsonKey(name: 'gmtExpectArriveEnd', fromJson: JsonCoerce.asString)
   final String? gmtExpectArriveEnd;
-  @JsonKey(name: 'lateCompensation')
+  @JsonKey(name: 'lateCompensation', fromJson: JsonCoerce.asString)
   final String? lateCompensation;
   @JsonKey(name: 'lateCompensationCurrency')
   final OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileList$Item$SolutionList$Item$LateCompensationCurrency?
   lateCompensationCurrency;
-  @JsonKey(name: 'lateCompensationTimeframe')
+  @JsonKey(name: 'lateCompensationTimeframe', fromJson: JsonCoerce.asString)
   final String? lateCompensationTimeframe;
   static const fromJsonFactory =
       _$OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileList$Item$SolutionList$ItemFromJson;
@@ -42537,9 +42674,9 @@ class OrderServiceOrderConfirmPost$Response$Data$Pricing$Giveaway$Item$Records$I
         this,
       );
 
-  @JsonKey(name: 'symbol')
+  @JsonKey(name: 'symbol', fromJson: JsonCoerce.asString)
   final String? symbol;
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
   static const fromJsonFactory =
       _$OrderServiceOrderConfirmPost$Response$Data$Pricing$Giveaway$Item$Records$Item$CurrencyFromJson;
@@ -42621,40 +42758,40 @@ class OrderServiceOrderConfirmPost$Response$Data$Pricing$VoucherMsg$VoucherInfos
         this,
       );
 
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
-  @JsonKey(name: 'description')
+  @JsonKey(name: 'description', fromJson: JsonCoerce.asString)
   final String? description;
-  @JsonKey(name: 'voucherCode')
+  @JsonKey(name: 'voucherCode', fromJson: JsonCoerce.asString)
   final String? voucherCode;
-  @JsonKey(name: 'discountType')
+  @JsonKey(name: 'discountType', fromJson: JsonCoerce.asString)
   final String? discountType;
-  @JsonKey(name: 'discountInfo')
+  @JsonKey(name: 'discountInfo', fromJson: JsonCoerce.asString)
   final String? discountInfo;
   @JsonKey(name: 'currency')
   final OrderServiceOrderConfirmPost$Response$Data$Pricing$VoucherMsg$VoucherInfos$Item$List$Item$Currency?
   currency;
-  @JsonKey(name: 'validStartStamp')
+  @JsonKey(name: 'validStartStamp', fromJson: JsonCoerce.asString)
   final String? validStartStamp;
-  @JsonKey(name: 'validEndStamp')
+  @JsonKey(name: 'validEndStamp', fromJson: JsonCoerce.asString)
   final String? validEndStamp;
-  @JsonKey(name: 'desc')
+  @JsonKey(name: 'desc', fromJson: JsonCoerce.asString)
   final String? desc;
-  @JsonKey(name: 'status')
+  @JsonKey(name: 'status', fromJson: JsonCoerce.asString)
   final String? status;
-  @JsonKey(name: 'isDefault')
+  @JsonKey(name: 'isDefault', fromJson: JsonCoerce.asString)
   final String? isDefault;
-  @JsonKey(name: 'available')
+  @JsonKey(name: 'available', fromJson: JsonCoerce.asString)
   final String? available;
-  @JsonKey(name: 'unavailableReason')
+  @JsonKey(name: 'unavailableReason', fromJson: JsonCoerce.asString)
   final String? unavailableReason;
-  @JsonKey(name: 'sourceCode')
+  @JsonKey(name: 'sourceCode', fromJson: JsonCoerce.asString)
   final String? sourceCode;
-  @JsonKey(name: 'validEndDesc')
+  @JsonKey(name: 'validEndDesc', fromJson: JsonCoerce.asString)
   final String? validEndDesc;
-  @JsonKey(name: 'usedVoucherInfo')
+  @JsonKey(name: 'usedVoucherInfo', fromJson: JsonCoerce.asString)
   final String? usedVoucherInfo;
-  @JsonKey(name: 'minOrderAmountInfo')
+  @JsonKey(name: 'minOrderAmountInfo', fromJson: JsonCoerce.asString)
   final String? minOrderAmountInfo;
   static const fromJsonFactory =
       _$OrderServiceOrderConfirmPost$Response$Data$Pricing$VoucherMsg$VoucherInfos$Item$List$ItemFromJson;
@@ -42894,9 +43031,9 @@ class OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$
         this,
       );
 
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
-  @JsonKey(name: 'value')
+  @JsonKey(name: 'value', fromJson: JsonCoerce.asString)
   final String? value;
   static const fromJsonFactory =
       _$OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$OrderSkuList$Item$SkuSpecValues$ItemFromJson;
@@ -42964,11 +43101,11 @@ class OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$
         this,
       );
 
-  @JsonKey(name: 'barCodeImg')
+  @JsonKey(name: 'barCodeImg', fromJson: JsonCoerce.asString)
   final String? barCodeImg;
-  @JsonKey(name: 'codeInfo')
+  @JsonKey(name: 'codeInfo', fromJson: JsonCoerce.asString)
   final String? codeInfo;
-  @JsonKey(name: 'pin')
+  @JsonKey(name: 'pin', fromJson: JsonCoerce.asString)
   final String? pin;
   static const fromJsonFactory =
       _$OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$SupplyOrderList$Item$SecretKeyList$ItemFromJson;
@@ -43050,9 +43187,9 @@ class OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$
         this,
       );
 
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
-  @JsonKey(name: 'symbol')
+  @JsonKey(name: 'symbol', fromJson: JsonCoerce.asString)
   final String? symbol;
   static const fromJsonFactory =
       _$OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$ParcelOrder$FreightCurrencyFromJson;
@@ -43119,9 +43256,9 @@ class OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$
         this,
       );
 
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
-  @JsonKey(name: 'symbol')
+  @JsonKey(name: 'symbol', fromJson: JsonCoerce.asString)
   final String? symbol;
   static const fromJsonFactory =
       _$OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$ParcelOrder$TargetFreightCurrencyFromJson;
@@ -43188,9 +43325,9 @@ class OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$
         this,
       );
 
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
-  @JsonKey(name: 'symbol')
+  @JsonKey(name: 'symbol', fromJson: JsonCoerce.asString)
   final String? symbol;
   static const fromJsonFactory =
       _$OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$ParcelOrder$FreightCouponDiscountCurrencyFromJson;
@@ -43269,33 +43406,33 @@ class OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$
         this,
       );
 
-  @JsonKey(name: 'country')
+  @JsonKey(name: 'country', fromJson: JsonCoerce.asString)
   final String? country;
-  @JsonKey(name: 'countryCode')
+  @JsonKey(name: 'countryCode', fromJson: JsonCoerce.asString)
   final String? countryCode;
-  @JsonKey(name: 'state')
+  @JsonKey(name: 'state', fromJson: JsonCoerce.asString)
   final String? state;
-  @JsonKey(name: 'stateCode')
+  @JsonKey(name: 'stateCode', fromJson: JsonCoerce.asString)
   final String? stateCode;
-  @JsonKey(name: 'city')
+  @JsonKey(name: 'city', fromJson: JsonCoerce.asString)
   final String? city;
-  @JsonKey(name: 'cityCode')
+  @JsonKey(name: 'cityCode', fromJson: JsonCoerce.asString)
   final String? cityCode;
-  @JsonKey(name: 'street')
+  @JsonKey(name: 'street', fromJson: JsonCoerce.asString)
   final String? street;
-  @JsonKey(name: 'apartment')
+  @JsonKey(name: 'apartment', fromJson: JsonCoerce.asString)
   final String? apartment;
-  @JsonKey(name: 'address')
+  @JsonKey(name: 'address', fromJson: JsonCoerce.asString)
   final String? address;
-  @JsonKey(name: 'firstName')
+  @JsonKey(name: 'firstName', fromJson: JsonCoerce.asString)
   final String? firstName;
-  @JsonKey(name: 'lastName')
+  @JsonKey(name: 'lastName', fromJson: JsonCoerce.asString)
   final String? lastName;
-  @JsonKey(name: 'phoneNumber')
+  @JsonKey(name: 'phoneNumber', fromJson: JsonCoerce.asString)
   final String? phoneNumber;
-  @JsonKey(name: 'zipCode')
+  @JsonKey(name: 'zipCode', fromJson: JsonCoerce.asString)
   final String? zipCode;
-  @JsonKey(name: 'id')
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asDouble)
   final double? id;
   static const fromJsonFactory =
       _$OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$ParcelOrder$ReceiverAddressFromJson;
@@ -43488,21 +43625,21 @@ class OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$
         this,
       );
 
-  @JsonKey(name: 'skuCode')
+  @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
   final String? skuCode;
-  @JsonKey(name: 'productCode')
+  @JsonKey(name: 'productCode', fromJson: JsonCoerce.asString)
   final String? productCode;
-  @JsonKey(name: 'productName')
+  @JsonKey(name: 'productName', fromJson: JsonCoerce.asString)
   final String? productName;
-  @JsonKey(name: 'logisticsOrderId')
+  @JsonKey(name: 'logisticsOrderId', fromJson: JsonCoerce.asString)
   final String? logisticsOrderId;
-  @JsonKey(name: 'quantity')
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asDouble)
   final double? quantity;
-  @JsonKey(name: 'imageUrl')
+  @JsonKey(name: 'imageUrl', fromJson: JsonCoerce.asString)
   final String? imageUrl;
-  @JsonKey(name: 'declareName')
+  @JsonKey(name: 'declareName', fromJson: JsonCoerce.asString)
   final String? declareName;
-  @JsonKey(name: 'declareNameEn')
+  @JsonKey(name: 'declareNameEn', fromJson: JsonCoerce.asString)
   final String? declareNameEn;
   static const fromJsonFactory =
       _$OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$ParcelOrder$ParcelProductDTOList$ItemFromJson;
@@ -43645,9 +43782,9 @@ class OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$Ord
         this,
       );
 
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
-  @JsonKey(name: 'value')
+  @JsonKey(name: 'value', fromJson: JsonCoerce.asString)
   final String? value;
   static const fromJsonFactory =
       _$OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$OrderList$Item$SkuList$Item$SkuSpecValues$ItemFromJson;
@@ -43714,9 +43851,9 @@ class OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastM
         this,
       );
 
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
-  @JsonKey(name: 'symbol')
+  @JsonKey(name: 'symbol', fromJson: JsonCoerce.asString)
   final String? symbol;
   static const fromJsonFactory =
       _$OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileList$Item$SolutionList$Item$FreightCurrencyFromJson;
@@ -43783,9 +43920,9 @@ class OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastM
         this,
       );
 
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
-  @JsonKey(name: 'symbol')
+  @JsonKey(name: 'symbol', fromJson: JsonCoerce.asString)
   final String? symbol;
   static const fromJsonFactory =
       _$OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileList$Item$SolutionList$Item$FreightFreeThresholdCurrencyFromJson;
@@ -43852,9 +43989,9 @@ class OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastM
         this,
       );
 
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
-  @JsonKey(name: 'symbol')
+  @JsonKey(name: 'symbol', fromJson: JsonCoerce.asString)
   final String? symbol;
   static const fromJsonFactory =
       _$OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileList$Item$SolutionList$Item$LateCompensationCurrencyFromJson;
@@ -43921,9 +44058,9 @@ class OrderServiceOrderConfirmPost$Response$Data$Pricing$VoucherMsg$VoucherInfos
         this,
       );
 
-  @JsonKey(name: 'symbol')
+  @JsonKey(name: 'symbol', fromJson: JsonCoerce.asString)
   final String? symbol;
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
   static const fromJsonFactory =
       _$OrderServiceOrderConfirmPost$Response$Data$Pricing$VoucherMsg$VoucherInfos$Item$List$Item$CurrencyFromJson;

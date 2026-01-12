@@ -9,12 +9,12 @@ part of 'swaggerApiConfig.swagger.dart';
 ConfigServiceUserConfigPost$Response
 _$ConfigServiceUserConfigPost$ResponseFromJson(Map<String, dynamic> json) =>
     ConfigServiceUserConfigPost$Response(
-      code: (json['code'] as num?)?.toDouble(),
-      message: json['message'] as String?,
-      data: json['data'] as bool?,
-      traceId: json['traceId'] as String?,
+      code: JsonCoerce.asDouble(json['code']),
+      message: JsonCoerce.asString(json['message']),
+      data: JsonCoerce.asBool(json['data']),
+      traceId: JsonCoerce.asString(json['traceId']),
       placeholder: json['placeholder'],
-      success: json['success'] as bool?,
+      success: JsonCoerce.asBool(json['success']),
     );
 
 Map<String, dynamic> _$ConfigServiceUserConfigPost$ResponseToJson(
@@ -31,16 +31,16 @@ Map<String, dynamic> _$ConfigServiceUserConfigPost$ResponseToJson(
 ConfigServiceUserConfigGet$Response
 _$ConfigServiceUserConfigGet$ResponseFromJson(Map<String, dynamic> json) =>
     ConfigServiceUserConfigGet$Response(
-      code: (json['code'] as num?)?.toDouble(),
-      message: json['message'] as String?,
+      code: JsonCoerce.asDouble(json['code']),
+      message: JsonCoerce.asString(json['message']),
       data: json['data'] == null
           ? null
           : ConfigServiceUserConfigGet$Response$Data.fromJson(
               json['data'] as Map<String, dynamic>,
             ),
-      traceId: json['traceId'] as String?,
+      traceId: JsonCoerce.asString(json['traceId']),
       placeholder: json['placeholder'],
-      success: json['success'] as bool?,
+      success: JsonCoerce.asBool(json['success']),
     );
 
 Map<String, dynamic> _$ConfigServiceUserConfigGet$ResponseToJson(
@@ -58,11 +58,11 @@ ConfigServiceUserConfigNoAuthInstanceGet$Response
 _$ConfigServiceUserConfigNoAuthInstanceGet$ResponseFromJson(
   Map<String, dynamic> json,
 ) => ConfigServiceUserConfigNoAuthInstanceGet$Response(
-  code: (json['code'] as num?)?.toDouble(),
-  data: json['data'] as String?,
-  message: json['message'] as String?,
-  success: json['success'] as bool?,
-  traceId: json['traceId'] as String?,
+  code: JsonCoerce.asDouble(json['code']),
+  data: JsonCoerce.asString(json['data']),
+  message: JsonCoerce.asString(json['message']),
+  success: JsonCoerce.asBool(json['success']),
+  traceId: JsonCoerce.asString(json['traceId']),
 );
 
 Map<String, dynamic> _$ConfigServiceUserConfigNoAuthInstanceGet$ResponseToJson(
@@ -78,8 +78,8 @@ Map<String, dynamic> _$ConfigServiceUserConfigNoAuthInstanceGet$ResponseToJson(
 ConfigServiceUserConfigGet$Response$Data
 _$ConfigServiceUserConfigGet$Response$DataFromJson(Map<String, dynamic> json) =>
     ConfigServiceUserConfigGet$Response$Data(
-      key: json['key'] as String?,
-      value: json['value'] as String?,
+      key: JsonCoerce.asString(json['key']),
+      value: JsonCoerce.asString(json['value']),
     );
 
 Map<String, dynamic> _$ConfigServiceUserConfigGet$Response$DataToJson(

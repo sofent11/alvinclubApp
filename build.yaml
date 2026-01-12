@@ -11,3 +11,5 @@ targets:
           output_folder: "lib/data/api/generated"
           # Keep full client + models for now; repositories can wrap Dio separately.
           build_only_models: false
+          import_paths:
+            - "package:w2capp/shared/utils/json_coerce.dart"

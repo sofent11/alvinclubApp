@@ -9,15 +9,15 @@ part of 'swaggerApiPay.swagger.dart';
 PayServiceWithdrawOrdersGet$Response
 _$PayServiceWithdrawOrdersGet$ResponseFromJson(Map<String, dynamic> json) =>
     PayServiceWithdrawOrdersGet$Response(
-      code: (json['code'] as num?)?.toDouble(),
-      message: json['message'] as String?,
+      code: JsonCoerce.asDouble(json['code']),
+      message: JsonCoerce.asString(json['message']),
       data: json['data'] == null
           ? null
           : PayServiceWithdrawOrdersGet$Response$Data.fromJson(
               json['data'] as Map<String, dynamic>,
             ),
-      traceId: json['traceId'] as String?,
-      success: json['success'] as bool?,
+      traceId: JsonCoerce.asString(json['traceId']),
+      success: JsonCoerce.asBool(json['success']),
     );
 
 Map<String, dynamic> _$PayServiceWithdrawOrdersGet$ResponseToJson(
@@ -33,15 +33,15 @@ Map<String, dynamic> _$PayServiceWithdrawOrdersGet$ResponseToJson(
 PayServiceWithdrawApplyPost$Response
 _$PayServiceWithdrawApplyPost$ResponseFromJson(Map<String, dynamic> json) =>
     PayServiceWithdrawApplyPost$Response(
-      code: (json['code'] as num?)?.toDouble(),
-      message: json['message'] as String?,
+      code: JsonCoerce.asDouble(json['code']),
+      message: JsonCoerce.asString(json['message']),
       data: json['data'] == null
           ? null
           : PayServiceWithdrawApplyPost$Response$Data.fromJson(
               json['data'] as Map<String, dynamic>,
             ),
-      traceId: json['traceId'] as String?,
-      success: json['success'] as bool?,
+      traceId: JsonCoerce.asString(json['traceId']),
+      success: JsonCoerce.asBool(json['success']),
     );
 
 Map<String, dynamic> _$PayServiceWithdrawApplyPost$ResponseToJson(
@@ -57,8 +57,8 @@ Map<String, dynamic> _$PayServiceWithdrawApplyPost$ResponseToJson(
 PayServiceCommissionSummaryGet$Response
 _$PayServiceCommissionSummaryGet$ResponseFromJson(Map<String, dynamic> json) =>
     PayServiceCommissionSummaryGet$Response(
-      code: (json['code'] as num?)?.toDouble(),
-      message: json['message'] as String?,
+      code: JsonCoerce.asDouble(json['code']),
+      message: JsonCoerce.asString(json['message']),
       data: json['data'] == null
           ? null
           : PayServiceCommissionSummaryGet$Response$Data.fromJson(
@@ -78,16 +78,16 @@ PayServiceCommissionTransactionGet$Response
 _$PayServiceCommissionTransactionGet$ResponseFromJson(
   Map<String, dynamic> json,
 ) => PayServiceCommissionTransactionGet$Response(
-  code: (json['code'] as num?)?.toDouble(),
-  message: json['message'] as String?,
+  code: JsonCoerce.asDouble(json['code']),
+  message: JsonCoerce.asString(json['message']),
   data: json['data'] == null
       ? null
       : PayServiceCommissionTransactionGet$Response$Data.fromJson(
           json['data'] as Map<String, dynamic>,
         ),
-  traceId: json['traceId'] as String?,
+  traceId: JsonCoerce.asString(json['traceId']),
   placeholder: json['placeholder'],
-  success: json['success'] as bool?,
+  success: JsonCoerce.asBool(json['success']),
 );
 
 Map<String, dynamic> _$PayServiceCommissionTransactionGet$ResponseToJson(
@@ -104,16 +104,16 @@ Map<String, dynamic> _$PayServiceCommissionTransactionGet$ResponseToJson(
 PayServiceRechargeBalanceGet$Response
 _$PayServiceRechargeBalanceGet$ResponseFromJson(Map<String, dynamic> json) =>
     PayServiceRechargeBalanceGet$Response(
-      code: (json['code'] as num?)?.toDouble(),
-      message: json['message'] as String?,
+      code: JsonCoerce.asDouble(json['code']),
+      message: JsonCoerce.asString(json['message']),
       data: json['data'] == null
           ? null
           : PayServiceRechargeBalanceGet$Response$Data.fromJson(
               json['data'] as Map<String, dynamic>,
             ),
-      traceId: json['traceId'] as String?,
+      traceId: JsonCoerce.asString(json['traceId']),
       placeholder: json['placeholder'],
-      success: json['success'] as bool?,
+      success: JsonCoerce.asBool(json['success']),
     );
 
 Map<String, dynamic> _$PayServiceRechargeBalanceGet$ResponseToJson(
@@ -130,15 +130,15 @@ Map<String, dynamic> _$PayServiceRechargeBalanceGet$ResponseToJson(
 PayServiceRechargeOrdersGet$Response
 _$PayServiceRechargeOrdersGet$ResponseFromJson(Map<String, dynamic> json) =>
     PayServiceRechargeOrdersGet$Response(
-      code: (json['code'] as num?)?.toDouble(),
-      message: json['message'] as String?,
+      code: JsonCoerce.asDouble(json['code']),
+      message: JsonCoerce.asString(json['message']),
       data: json['data'] == null
           ? null
           : PayServiceRechargeOrdersGet$Response$Data.fromJson(
               json['data'] as Map<String, dynamic>,
             ),
-      traceId: json['traceId'] as String?,
-      success: json['success'] as bool?,
+      traceId: JsonCoerce.asString(json['traceId']),
+      success: JsonCoerce.asBool(json['success']),
     );
 
 Map<String, dynamic> _$PayServiceRechargeOrdersGet$ResponseToJson(
@@ -155,16 +155,16 @@ PayServiceRechargeCreateOrderPost$Response
 _$PayServiceRechargeCreateOrderPost$ResponseFromJson(
   Map<String, dynamic> json,
 ) => PayServiceRechargeCreateOrderPost$Response(
-  code: (json['code'] as num?)?.toDouble(),
-  message: json['message'] as String?,
+  code: JsonCoerce.asDouble(json['code']),
+  message: JsonCoerce.asString(json['message']),
   data: json['data'] == null
       ? null
       : PayServiceRechargeCreateOrderPost$Response$Data.fromJson(
           json['data'] as Map<String, dynamic>,
         ),
-  traceId: json['traceId'] as String?,
+  traceId: JsonCoerce.asString(json['traceId']),
   placeholder: json['placeholder'],
-  success: json['success'] as bool?,
+  success: JsonCoerce.asBool(json['success']),
 );
 
 Map<String, dynamic> _$PayServiceRechargeCreateOrderPost$ResponseToJson(
@@ -181,16 +181,16 @@ Map<String, dynamic> _$PayServiceRechargeCreateOrderPost$ResponseToJson(
 PayServicePayPayPost$Response _$PayServicePayPayPost$ResponseFromJson(
   Map<String, dynamic> json,
 ) => PayServicePayPayPost$Response(
-  code: (json['code'] as num?)?.toDouble(),
-  message: json['message'] as String?,
+  code: JsonCoerce.asDouble(json['code']),
+  message: JsonCoerce.asString(json['message']),
   data: json['data'] == null
       ? null
       : PayServicePayPayPost$Response$Data.fromJson(
           json['data'] as Map<String, dynamic>,
         ),
-  traceId: json['traceId'] as String?,
+  traceId: JsonCoerce.asString(json['traceId']),
   placeholder: json['placeholder'],
-  success: json['success'] as bool?,
+  success: JsonCoerce.asBool(json['success']),
 );
 
 Map<String, dynamic> _$PayServicePayPayPost$ResponseToJson(
@@ -207,16 +207,16 @@ Map<String, dynamic> _$PayServicePayPayPost$ResponseToJson(
 PayServicePayPayResultGet$Response _$PayServicePayPayResultGet$ResponseFromJson(
   Map<String, dynamic> json,
 ) => PayServicePayPayResultGet$Response(
-  code: (json['code'] as num?)?.toDouble(),
-  message: json['message'] as String?,
+  code: JsonCoerce.asDouble(json['code']),
+  message: JsonCoerce.asString(json['message']),
   data: json['data'] == null
       ? null
       : PayServicePayPayResultGet$Response$Data.fromJson(
           json['data'] as Map<String, dynamic>,
         ),
-  traceId: json['traceId'] as String?,
+  traceId: JsonCoerce.asString(json['traceId']),
   placeholder: json['placeholder'],
-  success: json['success'] as bool?,
+  success: JsonCoerce.asBool(json['success']),
 );
 
 Map<String, dynamic> _$PayServicePayPayResultGet$ResponseToJson(
@@ -233,16 +233,16 @@ Map<String, dynamic> _$PayServicePayPayResultGet$ResponseToJson(
 PayServicePayPayTypeGet$Response _$PayServicePayPayTypeGet$ResponseFromJson(
   Map<String, dynamic> json,
 ) => PayServicePayPayTypeGet$Response(
-  code: (json['code'] as num?)?.toDouble(),
-  message: json['message'] as String?,
+  code: JsonCoerce.asDouble(json['code']),
+  message: JsonCoerce.asString(json['message']),
   data: json['data'] == null
       ? null
       : PayServicePayPayTypeGet$Response$Data.fromJson(
           json['data'] as Map<String, dynamic>,
         ),
-  traceId: json['traceId'] as String?,
+  traceId: JsonCoerce.asString(json['traceId']),
   placeholder: json['placeholder'],
-  success: json['success'] as bool?,
+  success: JsonCoerce.asBool(json['success']),
 );
 
 Map<String, dynamic> _$PayServicePayPayTypeGet$ResponseToJson(
@@ -259,8 +259,8 @@ Map<String, dynamic> _$PayServicePayPayTypeGet$ResponseToJson(
 PayServiceEchoooCoinTypeGet$Response
 _$PayServiceEchoooCoinTypeGet$ResponseFromJson(Map<String, dynamic> json) =>
     PayServiceEchoooCoinTypeGet$Response(
-      code: (json['code'] as num?)?.toDouble(),
-      message: json['message'] as String?,
+      code: JsonCoerce.asDouble(json['code']),
+      message: JsonCoerce.asString(json['message']),
       data: (json['data'] as List<dynamic>?)
           ?.map(
             (e) => PayServiceEchoooCoinTypeGet$Response$Data$Item.fromJson(
@@ -268,9 +268,9 @@ _$PayServiceEchoooCoinTypeGet$ResponseFromJson(Map<String, dynamic> json) =>
             ),
           )
           .toList(),
-      traceId: json['traceId'] as String?,
+      traceId: JsonCoerce.asString(json['traceId']),
       placeholder: json['placeholder'],
-      success: json['success'] as bool?,
+      success: JsonCoerce.asBool(json['success']),
     );
 
 Map<String, dynamic> _$PayServiceEchoooCoinTypeGet$ResponseToJson(
@@ -287,16 +287,16 @@ Map<String, dynamic> _$PayServiceEchoooCoinTypeGet$ResponseToJson(
 PayServiceEchoooCoinInfoGet$Response
 _$PayServiceEchoooCoinInfoGet$ResponseFromJson(Map<String, dynamic> json) =>
     PayServiceEchoooCoinInfoGet$Response(
-      code: (json['code'] as num?)?.toDouble(),
-      message: json['message'] as String?,
+      code: JsonCoerce.asDouble(json['code']),
+      message: JsonCoerce.asString(json['message']),
       data: json['data'] == null
           ? null
           : PayServiceEchoooCoinInfoGet$Response$Data.fromJson(
               json['data'] as Map<String, dynamic>,
             ),
-      traceId: json['traceId'] as String?,
+      traceId: JsonCoerce.asString(json['traceId']),
       placeholder: json['placeholder'],
-      success: json['success'] as bool?,
+      success: JsonCoerce.asBool(json['success']),
     );
 
 Map<String, dynamic> _$PayServiceEchoooCoinInfoGet$ResponseToJson(
@@ -313,16 +313,16 @@ Map<String, dynamic> _$PayServiceEchoooCoinInfoGet$ResponseToJson(
 PayServiceEchoooCoinLogGet$Response
 _$PayServiceEchoooCoinLogGet$ResponseFromJson(Map<String, dynamic> json) =>
     PayServiceEchoooCoinLogGet$Response(
-      code: (json['code'] as num?)?.toDouble(),
-      message: json['message'] as String?,
+      code: JsonCoerce.asDouble(json['code']),
+      message: JsonCoerce.asString(json['message']),
       data: json['data'] == null
           ? null
           : PayServiceEchoooCoinLogGet$Response$Data.fromJson(
               json['data'] as Map<String, dynamic>,
             ),
-      traceId: json['traceId'] as String?,
+      traceId: JsonCoerce.asString(json['traceId']),
       placeholder: json['placeholder'],
-      success: json['success'] as bool?,
+      success: JsonCoerce.asBool(json['success']),
     );
 
 Map<String, dynamic> _$PayServiceEchoooCoinLogGet$ResponseToJson(
@@ -347,10 +347,10 @@ _$PayServiceWithdrawOrdersGet$Response$DataFromJson(
         ),
       )
       .toList(),
-  total: (json['total'] as num?)?.toDouble(),
-  size: (json['size'] as num?)?.toDouble(),
-  current: (json['current'] as num?)?.toDouble(),
-  pages: (json['pages'] as num?)?.toDouble(),
+  total: JsonCoerce.asDouble(json['total']),
+  size: JsonCoerce.asDouble(json['size']),
+  current: JsonCoerce.asDouble(json['current']),
+  pages: JsonCoerce.asDouble(json['pages']),
 );
 
 Map<String, dynamic> _$PayServiceWithdrawOrdersGet$Response$DataToJson(
@@ -367,13 +367,13 @@ PayServiceWithdrawApplyPost$Response$Data
 _$PayServiceWithdrawApplyPost$Response$DataFromJson(
   Map<String, dynamic> json,
 ) => PayServiceWithdrawApplyPost$Response$Data(
-  orderNo: json['orderNo'] as String?,
-  amount: json['amount'] as String?,
-  currency: json['currency'] as String?,
-  status: (json['status'] as num?)?.toDouble(),
-  rejectReason: json['rejectReason'] as String?,
-  createTime: json['createTime'] as String?,
-  completedTime: json['completedTime'] as String?,
+  orderNo: JsonCoerce.asString(json['orderNo']),
+  amount: JsonCoerce.asString(json['amount']),
+  currency: JsonCoerce.asString(json['currency']),
+  status: JsonCoerce.asDouble(json['status']),
+  rejectReason: JsonCoerce.asString(json['rejectReason']),
+  createTime: JsonCoerce.asString(json['createTime']),
+  completedTime: JsonCoerce.asString(json['completedTime']),
 );
 
 Map<String, dynamic> _$PayServiceWithdrawApplyPost$Response$DataToJson(
@@ -392,13 +392,13 @@ PayServiceCommissionSummaryGet$Response$Data
 _$PayServiceCommissionSummaryGet$Response$DataFromJson(
   Map<String, dynamic> json,
 ) => PayServiceCommissionSummaryGet$Response$Data(
-  commissionTotal: json['commissionTotal'] as String?,
-  targetCurrencyTotal: json['targetCurrencyTotal'] as String?,
-  withdrawAmount: json['withdrawAmount'] as String?,
-  withdrawableBalance: json['withdrawableBalance'] as String?,
-  pendingCommission: json['pendingCommission'] as String?,
-  totalPoints: (json['totalPoints'] as num?)?.toDouble(),
-  pendingWithdrawAmount: json['pendingWithdrawAmount'] as String?,
+  commissionTotal: JsonCoerce.asString(json['commissionTotal']),
+  targetCurrencyTotal: JsonCoerce.asString(json['targetCurrencyTotal']),
+  withdrawAmount: JsonCoerce.asString(json['withdrawAmount']),
+  withdrawableBalance: JsonCoerce.asString(json['withdrawableBalance']),
+  pendingCommission: JsonCoerce.asString(json['pendingCommission']),
+  totalPoints: JsonCoerce.asDouble(json['totalPoints']),
+  pendingWithdrawAmount: JsonCoerce.asString(json['pendingWithdrawAmount']),
 );
 
 Map<String, dynamic> _$PayServiceCommissionSummaryGet$Response$DataToJson(
@@ -417,10 +417,10 @@ PayServiceCommissionTransactionGet$Response$Data
 _$PayServiceCommissionTransactionGet$Response$DataFromJson(
   Map<String, dynamic> json,
 ) => PayServiceCommissionTransactionGet$Response$Data(
-  total: (json['total'] as num?)?.toDouble(),
-  pageSize: (json['pageSize'] as num?)?.toDouble(),
-  totalPages: (json['totalPages'] as num?)?.toDouble(),
-  current: (json['current'] as num?)?.toDouble(),
+  total: JsonCoerce.asDouble(json['total']),
+  pageSize: JsonCoerce.asDouble(json['pageSize']),
+  totalPages: JsonCoerce.asDouble(json['totalPages']),
+  current: JsonCoerce.asDouble(json['current']),
   records: (json['records'] as List<dynamic>?)
       ?.map(
         (e) =>
@@ -445,19 +445,19 @@ PayServiceRechargeBalanceGet$Response$Data
 _$PayServiceRechargeBalanceGet$Response$DataFromJson(
   Map<String, dynamic> json,
 ) => PayServiceRechargeBalanceGet$Response$Data(
-  balance: json['balance'] as String?,
+  balance: JsonCoerce.asString(json['balance']),
   currency: json['currency'] == null
       ? null
       : PayServiceRechargeBalanceGet$Response$Data$Currency.fromJson(
           json['currency'] as Map<String, dynamic>,
         ),
-  yesterdayProfit: json['yesterdayProfit'] as String?,
-  totalProfit: json['totalProfit'] as String?,
-  rechargeAmounts: json['rechargeAmounts'] as String?,
-  rechargeAmountsText: json['rechargeAmountsText'] as String?,
-  rechargeRuleText: json['rechargeRuleText'] as String?,
-  rechargeRuleTitle: json['rechargeRuleTitle'] as String?,
-  targetBalance: json['targetBalance'] as String?,
+  yesterdayProfit: JsonCoerce.asString(json['yesterdayProfit']),
+  totalProfit: JsonCoerce.asString(json['totalProfit']),
+  rechargeAmounts: JsonCoerce.asString(json['rechargeAmounts']),
+  rechargeAmountsText: JsonCoerce.asString(json['rechargeAmountsText']),
+  rechargeRuleText: JsonCoerce.asString(json['rechargeRuleText']),
+  rechargeRuleTitle: JsonCoerce.asString(json['rechargeRuleTitle']),
+  targetBalance: JsonCoerce.asString(json['targetBalance']),
   rechargeReward: json['rechargeReward'] == null
       ? null
       : PayServiceRechargeBalanceGet$Response$Data$RechargeReward.fromJson(
@@ -497,10 +497,10 @@ _$PayServiceRechargeOrdersGet$Response$DataFromJson(
         ),
       )
       .toList(),
-  total: (json['total'] as num?)?.toDouble(),
-  size: (json['size'] as num?)?.toDouble(),
-  current: (json['current'] as num?)?.toDouble(),
-  pages: (json['pages'] as num?)?.toDouble(),
+  total: JsonCoerce.asDouble(json['total']),
+  size: JsonCoerce.asDouble(json['size']),
+  current: JsonCoerce.asDouble(json['current']),
+  pages: JsonCoerce.asDouble(json['pages']),
 );
 
 Map<String, dynamic> _$PayServiceRechargeOrdersGet$Response$DataToJson(
@@ -517,7 +517,7 @@ PayServiceRechargeCreateOrderPost$Response$Data
 _$PayServiceRechargeCreateOrderPost$Response$DataFromJson(
   Map<String, dynamic> json,
 ) => PayServiceRechargeCreateOrderPost$Response$Data(
-  orderId: json['orderId'] as String?,
+  orderId: JsonCoerce.asString(json['orderId']),
 );
 
 Map<String, dynamic> _$PayServiceRechargeCreateOrderPost$Response$DataToJson(
@@ -527,8 +527,8 @@ Map<String, dynamic> _$PayServiceRechargeCreateOrderPost$Response$DataToJson(
 PayServicePayPayPost$Response$Data _$PayServicePayPayPost$Response$DataFromJson(
   Map<String, dynamic> json,
 ) => PayServicePayPayPost$Response$Data(
-  thirdPayParam: json['thirdPayParam'] as String?,
-  receiptAddress: json['receiptAddress'] as String?,
+  thirdPayParam: JsonCoerce.asString(json['thirdPayParam']),
+  receiptAddress: JsonCoerce.asString(json['receiptAddress']),
 );
 
 Map<String, dynamic> _$PayServicePayPayPost$Response$DataToJson(
@@ -541,14 +541,14 @@ Map<String, dynamic> _$PayServicePayPayPost$Response$DataToJson(
 PayServicePayPayResultGet$Response$Data
 _$PayServicePayPayResultGet$Response$DataFromJson(Map<String, dynamic> json) =>
     PayServicePayPayResultGet$Response$Data(
-      payStatus: (json['payStatus'] as num?)?.toDouble(),
-      orderType: (json['orderType'] as num?)?.toDouble(),
+      payStatus: JsonCoerce.asDouble(json['payStatus']),
+      orderType: JsonCoerce.asDouble(json['orderType']),
       currency: json['currency'] == null
           ? null
           : PayServicePayPayResultGet$Response$Data$Currency.fromJson(
               json['currency'] as Map<String, dynamic>,
             ),
-      payAmount: json['payAmount'] as String?,
+      payAmount: JsonCoerce.asString(json['payAmount']),
     );
 
 Map<String, dynamic> _$PayServicePayPayResultGet$Response$DataToJson(
@@ -580,8 +580,8 @@ PayServiceEchoooCoinTypeGet$Response$Data$Item
 _$PayServiceEchoooCoinTypeGet$Response$Data$ItemFromJson(
   Map<String, dynamic> json,
 ) => PayServiceEchoooCoinTypeGet$Response$Data$Item(
-  type: (json['type'] as num?)?.toDouble(),
-  name: json['name'] as String?,
+  type: JsonCoerce.asDouble(json['type']),
+  name: JsonCoerce.asString(json['name']),
 );
 
 Map<String, dynamic> _$PayServiceEchoooCoinTypeGet$Response$Data$ItemToJson(
@@ -592,10 +592,10 @@ PayServiceEchoooCoinInfoGet$Response$Data
 _$PayServiceEchoooCoinInfoGet$Response$DataFromJson(
   Map<String, dynamic> json,
 ) => PayServiceEchoooCoinInfoGet$Response$Data(
-  balance: (json['balance'] as num?)?.toDouble(),
-  percentage: json['percentage'] as String?,
-  deductibleAmount: json['deductibleAmount'] as String?,
-  accumulateAmount: json['accumulateAmount'] as String?,
+  balance: JsonCoerce.asDouble(json['balance']),
+  percentage: JsonCoerce.asString(json['percentage']),
+  deductibleAmount: JsonCoerce.asString(json['deductibleAmount']),
+  accumulateAmount: JsonCoerce.asString(json['accumulateAmount']),
   currency: json['currency'] == null
       ? null
       : PayServiceEchoooCoinInfoGet$Response$Data$Currency.fromJson(
@@ -616,10 +616,10 @@ Map<String, dynamic> _$PayServiceEchoooCoinInfoGet$Response$DataToJson(
 PayServiceEchoooCoinLogGet$Response$Data
 _$PayServiceEchoooCoinLogGet$Response$DataFromJson(Map<String, dynamic> json) =>
     PayServiceEchoooCoinLogGet$Response$Data(
-      total: (json['total'] as num?)?.toDouble(),
-      pageSize: (json['pageSize'] as num?)?.toDouble(),
-      totalPages: (json['totalPages'] as num?)?.toDouble(),
-      current: (json['current'] as num?)?.toDouble(),
+      total: JsonCoerce.asDouble(json['total']),
+      pageSize: JsonCoerce.asDouble(json['pageSize']),
+      totalPages: JsonCoerce.asDouble(json['totalPages']),
+      current: JsonCoerce.asDouble(json['current']),
       records: (json['records'] as List<dynamic>?)
           ?.map(
             (e) =>
@@ -644,16 +644,16 @@ PayServiceWithdrawOrdersGet$Response$Data$Records$Item
 _$PayServiceWithdrawOrdersGet$Response$Data$Records$ItemFromJson(
   Map<String, dynamic> json,
 ) => PayServiceWithdrawOrdersGet$Response$Data$Records$Item(
-  orderNo: json['orderNo'] as String?,
-  amount: json['amount'] as String?,
-  currency: json['currency'] as String?,
-  status: (json['status'] as num?)?.toDouble(),
-  remark: json['remark'] as String?,
-  createTime: json['createTime'] as String?,
-  completedTime: json['completedTime'] as String?,
-  attach: json['attach'] as String?,
-  accountType: json['accountType'] as String?,
-  accountNo: json['accountNo'] as String?,
+  orderNo: JsonCoerce.asString(json['orderNo']),
+  amount: JsonCoerce.asString(json['amount']),
+  currency: JsonCoerce.asString(json['currency']),
+  status: JsonCoerce.asDouble(json['status']),
+  remark: JsonCoerce.asString(json['remark']),
+  createTime: JsonCoerce.asString(json['createTime']),
+  completedTime: JsonCoerce.asString(json['completedTime']),
+  attach: JsonCoerce.asString(json['attach']),
+  accountType: JsonCoerce.asString(json['accountType']),
+  accountNo: JsonCoerce.asString(json['accountNo']),
 );
 
 Map<String, dynamic>
@@ -676,10 +676,10 @@ PayServiceCommissionTransactionGet$Response$Data$Records$Item
 _$PayServiceCommissionTransactionGet$Response$Data$Records$ItemFromJson(
   Map<String, dynamic> json,
 ) => PayServiceCommissionTransactionGet$Response$Data$Records$Item(
-  amount: json['amount'] as String?,
-  time: json['time'] as String?,
-  typeName: json['typeName'] as String?,
-  currency: json['currency'] as String?,
+  amount: JsonCoerce.asString(json['amount']),
+  time: JsonCoerce.asString(json['time']),
+  typeName: JsonCoerce.asString(json['typeName']),
+  currency: JsonCoerce.asString(json['currency']),
 );
 
 Map<String, dynamic>
@@ -696,8 +696,8 @@ PayServiceRechargeBalanceGet$Response$Data$Currency
 _$PayServiceRechargeBalanceGet$Response$Data$CurrencyFromJson(
   Map<String, dynamic> json,
 ) => PayServiceRechargeBalanceGet$Response$Data$Currency(
-  name: json['name'] as String?,
-  symbol: json['symbol'] as String?,
+  name: JsonCoerce.asString(json['name']),
+  symbol: JsonCoerce.asString(json['symbol']),
 );
 
 Map<String, dynamic>
@@ -709,8 +709,8 @@ PayServiceRechargeBalanceGet$Response$Data$RechargeReward
 _$PayServiceRechargeBalanceGet$Response$Data$RechargeRewardFromJson(
   Map<String, dynamic> json,
 ) => PayServiceRechargeBalanceGet$Response$Data$RechargeReward(
-  amount: json['amount'] as String?,
-  expireAt: (json['expireAt'] as num?)?.toDouble(),
+  amount: JsonCoerce.asString(json['amount']),
+  expireAt: JsonCoerce.asDouble(json['expireAt']),
 );
 
 Map<String, dynamic>
@@ -725,8 +725,8 @@ PayServiceRechargeBalanceGet$Response$Data$TargetCurrency
 _$PayServiceRechargeBalanceGet$Response$Data$TargetCurrencyFromJson(
   Map<String, dynamic> json,
 ) => PayServiceRechargeBalanceGet$Response$Data$TargetCurrency(
-  name: json['name'] as String?,
-  symbol: json['symbol'] as String?,
+  name: JsonCoerce.asString(json['name']),
+  symbol: JsonCoerce.asString(json['symbol']),
 );
 
 Map<String, dynamic>
@@ -738,20 +738,20 @@ PayServiceRechargeOrdersGet$Response$Data$Records$Item
 _$PayServiceRechargeOrdersGet$Response$Data$Records$ItemFromJson(
   Map<String, dynamic> json,
 ) => PayServiceRechargeOrdersGet$Response$Data$Records$Item(
-  id: (json['id'] as num?)?.toDouble(),
-  userId: json['userId'] as String?,
-  tenantCode: json['tenantCode'] as String?,
-  amount: json['amount'] as String?,
-  currency: json['currency'] as String?,
-  targetAmount: json['targetAmount'] as String?,
-  targetCurrency: json['targetCurrency'] as String?,
-  gmtCreate: json['gmtCreate'] as String?,
-  gmtUpdate: json['gmtUpdate'] as String?,
-  status: (json['status'] as num?)?.toDouble(),
-  payType: (json['payType'] as num?)?.toDouble(),
-  payAmount: json['payAmount'] as String?,
-  payFee: json['payFee'] as String?,
-  payOrderId: json['payOrderId'] as String?,
+  id: JsonCoerce.asDouble(json['id']),
+  userId: JsonCoerce.asString(json['userId']),
+  tenantCode: JsonCoerce.asString(json['tenantCode']),
+  amount: JsonCoerce.asString(json['amount']),
+  currency: JsonCoerce.asString(json['currency']),
+  targetAmount: JsonCoerce.asString(json['targetAmount']),
+  targetCurrency: JsonCoerce.asString(json['targetCurrency']),
+  gmtCreate: JsonCoerce.asString(json['gmtCreate']),
+  gmtUpdate: JsonCoerce.asString(json['gmtUpdate']),
+  status: JsonCoerce.asDouble(json['status']),
+  payType: JsonCoerce.asDouble(json['payType']),
+  payAmount: JsonCoerce.asString(json['payAmount']),
+  payFee: JsonCoerce.asString(json['payFee']),
+  payOrderId: JsonCoerce.asString(json['payOrderId']),
 );
 
 Map<String, dynamic>
@@ -778,8 +778,8 @@ PayServicePayPayResultGet$Response$Data$Currency
 _$PayServicePayPayResultGet$Response$Data$CurrencyFromJson(
   Map<String, dynamic> json,
 ) => PayServicePayPayResultGet$Response$Data$Currency(
-  name: json['name'] as String?,
-  symbol: json['symbol'] as String?,
+  name: JsonCoerce.asString(json['name']),
+  symbol: JsonCoerce.asString(json['symbol']),
 );
 
 Map<String, dynamic> _$PayServicePayPayResultGet$Response$Data$CurrencyToJson(
@@ -790,20 +790,20 @@ PayServicePayPayTypeGet$Response$Data$List$Item
 _$PayServicePayPayTypeGet$Response$Data$List$ItemFromJson(
   Map<String, dynamic> json,
 ) => PayServicePayPayTypeGet$Response$Data$List$Item(
-  payType: json['payType'] as String?,
-  payAmount: json['payAmount'] as String?,
+  payType: JsonCoerce.asString(json['payType']),
+  payAmount: JsonCoerce.asString(json['payAmount']),
   currency: json['currency'] == null
       ? null
       : PayServicePayPayTypeGet$Response$Data$List$Item$Currency.fromJson(
           json['currency'] as Map<String, dynamic>,
         ),
-  payTypeName: json['payTypeName'] as String?,
-  payTypeIcon: json['payTypeIcon'] as String?,
-  payTypeDesc: json['payTypeDesc'] as String?,
-  payFee: json['payFee'] as String?,
-  rechargeOnly: json['rechargeOnly'] as String?,
-  rechargeDifference: json['rechargeDifference'] as String?,
-  isDefault: json['isDefault'] as bool?,
+  payTypeName: JsonCoerce.asString(json['payTypeName']),
+  payTypeIcon: JsonCoerce.asString(json['payTypeIcon']),
+  payTypeDesc: JsonCoerce.asString(json['payTypeDesc']),
+  payFee: JsonCoerce.asString(json['payFee']),
+  rechargeOnly: JsonCoerce.asString(json['rechargeOnly']),
+  rechargeDifference: JsonCoerce.asString(json['rechargeDifference']),
+  isDefault: JsonCoerce.asBool(json['isDefault']),
 );
 
 Map<String, dynamic> _$PayServicePayPayTypeGet$Response$Data$List$ItemToJson(
@@ -825,8 +825,8 @@ PayServiceEchoooCoinInfoGet$Response$Data$Currency
 _$PayServiceEchoooCoinInfoGet$Response$Data$CurrencyFromJson(
   Map<String, dynamic> json,
 ) => PayServiceEchoooCoinInfoGet$Response$Data$Currency(
-  name: json['name'] as String?,
-  symbol: json['symbol'] as String?,
+  name: JsonCoerce.asString(json['name']),
+  symbol: JsonCoerce.asString(json['symbol']),
 );
 
 Map<String, dynamic> _$PayServiceEchoooCoinInfoGet$Response$Data$CurrencyToJson(
@@ -837,10 +837,10 @@ PayServiceEchoooCoinLogGet$Response$Data$Records$Item
 _$PayServiceEchoooCoinLogGet$Response$Data$Records$ItemFromJson(
   Map<String, dynamic> json,
 ) => PayServiceEchoooCoinLogGet$Response$Data$Records$Item(
-  actualAmount: (json['actualAmount'] as num?)?.toDouble(),
-  gmtCreate: (json['gmtCreate'] as num?)?.toDouble(),
-  type: (json['type'] as num?)?.toDouble(),
-  name: json['name'] as String?,
+  actualAmount: JsonCoerce.asDouble(json['actualAmount']),
+  gmtCreate: JsonCoerce.asDouble(json['gmtCreate']),
+  type: JsonCoerce.asDouble(json['type']),
+  name: JsonCoerce.asString(json['name']),
 );
 
 Map<String, dynamic>
@@ -857,8 +857,8 @@ PayServicePayPayTypeGet$Response$Data$List$Item$Currency
 _$PayServicePayPayTypeGet$Response$Data$List$Item$CurrencyFromJson(
   Map<String, dynamic> json,
 ) => PayServicePayPayTypeGet$Response$Data$List$Item$Currency(
-  name: json['name'] as String?,
-  symbol: json['symbol'] as String?,
+  name: JsonCoerce.asString(json['name']),
+  symbol: JsonCoerce.asString(json['symbol']),
 );
 
 Map<String, dynamic>

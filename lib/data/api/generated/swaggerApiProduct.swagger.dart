@@ -16,6 +16,7 @@ import 'package:http/http.dart' show MultipartFile;
 import 'package:chopper/chopper.dart' as chopper;
 import 'swaggerApiProduct.enums.swagger.dart' as enums;
 import 'swaggerApiProduct.metadata.swagger.dart';
+import 'package:w2capp/shared/utils/json_coerce.dart';
 export 'swaggerApiProduct.enums.swagger.dart';
 
 part 'swaggerApiProduct.swagger.chopper.dart';
@@ -1381,9 +1382,9 @@ class ProductServiceProductReviewNoAuthPageGet$Response {
   Map<String, dynamic> toJson() =>
       _$ProductServiceProductReviewNoAuthPageGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final ProductServiceProductReviewNoAuthPageGet$Response$Data? data;
@@ -1460,9 +1461,9 @@ class ProductServiceProductReviewNoAuthSummaryGet$Response {
   Map<String, dynamic> toJson() =>
       _$ProductServiceProductReviewNoAuthSummaryGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final ProductServiceProductReviewNoAuthSummaryGet$Response$Data? data;
@@ -1542,17 +1543,17 @@ class ProductServiceCategoryNoAuthTreeGet$Response {
   Map<String, dynamic> toJson() =>
       _$ProductServiceCategoryNoAuthTreeGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final ProductServiceCategoryNoAuthTreeGet$Response$Data? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   static const fromJsonFactory =
       _$ProductServiceCategoryNoAuthTreeGet$ResponseFromJson;
@@ -1657,15 +1658,15 @@ class ProductServiceActivityNoAuthFlashSaleActivityGet$Response {
   Map<String, dynamic> toJson() =>
       _$ProductServiceActivityNoAuthFlashSaleActivityGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final ProductServiceActivityNoAuthFlashSaleActivityGet$Response$Data? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   static const fromJsonFactory =
       _$ProductServiceActivityNoAuthFlashSaleActivityGet$ResponseFromJson;
@@ -1764,14 +1765,14 @@ class ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response {
         this,
       );
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asString)
   final String? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data?
   data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   static const fromJsonFactory =
       _$ProductServiceActivityNoAuthFlashSaleActivityProductGet$ResponseFromJson;
@@ -1858,13 +1859,13 @@ class ProductServiceProductPremiumDupeNoAuthPagePost$Response {
   Map<String, dynamic> toJson() =>
       _$ProductServiceProductPremiumDupeNoAuthPagePost$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
   final int? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   static const fromJsonFactory =
       _$ProductServiceProductPremiumDupeNoAuthPagePost$ResponseFromJson;
@@ -1948,13 +1949,13 @@ class ProductServiceProductPremiumDupeNoAuthMetaGet$Response {
   Map<String, dynamic> toJson() =>
       _$ProductServiceProductPremiumDupeNoAuthMetaGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
   final int? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   static const fromJsonFactory =
       _$ProductServiceProductPremiumDupeNoAuthMetaGet$ResponseFromJson;
@@ -2039,16 +2040,16 @@ class ProductServiceProductPremiumDupeNoAuthSelectionGet$Response {
   Map<String, dynamic> toJson() =>
       _$ProductServiceProductPremiumDupeNoAuthSelectionGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
   final int? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final List<
     ProductServiceProductPremiumDupeNoAuthSelectionGet$Response$Data$Item
   >?
   data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   static const fromJsonFactory =
       _$ProductServiceProductPremiumDupeNoAuthSelectionGet$ResponseFromJson;
@@ -2136,11 +2137,11 @@ class ProductServiceExternalPurchaseRecordPost$Response {
   Map<String, dynamic> toJson() =>
       _$ProductServiceExternalPurchaseRecordPost$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
-  @JsonKey(name: 'data')
+  @JsonKey(name: 'data', fromJson: JsonCoerce.asBool)
   final bool? data;
   static const fromJsonFactory =
       _$ProductServiceExternalPurchaseRecordPost$ResponseFromJson;
@@ -2216,13 +2217,13 @@ class ProductServiceProductNoAuthPushProductGet$Response {
   Map<String, dynamic> toJson() =>
       _$ProductServiceProductNoAuthPushProductGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
   final int? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final ProductServiceProductNoAuthPushProductGet$Response$Data? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthPushProductGet$ResponseFromJson;
@@ -2305,13 +2306,13 @@ class ProductServiceProductNoAuthSearchGet$Response {
   Map<String, dynamic> toJson() =>
       _$ProductServiceProductNoAuthSearchGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
   final int? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final List<ProductServiceProductNoAuthSearchGet$Response$Data$Item>? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthSearchGet$ResponseFromJson;
@@ -2397,17 +2398,17 @@ class ProductServiceProductNoAuthCombineSearchGet$Response {
   Map<String, dynamic> toJson() =>
       _$ProductServiceProductNoAuthCombineSearchGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final ProductServiceProductNoAuthCombineSearchGet$Response$Data? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthCombineSearchGet$ResponseFromJson;
@@ -2512,17 +2513,17 @@ class ProductServiceProductNoAuthNewArrivalProductGet$Response {
   Map<String, dynamic> toJson() =>
       _$ProductServiceProductNoAuthNewArrivalProductGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final ProductServiceProductNoAuthNewArrivalProductGet$Response$Data? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthNewArrivalProductGet$ResponseFromJson;
@@ -2632,17 +2633,21 @@ class ProductServiceProductNoAuthNewArrivalProductBrandGet$Response {
         this,
       );
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
-  @JsonKey(name: 'data', defaultValue: <String>[])
+  @JsonKey(
+    name: 'data',
+    fromJson: JsonCoerce.asStringList,
+    defaultValue: <String>[],
+  )
   final List<String>? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthNewArrivalProductBrandGet$ResponseFromJson;
@@ -2746,13 +2751,13 @@ class ProductServiceProductNoAuthSkuListGet$Response {
   Map<String, dynamic> toJson() =>
       _$ProductServiceProductNoAuthSkuListGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
   final int? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final List<ProductServiceProductNoAuthSkuListGet$Response$Data$Item>? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthSkuListGet$ResponseFromJson;
@@ -2838,17 +2843,17 @@ class ProductServiceProductNoAuthGetProductInfoGet$Response {
   Map<String, dynamic> toJson() =>
       _$ProductServiceProductNoAuthGetProductInfoGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final ProductServiceProductNoAuthGetProductInfoGet$Response$Data? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthGetProductInfoGet$ResponseFromJson;
@@ -2957,18 +2962,18 @@ class ProductServiceProductNoAuthPremierProductCategoryGet$Response {
         this,
       );
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data?
   data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthPremierProductCategoryGet$ResponseFromJson;
@@ -3075,13 +3080,13 @@ class ProductServiceProductNoAuthHotProductGet$Response {
   Map<String, dynamic> toJson() =>
       _$ProductServiceProductNoAuthHotProductGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
   final int? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final List<ProductServiceProductNoAuthHotProductGet$Response$Data$Item>? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthHotProductGet$ResponseFromJson;
@@ -3165,13 +3170,13 @@ class ProductServiceProductNoAuthHotProductV2Get$Response {
   Map<String, dynamic> toJson() =>
       _$ProductServiceProductNoAuthHotProductV2Get$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
   final int? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final ProductServiceProductNoAuthHotProductV2Get$Response$Data? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthHotProductV2Get$ResponseFromJson;
@@ -3255,15 +3260,15 @@ class ProductServiceProductNoAuthHotProductV3Get$Response {
   Map<String, dynamic> toJson() =>
       _$ProductServiceProductNoAuthHotProductV3Get$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final ProductServiceProductNoAuthHotProductV3Get$Response$Data? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthHotProductV3Get$ResponseFromJson;
@@ -3358,18 +3363,18 @@ class ProductServiceProductNoAuthFlashSaleProductGet$Response {
   Map<String, dynamic> toJson() =>
       _$ProductServiceProductNoAuthFlashSaleProductGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final List<ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item>?
   data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthFlashSaleProductGet$ResponseFromJson;
@@ -3478,17 +3483,17 @@ class ProductServiceProductNoAuthAlbumProductGet$Response {
   Map<String, dynamic> toJson() =>
       _$ProductServiceProductNoAuthAlbumProductGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final ProductServiceProductNoAuthAlbumProductGet$Response$Data? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthAlbumProductGet$ResponseFromJson;
@@ -3591,13 +3596,13 @@ class ProductServiceShopNoAuthGetThirdShopGet$Response {
   Map<String, dynamic> toJson() =>
       _$ProductServiceShopNoAuthGetThirdShopGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
   final int? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final ProductServiceShopNoAuthGetThirdShopGet$Response$Data? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   static const fromJsonFactory =
       _$ProductServiceShopNoAuthGetThirdShopGet$ResponseFromJson;
@@ -3682,17 +3687,17 @@ class ProductServiceProductNoAuthKolProductGet$Response {
   Map<String, dynamic> toJson() =>
       _$ProductServiceProductNoAuthKolProductGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final List<ProductServiceProductNoAuthKolProductGet$Response$Data$Item>? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthKolProductGet$ResponseFromJson;
@@ -3798,17 +3803,17 @@ class ProductServiceProductNoAuthPremierProductGet$Response {
   Map<String, dynamic> toJson() =>
       _$ProductServiceProductNoAuthPremierProductGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final ProductServiceProductNoAuthPremierProductGet$Response$Data? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthPremierProductGet$ResponseFromJson;
@@ -3915,17 +3920,21 @@ class ProductServiceProductNoAuthPremierProductBrandGet$Response {
   Map<String, dynamic> toJson() =>
       _$ProductServiceProductNoAuthPremierProductBrandGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
-  @JsonKey(name: 'data', defaultValue: <String>[])
+  @JsonKey(
+    name: 'data',
+    fromJson: JsonCoerce.asStringList,
+    defaultValue: <String>[],
+  )
   final List<String>? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthPremierProductBrandGet$ResponseFromJson;
@@ -4034,16 +4043,16 @@ class ProductServiceRecommendNoAuthCategoryRecommendationGet$Response {
         this,
       );
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data?
   data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   static const fromJsonFactory =
       _$ProductServiceRecommendNoAuthCategoryRecommendationGet$ResponseFromJson;
@@ -4140,13 +4149,13 @@ class ProductServiceRecommendNoAuthCategoryPost$Response {
   Map<String, dynamic> toJson() =>
       _$ProductServiceRecommendNoAuthCategoryPost$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
   final int? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final ProductServiceRecommendNoAuthCategoryPost$Response$Data? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   static const fromJsonFactory =
       _$ProductServiceRecommendNoAuthCategoryPost$ResponseFromJson;
@@ -4229,13 +4238,13 @@ class ProductServiceRecommendNoAuthShopPost$Response {
   Map<String, dynamic> toJson() =>
       _$ProductServiceRecommendNoAuthShopPost$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
   final int? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final ProductServiceRecommendNoAuthShopPost$Response$Data? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   static const fromJsonFactory =
       _$ProductServiceRecommendNoAuthShopPost$ResponseFromJson;
@@ -4318,13 +4327,13 @@ class ProductServiceRecommendNoAuthSimilarProductPost$Response {
   Map<String, dynamic> toJson() =>
       _$ProductServiceRecommendNoAuthSimilarProductPost$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
   final int? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final ProductServiceRecommendNoAuthSimilarProductPost$Response$Data? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   static const fromJsonFactory =
       _$ProductServiceRecommendNoAuthSimilarProductPost$ResponseFromJson;
@@ -4409,13 +4418,13 @@ class ProductServiceProductReviewNoAuthPageGet$Response$Data {
   Map<String, dynamic> toJson() =>
       _$ProductServiceProductReviewNoAuthPageGet$Response$DataToJson(this);
 
-  @JsonKey(name: 'current')
+  @JsonKey(name: 'current', fromJson: JsonCoerce.asDouble)
   final double? current;
-  @JsonKey(name: 'size')
+  @JsonKey(name: 'size', fromJson: JsonCoerce.asDouble)
   final double? size;
-  @JsonKey(name: 'total')
+  @JsonKey(name: 'total', fromJson: JsonCoerce.asDouble)
   final double? total;
-  @JsonKey(name: 'pages')
+  @JsonKey(name: 'pages', fromJson: JsonCoerce.asDouble)
   final double? pages;
   @JsonKey(name: 'records')
   final List<
@@ -4516,13 +4525,13 @@ class ProductServiceProductReviewNoAuthSummaryGet$Response$Data {
   Map<String, dynamic> toJson() =>
       _$ProductServiceProductReviewNoAuthSummaryGet$Response$DataToJson(this);
 
-  @JsonKey(name: 'productCode')
+  @JsonKey(name: 'productCode', fromJson: JsonCoerce.asString)
   final String? productCode;
-  @JsonKey(name: 'reviewCount')
+  @JsonKey(name: 'reviewCount', fromJson: JsonCoerce.asDouble)
   final double? reviewCount;
-  @JsonKey(name: 'averageScore')
+  @JsonKey(name: 'averageScore', fromJson: JsonCoerce.asDouble)
   final double? averageScore;
-  @JsonKey(name: 'aiSummary')
+  @JsonKey(name: 'aiSummary', fromJson: JsonCoerce.asString)
   final String? aiSummary;
   @JsonKey(name: 'featuredReviews')
   final List<
@@ -4709,9 +4718,9 @@ class ProductServiceActivityNoAuthFlashSaleActivityGet$Response$Data {
         this,
       );
 
-  @JsonKey(name: 'pic')
+  @JsonKey(name: 'pic', fromJson: JsonCoerce.asString)
   final String? pic;
-  @JsonKey(name: 'ruleLink')
+  @JsonKey(name: 'ruleLink', fromJson: JsonCoerce.asString)
   final String? ruleLink;
   @JsonKey(name: 'activities')
   final List<
@@ -4816,13 +4825,13 @@ class ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data {
     ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item
   >?
   records;
-  @JsonKey(name: 'total')
+  @JsonKey(name: 'total', fromJson: JsonCoerce.asInt)
   final int? total;
-  @JsonKey(name: 'pageSize')
+  @JsonKey(name: 'pageSize', fromJson: JsonCoerce.asInt)
   final int? pageSize;
-  @JsonKey(name: 'totalPages')
+  @JsonKey(name: 'totalPages', fromJson: JsonCoerce.asInt)
   final int? totalPages;
-  @JsonKey(name: 'current')
+  @JsonKey(name: 'current', fromJson: JsonCoerce.asInt)
   final int? current;
   static const fromJsonFactory =
       _$ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$DataFromJson;
@@ -4934,13 +4943,13 @@ class ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data {
         this,
       );
 
-  @JsonKey(name: 'total')
+  @JsonKey(name: 'total', fromJson: JsonCoerce.asInt)
   final int? total;
-  @JsonKey(name: 'pageSize')
+  @JsonKey(name: 'pageSize', fromJson: JsonCoerce.asInt)
   final int? pageSize;
-  @JsonKey(name: 'totalPages')
+  @JsonKey(name: 'totalPages', fromJson: JsonCoerce.asInt)
   final int? totalPages;
-  @JsonKey(name: 'current')
+  @JsonKey(name: 'current', fromJson: JsonCoerce.asInt)
   final int? current;
   @JsonKey(name: 'records')
   final List<
@@ -5176,43 +5185,43 @@ class ProductServiceProductPremiumDupeNoAuthSelectionGet$Response$Data$Item {
         this,
       );
 
-  @JsonKey(name: 'productCode')
+  @JsonKey(name: 'productCode', fromJson: JsonCoerce.asString)
   final String? productCode;
-  @JsonKey(name: 'productName')
+  @JsonKey(name: 'productName', fromJson: JsonCoerce.asString)
   final String? productName;
   @JsonKey(name: 'image')
   final ProductServiceProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$Image?
   image;
-  @JsonKey(name: 'sourcePlatform')
+  @JsonKey(name: 'sourcePlatform', fromJson: JsonCoerce.asString)
   final String? sourcePlatform;
-  @JsonKey(name: 'platformProductId')
+  @JsonKey(name: 'platformProductId', fromJson: JsonCoerce.asString)
   final String? platformProductId;
   @JsonKey(name: 'categoryTree', defaultValue: <Object>[])
   final List<Object>? categoryTree;
-  @JsonKey(name: 'skuCode')
+  @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
   final String? skuCode;
-  @JsonKey(name: 'sellPriceCur')
+  @JsonKey(name: 'sellPriceCur', fromJson: JsonCoerce.asString)
   final String? sellPriceCur;
-  @JsonKey(name: 'sellPrice')
+  @JsonKey(name: 'sellPrice', fromJson: JsonCoerce.asString)
   final String? sellPrice;
-  @JsonKey(name: 'targetSellPrice')
+  @JsonKey(name: 'targetSellPrice', fromJson: JsonCoerce.asString)
   final String? targetSellPrice;
-  @JsonKey(name: 'targetOriginPrice')
+  @JsonKey(name: 'targetOriginPrice', fromJson: JsonCoerce.asString)
   final String? targetOriginPrice;
-  @JsonKey(name: 'targetSellCur')
+  @JsonKey(name: 'targetSellCur', fromJson: JsonCoerce.asString)
   final String? targetSellCur;
-  @JsonKey(name: 'sellQuantity')
+  @JsonKey(name: 'sellQuantity', fromJson: JsonCoerce.asString)
   final String? sellQuantity;
-  @JsonKey(name: 'skuCount')
+  @JsonKey(name: 'skuCount', fromJson: JsonCoerce.asInt)
   final int? skuCount;
-  @JsonKey(name: 'marketingInfo')
+  @JsonKey(name: 'marketingInfo', fromJson: JsonCoerce.asString)
   final String? marketingInfo;
   @JsonKey(name: 'tags')
   final List<
     ProductServiceProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$Tags$Item
   >?
   tags;
-  @JsonKey(name: 'skuSourceCode')
+  @JsonKey(name: 'skuSourceCode', fromJson: JsonCoerce.asString)
   final String? skuSourceCode;
   @JsonKey(name: 'premiumBrandInfo')
   final ProductServiceProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$PremiumBrandInfo?
@@ -5495,13 +5504,13 @@ class ProductServiceProductNoAuthPushProductGet$Response$Data {
   Map<String, dynamic> toJson() =>
       _$ProductServiceProductNoAuthPushProductGet$Response$DataToJson(this);
 
-  @JsonKey(name: 'total')
+  @JsonKey(name: 'total', fromJson: JsonCoerce.asInt)
   final int? total;
-  @JsonKey(name: 'pageSize')
+  @JsonKey(name: 'pageSize', fromJson: JsonCoerce.asInt)
   final int? pageSize;
-  @JsonKey(name: 'current')
+  @JsonKey(name: 'current', fromJson: JsonCoerce.asInt)
   final int? current;
-  @JsonKey(name: 'totalPages')
+  @JsonKey(name: 'totalPages', fromJson: JsonCoerce.asInt)
   final int? totalPages;
   @JsonKey(name: 'records')
   final List<
@@ -5629,15 +5638,15 @@ class ProductServiceProductNoAuthSearchGet$Response$Data$Item {
   Map<String, dynamic> toJson() =>
       _$ProductServiceProductNoAuthSearchGet$Response$Data$ItemToJson(this);
 
-  @JsonKey(name: 'shopCode')
+  @JsonKey(name: 'shopCode', fromJson: JsonCoerce.asString)
   final String? shopCode;
-  @JsonKey(name: 'productCode')
+  @JsonKey(name: 'productCode', fromJson: JsonCoerce.asString)
   final String? productCode;
-  @JsonKey(name: 'productName')
+  @JsonKey(name: 'productName', fromJson: JsonCoerce.asString)
   final String? productName;
-  @JsonKey(name: 'tenantCode')
+  @JsonKey(name: 'tenantCode', fromJson: JsonCoerce.asString)
   final String? tenantCode;
-  @JsonKey(name: 'brandName')
+  @JsonKey(name: 'brandName', fromJson: JsonCoerce.asString)
   final String? brandName;
   @JsonKey(name: 'mainImg')
   final ProductServiceProductNoAuthSearchGet$Response$Data$Item$MainImg?
@@ -5652,9 +5661,9 @@ class ProductServiceProductNoAuthSearchGet$Response$Data$Item {
     ProductServiceProductNoAuthSearchGet$Response$Data$Item$ImgCollection$Item
   >?
   imgCollection;
-  @JsonKey(name: 'textDetail')
+  @JsonKey(name: 'textDetail', fromJson: JsonCoerce.asString)
   final String? textDetail;
-  @JsonKey(name: 'categoryId')
+  @JsonKey(name: 'categoryId', fromJson: JsonCoerce.asString)
   final String? categoryId;
   @JsonKey(name: 'productOptions')
   final List<
@@ -5666,25 +5675,25 @@ class ProductServiceProductNoAuthSearchGet$Response$Data$Item {
     ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductAttrs$Item
   >?
   productAttrs;
-  @JsonKey(name: 'sourcePlatform')
+  @JsonKey(name: 'sourcePlatform', fromJson: JsonCoerce.asString)
   final String? sourcePlatform;
-  @JsonKey(name: 'platformUrl')
+  @JsonKey(name: 'platformUrl', fromJson: JsonCoerce.asString)
   final String? platformUrl;
-  @JsonKey(name: 'platformProductId')
+  @JsonKey(name: 'platformProductId', fromJson: JsonCoerce.asString)
   final String? platformProductId;
-  @JsonKey(name: 'skuCode')
+  @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
   final String? skuCode;
-  @JsonKey(name: 'sellPriceCur')
+  @JsonKey(name: 'sellPriceCur', fromJson: JsonCoerce.asString)
   final String? sellPriceCur;
-  @JsonKey(name: 'sellPrice')
+  @JsonKey(name: 'sellPrice', fromJson: JsonCoerce.asString)
   final String? sellPrice;
-  @JsonKey(name: 'targetSellPrice')
+  @JsonKey(name: 'targetSellPrice', fromJson: JsonCoerce.asString)
   final String? targetSellPrice;
-  @JsonKey(name: 'targetSellCur')
+  @JsonKey(name: 'targetSellCur', fromJson: JsonCoerce.asString)
   final String? targetSellCur;
-  @JsonKey(name: 'marketingInfo')
+  @JsonKey(name: 'marketingInfo', fromJson: JsonCoerce.asString)
   final String? marketingInfo;
-  @JsonKey(name: 'targetOriginPrice')
+  @JsonKey(name: 'targetOriginPrice', fromJson: JsonCoerce.asString)
   final String? targetOriginPrice;
   @JsonKey(name: 'premiumBrandInfo')
   final ProductServiceProductNoAuthSearchGet$Response$Data$Item$PremiumBrandInfo?
@@ -6049,13 +6058,13 @@ class ProductServiceProductNoAuthCombineSearchGet$Response$Data {
     ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item
   >?
   records;
-  @JsonKey(name: 'total')
+  @JsonKey(name: 'total', fromJson: JsonCoerce.asDouble)
   final double? total;
-  @JsonKey(name: 'pageSize')
+  @JsonKey(name: 'pageSize', fromJson: JsonCoerce.asDouble)
   final double? pageSize;
-  @JsonKey(name: 'current')
+  @JsonKey(name: 'current', fromJson: JsonCoerce.asDouble)
   final double? current;
-  @JsonKey(name: 'totalPages')
+  @JsonKey(name: 'totalPages', fromJson: JsonCoerce.asDouble)
   final double? totalPages;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthCombineSearchGet$Response$DataFromJson;
@@ -6167,13 +6176,13 @@ class ProductServiceProductNoAuthNewArrivalProductGet$Response$Data {
         this,
       );
 
-  @JsonKey(name: 'total')
+  @JsonKey(name: 'total', fromJson: JsonCoerce.asDouble)
   final double? total;
-  @JsonKey(name: 'pageSize')
+  @JsonKey(name: 'pageSize', fromJson: JsonCoerce.asDouble)
   final double? pageSize;
-  @JsonKey(name: 'totalPages')
+  @JsonKey(name: 'totalPages', fromJson: JsonCoerce.asDouble)
   final double? totalPages;
-  @JsonKey(name: 'current')
+  @JsonKey(name: 'current', fromJson: JsonCoerce.asDouble)
   final double? current;
   @JsonKey(name: 'records')
   final List<
@@ -6298,13 +6307,13 @@ class ProductServiceProductNoAuthSkuListGet$Response$Data$Item {
   Map<String, dynamic> toJson() =>
       _$ProductServiceProductNoAuthSkuListGet$Response$Data$ItemToJson(this);
 
-  @JsonKey(name: 'productCode')
+  @JsonKey(name: 'productCode', fromJson: JsonCoerce.asString)
   final String? productCode;
-  @JsonKey(name: 'skuCode')
+  @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
   final String? skuCode;
-  @JsonKey(name: 'tenantCode')
+  @JsonKey(name: 'tenantCode', fromJson: JsonCoerce.asString)
   final String? tenantCode;
-  @JsonKey(name: 'extUrl')
+  @JsonKey(name: 'extUrl', fromJson: JsonCoerce.asString)
   final String? extUrl;
   @JsonKey(name: 'skuImg')
   final ProductServiceProductNoAuthSkuListGet$Response$Data$Item$SkuImg? skuImg;
@@ -6313,29 +6322,29 @@ class ProductServiceProductNoAuthSkuListGet$Response$Data$Item {
     ProductServiceProductNoAuthSkuListGet$Response$Data$Item$SkuOptions$Item
   >?
   skuOptions;
-  @JsonKey(name: 'sellPrice')
+  @JsonKey(name: 'sellPrice', fromJson: JsonCoerce.asString)
   final String? sellPrice;
-  @JsonKey(name: 'sellCur')
+  @JsonKey(name: 'sellCur', fromJson: JsonCoerce.asString)
   final String? sellCur;
-  @JsonKey(name: 'targetSellPrice')
+  @JsonKey(name: 'targetSellPrice', fromJson: JsonCoerce.asString)
   final String? targetSellPrice;
-  @JsonKey(name: 'targetSellCur')
+  @JsonKey(name: 'targetSellCur', fromJson: JsonCoerce.asString)
   final String? targetSellCur;
-  @JsonKey(name: 'length')
+  @JsonKey(name: 'length', fromJson: JsonCoerce.asString)
   final String? length;
-  @JsonKey(name: 'width')
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asString)
   final String? width;
-  @JsonKey(name: 'height')
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asString)
   final String? height;
-  @JsonKey(name: 'weight')
+  @JsonKey(name: 'weight', fromJson: JsonCoerce.asString)
   final String? weight;
-  @JsonKey(name: 'estimateUnitFreight')
+  @JsonKey(name: 'estimateUnitFreight', fromJson: JsonCoerce.asString)
   final String? estimateUnitFreight;
-  @JsonKey(name: 'marketingInfo')
+  @JsonKey(name: 'marketingInfo', fromJson: JsonCoerce.asString)
   final String? marketingInfo;
-  @JsonKey(name: 'targetOriginPrice')
+  @JsonKey(name: 'targetOriginPrice', fromJson: JsonCoerce.asString)
   final String? targetOriginPrice;
-  @JsonKey(name: 'skuSourceCode')
+  @JsonKey(name: 'skuSourceCode', fromJson: JsonCoerce.asString)
   final String? skuSourceCode;
   @JsonKey(name: 'flashSaleInfo')
   final ProductServiceProductNoAuthSkuListGet$Response$Data$Item$FlashSaleInfo?
@@ -6620,22 +6629,22 @@ class ProductServiceProductNoAuthGetProductInfoGet$Response$Data {
   Map<String, dynamic> toJson() =>
       _$ProductServiceProductNoAuthGetProductInfoGet$Response$DataToJson(this);
 
-  @JsonKey(name: 'shopCode')
+  @JsonKey(name: 'shopCode', fromJson: JsonCoerce.asString)
   final String? shopCode;
-  @JsonKey(name: 'productCode')
+  @JsonKey(name: 'productCode', fromJson: JsonCoerce.asString)
   final String? productCode;
-  @JsonKey(name: 'productName')
+  @JsonKey(name: 'productName', fromJson: JsonCoerce.asString)
   final String? productName;
-  @JsonKey(name: 'tenantCode')
+  @JsonKey(name: 'tenantCode', fromJson: JsonCoerce.asString)
   final String? tenantCode;
-  @JsonKey(name: 'brandName')
+  @JsonKey(name: 'brandName', fromJson: JsonCoerce.asString)
   final String? brandName;
   @JsonKey(name: 'mainImg')
   final List<
     ProductServiceProductNoAuthGetProductInfoGet$Response$Data$MainImg$Item
   >?
   mainImg;
-  @JsonKey(name: 'subImg')
+  @JsonKey(name: 'subImg', fromJson: JsonCoerce.asString)
   final String? subImg;
   @JsonKey(name: 'mainVideo')
   final List<
@@ -6647,14 +6656,14 @@ class ProductServiceProductNoAuthGetProductInfoGet$Response$Data {
     ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgCollection$Item
   >?
   imgCollection;
-  @JsonKey(name: 'textDetail')
+  @JsonKey(name: 'textDetail', fromJson: JsonCoerce.asString)
   final String? textDetail;
   @JsonKey(name: 'imgDetail')
   final List<
     ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgDetail$Item
   >?
   imgDetail;
-  @JsonKey(name: 'categoryId')
+  @JsonKey(name: 'categoryId', fromJson: JsonCoerce.asDouble)
   final double? categoryId;
   @JsonKey(name: 'productOptions')
   final List<
@@ -6666,23 +6675,23 @@ class ProductServiceProductNoAuthGetProductInfoGet$Response$Data {
     ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductAttrs$Item
   >?
   productAttrs;
-  @JsonKey(name: 'sourcePlatform')
+  @JsonKey(name: 'sourcePlatform', fromJson: JsonCoerce.asString)
   final String? sourcePlatform;
-  @JsonKey(name: 'platformUrl')
+  @JsonKey(name: 'platformUrl', fromJson: JsonCoerce.asString)
   final String? platformUrl;
-  @JsonKey(name: 'platformProductId')
+  @JsonKey(name: 'platformProductId', fromJson: JsonCoerce.asString)
   final String? platformProductId;
-  @JsonKey(name: 'skuCode')
+  @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
   final String? skuCode;
-  @JsonKey(name: 'sellPriceCur')
+  @JsonKey(name: 'sellPriceCur', fromJson: JsonCoerce.asString)
   final String? sellPriceCur;
-  @JsonKey(name: 'sellPrice')
+  @JsonKey(name: 'sellPrice', fromJson: JsonCoerce.asString)
   final String? sellPrice;
-  @JsonKey(name: 'targetSellPrice')
+  @JsonKey(name: 'targetSellPrice', fromJson: JsonCoerce.asString)
   final String? targetSellPrice;
-  @JsonKey(name: 'targetSellCur')
+  @JsonKey(name: 'targetSellCur', fromJson: JsonCoerce.asString)
   final String? targetSellCur;
-  @JsonKey(name: 'sellQuantity')
+  @JsonKey(name: 'sellQuantity', fromJson: JsonCoerce.asString)
   final String? sellQuantity;
   @JsonKey(name: 'inspectImages')
   final List<
@@ -6697,17 +6706,25 @@ class ProductServiceProductNoAuthGetProductInfoGet$Response$Data {
   @JsonKey(name: 'premiumBrandInfo')
   final ProductServiceProductNoAuthGetProductInfoGet$Response$Data$PremiumBrandInfo?
   premiumBrandInfo;
-  @JsonKey(name: 'sellPoints', defaultValue: <String>[])
+  @JsonKey(
+    name: 'sellPoints',
+    fromJson: JsonCoerce.asStringList,
+    defaultValue: <String>[],
+  )
   final List<String>? sellPoints;
-  @JsonKey(name: 'categoryTree', defaultValue: <double>[])
+  @JsonKey(
+    name: 'categoryTree',
+    fromJson: JsonCoerce.asDoubleList,
+    defaultValue: <double>[],
+  )
   final List<double>? categoryTree;
   @JsonKey(name: 'ext')
   final ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Ext? ext;
-  @JsonKey(name: 'productFlag')
+  @JsonKey(name: 'productFlag', fromJson: JsonCoerce.asString)
   final String? productFlag;
-  @JsonKey(name: 'marketingInfo')
+  @JsonKey(name: 'marketingInfo', fromJson: JsonCoerce.asString)
   final String? marketingInfo;
-  @JsonKey(name: 'targetOriginPrice')
+  @JsonKey(name: 'targetOriginPrice', fromJson: JsonCoerce.asString)
   final String? targetOriginPrice;
   @JsonKey(name: 'flashSale')
   final ProductServiceProductNoAuthGetProductInfoGet$Response$Data$FlashSale?
@@ -7272,28 +7289,28 @@ class ProductServiceProductNoAuthHotProductGet$Response$Data$Item {
   Map<String, dynamic> toJson() =>
       _$ProductServiceProductNoAuthHotProductGet$Response$Data$ItemToJson(this);
 
-  @JsonKey(name: 'productCode')
+  @JsonKey(name: 'productCode', fromJson: JsonCoerce.asString)
   final String? productCode;
-  @JsonKey(name: 'productName')
+  @JsonKey(name: 'productName', fromJson: JsonCoerce.asString)
   final String? productName;
   @JsonKey(name: 'image')
   final ProductServiceProductNoAuthHotProductGet$Response$Data$Item$Image?
   image;
-  @JsonKey(name: 'skuCode')
+  @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
   final String? skuCode;
-  @JsonKey(name: 'sellPriceCur')
+  @JsonKey(name: 'sellPriceCur', fromJson: JsonCoerce.asString)
   final String? sellPriceCur;
-  @JsonKey(name: 'sellPrice')
+  @JsonKey(name: 'sellPrice', fromJson: JsonCoerce.asString)
   final String? sellPrice;
-  @JsonKey(name: 'targetSellPrice')
+  @JsonKey(name: 'targetSellPrice', fromJson: JsonCoerce.asString)
   final String? targetSellPrice;
-  @JsonKey(name: 'targetSellCur')
+  @JsonKey(name: 'targetSellCur', fromJson: JsonCoerce.asString)
   final String? targetSellCur;
-  @JsonKey(name: 'sellQuantity')
+  @JsonKey(name: 'sellQuantity', fromJson: JsonCoerce.asString)
   final String? sellQuantity;
-  @JsonKey(name: 'marketingInfo')
+  @JsonKey(name: 'marketingInfo', fromJson: JsonCoerce.asString)
   final String? marketingInfo;
-  @JsonKey(name: 'targetOriginPrice')
+  @JsonKey(name: 'targetOriginPrice', fromJson: JsonCoerce.asString)
   final String? targetOriginPrice;
   @JsonKey(name: 'tags')
   final List<
@@ -7515,13 +7532,13 @@ class ProductServiceProductNoAuthHotProductV2Get$Response$Data {
   Map<String, dynamic> toJson() =>
       _$ProductServiceProductNoAuthHotProductV2Get$Response$DataToJson(this);
 
-  @JsonKey(name: 'total')
+  @JsonKey(name: 'total', fromJson: JsonCoerce.asInt)
   final int? total;
-  @JsonKey(name: 'pageSize')
+  @JsonKey(name: 'pageSize', fromJson: JsonCoerce.asInt)
   final int? pageSize;
-  @JsonKey(name: 'current')
+  @JsonKey(name: 'current', fromJson: JsonCoerce.asInt)
   final int? current;
-  @JsonKey(name: 'totalPages')
+  @JsonKey(name: 'totalPages', fromJson: JsonCoerce.asInt)
   final int? totalPages;
   @JsonKey(name: 'records')
   final List<
@@ -7629,13 +7646,13 @@ class ProductServiceProductNoAuthHotProductV3Get$Response$Data {
   Map<String, dynamic> toJson() =>
       _$ProductServiceProductNoAuthHotProductV3Get$Response$DataToJson(this);
 
-  @JsonKey(name: 'total')
+  @JsonKey(name: 'total', fromJson: JsonCoerce.asDouble)
   final double? total;
-  @JsonKey(name: 'pageSize')
+  @JsonKey(name: 'pageSize', fromJson: JsonCoerce.asDouble)
   final double? pageSize;
-  @JsonKey(name: 'totalPages')
+  @JsonKey(name: 'totalPages', fromJson: JsonCoerce.asDouble)
   final double? totalPages;
-  @JsonKey(name: 'current')
+  @JsonKey(name: 'current', fromJson: JsonCoerce.asDouble)
   final double? current;
   @JsonKey(name: 'records')
   final List<
@@ -7771,15 +7788,15 @@ class ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item {
         this,
       );
 
-  @JsonKey(name: 'shopCode')
+  @JsonKey(name: 'shopCode', fromJson: JsonCoerce.asString)
   final String? shopCode;
-  @JsonKey(name: 'productCode')
+  @JsonKey(name: 'productCode', fromJson: JsonCoerce.asString)
   final String? productCode;
-  @JsonKey(name: 'productName')
+  @JsonKey(name: 'productName', fromJson: JsonCoerce.asString)
   final String? productName;
-  @JsonKey(name: 'tenantCode')
+  @JsonKey(name: 'tenantCode', fromJson: JsonCoerce.asString)
   final String? tenantCode;
-  @JsonKey(name: 'brandName')
+  @JsonKey(name: 'brandName', fromJson: JsonCoerce.asString)
   final String? brandName;
   @JsonKey(name: 'mainImg')
   final List<
@@ -7798,14 +7815,14 @@ class ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item {
     ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgCollection$Item
   >?
   imgCollection;
-  @JsonKey(name: 'textDetail')
+  @JsonKey(name: 'textDetail', fromJson: JsonCoerce.asString)
   final String? textDetail;
   @JsonKey(name: 'imgDetail')
   final List<
     ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgDetail$Item
   >?
   imgDetail;
-  @JsonKey(name: 'categoryId')
+  @JsonKey(name: 'categoryId', fromJson: JsonCoerce.asDouble)
   final double? categoryId;
   @JsonKey(name: 'productOptions')
   final List<
@@ -7817,27 +7834,27 @@ class ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item {
     ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductAttrs$Item
   >?
   productAttrs;
-  @JsonKey(name: 'sourcePlatform')
+  @JsonKey(name: 'sourcePlatform', fromJson: JsonCoerce.asString)
   final String? sourcePlatform;
-  @JsonKey(name: 'platformUrl')
+  @JsonKey(name: 'platformUrl', fromJson: JsonCoerce.asString)
   final String? platformUrl;
-  @JsonKey(name: 'platformProductId')
+  @JsonKey(name: 'platformProductId', fromJson: JsonCoerce.asString)
   final String? platformProductId;
-  @JsonKey(name: 'skuCode')
+  @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
   final String? skuCode;
-  @JsonKey(name: 'sellPriceCur')
+  @JsonKey(name: 'sellPriceCur', fromJson: JsonCoerce.asString)
   final String? sellPriceCur;
-  @JsonKey(name: 'sellPrice')
+  @JsonKey(name: 'sellPrice', fromJson: JsonCoerce.asString)
   final String? sellPrice;
-  @JsonKey(name: 'targetSellPrice')
+  @JsonKey(name: 'targetSellPrice', fromJson: JsonCoerce.asString)
   final String? targetSellPrice;
-  @JsonKey(name: 'targetSellCur')
+  @JsonKey(name: 'targetSellCur', fromJson: JsonCoerce.asString)
   final String? targetSellCur;
-  @JsonKey(name: 'productFlag')
+  @JsonKey(name: 'productFlag', fromJson: JsonCoerce.asString)
   final String? productFlag;
-  @JsonKey(name: 'marketingInfo')
+  @JsonKey(name: 'marketingInfo', fromJson: JsonCoerce.asString)
   final String? marketingInfo;
-  @JsonKey(name: 'sellQuantity')
+  @JsonKey(name: 'sellQuantity', fromJson: JsonCoerce.asString)
   final String? sellQuantity;
   @JsonKey(name: 'tags')
   final List<
@@ -8258,13 +8275,13 @@ class ProductServiceProductNoAuthAlbumProductGet$Response$Data {
   Map<String, dynamic> toJson() =>
       _$ProductServiceProductNoAuthAlbumProductGet$Response$DataToJson(this);
 
-  @JsonKey(name: 'total')
+  @JsonKey(name: 'total', fromJson: JsonCoerce.asDouble)
   final double? total;
-  @JsonKey(name: 'pageSize')
+  @JsonKey(name: 'pageSize', fromJson: JsonCoerce.asDouble)
   final double? pageSize;
-  @JsonKey(name: 'totalPages')
+  @JsonKey(name: 'totalPages', fromJson: JsonCoerce.asDouble)
   final double? totalPages;
-  @JsonKey(name: 'current')
+  @JsonKey(name: 'current', fromJson: JsonCoerce.asDouble)
   final double? current;
   @JsonKey(name: 'records')
   final List<
@@ -8372,13 +8389,13 @@ class ProductServiceShopNoAuthGetThirdShopGet$Response$Data {
   Map<String, dynamic> toJson() =>
       _$ProductServiceShopNoAuthGetThirdShopGet$Response$DataToJson(this);
 
-  @JsonKey(name: 'shopCode')
+  @JsonKey(name: 'shopCode', fromJson: JsonCoerce.asString)
   final String? shopCode;
-  @JsonKey(name: 'shopName')
+  @JsonKey(name: 'shopName', fromJson: JsonCoerce.asString)
   final String? shopName;
-  @JsonKey(name: 'icon')
+  @JsonKey(name: 'icon', fromJson: JsonCoerce.asString)
   final String? icon;
-  @JsonKey(name: 'recordSource')
+  @JsonKey(name: 'recordSource', fromJson: JsonCoerce.asInt)
   final int? recordSource;
   @JsonKey(name: 'records')
   final List<
@@ -8511,15 +8528,15 @@ class ProductServiceProductNoAuthKolProductGet$Response$Data$Item {
   Map<String, dynamic> toJson() =>
       _$ProductServiceProductNoAuthKolProductGet$Response$Data$ItemToJson(this);
 
-  @JsonKey(name: 'shopCode')
+  @JsonKey(name: 'shopCode', fromJson: JsonCoerce.asString)
   final String? shopCode;
-  @JsonKey(name: 'productCode')
+  @JsonKey(name: 'productCode', fromJson: JsonCoerce.asString)
   final String? productCode;
-  @JsonKey(name: 'productName')
+  @JsonKey(name: 'productName', fromJson: JsonCoerce.asString)
   final String? productName;
-  @JsonKey(name: 'tenantCode')
+  @JsonKey(name: 'tenantCode', fromJson: JsonCoerce.asString)
   final String? tenantCode;
-  @JsonKey(name: 'brandName')
+  @JsonKey(name: 'brandName', fromJson: JsonCoerce.asString)
   final String? brandName;
   @JsonKey(name: 'mainImg')
   final List<
@@ -8538,14 +8555,14 @@ class ProductServiceProductNoAuthKolProductGet$Response$Data$Item {
     ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgCollection$Item
   >?
   imgCollection;
-  @JsonKey(name: 'textDetail')
+  @JsonKey(name: 'textDetail', fromJson: JsonCoerce.asString)
   final String? textDetail;
   @JsonKey(name: 'imgDetail')
   final List<
     ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgDetail$Item
   >?
   imgDetail;
-  @JsonKey(name: 'categoryId')
+  @JsonKey(name: 'categoryId', fromJson: JsonCoerce.asDouble)
   final double? categoryId;
   @JsonKey(name: 'productOptions')
   final List<
@@ -8557,27 +8574,27 @@ class ProductServiceProductNoAuthKolProductGet$Response$Data$Item {
     ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductAttrs$Item
   >?
   productAttrs;
-  @JsonKey(name: 'sourcePlatform')
+  @JsonKey(name: 'sourcePlatform', fromJson: JsonCoerce.asString)
   final String? sourcePlatform;
-  @JsonKey(name: 'platformUrl')
+  @JsonKey(name: 'platformUrl', fromJson: JsonCoerce.asString)
   final String? platformUrl;
-  @JsonKey(name: 'platformProductId')
+  @JsonKey(name: 'platformProductId', fromJson: JsonCoerce.asString)
   final String? platformProductId;
-  @JsonKey(name: 'skuCode')
+  @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
   final String? skuCode;
-  @JsonKey(name: 'sellPriceCur')
+  @JsonKey(name: 'sellPriceCur', fromJson: JsonCoerce.asString)
   final String? sellPriceCur;
-  @JsonKey(name: 'sellPrice')
+  @JsonKey(name: 'sellPrice', fromJson: JsonCoerce.asString)
   final String? sellPrice;
-  @JsonKey(name: 'targetSellPrice')
+  @JsonKey(name: 'targetSellPrice', fromJson: JsonCoerce.asString)
   final String? targetSellPrice;
-  @JsonKey(name: 'targetSellCur')
+  @JsonKey(name: 'targetSellCur', fromJson: JsonCoerce.asString)
   final String? targetSellCur;
-  @JsonKey(name: 'productFlag')
+  @JsonKey(name: 'productFlag', fromJson: JsonCoerce.asString)
   final String? productFlag;
-  @JsonKey(name: 'marketingInfo')
+  @JsonKey(name: 'marketingInfo', fromJson: JsonCoerce.asString)
   final String? marketingInfo;
-  @JsonKey(name: 'sellQuantity')
+  @JsonKey(name: 'sellQuantity', fromJson: JsonCoerce.asString)
   final String? sellQuantity;
   @JsonKey(name: 'tags')
   final List<
@@ -8996,13 +9013,13 @@ class ProductServiceProductNoAuthPremierProductGet$Response$Data {
   Map<String, dynamic> toJson() =>
       _$ProductServiceProductNoAuthPremierProductGet$Response$DataToJson(this);
 
-  @JsonKey(name: 'total')
+  @JsonKey(name: 'total', fromJson: JsonCoerce.asDouble)
   final double? total;
-  @JsonKey(name: 'pageSize')
+  @JsonKey(name: 'pageSize', fromJson: JsonCoerce.asDouble)
   final double? pageSize;
-  @JsonKey(name: 'totalPages')
+  @JsonKey(name: 'totalPages', fromJson: JsonCoerce.asDouble)
   final double? totalPages;
-  @JsonKey(name: 'current')
+  @JsonKey(name: 'current', fromJson: JsonCoerce.asDouble)
   final double? current;
   @JsonKey(name: 'records')
   final List<
@@ -9114,7 +9131,7 @@ class ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data {
         this,
       );
 
-  @JsonKey(name: 'timestamp')
+  @JsonKey(name: 'timestamp', fromJson: JsonCoerce.asString)
   final String? timestamp;
   @JsonKey(name: 'categories')
   final List<
@@ -9203,13 +9220,13 @@ class ProductServiceRecommendNoAuthCategoryPost$Response$Data {
   Map<String, dynamic> toJson() =>
       _$ProductServiceRecommendNoAuthCategoryPost$Response$DataToJson(this);
 
-  @JsonKey(name: 'total')
+  @JsonKey(name: 'total', fromJson: JsonCoerce.asString)
   final String? total;
-  @JsonKey(name: 'pageSize')
+  @JsonKey(name: 'pageSize', fromJson: JsonCoerce.asString)
   final String? pageSize;
-  @JsonKey(name: 'totalPages')
+  @JsonKey(name: 'totalPages', fromJson: JsonCoerce.asString)
   final String? totalPages;
-  @JsonKey(name: 'current')
+  @JsonKey(name: 'current', fromJson: JsonCoerce.asString)
   final String? current;
   @JsonKey(name: 'records')
   final List<
@@ -9317,13 +9334,13 @@ class ProductServiceRecommendNoAuthShopPost$Response$Data {
   Map<String, dynamic> toJson() =>
       _$ProductServiceRecommendNoAuthShopPost$Response$DataToJson(this);
 
-  @JsonKey(name: 'total')
+  @JsonKey(name: 'total', fromJson: JsonCoerce.asString)
   final String? total;
-  @JsonKey(name: 'pageSize')
+  @JsonKey(name: 'pageSize', fromJson: JsonCoerce.asString)
   final String? pageSize;
-  @JsonKey(name: 'totalPages')
+  @JsonKey(name: 'totalPages', fromJson: JsonCoerce.asString)
   final String? totalPages;
-  @JsonKey(name: 'current')
+  @JsonKey(name: 'current', fromJson: JsonCoerce.asString)
   final String? current;
   @JsonKey(name: 'records')
   final List<ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item>?
@@ -9436,13 +9453,13 @@ class ProductServiceRecommendNoAuthSimilarProductPost$Response$Data {
     ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item
   >?
   records;
-  @JsonKey(name: 'total')
+  @JsonKey(name: 'total', fromJson: JsonCoerce.asString)
   final String? total;
-  @JsonKey(name: 'pageSize')
+  @JsonKey(name: 'pageSize', fromJson: JsonCoerce.asString)
   final String? pageSize;
-  @JsonKey(name: 'totalPages')
+  @JsonKey(name: 'totalPages', fromJson: JsonCoerce.asString)
   final String? totalPages;
-  @JsonKey(name: 'current')
+  @JsonKey(name: 'current', fromJson: JsonCoerce.asString)
   final String? current;
   static const fromJsonFactory =
       _$ProductServiceRecommendNoAuthSimilarProductPost$Response$DataFromJson;
@@ -9556,21 +9573,21 @@ class ProductServiceProductReviewNoAuthPageGet$Response$Data$Records$Item {
         this,
       );
 
-  @JsonKey(name: 'id')
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asDouble)
   final double? id;
-  @JsonKey(name: 'username')
+  @JsonKey(name: 'username', fromJson: JsonCoerce.asString)
   final String? username;
-  @JsonKey(name: 'comment')
+  @JsonKey(name: 'comment', fromJson: JsonCoerce.asString)
   final String? comment;
-  @JsonKey(name: 'score')
+  @JsonKey(name: 'score', fromJson: JsonCoerce.asDouble)
   final double? score;
   @JsonKey(name: 'images', defaultValue: <Object>[])
   final List<Object>? images;
-  @JsonKey(name: 'extraComment')
+  @JsonKey(name: 'extraComment', fromJson: JsonCoerce.asString)
   final String? extraComment;
-  @JsonKey(name: 'reviewTime')
+  @JsonKey(name: 'reviewTime', fromJson: JsonCoerce.asString)
   final String? reviewTime;
-  @JsonKey(name: 'salesQuantity')
+  @JsonKey(name: 'salesQuantity', fromJson: JsonCoerce.asDouble)
   final double? salesQuantity;
   static const fromJsonFactory =
       _$ProductServiceProductReviewNoAuthPageGet$Response$Data$Records$ItemFromJson;
@@ -9708,21 +9725,21 @@ class ProductServiceProductReviewNoAuthSummaryGet$Response$Data$FeaturedReviews$
         this,
       );
 
-  @JsonKey(name: 'id')
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asDouble)
   final double? id;
-  @JsonKey(name: 'username')
+  @JsonKey(name: 'username', fromJson: JsonCoerce.asString)
   final String? username;
-  @JsonKey(name: 'comment')
+  @JsonKey(name: 'comment', fromJson: JsonCoerce.asString)
   final String? comment;
-  @JsonKey(name: 'score')
+  @JsonKey(name: 'score', fromJson: JsonCoerce.asDouble)
   final double? score;
   @JsonKey(name: 'images', defaultValue: <Object>[])
   final List<Object>? images;
-  @JsonKey(name: 'extraComment')
+  @JsonKey(name: 'extraComment', fromJson: JsonCoerce.asString)
   final String? extraComment;
-  @JsonKey(name: 'reviewTime')
+  @JsonKey(name: 'reviewTime', fromJson: JsonCoerce.asString)
   final String? reviewTime;
-  @JsonKey(name: 'salesQuantity')
+  @JsonKey(name: 'salesQuantity', fromJson: JsonCoerce.asDouble)
   final double? salesQuantity;
   static const fromJsonFactory =
       _$ProductServiceProductReviewNoAuthSummaryGet$Response$Data$FeaturedReviews$ItemFromJson;
@@ -9861,17 +9878,17 @@ class ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item {
         this,
       );
 
-  @JsonKey(name: 'id')
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asDouble)
   final double? id;
-  @JsonKey(name: 'parentId')
+  @JsonKey(name: 'parentId', fromJson: JsonCoerce.asDouble)
   final double? parentId;
-  @JsonKey(name: 'level')
+  @JsonKey(name: 'level', fromJson: JsonCoerce.asDouble)
   final double? level;
-  @JsonKey(name: 'showOrder')
+  @JsonKey(name: 'showOrder', fromJson: JsonCoerce.asDouble)
   final double? showOrder;
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
-  @JsonKey(name: 'iconUrl')
+  @JsonKey(name: 'iconUrl', fromJson: JsonCoerce.asString)
   final String? iconUrl;
   @JsonKey(name: 'categoryList')
   final List<
@@ -10016,15 +10033,15 @@ class ProductServiceActivityNoAuthFlashSaleActivityGet$Response$Data$Activities$
         this,
       );
 
-  @JsonKey(name: 'activityCode')
+  @JsonKey(name: 'activityCode', fromJson: JsonCoerce.asString)
   final String? activityCode;
-  @JsonKey(name: 'title')
+  @JsonKey(name: 'title', fromJson: JsonCoerce.asString)
   final String? title;
-  @JsonKey(name: 'status')
+  @JsonKey(name: 'status', fromJson: JsonCoerce.asString)
   final String? status;
-  @JsonKey(name: 'startTime')
+  @JsonKey(name: 'startTime', fromJson: JsonCoerce.asDouble)
   final double? startTime;
-  @JsonKey(name: 'endTime')
+  @JsonKey(name: 'endTime', fromJson: JsonCoerce.asDouble)
   final double? endTime;
   @JsonKey(name: 'names', defaultValue: <Object>[])
   final List<Object>? names;
@@ -10149,30 +10166,30 @@ class ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Reco
         this,
       );
 
-  @JsonKey(name: 'productCode')
+  @JsonKey(name: 'productCode', fromJson: JsonCoerce.asString)
   final String? productCode;
-  @JsonKey(name: 'productName')
+  @JsonKey(name: 'productName', fromJson: JsonCoerce.asString)
   final String? productName;
   @JsonKey(name: 'image')
   final ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Image?
   image;
-  @JsonKey(name: 'skuCode')
+  @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
   final String? skuCode;
-  @JsonKey(name: 'sellPriceCur')
+  @JsonKey(name: 'sellPriceCur', fromJson: JsonCoerce.asString)
   final String? sellPriceCur;
-  @JsonKey(name: 'sellPrice')
+  @JsonKey(name: 'sellPrice', fromJson: JsonCoerce.asString)
   final String? sellPrice;
-  @JsonKey(name: 'targetSellPrice')
+  @JsonKey(name: 'targetSellPrice', fromJson: JsonCoerce.asString)
   final String? targetSellPrice;
-  @JsonKey(name: 'targetOriginPrice')
+  @JsonKey(name: 'targetOriginPrice', fromJson: JsonCoerce.asString)
   final String? targetOriginPrice;
-  @JsonKey(name: 'targetSellCur')
+  @JsonKey(name: 'targetSellCur', fromJson: JsonCoerce.asString)
   final String? targetSellCur;
-  @JsonKey(name: 'sellQuantity')
+  @JsonKey(name: 'sellQuantity', fromJson: JsonCoerce.asString)
   final String? sellQuantity;
-  @JsonKey(name: 'skuCount')
+  @JsonKey(name: 'skuCount', fromJson: JsonCoerce.asInt)
   final int? skuCount;
-  @JsonKey(name: 'marketingInfo')
+  @JsonKey(name: 'marketingInfo', fromJson: JsonCoerce.asString)
   final String? marketingInfo;
   @JsonKey(name: 'tags')
   final List<
@@ -10417,41 +10434,41 @@ class ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item 
         this,
       );
 
-  @JsonKey(name: 'productCode')
+  @JsonKey(name: 'productCode', fromJson: JsonCoerce.asString)
   final String? productCode;
-  @JsonKey(name: 'productName')
+  @JsonKey(name: 'productName', fromJson: JsonCoerce.asString)
   final String? productName;
   @JsonKey(name: 'image')
   final ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$Image?
   image;
-  @JsonKey(name: 'sourcePlatform')
+  @JsonKey(name: 'sourcePlatform', fromJson: JsonCoerce.asString)
   final String? sourcePlatform;
-  @JsonKey(name: 'platformProductId')
+  @JsonKey(name: 'platformProductId', fromJson: JsonCoerce.asString)
   final String? platformProductId;
-  @JsonKey(name: 'skuCode')
+  @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
   final String? skuCode;
-  @JsonKey(name: 'sellPriceCur')
+  @JsonKey(name: 'sellPriceCur', fromJson: JsonCoerce.asString)
   final String? sellPriceCur;
-  @JsonKey(name: 'sellPrice')
+  @JsonKey(name: 'sellPrice', fromJson: JsonCoerce.asString)
   final String? sellPrice;
-  @JsonKey(name: 'targetSellPrice')
+  @JsonKey(name: 'targetSellPrice', fromJson: JsonCoerce.asString)
   final String? targetSellPrice;
-  @JsonKey(name: 'targetOriginPrice')
+  @JsonKey(name: 'targetOriginPrice', fromJson: JsonCoerce.asString)
   final String? targetOriginPrice;
-  @JsonKey(name: 'targetSellCur')
+  @JsonKey(name: 'targetSellCur', fromJson: JsonCoerce.asString)
   final String? targetSellCur;
-  @JsonKey(name: 'sellQuantity')
+  @JsonKey(name: 'sellQuantity', fromJson: JsonCoerce.asString)
   final String? sellQuantity;
-  @JsonKey(name: 'skuCount')
+  @JsonKey(name: 'skuCount', fromJson: JsonCoerce.asInt)
   final int? skuCount;
-  @JsonKey(name: 'marketingInfo')
+  @JsonKey(name: 'marketingInfo', fromJson: JsonCoerce.asString)
   final String? marketingInfo;
   @JsonKey(name: 'tags')
   final List<
     ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$Tags$Item
   >?
   tags;
-  @JsonKey(name: 'skuSourceCode')
+  @JsonKey(name: 'skuSourceCode', fromJson: JsonCoerce.asString)
   final String? skuSourceCode;
   @JsonKey(name: 'premiumBrandInfo')
   final ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$PremiumBrandInfo?
@@ -10726,13 +10743,13 @@ class ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Categories$Ite
         this,
       );
 
-  @JsonKey(name: 'categoryId')
+  @JsonKey(name: 'categoryId', fromJson: JsonCoerce.asInt)
   final int? categoryId;
-  @JsonKey(name: 'categoryName')
+  @JsonKey(name: 'categoryName', fromJson: JsonCoerce.asString)
   final String? categoryName;
-  @JsonKey(name: 'count')
+  @JsonKey(name: 'count', fromJson: JsonCoerce.asInt)
   final int? count;
-  @JsonKey(name: 'categoryImage')
+  @JsonKey(name: 'categoryImage', fromJson: JsonCoerce.asString)
   final String? categoryImage;
   static const fromJsonFactory =
       _$ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Categories$ItemFromJson;
@@ -10850,7 +10867,7 @@ class ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$Item {
   )
   final enums.ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemOrder?
   order;
-  @JsonKey(name: 'label')
+  @JsonKey(name: 'label', fromJson: JsonCoerce.asString)
   final String? label;
   static const fromJsonFactory =
       _$ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Sorts$ItemFromJson;
@@ -11010,11 +11027,11 @@ class ProductServiceProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$Imag
         this,
       );
 
-  @JsonKey(name: 'width')
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asInt)
   final int? width;
-  @JsonKey(name: 'height')
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asInt)
   final int? height;
-  @JsonKey(name: 'url')
+  @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory =
       _$ProductServiceProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$ImageFromJson;
@@ -11091,13 +11108,13 @@ class ProductServiceProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$Tags
         this,
       );
 
-  @JsonKey(name: 'tagCode')
+  @JsonKey(name: 'tagCode', fromJson: JsonCoerce.asString)
   final String? tagCode;
-  @JsonKey(name: 'tagImg')
+  @JsonKey(name: 'tagImg', fromJson: JsonCoerce.asString)
   final String? tagImg;
-  @JsonKey(name: 'order')
+  @JsonKey(name: 'order', fromJson: JsonCoerce.asInt)
   final int? order;
-  @JsonKey(name: 'frontShow')
+  @JsonKey(name: 'frontShow', fromJson: JsonCoerce.asInt)
   final int? frontShow;
   static const fromJsonFactory =
       _$ProductServiceProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$Tags$ItemFromJson;
@@ -11185,9 +11202,9 @@ class ProductServiceProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$Prem
         this,
       );
 
-  @JsonKey(name: 'brandCode')
+  @JsonKey(name: 'brandCode', fromJson: JsonCoerce.asString)
   final String? brandCode;
-  @JsonKey(name: 'brandImg')
+  @JsonKey(name: 'brandImg', fromJson: JsonCoerce.asString)
   final String? brandImg;
   static const fromJsonFactory =
       _$ProductServiceProductPremiumDupeNoAuthSelectionGet$Response$Data$Item$PremiumBrandInfoFromJson;
@@ -11272,24 +11289,24 @@ class ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item {
         this,
       );
 
-  @JsonKey(name: 'productCode')
+  @JsonKey(name: 'productCode', fromJson: JsonCoerce.asString)
   final String? productCode;
-  @JsonKey(name: 'productName')
+  @JsonKey(name: 'productName', fromJson: JsonCoerce.asString)
   final String? productName;
   @JsonKey(name: 'image')
   final ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item$Image?
   image;
-  @JsonKey(name: 'skuCode')
+  @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
   final String? skuCode;
-  @JsonKey(name: 'sellPriceCur')
+  @JsonKey(name: 'sellPriceCur', fromJson: JsonCoerce.asString)
   final String? sellPriceCur;
-  @JsonKey(name: 'sellPrice')
+  @JsonKey(name: 'sellPrice', fromJson: JsonCoerce.asString)
   final String? sellPrice;
-  @JsonKey(name: 'targetSellPrice')
+  @JsonKey(name: 'targetSellPrice', fromJson: JsonCoerce.asString)
   final String? targetSellPrice;
-  @JsonKey(name: 'targetSellCur')
+  @JsonKey(name: 'targetSellCur', fromJson: JsonCoerce.asString)
   final String? targetSellCur;
-  @JsonKey(name: 'sellQuantity')
+  @JsonKey(name: 'sellQuantity', fromJson: JsonCoerce.asString)
   final String? sellQuantity;
   @JsonKey(name: 'tags')
   final List<
@@ -11301,9 +11318,9 @@ class ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item {
   premiumBrandInfo;
   @JsonKey(name: 'sellPoints', defaultValue: <Object>[])
   final List<Object>? sellPoints;
-  @JsonKey(name: 'targetOriginPrice')
+  @JsonKey(name: 'targetOriginPrice', fromJson: JsonCoerce.asString)
   final String? targetOriginPrice;
-  @JsonKey(name: 'marketingInfo')
+  @JsonKey(name: 'marketingInfo', fromJson: JsonCoerce.asString)
   final String? marketingInfo;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthPushProductGet$Response$Data$Records$ItemFromJson;
@@ -11526,11 +11543,11 @@ class ProductServiceProductNoAuthSearchGet$Response$Data$Item$MainImg {
         this,
       );
 
-  @JsonKey(name: 'width')
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asInt)
   final int? width;
-  @JsonKey(name: 'height')
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asInt)
   final int? height;
-  @JsonKey(name: 'url')
+  @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthSearchGet$Response$Data$Item$MainImgFromJson;
@@ -11607,11 +11624,11 @@ class ProductServiceProductNoAuthSearchGet$Response$Data$Item$SubImg {
         this,
       );
 
-  @JsonKey(name: 'width')
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asInt)
   final int? width;
-  @JsonKey(name: 'height')
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asInt)
   final int? height;
-  @JsonKey(name: 'url')
+  @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthSearchGet$Response$Data$Item$SubImgFromJson;
@@ -11687,7 +11704,7 @@ class ProductServiceProductNoAuthSearchGet$Response$Data$Item$MainVideo {
         this,
       );
 
-  @JsonKey(name: 'videoUrl')
+  @JsonKey(name: 'videoUrl', fromJson: JsonCoerce.asString)
   final String? videoUrl;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthSearchGet$Response$Data$Item$MainVideoFromJson;
@@ -11752,11 +11769,11 @@ class ProductServiceProductNoAuthSearchGet$Response$Data$Item$ImgCollection$Item
         this,
       );
 
-  @JsonKey(name: 'width')
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asString)
   final String? width;
-  @JsonKey(name: 'height')
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asString)
   final String? height;
-  @JsonKey(name: 'url')
+  @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthSearchGet$Response$Data$Item$ImgCollection$ItemFromJson;
@@ -11834,13 +11851,13 @@ class ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Ite
         this,
       );
 
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
-  @JsonKey(name: 'enName')
+  @JsonKey(name: 'enName', fromJson: JsonCoerce.asString)
   final String? enName;
-  @JsonKey(name: 'styleType')
+  @JsonKey(name: 'styleType', fromJson: JsonCoerce.asInt)
   final int? styleType;
-  @JsonKey(name: 'type')
+  @JsonKey(name: 'type', fromJson: JsonCoerce.asString)
   final String? type;
   @JsonKey(name: 'optionValues')
   final List<
@@ -11954,9 +11971,9 @@ class ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductAttrs$Item 
         this,
       );
 
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
-  @JsonKey(name: 'value')
+  @JsonKey(name: 'value', fromJson: JsonCoerce.asString)
   final String? value;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductAttrs$ItemFromJson;
@@ -12022,9 +12039,9 @@ class ProductServiceProductNoAuthSearchGet$Response$Data$Item$PremiumBrandInfo {
         this,
       );
 
-  @JsonKey(name: 'brandCode')
+  @JsonKey(name: 'brandCode', fromJson: JsonCoerce.asString)
   final String? brandCode;
-  @JsonKey(name: 'brandImg')
+  @JsonKey(name: 'brandImg', fromJson: JsonCoerce.asString)
   final String? brandImg;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthSearchGet$Response$Data$Item$PremiumBrandInfoFromJson;
@@ -12120,15 +12137,15 @@ class ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item {
         this,
       );
 
-  @JsonKey(name: 'shopCode')
+  @JsonKey(name: 'shopCode', fromJson: JsonCoerce.asString)
   final String? shopCode;
-  @JsonKey(name: 'productCode')
+  @JsonKey(name: 'productCode', fromJson: JsonCoerce.asString)
   final String? productCode;
-  @JsonKey(name: 'productName')
+  @JsonKey(name: 'productName', fromJson: JsonCoerce.asString)
   final String? productName;
-  @JsonKey(name: 'tenantCode')
+  @JsonKey(name: 'tenantCode', fromJson: JsonCoerce.asString)
   final String? tenantCode;
-  @JsonKey(name: 'brandName')
+  @JsonKey(name: 'brandName', fromJson: JsonCoerce.asString)
   final String? brandName;
   @JsonKey(name: 'mainImg')
   final List<
@@ -12154,7 +12171,7 @@ class ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item {
     ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgDetail$Item
   >?
   imgDetail;
-  @JsonKey(name: 'categoryId')
+  @JsonKey(name: 'categoryId', fromJson: JsonCoerce.asDouble)
   final double? categoryId;
   @JsonKey(name: 'productOptions')
   final List<
@@ -12163,23 +12180,23 @@ class ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item {
   productOptions;
   @JsonKey(name: 'productAttrs', defaultValue: <Object>[])
   final List<Object>? productAttrs;
-  @JsonKey(name: 'sourcePlatform')
+  @JsonKey(name: 'sourcePlatform', fromJson: JsonCoerce.asString)
   final String? sourcePlatform;
-  @JsonKey(name: 'platformUrl')
+  @JsonKey(name: 'platformUrl', fromJson: JsonCoerce.asString)
   final String? platformUrl;
-  @JsonKey(name: 'platformProductId')
+  @JsonKey(name: 'platformProductId', fromJson: JsonCoerce.asString)
   final String? platformProductId;
-  @JsonKey(name: 'skuCode')
+  @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
   final String? skuCode;
-  @JsonKey(name: 'sellPriceCur')
+  @JsonKey(name: 'sellPriceCur', fromJson: JsonCoerce.asString)
   final String? sellPriceCur;
-  @JsonKey(name: 'sellPrice')
+  @JsonKey(name: 'sellPrice', fromJson: JsonCoerce.asString)
   final String? sellPrice;
-  @JsonKey(name: 'targetSellPrice')
+  @JsonKey(name: 'targetSellPrice', fromJson: JsonCoerce.asString)
   final String? targetSellPrice;
-  @JsonKey(name: 'targetSellCur')
+  @JsonKey(name: 'targetSellCur', fromJson: JsonCoerce.asString)
   final String? targetSellCur;
-  @JsonKey(name: 'sellQuantity')
+  @JsonKey(name: 'sellQuantity', fromJson: JsonCoerce.asString)
   final String? sellQuantity;
   @JsonKey(name: 'tags')
   final List<
@@ -12602,11 +12619,11 @@ class ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item
 
   @JsonKey(name: 'shopCode')
   final Object? shopCode;
-  @JsonKey(name: 'productCode')
+  @JsonKey(name: 'productCode', fromJson: JsonCoerce.asString)
   final String? productCode;
-  @JsonKey(name: 'productName')
+  @JsonKey(name: 'productName', fromJson: JsonCoerce.asString)
   final String? productName;
-  @JsonKey(name: 'tenantCode')
+  @JsonKey(name: 'tenantCode', fromJson: JsonCoerce.asString)
   final String? tenantCode;
   @JsonKey(name: 'brandName')
   final Object? brandName;
@@ -12631,7 +12648,7 @@ class ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item
     ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgDetail$Item
   >?
   imgDetail;
-  @JsonKey(name: 'categoryId')
+  @JsonKey(name: 'categoryId', fromJson: JsonCoerce.asDouble)
   final double? categoryId;
   @JsonKey(name: 'productOptions')
   final List<
@@ -12640,29 +12657,29 @@ class ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item
   productOptions;
   @JsonKey(name: 'productAttrs', defaultValue: <Object>[])
   final List<Object>? productAttrs;
-  @JsonKey(name: 'sourcePlatform')
+  @JsonKey(name: 'sourcePlatform', fromJson: JsonCoerce.asString)
   final String? sourcePlatform;
-  @JsonKey(name: 'platformUrl')
+  @JsonKey(name: 'platformUrl', fromJson: JsonCoerce.asString)
   final String? platformUrl;
-  @JsonKey(name: 'platformProductId')
+  @JsonKey(name: 'platformProductId', fromJson: JsonCoerce.asString)
   final String? platformProductId;
-  @JsonKey(name: 'skuCode')
+  @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
   final String? skuCode;
-  @JsonKey(name: 'sellPriceCur')
+  @JsonKey(name: 'sellPriceCur', fromJson: JsonCoerce.asString)
   final String? sellPriceCur;
-  @JsonKey(name: 'sellPrice')
+  @JsonKey(name: 'sellPrice', fromJson: JsonCoerce.asString)
   final String? sellPrice;
-  @JsonKey(name: 'targetSellPrice')
+  @JsonKey(name: 'targetSellPrice', fromJson: JsonCoerce.asString)
   final String? targetSellPrice;
-  @JsonKey(name: 'targetSellCur')
+  @JsonKey(name: 'targetSellCur', fromJson: JsonCoerce.asString)
   final String? targetSellCur;
-  @JsonKey(name: 'productFlag')
+  @JsonKey(name: 'productFlag', fromJson: JsonCoerce.asString)
   final String? productFlag;
-  @JsonKey(name: 'marketingInfo')
+  @JsonKey(name: 'marketingInfo', fromJson: JsonCoerce.asString)
   final String? marketingInfo;
-  @JsonKey(name: 'sellQuantity')
+  @JsonKey(name: 'sellQuantity', fromJson: JsonCoerce.asString)
   final String? sellQuantity;
-  @JsonKey(name: 'targetOriginPrice')
+  @JsonKey(name: 'targetOriginPrice', fromJson: JsonCoerce.asString)
   final String? targetOriginPrice;
   @JsonKey(name: 'tags')
   final List<
@@ -13083,11 +13100,11 @@ class ProductServiceProductNoAuthSkuListGet$Response$Data$Item$SkuImg {
         this,
       );
 
-  @JsonKey(name: 'width')
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asInt)
   final int? width;
-  @JsonKey(name: 'height')
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asInt)
   final int? height;
-  @JsonKey(name: 'url')
+  @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthSkuListGet$Response$Data$Item$SkuImgFromJson;
@@ -13164,9 +13181,9 @@ class ProductServiceProductNoAuthSkuListGet$Response$Data$Item$SkuOptions$Item {
         this,
       );
 
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
-  @JsonKey(name: 'value')
+  @JsonKey(name: 'value', fromJson: JsonCoerce.asString)
   final String? value;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthSkuListGet$Response$Data$Item$SkuOptions$ItemFromJson;
@@ -13237,19 +13254,19 @@ class ProductServiceProductNoAuthSkuListGet$Response$Data$Item$FlashSaleInfo {
         this,
       );
 
-  @JsonKey(name: 'activityCode')
+  @JsonKey(name: 'activityCode', fromJson: JsonCoerce.asString)
   final String? activityCode;
-  @JsonKey(name: 'activityTitle')
+  @JsonKey(name: 'activityTitle', fromJson: JsonCoerce.asString)
   final String? activityTitle;
-  @JsonKey(name: 'startTime')
+  @JsonKey(name: 'startTime', fromJson: JsonCoerce.asInt)
   final int? startTime;
-  @JsonKey(name: 'endTime')
+  @JsonKey(name: 'endTime', fromJson: JsonCoerce.asInt)
   final int? endTime;
-  @JsonKey(name: 'progressPercent')
+  @JsonKey(name: 'progressPercent', fromJson: JsonCoerce.asInt)
   final int? progressPercent;
-  @JsonKey(name: 'progressText')
+  @JsonKey(name: 'progressText', fromJson: JsonCoerce.asString)
   final String? progressText;
-  @JsonKey(name: 'marketingIcon')
+  @JsonKey(name: 'marketingIcon', fromJson: JsonCoerce.asString)
   final String? marketingIcon;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthSkuListGet$Response$Data$Item$FlashSaleInfoFromJson;
@@ -13388,11 +13405,11 @@ class ProductServiceProductNoAuthGetProductInfoGet$Response$Data$MainImg$Item {
         this,
       );
 
-  @JsonKey(name: 'width')
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asDouble)
   final double? width;
-  @JsonKey(name: 'height')
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asDouble)
   final double? height;
-  @JsonKey(name: 'url')
+  @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$MainImg$ItemFromJson;
@@ -13470,7 +13487,7 @@ class ProductServiceProductNoAuthGetProductInfoGet$Response$Data$MainVideo$Item 
         this,
       );
 
-  @JsonKey(name: 'videoUrl')
+  @JsonKey(name: 'videoUrl', fromJson: JsonCoerce.asString)
   final String? videoUrl;
   @JsonKey(name: 'vodUrl')
   final Object? vodUrl;
@@ -13578,11 +13595,11 @@ class ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgCollection$I
         this,
       );
 
-  @JsonKey(name: 'width')
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asDouble)
   final double? width;
-  @JsonKey(name: 'height')
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asDouble)
   final double? height;
-  @JsonKey(name: 'url')
+  @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgCollection$ItemFromJson;
@@ -13658,11 +13675,11 @@ class ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgDetail$Item 
         this,
       );
 
-  @JsonKey(name: 'width')
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asDouble)
   final double? width;
-  @JsonKey(name: 'height')
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asDouble)
   final double? height;
-  @JsonKey(name: 'url')
+  @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgDetail$ItemFromJson;
@@ -13738,9 +13755,9 @@ class ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$
         this,
       );
 
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
-  @JsonKey(name: 'type')
+  @JsonKey(name: 'type', fromJson: JsonCoerce.asDouble)
   final double? type;
   @JsonKey(name: 'optionValues')
   final List<
@@ -13837,9 +13854,9 @@ class ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductAttrs$It
         this,
       );
 
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
-  @JsonKey(name: 'value')
+  @JsonKey(name: 'value', fromJson: JsonCoerce.asString)
   final String? value;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductAttrs$ItemFromJson;
@@ -13988,11 +14005,11 @@ class ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Tags$Item {
         this,
       );
 
-  @JsonKey(name: 'tagCode')
+  @JsonKey(name: 'tagCode', fromJson: JsonCoerce.asString)
   final String? tagCode;
-  @JsonKey(name: 'tagName')
+  @JsonKey(name: 'tagName', fromJson: JsonCoerce.asString)
   final String? tagName;
-  @JsonKey(name: 'tagImg')
+  @JsonKey(name: 'tagImg', fromJson: JsonCoerce.asString)
   final String? tagImg;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Tags$ItemFromJson;
@@ -14072,9 +14089,9 @@ class ProductServiceProductNoAuthGetProductInfoGet$Response$Data$PremiumBrandInf
         this,
       );
 
-  @JsonKey(name: 'brandCode')
+  @JsonKey(name: 'brandCode', fromJson: JsonCoerce.asString)
   final String? brandCode;
-  @JsonKey(name: 'brandImg')
+  @JsonKey(name: 'brandImg', fromJson: JsonCoerce.asString)
   final String? brandImg;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$PremiumBrandInfoFromJson;
@@ -14146,9 +14163,9 @@ class ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Ext {
         this,
       );
 
-  @JsonKey(name: 'sizeHelperOptionName')
+  @JsonKey(name: 'sizeHelperOptionName', fromJson: JsonCoerce.asString)
   final String? sizeHelperOptionName;
-  @JsonKey(name: 'sizeHelperType')
+  @JsonKey(name: 'sizeHelperType', fromJson: JsonCoerce.asInt)
   final int? sizeHelperType;
   @JsonKey(name: 'brand')
   final ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Ext$Brand?
@@ -14247,21 +14264,21 @@ class ProductServiceProductNoAuthGetProductInfoGet$Response$Data$FlashSale {
         this,
       );
 
-  @JsonKey(name: 'activityCode')
+  @JsonKey(name: 'activityCode', fromJson: JsonCoerce.asString)
   final String? activityCode;
-  @JsonKey(name: 'activityTitle')
+  @JsonKey(name: 'activityTitle', fromJson: JsonCoerce.asString)
   final String? activityTitle;
-  @JsonKey(name: 'startTime')
+  @JsonKey(name: 'startTime', fromJson: JsonCoerce.asString)
   final String? startTime;
-  @JsonKey(name: 'endTime')
+  @JsonKey(name: 'endTime', fromJson: JsonCoerce.asString)
   final String? endTime;
-  @JsonKey(name: 'progressPercent')
+  @JsonKey(name: 'progressPercent', fromJson: JsonCoerce.asString)
   final String? progressPercent;
-  @JsonKey(name: 'progressText')
+  @JsonKey(name: 'progressText', fromJson: JsonCoerce.asString)
   final String? progressText;
-  @JsonKey(name: 'marketingIcon')
+  @JsonKey(name: 'marketingIcon', fromJson: JsonCoerce.asString)
   final String? marketingIcon;
-  @JsonKey(name: 'discountExpr')
+  @JsonKey(name: 'discountExpr', fromJson: JsonCoerce.asString)
   final String? discountExpr;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$FlashSaleFromJson;
@@ -14417,17 +14434,17 @@ class ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data$Categor
         this,
       );
 
-  @JsonKey(name: 'id')
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asDouble)
   final double? id;
-  @JsonKey(name: 'parentId')
+  @JsonKey(name: 'parentId', fromJson: JsonCoerce.asDouble)
   final double? parentId;
-  @JsonKey(name: 'level')
+  @JsonKey(name: 'level', fromJson: JsonCoerce.asDouble)
   final double? level;
-  @JsonKey(name: 'showOrder')
+  @JsonKey(name: 'showOrder', fromJson: JsonCoerce.asDouble)
   final double? showOrder;
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
-  @JsonKey(name: 'iconUrl')
+  @JsonKey(name: 'iconUrl', fromJson: JsonCoerce.asString)
   final String? iconUrl;
   @JsonKey(name: 'categoryList')
   final List<
@@ -14572,11 +14589,11 @@ class ProductServiceProductNoAuthHotProductGet$Response$Data$Item$Image {
         this,
       );
 
-  @JsonKey(name: 'width')
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asInt)
   final int? width;
-  @JsonKey(name: 'height')
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asInt)
   final int? height;
-  @JsonKey(name: 'url')
+  @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthHotProductGet$Response$Data$Item$ImageFromJson;
@@ -14653,9 +14670,9 @@ class ProductServiceProductNoAuthHotProductGet$Response$Data$Item$Tags$Item {
         this,
       );
 
-  @JsonKey(name: 'tagCode')
+  @JsonKey(name: 'tagCode', fromJson: JsonCoerce.asString)
   final String? tagCode;
-  @JsonKey(name: 'tagImg')
+  @JsonKey(name: 'tagImg', fromJson: JsonCoerce.asString)
   final String? tagImg;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthHotProductGet$Response$Data$Item$Tags$ItemFromJson;
@@ -14724,9 +14741,9 @@ class ProductServiceProductNoAuthHotProductGet$Response$Data$Item$PremiumBrandIn
         this,
       );
 
-  @JsonKey(name: 'brandCode')
+  @JsonKey(name: 'brandCode', fromJson: JsonCoerce.asString)
   final String? brandCode;
-  @JsonKey(name: 'brandImg')
+  @JsonKey(name: 'brandImg', fromJson: JsonCoerce.asString)
   final String? brandImg;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthHotProductGet$Response$Data$Item$PremiumBrandInfoFromJson;
@@ -14812,24 +14829,24 @@ class ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item {
         this,
       );
 
-  @JsonKey(name: 'productCode')
+  @JsonKey(name: 'productCode', fromJson: JsonCoerce.asString)
   final String? productCode;
-  @JsonKey(name: 'productName')
+  @JsonKey(name: 'productName', fromJson: JsonCoerce.asString)
   final String? productName;
   @JsonKey(name: 'image')
   final ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$Image?
   image;
-  @JsonKey(name: 'skuCode')
+  @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
   final String? skuCode;
-  @JsonKey(name: 'sellPriceCur')
+  @JsonKey(name: 'sellPriceCur', fromJson: JsonCoerce.asString)
   final String? sellPriceCur;
-  @JsonKey(name: 'sellPrice')
+  @JsonKey(name: 'sellPrice', fromJson: JsonCoerce.asString)
   final String? sellPrice;
-  @JsonKey(name: 'targetSellPrice')
+  @JsonKey(name: 'targetSellPrice', fromJson: JsonCoerce.asString)
   final String? targetSellPrice;
-  @JsonKey(name: 'targetSellCur')
+  @JsonKey(name: 'targetSellCur', fromJson: JsonCoerce.asString)
   final String? targetSellCur;
-  @JsonKey(name: 'sellQuantity')
+  @JsonKey(name: 'sellQuantity', fromJson: JsonCoerce.asString)
   final String? sellQuantity;
   @JsonKey(name: 'tags')
   final List<
@@ -14841,14 +14858,14 @@ class ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item {
   premiumBrandInfo;
   @JsonKey(name: 'sellPoints', defaultValue: <Object>[])
   final List<Object>? sellPoints;
-  @JsonKey(name: 'rate')
+  @JsonKey(name: 'rate', fromJson: JsonCoerce.asString)
   final String? rate;
   @JsonKey(name: 'flashSale')
   final ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$FlashSale?
   flashSale;
-  @JsonKey(name: 'targetOriginPrice')
+  @JsonKey(name: 'targetOriginPrice', fromJson: JsonCoerce.asString)
   final String? targetOriginPrice;
-  @JsonKey(name: 'marketingInfo')
+  @JsonKey(name: 'marketingInfo', fromJson: JsonCoerce.asString)
   final String? marketingInfo;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$ItemFromJson;
@@ -15108,34 +15125,34 @@ class ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item {
         this,
       );
 
-  @JsonKey(name: 'productCode')
+  @JsonKey(name: 'productCode', fromJson: JsonCoerce.asString)
   final String? productCode;
-  @JsonKey(name: 'productName')
+  @JsonKey(name: 'productName', fromJson: JsonCoerce.asString)
   final String? productName;
   @JsonKey(name: 'image')
   final ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$Image?
   image;
-  @JsonKey(name: 'sourcePlatform')
+  @JsonKey(name: 'sourcePlatform', fromJson: JsonCoerce.asString)
   final String? sourcePlatform;
-  @JsonKey(name: 'platformProductId')
+  @JsonKey(name: 'platformProductId', fromJson: JsonCoerce.asString)
   final String? platformProductId;
-  @JsonKey(name: 'skuCode')
+  @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
   final String? skuCode;
-  @JsonKey(name: 'sellPriceCur')
+  @JsonKey(name: 'sellPriceCur', fromJson: JsonCoerce.asString)
   final String? sellPriceCur;
-  @JsonKey(name: 'sellPrice')
+  @JsonKey(name: 'sellPrice', fromJson: JsonCoerce.asString)
   final String? sellPrice;
-  @JsonKey(name: 'targetSellPrice')
+  @JsonKey(name: 'targetSellPrice', fromJson: JsonCoerce.asString)
   final String? targetSellPrice;
-  @JsonKey(name: 'targetOriginPrice')
+  @JsonKey(name: 'targetOriginPrice', fromJson: JsonCoerce.asString)
   final String? targetOriginPrice;
-  @JsonKey(name: 'targetSellCur')
+  @JsonKey(name: 'targetSellCur', fromJson: JsonCoerce.asString)
   final String? targetSellCur;
-  @JsonKey(name: 'sellQuantity')
+  @JsonKey(name: 'sellQuantity', fromJson: JsonCoerce.asString)
   final String? sellQuantity;
-  @JsonKey(name: 'skuCount')
+  @JsonKey(name: 'skuCount', fromJson: JsonCoerce.asDouble)
   final double? skuCount;
-  @JsonKey(name: 'marketingInfo')
+  @JsonKey(name: 'marketingInfo', fromJson: JsonCoerce.asString)
   final String? marketingInfo;
   @JsonKey(name: 'tags')
   final List<
@@ -15147,7 +15164,7 @@ class ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item {
   premiumBrandInfo;
   @JsonKey(name: 'sellPoints', defaultValue: <Object>[])
   final List<Object>? sellPoints;
-  @JsonKey(name: 'rate')
+  @JsonKey(name: 'rate', fromJson: JsonCoerce.asString)
   final String? rate;
   @JsonKey(name: 'flashSale')
   final ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$FlashSale?
@@ -15428,11 +15445,11 @@ class ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$MainImg$
         this,
       );
 
-  @JsonKey(name: 'width')
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asDouble)
   final double? width;
-  @JsonKey(name: 'height')
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asDouble)
   final double? height;
-  @JsonKey(name: 'url')
+  @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$MainImg$ItemFromJson;
@@ -15510,15 +15527,15 @@ class ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$MainVide
         this,
       );
 
-  @JsonKey(name: 'videoUrl')
+  @JsonKey(name: 'videoUrl', fromJson: JsonCoerce.asString)
   final String? videoUrl;
-  @JsonKey(name: 'vodUrl')
+  @JsonKey(name: 'vodUrl', fromJson: JsonCoerce.asString)
   final String? vodUrl;
-  @JsonKey(name: 'previewUrl')
+  @JsonKey(name: 'previewUrl', fromJson: JsonCoerce.asString)
   final String? previewUrl;
-  @JsonKey(name: 'width')
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asDouble)
   final double? width;
-  @JsonKey(name: 'height')
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asDouble)
   final double? height;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$MainVideo$ItemFromJson;
@@ -15619,11 +15636,11 @@ class ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgColle
         this,
       );
 
-  @JsonKey(name: 'width')
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asDouble)
   final double? width;
-  @JsonKey(name: 'height')
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asDouble)
   final double? height;
-  @JsonKey(name: 'url')
+  @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgCollection$ItemFromJson;
@@ -15700,11 +15717,11 @@ class ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgDetai
         this,
       );
 
-  @JsonKey(name: 'width')
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asDouble)
   final double? width;
-  @JsonKey(name: 'height')
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asDouble)
   final double? height;
-  @JsonKey(name: 'url')
+  @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgDetail$ItemFromJson;
@@ -15781,9 +15798,9 @@ class ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductO
         this,
       );
 
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
-  @JsonKey(name: 'type')
+  @JsonKey(name: 'type', fromJson: JsonCoerce.asDouble)
   final double? type;
   @JsonKey(name: 'optionValues')
   final List<
@@ -15881,9 +15898,9 @@ class ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductA
         this,
       );
 
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
-  @JsonKey(name: 'value')
+  @JsonKey(name: 'value', fromJson: JsonCoerce.asString)
   final String? value;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductAttrs$ItemFromJson;
@@ -15950,9 +15967,9 @@ class ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$Tags$Ite
         this,
       );
 
-  @JsonKey(name: 'tagCode')
+  @JsonKey(name: 'tagCode', fromJson: JsonCoerce.asString)
   final String? tagCode;
-  @JsonKey(name: 'tagImg')
+  @JsonKey(name: 'tagImg', fromJson: JsonCoerce.asString)
   final String? tagImg;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$Tags$ItemFromJson;
@@ -16021,9 +16038,9 @@ class ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$PremiumB
         this,
       );
 
-  @JsonKey(name: 'brandCode')
+  @JsonKey(name: 'brandCode', fromJson: JsonCoerce.asString)
   final String? brandCode;
-  @JsonKey(name: 'brandImg')
+  @JsonKey(name: 'brandImg', fromJson: JsonCoerce.asString)
   final String? brandImg;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$PremiumBrandInfoFromJson;
@@ -16125,11 +16142,11 @@ class ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item {
 
   @JsonKey(name: 'shopCode')
   final Object? shopCode;
-  @JsonKey(name: 'productCode')
+  @JsonKey(name: 'productCode', fromJson: JsonCoerce.asString)
   final String? productCode;
-  @JsonKey(name: 'productName')
+  @JsonKey(name: 'productName', fromJson: JsonCoerce.asString)
   final String? productName;
-  @JsonKey(name: 'tenantCode')
+  @JsonKey(name: 'tenantCode', fromJson: JsonCoerce.asString)
   final String? tenantCode;
   @JsonKey(name: 'brandName')
   final Object? brandName;
@@ -16154,7 +16171,7 @@ class ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item {
     ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgDetail$Item
   >?
   imgDetail;
-  @JsonKey(name: 'categoryId')
+  @JsonKey(name: 'categoryId', fromJson: JsonCoerce.asDouble)
   final double? categoryId;
   @JsonKey(name: 'productOptions')
   final List<
@@ -16163,29 +16180,29 @@ class ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item {
   productOptions;
   @JsonKey(name: 'productAttrs', defaultValue: <Object>[])
   final List<Object>? productAttrs;
-  @JsonKey(name: 'sourcePlatform')
+  @JsonKey(name: 'sourcePlatform', fromJson: JsonCoerce.asString)
   final String? sourcePlatform;
-  @JsonKey(name: 'platformUrl')
+  @JsonKey(name: 'platformUrl', fromJson: JsonCoerce.asString)
   final String? platformUrl;
-  @JsonKey(name: 'platformProductId')
+  @JsonKey(name: 'platformProductId', fromJson: JsonCoerce.asString)
   final String? platformProductId;
-  @JsonKey(name: 'skuCode')
+  @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
   final String? skuCode;
-  @JsonKey(name: 'sellPriceCur')
+  @JsonKey(name: 'sellPriceCur', fromJson: JsonCoerce.asString)
   final String? sellPriceCur;
-  @JsonKey(name: 'sellPrice')
+  @JsonKey(name: 'sellPrice', fromJson: JsonCoerce.asString)
   final String? sellPrice;
-  @JsonKey(name: 'targetSellPrice')
+  @JsonKey(name: 'targetSellPrice', fromJson: JsonCoerce.asString)
   final String? targetSellPrice;
-  @JsonKey(name: 'targetSellCur')
+  @JsonKey(name: 'targetSellCur', fromJson: JsonCoerce.asString)
   final String? targetSellCur;
-  @JsonKey(name: 'productFlag')
+  @JsonKey(name: 'productFlag', fromJson: JsonCoerce.asString)
   final String? productFlag;
-  @JsonKey(name: 'marketingInfo')
+  @JsonKey(name: 'marketingInfo', fromJson: JsonCoerce.asString)
   final String? marketingInfo;
-  @JsonKey(name: 'sellQuantity')
+  @JsonKey(name: 'sellQuantity', fromJson: JsonCoerce.asString)
   final String? sellQuantity;
-  @JsonKey(name: 'targetOriginPrice')
+  @JsonKey(name: 'targetOriginPrice', fromJson: JsonCoerce.asString)
   final String? targetOriginPrice;
   @JsonKey(name: 'tags')
   final List<
@@ -16616,28 +16633,28 @@ class ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$Item {
         this,
       );
 
-  @JsonKey(name: 'productCode')
+  @JsonKey(name: 'productCode', fromJson: JsonCoerce.asString)
   final String? productCode;
-  @JsonKey(name: 'productName')
+  @JsonKey(name: 'productName', fromJson: JsonCoerce.asString)
   final String? productName;
   @JsonKey(name: 'image')
   final ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$Item$Image?
   image;
-  @JsonKey(name: 'skuCode')
+  @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
   final String? skuCode;
-  @JsonKey(name: 'sellPriceCur')
+  @JsonKey(name: 'sellPriceCur', fromJson: JsonCoerce.asString)
   final String? sellPriceCur;
-  @JsonKey(name: 'sellPrice')
+  @JsonKey(name: 'sellPrice', fromJson: JsonCoerce.asString)
   final String? sellPrice;
-  @JsonKey(name: 'targetSellPrice')
+  @JsonKey(name: 'targetSellPrice', fromJson: JsonCoerce.asString)
   final String? targetSellPrice;
-  @JsonKey(name: 'targetSellCur')
+  @JsonKey(name: 'targetSellCur', fromJson: JsonCoerce.asString)
   final String? targetSellCur;
-  @JsonKey(name: 'sellQuantity')
+  @JsonKey(name: 'sellQuantity', fromJson: JsonCoerce.asString)
   final String? sellQuantity;
-  @JsonKey(name: 'marketingInfo')
+  @JsonKey(name: 'marketingInfo', fromJson: JsonCoerce.asString)
   final String? marketingInfo;
-  @JsonKey(name: 'targetOriginPrice')
+  @JsonKey(name: 'targetOriginPrice', fromJson: JsonCoerce.asString)
   final String? targetOriginPrice;
   @JsonKey(name: 'premiumBrandInfo')
   final ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$Item$PremiumBrandInfo?
@@ -16849,11 +16866,11 @@ class ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainImg$Item {
         this,
       );
 
-  @JsonKey(name: 'width')
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asDouble)
   final double? width;
-  @JsonKey(name: 'height')
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asDouble)
   final double? height;
-  @JsonKey(name: 'url')
+  @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainImg$ItemFromJson;
@@ -16931,15 +16948,15 @@ class ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainVideo$Item
         this,
       );
 
-  @JsonKey(name: 'videoUrl')
+  @JsonKey(name: 'videoUrl', fromJson: JsonCoerce.asString)
   final String? videoUrl;
-  @JsonKey(name: 'vodUrl')
+  @JsonKey(name: 'vodUrl', fromJson: JsonCoerce.asString)
   final String? vodUrl;
-  @JsonKey(name: 'previewUrl')
+  @JsonKey(name: 'previewUrl', fromJson: JsonCoerce.asString)
   final String? previewUrl;
-  @JsonKey(name: 'width')
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asDouble)
   final double? width;
-  @JsonKey(name: 'height')
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asDouble)
   final double? height;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainVideo$ItemFromJson;
@@ -17039,11 +17056,11 @@ class ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgCollection$
         this,
       );
 
-  @JsonKey(name: 'width')
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asDouble)
   final double? width;
-  @JsonKey(name: 'height')
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asDouble)
   final double? height;
-  @JsonKey(name: 'url')
+  @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgCollection$ItemFromJson;
@@ -17119,11 +17136,11 @@ class ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgDetail$Item
         this,
       );
 
-  @JsonKey(name: 'width')
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asDouble)
   final double? width;
-  @JsonKey(name: 'height')
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asDouble)
   final double? height;
-  @JsonKey(name: 'url')
+  @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgDetail$ItemFromJson;
@@ -17199,9 +17216,9 @@ class ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductOptions
         this,
       );
 
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
-  @JsonKey(name: 'type')
+  @JsonKey(name: 'type', fromJson: JsonCoerce.asDouble)
   final double? type;
   @JsonKey(name: 'optionValues')
   final List<
@@ -17299,9 +17316,9 @@ class ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductAttrs$I
         this,
       );
 
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
-  @JsonKey(name: 'value')
+  @JsonKey(name: 'value', fromJson: JsonCoerce.asString)
   final String? value;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductAttrs$ItemFromJson;
@@ -17367,9 +17384,9 @@ class ProductServiceProductNoAuthKolProductGet$Response$Data$Item$Tags$Item {
         this,
       );
 
-  @JsonKey(name: 'tagCode')
+  @JsonKey(name: 'tagCode', fromJson: JsonCoerce.asString)
   final String? tagCode;
-  @JsonKey(name: 'tagImg')
+  @JsonKey(name: 'tagImg', fromJson: JsonCoerce.asString)
   final String? tagImg;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthKolProductGet$Response$Data$Item$Tags$ItemFromJson;
@@ -17438,9 +17455,9 @@ class ProductServiceProductNoAuthKolProductGet$Response$Data$Item$PremiumBrandIn
         this,
       );
 
-  @JsonKey(name: 'brandCode')
+  @JsonKey(name: 'brandCode', fromJson: JsonCoerce.asString)
   final String? brandCode;
-  @JsonKey(name: 'brandImg')
+  @JsonKey(name: 'brandImg', fromJson: JsonCoerce.asString)
   final String? brandImg;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthKolProductGet$Response$Data$Item$PremiumBrandInfoFromJson;
@@ -17541,11 +17558,11 @@ class ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item {
 
   @JsonKey(name: 'shopCode')
   final Object? shopCode;
-  @JsonKey(name: 'productCode')
+  @JsonKey(name: 'productCode', fromJson: JsonCoerce.asString)
   final String? productCode;
-  @JsonKey(name: 'productName')
+  @JsonKey(name: 'productName', fromJson: JsonCoerce.asString)
   final String? productName;
-  @JsonKey(name: 'tenantCode')
+  @JsonKey(name: 'tenantCode', fromJson: JsonCoerce.asString)
   final String? tenantCode;
   @JsonKey(name: 'brandName')
   final Object? brandName;
@@ -17570,7 +17587,7 @@ class ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item {
     ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgDetail$Item
   >?
   imgDetail;
-  @JsonKey(name: 'categoryId')
+  @JsonKey(name: 'categoryId', fromJson: JsonCoerce.asDouble)
   final double? categoryId;
   @JsonKey(name: 'productOptions')
   final List<
@@ -17579,29 +17596,29 @@ class ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item {
   productOptions;
   @JsonKey(name: 'productAttrs', defaultValue: <Object>[])
   final List<Object>? productAttrs;
-  @JsonKey(name: 'sourcePlatform')
+  @JsonKey(name: 'sourcePlatform', fromJson: JsonCoerce.asString)
   final String? sourcePlatform;
-  @JsonKey(name: 'platformUrl')
+  @JsonKey(name: 'platformUrl', fromJson: JsonCoerce.asString)
   final String? platformUrl;
-  @JsonKey(name: 'platformProductId')
+  @JsonKey(name: 'platformProductId', fromJson: JsonCoerce.asString)
   final String? platformProductId;
-  @JsonKey(name: 'skuCode')
+  @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
   final String? skuCode;
-  @JsonKey(name: 'sellPriceCur')
+  @JsonKey(name: 'sellPriceCur', fromJson: JsonCoerce.asString)
   final String? sellPriceCur;
-  @JsonKey(name: 'sellPrice')
+  @JsonKey(name: 'sellPrice', fromJson: JsonCoerce.asString)
   final String? sellPrice;
-  @JsonKey(name: 'targetSellPrice')
+  @JsonKey(name: 'targetSellPrice', fromJson: JsonCoerce.asString)
   final String? targetSellPrice;
-  @JsonKey(name: 'targetSellCur')
+  @JsonKey(name: 'targetSellCur', fromJson: JsonCoerce.asString)
   final String? targetSellCur;
-  @JsonKey(name: 'productFlag')
+  @JsonKey(name: 'productFlag', fromJson: JsonCoerce.asString)
   final String? productFlag;
-  @JsonKey(name: 'marketingInfo')
+  @JsonKey(name: 'marketingInfo', fromJson: JsonCoerce.asString)
   final String? marketingInfo;
-  @JsonKey(name: 'sellQuantity')
+  @JsonKey(name: 'sellQuantity', fromJson: JsonCoerce.asString)
   final String? sellQuantity;
-  @JsonKey(name: 'targetOriginPrice')
+  @JsonKey(name: 'targetOriginPrice', fromJson: JsonCoerce.asString)
   final String? targetOriginPrice;
   @JsonKey(name: 'tags')
   final List<
@@ -18022,14 +18039,14 @@ class ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categ
         this,
       );
 
-  @JsonKey(name: 'categoryName')
+  @JsonKey(name: 'categoryName', fromJson: JsonCoerce.asString)
   final String? categoryName;
   @JsonKey(name: 'productInfos')
   final List<
     ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item
   >?
   productInfos;
-  @JsonKey(name: 'recommendationReason')
+  @JsonKey(name: 'recommendationReason', fromJson: JsonCoerce.asString)
   final String? recommendationReason;
   static const fromJsonFactory =
       _$ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$ItemFromJson;
@@ -18143,26 +18160,26 @@ class ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item {
         this,
       );
 
-  @JsonKey(name: 'productCode')
+  @JsonKey(name: 'productCode', fromJson: JsonCoerce.asString)
   final String? productCode;
-  @JsonKey(name: 'productName')
+  @JsonKey(name: 'productName', fromJson: JsonCoerce.asString)
   final String? productName;
   @JsonKey(name: 'image')
   final ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item$Image?
   image;
-  @JsonKey(name: 'skuCode')
+  @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
   final String? skuCode;
-  @JsonKey(name: 'sellPriceCur')
+  @JsonKey(name: 'sellPriceCur', fromJson: JsonCoerce.asString)
   final String? sellPriceCur;
-  @JsonKey(name: 'sellPrice')
+  @JsonKey(name: 'sellPrice', fromJson: JsonCoerce.asString)
   final String? sellPrice;
-  @JsonKey(name: 'targetSellPrice')
+  @JsonKey(name: 'targetSellPrice', fromJson: JsonCoerce.asString)
   final String? targetSellPrice;
-  @JsonKey(name: 'targetSellCur')
+  @JsonKey(name: 'targetSellCur', fromJson: JsonCoerce.asString)
   final String? targetSellCur;
-  @JsonKey(name: 'sellQuantity')
+  @JsonKey(name: 'sellQuantity', fromJson: JsonCoerce.asString)
   final String? sellQuantity;
-  @JsonKey(name: 'skuCount')
+  @JsonKey(name: 'skuCount', fromJson: JsonCoerce.asInt)
   final int? skuCount;
   @JsonKey(name: 'tags')
   final List<
@@ -18393,30 +18410,30 @@ class ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item {
         this,
       );
 
-  @JsonKey(name: 'productCode')
+  @JsonKey(name: 'productCode', fromJson: JsonCoerce.asString)
   final String? productCode;
-  @JsonKey(name: 'productName')
+  @JsonKey(name: 'productName', fromJson: JsonCoerce.asString)
   final String? productName;
   @JsonKey(name: 'image')
   final ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item$Image?
   image;
-  @JsonKey(name: 'skuCode')
+  @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
   final String? skuCode;
-  @JsonKey(name: 'sellPriceCur')
+  @JsonKey(name: 'sellPriceCur', fromJson: JsonCoerce.asString)
   final String? sellPriceCur;
-  @JsonKey(name: 'sellPrice')
+  @JsonKey(name: 'sellPrice', fromJson: JsonCoerce.asString)
   final String? sellPrice;
-  @JsonKey(name: 'targetSellPrice')
+  @JsonKey(name: 'targetSellPrice', fromJson: JsonCoerce.asString)
   final String? targetSellPrice;
-  @JsonKey(name: 'targetSellCur')
+  @JsonKey(name: 'targetSellCur', fromJson: JsonCoerce.asString)
   final String? targetSellCur;
-  @JsonKey(name: 'sellQuantity')
+  @JsonKey(name: 'sellQuantity', fromJson: JsonCoerce.asString)
   final String? sellQuantity;
-  @JsonKey(name: 'skuCount')
+  @JsonKey(name: 'skuCount', fromJson: JsonCoerce.asInt)
   final int? skuCount;
-  @JsonKey(name: 'marketingInfo')
+  @JsonKey(name: 'marketingInfo', fromJson: JsonCoerce.asString)
   final String? marketingInfo;
-  @JsonKey(name: 'targetOriginPrice')
+  @JsonKey(name: 'targetOriginPrice', fromJson: JsonCoerce.asString)
   final String? targetOriginPrice;
   @JsonKey(name: 'tags')
   final List<
@@ -18670,30 +18687,30 @@ class ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item
         this,
       );
 
-  @JsonKey(name: 'productCode')
+  @JsonKey(name: 'productCode', fromJson: JsonCoerce.asString)
   final String? productCode;
-  @JsonKey(name: 'productName')
+  @JsonKey(name: 'productName', fromJson: JsonCoerce.asString)
   final String? productName;
   @JsonKey(name: 'image')
   final ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item$Image?
   image;
-  @JsonKey(name: 'skuCode')
+  @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
   final String? skuCode;
-  @JsonKey(name: 'sellPriceCur')
+  @JsonKey(name: 'sellPriceCur', fromJson: JsonCoerce.asString)
   final String? sellPriceCur;
-  @JsonKey(name: 'sellPrice')
+  @JsonKey(name: 'sellPrice', fromJson: JsonCoerce.asString)
   final String? sellPrice;
-  @JsonKey(name: 'targetSellPrice')
+  @JsonKey(name: 'targetSellPrice', fromJson: JsonCoerce.asString)
   final String? targetSellPrice;
-  @JsonKey(name: 'targetSellCur')
+  @JsonKey(name: 'targetSellCur', fromJson: JsonCoerce.asString)
   final String? targetSellCur;
-  @JsonKey(name: 'sellQuantity')
+  @JsonKey(name: 'sellQuantity', fromJson: JsonCoerce.asString)
   final String? sellQuantity;
-  @JsonKey(name: 'skuCount')
+  @JsonKey(name: 'skuCount', fromJson: JsonCoerce.asInt)
   final int? skuCount;
-  @JsonKey(name: 'marketingInfo')
+  @JsonKey(name: 'marketingInfo', fromJson: JsonCoerce.asString)
   final String? marketingInfo;
-  @JsonKey(name: 'targetOriginPrice')
+  @JsonKey(name: 'targetOriginPrice', fromJson: JsonCoerce.asString)
   final String? targetOriginPrice;
   @JsonKey(name: 'tags')
   final List<
@@ -18941,17 +18958,17 @@ class ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$Catego
         this,
       );
 
-  @JsonKey(name: 'id')
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asDouble)
   final double? id;
-  @JsonKey(name: 'parentId')
+  @JsonKey(name: 'parentId', fromJson: JsonCoerce.asDouble)
   final double? parentId;
-  @JsonKey(name: 'level')
+  @JsonKey(name: 'level', fromJson: JsonCoerce.asDouble)
   final double? level;
-  @JsonKey(name: 'showOrder')
+  @JsonKey(name: 'showOrder', fromJson: JsonCoerce.asDouble)
   final double? showOrder;
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
-  @JsonKey(name: 'iconUrl')
+  @JsonKey(name: 'iconUrl', fromJson: JsonCoerce.asString)
   final String? iconUrl;
   @JsonKey(name: 'categoryList')
   final List<
@@ -19096,11 +19113,11 @@ class ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Reco
         this,
       );
 
-  @JsonKey(name: 'width')
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asInt)
   final int? width;
-  @JsonKey(name: 'height')
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asInt)
   final int? height;
-  @JsonKey(name: 'url')
+  @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory =
       _$ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$ImageFromJson;
@@ -19178,13 +19195,13 @@ class ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Reco
         this,
       );
 
-  @JsonKey(name: 'tagCode')
+  @JsonKey(name: 'tagCode', fromJson: JsonCoerce.asString)
   final String? tagCode;
-  @JsonKey(name: 'tagImg')
+  @JsonKey(name: 'tagImg', fromJson: JsonCoerce.asString)
   final String? tagImg;
-  @JsonKey(name: 'order')
+  @JsonKey(name: 'order', fromJson: JsonCoerce.asInt)
   final int? order;
-  @JsonKey(name: 'frontShow')
+  @JsonKey(name: 'frontShow', fromJson: JsonCoerce.asInt)
   final int? frontShow;
   static const fromJsonFactory =
       _$ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$Tags$ItemFromJson;
@@ -19277,19 +19294,19 @@ class ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Reco
         this,
       );
 
-  @JsonKey(name: 'activityCode')
+  @JsonKey(name: 'activityCode', fromJson: JsonCoerce.asString)
   final String? activityCode;
-  @JsonKey(name: 'activityTitle')
+  @JsonKey(name: 'activityTitle', fromJson: JsonCoerce.asString)
   final String? activityTitle;
-  @JsonKey(name: 'startTime')
+  @JsonKey(name: 'startTime', fromJson: JsonCoerce.asInt)
   final int? startTime;
-  @JsonKey(name: 'endTime')
+  @JsonKey(name: 'endTime', fromJson: JsonCoerce.asInt)
   final int? endTime;
-  @JsonKey(name: 'progressPercent')
+  @JsonKey(name: 'progressPercent', fromJson: JsonCoerce.asInt)
   final int? progressPercent;
-  @JsonKey(name: 'progressText')
+  @JsonKey(name: 'progressText', fromJson: JsonCoerce.asString)
   final String? progressText;
-  @JsonKey(name: 'marketingIcon')
+  @JsonKey(name: 'marketingIcon', fromJson: JsonCoerce.asString)
   final String? marketingIcon;
   static const fromJsonFactory =
       _$ProductServiceActivityNoAuthFlashSaleActivityProductGet$Response$Data$Records$Item$FlashSaleFromJson;
@@ -19429,11 +19446,11 @@ class ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$
         this,
       );
 
-  @JsonKey(name: 'width')
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asInt)
   final int? width;
-  @JsonKey(name: 'height')
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asInt)
   final int? height;
-  @JsonKey(name: 'url')
+  @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory =
       _$ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$ImageFromJson;
@@ -19511,13 +19528,13 @@ class ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$
         this,
       );
 
-  @JsonKey(name: 'tagCode')
+  @JsonKey(name: 'tagCode', fromJson: JsonCoerce.asString)
   final String? tagCode;
-  @JsonKey(name: 'tagImg')
+  @JsonKey(name: 'tagImg', fromJson: JsonCoerce.asString)
   final String? tagImg;
-  @JsonKey(name: 'order')
+  @JsonKey(name: 'order', fromJson: JsonCoerce.asInt)
   final int? order;
-  @JsonKey(name: 'frontShow')
+  @JsonKey(name: 'frontShow', fromJson: JsonCoerce.asInt)
   final int? frontShow;
   static const fromJsonFactory =
       _$ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$Tags$ItemFromJson;
@@ -19605,9 +19622,9 @@ class ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$
         this,
       );
 
-  @JsonKey(name: 'brandCode')
+  @JsonKey(name: 'brandCode', fromJson: JsonCoerce.asString)
   final String? brandCode;
-  @JsonKey(name: 'brandImg')
+  @JsonKey(name: 'brandImg', fromJson: JsonCoerce.asString)
   final String? brandImg;
   static const fromJsonFactory =
       _$ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item$PremiumBrandInfoFromJson;
@@ -19682,13 +19699,13 @@ class ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Config$List$It
         this,
       );
 
-  @JsonKey(name: 'img')
+  @JsonKey(name: 'img', fromJson: JsonCoerce.asString)
   final String? img;
-  @JsonKey(name: 'tabNormalColor')
+  @JsonKey(name: 'tabNormalColor', fromJson: JsonCoerce.asString)
   final String? tabNormalColor;
-  @JsonKey(name: 'tabSelectedColor')
+  @JsonKey(name: 'tabSelectedColor', fromJson: JsonCoerce.asString)
   final String? tabSelectedColor;
-  @JsonKey(name: 'tabsBackgroundColor')
+  @JsonKey(name: 'tabsBackgroundColor', fromJson: JsonCoerce.asString)
   final String? tabsBackgroundColor;
   static const fromJsonFactory =
       _$ProductServiceProductPremiumDupeNoAuthMetaGet$Response$Data$Config$List$ItemFromJson;
@@ -19790,11 +19807,11 @@ class ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item$Image
         this,
       );
 
-  @JsonKey(name: 'width')
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asInt)
   final int? width;
-  @JsonKey(name: 'height')
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asInt)
   final int? height;
-  @JsonKey(name: 'url')
+  @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item$ImageFromJson;
@@ -19869,9 +19886,9 @@ class ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item$Tags$
         this,
       );
 
-  @JsonKey(name: 'tagCode')
+  @JsonKey(name: 'tagCode', fromJson: JsonCoerce.asString)
   final String? tagCode;
-  @JsonKey(name: 'tagImg')
+  @JsonKey(name: 'tagImg', fromJson: JsonCoerce.asString)
   final String? tagImg;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item$Tags$ItemFromJson;
@@ -19940,9 +19957,9 @@ class ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item$Premi
         this,
       );
 
-  @JsonKey(name: 'brandCode')
+  @JsonKey(name: 'brandCode', fromJson: JsonCoerce.asString)
   final String? brandCode;
-  @JsonKey(name: 'brandImg')
+  @JsonKey(name: 'brandImg', fromJson: JsonCoerce.asString)
   final String? brandImg;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthPushProductGet$Response$Data$Records$Item$PremiumBrandInfoFromJson;
@@ -20018,15 +20035,15 @@ class ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Ite
         this,
       );
 
-  @JsonKey(name: 'value')
+  @JsonKey(name: 'value', fromJson: JsonCoerce.asString)
   final String? value;
-  @JsonKey(name: 'enValue')
+  @JsonKey(name: 'enValue', fromJson: JsonCoerce.asString)
   final String? enValue;
-  @JsonKey(name: 'image')
+  @JsonKey(name: 'image', fromJson: JsonCoerce.asString)
   final String? image;
-  @JsonKey(name: 'imageWidth')
+  @JsonKey(name: 'imageWidth', fromJson: JsonCoerce.asInt)
   final int? imageWidth;
-  @JsonKey(name: 'imageHeight')
+  @JsonKey(name: 'imageHeight', fromJson: JsonCoerce.asInt)
   final int? imageHeight;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthSearchGet$Response$Data$Item$ProductOptions$Item$OptionValues$ItemFromJson;
@@ -20130,11 +20147,11 @@ class ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$Mai
         this,
       );
 
-  @JsonKey(name: 'width')
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asDouble)
   final double? width;
-  @JsonKey(name: 'height')
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asDouble)
   final double? height;
-  @JsonKey(name: 'url')
+  @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainImg$ItemFromJson;
@@ -20213,7 +20230,7 @@ class ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$Mai
         this,
       );
 
-  @JsonKey(name: 'videoUrl')
+  @JsonKey(name: 'videoUrl', fromJson: JsonCoerce.asString)
   final String? videoUrl;
   @JsonKey(name: 'vodUrl')
   final Object? vodUrl;
@@ -20322,11 +20339,11 @@ class ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$Img
         this,
       );
 
-  @JsonKey(name: 'width')
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asDouble)
   final double? width;
-  @JsonKey(name: 'height')
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asDouble)
   final double? height;
-  @JsonKey(name: 'url')
+  @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgCollection$ItemFromJson;
@@ -20403,11 +20420,11 @@ class ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$Img
         this,
       );
 
-  @JsonKey(name: 'width')
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asDouble)
   final double? width;
-  @JsonKey(name: 'height')
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asDouble)
   final double? height;
-  @JsonKey(name: 'url')
+  @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgDetail$ItemFromJson;
@@ -20484,9 +20501,9 @@ class ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$Pro
         this,
       );
 
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
-  @JsonKey(name: 'type')
+  @JsonKey(name: 'type', fromJson: JsonCoerce.asDouble)
   final double? type;
   @JsonKey(name: 'optionValues')
   final List<
@@ -20584,9 +20601,9 @@ class ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$Tag
         this,
       );
 
-  @JsonKey(name: 'tagCode')
+  @JsonKey(name: 'tagCode', fromJson: JsonCoerce.asString)
   final String? tagCode;
-  @JsonKey(name: 'tagImg')
+  @JsonKey(name: 'tagImg', fromJson: JsonCoerce.asString)
   final String? tagImg;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$Tags$ItemFromJson;
@@ -20656,9 +20673,9 @@ class ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$Pre
         this,
       );
 
-  @JsonKey(name: 'brandCode')
+  @JsonKey(name: 'brandCode', fromJson: JsonCoerce.asString)
   final String? brandCode;
-  @JsonKey(name: 'brandImg')
+  @JsonKey(name: 'brandImg', fromJson: JsonCoerce.asString)
   final String? brandImg;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$PremiumBrandInfoFromJson;
@@ -20732,11 +20749,11 @@ class ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item
         this,
       );
 
-  @JsonKey(name: 'width')
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asDouble)
   final double? width;
-  @JsonKey(name: 'height')
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asDouble)
   final double? height;
-  @JsonKey(name: 'url')
+  @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$MainImg$ItemFromJson;
@@ -20813,11 +20830,11 @@ class ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item
         this,
       );
 
-  @JsonKey(name: 'width')
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asDouble)
   final double? width;
-  @JsonKey(name: 'height')
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asDouble)
   final double? height;
-  @JsonKey(name: 'url')
+  @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgCollection$ItemFromJson;
@@ -20894,11 +20911,11 @@ class ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item
         this,
       );
 
-  @JsonKey(name: 'width')
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asDouble)
   final double? width;
-  @JsonKey(name: 'height')
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asDouble)
   final double? height;
-  @JsonKey(name: 'url')
+  @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgDetail$ItemFromJson;
@@ -20975,9 +20992,9 @@ class ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item
         this,
       );
 
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
-  @JsonKey(name: 'type')
+  @JsonKey(name: 'type', fromJson: JsonCoerce.asDouble)
   final double? type;
   @JsonKey(name: 'optionValues')
   final List<
@@ -21075,9 +21092,9 @@ class ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item
         this,
       );
 
-  @JsonKey(name: 'tagCode')
+  @JsonKey(name: 'tagCode', fromJson: JsonCoerce.asString)
   final String? tagCode;
-  @JsonKey(name: 'tagImg')
+  @JsonKey(name: 'tagImg', fromJson: JsonCoerce.asString)
   final String? tagImg;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$Tags$ItemFromJson;
@@ -21147,9 +21164,9 @@ class ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item
         this,
       );
 
-  @JsonKey(name: 'brandCode')
+  @JsonKey(name: 'brandCode', fromJson: JsonCoerce.asString)
   final String? brandCode;
-  @JsonKey(name: 'brandImg')
+  @JsonKey(name: 'brandImg', fromJson: JsonCoerce.asString)
   final String? brandImg;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$PremiumBrandInfoFromJson;
@@ -21224,9 +21241,9 @@ class ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$
         this,
       );
 
-  @JsonKey(name: 'value')
+  @JsonKey(name: 'value', fromJson: JsonCoerce.asString)
   final String? value;
-  @JsonKey(name: 'image')
+  @JsonKey(name: 'image', fromJson: JsonCoerce.asString)
   final String? image;
   @JsonKey(name: 'imageWidth')
   final Object? imageWidth;
@@ -21323,9 +21340,9 @@ class ProductServiceProductNoAuthGetProductInfoGet$Response$Data$InspectImages$I
         this,
       );
 
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
-  @JsonKey(name: 'value')
+  @JsonKey(name: 'value', fromJson: JsonCoerce.asString)
   final String? value;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$InspectImages$Item$SkuOptionFromJson;
@@ -21396,17 +21413,17 @@ class ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Ext$Brand {
         this,
       );
 
-  @JsonKey(name: 'brandTitle')
+  @JsonKey(name: 'brandTitle', fromJson: JsonCoerce.asString)
   final String? brandTitle;
-  @JsonKey(name: 'brandName')
+  @JsonKey(name: 'brandName', fromJson: JsonCoerce.asString)
   final String? brandName;
-  @JsonKey(name: 'background')
+  @JsonKey(name: 'background', fromJson: JsonCoerce.asString)
   final String? background;
-  @JsonKey(name: 'qualityAssured')
+  @JsonKey(name: 'qualityAssured', fromJson: JsonCoerce.asString)
   final String? qualityAssured;
-  @JsonKey(name: 'qualityAssuredUrl')
+  @JsonKey(name: 'qualityAssuredUrl', fromJson: JsonCoerce.asString)
   final String? qualityAssuredUrl;
-  @JsonKey(name: 'deliverAssured')
+  @JsonKey(name: 'deliverAssured', fromJson: JsonCoerce.asString)
   final String? deliverAssured;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Ext$BrandFromJson;
@@ -21536,17 +21553,17 @@ class ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data$Categor
         this,
       );
 
-  @JsonKey(name: 'id')
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asDouble)
   final double? id;
-  @JsonKey(name: 'parentId')
+  @JsonKey(name: 'parentId', fromJson: JsonCoerce.asDouble)
   final double? parentId;
-  @JsonKey(name: 'level')
+  @JsonKey(name: 'level', fromJson: JsonCoerce.asDouble)
   final double? level;
-  @JsonKey(name: 'showOrder')
+  @JsonKey(name: 'showOrder', fromJson: JsonCoerce.asDouble)
   final double? showOrder;
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
-  @JsonKey(name: 'iconUrl')
+  @JsonKey(name: 'iconUrl', fromJson: JsonCoerce.asString)
   final String? iconUrl;
   @JsonKey(name: 'categoryList', defaultValue: <Object>[])
   final List<Object>? categoryList;
@@ -21680,11 +21697,11 @@ class ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$Imag
         this,
       );
 
-  @JsonKey(name: 'width')
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asInt)
   final int? width;
-  @JsonKey(name: 'height')
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asInt)
   final int? height;
-  @JsonKey(name: 'url')
+  @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$ImageFromJson;
@@ -21759,9 +21776,9 @@ class ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$Tags
         this,
       );
 
-  @JsonKey(name: 'tagCode')
+  @JsonKey(name: 'tagCode', fromJson: JsonCoerce.asString)
   final String? tagCode;
-  @JsonKey(name: 'tagImg')
+  @JsonKey(name: 'tagImg', fromJson: JsonCoerce.asString)
   final String? tagImg;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$Tags$ItemFromJson;
@@ -21831,9 +21848,9 @@ class ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$Prem
         this,
       );
 
-  @JsonKey(name: 'brandCode')
+  @JsonKey(name: 'brandCode', fromJson: JsonCoerce.asString)
   final String? brandCode;
-  @JsonKey(name: 'brandImg')
+  @JsonKey(name: 'brandImg', fromJson: JsonCoerce.asString)
   final String? brandImg;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$PremiumBrandInfoFromJson;
@@ -21912,21 +21929,21 @@ class ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$Flas
         this,
       );
 
-  @JsonKey(name: 'activityCode')
+  @JsonKey(name: 'activityCode', fromJson: JsonCoerce.asString)
   final String? activityCode;
-  @JsonKey(name: 'activityTitle')
+  @JsonKey(name: 'activityTitle', fromJson: JsonCoerce.asString)
   final String? activityTitle;
-  @JsonKey(name: 'startTime')
+  @JsonKey(name: 'startTime', fromJson: JsonCoerce.asInt)
   final int? startTime;
-  @JsonKey(name: 'endTime')
+  @JsonKey(name: 'endTime', fromJson: JsonCoerce.asInt)
   final int? endTime;
-  @JsonKey(name: 'progressPercent')
+  @JsonKey(name: 'progressPercent', fromJson: JsonCoerce.asInt)
   final int? progressPercent;
-  @JsonKey(name: 'progressText')
+  @JsonKey(name: 'progressText', fromJson: JsonCoerce.asString)
   final String? progressText;
-  @JsonKey(name: 'marketingIcon')
+  @JsonKey(name: 'marketingIcon', fromJson: JsonCoerce.asString)
   final String? marketingIcon;
-  @JsonKey(name: 'discountExpr')
+  @JsonKey(name: 'discountExpr', fromJson: JsonCoerce.asString)
   final String? discountExpr;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthHotProductV2Get$Response$Data$Records$Item$FlashSaleFromJson;
@@ -22078,11 +22095,11 @@ class ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$Imag
         this,
       );
 
-  @JsonKey(name: 'width')
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asDouble)
   final double? width;
-  @JsonKey(name: 'height')
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asDouble)
   final double? height;
-  @JsonKey(name: 'url')
+  @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$ImageFromJson;
@@ -22159,13 +22176,13 @@ class ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$Tags
         this,
       );
 
-  @JsonKey(name: 'tagCode')
+  @JsonKey(name: 'tagCode', fromJson: JsonCoerce.asString)
   final String? tagCode;
-  @JsonKey(name: 'tagImg')
+  @JsonKey(name: 'tagImg', fromJson: JsonCoerce.asString)
   final String? tagImg;
-  @JsonKey(name: 'order')
+  @JsonKey(name: 'order', fromJson: JsonCoerce.asDouble)
   final double? order;
-  @JsonKey(name: 'frontShow')
+  @JsonKey(name: 'frontShow', fromJson: JsonCoerce.asDouble)
   final double? frontShow;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$Tags$ItemFromJson;
@@ -22258,9 +22275,9 @@ class ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$Prem
         this,
       );
 
-  @JsonKey(name: 'brandCode')
+  @JsonKey(name: 'brandCode', fromJson: JsonCoerce.asString)
   final String? brandCode;
-  @JsonKey(name: 'brandImg')
+  @JsonKey(name: 'brandImg', fromJson: JsonCoerce.asString)
   final String? brandImg;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$PremiumBrandInfoFromJson;
@@ -22338,19 +22355,19 @@ class ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$Flas
         this,
       );
 
-  @JsonKey(name: 'activityCode')
+  @JsonKey(name: 'activityCode', fromJson: JsonCoerce.asString)
   final String? activityCode;
-  @JsonKey(name: 'activityTitle')
+  @JsonKey(name: 'activityTitle', fromJson: JsonCoerce.asString)
   final String? activityTitle;
-  @JsonKey(name: 'startTime')
+  @JsonKey(name: 'startTime', fromJson: JsonCoerce.asInt)
   final int? startTime;
-  @JsonKey(name: 'endTime')
+  @JsonKey(name: 'endTime', fromJson: JsonCoerce.asInt)
   final int? endTime;
-  @JsonKey(name: 'progressPercent')
+  @JsonKey(name: 'progressPercent', fromJson: JsonCoerce.asInt)
   final int? progressPercent;
-  @JsonKey(name: 'progressText')
+  @JsonKey(name: 'progressText', fromJson: JsonCoerce.asString)
   final String? progressText;
-  @JsonKey(name: 'marketingIcon')
+  @JsonKey(name: 'marketingIcon', fromJson: JsonCoerce.asString)
   final String? marketingIcon;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$FlashSaleFromJson;
@@ -22491,13 +22508,13 @@ class ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductO
         this,
       );
 
-  @JsonKey(name: 'value')
+  @JsonKey(name: 'value', fromJson: JsonCoerce.asString)
   final String? value;
-  @JsonKey(name: 'image')
+  @JsonKey(name: 'image', fromJson: JsonCoerce.asString)
   final String? image;
-  @JsonKey(name: 'imageWidth')
+  @JsonKey(name: 'imageWidth', fromJson: JsonCoerce.asDouble)
   final double? imageWidth;
-  @JsonKey(name: 'imageHeight')
+  @JsonKey(name: 'imageHeight', fromJson: JsonCoerce.asDouble)
   final double? imageHeight;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$ItemFromJson;
@@ -22591,11 +22608,11 @@ class ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$Main
         this,
       );
 
-  @JsonKey(name: 'width')
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asDouble)
   final double? width;
-  @JsonKey(name: 'height')
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asDouble)
   final double? height;
-  @JsonKey(name: 'url')
+  @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$MainImg$ItemFromJson;
@@ -22672,11 +22689,11 @@ class ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgC
         this,
       );
 
-  @JsonKey(name: 'width')
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asDouble)
   final double? width;
-  @JsonKey(name: 'height')
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asDouble)
   final double? height;
-  @JsonKey(name: 'url')
+  @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgCollection$ItemFromJson;
@@ -22753,11 +22770,11 @@ class ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgD
         this,
       );
 
-  @JsonKey(name: 'width')
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asDouble)
   final double? width;
-  @JsonKey(name: 'height')
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asDouble)
   final double? height;
-  @JsonKey(name: 'url')
+  @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgDetail$ItemFromJson;
@@ -22834,9 +22851,9 @@ class ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$Prod
         this,
       );
 
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
-  @JsonKey(name: 'type')
+  @JsonKey(name: 'type', fromJson: JsonCoerce.asDouble)
   final double? type;
   @JsonKey(name: 'optionValues')
   final List<
@@ -22934,9 +22951,9 @@ class ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$Tags
         this,
       );
 
-  @JsonKey(name: 'tagCode')
+  @JsonKey(name: 'tagCode', fromJson: JsonCoerce.asString)
   final String? tagCode;
-  @JsonKey(name: 'tagImg')
+  @JsonKey(name: 'tagImg', fromJson: JsonCoerce.asString)
   final String? tagImg;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$Tags$ItemFromJson;
@@ -23006,9 +23023,9 @@ class ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$Prem
         this,
       );
 
-  @JsonKey(name: 'brandCode')
+  @JsonKey(name: 'brandCode', fromJson: JsonCoerce.asString)
   final String? brandCode;
-  @JsonKey(name: 'brandImg')
+  @JsonKey(name: 'brandImg', fromJson: JsonCoerce.asString)
   final String? brandImg;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$PremiumBrandInfoFromJson;
@@ -23082,11 +23099,11 @@ class ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$Item$Image {
         this,
       );
 
-  @JsonKey(name: 'width')
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asInt)
   final int? width;
-  @JsonKey(name: 'height')
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asInt)
   final int? height;
-  @JsonKey(name: 'url')
+  @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory =
       _$ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$Item$ImageFromJson;
@@ -23161,9 +23178,9 @@ class ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$Item$Premium
         this,
       );
 
-  @JsonKey(name: 'brandCode')
+  @JsonKey(name: 'brandCode', fromJson: JsonCoerce.asString)
   final String? brandCode;
-  @JsonKey(name: 'brandImg')
+  @JsonKey(name: 'brandImg', fromJson: JsonCoerce.asString)
   final String? brandImg;
   static const fromJsonFactory =
       _$ProductServiceShopNoAuthGetThirdShopGet$Response$Data$Records$Item$PremiumBrandInfoFromJson;
@@ -23238,13 +23255,13 @@ class ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductOptions
         this,
       );
 
-  @JsonKey(name: 'value')
+  @JsonKey(name: 'value', fromJson: JsonCoerce.asString)
   final String? value;
-  @JsonKey(name: 'image')
+  @JsonKey(name: 'image', fromJson: JsonCoerce.asString)
   final String? image;
-  @JsonKey(name: 'imageWidth')
+  @JsonKey(name: 'imageWidth', fromJson: JsonCoerce.asDouble)
   final double? imageWidth;
-  @JsonKey(name: 'imageHeight')
+  @JsonKey(name: 'imageHeight', fromJson: JsonCoerce.asDouble)
   final double? imageHeight;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$ItemFromJson;
@@ -23338,11 +23355,11 @@ class ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$Ma
         this,
       );
 
-  @JsonKey(name: 'width')
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asDouble)
   final double? width;
-  @JsonKey(name: 'height')
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asDouble)
   final double? height;
-  @JsonKey(name: 'url')
+  @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$MainImg$ItemFromJson;
@@ -23419,11 +23436,11 @@ class ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$Im
         this,
       );
 
-  @JsonKey(name: 'width')
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asDouble)
   final double? width;
-  @JsonKey(name: 'height')
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asDouble)
   final double? height;
-  @JsonKey(name: 'url')
+  @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgCollection$ItemFromJson;
@@ -23500,11 +23517,11 @@ class ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$Im
         this,
       );
 
-  @JsonKey(name: 'width')
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asDouble)
   final double? width;
-  @JsonKey(name: 'height')
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asDouble)
   final double? height;
-  @JsonKey(name: 'url')
+  @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgDetail$ItemFromJson;
@@ -23581,9 +23598,9 @@ class ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$Pr
         this,
       );
 
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
-  @JsonKey(name: 'type')
+  @JsonKey(name: 'type', fromJson: JsonCoerce.asDouble)
   final double? type;
   @JsonKey(name: 'optionValues')
   final List<
@@ -23681,9 +23698,9 @@ class ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$Ta
         this,
       );
 
-  @JsonKey(name: 'tagCode')
+  @JsonKey(name: 'tagCode', fromJson: JsonCoerce.asString)
   final String? tagCode;
-  @JsonKey(name: 'tagImg')
+  @JsonKey(name: 'tagImg', fromJson: JsonCoerce.asString)
   final String? tagImg;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$Tags$ItemFromJson;
@@ -23753,9 +23770,9 @@ class ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$Pr
         this,
       );
 
-  @JsonKey(name: 'brandCode')
+  @JsonKey(name: 'brandCode', fromJson: JsonCoerce.asString)
   final String? brandCode;
-  @JsonKey(name: 'brandImg')
+  @JsonKey(name: 'brandImg', fromJson: JsonCoerce.asString)
   final String? brandImg;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$PremiumBrandInfoFromJson;
@@ -23842,34 +23859,34 @@ class ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categ
         this,
       );
 
-  @JsonKey(name: 'productCode')
+  @JsonKey(name: 'productCode', fromJson: JsonCoerce.asString)
   final String? productCode;
-  @JsonKey(name: 'productName')
+  @JsonKey(name: 'productName', fromJson: JsonCoerce.asString)
   final String? productName;
   @JsonKey(name: 'image')
   final ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item$Image?
   image;
-  @JsonKey(name: 'sourcePlatform')
+  @JsonKey(name: 'sourcePlatform', fromJson: JsonCoerce.asString)
   final String? sourcePlatform;
-  @JsonKey(name: 'platformProductId')
+  @JsonKey(name: 'platformProductId', fromJson: JsonCoerce.asString)
   final String? platformProductId;
-  @JsonKey(name: 'skuCode')
+  @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
   final String? skuCode;
-  @JsonKey(name: 'sellPriceCur')
+  @JsonKey(name: 'sellPriceCur', fromJson: JsonCoerce.asString)
   final String? sellPriceCur;
-  @JsonKey(name: 'sellPrice')
+  @JsonKey(name: 'sellPrice', fromJson: JsonCoerce.asString)
   final String? sellPrice;
-  @JsonKey(name: 'targetSellPrice')
+  @JsonKey(name: 'targetSellPrice', fromJson: JsonCoerce.asString)
   final String? targetSellPrice;
-  @JsonKey(name: 'targetOriginPrice')
+  @JsonKey(name: 'targetOriginPrice', fromJson: JsonCoerce.asString)
   final String? targetOriginPrice;
-  @JsonKey(name: 'targetSellCur')
+  @JsonKey(name: 'targetSellCur', fromJson: JsonCoerce.asString)
   final String? targetSellCur;
-  @JsonKey(name: 'sellQuantity')
+  @JsonKey(name: 'sellQuantity', fromJson: JsonCoerce.asString)
   final String? sellQuantity;
-  @JsonKey(name: 'skuCount')
+  @JsonKey(name: 'skuCount', fromJson: JsonCoerce.asDouble)
   final double? skuCount;
-  @JsonKey(name: 'marketingInfo')
+  @JsonKey(name: 'marketingInfo', fromJson: JsonCoerce.asString)
   final String? marketingInfo;
   @JsonKey(name: 'tags', defaultValue: <Object>[])
   final List<Object>? tags;
@@ -24114,11 +24131,11 @@ class ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item$Image
         this,
       );
 
-  @JsonKey(name: 'width')
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asInt)
   final int? width;
-  @JsonKey(name: 'height')
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asInt)
   final int? height;
-  @JsonKey(name: 'url')
+  @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory =
       _$ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item$ImageFromJson;
@@ -24193,9 +24210,9 @@ class ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item$Tags$
         this,
       );
 
-  @JsonKey(name: 'tagCode')
+  @JsonKey(name: 'tagCode', fromJson: JsonCoerce.asString)
   final String? tagCode;
-  @JsonKey(name: 'tagImg')
+  @JsonKey(name: 'tagImg', fromJson: JsonCoerce.asString)
   final String? tagImg;
   static const fromJsonFactory =
       _$ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item$Tags$ItemFromJson;
@@ -24264,9 +24281,9 @@ class ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item$Premi
         this,
       );
 
-  @JsonKey(name: 'brandCode')
+  @JsonKey(name: 'brandCode', fromJson: JsonCoerce.asString)
   final String? brandCode;
-  @JsonKey(name: 'brandImg')
+  @JsonKey(name: 'brandImg', fromJson: JsonCoerce.asString)
   final String? brandImg;
   static const fromJsonFactory =
       _$ProductServiceRecommendNoAuthCategoryPost$Response$Data$Records$Item$PremiumBrandInfoFromJson;
@@ -24340,11 +24357,11 @@ class ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item$Image {
         this,
       );
 
-  @JsonKey(name: 'width')
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asInt)
   final int? width;
-  @JsonKey(name: 'height')
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asInt)
   final int? height;
-  @JsonKey(name: 'url')
+  @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory =
       _$ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item$ImageFromJson;
@@ -24419,9 +24436,9 @@ class ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item$Tags$Item
         this,
       );
 
-  @JsonKey(name: 'tagCode')
+  @JsonKey(name: 'tagCode', fromJson: JsonCoerce.asString)
   final String? tagCode;
-  @JsonKey(name: 'tagImg')
+  @JsonKey(name: 'tagImg', fromJson: JsonCoerce.asString)
   final String? tagImg;
   static const fromJsonFactory =
       _$ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item$Tags$ItemFromJson;
@@ -24490,9 +24507,9 @@ class ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item$PremiumBr
         this,
       );
 
-  @JsonKey(name: 'brandCode')
+  @JsonKey(name: 'brandCode', fromJson: JsonCoerce.asString)
   final String? brandCode;
-  @JsonKey(name: 'brandImg')
+  @JsonKey(name: 'brandImg', fromJson: JsonCoerce.asString)
   final String? brandImg;
   static const fromJsonFactory =
       _$ProductServiceRecommendNoAuthShopPost$Response$Data$Records$Item$PremiumBrandInfoFromJson;
@@ -24566,11 +24583,11 @@ class ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item
         this,
       );
 
-  @JsonKey(name: 'width')
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asInt)
   final int? width;
-  @JsonKey(name: 'height')
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asInt)
   final int? height;
-  @JsonKey(name: 'url')
+  @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory =
       _$ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item$ImageFromJson;
@@ -24646,9 +24663,9 @@ class ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item
         this,
       );
 
-  @JsonKey(name: 'tagCode')
+  @JsonKey(name: 'tagCode', fromJson: JsonCoerce.asString)
   final String? tagCode;
-  @JsonKey(name: 'tagImg')
+  @JsonKey(name: 'tagImg', fromJson: JsonCoerce.asString)
   final String? tagImg;
   static const fromJsonFactory =
       _$ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item$Tags$ItemFromJson;
@@ -24718,9 +24735,9 @@ class ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item
         this,
       );
 
-  @JsonKey(name: 'brandCode')
+  @JsonKey(name: 'brandCode', fromJson: JsonCoerce.asString)
   final String? brandCode;
-  @JsonKey(name: 'brandImg')
+  @JsonKey(name: 'brandImg', fromJson: JsonCoerce.asString)
   final String? brandImg;
   static const fromJsonFactory =
       _$ProductServiceRecommendNoAuthSimilarProductPost$Response$Data$Records$Item$PremiumBrandInfoFromJson;
@@ -24796,15 +24813,15 @@ class ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$Catego
         this,
       );
 
-  @JsonKey(name: 'id')
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asDouble)
   final double? id;
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
-  @JsonKey(name: 'iconUrl')
+  @JsonKey(name: 'iconUrl', fromJson: JsonCoerce.asString)
   final String? iconUrl;
-  @JsonKey(name: 'parentId')
+  @JsonKey(name: 'parentId', fromJson: JsonCoerce.asDouble)
   final double? parentId;
-  @JsonKey(name: 'level')
+  @JsonKey(name: 'level', fromJson: JsonCoerce.asDouble)
   final double? level;
   static const fromJsonFactory =
       _$ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item$CategoryList$ItemFromJson;
@@ -24906,9 +24923,9 @@ class ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$Pro
         this,
       );
 
-  @JsonKey(name: 'value')
+  @JsonKey(name: 'value', fromJson: JsonCoerce.asString)
   final String? value;
-  @JsonKey(name: 'image')
+  @JsonKey(name: 'image', fromJson: JsonCoerce.asString)
   final String? image;
   @JsonKey(name: 'imageWidth')
   final Object? imageWidth;
@@ -25007,7 +25024,7 @@ class ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item
         this,
       );
 
-  @JsonKey(name: 'value')
+  @JsonKey(name: 'value', fromJson: JsonCoerce.asString)
   final String? value;
   @JsonKey(name: 'image')
   final Object? image;
@@ -25108,7 +25125,7 @@ class ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$Prod
         this,
       );
 
-  @JsonKey(name: 'value')
+  @JsonKey(name: 'value', fromJson: JsonCoerce.asString)
   final String? value;
   @JsonKey(name: 'image')
   final Object? image;
@@ -25209,7 +25226,7 @@ class ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$Pr
         this,
       );
 
-  @JsonKey(name: 'value')
+  @JsonKey(name: 'value', fromJson: JsonCoerce.asString)
   final String? value;
   @JsonKey(name: 'image')
   final Object? image;
@@ -25309,11 +25326,11 @@ class ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categ
         this,
       );
 
-  @JsonKey(name: 'width')
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asDouble)
   final double? width;
-  @JsonKey(name: 'height')
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asDouble)
   final double? height;
-  @JsonKey(name: 'url')
+  @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory =
       _$ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item$ImageFromJson;
@@ -25389,9 +25406,9 @@ class ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categ
         this,
       );
 
-  @JsonKey(name: 'brandCode')
+  @JsonKey(name: 'brandCode', fromJson: JsonCoerce.asString)
   final String? brandCode;
-  @JsonKey(name: 'brandImg')
+  @JsonKey(name: 'brandImg', fromJson: JsonCoerce.asString)
   final String? brandImg;
   static const fromJsonFactory =
       _$ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item$PremiumBrandInfoFromJson;

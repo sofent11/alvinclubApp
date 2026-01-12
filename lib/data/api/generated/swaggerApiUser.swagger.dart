@@ -15,6 +15,7 @@ import 'package:http/http.dart' as http;
 import 'package:http/http.dart' show MultipartFile;
 import 'package:chopper/chopper.dart' as chopper;
 import 'swaggerApiUser.metadata.swagger.dart';
+import 'package:w2capp/shared/utils/json_coerce.dart';
 
 part 'swaggerApiUser.swagger.chopper.dart';
 part 'swaggerApiUser.swagger.g.dart';
@@ -1754,15 +1755,15 @@ class UserServiceAddressUpdatePost$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceAddressUpdatePost$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
-  @JsonKey(name: 'data')
+  @JsonKey(name: 'data', fromJson: JsonCoerce.asDouble)
   final double? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   static const fromJsonFactory =
       _$UserServiceAddressUpdatePost$ResponseFromJson;
@@ -1855,15 +1856,15 @@ class UserServiceAddressDeleteDelete$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceAddressDeleteDelete$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
-  @JsonKey(name: 'data')
+  @JsonKey(name: 'data', fromJson: JsonCoerce.asDouble)
   final double? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   static const fromJsonFactory =
       _$UserServiceAddressDeleteDelete$ResponseFromJson;
@@ -1957,17 +1958,17 @@ class UserServiceAddressQueryGet$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceAddressQueryGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final List<UserServiceAddressQueryGet$Response$Data$Item>? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
-  @JsonKey(name: 'placeholder')
+  @JsonKey(name: 'placeholder', fromJson: JsonCoerce.asString)
   final String? placeholder;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   static const fromJsonFactory = _$UserServiceAddressQueryGet$ResponseFromJson;
 
@@ -2070,15 +2071,19 @@ class UserServiceNoAuthSupportCountryGet$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceNoAuthSupportCountryGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
-  @JsonKey(name: 'data', defaultValue: <String>[])
+  @JsonKey(
+    name: 'data',
+    fromJson: JsonCoerce.asStringList,
+    defaultValue: <String>[],
+  )
   final List<String>? data;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   static const fromJsonFactory =
       _$UserServiceNoAuthSupportCountryGet$ResponseFromJson;
@@ -2172,17 +2177,17 @@ class UserServiceAddressListGet$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceAddressListGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final List<UserServiceAddressListGet$Response$Data$Item>? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
-  @JsonKey(name: 'placeholder')
+  @JsonKey(name: 'placeholder', fromJson: JsonCoerce.asString)
   final String? placeholder;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   static const fromJsonFactory = _$UserServiceAddressListGet$ResponseFromJson;
 
@@ -2285,15 +2290,15 @@ class UserServiceGetShippingAddressByCountryGet$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceGetShippingAddressByCountryGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final UserServiceGetShippingAddressByCountryGet$Response$Data? data;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   static const fromJsonFactory =
       _$UserServiceGetShippingAddressByCountryGet$ResponseFromJson;
@@ -2386,15 +2391,15 @@ class UserServiceAddressAddPost$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceAddressAddPost$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
-  @JsonKey(name: 'data')
+  @JsonKey(name: 'data', fromJson: JsonCoerce.asDouble)
   final double? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   static const fromJsonFactory = _$UserServiceAddressAddPost$ResponseFromJson;
 
@@ -2487,15 +2492,15 @@ class UserServiceGetDefaultShippingAddressGet$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceGetDefaultShippingAddressGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final UserServiceGetDefaultShippingAddressGet$Response$Data? data;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   static const fromJsonFactory =
       _$UserServiceGetDefaultShippingAddressGet$ResponseFromJson;
@@ -2588,15 +2593,15 @@ class UserServiceAddressCountryGet$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceAddressCountryGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final List<UserServiceAddressCountryGet$Response$Data$Item>? data;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   static const fromJsonFactory =
       _$UserServiceAddressCountryGet$ResponseFromJson;
@@ -2691,17 +2696,17 @@ class UserServiceAddressQueryByZipCodeGet$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceAddressQueryByZipCodeGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final List<UserServiceAddressQueryByZipCodeGet$Response$Data$Item>? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   static const fromJsonFactory =
       _$UserServiceAddressQueryByZipCodeGet$ResponseFromJson;
@@ -2806,15 +2811,15 @@ class UserServiceUserInnerUpdUserLevelPost$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceUserInnerUpdUserLevelPost$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final Object? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   static const fromJsonFactory =
       _$UserServiceUserInnerUpdUserLevelPost$ResponseFromJson;
@@ -2910,19 +2915,19 @@ class UserServiceSigninSwitchPortalPost$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceSigninSwitchPortalPost$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final UserServiceSigninSwitchPortalPost$Response$Data? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
-  @JsonKey(name: 'placeholder')
+  @JsonKey(name: 'placeholder', fromJson: JsonCoerce.asString)
   final String? placeholder;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
-  @JsonKey(name: 'url')
+  @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory =
       _$UserServiceSigninSwitchPortalPost$ResponseFromJson;
@@ -3034,9 +3039,9 @@ class UserServiceSignInInitPost$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceSignInInitPost$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final UserServiceSignInInitPost$Response$Data? data;
@@ -3121,11 +3126,11 @@ class UserServiceOtpApplyPost$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceOtpApplyPost$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
-  @JsonKey(name: 'data')
+  @JsonKey(name: 'data', fromJson: JsonCoerce.asString)
   final String? data;
   @JsonKey(name: 'traceId')
   final Object? traceId;
@@ -3211,19 +3216,19 @@ class UserServiceSignInVerifyPost$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceSignInVerifyPost$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final UserServiceSignInVerifyPost$Response$Data? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
-  @JsonKey(name: 'placeholder')
+  @JsonKey(name: 'placeholder', fromJson: JsonCoerce.asString)
   final String? placeholder;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
-  @JsonKey(name: 'url')
+  @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory = _$UserServiceSignInVerifyPost$ResponseFromJson;
 
@@ -3337,19 +3342,19 @@ class UserServiceSignInCallPost$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceSignInCallPost$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final UserServiceSignInCallPost$Response$Data? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
-  @JsonKey(name: 'placeholder')
+  @JsonKey(name: 'placeholder', fromJson: JsonCoerce.asString)
   final String? placeholder;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
-  @JsonKey(name: 'url')
+  @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory = _$UserServiceSignInCallPost$ResponseFromJson;
 
@@ -3463,19 +3468,19 @@ class UserServiceNoAuthOtpVerifyPost$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceNoAuthOtpVerifyPost$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final UserServiceNoAuthOtpVerifyPost$Response$Data? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
-  @JsonKey(name: 'placeholder')
+  @JsonKey(name: 'placeholder', fromJson: JsonCoerce.asString)
   final String? placeholder;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
-  @JsonKey(name: 'url')
+  @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory =
       _$UserServiceNoAuthOtpVerifyPost$ResponseFromJson;
@@ -3589,15 +3594,15 @@ class UserServiceNoAuthCommonConfigDefaultSettingGet$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceNoAuthCommonConfigDefaultSettingGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final UserServiceNoAuthCommonConfigDefaultSettingGet$Response$Data? data;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   static const fromJsonFactory =
       _$UserServiceNoAuthCommonConfigDefaultSettingGet$ResponseFromJson;
@@ -3689,9 +3694,9 @@ class UserServiceFileImUploadPost$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceFileImUploadPost$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
   final int? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final List<UserServiceFileImUploadPost$Response$Data$Item>? data;
@@ -3766,9 +3771,9 @@ class UserServiceFileLogoUploadPost$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceFileLogoUploadPost$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asString)
   final String? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final UserServiceFileLogoUploadPost$Response$Data? data;
@@ -3847,17 +3852,17 @@ class UserServiceUserCouponCountGet$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceUserCouponCountGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final UserServiceUserCouponCountGet$Response$Data? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
-  @JsonKey(name: 'placeholder')
+  @JsonKey(name: 'placeholder', fromJson: JsonCoerce.asString)
   final String? placeholder;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   static const fromJsonFactory =
       _$UserServiceUserCouponCountGet$ResponseFromJson;
@@ -3958,7 +3963,7 @@ class UserServiceUserCouponActivityInfoGet$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceUserCouponActivityInfoGet$ResponseToJson(this);
 
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   @JsonKey(name: 'data')
   final UserServiceUserCouponActivityInfoGet$Response$Data? data;
@@ -4031,17 +4036,17 @@ class UserServiceUserCouponCode2CouponGet$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceUserCouponCode2CouponGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final UserServiceUserCouponCode2CouponGet$Response$Data? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
-  @JsonKey(name: 'placeholder')
+  @JsonKey(name: 'placeholder', fromJson: JsonCoerce.asString)
   final String? placeholder;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   static const fromJsonFactory =
       _$UserServiceUserCouponCode2CouponGet$ResponseFromJson;
@@ -4142,7 +4147,7 @@ class UserServiceUserCouponActivityInfosGet$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceUserCouponActivityInfosGet$ResponseToJson(this);
 
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   @JsonKey(name: 'data')
   final List<UserServiceUserCouponActivityInfosGet$Response$Data$Item>? data;
@@ -4216,17 +4221,21 @@ class UserServiceUserCouponGetActivitiesGet$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceUserCouponGetActivitiesGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
-  @JsonKey(name: 'data', defaultValue: <String>[])
+  @JsonKey(
+    name: 'data',
+    fromJson: JsonCoerce.asStringList,
+    defaultValue: <String>[],
+  )
   final List<String>? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
-  @JsonKey(name: 'placeholder')
+  @JsonKey(name: 'placeholder', fromJson: JsonCoerce.asString)
   final String? placeholder;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   static const fromJsonFactory =
       _$UserServiceUserCouponGetActivitiesGet$ResponseFromJson;
@@ -4330,17 +4339,17 @@ class UserServiceUserCouponGetListGet$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceUserCouponGetListGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final List<UserServiceUserCouponGetListGet$Response$Data$Item>? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
-  @JsonKey(name: 'placeholder')
+  @JsonKey(name: 'placeholder', fromJson: JsonCoerce.asString)
   final String? placeholder;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   static const fromJsonFactory =
       _$UserServiceUserCouponGetListGet$ResponseFromJson;
@@ -4446,17 +4455,17 @@ class UserServiceUserCouponGetUserCouponByActivityPost$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceUserCouponGetUserCouponByActivityPost$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
-  @JsonKey(name: 'data')
+  @JsonKey(name: 'data', fromJson: JsonCoerce.asBool)
   final bool? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   static const fromJsonFactory =
       _$UserServiceUserCouponGetUserCouponByActivityPost$ResponseFromJson;
@@ -4560,17 +4569,17 @@ class UserServiceUserCouponSaveGet$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceUserCouponSaveGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
-  @JsonKey(name: 'data')
+  @JsonKey(name: 'data', fromJson: JsonCoerce.asString)
   final String? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
-  @JsonKey(name: 'placeholder')
+  @JsonKey(name: 'placeholder', fromJson: JsonCoerce.asString)
   final String? placeholder;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   static const fromJsonFactory =
       _$UserServiceUserCouponSaveGet$ResponseFromJson;
@@ -4671,7 +4680,7 @@ class UserServiceUserCouponNoAuthActivityInfoGet$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceUserCouponNoAuthActivityInfoGet$ResponseToJson(this);
 
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   @JsonKey(name: 'data')
   final UserServiceUserCouponNoAuthActivityInfoGet$Response$Data? data;
@@ -4744,18 +4753,18 @@ class UserServiceUserCouponGetCouponByActivityPost$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceUserCouponGetCouponByActivityPost$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final List<UserServiceUserCouponGetCouponByActivityPost$Response$Data$Item>?
   data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
-  @JsonKey(name: 'placeholder')
+  @JsonKey(name: 'placeholder', fromJson: JsonCoerce.asString)
   final String? placeholder;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   static const fromJsonFactory =
       _$UserServiceUserCouponGetCouponByActivityPost$ResponseFromJson;
@@ -4862,17 +4871,17 @@ class UserServiceUserCouponGetGet$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceUserCouponGetGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final List<UserServiceUserCouponGetGet$Response$Data$Item>? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
-  @JsonKey(name: 'placeholder')
+  @JsonKey(name: 'placeholder', fromJson: JsonCoerce.asString)
   final String? placeholder;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   static const fromJsonFactory = _$UserServiceUserCouponGetGet$ResponseFromJson;
 
@@ -4974,9 +4983,9 @@ class UserServiceImGetInfoPost$Response {
 
   @JsonKey(name: 'data')
   final UserServiceImGetInfoPost$Response$Data? data;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   static const fromJsonFactory = _$UserServiceImGetInfoPost$ResponseFromJson;
 
@@ -5051,15 +5060,15 @@ class UserServiceUserShareListGet$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceUserShareListGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final List<UserServiceUserShareListGet$Response$Data$Item>? data;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   static const fromJsonFactory = _$UserServiceUserShareListGet$ResponseFromJson;
 
@@ -5152,15 +5161,15 @@ class UserServiceUserShareRewardInfoGet$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceUserShareRewardInfoGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final UserServiceUserShareRewardInfoGet$Response$Data? data;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   static const fromJsonFactory =
       _$UserServiceUserShareRewardInfoGet$ResponseFromJson;
@@ -5253,15 +5262,15 @@ class UserServiceUserShareSubmitPost$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceUserShareSubmitPost$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
-  @JsonKey(name: 'data')
+  @JsonKey(name: 'data', fromJson: JsonCoerce.asString)
   final String? data;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   static const fromJsonFactory =
       _$UserServiceUserShareSubmitPost$ResponseFromJson;
@@ -5354,15 +5363,15 @@ class UserServiceUserDeleteGet$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceUserDeleteGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final UserServiceUserDeleteGet$Response$Data? data;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   static const fromJsonFactory = _$UserServiceUserDeleteGet$ResponseFromJson;
 
@@ -5454,15 +5463,15 @@ class UserServiceUserDeleteConfirmGet$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceUserDeleteConfirmGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
-  @JsonKey(name: 'data')
+  @JsonKey(name: 'data', fromJson: JsonCoerce.asBool)
   final bool? data;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   static const fromJsonFactory =
       _$UserServiceUserDeleteConfirmGet$ResponseFromJson;
@@ -5553,15 +5562,15 @@ class UserServiceUserGetGet$Response {
   static const toJsonFactory = _$UserServiceUserGetGet$ResponseToJson;
   Map<String, dynamic> toJson() => _$UserServiceUserGetGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final UserServiceUserGetGet$Response$Data? data;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   static const fromJsonFactory = _$UserServiceUserGetGet$ResponseFromJson;
 
@@ -5654,15 +5663,15 @@ class UserServiceUserUserCommissionGet$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceUserUserCommissionGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final UserServiceUserUserCommissionGet$Response$Data? data;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   static const fromJsonFactory =
       _$UserServiceUserUserCommissionGet$ResponseFromJson;
@@ -5756,15 +5765,15 @@ class UserServiceUserConfigureSettingGet$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceUserConfigureSettingGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final UserServiceUserConfigureSettingGet$Response$Data? data;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   static const fromJsonFactory =
       _$UserServiceUserConfigureSettingGet$ResponseFromJson;
@@ -5857,15 +5866,15 @@ class UserServiceUserInviteCountGet$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceUserInviteCountGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
-  @JsonKey(name: 'data')
+  @JsonKey(name: 'data', fromJson: JsonCoerce.asInt)
   final int? data;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   static const fromJsonFactory =
       _$UserServiceUserInviteCountGet$ResponseFromJson;
@@ -5958,15 +5967,15 @@ class UserServiceUserInviteNumGet$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceUserInviteNumGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final UserServiceUserInviteNumGet$Response$Data? data;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   static const fromJsonFactory = _$UserServiceUserInviteNumGet$ResponseFromJson;
 
@@ -6058,15 +6067,15 @@ class UserServiceUserShareUpdatePost$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceUserShareUpdatePost$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
-  @JsonKey(name: 'data')
+  @JsonKey(name: 'data', fromJson: JsonCoerce.asString)
   final String? data;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   static const fromJsonFactory =
       _$UserServiceUserShareUpdatePost$ResponseFromJson;
@@ -6159,15 +6168,15 @@ class UserServiceUserUserRewardGet$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceUserUserRewardGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
-  @JsonKey(name: 'data')
+  @JsonKey(name: 'data', fromJson: JsonCoerce.asBool)
   final bool? data;
   @JsonKey(name: 'placeholder')
   final Object? placeholder;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   static const fromJsonFactory =
       _$UserServiceUserUserRewardGet$ResponseFromJson;
@@ -6261,15 +6270,15 @@ class UserServiceUserTagPortraitAiToPortraitPost$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceUserTagPortraitAiToPortraitPost$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final UserServiceUserTagPortraitAiToPortraitPost$Response$Data? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   static const fromJsonFactory =
       _$UserServiceUserTagPortraitAiToPortraitPost$ResponseFromJson;
@@ -6363,15 +6372,15 @@ class UserServiceUserTagPortraitAiToPortraitV2Post$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceUserTagPortraitAiToPortraitV2Post$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final UserServiceUserTagPortraitAiToPortraitV2Post$Response$Data? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   static const fromJsonFactory =
       _$UserServiceUserTagPortraitAiToPortraitV2Post$ResponseFromJson;
@@ -6465,15 +6474,15 @@ class UserServiceUserTagPortraitUpdatePortraitPost$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceUserTagPortraitUpdatePortraitPost$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
-  @JsonKey(name: 'data')
+  @JsonKey(name: 'data', fromJson: JsonCoerce.asBool)
   final bool? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   static const fromJsonFactory =
       _$UserServiceUserTagPortraitUpdatePortraitPost$ResponseFromJson;
@@ -6567,15 +6576,15 @@ class UserServiceUserTagPortraitGetPortraitGet$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceUserTagPortraitGetPortraitGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final UserServiceUserTagPortraitGetPortraitGet$Response$Data? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   static const fromJsonFactory =
       _$UserServiceUserTagPortraitGetPortraitGet$ResponseFromJson;
@@ -6670,17 +6679,17 @@ class UserServiceUserCouponAppHomeActivityPost$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceUserCouponAppHomeActivityPost$ResponseToJson(this);
 
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
   final double? code;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
   final List<UserServiceUserCouponAppHomeActivityPost$Response$Data$Item>? data;
-  @JsonKey(name: 'traceId')
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
-  @JsonKey(name: 'placeholder')
+  @JsonKey(name: 'placeholder', fromJson: JsonCoerce.asString)
   final String? placeholder;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   static const fromJsonFactory =
       _$UserServiceUserCouponAppHomeActivityPost$ResponseFromJson;
@@ -6792,29 +6801,29 @@ class UserServiceAddressQueryGet$Response$Data$Item {
   Map<String, dynamic> toJson() =>
       _$UserServiceAddressQueryGet$Response$Data$ItemToJson(this);
 
-  @JsonKey(name: 'apartment')
+  @JsonKey(name: 'apartment', fromJson: JsonCoerce.asString)
   final String? apartment;
-  @JsonKey(name: 'street')
+  @JsonKey(name: 'street', fromJson: JsonCoerce.asString)
   final String? street;
-  @JsonKey(name: 'city')
+  @JsonKey(name: 'city', fromJson: JsonCoerce.asString)
   final String? city;
-  @JsonKey(name: 'cityCode')
+  @JsonKey(name: 'cityCode', fromJson: JsonCoerce.asString)
   final String? cityCode;
-  @JsonKey(name: 'state')
+  @JsonKey(name: 'state', fromJson: JsonCoerce.asString)
   final String? state;
-  @JsonKey(name: 'stateCode')
+  @JsonKey(name: 'stateCode', fromJson: JsonCoerce.asString)
   final String? stateCode;
-  @JsonKey(name: 'country')
+  @JsonKey(name: 'country', fromJson: JsonCoerce.asString)
   final String? country;
-  @JsonKey(name: 'countryCode')
+  @JsonKey(name: 'countryCode', fromJson: JsonCoerce.asString)
   final String? countryCode;
-  @JsonKey(name: 'address')
+  @JsonKey(name: 'address', fromJson: JsonCoerce.asString)
   final String? address;
-  @JsonKey(name: 'zipCode')
+  @JsonKey(name: 'zipCode', fromJson: JsonCoerce.asString)
   final String? zipCode;
-  @JsonKey(name: 'latitude')
+  @JsonKey(name: 'latitude', fromJson: JsonCoerce.asDouble)
   final double? latitude;
-  @JsonKey(name: 'longitude')
+  @JsonKey(name: 'longitude', fromJson: JsonCoerce.asDouble)
   final double? longitude;
   static const fromJsonFactory =
       _$UserServiceAddressQueryGet$Response$Data$ItemFromJson;
@@ -6996,51 +7005,51 @@ class UserServiceAddressListGet$Response$Data$Item {
   Map<String, dynamic> toJson() =>
       _$UserServiceAddressListGet$Response$Data$ItemToJson(this);
 
-  @JsonKey(name: 'id')
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asDouble)
   final double? id;
-  @JsonKey(name: 'tenantCode')
+  @JsonKey(name: 'tenantCode', fromJson: JsonCoerce.asString)
   final String? tenantCode;
-  @JsonKey(name: 'userId')
+  @JsonKey(name: 'userId', fromJson: JsonCoerce.asString)
   final String? userId;
-  @JsonKey(name: 'isDefault')
+  @JsonKey(name: 'isDefault', fromJson: JsonCoerce.asDouble)
   final double? isDefault;
-  @JsonKey(name: 'country')
+  @JsonKey(name: 'country', fromJson: JsonCoerce.asString)
   final String? country;
-  @JsonKey(name: 'countryCode')
+  @JsonKey(name: 'countryCode', fromJson: JsonCoerce.asString)
   final String? countryCode;
-  @JsonKey(name: 'state')
+  @JsonKey(name: 'state', fromJson: JsonCoerce.asString)
   final String? state;
-  @JsonKey(name: 'stateCode')
+  @JsonKey(name: 'stateCode', fromJson: JsonCoerce.asString)
   final String? stateCode;
-  @JsonKey(name: 'city')
+  @JsonKey(name: 'city', fromJson: JsonCoerce.asString)
   final String? city;
-  @JsonKey(name: 'cityCode')
+  @JsonKey(name: 'cityCode', fromJson: JsonCoerce.asString)
   final String? cityCode;
-  @JsonKey(name: 'street')
+  @JsonKey(name: 'street', fromJson: JsonCoerce.asString)
   final String? street;
-  @JsonKey(name: 'apartment')
+  @JsonKey(name: 'apartment', fromJson: JsonCoerce.asString)
   final String? apartment;
-  @JsonKey(name: 'address')
+  @JsonKey(name: 'address', fromJson: JsonCoerce.asString)
   final String? address;
-  @JsonKey(name: 'coordinate')
+  @JsonKey(name: 'coordinate', fromJson: JsonCoerce.asString)
   final String? coordinate;
-  @JsonKey(name: 'firstName')
+  @JsonKey(name: 'firstName', fromJson: JsonCoerce.asString)
   final String? firstName;
-  @JsonKey(name: 'lastName')
+  @JsonKey(name: 'lastName', fromJson: JsonCoerce.asString)
   final String? lastName;
-  @JsonKey(name: 'phoneNumber')
+  @JsonKey(name: 'phoneNumber', fromJson: JsonCoerce.asString)
   final String? phoneNumber;
-  @JsonKey(name: 'zipCode')
+  @JsonKey(name: 'zipCode', fromJson: JsonCoerce.asString)
   final String? zipCode;
-  @JsonKey(name: 'deleted')
+  @JsonKey(name: 'deleted', fromJson: JsonCoerce.asDouble)
   final double? deleted;
-  @JsonKey(name: 'isDelivered')
+  @JsonKey(name: 'isDelivered', fromJson: JsonCoerce.asDouble)
   final double? isDelivered;
-  @JsonKey(name: 'gmtCreate')
+  @JsonKey(name: 'gmtCreate', fromJson: JsonCoerce.asString)
   final String? gmtCreate;
-  @JsonKey(name: 'gmtUpdate')
+  @JsonKey(name: 'gmtUpdate', fromJson: JsonCoerce.asString)
   final String? gmtUpdate;
-  @JsonKey(name: 'tin')
+  @JsonKey(name: 'tin', fromJson: JsonCoerce.asString)
   final String? tin;
   static const fromJsonFactory =
       _$UserServiceAddressListGet$Response$Data$ItemFromJson;
@@ -7315,35 +7324,35 @@ class UserServiceGetShippingAddressByCountryGet$Response$Data {
   Map<String, dynamic> toJson() =>
       _$UserServiceGetShippingAddressByCountryGet$Response$DataToJson(this);
 
-  @JsonKey(name: 'id')
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asString)
   final String? id;
-  @JsonKey(name: 'isDefault')
+  @JsonKey(name: 'isDefault', fromJson: JsonCoerce.asBool)
   final bool? isDefault;
-  @JsonKey(name: 'country')
+  @JsonKey(name: 'country', fromJson: JsonCoerce.asString)
   final String? country;
-  @JsonKey(name: 'countryCode')
+  @JsonKey(name: 'countryCode', fromJson: JsonCoerce.asString)
   final String? countryCode;
-  @JsonKey(name: 'state')
+  @JsonKey(name: 'state', fromJson: JsonCoerce.asString)
   final String? state;
-  @JsonKey(name: 'stateCode')
+  @JsonKey(name: 'stateCode', fromJson: JsonCoerce.asString)
   final String? stateCode;
-  @JsonKey(name: 'simpleStateCode')
+  @JsonKey(name: 'simpleStateCode', fromJson: JsonCoerce.asString)
   final String? simpleStateCode;
-  @JsonKey(name: 'city')
+  @JsonKey(name: 'city', fromJson: JsonCoerce.asString)
   final String? city;
-  @JsonKey(name: 'cityCode')
+  @JsonKey(name: 'cityCode', fromJson: JsonCoerce.asString)
   final String? cityCode;
-  @JsonKey(name: 'apartment')
+  @JsonKey(name: 'apartment', fromJson: JsonCoerce.asString)
   final String? apartment;
-  @JsonKey(name: 'address')
+  @JsonKey(name: 'address', fromJson: JsonCoerce.asString)
   final String? address;
-  @JsonKey(name: 'coordinate')
+  @JsonKey(name: 'coordinate', fromJson: JsonCoerce.asString)
   final String? coordinate;
-  @JsonKey(name: 'firstName')
+  @JsonKey(name: 'firstName', fromJson: JsonCoerce.asString)
   final String? firstName;
-  @JsonKey(name: 'lastName')
+  @JsonKey(name: 'lastName', fromJson: JsonCoerce.asString)
   final String? lastName;
-  @JsonKey(name: 'phoneNumber')
+  @JsonKey(name: 'phoneNumber', fromJson: JsonCoerce.asString)
   final String? phoneNumber;
   static const fromJsonFactory =
       _$UserServiceGetShippingAddressByCountryGet$Response$DataFromJson;
@@ -7552,41 +7561,41 @@ class UserServiceGetDefaultShippingAddressGet$Response$Data {
   Map<String, dynamic> toJson() =>
       _$UserServiceGetDefaultShippingAddressGet$Response$DataToJson(this);
 
-  @JsonKey(name: 'id')
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asString)
   final String? id;
-  @JsonKey(name: 'isDefault')
+  @JsonKey(name: 'isDefault', fromJson: JsonCoerce.asBool)
   final bool? isDefault;
-  @JsonKey(name: 'country')
+  @JsonKey(name: 'country', fromJson: JsonCoerce.asString)
   final String? country;
-  @JsonKey(name: 'countryCode')
+  @JsonKey(name: 'countryCode', fromJson: JsonCoerce.asString)
   final String? countryCode;
-  @JsonKey(name: 'state')
+  @JsonKey(name: 'state', fromJson: JsonCoerce.asString)
   final String? state;
-  @JsonKey(name: 'stateCode')
+  @JsonKey(name: 'stateCode', fromJson: JsonCoerce.asString)
   final String? stateCode;
-  @JsonKey(name: 'simpleStateCode')
+  @JsonKey(name: 'simpleStateCode', fromJson: JsonCoerce.asString)
   final String? simpleStateCode;
-  @JsonKey(name: 'city')
+  @JsonKey(name: 'city', fromJson: JsonCoerce.asString)
   final String? city;
-  @JsonKey(name: 'cityCode')
+  @JsonKey(name: 'cityCode', fromJson: JsonCoerce.asString)
   final String? cityCode;
-  @JsonKey(name: 'apartment')
+  @JsonKey(name: 'apartment', fromJson: JsonCoerce.asString)
   final String? apartment;
-  @JsonKey(name: 'address')
+  @JsonKey(name: 'address', fromJson: JsonCoerce.asString)
   final String? address;
-  @JsonKey(name: 'coordinate')
+  @JsonKey(name: 'coordinate', fromJson: JsonCoerce.asString)
   final String? coordinate;
-  @JsonKey(name: 'firstName')
+  @JsonKey(name: 'firstName', fromJson: JsonCoerce.asString)
   final String? firstName;
-  @JsonKey(name: 'lastName')
+  @JsonKey(name: 'lastName', fromJson: JsonCoerce.asString)
   final String? lastName;
-  @JsonKey(name: 'phoneNumber')
+  @JsonKey(name: 'phoneNumber', fromJson: JsonCoerce.asString)
   final String? phoneNumber;
-  @JsonKey(name: 'street')
+  @JsonKey(name: 'street', fromJson: JsonCoerce.asString)
   final String? street;
-  @JsonKey(name: 'zipCode')
+  @JsonKey(name: 'zipCode', fromJson: JsonCoerce.asString)
   final String? zipCode;
-  @JsonKey(name: 'email')
+  @JsonKey(name: 'email', fromJson: JsonCoerce.asString)
   final String? email;
   static const fromJsonFactory =
       _$UserServiceGetDefaultShippingAddressGet$Response$DataFromJson;
@@ -7804,11 +7813,11 @@ class UserServiceAddressCountryGet$Response$Data$Item {
   Map<String, dynamic> toJson() =>
       _$UserServiceAddressCountryGet$Response$Data$ItemToJson(this);
 
-  @JsonKey(name: 'areaCode')
+  @JsonKey(name: 'areaCode', fromJson: JsonCoerce.asString)
   final String? areaCode;
-  @JsonKey(name: 'icon')
+  @JsonKey(name: 'icon', fromJson: JsonCoerce.asString)
   final String? icon;
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
   static const fromJsonFactory =
       _$UserServiceAddressCountryGet$Response$Data$ItemFromJson;
@@ -7894,23 +7903,23 @@ class UserServiceAddressQueryByZipCodeGet$Response$Data$Item {
 
   @JsonKey(name: 'apartment')
   final Object? apartment;
-  @JsonKey(name: 'street')
+  @JsonKey(name: 'street', fromJson: JsonCoerce.asString)
   final String? street;
-  @JsonKey(name: 'city')
+  @JsonKey(name: 'city', fromJson: JsonCoerce.asString)
   final String? city;
-  @JsonKey(name: 'cityCode')
+  @JsonKey(name: 'cityCode', fromJson: JsonCoerce.asString)
   final String? cityCode;
-  @JsonKey(name: 'state')
+  @JsonKey(name: 'state', fromJson: JsonCoerce.asString)
   final String? state;
-  @JsonKey(name: 'stateCode')
+  @JsonKey(name: 'stateCode', fromJson: JsonCoerce.asString)
   final String? stateCode;
-  @JsonKey(name: 'country')
+  @JsonKey(name: 'country', fromJson: JsonCoerce.asString)
   final String? country;
-  @JsonKey(name: 'countryCode')
+  @JsonKey(name: 'countryCode', fromJson: JsonCoerce.asString)
   final String? countryCode;
   @JsonKey(name: 'address')
   final Object? address;
-  @JsonKey(name: 'zipCode')
+  @JsonKey(name: 'zipCode', fromJson: JsonCoerce.asString)
   final String? zipCode;
   @JsonKey(name: 'latitude')
   final Object? latitude;
@@ -8098,55 +8107,55 @@ class UserServiceSigninSwitchPortalPost$Response$Data {
   Map<String, dynamic> toJson() =>
       _$UserServiceSigninSwitchPortalPost$Response$DataToJson(this);
 
-  @JsonKey(name: 'tenantCode')
+  @JsonKey(name: 'tenantCode', fromJson: JsonCoerce.asString)
   final String? tenantCode;
-  @JsonKey(name: 'userId')
+  @JsonKey(name: 'userId', fromJson: JsonCoerce.asString)
   final String? userId;
-  @JsonKey(name: 'nickname')
+  @JsonKey(name: 'nickname', fromJson: JsonCoerce.asString)
   final String? nickname;
-  @JsonKey(name: 'email')
+  @JsonKey(name: 'email', fromJson: JsonCoerce.asString)
   final String? email;
-  @JsonKey(name: 'photo')
+  @JsonKey(name: 'photo', fromJson: JsonCoerce.asString)
   final String? photo;
-  @JsonKey(name: 'phoneNumber')
+  @JsonKey(name: 'phoneNumber', fromJson: JsonCoerce.asString)
   final String? phoneNumber;
-  @JsonKey(name: 'signUpType')
+  @JsonKey(name: 'signUpType', fromJson: JsonCoerce.asString)
   final String? signUpType;
-  @JsonKey(name: 'signUpName')
+  @JsonKey(name: 'signUpName', fromJson: JsonCoerce.asString)
   final String? signUpName;
-  @JsonKey(name: 'accessToken')
+  @JsonKey(name: 'accessToken', fromJson: JsonCoerce.asString)
   final String? accessToken;
-  @JsonKey(name: 'refreshToken')
+  @JsonKey(name: 'refreshToken', fromJson: JsonCoerce.asString)
   final String? refreshToken;
-  @JsonKey(name: 'expiresIn')
+  @JsonKey(name: 'expiresIn', fromJson: JsonCoerce.asDouble)
   final double? expiresIn;
-  @JsonKey(name: 'tokenType')
+  @JsonKey(name: 'tokenType', fromJson: JsonCoerce.asString)
   final String? tokenType;
-  @JsonKey(name: 'authWay')
+  @JsonKey(name: 'authWay', fromJson: JsonCoerce.asString)
   final String? authWay;
-  @JsonKey(name: 'remainTimes')
+  @JsonKey(name: 'remainTimes', fromJson: JsonCoerce.asString)
   final String? remainTimes;
-  @JsonKey(name: 'lockTime')
+  @JsonKey(name: 'lockTime', fromJson: JsonCoerce.asString)
   final String? lockTime;
-  @JsonKey(name: 'loginStatus')
+  @JsonKey(name: 'loginStatus', fromJson: JsonCoerce.asDouble)
   final double? loginStatus;
-  @JsonKey(name: 'timestamp')
+  @JsonKey(name: 'timestamp', fromJson: JsonCoerce.asDouble)
   final double? timestamp;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
-  @JsonKey(name: 'portalCode')
+  @JsonKey(name: 'portalCode', fromJson: JsonCoerce.asString)
   final String? portalCode;
-  @JsonKey(name: 'source')
+  @JsonKey(name: 'source', fromJson: JsonCoerce.asString)
   final String? source;
-  @JsonKey(name: 'newUser')
+  @JsonKey(name: 'newUser', fromJson: JsonCoerce.asBool)
   final bool? newUser;
-  @JsonKey(name: 'compliance')
+  @JsonKey(name: 'compliance', fromJson: JsonCoerce.asString)
   final String? compliance;
-  @JsonKey(name: 'finalSuccess')
+  @JsonKey(name: 'finalSuccess', fromJson: JsonCoerce.asDouble)
   final double? finalSuccess;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
-  @JsonKey(name: 'currency')
+  @JsonKey(name: 'currency', fromJson: JsonCoerce.asString)
   final String? currency;
   static const fromJsonFactory =
       _$UserServiceSigninSwitchPortalPost$Response$DataFromJson;
@@ -8438,11 +8447,11 @@ class UserServiceSignInInitPost$Response$Data {
   Map<String, dynamic> toJson() =>
       _$UserServiceSignInInitPost$Response$DataToJson(this);
 
-  @JsonKey(name: 'authWay')
+  @JsonKey(name: 'authWay', fromJson: JsonCoerce.asString)
   final String? authWay;
-  @JsonKey(name: 'code')
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asString)
   final String? code;
-  @JsonKey(name: 'jumpUrl')
+  @JsonKey(name: 'jumpUrl', fromJson: JsonCoerce.asString)
   final String? jumpUrl;
   static const fromJsonFactory =
       _$UserServiceSignInInitPost$Response$DataFromJson;
@@ -8539,55 +8548,55 @@ class UserServiceSignInVerifyPost$Response$Data {
   Map<String, dynamic> toJson() =>
       _$UserServiceSignInVerifyPost$Response$DataToJson(this);
 
-  @JsonKey(name: 'tenantCode')
+  @JsonKey(name: 'tenantCode', fromJson: JsonCoerce.asString)
   final String? tenantCode;
-  @JsonKey(name: 'userId')
+  @JsonKey(name: 'userId', fromJson: JsonCoerce.asString)
   final String? userId;
-  @JsonKey(name: 'nickname')
+  @JsonKey(name: 'nickname', fromJson: JsonCoerce.asString)
   final String? nickname;
-  @JsonKey(name: 'email')
+  @JsonKey(name: 'email', fromJson: JsonCoerce.asString)
   final String? email;
-  @JsonKey(name: 'photo')
+  @JsonKey(name: 'photo', fromJson: JsonCoerce.asString)
   final String? photo;
-  @JsonKey(name: 'phoneNumber')
+  @JsonKey(name: 'phoneNumber', fromJson: JsonCoerce.asString)
   final String? phoneNumber;
-  @JsonKey(name: 'signUpType')
+  @JsonKey(name: 'signUpType', fromJson: JsonCoerce.asString)
   final String? signUpType;
-  @JsonKey(name: 'signUpName')
+  @JsonKey(name: 'signUpName', fromJson: JsonCoerce.asString)
   final String? signUpName;
-  @JsonKey(name: 'accessToken')
+  @JsonKey(name: 'accessToken', fromJson: JsonCoerce.asString)
   final String? accessToken;
-  @JsonKey(name: 'refreshToken')
+  @JsonKey(name: 'refreshToken', fromJson: JsonCoerce.asString)
   final String? refreshToken;
-  @JsonKey(name: 'expiresIn')
+  @JsonKey(name: 'expiresIn', fromJson: JsonCoerce.asDouble)
   final double? expiresIn;
-  @JsonKey(name: 'tokenType')
+  @JsonKey(name: 'tokenType', fromJson: JsonCoerce.asString)
   final String? tokenType;
-  @JsonKey(name: 'authWay')
+  @JsonKey(name: 'authWay', fromJson: JsonCoerce.asString)
   final String? authWay;
-  @JsonKey(name: 'remainTimes')
+  @JsonKey(name: 'remainTimes', fromJson: JsonCoerce.asString)
   final String? remainTimes;
-  @JsonKey(name: 'lockTime')
+  @JsonKey(name: 'lockTime', fromJson: JsonCoerce.asString)
   final String? lockTime;
-  @JsonKey(name: 'loginStatus')
+  @JsonKey(name: 'loginStatus', fromJson: JsonCoerce.asDouble)
   final double? loginStatus;
-  @JsonKey(name: 'timestamp')
+  @JsonKey(name: 'timestamp', fromJson: JsonCoerce.asDouble)
   final double? timestamp;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
-  @JsonKey(name: 'portalCode')
+  @JsonKey(name: 'portalCode', fromJson: JsonCoerce.asString)
   final String? portalCode;
-  @JsonKey(name: 'source')
+  @JsonKey(name: 'source', fromJson: JsonCoerce.asString)
   final String? source;
-  @JsonKey(name: 'newUser')
+  @JsonKey(name: 'newUser', fromJson: JsonCoerce.asBool)
   final bool? newUser;
-  @JsonKey(name: 'compliance')
+  @JsonKey(name: 'compliance', fromJson: JsonCoerce.asString)
   final String? compliance;
-  @JsonKey(name: 'finalSuccess')
+  @JsonKey(name: 'finalSuccess', fromJson: JsonCoerce.asDouble)
   final double? finalSuccess;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
-  @JsonKey(name: 'currency')
+  @JsonKey(name: 'currency', fromJson: JsonCoerce.asString)
   final String? currency;
   static const fromJsonFactory =
       _$UserServiceSignInVerifyPost$Response$DataFromJson;
@@ -8900,53 +8909,53 @@ class UserServiceSignInCallPost$Response$Data {
   Map<String, dynamic> toJson() =>
       _$UserServiceSignInCallPost$Response$DataToJson(this);
 
-  @JsonKey(name: 'tenantCode')
+  @JsonKey(name: 'tenantCode', fromJson: JsonCoerce.asString)
   final String? tenantCode;
-  @JsonKey(name: 'userId')
+  @JsonKey(name: 'userId', fromJson: JsonCoerce.asString)
   final String? userId;
-  @JsonKey(name: 'nickname')
+  @JsonKey(name: 'nickname', fromJson: JsonCoerce.asString)
   final String? nickname;
-  @JsonKey(name: 'email')
+  @JsonKey(name: 'email', fromJson: JsonCoerce.asString)
   final String? email;
-  @JsonKey(name: 'photo')
+  @JsonKey(name: 'photo', fromJson: JsonCoerce.asString)
   final String? photo;
-  @JsonKey(name: 'phoneNumber')
+  @JsonKey(name: 'phoneNumber', fromJson: JsonCoerce.asString)
   final String? phoneNumber;
-  @JsonKey(name: 'signUpType')
+  @JsonKey(name: 'signUpType', fromJson: JsonCoerce.asString)
   final String? signUpType;
-  @JsonKey(name: 'signUpName')
+  @JsonKey(name: 'signUpName', fromJson: JsonCoerce.asString)
   final String? signUpName;
-  @JsonKey(name: 'accessToken')
+  @JsonKey(name: 'accessToken', fromJson: JsonCoerce.asString)
   final String? accessToken;
-  @JsonKey(name: 'refreshToken')
+  @JsonKey(name: 'refreshToken', fromJson: JsonCoerce.asString)
   final String? refreshToken;
-  @JsonKey(name: 'expiresIn')
+  @JsonKey(name: 'expiresIn', fromJson: JsonCoerce.asDouble)
   final double? expiresIn;
-  @JsonKey(name: 'tokenType')
+  @JsonKey(name: 'tokenType', fromJson: JsonCoerce.asString)
   final String? tokenType;
-  @JsonKey(name: 'authWay')
+  @JsonKey(name: 'authWay', fromJson: JsonCoerce.asString)
   final String? authWay;
-  @JsonKey(name: 'remainTimes')
+  @JsonKey(name: 'remainTimes', fromJson: JsonCoerce.asString)
   final String? remainTimes;
-  @JsonKey(name: 'lockTime')
+  @JsonKey(name: 'lockTime', fromJson: JsonCoerce.asString)
   final String? lockTime;
-  @JsonKey(name: 'loginStatus')
+  @JsonKey(name: 'loginStatus', fromJson: JsonCoerce.asDouble)
   final double? loginStatus;
-  @JsonKey(name: 'timestamp')
+  @JsonKey(name: 'timestamp', fromJson: JsonCoerce.asDouble)
   final double? timestamp;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
-  @JsonKey(name: 'portalCode')
+  @JsonKey(name: 'portalCode', fromJson: JsonCoerce.asString)
   final String? portalCode;
-  @JsonKey(name: 'source')
+  @JsonKey(name: 'source', fromJson: JsonCoerce.asString)
   final String? source;
-  @JsonKey(name: 'newUser')
+  @JsonKey(name: 'newUser', fromJson: JsonCoerce.asBool)
   final bool? newUser;
-  @JsonKey(name: 'compliance')
+  @JsonKey(name: 'compliance', fromJson: JsonCoerce.asString)
   final String? compliance;
-  @JsonKey(name: 'finalSuccess')
+  @JsonKey(name: 'finalSuccess', fromJson: JsonCoerce.asDouble)
   final double? finalSuccess;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   static const fromJsonFactory =
       _$UserServiceSignInCallPost$Response$DataFromJson;
@@ -9248,55 +9257,55 @@ class UserServiceNoAuthOtpVerifyPost$Response$Data {
   Map<String, dynamic> toJson() =>
       _$UserServiceNoAuthOtpVerifyPost$Response$DataToJson(this);
 
-  @JsonKey(name: 'tenantCode')
+  @JsonKey(name: 'tenantCode', fromJson: JsonCoerce.asString)
   final String? tenantCode;
-  @JsonKey(name: 'userId')
+  @JsonKey(name: 'userId', fromJson: JsonCoerce.asString)
   final String? userId;
-  @JsonKey(name: 'nickname')
+  @JsonKey(name: 'nickname', fromJson: JsonCoerce.asString)
   final String? nickname;
-  @JsonKey(name: 'email')
+  @JsonKey(name: 'email', fromJson: JsonCoerce.asString)
   final String? email;
-  @JsonKey(name: 'photo')
+  @JsonKey(name: 'photo', fromJson: JsonCoerce.asString)
   final String? photo;
-  @JsonKey(name: 'phoneNumber')
+  @JsonKey(name: 'phoneNumber', fromJson: JsonCoerce.asString)
   final String? phoneNumber;
-  @JsonKey(name: 'signUpType')
+  @JsonKey(name: 'signUpType', fromJson: JsonCoerce.asString)
   final String? signUpType;
-  @JsonKey(name: 'signUpName')
+  @JsonKey(name: 'signUpName', fromJson: JsonCoerce.asString)
   final String? signUpName;
-  @JsonKey(name: 'accessToken')
+  @JsonKey(name: 'accessToken', fromJson: JsonCoerce.asString)
   final String? accessToken;
-  @JsonKey(name: 'refreshToken')
+  @JsonKey(name: 'refreshToken', fromJson: JsonCoerce.asString)
   final String? refreshToken;
-  @JsonKey(name: 'expiresIn')
+  @JsonKey(name: 'expiresIn', fromJson: JsonCoerce.asDouble)
   final double? expiresIn;
-  @JsonKey(name: 'tokenType')
+  @JsonKey(name: 'tokenType', fromJson: JsonCoerce.asString)
   final String? tokenType;
-  @JsonKey(name: 'authWay')
+  @JsonKey(name: 'authWay', fromJson: JsonCoerce.asString)
   final String? authWay;
-  @JsonKey(name: 'remainTimes')
+  @JsonKey(name: 'remainTimes', fromJson: JsonCoerce.asString)
   final String? remainTimes;
-  @JsonKey(name: 'lockTime')
+  @JsonKey(name: 'lockTime', fromJson: JsonCoerce.asString)
   final String? lockTime;
-  @JsonKey(name: 'loginStatus')
+  @JsonKey(name: 'loginStatus', fromJson: JsonCoerce.asDouble)
   final double? loginStatus;
-  @JsonKey(name: 'timestamp')
+  @JsonKey(name: 'timestamp', fromJson: JsonCoerce.asDouble)
   final double? timestamp;
-  @JsonKey(name: 'success')
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
-  @JsonKey(name: 'portalCode')
+  @JsonKey(name: 'portalCode', fromJson: JsonCoerce.asString)
   final String? portalCode;
-  @JsonKey(name: 'source')
+  @JsonKey(name: 'source', fromJson: JsonCoerce.asString)
   final String? source;
-  @JsonKey(name: 'newUser')
+  @JsonKey(name: 'newUser', fromJson: JsonCoerce.asBool)
   final bool? newUser;
-  @JsonKey(name: 'compliance')
+  @JsonKey(name: 'compliance', fromJson: JsonCoerce.asString)
   final String? compliance;
-  @JsonKey(name: 'finalSuccess')
+  @JsonKey(name: 'finalSuccess', fromJson: JsonCoerce.asDouble)
   final double? finalSuccess;
-  @JsonKey(name: 'message')
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
-  @JsonKey(name: 'currency')
+  @JsonKey(name: 'currency', fromJson: JsonCoerce.asString)
   final String? currency;
   static const fromJsonFactory =
       _$UserServiceNoAuthOtpVerifyPost$Response$DataFromJson;
@@ -9593,11 +9602,11 @@ class UserServiceNoAuthCommonConfigDefaultSettingGet$Response$Data {
         this,
       );
 
-  @JsonKey(name: 'countryCode')
+  @JsonKey(name: 'countryCode', fromJson: JsonCoerce.asString)
   final String? countryCode;
-  @JsonKey(name: 'lang')
+  @JsonKey(name: 'lang', fromJson: JsonCoerce.asString)
   final String? lang;
-  @JsonKey(name: 'currency')
+  @JsonKey(name: 'currency', fromJson: JsonCoerce.asString)
   final String? currency;
   static const fromJsonFactory =
       _$UserServiceNoAuthCommonConfigDefaultSettingGet$Response$DataFromJson;
@@ -9672,9 +9681,9 @@ class UserServiceFileImUploadPost$Response$Data$Item {
   Map<String, dynamic> toJson() =>
       _$UserServiceFileImUploadPost$Response$Data$ItemToJson(this);
 
-  @JsonKey(name: 'url')
+  @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
-  @JsonKey(name: 'fileId')
+  @JsonKey(name: 'fileId', fromJson: JsonCoerce.asString)
   final String? fileId;
   static const fromJsonFactory =
       _$UserServiceFileImUploadPost$Response$Data$ItemFromJson;
@@ -9735,9 +9744,9 @@ class UserServiceFileLogoUploadPost$Response$Data {
   Map<String, dynamic> toJson() =>
       _$UserServiceFileLogoUploadPost$Response$DataToJson(this);
 
-  @JsonKey(name: 'url')
+  @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
-  @JsonKey(name: 'fileId')
+  @JsonKey(name: 'fileId', fromJson: JsonCoerce.asString)
   final String? fileId;
   static const fromJsonFactory =
       _$UserServiceFileLogoUploadPost$Response$DataFromJson;
@@ -9804,15 +9813,15 @@ class UserServiceUserCouponCountGet$Response$Data {
   Map<String, dynamic> toJson() =>
       _$UserServiceUserCouponCountGet$Response$DataToJson(this);
 
-  @JsonKey(name: 'total')
+  @JsonKey(name: 'total', fromJson: JsonCoerce.asString)
   final String? total;
-  @JsonKey(name: 'unUsed')
+  @JsonKey(name: 'unUsed', fromJson: JsonCoerce.asString)
   final String? unUsed;
-  @JsonKey(name: 'locked')
+  @JsonKey(name: 'locked', fromJson: JsonCoerce.asString)
   final String? locked;
-  @JsonKey(name: 'used')
+  @JsonKey(name: 'used', fromJson: JsonCoerce.asString)
   final String? used;
-  @JsonKey(name: 'invalid')
+  @JsonKey(name: 'invalid', fromJson: JsonCoerce.asString)
   final String? invalid;
   static const fromJsonFactory =
       _$UserServiceUserCouponCountGet$Response$DataFromJson;
@@ -9902,7 +9911,7 @@ class UserServiceUserCouponActivityInfoGet$Response$Data {
     UserServiceUserCouponActivityInfoGet$Response$Data$CouponList$Item
   >?
   couponList;
-  @JsonKey(name: 'received')
+  @JsonKey(name: 'received', fromJson: JsonCoerce.asBool)
   final bool? received;
   static const fromJsonFactory =
       _$UserServiceUserCouponActivityInfoGet$Response$DataFromJson;
@@ -9988,33 +9997,33 @@ class UserServiceUserCouponCode2CouponGet$Response$Data {
   Map<String, dynamic> toJson() =>
       _$UserServiceUserCouponCode2CouponGet$Response$DataToJson(this);
 
-  @JsonKey(name: 'userId')
+  @JsonKey(name: 'userId', fromJson: JsonCoerce.asString)
   final String? userId;
-  @JsonKey(name: 'tenantCode')
+  @JsonKey(name: 'tenantCode', fromJson: JsonCoerce.asString)
   final String? tenantCode;
-  @JsonKey(name: 'couponCode')
+  @JsonKey(name: 'couponCode', fromJson: JsonCoerce.asString)
   final String? couponCode;
-  @JsonKey(name: 'couponTitle')
+  @JsonKey(name: 'couponTitle', fromJson: JsonCoerce.asString)
   final String? couponTitle;
-  @JsonKey(name: 'isUsed')
+  @JsonKey(name: 'isUsed', fromJson: JsonCoerce.asDouble)
   final double? isUsed;
-  @JsonKey(name: 'gmtInvalid')
+  @JsonKey(name: 'gmtInvalid', fromJson: JsonCoerce.asString)
   final String? gmtInvalid;
-  @JsonKey(name: 'type')
+  @JsonKey(name: 'type', fromJson: JsonCoerce.asDouble)
   final double? type;
-  @JsonKey(name: 'discount')
+  @JsonKey(name: 'discount', fromJson: JsonCoerce.asString)
   final String? discount;
-  @JsonKey(name: 'limitAmount')
+  @JsonKey(name: 'limitAmount', fromJson: JsonCoerce.asString)
   final String? limitAmount;
-  @JsonKey(name: 'currency')
+  @JsonKey(name: 'currency', fromJson: JsonCoerce.asString)
   final String? currency;
-  @JsonKey(name: 'discountTarget')
+  @JsonKey(name: 'discountTarget', fromJson: JsonCoerce.asString)
   final String? discountTarget;
-  @JsonKey(name: 'limitAmountTarget')
+  @JsonKey(name: 'limitAmountTarget', fromJson: JsonCoerce.asString)
   final String? limitAmountTarget;
-  @JsonKey(name: 'currencyTarget')
+  @JsonKey(name: 'currencyTarget', fromJson: JsonCoerce.asString)
   final String? currencyTarget;
-  @JsonKey(name: 'couponImage')
+  @JsonKey(name: 'couponImage', fromJson: JsonCoerce.asString)
   final String? couponImage;
   static const fromJsonFactory =
       _$UserServiceUserCouponCode2CouponGet$Response$DataFromJson;
@@ -10202,9 +10211,9 @@ class UserServiceUserCouponActivityInfosGet$Response$Data$Item {
   Map<String, dynamic> toJson() =>
       _$UserServiceUserCouponActivityInfosGet$Response$Data$ItemToJson(this);
 
-  @JsonKey(name: 'sourceCode')
+  @JsonKey(name: 'sourceCode', fromJson: JsonCoerce.asString)
   final String? sourceCode;
-  @JsonKey(name: 'received')
+  @JsonKey(name: 'received', fromJson: JsonCoerce.asBool)
   final bool? received;
   @JsonKey(name: 'couponList')
   final List<
@@ -10297,7 +10306,7 @@ class UserServiceUserCouponGetListGet$Response$Data$Item {
   Map<String, dynamic> toJson() =>
       _$UserServiceUserCouponGetListGet$Response$Data$ItemToJson(this);
 
-  @JsonKey(name: 'sourceCode')
+  @JsonKey(name: 'sourceCode', fromJson: JsonCoerce.asString)
   final String? sourceCode;
   @JsonKey(name: 'userCouponDtos')
   final List<
@@ -10387,7 +10396,7 @@ class UserServiceUserCouponNoAuthActivityInfoGet$Response$Data {
     UserServiceUserCouponNoAuthActivityInfoGet$Response$Data$CouponList$Item
   >?
   couponList;
-  @JsonKey(name: 'received')
+  @JsonKey(name: 'received', fromJson: JsonCoerce.asBool)
   final bool? received;
   static const fromJsonFactory =
       _$UserServiceUserCouponNoAuthActivityInfoGet$Response$DataFromJson;
@@ -10482,33 +10491,33 @@ class UserServiceUserCouponGetCouponByActivityPost$Response$Data$Item {
         this,
       );
 
-  @JsonKey(name: 'userId')
+  @JsonKey(name: 'userId', fromJson: JsonCoerce.asString)
   final String? userId;
-  @JsonKey(name: 'tenantCode')
+  @JsonKey(name: 'tenantCode', fromJson: JsonCoerce.asString)
   final String? tenantCode;
-  @JsonKey(name: 'couponCode')
+  @JsonKey(name: 'couponCode', fromJson: JsonCoerce.asString)
   final String? couponCode;
-  @JsonKey(name: 'couponTitle')
+  @JsonKey(name: 'couponTitle', fromJson: JsonCoerce.asString)
   final String? couponTitle;
-  @JsonKey(name: 'isUsed')
+  @JsonKey(name: 'isUsed', fromJson: JsonCoerce.asDouble)
   final double? isUsed;
-  @JsonKey(name: 'gmtInvalid')
+  @JsonKey(name: 'gmtInvalid', fromJson: JsonCoerce.asString)
   final String? gmtInvalid;
-  @JsonKey(name: 'type')
+  @JsonKey(name: 'type', fromJson: JsonCoerce.asDouble)
   final double? type;
-  @JsonKey(name: 'discount')
+  @JsonKey(name: 'discount', fromJson: JsonCoerce.asString)
   final String? discount;
-  @JsonKey(name: 'limitAmount')
+  @JsonKey(name: 'limitAmount', fromJson: JsonCoerce.asString)
   final String? limitAmount;
-  @JsonKey(name: 'currency')
+  @JsonKey(name: 'currency', fromJson: JsonCoerce.asString)
   final String? currency;
-  @JsonKey(name: 'discountTarget')
+  @JsonKey(name: 'discountTarget', fromJson: JsonCoerce.asString)
   final String? discountTarget;
-  @JsonKey(name: 'limitAmountTarget')
+  @JsonKey(name: 'limitAmountTarget', fromJson: JsonCoerce.asString)
   final String? limitAmountTarget;
-  @JsonKey(name: 'currencyTarget')
+  @JsonKey(name: 'currencyTarget', fromJson: JsonCoerce.asString)
   final String? currencyTarget;
-  @JsonKey(name: 'couponImage')
+  @JsonKey(name: 'couponImage', fromJson: JsonCoerce.asString)
   final String? couponImage;
   static const fromJsonFactory =
       _$UserServiceUserCouponGetCouponByActivityPost$Response$Data$ItemFromJson;
@@ -10711,35 +10720,35 @@ class UserServiceUserCouponGetGet$Response$Data$Item {
   Map<String, dynamic> toJson() =>
       _$UserServiceUserCouponGetGet$Response$Data$ItemToJson(this);
 
-  @JsonKey(name: 'userId')
+  @JsonKey(name: 'userId', fromJson: JsonCoerce.asString)
   final String? userId;
-  @JsonKey(name: 'tenantCode')
+  @JsonKey(name: 'tenantCode', fromJson: JsonCoerce.asString)
   final String? tenantCode;
-  @JsonKey(name: 'couponCode')
+  @JsonKey(name: 'couponCode', fromJson: JsonCoerce.asString)
   final String? couponCode;
-  @JsonKey(name: 'couponTitle')
+  @JsonKey(name: 'couponTitle', fromJson: JsonCoerce.asString)
   final String? couponTitle;
-  @JsonKey(name: 'isUsed')
+  @JsonKey(name: 'isUsed', fromJson: JsonCoerce.asDouble)
   final double? isUsed;
-  @JsonKey(name: 'gmtInvalid')
+  @JsonKey(name: 'gmtInvalid', fromJson: JsonCoerce.asString)
   final String? gmtInvalid;
-  @JsonKey(name: 'type')
+  @JsonKey(name: 'type', fromJson: JsonCoerce.asDouble)
   final double? type;
-  @JsonKey(name: 'discount')
+  @JsonKey(name: 'discount', fromJson: JsonCoerce.asString)
   final String? discount;
-  @JsonKey(name: 'limitAmount')
+  @JsonKey(name: 'limitAmount', fromJson: JsonCoerce.asString)
   final String? limitAmount;
-  @JsonKey(name: 'currency')
+  @JsonKey(name: 'currency', fromJson: JsonCoerce.asString)
   final String? currency;
-  @JsonKey(name: 'discountTarget')
+  @JsonKey(name: 'discountTarget', fromJson: JsonCoerce.asString)
   final String? discountTarget;
-  @JsonKey(name: 'limitAmountTarget')
+  @JsonKey(name: 'limitAmountTarget', fromJson: JsonCoerce.asString)
   final String? limitAmountTarget;
-  @JsonKey(name: 'currencyTarget')
+  @JsonKey(name: 'currencyTarget', fromJson: JsonCoerce.asString)
   final String? currencyTarget;
-  @JsonKey(name: 'couponImage')
+  @JsonKey(name: 'couponImage', fromJson: JsonCoerce.asString)
   final String? couponImage;
-  @JsonKey(name: 'couponStatus')
+  @JsonKey(name: 'couponStatus', fromJson: JsonCoerce.asString)
   final String? couponStatus;
   @JsonKey(name: 'msgInfo')
   final UserServiceUserCouponGetGet$Response$Data$Item$MsgInfo? msgInfo;
@@ -10967,51 +10976,51 @@ class UserServiceImGetInfoPost$Response$Data {
   Map<String, dynamic> toJson() =>
       _$UserServiceImGetInfoPost$Response$DataToJson(this);
 
-  @JsonKey(name: 'api')
+  @JsonKey(name: 'api', fromJson: JsonCoerce.asString)
   final String? api;
-  @JsonKey(name: 'longConnectApi')
+  @JsonKey(name: 'longConnectApi', fromJson: JsonCoerce.asString)
   final String? longConnectApi;
-  @JsonKey(name: 'wsApi')
+  @JsonKey(name: 'wsApi', fromJson: JsonCoerce.asString)
   final String? wsApi;
-  @JsonKey(name: 'longConnectKeep')
+  @JsonKey(name: 'longConnectKeep', fromJson: JsonCoerce.asBool)
   final bool? longConnectKeep;
   @JsonKey(name: 'whiteList')
   final List<UserServiceImGetInfoPost$Response$Data$WhiteList$Item>? whiteList;
-  @JsonKey(name: 'uid')
+  @JsonKey(name: 'uid', fromJson: JsonCoerce.asString)
   final String? uid;
-  @JsonKey(name: 'app_id')
+  @JsonKey(name: 'app_id', fromJson: JsonCoerce.asString)
   final String? appId;
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
-  @JsonKey(name: 'username')
+  @JsonKey(name: 'username', fromJson: JsonCoerce.asString)
   final String? username;
-  @JsonKey(name: 'sex')
+  @JsonKey(name: 'sex', fromJson: JsonCoerce.asDouble)
   final double? sex;
-  @JsonKey(name: 'category')
+  @JsonKey(name: 'category', fromJson: JsonCoerce.asString)
   final String? category;
-  @JsonKey(name: 'short_no')
+  @JsonKey(name: 'short_no', fromJson: JsonCoerce.asString)
   final String? shortNo;
-  @JsonKey(name: 'zone')
+  @JsonKey(name: 'zone', fromJson: JsonCoerce.asString)
   final String? zone;
-  @JsonKey(name: 'phone')
+  @JsonKey(name: 'phone', fromJson: JsonCoerce.asString)
   final String? phone;
-  @JsonKey(name: 'token')
+  @JsonKey(name: 'token', fromJson: JsonCoerce.asString)
   final String? token;
-  @JsonKey(name: 'chat_pwd')
+  @JsonKey(name: 'chat_pwd', fromJson: JsonCoerce.asString)
   final String? chatPwd;
-  @JsonKey(name: 'lock_screen_pwd')
+  @JsonKey(name: 'lock_screen_pwd', fromJson: JsonCoerce.asString)
   final String? lockScreenPwd;
-  @JsonKey(name: 'lock_after_minute')
+  @JsonKey(name: 'lock_after_minute', fromJson: JsonCoerce.asDouble)
   final double? lockAfterMinute;
   @JsonKey(name: 'setting')
   final UserServiceImGetInfoPost$Response$Data$Setting? setting;
-  @JsonKey(name: 'rsa_public_key')
+  @JsonKey(name: 'rsa_public_key', fromJson: JsonCoerce.asString)
   final String? rsaPublicKey;
-  @JsonKey(name: 'short_status')
+  @JsonKey(name: 'short_status', fromJson: JsonCoerce.asDouble)
   final double? shortStatus;
-  @JsonKey(name: 'msg_expire_second')
+  @JsonKey(name: 'msg_expire_second', fromJson: JsonCoerce.asDouble)
   final double? msgExpireSecond;
-  @JsonKey(name: 'showStatus')
+  @JsonKey(name: 'showStatus', fromJson: JsonCoerce.asDouble)
   final double? showStatus;
   static const fromJsonFactory =
       _$UserServiceImGetInfoPost$Response$DataFromJson;
@@ -11284,23 +11293,23 @@ class UserServiceUserShareListGet$Response$Data$Item {
   Map<String, dynamic> toJson() =>
       _$UserServiceUserShareListGet$Response$Data$ItemToJson(this);
 
-  @JsonKey(name: 'rewardId')
+  @JsonKey(name: 'rewardId', fromJson: JsonCoerce.asString)
   final String? rewardId;
-  @JsonKey(name: 'tenantCode')
+  @JsonKey(name: 'tenantCode', fromJson: JsonCoerce.asString)
   final String? tenantCode;
-  @JsonKey(name: 'userId')
+  @JsonKey(name: 'userId', fromJson: JsonCoerce.asString)
   final String? userId;
-  @JsonKey(name: 'content')
+  @JsonKey(name: 'content', fromJson: JsonCoerce.asString)
   final String? content;
-  @JsonKey(name: 'auditStatus')
+  @JsonKey(name: 'auditStatus', fromJson: JsonCoerce.asInt)
   final int? auditStatus;
-  @JsonKey(name: 'auditTime')
+  @JsonKey(name: 'auditTime', fromJson: JsonCoerce.asString)
   final String? auditTime;
-  @JsonKey(name: 'rewardAmount')
+  @JsonKey(name: 'rewardAmount', fromJson: JsonCoerce.asDouble)
   final double? rewardAmount;
-  @JsonKey(name: 'currency')
+  @JsonKey(name: 'currency', fromJson: JsonCoerce.asString)
   final String? currency;
-  @JsonKey(name: 'rewardType')
+  @JsonKey(name: 'rewardType', fromJson: JsonCoerce.asInt)
   final int? rewardType;
   static const fromJsonFactory =
       _$UserServiceUserShareListGet$Response$Data$ItemFromJson;
@@ -11446,23 +11455,23 @@ class UserServiceUserShareRewardInfoGet$Response$Data {
   Map<String, dynamic> toJson() =>
       _$UserServiceUserShareRewardInfoGet$Response$DataToJson(this);
 
-  @JsonKey(name: 'rewardId')
+  @JsonKey(name: 'rewardId', fromJson: JsonCoerce.asString)
   final String? rewardId;
-  @JsonKey(name: 'tenantCode')
+  @JsonKey(name: 'tenantCode', fromJson: JsonCoerce.asString)
   final String? tenantCode;
-  @JsonKey(name: 'userId')
+  @JsonKey(name: 'userId', fromJson: JsonCoerce.asString)
   final String? userId;
-  @JsonKey(name: 'content')
+  @JsonKey(name: 'content', fromJson: JsonCoerce.asString)
   final String? content;
-  @JsonKey(name: 'auditStatus')
+  @JsonKey(name: 'auditStatus', fromJson: JsonCoerce.asInt)
   final int? auditStatus;
-  @JsonKey(name: 'auditTime')
+  @JsonKey(name: 'auditTime', fromJson: JsonCoerce.asString)
   final String? auditTime;
-  @JsonKey(name: 'rewardAmount')
+  @JsonKey(name: 'rewardAmount', fromJson: JsonCoerce.asDouble)
   final double? rewardAmount;
-  @JsonKey(name: 'currency')
+  @JsonKey(name: 'currency', fromJson: JsonCoerce.asString)
   final String? currency;
-  @JsonKey(name: 'rewardType')
+  @JsonKey(name: 'rewardType', fromJson: JsonCoerce.asInt)
   final int? rewardType;
   static const fromJsonFactory =
       _$UserServiceUserShareRewardInfoGet$Response$DataFromJson;
@@ -11597,7 +11606,7 @@ class UserServiceUserDeleteGet$Response$Data {
   Map<String, dynamic> toJson() =>
       _$UserServiceUserDeleteGet$Response$DataToJson(this);
 
-  @JsonKey(name: 'authWay')
+  @JsonKey(name: 'authWay', fromJson: JsonCoerce.asString)
   final String? authWay;
   static const fromJsonFactory =
       _$UserServiceUserDeleteGet$Response$DataFromJson;
@@ -11666,41 +11675,41 @@ class UserServiceUserGetGet$Response$Data {
   Map<String, dynamic> toJson() =>
       _$UserServiceUserGetGet$Response$DataToJson(this);
 
-  @JsonKey(name: 'userId')
+  @JsonKey(name: 'userId', fromJson: JsonCoerce.asString)
   final String? userId;
-  @JsonKey(name: 'nickname')
+  @JsonKey(name: 'nickname', fromJson: JsonCoerce.asString)
   final String? nickname;
-  @JsonKey(name: 'description')
+  @JsonKey(name: 'description', fromJson: JsonCoerce.asString)
   final String? description;
-  @JsonKey(name: 'gender')
+  @JsonKey(name: 'gender', fromJson: JsonCoerce.asDouble)
   final double? gender;
-  @JsonKey(name: 'birthday')
+  @JsonKey(name: 'birthday', fromJson: JsonCoerce.asString)
   final String? birthday;
-  @JsonKey(name: 'photo')
+  @JsonKey(name: 'photo', fromJson: JsonCoerce.asString)
   final String? photo;
-  @JsonKey(name: 'phoneNumber')
+  @JsonKey(name: 'phoneNumber', fromJson: JsonCoerce.asString)
   final String? phoneNumber;
-  @JsonKey(name: 'email')
+  @JsonKey(name: 'email', fromJson: JsonCoerce.asString)
   final String? email;
-  @JsonKey(name: 'signUpType')
+  @JsonKey(name: 'signUpType', fromJson: JsonCoerce.asDouble)
   final double? signUpType;
-  @JsonKey(name: 'platform')
+  @JsonKey(name: 'platform', fromJson: JsonCoerce.asString)
   final String? platform;
-  @JsonKey(name: 'createTime')
+  @JsonKey(name: 'createTime', fromJson: JsonCoerce.asString)
   final String? createTime;
-  @JsonKey(name: 'inviteCode')
+  @JsonKey(name: 'inviteCode', fromJson: JsonCoerce.asString)
   final String? inviteCode;
-  @JsonKey(name: 'inviteCount')
+  @JsonKey(name: 'inviteCount', fromJson: JsonCoerce.asString)
   final String? inviteCount;
-  @JsonKey(name: 'portalCode')
+  @JsonKey(name: 'portalCode', fromJson: JsonCoerce.asString)
   final String? portalCode;
-  @JsonKey(name: 'currency')
+  @JsonKey(name: 'currency', fromJson: JsonCoerce.asString)
   final String? currency;
-  @JsonKey(name: 'thirdAccount')
+  @JsonKey(name: 'thirdAccount', fromJson: JsonCoerce.asString)
   final String? thirdAccount;
-  @JsonKey(name: 'imUid')
+  @JsonKey(name: 'imUid', fromJson: JsonCoerce.asString)
   final String? imUid;
-  @JsonKey(name: 'imUsername')
+  @JsonKey(name: 'imUsername', fromJson: JsonCoerce.asString)
   final String? imUsername;
   static const fromJsonFactory = _$UserServiceUserGetGet$Response$DataFromJson;
 
@@ -11917,11 +11926,11 @@ class UserServiceUserUserCommissionGet$Response$Data {
   Map<String, dynamic> toJson() =>
       _$UserServiceUserUserCommissionGet$Response$DataToJson(this);
 
-  @JsonKey(name: 'currentUserLevel')
+  @JsonKey(name: 'currentUserLevel', fromJson: JsonCoerce.asInt)
   final int? currentUserLevel;
-  @JsonKey(name: 'nextUserLevel')
+  @JsonKey(name: 'nextUserLevel', fromJson: JsonCoerce.asInt)
   final int? nextUserLevel;
-  @JsonKey(name: 'nextUserLevelPoints')
+  @JsonKey(name: 'nextUserLevelPoints', fromJson: JsonCoerce.asInt)
   final int? nextUserLevelPoints;
   static const fromJsonFactory =
       _$UserServiceUserUserCommissionGet$Response$DataFromJson;
@@ -12006,7 +12015,7 @@ class UserServiceUserConfigureSettingGet$Response$Data {
   Map<String, dynamic> toJson() =>
       _$UserServiceUserConfigureSettingGet$Response$DataToJson(this);
 
-  @JsonKey(name: 'showGiveawayGift')
+  @JsonKey(name: 'showGiveawayGift', fromJson: JsonCoerce.asInt)
   final int? showGiveawayGift;
   static const fromJsonFactory =
       _$UserServiceUserConfigureSettingGet$Response$DataFromJson;
@@ -12069,11 +12078,11 @@ class UserServiceUserInviteNumGet$Response$Data {
   Map<String, dynamic> toJson() =>
       _$UserServiceUserInviteNumGet$Response$DataToJson(this);
 
-  @JsonKey(name: 'inviteTotalNum')
+  @JsonKey(name: 'inviteTotalNum', fromJson: JsonCoerce.asDouble)
   final double? inviteTotalNum;
-  @JsonKey(name: 'inviteNum')
+  @JsonKey(name: 'inviteNum', fromJson: JsonCoerce.asDouble)
   final double? inviteNum;
-  @JsonKey(name: 'subInviteNum')
+  @JsonKey(name: 'subInviteNum', fromJson: JsonCoerce.asDouble)
   final double? subInviteNum;
   static const fromJsonFactory =
       _$UserServiceUserInviteNumGet$Response$DataFromJson;
@@ -12161,17 +12170,21 @@ class UserServiceUserTagPortraitAiToPortraitPost$Response$Data {
   Map<String, dynamic> toJson() =>
       _$UserServiceUserTagPortraitAiToPortraitPost$Response$DataToJson(this);
 
-  @JsonKey(name: 'age')
+  @JsonKey(name: 'age', fromJson: JsonCoerce.asDouble)
   final double? age;
-  @JsonKey(name: 'sex')
+  @JsonKey(name: 'sex', fromJson: JsonCoerce.asDouble)
   final double? sex;
-  @JsonKey(name: 'birthday')
+  @JsonKey(name: 'birthday', fromJson: JsonCoerce.asDouble)
   final double? birthday;
-  @JsonKey(name: 'nickname')
+  @JsonKey(name: 'nickname', fromJson: JsonCoerce.asString)
   final String? nickname;
-  @JsonKey(name: 'favoriteShoppingPlatforms', defaultValue: <String>[])
+  @JsonKey(
+    name: 'favoriteShoppingPlatforms',
+    fromJson: JsonCoerce.asStringList,
+    defaultValue: <String>[],
+  )
   final List<String>? favoriteShoppingPlatforms;
-  @JsonKey(name: 'favoriteBrands')
+  @JsonKey(name: 'favoriteBrands', fromJson: JsonCoerce.asString)
   final String? favoriteBrands;
   static const fromJsonFactory =
       _$UserServiceUserTagPortraitAiToPortraitPost$Response$DataFromJson;
@@ -12289,17 +12302,21 @@ class UserServiceUserTagPortraitAiToPortraitV2Post$Response$Data {
   Map<String, dynamic> toJson() =>
       _$UserServiceUserTagPortraitAiToPortraitV2Post$Response$DataToJson(this);
 
-  @JsonKey(name: 'age')
+  @JsonKey(name: 'age', fromJson: JsonCoerce.asDouble)
   final double? age;
-  @JsonKey(name: 'sex')
+  @JsonKey(name: 'sex', fromJson: JsonCoerce.asDouble)
   final double? sex;
-  @JsonKey(name: 'birthday')
+  @JsonKey(name: 'birthday', fromJson: JsonCoerce.asDouble)
   final double? birthday;
-  @JsonKey(name: 'nickname')
+  @JsonKey(name: 'nickname', fromJson: JsonCoerce.asString)
   final String? nickname;
-  @JsonKey(name: 'favoriteShoppingPlatforms', defaultValue: <String>[])
+  @JsonKey(
+    name: 'favoriteShoppingPlatforms',
+    fromJson: JsonCoerce.asStringList,
+    defaultValue: <String>[],
+  )
   final List<String>? favoriteShoppingPlatforms;
-  @JsonKey(name: 'favoriteBrands')
+  @JsonKey(name: 'favoriteBrands', fromJson: JsonCoerce.asString)
   final String? favoriteBrands;
   static const fromJsonFactory =
       _$UserServiceUserTagPortraitAiToPortraitV2Post$Response$DataFromJson;
@@ -12416,19 +12433,23 @@ class UserServiceUserTagPortraitGetPortraitGet$Response$Data {
   Map<String, dynamic> toJson() =>
       _$UserServiceUserTagPortraitGetPortraitGet$Response$DataToJson(this);
 
-  @JsonKey(name: 'age')
+  @JsonKey(name: 'age', fromJson: JsonCoerce.asDouble)
   final double? age;
-  @JsonKey(name: 'sex')
+  @JsonKey(name: 'sex', fromJson: JsonCoerce.asDouble)
   final double? sex;
-  @JsonKey(name: 'birthday')
+  @JsonKey(name: 'birthday', fromJson: JsonCoerce.asDouble)
   final double? birthday;
-  @JsonKey(name: 'nickname')
+  @JsonKey(name: 'nickname', fromJson: JsonCoerce.asString)
   final String? nickname;
-  @JsonKey(name: 'avatarUrl')
+  @JsonKey(name: 'avatarUrl', fromJson: JsonCoerce.asString)
   final String? avatarUrl;
-  @JsonKey(name: 'favoriteShoppingPlatforms', defaultValue: <String>[])
+  @JsonKey(
+    name: 'favoriteShoppingPlatforms',
+    fromJson: JsonCoerce.asStringList,
+    defaultValue: <String>[],
+  )
   final List<String>? favoriteShoppingPlatforms;
-  @JsonKey(name: 'favoriteBrands')
+  @JsonKey(name: 'favoriteBrands', fromJson: JsonCoerce.asString)
   final String? favoriteBrands;
   static const fromJsonFactory =
       _$UserServiceUserTagPortraitGetPortraitGet$Response$DataFromJson;
@@ -12565,33 +12586,33 @@ class UserServiceUserCouponAppHomeActivityPost$Response$Data$Item {
   Map<String, dynamic> toJson() =>
       _$UserServiceUserCouponAppHomeActivityPost$Response$Data$ItemToJson(this);
 
-  @JsonKey(name: 'userId')
+  @JsonKey(name: 'userId', fromJson: JsonCoerce.asString)
   final String? userId;
-  @JsonKey(name: 'tenantCode')
+  @JsonKey(name: 'tenantCode', fromJson: JsonCoerce.asString)
   final String? tenantCode;
-  @JsonKey(name: 'couponCode')
+  @JsonKey(name: 'couponCode', fromJson: JsonCoerce.asString)
   final String? couponCode;
-  @JsonKey(name: 'couponTitle')
+  @JsonKey(name: 'couponTitle', fromJson: JsonCoerce.asString)
   final String? couponTitle;
-  @JsonKey(name: 'isUsed')
+  @JsonKey(name: 'isUsed', fromJson: JsonCoerce.asDouble)
   final double? isUsed;
-  @JsonKey(name: 'gmtInvalid')
+  @JsonKey(name: 'gmtInvalid', fromJson: JsonCoerce.asString)
   final String? gmtInvalid;
-  @JsonKey(name: 'type')
+  @JsonKey(name: 'type', fromJson: JsonCoerce.asDouble)
   final double? type;
-  @JsonKey(name: 'discount')
+  @JsonKey(name: 'discount', fromJson: JsonCoerce.asString)
   final String? discount;
-  @JsonKey(name: 'limitAmount')
+  @JsonKey(name: 'limitAmount', fromJson: JsonCoerce.asString)
   final String? limitAmount;
-  @JsonKey(name: 'currency')
+  @JsonKey(name: 'currency', fromJson: JsonCoerce.asString)
   final String? currency;
-  @JsonKey(name: 'discountTarget')
+  @JsonKey(name: 'discountTarget', fromJson: JsonCoerce.asString)
   final String? discountTarget;
-  @JsonKey(name: 'limitAmountTarget')
+  @JsonKey(name: 'limitAmountTarget', fromJson: JsonCoerce.asString)
   final String? limitAmountTarget;
-  @JsonKey(name: 'currencyTarget')
+  @JsonKey(name: 'currencyTarget', fromJson: JsonCoerce.asString)
   final String? currencyTarget;
-  @JsonKey(name: 'couponImage')
+  @JsonKey(name: 'couponImage', fromJson: JsonCoerce.asString)
   final String? couponImage;
   @JsonKey(name: 'msgInfo')
   final UserServiceUserCouponAppHomeActivityPost$Response$Data$Item$MsgInfo?
@@ -12801,17 +12822,17 @@ class UserServiceUserCouponActivityInfoGet$Response$Data$CouponList$Item {
         this,
       );
 
-  @JsonKey(name: 'currencySymbol')
+  @JsonKey(name: 'currencySymbol', fromJson: JsonCoerce.asString)
   final String? currencySymbol;
-  @JsonKey(name: 'discountType')
+  @JsonKey(name: 'discountType', fromJson: JsonCoerce.asDouble)
   final double? discountType;
-  @JsonKey(name: 'discountInfo')
+  @JsonKey(name: 'discountInfo', fromJson: JsonCoerce.asDouble)
   final double? discountInfo;
-  @JsonKey(name: 'limitAmount')
+  @JsonKey(name: 'limitAmount', fromJson: JsonCoerce.asDouble)
   final double? limitAmount;
-  @JsonKey(name: 'invalidPeriod')
+  @JsonKey(name: 'invalidPeriod', fromJson: JsonCoerce.asDouble)
   final double? invalidPeriod;
-  @JsonKey(name: 'userCouponCode')
+  @JsonKey(name: 'userCouponCode', fromJson: JsonCoerce.asString)
   final String? userCouponCode;
   static const fromJsonFactory =
       _$UserServiceUserCouponActivityInfoGet$Response$Data$CouponList$ItemFromJson;
@@ -12942,17 +12963,17 @@ class UserServiceUserCouponActivityInfosGet$Response$Data$Item$CouponList$Item {
         this,
       );
 
-  @JsonKey(name: 'couponCode')
+  @JsonKey(name: 'couponCode', fromJson: JsonCoerce.asString)
   final String? couponCode;
-  @JsonKey(name: 'invalidPeriod')
+  @JsonKey(name: 'invalidPeriod', fromJson: JsonCoerce.asDouble)
   final double? invalidPeriod;
-  @JsonKey(name: 'currencySymbol')
+  @JsonKey(name: 'currencySymbol', fromJson: JsonCoerce.asString)
   final String? currencySymbol;
-  @JsonKey(name: 'discountType')
+  @JsonKey(name: 'discountType', fromJson: JsonCoerce.asInt)
   final int? discountType;
-  @JsonKey(name: 'discountInfo')
+  @JsonKey(name: 'discountInfo', fromJson: JsonCoerce.asDouble)
   final double? discountInfo;
-  @JsonKey(name: 'limitAmount')
+  @JsonKey(name: 'limitAmount', fromJson: JsonCoerce.asDouble)
   final double? limitAmount;
   static const fromJsonFactory =
       _$UserServiceUserCouponActivityInfosGet$Response$Data$Item$CouponList$ItemFromJson;
@@ -13091,35 +13112,35 @@ class UserServiceUserCouponGetListGet$Response$Data$Item$UserCouponDtos$Item {
         this,
       );
 
-  @JsonKey(name: 'userId')
+  @JsonKey(name: 'userId', fromJson: JsonCoerce.asString)
   final String? userId;
-  @JsonKey(name: 'tenantCode')
+  @JsonKey(name: 'tenantCode', fromJson: JsonCoerce.asString)
   final String? tenantCode;
-  @JsonKey(name: 'couponCode')
+  @JsonKey(name: 'couponCode', fromJson: JsonCoerce.asString)
   final String? couponCode;
-  @JsonKey(name: 'couponTitle')
+  @JsonKey(name: 'couponTitle', fromJson: JsonCoerce.asString)
   final String? couponTitle;
-  @JsonKey(name: 'isUsed')
+  @JsonKey(name: 'isUsed', fromJson: JsonCoerce.asDouble)
   final double? isUsed;
-  @JsonKey(name: 'gmtInvalid')
+  @JsonKey(name: 'gmtInvalid', fromJson: JsonCoerce.asString)
   final String? gmtInvalid;
-  @JsonKey(name: 'type')
+  @JsonKey(name: 'type', fromJson: JsonCoerce.asDouble)
   final double? type;
-  @JsonKey(name: 'discount')
+  @JsonKey(name: 'discount', fromJson: JsonCoerce.asString)
   final String? discount;
-  @JsonKey(name: 'limitAmount')
+  @JsonKey(name: 'limitAmount', fromJson: JsonCoerce.asString)
   final String? limitAmount;
-  @JsonKey(name: 'currency')
+  @JsonKey(name: 'currency', fromJson: JsonCoerce.asString)
   final String? currency;
-  @JsonKey(name: 'discountTarget')
+  @JsonKey(name: 'discountTarget', fromJson: JsonCoerce.asString)
   final String? discountTarget;
-  @JsonKey(name: 'limitAmountTarget')
+  @JsonKey(name: 'limitAmountTarget', fromJson: JsonCoerce.asString)
   final String? limitAmountTarget;
-  @JsonKey(name: 'currencyTarget')
+  @JsonKey(name: 'currencyTarget', fromJson: JsonCoerce.asString)
   final String? currencyTarget;
-  @JsonKey(name: 'couponImage')
+  @JsonKey(name: 'couponImage', fromJson: JsonCoerce.asString)
   final String? couponImage;
-  @JsonKey(name: 'invalidPeriod')
+  @JsonKey(name: 'invalidPeriod', fromJson: JsonCoerce.asDouble)
   final double? invalidPeriod;
   static const fromJsonFactory =
       _$UserServiceUserCouponGetListGet$Response$Data$Item$UserCouponDtos$ItemFromJson;
@@ -13328,13 +13349,13 @@ class UserServiceUserCouponNoAuthActivityInfoGet$Response$Data$CouponList$Item {
         this,
       );
 
-  @JsonKey(name: 'currencySymbol')
+  @JsonKey(name: 'currencySymbol', fromJson: JsonCoerce.asString)
   final String? currencySymbol;
-  @JsonKey(name: 'discountType')
+  @JsonKey(name: 'discountType', fromJson: JsonCoerce.asDouble)
   final double? discountType;
-  @JsonKey(name: 'discountInfo')
+  @JsonKey(name: 'discountInfo', fromJson: JsonCoerce.asDouble)
   final double? discountInfo;
-  @JsonKey(name: 'limitAmount')
+  @JsonKey(name: 'limitAmount', fromJson: JsonCoerce.asDouble)
   final double? limitAmount;
   static const fromJsonFactory =
       _$UserServiceUserCouponNoAuthActivityInfoGet$Response$Data$CouponList$ItemFromJson;
@@ -13436,15 +13457,15 @@ class UserServiceUserCouponGetGet$Response$Data$Item$MsgInfo {
   Map<String, dynamic> toJson() =>
       _$UserServiceUserCouponGetGet$Response$Data$Item$MsgInfoToJson(this);
 
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
-  @JsonKey(name: 'limit')
+  @JsonKey(name: 'limit', fromJson: JsonCoerce.asString)
   final String? limit;
-  @JsonKey(name: 'usage')
+  @JsonKey(name: 'usage', fromJson: JsonCoerce.asString)
   final String? usage;
-  @JsonKey(name: 'discountStr')
+  @JsonKey(name: 'discountStr', fromJson: JsonCoerce.asString)
   final String? discountStr;
-  @JsonKey(name: 'discountUnit')
+  @JsonKey(name: 'discountUnit', fromJson: JsonCoerce.asString)
   final String? discountUnit;
   static const fromJsonFactory =
       _$UserServiceUserCouponGetGet$Response$Data$Item$MsgInfoFromJson;
@@ -13537,9 +13558,9 @@ class UserServiceImGetInfoPost$Response$Data$WhiteList$Item {
   Map<String, dynamic> toJson() =>
       _$UserServiceImGetInfoPost$Response$Data$WhiteList$ItemToJson(this);
 
-  @JsonKey(name: 'channelId')
+  @JsonKey(name: 'channelId', fromJson: JsonCoerce.asString)
   final String? channelId;
-  @JsonKey(name: 'channelType')
+  @JsonKey(name: 'channelType', fromJson: JsonCoerce.asString)
   final String? channelType;
   static const fromJsonFactory =
       _$UserServiceImGetInfoPost$Response$Data$WhiteList$ItemFromJson;
@@ -13616,23 +13637,23 @@ class UserServiceImGetInfoPost$Response$Data$Setting {
   Map<String, dynamic> toJson() =>
       _$UserServiceImGetInfoPost$Response$Data$SettingToJson(this);
 
-  @JsonKey(name: 'search_by_phone')
+  @JsonKey(name: 'search_by_phone', fromJson: JsonCoerce.asDouble)
   final double? searchByPhone;
-  @JsonKey(name: 'search_by_short')
+  @JsonKey(name: 'search_by_short', fromJson: JsonCoerce.asDouble)
   final double? searchByShort;
-  @JsonKey(name: 'new_msg_notice')
+  @JsonKey(name: 'new_msg_notice', fromJson: JsonCoerce.asDouble)
   final double? newMsgNotice;
-  @JsonKey(name: 'msg_show_detail')
+  @JsonKey(name: 'msg_show_detail', fromJson: JsonCoerce.asDouble)
   final double? msgShowDetail;
-  @JsonKey(name: 'voice_on')
+  @JsonKey(name: 'voice_on', fromJson: JsonCoerce.asDouble)
   final double? voiceOn;
-  @JsonKey(name: 'shock_on')
+  @JsonKey(name: 'shock_on', fromJson: JsonCoerce.asDouble)
   final double? shockOn;
-  @JsonKey(name: 'offline_protection')
+  @JsonKey(name: 'offline_protection', fromJson: JsonCoerce.asDouble)
   final double? offlineProtection;
-  @JsonKey(name: 'device_lock')
+  @JsonKey(name: 'device_lock', fromJson: JsonCoerce.asDouble)
   final double? deviceLock;
-  @JsonKey(name: 'mute_of_app')
+  @JsonKey(name: 'mute_of_app', fromJson: JsonCoerce.asDouble)
   final double? muteOfApp;
   static const fromJsonFactory =
       _$UserServiceImGetInfoPost$Response$Data$SettingFromJson;
@@ -13787,9 +13808,9 @@ class UserServiceUserCouponAppHomeActivityPost$Response$Data$Item$MsgInfo {
         this,
       );
 
-  @JsonKey(name: 'name')
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
-  @JsonKey(name: 'usage')
+  @JsonKey(name: 'usage', fromJson: JsonCoerce.asString)
   final String? usage;
   static const fromJsonFactory =
       _$UserServiceUserCouponAppHomeActivityPost$Response$Data$Item$MsgInfoFromJson;

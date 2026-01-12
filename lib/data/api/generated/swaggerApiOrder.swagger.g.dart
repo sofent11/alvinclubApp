@@ -9,8 +9,8 @@ part of 'swaggerApiOrder.swagger.dart';
 OrderServiceOrderAppCancelPost$Response
 _$OrderServiceOrderAppCancelPost$ResponseFromJson(Map<String, dynamic> json) =>
     OrderServiceOrderAppCancelPost$Response(
-      message: json['message'] as String?,
-      code: (json['code'] as num?)?.toDouble(),
+      message: JsonCoerce.asString(json['message']),
+      code: JsonCoerce.asDouble(json['code']),
       data: json['data'],
     );
 
@@ -31,8 +31,8 @@ _$OrderServiceOrderAppBatchInfosGet$ResponseFromJson(
       : OrderServiceOrderAppBatchInfosGet$Response$Data.fromJson(
           json['data'] as Map<String, dynamic>,
         ),
-  code: (json['code'] as num?)?.toDouble(),
-  message: json['message'] as String?,
+  code: JsonCoerce.asDouble(json['code']),
+  message: JsonCoerce.asString(json['message']),
 );
 
 Map<String, dynamic> _$OrderServiceOrderAppBatchInfosGet$ResponseToJson(
@@ -51,8 +51,8 @@ _$OrderServiceOrderAppSubmitPost$ResponseFromJson(Map<String, dynamic> json) =>
           : OrderServiceOrderAppSubmitPost$Response$Data.fromJson(
               json['data'] as Map<String, dynamic>,
             ),
-      code: (json['code'] as num?)?.toDouble(),
-      message: json['message'] as String?,
+      code: JsonCoerce.asDouble(json['code']),
+      message: JsonCoerce.asString(json['message']),
     );
 
 Map<String, dynamic> _$OrderServiceOrderAppSubmitPost$ResponseToJson(
@@ -67,8 +67,8 @@ OrderServiceOrderAppUpdatePost$Response
 _$OrderServiceOrderAppUpdatePost$ResponseFromJson(Map<String, dynamic> json) =>
     OrderServiceOrderAppUpdatePost$Response(
       data: json['data'],
-      code: (json['code'] as num?)?.toDouble(),
-      message: json['message'] as String?,
+      code: JsonCoerce.asDouble(json['code']),
+      message: JsonCoerce.asString(json['message']),
     );
 
 Map<String, dynamic> _$OrderServiceOrderAppUpdatePost$ResponseToJson(
@@ -82,16 +82,16 @@ Map<String, dynamic> _$OrderServiceOrderAppUpdatePost$ResponseToJson(
 OrderServiceOrderAppListGet$Response
 _$OrderServiceOrderAppListGet$ResponseFromJson(Map<String, dynamic> json) =>
     OrderServiceOrderAppListGet$Response(
-      code: (json['code'] as num?)?.toDouble(),
-      message: json['message'] as String?,
+      code: JsonCoerce.asDouble(json['code']),
+      message: JsonCoerce.asString(json['message']),
       data: json['data'] == null
           ? null
           : OrderServiceOrderAppListGet$Response$Data.fromJson(
               json['data'] as Map<String, dynamic>,
             ),
-      traceId: json['traceId'] as String?,
+      traceId: JsonCoerce.asString(json['traceId']),
       placeholder: json['placeholder'],
-      success: json['success'] as bool?,
+      success: JsonCoerce.asBool(json['success']),
     );
 
 Map<String, dynamic> _$OrderServiceOrderAppListGet$ResponseToJson(
@@ -108,16 +108,16 @@ Map<String, dynamic> _$OrderServiceOrderAppListGet$ResponseToJson(
 OrderServiceOrderAppDetailGet$Response
 _$OrderServiceOrderAppDetailGet$ResponseFromJson(Map<String, dynamic> json) =>
     OrderServiceOrderAppDetailGet$Response(
-      code: (json['code'] as num?)?.toDouble(),
-      message: json['message'] as String?,
+      code: JsonCoerce.asDouble(json['code']),
+      message: JsonCoerce.asString(json['message']),
       data: json['data'] == null
           ? null
           : OrderServiceOrderAppDetailGet$Response$Data.fromJson(
               json['data'] as Map<String, dynamic>,
             ),
-      traceId: json['traceId'] as String?,
+      traceId: JsonCoerce.asString(json['traceId']),
       placeholder: json['placeholder'],
-      success: json['success'] as bool?,
+      success: JsonCoerce.asBool(json['success']),
     );
 
 Map<String, dynamic> _$OrderServiceOrderAppDetailGet$ResponseToJson(
@@ -139,8 +139,8 @@ _$OrderServiceOrderPrePricingGet$ResponseFromJson(Map<String, dynamic> json) =>
           : OrderServiceOrderPrePricingGet$Response$Data.fromJson(
               json['data'] as Map<String, dynamic>,
             ),
-      code: (json['code'] as num?)?.toDouble(),
-      message: json['message'] as String?,
+      code: JsonCoerce.asDouble(json['code']),
+      message: JsonCoerce.asString(json['message']),
     );
 
 Map<String, dynamic> _$OrderServiceOrderPrePricingGet$ResponseToJson(
@@ -154,8 +154,8 @@ Map<String, dynamic> _$OrderServiceOrderPrePricingGet$ResponseToJson(
 OrderServiceOrderCancelPost$Response
 _$OrderServiceOrderCancelPost$ResponseFromJson(Map<String, dynamic> json) =>
     OrderServiceOrderCancelPost$Response(
-      message: json['message'] as String?,
-      code: (json['code'] as num?)?.toDouble(),
+      message: JsonCoerce.asString(json['message']),
+      code: JsonCoerce.asDouble(json['code']),
       data: json['data'],
     );
 
@@ -175,8 +175,8 @@ _$OrderServiceOrderSubmitPost$ResponseFromJson(Map<String, dynamic> json) =>
           : OrderServiceOrderSubmitPost$Response$Data.fromJson(
               json['data'] as Map<String, dynamic>,
             ),
-      code: (json['code'] as num?)?.toDouble(),
-      message: json['message'] as String?,
+      code: JsonCoerce.asDouble(json['code']),
+      message: JsonCoerce.asString(json['message']),
     );
 
 Map<String, dynamic> _$OrderServiceOrderSubmitPost$ResponseToJson(
@@ -191,8 +191,8 @@ OrderServiceOrderUpdatePost$Response
 _$OrderServiceOrderUpdatePost$ResponseFromJson(Map<String, dynamic> json) =>
     OrderServiceOrderUpdatePost$Response(
       data: json['data'],
-      code: (json['code'] as num?)?.toDouble(),
-      message: json['message'] as String?,
+      code: JsonCoerce.asDouble(json['code']),
+      message: JsonCoerce.asString(json['message']),
     );
 
 Map<String, dynamic> _$OrderServiceOrderUpdatePost$ResponseToJson(
@@ -206,8 +206,8 @@ Map<String, dynamic> _$OrderServiceOrderUpdatePost$ResponseToJson(
 OrderServiceOrderConfirmPost$Response
 _$OrderServiceOrderConfirmPost$ResponseFromJson(Map<String, dynamic> json) =>
     OrderServiceOrderConfirmPost$Response(
-      code: json['code'] as String?,
-      message: json['message'] as String?,
+      code: JsonCoerce.asString(json['code']),
+      message: JsonCoerce.asString(json['message']),
       data: json['data'] == null
           ? null
           : OrderServiceOrderConfirmPost$Response$Data.fromJson(
@@ -226,12 +226,12 @@ Map<String, dynamic> _$OrderServiceOrderConfirmPost$ResponseToJson(
 OrderServiceOrderSettlementPost$Response
 _$OrderServiceOrderSettlementPost$ResponseFromJson(Map<String, dynamic> json) =>
     OrderServiceOrderSettlementPost$Response(
-      totalPrice: json['totalPrice'] as String?,
-      targetTotalPrice: json['targetTotalPrice'] as String?,
-      currency: json['currency'] as String?,
-      targetCurrency: json['targetCurrency'] as String?,
-      rechargeBalance: json['rechargeBalance'] as String?,
-      rechargeStatus: json['rechargeStatus'] as String?,
+      totalPrice: JsonCoerce.asString(json['totalPrice']),
+      targetTotalPrice: JsonCoerce.asString(json['targetTotalPrice']),
+      currency: JsonCoerce.asString(json['currency']),
+      targetCurrency: JsonCoerce.asString(json['targetCurrency']),
+      rechargeBalance: JsonCoerce.asString(json['rechargeBalance']),
+      rechargeStatus: JsonCoerce.asString(json['rechargeStatus']),
     );
 
 Map<String, dynamic> _$OrderServiceOrderSettlementPost$ResponseToJson(
@@ -248,12 +248,14 @@ Map<String, dynamic> _$OrderServiceOrderSettlementPost$ResponseToJson(
 OrderServiceOrderPricingPost$Response
 _$OrderServiceOrderPricingPost$ResponseFromJson(Map<String, dynamic> json) =>
     OrderServiceOrderPricingPost$Response(
-      totalAmount: json['totalAmount'] as String?,
-      targetTotalAmount: json['targetTotalAmount'] as String?,
-      sellCur: json['sellCur'] as String?,
-      targetSellCur: json['targetSellCur'] as String?,
-      targetOrderLimitAmount: json['targetOrderLimitAmount'] as String?,
-      targetShipLimitAmount: json['targetShipLimitAmount'] as String?,
+      totalAmount: JsonCoerce.asString(json['totalAmount']),
+      targetTotalAmount: JsonCoerce.asString(json['targetTotalAmount']),
+      sellCur: JsonCoerce.asString(json['sellCur']),
+      targetSellCur: JsonCoerce.asString(json['targetSellCur']),
+      targetOrderLimitAmount: JsonCoerce.asString(
+        json['targetOrderLimitAmount'],
+      ),
+      targetShipLimitAmount: JsonCoerce.asString(json['targetShipLimitAmount']),
     );
 
 Map<String, dynamic> _$OrderServiceOrderPricingPost$ResponseToJson(
@@ -270,16 +272,16 @@ Map<String, dynamic> _$OrderServiceOrderPricingPost$ResponseToJson(
 OrderServiceFeebillListGet$Response$Item
 _$OrderServiceFeebillListGet$Response$ItemFromJson(Map<String, dynamic> json) =>
     OrderServiceFeebillListGet$Response$Item(
-      billId: json['billId'] as String?,
-      bizId: json['bizId'] as String?,
-      billType: json['billType'] as String?,
-      status: json['status'] as String?,
-      gmtTimeout: json['gmtTimeout'] as String?,
-      gmtPay: json['gmtPay'] as String?,
-      settlementPrice: json['settlementPrice'] as String?,
-      currency: json['currency'] as String?,
-      targetCurrency: json['targetCurrency'] as String?,
-      targetTotalPrice: json['targetTotalPrice'] as String?,
+      billId: JsonCoerce.asString(json['billId']),
+      bizId: JsonCoerce.asString(json['bizId']),
+      billType: JsonCoerce.asString(json['billType']),
+      status: JsonCoerce.asString(json['status']),
+      gmtTimeout: JsonCoerce.asString(json['gmtTimeout']),
+      gmtPay: JsonCoerce.asString(json['gmtPay']),
+      settlementPrice: JsonCoerce.asString(json['settlementPrice']),
+      currency: JsonCoerce.asString(json['currency']),
+      targetCurrency: JsonCoerce.asString(json['targetCurrency']),
+      targetTotalPrice: JsonCoerce.asString(json['targetTotalPrice']),
     );
 
 Map<String, dynamic> _$OrderServiceFeebillListGet$Response$ItemToJson(
@@ -301,16 +303,16 @@ OrderServiceOrderNoAuthDetailGet$Response
 _$OrderServiceOrderNoAuthDetailGet$ResponseFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderNoAuthDetailGet$Response(
-  code: (json['code'] as num?)?.toDouble(),
-  message: json['message'] as String?,
+  code: JsonCoerce.asDouble(json['code']),
+  message: JsonCoerce.asString(json['message']),
   data: json['data'] == null
       ? null
       : OrderServiceOrderNoAuthDetailGet$Response$Data.fromJson(
           json['data'] as Map<String, dynamic>,
         ),
-  traceId: json['traceId'] as String?,
+  traceId: JsonCoerce.asString(json['traceId']),
   placeholder: json['placeholder'],
-  success: json['success'] as bool?,
+  success: JsonCoerce.asBool(json['success']),
 );
 
 Map<String, dynamic> _$OrderServiceOrderNoAuthDetailGet$ResponseToJson(
@@ -327,8 +329,8 @@ Map<String, dynamic> _$OrderServiceOrderNoAuthDetailGet$ResponseToJson(
 OrderServiceOrderCouponListPost$Response
 _$OrderServiceOrderCouponListPost$ResponseFromJson(Map<String, dynamic> json) =>
     OrderServiceOrderCouponListPost$Response(
-      code: (json['code'] as num?)?.toDouble(),
-      message: json['message'] as String?,
+      code: JsonCoerce.asDouble(json['code']),
+      message: JsonCoerce.asString(json['message']),
       data: (json['data'] as List<dynamic>?)
           ?.map(
             (e) => OrderServiceOrderCouponListPost$Response$Data$Item.fromJson(
@@ -336,9 +338,9 @@ _$OrderServiceOrderCouponListPost$ResponseFromJson(Map<String, dynamic> json) =>
             ),
           )
           .toList(),
-      traceId: json['traceId'] as String?,
+      traceId: JsonCoerce.asString(json['traceId']),
       placeholder: json['placeholder'],
-      success: json['success'] as bool?,
+      success: JsonCoerce.asBool(json['success']),
     );
 
 Map<String, dynamic> _$OrderServiceOrderCouponListPost$ResponseToJson(
@@ -356,8 +358,8 @@ OrderServiceOrderDiscountListPost$Response
 _$OrderServiceOrderDiscountListPost$ResponseFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderDiscountListPost$Response(
-  code: (json['code'] as num?)?.toDouble(),
-  message: json['message'] as String?,
+  code: JsonCoerce.asDouble(json['code']),
+  message: JsonCoerce.asString(json['message']),
   data: (json['data'] as List<dynamic>?)
       ?.map(
         (e) => OrderServiceOrderDiscountListPost$Response$Data$Item.fromJson(
@@ -365,9 +367,9 @@ _$OrderServiceOrderDiscountListPost$ResponseFromJson(
         ),
       )
       .toList(),
-  traceId: json['traceId'] as String?,
+  traceId: JsonCoerce.asString(json['traceId']),
   placeholder: json['placeholder'],
-  success: json['success'] as bool?,
+  success: JsonCoerce.asBool(json['success']),
 );
 
 Map<String, dynamic> _$OrderServiceOrderDiscountListPost$ResponseToJson(
@@ -385,16 +387,16 @@ OrderServiceOrderAvailableCouponPost$Response
 _$OrderServiceOrderAvailableCouponPost$ResponseFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderAvailableCouponPost$Response(
-  code: (json['code'] as num?)?.toDouble(),
-  message: json['message'] as String?,
+  code: JsonCoerce.asDouble(json['code']),
+  message: JsonCoerce.asString(json['message']),
   data: json['data'] == null
       ? null
       : OrderServiceOrderAvailableCouponPost$Response$Data.fromJson(
           json['data'] as Map<String, dynamic>,
         ),
-  traceId: json['traceId'] as String?,
+  traceId: JsonCoerce.asString(json['traceId']),
   placeholder: json['placeholder'],
-  success: json['success'] as bool?,
+  success: JsonCoerce.asBool(json['success']),
 );
 
 Map<String, dynamic> _$OrderServiceOrderAvailableCouponPost$ResponseToJson(
@@ -412,12 +414,12 @@ OrderServiceOrderCouponTitlePost$Response
 _$OrderServiceOrderCouponTitlePost$ResponseFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderCouponTitlePost$Response(
-  code: (json['code'] as num?)?.toDouble(),
-  message: json['message'] as String?,
-  data: json['data'] as String?,
-  traceId: json['traceId'] as String?,
+  code: JsonCoerce.asDouble(json['code']),
+  message: JsonCoerce.asString(json['message']),
+  data: JsonCoerce.asString(json['data']),
+  traceId: JsonCoerce.asString(json['traceId']),
   placeholder: json['placeholder'],
-  success: json['success'] as bool?,
+  success: JsonCoerce.asBool(json['success']),
 );
 
 Map<String, dynamic> _$OrderServiceOrderCouponTitlePost$ResponseToJson(
@@ -434,8 +436,8 @@ Map<String, dynamic> _$OrderServiceOrderCouponTitlePost$ResponseToJson(
 OrderServiceOrderGetReviewGet$Response
 _$OrderServiceOrderGetReviewGet$ResponseFromJson(Map<String, dynamic> json) =>
     OrderServiceOrderGetReviewGet$Response(
-      code: (json['code'] as num?)?.toDouble(),
-      message: json['message'] as String?,
+      code: JsonCoerce.asDouble(json['code']),
+      message: JsonCoerce.asString(json['message']),
       data: (json['data'] as List<dynamic>?)
           ?.map(
             (e) => OrderServiceOrderGetReviewGet$Response$Data$Item.fromJson(
@@ -443,9 +445,9 @@ _$OrderServiceOrderGetReviewGet$ResponseFromJson(Map<String, dynamic> json) =>
             ),
           )
           .toList(),
-      traceId: json['traceId'] as String?,
+      traceId: JsonCoerce.asString(json['traceId']),
       placeholder: json['placeholder'],
-      success: json['success'] as bool?,
+      success: JsonCoerce.asBool(json['success']),
     );
 
 Map<String, dynamic> _$OrderServiceOrderGetReviewGet$ResponseToJson(
@@ -462,16 +464,16 @@ Map<String, dynamic> _$OrderServiceOrderGetReviewGet$ResponseToJson(
 OrderServiceOrderListGet$Response _$OrderServiceOrderListGet$ResponseFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderListGet$Response(
-  code: (json['code'] as num?)?.toDouble(),
-  message: json['message'] as String?,
+  code: JsonCoerce.asDouble(json['code']),
+  message: JsonCoerce.asString(json['message']),
   data: json['data'] == null
       ? null
       : OrderServiceOrderListGet$Response$Data.fromJson(
           json['data'] as Map<String, dynamic>,
         ),
-  traceId: json['traceId'] as String?,
+  traceId: JsonCoerce.asString(json['traceId']),
   placeholder: json['placeholder'],
-  success: json['success'] as bool?,
+  success: JsonCoerce.asBool(json['success']),
 );
 
 Map<String, dynamic> _$OrderServiceOrderListGet$ResponseToJson(
@@ -488,16 +490,16 @@ Map<String, dynamic> _$OrderServiceOrderListGet$ResponseToJson(
 OrderServiceOrderCombineListGet$Response
 _$OrderServiceOrderCombineListGet$ResponseFromJson(Map<String, dynamic> json) =>
     OrderServiceOrderCombineListGet$Response(
-      code: (json['code'] as num?)?.toDouble(),
-      message: json['message'] as String?,
+      code: JsonCoerce.asDouble(json['code']),
+      message: JsonCoerce.asString(json['message']),
       data: json['data'] == null
           ? null
           : OrderServiceOrderCombineListGet$Response$Data.fromJson(
               json['data'] as Map<String, dynamic>,
             ),
-      traceId: json['traceId'] as String?,
+      traceId: JsonCoerce.asString(json['traceId']),
       placeholder: json['placeholder'],
-      success: json['success'] as bool?,
+      success: JsonCoerce.asBool(json['success']),
     );
 
 Map<String, dynamic> _$OrderServiceOrderCombineListGet$ResponseToJson(
@@ -514,16 +516,16 @@ Map<String, dynamic> _$OrderServiceOrderCombineListGet$ResponseToJson(
 OrderServiceOrderGetBatchNoGet$Response
 _$OrderServiceOrderGetBatchNoGet$ResponseFromJson(Map<String, dynamic> json) =>
     OrderServiceOrderGetBatchNoGet$Response(
-      code: (json['code'] as num?)?.toDouble(),
-      message: json['message'] as String?,
+      code: JsonCoerce.asDouble(json['code']),
+      message: JsonCoerce.asString(json['message']),
       data: json['data'] == null
           ? null
           : OrderServiceOrderGetBatchNoGet$Response$Data.fromJson(
               json['data'] as Map<String, dynamic>,
             ),
-      traceId: json['traceId'] as String?,
+      traceId: JsonCoerce.asString(json['traceId']),
       placeholder: json['placeholder'],
-      success: json['success'] as bool?,
+      success: JsonCoerce.asBool(json['success']),
     );
 
 Map<String, dynamic> _$OrderServiceOrderGetBatchNoGet$ResponseToJson(
@@ -540,16 +542,16 @@ Map<String, dynamic> _$OrderServiceOrderGetBatchNoGet$ResponseToJson(
 OrderServiceOrderGetButtonGet$Response
 _$OrderServiceOrderGetButtonGet$ResponseFromJson(Map<String, dynamic> json) =>
     OrderServiceOrderGetButtonGet$Response(
-      code: (json['code'] as num?)?.toDouble(),
-      message: json['message'] as String?,
+      code: JsonCoerce.asDouble(json['code']),
+      message: JsonCoerce.asString(json['message']),
       data: json['data'] == null
           ? null
           : OrderServiceOrderGetButtonGet$Response$Data.fromJson(
               json['data'] as Map<String, dynamic>,
             ),
-      traceId: json['traceId'] as String?,
+      traceId: JsonCoerce.asString(json['traceId']),
       placeholder: json['placeholder'],
-      success: json['success'] as bool?,
+      success: JsonCoerce.asBool(json['success']),
     );
 
 Map<String, dynamic> _$OrderServiceOrderGetButtonGet$ResponseToJson(
@@ -566,12 +568,12 @@ Map<String, dynamic> _$OrderServiceOrderGetButtonGet$ResponseToJson(
 OrderServiceOrderReviewPost$Response
 _$OrderServiceOrderReviewPost$ResponseFromJson(Map<String, dynamic> json) =>
     OrderServiceOrderReviewPost$Response(
-      code: (json['code'] as num?)?.toDouble(),
-      message: json['message'] as String?,
-      data: json['data'] as String?,
-      traceId: json['traceId'] as String?,
+      code: JsonCoerce.asDouble(json['code']),
+      message: JsonCoerce.asString(json['message']),
+      data: JsonCoerce.asString(json['data']),
+      traceId: JsonCoerce.asString(json['traceId']),
       placeholder: json['placeholder'],
-      success: json['success'] as bool?,
+      success: JsonCoerce.asBool(json['success']),
     );
 
 Map<String, dynamic> _$OrderServiceOrderReviewPost$ResponseToJson(
@@ -588,15 +590,15 @@ Map<String, dynamic> _$OrderServiceOrderReviewPost$ResponseToJson(
 OrderServiceOrderDetailGet$Response
 _$OrderServiceOrderDetailGet$ResponseFromJson(Map<String, dynamic> json) =>
     OrderServiceOrderDetailGet$Response(
-      code: (json['code'] as num?)?.toDouble(),
-      message: json['message'] as String?,
+      code: JsonCoerce.asDouble(json['code']),
+      message: JsonCoerce.asString(json['message']),
       data: json['data'] == null
           ? null
           : OrderServiceOrderDetailGet$Response$Data.fromJson(
               json['data'] as Map<String, dynamic>,
             ),
-      traceId: json['traceId'] as String?,
-      success: json['success'] as bool?,
+      traceId: JsonCoerce.asString(json['traceId']),
+      success: JsonCoerce.asBool(json['success']),
     );
 
 Map<String, dynamic> _$OrderServiceOrderDetailGet$ResponseToJson(
@@ -613,16 +615,16 @@ OrderServiceOpenapiOrderDetailGet$Response
 _$OrderServiceOpenapiOrderDetailGet$ResponseFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOpenapiOrderDetailGet$Response(
-  code: (json['code'] as num?)?.toDouble(),
-  message: json['message'] as String?,
+  code: JsonCoerce.asDouble(json['code']),
+  message: JsonCoerce.asString(json['message']),
   data: json['data'] == null
       ? null
       : OrderServiceOpenapiOrderDetailGet$Response$Data.fromJson(
           json['data'] as Map<String, dynamic>,
         ),
-  traceId: json['traceId'] as String?,
+  traceId: JsonCoerce.asString(json['traceId']),
   placeholder: json['placeholder'],
-  success: json['success'] as bool?,
+  success: JsonCoerce.asBool(json['success']),
 );
 
 Map<String, dynamic> _$OrderServiceOpenapiOrderDetailGet$ResponseToJson(
@@ -640,16 +642,16 @@ OrderServiceOrderCombineDetailGet$Response
 _$OrderServiceOrderCombineDetailGet$ResponseFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderCombineDetailGet$Response(
-  code: (json['code'] as num?)?.toDouble(),
-  message: json['message'] as String?,
+  code: JsonCoerce.asDouble(json['code']),
+  message: JsonCoerce.asString(json['message']),
   data: json['data'] == null
       ? null
       : OrderServiceOrderCombineDetailGet$Response$Data.fromJson(
           json['data'] as Map<String, dynamic>,
         ),
-  traceId: json['traceId'] as String?,
+  traceId: JsonCoerce.asString(json['traceId']),
   placeholder: json['placeholder'],
-  success: json['success'] as bool?,
+  success: JsonCoerce.asBool(json['success']),
 );
 
 Map<String, dynamic> _$OrderServiceOrderCombineDetailGet$ResponseToJson(
@@ -667,16 +669,16 @@ OrderServiceOrderGetOrderTraceGet$Response
 _$OrderServiceOrderGetOrderTraceGet$ResponseFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderGetOrderTraceGet$Response(
-  code: (json['code'] as num?)?.toDouble(),
-  message: json['message'] as String?,
+  code: JsonCoerce.asDouble(json['code']),
+  message: JsonCoerce.asString(json['message']),
   data: json['data'] == null
       ? null
       : OrderServiceOrderGetOrderTraceGet$Response$Data.fromJson(
           json['data'] as Map<String, dynamic>,
         ),
-  traceId: json['traceId'] as String?,
+  traceId: JsonCoerce.asString(json['traceId']),
   placeholder: json['placeholder'],
-  success: json['success'] as bool?,
+  success: JsonCoerce.asBool(json['success']),
 );
 
 Map<String, dynamic> _$OrderServiceOrderGetOrderTraceGet$ResponseToJson(
@@ -693,16 +695,16 @@ Map<String, dynamic> _$OrderServiceOrderGetOrderTraceGet$ResponseToJson(
 OrderServiceCartListGet$Response _$OrderServiceCartListGet$ResponseFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceCartListGet$Response(
-  code: (json['code'] as num?)?.toDouble(),
-  message: json['message'] as String?,
+  code: JsonCoerce.asDouble(json['code']),
+  message: JsonCoerce.asString(json['message']),
   data: json['data'] == null
       ? null
       : OrderServiceCartListGet$Response$Data.fromJson(
           json['data'] as Map<String, dynamic>,
         ),
-  traceId: json['traceId'] as String?,
-  placeholder: json['placeholder'] as String?,
-  success: json['success'] as bool?,
+  traceId: JsonCoerce.asString(json['traceId']),
+  placeholder: JsonCoerce.asString(json['placeholder']),
+  success: JsonCoerce.asBool(json['success']),
 );
 
 Map<String, dynamic> _$OrderServiceCartListGet$ResponseToJson(
@@ -719,8 +721,8 @@ Map<String, dynamic> _$OrderServiceCartListGet$ResponseToJson(
 OrderServiceCartSettlementPost$Response
 _$OrderServiceCartSettlementPost$ResponseFromJson(Map<String, dynamic> json) =>
     OrderServiceCartSettlementPost$Response(
-      code: json['code'] as String?,
-      message: json['message'] as String?,
+      code: JsonCoerce.asString(json['code']),
+      message: JsonCoerce.asString(json['message']),
       data: json['data'],
     );
 
@@ -735,15 +737,15 @@ Map<String, dynamic> _$OrderServiceCartSettlementPost$ResponseToJson(
 OrderServiceCartPricingPost$Response
 _$OrderServiceCartPricingPost$ResponseFromJson(Map<String, dynamic> json) =>
     OrderServiceCartPricingPost$Response(
-      code: (json['code'] as num?)?.toDouble(),
-      message: json['message'] as String?,
+      code: JsonCoerce.asDouble(json['code']),
+      message: JsonCoerce.asString(json['message']),
       data: json['data'] == null
           ? null
           : OrderServiceCartPricingPost$Response$Data.fromJson(
               json['data'] as Map<String, dynamic>,
             ),
-      traceId: json['traceId'] as String?,
-      success: json['success'] as bool?,
+      traceId: JsonCoerce.asString(json['traceId']),
+      success: JsonCoerce.asBool(json['success']),
     );
 
 Map<String, dynamic> _$OrderServiceCartPricingPost$ResponseToJson(
@@ -760,15 +762,15 @@ OrderServiceCartNoAuthPricingPost$Response
 _$OrderServiceCartNoAuthPricingPost$ResponseFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceCartNoAuthPricingPost$Response(
-  code: (json['code'] as num?)?.toDouble(),
-  message: json['message'] as String?,
+  code: JsonCoerce.asDouble(json['code']),
+  message: JsonCoerce.asString(json['message']),
   data: json['data'] == null
       ? null
       : OrderServiceCartNoAuthPricingPost$Response$Data.fromJson(
           json['data'] as Map<String, dynamic>,
         ),
-  traceId: json['traceId'] as String?,
-  success: json['success'] as bool?,
+  traceId: JsonCoerce.asString(json['traceId']),
+  success: JsonCoerce.asBool(json['success']),
 );
 
 Map<String, dynamic> _$OrderServiceCartNoAuthPricingPost$ResponseToJson(
@@ -785,9 +787,9 @@ OrderServiceOrderAppBatchInfosGet$Response$Data
 _$OrderServiceOrderAppBatchInfosGet$Response$DataFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderAppBatchInfosGet$Response$Data(
-  title: json['title'] as String?,
-  description: json['description'] as String?,
-  parcelOrderId: json['parcelOrderId'] as String?,
+  title: JsonCoerce.asString(json['title']),
+  description: JsonCoerce.asString(json['description']),
+  parcelOrderId: JsonCoerce.asString(json['parcelOrderId']),
   logisticsJoinInfoList: (json['logisticsJoinInfoList'] as List<dynamic>?)
       ?.map(
         (e) =>
@@ -813,10 +815,10 @@ OrderServiceOrderAppSubmitPost$Response$Data
 _$OrderServiceOrderAppSubmitPost$Response$DataFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderAppSubmitPost$Response$Data(
-  orderId: json['orderId'] as String?,
-  single: json['single'] as bool?,
-  orderStatus: (json['orderStatus'] as num?)?.toDouble(),
-  timeoutPeriod: (json['timeoutPeriod'] as num?)?.toDouble(),
+  orderId: JsonCoerce.asString(json['orderId']),
+  single: JsonCoerce.asBool(json['single']),
+  orderStatus: JsonCoerce.asDouble(json['orderStatus']),
+  timeoutPeriod: JsonCoerce.asDouble(json['timeoutPeriod']),
 );
 
 Map<String, dynamic> _$OrderServiceOrderAppSubmitPost$Response$DataToJson(
@@ -832,10 +834,10 @@ OrderServiceOrderAppListGet$Response$Data
 _$OrderServiceOrderAppListGet$Response$DataFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderAppListGet$Response$Data(
-  total: (json['total'] as num?)?.toDouble(),
-  pageSize: (json['pageSize'] as num?)?.toDouble(),
-  totalPages: (json['totalPages'] as num?)?.toDouble(),
-  current: (json['current'] as num?)?.toDouble(),
+  total: JsonCoerce.asDouble(json['total']),
+  pageSize: JsonCoerce.asDouble(json['pageSize']),
+  totalPages: JsonCoerce.asDouble(json['totalPages']),
+  current: JsonCoerce.asDouble(json['current']),
   records: (json['records'] as List<dynamic>?)
       ?.map(
         (e) => OrderServiceOrderAppListGet$Response$Data$Records$Item.fromJson(
@@ -933,10 +935,10 @@ OrderServiceOrderPrePricingGet$Response$Data
 _$OrderServiceOrderPrePricingGet$Response$DataFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderPrePricingGet$Response$Data(
-  currency: json['currency'] as String?,
-  totalPrice: json['totalPrice'] as String?,
-  targetCurrency: (json['targetCurrency'] as num?)?.toDouble(),
-  targetPrice: json['targetPrice'] as String?,
+  currency: JsonCoerce.asString(json['currency']),
+  totalPrice: JsonCoerce.asString(json['totalPrice']),
+  targetCurrency: JsonCoerce.asDouble(json['targetCurrency']),
+  targetPrice: JsonCoerce.asString(json['targetPrice']),
 );
 
 Map<String, dynamic> _$OrderServiceOrderPrePricingGet$Response$DataToJson(
@@ -952,9 +954,9 @@ OrderServiceOrderSubmitPost$Response$Data
 _$OrderServiceOrderSubmitPost$Response$DataFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderSubmitPost$Response$Data(
-  orderId: json['orderId'] as String?,
-  orderStatus: (json['orderStatus'] as num?)?.toDouble(),
-  timeoutPeriod: (json['timeoutPeriod'] as num?)?.toDouble(),
+  orderId: JsonCoerce.asString(json['orderId']),
+  orderStatus: JsonCoerce.asDouble(json['orderStatus']),
+  timeoutPeriod: JsonCoerce.asDouble(json['timeoutPeriod']),
 );
 
 Map<String, dynamic> _$OrderServiceOrderSubmitPost$Response$DataToJson(
@@ -1071,15 +1073,15 @@ OrderServiceOrderCouponListPost$Response$Data$Item
 _$OrderServiceOrderCouponListPost$Response$Data$ItemFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderCouponListPost$Response$Data$Item(
-  couponCode: json['couponCode'] as String?,
-  discountInfo: json['discountInfo'] as String?,
-  discountType: (json['discountType'] as num?)?.toDouble(),
-  discountAmount: json['discountAmount'] as String?,
-  currency: json['currency'] as String?,
-  targetDiscountAmount: json['targetDiscountAmount'] as String?,
-  targetCurrency: json['targetCurrency'] as String?,
-  available: json['available'] as bool?,
-  unavailableReason: json['unavailableReason'] as String?,
+  couponCode: JsonCoerce.asString(json['couponCode']),
+  discountInfo: JsonCoerce.asString(json['discountInfo']),
+  discountType: JsonCoerce.asDouble(json['discountType']),
+  discountAmount: JsonCoerce.asString(json['discountAmount']),
+  currency: JsonCoerce.asString(json['currency']),
+  targetDiscountAmount: JsonCoerce.asString(json['targetDiscountAmount']),
+  targetCurrency: JsonCoerce.asString(json['targetCurrency']),
+  available: JsonCoerce.asBool(json['available']),
+  unavailableReason: JsonCoerce.asString(json['unavailableReason']),
   userCoupon: json['userCoupon'] == null
       ? null
       : OrderServiceOrderCouponListPost$Response$Data$Item$UserCoupon.fromJson(
@@ -1106,15 +1108,15 @@ OrderServiceOrderDiscountListPost$Response$Data$Item
 _$OrderServiceOrderDiscountListPost$Response$Data$ItemFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderDiscountListPost$Response$Data$Item(
-  couponCode: json['couponCode'] as String?,
-  discountInfo: json['discountInfo'] as String?,
-  discountType: (json['discountType'] as num?)?.toDouble(),
-  discountAmount: json['discountAmount'] as String?,
-  currency: json['currency'] as String?,
-  targetDiscountAmount: json['targetDiscountAmount'] as String?,
-  targetCurrency: json['targetCurrency'] as String?,
-  available: json['available'] as bool?,
-  unavailableReason: json['unavailableReason'] as String?,
+  couponCode: JsonCoerce.asString(json['couponCode']),
+  discountInfo: JsonCoerce.asString(json['discountInfo']),
+  discountType: JsonCoerce.asDouble(json['discountType']),
+  discountAmount: JsonCoerce.asString(json['discountAmount']),
+  currency: JsonCoerce.asString(json['currency']),
+  targetDiscountAmount: JsonCoerce.asString(json['targetDiscountAmount']),
+  targetCurrency: JsonCoerce.asString(json['targetCurrency']),
+  available: JsonCoerce.asBool(json['available']),
+  unavailableReason: JsonCoerce.asString(json['unavailableReason']),
 );
 
 Map<String, dynamic>
@@ -1136,15 +1138,15 @@ OrderServiceOrderAvailableCouponPost$Response$Data
 _$OrderServiceOrderAvailableCouponPost$Response$DataFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderAvailableCouponPost$Response$Data(
-  couponCode: json['couponCode'] as String?,
-  discountInfo: json['discountInfo'] as String?,
-  discountType: (json['discountType'] as num?)?.toDouble(),
-  discountAmount: json['discountAmount'] as String?,
-  currency: json['currency'] as String?,
-  targetDiscountAmount: json['targetDiscountAmount'] as String?,
-  targetCurrency: json['targetCurrency'] as String?,
-  available: json['available'] as bool?,
-  unavailableReason: json['unavailableReason'] as String?,
+  couponCode: JsonCoerce.asString(json['couponCode']),
+  discountInfo: JsonCoerce.asString(json['discountInfo']),
+  discountType: JsonCoerce.asDouble(json['discountType']),
+  discountAmount: JsonCoerce.asString(json['discountAmount']),
+  currency: JsonCoerce.asString(json['currency']),
+  targetDiscountAmount: JsonCoerce.asString(json['targetDiscountAmount']),
+  targetCurrency: JsonCoerce.asString(json['targetCurrency']),
+  available: JsonCoerce.asBool(json['available']),
+  unavailableReason: JsonCoerce.asString(json['unavailableReason']),
 );
 
 Map<String, dynamic> _$OrderServiceOrderAvailableCouponPost$Response$DataToJson(
@@ -1165,14 +1167,14 @@ OrderServiceOrderGetReviewGet$Response$Data$Item
 _$OrderServiceOrderGetReviewGet$Response$Data$ItemFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderGetReviewGet$Response$Data$Item(
-  productName: json['productName'] as String?,
-  skuCode: json['skuCode'] as String?,
-  productCode: json['productCode'] as String?,
-  image: json['image'] as String?,
-  targetSellPrice: json['targetSellPrice'] as String?,
-  targetSellCur: json['targetSellCur'] as String?,
-  targetTotalPrice: json['targetTotalPrice'] as String?,
-  quantity: json['quantity'] as String?,
+  productName: JsonCoerce.asString(json['productName']),
+  skuCode: JsonCoerce.asString(json['skuCode']),
+  productCode: JsonCoerce.asString(json['productCode']),
+  image: JsonCoerce.asString(json['image']),
+  targetSellPrice: JsonCoerce.asString(json['targetSellPrice']),
+  targetSellCur: JsonCoerce.asString(json['targetSellCur']),
+  targetTotalPrice: JsonCoerce.asString(json['targetTotalPrice']),
+  quantity: JsonCoerce.asString(json['quantity']),
   skuSpecValues: (json['skuSpecValues'] as List<dynamic>?)
       ?.map(
         (e) =>
@@ -1206,10 +1208,10 @@ Map<String, dynamic> _$OrderServiceOrderGetReviewGet$Response$Data$ItemToJson(
 OrderServiceOrderListGet$Response$Data
 _$OrderServiceOrderListGet$Response$DataFromJson(Map<String, dynamic> json) =>
     OrderServiceOrderListGet$Response$Data(
-      total: (json['total'] as num?)?.toDouble(),
-      pageSize: (json['pageSize'] as num?)?.toDouble(),
-      totalPages: (json['totalPages'] as num?)?.toDouble(),
-      current: (json['current'] as num?)?.toDouble(),
+      total: JsonCoerce.asDouble(json['total']),
+      pageSize: JsonCoerce.asDouble(json['pageSize']),
+      totalPages: JsonCoerce.asDouble(json['totalPages']),
+      current: JsonCoerce.asDouble(json['current']),
       records: (json['records'] as List<dynamic>?)
           ?.map(
             (e) => OrderServiceOrderListGet$Response$Data$Records$Item.fromJson(
@@ -1233,10 +1235,10 @@ OrderServiceOrderCombineListGet$Response$Data
 _$OrderServiceOrderCombineListGet$Response$DataFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderCombineListGet$Response$Data(
-  total: (json['total'] as num?)?.toDouble(),
-  pageSize: (json['pageSize'] as num?)?.toDouble(),
-  totalPages: (json['totalPages'] as num?)?.toDouble(),
-  current: (json['current'] as num?)?.toDouble(),
+  total: JsonCoerce.asDouble(json['total']),
+  pageSize: JsonCoerce.asDouble(json['pageSize']),
+  totalPages: JsonCoerce.asDouble(json['totalPages']),
+  current: JsonCoerce.asDouble(json['current']),
   records: (json['records'] as List<dynamic>?)
       ?.map(
         (e) =>
@@ -1261,7 +1263,7 @@ OrderServiceOrderGetBatchNoGet$Response$Data
 _$OrderServiceOrderGetBatchNoGet$Response$DataFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderGetBatchNoGet$Response$Data(
-  batchNo: json['batchNo'] as String?,
+  batchNo: JsonCoerce.asString(json['batchNo']),
 );
 
 Map<String, dynamic> _$OrderServiceOrderGetBatchNoGet$Response$DataToJson(
@@ -1272,8 +1274,8 @@ OrderServiceOrderGetButtonGet$Response$Data
 _$OrderServiceOrderGetButtonGet$Response$DataFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderGetButtonGet$Response$Data(
-  canBatch: json['canBatch'] as bool?,
-  canFreightCalc: json['canFreightCalc'] as bool?,
+  canBatch: JsonCoerce.asBool(json['canBatch']),
+  canFreightCalc: JsonCoerce.asBool(json['canFreightCalc']),
 );
 
 Map<String, dynamic> _$OrderServiceOrderGetButtonGet$Response$DataToJson(
@@ -1294,16 +1296,12 @@ _$OrderServiceOrderDetailGet$Response$DataFromJson(
         ),
       )
       .toList(),
-  afterSalesList:
-      (json['afterSalesList'] as List<dynamic>?)
-          ?.map((e) => e as String)
-          .toList() ??
-      [],
-  orderBillList:
-      (json['orderBillList'] as List<dynamic>?)
-          ?.map((e) => e as String)
-          .toList() ??
-      [],
+  afterSalesList: json['afterSalesList'] == null
+      ? []
+      : JsonCoerce.asStringList(json['afterSalesList']),
+  orderBillList: json['orderBillList'] == null
+      ? []
+      : JsonCoerce.asStringList(json['orderBillList']),
   baseInfo: json['baseInfo'] == null
       ? null
       : OrderServiceOrderDetailGet$Response$Data$BaseInfo.fromJson(
@@ -1468,11 +1466,11 @@ OrderServiceOrderGetOrderTraceGet$Response$Data
 _$OrderServiceOrderGetOrderTraceGet$Response$DataFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderGetOrderTraceGet$Response$Data(
-  parcelOrderId: json['parcelOrderId'] as String?,
-  parcelOrderStatus: json['parcelOrderStatus'] as String?,
-  lastMileMailNo: json['lastMileMailNo'] as String?,
-  lastMileCompanyName: json['lastMileCompanyName'] as String?,
-  lastMileMailNoLink: json['lastMileMailNoLink'] as String?,
+  parcelOrderId: JsonCoerce.asString(json['parcelOrderId']),
+  parcelOrderStatus: JsonCoerce.asString(json['parcelOrderStatus']),
+  lastMileMailNo: JsonCoerce.asString(json['lastMileMailNo']),
+  lastMileCompanyName: JsonCoerce.asString(json['lastMileCompanyName']),
+  lastMileMailNoLink: JsonCoerce.asString(json['lastMileMailNoLink']),
   traceList: (json['traceList'] as List<dynamic>?)
       ?.map(
         (e) =>
@@ -1497,15 +1495,15 @@ Map<String, dynamic> _$OrderServiceOrderGetOrderTraceGet$Response$DataToJson(
 OrderServiceCartListGet$Response$Data
 _$OrderServiceCartListGet$Response$DataFromJson(Map<String, dynamic> json) =>
     OrderServiceCartListGet$Response$Data(
-      discountAmount: json['discountAmount'] as String?,
-      totalDiscountAmount: json['totalDiscountAmount'] as String?,
-      totalAmount: json['totalAmount'] as String?,
-      targetTotalAmount: json['targetTotalAmount'] as String?,
-      totalAmountCur: json['totalAmountCur'] as String?,
-      targetTotalAmountCur: json['targetTotalAmountCur'] as String?,
-      orderLimitAmount: (json['orderLimitAmount'] as num?)?.toDouble(),
-      shipLimitAmount: (json['shipLimitAmount'] as num?)?.toDouble(),
-      country: json['country'] as String?,
+      discountAmount: JsonCoerce.asString(json['discountAmount']),
+      totalDiscountAmount: JsonCoerce.asString(json['totalDiscountAmount']),
+      totalAmount: JsonCoerce.asString(json['totalAmount']),
+      targetTotalAmount: JsonCoerce.asString(json['targetTotalAmount']),
+      totalAmountCur: JsonCoerce.asString(json['totalAmountCur']),
+      targetTotalAmountCur: JsonCoerce.asString(json['targetTotalAmountCur']),
+      orderLimitAmount: JsonCoerce.asDouble(json['orderLimitAmount']),
+      shipLimitAmount: JsonCoerce.asDouble(json['shipLimitAmount']),
+      country: JsonCoerce.asString(json['country']),
       list: (json['list'] as List<dynamic>?)
           ?.map(
             (e) => OrderServiceCartListGet$Response$Data$List$Item.fromJson(
@@ -1534,22 +1532,24 @@ OrderServiceCartPricingPost$Response$Data
 _$OrderServiceCartPricingPost$Response$DataFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceCartPricingPost$Response$Data(
-  itemsTotalAmount: json['itemsTotalAmount'] as String?,
-  targetOriginAmount: json['targetOriginAmount'] as String?,
-  freightAmount: json['freightAmount'] as String?,
-  totalAmount: json['totalAmount'] as String?,
-  targetTotalAmount: json['targetTotalAmount'] as String?,
-  discountAmount: json['discountAmount'] as String?,
-  targetDiscountAmount: json['targetDiscountAmount'] as String?,
-  settlementAmount: json['settlementAmount'] as String?,
-  targetSettlementAmount: json['targetSettlementAmount'] as String?,
-  targetOrderLimitAmount: json['targetOrderLimitAmount'] as String?,
-  targetShipLimitAmount: json['targetShipLimitAmount'] as String?,
-  targetSellCur: json['targetSellCur'] as String?,
-  sellCur: json['sellCur'] as String?,
-  userCouponCode: json['userCouponCode'] as String?,
-  rechargeBalance: json['rechargeBalance'] as String?,
-  targetItemDiscountAmount: json['targetItemDiscountAmount'] as String?,
+  itemsTotalAmount: JsonCoerce.asString(json['itemsTotalAmount']),
+  targetOriginAmount: JsonCoerce.asString(json['targetOriginAmount']),
+  freightAmount: JsonCoerce.asString(json['freightAmount']),
+  totalAmount: JsonCoerce.asString(json['totalAmount']),
+  targetTotalAmount: JsonCoerce.asString(json['targetTotalAmount']),
+  discountAmount: JsonCoerce.asString(json['discountAmount']),
+  targetDiscountAmount: JsonCoerce.asString(json['targetDiscountAmount']),
+  settlementAmount: JsonCoerce.asString(json['settlementAmount']),
+  targetSettlementAmount: JsonCoerce.asString(json['targetSettlementAmount']),
+  targetOrderLimitAmount: JsonCoerce.asString(json['targetOrderLimitAmount']),
+  targetShipLimitAmount: JsonCoerce.asString(json['targetShipLimitAmount']),
+  targetSellCur: JsonCoerce.asString(json['targetSellCur']),
+  sellCur: JsonCoerce.asString(json['sellCur']),
+  userCouponCode: JsonCoerce.asString(json['userCouponCode']),
+  rechargeBalance: JsonCoerce.asString(json['rechargeBalance']),
+  targetItemDiscountAmount: JsonCoerce.asString(
+    json['targetItemDiscountAmount'],
+  ),
   skuQuantityDTOList: (json['skuQuantityDTOList'] as List<dynamic>?)
       ?.map(
         (e) =>
@@ -1558,12 +1558,12 @@ _$OrderServiceCartPricingPost$Response$DataFromJson(
             ),
       )
       .toList(),
-  remark: json['remark'] as String?,
-  remarkImages: json['remarkImages'] as String?,
-  country: json['country'] as String?,
-  orderBatch: json['orderBatch'] as bool?,
-  targetItemsTotalAmount: json['targetItemsTotalAmount'] as String?,
-  amountValidContent: json['amountValidContent'] as String?,
+  remark: JsonCoerce.asString(json['remark']),
+  remarkImages: JsonCoerce.asString(json['remarkImages']),
+  country: JsonCoerce.asString(json['country']),
+  orderBatch: JsonCoerce.asBool(json['orderBatch']),
+  targetItemsTotalAmount: JsonCoerce.asString(json['targetItemsTotalAmount']),
+  amountValidContent: JsonCoerce.asString(json['amountValidContent']),
   contentInfo: json['contentInfo'] == null
       ? null
       : OrderServiceCartPricingPost$Response$Data$ContentInfo.fromJson(
@@ -1606,20 +1606,20 @@ OrderServiceCartNoAuthPricingPost$Response$Data
 _$OrderServiceCartNoAuthPricingPost$Response$DataFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceCartNoAuthPricingPost$Response$Data(
-  itemsTotalAmount: json['itemsTotalAmount'] as String?,
-  freightAmount: json['freightAmount'] as String?,
-  totalAmount: json['totalAmount'] as String?,
-  targetTotalAmount: json['targetTotalAmount'] as String?,
-  discountAmount: json['discountAmount'] as String?,
-  targetDiscountAmount: json['targetDiscountAmount'] as String?,
-  settlementAmount: json['settlementAmount'] as String?,
-  targetSettlementAmount: json['targetSettlementAmount'] as String?,
-  targetOrderLimitAmount: json['targetOrderLimitAmount'] as String?,
-  targetShipLimitAmount: json['targetShipLimitAmount'] as String?,
-  targetSellCur: json['targetSellCur'] as String?,
-  sellCur: json['sellCur'] as String?,
-  userCouponCode: json['userCouponCode'] as String?,
-  rechargeBalance: json['rechargeBalance'] as String?,
+  itemsTotalAmount: JsonCoerce.asString(json['itemsTotalAmount']),
+  freightAmount: JsonCoerce.asString(json['freightAmount']),
+  totalAmount: JsonCoerce.asString(json['totalAmount']),
+  targetTotalAmount: JsonCoerce.asString(json['targetTotalAmount']),
+  discountAmount: JsonCoerce.asString(json['discountAmount']),
+  targetDiscountAmount: JsonCoerce.asString(json['targetDiscountAmount']),
+  settlementAmount: JsonCoerce.asString(json['settlementAmount']),
+  targetSettlementAmount: JsonCoerce.asString(json['targetSettlementAmount']),
+  targetOrderLimitAmount: JsonCoerce.asString(json['targetOrderLimitAmount']),
+  targetShipLimitAmount: JsonCoerce.asString(json['targetShipLimitAmount']),
+  targetSellCur: JsonCoerce.asString(json['targetSellCur']),
+  sellCur: JsonCoerce.asString(json['sellCur']),
+  userCouponCode: JsonCoerce.asString(json['userCouponCode']),
+  rechargeBalance: JsonCoerce.asString(json['rechargeBalance']),
   skuQuantityDTOList: (json['skuQuantityDTOList'] as List<dynamic>?)
       ?.map(
         (e) =>
@@ -1628,12 +1628,12 @@ _$OrderServiceCartNoAuthPricingPost$Response$DataFromJson(
             ),
       )
       .toList(),
-  remark: json['remark'] as String?,
-  remarkImages: json['remarkImages'] as String?,
-  country: json['country'] as String?,
-  orderBatch: json['orderBatch'] as bool?,
-  targetItemsTotalAmount: json['targetItemsTotalAmount'] as String?,
-  amountValidContent: json['amountValidContent'] as String?,
+  remark: JsonCoerce.asString(json['remark']),
+  remarkImages: JsonCoerce.asString(json['remarkImages']),
+  country: JsonCoerce.asString(json['country']),
+  orderBatch: JsonCoerce.asBool(json['orderBatch']),
+  targetItemsTotalAmount: JsonCoerce.asString(json['targetItemsTotalAmount']),
+  amountValidContent: JsonCoerce.asString(json['amountValidContent']),
   contentInfo: json['contentInfo'] == null
       ? null
       : OrderServiceCartNoAuthPricingPost$Response$Data$ContentInfo.fromJson(
@@ -1674,10 +1674,10 @@ OrderServiceOrderAppBatchInfosGet$Response$Data$LogisticsJoinInfoList$Item
 _$OrderServiceOrderAppBatchInfosGet$Response$Data$LogisticsJoinInfoList$ItemFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderAppBatchInfosGet$Response$Data$LogisticsJoinInfoList$Item(
-  title: json['title'] as String?,
-  orderId: json['orderId'] as String?,
-  itemCount: (json['itemCount'] as num?)?.toInt(),
-  itemCountDescription: json['itemCountDescription'] as String?,
+  title: JsonCoerce.asString(json['title']),
+  orderId: JsonCoerce.asString(json['orderId']),
+  itemCount: JsonCoerce.asInt(json['itemCount']),
+  itemCountDescription: JsonCoerce.asString(json['itemCountDescription']),
 );
 
 Map<String, dynamic>
@@ -1695,30 +1695,30 @@ OrderServiceOrderAppListGet$Response$Data$Records$Item
 _$OrderServiceOrderAppListGet$Response$Data$Records$ItemFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderAppListGet$Response$Data$Records$Item(
-  status: (json['status'] as num?)?.toDouble(),
-  frontStatus: (json['frontStatus'] as num?)?.toDouble(),
-  statusContent: json['statusContent'] as String?,
-  orderStatus: (json['orderStatus'] as num?)?.toDouble(),
-  orderId: json['orderId'] as String?,
-  parentOrderId: json['parentOrderId'] as String?,
-  quantity: (json['quantity'] as num?)?.toDouble(),
-  totalAmount: json['totalAmount'] as String?,
-  targetTotalAmount: json['targetTotalAmount'] as String?,
-  discountAmount: json['discountAmount'] as String?,
-  targetDiscountAmount: json['targetDiscountAmount'] as String?,
-  targetPayFeeAmount: json['targetPayFeeAmount'] as String?,
-  targetActualAmount: json['targetActualAmount'] as String?,
-  targetTipAmount: json['targetTipAmount'] as String?,
-  targetServiceAmount: json['targetServiceAmount'] as String?,
-  currency: json['currency'] as String?,
-  targetCurrency: json['targetCurrency'] as String?,
-  description: json['description'] as String?,
-  remark: json['remark'] as String?,
-  statusIcon: json['statusIcon'] as String?,
+  status: JsonCoerce.asDouble(json['status']),
+  frontStatus: JsonCoerce.asDouble(json['frontStatus']),
+  statusContent: JsonCoerce.asString(json['statusContent']),
+  orderStatus: JsonCoerce.asDouble(json['orderStatus']),
+  orderId: JsonCoerce.asString(json['orderId']),
+  parentOrderId: JsonCoerce.asString(json['parentOrderId']),
+  quantity: JsonCoerce.asDouble(json['quantity']),
+  totalAmount: JsonCoerce.asString(json['totalAmount']),
+  targetTotalAmount: JsonCoerce.asString(json['targetTotalAmount']),
+  discountAmount: JsonCoerce.asString(json['discountAmount']),
+  targetDiscountAmount: JsonCoerce.asString(json['targetDiscountAmount']),
+  targetPayFeeAmount: JsonCoerce.asString(json['targetPayFeeAmount']),
+  targetActualAmount: JsonCoerce.asString(json['targetActualAmount']),
+  targetTipAmount: JsonCoerce.asString(json['targetTipAmount']),
+  targetServiceAmount: JsonCoerce.asString(json['targetServiceAmount']),
+  currency: JsonCoerce.asString(json['currency']),
+  targetCurrency: JsonCoerce.asString(json['targetCurrency']),
+  description: JsonCoerce.asString(json['description']),
+  remark: JsonCoerce.asString(json['remark']),
+  statusIcon: JsonCoerce.asString(json['statusIcon']),
   operates:
       (json['operates'] as List<dynamic>?)?.map((e) => e as Object).toList() ??
       [],
-  isLogisticsTrace: json['isLogisticsTrace'] as bool?,
+  isLogisticsTrace: JsonCoerce.asBool(json['isLogisticsTrace']),
   orderSkuList: (json['orderSkuList'] as List<dynamic>?)
       ?.map(
         (e) =>
@@ -1740,7 +1740,7 @@ _$OrderServiceOrderAppListGet$Response$Data$Records$ItemFromJson(
       : OrderServiceOrderAppListGet$Response$Data$Records$Item$ParcelOrder.fromJson(
           json['parcelOrder'] as Map<String, dynamic>,
         ),
-  afterSalesList: json['afterSalesList'] as String?,
+  afterSalesList: JsonCoerce.asString(json['afterSalesList']),
   orderBillList: (json['orderBillList'] as List<dynamic>?)
       ?.map(
         (e) =>
@@ -1754,16 +1754,16 @@ _$OrderServiceOrderAppListGet$Response$Data$Records$ItemFromJson(
       : OrderServiceOrderAppListGet$Response$Data$Records$Item$UserAddress.fromJson(
           json['userAddress'] as Map<String, dynamic>,
         ),
-  createTime: (json['createTime'] as num?)?.toDouble(),
-  wish: json['wish'] as bool?,
-  targetItemTotalAmount: json['targetItemTotalAmount'] as String?,
-  targetFreightAmount: json['targetFreightAmount'] as String?,
-  giveawayGift: (json['giveawayGift'] as num?)?.toDouble(),
-  orderFreight: json['orderFreight'] as bool?,
-  skuSourceCode: json['skuSourceCode'] as String?,
-  skuSourceCodeTitle: json['skuSourceCodeTitle'] as String?,
-  tabStatusContent: json['tabStatusContent'] as String?,
-  tabStatusDescription: json['tabStatusDescription'] as String?,
+  createTime: JsonCoerce.asDouble(json['createTime']),
+  wish: JsonCoerce.asBool(json['wish']),
+  targetItemTotalAmount: JsonCoerce.asString(json['targetItemTotalAmount']),
+  targetFreightAmount: JsonCoerce.asString(json['targetFreightAmount']),
+  giveawayGift: JsonCoerce.asDouble(json['giveawayGift']),
+  orderFreight: JsonCoerce.asBool(json['orderFreight']),
+  skuSourceCode: JsonCoerce.asString(json['skuSourceCode']),
+  skuSourceCodeTitle: JsonCoerce.asString(json['skuSourceCodeTitle']),
+  tabStatusContent: JsonCoerce.asString(json['tabStatusContent']),
+  tabStatusDescription: JsonCoerce.asString(json['tabStatusDescription']),
 );
 
 Map<String, dynamic>
@@ -1814,41 +1814,39 @@ OrderServiceOrderAppDetailGet$Response$Data$BaseInfo
 _$OrderServiceOrderAppDetailGet$Response$Data$BaseInfoFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderAppDetailGet$Response$Data$BaseInfo(
-  userId: json['userId'] as String?,
-  orderId: json['orderId'] as String?,
-  skuSourceCode: json['skuSourceCode'] as String?,
-  parentOrderId: json['parentOrderId'] as String?,
-  status: (json['status'] as num?)?.toDouble(),
-  frontStatus: (json['frontStatus'] as num?)?.toDouble(),
-  statusContent: json['statusContent'] as String?,
-  orderStatus: (json['orderStatus'] as num?)?.toDouble(),
-  evaluateStatus: (json['evaluateStatus'] as num?)?.toDouble(),
-  timeoutPeriod: (json['timeoutPeriod'] as num?)?.toDouble(),
-  createTime: (json['createTime'] as num?)?.toDouble(),
-  leftTime: (json['leftTime'] as num?)?.toDouble(),
-  title: json['title'] as String?,
-  subTitle: json['subTitle'] as String?,
-  operates:
-      (json['operates'] as List<dynamic>?)?.map((e) => e as String).toList() ??
-      [],
-  description: json['description'] as String?,
-  paySuccessDescription: json['paySuccessDescription'] as String?,
-  afterSalesExpressMethod: (json['afterSalesExpressMethod'] as num?)
-      ?.toDouble(),
-  afterSalesState: (json['afterSalesState'] as num?)?.toDouble(),
-  remark: json['remark'] as String?,
-  remarkImages: json['remarkImages'] as String?,
-  supportOnlineAfterSales: (json['supportOnlineAfterSales'] as num?)
-      ?.toDouble(),
-  receiptPdfLink: json['receiptPdfLink'] as String?,
-  afterSalesSupport: json['afterSalesSupport'] as String?,
-  tenantCode: json['tenantCode'] as String?,
-  shippingCountry: json['shippingCountry'] as String?,
-  payTime: (json['payTime'] as num?)?.toDouble(),
-  afterSales: json['afterSales'] as bool?,
-  wish: json['wish'] as bool?,
-  removePackage: json['removePackage'] as bool?,
-  orderFreight: json['orderFreight'] as bool?,
+  userId: JsonCoerce.asString(json['userId']),
+  orderId: JsonCoerce.asString(json['orderId']),
+  skuSourceCode: JsonCoerce.asString(json['skuSourceCode']),
+  parentOrderId: JsonCoerce.asString(json['parentOrderId']),
+  status: JsonCoerce.asDouble(json['status']),
+  frontStatus: JsonCoerce.asDouble(json['frontStatus']),
+  statusContent: JsonCoerce.asString(json['statusContent']),
+  orderStatus: JsonCoerce.asDouble(json['orderStatus']),
+  evaluateStatus: JsonCoerce.asDouble(json['evaluateStatus']),
+  timeoutPeriod: JsonCoerce.asDouble(json['timeoutPeriod']),
+  createTime: JsonCoerce.asDouble(json['createTime']),
+  leftTime: JsonCoerce.asDouble(json['leftTime']),
+  title: JsonCoerce.asString(json['title']),
+  subTitle: JsonCoerce.asString(json['subTitle']),
+  operates: json['operates'] == null
+      ? []
+      : JsonCoerce.asStringList(json['operates']),
+  description: JsonCoerce.asString(json['description']),
+  paySuccessDescription: JsonCoerce.asString(json['paySuccessDescription']),
+  afterSalesExpressMethod: JsonCoerce.asDouble(json['afterSalesExpressMethod']),
+  afterSalesState: JsonCoerce.asDouble(json['afterSalesState']),
+  remark: JsonCoerce.asString(json['remark']),
+  remarkImages: JsonCoerce.asString(json['remarkImages']),
+  supportOnlineAfterSales: JsonCoerce.asDouble(json['supportOnlineAfterSales']),
+  receiptPdfLink: JsonCoerce.asString(json['receiptPdfLink']),
+  afterSalesSupport: JsonCoerce.asString(json['afterSalesSupport']),
+  tenantCode: JsonCoerce.asString(json['tenantCode']),
+  shippingCountry: JsonCoerce.asString(json['shippingCountry']),
+  payTime: JsonCoerce.asDouble(json['payTime']),
+  afterSales: JsonCoerce.asBool(json['afterSales']),
+  wish: JsonCoerce.asBool(json['wish']),
+  removePackage: JsonCoerce.asBool(json['removePackage']),
+  orderFreight: JsonCoerce.asBool(json['orderFreight']),
 );
 
 Map<String, dynamic>
@@ -1892,20 +1890,20 @@ OrderServiceOrderAppDetailGet$Response$Data$UserAddress
 _$OrderServiceOrderAppDetailGet$Response$Data$UserAddressFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderAppDetailGet$Response$Data$UserAddress(
-  country: json['country'] as String?,
-  countryCode: json['countryCode'] as String?,
-  state: json['state'] as String?,
-  stateCode: json['stateCode'] as String?,
-  city: json['city'] as String?,
-  cityCode: json['cityCode'] as String?,
-  street: json['street'] as String?,
-  apartment: json['apartment'] as String?,
-  address: json['address'] as String?,
-  firstName: json['firstName'] as String?,
-  lastName: json['lastName'] as String?,
-  phoneNumber: json['phoneNumber'] as String?,
-  zipCode: json['zipCode'] as String?,
-  id: (json['id'] as num?)?.toDouble(),
+  country: JsonCoerce.asString(json['country']),
+  countryCode: JsonCoerce.asString(json['countryCode']),
+  state: JsonCoerce.asString(json['state']),
+  stateCode: JsonCoerce.asString(json['stateCode']),
+  city: JsonCoerce.asString(json['city']),
+  cityCode: JsonCoerce.asString(json['cityCode']),
+  street: JsonCoerce.asString(json['street']),
+  apartment: JsonCoerce.asString(json['apartment']),
+  address: JsonCoerce.asString(json['address']),
+  firstName: JsonCoerce.asString(json['firstName']),
+  lastName: JsonCoerce.asString(json['lastName']),
+  phoneNumber: JsonCoerce.asString(json['phoneNumber']),
+  zipCode: JsonCoerce.asString(json['zipCode']),
+  id: JsonCoerce.asDouble(json['id']),
 );
 
 Map<String, dynamic>
@@ -1932,11 +1930,11 @@ OrderServiceOrderAppDetailGet$Response$Data$PayMethod
 _$OrderServiceOrderAppDetailGet$Response$Data$PayMethodFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderAppDetailGet$Response$Data$PayMethod(
-  method: json['method'] as String?,
-  methodName: json['methodName'] as String?,
-  payOrderId: json['payOrderId'] as String?,
-  cardMsg: json['cardMsg'] as String?,
-  image: json['image'] as String?,
+  method: JsonCoerce.asString(json['method']),
+  methodName: JsonCoerce.asString(json['methodName']),
+  payOrderId: JsonCoerce.asString(json['payOrderId']),
+  cardMsg: JsonCoerce.asString(json['cardMsg']),
+  image: JsonCoerce.asString(json['image']),
 );
 
 Map<String, dynamic>
@@ -1954,28 +1952,30 @@ OrderServiceOrderAppDetailGet$Response$Data$Payments
 _$OrderServiceOrderAppDetailGet$Response$Data$PaymentsFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderAppDetailGet$Response$Data$Payments(
-  receiptAmount: json['receiptAmount'] as String?,
-  itemsTotalAmount: json['itemsTotalAmount'] as String?,
-  freightAmount: json['freightAmount'] as String?,
-  targetFreightAmount: json['targetFreightAmount'] as String?,
-  skuQuantity: (json['skuQuantity'] as num?)?.toDouble(),
-  currency: json['currency'] as String?,
-  totalPrice: json['totalPrice'] as String?,
-  targetPrice: json['targetPrice'] as String?,
-  targetSettlementAmount: json['targetSettlementAmount'] as String?,
-  settlementAmount: json['settlementAmount'] as String?,
-  discountAmount: json['discountAmount'] as String?,
-  targetDiscountAmount: json['targetDiscountAmount'] as String?,
-  rechargeAmount: json['rechargeAmount'] as String?,
-  targetRechargePrice: json['targetRechargePrice'] as String?,
-  targetPayFeeAmount: json['targetPayFeeAmount'] as String?,
-  targetCurrency: json['targetCurrency'] as String?,
-  targetItemsTotalAmount: json['targetItemsTotalAmount'] as String?,
-  targetOriginAmount: json['targetOriginAmount'] as String?,
-  targetItemDiscountAmount: json['targetItemDiscountAmount'] as String?,
-  targetActualAmount: json['targetActualAmount'] as String?,
-  targetTipAmount: json['targetTipAmount'] as String?,
-  targetServiceAmount: json['targetServiceAmount'] as String?,
+  receiptAmount: JsonCoerce.asString(json['receiptAmount']),
+  itemsTotalAmount: JsonCoerce.asString(json['itemsTotalAmount']),
+  freightAmount: JsonCoerce.asString(json['freightAmount']),
+  targetFreightAmount: JsonCoerce.asString(json['targetFreightAmount']),
+  skuQuantity: JsonCoerce.asDouble(json['skuQuantity']),
+  currency: JsonCoerce.asString(json['currency']),
+  totalPrice: JsonCoerce.asString(json['totalPrice']),
+  targetPrice: JsonCoerce.asString(json['targetPrice']),
+  targetSettlementAmount: JsonCoerce.asString(json['targetSettlementAmount']),
+  settlementAmount: JsonCoerce.asString(json['settlementAmount']),
+  discountAmount: JsonCoerce.asString(json['discountAmount']),
+  targetDiscountAmount: JsonCoerce.asString(json['targetDiscountAmount']),
+  rechargeAmount: JsonCoerce.asString(json['rechargeAmount']),
+  targetRechargePrice: JsonCoerce.asString(json['targetRechargePrice']),
+  targetPayFeeAmount: JsonCoerce.asString(json['targetPayFeeAmount']),
+  targetCurrency: JsonCoerce.asString(json['targetCurrency']),
+  targetItemsTotalAmount: JsonCoerce.asString(json['targetItemsTotalAmount']),
+  targetOriginAmount: JsonCoerce.asString(json['targetOriginAmount']),
+  targetItemDiscountAmount: JsonCoerce.asString(
+    json['targetItemDiscountAmount'],
+  ),
+  targetActualAmount: JsonCoerce.asString(json['targetActualAmount']),
+  targetTipAmount: JsonCoerce.asString(json['targetTipAmount']),
+  targetServiceAmount: JsonCoerce.asString(json['targetServiceAmount']),
   paymentSubjoins: (json['paymentSubjoins'] as List<dynamic>?)
       ?.map(
         (e) =>
@@ -2019,10 +2019,10 @@ OrderServiceOrderAppDetailGet$Response$Data$OrderBillList$Item
 _$OrderServiceOrderAppDetailGet$Response$Data$OrderBillList$ItemFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderAppDetailGet$Response$Data$OrderBillList$Item(
-  status: json['status'] as String?,
-  targetCurrency: json['targetCurrency'] as String?,
-  targetTotalPrice: json['targetTotalPrice'] as String?,
-  billId: json['billId'] as String?,
+  status: JsonCoerce.asString(json['status']),
+  targetCurrency: JsonCoerce.asString(json['targetCurrency']),
+  targetTotalPrice: JsonCoerce.asString(json['targetTotalPrice']),
+  billId: JsonCoerce.asString(json['billId']),
 );
 
 Map<String, dynamic>
@@ -2039,13 +2039,13 @@ OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder
 _$OrderServiceOrderAppDetailGet$Response$Data$ParcelOrderFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder(
-  parcelOrderId: json['parcelOrderId'] as String?,
-  parcelStatus: json['parcelStatus'] as String?,
-  parcelStatusDesc: json['parcelStatusDesc'] as String?,
-  createTime: (json['createTime'] as num?)?.toDouble(),
-  warehouseCode: json['warehouseCode'] as String?,
-  warehouseName: json['warehouseName'] as String?,
-  freight: json['freight'] as String?,
+  parcelOrderId: JsonCoerce.asString(json['parcelOrderId']),
+  parcelStatus: JsonCoerce.asString(json['parcelStatus']),
+  parcelStatusDesc: JsonCoerce.asString(json['parcelStatusDesc']),
+  createTime: JsonCoerce.asDouble(json['createTime']),
+  warehouseCode: JsonCoerce.asString(json['warehouseCode']),
+  warehouseName: JsonCoerce.asString(json['warehouseName']),
+  freight: JsonCoerce.asString(json['freight']),
   freightCurrency: json['freightCurrency'] == null
       ? null
       : OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder$FreightCurrency.fromJson(
@@ -2062,24 +2062,24 @@ _$OrderServiceOrderAppDetailGet$Response$Data$ParcelOrderFromJson(
             ),
       )
       .toList(),
-  buyerOperates:
-      (json['buyerOperates'] as List<dynamic>?)
-          ?.map((e) => e as String)
-          .toList() ??
-      [],
+  buyerOperates: json['buyerOperates'] == null
+      ? []
+      : JsonCoerce.asStringList(json['buyerOperates']),
   freightCompensate: json['freightCompensate'] == null
       ? null
       : OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder$FreightCompensate.fromJson(
           json['freightCompensate'] as Map<String, dynamic>,
         ),
-  solutionCode: json['solutionCode'] as String?,
-  actualFreight: json['actualFreight'] as String?,
-  actualFreightCurrency: json['actualFreightCurrency'] as String?,
-  targetFreightCouponDiscountAmount:
-      json['targetFreightCouponDiscountAmount'] as String?,
-  targetFreightCouponDiscountCurrency:
-      json['targetFreightCouponDiscountCurrency'] as String?,
-  targetFreight: json['targetFreight'] as String?,
+  solutionCode: JsonCoerce.asString(json['solutionCode']),
+  actualFreight: JsonCoerce.asString(json['actualFreight']),
+  actualFreightCurrency: JsonCoerce.asString(json['actualFreightCurrency']),
+  targetFreightCouponDiscountAmount: JsonCoerce.asString(
+    json['targetFreightCouponDiscountAmount'],
+  ),
+  targetFreightCouponDiscountCurrency: JsonCoerce.asString(
+    json['targetFreightCouponDiscountCurrency'],
+  ),
+  targetFreight: JsonCoerce.asString(json['targetFreight']),
   targetFreightCurrency: json['targetFreightCurrency'] == null
       ? null
       : OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder$TargetFreightCurrency.fromJson(
@@ -2122,9 +2122,9 @@ OrderServiceOrderAppDetailGet$Response$Data$OrderTrace
 _$OrderServiceOrderAppDetailGet$Response$Data$OrderTraceFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderAppDetailGet$Response$Data$OrderTrace(
-  tradeOrderId: json['tradeOrderId'] as String?,
-  logisticsOrderId: json['logisticsOrderId'] as String?,
-  logisticsStatus: json['logisticsStatus'] as String?,
+  tradeOrderId: JsonCoerce.asString(json['tradeOrderId']),
+  logisticsOrderId: JsonCoerce.asString(json['logisticsOrderId']),
+  logisticsStatus: JsonCoerce.asString(json['logisticsStatus']),
   traceList: (json['traceList'] as List<dynamic>?)
       ?.map(
         (e) =>
@@ -2133,7 +2133,7 @@ _$OrderServiceOrderAppDetailGet$Response$Data$OrderTraceFromJson(
             ),
       )
       .toList(),
-  parcelOrderId: json['parcelOrderId'] as String?,
+  parcelOrderId: JsonCoerce.asString(json['parcelOrderId']),
 );
 
 Map<String, dynamic>
@@ -2151,11 +2151,11 @@ OrderServiceOrderAppDetailGet$Response$Data$DiscountInfos$Item
 _$OrderServiceOrderAppDetailGet$Response$Data$DiscountInfos$ItemFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderAppDetailGet$Response$Data$DiscountInfos$Item(
-  discountType: (json['discountType'] as num?)?.toDouble(),
-  userCouponCode: json['userCouponCode'] as String?,
-  discountAmount: json['discountAmount'] as String?,
-  targetDiscountAmount: json['targetDiscountAmount'] as String?,
-  couponCode: json['couponCode'] as String?,
+  discountType: JsonCoerce.asDouble(json['discountType']),
+  userCouponCode: JsonCoerce.asString(json['userCouponCode']),
+  discountAmount: JsonCoerce.asString(json['discountAmount']),
+  targetDiscountAmount: JsonCoerce.asString(json['targetDiscountAmount']),
+  couponCode: JsonCoerce.asString(json['couponCode']),
 );
 
 Map<String, dynamic>
@@ -2186,8 +2186,8 @@ _$OrderServiceOrderAppDetailGet$Response$Data$OrderList$ItemFromJson(
       : OrderServiceOrderAppDetailGet$Response$Data$OrderList$Item$SourceOption.fromJson(
           json['sourceOption'] as Map<String, dynamic>,
         ),
-  skuSourceCode: json['skuSourceCode'] as String?,
-  skuSourceTitle: json['skuSourceTitle'] as String?,
+  skuSourceCode: JsonCoerce.asString(json['skuSourceCode']),
+  skuSourceTitle: JsonCoerce.asString(json['skuSourceTitle']),
   logisticsInfo: json['logisticsInfo'] == null
       ? null
       : OrderServiceOrderAppDetailGet$Response$Data$OrderList$Item$LogisticsInfo.fromJson(
@@ -2219,16 +2219,17 @@ OrderServiceOrderConfirmPost$Response$Data$Pricing
 _$OrderServiceOrderConfirmPost$Response$Data$PricingFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderConfirmPost$Response$Data$Pricing(
-  itemsOriginTotalAmount: json['itemsOriginTotalAmount'] as String?,
-  freightAmount: json['freightAmount'] as String?,
-  taxDetail: json['taxDetail'] as String?,
-  rechargeBalance: json['rechargeBalance'] as String?,
-  rechargeBalanceTips: json['rechargeBalanceTips'] as String?,
-  isCouponCode: json['isCouponCode'] as String?,
-  couponCodeReason: json['couponCodeReason'] as String?,
-  isVoucherCode: json['isVoucherCode'] as String?,
-  notSupportDeliveryDescription:
-      json['notSupportDeliveryDescription'] as String?,
+  itemsOriginTotalAmount: JsonCoerce.asString(json['itemsOriginTotalAmount']),
+  freightAmount: JsonCoerce.asString(json['freightAmount']),
+  taxDetail: JsonCoerce.asString(json['taxDetail']),
+  rechargeBalance: JsonCoerce.asString(json['rechargeBalance']),
+  rechargeBalanceTips: JsonCoerce.asString(json['rechargeBalanceTips']),
+  isCouponCode: JsonCoerce.asString(json['isCouponCode']),
+  couponCodeReason: JsonCoerce.asString(json['couponCodeReason']),
+  isVoucherCode: JsonCoerce.asString(json['isVoucherCode']),
+  notSupportDeliveryDescription: JsonCoerce.asString(
+    json['notSupportDeliveryDescription'],
+  ),
   taxLines: (json['taxLines'] as List<dynamic>?)
       ?.map(
         (e) =>
@@ -2282,9 +2283,9 @@ OrderServiceOrderConfirmPost$Response$Data$PaymentMethodList$Item
 _$OrderServiceOrderConfirmPost$Response$Data$PaymentMethodList$ItemFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderConfirmPost$Response$Data$PaymentMethodList$Item(
-  payType: json['payType'] as String?,
-  payTypeName: json['payTypeName'] as String?,
-  payTypeIcon: json['payTypeIcon'] as String?,
+  payType: JsonCoerce.asString(json['payType']),
+  payTypeName: JsonCoerce.asString(json['payTypeName']),
+  payTypeIcon: JsonCoerce.asString(json['payTypeIcon']),
 );
 
 Map<String, dynamic>
@@ -2300,41 +2301,39 @@ OrderServiceOrderNoAuthDetailGet$Response$Data$BaseInfo
 _$OrderServiceOrderNoAuthDetailGet$Response$Data$BaseInfoFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderNoAuthDetailGet$Response$Data$BaseInfo(
-  userId: json['userId'] as String?,
-  orderId: json['orderId'] as String?,
-  skuSourceCode: json['skuSourceCode'] as String?,
-  parentOrderId: json['parentOrderId'] as String?,
-  status: (json['status'] as num?)?.toDouble(),
-  frontStatus: (json['frontStatus'] as num?)?.toDouble(),
-  statusContent: json['statusContent'] as String?,
-  orderStatus: (json['orderStatus'] as num?)?.toDouble(),
-  evaluateStatus: (json['evaluateStatus'] as num?)?.toDouble(),
-  timeoutPeriod: (json['timeoutPeriod'] as num?)?.toDouble(),
-  createTime: (json['createTime'] as num?)?.toDouble(),
-  leftTime: (json['leftTime'] as num?)?.toDouble(),
-  title: json['title'] as String?,
-  subTitle: json['subTitle'] as String?,
-  operates:
-      (json['operates'] as List<dynamic>?)?.map((e) => e as String).toList() ??
-      [],
-  description: json['description'] as String?,
-  paySuccessDescription: json['paySuccessDescription'] as String?,
-  afterSalesExpressMethod: (json['afterSalesExpressMethod'] as num?)
-      ?.toDouble(),
-  afterSalesState: (json['afterSalesState'] as num?)?.toDouble(),
-  remark: json['remark'] as String?,
-  remarkImages: json['remarkImages'] as String?,
-  supportOnlineAfterSales: (json['supportOnlineAfterSales'] as num?)
-      ?.toDouble(),
-  receiptPdfLink: json['receiptPdfLink'] as String?,
-  afterSalesSupport: json['afterSalesSupport'] as String?,
-  tenantCode: json['tenantCode'] as String?,
-  shippingCountry: json['shippingCountry'] as String?,
-  payTime: (json['payTime'] as num?)?.toDouble(),
-  afterSales: json['afterSales'] as bool?,
-  wish: json['wish'] as bool?,
-  removePackage: json['removePackage'] as bool?,
-  orderFreight: json['orderFreight'] as bool?,
+  userId: JsonCoerce.asString(json['userId']),
+  orderId: JsonCoerce.asString(json['orderId']),
+  skuSourceCode: JsonCoerce.asString(json['skuSourceCode']),
+  parentOrderId: JsonCoerce.asString(json['parentOrderId']),
+  status: JsonCoerce.asDouble(json['status']),
+  frontStatus: JsonCoerce.asDouble(json['frontStatus']),
+  statusContent: JsonCoerce.asString(json['statusContent']),
+  orderStatus: JsonCoerce.asDouble(json['orderStatus']),
+  evaluateStatus: JsonCoerce.asDouble(json['evaluateStatus']),
+  timeoutPeriod: JsonCoerce.asDouble(json['timeoutPeriod']),
+  createTime: JsonCoerce.asDouble(json['createTime']),
+  leftTime: JsonCoerce.asDouble(json['leftTime']),
+  title: JsonCoerce.asString(json['title']),
+  subTitle: JsonCoerce.asString(json['subTitle']),
+  operates: json['operates'] == null
+      ? []
+      : JsonCoerce.asStringList(json['operates']),
+  description: JsonCoerce.asString(json['description']),
+  paySuccessDescription: JsonCoerce.asString(json['paySuccessDescription']),
+  afterSalesExpressMethod: JsonCoerce.asDouble(json['afterSalesExpressMethod']),
+  afterSalesState: JsonCoerce.asDouble(json['afterSalesState']),
+  remark: JsonCoerce.asString(json['remark']),
+  remarkImages: JsonCoerce.asString(json['remarkImages']),
+  supportOnlineAfterSales: JsonCoerce.asDouble(json['supportOnlineAfterSales']),
+  receiptPdfLink: JsonCoerce.asString(json['receiptPdfLink']),
+  afterSalesSupport: JsonCoerce.asString(json['afterSalesSupport']),
+  tenantCode: JsonCoerce.asString(json['tenantCode']),
+  shippingCountry: JsonCoerce.asString(json['shippingCountry']),
+  payTime: JsonCoerce.asDouble(json['payTime']),
+  afterSales: JsonCoerce.asBool(json['afterSales']),
+  wish: JsonCoerce.asBool(json['wish']),
+  removePackage: JsonCoerce.asBool(json['removePackage']),
+  orderFreight: JsonCoerce.asBool(json['orderFreight']),
 );
 
 Map<String, dynamic>
@@ -2378,20 +2377,20 @@ OrderServiceOrderNoAuthDetailGet$Response$Data$UserAddress
 _$OrderServiceOrderNoAuthDetailGet$Response$Data$UserAddressFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderNoAuthDetailGet$Response$Data$UserAddress(
-  country: json['country'] as String?,
-  countryCode: json['countryCode'] as String?,
-  state: json['state'] as String?,
-  stateCode: json['stateCode'] as String?,
-  city: json['city'] as String?,
-  cityCode: json['cityCode'] as String?,
-  street: json['street'] as String?,
-  apartment: json['apartment'] as String?,
-  address: json['address'] as String?,
-  firstName: json['firstName'] as String?,
-  lastName: json['lastName'] as String?,
-  phoneNumber: json['phoneNumber'] as String?,
-  zipCode: json['zipCode'] as String?,
-  id: (json['id'] as num?)?.toDouble(),
+  country: JsonCoerce.asString(json['country']),
+  countryCode: JsonCoerce.asString(json['countryCode']),
+  state: JsonCoerce.asString(json['state']),
+  stateCode: JsonCoerce.asString(json['stateCode']),
+  city: JsonCoerce.asString(json['city']),
+  cityCode: JsonCoerce.asString(json['cityCode']),
+  street: JsonCoerce.asString(json['street']),
+  apartment: JsonCoerce.asString(json['apartment']),
+  address: JsonCoerce.asString(json['address']),
+  firstName: JsonCoerce.asString(json['firstName']),
+  lastName: JsonCoerce.asString(json['lastName']),
+  phoneNumber: JsonCoerce.asString(json['phoneNumber']),
+  zipCode: JsonCoerce.asString(json['zipCode']),
+  id: JsonCoerce.asDouble(json['id']),
 );
 
 Map<String, dynamic>
@@ -2418,11 +2417,11 @@ OrderServiceOrderNoAuthDetailGet$Response$Data$PayMethod
 _$OrderServiceOrderNoAuthDetailGet$Response$Data$PayMethodFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderNoAuthDetailGet$Response$Data$PayMethod(
-  method: json['method'] as String?,
-  methodName: json['methodName'] as String?,
-  payOrderId: json['payOrderId'] as String?,
-  cardMsg: json['cardMsg'] as String?,
-  image: json['image'] as String?,
+  method: JsonCoerce.asString(json['method']),
+  methodName: JsonCoerce.asString(json['methodName']),
+  payOrderId: JsonCoerce.asString(json['payOrderId']),
+  cardMsg: JsonCoerce.asString(json['cardMsg']),
+  image: JsonCoerce.asString(json['image']),
 );
 
 Map<String, dynamic>
@@ -2440,25 +2439,25 @@ OrderServiceOrderNoAuthDetailGet$Response$Data$Payments
 _$OrderServiceOrderNoAuthDetailGet$Response$Data$PaymentsFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderNoAuthDetailGet$Response$Data$Payments(
-  receiptAmount: json['receiptAmount'] as String?,
-  itemsTotalAmount: json['itemsTotalAmount'] as String?,
-  freightAmount: json['freightAmount'] as String?,
-  targetFreightAmount: json['targetFreightAmount'] as String?,
-  skuQuantity: (json['skuQuantity'] as num?)?.toDouble(),
-  currency: json['currency'] as String?,
-  totalPrice: json['totalPrice'] as String?,
-  targetPrice: json['targetPrice'] as String?,
-  targetSettlementAmount: json['targetSettlementAmount'] as String?,
-  settlementAmount: json['settlementAmount'] as String?,
-  discountAmount: json['discountAmount'] as String?,
-  targetDiscountAmount: json['targetDiscountAmount'] as String?,
-  rechargeAmount: json['rechargeAmount'] as String?,
-  targetRechargePrice: json['targetRechargePrice'] as String?,
-  targetPayFeeAmount: json['targetPayFeeAmount'] as String?,
-  targetCurrency: json['targetCurrency'] as String?,
-  targetItemsTotalAmount: json['targetItemsTotalAmount'] as String?,
-  targetOriginAmount: json['targetOriginAmount'] as String?,
-  targetActualAmount: json['targetActualAmount'] as String?,
+  receiptAmount: JsonCoerce.asString(json['receiptAmount']),
+  itemsTotalAmount: JsonCoerce.asString(json['itemsTotalAmount']),
+  freightAmount: JsonCoerce.asString(json['freightAmount']),
+  targetFreightAmount: JsonCoerce.asString(json['targetFreightAmount']),
+  skuQuantity: JsonCoerce.asDouble(json['skuQuantity']),
+  currency: JsonCoerce.asString(json['currency']),
+  totalPrice: JsonCoerce.asString(json['totalPrice']),
+  targetPrice: JsonCoerce.asString(json['targetPrice']),
+  targetSettlementAmount: JsonCoerce.asString(json['targetSettlementAmount']),
+  settlementAmount: JsonCoerce.asString(json['settlementAmount']),
+  discountAmount: JsonCoerce.asString(json['discountAmount']),
+  targetDiscountAmount: JsonCoerce.asString(json['targetDiscountAmount']),
+  rechargeAmount: JsonCoerce.asString(json['rechargeAmount']),
+  targetRechargePrice: JsonCoerce.asString(json['targetRechargePrice']),
+  targetPayFeeAmount: JsonCoerce.asString(json['targetPayFeeAmount']),
+  targetCurrency: JsonCoerce.asString(json['targetCurrency']),
+  targetItemsTotalAmount: JsonCoerce.asString(json['targetItemsTotalAmount']),
+  targetOriginAmount: JsonCoerce.asString(json['targetOriginAmount']),
+  targetActualAmount: JsonCoerce.asString(json['targetActualAmount']),
 );
 
 Map<String, dynamic>
@@ -2490,10 +2489,10 @@ OrderServiceOrderNoAuthDetailGet$Response$Data$OrderBillList$Item
 _$OrderServiceOrderNoAuthDetailGet$Response$Data$OrderBillList$ItemFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderNoAuthDetailGet$Response$Data$OrderBillList$Item(
-  status: json['status'] as String?,
-  targetCurrency: json['targetCurrency'] as String?,
-  targetTotalPrice: json['targetTotalPrice'] as String?,
-  billId: json['billId'] as String?,
+  status: JsonCoerce.asString(json['status']),
+  targetCurrency: JsonCoerce.asString(json['targetCurrency']),
+  targetTotalPrice: JsonCoerce.asString(json['targetTotalPrice']),
+  billId: JsonCoerce.asString(json['billId']),
 );
 
 Map<String, dynamic>
@@ -2510,13 +2509,13 @@ OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrder
 _$OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrderFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrder(
-  parcelOrderId: json['parcelOrderId'] as String?,
-  parcelStatus: json['parcelStatus'] as String?,
-  parcelStatusDesc: json['parcelStatusDesc'] as String?,
-  createTime: (json['createTime'] as num?)?.toDouble(),
-  warehouseCode: json['warehouseCode'] as String?,
-  warehouseName: json['warehouseName'] as String?,
-  freight: json['freight'] as String?,
+  parcelOrderId: JsonCoerce.asString(json['parcelOrderId']),
+  parcelStatus: JsonCoerce.asString(json['parcelStatus']),
+  parcelStatusDesc: JsonCoerce.asString(json['parcelStatusDesc']),
+  createTime: JsonCoerce.asDouble(json['createTime']),
+  warehouseCode: JsonCoerce.asString(json['warehouseCode']),
+  warehouseName: JsonCoerce.asString(json['warehouseName']),
+  freight: JsonCoerce.asString(json['freight']),
   freightCurrency: json['freightCurrency'] == null
       ? null
       : OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrder$FreightCurrency.fromJson(
@@ -2533,24 +2532,24 @@ _$OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrderFromJson(
             ),
       )
       .toList(),
-  buyerOperates:
-      (json['buyerOperates'] as List<dynamic>?)
-          ?.map((e) => e as String)
-          .toList() ??
-      [],
+  buyerOperates: json['buyerOperates'] == null
+      ? []
+      : JsonCoerce.asStringList(json['buyerOperates']),
   freightCompensate: json['freightCompensate'] == null
       ? null
       : OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrder$FreightCompensate.fromJson(
           json['freightCompensate'] as Map<String, dynamic>,
         ),
-  solutionCode: json['solutionCode'] as String?,
-  actualFreight: json['actualFreight'] as String?,
-  actualFreightCurrency: json['actualFreightCurrency'] as String?,
-  targetFreightCouponDiscountAmount:
-      json['targetFreightCouponDiscountAmount'] as String?,
-  targetFreightCouponDiscountCurrency:
-      json['targetFreightCouponDiscountCurrency'] as String?,
-  targetFreight: json['targetFreight'] as String?,
+  solutionCode: JsonCoerce.asString(json['solutionCode']),
+  actualFreight: JsonCoerce.asString(json['actualFreight']),
+  actualFreightCurrency: JsonCoerce.asString(json['actualFreightCurrency']),
+  targetFreightCouponDiscountAmount: JsonCoerce.asString(
+    json['targetFreightCouponDiscountAmount'],
+  ),
+  targetFreightCouponDiscountCurrency: JsonCoerce.asString(
+    json['targetFreightCouponDiscountCurrency'],
+  ),
+  targetFreight: JsonCoerce.asString(json['targetFreight']),
   targetFreightCurrency: json['targetFreightCurrency'] == null
       ? null
       : OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrder$TargetFreightCurrency.fromJson(
@@ -2593,9 +2592,9 @@ OrderServiceOrderNoAuthDetailGet$Response$Data$OrderTrace
 _$OrderServiceOrderNoAuthDetailGet$Response$Data$OrderTraceFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderNoAuthDetailGet$Response$Data$OrderTrace(
-  tradeOrderId: json['tradeOrderId'] as String?,
-  logisticsOrderId: json['logisticsOrderId'] as String?,
-  logisticsStatus: json['logisticsStatus'] as String?,
+  tradeOrderId: JsonCoerce.asString(json['tradeOrderId']),
+  logisticsOrderId: JsonCoerce.asString(json['logisticsOrderId']),
+  logisticsStatus: JsonCoerce.asString(json['logisticsStatus']),
   traceList: (json['traceList'] as List<dynamic>?)
       ?.map(
         (e) =>
@@ -2604,7 +2603,7 @@ _$OrderServiceOrderNoAuthDetailGet$Response$Data$OrderTraceFromJson(
             ),
       )
       .toList(),
-  parcelOrderId: json['parcelOrderId'] as String?,
+  parcelOrderId: JsonCoerce.asString(json['parcelOrderId']),
   groupTraceList: (json['groupTraceList'] as List<dynamic>?)
       ?.map(
         (e) =>
@@ -2631,11 +2630,11 @@ OrderServiceOrderNoAuthDetailGet$Response$Data$DiscountInfos$Item
 _$OrderServiceOrderNoAuthDetailGet$Response$Data$DiscountInfos$ItemFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderNoAuthDetailGet$Response$Data$DiscountInfos$Item(
-  discountType: (json['discountType'] as num?)?.toDouble(),
-  userCouponCode: json['userCouponCode'] as String?,
-  discountAmount: json['discountAmount'] as String?,
-  targetDiscountAmount: json['targetDiscountAmount'] as String?,
-  couponCode: json['couponCode'] as String?,
+  discountType: JsonCoerce.asDouble(json['discountType']),
+  userCouponCode: JsonCoerce.asString(json['userCouponCode']),
+  discountAmount: JsonCoerce.asString(json['discountAmount']),
+  targetDiscountAmount: JsonCoerce.asString(json['targetDiscountAmount']),
+  couponCode: JsonCoerce.asString(json['couponCode']),
 );
 
 Map<String, dynamic>
@@ -2684,8 +2683,8 @@ _$OrderServiceOrderNoAuthDetailGet$Response$Data$OrderList$ItemFromJson(
       : OrderServiceOrderNoAuthDetailGet$Response$Data$OrderList$Item$LogisticsInfo.fromJson(
           json['logisticsInfo'] as Map<String, dynamic>,
         ),
-  skuSourceCode: json['skuSourceCode'] as String?,
-  remark: json['remark'] as String?,
+  skuSourceCode: JsonCoerce.asString(json['skuSourceCode']),
+  remark: JsonCoerce.asString(json['remark']),
 );
 
 Map<String, dynamic>
@@ -2710,20 +2709,20 @@ _$OrderServiceOrderCouponListPost$Response$Data$Item$UserCouponFromJson(
       : OrderServiceOrderCouponListPost$Response$Data$Item$UserCoupon$MsgInfo.fromJson(
           json['msgInfo'] as Map<String, dynamic>,
         ),
-  userCouponCode: json['userCouponCode'] as String?,
-  couponCode: json['couponCode'] as String?,
-  couponTitle: (json['couponTitle'] as num?)?.toDouble(),
-  isUsed: json['isUsed'] as String?,
-  gmtInvalid: json['gmtInvalid'] as String?,
-  type: (json['type'] as num?)?.toInt(),
-  discount: (json['discount'] as num?)?.toDouble(),
-  limitAmount: (json['limitAmount'] as num?)?.toDouble(),
-  currency: json['currency'] as String?,
-  discountTarget: json['discountTarget'] as String?,
-  limitAmountTarget: json['limitAmountTarget'] as String?,
-  currencyTarget: json['currencyTarget'] as String?,
-  sourceCode: json['sourceCode'] as String?,
-  scence: json['scence'] as String?,
+  userCouponCode: JsonCoerce.asString(json['userCouponCode']),
+  couponCode: JsonCoerce.asString(json['couponCode']),
+  couponTitle: JsonCoerce.asDouble(json['couponTitle']),
+  isUsed: JsonCoerce.asString(json['isUsed']),
+  gmtInvalid: JsonCoerce.asString(json['gmtInvalid']),
+  type: JsonCoerce.asInt(json['type']),
+  discount: JsonCoerce.asDouble(json['discount']),
+  limitAmount: JsonCoerce.asDouble(json['limitAmount']),
+  currency: JsonCoerce.asString(json['currency']),
+  discountTarget: JsonCoerce.asString(json['discountTarget']),
+  limitAmountTarget: JsonCoerce.asString(json['limitAmountTarget']),
+  currencyTarget: JsonCoerce.asString(json['currencyTarget']),
+  sourceCode: JsonCoerce.asString(json['sourceCode']),
+  scence: JsonCoerce.asString(json['scence']),
 );
 
 Map<String, dynamic>
@@ -2751,8 +2750,8 @@ OrderServiceOrderGetReviewGet$Response$Data$Item$SkuSpecValues$Item
 _$OrderServiceOrderGetReviewGet$Response$Data$Item$SkuSpecValues$ItemFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderGetReviewGet$Response$Data$Item$SkuSpecValues$Item(
-  name: json['name'] as String?,
-  value: json['value'] as String?,
+  name: JsonCoerce.asString(json['name']),
+  value: JsonCoerce.asString(json['value']),
 );
 
 Map<String, dynamic>
@@ -2764,12 +2763,10 @@ OrderServiceOrderGetReviewGet$Response$Data$Item$Review
 _$OrderServiceOrderGetReviewGet$Response$Data$Item$ReviewFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderGetReviewGet$Response$Data$Item$Review(
-  comment: json['comment'] as String?,
-  score: json['score'] as String?,
-  images:
-      (json['images'] as List<dynamic>?)?.map((e) => e as String).toList() ??
-      [],
-  extraComment: json['extraComment'] as String?,
+  comment: JsonCoerce.asString(json['comment']),
+  score: JsonCoerce.asString(json['score']),
+  images: json['images'] == null ? [] : JsonCoerce.asStringList(json['images']),
+  extraComment: JsonCoerce.asString(json['extraComment']),
 );
 
 Map<String, dynamic>
@@ -2786,28 +2783,28 @@ OrderServiceOrderListGet$Response$Data$Records$Item
 _$OrderServiceOrderListGet$Response$Data$Records$ItemFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderListGet$Response$Data$Records$Item(
-  status: (json['status'] as num?)?.toDouble(),
-  frontStatus: (json['frontStatus'] as num?)?.toDouble(),
-  statusContent: json['statusContent'] as String?,
-  orderStatus: (json['orderStatus'] as num?)?.toDouble(),
-  orderId: json['orderId'] as String?,
-  parentOrderId: json['parentOrderId'] as String?,
-  quantity: (json['quantity'] as num?)?.toDouble(),
-  totalAmount: json['totalAmount'] as String?,
-  targetTotalAmount: json['targetTotalAmount'] as String?,
-  discountAmount: json['discountAmount'] as String?,
-  targetDiscountAmount: json['targetDiscountAmount'] as String?,
-  targetPayFeeAmount: json['targetPayFeeAmount'] as String?,
-  targetActualAmount: json['targetActualAmount'] as String?,
-  currency: json['currency'] as String?,
-  targetCurrency: json['targetCurrency'] as String?,
-  description: json['description'] as String?,
-  remark: json['remark'] as String?,
-  statusIcon: json['statusIcon'] as String?,
+  status: JsonCoerce.asDouble(json['status']),
+  frontStatus: JsonCoerce.asDouble(json['frontStatus']),
+  statusContent: JsonCoerce.asString(json['statusContent']),
+  orderStatus: JsonCoerce.asDouble(json['orderStatus']),
+  orderId: JsonCoerce.asString(json['orderId']),
+  parentOrderId: JsonCoerce.asString(json['parentOrderId']),
+  quantity: JsonCoerce.asDouble(json['quantity']),
+  totalAmount: JsonCoerce.asString(json['totalAmount']),
+  targetTotalAmount: JsonCoerce.asString(json['targetTotalAmount']),
+  discountAmount: JsonCoerce.asString(json['discountAmount']),
+  targetDiscountAmount: JsonCoerce.asString(json['targetDiscountAmount']),
+  targetPayFeeAmount: JsonCoerce.asString(json['targetPayFeeAmount']),
+  targetActualAmount: JsonCoerce.asString(json['targetActualAmount']),
+  currency: JsonCoerce.asString(json['currency']),
+  targetCurrency: JsonCoerce.asString(json['targetCurrency']),
+  description: JsonCoerce.asString(json['description']),
+  remark: JsonCoerce.asString(json['remark']),
+  statusIcon: JsonCoerce.asString(json['statusIcon']),
   operates:
       (json['operates'] as List<dynamic>?)?.map((e) => e as Object).toList() ??
       [],
-  isLogisticsTrace: json['isLogisticsTrace'] as bool?,
+  isLogisticsTrace: JsonCoerce.asBool(json['isLogisticsTrace']),
   orderSkuList: (json['orderSkuList'] as List<dynamic>?)
       ?.map(
         (e) =>
@@ -2829,7 +2826,7 @@ _$OrderServiceOrderListGet$Response$Data$Records$ItemFromJson(
       : OrderServiceOrderListGet$Response$Data$Records$Item$ParcelOrder.fromJson(
           json['parcelOrder'] as Map<String, dynamic>,
         ),
-  afterSalesList: json['afterSalesList'] as String?,
+  afterSalesList: JsonCoerce.asString(json['afterSalesList']),
   orderBillList: (json['orderBillList'] as List<dynamic>?)
       ?.map(
         (e) =>
@@ -2843,15 +2840,15 @@ _$OrderServiceOrderListGet$Response$Data$Records$ItemFromJson(
       : OrderServiceOrderListGet$Response$Data$Records$Item$UserAddress.fromJson(
           json['userAddress'] as Map<String, dynamic>,
         ),
-  createTime: (json['createTime'] as num?)?.toDouble(),
-  wish: json['wish'] as bool?,
-  targetItemTotalAmount: json['targetItemTotalAmount'] as String?,
-  targetFreightAmount: json['targetFreightAmount'] as String?,
-  giveawayGift: (json['giveawayGift'] as num?)?.toDouble(),
-  skuSourceCode: json['skuSourceCode'] as String?,
-  skuSourceCodeTitle: json['skuSourceCodeTitle'] as String?,
-  targetTipAmount: json['targetTipAmount'] as String?,
-  targetServiceAmount: json['targetServiceAmount'] as String?,
+  createTime: JsonCoerce.asDouble(json['createTime']),
+  wish: JsonCoerce.asBool(json['wish']),
+  targetItemTotalAmount: JsonCoerce.asString(json['targetItemTotalAmount']),
+  targetFreightAmount: JsonCoerce.asString(json['targetFreightAmount']),
+  giveawayGift: JsonCoerce.asDouble(json['giveawayGift']),
+  skuSourceCode: JsonCoerce.asString(json['skuSourceCode']),
+  skuSourceCodeTitle: JsonCoerce.asString(json['skuSourceCodeTitle']),
+  targetTipAmount: JsonCoerce.asString(json['targetTipAmount']),
+  targetServiceAmount: JsonCoerce.asString(json['targetServiceAmount']),
 );
 
 Map<String, dynamic>
@@ -2899,28 +2896,28 @@ OrderServiceOrderCombineListGet$Response$Data$Records$Item
 _$OrderServiceOrderCombineListGet$Response$Data$Records$ItemFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderCombineListGet$Response$Data$Records$Item(
-  status: (json['status'] as num?)?.toDouble(),
-  frontStatus: (json['frontStatus'] as num?)?.toDouble(),
-  statusContent: json['statusContent'] as String?,
-  orderStatus: (json['orderStatus'] as num?)?.toDouble(),
-  quantity: (json['quantity'] as num?)?.toDouble(),
-  totalAmount: json['totalAmount'] as String?,
-  targetTotalAmount: json['targetTotalAmount'] as String?,
-  discountAmount: json['discountAmount'] as String?,
-  targetDiscountAmount: json['targetDiscountAmount'] as String?,
-  itemTotalAmount: json['itemTotalAmount'] as String?,
-  freightAmount: json['freightAmount'] as String?,
-  targetItemTotalAmount: json['targetItemTotalAmount'] as String?,
-  targetFreightAmount: json['targetFreightAmount'] as String?,
-  targetPayFeeAmount: json['targetPayFeeAmount'] as String?,
-  currency: json['currency'] as String?,
-  targetCurrency: json['targetCurrency'] as String?,
-  description: json['description'] as String?,
-  remark: json['remark'] as String?,
+  status: JsonCoerce.asDouble(json['status']),
+  frontStatus: JsonCoerce.asDouble(json['frontStatus']),
+  statusContent: JsonCoerce.asString(json['statusContent']),
+  orderStatus: JsonCoerce.asDouble(json['orderStatus']),
+  quantity: JsonCoerce.asDouble(json['quantity']),
+  totalAmount: JsonCoerce.asString(json['totalAmount']),
+  targetTotalAmount: JsonCoerce.asString(json['targetTotalAmount']),
+  discountAmount: JsonCoerce.asString(json['discountAmount']),
+  targetDiscountAmount: JsonCoerce.asString(json['targetDiscountAmount']),
+  itemTotalAmount: JsonCoerce.asString(json['itemTotalAmount']),
+  freightAmount: JsonCoerce.asString(json['freightAmount']),
+  targetItemTotalAmount: JsonCoerce.asString(json['targetItemTotalAmount']),
+  targetFreightAmount: JsonCoerce.asString(json['targetFreightAmount']),
+  targetPayFeeAmount: JsonCoerce.asString(json['targetPayFeeAmount']),
+  currency: JsonCoerce.asString(json['currency']),
+  targetCurrency: JsonCoerce.asString(json['targetCurrency']),
+  description: JsonCoerce.asString(json['description']),
+  remark: JsonCoerce.asString(json['remark']),
   operates:
       (json['operates'] as List<dynamic>?)?.map((e) => e as Object).toList() ??
       [],
-  isLogisticsTrace: json['isLogisticsTrace'] as bool?,
+  isLogisticsTrace: JsonCoerce.asBool(json['isLogisticsTrace']),
   parcelOrder: json['parcelOrder'] == null
       ? null
       : OrderServiceOrderCombineListGet$Response$Data$Records$Item$ParcelOrder.fromJson(
@@ -2931,8 +2928,8 @@ _$OrderServiceOrderCombineListGet$Response$Data$Records$ItemFromJson(
       : OrderServiceOrderCombineListGet$Response$Data$Records$Item$UserAddress.fromJson(
           json['userAddress'] as Map<String, dynamic>,
         ),
-  createTime: (json['createTime'] as num?)?.toDouble(),
-  wish: json['wish'] as bool?,
+  createTime: JsonCoerce.asDouble(json['createTime']),
+  wish: JsonCoerce.asBool(json['wish']),
   orderList: (json['orderList'] as List<dynamic>?)
       ?.map(
         (e) =>
@@ -2994,9 +2991,9 @@ _$OrderServiceOrderDetailGet$Response$Data$OrderList$ItemFromJson(
             ),
       )
       .toList(),
-  skuSourceCode: json['skuSourceCode'] as String?,
-  skuSourceTitle: json['skuSourceTitle'] as String?,
-  remark: json['remark'] as String?,
+  skuSourceCode: JsonCoerce.asString(json['skuSourceCode']),
+  skuSourceTitle: JsonCoerce.asString(json['skuSourceTitle']),
+  remark: JsonCoerce.asString(json['remark']),
   logisticsInfo: json['logisticsInfo'] == null
       ? null
       : OrderServiceOrderDetailGet$Response$Data$OrderList$Item$LogisticsInfo.fromJson(
@@ -3026,48 +3023,46 @@ OrderServiceOrderDetailGet$Response$Data$BaseInfo
 _$OrderServiceOrderDetailGet$Response$Data$BaseInfoFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderDetailGet$Response$Data$BaseInfo(
-  userId: json['userId'] as String?,
-  orderId: json['orderId'] as String?,
-  skuSourceCode: json['skuSourceCode'] as String?,
-  skuSourceTitle: json['skuSourceTitle'] as String?,
-  parentOrderId: json['parentOrderId'] as String?,
-  status: (json['status'] as num?)?.toDouble(),
-  frontStatus: (json['frontStatus'] as num?)?.toDouble(),
-  statusContent: json['statusContent'] as String?,
-  orderStatus: (json['orderStatus'] as num?)?.toDouble(),
-  evaluateStatus: (json['evaluateStatus'] as num?)?.toDouble(),
-  timeoutPeriod: (json['timeoutPeriod'] as num?)?.toDouble(),
-  createTime: (json['createTime'] as num?)?.toDouble(),
-  leftTime: (json['leftTime'] as num?)?.toDouble(),
-  title: json['title'] as String?,
-  subTitle: json['subTitle'] as String?,
-  operates:
-      (json['operates'] as List<dynamic>?)?.map((e) => e as String).toList() ??
-      [],
-  description: json['description'] as String?,
-  paySuccessDescription: json['paySuccessDescription'] as String?,
-  afterSalesExpressMethod: (json['afterSalesExpressMethod'] as num?)
-      ?.toDouble(),
-  afterSalesState: (json['afterSalesState'] as num?)?.toDouble(),
-  remark: json['remark'] as String?,
-  remarkImages: json['remarkImages'] as String?,
-  supportOnlineAfterSales: (json['supportOnlineAfterSales'] as num?)
-      ?.toDouble(),
-  receiptPdfLink: json['receiptPdfLink'] as String?,
-  afterSalesSupport: json['afterSalesSupport'] as String?,
-  tenantCode: json['tenantCode'] as String?,
-  shippingCountry: json['shippingCountry'] as String?,
-  payTime: (json['payTime'] as num?)?.toDouble(),
-  batchNo: json['batchNo'] as String?,
-  parcelBatch: json['parcelBatch'] as bool?,
-  removePackage: json['removePackage'] as bool?,
-  orderFreight: json['orderFreight'] as bool?,
+  userId: JsonCoerce.asString(json['userId']),
+  orderId: JsonCoerce.asString(json['orderId']),
+  skuSourceCode: JsonCoerce.asString(json['skuSourceCode']),
+  skuSourceTitle: JsonCoerce.asString(json['skuSourceTitle']),
+  parentOrderId: JsonCoerce.asString(json['parentOrderId']),
+  status: JsonCoerce.asDouble(json['status']),
+  frontStatus: JsonCoerce.asDouble(json['frontStatus']),
+  statusContent: JsonCoerce.asString(json['statusContent']),
+  orderStatus: JsonCoerce.asDouble(json['orderStatus']),
+  evaluateStatus: JsonCoerce.asDouble(json['evaluateStatus']),
+  timeoutPeriod: JsonCoerce.asDouble(json['timeoutPeriod']),
+  createTime: JsonCoerce.asDouble(json['createTime']),
+  leftTime: JsonCoerce.asDouble(json['leftTime']),
+  title: JsonCoerce.asString(json['title']),
+  subTitle: JsonCoerce.asString(json['subTitle']),
+  operates: json['operates'] == null
+      ? []
+      : JsonCoerce.asStringList(json['operates']),
+  description: JsonCoerce.asString(json['description']),
+  paySuccessDescription: JsonCoerce.asString(json['paySuccessDescription']),
+  afterSalesExpressMethod: JsonCoerce.asDouble(json['afterSalesExpressMethod']),
+  afterSalesState: JsonCoerce.asDouble(json['afterSalesState']),
+  remark: JsonCoerce.asString(json['remark']),
+  remarkImages: JsonCoerce.asString(json['remarkImages']),
+  supportOnlineAfterSales: JsonCoerce.asDouble(json['supportOnlineAfterSales']),
+  receiptPdfLink: JsonCoerce.asString(json['receiptPdfLink']),
+  afterSalesSupport: JsonCoerce.asString(json['afterSalesSupport']),
+  tenantCode: JsonCoerce.asString(json['tenantCode']),
+  shippingCountry: JsonCoerce.asString(json['shippingCountry']),
+  payTime: JsonCoerce.asDouble(json['payTime']),
+  batchNo: JsonCoerce.asString(json['batchNo']),
+  parcelBatch: JsonCoerce.asBool(json['parcelBatch']),
+  removePackage: JsonCoerce.asBool(json['removePackage']),
+  orderFreight: JsonCoerce.asBool(json['orderFreight']),
   logisticsSolutionCode: json['logisticsSolutionCode'],
-  returnType: (json['returnType'] as num?)?.toDouble(),
+  returnType: JsonCoerce.asDouble(json['returnType']),
   language: json['language'],
-  giveawayGift: (json['giveawayGift'] as num?)?.toDouble(),
-  afterSales: json['afterSales'] as bool?,
-  wish: json['wish'] as bool?,
+  giveawayGift: JsonCoerce.asDouble(json['giveawayGift']),
+  afterSales: JsonCoerce.asBool(json['afterSales']),
+  wish: JsonCoerce.asBool(json['wish']),
 );
 
 Map<String, dynamic> _$OrderServiceOrderDetailGet$Response$Data$BaseInfoToJson(
@@ -3117,11 +3112,11 @@ OrderServiceOrderDetailGet$Response$Data$PayMethod
 _$OrderServiceOrderDetailGet$Response$Data$PayMethodFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderDetailGet$Response$Data$PayMethod(
-  method: (json['method'] as num?)?.toDouble(),
-  methodName: json['methodName'] as String?,
+  method: JsonCoerce.asDouble(json['method']),
+  methodName: JsonCoerce.asString(json['methodName']),
   payOrderId: json['payOrderId'],
   cardMsg: json['cardMsg'],
-  image: json['image'] as String?,
+  image: JsonCoerce.asString(json['image']),
 );
 
 Map<String, dynamic> _$OrderServiceOrderDetailGet$Response$Data$PayMethodToJson(
@@ -3138,31 +3133,33 @@ OrderServiceOrderDetailGet$Response$Data$Payments
 _$OrderServiceOrderDetailGet$Response$Data$PaymentsFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderDetailGet$Response$Data$Payments(
-  targetOriginAmount: json['targetOriginAmount'] as String?,
-  receiptAmount: json['receiptAmount'] as String?,
-  itemsTotalAmount: json['itemsTotalAmount'] as String?,
-  targetItemsTotalAmount: json['targetItemsTotalAmount'] as String?,
-  targetItemDiscountAmount: json['targetItemDiscountAmount'] as String?,
-  freightAmount: json['freightAmount'] as String?,
-  targetFreightAmount: json['targetFreightAmount'] as String?,
-  skuQuantity: (json['skuQuantity'] as num?)?.toDouble(),
-  currency: json['currency'] as String?,
-  totalPrice: json['totalPrice'] as String?,
-  targetPrice: json['targetPrice'] as String?,
-  discountAmount: json['discountAmount'] as String?,
-  targetDiscountAmount: json['targetDiscountAmount'] as String?,
-  targetActualAmount: json['targetActualAmount'] as String?,
-  targetStockFeeAmount: json['targetStockFeeAmount'] as String?,
-  rechargeAmount: json['rechargeAmount'] as String?,
-  targetRechargePrice: json['targetRechargePrice'] as String?,
-  targetCurrency: json['targetCurrency'] as String?,
-  targetPurchaseDiffPrice: json['targetPurchaseDiffPrice'] as String?,
-  targetPurchasePrice: json['targetPurchasePrice'] as String?,
+  targetOriginAmount: JsonCoerce.asString(json['targetOriginAmount']),
+  receiptAmount: JsonCoerce.asString(json['receiptAmount']),
+  itemsTotalAmount: JsonCoerce.asString(json['itemsTotalAmount']),
+  targetItemsTotalAmount: JsonCoerce.asString(json['targetItemsTotalAmount']),
+  targetItemDiscountAmount: JsonCoerce.asString(
+    json['targetItemDiscountAmount'],
+  ),
+  freightAmount: JsonCoerce.asString(json['freightAmount']),
+  targetFreightAmount: JsonCoerce.asString(json['targetFreightAmount']),
+  skuQuantity: JsonCoerce.asDouble(json['skuQuantity']),
+  currency: JsonCoerce.asString(json['currency']),
+  totalPrice: JsonCoerce.asString(json['totalPrice']),
+  targetPrice: JsonCoerce.asString(json['targetPrice']),
+  discountAmount: JsonCoerce.asString(json['discountAmount']),
+  targetDiscountAmount: JsonCoerce.asString(json['targetDiscountAmount']),
+  targetActualAmount: JsonCoerce.asString(json['targetActualAmount']),
+  targetStockFeeAmount: JsonCoerce.asString(json['targetStockFeeAmount']),
+  rechargeAmount: JsonCoerce.asString(json['rechargeAmount']),
+  targetRechargePrice: JsonCoerce.asString(json['targetRechargePrice']),
+  targetCurrency: JsonCoerce.asString(json['targetCurrency']),
+  targetPurchaseDiffPrice: JsonCoerce.asString(json['targetPurchaseDiffPrice']),
+  targetPurchasePrice: JsonCoerce.asString(json['targetPurchasePrice']),
   purchasePrice: json['purchasePrice'],
-  targetPayFeeAmount: json['targetPayFeeAmount'] as String?,
-  targetTipAmount: json['targetTipAmount'] as String?,
-  targetServiceAmount: json['targetServiceAmount'] as String?,
-  wdSourcePlatform: json['wdSourcePlatform'] as bool?,
+  targetPayFeeAmount: JsonCoerce.asString(json['targetPayFeeAmount']),
+  targetTipAmount: JsonCoerce.asString(json['targetTipAmount']),
+  targetServiceAmount: JsonCoerce.asString(json['targetServiceAmount']),
+  wdSourcePlatform: JsonCoerce.asBool(json['wdSourcePlatform']),
 );
 
 Map<String, dynamic> _$OrderServiceOrderDetailGet$Response$Data$PaymentsToJson(
@@ -3199,20 +3196,20 @@ OrderServiceOrderDetailGet$Response$Data$UserAddress
 _$OrderServiceOrderDetailGet$Response$Data$UserAddressFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderDetailGet$Response$Data$UserAddress(
-  country: json['country'] as String?,
-  countryCode: json['countryCode'] as String?,
-  state: json['state'] as String?,
-  stateCode: json['stateCode'] as String?,
-  city: json['city'] as String?,
-  cityCode: json['cityCode'] as String?,
-  street: json['street'] as String?,
-  apartment: json['apartment'] as String?,
-  address: json['address'] as String?,
-  firstName: json['firstName'] as String?,
-  lastName: json['lastName'] as String?,
-  phoneNumber: json['phoneNumber'] as String?,
-  zipCode: json['zipCode'] as String?,
-  id: (json['id'] as num?)?.toDouble(),
+  country: JsonCoerce.asString(json['country']),
+  countryCode: JsonCoerce.asString(json['countryCode']),
+  state: JsonCoerce.asString(json['state']),
+  stateCode: JsonCoerce.asString(json['stateCode']),
+  city: JsonCoerce.asString(json['city']),
+  cityCode: JsonCoerce.asString(json['cityCode']),
+  street: JsonCoerce.asString(json['street']),
+  apartment: JsonCoerce.asString(json['apartment']),
+  address: JsonCoerce.asString(json['address']),
+  firstName: JsonCoerce.asString(json['firstName']),
+  lastName: JsonCoerce.asString(json['lastName']),
+  phoneNumber: JsonCoerce.asString(json['phoneNumber']),
+  zipCode: JsonCoerce.asString(json['zipCode']),
+  id: JsonCoerce.asDouble(json['id']),
   remark: json['remark'],
   accessCode: json['accessCode'],
   email: json['email'],
@@ -3247,47 +3244,56 @@ OrderServiceOrderDetailGet$Response$Data$ParcelOrder
 _$OrderServiceOrderDetailGet$Response$Data$ParcelOrderFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderDetailGet$Response$Data$ParcelOrder(
-  parcelOrderId: json['parcelOrderId'] as String?,
-  parcelStatus: json['parcelStatus'] as String?,
-  parcelStatusDesc: json['parcelStatusDesc'] as String?,
-  batchNo: json['batchNo'] as String?,
-  createTime: (json['createTime'] as num?)?.toDouble(),
-  warehouseCode: json['warehouseCode'] as String?,
-  warehouseName: json['warehouseName'] as String?,
-  solutionCode: json['solutionCode'] as String?,
-  freight: json['freight'] as String?,
+  parcelOrderId: JsonCoerce.asString(json['parcelOrderId']),
+  parcelStatus: JsonCoerce.asString(json['parcelStatus']),
+  parcelStatusDesc: JsonCoerce.asString(json['parcelStatusDesc']),
+  batchNo: JsonCoerce.asString(json['batchNo']),
+  createTime: JsonCoerce.asDouble(json['createTime']),
+  warehouseCode: JsonCoerce.asString(json['warehouseCode']),
+  warehouseName: JsonCoerce.asString(json['warehouseName']),
+  solutionCode: JsonCoerce.asString(json['solutionCode']),
+  freight: JsonCoerce.asString(json['freight']),
   freightCurrency: json['freightCurrency'] == null
       ? null
       : OrderServiceOrderDetailGet$Response$Data$ParcelOrder$FreightCurrency.fromJson(
           json['freightCurrency'] as Map<String, dynamic>,
         ),
-  targetFreight: json['targetFreight'] as String?,
+  targetFreight: JsonCoerce.asString(json['targetFreight']),
   targetFreightCurrency: json['targetFreightCurrency'] == null
       ? null
       : OrderServiceOrderDetailGet$Response$Data$ParcelOrder$TargetFreightCurrency.fromJson(
           json['targetFreightCurrency'] as Map<String, dynamic>,
         ),
-  actualFreight: json['actualFreight'] as String?,
-  actualFreightCurrency: json['actualFreightCurrency'] as String?,
-  targetActualFreight: json['targetActualFreight'] as String?,
-  targetActualFreightCurrency: json['targetActualFreightCurrency'] as String?,
-  freightCouponCode: json['freightCouponCode'] as String?,
-  freightCouponDiscountAmount: json['freightCouponDiscountAmount'] as String?,
-  freightCouponDiscountCurrency:
-      json['freightCouponDiscountCurrency'] as String?,
-  targetFreightCouponDiscountAmount:
-      json['targetFreightCouponDiscountAmount'] as String?,
-  targetFreightCouponDiscountCurrency:
-      json['targetFreightCouponDiscountCurrency'] as String?,
-  targetServiceAmount: json['targetServiceAmount'] as String?,
-  targetServiceAmountCurrency: json['targetServiceAmountCurrency'] as String?,
-  weight: json['weight'] as String?,
-  length: json['length'] as String?,
-  width: json['width'] as String?,
-  height: json['height'] as String?,
-  lastMileMailNo: json['lastMileMailNo'] as String?,
-  lastMileCompanyCode: json['lastMileCompanyCode'] as String?,
-  lastMileCompanyName: json['lastMileCompanyName'] as String?,
+  actualFreight: JsonCoerce.asString(json['actualFreight']),
+  actualFreightCurrency: JsonCoerce.asString(json['actualFreightCurrency']),
+  targetActualFreight: JsonCoerce.asString(json['targetActualFreight']),
+  targetActualFreightCurrency: JsonCoerce.asString(
+    json['targetActualFreightCurrency'],
+  ),
+  freightCouponCode: JsonCoerce.asString(json['freightCouponCode']),
+  freightCouponDiscountAmount: JsonCoerce.asString(
+    json['freightCouponDiscountAmount'],
+  ),
+  freightCouponDiscountCurrency: JsonCoerce.asString(
+    json['freightCouponDiscountCurrency'],
+  ),
+  targetFreightCouponDiscountAmount: JsonCoerce.asString(
+    json['targetFreightCouponDiscountAmount'],
+  ),
+  targetFreightCouponDiscountCurrency: JsonCoerce.asString(
+    json['targetFreightCouponDiscountCurrency'],
+  ),
+  targetServiceAmount: JsonCoerce.asString(json['targetServiceAmount']),
+  targetServiceAmountCurrency: JsonCoerce.asString(
+    json['targetServiceAmountCurrency'],
+  ),
+  weight: JsonCoerce.asString(json['weight']),
+  length: JsonCoerce.asString(json['length']),
+  width: JsonCoerce.asString(json['width']),
+  height: JsonCoerce.asString(json['height']),
+  lastMileMailNo: JsonCoerce.asString(json['lastMileMailNo']),
+  lastMileCompanyCode: JsonCoerce.asString(json['lastMileCompanyCode']),
+  lastMileCompanyName: JsonCoerce.asString(json['lastMileCompanyName']),
   receiverAddress: json['receiverAddress'] == null
       ? null
       : OrderServiceOrderDetailGet$Response$Data$ParcelOrder$ReceiverAddress.fromJson(
@@ -3301,11 +3307,9 @@ _$OrderServiceOrderDetailGet$Response$Data$ParcelOrderFromJson(
             ),
       )
       .toList(),
-  buyerOperates:
-      (json['buyerOperates'] as List<dynamic>?)
-          ?.map((e) => e as String)
-          .toList() ??
-      [],
+  buyerOperates: json['buyerOperates'] == null
+      ? []
+      : JsonCoerce.asStringList(json['buyerOperates']),
 );
 
 Map<String, dynamic>
@@ -3355,11 +3359,11 @@ OrderServiceOrderDetailGet$Response$Data$OrderTrace
 _$OrderServiceOrderDetailGet$Response$Data$OrderTraceFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderDetailGet$Response$Data$OrderTrace(
-  tradeOrderId: json['tradeOrderId'] as String?,
-  logisticsOrderId: json['logisticsOrderId'] as String?,
-  logisticsStatus: json['logisticsStatus'] as String?,
-  parcelOrderId: json['parcelOrderId'] as String?,
-  parcelOrderStatus: json['parcelOrderStatus'] as String?,
+  tradeOrderId: JsonCoerce.asString(json['tradeOrderId']),
+  logisticsOrderId: JsonCoerce.asString(json['logisticsOrderId']),
+  logisticsStatus: JsonCoerce.asString(json['logisticsStatus']),
+  parcelOrderId: JsonCoerce.asString(json['parcelOrderId']),
+  parcelOrderStatus: JsonCoerce.asString(json['parcelOrderStatus']),
   groupTraceList: (json['groupTraceList'] as List<dynamic>?)
       ?.map(
         (e) =>
@@ -3381,9 +3385,9 @@ _$OrderServiceOrderDetailGet$Response$Data$OrderTraceFromJson(
             ),
       )
       .toList(),
-  lastMileMailNo: json['lastMileMailNo'] as String?,
-  lastMileMailNoLink: json['lastMileMailNoLink'] as String?,
-  lastMileCompanyName: json['lastMileCompanyName'] as String?,
+  lastMileMailNo: JsonCoerce.asString(json['lastMileMailNo']),
+  lastMileMailNoLink: JsonCoerce.asString(json['lastMileMailNoLink']),
+  lastMileCompanyName: JsonCoerce.asString(json['lastMileCompanyName']),
   traceList: (json['traceList'] as List<dynamic>?)
       ?.map(
         (e) =>
@@ -3418,11 +3422,11 @@ OrderServiceOrderDetailGet$Response$Data$DiscountInfos$Item
 _$OrderServiceOrderDetailGet$Response$Data$DiscountInfos$ItemFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderDetailGet$Response$Data$DiscountInfos$Item(
-  discountType: (json['discountType'] as num?)?.toDouble(),
-  userCouponCode: json['userCouponCode'] as String?,
-  discountAmount: json['discountAmount'] as String?,
-  targetDiscountAmount: json['targetDiscountAmount'] as String?,
-  couponCode: json['couponCode'] as String?,
+  discountType: JsonCoerce.asDouble(json['discountType']),
+  userCouponCode: JsonCoerce.asString(json['userCouponCode']),
+  discountAmount: JsonCoerce.asString(json['discountAmount']),
+  targetDiscountAmount: JsonCoerce.asString(json['targetDiscountAmount']),
+  couponCode: JsonCoerce.asString(json['couponCode']),
 );
 
 Map<String, dynamic>
@@ -3440,40 +3444,38 @@ OrderServiceOpenapiOrderDetailGet$Response$Data$BaseInfo
 _$OrderServiceOpenapiOrderDetailGet$Response$Data$BaseInfoFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOpenapiOrderDetailGet$Response$Data$BaseInfo(
-  userId: json['userId'] as String?,
-  orderId: json['orderId'] as String?,
-  skuSourceCode: json['skuSourceCode'] as String?,
-  parentOrderId: json['parentOrderId'] as String?,
-  status: (json['status'] as num?)?.toDouble(),
-  frontStatus: (json['frontStatus'] as num?)?.toDouble(),
-  statusContent: json['statusContent'] as String?,
-  orderStatus: (json['orderStatus'] as num?)?.toDouble(),
-  evaluateStatus: (json['evaluateStatus'] as num?)?.toDouble(),
-  timeoutPeriod: (json['timeoutPeriod'] as num?)?.toDouble(),
-  createTime: (json['createTime'] as num?)?.toDouble(),
-  leftTime: (json['leftTime'] as num?)?.toDouble(),
-  title: json['title'] as String?,
-  subTitle: json['subTitle'] as String?,
-  operates:
-      (json['operates'] as List<dynamic>?)?.map((e) => e as String).toList() ??
-      [],
-  description: json['description'] as String?,
-  paySuccessDescription: json['paySuccessDescription'] as String?,
-  afterSalesExpressMethod: (json['afterSalesExpressMethod'] as num?)
-      ?.toDouble(),
-  afterSalesState: (json['afterSalesState'] as num?)?.toDouble(),
-  remark: json['remark'] as String?,
-  remarkImages: json['remarkImages'] as String?,
-  supportOnlineAfterSales: (json['supportOnlineAfterSales'] as num?)
-      ?.toDouble(),
-  receiptPdfLink: json['receiptPdfLink'] as String?,
-  afterSalesSupport: json['afterSalesSupport'] as String?,
-  tenantCode: json['tenantCode'] as String?,
-  shippingCountry: json['shippingCountry'] as String?,
-  payTime: (json['payTime'] as num?)?.toDouble(),
-  afterSales: json['afterSales'] as bool?,
-  wish: json['wish'] as bool?,
-  removePackage: json['removePackage'] as bool?,
+  userId: JsonCoerce.asString(json['userId']),
+  orderId: JsonCoerce.asString(json['orderId']),
+  skuSourceCode: JsonCoerce.asString(json['skuSourceCode']),
+  parentOrderId: JsonCoerce.asString(json['parentOrderId']),
+  status: JsonCoerce.asDouble(json['status']),
+  frontStatus: JsonCoerce.asDouble(json['frontStatus']),
+  statusContent: JsonCoerce.asString(json['statusContent']),
+  orderStatus: JsonCoerce.asDouble(json['orderStatus']),
+  evaluateStatus: JsonCoerce.asDouble(json['evaluateStatus']),
+  timeoutPeriod: JsonCoerce.asDouble(json['timeoutPeriod']),
+  createTime: JsonCoerce.asDouble(json['createTime']),
+  leftTime: JsonCoerce.asDouble(json['leftTime']),
+  title: JsonCoerce.asString(json['title']),
+  subTitle: JsonCoerce.asString(json['subTitle']),
+  operates: json['operates'] == null
+      ? []
+      : JsonCoerce.asStringList(json['operates']),
+  description: JsonCoerce.asString(json['description']),
+  paySuccessDescription: JsonCoerce.asString(json['paySuccessDescription']),
+  afterSalesExpressMethod: JsonCoerce.asDouble(json['afterSalesExpressMethod']),
+  afterSalesState: JsonCoerce.asDouble(json['afterSalesState']),
+  remark: JsonCoerce.asString(json['remark']),
+  remarkImages: JsonCoerce.asString(json['remarkImages']),
+  supportOnlineAfterSales: JsonCoerce.asDouble(json['supportOnlineAfterSales']),
+  receiptPdfLink: JsonCoerce.asString(json['receiptPdfLink']),
+  afterSalesSupport: JsonCoerce.asString(json['afterSalesSupport']),
+  tenantCode: JsonCoerce.asString(json['tenantCode']),
+  shippingCountry: JsonCoerce.asString(json['shippingCountry']),
+  payTime: JsonCoerce.asDouble(json['payTime']),
+  afterSales: JsonCoerce.asBool(json['afterSales']),
+  wish: JsonCoerce.asBool(json['wish']),
+  removePackage: JsonCoerce.asBool(json['removePackage']),
 );
 
 Map<String, dynamic>
@@ -3516,20 +3518,20 @@ OrderServiceOpenapiOrderDetailGet$Response$Data$UserAddress
 _$OrderServiceOpenapiOrderDetailGet$Response$Data$UserAddressFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOpenapiOrderDetailGet$Response$Data$UserAddress(
-  country: json['country'] as String?,
-  countryCode: json['countryCode'] as String?,
-  state: json['state'] as String?,
-  stateCode: json['stateCode'] as String?,
-  city: json['city'] as String?,
-  cityCode: json['cityCode'] as String?,
-  street: json['street'] as String?,
-  apartment: json['apartment'] as String?,
-  address: json['address'] as String?,
-  firstName: json['firstName'] as String?,
-  lastName: json['lastName'] as String?,
-  phoneNumber: json['phoneNumber'] as String?,
-  zipCode: json['zipCode'] as String?,
-  id: (json['id'] as num?)?.toDouble(),
+  country: JsonCoerce.asString(json['country']),
+  countryCode: JsonCoerce.asString(json['countryCode']),
+  state: JsonCoerce.asString(json['state']),
+  stateCode: JsonCoerce.asString(json['stateCode']),
+  city: JsonCoerce.asString(json['city']),
+  cityCode: JsonCoerce.asString(json['cityCode']),
+  street: JsonCoerce.asString(json['street']),
+  apartment: JsonCoerce.asString(json['apartment']),
+  address: JsonCoerce.asString(json['address']),
+  firstName: JsonCoerce.asString(json['firstName']),
+  lastName: JsonCoerce.asString(json['lastName']),
+  phoneNumber: JsonCoerce.asString(json['phoneNumber']),
+  zipCode: JsonCoerce.asString(json['zipCode']),
+  id: JsonCoerce.asDouble(json['id']),
 );
 
 Map<String, dynamic>
@@ -3556,11 +3558,11 @@ OrderServiceOpenapiOrderDetailGet$Response$Data$PayMethod
 _$OrderServiceOpenapiOrderDetailGet$Response$Data$PayMethodFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOpenapiOrderDetailGet$Response$Data$PayMethod(
-  method: json['method'] as String?,
-  methodName: json['methodName'] as String?,
-  payOrderId: json['payOrderId'] as String?,
-  cardMsg: json['cardMsg'] as String?,
-  image: json['image'] as String?,
+  method: JsonCoerce.asString(json['method']),
+  methodName: JsonCoerce.asString(json['methodName']),
+  payOrderId: JsonCoerce.asString(json['payOrderId']),
+  cardMsg: JsonCoerce.asString(json['cardMsg']),
+  image: JsonCoerce.asString(json['image']),
 );
 
 Map<String, dynamic>
@@ -3578,21 +3580,21 @@ OrderServiceOpenapiOrderDetailGet$Response$Data$Payments
 _$OrderServiceOpenapiOrderDetailGet$Response$Data$PaymentsFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOpenapiOrderDetailGet$Response$Data$Payments(
-  receiptAmount: json['receiptAmount'] as String?,
-  itemsTotalAmount: json['itemsTotalAmount'] as String?,
-  freightAmount: json['freightAmount'] as String?,
-  skuQuantity: (json['skuQuantity'] as num?)?.toDouble(),
-  currency: json['currency'] as String?,
-  totalPrice: json['totalPrice'] as String?,
-  targetPrice: json['targetPrice'] as String?,
-  targetSettlementAmount: json['targetSettlementAmount'] as String?,
-  settlementAmount: json['settlementAmount'] as String?,
-  discountAmount: json['discountAmount'] as String?,
-  targetDiscountAmount: json['targetDiscountAmount'] as String?,
-  rechargeAmount: json['rechargeAmount'] as String?,
-  targetRechargePrice: json['targetRechargePrice'] as String?,
-  targetCurrency: json['targetCurrency'] as String?,
-  targetItemsTotalAmount: json['targetItemsTotalAmount'] as String?,
+  receiptAmount: JsonCoerce.asString(json['receiptAmount']),
+  itemsTotalAmount: JsonCoerce.asString(json['itemsTotalAmount']),
+  freightAmount: JsonCoerce.asString(json['freightAmount']),
+  skuQuantity: JsonCoerce.asDouble(json['skuQuantity']),
+  currency: JsonCoerce.asString(json['currency']),
+  totalPrice: JsonCoerce.asString(json['totalPrice']),
+  targetPrice: JsonCoerce.asString(json['targetPrice']),
+  targetSettlementAmount: JsonCoerce.asString(json['targetSettlementAmount']),
+  settlementAmount: JsonCoerce.asString(json['settlementAmount']),
+  discountAmount: JsonCoerce.asString(json['discountAmount']),
+  targetDiscountAmount: JsonCoerce.asString(json['targetDiscountAmount']),
+  rechargeAmount: JsonCoerce.asString(json['rechargeAmount']),
+  targetRechargePrice: JsonCoerce.asString(json['targetRechargePrice']),
+  targetCurrency: JsonCoerce.asString(json['targetCurrency']),
+  targetItemsTotalAmount: JsonCoerce.asString(json['targetItemsTotalAmount']),
 );
 
 Map<String, dynamic>
@@ -3620,10 +3622,10 @@ OrderServiceOpenapiOrderDetailGet$Response$Data$OrderBillList$Item
 _$OrderServiceOpenapiOrderDetailGet$Response$Data$OrderBillList$ItemFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOpenapiOrderDetailGet$Response$Data$OrderBillList$Item(
-  status: json['status'] as String?,
-  targetCurrency: json['targetCurrency'] as String?,
-  targetTotalPrice: json['targetTotalPrice'] as String?,
-  billId: json['billId'] as String?,
+  status: JsonCoerce.asString(json['status']),
+  targetCurrency: JsonCoerce.asString(json['targetCurrency']),
+  targetTotalPrice: JsonCoerce.asString(json['targetTotalPrice']),
+  billId: JsonCoerce.asString(json['billId']),
 );
 
 Map<String, dynamic>
@@ -3640,13 +3642,13 @@ OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrder
 _$OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrderFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrder(
-  parcelOrderId: json['parcelOrderId'] as String?,
-  parcelStatus: json['parcelStatus'] as String?,
-  parcelStatusDesc: json['parcelStatusDesc'] as String?,
-  createTime: (json['createTime'] as num?)?.toDouble(),
-  warehouseCode: json['warehouseCode'] as String?,
-  warehouseName: json['warehouseName'] as String?,
-  freight: json['freight'] as String?,
+  parcelOrderId: JsonCoerce.asString(json['parcelOrderId']),
+  parcelStatus: JsonCoerce.asString(json['parcelStatus']),
+  parcelStatusDesc: JsonCoerce.asString(json['parcelStatusDesc']),
+  createTime: JsonCoerce.asDouble(json['createTime']),
+  warehouseCode: JsonCoerce.asString(json['warehouseCode']),
+  warehouseName: JsonCoerce.asString(json['warehouseName']),
+  freight: JsonCoerce.asString(json['freight']),
   freightCurrency: json['freightCurrency'] == null
       ? null
       : OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrder$FreightCurrency.fromJson(
@@ -3663,24 +3665,24 @@ _$OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrderFromJson(
             ),
       )
       .toList(),
-  buyerOperates:
-      (json['buyerOperates'] as List<dynamic>?)
-          ?.map((e) => e as String)
-          .toList() ??
-      [],
+  buyerOperates: json['buyerOperates'] == null
+      ? []
+      : JsonCoerce.asStringList(json['buyerOperates']),
   freightCompensate: json['freightCompensate'] == null
       ? null
       : OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrder$FreightCompensate.fromJson(
           json['freightCompensate'] as Map<String, dynamic>,
         ),
-  solutionCode: json['solutionCode'] as String?,
-  actualFreight: json['actualFreight'] as String?,
-  actualFreightCurrency: json['actualFreightCurrency'] as String?,
-  targetFreightCouponDiscountAmount:
-      json['targetFreightCouponDiscountAmount'] as String?,
-  targetFreightCouponDiscountCurrency:
-      json['targetFreightCouponDiscountCurrency'] as String?,
-  targetFreight: json['targetFreight'] as String?,
+  solutionCode: JsonCoerce.asString(json['solutionCode']),
+  actualFreight: JsonCoerce.asString(json['actualFreight']),
+  actualFreightCurrency: JsonCoerce.asString(json['actualFreightCurrency']),
+  targetFreightCouponDiscountAmount: JsonCoerce.asString(
+    json['targetFreightCouponDiscountAmount'],
+  ),
+  targetFreightCouponDiscountCurrency: JsonCoerce.asString(
+    json['targetFreightCouponDiscountCurrency'],
+  ),
+  targetFreight: JsonCoerce.asString(json['targetFreight']),
   targetFreightCurrency: json['targetFreightCurrency'] == null
       ? null
       : OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrder$TargetFreightCurrency.fromJson(
@@ -3723,9 +3725,9 @@ OrderServiceOpenapiOrderDetailGet$Response$Data$OrderTrace
 _$OrderServiceOpenapiOrderDetailGet$Response$Data$OrderTraceFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOpenapiOrderDetailGet$Response$Data$OrderTrace(
-  tradeOrderId: json['tradeOrderId'] as String?,
-  logisticsOrderId: json['logisticsOrderId'] as String?,
-  logisticsStatus: json['logisticsStatus'] as String?,
+  tradeOrderId: JsonCoerce.asString(json['tradeOrderId']),
+  logisticsOrderId: JsonCoerce.asString(json['logisticsOrderId']),
+  logisticsStatus: JsonCoerce.asString(json['logisticsStatus']),
   traceList: (json['traceList'] as List<dynamic>?)
       ?.map(
         (e) =>
@@ -3734,7 +3736,7 @@ _$OrderServiceOpenapiOrderDetailGet$Response$Data$OrderTraceFromJson(
             ),
       )
       .toList(),
-  parcelOrderId: json['parcelOrderId'] as String?,
+  parcelOrderId: JsonCoerce.asString(json['parcelOrderId']),
 );
 
 Map<String, dynamic>
@@ -3864,42 +3866,40 @@ OrderServiceOrderCombineDetailGet$Response$Data$BaseInfo
 _$OrderServiceOrderCombineDetailGet$Response$Data$BaseInfoFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderCombineDetailGet$Response$Data$BaseInfo(
-  userId: json['userId'] as String?,
-  orderId: json['orderId'] as String?,
-  skuSourceCode: json['skuSourceCode'] as String?,
-  parentOrderId: json['parentOrderId'] as String?,
-  status: (json['status'] as num?)?.toDouble(),
-  frontStatus: (json['frontStatus'] as num?)?.toDouble(),
-  statusContent: json['statusContent'] as String?,
-  orderStatus: (json['orderStatus'] as num?)?.toDouble(),
-  evaluateStatus: (json['evaluateStatus'] as num?)?.toDouble(),
-  timeoutPeriod: (json['timeoutPeriod'] as num?)?.toDouble(),
-  createTime: (json['createTime'] as num?)?.toDouble(),
-  leftTime: (json['leftTime'] as num?)?.toDouble(),
-  title: json['title'] as String?,
-  subTitle: json['subTitle'] as String?,
-  operates:
-      (json['operates'] as List<dynamic>?)?.map((e) => e as String).toList() ??
-      [],
-  description: json['description'] as String?,
-  paySuccessDescription: json['paySuccessDescription'] as String?,
-  afterSalesExpressMethod: (json['afterSalesExpressMethod'] as num?)
-      ?.toDouble(),
-  afterSalesState: (json['afterSalesState'] as num?)?.toDouble(),
-  remark: json['remark'] as String?,
-  remarkImages: json['remarkImages'] as String?,
-  supportOnlineAfterSales: (json['supportOnlineAfterSales'] as num?)
-      ?.toDouble(),
-  receiptPdfLink: json['receiptPdfLink'] as String?,
-  afterSalesSupport: json['afterSalesSupport'] as String?,
-  tenantCode: json['tenantCode'] as String?,
-  shippingCountry: json['shippingCountry'] as String?,
-  payTime: (json['payTime'] as num?)?.toDouble(),
-  afterSales: json['afterSales'] as bool?,
-  wish: json['wish'] as bool?,
-  removePackage: json['removePackage'] as bool?,
-  orderFreight: json['orderFreight'] as bool?,
-  giveawayGift: (json['giveawayGift'] as num?)?.toInt(),
+  userId: JsonCoerce.asString(json['userId']),
+  orderId: JsonCoerce.asString(json['orderId']),
+  skuSourceCode: JsonCoerce.asString(json['skuSourceCode']),
+  parentOrderId: JsonCoerce.asString(json['parentOrderId']),
+  status: JsonCoerce.asDouble(json['status']),
+  frontStatus: JsonCoerce.asDouble(json['frontStatus']),
+  statusContent: JsonCoerce.asString(json['statusContent']),
+  orderStatus: JsonCoerce.asDouble(json['orderStatus']),
+  evaluateStatus: JsonCoerce.asDouble(json['evaluateStatus']),
+  timeoutPeriod: JsonCoerce.asDouble(json['timeoutPeriod']),
+  createTime: JsonCoerce.asDouble(json['createTime']),
+  leftTime: JsonCoerce.asDouble(json['leftTime']),
+  title: JsonCoerce.asString(json['title']),
+  subTitle: JsonCoerce.asString(json['subTitle']),
+  operates: json['operates'] == null
+      ? []
+      : JsonCoerce.asStringList(json['operates']),
+  description: JsonCoerce.asString(json['description']),
+  paySuccessDescription: JsonCoerce.asString(json['paySuccessDescription']),
+  afterSalesExpressMethod: JsonCoerce.asDouble(json['afterSalesExpressMethod']),
+  afterSalesState: JsonCoerce.asDouble(json['afterSalesState']),
+  remark: JsonCoerce.asString(json['remark']),
+  remarkImages: JsonCoerce.asString(json['remarkImages']),
+  supportOnlineAfterSales: JsonCoerce.asDouble(json['supportOnlineAfterSales']),
+  receiptPdfLink: JsonCoerce.asString(json['receiptPdfLink']),
+  afterSalesSupport: JsonCoerce.asString(json['afterSalesSupport']),
+  tenantCode: JsonCoerce.asString(json['tenantCode']),
+  shippingCountry: JsonCoerce.asString(json['shippingCountry']),
+  payTime: JsonCoerce.asDouble(json['payTime']),
+  afterSales: JsonCoerce.asBool(json['afterSales']),
+  wish: JsonCoerce.asBool(json['wish']),
+  removePackage: JsonCoerce.asBool(json['removePackage']),
+  orderFreight: JsonCoerce.asBool(json['orderFreight']),
+  giveawayGift: JsonCoerce.asInt(json['giveawayGift']),
 );
 
 Map<String, dynamic>
@@ -3944,13 +3944,13 @@ OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrder
 _$OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrderFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrder(
-  parcelOrderId: json['parcelOrderId'] as String?,
-  parcelStatus: json['parcelStatus'] as String?,
-  parcelStatusDesc: json['parcelStatusDesc'] as String?,
-  createTime: (json['createTime'] as num?)?.toDouble(),
-  warehouseCode: json['warehouseCode'] as String?,
-  warehouseName: json['warehouseName'] as String?,
-  freight: json['freight'] as String?,
+  parcelOrderId: JsonCoerce.asString(json['parcelOrderId']),
+  parcelStatus: JsonCoerce.asString(json['parcelStatus']),
+  parcelStatusDesc: JsonCoerce.asString(json['parcelStatusDesc']),
+  createTime: JsonCoerce.asDouble(json['createTime']),
+  warehouseCode: JsonCoerce.asString(json['warehouseCode']),
+  warehouseName: JsonCoerce.asString(json['warehouseName']),
+  freight: JsonCoerce.asString(json['freight']),
   freightCurrency: json['freightCurrency'] == null
       ? null
       : OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrder$FreightCurrency.fromJson(
@@ -3967,24 +3967,24 @@ _$OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrderFromJson(
             ),
       )
       .toList(),
-  buyerOperates:
-      (json['buyerOperates'] as List<dynamic>?)
-          ?.map((e) => e as String)
-          .toList() ??
-      [],
+  buyerOperates: json['buyerOperates'] == null
+      ? []
+      : JsonCoerce.asStringList(json['buyerOperates']),
   freightCompensate: json['freightCompensate'] == null
       ? null
       : OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrder$FreightCompensate.fromJson(
           json['freightCompensate'] as Map<String, dynamic>,
         ),
-  solutionCode: json['solutionCode'] as String?,
-  actualFreight: json['actualFreight'] as String?,
-  actualFreightCurrency: json['actualFreightCurrency'] as String?,
-  targetFreightCouponDiscountAmount:
-      json['targetFreightCouponDiscountAmount'] as String?,
-  targetFreightCouponDiscountCurrency:
-      json['targetFreightCouponDiscountCurrency'] as String?,
-  targetFreight: json['targetFreight'] as String?,
+  solutionCode: JsonCoerce.asString(json['solutionCode']),
+  actualFreight: JsonCoerce.asString(json['actualFreight']),
+  actualFreightCurrency: JsonCoerce.asString(json['actualFreightCurrency']),
+  targetFreightCouponDiscountAmount: JsonCoerce.asString(
+    json['targetFreightCouponDiscountAmount'],
+  ),
+  targetFreightCouponDiscountCurrency: JsonCoerce.asString(
+    json['targetFreightCouponDiscountCurrency'],
+  ),
+  targetFreight: JsonCoerce.asString(json['targetFreight']),
   targetFreightCurrency: json['targetFreightCurrency'] == null
       ? null
       : OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrder$TargetFreightCurrency.fromJson(
@@ -4027,9 +4027,9 @@ OrderServiceOrderCombineDetailGet$Response$Data$OrderTrace
 _$OrderServiceOrderCombineDetailGet$Response$Data$OrderTraceFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderCombineDetailGet$Response$Data$OrderTrace(
-  tradeOrderId: json['tradeOrderId'] as String?,
-  logisticsOrderId: json['logisticsOrderId'] as String?,
-  logisticsStatus: json['logisticsStatus'] as String?,
+  tradeOrderId: JsonCoerce.asString(json['tradeOrderId']),
+  logisticsOrderId: JsonCoerce.asString(json['logisticsOrderId']),
+  logisticsStatus: JsonCoerce.asString(json['logisticsStatus']),
   traceList: (json['traceList'] as List<dynamic>?)
       ?.map(
         (e) =>
@@ -4038,7 +4038,7 @@ _$OrderServiceOrderCombineDetailGet$Response$Data$OrderTraceFromJson(
             ),
       )
       .toList(),
-  parcelOrderId: json['parcelOrderId'] as String?,
+  parcelOrderId: JsonCoerce.asString(json['parcelOrderId']),
   groupTraceList: (json['groupTraceList'] as List<dynamic>?)
       ?.map(
         (e) =>
@@ -4065,17 +4065,17 @@ OrderServiceOrderGetOrderTraceGet$Response$Data$TraceList$Item
 _$OrderServiceOrderGetOrderTraceGet$Response$Data$TraceList$ItemFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderGetOrderTraceGet$Response$Data$TraceList$Item(
-  id: (json['id'] as num?)?.toDouble(),
-  frontCode: json['frontCode'] as String?,
-  icon: json['icon'] as String?,
-  traceMessage: json['traceMessage'] as String?,
-  time: (json['time'] as num?)?.toDouble(),
+  id: JsonCoerce.asDouble(json['id']),
+  frontCode: JsonCoerce.asString(json['frontCode']),
+  icon: JsonCoerce.asString(json['icon']),
+  traceMessage: JsonCoerce.asString(json['traceMessage']),
+  time: JsonCoerce.asDouble(json['time']),
   lastMileMailNo: json['lastMileMailNo'],
-  lastMileMailNoLink: json['lastMileMailNoLink'] as String?,
-  lastMileMailNoTitle: json['lastMileMailNoTitle'] as String?,
-  traceStatus: json['traceStatus'] as String?,
-  frontTitle: json['frontTitle'] as String?,
-  frontTitleCode: json['frontTitleCode'] as String?,
+  lastMileMailNoLink: JsonCoerce.asString(json['lastMileMailNoLink']),
+  lastMileMailNoTitle: JsonCoerce.asString(json['lastMileMailNoTitle']),
+  traceStatus: JsonCoerce.asString(json['traceStatus']),
+  frontTitle: JsonCoerce.asString(json['frontTitle']),
+  frontTitleCode: JsonCoerce.asString(json['frontTitleCode']),
 );
 
 Map<String, dynamic>
@@ -4107,15 +4107,15 @@ _$OrderServiceCartListGet$Response$Data$List$ItemFromJson(
             ),
       )
       .toList(),
-  productCode: json['productCode'] as String?,
-  totalWeight: json['totalWeight'] as String?,
-  weightUnit: json['weightUnit'] as String?,
-  skuSourceCode: json['skuSourceCode'] as String?,
-  skuSourceTitle: json['skuSourceTitle'] as String?,
-  orderFreight: json['orderFreight'] as bool?,
-  orderFreightUrl: json['orderFreightUrl'] as String?,
-  billDescription: json['billDescription'] as String?,
-  billSchema: json['billSchema'] as String?,
+  productCode: JsonCoerce.asString(json['productCode']),
+  totalWeight: JsonCoerce.asString(json['totalWeight']),
+  weightUnit: JsonCoerce.asString(json['weightUnit']),
+  skuSourceCode: JsonCoerce.asString(json['skuSourceCode']),
+  skuSourceTitle: JsonCoerce.asString(json['skuSourceTitle']),
+  orderFreight: JsonCoerce.asBool(json['orderFreight']),
+  orderFreightUrl: JsonCoerce.asString(json['orderFreightUrl']),
+  billDescription: JsonCoerce.asString(json['billDescription']),
+  billSchema: JsonCoerce.asString(json['billSchema']),
 );
 
 Map<String, dynamic> _$OrderServiceCartListGet$Response$Data$List$ItemToJson(
@@ -4137,8 +4137,8 @@ OrderServiceCartPricingPost$Response$Data$SkuQuantityDTOList$Item
 _$OrderServiceCartPricingPost$Response$Data$SkuQuantityDTOList$ItemFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceCartPricingPost$Response$Data$SkuQuantityDTOList$Item(
-  skuCode: json['skuCode'] as String?,
-  quantity: (json['quantity'] as num?)?.toDouble(),
+  skuCode: JsonCoerce.asString(json['skuCode']),
+  quantity: JsonCoerce.asDouble(json['quantity']),
   price: json['price'],
   inviteCode: json['inviteCode'],
   createTime: json['createTime'],
@@ -4163,8 +4163,8 @@ OrderServiceCartPricingPost$Response$Data$ContentInfo
 _$OrderServiceCartPricingPost$Response$Data$ContentInfoFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceCartPricingPost$Response$Data$ContentInfo(
-  rewardMarketing: json['rewardMarketing'] as String?,
-  payFreightNotice: json['payFreightNotice'] as String?,
+  rewardMarketing: JsonCoerce.asString(json['rewardMarketing']),
+  payFreightNotice: JsonCoerce.asString(json['payFreightNotice']),
 );
 
 Map<String, dynamic>
@@ -4179,8 +4179,8 @@ OrderServiceCartNoAuthPricingPost$Response$Data$SkuQuantityDTOList$Item
 _$OrderServiceCartNoAuthPricingPost$Response$Data$SkuQuantityDTOList$ItemFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceCartNoAuthPricingPost$Response$Data$SkuQuantityDTOList$Item(
-  skuCode: json['skuCode'] as String?,
-  quantity: (json['quantity'] as num?)?.toDouble(),
+  skuCode: JsonCoerce.asString(json['skuCode']),
+  quantity: JsonCoerce.asDouble(json['quantity']),
   price: json['price'],
   inviteCode: json['inviteCode'],
   createTime: json['createTime'],
@@ -4206,7 +4206,7 @@ OrderServiceCartNoAuthPricingPost$Response$Data$ContentInfo
 _$OrderServiceCartNoAuthPricingPost$Response$Data$ContentInfoFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceCartNoAuthPricingPost$Response$Data$ContentInfo(
-  rewardMarketing: json['rewardMarketing'] as String?,
+  rewardMarketing: JsonCoerce.asString(json['rewardMarketing']),
 );
 
 Map<String, dynamic>
@@ -4218,21 +4218,21 @@ OrderServiceOrderAppListGet$Response$Data$Records$Item$OrderSkuList$Item
 _$OrderServiceOrderAppListGet$Response$Data$Records$Item$OrderSkuList$ItemFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderAppListGet$Response$Data$Records$Item$OrderSkuList$Item(
-  productName: json['productName'] as String?,
-  skuCode: json['skuCode'] as String?,
-  productCode: json['productCode'] as String?,
-  image: json['image'] as String?,
-  sellPrice: json['sellPrice'] as String?,
-  sellCur: json['sellCur'] as String?,
-  totalPrice: json['totalPrice'] as String?,
-  targetSellPrice: json['targetSellPrice'] as String?,
-  targetSellCur: json['targetSellCur'] as String?,
-  targetTotalPrice: json['targetTotalPrice'] as String?,
-  targetSkuDiscountPrice: json['targetSkuDiscountPrice'] as String?,
-  targetSkuFinalPrice: json['targetSkuFinalPrice'] as String?,
-  targetTotalFinalPrice: json['targetTotalFinalPrice'] as String?,
-  remark: json['remark'] as String?,
-  quantity: (json['quantity'] as num?)?.toDouble(),
+  productName: JsonCoerce.asString(json['productName']),
+  skuCode: JsonCoerce.asString(json['skuCode']),
+  productCode: JsonCoerce.asString(json['productCode']),
+  image: JsonCoerce.asString(json['image']),
+  sellPrice: JsonCoerce.asString(json['sellPrice']),
+  sellCur: JsonCoerce.asString(json['sellCur']),
+  totalPrice: JsonCoerce.asString(json['totalPrice']),
+  targetSellPrice: JsonCoerce.asString(json['targetSellPrice']),
+  targetSellCur: JsonCoerce.asString(json['targetSellCur']),
+  targetTotalPrice: JsonCoerce.asString(json['targetTotalPrice']),
+  targetSkuDiscountPrice: JsonCoerce.asString(json['targetSkuDiscountPrice']),
+  targetSkuFinalPrice: JsonCoerce.asString(json['targetSkuFinalPrice']),
+  targetTotalFinalPrice: JsonCoerce.asString(json['targetTotalFinalPrice']),
+  remark: JsonCoerce.asString(json['remark']),
+  quantity: JsonCoerce.asDouble(json['quantity']),
   skuSpecValues: (json['skuSpecValues'] as List<dynamic>?)
       ?.map(
         (e) =>
@@ -4241,8 +4241,8 @@ _$OrderServiceOrderAppListGet$Response$Data$Records$Item$OrderSkuList$ItemFromJs
             ),
       )
       .toList(),
-  isReturned: json['isReturned'] as bool?,
-  targetOriginPrice: json['targetOriginPrice'] as String?,
+  isReturned: JsonCoerce.asBool(json['isReturned']),
+  targetOriginPrice: JsonCoerce.asString(json['targetOriginPrice']),
 );
 
 Map<String, dynamic>
@@ -4274,15 +4274,15 @@ OrderServiceOrderAppListGet$Response$Data$Records$Item$SupplyOrderList$Item
 _$OrderServiceOrderAppListGet$Response$Data$Records$Item$SupplyOrderList$ItemFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderAppListGet$Response$Data$Records$Item$SupplyOrderList$Item(
-  skuCode: json['skuCode'] as String?,
-  productCode: json['productCode'] as String?,
-  productName: json['productName'] as String?,
+  skuCode: JsonCoerce.asString(json['skuCode']),
+  productCode: JsonCoerce.asString(json['productCode']),
+  productName: JsonCoerce.asString(json['productName']),
   imageUrl: json['imageUrl'],
-  quantity: (json['quantity'] as num?)?.toDouble(),
-  weight: json['weight'] as String?,
-  length: json['length'] as String?,
-  width: json['width'] as String?,
-  height: json['height'] as String?,
+  quantity: JsonCoerce.asDouble(json['quantity']),
+  weight: JsonCoerce.asString(json['weight']),
+  length: JsonCoerce.asString(json['length']),
+  width: JsonCoerce.asString(json['width']),
+  height: JsonCoerce.asString(json['height']),
   inspectImageUrlList:
       (json['inspectImageUrlList'] as List<dynamic>?)
           ?.map((e) => e as Object)
@@ -4320,42 +4320,48 @@ OrderServiceOrderAppListGet$Response$Data$Records$Item$ParcelOrder
 _$OrderServiceOrderAppListGet$Response$Data$Records$Item$ParcelOrderFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderAppListGet$Response$Data$Records$Item$ParcelOrder(
-  parcelOrderId: json['parcelOrderId'] as String?,
-  parcelStatus: json['parcelStatus'] as String?,
-  parcelStatusDesc: json['parcelStatusDesc'] as String?,
-  createTime: (json['createTime'] as num?)?.toDouble(),
-  warehouseCode: json['warehouseCode'] as String?,
-  warehouseName: json['warehouseName'] as String?,
-  solutionCode: json['solutionCode'] as String?,
-  freight: json['freight'] as String?,
+  parcelOrderId: JsonCoerce.asString(json['parcelOrderId']),
+  parcelStatus: JsonCoerce.asString(json['parcelStatus']),
+  parcelStatusDesc: JsonCoerce.asString(json['parcelStatusDesc']),
+  createTime: JsonCoerce.asDouble(json['createTime']),
+  warehouseCode: JsonCoerce.asString(json['warehouseCode']),
+  warehouseName: JsonCoerce.asString(json['warehouseName']),
+  solutionCode: JsonCoerce.asString(json['solutionCode']),
+  freight: JsonCoerce.asString(json['freight']),
   freightCurrency: json['freightCurrency'] == null
       ? null
       : OrderServiceOrderAppListGet$Response$Data$Records$Item$ParcelOrder$FreightCurrency.fromJson(
           json['freightCurrency'] as Map<String, dynamic>,
         ),
-  targetFreight: json['targetFreight'] as String?,
+  targetFreight: JsonCoerce.asString(json['targetFreight']),
   targetFreightCurrency: json['targetFreightCurrency'] == null
       ? null
       : OrderServiceOrderAppListGet$Response$Data$Records$Item$ParcelOrder$TargetFreightCurrency.fromJson(
           json['targetFreightCurrency'] as Map<String, dynamic>,
         ),
-  actualFreight: json['actualFreight'] as String?,
-  actualFreightCurrency: json['actualFreightCurrency'] as String?,
-  targetActualFreight: json['targetActualFreight'] as String?,
-  targetActualFreightCurrency: json['targetActualFreightCurrency'] as String?,
-  freightCouponDiscountAmount: json['freightCouponDiscountAmount'] as String?,
-  targetFreightCouponDiscountAmount:
-      json['targetFreightCouponDiscountAmount'] as String?,
+  actualFreight: JsonCoerce.asString(json['actualFreight']),
+  actualFreightCurrency: JsonCoerce.asString(json['actualFreightCurrency']),
+  targetActualFreight: JsonCoerce.asString(json['targetActualFreight']),
+  targetActualFreightCurrency: JsonCoerce.asString(
+    json['targetActualFreightCurrency'],
+  ),
+  freightCouponDiscountAmount: JsonCoerce.asString(
+    json['freightCouponDiscountAmount'],
+  ),
+  targetFreightCouponDiscountAmount: JsonCoerce.asString(
+    json['targetFreightCouponDiscountAmount'],
+  ),
   freightCouponDiscountCurrency: json['freightCouponDiscountCurrency'] == null
       ? null
       : OrderServiceOrderAppListGet$Response$Data$Records$Item$ParcelOrder$FreightCouponDiscountCurrency.fromJson(
           json['freightCouponDiscountCurrency'] as Map<String, dynamic>,
         ),
-  targetFreightCouponDiscountCurrency:
-      json['targetFreightCouponDiscountCurrency'] as String?,
-  lastMileMailNo: json['lastMileMailNo'] as String?,
-  lastMileCompanyCode: json['lastMileCompanyCode'] as String?,
-  lastMileCompanyName: json['lastMileCompanyName'] as String?,
+  targetFreightCouponDiscountCurrency: JsonCoerce.asString(
+    json['targetFreightCouponDiscountCurrency'],
+  ),
+  lastMileMailNo: JsonCoerce.asString(json['lastMileMailNo']),
+  lastMileCompanyCode: JsonCoerce.asString(json['lastMileCompanyCode']),
+  lastMileCompanyName: JsonCoerce.asString(json['lastMileCompanyName']),
   receiverAddress: json['receiverAddress'] == null
       ? null
       : OrderServiceOrderAppListGet$Response$Data$Records$Item$ParcelOrder$ReceiverAddress.fromJson(
@@ -4369,11 +4375,9 @@ _$OrderServiceOrderAppListGet$Response$Data$Records$Item$ParcelOrderFromJson(
             ),
       )
       .toList(),
-  buyerOperates:
-      (json['buyerOperates'] as List<dynamic>?)
-          ?.map((e) => e as String)
-          .toList() ??
-      [],
+  buyerOperates: json['buyerOperates'] == null
+      ? []
+      : JsonCoerce.asStringList(json['buyerOperates']),
 );
 
 Map<String, dynamic>
@@ -4416,10 +4420,10 @@ OrderServiceOrderAppListGet$Response$Data$Records$Item$OrderBillList$Item
 _$OrderServiceOrderAppListGet$Response$Data$Records$Item$OrderBillList$ItemFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderAppListGet$Response$Data$Records$Item$OrderBillList$Item(
-  billId: json['billId'] as String?,
-  status: (json['status'] as num?)?.toDouble(),
-  targetTotalPrice: json['targetTotalPrice'] as String?,
-  targetCurrency: json['targetCurrency'] as String?,
+  billId: JsonCoerce.asString(json['billId']),
+  status: JsonCoerce.asDouble(json['status']),
+  targetTotalPrice: JsonCoerce.asString(json['targetTotalPrice']),
+  targetCurrency: JsonCoerce.asString(json['targetCurrency']),
 );
 
 Map<String, dynamic>
@@ -4437,20 +4441,20 @@ OrderServiceOrderAppListGet$Response$Data$Records$Item$UserAddress
 _$OrderServiceOrderAppListGet$Response$Data$Records$Item$UserAddressFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderAppListGet$Response$Data$Records$Item$UserAddress(
-  country: json['country'] as String?,
-  countryCode: json['countryCode'] as String?,
-  state: json['state'] as String?,
-  stateCode: json['stateCode'] as String?,
-  city: json['city'] as String?,
-  cityCode: json['cityCode'] as String?,
-  street: json['street'] as String?,
-  apartment: json['apartment'] as String?,
-  address: json['address'] as String?,
-  firstName: json['firstName'] as String?,
-  lastName: json['lastName'] as String?,
-  phoneNumber: json['phoneNumber'] as String?,
-  zipCode: json['zipCode'] as String?,
-  id: (json['id'] as num?)?.toDouble(),
+  country: JsonCoerce.asString(json['country']),
+  countryCode: JsonCoerce.asString(json['countryCode']),
+  state: JsonCoerce.asString(json['state']),
+  stateCode: JsonCoerce.asString(json['stateCode']),
+  city: JsonCoerce.asString(json['city']),
+  cityCode: JsonCoerce.asString(json['cityCode']),
+  street: JsonCoerce.asString(json['street']),
+  apartment: JsonCoerce.asString(json['apartment']),
+  address: JsonCoerce.asString(json['address']),
+  firstName: JsonCoerce.asString(json['firstName']),
+  lastName: JsonCoerce.asString(json['lastName']),
+  phoneNumber: JsonCoerce.asString(json['phoneNumber']),
+  zipCode: JsonCoerce.asString(json['zipCode']),
+  id: JsonCoerce.asDouble(json['id']),
 );
 
 Map<String, dynamic>
@@ -4477,21 +4481,21 @@ OrderServiceOrderAppDetailGet$Response$Data$Payments$PaymentSubjoins$Item
 _$OrderServiceOrderAppDetailGet$Response$Data$Payments$PaymentSubjoins$ItemFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderAppDetailGet$Response$Data$Payments$PaymentSubjoins$Item(
-  type: json['type'] as String?,
-  title: json['title'] as String?,
+  type: JsonCoerce.asString(json['type']),
+  title: JsonCoerce.asString(json['title']),
   description: json['description'] == null
       ? null
       : OrderServiceOrderAppDetailGet$Response$Data$Payments$PaymentSubjoins$Item$Description.fromJson(
           json['description'] as Map<String, dynamic>,
         ),
-  lineContent: json['lineContent'] as String?,
-  content: json['content'] as String?,
-  amount: json['amount'] as String?,
-  contentColor: json['contentColor'] as String?,
-  showIcon: json['showIcon'] as bool?,
-  expandIcon: json['expandIcon'] as bool?,
-  showQuestionIcon: json['showQuestionIcon'] as bool?,
-  questionIconContent: json['questionIconContent'] as String?,
+  lineContent: JsonCoerce.asString(json['lineContent']),
+  content: JsonCoerce.asString(json['content']),
+  amount: JsonCoerce.asString(json['amount']),
+  contentColor: JsonCoerce.asString(json['contentColor']),
+  showIcon: JsonCoerce.asBool(json['showIcon']),
+  expandIcon: JsonCoerce.asBool(json['expandIcon']),
+  showQuestionIcon: JsonCoerce.asBool(json['showQuestionIcon']),
+  questionIconContent: JsonCoerce.asString(json['questionIconContent']),
   subList:
       (json['subList'] as List<dynamic>?)?.map((e) => e as Object).toList() ??
       [],
@@ -4520,8 +4524,8 @@ OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder$FreightCurrency
 _$OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder$FreightCurrencyFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder$FreightCurrency(
-  name: json['name'] as String?,
-  symbol: json['symbol'] as String?,
+  name: JsonCoerce.asString(json['name']),
+  symbol: JsonCoerce.asString(json['symbol']),
 );
 
 Map<String, dynamic>
@@ -4535,11 +4539,11 @@ _$OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder$ParcelProductDTOList$I
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder$ParcelProductDTOList$Item(
-      skuCode: json['skuCode'] as String?,
-      productCode: json['productCode'] as String?,
-      productName: json['productName'] as String?,
-      quantity: (json['quantity'] as num?)?.toDouble(),
-      imageUrl: json['imageUrl'] as String?,
+      skuCode: JsonCoerce.asString(json['skuCode']),
+      productCode: JsonCoerce.asString(json['productCode']),
+      productName: JsonCoerce.asString(json['productName']),
+      quantity: JsonCoerce.asDouble(json['quantity']),
+      imageUrl: JsonCoerce.asString(json['imageUrl']),
     );
 
 Map<String, dynamic>
@@ -4558,13 +4562,14 @@ OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder$FreightCompensate
 _$OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder$FreightCompensateFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder$FreightCompensate(
-  compensateBillId: json['compensateBillId'] as String?,
-  compensatePrice: json['compensatePrice'] as String?,
-  compensatePriceCurrency: json['compensatePriceCurrency'] as String?,
-  compensateReason: json['compensateReason'] as String?,
-  targetCompensatePrice: json['targetCompensatePrice'] as String?,
-  targetCompensatePriceCurrency:
-      json['targetCompensatePriceCurrency'] as String?,
+  compensateBillId: JsonCoerce.asString(json['compensateBillId']),
+  compensatePrice: JsonCoerce.asString(json['compensatePrice']),
+  compensatePriceCurrency: JsonCoerce.asString(json['compensatePriceCurrency']),
+  compensateReason: JsonCoerce.asString(json['compensateReason']),
+  targetCompensatePrice: JsonCoerce.asString(json['targetCompensatePrice']),
+  targetCompensatePriceCurrency: JsonCoerce.asString(
+    json['targetCompensatePriceCurrency'],
+  ),
 );
 
 Map<String, dynamic>
@@ -4585,8 +4590,8 @@ _$OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder$TargetFreightCurrencyF
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder$TargetFreightCurrency(
-      symbol: json['symbol'] as String?,
-      currency: json['currency'] as String?,
+      symbol: JsonCoerce.asString(json['symbol']),
+      currency: JsonCoerce.asString(json['currency']),
     );
 
 Map<String, dynamic>
@@ -4602,16 +4607,16 @@ OrderServiceOrderAppDetailGet$Response$Data$OrderTrace$TraceList$Item
 _$OrderServiceOrderAppDetailGet$Response$Data$OrderTrace$TraceList$ItemFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderAppDetailGet$Response$Data$OrderTrace$TraceList$Item(
-  id: (json['id'] as num?)?.toDouble(),
-  frontCode: json['frontCode'] as String?,
-  icon: json['icon'] as String?,
-  traceMessage: json['traceMessage'] as String?,
-  time: (json['time'] as num?)?.toDouble(),
-  lastMileMailNo: json['lastMileMailNo'] as String?,
-  lastMileMailNoLink: json['lastMileMailNoLink'] as String?,
-  lastMileMailNoTitle: json['lastMileMailNoTitle'] as String?,
-  traceStatus: json['traceStatus'] as String?,
-  logisticsOrderId: json['logisticsOrderId'] as String?,
+  id: JsonCoerce.asDouble(json['id']),
+  frontCode: JsonCoerce.asString(json['frontCode']),
+  icon: JsonCoerce.asString(json['icon']),
+  traceMessage: JsonCoerce.asString(json['traceMessage']),
+  time: JsonCoerce.asDouble(json['time']),
+  lastMileMailNo: JsonCoerce.asString(json['lastMileMailNo']),
+  lastMileMailNoLink: JsonCoerce.asString(json['lastMileMailNoLink']),
+  lastMileMailNoTitle: JsonCoerce.asString(json['lastMileMailNoTitle']),
+  traceStatus: JsonCoerce.asString(json['traceStatus']),
+  logisticsOrderId: JsonCoerce.asString(json['logisticsOrderId']),
 );
 
 Map<String, dynamic>
@@ -4635,23 +4640,23 @@ OrderServiceOrderAppDetailGet$Response$Data$OrderList$Item$SkuList$Item
 _$OrderServiceOrderAppDetailGet$Response$Data$OrderList$Item$SkuList$ItemFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderAppDetailGet$Response$Data$OrderList$Item$SkuList$Item(
-  productName: json['productName'] as String?,
-  productCode: json['productCode'] as String?,
-  skuCode: json['skuCode'] as String?,
-  image: json['image'] as String?,
-  targetOriginPrice: json['targetOriginPrice'] as String?,
-  targetOriginTotalPrice: json['targetOriginTotalPrice'] as String?,
-  sellPrice: json['sellPrice'] as String?,
-  targetSellPrice: json['targetSellPrice'] as String?,
-  totalPrice: json['totalPrice'] as String?,
-  targetTotalPrice: json['targetTotalPrice'] as String?,
-  targetSkuDiscountPrice: json['targetSkuDiscountPrice'] as String?,
-  targetTotalFinalPrice: json['targetTotalFinalPrice'] as String?,
-  targetSkuFinalPrice: json['targetSkuFinalPrice'] as String?,
-  currency: json['currency'] as String?,
-  targetCurrency: json['targetCurrency'] as String?,
-  quantity: (json['quantity'] as num?)?.toDouble(),
-  remark: json['remark'] as String?,
+  productName: JsonCoerce.asString(json['productName']),
+  productCode: JsonCoerce.asString(json['productCode']),
+  skuCode: JsonCoerce.asString(json['skuCode']),
+  image: JsonCoerce.asString(json['image']),
+  targetOriginPrice: JsonCoerce.asString(json['targetOriginPrice']),
+  targetOriginTotalPrice: JsonCoerce.asString(json['targetOriginTotalPrice']),
+  sellPrice: JsonCoerce.asString(json['sellPrice']),
+  targetSellPrice: JsonCoerce.asString(json['targetSellPrice']),
+  totalPrice: JsonCoerce.asString(json['totalPrice']),
+  targetTotalPrice: JsonCoerce.asString(json['targetTotalPrice']),
+  targetSkuDiscountPrice: JsonCoerce.asString(json['targetSkuDiscountPrice']),
+  targetTotalFinalPrice: JsonCoerce.asString(json['targetTotalFinalPrice']),
+  targetSkuFinalPrice: JsonCoerce.asString(json['targetSkuFinalPrice']),
+  currency: JsonCoerce.asString(json['currency']),
+  targetCurrency: JsonCoerce.asString(json['targetCurrency']),
+  quantity: JsonCoerce.asDouble(json['quantity']),
+  remark: JsonCoerce.asString(json['remark']),
   skuSpecValues: (json['skuSpecValues'] as List<dynamic>?)
       ?.map(
         (e) =>
@@ -4660,8 +4665,8 @@ _$OrderServiceOrderAppDetailGet$Response$Data$OrderList$Item$SkuList$ItemFromJso
             ),
       )
       .toList(),
-  isReturned: json['isReturned'] as bool?,
-  skuSourceCode: json['skuSourceCode'] as String?,
+  isReturned: JsonCoerce.asBool(json['isReturned']),
+  skuSourceCode: JsonCoerce.asString(json['skuSourceCode']),
 );
 
 Map<String, dynamic>
@@ -4695,13 +4700,13 @@ OrderServiceOrderAppDetailGet$Response$Data$OrderList$Item$SourceOption
 _$OrderServiceOrderAppDetailGet$Response$Data$OrderList$Item$SourceOptionFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderAppDetailGet$Response$Data$OrderList$Item$SourceOption(
-  canBatch: (json['canBatch'] as num?)?.toInt(),
-  canPayFreight: (json['canPayFreight'] as num?)?.toInt(),
-  canRemovePackage: (json['canRemovePackage'] as num?)?.toInt(),
-  parcelBatch: json['parcelBatch'] as bool?,
-  removePackage: json['removePackage'] as bool?,
-  orderFreight: json['orderFreight'] as bool?,
-  orderFreightUrl: json['orderFreightUrl'] as String?,
+  canBatch: JsonCoerce.asInt(json['canBatch']),
+  canPayFreight: JsonCoerce.asInt(json['canPayFreight']),
+  canRemovePackage: JsonCoerce.asInt(json['canRemovePackage']),
+  parcelBatch: JsonCoerce.asBool(json['parcelBatch']),
+  removePackage: JsonCoerce.asBool(json['removePackage']),
+  orderFreight: JsonCoerce.asBool(json['orderFreight']),
+  orderFreightUrl: JsonCoerce.asString(json['orderFreightUrl']),
 );
 
 Map<String, dynamic>
@@ -4722,12 +4727,12 @@ OrderServiceOrderAppDetailGet$Response$Data$OrderList$Item$LogisticsInfo
 _$OrderServiceOrderAppDetailGet$Response$Data$OrderList$Item$LogisticsInfoFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderAppDetailGet$Response$Data$OrderList$Item$LogisticsInfo(
-  freightContent: json['freightContent'] as String?,
-  expressionDateContent: json['expressionDateContent'] as String?,
-  expressionDateHtml: json['expressionDateHtml'] as String?,
-  targetFreight: json['targetFreight'] as String?,
-  orderFreightUrl: json['orderFreightUrl'] as String?,
-  freightTag: json['freightTag'] as String?,
+  freightContent: JsonCoerce.asString(json['freightContent']),
+  expressionDateContent: JsonCoerce.asString(json['expressionDateContent']),
+  expressionDateHtml: JsonCoerce.asString(json['expressionDateHtml']),
+  targetFreight: JsonCoerce.asString(json['targetFreight']),
+  orderFreightUrl: JsonCoerce.asString(json['orderFreightUrl']),
+  freightTag: JsonCoerce.asString(json['freightTag']),
 );
 
 Map<String, dynamic>
@@ -4748,21 +4753,21 @@ _$OrderServiceOrderAppDetailGet$Response$Data$OrderList$Item$SupplyOrderList$Ite
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderAppDetailGet$Response$Data$OrderList$Item$SupplyOrderList$Item(
-      skuCode: json['skuCode'] as String?,
-      productCode: json['productCode'] as String?,
-      productName: json['productName'] as String?,
-      imageUrl: json['imageUrl'] as String?,
-      quantity: (json['quantity'] as num?)?.toDouble(),
-      weight: json['weight'] as String?,
-      length: json['length'] as String?,
-      width: json['width'] as String?,
-      height: json['height'] as String?,
+      skuCode: JsonCoerce.asString(json['skuCode']),
+      productCode: JsonCoerce.asString(json['productCode']),
+      productName: JsonCoerce.asString(json['productName']),
+      imageUrl: JsonCoerce.asString(json['imageUrl']),
+      quantity: JsonCoerce.asDouble(json['quantity']),
+      weight: JsonCoerce.asString(json['weight']),
+      length: JsonCoerce.asString(json['length']),
+      width: JsonCoerce.asString(json['width']),
+      height: JsonCoerce.asString(json['height']),
       inspectImageUrlList:
           (json['inspectImageUrlList'] as List<dynamic>?)
               ?.map((e) => e as Object)
               .toList() ??
           [],
-      secretKeyList: json['secretKeyList'] as String?,
+      secretKeyList: JsonCoerce.asString(json['secretKeyList']),
     );
 
 Map<String, dynamic>
@@ -4787,9 +4792,9 @@ OrderServiceOrderConfirmPost$Response$Data$Pricing$TaxLines$Item
 _$OrderServiceOrderConfirmPost$Response$Data$Pricing$TaxLines$ItemFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderConfirmPost$Response$Data$Pricing$TaxLines$Item(
-  type: json['type'] as String?,
-  title: json['title'] as String?,
-  tax: json['tax'] as String?,
+  type: JsonCoerce.asString(json['type']),
+  title: JsonCoerce.asString(json['title']),
+  tax: JsonCoerce.asString(json['tax']),
 );
 
 Map<String, dynamic>
@@ -4805,7 +4810,7 @@ OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item
 _$OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$ItemFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item(
-  skuSourceCode: json['skuSourceCode'] as String?,
+  skuSourceCode: JsonCoerce.asString(json['skuSourceCode']),
   recommendSolution: json['recommendSolution'] == null
       ? null
       : OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$RecommendSolution.fromJson(
@@ -4842,7 +4847,7 @@ _$OrderServiceOrderConfirmPost$Response$Data$Pricing$Giveaway$ItemFromJson(
             ),
       )
       .toList(),
-  skuSourceCode: json['skuSourceCode'] as String?,
+  skuSourceCode: JsonCoerce.asString(json['skuSourceCode']),
 );
 
 Map<String, dynamic>
@@ -4865,8 +4870,8 @@ _$OrderServiceOrderConfirmPost$Response$Data$Pricing$VoucherMsgFromJson(
             ),
       )
       .toList(),
-  descprition: json['descprition'] as String?,
-  usedVoucherInfoColor: json['usedVoucherInfoColor'] as String?,
+  descprition: JsonCoerce.asString(json['descprition']),
+  usedVoucherInfoColor: JsonCoerce.asString(json['usedVoucherInfoColor']),
 );
 
 Map<String, dynamic>
@@ -4882,8 +4887,8 @@ OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrder$FreightCurrency
 _$OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrder$FreightCurrencyFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrder$FreightCurrency(
-  name: json['name'] as String?,
-  symbol: json['symbol'] as String?,
+  name: JsonCoerce.asString(json['name']),
+  symbol: JsonCoerce.asString(json['symbol']),
 );
 
 Map<String, dynamic>
@@ -4897,11 +4902,11 @@ _$OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrder$ParcelProductDTOLis
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrder$ParcelProductDTOList$Item(
-      skuCode: json['skuCode'] as String?,
-      productCode: json['productCode'] as String?,
-      productName: json['productName'] as String?,
-      quantity: (json['quantity'] as num?)?.toDouble(),
-      imageUrl: json['imageUrl'] as String?,
+      skuCode: JsonCoerce.asString(json['skuCode']),
+      productCode: JsonCoerce.asString(json['productCode']),
+      productName: JsonCoerce.asString(json['productName']),
+      quantity: JsonCoerce.asDouble(json['quantity']),
+      imageUrl: JsonCoerce.asString(json['imageUrl']),
     );
 
 Map<String, dynamic>
@@ -4921,13 +4926,16 @@ _$OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrder$FreightCompensateFr
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrder$FreightCompensate(
-      compensateBillId: json['compensateBillId'] as String?,
-      compensatePrice: json['compensatePrice'] as String?,
-      compensatePriceCurrency: json['compensatePriceCurrency'] as String?,
-      compensateReason: json['compensateReason'] as String?,
-      targetCompensatePrice: json['targetCompensatePrice'] as String?,
-      targetCompensatePriceCurrency:
-          json['targetCompensatePriceCurrency'] as String?,
+      compensateBillId: JsonCoerce.asString(json['compensateBillId']),
+      compensatePrice: JsonCoerce.asString(json['compensatePrice']),
+      compensatePriceCurrency: JsonCoerce.asString(
+        json['compensatePriceCurrency'],
+      ),
+      compensateReason: JsonCoerce.asString(json['compensateReason']),
+      targetCompensatePrice: JsonCoerce.asString(json['targetCompensatePrice']),
+      targetCompensatePriceCurrency: JsonCoerce.asString(
+        json['targetCompensatePriceCurrency'],
+      ),
     );
 
 Map<String, dynamic>
@@ -4948,8 +4956,8 @@ _$OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrder$TargetFreightCurren
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrder$TargetFreightCurrency(
-      symbol: json['symbol'] as String?,
-      currency: json['currency'] as String?,
+      symbol: JsonCoerce.asString(json['symbol']),
+      currency: JsonCoerce.asString(json['currency']),
     );
 
 Map<String, dynamic>
@@ -4965,16 +4973,16 @@ OrderServiceOrderNoAuthDetailGet$Response$Data$OrderTrace$TraceList$Item
 _$OrderServiceOrderNoAuthDetailGet$Response$Data$OrderTrace$TraceList$ItemFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderNoAuthDetailGet$Response$Data$OrderTrace$TraceList$Item(
-  id: (json['id'] as num?)?.toDouble(),
-  frontCode: json['frontCode'] as String?,
-  icon: json['icon'] as String?,
-  traceMessage: json['traceMessage'] as String?,
-  time: (json['time'] as num?)?.toDouble(),
-  lastMileMailNo: json['lastMileMailNo'] as String?,
-  lastMileMailNoLink: json['lastMileMailNoLink'] as String?,
-  lastMileMailNoTitle: json['lastMileMailNoTitle'] as String?,
-  traceStatus: json['traceStatus'] as String?,
-  logisticsOrderId: json['logisticsOrderId'] as String?,
+  id: JsonCoerce.asDouble(json['id']),
+  frontCode: JsonCoerce.asString(json['frontCode']),
+  icon: JsonCoerce.asString(json['icon']),
+  traceMessage: JsonCoerce.asString(json['traceMessage']),
+  time: JsonCoerce.asDouble(json['time']),
+  lastMileMailNo: JsonCoerce.asString(json['lastMileMailNo']),
+  lastMileMailNoLink: JsonCoerce.asString(json['lastMileMailNoLink']),
+  lastMileMailNoTitle: JsonCoerce.asString(json['lastMileMailNoTitle']),
+  traceStatus: JsonCoerce.asString(json['traceStatus']),
+  logisticsOrderId: JsonCoerce.asString(json['logisticsOrderId']),
 );
 
 Map<String, dynamic>
@@ -4998,13 +5006,13 @@ OrderServiceOrderNoAuthDetailGet$Response$Data$OrderTrace$GroupTraceList$Item
 _$OrderServiceOrderNoAuthDetailGet$Response$Data$OrderTrace$GroupTraceList$ItemFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderNoAuthDetailGet$Response$Data$OrderTrace$GroupTraceList$Item(
-  subParcelOrderId: json['subParcelOrderId'] as String?,
-  parcelOrderStatus: json['parcelOrderStatus'] as String?,
-  lastMileMailNo: json['lastMileMailNo'] as String?,
-  lastMileMailNoLink: json['lastMileMailNoLink'] as String?,
-  lastMileCompanyName: json['lastMileCompanyName'] as String?,
-  lastMileCompanyPhone: json['lastMileCompanyPhone'] as String?,
-  lastMileCompanyEmail: json['lastMileCompanyEmail'] as String?,
+  subParcelOrderId: JsonCoerce.asString(json['subParcelOrderId']),
+  parcelOrderStatus: JsonCoerce.asString(json['parcelOrderStatus']),
+  lastMileMailNo: JsonCoerce.asString(json['lastMileMailNo']),
+  lastMileMailNoLink: JsonCoerce.asString(json['lastMileMailNoLink']),
+  lastMileCompanyName: JsonCoerce.asString(json['lastMileCompanyName']),
+  lastMileCompanyPhone: JsonCoerce.asString(json['lastMileCompanyPhone']),
+  lastMileCompanyEmail: JsonCoerce.asString(json['lastMileCompanyEmail']),
   traceList: (json['traceList'] as List<dynamic>?)
       ?.map(
         (e) =>
@@ -5013,7 +5021,7 @@ _$OrderServiceOrderNoAuthDetailGet$Response$Data$OrderTrace$GroupTraceList$ItemF
             ),
       )
       .toList(),
-  sequenceTime: (json['sequenceTime'] as num?)?.toInt(),
+  sequenceTime: JsonCoerce.asInt(json['sequenceTime']),
 );
 
 Map<String, dynamic>
@@ -5036,23 +5044,23 @@ OrderServiceOrderNoAuthDetailGet$Response$Data$OrderList$Item$SkuList$Item
 _$OrderServiceOrderNoAuthDetailGet$Response$Data$OrderList$Item$SkuList$ItemFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderNoAuthDetailGet$Response$Data$OrderList$Item$SkuList$Item(
-  productName: json['productName'] as String?,
-  productCode: json['productCode'] as String?,
-  skuCode: json['skuCode'] as String?,
-  image: json['image'] as String?,
-  targetOriginPrice: json['targetOriginPrice'] as String?,
-  targetOriginTotalPrice: json['targetOriginTotalPrice'] as String?,
-  sellPrice: json['sellPrice'] as String?,
-  targetSellPrice: json['targetSellPrice'] as String?,
-  totalPrice: json['totalPrice'] as String?,
-  targetTotalPrice: json['targetTotalPrice'] as String?,
-  targetSkuDiscountPrice: json['targetSkuDiscountPrice'] as String?,
-  targetTotalFinalPrice: json['targetTotalFinalPrice'] as String?,
-  targetSkuFinalPrice: json['targetSkuFinalPrice'] as String?,
-  currency: json['currency'] as String?,
-  targetCurrency: json['targetCurrency'] as String?,
-  quantity: (json['quantity'] as num?)?.toDouble(),
-  remark: json['remark'] as String?,
+  productName: JsonCoerce.asString(json['productName']),
+  productCode: JsonCoerce.asString(json['productCode']),
+  skuCode: JsonCoerce.asString(json['skuCode']),
+  image: JsonCoerce.asString(json['image']),
+  targetOriginPrice: JsonCoerce.asString(json['targetOriginPrice']),
+  targetOriginTotalPrice: JsonCoerce.asString(json['targetOriginTotalPrice']),
+  sellPrice: JsonCoerce.asString(json['sellPrice']),
+  targetSellPrice: JsonCoerce.asString(json['targetSellPrice']),
+  totalPrice: JsonCoerce.asString(json['totalPrice']),
+  targetTotalPrice: JsonCoerce.asString(json['targetTotalPrice']),
+  targetSkuDiscountPrice: JsonCoerce.asString(json['targetSkuDiscountPrice']),
+  targetTotalFinalPrice: JsonCoerce.asString(json['targetTotalFinalPrice']),
+  targetSkuFinalPrice: JsonCoerce.asString(json['targetSkuFinalPrice']),
+  currency: JsonCoerce.asString(json['currency']),
+  targetCurrency: JsonCoerce.asString(json['targetCurrency']),
+  quantity: JsonCoerce.asDouble(json['quantity']),
+  remark: JsonCoerce.asString(json['remark']),
   skuSpecValues: (json['skuSpecValues'] as List<dynamic>?)
       ?.map(
         (e) =>
@@ -5061,8 +5069,8 @@ _$OrderServiceOrderNoAuthDetailGet$Response$Data$OrderList$Item$SkuList$ItemFrom
             ),
       )
       .toList(),
-  isReturned: json['isReturned'] as bool?,
-  skuSourceCode: json['skuSourceCode'] as String?,
+  isReturned: JsonCoerce.asBool(json['isReturned']),
+  skuSourceCode: JsonCoerce.asString(json['skuSourceCode']),
 );
 
 Map<String, dynamic>
@@ -5097,21 +5105,21 @@ _$OrderServiceOrderNoAuthDetailGet$Response$Data$OrderList$Item$SupplyOrderList$
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderNoAuthDetailGet$Response$Data$OrderList$Item$SupplyOrderList$Item(
-      skuCode: json['skuCode'] as String?,
-      productCode: json['productCode'] as String?,
-      productName: json['productName'] as String?,
-      imageUrl: json['imageUrl'] as String?,
-      quantity: (json['quantity'] as num?)?.toDouble(),
-      weight: json['weight'] as String?,
-      length: json['length'] as String?,
-      width: json['width'] as String?,
-      height: json['height'] as String?,
+      skuCode: JsonCoerce.asString(json['skuCode']),
+      productCode: JsonCoerce.asString(json['productCode']),
+      productName: JsonCoerce.asString(json['productName']),
+      imageUrl: JsonCoerce.asString(json['imageUrl']),
+      quantity: JsonCoerce.asDouble(json['quantity']),
+      weight: JsonCoerce.asString(json['weight']),
+      length: JsonCoerce.asString(json['length']),
+      width: JsonCoerce.asString(json['width']),
+      height: JsonCoerce.asString(json['height']),
       inspectImageUrlList:
           (json['inspectImageUrlList'] as List<dynamic>?)
               ?.map((e) => e as Object)
               .toList() ??
           [],
-      secretKeyList: json['secretKeyList'] as String?,
+      secretKeyList: JsonCoerce.asString(json['secretKeyList']),
     );
 
 Map<String, dynamic>
@@ -5136,12 +5144,12 @@ OrderServiceOrderNoAuthDetailGet$Response$Data$OrderList$Item$SourceOption
 _$OrderServiceOrderNoAuthDetailGet$Response$Data$OrderList$Item$SourceOptionFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderNoAuthDetailGet$Response$Data$OrderList$Item$SourceOption(
-  canBatch: (json['canBatch'] as num?)?.toInt(),
-  canFreightPay: (json['canFreightPay'] as num?)?.toInt(),
-  canRemovePackage: (json['canRemovePackage'] as num?)?.toInt(),
-  removePackage: json['removePackage'] as bool?,
-  orderFreight: json['orderFreight'] as bool?,
-  parcelBatch: json['parcelBatch'] as bool?,
+  canBatch: JsonCoerce.asInt(json['canBatch']),
+  canFreightPay: JsonCoerce.asInt(json['canFreightPay']),
+  canRemovePackage: JsonCoerce.asInt(json['canRemovePackage']),
+  removePackage: JsonCoerce.asBool(json['removePackage']),
+  orderFreight: JsonCoerce.asBool(json['orderFreight']),
+  parcelBatch: JsonCoerce.asBool(json['parcelBatch']),
 );
 
 Map<String, dynamic>
@@ -5162,8 +5170,8 @@ _$OrderServiceOrderNoAuthDetailGet$Response$Data$OrderList$Item$LogisticsInfoFro
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderNoAuthDetailGet$Response$Data$OrderList$Item$LogisticsInfo(
-      expressionDateContent: json['expressionDateContent'] as String?,
-      freightContent: json['freightContent'] as String?,
+      expressionDateContent: JsonCoerce.asString(json['expressionDateContent']),
+      freightContent: JsonCoerce.asString(json['freightContent']),
     );
 
 Map<String, dynamic>
@@ -5179,11 +5187,11 @@ OrderServiceOrderCouponListPost$Response$Data$Item$UserCoupon$MsgInfo
 _$OrderServiceOrderCouponListPost$Response$Data$Item$UserCoupon$MsgInfoFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderCouponListPost$Response$Data$Item$UserCoupon$MsgInfo(
-  name: json['name'] as String?,
-  usage: json['usage'] as String?,
-  invalidPeriod: (json['invalidPeriod'] as num?)?.toInt(),
-  discountStr: json['discountStr'] as String?,
-  discountUnit: json['discountUnit'] as String?,
+  name: JsonCoerce.asString(json['name']),
+  usage: JsonCoerce.asString(json['usage']),
+  invalidPeriod: JsonCoerce.asInt(json['invalidPeriod']),
+  discountStr: JsonCoerce.asString(json['discountStr']),
+  discountUnit: JsonCoerce.asString(json['discountUnit']),
 );
 
 Map<String, dynamic>
@@ -5202,21 +5210,21 @@ OrderServiceOrderListGet$Response$Data$Records$Item$OrderSkuList$Item
 _$OrderServiceOrderListGet$Response$Data$Records$Item$OrderSkuList$ItemFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderListGet$Response$Data$Records$Item$OrderSkuList$Item(
-  productName: json['productName'] as String?,
-  skuCode: json['skuCode'] as String?,
-  productCode: json['productCode'] as String?,
-  image: json['image'] as String?,
-  sellPrice: json['sellPrice'] as String?,
-  sellCur: json['sellCur'] as String?,
-  totalPrice: json['totalPrice'] as String?,
-  targetSellPrice: json['targetSellPrice'] as String?,
-  targetSellCur: json['targetSellCur'] as String?,
-  targetTotalPrice: json['targetTotalPrice'] as String?,
-  targetSkuDiscountPrice: json['targetSkuDiscountPrice'] as String?,
-  targetSkuFinalPrice: json['targetSkuFinalPrice'] as String?,
-  targetTotalFinalPrice: json['targetTotalFinalPrice'] as String?,
-  remark: json['remark'] as String?,
-  quantity: (json['quantity'] as num?)?.toDouble(),
+  productName: JsonCoerce.asString(json['productName']),
+  skuCode: JsonCoerce.asString(json['skuCode']),
+  productCode: JsonCoerce.asString(json['productCode']),
+  image: JsonCoerce.asString(json['image']),
+  sellPrice: JsonCoerce.asString(json['sellPrice']),
+  sellCur: JsonCoerce.asString(json['sellCur']),
+  totalPrice: JsonCoerce.asString(json['totalPrice']),
+  targetSellPrice: JsonCoerce.asString(json['targetSellPrice']),
+  targetSellCur: JsonCoerce.asString(json['targetSellCur']),
+  targetTotalPrice: JsonCoerce.asString(json['targetTotalPrice']),
+  targetSkuDiscountPrice: JsonCoerce.asString(json['targetSkuDiscountPrice']),
+  targetSkuFinalPrice: JsonCoerce.asString(json['targetSkuFinalPrice']),
+  targetTotalFinalPrice: JsonCoerce.asString(json['targetTotalFinalPrice']),
+  remark: JsonCoerce.asString(json['remark']),
+  quantity: JsonCoerce.asDouble(json['quantity']),
   skuSpecValues: (json['skuSpecValues'] as List<dynamic>?)
       ?.map(
         (e) =>
@@ -5225,8 +5233,8 @@ _$OrderServiceOrderListGet$Response$Data$Records$Item$OrderSkuList$ItemFromJson(
             ),
       )
       .toList(),
-  isReturned: json['isReturned'] as bool?,
-  targetOriginPrice: json['targetOriginPrice'] as String?,
+  isReturned: JsonCoerce.asBool(json['isReturned']),
+  targetOriginPrice: JsonCoerce.asString(json['targetOriginPrice']),
 );
 
 Map<String, dynamic>
@@ -5258,15 +5266,15 @@ OrderServiceOrderListGet$Response$Data$Records$Item$SupplyOrderList$Item
 _$OrderServiceOrderListGet$Response$Data$Records$Item$SupplyOrderList$ItemFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderListGet$Response$Data$Records$Item$SupplyOrderList$Item(
-  skuCode: json['skuCode'] as String?,
-  productCode: json['productCode'] as String?,
-  productName: json['productName'] as String?,
+  skuCode: JsonCoerce.asString(json['skuCode']),
+  productCode: JsonCoerce.asString(json['productCode']),
+  productName: JsonCoerce.asString(json['productName']),
   imageUrl: json['imageUrl'],
-  quantity: (json['quantity'] as num?)?.toDouble(),
-  weight: json['weight'] as String?,
-  length: json['length'] as String?,
-  width: json['width'] as String?,
-  height: json['height'] as String?,
+  quantity: JsonCoerce.asDouble(json['quantity']),
+  weight: JsonCoerce.asString(json['weight']),
+  length: JsonCoerce.asString(json['length']),
+  width: JsonCoerce.asString(json['width']),
+  height: JsonCoerce.asString(json['height']),
   inspectImageUrlList:
       (json['inspectImageUrlList'] as List<dynamic>?)
           ?.map((e) => e as Object)
@@ -5304,42 +5312,48 @@ OrderServiceOrderListGet$Response$Data$Records$Item$ParcelOrder
 _$OrderServiceOrderListGet$Response$Data$Records$Item$ParcelOrderFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderListGet$Response$Data$Records$Item$ParcelOrder(
-  parcelOrderId: json['parcelOrderId'] as String?,
-  parcelStatus: json['parcelStatus'] as String?,
-  parcelStatusDesc: json['parcelStatusDesc'] as String?,
-  createTime: (json['createTime'] as num?)?.toDouble(),
-  warehouseCode: json['warehouseCode'] as String?,
-  warehouseName: json['warehouseName'] as String?,
-  solutionCode: json['solutionCode'] as String?,
-  freight: json['freight'] as String?,
+  parcelOrderId: JsonCoerce.asString(json['parcelOrderId']),
+  parcelStatus: JsonCoerce.asString(json['parcelStatus']),
+  parcelStatusDesc: JsonCoerce.asString(json['parcelStatusDesc']),
+  createTime: JsonCoerce.asDouble(json['createTime']),
+  warehouseCode: JsonCoerce.asString(json['warehouseCode']),
+  warehouseName: JsonCoerce.asString(json['warehouseName']),
+  solutionCode: JsonCoerce.asString(json['solutionCode']),
+  freight: JsonCoerce.asString(json['freight']),
   freightCurrency: json['freightCurrency'] == null
       ? null
       : OrderServiceOrderListGet$Response$Data$Records$Item$ParcelOrder$FreightCurrency.fromJson(
           json['freightCurrency'] as Map<String, dynamic>,
         ),
-  targetFreight: json['targetFreight'] as String?,
+  targetFreight: JsonCoerce.asString(json['targetFreight']),
   targetFreightCurrency: json['targetFreightCurrency'] == null
       ? null
       : OrderServiceOrderListGet$Response$Data$Records$Item$ParcelOrder$TargetFreightCurrency.fromJson(
           json['targetFreightCurrency'] as Map<String, dynamic>,
         ),
-  actualFreight: json['actualFreight'] as String?,
-  actualFreightCurrency: json['actualFreightCurrency'] as String?,
-  targetActualFreight: json['targetActualFreight'] as String?,
-  targetActualFreightCurrency: json['targetActualFreightCurrency'] as String?,
-  freightCouponDiscountAmount: json['freightCouponDiscountAmount'] as String?,
-  targetFreightCouponDiscountAmount:
-      json['targetFreightCouponDiscountAmount'] as String?,
+  actualFreight: JsonCoerce.asString(json['actualFreight']),
+  actualFreightCurrency: JsonCoerce.asString(json['actualFreightCurrency']),
+  targetActualFreight: JsonCoerce.asString(json['targetActualFreight']),
+  targetActualFreightCurrency: JsonCoerce.asString(
+    json['targetActualFreightCurrency'],
+  ),
+  freightCouponDiscountAmount: JsonCoerce.asString(
+    json['freightCouponDiscountAmount'],
+  ),
+  targetFreightCouponDiscountAmount: JsonCoerce.asString(
+    json['targetFreightCouponDiscountAmount'],
+  ),
   freightCouponDiscountCurrency: json['freightCouponDiscountCurrency'] == null
       ? null
       : OrderServiceOrderListGet$Response$Data$Records$Item$ParcelOrder$FreightCouponDiscountCurrency.fromJson(
           json['freightCouponDiscountCurrency'] as Map<String, dynamic>,
         ),
-  targetFreightCouponDiscountCurrency:
-      json['targetFreightCouponDiscountCurrency'] as String?,
-  lastMileMailNo: json['lastMileMailNo'] as String?,
-  lastMileCompanyCode: json['lastMileCompanyCode'] as String?,
-  lastMileCompanyName: json['lastMileCompanyName'] as String?,
+  targetFreightCouponDiscountCurrency: JsonCoerce.asString(
+    json['targetFreightCouponDiscountCurrency'],
+  ),
+  lastMileMailNo: JsonCoerce.asString(json['lastMileMailNo']),
+  lastMileCompanyCode: JsonCoerce.asString(json['lastMileCompanyCode']),
+  lastMileCompanyName: JsonCoerce.asString(json['lastMileCompanyName']),
   receiverAddress: json['receiverAddress'] == null
       ? null
       : OrderServiceOrderListGet$Response$Data$Records$Item$ParcelOrder$ReceiverAddress.fromJson(
@@ -5353,11 +5367,9 @@ _$OrderServiceOrderListGet$Response$Data$Records$Item$ParcelOrderFromJson(
             ),
       )
       .toList(),
-  buyerOperates:
-      (json['buyerOperates'] as List<dynamic>?)
-          ?.map((e) => e as String)
-          .toList() ??
-      [],
+  buyerOperates: json['buyerOperates'] == null
+      ? []
+      : JsonCoerce.asStringList(json['buyerOperates']),
 );
 
 Map<String, dynamic>
@@ -5400,10 +5412,10 @@ OrderServiceOrderListGet$Response$Data$Records$Item$OrderBillList$Item
 _$OrderServiceOrderListGet$Response$Data$Records$Item$OrderBillList$ItemFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderListGet$Response$Data$Records$Item$OrderBillList$Item(
-  billId: json['billId'] as String?,
-  status: (json['status'] as num?)?.toDouble(),
-  targetTotalPrice: json['targetTotalPrice'] as String?,
-  targetCurrency: json['targetCurrency'] as String?,
+  billId: JsonCoerce.asString(json['billId']),
+  status: JsonCoerce.asDouble(json['status']),
+  targetTotalPrice: JsonCoerce.asString(json['targetTotalPrice']),
+  targetCurrency: JsonCoerce.asString(json['targetCurrency']),
 );
 
 Map<String, dynamic>
@@ -5421,20 +5433,20 @@ OrderServiceOrderListGet$Response$Data$Records$Item$UserAddress
 _$OrderServiceOrderListGet$Response$Data$Records$Item$UserAddressFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderListGet$Response$Data$Records$Item$UserAddress(
-  country: json['country'] as String?,
-  countryCode: json['countryCode'] as String?,
-  state: json['state'] as String?,
-  stateCode: json['stateCode'] as String?,
-  city: json['city'] as String?,
-  cityCode: json['cityCode'] as String?,
-  street: json['street'] as String?,
-  apartment: json['apartment'] as String?,
-  address: json['address'] as String?,
-  firstName: json['firstName'] as String?,
-  lastName: json['lastName'] as String?,
-  phoneNumber: json['phoneNumber'] as String?,
-  zipCode: json['zipCode'] as String?,
-  id: (json['id'] as num?)?.toDouble(),
+  country: JsonCoerce.asString(json['country']),
+  countryCode: JsonCoerce.asString(json['countryCode']),
+  state: JsonCoerce.asString(json['state']),
+  stateCode: JsonCoerce.asString(json['stateCode']),
+  city: JsonCoerce.asString(json['city']),
+  cityCode: JsonCoerce.asString(json['cityCode']),
+  street: JsonCoerce.asString(json['street']),
+  apartment: JsonCoerce.asString(json['apartment']),
+  address: JsonCoerce.asString(json['address']),
+  firstName: JsonCoerce.asString(json['firstName']),
+  lastName: JsonCoerce.asString(json['lastName']),
+  phoneNumber: JsonCoerce.asString(json['phoneNumber']),
+  zipCode: JsonCoerce.asString(json['zipCode']),
+  id: JsonCoerce.asDouble(json['id']),
 );
 
 Map<String, dynamic>
@@ -5461,42 +5473,48 @@ OrderServiceOrderCombineListGet$Response$Data$Records$Item$ParcelOrder
 _$OrderServiceOrderCombineListGet$Response$Data$Records$Item$ParcelOrderFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderCombineListGet$Response$Data$Records$Item$ParcelOrder(
-  parcelOrderId: json['parcelOrderId'] as String?,
-  parcelStatus: json['parcelStatus'] as String?,
-  parcelStatusDesc: json['parcelStatusDesc'] as String?,
-  createTime: (json['createTime'] as num?)?.toDouble(),
-  warehouseCode: json['warehouseCode'] as String?,
-  warehouseName: json['warehouseName'] as String?,
-  solutionCode: json['solutionCode'] as String?,
-  freight: json['freight'] as String?,
+  parcelOrderId: JsonCoerce.asString(json['parcelOrderId']),
+  parcelStatus: JsonCoerce.asString(json['parcelStatus']),
+  parcelStatusDesc: JsonCoerce.asString(json['parcelStatusDesc']),
+  createTime: JsonCoerce.asDouble(json['createTime']),
+  warehouseCode: JsonCoerce.asString(json['warehouseCode']),
+  warehouseName: JsonCoerce.asString(json['warehouseName']),
+  solutionCode: JsonCoerce.asString(json['solutionCode']),
+  freight: JsonCoerce.asString(json['freight']),
   freightCurrency: json['freightCurrency'] == null
       ? null
       : OrderServiceOrderCombineListGet$Response$Data$Records$Item$ParcelOrder$FreightCurrency.fromJson(
           json['freightCurrency'] as Map<String, dynamic>,
         ),
-  targetFreight: json['targetFreight'] as String?,
+  targetFreight: JsonCoerce.asString(json['targetFreight']),
   targetFreightCurrency: json['targetFreightCurrency'] == null
       ? null
       : OrderServiceOrderCombineListGet$Response$Data$Records$Item$ParcelOrder$TargetFreightCurrency.fromJson(
           json['targetFreightCurrency'] as Map<String, dynamic>,
         ),
-  actualFreight: json['actualFreight'] as String?,
-  actualFreightCurrency: json['actualFreightCurrency'] as String?,
-  targetActualFreight: json['targetActualFreight'] as String?,
-  targetActualFreightCurrency: json['targetActualFreightCurrency'] as String?,
-  freightCouponDiscountAmount: json['freightCouponDiscountAmount'] as String?,
-  targetFreightCouponDiscountAmount:
-      json['targetFreightCouponDiscountAmount'] as String?,
+  actualFreight: JsonCoerce.asString(json['actualFreight']),
+  actualFreightCurrency: JsonCoerce.asString(json['actualFreightCurrency']),
+  targetActualFreight: JsonCoerce.asString(json['targetActualFreight']),
+  targetActualFreightCurrency: JsonCoerce.asString(
+    json['targetActualFreightCurrency'],
+  ),
+  freightCouponDiscountAmount: JsonCoerce.asString(
+    json['freightCouponDiscountAmount'],
+  ),
+  targetFreightCouponDiscountAmount: JsonCoerce.asString(
+    json['targetFreightCouponDiscountAmount'],
+  ),
   freightCouponDiscountCurrency: json['freightCouponDiscountCurrency'] == null
       ? null
       : OrderServiceOrderCombineListGet$Response$Data$Records$Item$ParcelOrder$FreightCouponDiscountCurrency.fromJson(
           json['freightCouponDiscountCurrency'] as Map<String, dynamic>,
         ),
-  targetFreightCouponDiscountCurrency:
-      json['targetFreightCouponDiscountCurrency'] as String?,
-  lastMileMailNo: json['lastMileMailNo'] as String?,
-  lastMileCompanyCode: json['lastMileCompanyCode'] as String?,
-  lastMileCompanyName: json['lastMileCompanyName'] as String?,
+  targetFreightCouponDiscountCurrency: JsonCoerce.asString(
+    json['targetFreightCouponDiscountCurrency'],
+  ),
+  lastMileMailNo: JsonCoerce.asString(json['lastMileMailNo']),
+  lastMileCompanyCode: JsonCoerce.asString(json['lastMileCompanyCode']),
+  lastMileCompanyName: JsonCoerce.asString(json['lastMileCompanyName']),
   receiverAddress: json['receiverAddress'] == null
       ? null
       : OrderServiceOrderCombineListGet$Response$Data$Records$Item$ParcelOrder$ReceiverAddress.fromJson(
@@ -5510,11 +5528,9 @@ _$OrderServiceOrderCombineListGet$Response$Data$Records$Item$ParcelOrderFromJson
             ),
       )
       .toList(),
-  buyerOperates:
-      (json['buyerOperates'] as List<dynamic>?)
-          ?.map((e) => e as String)
-          .toList() ??
-      [],
+  buyerOperates: json['buyerOperates'] == null
+      ? []
+      : JsonCoerce.asStringList(json['buyerOperates']),
 );
 
 Map<String, dynamic>
@@ -5558,20 +5574,20 @@ OrderServiceOrderCombineListGet$Response$Data$Records$Item$UserAddress
 _$OrderServiceOrderCombineListGet$Response$Data$Records$Item$UserAddressFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderCombineListGet$Response$Data$Records$Item$UserAddress(
-  country: json['country'] as String?,
-  countryCode: json['countryCode'] as String?,
-  state: json['state'] as String?,
-  stateCode: json['stateCode'] as String?,
-  city: json['city'] as String?,
-  cityCode: json['cityCode'] as String?,
-  street: json['street'] as String?,
-  apartment: json['apartment'] as String?,
-  address: json['address'] as String?,
-  firstName: json['firstName'] as String?,
-  lastName: json['lastName'] as String?,
-  phoneNumber: json['phoneNumber'] as String?,
-  zipCode: json['zipCode'] as String?,
-  id: (json['id'] as num?)?.toDouble(),
+  country: JsonCoerce.asString(json['country']),
+  countryCode: JsonCoerce.asString(json['countryCode']),
+  state: JsonCoerce.asString(json['state']),
+  stateCode: JsonCoerce.asString(json['stateCode']),
+  city: JsonCoerce.asString(json['city']),
+  cityCode: JsonCoerce.asString(json['cityCode']),
+  street: JsonCoerce.asString(json['street']),
+  apartment: JsonCoerce.asString(json['apartment']),
+  address: JsonCoerce.asString(json['address']),
+  firstName: JsonCoerce.asString(json['firstName']),
+  lastName: JsonCoerce.asString(json['lastName']),
+  phoneNumber: JsonCoerce.asString(json['phoneNumber']),
+  zipCode: JsonCoerce.asString(json['zipCode']),
+  id: JsonCoerce.asDouble(json['id']),
 );
 
 Map<String, dynamic>
@@ -5599,32 +5615,32 @@ OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item
 _$OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$ItemFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item(
-  status: (json['status'] as num?)?.toDouble(),
-  frontStatus: (json['frontStatus'] as num?)?.toDouble(),
-  statusContent: json['statusContent'] as String?,
-  orderStatus: (json['orderStatus'] as num?)?.toDouble(),
-  orderId: json['orderId'] as String?,
-  parentOrderId: json['parentOrderId'] as String?,
-  quantity: (json['quantity'] as num?)?.toDouble(),
-  targetOriginAmount: json['targetOriginAmount'] as String?,
-  itemTotalAmount: json['itemTotalAmount'] as String?,
-  totalAmount: json['totalAmount'] as String?,
-  targetTotalAmount: json['targetTotalAmount'] as String?,
-  discountAmount: json['discountAmount'] as String?,
-  targetDiscountAmount: json['targetDiscountAmount'] as String?,
-  targetItemTotalAmount: json['targetItemTotalAmount'] as String?,
-  freightAmount: json['freightAmount'] as String?,
-  targetFreightAmount: json['targetFreightAmount'] as String?,
-  targetActualAmount: json['targetActualAmount'] as String?,
-  currency: json['currency'] as String?,
-  targetCurrency: json['targetCurrency'] as String?,
-  description: json['description'] as String?,
-  remark: json['remark'] as String?,
-  statusIcon: json['statusIcon'] as String?,
+  status: JsonCoerce.asDouble(json['status']),
+  frontStatus: JsonCoerce.asDouble(json['frontStatus']),
+  statusContent: JsonCoerce.asString(json['statusContent']),
+  orderStatus: JsonCoerce.asDouble(json['orderStatus']),
+  orderId: JsonCoerce.asString(json['orderId']),
+  parentOrderId: JsonCoerce.asString(json['parentOrderId']),
+  quantity: JsonCoerce.asDouble(json['quantity']),
+  targetOriginAmount: JsonCoerce.asString(json['targetOriginAmount']),
+  itemTotalAmount: JsonCoerce.asString(json['itemTotalAmount']),
+  totalAmount: JsonCoerce.asString(json['totalAmount']),
+  targetTotalAmount: JsonCoerce.asString(json['targetTotalAmount']),
+  discountAmount: JsonCoerce.asString(json['discountAmount']),
+  targetDiscountAmount: JsonCoerce.asString(json['targetDiscountAmount']),
+  targetItemTotalAmount: JsonCoerce.asString(json['targetItemTotalAmount']),
+  freightAmount: JsonCoerce.asString(json['freightAmount']),
+  targetFreightAmount: JsonCoerce.asString(json['targetFreightAmount']),
+  targetActualAmount: JsonCoerce.asString(json['targetActualAmount']),
+  currency: JsonCoerce.asString(json['currency']),
+  targetCurrency: JsonCoerce.asString(json['targetCurrency']),
+  description: JsonCoerce.asString(json['description']),
+  remark: JsonCoerce.asString(json['remark']),
+  statusIcon: JsonCoerce.asString(json['statusIcon']),
   operates:
       (json['operates'] as List<dynamic>?)?.map((e) => e as Object).toList() ??
       [],
-  isLogisticsTrace: json['isLogisticsTrace'] as bool?,
+  isLogisticsTrace: JsonCoerce.asBool(json['isLogisticsTrace']),
   orderSkuList: (json['orderSkuList'] as List<dynamic>?)
       ?.map(
         (e) =>
@@ -5646,7 +5662,7 @@ _$OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$ItemFromJ
       : OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$ParcelOrder.fromJson(
           json['parcelOrder'] as Map<String, dynamic>,
         ),
-  afterSalesList: json['afterSalesList'] as String?,
+  afterSalesList: JsonCoerce.asString(json['afterSalesList']),
   orderBillList: (json['orderBillList'] as List<dynamic>?)
       ?.map(
         (e) =>
@@ -5660,9 +5676,9 @@ _$OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$ItemFromJ
       : OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$UserAddress.fromJson(
           json['userAddress'] as Map<String, dynamic>,
         ),
-  createTime: (json['createTime'] as num?)?.toDouble(),
-  wish: json['wish'] as bool?,
-  giveawayGift: (json['giveawayGift'] as num?)?.toInt(),
+  createTime: JsonCoerce.asDouble(json['createTime']),
+  wish: JsonCoerce.asBool(json['wish']),
+  giveawayGift: JsonCoerce.asInt(json['giveawayGift']),
 );
 
 Map<String, dynamic>
@@ -5709,23 +5725,23 @@ OrderServiceOrderDetailGet$Response$Data$OrderList$Item$SkuList$Item
 _$OrderServiceOrderDetailGet$Response$Data$OrderList$Item$SkuList$ItemFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderDetailGet$Response$Data$OrderList$Item$SkuList$Item(
-  productName: json['productName'] as String?,
-  productCode: json['productCode'] as String?,
-  skuCode: json['skuCode'] as String?,
-  image: json['image'] as String?,
-  targetOriginTotalPrice: json['targetOriginTotalPrice'] as String?,
-  targetOriginPrice: json['targetOriginPrice'] as String?,
-  sellPrice: json['sellPrice'] as String?,
-  targetSellPrice: json['targetSellPrice'] as String?,
-  totalPrice: json['totalPrice'] as String?,
-  targetTotalPrice: json['targetTotalPrice'] as String?,
-  currency: json['currency'] as String?,
-  targetCurrency: json['targetCurrency'] as String?,
-  targetSkuDiscountPrice: json['targetSkuDiscountPrice'] as String?,
-  targetSkuFinalPrice: json['targetSkuFinalPrice'] as String?,
-  targetTotalFinalPrice: json['targetTotalFinalPrice'] as String?,
-  quantity: (json['quantity'] as num?)?.toDouble(),
-  remark: json['remark'] as String?,
+  productName: JsonCoerce.asString(json['productName']),
+  productCode: JsonCoerce.asString(json['productCode']),
+  skuCode: JsonCoerce.asString(json['skuCode']),
+  image: JsonCoerce.asString(json['image']),
+  targetOriginTotalPrice: JsonCoerce.asString(json['targetOriginTotalPrice']),
+  targetOriginPrice: JsonCoerce.asString(json['targetOriginPrice']),
+  sellPrice: JsonCoerce.asString(json['sellPrice']),
+  targetSellPrice: JsonCoerce.asString(json['targetSellPrice']),
+  totalPrice: JsonCoerce.asString(json['totalPrice']),
+  targetTotalPrice: JsonCoerce.asString(json['targetTotalPrice']),
+  currency: JsonCoerce.asString(json['currency']),
+  targetCurrency: JsonCoerce.asString(json['targetCurrency']),
+  targetSkuDiscountPrice: JsonCoerce.asString(json['targetSkuDiscountPrice']),
+  targetSkuFinalPrice: JsonCoerce.asString(json['targetSkuFinalPrice']),
+  targetTotalFinalPrice: JsonCoerce.asString(json['targetTotalFinalPrice']),
+  quantity: JsonCoerce.asDouble(json['quantity']),
+  remark: JsonCoerce.asString(json['remark']),
   skuSpecValues: (json['skuSpecValues'] as List<dynamic>?)
       ?.map(
         (e) =>
@@ -5734,11 +5750,11 @@ _$OrderServiceOrderDetailGet$Response$Data$OrderList$Item$SkuList$ItemFromJson(
             ),
       )
       .toList(),
-  canAfterSales: json['canAfterSales'] as bool?,
-  isReturned: json['isReturned'] as bool?,
+  canAfterSales: JsonCoerce.asBool(json['canAfterSales']),
+  isReturned: JsonCoerce.asBool(json['isReturned']),
   returnQuantity: json['returnQuantity'],
   realRemark: json['realRemark'],
-  field2: json['field_2'] as String?,
+  field2: JsonCoerce.asString(json['field_2']),
 );
 
 Map<String, dynamic>
@@ -5775,26 +5791,26 @@ _$OrderServiceOrderDetailGet$Response$Data$OrderList$Item$SupplyOrderList$ItemFr
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderDetailGet$Response$Data$OrderList$Item$SupplyOrderList$Item(
-      skuCode: json['skuCode'] as String?,
-      productCode: json['productCode'] as String?,
-      productName: json['productName'] as String?,
-      sellPrice: json['sellPrice'] as String?,
+      skuCode: JsonCoerce.asString(json['skuCode']),
+      productCode: JsonCoerce.asString(json['productCode']),
+      productName: JsonCoerce.asString(json['productName']),
+      sellPrice: JsonCoerce.asString(json['sellPrice']),
       purchasePrice: json['purchasePrice'],
-      actualPurchasePrice: json['actualPurchasePrice'] as String?,
-      imageUrl: json['imageUrl'] as String?,
-      quantity: (json['quantity'] as num?)?.toDouble(),
-      weight: json['weight'] as String?,
-      length: json['length'] as String?,
-      width: json['width'] as String?,
-      height: json['height'] as String?,
-      logisticsAttr: json['logisticsAttr'] as String?,
+      actualPurchasePrice: JsonCoerce.asString(json['actualPurchasePrice']),
+      imageUrl: JsonCoerce.asString(json['imageUrl']),
+      quantity: JsonCoerce.asDouble(json['quantity']),
+      weight: JsonCoerce.asString(json['weight']),
+      length: JsonCoerce.asString(json['length']),
+      width: JsonCoerce.asString(json['width']),
+      height: JsonCoerce.asString(json['height']),
+      logisticsAttr: JsonCoerce.asString(json['logisticsAttr']),
       inspectImageUrlList:
           (json['inspectImageUrlList'] as List<dynamic>?)
               ?.map((e) => e as Object)
               .toList() ??
           [],
-      secretKeyList: json['secretKeyList'] as String?,
-      qcRemark: json['qcRemark'] as String?,
+      secretKeyList: JsonCoerce.asString(json['secretKeyList']),
+      qcRemark: JsonCoerce.asString(json['qcRemark']),
     );
 
 Map<String, dynamic>
@@ -5824,13 +5840,13 @@ OrderServiceOrderDetailGet$Response$Data$OrderList$Item$LogisticsInfo
 _$OrderServiceOrderDetailGet$Response$Data$OrderList$Item$LogisticsInfoFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderDetailGet$Response$Data$OrderList$Item$LogisticsInfo(
-  targetFreight: json['targetFreight'] as String?,
-  expressionDate: json['expressionDate'] as String?,
-  freightContent: json['freightContent'] as String?,
-  expressionDateContent: json['expressionDateContent'] as String?,
-  expressionDateHtml: json['expressionDateHtml'] as String?,
-  orderFreightUrl: json['orderFreightUrl'] as String?,
-  freightTag: json['freightTag'] as String?,
+  targetFreight: JsonCoerce.asString(json['targetFreight']),
+  expressionDate: JsonCoerce.asString(json['expressionDate']),
+  freightContent: JsonCoerce.asString(json['freightContent']),
+  expressionDateContent: JsonCoerce.asString(json['expressionDateContent']),
+  expressionDateHtml: JsonCoerce.asString(json['expressionDateHtml']),
+  orderFreightUrl: JsonCoerce.asString(json['orderFreightUrl']),
+  freightTag: JsonCoerce.asString(json['freightTag']),
 );
 
 Map<String, dynamic>
@@ -5851,14 +5867,14 @@ OrderServiceOrderDetailGet$Response$Data$OrderList$Item$SourceOption
 _$OrderServiceOrderDetailGet$Response$Data$OrderList$Item$SourceOptionFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderDetailGet$Response$Data$OrderList$Item$SourceOption(
-  batchNo: json['batchNo'] as String?,
-  parcelBatch: json['parcelBatch'] as bool?,
-  removePackage: json['removePackage'] as bool?,
-  orderFreight: json['orderFreight'] as bool?,
-  canBatch: (json['canBatch'] as num?)?.toInt(),
-  canPayFreight: (json['canPayFreight'] as num?)?.toInt(),
-  canRemovePackage: (json['canRemovePackage'] as num?)?.toInt(),
-  orderFreightUrl: json['orderFreightUrl'] as String?,
+  batchNo: JsonCoerce.asString(json['batchNo']),
+  parcelBatch: JsonCoerce.asBool(json['parcelBatch']),
+  removePackage: JsonCoerce.asBool(json['removePackage']),
+  orderFreight: JsonCoerce.asBool(json['orderFreight']),
+  canBatch: JsonCoerce.asInt(json['canBatch']),
+  canPayFreight: JsonCoerce.asInt(json['canPayFreight']),
+  canRemovePackage: JsonCoerce.asInt(json['canRemovePackage']),
+  orderFreightUrl: JsonCoerce.asString(json['orderFreightUrl']),
 );
 
 Map<String, dynamic>
@@ -5879,8 +5895,8 @@ OrderServiceOrderDetailGet$Response$Data$ParcelOrder$FreightCurrency
 _$OrderServiceOrderDetailGet$Response$Data$ParcelOrder$FreightCurrencyFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderDetailGet$Response$Data$ParcelOrder$FreightCurrency(
-  name: json['name'] as String?,
-  symbol: json['symbol'] as String?,
+  name: JsonCoerce.asString(json['name']),
+  symbol: JsonCoerce.asString(json['symbol']),
 );
 
 Map<String, dynamic>
@@ -5892,8 +5908,8 @@ OrderServiceOrderDetailGet$Response$Data$ParcelOrder$TargetFreightCurrency
 _$OrderServiceOrderDetailGet$Response$Data$ParcelOrder$TargetFreightCurrencyFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderDetailGet$Response$Data$ParcelOrder$TargetFreightCurrency(
-  symbol: json['symbol'] as String?,
-  name: json['name'] as String?,
+  symbol: JsonCoerce.asString(json['symbol']),
+  name: JsonCoerce.asString(json['name']),
 );
 
 Map<String, dynamic>
@@ -5906,20 +5922,20 @@ OrderServiceOrderDetailGet$Response$Data$ParcelOrder$ReceiverAddress
 _$OrderServiceOrderDetailGet$Response$Data$ParcelOrder$ReceiverAddressFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderDetailGet$Response$Data$ParcelOrder$ReceiverAddress(
-  country: json['country'] as String?,
-  countryCode: json['countryCode'] as String?,
-  state: json['state'] as String?,
-  stateCode: json['stateCode'] as String?,
-  city: json['city'] as String?,
-  cityCode: json['cityCode'] as String?,
-  street: json['street'] as String?,
-  apartment: json['apartment'] as String?,
-  address: json['address'] as String?,
-  firstName: json['firstName'] as String?,
-  lastName: json['lastName'] as String?,
-  phoneNumber: json['phoneNumber'] as String?,
-  zipCode: json['zipCode'] as String?,
-  id: (json['id'] as num?)?.toDouble(),
+  country: JsonCoerce.asString(json['country']),
+  countryCode: JsonCoerce.asString(json['countryCode']),
+  state: JsonCoerce.asString(json['state']),
+  stateCode: JsonCoerce.asString(json['stateCode']),
+  city: JsonCoerce.asString(json['city']),
+  cityCode: JsonCoerce.asString(json['cityCode']),
+  street: JsonCoerce.asString(json['street']),
+  apartment: JsonCoerce.asString(json['apartment']),
+  address: JsonCoerce.asString(json['address']),
+  firstName: JsonCoerce.asString(json['firstName']),
+  lastName: JsonCoerce.asString(json['lastName']),
+  phoneNumber: JsonCoerce.asString(json['phoneNumber']),
+  zipCode: JsonCoerce.asString(json['zipCode']),
+  id: JsonCoerce.asDouble(json['id']),
   remark: json['remark'],
   accessCode: json['accessCode'],
   email: json['email'],
@@ -5955,15 +5971,15 @@ _$OrderServiceOrderDetailGet$Response$Data$ParcelOrder$ParcelProductDTOList$Item
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderDetailGet$Response$Data$ParcelOrder$ParcelProductDTOList$Item(
-      skuCode: json['skuCode'] as String?,
-      productCode: json['productCode'] as String?,
-      productName: json['productName'] as String?,
-      logisticsOrderId: json['logisticsOrderId'] as String?,
-      tradeOrderId: json['tradeOrderId'] as String?,
-      quantity: (json['quantity'] as num?)?.toDouble(),
-      imageUrl: json['imageUrl'] as String?,
-      declareName: json['declareName'] as String?,
-      declareNameEn: json['declareNameEn'] as String?,
+      skuCode: JsonCoerce.asString(json['skuCode']),
+      productCode: JsonCoerce.asString(json['productCode']),
+      productName: JsonCoerce.asString(json['productName']),
+      logisticsOrderId: JsonCoerce.asString(json['logisticsOrderId']),
+      tradeOrderId: JsonCoerce.asString(json['tradeOrderId']),
+      quantity: JsonCoerce.asDouble(json['quantity']),
+      imageUrl: JsonCoerce.asString(json['imageUrl']),
+      declareName: JsonCoerce.asString(json['declareName']),
+      declareNameEn: JsonCoerce.asString(json['declareNameEn']),
     );
 
 Map<String, dynamic>
@@ -5986,13 +6002,13 @@ OrderServiceOrderDetailGet$Response$Data$OrderTrace$GroupTraceList$Item
 _$OrderServiceOrderDetailGet$Response$Data$OrderTrace$GroupTraceList$ItemFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderDetailGet$Response$Data$OrderTrace$GroupTraceList$Item(
-  subParcelOrderId: json['subParcelOrderId'] as String?,
-  parcelOrderStatus: json['parcelOrderStatus'] as String?,
-  lastMileMailNo: json['lastMileMailNo'] as String?,
-  lastMileMailNoLink: json['lastMileMailNoLink'] as String?,
-  lastMileCompanyName: json['lastMileCompanyName'] as String?,
-  lastMileCompanyPhone: json['lastMileCompanyPhone'] as String?,
-  lastMileCompanyEmail: json['lastMileCompanyEmail'] as String?,
+  subParcelOrderId: JsonCoerce.asString(json['subParcelOrderId']),
+  parcelOrderStatus: JsonCoerce.asString(json['parcelOrderStatus']),
+  lastMileMailNo: JsonCoerce.asString(json['lastMileMailNo']),
+  lastMileMailNoLink: JsonCoerce.asString(json['lastMileMailNoLink']),
+  lastMileCompanyName: JsonCoerce.asString(json['lastMileCompanyName']),
+  lastMileCompanyPhone: JsonCoerce.asString(json['lastMileCompanyPhone']),
+  lastMileCompanyEmail: JsonCoerce.asString(json['lastMileCompanyEmail']),
   traceList: (json['traceList'] as List<dynamic>?)
       ?.map(
         (e) =>
@@ -6001,7 +6017,7 @@ _$OrderServiceOrderDetailGet$Response$Data$OrderTrace$GroupTraceList$ItemFromJso
             ),
       )
       .toList(),
-  sequenceTime: (json['sequenceTime'] as num?)?.toDouble(),
+  sequenceTime: JsonCoerce.asDouble(json['sequenceTime']),
 );
 
 Map<String, dynamic>
@@ -6024,24 +6040,24 @@ OrderServiceOrderDetailGet$Response$Data$OrderTrace$ReceiverAddress
 _$OrderServiceOrderDetailGet$Response$Data$OrderTrace$ReceiverAddressFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderDetailGet$Response$Data$OrderTrace$ReceiverAddress(
-  country: json['country'] as String?,
-  countryCode: json['countryCode'] as String?,
-  state: json['state'] as String?,
-  stateCode: json['stateCode'] as String?,
-  city: json['city'] as String?,
-  cityCode: json['cityCode'] as String?,
-  street: json['street'] as String?,
-  apartment: json['apartment'] as String?,
-  address: json['address'] as String?,
-  firstName: json['firstName'] as String?,
-  lastName: json['lastName'] as String?,
-  phoneNumber: json['phoneNumber'] as String?,
-  zipCode: json['zipCode'] as String?,
-  id: (json['id'] as num?)?.toDouble(),
-  remark: json['remark'] as String?,
-  accessCode: json['accessCode'] as String?,
-  email: json['email'] as String?,
-  tin: json['tin'] as String?,
+  country: JsonCoerce.asString(json['country']),
+  countryCode: JsonCoerce.asString(json['countryCode']),
+  state: JsonCoerce.asString(json['state']),
+  stateCode: JsonCoerce.asString(json['stateCode']),
+  city: JsonCoerce.asString(json['city']),
+  cityCode: JsonCoerce.asString(json['cityCode']),
+  street: JsonCoerce.asString(json['street']),
+  apartment: JsonCoerce.asString(json['apartment']),
+  address: JsonCoerce.asString(json['address']),
+  firstName: JsonCoerce.asString(json['firstName']),
+  lastName: JsonCoerce.asString(json['lastName']),
+  phoneNumber: JsonCoerce.asString(json['phoneNumber']),
+  zipCode: JsonCoerce.asString(json['zipCode']),
+  id: JsonCoerce.asDouble(json['id']),
+  remark: JsonCoerce.asString(json['remark']),
+  accessCode: JsonCoerce.asString(json['accessCode']),
+  email: JsonCoerce.asString(json['email']),
+  tin: JsonCoerce.asString(json['tin']),
 );
 
 Map<String, dynamic>
@@ -6073,12 +6089,12 @@ _$OrderServiceOrderDetailGet$Response$Data$OrderTrace$LogisticsSkuDetailList$Ite
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderDetailGet$Response$Data$OrderTrace$LogisticsSkuDetailList$Item(
-      skuCode: json['skuCode'] as String?,
-      quantity: (json['quantity'] as num?)?.toDouble(),
-      imageUrl: json['imageUrl'] as String?,
-      skuName: json['skuName'] as String?,
-      skuSpecValues: json['skuSpecValues'] as String?,
-      skuTotalWeight: json['skuTotalWeight'] as String?,
+      skuCode: JsonCoerce.asString(json['skuCode']),
+      quantity: JsonCoerce.asDouble(json['quantity']),
+      imageUrl: JsonCoerce.asString(json['imageUrl']),
+      skuName: JsonCoerce.asString(json['skuName']),
+      skuSpecValues: JsonCoerce.asString(json['skuSpecValues']),
+      skuTotalWeight: JsonCoerce.asString(json['skuTotalWeight']),
     );
 
 Map<String, dynamic>
@@ -6098,20 +6114,20 @@ OrderServiceOrderDetailGet$Response$Data$OrderTrace$TraceList$Item
 _$OrderServiceOrderDetailGet$Response$Data$OrderTrace$TraceList$ItemFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderDetailGet$Response$Data$OrderTrace$TraceList$Item(
-  id: (json['id'] as num?)?.toDouble(),
-  subParcelOrderId: json['subParcelOrderId'] as String?,
-  frontCode: json['frontCode'] as String?,
-  frontTitleCode: json['frontTitleCode'] as String?,
-  frontTitle: json['frontTitle'] as String?,
-  icon: json['icon'] as String?,
-  traceMessage: json['traceMessage'] as String?,
-  time: (json['time'] as num?)?.toDouble(),
-  lastMileMailNo: json['lastMileMailNo'] as String?,
-  lastMileCompanyName: json['lastMileCompanyName'] as String?,
-  lastMileMailNoLink: json['lastMileMailNoLink'] as String?,
-  lastMileMailNoTitle: json['lastMileMailNoTitle'] as String?,
-  traceStatus: json['traceStatus'] as String?,
-  traceTime: json['traceTime'] as String?,
+  id: JsonCoerce.asDouble(json['id']),
+  subParcelOrderId: JsonCoerce.asString(json['subParcelOrderId']),
+  frontCode: JsonCoerce.asString(json['frontCode']),
+  frontTitleCode: JsonCoerce.asString(json['frontTitleCode']),
+  frontTitle: JsonCoerce.asString(json['frontTitle']),
+  icon: JsonCoerce.asString(json['icon']),
+  traceMessage: JsonCoerce.asString(json['traceMessage']),
+  time: JsonCoerce.asDouble(json['time']),
+  lastMileMailNo: JsonCoerce.asString(json['lastMileMailNo']),
+  lastMileCompanyName: JsonCoerce.asString(json['lastMileCompanyName']),
+  lastMileMailNoLink: JsonCoerce.asString(json['lastMileMailNoLink']),
+  lastMileMailNoTitle: JsonCoerce.asString(json['lastMileMailNoTitle']),
+  traceStatus: JsonCoerce.asString(json['traceStatus']),
+  traceTime: JsonCoerce.asString(json['traceTime']),
 );
 
 Map<String, dynamic>
@@ -6139,8 +6155,8 @@ _$OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrder$FreightCurrencyFro
   Map<String, dynamic> json,
 ) =>
     OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrder$FreightCurrency(
-      name: json['name'] as String?,
-      symbol: json['symbol'] as String?,
+      name: JsonCoerce.asString(json['name']),
+      symbol: JsonCoerce.asString(json['symbol']),
     );
 
 Map<String, dynamic>
@@ -6154,11 +6170,11 @@ _$OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrder$ParcelProductDTOLi
   Map<String, dynamic> json,
 ) =>
     OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrder$ParcelProductDTOList$Item(
-      skuCode: json['skuCode'] as String?,
-      productCode: json['productCode'] as String?,
-      productName: json['productName'] as String?,
-      quantity: (json['quantity'] as num?)?.toDouble(),
-      imageUrl: json['imageUrl'] as String?,
+      skuCode: JsonCoerce.asString(json['skuCode']),
+      productCode: JsonCoerce.asString(json['productCode']),
+      productName: JsonCoerce.asString(json['productName']),
+      quantity: JsonCoerce.asDouble(json['quantity']),
+      imageUrl: JsonCoerce.asString(json['imageUrl']),
     );
 
 Map<String, dynamic>
@@ -6178,13 +6194,16 @@ _$OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrder$FreightCompensateF
   Map<String, dynamic> json,
 ) =>
     OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrder$FreightCompensate(
-      compensateBillId: json['compensateBillId'] as String?,
-      compensatePrice: json['compensatePrice'] as String?,
-      compensatePriceCurrency: json['compensatePriceCurrency'] as String?,
-      compensateReason: json['compensateReason'] as String?,
-      targetCompensatePrice: json['targetCompensatePrice'] as String?,
-      targetCompensatePriceCurrency:
-          json['targetCompensatePriceCurrency'] as String?,
+      compensateBillId: JsonCoerce.asString(json['compensateBillId']),
+      compensatePrice: JsonCoerce.asString(json['compensatePrice']),
+      compensatePriceCurrency: JsonCoerce.asString(
+        json['compensatePriceCurrency'],
+      ),
+      compensateReason: JsonCoerce.asString(json['compensateReason']),
+      targetCompensatePrice: JsonCoerce.asString(json['targetCompensatePrice']),
+      targetCompensatePriceCurrency: JsonCoerce.asString(
+        json['targetCompensatePriceCurrency'],
+      ),
     );
 
 Map<String, dynamic>
@@ -6205,8 +6224,8 @@ _$OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrder$TargetFreightCurre
   Map<String, dynamic> json,
 ) =>
     OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrder$TargetFreightCurrency(
-      symbol: json['symbol'] as String?,
-      currency: json['currency'] as String?,
+      symbol: JsonCoerce.asString(json['symbol']),
+      currency: JsonCoerce.asString(json['currency']),
     );
 
 Map<String, dynamic>
@@ -6222,16 +6241,16 @@ OrderServiceOpenapiOrderDetailGet$Response$Data$OrderTrace$TraceList$Item
 _$OrderServiceOpenapiOrderDetailGet$Response$Data$OrderTrace$TraceList$ItemFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOpenapiOrderDetailGet$Response$Data$OrderTrace$TraceList$Item(
-  id: (json['id'] as num?)?.toDouble(),
-  frontCode: json['frontCode'] as String?,
-  icon: json['icon'] as String?,
-  traceMessage: json['traceMessage'] as String?,
-  time: (json['time'] as num?)?.toDouble(),
-  lastMileMailNo: json['lastMileMailNo'] as String?,
-  lastMileMailNoLink: json['lastMileMailNoLink'] as String?,
-  lastMileMailNoTitle: json['lastMileMailNoTitle'] as String?,
-  traceStatus: json['traceStatus'] as String?,
-  logisticsOrderId: json['logisticsOrderId'] as String?,
+  id: JsonCoerce.asDouble(json['id']),
+  frontCode: JsonCoerce.asString(json['frontCode']),
+  icon: JsonCoerce.asString(json['icon']),
+  traceMessage: JsonCoerce.asString(json['traceMessage']),
+  time: JsonCoerce.asDouble(json['time']),
+  lastMileMailNo: JsonCoerce.asString(json['lastMileMailNo']),
+  lastMileMailNoLink: JsonCoerce.asString(json['lastMileMailNoLink']),
+  lastMileMailNoTitle: JsonCoerce.asString(json['lastMileMailNoTitle']),
+  traceStatus: JsonCoerce.asString(json['traceStatus']),
+  logisticsOrderId: JsonCoerce.asString(json['logisticsOrderId']),
 );
 
 Map<String, dynamic>
@@ -6255,18 +6274,18 @@ OrderServiceOpenapiOrderDetailGet$Response$Data$OrderList$Item$SkuList$Item
 _$OrderServiceOpenapiOrderDetailGet$Response$Data$OrderList$Item$SkuList$ItemFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOpenapiOrderDetailGet$Response$Data$OrderList$Item$SkuList$Item(
-  productName: json['productName'] as String?,
-  productCode: json['productCode'] as String?,
-  skuCode: json['skuCode'] as String?,
-  image: json['image'] as String?,
-  sellPrice: json['sellPrice'] as String?,
-  targetSellPrice: json['targetSellPrice'] as String?,
-  totalPrice: json['totalPrice'] as String?,
-  targetTotalPrice: json['targetTotalPrice'] as String?,
-  currency: json['currency'] as String?,
-  targetCurrency: json['targetCurrency'] as String?,
-  quantity: (json['quantity'] as num?)?.toDouble(),
-  remark: json['remark'] as String?,
+  productName: JsonCoerce.asString(json['productName']),
+  productCode: JsonCoerce.asString(json['productCode']),
+  skuCode: JsonCoerce.asString(json['skuCode']),
+  image: JsonCoerce.asString(json['image']),
+  sellPrice: JsonCoerce.asString(json['sellPrice']),
+  targetSellPrice: JsonCoerce.asString(json['targetSellPrice']),
+  totalPrice: JsonCoerce.asString(json['totalPrice']),
+  targetTotalPrice: JsonCoerce.asString(json['targetTotalPrice']),
+  currency: JsonCoerce.asString(json['currency']),
+  targetCurrency: JsonCoerce.asString(json['targetCurrency']),
+  quantity: JsonCoerce.asDouble(json['quantity']),
+  remark: JsonCoerce.asString(json['remark']),
   skuSpecValues: (json['skuSpecValues'] as List<dynamic>?)
       ?.map(
         (e) =>
@@ -6302,21 +6321,21 @@ _$OrderServiceOpenapiOrderDetailGet$Response$Data$OrderList$Item$SupplyOrderList
   Map<String, dynamic> json,
 ) =>
     OrderServiceOpenapiOrderDetailGet$Response$Data$OrderList$Item$SupplyOrderList$Item(
-      skuCode: json['skuCode'] as String?,
-      productCode: json['productCode'] as String?,
-      productName: json['productName'] as String?,
-      imageUrl: json['imageUrl'] as String?,
-      quantity: (json['quantity'] as num?)?.toDouble(),
-      weight: json['weight'] as String?,
-      length: json['length'] as String?,
-      width: json['width'] as String?,
-      height: json['height'] as String?,
+      skuCode: JsonCoerce.asString(json['skuCode']),
+      productCode: JsonCoerce.asString(json['productCode']),
+      productName: JsonCoerce.asString(json['productName']),
+      imageUrl: JsonCoerce.asString(json['imageUrl']),
+      quantity: JsonCoerce.asDouble(json['quantity']),
+      weight: JsonCoerce.asString(json['weight']),
+      length: JsonCoerce.asString(json['length']),
+      width: JsonCoerce.asString(json['width']),
+      height: JsonCoerce.asString(json['height']),
       inspectImageUrlList:
           (json['inspectImageUrlList'] as List<dynamic>?)
               ?.map((e) => e as Object)
               .toList() ??
           [],
-      secretKeyList: json['secretKeyList'] as String?,
+      secretKeyList: JsonCoerce.asString(json['secretKeyList']),
     );
 
 Map<String, dynamic>
@@ -6342,44 +6361,44 @@ _$OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$BaseInf
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$BaseInfo(
-      userId: json['userId'] as String?,
-      orderId: json['orderId'] as String?,
-      skuSourceCode: json['skuSourceCode'] as String?,
-      parentOrderId: json['parentOrderId'] as String?,
-      status: (json['status'] as num?)?.toDouble(),
-      frontStatus: (json['frontStatus'] as num?)?.toDouble(),
-      statusContent: json['statusContent'] as String?,
-      orderStatus: (json['orderStatus'] as num?)?.toDouble(),
-      evaluateStatus: (json['evaluateStatus'] as num?)?.toDouble(),
-      timeoutPeriod: (json['timeoutPeriod'] as num?)?.toDouble(),
-      createTime: (json['createTime'] as num?)?.toDouble(),
-      leftTime: (json['leftTime'] as num?)?.toDouble(),
-      title: json['title'] as String?,
-      subTitle: json['subTitle'] as String?,
-      operates:
-          (json['operates'] as List<dynamic>?)
-              ?.map((e) => e as String)
-              .toList() ??
-          [],
-      description: json['description'] as String?,
-      paySuccessDescription: json['paySuccessDescription'] as String?,
-      afterSalesExpressMethod: (json['afterSalesExpressMethod'] as num?)
-          ?.toDouble(),
-      afterSalesState: (json['afterSalesState'] as num?)?.toDouble(),
-      remark: json['remark'] as String?,
-      remarkImages: json['remarkImages'] as String?,
-      supportOnlineAfterSales: (json['supportOnlineAfterSales'] as num?)
-          ?.toDouble(),
-      receiptPdfLink: json['receiptPdfLink'] as String?,
-      afterSalesSupport: json['afterSalesSupport'] as String?,
-      tenantCode: json['tenantCode'] as String?,
-      shippingCountry: json['shippingCountry'] as String?,
-      payTime: (json['payTime'] as num?)?.toDouble(),
-      afterSales: json['afterSales'] as bool?,
-      wish: json['wish'] as bool?,
-      removePackage: json['removePackage'] as bool?,
-      orderFreight: json['orderFreight'] as bool?,
-      giveawayGift: (json['giveawayGift'] as num?)?.toDouble(),
+      userId: JsonCoerce.asString(json['userId']),
+      orderId: JsonCoerce.asString(json['orderId']),
+      skuSourceCode: JsonCoerce.asString(json['skuSourceCode']),
+      parentOrderId: JsonCoerce.asString(json['parentOrderId']),
+      status: JsonCoerce.asDouble(json['status']),
+      frontStatus: JsonCoerce.asDouble(json['frontStatus']),
+      statusContent: JsonCoerce.asString(json['statusContent']),
+      orderStatus: JsonCoerce.asDouble(json['orderStatus']),
+      evaluateStatus: JsonCoerce.asDouble(json['evaluateStatus']),
+      timeoutPeriod: JsonCoerce.asDouble(json['timeoutPeriod']),
+      createTime: JsonCoerce.asDouble(json['createTime']),
+      leftTime: JsonCoerce.asDouble(json['leftTime']),
+      title: JsonCoerce.asString(json['title']),
+      subTitle: JsonCoerce.asString(json['subTitle']),
+      operates: json['operates'] == null
+          ? []
+          : JsonCoerce.asStringList(json['operates']),
+      description: JsonCoerce.asString(json['description']),
+      paySuccessDescription: JsonCoerce.asString(json['paySuccessDescription']),
+      afterSalesExpressMethod: JsonCoerce.asDouble(
+        json['afterSalesExpressMethod'],
+      ),
+      afterSalesState: JsonCoerce.asDouble(json['afterSalesState']),
+      remark: JsonCoerce.asString(json['remark']),
+      remarkImages: JsonCoerce.asString(json['remarkImages']),
+      supportOnlineAfterSales: JsonCoerce.asDouble(
+        json['supportOnlineAfterSales'],
+      ),
+      receiptPdfLink: JsonCoerce.asString(json['receiptPdfLink']),
+      afterSalesSupport: JsonCoerce.asString(json['afterSalesSupport']),
+      tenantCode: JsonCoerce.asString(json['tenantCode']),
+      shippingCountry: JsonCoerce.asString(json['shippingCountry']),
+      payTime: JsonCoerce.asDouble(json['payTime']),
+      afterSales: JsonCoerce.asBool(json['afterSales']),
+      wish: JsonCoerce.asBool(json['wish']),
+      removePackage: JsonCoerce.asBool(json['removePackage']),
+      orderFreight: JsonCoerce.asBool(json['orderFreight']),
+      giveawayGift: JsonCoerce.asDouble(json['giveawayGift']),
     );
 
 Map<String, dynamic>
@@ -6426,20 +6445,20 @@ _$OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$UserAdd
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$UserAddress(
-      country: json['country'] as String?,
-      countryCode: json['countryCode'] as String?,
-      state: json['state'] as String?,
-      stateCode: json['stateCode'] as String?,
-      city: json['city'] as String?,
-      cityCode: json['cityCode'] as String?,
-      street: json['street'] as String?,
-      apartment: json['apartment'] as String?,
-      address: json['address'] as String?,
-      firstName: json['firstName'] as String?,
-      lastName: json['lastName'] as String?,
-      phoneNumber: json['phoneNumber'] as String?,
-      zipCode: json['zipCode'] as String?,
-      id: (json['id'] as num?)?.toDouble(),
+      country: JsonCoerce.asString(json['country']),
+      countryCode: JsonCoerce.asString(json['countryCode']),
+      state: JsonCoerce.asString(json['state']),
+      stateCode: JsonCoerce.asString(json['stateCode']),
+      city: JsonCoerce.asString(json['city']),
+      cityCode: JsonCoerce.asString(json['cityCode']),
+      street: JsonCoerce.asString(json['street']),
+      apartment: JsonCoerce.asString(json['apartment']),
+      address: JsonCoerce.asString(json['address']),
+      firstName: JsonCoerce.asString(json['firstName']),
+      lastName: JsonCoerce.asString(json['lastName']),
+      phoneNumber: JsonCoerce.asString(json['phoneNumber']),
+      zipCode: JsonCoerce.asString(json['zipCode']),
+      id: JsonCoerce.asDouble(json['id']),
     );
 
 Map<String, dynamic>
@@ -6468,11 +6487,11 @@ _$OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$PayMeth
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$PayMethod(
-      method: json['method'] as String?,
-      methodName: json['methodName'] as String?,
-      payOrderId: json['payOrderId'] as String?,
-      cardMsg: json['cardMsg'] as String?,
-      image: json['image'] as String?,
+      method: JsonCoerce.asString(json['method']),
+      methodName: JsonCoerce.asString(json['methodName']),
+      payOrderId: JsonCoerce.asString(json['payOrderId']),
+      cardMsg: JsonCoerce.asString(json['cardMsg']),
+      image: JsonCoerce.asString(json['image']),
     );
 
 Map<String, dynamic>
@@ -6492,28 +6511,32 @@ _$OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$Payment
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$Payments(
-      receiptAmount: json['receiptAmount'] as String?,
-      targetOriginAmount: json['targetOriginAmount'] as String?,
-      itemsTotalAmount: json['itemsTotalAmount'] as String?,
-      freightAmount: json['freightAmount'] as String?,
-      targetFreightAmount: json['targetFreightAmount'] as String?,
-      skuQuantity: (json['skuQuantity'] as num?)?.toDouble(),
-      currency: json['currency'] as String?,
-      totalPrice: json['totalPrice'] as String?,
-      targetPrice: json['targetPrice'] as String?,
-      targetSettlementAmount: json['targetSettlementAmount'] as String?,
-      settlementAmount: json['settlementAmount'] as String?,
-      discountAmount: json['discountAmount'] as String?,
-      targetDiscountAmount: json['targetDiscountAmount'] as String?,
-      rechargeAmount: json['rechargeAmount'] as String?,
-      targetRechargePrice: json['targetRechargePrice'] as String?,
-      targetPayFeeAmount: json['targetPayFeeAmount'] as String?,
-      targetCurrency: json['targetCurrency'] as String?,
-      targetItemsTotalAmount: json['targetItemsTotalAmount'] as String?,
-      targetStockFeeAmount: json['targetStockFeeAmount'] as String?,
-      targetActualAmount: json['targetActualAmount'] as String?,
-      targetTipAmount: json['targetTipAmount'] as String?,
-      targetServiceAmount: json['targetServiceAmount'] as String?,
+      receiptAmount: JsonCoerce.asString(json['receiptAmount']),
+      targetOriginAmount: JsonCoerce.asString(json['targetOriginAmount']),
+      itemsTotalAmount: JsonCoerce.asString(json['itemsTotalAmount']),
+      freightAmount: JsonCoerce.asString(json['freightAmount']),
+      targetFreightAmount: JsonCoerce.asString(json['targetFreightAmount']),
+      skuQuantity: JsonCoerce.asDouble(json['skuQuantity']),
+      currency: JsonCoerce.asString(json['currency']),
+      totalPrice: JsonCoerce.asString(json['totalPrice']),
+      targetPrice: JsonCoerce.asString(json['targetPrice']),
+      targetSettlementAmount: JsonCoerce.asString(
+        json['targetSettlementAmount'],
+      ),
+      settlementAmount: JsonCoerce.asString(json['settlementAmount']),
+      discountAmount: JsonCoerce.asString(json['discountAmount']),
+      targetDiscountAmount: JsonCoerce.asString(json['targetDiscountAmount']),
+      rechargeAmount: JsonCoerce.asString(json['rechargeAmount']),
+      targetRechargePrice: JsonCoerce.asString(json['targetRechargePrice']),
+      targetPayFeeAmount: JsonCoerce.asString(json['targetPayFeeAmount']),
+      targetCurrency: JsonCoerce.asString(json['targetCurrency']),
+      targetItemsTotalAmount: JsonCoerce.asString(
+        json['targetItemsTotalAmount'],
+      ),
+      targetStockFeeAmount: JsonCoerce.asString(json['targetStockFeeAmount']),
+      targetActualAmount: JsonCoerce.asString(json['targetActualAmount']),
+      targetTipAmount: JsonCoerce.asString(json['targetTipAmount']),
+      targetServiceAmount: JsonCoerce.asString(json['targetServiceAmount']),
     );
 
 Map<String, dynamic>
@@ -6550,10 +6573,10 @@ _$OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$OrderBi
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$OrderBillList$Item(
-      status: json['status'] as String?,
-      targetCurrency: json['targetCurrency'] as String?,
-      targetTotalPrice: json['targetTotalPrice'] as String?,
-      billId: json['billId'] as String?,
+      status: JsonCoerce.asString(json['status']),
+      targetCurrency: JsonCoerce.asString(json['targetCurrency']),
+      targetTotalPrice: JsonCoerce.asString(json['targetTotalPrice']),
+      billId: JsonCoerce.asString(json['billId']),
     );
 
 Map<String, dynamic>
@@ -6571,13 +6594,13 @@ OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$ParcelOrd
 _$OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$ParcelOrderFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$ParcelOrder(
-  parcelOrderId: json['parcelOrderId'] as String?,
-  parcelStatus: json['parcelStatus'] as String?,
-  parcelStatusDesc: json['parcelStatusDesc'] as String?,
-  createTime: (json['createTime'] as num?)?.toDouble(),
-  warehouseCode: json['warehouseCode'] as String?,
-  warehouseName: json['warehouseName'] as String?,
-  freight: json['freight'] as String?,
+  parcelOrderId: JsonCoerce.asString(json['parcelOrderId']),
+  parcelStatus: JsonCoerce.asString(json['parcelStatus']),
+  parcelStatusDesc: JsonCoerce.asString(json['parcelStatusDesc']),
+  createTime: JsonCoerce.asDouble(json['createTime']),
+  warehouseCode: JsonCoerce.asString(json['warehouseCode']),
+  warehouseName: JsonCoerce.asString(json['warehouseName']),
+  freight: JsonCoerce.asString(json['freight']),
   freightCurrency: json['freightCurrency'] == null
       ? null
       : OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$ParcelOrder$FreightCurrency.fromJson(
@@ -6594,24 +6617,24 @@ _$OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$ParcelO
             ),
       )
       .toList(),
-  buyerOperates:
-      (json['buyerOperates'] as List<dynamic>?)
-          ?.map((e) => e as String)
-          .toList() ??
-      [],
+  buyerOperates: json['buyerOperates'] == null
+      ? []
+      : JsonCoerce.asStringList(json['buyerOperates']),
   freightCompensate: json['freightCompensate'] == null
       ? null
       : OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$ParcelOrder$FreightCompensate.fromJson(
           json['freightCompensate'] as Map<String, dynamic>,
         ),
-  solutionCode: json['solutionCode'] as String?,
-  actualFreight: json['actualFreight'] as String?,
-  actualFreightCurrency: json['actualFreightCurrency'] as String?,
-  targetFreightCouponDiscountAmount:
-      json['targetFreightCouponDiscountAmount'] as String?,
-  targetFreightCouponDiscountCurrency:
-      json['targetFreightCouponDiscountCurrency'] as String?,
-  targetFreight: json['targetFreight'] as String?,
+  solutionCode: JsonCoerce.asString(json['solutionCode']),
+  actualFreight: JsonCoerce.asString(json['actualFreight']),
+  actualFreightCurrency: JsonCoerce.asString(json['actualFreightCurrency']),
+  targetFreightCouponDiscountAmount: JsonCoerce.asString(
+    json['targetFreightCouponDiscountAmount'],
+  ),
+  targetFreightCouponDiscountCurrency: JsonCoerce.asString(
+    json['targetFreightCouponDiscountCurrency'],
+  ),
+  targetFreight: JsonCoerce.asString(json['targetFreight']),
   targetFreightCurrency: json['targetFreightCurrency'] == null
       ? null
       : OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$ParcelOrder$TargetFreightCurrency.fromJson(
@@ -6655,9 +6678,9 @@ OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$OrderTrac
 _$OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$OrderTraceFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$OrderTrace(
-  tradeOrderId: json['tradeOrderId'] as String?,
-  logisticsOrderId: json['logisticsOrderId'] as String?,
-  logisticsStatus: json['logisticsStatus'] as String?,
+  tradeOrderId: JsonCoerce.asString(json['tradeOrderId']),
+  logisticsOrderId: JsonCoerce.asString(json['logisticsOrderId']),
+  logisticsStatus: JsonCoerce.asString(json['logisticsStatus']),
   traceList: (json['traceList'] as List<dynamic>?)
       ?.map(
         (e) =>
@@ -6666,7 +6689,7 @@ _$OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$OrderTr
             ),
       )
       .toList(),
-  parcelOrderId: json['parcelOrderId'] as String?,
+  parcelOrderId: JsonCoerce.asString(json['parcelOrderId']),
 );
 
 Map<String, dynamic>
@@ -6686,11 +6709,11 @@ _$OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$Discoun
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$DiscountInfos$Item(
-      discountType: (json['discountType'] as num?)?.toDouble(),
-      userCouponCode: json['userCouponCode'] as String?,
-      discountAmount: json['discountAmount'] as String?,
-      targetDiscountAmount: json['targetDiscountAmount'] as String?,
-      couponCode: json['couponCode'] as String?,
+      discountType: JsonCoerce.asDouble(json['discountType']),
+      userCouponCode: JsonCoerce.asString(json['userCouponCode']),
+      discountAmount: JsonCoerce.asString(json['discountAmount']),
+      targetDiscountAmount: JsonCoerce.asString(json['targetDiscountAmount']),
+      couponCode: JsonCoerce.asString(json['couponCode']),
     );
 
 Map<String, dynamic>
@@ -6747,8 +6770,8 @@ _$OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrder$FreightCurrencyFro
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrder$FreightCurrency(
-      name: json['name'] as String?,
-      symbol: json['symbol'] as String?,
+      name: JsonCoerce.asString(json['name']),
+      symbol: JsonCoerce.asString(json['symbol']),
     );
 
 Map<String, dynamic>
@@ -6762,11 +6785,11 @@ _$OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrder$ParcelProductDTOLi
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrder$ParcelProductDTOList$Item(
-      skuCode: json['skuCode'] as String?,
-      productCode: json['productCode'] as String?,
-      productName: json['productName'] as String?,
-      quantity: (json['quantity'] as num?)?.toDouble(),
-      imageUrl: json['imageUrl'] as String?,
+      skuCode: JsonCoerce.asString(json['skuCode']),
+      productCode: JsonCoerce.asString(json['productCode']),
+      productName: JsonCoerce.asString(json['productName']),
+      quantity: JsonCoerce.asDouble(json['quantity']),
+      imageUrl: JsonCoerce.asString(json['imageUrl']),
     );
 
 Map<String, dynamic>
@@ -6786,13 +6809,16 @@ _$OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrder$FreightCompensateF
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrder$FreightCompensate(
-      compensateBillId: json['compensateBillId'] as String?,
-      compensatePrice: json['compensatePrice'] as String?,
-      compensatePriceCurrency: json['compensatePriceCurrency'] as String?,
-      compensateReason: json['compensateReason'] as String?,
-      targetCompensatePrice: json['targetCompensatePrice'] as String?,
-      targetCompensatePriceCurrency:
-          json['targetCompensatePriceCurrency'] as String?,
+      compensateBillId: JsonCoerce.asString(json['compensateBillId']),
+      compensatePrice: JsonCoerce.asString(json['compensatePrice']),
+      compensatePriceCurrency: JsonCoerce.asString(
+        json['compensatePriceCurrency'],
+      ),
+      compensateReason: JsonCoerce.asString(json['compensateReason']),
+      targetCompensatePrice: JsonCoerce.asString(json['targetCompensatePrice']),
+      targetCompensatePriceCurrency: JsonCoerce.asString(
+        json['targetCompensatePriceCurrency'],
+      ),
     );
 
 Map<String, dynamic>
@@ -6813,8 +6839,8 @@ _$OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrder$TargetFreightCurre
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrder$TargetFreightCurrency(
-      symbol: json['symbol'] as String?,
-      currency: json['currency'] as String?,
+      symbol: JsonCoerce.asString(json['symbol']),
+      currency: JsonCoerce.asString(json['currency']),
     );
 
 Map<String, dynamic>
@@ -6830,16 +6856,16 @@ OrderServiceOrderCombineDetailGet$Response$Data$OrderTrace$TraceList$Item
 _$OrderServiceOrderCombineDetailGet$Response$Data$OrderTrace$TraceList$ItemFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderCombineDetailGet$Response$Data$OrderTrace$TraceList$Item(
-  id: (json['id'] as num?)?.toDouble(),
-  frontCode: json['frontCode'] as String?,
-  icon: json['icon'] as String?,
-  traceMessage: json['traceMessage'] as String?,
-  time: (json['time'] as num?)?.toDouble(),
-  lastMileMailNo: json['lastMileMailNo'] as String?,
-  lastMileMailNoLink: json['lastMileMailNoLink'] as String?,
-  lastMileMailNoTitle: json['lastMileMailNoTitle'] as String?,
-  traceStatus: json['traceStatus'] as String?,
-  logisticsOrderId: json['logisticsOrderId'] as String?,
+  id: JsonCoerce.asDouble(json['id']),
+  frontCode: JsonCoerce.asString(json['frontCode']),
+  icon: JsonCoerce.asString(json['icon']),
+  traceMessage: JsonCoerce.asString(json['traceMessage']),
+  time: JsonCoerce.asDouble(json['time']),
+  lastMileMailNo: JsonCoerce.asString(json['lastMileMailNo']),
+  lastMileMailNoLink: JsonCoerce.asString(json['lastMileMailNoLink']),
+  lastMileMailNoTitle: JsonCoerce.asString(json['lastMileMailNoTitle']),
+  traceStatus: JsonCoerce.asString(json['traceStatus']),
+  logisticsOrderId: JsonCoerce.asString(json['logisticsOrderId']),
 );
 
 Map<String, dynamic>
@@ -6863,11 +6889,11 @@ OrderServiceOrderCombineDetailGet$Response$Data$OrderTrace$GroupTraceList$Item
 _$OrderServiceOrderCombineDetailGet$Response$Data$OrderTrace$GroupTraceList$ItemFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderCombineDetailGet$Response$Data$OrderTrace$GroupTraceList$Item(
-  parcelOrderId: json['parcelOrderId'] as String?,
-  parcelOrderStatus: json['parcelOrderStatus'] as String?,
-  lastMileMailNo: json['lastMileMailNo'] as String?,
-  lastMileCompanyName: json['lastMileCompanyName'] as String?,
-  lastMileMailNoLink: json['lastMileMailNoLink'] as String?,
+  parcelOrderId: JsonCoerce.asString(json['parcelOrderId']),
+  parcelOrderStatus: JsonCoerce.asString(json['parcelOrderStatus']),
+  lastMileMailNo: JsonCoerce.asString(json['lastMileMailNo']),
+  lastMileCompanyName: JsonCoerce.asString(json['lastMileCompanyName']),
+  lastMileMailNoLink: JsonCoerce.asString(json['lastMileMailNoLink']),
   traceList: (json['traceList'] as List<dynamic>?)
       ?.map(
         (e) =>
@@ -6895,25 +6921,25 @@ OrderServiceCartListGet$Response$Data$List$Item$Records$Item
 _$OrderServiceCartListGet$Response$Data$List$Item$Records$ItemFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceCartListGet$Response$Data$List$Item$Records$Item(
-  skuCode: json['skuCode'] as String?,
-  skuImage: json['skuImage'] as String?,
-  offerPrice: json['offerPrice'] as String?,
-  shopName: json['shopName'] as String?,
-  shopImage: json['shopImage'] as String?,
-  shopId: json['shopId'] as String?,
-  quantity: (json['quantity'] as num?)?.toDouble(),
-  targetOriginPrice: json['targetOriginPrice'] as String?,
-  targetOriginTotalPrice: json['targetOriginTotalPrice'] as String?,
-  totalPrice: json['totalPrice'] as String?,
-  targetTotalPrice: json['targetTotalPrice'] as String?,
-  productName: json['productName'] as String?,
-  productCode: json['productCode'] as String?,
-  remarkList: json['remarkList'] as String?,
-  status: (json['status'] as num?)?.toDouble(),
-  sellPrice: json['sellPrice'] as String?,
-  sellCur: json['sellCur'] as String?,
-  targetSellPrice: json['targetSellPrice'] as String?,
-  targetSellCur: json['targetSellCur'] as String?,
+  skuCode: JsonCoerce.asString(json['skuCode']),
+  skuImage: JsonCoerce.asString(json['skuImage']),
+  offerPrice: JsonCoerce.asString(json['offerPrice']),
+  shopName: JsonCoerce.asString(json['shopName']),
+  shopImage: JsonCoerce.asString(json['shopImage']),
+  shopId: JsonCoerce.asString(json['shopId']),
+  quantity: JsonCoerce.asDouble(json['quantity']),
+  targetOriginPrice: JsonCoerce.asString(json['targetOriginPrice']),
+  targetOriginTotalPrice: JsonCoerce.asString(json['targetOriginTotalPrice']),
+  totalPrice: JsonCoerce.asString(json['totalPrice']),
+  targetTotalPrice: JsonCoerce.asString(json['targetTotalPrice']),
+  productName: JsonCoerce.asString(json['productName']),
+  productCode: JsonCoerce.asString(json['productCode']),
+  remarkList: JsonCoerce.asString(json['remarkList']),
+  status: JsonCoerce.asDouble(json['status']),
+  sellPrice: JsonCoerce.asString(json['sellPrice']),
+  sellCur: JsonCoerce.asString(json['sellCur']),
+  targetSellPrice: JsonCoerce.asString(json['targetSellPrice']),
+  targetSellCur: JsonCoerce.asString(json['targetSellCur']),
   skuOptions: (json['skuOptions'] as List<dynamic>?)
       ?.map(
         (e) =>
@@ -6922,21 +6948,21 @@ _$OrderServiceCartListGet$Response$Data$List$Item$Records$ItemFromJson(
             ),
       )
       .toList(),
-  discountAmount: (json['discountAmount'] as num?)?.toDouble(),
-  discountRemark: json['discountRemark'] as String?,
-  skuSourceCode: json['skuSourceCode'] as String?,
-  skuSourceTitle: json['skuSourceTitle'] as String?,
-  weight: json['weight'] as String?,
-  weightUnit: json['weightUnit'] as String?,
-  canDeliver: (json['canDeliver'] as num?)?.toDouble(),
-  inviteCode: json['inviteCode'] as String?,
+  discountAmount: JsonCoerce.asDouble(json['discountAmount']),
+  discountRemark: JsonCoerce.asString(json['discountRemark']),
+  skuSourceCode: JsonCoerce.asString(json['skuSourceCode']),
+  skuSourceTitle: JsonCoerce.asString(json['skuSourceTitle']),
+  weight: JsonCoerce.asString(json['weight']),
+  weightUnit: JsonCoerce.asString(json['weightUnit']),
+  canDeliver: JsonCoerce.asDouble(json['canDeliver']),
+  inviteCode: JsonCoerce.asString(json['inviteCode']),
   qualityImages:
       (json['qualityImages'] as List<dynamic>?)
           ?.map((e) => e as Object)
           .toList() ??
       [],
-  remark: json['remark'] as String?,
-  sourceDetail: json['sourceDetail'] as String?,
+  remark: JsonCoerce.asString(json['remark']),
+  sourceDetail: JsonCoerce.asString(json['sourceDetail']),
 );
 
 Map<String, dynamic>
@@ -6981,8 +7007,8 @@ _$OrderServiceOrderAppListGet$Response$Data$Records$Item$OrderSkuList$Item$SkuSp
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderAppListGet$Response$Data$Records$Item$OrderSkuList$Item$SkuSpecValues$Item(
-      name: json['name'] as String?,
-      value: json['value'] as String?,
+      name: JsonCoerce.asString(json['name']),
+      value: JsonCoerce.asString(json['value']),
     );
 
 Map<String, dynamic>
@@ -6996,9 +7022,9 @@ _$OrderServiceOrderAppListGet$Response$Data$Records$Item$SupplyOrderList$Item$Se
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderAppListGet$Response$Data$Records$Item$SupplyOrderList$Item$SecretKeyList$Item(
-      barCodeImg: json['barCodeImg'] as String?,
-      codeInfo: json['codeInfo'] as String?,
-      pin: json['pin'] as String?,
+      barCodeImg: JsonCoerce.asString(json['barCodeImg']),
+      codeInfo: JsonCoerce.asString(json['codeInfo']),
+      pin: JsonCoerce.asString(json['pin']),
     );
 
 Map<String, dynamic>
@@ -7016,8 +7042,8 @@ _$OrderServiceOrderAppListGet$Response$Data$Records$Item$ParcelOrder$FreightCurr
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderAppListGet$Response$Data$Records$Item$ParcelOrder$FreightCurrency(
-      name: json['name'] as String?,
-      symbol: json['symbol'] as String?,
+      name: JsonCoerce.asString(json['name']),
+      symbol: JsonCoerce.asString(json['symbol']),
     );
 
 Map<String, dynamic>
@@ -7031,8 +7057,8 @@ _$OrderServiceOrderAppListGet$Response$Data$Records$Item$ParcelOrder$TargetFreig
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderAppListGet$Response$Data$Records$Item$ParcelOrder$TargetFreightCurrency(
-      name: json['name'] as String?,
-      symbol: json['symbol'] as String?,
+      name: JsonCoerce.asString(json['name']),
+      symbol: JsonCoerce.asString(json['symbol']),
     );
 
 Map<String, dynamic>
@@ -7046,8 +7072,8 @@ _$OrderServiceOrderAppListGet$Response$Data$Records$Item$ParcelOrder$FreightCoup
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderAppListGet$Response$Data$Records$Item$ParcelOrder$FreightCouponDiscountCurrency(
-      name: json['name'] as String?,
-      symbol: json['symbol'] as String?,
+      name: JsonCoerce.asString(json['name']),
+      symbol: JsonCoerce.asString(json['symbol']),
     );
 
 Map<String, dynamic>
@@ -7061,20 +7087,20 @@ _$OrderServiceOrderAppListGet$Response$Data$Records$Item$ParcelOrder$ReceiverAdd
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderAppListGet$Response$Data$Records$Item$ParcelOrder$ReceiverAddress(
-      country: json['country'] as String?,
-      countryCode: json['countryCode'] as String?,
-      state: json['state'] as String?,
-      stateCode: json['stateCode'] as String?,
-      city: json['city'] as String?,
-      cityCode: json['cityCode'] as String?,
-      street: json['street'] as String?,
-      apartment: json['apartment'] as String?,
-      address: json['address'] as String?,
-      firstName: json['firstName'] as String?,
-      lastName: json['lastName'] as String?,
-      phoneNumber: json['phoneNumber'] as String?,
-      zipCode: json['zipCode'] as String?,
-      id: (json['id'] as num?)?.toDouble(),
+      country: JsonCoerce.asString(json['country']),
+      countryCode: JsonCoerce.asString(json['countryCode']),
+      state: JsonCoerce.asString(json['state']),
+      stateCode: JsonCoerce.asString(json['stateCode']),
+      city: JsonCoerce.asString(json['city']),
+      cityCode: JsonCoerce.asString(json['cityCode']),
+      street: JsonCoerce.asString(json['street']),
+      apartment: JsonCoerce.asString(json['apartment']),
+      address: JsonCoerce.asString(json['address']),
+      firstName: JsonCoerce.asString(json['firstName']),
+      lastName: JsonCoerce.asString(json['lastName']),
+      phoneNumber: JsonCoerce.asString(json['phoneNumber']),
+      zipCode: JsonCoerce.asString(json['zipCode']),
+      id: JsonCoerce.asDouble(json['id']),
     );
 
 Map<String, dynamic>
@@ -7103,14 +7129,14 @@ _$OrderServiceOrderAppListGet$Response$Data$Records$Item$ParcelOrder$ParcelProdu
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderAppListGet$Response$Data$Records$Item$ParcelOrder$ParcelProductDTOList$Item(
-      skuCode: json['skuCode'] as String?,
-      productCode: json['productCode'] as String?,
-      productName: json['productName'] as String?,
-      logisticsOrderId: json['logisticsOrderId'] as String?,
-      quantity: (json['quantity'] as num?)?.toDouble(),
-      imageUrl: json['imageUrl'] as String?,
-      declareName: json['declareName'] as String?,
-      declareNameEn: json['declareNameEn'] as String?,
+      skuCode: JsonCoerce.asString(json['skuCode']),
+      productCode: JsonCoerce.asString(json['productCode']),
+      productName: JsonCoerce.asString(json['productName']),
+      logisticsOrderId: JsonCoerce.asString(json['logisticsOrderId']),
+      quantity: JsonCoerce.asDouble(json['quantity']),
+      imageUrl: JsonCoerce.asString(json['imageUrl']),
+      declareName: JsonCoerce.asString(json['declareName']),
+      declareNameEn: JsonCoerce.asString(json['declareNameEn']),
     );
 
 Map<String, dynamic>
@@ -7133,10 +7159,10 @@ _$OrderServiceOrderAppDetailGet$Response$Data$Payments$PaymentSubjoins$Item$Desc
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderAppDetailGet$Response$Data$Payments$PaymentSubjoins$Item$Description(
-      desc: json['desc'] as String?,
-      fontSize: json['fontSize'] as String?,
-      fontColor: json['fontColor'] as String?,
-      position: (json['position'] as num?)?.toInt(),
+      desc: JsonCoerce.asString(json['desc']),
+      fontSize: JsonCoerce.asString(json['fontSize']),
+      fontColor: JsonCoerce.asString(json['fontColor']),
+      position: JsonCoerce.asInt(json['position']),
     );
 
 Map<String, dynamic>
@@ -7155,8 +7181,8 @@ _$OrderServiceOrderAppDetailGet$Response$Data$OrderList$Item$SkuList$Item$SkuSpe
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderAppDetailGet$Response$Data$OrderList$Item$SkuList$Item$SkuSpecValues$Item(
-      name: json['name'] as String?,
-      value: json['value'] as String?,
+      name: JsonCoerce.asString(json['name']),
+      value: JsonCoerce.asString(json['value']),
     );
 
 Map<String, dynamic>
@@ -7169,23 +7195,23 @@ OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$RecommendSo
 _$OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$RecommendSolutionFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$RecommendSolution(
-  solutionName: json['solutionName'] as String?,
-  solutionCode: json['solutionCode'] as String?,
-  freight: json['freight'] as String?,
+  solutionName: JsonCoerce.asString(json['solutionName']),
+  solutionCode: JsonCoerce.asString(json['solutionCode']),
+  freight: JsonCoerce.asString(json['freight']),
   freightCurrency: json['freightCurrency'] == null
       ? null
       : OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$RecommendSolution$FreightCurrency.fromJson(
           json['freightCurrency'] as Map<String, dynamic>,
         ),
-  freightFreeThreshold: json['freightFreeThreshold'] as String?,
+  freightFreeThreshold: JsonCoerce.asString(json['freightFreeThreshold']),
   freightFreeThresholdCurrency: json['freightFreeThresholdCurrency'] == null
       ? null
       : OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$RecommendSolution$FreightFreeThresholdCurrency.fromJson(
           json['freightFreeThresholdCurrency'] as Map<String, dynamic>,
         ),
-  gmtExpectArriveStart: (json['gmtExpectArriveStart'] as num?)?.toDouble(),
-  gmtExpectArriveEnd: (json['gmtExpectArriveEnd'] as num?)?.toDouble(),
-  lateCompensation: json['lateCompensation'] as String?,
+  gmtExpectArriveStart: JsonCoerce.asDouble(json['gmtExpectArriveStart']),
+  gmtExpectArriveEnd: JsonCoerce.asDouble(json['gmtExpectArriveEnd']),
+  lateCompensation: JsonCoerce.asString(json['lateCompensation']),
   lateCompensationCurrency: json['lateCompensationCurrency'] == null
       ? null
       : OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$RecommendSolution$LateCompensationCurrency.fromJson(
@@ -7215,7 +7241,7 @@ OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileLis
 _$OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileList$ItemFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileList$Item(
-  name: json['name'] as String?,
+  name: JsonCoerce.asString(json['name']),
   solutionList: (json['solutionList'] as List<dynamic>?)
       ?.map(
         (e) =>
@@ -7239,11 +7265,11 @@ OrderServiceOrderConfirmPost$Response$Data$Pricing$Giveaway$Item$Records$Item
 _$OrderServiceOrderConfirmPost$Response$Data$Pricing$Giveaway$Item$Records$ItemFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderConfirmPost$Response$Data$Pricing$Giveaway$Item$Records$Item(
-  skuCode: json['skuCode'] as String?,
-  skuImage: json['skuImage'] as String?,
-  sellPrice: json['sellPrice'] as String?,
-  quantity: json['quantity'] as String?,
-  productName: json['productName'] as String?,
+  skuCode: JsonCoerce.asString(json['skuCode']),
+  skuImage: JsonCoerce.asString(json['skuImage']),
+  sellPrice: JsonCoerce.asString(json['sellPrice']),
+  quantity: JsonCoerce.asString(json['quantity']),
+  productName: JsonCoerce.asString(json['productName']),
   currency: json['currency'] == null
       ? null
       : OrderServiceOrderConfirmPost$Response$Data$Pricing$Giveaway$Item$Records$Item$Currency.fromJson(
@@ -7254,12 +7280,12 @@ _$OrderServiceOrderConfirmPost$Response$Data$Pricing$Giveaway$Item$Records$ItemF
           ?.map((e) => e as Object)
           .toList() ??
       [],
-  shopName: json['shopName'] as String?,
-  shopImage: json['shopImage'] as String?,
-  lowStocks: json['lowStocks'] as String?,
-  giftCode: json['giftCode'] as String?,
-  weight: json['weight'] as String?,
-  weightUnit: json['weightUnit'] as String?,
+  shopName: JsonCoerce.asString(json['shopName']),
+  shopImage: JsonCoerce.asString(json['shopImage']),
+  lowStocks: JsonCoerce.asString(json['lowStocks']),
+  giftCode: JsonCoerce.asString(json['giftCode']),
+  weight: JsonCoerce.asString(json['weight']),
+  weightUnit: JsonCoerce.asString(json['weightUnit']),
 );
 
 Map<String, dynamic>
@@ -7286,7 +7312,7 @@ OrderServiceOrderConfirmPost$Response$Data$Pricing$VoucherMsg$VoucherInfos$Item
 _$OrderServiceOrderConfirmPost$Response$Data$Pricing$VoucherMsg$VoucherInfos$ItemFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderConfirmPost$Response$Data$Pricing$VoucherMsg$VoucherInfos$Item(
-  title: json['title'] as String?,
+  title: JsonCoerce.asString(json['title']),
   list: (json['list'] as List<dynamic>?)
       ?.map(
         (e) =>
@@ -7311,22 +7337,20 @@ _$OrderServiceOrderNoAuthDetailGet$Response$Data$OrderTrace$GroupTraceList$Item$
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderNoAuthDetailGet$Response$Data$OrderTrace$GroupTraceList$Item$TraceList$Item(
-      id: (json['id'] as num?)?.toInt(),
-      subParcelOrderId: json['subParcelOrderId'] as String?,
-      frontCode: json['frontCode'] as String?,
-      frontTitleCode: json['frontTitleCode'] as String?,
-      frontTitle: json['frontTitle'] as String?,
-      icon: json['icon'] as String?,
-      traceMessage: json['traceMessage'] as String?,
-      time: (json['time'] as num?)?.toInt(),
-      lastMileMailNo: json['lastMileMailNo'] as String?,
-      lastMileCompanyName: json['lastMileCompanyName'] as String?,
-      lastMileMailNoLink: json['lastMileMailNoLink'] as String?,
-      lastMileMailNoTitle: json['lastMileMailNoTitle'] as String?,
-      traceStatus: json['traceStatus'] as String?,
-      traceTime: json['traceTime'] == null
-          ? null
-          : DateTime.parse(json['traceTime'] as String),
+      id: JsonCoerce.asInt(json['id']),
+      subParcelOrderId: JsonCoerce.asString(json['subParcelOrderId']),
+      frontCode: JsonCoerce.asString(json['frontCode']),
+      frontTitleCode: JsonCoerce.asString(json['frontTitleCode']),
+      frontTitle: JsonCoerce.asString(json['frontTitle']),
+      icon: JsonCoerce.asString(json['icon']),
+      traceMessage: JsonCoerce.asString(json['traceMessage']),
+      time: JsonCoerce.asInt(json['time']),
+      lastMileMailNo: JsonCoerce.asString(json['lastMileMailNo']),
+      lastMileCompanyName: JsonCoerce.asString(json['lastMileCompanyName']),
+      lastMileMailNoLink: JsonCoerce.asString(json['lastMileMailNoLink']),
+      lastMileMailNoTitle: JsonCoerce.asString(json['lastMileMailNoTitle']),
+      traceStatus: JsonCoerce.asString(json['traceStatus']),
+      traceTime: JsonCoerce.asDateTime(json['traceTime']),
     );
 
 Map<String, dynamic>
@@ -7355,8 +7379,8 @@ _$OrderServiceOrderNoAuthDetailGet$Response$Data$OrderList$Item$SkuList$Item$Sku
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderNoAuthDetailGet$Response$Data$OrderList$Item$SkuList$Item$SkuSpecValues$Item(
-      name: json['name'] as String?,
-      value: json['value'] as String?,
+      name: JsonCoerce.asString(json['name']),
+      value: JsonCoerce.asString(json['value']),
     );
 
 Map<String, dynamic>
@@ -7370,8 +7394,8 @@ _$OrderServiceOrderListGet$Response$Data$Records$Item$OrderSkuList$Item$SkuSpecV
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderListGet$Response$Data$Records$Item$OrderSkuList$Item$SkuSpecValues$Item(
-      name: json['name'] as String?,
-      value: json['value'] as String?,
+      name: JsonCoerce.asString(json['name']),
+      value: JsonCoerce.asString(json['value']),
     );
 
 Map<String, dynamic>
@@ -7385,9 +7409,9 @@ _$OrderServiceOrderListGet$Response$Data$Records$Item$SupplyOrderList$Item$Secre
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderListGet$Response$Data$Records$Item$SupplyOrderList$Item$SecretKeyList$Item(
-      barCodeImg: json['barCodeImg'] as String?,
-      codeInfo: json['codeInfo'] as String?,
-      pin: json['pin'] as String?,
+      barCodeImg: JsonCoerce.asString(json['barCodeImg']),
+      codeInfo: JsonCoerce.asString(json['codeInfo']),
+      pin: JsonCoerce.asString(json['pin']),
     );
 
 Map<String, dynamic>
@@ -7405,8 +7429,8 @@ _$OrderServiceOrderListGet$Response$Data$Records$Item$ParcelOrder$FreightCurrenc
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderListGet$Response$Data$Records$Item$ParcelOrder$FreightCurrency(
-      name: json['name'] as String?,
-      symbol: json['symbol'] as String?,
+      name: JsonCoerce.asString(json['name']),
+      symbol: JsonCoerce.asString(json['symbol']),
     );
 
 Map<String, dynamic>
@@ -7420,8 +7444,8 @@ _$OrderServiceOrderListGet$Response$Data$Records$Item$ParcelOrder$TargetFreightC
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderListGet$Response$Data$Records$Item$ParcelOrder$TargetFreightCurrency(
-      name: json['name'] as String?,
-      symbol: json['symbol'] as String?,
+      name: JsonCoerce.asString(json['name']),
+      symbol: JsonCoerce.asString(json['symbol']),
     );
 
 Map<String, dynamic>
@@ -7435,8 +7459,8 @@ _$OrderServiceOrderListGet$Response$Data$Records$Item$ParcelOrder$FreightCouponD
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderListGet$Response$Data$Records$Item$ParcelOrder$FreightCouponDiscountCurrency(
-      name: json['name'] as String?,
-      symbol: json['symbol'] as String?,
+      name: JsonCoerce.asString(json['name']),
+      symbol: JsonCoerce.asString(json['symbol']),
     );
 
 Map<String, dynamic>
@@ -7450,20 +7474,20 @@ _$OrderServiceOrderListGet$Response$Data$Records$Item$ParcelOrder$ReceiverAddres
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderListGet$Response$Data$Records$Item$ParcelOrder$ReceiverAddress(
-      country: json['country'] as String?,
-      countryCode: json['countryCode'] as String?,
-      state: json['state'] as String?,
-      stateCode: json['stateCode'] as String?,
-      city: json['city'] as String?,
-      cityCode: json['cityCode'] as String?,
-      street: json['street'] as String?,
-      apartment: json['apartment'] as String?,
-      address: json['address'] as String?,
-      firstName: json['firstName'] as String?,
-      lastName: json['lastName'] as String?,
-      phoneNumber: json['phoneNumber'] as String?,
-      zipCode: json['zipCode'] as String?,
-      id: (json['id'] as num?)?.toDouble(),
+      country: JsonCoerce.asString(json['country']),
+      countryCode: JsonCoerce.asString(json['countryCode']),
+      state: JsonCoerce.asString(json['state']),
+      stateCode: JsonCoerce.asString(json['stateCode']),
+      city: JsonCoerce.asString(json['city']),
+      cityCode: JsonCoerce.asString(json['cityCode']),
+      street: JsonCoerce.asString(json['street']),
+      apartment: JsonCoerce.asString(json['apartment']),
+      address: JsonCoerce.asString(json['address']),
+      firstName: JsonCoerce.asString(json['firstName']),
+      lastName: JsonCoerce.asString(json['lastName']),
+      phoneNumber: JsonCoerce.asString(json['phoneNumber']),
+      zipCode: JsonCoerce.asString(json['zipCode']),
+      id: JsonCoerce.asDouble(json['id']),
     );
 
 Map<String, dynamic>
@@ -7492,14 +7516,14 @@ _$OrderServiceOrderListGet$Response$Data$Records$Item$ParcelOrder$ParcelProductD
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderListGet$Response$Data$Records$Item$ParcelOrder$ParcelProductDTOList$Item(
-      skuCode: json['skuCode'] as String?,
-      productCode: json['productCode'] as String?,
-      productName: json['productName'] as String?,
-      logisticsOrderId: json['logisticsOrderId'] as String?,
-      quantity: (json['quantity'] as num?)?.toDouble(),
-      imageUrl: json['imageUrl'] as String?,
-      declareName: json['declareName'] as String?,
-      declareNameEn: json['declareNameEn'] as String?,
+      skuCode: JsonCoerce.asString(json['skuCode']),
+      productCode: JsonCoerce.asString(json['productCode']),
+      productName: JsonCoerce.asString(json['productName']),
+      logisticsOrderId: JsonCoerce.asString(json['logisticsOrderId']),
+      quantity: JsonCoerce.asDouble(json['quantity']),
+      imageUrl: JsonCoerce.asString(json['imageUrl']),
+      declareName: JsonCoerce.asString(json['declareName']),
+      declareNameEn: JsonCoerce.asString(json['declareNameEn']),
     );
 
 Map<String, dynamic>
@@ -7522,8 +7546,8 @@ _$OrderServiceOrderCombineListGet$Response$Data$Records$Item$ParcelOrder$Freight
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderCombineListGet$Response$Data$Records$Item$ParcelOrder$FreightCurrency(
-      name: json['name'] as String?,
-      symbol: json['symbol'] as String?,
+      name: JsonCoerce.asString(json['name']),
+      symbol: JsonCoerce.asString(json['symbol']),
     );
 
 Map<String, dynamic>
@@ -7537,8 +7561,8 @@ _$OrderServiceOrderCombineListGet$Response$Data$Records$Item$ParcelOrder$TargetF
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderCombineListGet$Response$Data$Records$Item$ParcelOrder$TargetFreightCurrency(
-      name: json['name'] as String?,
-      symbol: json['symbol'] as String?,
+      name: JsonCoerce.asString(json['name']),
+      symbol: JsonCoerce.asString(json['symbol']),
     );
 
 Map<String, dynamic>
@@ -7552,8 +7576,8 @@ _$OrderServiceOrderCombineListGet$Response$Data$Records$Item$ParcelOrder$Freight
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderCombineListGet$Response$Data$Records$Item$ParcelOrder$FreightCouponDiscountCurrency(
-      name: json['name'] as String?,
-      symbol: json['symbol'] as String?,
+      name: JsonCoerce.asString(json['name']),
+      symbol: JsonCoerce.asString(json['symbol']),
     );
 
 Map<String, dynamic>
@@ -7567,20 +7591,20 @@ _$OrderServiceOrderCombineListGet$Response$Data$Records$Item$ParcelOrder$Receive
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderCombineListGet$Response$Data$Records$Item$ParcelOrder$ReceiverAddress(
-      country: json['country'] as String?,
-      countryCode: json['countryCode'] as String?,
-      state: json['state'] as String?,
-      stateCode: json['stateCode'] as String?,
-      city: json['city'] as String?,
-      cityCode: json['cityCode'] as String?,
-      street: json['street'] as String?,
-      apartment: json['apartment'] as String?,
-      address: json['address'] as String?,
-      firstName: json['firstName'] as String?,
-      lastName: json['lastName'] as String?,
-      phoneNumber: json['phoneNumber'] as String?,
-      zipCode: json['zipCode'] as String?,
-      id: (json['id'] as num?)?.toDouble(),
+      country: JsonCoerce.asString(json['country']),
+      countryCode: JsonCoerce.asString(json['countryCode']),
+      state: JsonCoerce.asString(json['state']),
+      stateCode: JsonCoerce.asString(json['stateCode']),
+      city: JsonCoerce.asString(json['city']),
+      cityCode: JsonCoerce.asString(json['cityCode']),
+      street: JsonCoerce.asString(json['street']),
+      apartment: JsonCoerce.asString(json['apartment']),
+      address: JsonCoerce.asString(json['address']),
+      firstName: JsonCoerce.asString(json['firstName']),
+      lastName: JsonCoerce.asString(json['lastName']),
+      phoneNumber: JsonCoerce.asString(json['phoneNumber']),
+      zipCode: JsonCoerce.asString(json['zipCode']),
+      id: JsonCoerce.asDouble(json['id']),
     );
 
 Map<String, dynamic>
@@ -7609,14 +7633,14 @@ _$OrderServiceOrderCombineListGet$Response$Data$Records$Item$ParcelOrder$ParcelP
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderCombineListGet$Response$Data$Records$Item$ParcelOrder$ParcelProductDTOList$Item(
-      skuCode: json['skuCode'] as String?,
-      productCode: json['productCode'] as String?,
-      productName: json['productName'] as String?,
-      logisticsOrderId: json['logisticsOrderId'] as String?,
-      quantity: (json['quantity'] as num?)?.toDouble(),
-      imageUrl: json['imageUrl'] as String?,
-      declareName: json['declareName'] as String?,
-      declareNameEn: json['declareNameEn'] as String?,
+      skuCode: JsonCoerce.asString(json['skuCode']),
+      productCode: JsonCoerce.asString(json['productCode']),
+      productName: JsonCoerce.asString(json['productName']),
+      logisticsOrderId: JsonCoerce.asString(json['logisticsOrderId']),
+      quantity: JsonCoerce.asDouble(json['quantity']),
+      imageUrl: JsonCoerce.asString(json['imageUrl']),
+      declareName: JsonCoerce.asString(json['declareName']),
+      declareNameEn: JsonCoerce.asString(json['declareNameEn']),
     );
 
 Map<String, dynamic>
@@ -7638,23 +7662,23 @@ OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$OrderS
 _$OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$OrderSkuList$ItemFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$OrderSkuList$Item(
-  productName: json['productName'] as String?,
-  skuCode: json['skuCode'] as String?,
-  productCode: json['productCode'] as String?,
-  image: json['image'] as String?,
-  targetOriginTotalPrice: json['targetOriginTotalPrice'] as String?,
-  targetOriginPrice: json['targetOriginPrice'] as String?,
-  sellPrice: json['sellPrice'] as String?,
-  sellCur: json['sellCur'] as String?,
-  totalPrice: json['totalPrice'] as String?,
-  targetSellPrice: json['targetSellPrice'] as String?,
-  targetSellCur: json['targetSellCur'] as String?,
-  targetTotalPrice: json['targetTotalPrice'] as String?,
-  targetSkuDiscountPrice: json['targetSkuDiscountPrice'] as String?,
-  targetSkuFinalPrice: json['targetSkuFinalPrice'] as String?,
-  targetTotalFinalPrice: json['targetTotalFinalPrice'] as String?,
-  remark: json['remark'] as String?,
-  quantity: (json['quantity'] as num?)?.toDouble(),
+  productName: JsonCoerce.asString(json['productName']),
+  skuCode: JsonCoerce.asString(json['skuCode']),
+  productCode: JsonCoerce.asString(json['productCode']),
+  image: JsonCoerce.asString(json['image']),
+  targetOriginTotalPrice: JsonCoerce.asString(json['targetOriginTotalPrice']),
+  targetOriginPrice: JsonCoerce.asString(json['targetOriginPrice']),
+  sellPrice: JsonCoerce.asString(json['sellPrice']),
+  sellCur: JsonCoerce.asString(json['sellCur']),
+  totalPrice: JsonCoerce.asString(json['totalPrice']),
+  targetSellPrice: JsonCoerce.asString(json['targetSellPrice']),
+  targetSellCur: JsonCoerce.asString(json['targetSellCur']),
+  targetTotalPrice: JsonCoerce.asString(json['targetTotalPrice']),
+  targetSkuDiscountPrice: JsonCoerce.asString(json['targetSkuDiscountPrice']),
+  targetSkuFinalPrice: JsonCoerce.asString(json['targetSkuFinalPrice']),
+  targetTotalFinalPrice: JsonCoerce.asString(json['targetTotalFinalPrice']),
+  remark: JsonCoerce.asString(json['remark']),
+  quantity: JsonCoerce.asDouble(json['quantity']),
   skuSpecValues: (json['skuSpecValues'] as List<dynamic>?)
       ?.map(
         (e) =>
@@ -7663,7 +7687,7 @@ _$OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$Orde
             ),
       )
       .toList(),
-  isReturned: json['isReturned'] as bool?,
+  isReturned: JsonCoerce.asBool(json['isReturned']),
 );
 
 Map<String, dynamic>
@@ -7696,16 +7720,16 @@ OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$Supply
 _$OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$SupplyOrderList$ItemFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$SupplyOrderList$Item(
-  skuCode: json['skuCode'] as String?,
-  productCode: json['productCode'] as String?,
-  productName: json['productName'] as String?,
+  skuCode: JsonCoerce.asString(json['skuCode']),
+  productCode: JsonCoerce.asString(json['productCode']),
+  productName: JsonCoerce.asString(json['productName']),
   imageUrl: json['imageUrl'],
-  quantity: (json['quantity'] as num?)?.toDouble(),
-  weight: json['weight'] as String?,
-  length: json['length'] as String?,
-  width: json['width'] as String?,
-  height: json['height'] as String?,
-  qcRemark: json['qcRemark'] as String?,
+  quantity: JsonCoerce.asDouble(json['quantity']),
+  weight: JsonCoerce.asString(json['weight']),
+  length: JsonCoerce.asString(json['length']),
+  width: JsonCoerce.asString(json['width']),
+  height: JsonCoerce.asString(json['height']),
+  qcRemark: JsonCoerce.asString(json['qcRemark']),
   inspectImageUrlList:
       (json['inspectImageUrlList'] as List<dynamic>?)
           ?.map((e) => e as Object)
@@ -7744,42 +7768,48 @@ OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$Parcel
 _$OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$ParcelOrderFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$ParcelOrder(
-  parcelOrderId: json['parcelOrderId'] as String?,
-  parcelStatus: json['parcelStatus'] as String?,
-  parcelStatusDesc: json['parcelStatusDesc'] as String?,
-  createTime: (json['createTime'] as num?)?.toDouble(),
-  warehouseCode: json['warehouseCode'] as String?,
-  warehouseName: json['warehouseName'] as String?,
-  solutionCode: json['solutionCode'] as String?,
-  freight: json['freight'] as String?,
+  parcelOrderId: JsonCoerce.asString(json['parcelOrderId']),
+  parcelStatus: JsonCoerce.asString(json['parcelStatus']),
+  parcelStatusDesc: JsonCoerce.asString(json['parcelStatusDesc']),
+  createTime: JsonCoerce.asDouble(json['createTime']),
+  warehouseCode: JsonCoerce.asString(json['warehouseCode']),
+  warehouseName: JsonCoerce.asString(json['warehouseName']),
+  solutionCode: JsonCoerce.asString(json['solutionCode']),
+  freight: JsonCoerce.asString(json['freight']),
   freightCurrency: json['freightCurrency'] == null
       ? null
       : OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$ParcelOrder$FreightCurrency.fromJson(
           json['freightCurrency'] as Map<String, dynamic>,
         ),
-  targetFreight: json['targetFreight'] as String?,
+  targetFreight: JsonCoerce.asString(json['targetFreight']),
   targetFreightCurrency: json['targetFreightCurrency'] == null
       ? null
       : OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$ParcelOrder$TargetFreightCurrency.fromJson(
           json['targetFreightCurrency'] as Map<String, dynamic>,
         ),
-  actualFreight: json['actualFreight'] as String?,
-  actualFreightCurrency: json['actualFreightCurrency'] as String?,
-  targetActualFreight: json['targetActualFreight'] as String?,
-  targetActualFreightCurrency: json['targetActualFreightCurrency'] as String?,
-  freightCouponDiscountAmount: json['freightCouponDiscountAmount'] as String?,
-  targetFreightCouponDiscountAmount:
-      json['targetFreightCouponDiscountAmount'] as String?,
+  actualFreight: JsonCoerce.asString(json['actualFreight']),
+  actualFreightCurrency: JsonCoerce.asString(json['actualFreightCurrency']),
+  targetActualFreight: JsonCoerce.asString(json['targetActualFreight']),
+  targetActualFreightCurrency: JsonCoerce.asString(
+    json['targetActualFreightCurrency'],
+  ),
+  freightCouponDiscountAmount: JsonCoerce.asString(
+    json['freightCouponDiscountAmount'],
+  ),
+  targetFreightCouponDiscountAmount: JsonCoerce.asString(
+    json['targetFreightCouponDiscountAmount'],
+  ),
   freightCouponDiscountCurrency: json['freightCouponDiscountCurrency'] == null
       ? null
       : OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$ParcelOrder$FreightCouponDiscountCurrency.fromJson(
           json['freightCouponDiscountCurrency'] as Map<String, dynamic>,
         ),
-  targetFreightCouponDiscountCurrency:
-      json['targetFreightCouponDiscountCurrency'] as String?,
-  lastMileMailNo: json['lastMileMailNo'] as String?,
-  lastMileCompanyCode: json['lastMileCompanyCode'] as String?,
-  lastMileCompanyName: json['lastMileCompanyName'] as String?,
+  targetFreightCouponDiscountCurrency: JsonCoerce.asString(
+    json['targetFreightCouponDiscountCurrency'],
+  ),
+  lastMileMailNo: JsonCoerce.asString(json['lastMileMailNo']),
+  lastMileCompanyCode: JsonCoerce.asString(json['lastMileCompanyCode']),
+  lastMileCompanyName: JsonCoerce.asString(json['lastMileCompanyName']),
   receiverAddress: json['receiverAddress'] == null
       ? null
       : OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$ParcelOrder$ReceiverAddress.fromJson(
@@ -7793,11 +7823,9 @@ _$OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$Parc
             ),
       )
       .toList(),
-  buyerOperates:
-      (json['buyerOperates'] as List<dynamic>?)
-          ?.map((e) => e as String)
-          .toList() ??
-      [],
+  buyerOperates: json['buyerOperates'] == null
+      ? []
+      : JsonCoerce.asStringList(json['buyerOperates']),
 );
 
 Map<String, dynamic>
@@ -7842,10 +7870,10 @@ _$OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$Orde
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$OrderBillList$Item(
-      billId: json['billId'] as String?,
-      status: (json['status'] as num?)?.toDouble(),
-      targetTotalPrice: json['targetTotalPrice'] as String?,
-      targetCurrency: json['targetCurrency'] as String?,
+      billId: JsonCoerce.asString(json['billId']),
+      status: JsonCoerce.asDouble(json['status']),
+      targetTotalPrice: JsonCoerce.asString(json['targetTotalPrice']),
+      targetCurrency: JsonCoerce.asString(json['targetCurrency']),
     );
 
 Map<String, dynamic>
@@ -7864,20 +7892,20 @@ _$OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$User
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$UserAddress(
-      country: json['country'] as String?,
-      countryCode: json['countryCode'] as String?,
-      state: json['state'] as String?,
-      stateCode: json['stateCode'] as String?,
-      city: json['city'] as String?,
-      cityCode: json['cityCode'] as String?,
-      street: json['street'] as String?,
-      apartment: json['apartment'] as String?,
-      address: json['address'] as String?,
-      firstName: json['firstName'] as String?,
-      lastName: json['lastName'] as String?,
-      phoneNumber: json['phoneNumber'] as String?,
-      zipCode: json['zipCode'] as String?,
-      id: (json['id'] as num?)?.toDouble(),
+      country: JsonCoerce.asString(json['country']),
+      countryCode: JsonCoerce.asString(json['countryCode']),
+      state: JsonCoerce.asString(json['state']),
+      stateCode: JsonCoerce.asString(json['stateCode']),
+      city: JsonCoerce.asString(json['city']),
+      cityCode: JsonCoerce.asString(json['cityCode']),
+      street: JsonCoerce.asString(json['street']),
+      apartment: JsonCoerce.asString(json['apartment']),
+      address: JsonCoerce.asString(json['address']),
+      firstName: JsonCoerce.asString(json['firstName']),
+      lastName: JsonCoerce.asString(json['lastName']),
+      phoneNumber: JsonCoerce.asString(json['phoneNumber']),
+      zipCode: JsonCoerce.asString(json['zipCode']),
+      id: JsonCoerce.asDouble(json['id']),
     );
 
 Map<String, dynamic>
@@ -7906,8 +7934,8 @@ _$OrderServiceOrderDetailGet$Response$Data$OrderList$Item$SkuList$Item$SkuSpecVa
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderDetailGet$Response$Data$OrderList$Item$SkuList$Item$SkuSpecValues$Item(
-      name: json['name'] as String?,
-      value: json['value'] as String?,
+      name: JsonCoerce.asString(json['name']),
+      value: JsonCoerce.asString(json['value']),
     );
 
 Map<String, dynamic>
@@ -7921,20 +7949,20 @@ _$OrderServiceOrderDetailGet$Response$Data$OrderTrace$GroupTraceList$Item$TraceL
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderDetailGet$Response$Data$OrderTrace$GroupTraceList$Item$TraceList$Item(
-      id: (json['id'] as num?)?.toDouble(),
-      subParcelOrderId: json['subParcelOrderId'] as String?,
-      frontCode: json['frontCode'] as String?,
-      frontTitleCode: json['frontTitleCode'] as String?,
-      frontTitle: json['frontTitle'] as String?,
-      icon: json['icon'] as String?,
-      traceMessage: json['traceMessage'] as String?,
-      time: (json['time'] as num?)?.toDouble(),
-      lastMileMailNo: json['lastMileMailNo'] as String?,
-      lastMileCompanyName: json['lastMileCompanyName'] as String?,
-      lastMileMailNoLink: json['lastMileMailNoLink'] as String?,
-      lastMileMailNoTitle: json['lastMileMailNoTitle'] as String?,
-      traceStatus: json['traceStatus'] as String?,
-      traceTime: json['traceTime'] as String?,
+      id: JsonCoerce.asDouble(json['id']),
+      subParcelOrderId: JsonCoerce.asString(json['subParcelOrderId']),
+      frontCode: JsonCoerce.asString(json['frontCode']),
+      frontTitleCode: JsonCoerce.asString(json['frontTitleCode']),
+      frontTitle: JsonCoerce.asString(json['frontTitle']),
+      icon: JsonCoerce.asString(json['icon']),
+      traceMessage: JsonCoerce.asString(json['traceMessage']),
+      time: JsonCoerce.asDouble(json['time']),
+      lastMileMailNo: JsonCoerce.asString(json['lastMileMailNo']),
+      lastMileCompanyName: JsonCoerce.asString(json['lastMileCompanyName']),
+      lastMileMailNoLink: JsonCoerce.asString(json['lastMileMailNoLink']),
+      lastMileMailNoTitle: JsonCoerce.asString(json['lastMileMailNoTitle']),
+      traceStatus: JsonCoerce.asString(json['traceStatus']),
+      traceTime: JsonCoerce.asString(json['traceTime']),
     );
 
 Map<String, dynamic>
@@ -7963,8 +7991,8 @@ _$OrderServiceOpenapiOrderDetailGet$Response$Data$OrderList$Item$SkuList$Item$Sk
   Map<String, dynamic> json,
 ) =>
     OrderServiceOpenapiOrderDetailGet$Response$Data$OrderList$Item$SkuList$Item$SkuSpecValues$Item(
-      name: json['name'] as String?,
-      value: json['value'] as String?,
+      name: JsonCoerce.asString(json['name']),
+      value: JsonCoerce.asString(json['value']),
     );
 
 Map<String, dynamic>
@@ -7978,8 +8006,8 @@ _$OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$ParcelO
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$ParcelOrder$FreightCurrency(
-      name: json['name'] as String?,
-      symbol: json['symbol'] as String?,
+      name: JsonCoerce.asString(json['name']),
+      symbol: JsonCoerce.asString(json['symbol']),
     );
 
 Map<String, dynamic>
@@ -7993,11 +8021,11 @@ _$OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$ParcelO
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$ParcelOrder$ParcelProductDTOList$Item(
-      skuCode: json['skuCode'] as String?,
-      productCode: json['productCode'] as String?,
-      productName: json['productName'] as String?,
-      quantity: (json['quantity'] as num?)?.toDouble(),
-      imageUrl: json['imageUrl'] as String?,
+      skuCode: JsonCoerce.asString(json['skuCode']),
+      productCode: JsonCoerce.asString(json['productCode']),
+      productName: JsonCoerce.asString(json['productName']),
+      quantity: JsonCoerce.asDouble(json['quantity']),
+      imageUrl: JsonCoerce.asString(json['imageUrl']),
     );
 
 Map<String, dynamic>
@@ -8017,13 +8045,16 @@ _$OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$ParcelO
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$ParcelOrder$FreightCompensate(
-      compensateBillId: json['compensateBillId'] as String?,
-      compensatePrice: json['compensatePrice'] as String?,
-      compensatePriceCurrency: json['compensatePriceCurrency'] as String?,
-      compensateReason: json['compensateReason'] as String?,
-      targetCompensatePrice: json['targetCompensatePrice'] as String?,
-      targetCompensatePriceCurrency:
-          json['targetCompensatePriceCurrency'] as String?,
+      compensateBillId: JsonCoerce.asString(json['compensateBillId']),
+      compensatePrice: JsonCoerce.asString(json['compensatePrice']),
+      compensatePriceCurrency: JsonCoerce.asString(
+        json['compensatePriceCurrency'],
+      ),
+      compensateReason: JsonCoerce.asString(json['compensateReason']),
+      targetCompensatePrice: JsonCoerce.asString(json['targetCompensatePrice']),
+      targetCompensatePriceCurrency: JsonCoerce.asString(
+        json['targetCompensatePriceCurrency'],
+      ),
     );
 
 Map<String, dynamic>
@@ -8044,8 +8075,8 @@ _$OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$ParcelO
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$ParcelOrder$TargetFreightCurrency(
-      symbol: json['symbol'] as String?,
-      currency: json['currency'] as String?,
+      symbol: JsonCoerce.asString(json['symbol']),
+      currency: JsonCoerce.asString(json['currency']),
     );
 
 Map<String, dynamic>
@@ -8062,16 +8093,16 @@ _$OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$OrderTr
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$OrderTrace$TraceList$Item(
-      id: (json['id'] as num?)?.toDouble(),
-      frontCode: json['frontCode'] as String?,
-      icon: json['icon'] as String?,
-      traceMessage: json['traceMessage'] as String?,
-      time: (json['time'] as num?)?.toDouble(),
-      lastMileMailNo: json['lastMileMailNo'] as String?,
-      lastMileMailNoLink: json['lastMileMailNoLink'] as String?,
-      lastMileMailNoTitle: json['lastMileMailNoTitle'] as String?,
-      traceStatus: json['traceStatus'] as String?,
-      logisticsOrderId: json['logisticsOrderId'] as String?,
+      id: JsonCoerce.asDouble(json['id']),
+      frontCode: JsonCoerce.asString(json['frontCode']),
+      icon: JsonCoerce.asString(json['icon']),
+      traceMessage: JsonCoerce.asString(json['traceMessage']),
+      time: JsonCoerce.asDouble(json['time']),
+      lastMileMailNo: JsonCoerce.asString(json['lastMileMailNo']),
+      lastMileMailNoLink: JsonCoerce.asString(json['lastMileMailNoLink']),
+      lastMileMailNoTitle: JsonCoerce.asString(json['lastMileMailNoTitle']),
+      traceStatus: JsonCoerce.asString(json['traceStatus']),
+      logisticsOrderId: JsonCoerce.asString(json['logisticsOrderId']),
     );
 
 Map<String, dynamic>
@@ -8095,23 +8126,23 @@ OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$OrderList
 _$OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$OrderList$Item$SkuList$ItemFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$OrderList$Item$SkuList$Item(
-  productName: json['productName'] as String?,
-  productCode: json['productCode'] as String?,
-  skuCode: json['skuCode'] as String?,
-  image: json['image'] as String?,
-  targetOriginPrice: json['targetOriginPrice'] as String?,
-  targetOriginTotalPrice: json['targetOriginTotalPrice'] as String?,
-  sellPrice: json['sellPrice'] as String?,
-  targetSellPrice: json['targetSellPrice'] as String?,
-  totalPrice: json['totalPrice'] as String?,
-  targetTotalPrice: json['targetTotalPrice'] as String?,
-  targetSkuDiscountPrice: json['targetSkuDiscountPrice'] as String?,
-  targetSkuFinalPrice: json['targetSkuFinalPrice'] as String?,
-  targetTotalFinalPrice: json['targetTotalFinalPrice'] as String?,
-  currency: json['currency'] as String?,
-  targetCurrency: json['targetCurrency'] as String?,
-  quantity: (json['quantity'] as num?)?.toDouble(),
-  remark: json['remark'] as String?,
+  productName: JsonCoerce.asString(json['productName']),
+  productCode: JsonCoerce.asString(json['productCode']),
+  skuCode: JsonCoerce.asString(json['skuCode']),
+  image: JsonCoerce.asString(json['image']),
+  targetOriginPrice: JsonCoerce.asString(json['targetOriginPrice']),
+  targetOriginTotalPrice: JsonCoerce.asString(json['targetOriginTotalPrice']),
+  sellPrice: JsonCoerce.asString(json['sellPrice']),
+  targetSellPrice: JsonCoerce.asString(json['targetSellPrice']),
+  totalPrice: JsonCoerce.asString(json['totalPrice']),
+  targetTotalPrice: JsonCoerce.asString(json['targetTotalPrice']),
+  targetSkuDiscountPrice: JsonCoerce.asString(json['targetSkuDiscountPrice']),
+  targetSkuFinalPrice: JsonCoerce.asString(json['targetSkuFinalPrice']),
+  targetTotalFinalPrice: JsonCoerce.asString(json['targetTotalFinalPrice']),
+  currency: JsonCoerce.asString(json['currency']),
+  targetCurrency: JsonCoerce.asString(json['targetCurrency']),
+  quantity: JsonCoerce.asDouble(json['quantity']),
+  remark: JsonCoerce.asString(json['remark']),
   skuSpecValues: (json['skuSpecValues'] as List<dynamic>?)
       ?.map(
         (e) =>
@@ -8120,7 +8151,7 @@ _$OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$OrderLi
             ),
       )
       .toList(),
-  isReturned: json['isReturned'] as bool?,
+  isReturned: JsonCoerce.asBool(json['isReturned']),
 );
 
 Map<String, dynamic>
@@ -8154,22 +8185,22 @@ _$OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$OrderLi
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$OrderList$Item$SupplyOrderList$Item(
-      skuCode: json['skuCode'] as String?,
-      productCode: json['productCode'] as String?,
-      productName: json['productName'] as String?,
-      imageUrl: json['imageUrl'] as String?,
-      quantity: (json['quantity'] as num?)?.toDouble(),
-      weight: json['weight'] as String?,
-      length: json['length'] as String?,
-      width: json['width'] as String?,
-      height: json['height'] as String?,
+      skuCode: JsonCoerce.asString(json['skuCode']),
+      productCode: JsonCoerce.asString(json['productCode']),
+      productName: JsonCoerce.asString(json['productName']),
+      imageUrl: JsonCoerce.asString(json['imageUrl']),
+      quantity: JsonCoerce.asDouble(json['quantity']),
+      weight: JsonCoerce.asString(json['weight']),
+      length: JsonCoerce.asString(json['length']),
+      width: JsonCoerce.asString(json['width']),
+      height: JsonCoerce.asString(json['height']),
       inspectImageUrlList:
           (json['inspectImageUrlList'] as List<dynamic>?)
               ?.map((e) => e as Object)
               .toList() ??
           [],
-      secretKeyList: json['secretKeyList'] as String?,
-      qcRemark: json['qcRemark'] as String?,
+      secretKeyList: JsonCoerce.asString(json['secretKeyList']),
+      qcRemark: JsonCoerce.asString(json['qcRemark']),
     );
 
 Map<String, dynamic>
@@ -8196,17 +8227,17 @@ _$OrderServiceOrderCombineDetailGet$Response$Data$OrderTrace$GroupTraceList$Item
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderCombineDetailGet$Response$Data$OrderTrace$GroupTraceList$Item$TraceList$Item(
-      id: (json['id'] as num?)?.toDouble(),
-      frontCode: json['frontCode'] as String?,
-      icon: json['icon'] as String?,
-      traceMessage: json['traceMessage'] as String?,
-      time: (json['time'] as num?)?.toDouble(),
+      id: JsonCoerce.asDouble(json['id']),
+      frontCode: JsonCoerce.asString(json['frontCode']),
+      icon: JsonCoerce.asString(json['icon']),
+      traceMessage: JsonCoerce.asString(json['traceMessage']),
+      time: JsonCoerce.asDouble(json['time']),
       lastMileMailNo: json['lastMileMailNo'],
-      lastMileMailNoLink: json['lastMileMailNoLink'] as String?,
-      lastMileMailNoTitle: json['lastMileMailNoTitle'] as String?,
-      traceStatus: json['traceStatus'] as String?,
-      frontTitle: json['frontTitle'] as String?,
-      frontTitleCode: json['frontTitleCode'] as String?,
+      lastMileMailNoLink: JsonCoerce.asString(json['lastMileMailNoLink']),
+      lastMileMailNoTitle: JsonCoerce.asString(json['lastMileMailNoTitle']),
+      traceStatus: JsonCoerce.asString(json['traceStatus']),
+      frontTitle: JsonCoerce.asString(json['frontTitle']),
+      frontTitleCode: JsonCoerce.asString(json['frontTitleCode']),
     );
 
 Map<String, dynamic>
@@ -8232,8 +8263,8 @@ _$OrderServiceCartListGet$Response$Data$List$Item$Records$Item$SkuOptions$ItemFr
   Map<String, dynamic> json,
 ) =>
     OrderServiceCartListGet$Response$Data$List$Item$Records$Item$SkuOptions$Item(
-      name: json['name'] as String?,
-      value: json['value'] as String?,
+      name: JsonCoerce.asString(json['name']),
+      value: JsonCoerce.asString(json['value']),
     );
 
 Map<String, dynamic>
@@ -8247,8 +8278,8 @@ _$OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$Recommend
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$RecommendSolution$FreightCurrency(
-      name: json['name'] as String?,
-      symbol: json['symbol'] as String?,
+      name: JsonCoerce.asString(json['name']),
+      symbol: JsonCoerce.asString(json['symbol']),
     );
 
 Map<String, dynamic>
@@ -8262,8 +8293,8 @@ _$OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$Recommend
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$RecommendSolution$FreightFreeThresholdCurrency(
-      name: json['name'] as String?,
-      symbol: json['symbol'] as String?,
+      name: JsonCoerce.asString(json['name']),
+      symbol: JsonCoerce.asString(json['symbol']),
     );
 
 Map<String, dynamic>
@@ -8277,8 +8308,8 @@ _$OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$Recommend
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$RecommendSolution$LateCompensationCurrency(
-      name: json['name'] as String?,
-      symbol: json['symbol'] as String?,
+      name: JsonCoerce.asString(json['name']),
+      symbol: JsonCoerce.asString(json['symbol']),
     );
 
 Map<String, dynamic>
@@ -8291,29 +8322,31 @@ OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileLis
 _$OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileList$Item$SolutionList$ItemFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileList$Item$SolutionList$Item(
-  solutionName: json['solutionName'] as String?,
-  solutionCode: json['solutionCode'] as String?,
-  freight: json['freight'] as String?,
+  solutionName: JsonCoerce.asString(json['solutionName']),
+  solutionCode: JsonCoerce.asString(json['solutionCode']),
+  freight: JsonCoerce.asString(json['freight']),
   freightCurrency: json['freightCurrency'] == null
       ? null
       : OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileList$Item$SolutionList$Item$FreightCurrency.fromJson(
           json['freightCurrency'] as Map<String, dynamic>,
         ),
-  freightFreeThreshold: json['freightFreeThreshold'] as String?,
+  freightFreeThreshold: JsonCoerce.asString(json['freightFreeThreshold']),
   freightFreeThresholdCurrency: json['freightFreeThresholdCurrency'] == null
       ? null
       : OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileList$Item$SolutionList$Item$FreightFreeThresholdCurrency.fromJson(
           json['freightFreeThresholdCurrency'] as Map<String, dynamic>,
         ),
-  gmtExpectArriveStart: json['gmtExpectArriveStart'] as String?,
-  gmtExpectArriveEnd: json['gmtExpectArriveEnd'] as String?,
-  lateCompensation: json['lateCompensation'] as String?,
+  gmtExpectArriveStart: JsonCoerce.asString(json['gmtExpectArriveStart']),
+  gmtExpectArriveEnd: JsonCoerce.asString(json['gmtExpectArriveEnd']),
+  lateCompensation: JsonCoerce.asString(json['lateCompensation']),
   lateCompensationCurrency: json['lateCompensationCurrency'] == null
       ? null
       : OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileList$Item$SolutionList$Item$LateCompensationCurrency.fromJson(
           json['lateCompensationCurrency'] as Map<String, dynamic>,
         ),
-  lateCompensationTimeframe: json['lateCompensationTimeframe'] as String?,
+  lateCompensationTimeframe: JsonCoerce.asString(
+    json['lateCompensationTimeframe'],
+  ),
 );
 
 Map<String, dynamic>
@@ -8340,8 +8373,8 @@ _$OrderServiceOrderConfirmPost$Response$Data$Pricing$Giveaway$Item$Records$Item$
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderConfirmPost$Response$Data$Pricing$Giveaway$Item$Records$Item$Currency(
-      symbol: json['symbol'] as String?,
-      name: json['name'] as String?,
+      symbol: JsonCoerce.asString(json['symbol']),
+      name: JsonCoerce.asString(json['name']),
     );
 
 Map<String, dynamic>
@@ -8354,27 +8387,27 @@ OrderServiceOrderConfirmPost$Response$Data$Pricing$VoucherMsg$VoucherInfos$Item$
 _$OrderServiceOrderConfirmPost$Response$Data$Pricing$VoucherMsg$VoucherInfos$Item$List$ItemFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderConfirmPost$Response$Data$Pricing$VoucherMsg$VoucherInfos$Item$List$Item(
-  name: json['name'] as String?,
-  description: json['description'] as String?,
-  voucherCode: json['voucherCode'] as String?,
-  discountType: json['discountType'] as String?,
-  discountInfo: json['discountInfo'] as String?,
+  name: JsonCoerce.asString(json['name']),
+  description: JsonCoerce.asString(json['description']),
+  voucherCode: JsonCoerce.asString(json['voucherCode']),
+  discountType: JsonCoerce.asString(json['discountType']),
+  discountInfo: JsonCoerce.asString(json['discountInfo']),
   currency: json['currency'] == null
       ? null
       : OrderServiceOrderConfirmPost$Response$Data$Pricing$VoucherMsg$VoucherInfos$Item$List$Item$Currency.fromJson(
           json['currency'] as Map<String, dynamic>,
         ),
-  validStartStamp: json['validStartStamp'] as String?,
-  validEndStamp: json['validEndStamp'] as String?,
-  desc: json['desc'] as String?,
-  status: json['status'] as String?,
-  isDefault: json['isDefault'] as String?,
-  available: json['available'] as String?,
-  unavailableReason: json['unavailableReason'] as String?,
-  sourceCode: json['sourceCode'] as String?,
-  validEndDesc: json['validEndDesc'] as String?,
-  usedVoucherInfo: json['usedVoucherInfo'] as String?,
-  minOrderAmountInfo: json['minOrderAmountInfo'] as String?,
+  validStartStamp: JsonCoerce.asString(json['validStartStamp']),
+  validEndStamp: JsonCoerce.asString(json['validEndStamp']),
+  desc: JsonCoerce.asString(json['desc']),
+  status: JsonCoerce.asString(json['status']),
+  isDefault: JsonCoerce.asString(json['isDefault']),
+  available: JsonCoerce.asString(json['available']),
+  unavailableReason: JsonCoerce.asString(json['unavailableReason']),
+  sourceCode: JsonCoerce.asString(json['sourceCode']),
+  validEndDesc: JsonCoerce.asString(json['validEndDesc']),
+  usedVoucherInfo: JsonCoerce.asString(json['usedVoucherInfo']),
+  minOrderAmountInfo: JsonCoerce.asString(json['minOrderAmountInfo']),
 );
 
 Map<String, dynamic>
@@ -8406,8 +8439,8 @@ _$OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$Orde
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$OrderSkuList$Item$SkuSpecValues$Item(
-      name: json['name'] as String?,
-      value: json['value'] as String?,
+      name: JsonCoerce.asString(json['name']),
+      value: JsonCoerce.asString(json['value']),
     );
 
 Map<String, dynamic>
@@ -8421,9 +8454,9 @@ _$OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$Supp
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$SupplyOrderList$Item$SecretKeyList$Item(
-      barCodeImg: json['barCodeImg'] as String?,
-      codeInfo: json['codeInfo'] as String?,
-      pin: json['pin'] as String?,
+      barCodeImg: JsonCoerce.asString(json['barCodeImg']),
+      codeInfo: JsonCoerce.asString(json['codeInfo']),
+      pin: JsonCoerce.asString(json['pin']),
     );
 
 Map<String, dynamic>
@@ -8441,8 +8474,8 @@ _$OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$Parc
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$ParcelOrder$FreightCurrency(
-      name: json['name'] as String?,
-      symbol: json['symbol'] as String?,
+      name: JsonCoerce.asString(json['name']),
+      symbol: JsonCoerce.asString(json['symbol']),
     );
 
 Map<String, dynamic>
@@ -8456,8 +8489,8 @@ _$OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$Parc
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$ParcelOrder$TargetFreightCurrency(
-      name: json['name'] as String?,
-      symbol: json['symbol'] as String?,
+      name: JsonCoerce.asString(json['name']),
+      symbol: JsonCoerce.asString(json['symbol']),
     );
 
 Map<String, dynamic>
@@ -8471,8 +8504,8 @@ _$OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$Parc
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$ParcelOrder$FreightCouponDiscountCurrency(
-      name: json['name'] as String?,
-      symbol: json['symbol'] as String?,
+      name: JsonCoerce.asString(json['name']),
+      symbol: JsonCoerce.asString(json['symbol']),
     );
 
 Map<String, dynamic>
@@ -8486,20 +8519,20 @@ _$OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$Parc
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$ParcelOrder$ReceiverAddress(
-      country: json['country'] as String?,
-      countryCode: json['countryCode'] as String?,
-      state: json['state'] as String?,
-      stateCode: json['stateCode'] as String?,
-      city: json['city'] as String?,
-      cityCode: json['cityCode'] as String?,
-      street: json['street'] as String?,
-      apartment: json['apartment'] as String?,
-      address: json['address'] as String?,
-      firstName: json['firstName'] as String?,
-      lastName: json['lastName'] as String?,
-      phoneNumber: json['phoneNumber'] as String?,
-      zipCode: json['zipCode'] as String?,
-      id: (json['id'] as num?)?.toDouble(),
+      country: JsonCoerce.asString(json['country']),
+      countryCode: JsonCoerce.asString(json['countryCode']),
+      state: JsonCoerce.asString(json['state']),
+      stateCode: JsonCoerce.asString(json['stateCode']),
+      city: JsonCoerce.asString(json['city']),
+      cityCode: JsonCoerce.asString(json['cityCode']),
+      street: JsonCoerce.asString(json['street']),
+      apartment: JsonCoerce.asString(json['apartment']),
+      address: JsonCoerce.asString(json['address']),
+      firstName: JsonCoerce.asString(json['firstName']),
+      lastName: JsonCoerce.asString(json['lastName']),
+      phoneNumber: JsonCoerce.asString(json['phoneNumber']),
+      zipCode: JsonCoerce.asString(json['zipCode']),
+      id: JsonCoerce.asDouble(json['id']),
     );
 
 Map<String, dynamic>
@@ -8528,14 +8561,14 @@ _$OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$Parc
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$ParcelOrder$ParcelProductDTOList$Item(
-      skuCode: json['skuCode'] as String?,
-      productCode: json['productCode'] as String?,
-      productName: json['productName'] as String?,
-      logisticsOrderId: json['logisticsOrderId'] as String?,
-      quantity: (json['quantity'] as num?)?.toDouble(),
-      imageUrl: json['imageUrl'] as String?,
-      declareName: json['declareName'] as String?,
-      declareNameEn: json['declareNameEn'] as String?,
+      skuCode: JsonCoerce.asString(json['skuCode']),
+      productCode: JsonCoerce.asString(json['productCode']),
+      productName: JsonCoerce.asString(json['productName']),
+      logisticsOrderId: JsonCoerce.asString(json['logisticsOrderId']),
+      quantity: JsonCoerce.asDouble(json['quantity']),
+      imageUrl: JsonCoerce.asString(json['imageUrl']),
+      declareName: JsonCoerce.asString(json['declareName']),
+      declareNameEn: JsonCoerce.asString(json['declareNameEn']),
     );
 
 Map<String, dynamic>
@@ -8558,8 +8591,8 @@ _$OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$OrderLi
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$OrderList$Item$SkuList$Item$SkuSpecValues$Item(
-      name: json['name'] as String?,
-      value: json['value'] as String?,
+      name: JsonCoerce.asString(json['name']),
+      value: JsonCoerce.asString(json['value']),
     );
 
 Map<String, dynamic>
@@ -8573,8 +8606,8 @@ _$OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileL
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileList$Item$SolutionList$Item$FreightCurrency(
-      name: json['name'] as String?,
-      symbol: json['symbol'] as String?,
+      name: JsonCoerce.asString(json['name']),
+      symbol: JsonCoerce.asString(json['symbol']),
     );
 
 Map<String, dynamic>
@@ -8588,8 +8621,8 @@ _$OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileL
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileList$Item$SolutionList$Item$FreightFreeThresholdCurrency(
-      name: json['name'] as String?,
-      symbol: json['symbol'] as String?,
+      name: JsonCoerce.asString(json['name']),
+      symbol: JsonCoerce.asString(json['symbol']),
     );
 
 Map<String, dynamic>
@@ -8603,8 +8636,8 @@ _$OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileL
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$LastMileList$Item$SolutionList$Item$LateCompensationCurrency(
-      name: json['name'] as String?,
-      symbol: json['symbol'] as String?,
+      name: JsonCoerce.asString(json['name']),
+      symbol: JsonCoerce.asString(json['symbol']),
     );
 
 Map<String, dynamic>
@@ -8618,8 +8651,8 @@ _$OrderServiceOrderConfirmPost$Response$Data$Pricing$VoucherMsg$VoucherInfos$Ite
   Map<String, dynamic> json,
 ) =>
     OrderServiceOrderConfirmPost$Response$Data$Pricing$VoucherMsg$VoucherInfos$Item$List$Item$Currency(
-      symbol: json['symbol'] as String?,
-      name: json['name'] as String?,
+      symbol: JsonCoerce.asString(json['symbol']),
+      name: JsonCoerce.asString(json['name']),
     );
 
 Map<String, dynamic>

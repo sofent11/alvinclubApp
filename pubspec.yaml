@@ -110,3 +110,7 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
+
+dependency_overrides:
+  swagger_dart_code_generator:
+    path: tools/swagger_dart_code_generator
