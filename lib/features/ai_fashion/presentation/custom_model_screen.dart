@@ -78,7 +78,7 @@ class _CustomModelScreenState extends ConsumerState<CustomModelScreen> {
         gender: _gender,
         age: _selectedBodyShape!.age,
         race: _selectedBodyShape!.race,
-        body: _selectedBodyShape!.body,
+        bodyShapeModel: _selectedBodyShape!.body,
         style: _selectedBodyShape!.style,
       );
 
@@ -120,7 +120,9 @@ class _CustomModelScreenState extends ConsumerState<CustomModelScreen> {
   }
 
   Future<void> _handleSave() async {
-    if (_taskId == null || _status == null || _status!.generatedModels.isEmpty) {
+    if (_taskId == null ||
+        _status == null ||
+        _status!.generatedModels.isEmpty) {
       return;
     }
 

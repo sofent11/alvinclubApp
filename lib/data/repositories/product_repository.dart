@@ -1,8 +1,7 @@
-import 'dart:convert';
-
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../core/error/api_error.dart';
+import '../api/generated/swaggerApiProduct.swagger.dart' as product;
 import '../api/swagger_client.dart';
 
 class ProductListResponse {
@@ -673,50 +672,59 @@ class ProductRepository {
       categoryId: params?.categoryId,
     );
 
-    final body = _toMap(response.body);
-    final code = _parseInt(body?['code']);
-    if (code != 0) {
-      throw _createApiError(body?['message']?.toString() ?? '获取优选商品失败', body);
+    final body = response.body;
+    if (body == null) {
+      throw _createApiError('获取优选商品失败', response.error);
+    }
+    if (_parseInt(body.code) != 0) {
+      throw _createApiError(body.message ?? '获取优选商品失败', body);
     }
 
-    final data = _toMap(body?['data']);
-    final records = _toMapList(data?['records']);
+    final data = body.data;
+    final records = data?.records ?? const [];
     if (records.isEmpty) {
       return const ProductListResponse(products: [], total: 0, hasMore: false);
     }
 
-    final total = _parseInt(data?['total']);
-    final pageSize = _parseInt(
-      data?['pageSize'],
-      fallback: params?.pageSize ?? 10,
-    );
-    final current = _parseInt(data?['current'], fallback: params?.page ?? 1);
+    final total = data?.total?.toInt() ?? 0;
+    final pageSizeValue = data?.pageSize?.toInt() ?? (params?.pageSize ?? 10);
+    final current = data?.current?.toInt() ?? (params?.page ?? 1);
 
     final products = records.map((item) {
-      final mainImg = _toList(item['mainImg']);
-      final imageUrls = mainImg
-          .map((img) => _toMap(img)?['url']?.toString())
+      final imageUrls = (item.mainImg ?? const [])
+          .map((img) => img.url)
           .whereType<String>()
+          .map((u) => u.trim())
+          .where((u) => u.isNotEmpty)
           .toList();
+      final tagCodes = (item.tags ?? const [])
+          .map((t) => t.tagCode)
+          .whereType<String>()
+          .map((t) => t.trim())
+          .where((t) => t.isNotEmpty)
+          .toList();
+
       return ProductItem(
-        id: item['productCode']?.toString() ?? '',
-        skuCode: item['skuCode']?.toString(),
-        recommendedSkuCode: item['skuCode']?.toString(),
-        name: item['productName']?.toString() ?? '',
-        price: _parsePrice(item['targetSellPrice']),
-        originalPrice: _extractTargetOriginPrice(item),
-        currency: item['targetSellCur']?.toString(),
+        id: item.productCode ?? '',
+        skuCode: item.skuCode,
+        recommendedSkuCode: item.skuCode,
+        name: item.productName ?? '',
+        price: _parsePrice(item.targetSellPrice ?? item.sellPrice),
+        originalPrice: _parseOptionalPrice(item.targetOriginPrice),
+        currency: item.targetSellCur ?? item.sellPriceCur,
         imageUrl: imageUrls.isNotEmpty ? imageUrls.first : '',
         images: imageUrls,
-        brandName: item['brandName']?.toString(),
-        categoryId: item['categoryId']?.toString(),
+        sales: _parseInt(item.sellQuantity),
+        tags: tagCodes.isEmpty ? null : tagCodes,
+        brandName: item.brandName?.toString(),
+        categoryId: item.categoryId?.toInt().toString(),
       );
     }).toList();
 
     return ProductListResponse(
       products: products,
       total: total,
-      hasMore: current * pageSize < total,
+      hasMore: current * pageSizeValue < total,
     );
   }
 
@@ -724,20 +732,19 @@ class ProductRepository {
     final api = _ref.read(swaggerProductApiProvider);
     final response = await api.productServiceCategoryNoAuthTreeGet();
 
-    final body = _toMap(response.body);
-    final code = _parseInt(body?['code']);
-    if (code != 0) {
-      throw _createApiError(body?['message']?.toString() ?? '获取分类列表失败', body);
+    final body = response.body;
+    if (body == null) {
+      throw _createApiError('获取分类列表失败', response.error);
+    }
+    if (_parseInt(body.code) != 0) {
+      throw _createApiError(body.message ?? '获取分类列表失败', body);
     }
 
-    final data = _toMap(body?['data']);
-    final categoryList = _toList(data?['categoryList']);
-    if (categoryList.isEmpty) {
-      return [];
-    }
+    final categoryList = body.data?.categoryList ?? const [];
+    if (categoryList.isEmpty) return [];
 
     return categoryList
-        .map((item) => _mapCategoryItem(_toMap(item)))
+        .map(_mapCategoryLevel1)
         .whereType<CategoryItem>()
         .toList();
   }
@@ -765,45 +772,48 @@ class ProductRepository {
       },
     );
 
-    final body = _toMap(response.body);
-    final code = _parseInt(body?['code']);
-    if (code != 0) {
-      throw _createApiError(body?['message']?.toString() ?? '获取分类商品失败', body);
+    final body = response.body;
+    if (body == null) {
+      throw _createApiError('获取分类商品失败', response.error);
+    }
+    if (_parseInt(body.code) != 0) {
+      throw _createApiError(body.message ?? '获取分类商品失败', body);
     }
 
-    final data = _toMap(body?['data']);
-    final records = _toMapList(data?['records']);
+    final data = body.data;
+    final records = data?.records ?? const [];
     if (records.isEmpty) {
       return const ProductListResponse(products: [], total: 0, hasMore: false);
     }
 
-    final total = _parseInt(data?['total']);
-    final pageSize = _parseInt(
-      data?['pageSize'],
+    final total = _parseInt(data?.total);
+    final pageSizeValue = _parseInt(
+      data?.pageSize,
       fallback: params.pageSize ?? 20,
     );
-    final current = _parseInt(data?['current'], fallback: params.page ?? 1);
+    final current = _parseInt(data?.current, fallback: params.page ?? 1);
 
     final products = records.map((item) {
-      final image = _toMap(item['image']);
+      final imageUrl = item.image?.url ?? '';
+      final tagCodes = (item.tags ?? const [])
+          .map((t) => t.tagCode)
+          .whereType<String>()
+          .map((t) => t.trim())
+          .where((t) => t.isNotEmpty)
+          .toList();
+
       return ProductItem(
-        id:
-            item['productCode']?.toString() ??
-            item['skuCode']?.toString() ??
-            '',
-        skuCode: item['skuCode']?.toString(),
-        recommendedSkuCode: item['skuCode']?.toString(),
-        name: item['productName']?.toString() ?? '',
-        price: _parsePrice(item['targetSellPrice'] ?? item['sellPrice']),
-        originalPrice: _extractTargetOriginPrice(item),
-        currency:
-            item['targetSellCur']?.toString() ??
-            item['sellPriceCur']?.toString() ??
-            'USD',
-        imageUrl: image?['url']?.toString() ?? '',
-        images: image?['url'] != null ? [image!['url'].toString()] : [],
-        sales: _parseInt(item['sellQuantity']),
-        tags: _extractTags(item['tags']),
+        id: item.productCode ?? item.skuCode ?? '',
+        skuCode: item.skuCode,
+        recommendedSkuCode: item.skuCode,
+        name: item.productName ?? '',
+        price: _parsePrice(item.targetSellPrice ?? item.sellPrice),
+        originalPrice: null,
+        currency: item.targetSellCur ?? item.sellPriceCur ?? 'USD',
+        imageUrl: imageUrl,
+        images: imageUrl.isNotEmpty ? [imageUrl] : const [],
+        sales: _parseInt(item.sellQuantity),
+        tags: tagCodes.isEmpty ? null : tagCodes,
         categoryId: params.categoryId,
       );
     }).toList();
@@ -811,7 +821,7 @@ class ProductRepository {
     return ProductListResponse(
       products: products,
       total: total,
-      hasMore: current * pageSize < total,
+      hasMore: current * pageSizeValue < total,
     );
   }
 
@@ -844,45 +854,48 @@ class ProductRepository {
       },
     );
 
-    final body = _toMap(response.body);
-    final code = _parseInt(body?['code']);
-    if (code != 0) {
-      throw _createApiError(body?['message']?.toString() ?? '获取分类推荐商品失败', body);
+    final body = response.body;
+    if (body == null) {
+      throw _createApiError('获取分类推荐商品失败', response.error);
+    }
+    if (_parseInt(body.code) != 0) {
+      throw _createApiError(body.message ?? '获取分类推荐商品失败', body);
     }
 
-    final data = _toMap(body?['data']);
-    final records = _toMapList(data?['records']);
+    final data = body.data;
+    final records = data?.records ?? const [];
     if (records.isEmpty) {
       return const ProductListResponse(products: [], total: 0, hasMore: false);
     }
 
-    final total = _parseInt(data?['total']);
-    final pageSize = _parseInt(
-      data?['pageSize'],
+    final total = _parseInt(data?.total);
+    final pageSizeValue = _parseInt(
+      data?.pageSize,
       fallback: params.pageSize ?? 20,
     );
-    final current = _parseInt(data?['current'], fallback: params.page ?? 1);
+    final current = _parseInt(data?.current, fallback: params.page ?? 1);
 
     final products = records.map((item) {
-      final image = _toMap(item['image']);
+      final imageUrl = item.image?.url ?? '';
+      final tagCodes = (item.tags ?? const [])
+          .map((t) => t.tagCode)
+          .whereType<String>()
+          .map((t) => t.trim())
+          .where((t) => t.isNotEmpty)
+          .toList();
+
       return ProductItem(
-        id:
-            item['productCode']?.toString() ??
-            item['skuCode']?.toString() ??
-            '',
-        skuCode: item['skuCode']?.toString(),
-        recommendedSkuCode: item['skuCode']?.toString(),
-        name: item['productName']?.toString() ?? '',
-        price: _parsePrice(item['targetSellPrice'] ?? item['sellPrice']),
-        originalPrice: _extractTargetOriginPrice(item),
-        currency:
-            item['targetSellCur']?.toString() ??
-            item['sellPriceCur']?.toString() ??
-            'USD',
-        imageUrl: image?['url']?.toString() ?? '',
-        images: image?['url'] != null ? [image!['url'].toString()] : [],
-        sales: _parseInt(item['sellQuantity']),
-        tags: _extractTags(item['tags']),
+        id: item.productCode ?? item.skuCode ?? '',
+        skuCode: item.skuCode,
+        recommendedSkuCode: item.skuCode,
+        name: item.productName ?? '',
+        price: _parsePrice(item.targetSellPrice ?? item.sellPrice),
+        originalPrice: null,
+        currency: item.targetSellCur ?? item.sellPriceCur ?? 'USD',
+        imageUrl: imageUrl,
+        images: imageUrl.isNotEmpty ? [imageUrl] : const [],
+        sales: _parseInt(item.sellQuantity),
+        tags: tagCodes.isEmpty ? null : tagCodes,
         categoryId: params.categoryId,
       );
     }).toList();
@@ -890,7 +903,7 @@ class ProductRepository {
     return ProductListResponse(
       products: products,
       total: total,
-      hasMore: current * pageSize < total,
+      hasMore: current * pageSizeValue < total,
     );
   }
 
@@ -1045,52 +1058,58 @@ class ProductRepository {
       filterProductType: params.filterProductType ?? '1',
     );
 
-    final body = _toMap(response.body);
-    final code = _parseInt(body?['code']);
-    if (code != 0) {
-      throw _createApiError(body?['message']?.toString() ?? '搜索失败', body);
+    final body = response.body;
+    if (body == null) {
+      throw _createApiError('搜索失败', response.error);
+    }
+    if (_parseInt(body.code) != 0) {
+      throw _createApiError(body.message ?? '搜索失败', body);
     }
 
-    final data = _toMap(body?['data']);
-    final records = _toMapList(data?['records']);
+    final data = body.data;
+    final records = data?.records ?? const [];
     if (records.isEmpty) {
       return const ProductListResponse(products: [], total: 0, hasMore: false);
     }
 
-    final total = _parseInt(data?['total']);
-    final pageSize = _parseInt(
-      data?['pageSize'],
-      fallback: params.pageSize ?? 20,
-    );
-    final current = _parseInt(data?['current'], fallback: params.page ?? 1);
+    final total = data?.total?.toInt() ?? 0;
+    final pageSizeValue = data?.pageSize?.toInt() ?? (params.pageSize ?? 20);
+    final current = data?.current?.toInt() ?? (params.page ?? 1);
 
     final products = records.map((item) {
-      final mainImg = _toList(item['mainImg']);
-      final imageUrls = mainImg
-          .map((img) => _toMap(img)?['url']?.toString())
+      final imageUrls = (item.mainImg ?? const [])
+          .map((img) => img.url)
           .whereType<String>()
+          .map((u) => u.trim())
+          .where((u) => u.isNotEmpty)
+          .toList();
+      final tagCodes = (item.tags ?? const [])
+          .map((t) => t.tagCode)
+          .whereType<String>()
+          .map((t) => t.trim())
+          .where((t) => t.isNotEmpty)
           .toList();
       return ProductItem(
-        id: item['productCode']?.toString() ?? '',
-        skuCode: item['skuCode']?.toString(),
-        recommendedSkuCode: item['skuCode']?.toString(),
-        name: item['productName']?.toString() ?? '',
-        price: _parsePrice(item['targetSellPrice']),
-        originalPrice: _extractTargetOriginPrice(item),
-        currency: item['targetSellCur']?.toString(),
+        id: item.productCode ?? '',
+        skuCode: item.skuCode,
+        recommendedSkuCode: item.skuCode,
+        name: item.productName ?? '',
+        price: _parsePrice(item.targetSellPrice ?? item.sellPrice),
+        originalPrice: null,
+        currency: item.targetSellCur ?? item.sellPriceCur,
         imageUrl: imageUrls.isNotEmpty ? imageUrls.first : '',
         images: imageUrls,
-        sales: _parseInt(item['sellQuantity']),
-        brandName: item['brandName']?.toString(),
-        categoryId: item['categoryId']?.toString(),
-        tags: _extractTags(item['tags']),
+        sales: _parseInt(item.sellQuantity),
+        brandName: item.brandName,
+        categoryId: item.categoryId?.toInt().toString(),
+        tags: tagCodes.isEmpty ? null : tagCodes,
       );
     }).toList();
 
     return ProductListResponse(
       products: products,
       total: total,
-      hasMore: current * pageSize < total,
+      hasMore: current * pageSizeValue < total,
     );
   }
 
@@ -1106,24 +1125,26 @@ class ProductRepository {
       productCode: productCode,
     );
 
-    final body = _toMap(response.body);
-    final code = _parseInt(body?['code']);
-    if (code != 0 || body?['data'] == null) {
-      throw _createApiError(body?['message']?.toString() ?? '获取商品详情失败', body);
+    final body = response.body;
+    if (body == null) {
+      throw _createApiError('获取商品详情失败', response.error);
+    }
+    if (_parseInt(body.code) != 0 || body.data == null) {
+      throw _createApiError(body.message ?? '获取商品详情失败', body);
     }
 
-    final data = _toMap(body?['data']) ?? const {};
-    final mainImages = _toList(data['mainImg'])
-        .map((img) => _toMap(img)?['url']?.toString())
+    final data = body.data!;
+    final mainImages = (data.mainImg ?? const [])
+        .map((img) => img.url)
         .whereType<String>()
         .toList();
-    final collectionImages = _toList(data['imgCollection'])
-        .map((img) => _toMap(img)?['url']?.toString())
+    final collectionImages = (data.imgCollection ?? const [])
+        .map((img) => img.url)
         .whereType<String>()
         .toList();
-    final subImages = _splitComma(data['subImg']);
-    final detailImages = _toList(data['imgDetail'])
-        .map((img) => _toMap(img)?['url']?.toString())
+    final subImages = _splitComma(data.subImg);
+    final detailImages = (data.imgDetail ?? const [])
+        .map((img) => img.url)
         .whereType<String>()
         .toList();
     final gallery = {
@@ -1132,24 +1153,20 @@ class ProductRepository {
       ...subImages,
     }.where((url) => url.isNotEmpty).toList();
 
-    final options = _toList(data['productOptions'])
-        .map((optionRaw) {
-          final option = _toMap(optionRaw);
-          final name = option?['name']?.toString();
+    final options = (data.productOptions ?? const [])
+        .map((option) {
+          final name = option.name;
           if (name == null || name.isEmpty) {
             return null;
           }
-          final values = _toList(option?['optionValues'])
-              .map((valueRaw) {
-                final value = _toMap(valueRaw);
-                final valueText = value?['value']?.toString();
+
+          final values = (option.optionValues ?? const [])
+              .map((value) {
+                final valueText = value.value;
                 if (valueText == null || valueText.isEmpty) {
                   return null;
                 }
-                return ProductOptionValue(
-                  value: valueText,
-                  image: value?['image']?.toString(),
-                );
+                return ProductOptionValue(value: valueText, image: value.image);
               })
               .whereType<ProductOptionValue>()
               .toList();
@@ -1159,18 +1176,17 @@ class ProductRepository {
           }
           return ProductOption(
             name: name,
-            type: _parseInt(option?['type']),
+            type: _parseInt(option.type),
             values: values,
           );
         })
         .whereType<ProductOption>()
         .toList();
 
-    final attributes = _toList(data['productAttrs'])
-        .map((attrRaw) {
-          final attr = _toMap(attrRaw);
-          final name = attr?['name']?.toString();
-          final value = attr?['value']?.toString();
+    final attributes = (data.productAttrs ?? const [])
+        .map((attr) {
+          final name = attr.name;
+          final value = attr.value;
           if (name == null || value == null || name.isEmpty || value.isEmpty) {
             return null;
           }
@@ -1179,49 +1195,43 @@ class ProductRepository {
         .whereType<ProductAttribute>()
         .toList();
 
-    final tags = _toList(data['tags'])
-        .map((tag) {
-          final map = _toMap(tag);
-          return map?['tagName']?.toString() ?? map?['tagCode']?.toString();
-        })
+    final tags = (data.tags ?? const [])
+        .map((tag) => tag.tagName ?? tag.tagCode)
         .whereType<String>()
-        .where((tag) => tag.trim().isNotEmpty)
+        .map((t) => t.trim())
+        .where((t) => t.isNotEmpty)
         .toList();
 
-    final videoUrls = _toList(data['mainVideo'])
-        .map((video) => _toMap(video)?['videoUrl']?.toString())
+    final videoUrls = (data.mainVideo ?? const [])
+        .map((video) => video.videoUrl)
         .whereType<String>()
-        .where((url) => url.trim().isNotEmpty)
+        .map((t) => t.trim())
+        .where((t) => t.isNotEmpty)
         .toList();
 
     return ProductDetail(
-      id: data['productCode']?.toString() ?? productCode,
-      name: data['productName']?.toString() ?? '',
-      brandName: data['brandName']?.toString(),
-      shopCode: data['shopCode']?.toString(),
-      categoryId: data['categoryId']?.toString(),
-      description: data['textDetail']?.toString(),
-      htmlDetail: data['textDetail']?.toString(),
+      id: data.productCode ?? productCode,
+      name: data.productName ?? '',
+      brandName: data.brandName,
+      shopCode: data.shopCode,
+      categoryId: data.categoryId?.toInt().toString(),
+      description: data.textDetail,
+      htmlDetail: data.textDetail,
       images: gallery.isNotEmpty ? gallery : detailImages,
       detailImages: detailImages,
       videoUrls: videoUrls.isEmpty ? null : videoUrls,
       tags: tags.isEmpty ? null : tags,
       options: options,
       attributes: attributes,
-      price: _parsePrice(data['targetSellPrice'] ?? data['sellPrice']),
-      originalPrice: _extractTargetOriginPrice(data),
-      currency:
-          data['targetSellCur']?.toString() ?? data['sellPriceCur']?.toString(),
-      recommendedSkuCode: data['skuCode']?.toString(),
-      sellQuantity: data['sellQuantity'] == null
-          ? null
-          : _parseInt(data['sellQuantity']),
-      sourcePlatform: data['sourcePlatform']?.toString(),
-      sourceProductUrl: data['platformUrl']?.toString(),
-      sizeHelperOptionName: _toMap(
-        data['ext'],
-      )?['sizeHelperOptionName']?.toString(),
-      sizeHelperType: _parseOptionalInt(_toMap(data['ext'])?['sizeHelperType']),
+      price: _parsePrice(data.targetSellPrice ?? data.sellPrice),
+      originalPrice: _parseOptionalPrice(data.targetOriginPrice),
+      currency: data.targetSellCur ?? data.sellPriceCur,
+      recommendedSkuCode: data.skuCode,
+      sellQuantity: _parseOptionalInt(data.sellQuantity),
+      sourcePlatform: data.sourcePlatform,
+      sourceProductUrl: data.platformUrl,
+      sizeHelperOptionName: data.ext?.sizeHelperOptionName,
+      sizeHelperType: _parseOptionalInt(data.ext?.sizeHelperType),
     );
   }
 
@@ -1238,50 +1248,44 @@ class ProductRepository {
       productCode: productCode,
     );
 
-    final body = _toMap(response.body);
-    final code = _parseInt(body?['code']);
-    if (code != 0) {
-      throw _createApiError(body?['message']?.toString() ?? '获取商品SKU失败', body);
+    final body = response.body;
+    if (body == null) {
+      throw _createApiError('获取商品SKU失败', response.error);
+    }
+    if (_parseInt(body.code) != 0) {
+      throw _createApiError(body.message ?? '获取商品SKU失败', body);
     }
 
-    final dataList = _toList(body?['data']);
-    if (dataList.isEmpty) {
-      return [];
-    }
+    final dataList = body.data ?? const [];
+    if (dataList.isEmpty) return [];
 
-    return dataList.map((raw) {
-      final item = _toMap(raw) ?? const {};
-      final skuOptions = _toList(item['skuOptions']);
+    return dataList.map((item) {
       final options = <String, String>{};
-      for (final optionRaw in skuOptions) {
-        final option = _toMap(optionRaw);
-        final name = option?['name']?.toString();
-        final value = option?['value']?.toString();
+      for (final option in item.skuOptions ?? const []) {
+        final name = option.name;
+        final value = option.value;
         if (name != null && value != null) {
           options[name] = value;
         }
       }
 
       return ProductSku(
-        code: item['skuCode']?.toString() ?? '',
-        productCode: item['productCode']?.toString() ?? productCode,
-        imageUrl: _toMap(item['skuImg'])?['url']?.toString(),
-        price: _parsePrice(item['targetSellPrice'] ?? item['sellPrice']),
-        originalPrice: _parseOptionalPrice(item['targetOriginPrice']),
-        currency:
-            item['targetSellCur']?.toString() ??
-            item['sellCur']?.toString() ??
-            'USD',
-        targetCurrency: item['targetSellCur']?.toString(),
+        code: item.skuCode ?? '',
+        productCode: item.productCode ?? productCode,
+        imageUrl: item.skuImg?.url,
+        price: _parsePrice(item.targetSellPrice ?? item.sellPrice),
+        originalPrice: _parseOptionalPrice(item.targetOriginPrice),
+        currency: item.targetSellCur ?? item.sellCur ?? 'USD',
+        targetCurrency: item.targetSellCur,
         options: options,
-        length: item['length']?.toString(),
-        width: item['width']?.toString(),
-        height: item['height']?.toString(),
-        weight: item['weight']?.toString(),
-        estimateUnitFreight: item['estimateUnitFreight']?.toString(),
-        marketingInfo: item['marketingInfo']?.toString(),
-        sourceCode: item['skuSourceCode']?.toString(),
-        externalUrl: item['extUrl']?.toString(),
+        length: item.length,
+        width: item.width,
+        height: item.height,
+        weight: item.weight,
+        estimateUnitFreight: item.estimateUnitFreight,
+        marketingInfo: item.marketingInfo,
+        sourceCode: item.skuSourceCode,
+        externalUrl: item.extUrl,
       );
     }).toList();
   }
@@ -1307,39 +1311,45 @@ class ProductRepository {
       root: {'current': page, 'pageSize': pageSize, 'categoryId': 0},
     );
 
-    final body = _toMap(response.body);
-    final code = _parseInt(body?['code']);
-    if (code != 0) {
-      throw _createApiError(body?['message']?.toString() ?? '获取商品评论失败', body);
+    final body = response.body;
+    if (body == null) {
+      throw _createApiError('获取商品评论失败', response.error);
+    }
+    if (_parseInt(body.code) != 0) {
+      throw _createApiError(body.message ?? '获取商品评论失败', body);
     }
 
-    final data = _toMap(body?['data']);
-    final records = _toMapList(data?['records']);
+    final data = body.data;
+    final records = data?.records ?? const [];
     if (records.isEmpty) {
       return (reviews: <ProductReview>[], total: 0, hasMore: false);
     }
 
     final reviews = records.map((item) {
-      final images = _toList(
-        item['images'],
-      ).map((value) => value?.toString()).whereType<String>().toList();
+      final images = (item.images ?? const [])
+          .whereType<String>()
+          .map((s) => s.trim())
+          .where((s) => s.isNotEmpty)
+          .toList();
+
+      final id = item.id?.toInt().toString() ?? '';
       return ProductReview(
-        id: item['id']?.toString() ?? '',
-        userId: item['id']?.toString() ?? '',
-        userName: item['username']?.toString() ?? '匿名用户',
+        id: id,
+        userId: id,
+        userName: item.username ?? '匿名用户',
         userAvatar: images.isNotEmpty ? images.first : null,
-        rating: _parseInt(item['score'], fallback: 0),
-        content: item['comment']?.toString() ?? '',
+        rating: item.score?.toInt() ?? 0,
+        content: item.comment ?? '',
         images: images.isEmpty ? null : images,
-        createdAt: item['reviewTime']?.toString() ?? '',
+        createdAt: item.reviewTime ?? '',
         helpfulCount: 0,
-        specInfo: item['extraComment']?.toString(),
+        specInfo: item.extraComment,
       );
     }).toList();
 
-    final total = _parseInt(data?['total']);
-    final sizeFromApi = _parseInt(data?['size'], fallback: pageSize);
-    final current = _parseInt(data?['current'], fallback: page);
+    final total = data?.total?.toInt() ?? 0;
+    final sizeFromApi = data?.size?.toInt() ?? pageSize;
+    final current = data?.current?.toInt() ?? page;
 
     return (
       reviews: reviews,
@@ -1364,15 +1374,14 @@ class ProductRepository {
       root: {'current': 1, 'pageSize': 1, 'categoryId': 0},
     );
 
-    final body = _toMap(response.body);
-    final code = _parseInt(body?['code']);
-    if (code != 0 || body?['data'] == null) {
+    final body = response.body;
+    if (body == null || _parseInt(body.code) != 0 || body.data == null) {
       return null;
     }
 
-    final data = _toMap(body?['data']) ?? const {};
-    final totalReviews = _parseInt(data['reviewCount']);
-    final averageRating = _parseDouble(data['averageScore']);
+    final data = body.data!;
+    final totalReviews = data.reviewCount?.toInt() ?? 0;
+    final averageRating = data.averageScore ?? 0;
 
     final distribution = <ProductReviewDistribution>[];
     if (totalReviews > 0) {
@@ -1425,72 +1434,114 @@ class ProductRepository {
       root: {'productCode': productCode},
     );
 
-    final body = _toMap(response.body);
-    final code = _parseInt(body?['code']);
-    if (code != 0 || body?['data'] == null) {
+    final body = response.body;
+    if (body == null || _parseInt(body.code) != 0 || body.data == null) {
       return [];
     }
 
-    final data = _toMap(body?['data']);
-    final records = _toMapList(data?['records']);
-    if (records.isEmpty) {
-      return [];
-    }
+    final records = body.data?.records ?? const [];
+    if (records.isEmpty) return [];
 
     return records.take(limit).map((item) {
-      final image = _toMap(item['image']);
+      final imageUrl = item.image?.url ?? '';
+      final tagCodes = (item.tags ?? const [])
+          .map((t) => t.tagCode)
+          .whereType<String>()
+          .map((t) => t.trim())
+          .where((t) => t.isNotEmpty)
+          .toList();
+
       return ProductItem(
-        id: item['productCode']?.toString() ?? '',
-        skuCode: item['skuCode']?.toString(),
-        recommendedSkuCode: item['skuCode']?.toString(),
-        name: item['productName']?.toString() ?? '',
-        price: _parsePrice(item['targetSellPrice']),
-        originalPrice: _extractTargetOriginPrice(item),
-        currency: item['targetSellCur']?.toString(),
-        imageUrl: image?['url']?.toString() ?? '',
-        images: image?['url'] != null ? [image!['url'].toString()] : [],
-        sales: _parseInt(item['sellQuantity']),
-        tags: _extractTags(item['tags']),
-        brandName: item['brandName']?.toString(),
-        categoryId: item['categoryId']?.toString(),
+        id: item.productCode ?? '',
+        skuCode: item.skuCode,
+        recommendedSkuCode: item.skuCode,
+        name: item.productName ?? '',
+        price: _parsePrice(item.targetSellPrice ?? item.sellPrice),
+        originalPrice: _parseOptionalPrice(item.targetOriginPrice),
+        currency: item.targetSellCur ?? item.sellPriceCur,
+        imageUrl: imageUrl,
+        images: imageUrl.isNotEmpty ? [imageUrl] : const [],
+        sales: _parseInt(item.sellQuantity),
+        tags: tagCodes.isEmpty ? null : tagCodes,
       );
     }).toList();
   }
 
-  CategoryItem? _mapCategoryItem(Map<String, dynamic>? item) {
-    if (item == null) return null;
+  CategoryItem? _mapCategoryLevel1(
+    product.ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item
+    item,
+  ) {
+    final id = item.id?.toInt().toString() ?? '';
+    final name = item.name ?? '';
+    if (id.isEmpty || name.isEmpty) return null;
 
-    final brands = _normalizeBrands(_toList(item['brands']));
-    final children = _toList(item['categoryList'])
-        .map((child) => _mapCategoryItem(_toMap(child)))
+    final children = (item.categoryList ?? const [])
+        .map(_mapCategoryLevel2)
         .whereType<CategoryItem>()
         .toList();
 
     return CategoryItem(
-      id: item['id']?.toString() ?? '',
-      name: item['name']?.toString() ?? '',
-      iconUrl: item['iconUrl']?.toString(),
-      parentId: item['parentId']?.toString(),
-      level: _parseInt(item['level']),
-      brands: brands,
+      id: id,
+      name: name,
+      iconUrl: item.iconUrl,
+      parentId: item.parentId?.toInt().toString(),
+      level: item.level?.toInt(),
+      brands: _normalizeBrands(item.brands),
       children: children.isEmpty ? null : children,
     );
   }
 
-  List<String>? _normalizeBrands(List<dynamic> brands) {
-    if (brands.isEmpty) {
-      return null;
-    }
+  CategoryItem? _mapCategoryLevel2(
+    product.ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item
+    item,
+  ) {
+    final id = item.id?.toInt().toString() ?? '';
+    final name = item.name ?? '';
+    if (id.isEmpty || name.isEmpty) return null;
 
-    final normalized = brands
-        .map((brand) {
-          if (brand is String) {
-            return brand.trim();
-          }
-          final map = _toMap(brand);
-          return map?['name']?.toString().trim() ?? '';
-        })
-        .where((name) => name.isNotEmpty)
+    final children = (item.categoryList ?? const [])
+        .map(_mapCategoryLevel3)
+        .whereType<CategoryItem>()
+        .toList();
+
+    return CategoryItem(
+      id: id,
+      name: name,
+      iconUrl: item.iconUrl,
+      parentId: item.parentId?.toInt().toString(),
+      level: item.level?.toInt(),
+      brands: _normalizeBrands(item.brands),
+      children: children.isEmpty ? null : children,
+    );
+  }
+
+  CategoryItem? _mapCategoryLevel3(
+    product.ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item$CategoryList$Item
+    item,
+  ) {
+    final id = item.id?.toInt().toString() ?? '';
+    final name = item.name ?? '';
+    if (id.isEmpty || name.isEmpty) return null;
+
+    return CategoryItem(
+      id: id,
+      name: name,
+      iconUrl: item.iconUrl,
+      parentId: item.parentId?.toInt().toString(),
+      level: item.level?.toInt(),
+      children: null,
+      brands: null,
+    );
+  }
+
+  List<String>? _normalizeBrands(List<Object>? brands) {
+    final list = brands ?? const [];
+    if (list.isEmpty) return null;
+
+    final normalized = list
+        .whereType<String>()
+        .map((s) => s.trim())
+        .where((s) => s.isNotEmpty)
         .toList();
 
     return normalized.isEmpty ? null : normalized;
@@ -1522,19 +1573,6 @@ double? _parseOptionalPrice(Object? value) {
   return double.tryParse(value.toString());
 }
 
-double? _extractTargetOriginPrice(Map<String, dynamic> source) {
-  final raw = source['targetOriginPrice'];
-  return _parseOptionalPrice(raw);
-}
-
-List<String>? _extractTags(Object? rawTags) {
-  final tags = _toList(rawTags)
-      .map((tag) => _toMap(tag)?['tagCode']?.toString() ?? '')
-      .where((tag) => tag.isNotEmpty)
-      .toList();
-  return tags.isEmpty ? null : tags;
-}
-
 int _parseInt(Object? value, {int fallback = 0}) {
   if (value == null || value == '') {
     return fallback;
@@ -1559,52 +1597,6 @@ int? _parseOptionalInt(Object? value) {
     return value.toInt();
   }
   return int.tryParse(value.toString());
-}
-
-double _parseDouble(Object? value, {double fallback = 0}) {
-  if (value == null || value == '') {
-    return fallback;
-  }
-  if (value is num) {
-    return value.toDouble();
-  }
-  return double.tryParse(value.toString()) ?? fallback;
-}
-
-Map<String, dynamic>? _toMap(Object? value) {
-  if (value == null) return null;
-  if (value is Map<String, dynamic>) return value;
-  try {
-    final encoded = jsonEncode(value);
-    final decoded = jsonDecode(encoded);
-    if (decoded is Map<String, dynamic>) {
-      return decoded;
-    }
-  } catch (_) {
-    return null;
-  }
-  return null;
-}
-
-List<dynamic> _toList(Object? value) {
-  if (value == null) return [];
-  if (value is List) return value;
-  try {
-    final encoded = jsonEncode(value);
-    final decoded = jsonDecode(encoded);
-    if (decoded is List) {
-      return decoded;
-    }
-  } catch (_) {
-    return [];
-  }
-  return [];
-}
-
-List<Map<String, dynamic>> _toMapList(Object? value) {
-  return _toList(
-    value,
-  ).map((item) => _toMap(item)).whereType<Map<String, dynamic>>().toList();
 }
 
 List<String> _splitComma(Object? value) {

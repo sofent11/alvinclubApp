@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../core/error/api_error.dart';
@@ -199,23 +197,29 @@ class AiFashionRepository {
     final api = _ref.read(swaggerComboApiProvider);
     final response = await api.comboServiceBizAiFashionModelListGet();
 
-    final body = _toMap(response.body);
-    if (body == null || _parseInt(body['code']) != 0) {
-      throw _createApiError('获取模型列表失败', body);
+    final body = response.body;
+    if (body == null || (body.code?.toInt() ?? -1) != 0) {
+      throw _createApiError('获取模型列表失败', body ?? response.error);
     }
 
-    final data = _toList(body['data']);
-    return data
-        .map((itemRaw) {
-          final item = _toMap(itemRaw);
-          if (item == null) return null;
+    final groups = body.data?.models ?? const [];
+    final flat = groups.expand((g) => g.data ?? const []).toList();
+
+    return flat
+        .map((item) {
+          final modelId = item.modelId ?? '';
+          final imageUrl = item.modelImage ?? '';
+          if (modelId.isEmpty || imageUrl.isEmpty) return null;
+
           return AiModel(
-            id: item['modelId']?.toString() ?? '',
-            name: item['modelName']?.toString() ?? 'Model',
-            imageUrl: item['imageUrl']?.toString() ?? '',
-            gender: item['gender']?.toString(),
-            age: item['age']?.toString(),
-            ethnicity: item['ethnicity']?.toString(),
+            id: modelId,
+            name: item.modelDesc?.trim().isNotEmpty == true
+                ? item.modelDesc!.trim()
+                : 'Model',
+            imageUrl: imageUrl,
+            gender: null,
+            age: null,
+            ethnicity: null,
           );
         })
         .whereType<AiModel>()
@@ -226,27 +230,25 @@ class AiFashionRepository {
     final api = _ref.read(swaggerComboApiProvider);
     final response = await api.comboServiceBizAiFashionNoAuthSelectOptionGet();
 
-    final body = _toMap(response.body);
-    if (body == null || _parseInt(body['code']) != 0) {
-      throw _createApiError('获取选项失败', body);
+    final body = response.body;
+    if (body == null || (body.code?.toInt() ?? -1) != 0) {
+      throw _createApiError('获取选项失败', body ?? response.error);
     }
 
-    final data = _toMap(body['data']);
-    final list = _toList(data?['selectionList']);
-
+    final list = body.data?.selectionList ?? const [];
     return list
-        .map((itemRaw) {
-          final item = _toMap(itemRaw);
-          if (item == null) return null;
-          final options = _toList(item['data']).map((oRaw) {
-            final o = _toMap(oRaw);
-            return AiFashionOptionItem(
-              label: o?['label']?.toString() ?? '',
-              value: o?['value']?.toString() ?? '',
-            );
-          }).toList();
+        .map((item) {
+          final options = (item.data ?? const [])
+              .map(
+                (o) => AiFashionOptionItem(
+                  label: o.label ?? '',
+                  value: o.value ?? '',
+                ),
+              )
+              .toList();
+
           return AiFashionSelectionOption(
-            key: item['key']?.toString() ?? '',
+            key: item.key ?? '',
             options: options,
           );
         })
@@ -264,25 +266,22 @@ class AiFashionRepository {
       pageSize: pageSize.toString(),
     );
 
-    final body = _toMap(response.body);
-    if (body == null || _parseInt(body['code']) != 0) {
-      throw _createApiError('获取穿搭列表失败', body);
+    final body = response.body;
+    if (body == null || (body.code?.toInt() ?? -1) != 0) {
+      throw _createApiError('获取穿搭列表失败', body ?? response.error);
     }
 
-    final data = _toMap(body['data']);
-    final posts = _toList(data?['posts']);
+    final posts = body.data?.posts ?? const [];
     return posts
-        .map((itemRaw) {
-          final item = _toMap(itemRaw);
-          if (item == null) return null;
-          final frontImage = _toMap(item['frontImage']);
+        .map((item) {
+          final frontImage = item.frontImage;
           return AiFashionPost(
-            id: item['postId']?.toString() ?? '',
-            title: item['postTitle']?.toString() ?? '',
-            imageUrl: frontImage?['url']?.toString() ?? '',
-            prompt: item['prompt']?.toString(),
-            width: _toDouble(frontImage?['width']),
-            height: _toDouble(frontImage?['height']),
+            id: item.postId.toString(),
+            title: item.postTitle ?? '',
+            imageUrl: frontImage?.url ?? '',
+            prompt: item.prompt,
+            width: frontImage?.width,
+            height: frontImage?.height,
           );
         })
         .whereType<AiFashionPost>()
@@ -295,22 +294,22 @@ class AiFashionRepository {
       postId: postId,
     );
 
-    final body = _toMap(response.body);
-    if (body == null || _parseInt(body['code']) != 0) {
-      throw _createApiError('获取穿搭详情失败', body);
+    final body = response.body;
+    if (body == null || (body.code?.toInt() ?? -1) != 0) {
+      throw _createApiError('获取穿搭详情失败', body ?? response.error);
     }
 
-    final data = _toMap(body['data']);
+    final data = body.data;
     if (data == null) return null;
 
-    final frontImage = _toMap(data['frontImage']);
+    final frontImage = data.frontImage;
     return AiFashionPost(
-      id: data['postId']?.toString() ?? postId,
-      title: data['postTitle']?.toString() ?? '',
-      imageUrl: frontImage?['url']?.toString() ?? '',
-      prompt: data['prompt']?.toString(),
-      width: _toDouble(frontImage?['width']),
-      height: _toDouble(frontImage?['height']),
+      id: data.postId?.toString() ?? postId,
+      title: data.postTitle ?? '',
+      imageUrl: frontImage?.url ?? '',
+      prompt: data.prompt,
+      width: frontImage?.width,
+      height: frontImage?.height,
     );
   }
 
@@ -324,25 +323,21 @@ class AiFashionRepository {
       pageSize: pageSize.toString(),
     );
 
-    final body = _toMap(response.body);
-    if (body == null || _parseInt(body['code']) != 0) {
-      throw _createApiError('获取记录失败', body);
+    final body = response.body;
+    if (body == null || (body.code?.toInt() ?? -1) != 0) {
+      throw _createApiError('获取记录失败', body ?? response.error);
     }
 
-    final data = _toMap(body['data']);
-    final records = _toList(data?['records']);
+    final records = body.data?.records ?? const [];
     return records
-        .map((itemRaw) {
-          final item = _toMap(itemRaw);
-          if (item == null) return null;
+        .map((item) {
+          final createdAtMs = item.createdAt?.toInt() ?? 0;
           return AiFashionHistoryItem(
-            taskId: item['taskId']?.toString() ?? '',
-            status: item['status']?.toString() ?? '',
-            imageUrl: item['imgUrl']?.toString(),
-            createdAt: DateTime.fromMillisecondsSinceEpoch(
-              _parseInt(item['createdAt']),
-            ),
-            prompt: item['prompt']?.toString(),
+            taskId: item.taskId ?? '',
+            status: item.status ?? '',
+            imageUrl: item.finalOutfitImage,
+            createdAt: DateTime.fromMillisecondsSinceEpoch(createdAtMs),
+            prompt: item.requestParams?.customPrompt,
           );
         })
         .whereType<AiFashionHistoryItem>()
@@ -369,13 +364,12 @@ class AiFashionRepository {
       },
     );
 
-    final body = _toMap(response.body);
-    if (body == null || _parseInt(body['code']) != 0) {
-      throw _createApiError('发起生成失败', body);
+    final body = response.body;
+    if (body == null || (body.code?.toInt() ?? -1) != 0) {
+      throw _createApiError('发起生成失败', body ?? response.error);
     }
 
-    final data = _toMap(body['data']);
-    return data?['taskId']?.toString() ?? '';
+    return body.data?.taskId ?? '';
   }
 
   Future<AiFashionGenerateResult> getGenerationStatus(String taskId) async {
@@ -384,20 +378,20 @@ class AiFashionRepository {
       taskId: taskId,
     );
 
-    final body = _toMap(response.body);
-    if (body == null || _parseInt(body['code']) != 0) {
-      throw _createApiError('查询状态失败', body);
+    final body = response.body;
+    if (body == null || (body.code?.toInt() ?? -1) != 0) {
+      throw _createApiError('查询状态失败', body ?? response.error);
     }
 
-    final data = _toMap(body['data']);
+    final data = body.data;
     if (data == null) {
       return AiFashionGenerateResult(taskId: taskId, status: 'UNKNOWN');
     }
 
     return AiFashionGenerateResult(
-      taskId: data['taskId']?.toString() ?? taskId,
-      status: data['status']?.toString() ?? '',
-      imageUrl: data['imgUrl']?.toString() ?? data['imageUrl']?.toString(),
+      taskId: data.taskId ?? taskId,
+      status: data.status ?? '',
+      imageUrl: data.finalOutfitImage,
     );
   }
 
@@ -405,35 +399,37 @@ class AiFashionRepository {
     final api = _ref.read(swaggerComboApiProvider);
     final response = await api.comboServiceBizAiFashionNoAuthBodyShapeGet();
 
-    final body = _toMap(response.body);
-    if (body == null || _parseInt(body['code']) != 0) {
-      throw _createApiError('获取身形列表失败', body);
+    final body = response.body;
+    if (body == null || (body.code?.toInt() ?? -1) != 0) {
+      throw _createApiError('获取身形列表失败', body ?? response.error);
     }
 
-    final data = _toMap(body['data']);
-    final female = _toList(data?['female']).map((m) {
-      final item = _toMap(m)!;
-      return BodyShapeItem(
-        image: item['image']?.toString() ?? '',
-        gender: item['gender']?.toString() ?? 'female',
-        age: item['age']?.toString() ?? '',
-        race: item['race']?.toString() ?? '',
-        body: item['body']?.toString(),
-        style: item['style']?.toString(),
-      );
-    }).toList();
+    final data = body.data;
+    final female = (data?.female ?? const [])
+        .map(
+          (item) => BodyShapeItem(
+            image: item.image ?? '',
+            gender: item.gender ?? 'female',
+            age: item.age ?? '',
+            race: item.race ?? '',
+            body: item.body,
+            style: item.style,
+          ),
+        )
+        .toList();
 
-    final male = _toList(data?['male']).map((m) {
-      final item = _toMap(m)!;
-      return BodyShapeItem(
-        image: item['image']?.toString() ?? '',
-        gender: item['gender']?.toString() ?? 'male',
-        age: item['age']?.toString() ?? '',
-        race: item['race']?.toString() ?? '',
-        body: item['body']?.toString(),
-        style: item['style']?.toString(),
-      );
-    }).toList();
+    final male = (data?.male ?? const [])
+        .map(
+          (item) => BodyShapeItem(
+            image: item.image ?? '',
+            gender: item.gender ?? 'male',
+            age: item.age ?? '',
+            race: item.race ?? '',
+            body: item.body,
+            style: item.style,
+          ),
+        )
+        .toList();
 
     return {'female': female, 'male': male};
   }
@@ -442,30 +438,29 @@ class AiFashionRepository {
     final api = _ref.read(swaggerComboApiProvider);
     final response = await api.comboServiceBizAiFashionModelListGet();
 
-    final body = _toMap(response.body);
-    if (body == null || _parseInt(body['code']) != 0) {
-      throw _createApiError('获取模特列表失败', body);
+    final body = response.body;
+    if (body == null || (body.code?.toInt() ?? -1) != 0) {
+      throw _createApiError('获取模特列表失败', body ?? response.error);
     }
 
-    final data = _toMap(body['data']);
-    final groups = _toList(data?['models']);
-
-    return groups.map((gRaw) {
-      final g = _toMap(gRaw)!;
-      final models = _toList(g['data']).map((mRaw) {
-        final m = _toMap(mRaw)!;
-        return FashionModel(
-          id: m['id']?.toString() ?? '',
-          modelId: m['modelId']?.toString() ?? '',
-          imageUrl: m['modelImage']?.toString() ?? '',
-          headerImageUrl: m['modelHeaderImg']?.toString(),
-          groupId: _parseInt(g['groupId']),
-        );
-      }).toList();
+    final groups = body.data?.models ?? const [];
+    return groups.map((g) {
+      final groupId = g.groupId?.toInt() ?? 0;
+      final models = (g.data ?? const [])
+          .map(
+            (m) => FashionModel(
+              id: m.id?.toInt().toString() ?? '',
+              modelId: m.modelId ?? '',
+              imageUrl: m.modelImage ?? '',
+              headerImageUrl: m.modelHeaderImage,
+              groupId: groupId,
+            ),
+          )
+          .toList();
 
       return FashionModelGroup(
-        groupId: _parseInt(g['groupId']),
-        title: g['title']?.toString() ?? '',
+        groupId: groupId,
+        title: g.title ?? '',
         models: models,
       );
     }).toList();
@@ -476,7 +471,7 @@ class AiFashionRepository {
     required String gender,
     required String age,
     required String race,
-    String? body,
+    String? bodyShapeModel,
     String? style,
   }) async {
     final api = _ref.read(swaggerComboApiProvider);
@@ -487,22 +482,18 @@ class AiFashionRepository {
         'gender': gender == 'female' ? 2 : 1,
         'age': age,
         'ethnicity': race,
-        'bodyShapeModel': body ?? 'standard',
+        'bodyShapeModel': bodyShapeModel ?? 'standard',
         'hairStyle': style ?? 'short',
         'setAsDefault': false,
       },
     );
 
-    final bodyMap = _toMap(response.body);
-    if (bodyMap == null || _parseInt(bodyMap['code']) != 0) {
-      throw _createApiError('发起模特生成失败', bodyMap);
+    final body = response.body;
+    if (body == null || (body.code?.toInt() ?? -1) != 0) {
+      throw _createApiError('发起模特生成失败', body ?? response.error);
     }
 
-    final data = _toMap(bodyMap['data']);
-    return data?['modelId']?.toString() ??
-        data?['taskId']?.toString() ??
-        data?['task']?.toString() ??
-        '';
+    return body.data?.taskId ?? '';
   }
 
   Future<CustomModelStatus> getCustomModelStatus(String modelId) async {
@@ -512,27 +503,32 @@ class AiFashionRepository {
       modelId$: modelId,
     );
 
-    final body = _toMap(response.body);
-    if (body == null || _parseInt(body['code']) != 0) {
-      throw _createApiError('查询模特状态失败', body);
+    final body = response.body;
+    if (body == null || (body.code?.toInt() ?? -1) != 0) {
+      throw _createApiError('查询模特状态失败', body ?? response.error);
     }
 
-    final data = _toMap(body['data'])!;
-    final models = _toList(data['generatedModels']).map((mRaw) {
-      final m = _toMap(mRaw)!;
-      return GeneratedModelItem(
-        index: _parseInt(m['index']),
-        url: m['url']?.toString() ?? '',
-        headerUrl: m['headerUrl']?.toString(),
-      );
-    }).toList();
+    final data = body.data;
+    if (data == null) {
+      return CustomModelStatus(modelId: modelId, status: 'UNKNOWN');
+    }
+
+    final models = (data.generatedModels ?? const [])
+        .map(
+          (m) => GeneratedModelItem(
+            index: m.index?.toInt() ?? 0,
+            url: m.url ?? '',
+            headerUrl: null,
+          ),
+        )
+        .toList();
 
     return CustomModelStatus(
-      modelId: data['modelId']?.toString() ?? modelId,
-      status: data['status']?.toString() ?? '',
+      modelId: modelId,
+      status: data.status ?? '',
       generatedModels: models,
-      modelImage: data['modelImage']?.toString(),
-      error: data['error']?.toString(),
+      modelImage: data.originalImageUrl,
+      error: data.error?.toString(),
     );
   }
 
@@ -545,9 +541,9 @@ class AiFashionRepository {
       root: {'taskId': taskId, 'selectedIndex': selectedIndex},
     );
 
-    final body = _toMap(response.body);
-    if (body == null || _parseInt(body['code']) != 0) {
-      throw _createApiError('保存模特失败', body);
+    final body = response.body;
+    if (body == null || (body.code?.toInt() ?? -1) != 0) {
+      throw _createApiError('保存模特失败', body ?? response.error);
     }
   }
 
@@ -561,36 +557,37 @@ class AiFashionRepository {
       templateId: templateId,
     );
 
-    final body = _toMap(response.body);
-    if (body == null || _parseInt(body['code']) != 0) {
-      throw _createApiError('获取预设失败', body);
+    final body = response.body;
+    if (body == null || (body.code?.toInt() ?? -1) != 0) {
+      throw _createApiError('获取预设失败', body ?? response.error);
     }
 
-    final data = _toMap(body['data']);
+    final data = body.data;
     if (data == null) return null;
 
-    final modelInfoRaw = _toMap(data['modelInfo']);
-    FashionModel? modelInfo;
-    if (modelInfoRaw != null) {
-      modelInfo = FashionModel(
-        id: modelInfoRaw['id']?.toString() ?? '',
-        modelId: modelInfoRaw['modelId']?.toString() ?? '',
-        imageUrl: modelInfoRaw['modelImage']?.toString() ?? '',
-        headerImageUrl: modelInfoRaw['modelHeaderImage']?.toString(),
-      );
-    }
+    final modelInfoRaw = data.modelInfo;
+    final modelInfo = modelInfoRaw == null
+        ? null
+        : FashionModel(
+            id: modelInfoRaw.id?.toInt().toString() ?? '',
+            modelId: modelInfoRaw.modelId ?? '',
+            imageUrl: modelInfoRaw.modelImage ?? '',
+            headerImageUrl: modelInfoRaw.modelHeaderImage,
+          );
 
-    final option = _toMap(data['option']);
+    final option = data.option;
+    final referenceImages = (data.referenceImages ?? const [])
+        .map((i) => i.url ?? '')
+        .where((u) => u.isNotEmpty)
+        .toList();
 
     return AiFashionPreset(
-      referenceImages: _toList(
-        data['referenceImages'],
-      ).map((i) => _toMap(i)?['url']?.toString() ?? '').toList(),
-      occasion: option?['occasion']?.toString(),
-      styleTrendyElements: option?['styleTrendyElements']?.toString(),
-      prompt: data['prompt']?.toString(),
+      referenceImages: referenceImages,
+      occasion: option?.occasion,
+      styleTrendyElements: option?.styleTrendyElements,
+      prompt: data.prompt,
       modelInfo: modelInfo,
-      templateId: _parseInt(data['templateId']),
+      templateId: data.templateId,
     );
   }
 }
@@ -598,39 +595,3 @@ class AiFashionRepository {
 final aiFashionRepositoryProvider = Provider<AiFashionRepository>((ref) {
   return AiFashionRepository(ref);
 });
-
-int _parseInt(Object? value, {int fallback = 0}) {
-  if (value == null || value == '') return fallback;
-  if (value is int) return value;
-  if (value is num) return value.toInt();
-  return int.tryParse(value.toString()) ?? fallback;
-}
-
-Map<String, dynamic>? _toMap(Object? value) {
-  if (value == null) return null;
-  if (value is Map<String, dynamic>) return value;
-  try {
-    final encoded = jsonEncode(value);
-    final decoded = jsonDecode(encoded);
-    if (decoded is Map<String, dynamic>) return decoded;
-  } catch (_) {}
-  return null;
-}
-
-double _toDouble(Object? value, {double fallback = 0.0}) {
-  if (value == null || value == '') return fallback;
-  if (value is double) return value;
-  if (value is num) return value.toDouble();
-  return double.tryParse(value.toString()) ?? fallback;
-}
-
-List<dynamic> _toList(Object? value) {
-  if (value == null) return [];
-  if (value is List) return value;
-  try {
-    final encoded = jsonEncode(value);
-    final decoded = jsonDecode(encoded);
-    if (decoded is List) return decoded;
-  } catch (_) {}
-  return [];
-}
