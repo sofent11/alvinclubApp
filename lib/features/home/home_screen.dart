@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:go_router/go_router.dart';
@@ -157,150 +158,200 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
         ? const PagedProductsState()
         : ref.watch(homeRecommendProductsProvider(recommendParams));
 
+    final uiStyle = const SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+      statusBarIconBrightness: Brightness.dark,
+      statusBarBrightness: Brightness.light,
+    );
+
     if (isFashion) {
-      return Scaffold(
-        backgroundColor: _homeBackground,
-        body: SafeArea(
-          child: Column(
-            children: [
-              _HomeHeaderBar(onTap: () => context.push(RoutePaths.search)),
-              HomeTopNavBar(
-                items: topNavItems,
-                activeKey: activeKey,
-                backgroundColor: _homeBackground,
-                onItemTap: _onTopNavTap,
-              ),
-              const Expanded(child: FashionFeed()),
-            ],
+      return AnnotatedRegion<SystemUiOverlayStyle>(
+        value: uiStyle,
+        child: Scaffold(
+          backgroundColor: _homeBackground,
+          body: SafeArea(
+            child: Column(
+              children: [
+                _HomeHeaderBar(onTap: () => context.push(RoutePaths.search)),
+                HomeTopNavBar(
+                  items: topNavItems,
+                  activeKey: activeKey,
+                  backgroundColor: _homeBackground,
+                  onItemTap: _onTopNavTap,
+                ),
+                const Expanded(child: FashionFeed()),
+              ],
+            ),
           ),
         ),
       );
     }
 
-    return Scaffold(
-      backgroundColor: _homeBackground,
-      body: SafeArea(
-        child: Stack(
-          children: [
-            RefreshIndicator(
-              onRefresh: _handleRefresh,
-              child: CustomScrollView(
-                controller: _scrollController,
-                slivers: [
-                  _buildSearchHeader(context),
-                  SliverPersistentHeader(
-                    pinned: isForYou,
-                    delegate: _FixedHeaderDelegate(
-                      height: 48,
-                      child: HomeTopNavBar(
-                        items: topNavItems,
-                        activeKey: activeKey,
-                        backgroundColor: _homeBackground,
-                        onItemTap: _onTopNavTap,
-                      ),
-                    ),
-                  ),
-                  if (!isForYou) _buildHeroBanner(activeItem),
-                  if (!isForYou)
-                    SliverPersistentHeader(
-                      pinned: true,
-                      delegate: _FixedHeaderDelegate(
-                        height: 40,
-                        child: HomeCategoryTabs(
-                          items: categoryTabs,
-                          activeId: _activeCategoryId,
-                          backgroundColor: _homeBackground,
-                          onChange: _onCategoryTap,
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+      value: uiStyle,
+      child: Scaffold(
+        extendBodyBehindAppBar: true,
+        backgroundColor: _homeBackground,
+        body: SafeArea(
+          top: isForYou,
+          left: false,
+          right: false,
+          child: Stack(
+            children: [
+              RefreshIndicator(
+                onRefresh: _handleRefresh,
+                child: CustomScrollView(
+                  controller: _scrollController,
+                  slivers: [
+                    if (!isForYou)
+                      _buildHeroHeader(
+                        context,
+                        activeItem,
+                        topNavItems,
+                        activeKey,
+                      )
+                    else
+                      _buildSearchHeader(context),
+
+                    if (isForYou)
+                      SliverPersistentHeader(
+                        pinned: true,
+                        delegate: _FixedHeaderDelegate(
+                          height: 48,
+                          child: HomeTopNavBar(
+                            items: topNavItems,
+                            activeKey: activeKey,
+                            backgroundColor: _homeBackground,
+                            onItemTap: _onTopNavTap,
+                          ),
+                        ),
+                      )
+                    else
+                      const SliverToBoxAdapter(child: SizedBox(height: 8)),
+
+                    if (!isForYou)
+                      SliverPersistentHeader(
+                        pinned: true,
+                        delegate: _FixedHeaderDelegate(
+                          height: 40,
+                          child: HomeCategoryTabs(
+                            items: categoryTabs,
+                            activeId: _activeCategoryId,
+                            backgroundColor: context.appColors.surface,
+                            onChange: _onCategoryTap,
+                          ),
                         ),
                       ),
-                    ),
-                  if (isForYou)
-                    SliverToBoxAdapter(
-                      child: premiumDupeAsync.when(
-                        data: (products) {
-                          debugPrint(
-                            '[PremiumUI] Loaded ${products.length} products',
-                          );
-                          if (products.isEmpty) {
+                    if (isForYou)
+                      SliverToBoxAdapter(
+                        child: premiumDupeAsync.when(
+                          data: (products) {
                             debugPrint(
-                              '[PremiumUI] Products list is empty, hiding module.',
+                              '[PremiumUI] Loaded ${products.length} products',
+                            );
+                            if (products.isEmpty) {
+                              debugPrint(
+                                '[PremiumUI] Products list is empty, hiding module.',
+                              );
+                              return const SizedBox.shrink();
+                            }
+                            try {
+                              return PremiumDupeList(
+                                products: products,
+                                onProductTap: (_) =>
+                                    PremiumDupeSheet.show(context),
+                                onMoreTap: () => PremiumDupeSheet.show(context),
+                              );
+                            } catch (e, stack) {
+                              debugPrint(
+                                '[PremiumUI] Error building widget: $e\n$stack',
+                              );
+                              return const SizedBox.shrink();
+                            }
+                          },
+                          loading: () {
+                            debugPrint('[PremiumUI] Loading...');
+                            return const SizedBox.shrink();
+                          },
+                          error: (err, stack) {
+                            debugPrint(
+                              '[PremiumUI] Error fetching data: $err\n$stack',
                             );
                             return const SizedBox.shrink();
-                          }
-                          try {
-                            return PremiumDupeList(
-                              products: products,
-                              onProductTap: (_) =>
-                                  PremiumDupeSheet.show(context),
-                              onMoreTap: () => PremiumDupeSheet.show(context),
-                            );
-                          } catch (e, stack) {
-                            debugPrint(
-                              '[PremiumUI] Error building widget: $e\n$stack',
-                            );
-                            return const SizedBox.shrink();
-                          }
-                        },
-                        loading: () {
-                          debugPrint('[PremiumUI] Loading...');
-                          return const SizedBox.shrink();
-                        },
-                        error: (err, stack) {
-                          debugPrint(
-                            '[PremiumUI] Error fetching data: $err\n$stack',
-                          );
-                          return const SizedBox.shrink();
-                        },
+                          },
+                        ),
                       ),
-                    ),
-                  if (isForYou)
-                    _buildFlashSaleSection(
-                      context,
-                      flashSaleActivitiesAsync,
-                      flashSaleAsync,
-                    ),
+                    if (isForYou)
+                      _buildFlashSaleSection(
+                        context,
+                        flashSaleActivitiesAsync,
+                        flashSaleAsync,
+                      ),
 
-                  if (isForYou)
-                    SliverToBoxAdapter(
-                      child: albumAsync.when(
-                        data: (entries) {
-                          final quickEntries = entries
-                              .map(
-                                (item) => QuickEntryItem(
-                                  id: item.albumCode,
-                                  title: item.title,
-                                  iconUrl: item.icon,
-                                  onTap: () => context.push(
-                                    '${RoutePaths.topicDetail.replaceFirst(':id', item.albumCode)}?title=${Uri.encodeComponent(item.title)}',
+                    if (isForYou)
+                      SliverToBoxAdapter(
+                        child: albumAsync.when(
+                          data: (entries) {
+                            final quickEntries = entries
+                                .map(
+                                  (item) => QuickEntryItem(
+                                    id: item.albumCode,
+                                    title: item.title,
+                                    iconUrl: item.icon,
+                                    onTap: () => context.push(
+                                      '${RoutePaths.topicDetail.replaceFirst(':id', item.albumCode)}?title=${Uri.encodeComponent(item.title)}',
+                                    ),
                                   ),
-                                ),
-                              )
-                              .toList();
-                          return Padding(
-                            padding: const EdgeInsets.only(top: 6, bottom: 8),
-                            child: QuickEntryGrid(entries: quickEntries),
-                          );
-                        },
-                        loading: () => const SizedBox.shrink(),
-                        error: (_, _) => const SizedBox.shrink(),
+                                )
+                                .toList();
+                            return Padding(
+                              padding: const EdgeInsets.only(top: 6, bottom: 8),
+                              child: QuickEntryGrid(entries: quickEntries),
+                            );
+                          },
+                          loading: () => const SizedBox.shrink(),
+                          error: (_, _) => const SizedBox.shrink(),
+                        ),
                       ),
-                    ),
-                  // if (isForYou) _buildSectionTitle(context, 'Hot Products'), // Removed title to match design flow or keep if needed.
-                  // Design shows just products flowing.
-                  if (isForYou) _buildProductGrid(context, hotState),
-                  if (!isForYou) _buildProductGrid(context, recommendState),
-                  SliverToBoxAdapter(child: const SizedBox(height: 16)),
-                ],
+                    // if (isForYou) _buildSectionTitle(context, 'Hot Products'), // Removed title to match design flow or keep if needed.
+                    // Design shows just products flowing.
+                    if (isForYou) _buildProductGrid(context, hotState),
+                    if (!isForYou) _buildProductGrid(context, recommendState),
+                    SliverToBoxAdapter(child: const SizedBox(height: 16)),
+                  ],
+                ),
               ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
   }
 
   List<HomeTopNavItem> _buildTopNavItems(List<HomeTopNavItem> remoteItems) {
-    return [
+    final normalizedRemote = remoteItems
+        .where((item) => item.title.isNotEmpty)
+        .map((item) {
+          // Remote config may use a different `link` for Style Me.
+          // Keep our internal key stable so existing logic continues to work.
+          if (item.code == 'aiDesign') {
+            return HomeTopNavItem(
+              title: item.title,
+              link: 'fashion',
+              code: item.code,
+              showType: item.showType,
+              portalCode: item.portalCode,
+              categoryId: item.categoryId,
+              bgImage: item.bgImage,
+              icon: item.icon,
+              active: item.active,
+            );
+          }
+          return item;
+        })
+        .toList();
+
+    final items = <HomeTopNavItem>[
       const HomeTopNavItem(
         title: 'For You',
         link: 'for-you',
@@ -309,19 +360,20 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
         portalCode: [],
         categoryId: '',
       ),
-      const HomeTopNavItem(
-        title: 'Style Me', // Updated from "Fashion" to match design
-        link: 'fashion',
-        code: 'fashion',
-        showType: 'text',
-        portalCode: [],
-        categoryId: '',
-      ),
-      ...remoteItems,
+      ...normalizedRemote,
     ];
+
+    // Remove duplicates by key while preserving order.
+    final seen = <String>{};
+    final deduped = <HomeTopNavItem>[];
+    for (final item in items) {
+      final k = item.key;
+      if (seen.add(k)) deduped.add(item);
+    }
+    return deduped;
   }
 
-  // ... (keep helper methods like _parseCategoryIds, _buildCategoryNameMap, _buildCategoryTabs, _buildSearchHeader, _buildBanners, _buildHeroBanner)
+  // ... (keep helper methods like _parseCategoryIds, _buildCategoryNameMap, _buildCategoryTabs, _buildSearchHeader)
 
   List<String> _parseCategoryIds(String? raw) {
     if (raw == null || raw.trim().isEmpty) return [];
@@ -376,21 +428,75 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     );
   }
 
-  Widget _buildHeroBanner(HomeTopNavItem activeItem) {
-    final bgImage = activeItem.bgImage;
-    if (bgImage == null || bgImage.url.isEmpty) {
-      return const SliverToBoxAdapter(child: SizedBox.shrink());
-    }
-
+  Widget _buildHeroHeader(
+    BuildContext context,
+    HomeTopNavItem activeItem,
+    List<HomeTopNavItem> topNavItems,
+    String activeKey,
+  ) {
+    final headerImage =
+        activeItem.bgImage ?? activeItem.active ?? activeItem.icon;
+    final imageUrl = headerImage?.url ?? '';
     final ratio =
-        (bgImage.width != null && bgImage.height != null && bgImage.height != 0)
-        ? bgImage.width! / bgImage.height!
+        (headerImage?.width != null &&
+            headerImage?.height != null &&
+            headerImage!.height != 0)
+        ? headerImage.width! / headerImage.height!
         : 16 / 9;
 
     return SliverToBoxAdapter(
-      child: AspectRatio(
-        aspectRatio: ratio,
-        child: CachedNetworkImage(imageUrl: bgImage.url, fit: BoxFit.cover),
+      child: Padding(
+        padding: const EdgeInsets.only(bottom: 8),
+        child: ClipRRect(
+          borderRadius: const BorderRadius.only(
+            bottomLeft: Radius.circular(28),
+            bottomRight: Radius.circular(28),
+          ),
+          child: AspectRatio(
+            aspectRatio: ratio,
+            child: Stack(
+              fit: StackFit.expand,
+              children: [
+                if (imageUrl.isNotEmpty)
+                  CachedNetworkImage(imageUrl: imageUrl, fit: BoxFit.cover)
+                else
+                  Container(color: _homeBackground),
+                Positioned.fill(
+                  child: DecoratedBox(
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                        colors: [
+                          Colors.white.withValues(alpha: 0.10),
+                          Colors.white.withValues(alpha: 0.04),
+                          Colors.white.withValues(alpha: 0.00),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                SafeArea(
+                  bottom: false,
+                  child: Column(
+                    children: [
+                      _HomeHeaderBar(
+                        onTap: () => context.push(RoutePaths.search),
+                      ),
+                      HomeTopNavBar(
+                        items: topNavItems,
+                        activeKey: activeKey,
+                        backgroundColor: Colors.transparent,
+                        onItemTap: _onTopNavTap,
+                      ),
+                      const Spacer(),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ),
       ),
     );
   }

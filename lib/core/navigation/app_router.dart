@@ -353,47 +353,52 @@ class TabsScaffold extends StatelessWidget {
     const selectedColor = Color(0xFFFF6B81);
     final unselectedColor = const Color(0xFF1A1A1A).withValues(alpha: 0.55);
 
+    final isHome = currentIndex == 0;
+
     return Scaffold(
-      body: SafeArea(child: child),
-      bottomNavigationBar: DecoratedBox(
-        decoration: BoxDecoration(
-          color: Colors.white,
-          border: const Border(top: BorderSide(color: Color(0x14000000))),
-        ),
-        child: BottomNavigationBar(
-          currentIndex: currentIndex,
-          onTap: (index) => _onTap(context, index),
-          type: BottomNavigationBarType.fixed,
-          elevation: 0,
-          iconSize: 28,
-          backgroundColor: Colors.white,
-          selectedItemColor: selectedColor,
-          unselectedItemColor: unselectedColor,
-          selectedLabelStyle: const TextStyle(fontSize: 12),
-          unselectedLabelStyle: const TextStyle(fontSize: 12),
-          showUnselectedLabels: true,
-          items: const [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home_filled),
-              label: 'Home',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.grid_view_rounded),
-              label: 'Category',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.forum_outlined),
-              label: 'Inbox',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.shopping_cart_outlined),
-              label: 'Cart',
-            ),
-            BottomNavigationBarItem(
-              icon: Icon(Icons.person_outline),
-              label: 'Account',
-            ),
-          ],
+      body: isHome ? child : SafeArea(child: child),
+      bottomNavigationBar: SafeArea(
+        top: false,
+        child: DecoratedBox(
+          decoration: BoxDecoration(
+            color: Colors.white,
+            border: const Border(top: BorderSide(color: Color(0x14000000))),
+          ),
+          child: BottomNavigationBar(
+            currentIndex: currentIndex,
+            onTap: (index) => _onTap(context, index),
+            type: BottomNavigationBarType.fixed,
+            elevation: 0,
+            iconSize: 28,
+            backgroundColor: Colors.white,
+            selectedItemColor: selectedColor,
+            unselectedItemColor: unselectedColor,
+            selectedLabelStyle: const TextStyle(fontSize: 12),
+            unselectedLabelStyle: const TextStyle(fontSize: 12),
+            showUnselectedLabels: true,
+            items: const [
+              BottomNavigationBarItem(
+                icon: Icon(Icons.home_filled),
+                label: 'Home',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.grid_view_rounded),
+                label: 'Category',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.forum_outlined),
+                label: 'Inbox',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.shopping_cart_outlined),
+                label: 'Cart',
+              ),
+              BottomNavigationBarItem(
+                icon: Icon(Icons.person_outline),
+                label: 'Account',
+              ),
+            ],
+          ),
         ),
       ),
     );

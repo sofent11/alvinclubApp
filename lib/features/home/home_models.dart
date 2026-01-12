@@ -2,11 +2,7 @@ import 'package:flutter/foundation.dart';
 
 @immutable
 class HomeTopNavImage {
-  const HomeTopNavImage({
-    required this.url,
-    this.width,
-    this.height,
-  });
+  const HomeTopNavImage({required this.url, this.width, this.height});
 
   final String url;
   final double? width;
@@ -31,6 +27,8 @@ class HomeTopNavItem {
     this.portalCode = const [],
     this.categoryId,
     this.bgImage,
+    this.icon,
+    this.active,
   });
 
   final String title;
@@ -40,6 +38,8 @@ class HomeTopNavItem {
   final List<String> portalCode;
   final String? categoryId;
   final HomeTopNavImage? bgImage;
+  final HomeTopNavImage? icon;
+  final HomeTopNavImage? active;
 
   String get key => link?.isNotEmpty == true ? link! : title;
 
@@ -56,6 +56,12 @@ class HomeTopNavItem {
       categoryId: json['categoryId']?.toString(),
       bgImage: json['bgImage'] is Map<String, dynamic>
           ? HomeTopNavImage.fromJson(json['bgImage'] as Map<String, dynamic>)
+          : null,
+      icon: json['icon'] is Map<String, dynamic>
+          ? HomeTopNavImage.fromJson(json['icon'] as Map<String, dynamic>)
+          : null,
+      active: json['active'] is Map<String, dynamic>
+          ? HomeTopNavImage.fromJson(json['active'] as Map<String, dynamic>)
           : null,
     );
   }

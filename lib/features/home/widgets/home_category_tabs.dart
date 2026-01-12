@@ -30,7 +30,7 @@ class HomeCategoryTabs extends StatelessWidget {
 
     return Container(
       padding: const EdgeInsets.only(top: 6, bottom: 4),
-      color: backgroundColor ?? colors.background,
+      color: backgroundColor ?? Colors.transparent,
       child: SingleChildScrollView(
         scrollDirection: Axis.horizontal,
         padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -40,10 +40,12 @@ class HomeCategoryTabs extends StatelessWidget {
             final item = entry.value;
             final isActive =
                 item.id == activeId || (item.id == null && activeId == null);
-            
+
             final bgColor = isActive ? colors.text : Colors.transparent;
-            final textColor = isActive ? colors.onText : colors.textMuted;
-            final borderColor = isActive ? colors.text : colors.outline;
+            final textColor = isActive ? colors.surface : colors.textMuted;
+            final borderColor = isActive
+                ? Colors.transparent
+                : colors.border.withValues(alpha: 0.5);
 
             return Padding(
               padding: EdgeInsets.only(
@@ -52,13 +54,14 @@ class HomeCategoryTabs extends StatelessWidget {
               child: GestureDetector(
                 onTap: () => onChange(item.id),
                 child: Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 12,
+                    vertical: 6,
+                  ),
                   decoration: BoxDecoration(
                     color: bgColor,
                     borderRadius: BorderRadius.circular(20),
-                    border: Border.all(
-                      color: isActive ? Colors.transparent : colors.outline.withValues(alpha: 0.5),
-                    ),
+                    border: Border.all(color: borderColor),
                   ),
                   child: ThemedText(
                     item.name,

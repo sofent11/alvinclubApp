@@ -13,7 +13,7 @@ class HomeRepository {
   static const String _configInstanceId = 'en_US';
   static const String _homeConfigKey = 'app_home_page_config';
   static const String _premiumDupeConfigKey = 'app_premium_dupe_config';
-  static const String _homeTopNavKey = '04_home_top_nav';
+  static const String _homeTopNavKey = '04_home_top_nav_v2';
   static const String _homeAlbumKey = 'app_home_album';
   static const String _premiumInspiredKey = '04_premium_inspired';
 
