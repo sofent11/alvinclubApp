@@ -5194,11 +5194,11 @@ class ProductServiceProductPremiumDupeNoAuthSelectionGet$Response$Data$Item {
   @JsonKey(name: 'sellPriceCur')
   final String? sellPriceCur;
   @JsonKey(name: 'sellPrice')
-  final double? sellPrice;
+  final String? sellPrice;
   @JsonKey(name: 'targetSellPrice')
-  final double? targetSellPrice;
+  final String? targetSellPrice;
   @JsonKey(name: 'targetOriginPrice')
-  final double? targetOriginPrice;
+  final String? targetOriginPrice;
   @JsonKey(name: 'targetSellCur')
   final String? targetSellCur;
   @JsonKey(name: 'sellQuantity')
@@ -5358,9 +5358,9 @@ extension $ProductServiceProductPremiumDupeNoAuthSelectionGet$Response$Data$Item
     List<Object>? categoryTree,
     String? skuCode,
     String? sellPriceCur,
-    double? sellPrice,
-    double? targetSellPrice,
-    double? targetOriginPrice,
+    String? sellPrice,
+    String? targetSellPrice,
+    String? targetOriginPrice,
     String? targetSellCur,
     String? sellQuantity,
     int? skuCount,
@@ -5410,9 +5410,9 @@ extension $ProductServiceProductPremiumDupeNoAuthSelectionGet$Response$Data$Item
     Wrapped<List<Object>?>? categoryTree,
     Wrapped<String?>? skuCode,
     Wrapped<String?>? sellPriceCur,
-    Wrapped<double?>? sellPrice,
-    Wrapped<double?>? targetSellPrice,
-    Wrapped<double?>? targetOriginPrice,
+    Wrapped<String?>? sellPrice,
+    Wrapped<String?>? targetSellPrice,
+    Wrapped<String?>? targetOriginPrice,
     Wrapped<String?>? targetSellCur,
     Wrapped<String?>? sellQuantity,
     Wrapped<int?>? skuCount,
@@ -10433,11 +10433,11 @@ class ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data$Records$Item 
   @JsonKey(name: 'sellPriceCur')
   final String? sellPriceCur;
   @JsonKey(name: 'sellPrice')
-  final double? sellPrice;
+  final String? sellPrice;
   @JsonKey(name: 'targetSellPrice')
-  final double? targetSellPrice;
+  final String? targetSellPrice;
   @JsonKey(name: 'targetOriginPrice')
-  final double? targetOriginPrice;
+  final String? targetOriginPrice;
   @JsonKey(name: 'targetSellCur')
   final String? targetSellCur;
   @JsonKey(name: 'sellQuantity')
@@ -10590,9 +10590,9 @@ extension $ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data$Records$
     String? platformProductId,
     String? skuCode,
     String? sellPriceCur,
-    double? sellPrice,
-    double? targetSellPrice,
-    double? targetOriginPrice,
+    String? sellPrice,
+    String? targetSellPrice,
+    String? targetOriginPrice,
     String? targetSellCur,
     String? sellQuantity,
     int? skuCount,
@@ -10640,9 +10640,9 @@ extension $ProductServiceProductPremiumDupeNoAuthPagePost$Response$Data$Records$
     Wrapped<String?>? platformProductId,
     Wrapped<String?>? skuCode,
     Wrapped<String?>? sellPriceCur,
-    Wrapped<double?>? sellPrice,
-    Wrapped<double?>? targetSellPrice,
-    Wrapped<double?>? targetOriginPrice,
+    Wrapped<String?>? sellPrice,
+    Wrapped<String?>? targetSellPrice,
+    Wrapped<String?>? targetOriginPrice,
     Wrapped<String?>? targetSellCur,
     Wrapped<String?>? sellQuantity,
     Wrapped<int?>? skuCount,

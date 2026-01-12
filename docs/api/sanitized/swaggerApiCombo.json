@@ -634,12 +634,12 @@
                                   "description": "售价币种"
                                 },
                                 "sellPrice": {
-                                  "type": "number",
+                                  "type": "string",
                                   "format": "double",
                                   "description": "售价"
                                 },
                                 "targetSellPrice": {
-                                  "type": "number",
+                                  "type": "string",
                                   "format": "double",
                                   "description": "目标币种售价"
                                 },
@@ -647,7 +647,7 @@
                                   "type": "string"
                                 },
                                 "targetOriginPrice": {
-                                  "type": "number",
+                                  "type": "string",
                                   "format": "double"
                                 },
                                 "productFlag": {
@@ -1088,12 +1088,12 @@
                                   "description": "售价币种"
                                 },
                                 "sellPrice": {
-                                  "type": "number",
+                                  "type": "string",
                                   "format": "double",
                                   "description": "售价"
                                 },
                                 "targetSellPrice": {
-                                  "type": "number",
+                                  "type": "string",
                                   "format": "double",
                                   "description": "目标币种售价"
                                 },
@@ -1101,7 +1101,7 @@
                                   "type": "string"
                                 },
                                 "targetOriginPrice": {
-                                  "type": "number",
+                                  "type": "string",
                                   "format": "double"
                                 },
                                 "productFlag": {

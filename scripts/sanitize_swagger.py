@@ -37,6 +37,25 @@ def _strip_required_for_response_schemas(data: dict) -> None:
     _strip_required_in_schema(data)
 
 
+def _convert_price_types_to_string(data: object) -> None:
+    """Recursively change type of fields ending in 'Price' from number to string.
+
+    This prevents crashes when the API returns a string but the generated code expects a number.
+    """
+    if isinstance(data, dict):
+        for k, v in data.items():
+            # If the key ends with 'Price' (e.g., 'sellPrice') and it's a schema definition
+            # with type='number', force it to 'string'.
+            if k.endswith('Price') and isinstance(v, dict) and v.get('type') == 'number':
+                v['type'] = 'string'
+            
+            # Recurse
+            _convert_price_types_to_string(v)
+    elif isinstance(data, list):
+        for item in data:
+            _convert_price_types_to_string(item)
+
+
 def _sanitize_properties(value):
     if not isinstance(value, dict):
         return value
@@ -78,6 +97,7 @@ def main() -> int:
     data = json.loads(input_path.read_text(encoding='utf-8'))
 
     _strip_required_for_response_schemas(data)
+    _convert_price_types_to_string(data)
 
     # Flatten basePath into paths if present
     base_path = data.get('basePath', '')

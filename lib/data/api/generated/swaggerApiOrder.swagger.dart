@@ -5283,7 +5283,7 @@ class OrderServiceOrderPrePricingGet$Response$Data {
   @JsonKey(name: 'currency')
   final String? currency;
   @JsonKey(name: 'totalPrice')
-  final double? totalPrice;
+  final String? totalPrice;
   @JsonKey(name: 'targetCurrency')
   final double? targetCurrency;
   @JsonKey(name: 'targetPrice')
@@ -5333,7 +5333,7 @@ extension $OrderServiceOrderPrePricingGet$Response$DataExtension
     on OrderServiceOrderPrePricingGet$Response$Data {
   OrderServiceOrderPrePricingGet$Response$Data copyWith({
     String? currency,
-    double? totalPrice,
+    String? totalPrice,
     double? targetCurrency,
     String? targetPrice,
   }) {
@@ -5347,7 +5347,7 @@ extension $OrderServiceOrderPrePricingGet$Response$DataExtension
 
   OrderServiceOrderPrePricingGet$Response$Data copyWithWrapped({
     Wrapped<String?>? currency,
-    Wrapped<double?>? totalPrice,
+    Wrapped<String?>? totalPrice,
     Wrapped<double?>? targetCurrency,
     Wrapped<String?>? targetPrice,
   }) {
@@ -35312,13 +35312,13 @@ class OrderServiceCartListGet$Response$Data$List$Item$Records$Item {
   @JsonKey(name: 'quantity')
   final double? quantity;
   @JsonKey(name: 'targetOriginPrice')
-  final double? targetOriginPrice;
+  final String? targetOriginPrice;
   @JsonKey(name: 'targetOriginTotalPrice')
-  final double? targetOriginTotalPrice;
+  final String? targetOriginTotalPrice;
   @JsonKey(name: 'totalPrice')
-  final double? totalPrice;
+  final String? totalPrice;
   @JsonKey(name: 'targetTotalPrice')
-  final double? targetTotalPrice;
+  final String? targetTotalPrice;
   @JsonKey(name: 'productName')
   final String? productName;
   @JsonKey(name: 'productCode')
@@ -35328,11 +35328,11 @@ class OrderServiceCartListGet$Response$Data$List$Item$Records$Item {
   @JsonKey(name: 'status')
   final double? status;
   @JsonKey(name: 'sellPrice')
-  final double? sellPrice;
+  final String? sellPrice;
   @JsonKey(name: 'sellCur')
   final String? sellCur;
   @JsonKey(name: 'targetSellPrice')
-  final double? targetSellPrice;
+  final String? targetSellPrice;
   @JsonKey(name: 'targetSellCur')
   final String? targetSellCur;
   @JsonKey(name: 'skuOptions')
@@ -35564,17 +35564,17 @@ extension $OrderServiceCartListGet$Response$Data$List$Item$Records$ItemExtension
     String? shopImage,
     String? shopId,
     double? quantity,
-    double? targetOriginPrice,
-    double? targetOriginTotalPrice,
-    double? totalPrice,
-    double? targetTotalPrice,
+    String? targetOriginPrice,
+    String? targetOriginTotalPrice,
+    String? totalPrice,
+    String? targetTotalPrice,
     String? productName,
     String? productCode,
     String? remarkList,
     double? status,
-    double? sellPrice,
+    String? sellPrice,
     String? sellCur,
-    double? targetSellPrice,
+    String? targetSellPrice,
     String? targetSellCur,
     List<
       OrderServiceCartListGet$Response$Data$List$Item$Records$Item$SkuOptions$Item
@@ -35636,17 +35636,17 @@ extension $OrderServiceCartListGet$Response$Data$List$Item$Records$ItemExtension
     Wrapped<String?>? shopImage,
     Wrapped<String?>? shopId,
     Wrapped<double?>? quantity,
-    Wrapped<double?>? targetOriginPrice,
-    Wrapped<double?>? targetOriginTotalPrice,
-    Wrapped<double?>? totalPrice,
-    Wrapped<double?>? targetTotalPrice,
+    Wrapped<String?>? targetOriginPrice,
+    Wrapped<String?>? targetOriginTotalPrice,
+    Wrapped<String?>? totalPrice,
+    Wrapped<String?>? targetTotalPrice,
     Wrapped<String?>? productName,
     Wrapped<String?>? productCode,
     Wrapped<String?>? remarkList,
     Wrapped<double?>? status,
-    Wrapped<double?>? sellPrice,
+    Wrapped<String?>? sellPrice,
     Wrapped<String?>? sellCur,
-    Wrapped<double?>? targetSellPrice,
+    Wrapped<String?>? targetSellPrice,
     Wrapped<String?>? targetSellCur,
     Wrapped<
       List<

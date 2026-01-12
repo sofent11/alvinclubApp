@@ -10590,13 +10590,13 @@ class ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Products$Ite
   @JsonKey(name: 'sellPriceCur')
   final String? sellPriceCur;
   @JsonKey(name: 'sellPrice')
-  final double? sellPrice;
+  final String? sellPrice;
   @JsonKey(name: 'targetSellPrice')
-  final double? targetSellPrice;
+  final String? targetSellPrice;
   @JsonKey(name: 'targetSellCur')
   final String? targetSellCur;
   @JsonKey(name: 'targetOriginPrice')
-  final double? targetOriginPrice;
+  final String? targetOriginPrice;
   @JsonKey(name: 'productFlag')
   final String? productFlag;
   @JsonKey(name: 'marketingInfo')
@@ -10851,10 +10851,10 @@ extension $ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Product
     String? skuCode,
     String? skuSourceCode,
     String? sellPriceCur,
-    double? sellPrice,
-    double? targetSellPrice,
+    String? sellPrice,
+    String? targetSellPrice,
     String? targetSellCur,
-    double? targetOriginPrice,
+    String? targetOriginPrice,
     String? productFlag,
     String? marketingInfo,
     String? sellQuantity,
@@ -10959,10 +10959,10 @@ extension $ComboServiceBizCommunityPostLikedGet$Response$Data$Posts$Item$Product
     Wrapped<String?>? skuCode,
     Wrapped<String?>? skuSourceCode,
     Wrapped<String?>? sellPriceCur,
-    Wrapped<double?>? sellPrice,
-    Wrapped<double?>? targetSellPrice,
+    Wrapped<String?>? sellPrice,
+    Wrapped<String?>? targetSellPrice,
     Wrapped<String?>? targetSellCur,
-    Wrapped<double?>? targetOriginPrice,
+    Wrapped<String?>? targetOriginPrice,
     Wrapped<String?>? productFlag,
     Wrapped<String?>? marketingInfo,
     Wrapped<String?>? sellQuantity,
@@ -11155,13 +11155,13 @@ class ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Product
   @JsonKey(name: 'sellPriceCur')
   final String? sellPriceCur;
   @JsonKey(name: 'sellPrice')
-  final double? sellPrice;
+  final String? sellPrice;
   @JsonKey(name: 'targetSellPrice')
-  final double? targetSellPrice;
+  final String? targetSellPrice;
   @JsonKey(name: 'targetSellCur')
   final String? targetSellCur;
   @JsonKey(name: 'targetOriginPrice')
-  final double? targetOriginPrice;
+  final String? targetOriginPrice;
   @JsonKey(name: 'productFlag')
   final String? productFlag;
   @JsonKey(name: 'marketingInfo')
@@ -11417,10 +11417,10 @@ extension $ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Pr
     String? skuCode,
     String? skuSourceCode,
     String? sellPriceCur,
-    double? sellPrice,
-    double? targetSellPrice,
+    String? sellPrice,
+    String? targetSellPrice,
     String? targetSellCur,
-    double? targetOriginPrice,
+    String? targetOriginPrice,
     String? productFlag,
     String? marketingInfo,
     String? sellQuantity,
@@ -11525,10 +11525,10 @@ extension $ComboServiceBizCommunityPostNoAuthListGet$Response$Data$Posts$Item$Pr
     Wrapped<String?>? skuCode,
     Wrapped<String?>? skuSourceCode,
     Wrapped<String?>? sellPriceCur,
-    Wrapped<double?>? sellPrice,
-    Wrapped<double?>? targetSellPrice,
+    Wrapped<String?>? sellPrice,
+    Wrapped<String?>? targetSellPrice,
     Wrapped<String?>? targetSellCur,
-    Wrapped<double?>? targetOriginPrice,
+    Wrapped<String?>? targetOriginPrice,
     Wrapped<String?>? productFlag,
     Wrapped<String?>? marketingInfo,
     Wrapped<String?>? sellQuantity,

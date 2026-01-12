@@ -873,19 +873,19 @@
                             "example": "CNY"
                           },
                           "sellPrice": {
-                            "type": "number",
+                            "type": "string",
                             "format": "decimal",
                             "description": "售价",
                             "example": 199
                           },
                           "targetSellPrice": {
-                            "type": "number",
+                            "type": "string",
                             "format": "decimal",
                             "description": "目标币种售价",
                             "example": 28.5
                           },
                           "targetOriginPrice": {
-                            "type": "number",
+                            "type": "string",
                             "format": "decimal",
                             "description": "目标币种原价",
                             "example": 35
@@ -1255,19 +1255,19 @@
                         "example": "CNY"
                       },
                       "sellPrice": {
-                        "type": "number",
+                        "type": "string",
                         "format": "decimal",
                         "description": "售价",
                         "example": 199
                       },
                       "targetSellPrice": {
-                        "type": "number",
+                        "type": "string",
                         "format": "decimal",
                         "description": "目标币种售价",
                         "example": 28.5
                       },
                       "targetOriginPrice": {
-                        "type": "number",
+                        "type": "string",
                         "format": "decimal",
                         "description": "目标币种原价",
                         "example": 35
@@ -1428,11 +1428,11 @@
                     "description": "SKU属性"
                   },
                   "unitPrice": {
-                    "type": "number",
+                    "type": "string",
                     "description": "单件"
                   },
                   "totalPrice": {
-                    "type": "number",
+                    "type": "string",
                     "description": "总价"
                   },
                   "currency": {

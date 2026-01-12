@@ -934,8 +934,8 @@ class ProductRepository {
       return PremiumDupeProduct(
         id: item.productCode ?? '',
         name: item.productName ?? '',
-        price: item.targetSellPrice ?? item.sellPrice ?? 0,
-        originalPrice: item.targetOriginPrice,
+        price: _parsePrice(item.targetSellPrice ?? item.sellPrice),
+        originalPrice: _parseOptionalPrice(item.targetOriginPrice),
         currency: item.targetSellCur ?? item.sellPriceCur ?? 'USD',
         imageUrl: item.image?.url ?? '',
         sales: item.sellQuantity,
@@ -1020,8 +1020,8 @@ class ProductRepository {
       return PremiumDupeProduct(
         id: item.productCode ?? '',
         name: item.productName ?? '',
-        price: item.targetSellPrice ?? item.sellPrice ?? 0,
-        originalPrice: item.targetOriginPrice,
+        price: _parsePrice(item.targetSellPrice ?? item.sellPrice),
+        originalPrice: _parseOptionalPrice(item.targetOriginPrice),
         currency: item.targetSellCur ?? item.sellPriceCur ?? 'USD',
         imageUrl: item.image?.url ?? '',
         sales: item.sellQuantity,

@@ -2067,7 +2067,7 @@
                       "description": "空代表子单，跳转列表，有值是父单，跳转详情"
                     },
                     "totalPrice": {
-                      "type": "number",
+                      "type": "string",
                       "description": "1: 订单待支付 2:订单待发货(支付成功)"
                     },
                     "targetCurrency": {
@@ -9276,16 +9276,16 @@
                                   "type": "number"
                                 },
                                 "targetOriginPrice": {
-                                  "type": "number"
+                                  "type": "string"
                                 },
                                 "targetOriginTotalPrice": {
-                                  "type": "number"
+                                  "type": "string"
                                 },
                                 "totalPrice": {
-                                  "type": "number"
+                                  "type": "string"
                                 },
                                 "targetTotalPrice": {
-                                  "type": "number"
+                                  "type": "string"
                                 },
                                 "productName": {
                                   "type": "string"
@@ -9301,13 +9301,13 @@
                                   "description": "1-可用 0-不可用，置灰"
                                 },
                                 "sellPrice": {
-                                  "type": "number"
+                                  "type": "string"
                                 },
                                 "sellCur": {
                                   "type": "string"
                                 },
                                 "targetSellPrice": {
-                                  "type": "number"
+                                  "type": "string"
                                 },
                                 "targetSellCur": {
                                   "type": "string"

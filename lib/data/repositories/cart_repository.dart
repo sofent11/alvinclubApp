@@ -175,10 +175,11 @@ class CartRepository {
           productName: record.productName ?? '未知商品',
           imageUrl: record.skuImage ?? _firstImageUrl(record.qualityImages),
           quantity: record.quantity?.toInt() ?? 0,
-          price:
-              record.targetSellPrice ?? _parseOptionalDouble(record.offerPrice),
+          price: _parseOptionalDouble(
+            record.targetSellPrice ?? record.offerPrice,
+          ),
           currency: record.targetSellCur,
-          totalPrice: record.targetTotalPrice,
+          totalPrice: _parseOptionalDouble(record.targetTotalPrice),
           shopName: record.shopName,
           discountRemark: record.discountRemark,
           options: (record.skuOptions ?? const [])

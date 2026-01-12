@@ -934,7 +934,7 @@ _$OrderServiceOrderPrePricingGet$Response$DataFromJson(
   Map<String, dynamic> json,
 ) => OrderServiceOrderPrePricingGet$Response$Data(
   currency: json['currency'] as String?,
-  totalPrice: (json['totalPrice'] as num?)?.toDouble(),
+  totalPrice: json['totalPrice'] as String?,
   targetCurrency: (json['targetCurrency'] as num?)?.toDouble(),
   targetPrice: json['targetPrice'] as String?,
 );
@@ -6902,17 +6902,17 @@ _$OrderServiceCartListGet$Response$Data$List$Item$Records$ItemFromJson(
   shopImage: json['shopImage'] as String?,
   shopId: json['shopId'] as String?,
   quantity: (json['quantity'] as num?)?.toDouble(),
-  targetOriginPrice: (json['targetOriginPrice'] as num?)?.toDouble(),
-  targetOriginTotalPrice: (json['targetOriginTotalPrice'] as num?)?.toDouble(),
-  totalPrice: (json['totalPrice'] as num?)?.toDouble(),
-  targetTotalPrice: (json['targetTotalPrice'] as num?)?.toDouble(),
+  targetOriginPrice: json['targetOriginPrice'] as String?,
+  targetOriginTotalPrice: json['targetOriginTotalPrice'] as String?,
+  totalPrice: json['totalPrice'] as String?,
+  targetTotalPrice: json['targetTotalPrice'] as String?,
   productName: json['productName'] as String?,
   productCode: json['productCode'] as String?,
   remarkList: json['remarkList'] as String?,
   status: (json['status'] as num?)?.toDouble(),
-  sellPrice: (json['sellPrice'] as num?)?.toDouble(),
+  sellPrice: json['sellPrice'] as String?,
   sellCur: json['sellCur'] as String?,
-  targetSellPrice: (json['targetSellPrice'] as num?)?.toDouble(),
+  targetSellPrice: json['targetSellPrice'] as String?,
   targetSellCur: json['targetSellCur'] as String?,
   skuOptions: (json['skuOptions'] as List<dynamic>?)
       ?.map(
