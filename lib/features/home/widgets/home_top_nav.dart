@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import '../../../shared/widgets/themed_text.dart';
 import '../home_models.dart';
 
-class HomeTopNavBar extends StatelessWidget {
+class HomeTopNavBar extends StatefulWidget {
   const HomeTopNavBar({
     super.key,
     required this.items,
@@ -19,18 +19,57 @@ class HomeTopNavBar extends StatelessWidget {
   final Color? backgroundColor;
 
   @override
+  State<HomeTopNavBar> createState() => _HomeTopNavBarState();
+}
+
+class _HomeTopNavBarState extends State<HomeTopNavBar> {
+  final ScrollController _scrollController = ScrollController();
+  final Map<String, GlobalKey> _itemKeys = {};
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
+
+  @override
+  void didUpdateWidget(HomeTopNavBar oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.activeKey != widget.activeKey) {
+      _scrollToActive();
+    }
+  }
+
+  void _scrollToActive() {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      final key = _itemKeys[widget.activeKey];
+      if (key?.currentContext != null && _scrollController.hasClients) {
+        Scrollable.ensureVisible(
+          key!.currentContext!,
+          duration: const Duration(milliseconds: 300),
+          curve: Curves.easeInOut,
+          alignment: 0.5,
+        );
+      }
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Container(
-      color: backgroundColor ?? Colors.transparent,
+      color: widget.backgroundColor ?? Colors.transparent,
       padding: const EdgeInsets.symmetric(vertical: 2),
       child: SingleChildScrollView(
+        controller: _scrollController,
         scrollDirection: Axis.horizontal,
         padding: const EdgeInsets.symmetric(horizontal: 16),
         child: Row(
-          children: items.asMap().entries.map((entry) {
+          children: widget.items.asMap().entries.map((entry) {
             final index = entry.key;
             final item = entry.value;
-            final isActive = item.key == activeKey;
+            final isActive = item.key == widget.activeKey;
+            
+            final itemKey = _itemKeys.putIfAbsent(item.key, () => GlobalKey());
 
             final isIconTab = item.showType?.toLowerCase() == 'icon';
             final hasImageTab =
@@ -52,11 +91,12 @@ class HomeTopNavBar extends StatelessWidget {
                 : item.icon?.url;
 
             return Padding(
+              key: itemKey,
               padding: EdgeInsets.only(
-                right: index == items.length - 1 ? 0 : 10,
+                right: index == widget.items.length - 1 ? 0 : 10,
               ),
               child: GestureDetector(
-                onTap: () => onItemTap(item),
+                onTap: () => widget.onItemTap(item),
                 child: hasImageTab
                     ? Padding(
                         padding: const EdgeInsets.symmetric(vertical: 6),
@@ -108,3 +148,4 @@ class HomeTopNavBar extends StatelessWidget {
     );
   }
 }
+

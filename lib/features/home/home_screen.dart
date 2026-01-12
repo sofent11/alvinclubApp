@@ -36,59 +36,19 @@ class HomeScreen extends ConsumerStatefulWidget {
 }
 
 class _HomeScreenState extends ConsumerState<HomeScreen> {
-  final ScrollController _scrollController = ScrollController();
+  late PageController _pageController;
   String _activeTopNav = 'for-you';
-  String? _activeCategoryId;
 
   @override
   void initState() {
     super.initState();
-    _scrollController.addListener(_handleScroll);
+    _pageController = PageController();
   }
 
   @override
   void dispose() {
-    _scrollController.dispose();
+    _pageController.dispose();
     super.dispose();
-  }
-
-  void _handleScroll() {
-    if (!_scrollController.hasClients) return;
-    if (_scrollController.position.pixels <
-        _scrollController.position.maxScrollExtent - 200) {
-      return;
-    }
-
-    if (_activeTopNav == 'for-you') {
-      ref.read(homeHotProductsProvider.notifier).loadMore();
-      return;
-    }
-
-    if (_activeTopNav == 'fashion') return;
-
-    final params = _recommendParamsForActive();
-    ref.read(homeRecommendProductsProvider(params).notifier).loadMore();
-  }
-
-  HomeRecommendParams _recommendParamsForActive() {
-    final topNavItems = _buildTopNavItems(
-      ref.read(homeTopNavProvider).valueOrNull ?? [],
-    );
-    final activeItem = topNavItems.firstWhere(
-      (item) => item.key == _activeTopNav,
-      orElse: () => topNavItems.first,
-    );
-    final categoryIds = _parseCategoryIds(activeItem.categoryId);
-
-    if (_activeTopNav == 'for-you' || _activeTopNav == 'fashion') {
-      return const HomeRecommendParams();
-    }
-
-    if (_activeCategoryId != null && _activeCategoryId!.isNotEmpty) {
-      return HomeRecommendParams(categoryId: _activeCategoryId);
-    }
-
-    return HomeRecommendParams(categoryIds: categoryIds);
   }
 
   Future<void> _handleRefresh() async {
@@ -100,240 +60,13 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     ref.invalidate(flashSaleActivitiesProvider);
     ref.read(homeHotProductsProvider.notifier).loadFirstPage();
 
-    if (_activeTopNav != 'for-you' && _activeTopNav != 'fashion') {
-      ref.invalidate(
-        homeRecommendProductsProvider(_recommendParamsForActive()),
-      );
-    }
-
     await Future<void>.delayed(const Duration(milliseconds: 200));
-  }
-
-  void _onTopNavTap(HomeTopNavItem item) {
-    if (item.key == _activeTopNav) return;
-    setState(() {
-      _activeTopNav = item.key;
-      _activeCategoryId = null;
-    });
-  }
-
-  void _onCategoryTap(String? id) {
-    if (id == _activeCategoryId) return;
-    setState(() {
-      _activeCategoryId = id;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    final topNavAsync = ref.watch(homeTopNavProvider);
-    final albumAsync = ref.watch(homeAlbumProvider);
-    final premiumDupeAsync = ref.watch(premiumDupeSelectionProvider);
-    final hotState = ref.watch(homeHotProductsProvider);
-    final categoriesAsync = ref.watch(categoriesProvider);
-    final flashSaleAsync = ref.watch(flashSaleProductsProvider);
-    final flashSaleActivitiesAsync = ref.watch(flashSaleActivitiesProvider);
-
-    final topNavItems = _buildTopNavItems(topNavAsync.valueOrNull ?? []);
-    final activeKey = topNavItems.any((item) => item.key == _activeTopNav)
-        ? _activeTopNav
-        : topNavItems.first.key;
-    final isForYou = activeKey == 'for-you';
-    final isFashion = activeKey == 'fashion';
-    final activeItem = topNavItems.firstWhere((item) => item.key == activeKey);
-
-    final categoryNameMap = _buildCategoryNameMap(
-      categoriesAsync.valueOrNull ?? [],
-    );
-    final categoryIds = _parseCategoryIds(activeItem.categoryId);
-    final categoryTabs = _buildCategoryTabs(categoryIds, categoryNameMap);
-
-    final recommendParams = isForYou || isFashion
-        ? const HomeRecommendParams()
-        : (_activeCategoryId != null && _activeCategoryId!.isNotEmpty)
-        ? HomeRecommendParams(categoryId: _activeCategoryId)
-        : HomeRecommendParams(categoryIds: categoryIds);
-
-    final recommendState = isForYou || isFashion
-        ? const PagedProductsState()
-        : ref.watch(homeRecommendProductsProvider(recommendParams));
-
-    final uiStyle = const SystemUiOverlayStyle(
-      statusBarColor: Colors.transparent,
-      statusBarIconBrightness: Brightness.dark,
-      statusBarBrightness: Brightness.light,
-    );
-
-    if (isFashion) {
-      return AnnotatedRegion<SystemUiOverlayStyle>(
-        value: uiStyle,
-        child: Scaffold(
-          backgroundColor: _homeBackground,
-          body: SafeArea(
-            child: Column(
-              children: [
-                _HomeHeaderBar(onTap: () => context.push(RoutePaths.search)),
-                HomeTopNavBar(
-                  items: topNavItems,
-                  activeKey: activeKey,
-                  backgroundColor: _homeBackground,
-                  onItemTap: _onTopNavTap,
-                ),
-                const Expanded(child: FashionFeed()),
-              ],
-            ),
-          ),
-        ),
-      );
-    }
-
-    return AnnotatedRegion<SystemUiOverlayStyle>(
-      value: uiStyle,
-      child: Scaffold(
-        extendBodyBehindAppBar: true,
-        backgroundColor: _homeBackground,
-        body: SafeArea(
-          top: isForYou,
-          left: false,
-          right: false,
-          child: Stack(
-            children: [
-              RefreshIndicator(
-                onRefresh: _handleRefresh,
-                child: CustomScrollView(
-                  controller: _scrollController,
-                  slivers: [
-                    if (!isForYou)
-                      _buildHeroHeader(
-                        context,
-                        activeItem,
-                        topNavItems,
-                        activeKey,
-                      )
-                    else
-                      _buildSearchHeader(context),
-
-                    if (isForYou)
-                      SliverPersistentHeader(
-                        pinned: true,
-                        delegate: _FixedHeaderDelegate(
-                          height: 48,
-                          child: HomeTopNavBar(
-                            items: topNavItems,
-                            activeKey: activeKey,
-                            backgroundColor: _homeBackground,
-                            onItemTap: _onTopNavTap,
-                          ),
-                        ),
-                      )
-                    else
-                      const SliverToBoxAdapter(child: SizedBox(height: 8)),
-
-                    if (!isForYou)
-                      SliverPersistentHeader(
-                        pinned: true,
-                        delegate: _FixedHeaderDelegate(
-                          height: 40,
-                          child: HomeCategoryTabs(
-                            items: categoryTabs,
-                            activeId: _activeCategoryId,
-                            backgroundColor: context.appColors.surface,
-                            onChange: _onCategoryTap,
-                          ),
-                        ),
-                      ),
-                    if (isForYou)
-                      SliverToBoxAdapter(
-                        child: premiumDupeAsync.when(
-                          data: (products) {
-                            debugPrint(
-                              '[PremiumUI] Loaded ${products.length} products',
-                            );
-                            if (products.isEmpty) {
-                              debugPrint(
-                                '[PremiumUI] Products list is empty, hiding module.',
-                              );
-                              return const SizedBox.shrink();
-                            }
-                            try {
-                              return PremiumDupeList(
-                                products: products,
-                                onProductTap: (_) =>
-                                    PremiumDupeSheet.show(context),
-                                onMoreTap: () => PremiumDupeSheet.show(context),
-                              );
-                            } catch (e, stack) {
-                              debugPrint(
-                                '[PremiumUI] Error building widget: $e\n$stack',
-                              );
-                              return const SizedBox.shrink();
-                            }
-                          },
-                          loading: () {
-                            debugPrint('[PremiumUI] Loading...');
-                            return const SizedBox.shrink();
-                          },
-                          error: (err, stack) {
-                            debugPrint(
-                              '[PremiumUI] Error fetching data: $err\n$stack',
-                            );
-                            return const SizedBox.shrink();
-                          },
-                        ),
-                      ),
-                    if (isForYou)
-                      _buildFlashSaleSection(
-                        context,
-                        flashSaleActivitiesAsync,
-                        flashSaleAsync,
-                      ),
-
-                    if (isForYou)
-                      SliverToBoxAdapter(
-                        child: albumAsync.when(
-                          data: (entries) {
-                            final quickEntries = entries
-                                .map(
-                                  (item) => QuickEntryItem(
-                                    id: item.albumCode,
-                                    title: item.title,
-                                    iconUrl: item.icon,
-                                    onTap: () => context.push(
-                                      '${RoutePaths.topicDetail.replaceFirst(':id', item.albumCode)}?title=${Uri.encodeComponent(item.title)}',
-                                    ),
-                                  ),
-                                )
-                                .toList();
-                            return Padding(
-                              padding: const EdgeInsets.only(top: 6, bottom: 8),
-                              child: QuickEntryGrid(entries: quickEntries),
-                            );
-                          },
-                          loading: () => const SizedBox.shrink(),
-                          error: (_, _) => const SizedBox.shrink(),
-                        ),
-                      ),
-                    // if (isForYou) _buildSectionTitle(context, 'Hot Products'), // Removed title to match design flow or keep if needed.
-                    // Design shows just products flowing.
-                    if (isForYou) _buildProductGrid(context, hotState),
-                    if (!isForYou) _buildProductGrid(context, recommendState),
-                    SliverToBoxAdapter(child: const SizedBox(height: 16)),
-                  ],
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
   }
 
   List<HomeTopNavItem> _buildTopNavItems(List<HomeTopNavItem> remoteItems) {
     final normalizedRemote = remoteItems
         .where((item) => item.title.isNotEmpty)
         .map((item) {
-          // Remote config may use a different `link` for Style Me.
-          // Keep our internal key stable so existing logic continues to work.
           if (item.code == 'aiDesign') {
             return HomeTopNavItem(
               title: item.title,
@@ -363,7 +96,6 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
       ...normalizedRemote,
     ];
 
-    // Remove duplicates by key while preserving order.
     final seen = <String>{};
     final deduped = <HomeTopNavItem>[];
     for (final item in items) {
@@ -373,7 +105,174 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     return deduped;
   }
 
-  // ... (keep helper methods like _parseCategoryIds, _buildCategoryNameMap, _buildCategoryTabs, _buildSearchHeader)
+  @override
+  Widget build(BuildContext context) {
+    final topNavAsync = ref.watch(homeTopNavProvider);
+    final topNavItems = _buildTopNavItems(topNavAsync.valueOrNull ?? []);
+
+    final uiStyle = const SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+      statusBarIconBrightness: Brightness.dark,
+      statusBarBrightness: Brightness.light,
+    );
+
+    return AnnotatedRegion<SystemUiOverlayStyle>(
+      value: uiStyle,
+      child: Scaffold(
+        backgroundColor: _homeBackground,
+        body: Stack(
+          children: [
+            PageView.builder(
+              controller: _pageController,
+              itemCount: topNavItems.length,
+              physics: const ClampingScrollPhysics(
+                parent: PageScrollPhysics(),
+              ),
+              onPageChanged: (index) {
+                setState(() {
+                  _activeTopNav = topNavItems[index].key;
+                });
+              },
+              itemBuilder: (context, index) {
+                return _HomeTabContent(
+                  item: topNavItems[index],
+                  allItems: topNavItems,
+                  activeKey: _activeTopNav,
+                  onTopNavTap: (item) {
+                    final targetIndex = topNavItems.indexOf(item);
+                    if (targetIndex != -1) {
+                      _pageController.animateToPage(
+                        targetIndex,
+                        duration: const Duration(milliseconds: 300),
+                        curve: Curves.easeInOut,
+                      );
+                    }
+                  },
+                  onRefresh: _handleRefresh,
+                );
+              },
+            ),
+            Positioned(
+              top: 0,
+              left: 0,
+              right: 0,
+              child: Container(
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: [
+                      _homeBackground.withValues(alpha: 0.95),
+                      _homeBackground.withValues(alpha: 0.0),
+                    ],
+                    stops: const [0.7, 1.0],
+                  ),
+                ),
+                child: SafeArea(
+                  bottom: false,
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      _HomeHeaderBar(
+                        onTap: () => context.push(RoutePaths.search),
+                      ),
+                      HomeTopNavBar(
+                        items: topNavItems,
+                        activeKey: _activeTopNav,
+                        backgroundColor: Colors.transparent,
+                        onItemTap: (item) {
+                          final targetIndex = topNavItems.indexOf(item);
+                          if (targetIndex != -1) {
+                            _pageController.animateToPage(
+                              targetIndex,
+                              duration: const Duration(milliseconds: 300),
+                              curve: Curves.easeInOut,
+                            );
+                          }
+                        },
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class _HomeTabContent extends ConsumerStatefulWidget {
+  final HomeTopNavItem item;
+  final List<HomeTopNavItem> allItems;
+  final String activeKey;
+  final ValueChanged<HomeTopNavItem> onTopNavTap;
+  final Future<void> Function() onRefresh;
+
+  const _HomeTabContent({
+    required this.item,
+    required this.allItems,
+    required this.activeKey,
+    required this.onTopNavTap,
+    required this.onRefresh,
+  });
+
+  @override
+  ConsumerState<_HomeTabContent> createState() => _HomeTabContentState();
+}
+
+class _HomeTabContentState extends ConsumerState<_HomeTabContent> {
+  final ScrollController _scrollController = ScrollController();
+  String? _activeCategoryId;
+
+  @override
+  void initState() {
+    super.initState();
+    _scrollController.addListener(_handleScroll);
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
+
+  void _handleScroll() {
+    if (!_scrollController.hasClients) return;
+    if (_scrollController.position.pixels <
+        _scrollController.position.maxScrollExtent - 200) {
+      return;
+    }
+
+    final isForYou = widget.item.key == 'for-you';
+    final isFashion = widget.item.key == 'fashion';
+
+    if (isForYou) {
+      ref.read(homeHotProductsProvider.notifier).loadMore();
+      return;
+    }
+
+    if (isFashion) return;
+
+    final params = _recommendParams();
+    ref.read(homeRecommendProductsProvider(params).notifier).loadMore();
+  }
+
+  HomeRecommendParams _recommendParams() {
+    final categoryIds = _parseCategoryIds(widget.item.categoryId);
+    if (_activeCategoryId != null && _activeCategoryId!.isNotEmpty) {
+      return HomeRecommendParams(categoryId: _activeCategoryId);
+    }
+    return HomeRecommendParams(categoryIds: categoryIds);
+  }
+
+  void _onCategoryTap(String? id) {
+    if (id == _activeCategoryId) return;
+    setState(() {
+      _activeCategoryId = id;
+    });
+  }
 
   List<String> _parseCategoryIds(String? raw) {
     if (raw == null || raw.trim().isEmpty) return [];
@@ -394,7 +293,6 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
         }
       }
     }
-
     walk(categories);
     return map;
   }
@@ -406,43 +304,148 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     if (categoryIds.isEmpty) {
       return const [HomeCategoryTab(name: 'All')];
     }
-
     final tabs = categoryIds
         .map((id) => HomeCategoryTab(id: id, name: categoryNameMap[id] ?? id))
         .where((item) => item.name.isNotEmpty)
         .toList();
-
     return [const HomeCategoryTab(name: 'All'), ...tabs];
   }
 
-  Widget _buildSearchHeader(BuildContext context) {
-    return SliverAppBar(
-      floating: true,
-      pinned: true,
-      elevation: 0,
-      backgroundColor: _homeBackground,
-      surfaceTintColor: Colors.transparent,
-      toolbarHeight: 48,
-      titleSpacing: 0,
-      title: _HomeHeaderBar(onTap: () => context.push(RoutePaths.search)),
+  @override
+  Widget build(BuildContext context) {
+    final isForYou = widget.item.key == 'for-you';
+    final isFashion = widget.item.key == 'fashion';
+
+    final topPadding = MediaQuery.of(context).padding.top + 48 + 44;
+
+    if (isFashion) {
+      return Padding(
+        padding: EdgeInsets.only(top: topPadding),
+        child: const FashionFeed(),
+      );
+    }
+
+    final albumAsync = isForYou ? ref.watch(homeAlbumProvider) : null;
+    final premiumDupeAsync =
+        isForYou ? ref.watch(premiumDupeSelectionProvider) : null;
+    final hotState = isForYou ? ref.watch(homeHotProductsProvider) : null;
+    final flashSaleAsync = isForYou ? ref.watch(flashSaleProductsProvider) : null;
+    final flashSaleActivitiesAsync =
+        isForYou ? ref.watch(flashSaleActivitiesProvider) : null;
+
+    final categoriesAsync = !isForYou ? ref.watch(categoriesProvider) : null;
+    final recommendParams = !isForYou ? _recommendParams() : null;
+    final recommendState =
+        (!isForYou && recommendParams != null)
+            ? ref.watch(homeRecommendProductsProvider(recommendParams))
+            : null;
+
+    final categoryNameMap =
+        categoriesAsync != null
+            ? _buildCategoryNameMap(categoriesAsync.valueOrNull ?? [])
+            : <String, String>{};
+    final categoryIds = _parseCategoryIds(widget.item.categoryId);
+    final categoryTabs = _buildCategoryTabs(categoryIds, categoryNameMap);
+
+    return RefreshIndicator(
+      onRefresh: widget.onRefresh,
+      edgeOffset: topPadding,
+      child: CustomScrollView(
+        controller: _scrollController,
+        slivers: [
+          if (!isForYou)
+            _buildHeroHeader(context)
+          else
+            SliverToBoxAdapter(child: SizedBox(height: topPadding)),
+
+          if (!isForYou)
+            SliverPersistentHeader(
+              pinned: true,
+              delegate: _FixedHeaderDelegate(
+                height: 40,
+                child: HomeCategoryTabs(
+                  items: categoryTabs,
+                  activeId: _activeCategoryId,
+                  backgroundColor: context.appColors.surface,
+                  onChange: _onCategoryTap,
+                ),
+              ),
+            ),
+
+          if (isForYou && premiumDupeAsync != null)
+            SliverToBoxAdapter(
+              child: premiumDupeAsync.when(
+                data: (products) {
+                  if (products.isEmpty) return const SizedBox.shrink();
+                  return PremiumDupeList(
+                    products: products,
+                    onProductTap: (_) => PremiumDupeSheet.show(context),
+                    onMoreTap: () => PremiumDupeSheet.show(context),
+                  );
+                },
+                loading: () => const SizedBox.shrink(),
+                error: (_, _) => const SizedBox.shrink(),
+              ),
+            ),
+
+          if (isForYou &&
+              flashSaleActivitiesAsync != null &&
+              flashSaleAsync != null)
+            _buildFlashSaleSection(
+              context,
+              flashSaleActivitiesAsync,
+              flashSaleAsync,
+            ),
+
+          if (isForYou && albumAsync != null)
+            SliverToBoxAdapter(
+              child: albumAsync.when(
+                data: (entries) {
+                  final quickEntries =
+                      entries
+                          .map(
+                            (item) => QuickEntryItem(
+                              id: item.albumCode,
+                              title: item.title,
+                              iconUrl: item.icon,
+                              onTap:
+                                  () => context.push(
+                                    '${RoutePaths.topicDetail.replaceFirst(':id', item.albumCode)}?title=${Uri.encodeComponent(item.title)}',
+                                  ),
+                            ),
+                          )
+                          .toList();
+                  return Padding(
+                    padding: const EdgeInsets.only(top: 6, bottom: 8),
+                    child: QuickEntryGrid(entries: quickEntries),
+                  );
+                },
+                loading: () => const SizedBox.shrink(),
+                error: (_, _) => const SizedBox.shrink(),
+              ),
+            ),
+
+          if (isForYou && hotState != null)
+            _buildProductGrid(context, hotState),
+          if (!isForYou && recommendState != null)
+            _buildProductGrid(context, recommendState),
+          const SliverToBoxAdapter(child: SizedBox(height: 16)),
+        ],
+      ),
     );
   }
 
-  Widget _buildHeroHeader(
-    BuildContext context,
-    HomeTopNavItem activeItem,
-    List<HomeTopNavItem> topNavItems,
-    String activeKey,
-  ) {
+  Widget _buildHeroHeader(BuildContext context) {
+    final activeItem = widget.item;
     final headerImage =
         activeItem.bgImage ?? activeItem.active ?? activeItem.icon;
     final imageUrl = headerImage?.url ?? '';
     final ratio =
         (headerImage?.width != null &&
-            headerImage?.height != null &&
-            headerImage!.height != 0)
-        ? headerImage.width! / headerImage.height!
-        : 16 / 9;
+                headerImage?.height != null &&
+                headerImage!.height != 0)
+            ? headerImage.width! / headerImage.height!
+            : 16 / 9;
 
     return SliverToBoxAdapter(
       child: Padding(
@@ -474,23 +477,6 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                         ],
                       ),
                     ),
-                  ),
-                ),
-                SafeArea(
-                  bottom: false,
-                  child: Column(
-                    children: [
-                      _HomeHeaderBar(
-                        onTap: () => context.push(RoutePaths.search),
-                      ),
-                      HomeTopNavBar(
-                        items: topNavItems,
-                        activeKey: activeKey,
-                        backgroundColor: Colors.transparent,
-                        onItemTap: _onTopNavTap,
-                      ),
-                      const Spacer(),
-                    ],
                   ),
                 ),
               ],
@@ -529,15 +515,14 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                 activity: activity,
                 products: products,
                 backgroundColor: _homeBackground,
-                onMoreTap: () {
-                  // Handle more tap
-                },
+                onMoreTap: () {},
               );
             },
-            loading: () => const SizedBox(
-              height: 100,
-              child: Center(child: CircularProgressIndicator()),
-            ),
+            loading:
+                () => const SizedBox(
+                  height: 100,
+                  child: Center(child: CircularProgressIndicator()),
+                ),
             error: (_, _) => const SizedBox.shrink(),
           );
         },
@@ -593,19 +578,20 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
           return ProductCard(
             product: state.products[index],
             variant: ProductCardVariant.compact,
-            // aspect ratio not needed as much for masonry, it will layout based on content
-            onTap: () => context.push(
-              RoutePaths.productDetail.replaceFirst(
-                ':productCode',
-                state.products[index].id,
-              ),
-            ),
+            onTap:
+                () => context.push(
+                  RoutePaths.productDetail.replaceFirst(
+                    ':productCode',
+                    state.products[index].id,
+                  ),
+                ),
           );
         },
       ),
     );
   }
 }
+
 
 class _HomeHeaderBar extends StatelessWidget {
   const _HomeHeaderBar({required this.onTap});
