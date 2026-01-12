@@ -1,6 +1,6 @@
-# w2cApp (Flutter Migration)
+# w2cApp (Flutter)
 
-This project is the Flutter migration of the w2cApp. It follows a Feature-first / Clean Architecture approach, utilizing Riverpod for state management and generated code for API interactions.
+This project is the Flutter version of the w2cApp. It follows a Feature-first / Clean Architecture approach, utilizing Riverpod for state management and generated code for API interactions.
 
 ## Project Overview
 

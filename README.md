@@ -1,6 +1,6 @@
-# w2cApp (Flutter Migration)
+# w2cApp (Flutter)
 
-This repo initializes the Flutter version of the w2cApp, following `flutter_migrate.md`.
+This repository contains the Flutter version of the w2cApp. 
 
 ## Setup
 

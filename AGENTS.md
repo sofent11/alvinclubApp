@@ -2,6 +2,8 @@
 
 This file contains build commands, code style guidelines, and architectural patterns for agentic coding agents working on this Flutter e-commerce application.
 
+**Note: The migration from React Native is complete. This Flutter codebase is now the single source of truth. Do NOT refer to the original React Native implementation for future iterations or feature development.**
+
 ## Build & Development Commands
 
 ### Core Commands
