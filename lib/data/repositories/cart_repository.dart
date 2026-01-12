@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../core/error/api_error.dart';
@@ -128,11 +126,7 @@ class CartPricing {
 }
 
 class UpdateCartItem {
-  const UpdateCartItem({
-    required this.skuCode,
-    this.quantity,
-    this.remark,
-  });
+  const UpdateCartItem({required this.skuCode, this.quantity, this.remark});
 
   final String skuCode;
   final int? quantity;
@@ -162,46 +156,53 @@ class CartRepository {
 
   Future<CartPayload> getCart() async {
     final api = _ref.read(swaggerOrderApiProvider);
-    final response = await api.orderServiceCartListGet(
-      root: {
-        'skuList': [],
-      },
-    );
+    final response = await api.orderServiceCartListGet(root: {'skuList': []});
 
-    final body = _toMap(response.body);
-    final code = _parseInt(body?['code']);
-    if (code != 0 || body?['data'] == null) {
-      throw _createApiError(body?['message']?.toString() ?? '获取购物车失败', body);
+    final body = response.body;
+    if (body == null || _parseInt(body.code) != 0 || body.data == null) {
+      throw _createApiError(body?.message ?? '获取购物车失败', body);
     }
 
-    final data = _toMap(body?['data']);
-    final groups = _toList(data?['list']).asMap().entries.map((entry) {
+    final data = body.data;
+    final groups = (data?.list ?? const []).asMap().entries.map((entry) {
       final index = entry.key;
-      final group = _toMap(entry.value) ?? const {};
-      final records = _toList(group['records']);
-      final items = records.map((recordRaw) {
-        final record = _toMap(recordRaw) ?? const {};
+      final group = entry.value;
+      final records = group.records ?? const [];
+      final items = records.map((record) {
         return CartLineItem(
-          skuCode: record['skuCode']?.toString() ?? '',
-          productCode: record['productCode']?.toString(),
-          productName: record['productName']?.toString() ?? '未知商品',
-          imageUrl: record['skuImage']?.toString() ?? _firstImageUrl(record['qualityImages']),
-          quantity: _parseInt(record['quantity']),
-          price: _parseOptionalDouble(record['targetSellPrice'] ?? record['offerPrice']),
-          currency: record['targetSellCur']?.toString(),
-          totalPrice: _parseOptionalDouble(record['targetTotalPrice']),
-          shopName: record['shopName']?.toString(),
-          discountRemark: record['discountRemark']?.toString(),
-          options: _parseSkuOptions(record['skuOptions']),
-          status: _parseInt(record['status'], fallback: 0) == 1 ? 'available' : 'unavailable',
+          skuCode: record.skuCode ?? '',
+          productCode: record.productCode,
+          productName: record.productName ?? '未知商品',
+          imageUrl: record.skuImage ?? _firstImageUrl(record.qualityImages),
+          quantity: record.quantity?.toInt() ?? 0,
+          price:
+              record.targetSellPrice ?? _parseOptionalDouble(record.offerPrice),
+          currency: record.targetSellCur,
+          totalPrice: record.targetTotalPrice,
+          shopName: record.shopName,
+          discountRemark: record.discountRemark,
+          options: (record.skuOptions ?? const [])
+              .map((o) {
+                final name = o.name;
+                final value = o.value;
+                if (name == null || value == null) {
+                  return null;
+                }
+                return CartSkuOption(name: name, value: value);
+              })
+              .whereType<CartSkuOption>()
+              .toList(),
+          status: (record.status?.toInt() ?? 0) == 1
+              ? 'available'
+              : 'unavailable',
         );
       }).toList();
 
       return CartGroup(
-        id: group['productCode']?.toString() ?? 'group-$index',
+        id: group.productCode ?? 'group-$index',
         items: items,
-        totalWeight: group['totalWeight']?.toString(),
-        weightUnit: group['weightUnit']?.toString(),
+        totalWeight: group.totalWeight,
+        weightUnit: group.weightUnit,
       );
     }).toList();
 
@@ -212,11 +213,11 @@ class CartRepository {
       items: items,
       groups: groups,
       summary: CartSummary(
-        discountAmount: _parseOptionalDouble(data?['totalDiscountAmount']),
-        totalAmount: _parseOptionalDouble(data?['targetTotalAmount']),
-        targetTotalAmount: _parseOptionalDouble(data?['targetTotalAmount']),
-        currency: data?['targetTotalAmountCur']?.toString() ?? currencyFallback,
-        targetCurrency: data?['targetTotalAmountCur']?.toString() ?? currencyFallback,
+        discountAmount: _parseOptionalDouble(data?.totalDiscountAmount),
+        totalAmount: _parseOptionalDouble(data?.targetTotalAmount),
+        targetTotalAmount: _parseOptionalDouble(data?.targetTotalAmount),
+        currency: data?.targetTotalAmountCur ?? currencyFallback,
+        targetCurrency: data?.targetTotalAmountCur ?? currencyFallback,
       ),
     );
   }
@@ -230,19 +231,20 @@ class CartRepository {
     final payload = {
       'type': input.type,
       'cart': input.items
-          .map((item) => {
-                'skuCode': item.skuCode,
-                'quantity': item.quantity,
-                'orderUpdate': input.orderUpdate ?? '1',
-                'remark': item.remark,
-              })
+          .map(
+            (item) => {
+              'skuCode': item.skuCode,
+              'quantity': item.quantity,
+              'orderUpdate': input.orderUpdate ?? '1',
+              'remark': item.remark,
+            },
+          )
           .toList(),
     };
 
     final response = await api.orderServiceCartUpdatePost(root: payload);
-    final body = _toMap(response.body);
-    if (body != null && body.containsKey('code') && _parseInt(body['code']) != 0) {
-      throw _createApiError(body['message']?.toString() ?? '更新购物车失败', body);
+    if (!response.isSuccessful) {
+      throw _createApiError('更新购物车失败', response.error);
     }
   }
 
@@ -258,30 +260,28 @@ class CartRepository {
     final response = await api.orderServiceCartPricingPost(
       root: {
         'skuList': items
-            .map((item) => {
-                  'skuCode': item.skuCode,
-                  'quantity': item.quantity,
-                })
+            .map((item) => {'skuCode': item.skuCode, 'quantity': item.quantity})
             .toList(),
         'userCouponCode': couponCode,
       },
     );
 
-    final body = _toMap(response.body);
-    final code = _parseInt(body?['code']);
-    if (code != 0 || body?['data'] == null) {
-      throw _createApiError(body?['message']?.toString() ?? '计算金额失败', body);
+    final body = response.body;
+    if (body == null || _parseInt(body.code) != 0 || body.data == null) {
+      throw _createApiError(body?.message ?? '计算金额失败', body);
     }
 
-    final data = _toMap(body?['data']);
+    final data = body.data;
     return CartPricing(
-      settlementAmount: _parseDouble(data?['targetSettlementAmount'] ?? data?['targetTotalAmount']),
-      totalAmount: _parseOptionalDouble(data?['targetTotalAmount']),
-      itemsTotalAmount: _parseOptionalDouble(data?['targetItemsTotalAmount']),
-      discountAmount: _parseOptionalDouble(data?['targetDiscountAmount']),
-      freightAmount: _parseOptionalDouble(data?['freightAmount']),
-      currency: data?['targetSellCur']?.toString(),
-      targetCurrency: data?['targetSellCur']?.toString() ?? data?['sellCur']?.toString(),
+      settlementAmount: _parseDouble(
+        data?.targetSettlementAmount ?? data?.targetTotalAmount,
+      ),
+      totalAmount: _parseOptionalDouble(data?.targetTotalAmount),
+      itemsTotalAmount: _parseOptionalDouble(data?.targetItemsTotalAmount),
+      discountAmount: _parseOptionalDouble(data?.targetDiscountAmount),
+      freightAmount: _parseOptionalDouble(data?.freightAmount),
+      currency: data?.targetSellCur,
+      targetCurrency: data?.targetSellCur ?? data?.sellCur,
     );
   }
 
@@ -296,9 +296,8 @@ class CartRepository {
     };
 
     final response = await api.orderServiceCartAddPost(root: payload);
-    final body = _toMap(response.body);
-    if (body != null && body.containsKey('code') && _parseInt(body['code']) != 0) {
-      throw _createApiError(body['message']?.toString() ?? '加入购物车失败', body);
+    if (!response.isSuccessful) {
+      throw _createApiError('加入购物车失败', response.error);
     }
   }
 }
@@ -307,32 +306,14 @@ final cartRepositoryProvider = Provider<CartRepository>((ref) {
   return CartRepository(ref);
 });
 
-List<CartSkuOption> _parseSkuOptions(Object? value) {
-  return _toList(value)
-      .map((optionRaw) {
-        final option = _toMap(optionRaw);
-        final name = option?['name']?.toString();
-        final optionValue = option?['value']?.toString();
-        if (name == null || optionValue == null) {
-          return null;
-        }
-        return CartSkuOption(name: name, value: optionValue);
-      })
-      .whereType<CartSkuOption>()
-      .toList();
-}
-
-String? _firstImageUrl(Object? value) {
-  final list = _toList(value);
-  if (list.isEmpty) {
-    return null;
+String? _firstImageUrl(List<Object>? value) {
+  final list = value ?? const [];
+  for (final item in list) {
+    if (item is String && item.isNotEmpty) {
+      return item;
+    }
   }
-  final first = list.first;
-  if (first is String) {
-    return first;
-  }
-  final map = _toMap(first);
-  return map?['url']?.toString();
+  return null;
 }
 
 double _parseDouble(Object? value, {double fallback = 0}) {
@@ -367,34 +348,4 @@ int _parseInt(Object? value, {int fallback = 0}) {
     return value.toInt();
   }
   return int.tryParse(value.toString()) ?? fallback;
-}
-
-Map<String, dynamic>? _toMap(Object? value) {
-  if (value == null) return null;
-  if (value is Map<String, dynamic>) return value;
-  try {
-    final encoded = jsonEncode(value);
-    final decoded = jsonDecode(encoded);
-    if (decoded is Map<String, dynamic>) {
-      return decoded;
-    }
-  } catch (_) {
-    return null;
-  }
-  return null;
-}
-
-List<dynamic> _toList(Object? value) {
-  if (value == null) return [];
-  if (value is List) return value;
-  try {
-    final encoded = jsonEncode(value);
-    final decoded = jsonDecode(encoded);
-    if (decoded is List) {
-      return decoded;
-    }
-  } catch (_) {
-    return [];
-  }
-  return [];
 }

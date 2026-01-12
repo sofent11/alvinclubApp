@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../core/error/api_error.dart';
@@ -38,20 +36,23 @@ class UserRepository {
     final api = _ref.read(swaggerUserApiProvider);
     final response = await api.userServiceUserGetGet();
 
-    final body = _toMap(response.body);
-    if (body == null || _parseInt(body['code']) != 0) {
-      throw _createApiError(body?['message']?.toString() ?? '获取用户信息失败', body);
+    final body = response.body;
+    if (body == null) {
+      throw _createApiError('获取用户信息失败', response.error);
+    }
+    if (_parseInt(body.code) != 0) {
+      throw _createApiError(body.message ?? '获取用户信息失败', body);
     }
 
-    final data = _toMap(body['data']);
+    final data = body.data;
     return UserProfile(
-      id: data?['userId']?.toString() ?? '',
-      nickname: data?['nickname']?.toString(),
-      avatar: data?['photo']?.toString(),
-      email: data?['email']?.toString(),
-      phone: data?['phoneNumber']?.toString(),
-      gender: _parseOptionalInt(data?['gender']),
-      birthday: data?['birthday']?.toString(),
+      id: data?.userId ?? '',
+      nickname: data?.nickname,
+      avatar: data?.photo,
+      email: data?.email,
+      phone: data?.phoneNumber,
+      gender: _parseOptionalInt(data?.gender),
+      birthday: data?.birthday,
     );
   }
 
@@ -71,9 +72,8 @@ class UserRepository {
       },
     );
 
-    final body = _toMap(response.body);
-    if (body == null || _parseInt(body['code']) != 0) {
-      throw _createApiError(body?['message']?.toString() ?? '更新用户信息失败', body);
+    if (!response.isSuccessful) {
+      throw _createApiError('更新用户信息失败', response.error);
     }
   }
 }
@@ -106,19 +106,4 @@ int? _parseOptionalInt(Object? value) {
     return value.toInt();
   }
   return int.tryParse(value.toString());
-}
-
-Map<String, dynamic>? _toMap(Object? value) {
-  if (value == null) return null;
-  if (value is Map<String, dynamic>) return value;
-  try {
-    final encoded = jsonEncode(value);
-    final decoded = jsonDecode(encoded);
-    if (decoded is Map<String, dynamic>) {
-      return decoded;
-    }
-  } catch (_) {
-    return null;
-  }
-  return null;
 }

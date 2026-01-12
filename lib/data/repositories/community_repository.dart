@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../api/swagger_client.dart';
@@ -39,29 +37,29 @@ class CommunityRepository {
         pageSize: '20',
       );
 
-      final body = _toMap(response.body);
-      if (body == null || _parseInt(body['code']) != 0) {
+      final body = response.body;
+      if (body == null || body.code != 0) {
         return _getMockPosts();
       }
 
-      final data = _toMap(body['data']);
-      final list = _toList(data?['records']);
-      
-      return list.map((itemRaw) {
-        final item = _toMap(itemRaw);
-        if (item == null) return null;
-        final user = _toMap(item['user']);
+      final posts = body.data?.posts ?? const [];
+
+      return posts.map((post) {
         return CommunityPost(
-          id: item['id']?.toString() ?? '',
-          content: item['content']?.toString() ?? '',
-          images: _toList(item['images']).map((img) => img.toString()).toList(),
-          authorName: user?['nickname']?.toString() ?? 'Anonymous',
-          authorAvatar: user?['photo']?.toString() ?? '',
-          likeCount: _parseInt(item['likeCount']),
-          isLiked: _parseBool(item['liked']),
-          createdAt: item['createTime']?.toString() ?? '',
+          id: (post.postId?.toString().isNotEmpty == true)
+              ? post.postId.toString()
+              : (post.postCode ?? ''),
+          content: post.translatedDescription ?? post.description ?? '',
+          images: (post.postImages ?? const [])
+              .map((img) => img.toString())
+              .toList(),
+          authorName: post.posterUserId ?? 'Anonymous',
+          authorAvatar: '',
+          likeCount: post.likeCount ?? 0,
+          isLiked: post.liked ?? false,
+          createdAt: post.publishTime?.toIso8601String() ?? '',
         );
-      }).whereType<CommunityPost>().toList();
+      }).toList();
     } catch (_) {
       return _getMockPosts();
     }
@@ -69,12 +67,22 @@ class CommunityRepository {
 
   Future<void> toggleLike(String postId, bool isLiked) async {
     final api = _ref.read(swaggerComboApiProvider);
-    final response = isLiked
-        ? await api.comboServiceBizCommunityPostUnlikePost(root: {'id': postId})
-        : await api.comboServiceBizCommunityPostLikePost(root: {'id': postId});
+    if (isLiked) {
+      final response = await api.comboServiceBizCommunityPostUnlikePost(
+        root: {'id': postId},
+      );
+      final body = response.body;
+      if (body == null || body.code != 0) {
+        // If fails, we just throw or ignore since it's community
+      }
+      return;
+    }
 
-    final body = _toMap(response.body);
-    if (body == null || _parseInt(body['code']) != 0) {
+    final response = await api.comboServiceBizCommunityPostLikePost(
+      root: {'id': postId},
+    );
+    final body = response.body;
+    if (body == null || body.code != 0) {
       // If fails, we just throw or ignore since it's community
     }
   }
@@ -93,7 +101,8 @@ class CommunityRepository {
       ),
       CommunityPost(
         id: 'mock-2',
-        content: 'Check out these amazing shoes. Great quality and fast shipping!',
+        content:
+            'Check out these amazing shoes. Great quality and fast shipping!',
         images: ['https://picsum.photos/500/500'],
         authorName: 'SneakerHead_Tom',
         authorAvatar: 'https://i.pravatar.cc/150?u=tom',
@@ -108,40 +117,3 @@ class CommunityRepository {
 final communityRepositoryProvider = Provider<CommunityRepository>((ref) {
   return CommunityRepository(ref);
 });
-
-int _parseInt(Object? value, {int fallback = 0}) {
-  if (value == null || value == '') return fallback;
-  if (value is int) return value;
-  if (value is num) return value.toInt();
-  return int.tryParse(value.toString()) ?? fallback;
-}
-
-bool _parseBool(Object? value) {
-  if (value == null) return false;
-  if (value is bool) return value;
-  if (value is num) return value != 0;
-  if (value is String) return value.toLowerCase() == 'true' || value == '1';
-  return false;
-}
-
-Map<String, dynamic>? _toMap(Object? value) {
-  if (value == null) return null;
-  if (value is Map<String, dynamic>) return value;
-  try {
-    final encoded = jsonEncode(value);
-    final decoded = jsonDecode(encoded);
-    if (decoded is Map<String, dynamic>) return decoded;
-  } catch (_) {}
-  return null;
-}
-
-List<dynamic> _toList(Object? value) {
-  if (value == null) return [];
-  if (value is List) return value;
-  try {
-    final encoded = jsonEncode(value);
-    final decoded = jsonDecode(encoded);
-    if (decoded is List) return decoded;
-  } catch (_) {}
-  return [];
-}

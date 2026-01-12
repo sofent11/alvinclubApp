@@ -1,9 +1,8 @@
-import 'dart:convert';
-
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../core/error/api_error.dart';
 import '../api/swagger_client.dart';
+import '../api/generated/swaggerApiUser.swagger.dart' as user;
 
 class ShippingAddress {
   const ShippingAddress({
@@ -50,22 +49,16 @@ class AddressRepository {
     final api = _ref.read(swaggerUserApiProvider);
     final response = await api.userServiceAddressListGet();
 
-    final body = _toMap(response.body);
+    final body = response.body;
     if (body == null) {
-      throw _createApiError('获取地址列表失败', body);
+      throw _createApiError('获取地址列表失败', response.error);
     }
-    if (_parseInt(body['code']) != 0) {
-      throw _createApiError(body['message']?.toString() ?? '获取地址列表失败', body);
+    if (_parseInt(body.code) != 0) {
+      throw _createApiError(body.message ?? '获取地址列表失败', body);
     }
 
-    final data = _toMap(body['data']);
-    final list = _toList(data?['list'] ?? body['data']); // Adjust based on actual structure
-
-    return list.map((itemRaw) {
-      final item = _toMap(itemRaw);
-      if (item == null) return null;
-      return _mapAddress(item);
-    }).whereType<ShippingAddress>().toList();
+    final list = body.data ?? const [];
+    return list.map(_mapAddressFromListItem).toList();
   }
 
   Future<void> createShippingAddress(ShippingAddress address) async {
@@ -74,9 +67,9 @@ class AddressRepository {
       root: _addressToMap(address),
     );
 
-    final body = _toMap(response.body);
-    if (body == null || _parseInt(body['code']) != 0) {
-      throw _createApiError(body?['message']?.toString() ?? '添加地址失败', body);
+    final body = response.body;
+    if (body == null || _parseInt(body.code) != 0) {
+      throw _createApiError(body?.message ?? '添加地址失败', body);
     }
   }
 
@@ -86,21 +79,19 @@ class AddressRepository {
       root: _addressToMap(address),
     );
 
-    final body = _toMap(response.body);
-    if (body == null || _parseInt(body['code']) != 0) {
-      throw _createApiError(body?['message']?.toString() ?? '更新地址失败', body);
+    final body = response.body;
+    if (body == null || _parseInt(body.code) != 0) {
+      throw _createApiError(body?.message ?? '更新地址失败', body);
     }
   }
 
   Future<void> deleteShippingAddress(String id) async {
     final api = _ref.read(swaggerUserApiProvider);
-    final response = await api.userServiceAddressDeleteDelete(
-      id: id,
-    );
+    final response = await api.userServiceAddressDeleteDelete(id: id);
 
-    final body = _toMap(response.body);
-    if (body == null || _parseInt(body['code']) != 0) {
-      throw _createApiError('删除地址失败', body);
+    final body = response.body;
+    if (body == null || _parseInt(body.code) != 0) {
+      throw _createApiError(body?.message ?? '删除地址失败', body);
     }
   }
 
@@ -108,67 +99,65 @@ class AddressRepository {
     final api = _ref.read(swaggerUserApiProvider);
     final response = await api.userServiceGetDefaultShippingAddressGet();
 
-    final body = _toMap(response.body);
-    if (body == null || _parseInt(body['code']) != 0) {
+    final body = response.body;
+    if (body == null || _parseInt(body.code) != 0) {
       return null;
     }
 
-    final data = _toMap(body['data']);
+    final data = body.data;
     if (data == null) return null;
-    return _mapAddress(data);
+    return _mapAddressFromDefault(data);
   }
 
   Future<List<String>> getSupportCountries() async {
-
-
     final api = _ref.read(swaggerUserApiProvider);
     final response = await api.userServiceNoAuthSupportCountryGet();
 
-    final body = _toMap(response.body);
-    if (body == null || _parseInt(body['code']) != 0) {
+    final body = response.body;
+    if (body == null || _parseInt(body.code) != 0) {
       return ['United States', 'Canada', 'United Kingdom']; // Fallback
     }
 
-    final data = _toList(body['data']);
-    return data.map((item) {
-      if (item is String) return item;
-      final map = _toMap(item);
-      return map?['countryName']?.toString() ?? map?['country']?.toString();
-    }).whereType<String>().toList();
+    return body.data ?? const [];
   }
 
-  ShippingAddress? _mapAddress(Map<String, dynamic> data) {
-    // The API might return address fields nested in 'address' string or directly.
-    // Based on generated code 'address' is a String.
-    // If 'address' is a JSON string, we parse it.
-    
-    Map<String, dynamic> fields = data;
-    if (data['address'] is String) {
-      try {
-        final parsed = jsonDecode(data['address']);
-        if (parsed is Map<String, dynamic>) {
-          fields = parsed;
-          // Merge top-level ID/default status if they are outside
-          if (data.containsKey('id')) fields['id'] = data['id'];
-          if (data.containsKey('isDefault')) fields['isDefault'] = data['isDefault'];
-        }
-      } catch (_) {}
-    }
-
+  ShippingAddress _mapAddressFromListItem(
+    user.UserServiceAddressListGet$Response$Data$Item item,
+  ) {
     return ShippingAddress(
-      id: fields['id']?.toString() ?? '',
-      firstName: fields['firstName']?.toString() ?? '',
-      lastName: fields['lastName']?.toString() ?? '',
-      phone: fields['phone']?.toString() ?? '',
-      email: fields['email']?.toString() ?? '',
-      country: fields['country']?.toString() ?? '',
-      province: fields['province']?.toString() ?? '',
-      city: fields['city']?.toString() ?? '',
-      district: fields['district']?.toString() ?? '',
-      addressLine1: fields['addressLine1']?.toString() ?? '',
-      addressLine2: fields['addressLine2']?.toString(),
-      zipCode: fields['zipCode']?.toString() ?? '',
-      isDefault: _parseBool(fields['isDefault']),
+      id: item.id?.toInt().toString() ?? '',
+      firstName: item.firstName ?? '',
+      lastName: item.lastName ?? '',
+      phone: item.phoneNumber ?? '',
+      email: '',
+      country: item.country ?? '',
+      province: item.state ?? '',
+      city: item.city ?? '',
+      district: '',
+      addressLine1: item.street ?? item.address ?? '',
+      addressLine2: item.apartment,
+      zipCode: item.zipCode ?? '',
+      isDefault: (item.isDefault ?? 0) != 0,
+    );
+  }
+
+  ShippingAddress _mapAddressFromDefault(
+    user.UserServiceGetDefaultShippingAddressGet$Response$Data data,
+  ) {
+    return ShippingAddress(
+      id: data.id ?? '',
+      firstName: data.firstName ?? '',
+      lastName: data.lastName ?? '',
+      phone: data.phoneNumber ?? '',
+      email: data.email ?? '',
+      country: data.country ?? '',
+      province: data.state ?? '',
+      city: data.city ?? '',
+      district: '',
+      addressLine1: data.street ?? data.address ?? '',
+      addressLine2: data.apartment,
+      zipCode: data.zipCode ?? '',
+      isDefault: data.isDefault ?? false,
     );
   }
 
@@ -206,42 +195,4 @@ int _parseInt(Object? value, {int fallback = 0}) {
     return value.toInt();
   }
   return int.tryParse(value.toString()) ?? fallback;
-}
-
-bool _parseBool(Object? value) {
-  if (value == null) return false;
-  if (value is bool) return value;
-  if (value is num) return value != 0;
-  if (value is String) return value.toLowerCase() == 'true' || value == '1';
-  return false;
-}
-
-Map<String, dynamic>? _toMap(Object? value) {
-  if (value == null) return null;
-  if (value is Map<String, dynamic>) return value;
-  try {
-    final encoded = jsonEncode(value);
-    final decoded = jsonDecode(encoded);
-    if (decoded is Map<String, dynamic>) {
-      return decoded;
-    }
-  } catch (_) {
-    return null;
-  }
-  return null;
-}
-
-List<dynamic> _toList(Object? value) {
-  if (value == null) return [];
-  if (value is List) return value;
-  try {
-    final encoded = jsonEncode(value);
-    final decoded = jsonDecode(encoded);
-    if (decoded is List) {
-      return decoded;
-    }
-  } catch (_) {
-    return [];
-  }
-  return [];
 }

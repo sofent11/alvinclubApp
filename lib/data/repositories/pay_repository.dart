@@ -135,7 +135,8 @@ enum PayStatus {
   }
 
   /// Whether this status is a terminal state (Based on RN isFinalStatus).
-  bool get isTerminal => this == success || this == failed || this == canceled || this == timeout;
+  bool get isTerminal =>
+      this == success || this == failed || this == canceled || this == timeout;
 
   /// Whether this status represents a successful payment.
   bool get isSuccess => this == success;
@@ -176,7 +177,9 @@ class PayRepository {
     return ApiError(status: 400, message: message, raw: raw);
   }
 
-  Future<List<PaymentMethod>> getPaymentMethods(GetPaymentMethodsInput input) async {
+  Future<List<PaymentMethod>> getPaymentMethods(
+    GetPaymentMethodsInput input,
+  ) async {
     if (input.orderId.isEmpty) {
       throw _createApiError('获取支付方式需要提供订单号', null);
     }
@@ -189,35 +192,37 @@ class PayRepository {
       currency: input.currency,
     );
 
-    final body = _toMap(response.body);
+    final body = response.body;
     if (body == null) {
-      throw _createApiError('获取支付方式失败', body);
+      throw _createApiError('获取支付方式失败', response.error);
     }
-    if (_parseInt(body['code']) != 0) {
-      throw _createApiError(body['message']?.toString() ?? '获取支付方式失败', body);
+    if (_parseInt(body.code) != 0) {
+      throw _createApiError(body.message ?? '获取支付方式失败', body);
     }
 
-    final list = _toList(_toMap(body['data'])?['list']);
+    final list = body.data?.list ?? const [];
     return list.asMap().entries.map((entry) {
       final index = entry.key;
-      final method = _toMap(entry.value) ?? const {};
-      final currency = _toMap(method['currency']);
+      final method = entry.value;
+      final currency = method.currency;
       return PaymentMethod(
-        type: method['payType']?.toString() ?? 'method-$index',
-        name: method['payTypeName']?.toString() ?? '未知支付方式',
-        icon: method['payTypeIcon']?.toString(),
-        description: method['payTypeDesc']?.toString(),
-        fee: _parseOptionalDouble(method['payFee']),
-        rechargeOnly: method['rechargeOnly']?.toString() == '1',
-        rechargeDifference: _parseOptionalDouble(method['rechargeDifference']),
-        isDefault: _jsBoolean(method['isDefault']),
-        amount: _parseOptionalDouble(method['payAmount']),
-        currency: currency?['symbol']?.toString() ?? currency?['name']?.toString(),
+        type: method.payType ?? 'method-$index',
+        name: method.payTypeName ?? '未知支付方式',
+        icon: method.payTypeIcon,
+        description: method.payTypeDesc,
+        fee: _parseOptionalDouble(method.payFee),
+        rechargeOnly: method.rechargeOnly == '1',
+        rechargeDifference: _parseOptionalDouble(method.rechargeDifference),
+        isDefault: method.isDefault,
+        amount: _parseOptionalDouble(method.payAmount),
+        currency: currency?.symbol ?? currency?.name,
       );
     }).toList();
   }
 
-  Future<InitiatePaymentResult> initiatePayment(InitiatePaymentInput input) async {
+  Future<InitiatePaymentResult> initiatePayment(
+    InitiatePaymentInput input,
+  ) async {
     if (input.orderId.isEmpty || input.payType.isEmpty) {
       throw _createApiError('发起支付需要提供订单号和支付方式', null);
     }
@@ -235,17 +240,17 @@ class PayRepository {
       },
     );
 
-    final body = _toMap(response.body);
+    final body = response.body;
     if (body == null) {
-      throw _createApiError('发起支付失败', body);
+      throw _createApiError('发起支付失败', response.error);
     }
-    if (_parseInt(body['code']) != 0) {
-      throw _createApiError(body['message']?.toString() ?? '发起支付失败', body);
+    if (_parseInt(body.code) != 0) {
+      throw _createApiError(body.message ?? '发起支付失败', body);
     }
 
-    final data = _toMap(body['data']);
-    final thirdPayParam = data?['thirdPayParam']?.toString();
-    var receiptAddress = data?['receiptAddress']?.toString();
+    final data = body.data;
+    final thirdPayParam = data?.thirdPayParam;
+    var receiptAddress = data?.receiptAddress;
 
     // If receiptAddress is missing, try to construct it from payInfoKey (RN parity)
     if (receiptAddress == null || receiptAddress.isEmpty) {
@@ -276,18 +281,18 @@ class PayRepository {
 
     final api = _ref.read(swaggerPayApiProvider);
     final response = await api.payServicePayPayResultGet(orderId: orderId);
-    final body = _toMap(response.body);
-    final data = _toMap(body?['data']);
-    if (_parseInt(body?['code']) != 0 || data == null) {
-      throw _createApiError(body?['message']?.toString() ?? '查询支付结果失败', body);
+    final body = response.body;
+    if (body == null || _parseInt(body.code) != 0 || body.data == null) {
+      throw _createApiError(body?.message ?? '查询支付结果失败', body);
     }
 
-    final currency = _toMap(data['currency']);
+    final data = body.data;
+    final currency = data?.currency;
     return PayResult(
-      statusCode: _parseInt(data['payStatus']),
-      orderType: _parseOptionalInt(data['orderType']),
-      amount: _parseOptionalDouble(data['payAmount']),
-      currency: currency?['symbol']?.toString() ?? currency?['name']?.toString(),
+      statusCode: data?.payStatus?.toInt() ?? 0,
+      orderType: data?.orderType?.toInt(),
+      amount: _parseOptionalDouble(data?.payAmount),
+      currency: currency?.symbol ?? currency?.name,
     );
   }
 }
@@ -297,11 +302,7 @@ final payRepositoryProvider = Provider<PayRepository>((ref) {
 });
 
 class StripeParamResult {
-  const StripeParamResult({
-    this.publicKey,
-    this.clientSecret,
-    this.intentId,
-  });
+  const StripeParamResult({this.publicKey, this.clientSecret, this.intentId});
 
   final String? publicKey;
   final String? clientSecret;
@@ -310,10 +311,14 @@ class StripeParamResult {
 
 String? _extractPayInfoKey(String? thirdPayParam) {
   if (thirdPayParam == null || thirdPayParam.isEmpty) return null;
-  
+
   // Try URL parsing
   try {
-    final uri = Uri.tryParse(thirdPayParam.startsWith('http') ? thirdPayParam : 'https://dummy.com/$thirdPayParam');
+    final uri = Uri.tryParse(
+      thirdPayParam.startsWith('http')
+          ? thirdPayParam
+          : 'https://dummy.com/$thirdPayParam',
+    );
     if (uri != null && uri.queryParameters.containsKey('payInfoKey')) {
       return uri.queryParameters['payInfoKey'];
     }
@@ -351,11 +356,14 @@ StripeParamResult? _parseStripeFromUrl(String raw) {
     }
 
     return StripeParamResult(
-      publicKey: uri.queryParameters['publicKey'] ??
+      publicKey:
+          uri.queryParameters['publicKey'] ??
           uri.queryParameters['publishableKey'] ??
           uri.queryParameters['publickkey'],
-      clientSecret: uri.queryParameters['clientSecret'] ?? uri.queryParameters['secret'],
-      intentId: uri.queryParameters['intentId'] ??
+      clientSecret:
+          uri.queryParameters['clientSecret'] ?? uri.queryParameters['secret'],
+      intentId:
+          uri.queryParameters['intentId'] ??
           uri.queryParameters['paymentIntentId'] ??
           uri.queryParameters['intent'],
     );
@@ -376,7 +384,8 @@ StripeParamResult? _parseStripeFromJson(String raw) {
     }
 
     return StripeParamResult(
-      publicKey: read('publicKey') ?? read('publishableKey') ?? read('publickkey'),
+      publicKey:
+          read('publicKey') ?? read('publishableKey') ?? read('publickkey'),
       clientSecret: read('clientSecret') ?? read('secret'),
       intentId: read('intentId') ?? read('paymentIntentId') ?? read('intent'),
     );
@@ -406,63 +415,4 @@ int _parseInt(Object? value, {int fallback = 0}) {
     return value.toInt();
   }
   return int.tryParse(value.toString()) ?? fallback;
-}
-
-int? _parseOptionalInt(Object? value) {
-  if (value == null || value == '') {
-    return null;
-  }
-  if (value is int) {
-    return value;
-  }
-  if (value is num) {
-    return value.toInt();
-  }
-  return int.tryParse(value.toString());
-}
-
-bool _jsBoolean(Object? value) {
-  if (value == null) {
-    return false;
-  }
-  if (value is bool) {
-    return value;
-  }
-  if (value is num) {
-    return value != 0;
-  }
-  if (value is String) {
-    return value.isNotEmpty;
-  }
-  return true;
-}
-
-Map<String, dynamic>? _toMap(Object? value) {
-  if (value == null) return null;
-  if (value is Map<String, dynamic>) return value;
-  try {
-    final encoded = jsonEncode(value);
-    final decoded = jsonDecode(encoded);
-    if (decoded is Map<String, dynamic>) {
-      return decoded;
-    }
-  } catch (_) {
-    return null;
-  }
-  return null;
-}
-
-List<dynamic> _toList(Object? value) {
-  if (value == null) return [];
-  if (value is List) return value;
-  try {
-    final encoded = jsonEncode(value);
-    final decoded = jsonDecode(encoded);
-    if (decoded is List) {
-      return decoded;
-    }
-  } catch (_) {
-    return [];
-  }
-  return [];
 }
