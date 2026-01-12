@@ -15,30 +15,32 @@ class FlashSaleSection extends StatelessWidget {
     required this.activity,
     required this.products,
     this.onMoreTap,
+    this.backgroundColor,
   });
 
   final FlashSaleActivity activity;
   final List<ProductItem> products;
   final VoidCallback? onMoreTap;
+  final Color? backgroundColor;
 
   @override
   Widget build(BuildContext context) {
     final colors = context.appColors;
-    final endTime = DateTime.tryParse(activity.endTime);
+    final endTime = _parseFlashSaleEndTime(activity.endTime);
+    final surfaceColor = backgroundColor ?? const Color(0xFFF7F2EE);
 
     return Container(
-      margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+      margin: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
       decoration: BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.circular(20),
-        // Simple subtle gradient to mimic the "glow" or header background
+        borderRadius: BorderRadius.circular(18),
         gradient: LinearGradient(
           begin: Alignment.topCenter,
           end: Alignment.bottomCenter,
-          stops: const [0.0, 0.3, 1.0],
+          stops: const [0.0, 0.45, 1.0],
           colors: [
-            const Color(0xFFFFE3D5).withValues(alpha: 0.85),
-            const Color(0xFFFFF0E6).withValues(alpha: 0.45),
+            const Color(0xFFFFDCCB).withValues(alpha: 0.9),
+            const Color(0xFFFFF2E9).withValues(alpha: 0.5),
             Colors.white,
           ],
         ),
@@ -48,15 +50,15 @@ class FlashSaleSection extends StatelessWidget {
         children: [
           // Header
           Padding(
-            padding: const EdgeInsets.fromLTRB(12, 12, 12, 8),
+            padding: const EdgeInsets.fromLTRB(12, 10, 0, 6),
             child: Row(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 RichText(
                   text: TextSpan(
                     style: const TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w600,
                       fontFamily: 'serif',
                       color: Colors.black,
                     ),
@@ -68,7 +70,7 @@ class FlashSaleSection extends StatelessWidget {
                           padding: const EdgeInsets.symmetric(horizontal: 1.0),
                           child: Icon(
                             Icons.bolt,
-                            size: 20,
+                            size: 16,
                             color: const Color(0xFFD32F2F),
                           ),
                         ),
@@ -77,14 +79,28 @@ class FlashSaleSection extends StatelessWidget {
                     ],
                   ),
                 ),
-                const SizedBox(width: 8),
-                if (endTime != null) _FlashSaleBlockTimer(endTime: endTime),
+                const SizedBox(width: 6),
+                _FlashSaleTimer(endTime: endTime),
                 const Spacer(),
                 GestureDetector(
                   onTap: onMoreTap,
-                  child: ThemedText(
-                    'More',
-                    style: TextStyle(fontSize: 12, color: colors.textMuted),
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 10,
+                      vertical: 6,
+                    ),
+                    decoration: BoxDecoration(
+                      color: surfaceColor,
+                      borderRadius: const BorderRadius.only(
+                        topRight: Radius.circular(18),
+                        bottomLeft: Radius.circular(16),
+                        bottomRight: Radius.circular(18),
+                      ),
+                    ),
+                    child: ThemedText(
+                      'More',
+                      style: TextStyle(fontSize: 12, color: colors.textMuted),
+                    ),
                   ),
                 ),
               ],
@@ -92,21 +108,65 @@ class FlashSaleSection extends StatelessWidget {
           ),
           // List
           SizedBox(
-            height: 140,
+            height: 124,
             child: ListView.separated(
               scrollDirection: Axis.horizontal,
               padding: const EdgeInsets.symmetric(horizontal: 12),
               itemCount: products.length,
-              separatorBuilder: (_, _) => const SizedBox(width: 12),
+              separatorBuilder: (_, _) => const SizedBox(width: 10),
               itemBuilder: (context, index) {
                 final product = products[index];
                 return _FlashSaleItem(product: product);
               },
             ),
           ),
-          const SizedBox(height: 12),
+          const SizedBox(height: 10),
         ],
       ),
+    );
+  }
+}
+
+DateTime? _parseFlashSaleEndTime(String raw) {
+  final trimmed = raw.trim();
+  if (trimmed.isEmpty) return null;
+  final parsed = DateTime.tryParse(trimmed) ??
+      DateTime.tryParse(trimmed.replaceFirst(' ', 'T'));
+  if (parsed != null) return parsed;
+  final numeric = int.tryParse(trimmed);
+  if (numeric == null) return null;
+  final millis = numeric > 1000000000000 ? numeric : numeric * 1000;
+  return DateTime.fromMillisecondsSinceEpoch(millis);
+}
+
+class _FlashSaleTimer extends StatelessWidget {
+  const _FlashSaleTimer({required this.endTime});
+
+  final DateTime? endTime;
+
+  @override
+  Widget build(BuildContext context) {
+    if (endTime == null) {
+      return const _StaticSaleTimer();
+    }
+    return _FlashSaleBlockTimer(endTime: endTime!);
+  }
+}
+
+class _StaticSaleTimer extends StatelessWidget {
+  const _StaticSaleTimer();
+
+  @override
+  Widget build(BuildContext context) {
+    return const Row(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        _TimeBlock(text: '00'),
+        _Colon(),
+        _TimeBlock(text: '00'),
+        _Colon(),
+        _TimeBlock(text: '00'),
+      ],
     );
   }
 }
@@ -199,8 +259,8 @@ class _TimeBlock extends StatelessWidget {
         text,
         style: const TextStyle(
           color: Colors.white,
-          fontSize: 12,
-          fontWeight: FontWeight.bold,
+          fontSize: 10,
+          fontWeight: FontWeight.w600,
         ),
       ),
     );
@@ -208,6 +268,8 @@ class _TimeBlock extends StatelessWidget {
 }
 
 class _Colon extends StatelessWidget {
+  const _Colon();
+
   @override
   Widget build(BuildContext context) {
     return const Padding(
@@ -216,8 +278,8 @@ class _Colon extends StatelessWidget {
         ':',
         style: TextStyle(
           color: Color(0xFFD32F2F),
-          fontWeight: FontWeight.bold,
-          fontSize: 12,
+          fontWeight: FontWeight.w600,
+          fontSize: 10,
         ),
       ),
     );
@@ -252,7 +314,7 @@ class _FlashSaleItem extends StatelessWidget {
         RoutePaths.productDetail.replaceFirst(':productCode', product.id),
       ),
       child: SizedBox(
-        width: 96,
+        width: 84,
         child: Column(
           children: [
             Expanded(
@@ -260,9 +322,9 @@ class _FlashSaleItem extends StatelessWidget {
                 children: [
                   Container(
                     decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(16),
+                      borderRadius: BorderRadius.circular(14),
                       color: Colors.white,
-                      border: Border.all(color: const Color(0xFFEFEFEF)),
+                      border: Border.all(color: const Color(0xFFEFE7E1)),
                       image: DecorationImage(
                         image: CachedNetworkImageProvider(product.imageUrl),
                         fit: BoxFit.cover,
@@ -290,7 +352,7 @@ class _FlashSaleItem extends StatelessWidget {
                           children: [
                             const Icon(
                               Icons.bolt,
-                              size: 12,
+                              size: 11,
                               color: Color(0xFFFFD54F),
                             ),
                             const SizedBox(width: 2),
@@ -298,8 +360,8 @@ class _FlashSaleItem extends StatelessWidget {
                               '-$discountPercent%',
                               style: const TextStyle(
                                 color: Colors.white,
-                                fontSize: 10,
-                                fontWeight: FontWeight.bold,
+                                fontSize: 9,
+                                fontWeight: FontWeight.w600,
                               ),
                             ),
                           ],
@@ -309,12 +371,12 @@ class _FlashSaleItem extends StatelessWidget {
                 ],
               ),
             ),
-            const SizedBox(height: 6),
+            const SizedBox(height: 4),
             Text(
               '${product.currency}${product.price.toStringAsFixed(2)}',
               style: const TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 14,
+                fontWeight: FontWeight.w600,
+                fontSize: 12,
                 color: Colors.black,
               ),
             ),
@@ -323,7 +385,7 @@ class _FlashSaleItem extends StatelessWidget {
                 '${product.currency}${product.originalPrice!.toStringAsFixed(2)}',
                 style: TextStyle(
                   decoration: TextDecoration.lineThrough,
-                  fontSize: 10,
+                  fontSize: 9,
                   color: colors.textMuted,
                 ),
               ),

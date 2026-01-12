@@ -46,7 +46,7 @@ class _ProductCardState extends ConsumerState<ProductCard> {
     final isCompact = widget.variant == ProductCardVariant.compact;
     final isFavoriteAsync = ref.watch(isFavoriteProvider(widget.product.id));
     final currency = _currencySymbol(widget.product.currency);
-    final borderRadius = BorderRadius.circular(isCompact ? 10 : 12);
+    final borderRadius = BorderRadius.circular(isCompact ? 14 : 12);
 
     return AnimatedOpacity(
       duration: const Duration(milliseconds: 120),
@@ -137,7 +137,7 @@ class _ProductCardState extends ConsumerState<ProductCard> {
                       ),
                     ),
                     Padding(
-                      padding: EdgeInsets.all(isCompact ? 8 : 12),
+                      padding: EdgeInsets.all(isCompact ? 6 : 12),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
@@ -146,13 +146,13 @@ class _ProductCardState extends ConsumerState<ProductCard> {
                             maxLines: 2,
                             overflow: TextOverflow.ellipsis,
                             style: TextStyle(
-                              fontSize: isCompact ? 12 : 14,
-                              height: isCompact ? 16 / 12 : 18 / 14,
+                              fontSize: isCompact ? 11.5 : 14,
+                              height: isCompact ? 14 / 11.5 : 18 / 14,
                               fontWeight: FontWeight.w600,
                               color: colors.text,
                             ),
                           ),
-                          SizedBox(height: isCompact ? 4 : 6),
+                          SizedBox(height: isCompact ? 3 : 6),
                           Row(
                             children: [
                               Row(
@@ -160,7 +160,7 @@ class _ProductCardState extends ConsumerState<ProductCard> {
                                   Text(
                                     currency,
                                     style: TextStyle(
-                                      fontSize: isCompact ? 12 : 14,
+                                      fontSize: isCompact ? 11 : 14,
                                       fontWeight: FontWeight.w700,
                                       color: colors.tint,
                                     ),
@@ -169,7 +169,7 @@ class _ProductCardState extends ConsumerState<ProductCard> {
                                   Text(
                                     widget.product.price.toStringAsFixed(2),
                                     style: TextStyle(
-                                      fontSize: isCompact ? 14 : 18,
+                                      fontSize: isCompact ? 13 : 18,
                                       fontWeight: FontWeight.w700,
                                       color: colors.tint,
                                     ),
@@ -183,7 +183,7 @@ class _ProductCardState extends ConsumerState<ProductCard> {
                                 Text(
                                   '$currency${widget.product.originalPrice!.toStringAsFixed(2)}',
                                   style: TextStyle(
-                                    fontSize: isCompact ? 10 : 12,
+                                    fontSize: isCompact ? 9 : 12,
                                     color: colors.textMuted,
                                     decoration: TextDecoration.lineThrough,
                                   ),
@@ -193,18 +193,18 @@ class _ProductCardState extends ConsumerState<ProductCard> {
                           ),
                           if (widget.product.sales != null &&
                               widget.product.sales! > 0) ...[
-                            SizedBox(height: isCompact ? 4 : 6),
+                            SizedBox(height: isCompact ? 3 : 6),
                             Text(
                               '销量${_formatSales(widget.product.sales!)}',
                               style: TextStyle(
-                                fontSize: isCompact ? 10 : 12,
-                                height: isCompact ? 14 / 10 : 16 / 12,
+                                fontSize: isCompact ? 9 : 12,
+                                height: isCompact ? 12 / 9 : 16 / 12,
                                 color: colors.textMuted,
                               ),
                             ),
                           ],
                           if (widget.onAddToCart != null) ...[
-                            SizedBox(height: isCompact ? 4 : 6),
+                            SizedBox(height: isCompact ? 3 : 6),
                             AnimatedOpacity(
                               duration: const Duration(milliseconds: 120),
                               opacity: widget.addToCartLoading ? 0.6 : 1,

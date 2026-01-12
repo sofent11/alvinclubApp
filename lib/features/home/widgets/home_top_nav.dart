@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/theme/app_theme.dart';
 import '../home_models.dart';
 import '../../../shared/widgets/themed_text.dart';
 
@@ -10,19 +9,19 @@ class HomeTopNavBar extends StatelessWidget {
     required this.items,
     required this.activeKey,
     required this.onItemTap,
+    this.backgroundColor,
   });
 
   final List<HomeTopNavItem> items;
   final String activeKey;
   final ValueChanged<HomeTopNavItem> onItemTap;
+  final Color? backgroundColor;
 
   @override
   Widget build(BuildContext context) {
-    final colors = context.appColors;
-
     return Container(
-      color: Colors.transparent,
-      padding: const EdgeInsets.symmetric(vertical: 8),
+      color: backgroundColor ?? Colors.transparent,
+      padding: const EdgeInsets.symmetric(vertical: 6),
       child: SingleChildScrollView(
         scrollDirection: Axis.horizontal,
         padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -32,35 +31,40 @@ class HomeTopNavBar extends StatelessWidget {
             final item = entry.value;
             final isActive = item.key == activeKey;
             final backgroundColor = isActive
-                ? const Color(0xFF1A1A1A)
+                ? const Color(0xFF1F1B18)
                 : Colors.transparent;
             final borderColor = isActive
-                ? const Color(0xFF1A1A1A)
+                ? const Color(0xFF1F1B18)
                 : Colors.transparent;
             final textColor = isActive
                 ? Colors.white
-                : const Color(0xFF1A1A1A).withValues(alpha: 0.85);
+                : const Color(0xFF1F1B18).withValues(alpha: 0.72);
 
             return Padding(
               padding: EdgeInsets.only(
-                right: index == items.length - 1 ? 0 : 8,
+                right: index == items.length - 1 ? 0 : 12,
               ),
               child: GestureDetector(
                 onTap: () => onItemTap(item),
                 child: Container(
                   padding: const EdgeInsets.symmetric(
-                    horizontal: 20,
-                    vertical: 8,
+                    horizontal: 18,
+                    vertical: 6,
                   ),
                   decoration: BoxDecoration(
                     color: backgroundColor,
-                    borderRadius: BorderRadius.circular(30),
+                    borderRadius: BorderRadius.circular(24),
                     border: Border.all(color: borderColor),
                   ),
                   child: ThemedText(
                     item.title,
                     type: ThemedTextType.defaultSemiBold,
-                    style: TextStyle(color: textColor, fontSize: 14),
+                    style: TextStyle(
+                      color: textColor,
+                      fontSize: 13,
+                      fontWeight:
+                          isActive ? FontWeight.w600 : FontWeight.w500,
+                    ),
                   ),
                 ),
               ),

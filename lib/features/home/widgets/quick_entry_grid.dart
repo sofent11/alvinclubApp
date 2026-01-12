@@ -28,11 +28,11 @@ class QuickEntryGrid extends StatelessWidget {
     if (entries.isEmpty) return const SizedBox.shrink();
     final colors = context.appColors;
 
-    const gap = 12.0;
+    const gap = 10.0;
     const horizontalPadding = 16.0;
 
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 8),
+      padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 6),
       child: SingleChildScrollView(
         scrollDirection: Axis.horizontal,
         padding: const EdgeInsets.symmetric(horizontal: horizontalPadding),
@@ -40,18 +40,18 @@ class QuickEntryGrid extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: entries.map((entry) {
             return Container(
-              width: 72.0,
+              width: 68.0,
               margin: const EdgeInsets.only(right: gap),
               child: GestureDetector(
                 onTap: entry.onTap,
                 child: Column(
                   children: [
                     Container(
-                      width: 64,
-                      height: 64,
+                      width: 58,
+                      height: 58,
                       decoration: BoxDecoration(
                         color: Colors.white,
-                        borderRadius: BorderRadius.circular(32),
+                        borderRadius: BorderRadius.circular(29),
                         boxShadow: [
                           BoxShadow(
                             color: Colors.black.withValues(alpha: 0.06),
@@ -68,11 +68,11 @@ class QuickEntryGrid extends StatelessWidget {
                                 entry.iconUrl != null &&
                                     entry.iconUrl!.isNotEmpty
                                 ? ClipRRect(
-                                    borderRadius: BorderRadius.circular(32),
+                                    borderRadius: BorderRadius.circular(29),
                                     child: CachedNetworkImage(
                                       imageUrl: entry.iconUrl!,
-                                      width: 64,
-                                      height: 64,
+                                      width: 58,
+                                      height: 58,
                                       fit: BoxFit.cover,
                                     ),
                                   )
@@ -81,7 +81,7 @@ class QuickEntryGrid extends StatelessWidget {
                                         ? entry.title[0]
                                         : '',
                                     style: TextStyle(
-                                      fontSize: 20,
+                                      fontSize: 18,
                                       fontWeight: FontWeight.w600,
                                       color: colors.textMuted,
                                     ),
@@ -90,13 +90,13 @@ class QuickEntryGrid extends StatelessWidget {
                         ],
                       ),
                     ),
-                    const SizedBox(height: 10),
+                    const SizedBox(height: 8),
                     Text(
                       entry.title,
                       maxLines: 2,
                       textAlign: TextAlign.center,
                       style: TextStyle(
-                        fontSize: 13,
+                        fontSize: 12,
                         color: const Color(0xFF1A1A1A),
                         height: 1.15,
                       ),

@@ -16,19 +16,21 @@ class HomeCategoryTabs extends StatelessWidget {
     required this.items,
     required this.activeId,
     required this.onChange,
+    this.backgroundColor,
   });
 
   final List<HomeCategoryTab> items;
   final String? activeId;
   final ValueChanged<String?> onChange;
+  final Color? backgroundColor;
 
   @override
   Widget build(BuildContext context) {
     final colors = context.appColors;
 
     return Container(
-      padding: const EdgeInsets.only(top: 10, bottom: 6),
-      color: colors.background,
+      padding: const EdgeInsets.only(top: 6, bottom: 4),
+      color: backgroundColor ?? colors.background,
       child: SingleChildScrollView(
         scrollDirection: Axis.horizontal,
         padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -36,9 +38,12 @@ class HomeCategoryTabs extends StatelessWidget {
           children: items.asMap().entries.map((entry) {
             final index = entry.key;
             final item = entry.value;
-            final isActive = item.id == activeId || (item.id == null && activeId == null);
+            final isActive =
+                item.id == activeId || (item.id == null && activeId == null);
             return Padding(
-              padding: EdgeInsets.only(right: index == items.length - 1 ? 0 : 18),
+              padding: EdgeInsets.only(
+                right: index == items.length - 1 ? 0 : 16,
+              ),
               child: GestureDetector(
                 onTap: () => onChange(item.id),
                 child: Column(
@@ -46,19 +51,22 @@ class HomeCategoryTabs extends StatelessWidget {
                   children: [
                     ThemedText(
                       item.name,
-                      type: isActive ? ThemedTextType.defaultSemiBold : ThemedTextType.defaultStyle,
+                      type: isActive
+                          ? ThemedTextType.defaultSemiBold
+                          : ThemedTextType.defaultStyle,
                       style: TextStyle(
-                        fontSize: 13,
+                        fontSize: 12.5,
+                        height: 1.2,
                         color: isActive ? colors.text : colors.textMuted,
                       ),
                     ),
-                    const SizedBox(height: 6),
+                    const SizedBox(height: 4),
                     if (isActive)
                       Container(
                         height: 2,
-                        width: 16,
+                        width: 14,
                         decoration: BoxDecoration(
-                          color: colors.tint,
+                          color: colors.text,
                           borderRadius: BorderRadius.circular(2),
                         ),
                       ),

@@ -25,6 +25,8 @@ import 'widgets/premium_dupe_list.dart';
 import 'widgets/premium_dupe_sheet.dart';
 import 'widgets/quick_entry_grid.dart';
 
+const _homeBackground = Color(0xFFF7F2EE);
+
 class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({super.key});
 
@@ -123,7 +125,6 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final colors = context.appColors;
     final configAsync = ref.watch(homeConfigProvider);
     final topNavAsync = ref.watch(homeTopNavProvider);
     final albumAsync = ref.watch(homeAlbumProvider);
@@ -159,7 +160,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
 
     if (isFashion) {
       return Scaffold(
-        backgroundColor: colors.background,
+        backgroundColor: _homeBackground,
         body: SafeArea(
           child: Column(
             children: [
@@ -167,6 +168,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
               HomeTopNavBar(
                 items: topNavItems,
                 activeKey: activeKey,
+                backgroundColor: _homeBackground,
                 onItemTap: _onTopNavTap,
               ),
               const Expanded(child: FashionFeed()),
@@ -177,7 +179,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     }
 
     return Scaffold(
-      backgroundColor: const Color(0xFFF7F2EE),
+      backgroundColor: _homeBackground,
       body: SafeArea(
         child: Stack(
           children: [
@@ -190,10 +192,11 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                   SliverPersistentHeader(
                     pinned: isForYou,
                     delegate: _FixedHeaderDelegate(
-                      height: 56,
+                      height: 48,
                       child: HomeTopNavBar(
                         items: topNavItems,
                         activeKey: activeKey,
+                        backgroundColor: _homeBackground,
                         onItemTap: _onTopNavTap,
                       ),
                     ),
@@ -203,10 +206,11 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                     SliverPersistentHeader(
                       pinned: true,
                       delegate: _FixedHeaderDelegate(
-                        height: 46,
+                        height: 40,
                         child: HomeCategoryTabs(
                           items: categoryTabs,
                           activeId: _activeCategoryId,
+                          backgroundColor: _homeBackground,
                           onChange: _onCategoryTap,
                         ),
                       ),
@@ -274,7 +278,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                               )
                               .toList();
                           return Padding(
-                            padding: const EdgeInsets.only(top: 4, bottom: 10),
+                            padding: const EdgeInsets.only(top: 6, bottom: 8),
                             child: QuickEntryGrid(entries: quickEntries),
                           );
                         },
@@ -286,7 +290,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                   // Design shows just products flowing.
                   if (isForYou) _buildProductGrid(context, hotState),
                   if (!isForYou) _buildProductGrid(context, recommendState),
-                  SliverToBoxAdapter(child: const SizedBox(height: 24)),
+                  SliverToBoxAdapter(child: const SizedBox(height: 16)),
                 ],
               ),
             ),
@@ -361,13 +365,13 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
   }
 
   Widget _buildSearchHeader(BuildContext context) {
-    final colors = context.appColors;
-
     return SliverAppBar(
       floating: true,
       pinned: true,
       elevation: 0,
-      backgroundColor: colors.background,
+      backgroundColor: _homeBackground,
+      surfaceTintColor: Colors.transparent,
+      toolbarHeight: 48,
       titleSpacing: 0,
       title: _HomeHeaderBar(onTap: () => context.push(RoutePaths.search)),
     );
@@ -441,6 +445,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
               return FlashSaleSection(
                 activity: activity,
                 products: products,
+                backgroundColor: _homeBackground,
                 onMoreTap: () {
                   // Handle more tap
                 },
@@ -495,11 +500,11 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     }
 
     return SliverPadding(
-      padding: const EdgeInsets.symmetric(horizontal: 16),
+      padding: const EdgeInsets.symmetric(horizontal: 12),
       sliver: SliverMasonryGrid.count(
         crossAxisCount: 2,
-        mainAxisSpacing: 12,
-        crossAxisSpacing: 12,
+        mainAxisSpacing: 10,
+        crossAxisSpacing: 10,
         childCount: state.products.length,
         itemBuilder: (context, index) {
           return ProductCard(
@@ -529,46 +534,49 @@ class _HomeHeaderBar extends StatelessWidget {
     final colors = context.appColors;
 
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
+      padding: const EdgeInsets.fromLTRB(16, 6, 16, 8),
       child: Row(
         children: [
           const ThemedText(
             "Alvin's Club",
             type: ThemedTextType.title,
             style: TextStyle(
-              fontSize: 28,
-              height: 1,
-              fontWeight: FontWeight.w700,
+              fontSize: 22,
+              height: 1.1,
+              fontWeight: FontWeight.w600,
               fontFamily: 'serif',
             ),
           ),
-          const SizedBox(width: 12),
+          const SizedBox(width: 10),
           Expanded(
             child: GestureDetector(
               onTap: onTap,
               child: Container(
-                height: 38,
-                padding: const EdgeInsets.symmetric(horizontal: 12),
+                height: 34,
+                padding: const EdgeInsets.symmetric(horizontal: 10),
                 decoration: BoxDecoration(
                   color: Colors.white,
-                  borderRadius: BorderRadius.circular(20),
-                  border: Border.all(color: const Color(0xFFE6E6E6)),
+                  borderRadius: BorderRadius.circular(18),
+                  border: Border.all(color: const Color(0xFFE8E2DC)),
                 ),
                 child: Row(
                   children: [
-                    Icon(Icons.search, color: colors.textMuted, size: 18),
-                    const SizedBox(width: 8),
+                    Icon(Icons.search, color: colors.textMuted, size: 16),
+                    const SizedBox(width: 6),
                     Expanded(
                       child: Text(
                         "I'm going for a look th...",
-                        style: TextStyle(color: colors.textMuted, fontSize: 14),
+                        style: TextStyle(
+                          color: colors.textMuted.withValues(alpha: 0.75),
+                          fontSize: 13,
+                        ),
                         overflow: TextOverflow.ellipsis,
                       ),
                     ),
                     Icon(
                       Icons.photo_camera_outlined,
                       color: colors.textMuted,
-                      size: 18,
+                      size: 16,
                     ),
                   ],
                 ),

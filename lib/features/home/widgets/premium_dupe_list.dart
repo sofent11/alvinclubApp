@@ -26,13 +26,13 @@ class PremiumDupeList extends StatelessWidget {
     const gap = 8.0;
     const horizontalPadding = 16.0;
     final itemWidth = (width - horizontalPadding * 2 - gap * 2) / 3;
-    final mainHeight = itemWidth * 1.2;
+    final mainHeight = itemWidth * 1.05;
     final smallHeight = (mainHeight - gap) / 2;
     final displayProducts = products.take(4).toList();
 
     return Container(
       color: Colors.transparent,
-      padding: const EdgeInsets.only(top: 10, bottom: 12),
+      padding: const EdgeInsets.only(top: 8, bottom: 10),
       child: Column(
         children: [
           Padding(
@@ -44,9 +44,9 @@ class PremiumDupeList extends StatelessWidget {
                   'Premium Inspired',
                   type: ThemedTextType.subtitle,
                   style: TextStyle(
-                    fontSize: 26,
-                    height: 1,
-                    fontWeight: FontWeight.w700,
+                    fontSize: 22,
+                    height: 1.1,
+                    fontWeight: FontWeight.w600,
                     fontFamily: 'serif',
                   ),
                 ),
@@ -60,7 +60,7 @@ class PremiumDupeList extends StatelessWidget {
               ],
             ),
           ),
-          const SizedBox(height: 12),
+          const SizedBox(height: 8),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: horizontalPadding),
             child: Row(
@@ -144,8 +144,8 @@ class _PremiumDupeCard extends StatelessWidget {
         height: height,
         decoration: BoxDecoration(
           color: Colors.white,
-          borderRadius: BorderRadius.circular(18),
-          border: Border.all(color: const Color(0xFFEAEAEA)),
+          borderRadius: BorderRadius.circular(16),
+          border: Border.all(color: const Color(0xFFF0E8E2)),
         ),
         clipBehavior: Clip.antiAlias,
         child: Stack(
@@ -164,13 +164,13 @@ class _PremiumDupeCard extends StatelessWidget {
 
             // Price Tag
             Positioned(
-              left: 8,
-              bottom: 8,
+              left: 6,
+              bottom: 6,
               child: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
+                padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 3),
                 decoration: BoxDecoration(
-                  color: const Color(0xFF1A1A1A).withValues(alpha: 0.45),
-                  borderRadius: BorderRadius.circular(12),
+                  color: const Color(0xFF1F1B18).withValues(alpha: 0.4),
+                  borderRadius: BorderRadius.circular(10),
                 ),
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
@@ -181,7 +181,7 @@ class _PremiumDupeCard extends StatelessWidget {
                       '${product.currency}${priceParts.$1}',
                       style: const TextStyle(
                         color: Colors.white,
-                        fontSize: 14,
+                        fontSize: 12,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -189,7 +189,7 @@ class _PremiumDupeCard extends StatelessWidget {
                       '.${priceParts.$2}',
                       style: const TextStyle(
                         color: Colors.white,
-                        fontSize: 10,
+                        fontSize: 9,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -201,18 +201,18 @@ class _PremiumDupeCard extends StatelessWidget {
             // Cart Icon
             if (showCart)
               Positioned(
-                right: 8,
-                bottom: 8,
+                right: 6,
+                bottom: 6,
                 child: Container(
-                  width: 28,
-                  height: 28,
+                  width: 24,
+                  height: 24,
                   decoration: BoxDecoration(
-                    color: const Color(0xFF1A1A1A).withValues(alpha: 0.45),
+                    color: const Color(0xFF1F1B18).withValues(alpha: 0.4),
                     shape: BoxShape.circle,
                   ),
                   child: const Icon(
                     Icons.shopping_cart_outlined,
-                    size: 16,
+                    size: 14,
                     color: Colors.white,
                   ),
                 ),
