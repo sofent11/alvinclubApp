@@ -21,7 +21,7 @@ class HomeTopNavBar extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       color: backgroundColor ?? Colors.transparent,
-      padding: const EdgeInsets.symmetric(vertical: 6),
+      padding: const EdgeInsets.symmetric(vertical: 2),
       child: SingleChildScrollView(
         scrollDirection: Axis.horizontal,
         padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -30,38 +30,35 @@ class HomeTopNavBar extends StatelessWidget {
             final index = entry.key;
             final item = entry.value;
             final isActive = item.key == activeKey;
-            final backgroundColor = isActive
-                ? const Color(0xFF1F1B18)
-                : Colors.transparent;
-            final borderColor = isActive
-                ? const Color(0xFF1F1B18)
-                : Colors.transparent;
             final textColor = isActive
-                ? Colors.white
-                : const Color(0xFF1F1B18).withValues(alpha: 0.72);
+                ? const Color(0xFF1F1B18)
+                : const Color(0xFF1F1B18).withValues(alpha: 0.6);
 
             return Padding(
               padding: EdgeInsets.only(
-                right: index == items.length - 1 ? 0 : 8,
+                right: index == items.length - 1 ? 0 : 16,
               ),
               child: GestureDetector(
                 onTap: () => onItemTap(item),
                 child: Container(
                   padding: const EdgeInsets.symmetric(
-                    horizontal: 12,
+                    horizontal: 4,
                     vertical: 6,
                   ),
                   decoration: BoxDecoration(
-                    color: backgroundColor,
-                    borderRadius: BorderRadius.circular(24),
-                    border: Border.all(color: borderColor),
+                    border: Border(
+                      bottom: BorderSide(
+                        color: isActive ? const Color(0xFF1F1B18) : Colors.transparent,
+                        width: 2,
+                      ),
+                    ),
                   ),
                   child: ThemedText(
                     item.title,
-                    type: ThemedTextType.defaultSemiBold,
+                    type: isActive ? ThemedTextType.title : ThemedTextType.defaultStyle,
                     style: TextStyle(
                       color: textColor,
-                      fontSize: 13,
+                      fontSize: 15,
                       fontWeight:
                           isActive ? FontWeight.w600 : FontWeight.w500,
                     ),
