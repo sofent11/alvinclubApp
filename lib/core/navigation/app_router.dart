@@ -48,16 +48,41 @@ final routerProvider = Provider<GoRouter>((ref) {
     initialLocation: RoutePaths.splash,
     routes: [
       ShellRoute(
-        builder: (context, state, child) => TabsScaffold(location: state.uri.toString(), child: child),
+        builder: (context, state, child) =>
+            TabsScaffold(location: state.uri.toString(), child: child),
         routes: [
-          GoRoute(path: RoutePaths.home, name: RoutePaths.home, builder: (context, state) => const HomeScreen()),
-          GoRoute(path: RoutePaths.categories, name: RoutePaths.categories, builder: (context, state) => const CategoriesScreen()),
-          GoRoute(path: RoutePaths.cart, name: RoutePaths.cart, builder: (context, state) => const CartScreen()),
-          GoRoute(path: RoutePaths.account, name: RoutePaths.account, builder: (context, state) => const AccountScreen()),
+          GoRoute(
+            path: RoutePaths.home,
+            name: RoutePaths.home,
+            builder: (context, state) => const HomeScreen(),
+          ),
+          GoRoute(
+            path: RoutePaths.categories,
+            name: RoutePaths.categories,
+            builder: (context, state) => const CategoriesScreen(),
+          ),
+          GoRoute(
+            path: RoutePaths.cart,
+            name: RoutePaths.cart,
+            builder: (context, state) => const CartScreen(),
+          ),
+          GoRoute(
+            path: RoutePaths.account,
+            name: RoutePaths.account,
+            builder: (context, state) => const AccountScreen(),
+          ),
         ],
       ),
-      GoRoute(path: RoutePaths.signIn, name: RoutePaths.signIn, builder: (context, state) => const SignInScreen()),
-      GoRoute(path: RoutePaths.splash, name: RoutePaths.splash, builder: (context, state) => const SplashScreen()),
+      GoRoute(
+        path: RoutePaths.signIn,
+        name: RoutePaths.signIn,
+        builder: (context, state) => const SignInScreen(),
+      ),
+      GoRoute(
+        path: RoutePaths.splash,
+        name: RoutePaths.splash,
+        builder: (context, state) => const SplashScreen(),
+      ),
       GoRoute(
         path: RoutePaths.search,
         name: RoutePaths.search,
@@ -96,7 +121,11 @@ final routerProvider = Provider<GoRouter>((ref) {
           return TopicDetailScreen(id: id, title: title);
         },
       ),
-      GoRoute(path: RoutePaths.flashSale, name: RoutePaths.flashSale, builder: (context, state) => const FlashSaleScreen()),
+      GoRoute(
+        path: RoutePaths.flashSale,
+        name: RoutePaths.flashSale,
+        builder: (context, state) => const FlashSaleScreen(),
+      ),
       GoRoute(
         path: RoutePaths.kol,
         name: RoutePaths.kol,
@@ -113,21 +142,26 @@ final routerProvider = Provider<GoRouter>((ref) {
           return CheckoutScreen(items: items);
         },
       ),
-      GoRoute(path: RoutePaths.orderList, name: RoutePaths.orderList, builder: (context, state) => const OrderListScreen()),
+      GoRoute(
+        path: RoutePaths.orderList,
+        name: RoutePaths.orderList,
+        builder: (context, state) => const OrderListScreen(),
+      ),
       GoRoute(
         path: RoutePaths.orderPay,
         name: RoutePaths.orderPay,
         builder: (context, state) => PaymentScreen(
           orderId: state.pathParameters['orderId'] ?? '',
-          timeoutSeconds: int.tryParse(state.uri.queryParameters['timeout'] ?? ''),
+          timeoutSeconds: int.tryParse(
+            state.uri.queryParameters['timeout'] ?? '',
+          ),
         ),
       ),
       GoRoute(
         path: RoutePaths.orderSuccess,
         name: RoutePaths.orderSuccess,
-        builder: (context, state) => OrderSuccessScreen(
-          orderId: state.pathParameters['orderId'] ?? '',
-        ),
+        builder: (context, state) =>
+            OrderSuccessScreen(orderId: state.pathParameters['orderId'] ?? ''),
       ),
       GoRoute(
         path: RoutePaths.addressList,
@@ -147,19 +181,53 @@ final routerProvider = Provider<GoRouter>((ref) {
           return AddressEditScreen(address: address);
         },
       ),
-      GoRoute(path: RoutePaths.profileEdit, name: RoutePaths.profileEdit, builder: (context, state) => const ProfileEditScreen()),
-      GoRoute(path: RoutePaths.favorite, name: RoutePaths.favorite, builder: (context, state) => const FavoritesScreen()),
-      GoRoute(path: RoutePaths.coupon, name: RoutePaths.coupon, builder: (context, state) => const CouponScreen()),
-      GoRoute(path: RoutePaths.community, name: RoutePaths.community, builder: (context, state) => const CommunityScreen()),
-      GoRoute(path: RoutePaths.wallet, name: RoutePaths.wallet, builder: (context, state) => const WalletScreen()),
-      GoRoute(path: RoutePaths.walletRebate, name: RoutePaths.walletRebate, builder: (context, state) => const PlaceholderScreen(title: 'Wallet Rebate')),
+      GoRoute(
+        path: RoutePaths.profileEdit,
+        name: RoutePaths.profileEdit,
+        builder: (context, state) => const ProfileEditScreen(),
+      ),
+      GoRoute(
+        path: RoutePaths.favorite,
+        name: RoutePaths.favorite,
+        builder: (context, state) => const FavoritesScreen(),
+      ),
+      GoRoute(
+        path: RoutePaths.coupon,
+        name: RoutePaths.coupon,
+        builder: (context, state) => const CouponScreen(),
+      ),
+      GoRoute(
+        path: RoutePaths.community,
+        name: RoutePaths.community,
+        builder: (context, state) => const CommunityScreen(),
+      ),
+      GoRoute(
+        path: RoutePaths.wallet,
+        name: RoutePaths.wallet,
+        builder: (context, state) => const WalletScreen(),
+      ),
+      GoRoute(
+        path: RoutePaths.walletRebate,
+        name: RoutePaths.walletRebate,
+        builder: (context, state) =>
+            const PlaceholderScreen(title: 'Wallet Rebate'),
+      ),
       GoRoute(
         path: RoutePaths.walletTransactions,
         name: RoutePaths.walletTransactions,
-        builder: (context, state) => const PlaceholderScreen(title: 'Wallet Transactions'),
+        builder: (context, state) =>
+            const PlaceholderScreen(title: 'Wallet Transactions'),
       ),
-      GoRoute(path: RoutePaths.webview, name: RoutePaths.webview, builder: (context, state) => const PlaceholderScreen(title: 'WebView')),
-      GoRoute(path: RoutePaths.modal, name: RoutePaths.modal, builder: (context, state) => const PlaceholderScreen(title: 'Modal')),
+      GoRoute(
+        path: RoutePaths.webview,
+        name: RoutePaths.webview,
+        builder: (context, state) => const PlaceholderScreen(title: 'WebView'),
+      ),
+      GoRoute(
+        path: RoutePaths.modal,
+        name: RoutePaths.modal,
+        builder: (context, state) => const PlaceholderScreen(title: 'Modal'),
+      ),
       GoRoute(
         path: RoutePaths.fashionFeed,
         name: RoutePaths.fashionFeed,
@@ -206,14 +274,17 @@ final routerProvider = Provider<GoRouter>((ref) {
       GoRoute(
         path: RoutePaths.fashionPost,
         name: RoutePaths.fashionPost,
-        builder: (context, state) => PostDetailScreen(postId: state.pathParameters['id'] ?? ''),
+        builder: (context, state) =>
+            PostDetailScreen(postId: state.pathParameters['id'] ?? ''),
       ),
     ],
     redirect: (context, state) {
       final status = authState.status;
       final isAuthed = status == AuthStatus.authenticated;
       final isSignIn = state.matchedLocation == RoutePaths.signIn;
-      final isProtected = _protectedPrefixes.any((path) => state.matchedLocation.startsWith(path));
+      final isProtected = _protectedPrefixes.any(
+        (path) => state.matchedLocation.startsWith(path),
+      );
 
       if (isProtected && !isAuthed) {
         return RoutePaths.signIn;
@@ -250,8 +321,9 @@ class TabsScaffold extends StatelessWidget {
 
   int _indexForLocation() {
     if (location.startsWith(RoutePaths.categories)) return 1;
-    if (location.startsWith(RoutePaths.cart)) return 2;
-    if (location.startsWith(RoutePaths.account)) return 3;
+    if (location.startsWith(RoutePaths.community)) return 2;
+    if (location.startsWith(RoutePaths.cart)) return 3;
+    if (location.startsWith(RoutePaths.account)) return 4;
     return 0;
   }
 
@@ -262,9 +334,12 @@ class TabsScaffold extends StatelessWidget {
         context.go(RoutePaths.categories);
         break;
       case 2:
-        context.go(RoutePaths.cart);
+        context.go(RoutePaths.community);
         break;
       case 3:
+        context.go(RoutePaths.cart);
+        break;
+      case 4:
         context.go(RoutePaths.account);
         break;
       case 0:
@@ -277,15 +352,15 @@ class TabsScaffold extends StatelessWidget {
   Widget build(BuildContext context) {
     final currentIndex = _indexForLocation();
     final colors = context.appColors;
+    const selectedColor = Color(0xFFFF6B81);
+    final unselectedColor = const Color(0xFF1A1A1A).withValues(alpha: 0.55);
 
     return Scaffold(
       body: SafeArea(child: child),
       bottomNavigationBar: DecoratedBox(
         decoration: BoxDecoration(
-          color: colors.surface,
-          border: Border(
-            top: BorderSide(color: colors.border),
-          ),
+          color: Colors.white,
+          border: const Border(top: BorderSide(color: Color(0x14000000))),
         ),
         child: BottomNavigationBar(
           currentIndex: currentIndex,
@@ -293,17 +368,33 @@ class TabsScaffold extends StatelessWidget {
           type: BottomNavigationBarType.fixed,
           elevation: 0,
           iconSize: 28,
-          backgroundColor: colors.surface,
-          selectedItemColor: colors.tint,
-          unselectedItemColor: colors.textMuted,
+          backgroundColor: Colors.white,
+          selectedItemColor: selectedColor,
+          unselectedItemColor: unselectedColor,
           selectedLabelStyle: const TextStyle(fontSize: 12),
           unselectedLabelStyle: const TextStyle(fontSize: 12),
           showUnselectedLabels: true,
           items: const [
-            BottomNavigationBarItem(icon: Icon(Icons.home), label: '首页'),
-            BottomNavigationBarItem(icon: Icon(Icons.grid_view), label: '分类'),
-            BottomNavigationBarItem(icon: Icon(Icons.shopping_cart), label: '购物车'),
-            BottomNavigationBarItem(icon: Icon(Icons.account_circle), label: '我的'),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home_filled),
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.grid_view_rounded),
+              label: 'Category',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.forum_outlined),
+              label: 'Inbox',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.shopping_cart_outlined),
+              label: 'Cart',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.person_outline),
+              label: 'Account',
+            ),
           ],
         ),
       ),

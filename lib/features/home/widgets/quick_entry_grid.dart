@@ -9,14 +9,12 @@ class QuickEntryItem {
     required this.id,
     required this.title,
     this.iconUrl,
-    this.badgeUrl,
     this.onTap,
   });
 
   final String id;
   final String title;
   final String? iconUrl;
-  final String? badgeUrl;
   final VoidCallback? onTap;
 }
 
@@ -29,79 +27,79 @@ class QuickEntryGrid extends StatelessWidget {
   Widget build(BuildContext context) {
     if (entries.isEmpty) return const SizedBox.shrink();
     final colors = context.appColors;
-    final width = MediaQuery.of(context).size.width;
 
-    const gap = 14.0;
+    const gap = 12.0;
     const horizontalPadding = 16.0;
-    final visibleCount = entries.length < 5 ? entries.length : 5;
-    final itemWidth = visibleCount > 0
-        ? (width - horizontalPadding * 2 - gap * (visibleCount - 1)) / visibleCount
-        : 0.0;
 
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: horizontalPadding, vertical: 8),
+      padding: const EdgeInsets.symmetric(horizontal: 0, vertical: 8),
       child: SingleChildScrollView(
         scrollDirection: Axis.horizontal,
+        padding: const EdgeInsets.symmetric(horizontal: horizontalPadding),
         child: Row(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: entries.map((entry) {
             return Container(
-              width: itemWidth == 0 ? 64.0 : itemWidth,
+              width: 72.0,
               margin: const EdgeInsets.only(right: gap),
               child: GestureDetector(
                 onTap: entry.onTap,
                 child: Column(
                   children: [
                     Container(
-                      width: 54,
-                      height: 54,
+                      width: 64,
+                      height: 64,
                       decoration: BoxDecoration(
-                        color: colors.card,
-                        borderRadius: BorderRadius.circular(27),
-                        border: Border.all(color: colors.border),
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(32),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.black.withValues(alpha: 0.06),
+                            blurRadius: 10,
+                            offset: const Offset(0, 4),
+                          ),
+                        ],
                       ),
                       child: Stack(
                         clipBehavior: Clip.none,
                         children: [
                           Center(
-                            child: entry.iconUrl != null && entry.iconUrl!.isNotEmpty
+                            child:
+                                entry.iconUrl != null &&
+                                    entry.iconUrl!.isNotEmpty
                                 ? ClipRRect(
-                                    borderRadius: BorderRadius.circular(21),
+                                    borderRadius: BorderRadius.circular(32),
                                     child: CachedNetworkImage(
                                       imageUrl: entry.iconUrl!,
-                                      width: 42,
-                                      height: 42,
+                                      width: 64,
+                                      height: 64,
                                       fit: BoxFit.cover,
                                     ),
                                   )
                                 : ThemedText(
-                                    entry.title.isNotEmpty ? entry.title[0] : '',
+                                    entry.title.isNotEmpty
+                                        ? entry.title[0]
+                                        : '',
                                     style: TextStyle(
-                                      fontSize: 16,
+                                      fontSize: 20,
                                       fontWeight: FontWeight.w600,
                                       color: colors.textMuted,
                                     ),
                                   ),
                           ),
-                          if (entry.badgeUrl != null && entry.badgeUrl!.isNotEmpty)
-                            Positioned(
-                              top: -6,
-                              left: -6,
-                              child: CachedNetworkImage(
-                                imageUrl: entry.badgeUrl!,
-                                width: 24,
-                                height: 24,
-                                fit: BoxFit.cover,
-                              ),
-                            ),
                         ],
                       ),
                     ),
-                    const SizedBox(height: 6),
-                    ThemedText(
+                    const SizedBox(height: 10),
+                    Text(
                       entry.title,
-                      maxLines: 1,
+                      maxLines: 2,
                       textAlign: TextAlign.center,
-                      style: TextStyle(fontSize: 11, color: colors.text),
+                      style: TextStyle(
+                        fontSize: 13,
+                        color: const Color(0xFF1A1A1A),
+                        height: 1.15,
+                      ),
                     ),
                   ],
                 ),

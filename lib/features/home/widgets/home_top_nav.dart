@@ -21,8 +21,8 @@ class HomeTopNavBar extends StatelessWidget {
     final colors = context.appColors;
 
     return Container(
-      color: colors.background,
-      padding: const EdgeInsets.symmetric(vertical: 10),
+      color: Colors.transparent,
+      padding: const EdgeInsets.symmetric(vertical: 8),
       child: SingleChildScrollView(
         scrollDirection: Axis.horizontal,
         padding: const EdgeInsets.symmetric(horizontal: 16),
@@ -31,19 +31,30 @@ class HomeTopNavBar extends StatelessWidget {
             final index = entry.key;
             final item = entry.value;
             final isActive = item.key == activeKey;
-            final backgroundColor = isActive ? const Color(0xFF1A1A1A) : Colors.transparent;
-            final borderColor = isActive ? const Color(0xFF1A1A1A) : Colors.transparent;
-            final textColor = isActive ? Colors.white : colors.text;
+            final backgroundColor = isActive
+                ? const Color(0xFF1A1A1A)
+                : Colors.transparent;
+            final borderColor = isActive
+                ? const Color(0xFF1A1A1A)
+                : Colors.transparent;
+            final textColor = isActive
+                ? Colors.white
+                : const Color(0xFF1A1A1A).withValues(alpha: 0.85);
 
             return Padding(
-              padding: EdgeInsets.only(right: index == items.length - 1 ? 0 : 12),
+              padding: EdgeInsets.only(
+                right: index == items.length - 1 ? 0 : 8,
+              ),
               child: GestureDetector(
                 onTap: () => onItemTap(item),
                 child: Container(
-                  padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 20,
+                    vertical: 8,
+                  ),
                   decoration: BoxDecoration(
                     color: backgroundColor,
-                    borderRadius: BorderRadius.circular(20),
+                    borderRadius: BorderRadius.circular(30),
                     border: Border.all(color: borderColor),
                   ),
                   child: ThemedText(

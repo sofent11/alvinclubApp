@@ -31,8 +31,8 @@ class PremiumDupeList extends StatelessWidget {
     final displayProducts = products.take(4).toList();
 
     return Container(
-      color: colors.background,
-      padding: const EdgeInsets.symmetric(vertical: 12),
+      color: Colors.transparent,
+      padding: const EdgeInsets.only(top: 10, bottom: 12),
       child: Column(
         children: [
           Padding(
@@ -44,8 +44,9 @@ class PremiumDupeList extends StatelessWidget {
                   'Premium Inspired',
                   type: ThemedTextType.subtitle,
                   style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
+                    fontSize: 26,
+                    height: 1,
+                    fontWeight: FontWeight.w700,
                     fontFamily: 'serif',
                   ),
                 ),
@@ -142,41 +143,45 @@ class _PremiumDupeCard extends StatelessWidget {
       child: Container(
         height: height,
         decoration: BoxDecoration(
-          color: const Color(0xFFF9F9F9),
-          borderRadius: BorderRadius.circular(12),
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(18),
+          border: Border.all(color: const Color(0xFFEAEAEA)),
         ),
         clipBehavior: Clip.antiAlias,
         child: Stack(
+          fit: StackFit.expand,
           children: [
-            Center(
-              child: product.imageUrl.isNotEmpty
-                  ? CachedNetworkImage(
-                      imageUrl: product.imageUrl,
-                      width: height * 0.8,
-                      height: height * 0.8,
-                      fit: BoxFit.contain,
-                      placeholder: (context, url) => Container(color: colors.muted),
-                      errorWidget: (context, url, error) => Container(color: colors.muted),
-                    )
-                  : Container(color: colors.muted),
-            ),
+            if (product.imageUrl.isNotEmpty)
+              CachedNetworkImage(
+                imageUrl: product.imageUrl,
+                fit: BoxFit.cover,
+                placeholder: (context, url) => Container(color: colors.muted),
+                errorWidget: (context, url, error) =>
+                    Container(color: colors.muted),
+              )
+            else
+              Container(color: colors.muted),
+
+            // Price Tag
             Positioned(
-              right: 6,
-              bottom: 6,
+              left: 8,
+              bottom: 8,
               child: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
+                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
                 decoration: BoxDecoration(
-                  color: Colors.black.withValues(alpha: 0.4),
+                  color: const Color(0xFF1A1A1A).withValues(alpha: 0.45),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Row(
                   mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.baseline,
+                  textBaseline: TextBaseline.alphabetic,
                   children: [
                     Text(
                       '${product.currency}${priceParts.$1}',
                       style: const TextStyle(
                         color: Colors.white,
-                        fontSize: 12,
+                        fontSize: 14,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
@@ -192,18 +197,24 @@ class _PremiumDupeCard extends StatelessWidget {
                 ),
               ),
             ),
+
+            // Cart Icon
             if (showCart)
               Positioned(
-                right: 50,
-                bottom: 6,
+                right: 8,
+                bottom: 8,
                 child: Container(
-                  width: 24,
-                  height: 24,
+                  width: 28,
+                  height: 28,
                   decoration: BoxDecoration(
-                    color: Colors.black.withValues(alpha: 0.4),
-                    borderRadius: BorderRadius.circular(12),
+                    color: const Color(0xFF1A1A1A).withValues(alpha: 0.45),
+                    shape: BoxShape.circle,
                   ),
-                  child: const Icon(Icons.shopping_cart, size: 12, color: Colors.white),
+                  child: const Icon(
+                    Icons.shopping_cart_outlined,
+                    size: 16,
+                    color: Colors.white,
+                  ),
                 ),
               ),
           ],

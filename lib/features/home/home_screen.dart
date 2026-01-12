@@ -3,14 +3,13 @@ import 'dart:async';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-
+import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../core/navigation/route_paths.dart';
 import '../../core/theme/app_theme.dart';
 import '../../data/repositories/product_repository.dart';
 import '../../shared/widgets/empty_state.dart';
-import '../../shared/widgets/flash_sale_timer.dart';
 import '../../shared/widgets/product_card.dart';
 import '../../shared/widgets/themed_text.dart';
 import '../catalog/catalog_providers.dart';
@@ -19,7 +18,7 @@ import '../flash_sale/application/flash_sale_providers.dart'
 import 'home_models.dart';
 import 'home_providers.dart';
 import 'widgets/fashion_feed.dart';
-import 'widgets/floating_banner.dart';
+import 'widgets/flash_sale_section.dart';
 import 'widgets/home_category_tabs.dart';
 import 'widgets/home_top_nav.dart';
 import 'widgets/premium_dupe_list.dart';
@@ -178,7 +177,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     }
 
     return Scaffold(
-      backgroundColor: colors.background,
+      backgroundColor: const Color(0xFFF7F2EE),
       body: SafeArea(
         child: Stack(
           children: [
@@ -212,12 +211,19 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                         ),
                       ),
                     ),
-                  if (isForYou) _buildBanners(context, configAsync),
                   if (isForYou)
                     SliverToBoxAdapter(
                       child: premiumDupeAsync.when(
                         data: (products) {
-                          if (products.isEmpty) return const SizedBox.shrink();
+                          debugPrint(
+                            '[PremiumUI] Loaded ${products.length} products',
+                          );
+                          if (products.isEmpty) {
+                            debugPrint(
+                              '[PremiumUI] Products list is empty, hiding module.',
+                            );
+                            return const SizedBox.shrink();
+                          }
                           try {
                             return PremiumDupeList(
                               products: products,
@@ -225,13 +231,23 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                                   PremiumDupeSheet.show(context),
                               onMoreTap: () => PremiumDupeSheet.show(context),
                             );
-                          } catch (e) {
-                            debugPrint('Error building PremiumDupeList: $e');
+                          } catch (e, stack) {
+                            debugPrint(
+                              '[PremiumUI] Error building widget: $e\n$stack',
+                            );
                             return const SizedBox.shrink();
                           }
                         },
-                        loading: () => const SizedBox.shrink(),
-                        error: (_, _) => const SizedBox.shrink(),
+                        loading: () {
+                          debugPrint('[PremiumUI] Loading...');
+                          return const SizedBox.shrink();
+                        },
+                        error: (err, stack) {
+                          debugPrint(
+                            '[PremiumUI] Error fetching data: $err\n$stack',
+                          );
+                          return const SizedBox.shrink();
+                        },
                       ),
                     ),
                   if (isForYou)
@@ -240,6 +256,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                       flashSaleActivitiesAsync,
                       flashSaleAsync,
                     ),
+
                   if (isForYou)
                     SliverToBoxAdapter(
                       child: albumAsync.when(
@@ -250,7 +267,6 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                                   id: item.albumCode,
                                   title: item.title,
                                   iconUrl: item.icon,
-                                  badgeUrl: item.newIcon,
                                   onTap: () => context.push(
                                     '${RoutePaths.topicDetail.replaceFirst(':id', item.albumCode)}?title=${Uri.encodeComponent(item.title)}',
                                   ),
@@ -258,7 +274,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                               )
                               .toList();
                           return Padding(
-                            padding: const EdgeInsets.symmetric(vertical: 8.0),
+                            padding: const EdgeInsets.only(top: 4, bottom: 10),
                             child: QuickEntryGrid(entries: quickEntries),
                           );
                         },
@@ -266,16 +282,14 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
                         error: (_, _) => const SizedBox.shrink(),
                       ),
                     ),
-                  if (isForYou) _buildSectionTitle(context, 'Hot Products'),
+                  // if (isForYou) _buildSectionTitle(context, 'Hot Products'), // Removed title to match design flow or keep if needed.
+                  // Design shows just products flowing.
                   if (isForYou) _buildProductGrid(context, hotState),
                   if (!isForYou) _buildProductGrid(context, recommendState),
-                  SliverToBoxAdapter(
-                    child: SizedBox(height: isForYou ? 90 : 24),
-                  ),
+                  SliverToBoxAdapter(child: const SizedBox(height: 24)),
                 ],
               ),
             ),
-            if (isForYou) const FloatingBanner(),
           ],
         ),
       ),
@@ -293,7 +307,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
         categoryId: '',
       ),
       const HomeTopNavItem(
-        title: 'Fashion',
+        title: 'Style Me', // Updated from "Fashion" to match design
         link: 'fashion',
         code: 'fashion',
         showType: 'text',
@@ -303,6 +317,8 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
       ...remoteItems,
     ];
   }
+
+  // ... (keep helper methods like _parseCategoryIds, _buildCategoryNameMap, _buildCategoryTabs, _buildSearchHeader, _buildBanners, _buildHeroBanner)
 
   List<String> _parseCategoryIds(String? raw) {
     if (raw == null || raw.trim().isEmpty) return [];
@@ -398,102 +414,47 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
     );
   }
 
-
-
-  Widget _buildSectionTitle(BuildContext context, String title) {
-    return SliverToBoxAdapter(
-      child: Padding(
-        padding: const EdgeInsets.fromLTRB(16, 24, 16, 12),
-        child: ThemedText(title, type: ThemedTextType.subtitle),
-      ),
-    );
-  }
-
   Widget _buildFlashSaleSection(
     BuildContext context,
     AsyncValue<List<FlashSaleActivity>> activitiesAsync,
     AsyncValue<List<ProductItem>> productsAsync,
   ) {
-    final colors = context.appColors;
-
-    // Determine if we should show the section based on data availability
     final hasActivities = activitiesAsync.valueOrNull?.isNotEmpty ?? false;
     final hasProducts = productsAsync.valueOrNull?.isNotEmpty ?? false;
 
-    if (!hasActivities && !hasProducts && !activitiesAsync.isLoading && !productsAsync.isLoading) {
+    if (!hasActivities &&
+        !hasProducts &&
+        !activitiesAsync.isLoading &&
+        !productsAsync.isLoading) {
       return const SliverToBoxAdapter(child: SizedBox.shrink());
     }
 
     return SliverToBoxAdapter(
-      child: Container(
-        margin: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
-        decoration: BoxDecoration(
-          color: colors.mutedBackground,
-          borderRadius: BorderRadius.circular(20),
-        ),
-        padding: const EdgeInsets.only(bottom: 12),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Padding(
-              padding: const EdgeInsets.fromLTRB(16, 12, 16, 12),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  const ThemedText('Flash Sale', type: ThemedTextType.subtitle),
-                  activitiesAsync.when(
-                    data: (activities) {
-                      if (activities.isEmpty) return const SizedBox.shrink();
-                      final activity = activities.first;
-                      final endTime = DateTime.tryParse(activity.endTime);
-                      if (endTime != null) {
-                        return FlashSaleTimer(endTime: endTime);
-                      }
-                      return const SizedBox.shrink();
-                    },
-                    loading: () => const SizedBox.shrink(),
-                    error: (_, _) => const SizedBox.shrink(),
-                  ),
-                ],
-              ),
+      child: activitiesAsync.when(
+        data: (activities) {
+          if (activities.isEmpty) return const SizedBox.shrink();
+          final activity = activities.first;
+
+          return productsAsync.when(
+            data: (products) {
+              if (products.isEmpty) return const SizedBox.shrink();
+              return FlashSaleSection(
+                activity: activity,
+                products: products,
+                onMoreTap: () {
+                  // Handle more tap
+                },
+              );
+            },
+            loading: () => const SizedBox(
+              height: 100,
+              child: Center(child: CircularProgressIndicator()),
             ),
-            productsAsync.when(
-              data: (products) {
-                if (products.isEmpty) return const SizedBox.shrink();
-                return SizedBox(
-                  height: 220,
-                  child: ListView.separated(
-                    scrollDirection: Axis.horizontal,
-                    padding: const EdgeInsets.symmetric(horizontal: 16),
-                    itemCount: products.length,
-                    separatorBuilder: (_, _) => const SizedBox(width: 12),
-                    itemBuilder: (context, index) {
-                      final product = products[index];
-                      return SizedBox(
-                        width: 140,
-                        child: ProductCard(
-                          product: product,
-                          variant: ProductCardVariant.compact,
-                          onTap: () => context.push(
-                            RoutePaths.productDetail.replaceFirst(
-                              ':productCode',
-                              product.id,
-                            ),
-                          ),
-                        ),
-                      );
-                    },
-                  ),
-                );
-              },
-              loading: () => const SizedBox(
-                height: 100,
-                child: Center(child: CircularProgressIndicator()),
-              ),
-              error: (_, _) => const SizedBox.shrink(),
-            ),
-          ],
-        ),
+            error: (_, _) => const SizedBox.shrink(),
+          );
+        },
+        loading: () => const SizedBox.shrink(),
+        error: (_, _) => const SizedBox.shrink(),
       ),
     );
   }
@@ -533,57 +494,26 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
       );
     }
 
-    final itemCount = (state.products.length / 2).ceil();
-
     return SliverPadding(
       padding: const EdgeInsets.symmetric(horizontal: 16),
-      sliver: SliverList(
-        delegate: SliverChildBuilderDelegate(
-          (context, index) {
-            final firstIndex = index * 2;
-            final secondIndex = firstIndex + 1;
-            final hasSecond = secondIndex < state.products.length;
-
-            return Padding(
-              padding: const EdgeInsets.only(bottom: 12),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Expanded(
-                    child: ProductCard(
-                      product: state.products[firstIndex],
-                      variant: ProductCardVariant.compact,
-                      aspectRatio: 1.05,
-                      onTap: () => context.push(
-                        RoutePaths.productDetail.replaceFirst(
-                          ':productCode',
-                          state.products[firstIndex].id,
-                        ),
-                      ),
-                    ),
-                  ),
-                  const SizedBox(width: 12),
-                  Expanded(
-                    child: hasSecond
-                        ? ProductCard(
-                            product: state.products[secondIndex],
-                            variant: ProductCardVariant.compact,
-                            aspectRatio: 1.05,
-                            onTap: () => context.push(
-                              RoutePaths.productDetail.replaceFirst(
-                                ':productCode',
-                                state.products[secondIndex].id,
-                              ),
-                            ),
-                          )
-                        : const SizedBox.shrink(),
-                  ),
-                ],
+      sliver: SliverMasonryGrid.count(
+        crossAxisCount: 2,
+        mainAxisSpacing: 12,
+        crossAxisSpacing: 12,
+        childCount: state.products.length,
+        itemBuilder: (context, index) {
+          return ProductCard(
+            product: state.products[index],
+            variant: ProductCardVariant.compact,
+            // aspect ratio not needed as much for masonry, it will layout based on content
+            onTap: () => context.push(
+              RoutePaths.productDetail.replaceFirst(
+                ':productCode',
+                state.products[index].id,
               ),
-            );
-          },
-          childCount: itemCount,
-        ),
+            ),
+          );
+        },
       ),
     );
   }
@@ -599,24 +529,30 @@ class _HomeHeaderBar extends StatelessWidget {
     final colors = context.appColors;
 
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 6),
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
       child: Row(
         children: [
           const ThemedText(
             "Alvin's Club",
             type: ThemedTextType.title,
-            style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            style: TextStyle(
+              fontSize: 28,
+              height: 1,
+              fontWeight: FontWeight.w700,
+              fontFamily: 'serif',
+            ),
           ),
           const SizedBox(width: 12),
           Expanded(
             child: GestureDetector(
               onTap: onTap,
               child: Container(
-                height: 36,
+                height: 38,
                 padding: const EdgeInsets.symmetric(horizontal: 12),
                 decoration: BoxDecoration(
-                  color: const Color(0xFFF5F5F5),
-                  borderRadius: BorderRadius.circular(18),
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(20),
+                  border: Border.all(color: const Color(0xFFE6E6E6)),
                 ),
                 child: Row(
                   children: [
@@ -774,5 +710,3 @@ class _BannerCarouselState extends State<_BannerCarousel> {
     );
   }
 }
-
-
