@@ -1,74 +1,63 @@
-import 'dart:convert';
-
-import 'package:flutter_appauth/flutter_appauth.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class GoogleAuthResult {
-  const GoogleAuthResult({
-    required this.email,
-    required this.idToken,
-  });
+  const GoogleAuthResult({required this.email, required this.idToken});
 
   final String email;
   final String idToken;
 }
 
 class GoogleAuthService {
-  GoogleAuthService({FlutterAppAuth? appAuth}) : _appAuth = appAuth ?? FlutterAppAuth();
+  GoogleAuthService();
 
-  static const _clientId =
+  // This Client ID was present in the previous AppAuth implementation.
+  // We use it here as serverClientId to request an ID token that the backend can verify.
+  static const _serverClientId =
       '743295184995-7eqfn8t1brdhmmkt83f2kg8b4qscpokt.apps.googleusercontent.com';
-  static const _redirectUrl = 'w2capp:/oauthredirect';
-  static const _discoveryUrl = 'https://accounts.google.com/.well-known/openid-configuration';
-  static const _scopes = ['openid', 'profile', 'email'];
 
-  final FlutterAppAuth _appAuth;
+  static const _scopes = ['email', 'profile', 'openid'];
+
+  final GoogleSignIn _googleSignIn = GoogleSignIn(
+    scopes: _scopes,
+    serverClientId: _serverClientId,
+  );
 
   Future<GoogleAuthResult> signIn() async {
-    final result = await _appAuth.authorizeAndExchangeCode(
-      AuthorizationTokenRequest(
-        _clientId,
-        _redirectUrl,
-        discoveryUrl: _discoveryUrl,
-        scopes: _scopes,
-        promptValues: const ['consent'],
-        additionalParameters: const {
-          'access_type': 'offline',
-        },
-      ),
-    );
+    try {
+      // Ensure previous session is cleared to force account selection if needed
+      // or to prevent stale states.
+      await _googleSignIn.signOut();
 
-    final idToken = result?.idToken;
-    if (idToken == null || idToken.isEmpty) {
-      throw Exception('Missing ID token');
+      final GoogleSignInAccount? account = await _googleSignIn.signIn();
+
+      if (account == null) {
+        // User cancelled the sign-in process
+        throw Exception('Google sign-in cancelled');
+      }
+
+      final GoogleSignInAuthentication auth = await account.authentication;
+      final String? idToken = auth.idToken;
+      final String email = account.email;
+
+      if (idToken == null || idToken.isEmpty) {
+        throw Exception('Missing ID token from Google Sign-In');
+      }
+
+      return GoogleAuthResult(email: email, idToken: idToken);
+    } catch (e) {
+      if (e.toString().contains('sign_in_failed')) {
+        throw Exception(
+          'Sign in failed. Please check your network connection and try again.',
+        );
+      }
+      throw Exception('Google Sign-In failed: $e');
     }
-
-    final payload = _parseJwt(idToken);
-    final email = payload['email']?.toString();
-    if (email == null || email.isEmpty) {
-      throw Exception('Missing email in ID token');
-    }
-
-    return GoogleAuthResult(email: email, idToken: idToken);
   }
+
+  Future<void> signOut() => _googleSignIn.signOut();
 }
 
 final googleAuthServiceProvider = Provider<GoogleAuthService>((ref) {
   return GoogleAuthService();
 });
-
-Map<String, dynamic> _parseJwt(String token) {
-  final parts = token.split('.');
-  if (parts.length != 3) {
-    throw Exception('Invalid ID token');
-  }
-
-  final payload = parts[1];
-  final normalized = base64Url.normalize(payload);
-  final decoded = utf8.decode(base64Url.decode(normalized));
-  final json = jsonDecode(decoded);
-  if (json is! Map<String, dynamic>) {
-    throw Exception('Invalid ID token payload');
-  }
-  return json;
-}

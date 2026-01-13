@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -14,9 +15,9 @@ import '../../core/theme/app_theme.dart';
 import '../../data/repositories/auth_repository.dart';
 import '../../shared/widgets/input_field.dart';
 import '../../shared/widgets/themed_button.dart';
-import '../../shared/widgets/themed_text.dart';
-import '../../shared/widgets/themed_view.dart';
 import 'portal_selector_modal.dart';
+
+enum SignInStep { email, code }
 
 class SignInScreen extends ConsumerStatefulWidget {
   const SignInScreen({super.key});
@@ -30,6 +31,8 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
   final _codeController = TextEditingController();
   Timer? _timer;
 
+  SignInStep _step = SignInStep.email;
+
   String? _emailError;
   String? _codeError;
   String? _requestId;
@@ -39,6 +42,10 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
   bool _isVerifying = false;
   bool _isGoogleLoading = false;
   bool _showPortalSelector = false;
+
+  bool _agreedToTerms = false;
+  bool _agreedToMarketing = false;
+
   _PendingFormData? _pendingFormData;
   _PendingGoogleData? _pendingGoogleData;
 
@@ -61,6 +68,23 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
 
   Future<void> _sendCode() async {
     if (_isSendingCode || _isRunning) return;
+
+    // Validate agreements first
+    if (!_agreedToTerms) {
+      _showDialog(
+        title: 'Agreement Required',
+        message:
+            'Please agree to the User Guide, Service Agreement and Privacy Policy to continue.',
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(),
+            child: const Text('OK'),
+          ),
+        ],
+      );
+      return;
+    }
+
     final email = _emailController.text.trim();
     final emailError = _validateEmail(email);
     setState(() {
@@ -82,17 +106,12 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
       setState(() {
         _requestId = 'success';
         _otpLength = response.otpLength;
+        _step = SignInStep.code;
       });
 
       _startCountdown(response.expiresIn);
 
-      await _showDialog(
-        title: 'Code sent',
-        message: 'Check your email for the OTP.',
-        actions: [
-          TextButton(onPressed: () => Navigator.of(context).pop(), child: const Text('OK')),
-        ],
-      );
+      // Auto focus code input?
     } on ApiError catch (error) {
       final enhanced = handleOtpError(error);
       _showEnhancedError(
@@ -108,7 +127,10 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
         title: 'Request failed',
         message: error.toString(),
         actions: [
-          TextButton(onPressed: () => Navigator.of(context).pop(), child: const Text('OK')),
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(),
+            child: const Text('OK'),
+          ),
         ],
       );
     } finally {
@@ -178,7 +200,10 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
       final result = await authService.signIn();
       if (!mounted) return;
       setState(() {
-        _pendingGoogleData = _PendingGoogleData(email: result.email, token: result.idToken);
+        _pendingGoogleData = _PendingGoogleData(
+          email: result.email,
+          token: result.idToken,
+        );
         _showPortalSelector = true;
       });
     } catch (error) {
@@ -186,7 +211,10 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
         title: 'Google sign-in failed',
         message: _formatError(error),
         actions: [
-          TextButton(onPressed: () => Navigator.of(context).pop(), child: const Text('OK')),
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(),
+            child: const Text('OK'),
+          ),
         ],
       );
     } finally {
@@ -239,7 +267,9 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
         ),
       );
 
-      final expiresAt = DateTime.now().millisecondsSinceEpoch + response.tokens.expiresIn * 1000;
+      final expiresAt =
+          DateTime.now().millisecondsSinceEpoch +
+          response.tokens.expiresIn * 1000;
       final authController = ref.read(authControllerProvider.notifier);
       await authController.setTokens(
         accessToken: response.tokens.accessToken,
@@ -258,7 +288,9 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
     } on ApiError catch (error) {
       final message = error.message.toLowerCase();
       final isOtpError = message.contains('code') || message.contains('otp');
-      final enhanced = isOtpError ? handleOtpError(error) : handleAccountError(error);
+      final enhanced = isOtpError
+          ? handleOtpError(error)
+          : handleAccountError(error);
       _showEnhancedError(
         enhanced,
         onAction: isOtpError
@@ -272,7 +304,10 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
         title: 'Sign-in failed',
         message: _formatError(error),
         actions: [
-          TextButton(onPressed: () => Navigator.of(context).pop(), child: const Text('OK')),
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(),
+            child: const Text('OK'),
+          ),
         ],
       );
     } finally {
@@ -284,7 +319,10 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
     }
   }
 
-  Future<void> _verifyGoogleSignIn(_PendingGoogleData data, Portal portal) async {
+  Future<void> _verifyGoogleSignIn(
+    _PendingGoogleData data,
+    Portal portal,
+  ) async {
     setState(() {
       _isVerifying = true;
     });
@@ -292,10 +330,16 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
     try {
       final repo = ref.read(authRepositoryProvider);
       final response = await repo.verifyGoogleSignIn(
-        GoogleSignInPayload(email: data.email, token: data.token, portalCode: portal.code),
+        GoogleSignInPayload(
+          email: data.email,
+          token: data.token,
+          portalCode: portal.code,
+        ),
       );
 
-      final expiresAt = DateTime.now().millisecondsSinceEpoch + response.tokens.expiresIn * 1000;
+      final expiresAt =
+          DateTime.now().millisecondsSinceEpoch +
+          response.tokens.expiresIn * 1000;
       final authController = ref.read(authControllerProvider.notifier);
       await authController.setTokens(
         accessToken: response.tokens.accessToken,
@@ -315,7 +359,10 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
         title: 'Google sign-in failed',
         message: _formatError(error),
         actions: [
-          TextButton(onPressed: () => Navigator.of(context).pop(), child: const Text('OK')),
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(),
+            child: const Text('OK'),
+          ),
         ],
       );
     } finally {
@@ -327,14 +374,20 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
     }
   }
 
-  Future<void> _showEnhancedError(EnhancedError error, {VoidCallback? onAction}) async {
+  Future<void> _showEnhancedError(
+    EnhancedError error, {
+    VoidCallback? onAction,
+  }) async {
     final actionLabel = error.action;
     if (actionLabel == null) {
       await _showDialog(
         title: error.title,
         message: error.message,
         actions: [
-          TextButton(onPressed: () => Navigator.of(context).pop(), child: const Text('OK')),
+          TextButton(
+            onPressed: () => Navigator.of(context).pop(),
+            child: const Text('OK'),
+          ),
         ],
       );
       return;
@@ -344,7 +397,10 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
       title: error.title,
       message: error.message,
       actions: [
-        TextButton(onPressed: () => Navigator.of(context).pop(), child: const Text('Cancel')),
+        TextButton(
+          onPressed: () => Navigator.of(context).pop(),
+          child: const Text('Cancel'),
+        ),
         TextButton(
           onPressed: () {
             Navigator.of(context).pop();
@@ -400,149 +456,338 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
     return raw.replaceFirst('Exception: ', '');
   }
 
+  void _openWeb(String path) {
+    // Construct the full URL
+    // Privacy: guide/privacy-policy/?lang=en_US&portalCode=GB
+    // Terms: guide/terms-of-use/?lang=en_US&portalCode=GB
+    // FAQ: guide/faq/?lang=en_US&portalCode=GB
+    const baseUrl = 'https://www.alvinclub.ca';
+    final url = '$baseUrl$path&lang=en_US&portalCode=GB';
+
+    context.pushNamed(
+      RoutePaths.webview,
+      queryParameters: {'url': url, 'title': 'Agreement'},
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    final canSendCode = _emailController.text.trim().isNotEmpty;
+    final colors = context.appColors;
+
+    // Logo Widget
+    final logoWidget = Column(
+      children: [
+        Container(
+          width: 64,
+          height: 64,
+          decoration: BoxDecoration(
+            color: const Color(0xFF8B5CF6), // Purple
+            borderRadius: BorderRadius.circular(16),
+          ),
+          child: const Icon(
+            Icons.checkroom, // Fashion/Shopping related icon
+            color: Colors.white,
+            size: 32,
+          ),
+        ),
+        const SizedBox(height: 16),
+        Text(
+          'Handpicked Brands &\nBest Savings',
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontSize: 18,
+            fontWeight: FontWeight.w600,
+            color: const Color(0xFF8B5CF6), // Purple text
+            height: 1.2,
+          ),
+        ),
+      ],
+    );
 
     return Scaffold(
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 0,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back_ios, color: Colors.black),
+          onPressed: () {
+            if (context.canPop()) {
+              context.pop();
+            } else {
+              context.go(RoutePaths.home);
+            }
+          },
+        ),
+      ),
       body: SafeArea(
         child: Stack(
+          fit: StackFit.expand,
           children: [
-            Positioned.fill(
-              child: ThemedView(
-                variant: ThemedViewVariant.plain,
-                padding: EdgeInsets.zero,
-                child: SingleChildScrollView(
+            Column(
+              children: [
+                Expanded(
+                  child: SingleChildScrollView(
+                    padding: const EdgeInsets.symmetric(horizontal: 24),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        const SizedBox(height: 20),
+                        logoWidget,
+                        const SizedBox(height: 48),
+
+                        // Form
+                        if (_step == SignInStep.email) ...[
+                          InputField(
+                            label:
+                                '', // Hidden label as per design (or just placeholder)
+                            controller: _emailController,
+                            placeholder: 'Please input the email address',
+                            keyboardType: TextInputType.emailAddress,
+                            textInputAction: TextInputAction.done,
+                            autofillHints: const [AutofillHints.email],
+                            errorText: _emailError,
+                            onChanged: (_) {
+                              setState(() {
+                                _emailError = null;
+                              });
+                            },
+                          ),
+                          const SizedBox(height: 24),
+                          ThemedButton(
+                            label: 'Verify and log in',
+                            size: ThemedButtonSize.lg,
+                            loading: _isSendingCode,
+                            // Design shows purple button
+                            variant: ThemedButtonVariant.primary,
+                            onPressed: () {
+                              _sendCode();
+                            },
+                          ),
+                          const SizedBox(height: 20),
+
+                          // Checkboxes
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              SizedBox(
+                                width: 24,
+                                height: 24,
+                                child: Checkbox(
+                                  value: _agreedToTerms,
+                                  activeColor: const Color(0xFF8B5CF6),
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(4),
+                                  ),
+                                  onChanged: (val) {
+                                    setState(
+                                      () => _agreedToTerms = val ?? false,
+                                    );
+                                  },
+                                ),
+                              ),
+                              const SizedBox(width: 8),
+                              Expanded(
+                                child: RichText(
+                                  text: TextSpan(
+                                    style: TextStyle(
+                                      color: colors.textMuted,
+                                      fontSize: 13,
+                                      height: 1.4,
+                                    ),
+                                    children: [
+                                      const TextSpan(
+                                        text: 'Have read and agreed to the ',
+                                      ),
+                                      TextSpan(
+                                        text: 'User Guide',
+                                        style: TextStyle(
+                                          color: const Color(0xFF3B82F6),
+                                        ),
+                                        recognizer: TapGestureRecognizer()
+                                          ..onTap = () =>
+                                              _openWeb('/guide/faq/?'),
+                                      ),
+                                      const TextSpan(text: ', '),
+                                      TextSpan(
+                                        text: 'Service Agreement',
+                                        style: TextStyle(
+                                          color: const Color(0xFF3B82F6),
+                                        ),
+                                        recognizer: TapGestureRecognizer()
+                                          ..onTap = () =>
+                                              _openWeb('/guide/terms-of-use/?'),
+                                      ),
+                                      const TextSpan(text: ' and '),
+                                      TextSpan(
+                                        text: 'Privacy Policy',
+                                        style: TextStyle(
+                                          color: const Color(0xFF3B82F6),
+                                        ),
+                                        recognizer: TapGestureRecognizer()
+                                          ..onTap = () => _openWeb(
+                                            '/guide/privacy-policy/?',
+                                          ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(height: 12),
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              SizedBox(
+                                width: 24,
+                                height: 24,
+                                child: Radio(
+                                  value: true,
+                                  groupValue: _agreedToMarketing ? true : null,
+                                  activeColor: const Color(0xFF8B5CF6),
+                                  toggleable: true,
+                                  onChanged: (val) {
+                                    setState(
+                                      () => _agreedToMarketing =
+                                          !_agreedToMarketing,
+                                    );
+                                  },
+                                ),
+                              ),
+                              const SizedBox(width: 8),
+                              Expanded(
+                                child: Text(
+                                  'I agree to receive order and shipping notifications, as well as promotional emails from Alvin\'s Club.',
+                                  style: TextStyle(
+                                    color: colors.textMuted,
+                                    fontSize: 13,
+                                    height: 1.4,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ] else ...[
+                          // Step 2: Code
+                          Text(
+                            'Enter code sent to ${_emailController.text}',
+                            style: TextStyle(
+                              color: colors.textMuted,
+                              fontSize: 14,
+                            ),
+                            textAlign: TextAlign.center,
+                          ),
+                          const SizedBox(height: 24),
+                          InputField(
+                            label: 'Code',
+                            controller: _codeController,
+                            placeholder: 'Enter $_otpLength digits',
+                            keyboardType: TextInputType.number,
+                            textInputAction: TextInputAction.done,
+                            maxLength: _otpLength,
+                            errorText: _codeError,
+                            onChanged: (_) {
+                              setState(() {
+                                _codeError = null;
+                              });
+                            },
+                            onEditingComplete: () {
+                              _handleSubmit();
+                            },
+                          ),
+                          const SizedBox(height: 24),
+                          ThemedButton(
+                            label: 'Login',
+                            size: ThemedButtonSize.lg,
+                            loading: _isVerifying,
+                            onPressed: () {
+                              _handleSubmit();
+                            },
+                          ),
+                          const SizedBox(height: 16),
+                          TextButton(
+                            onPressed: _isRunning ? null : _sendCode,
+                            child: Text(_countdownLabel),
+                          ),
+                          TextButton(
+                            onPressed: () {
+                              setState(() {
+                                _step = SignInStep.email;
+                                _codeController.clear();
+                              });
+                            },
+                            child: const Text('Change Email'),
+                          ),
+                        ],
+                      ],
+                    ),
+                  ),
+                ),
+
+                // Footer
+                Padding(
                   padding: const EdgeInsets.all(24),
                   child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      const ThemedText('Sign in', type: ThemedTextType.title),
-                      const SizedBox(height: 12),
-                      ThemedText(
-                        'Use a one-time code or Google OAuth to continue.',
-                        style: TextStyle(color: context.appColors.textMuted),
-                      ),
-                      const SizedBox(height: 24),
-                      InputField(
-                        label: 'Email',
-                        controller: _emailController,
-                        placeholder: 'you@company.com',
-                        keyboardType: TextInputType.emailAddress,
-                        textInputAction: TextInputAction.next,
-                        autofillHints: const [AutofillHints.email],
-                        errorText: _emailError,
-                        onChanged: (_) {
-                          setState(() {
-                            _emailError = null;
-                          });
-                        },
-                      ),
-                      const SizedBox(height: 16),
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.end,
-                        children: [
-                          Expanded(
-                            child: InputField(
-                              label: 'Code',
-                              controller: _codeController,
-                              placeholder: 'Enter $_otpLength digits',
-                              keyboardType: TextInputType.number,
-                              textInputAction: TextInputAction.done,
-                              maxLength: _otpLength,
-                              errorText: _codeError,
-                              onChanged: (_) {
-                                setState(() {
-                                  _codeError = null;
-                                });
-                              },
-                              onEditingComplete: () {
-                                _handleSubmit();
-                              },
-                            ),
-                          ),
-                          const SizedBox(width: 12),
-                          SizedBox(
-                            width: 120,
-                            child: ThemedButton(
-                              label: _countdownLabel,
-                              variant: ThemedButtonVariant.secondary,
-                              loading: _isSendingCode,
-                              onPressed: (!canSendCode || _isRunning || _isSendingCode)
-                                  ? null
-                                  : () {
-                                      _sendCode();
-                                    },
-                            ),
-                          ),
-                        ],
-                      ),
-                      const SizedBox(height: 8),
-                      ThemedText(
-                        'The code expires in 60 seconds. You can resend after the timer finishes.',
-                        style: TextStyle(color: context.appColors.textMuted, fontSize: 12),
-                      ),
-                      const SizedBox(height: 20),
-                      ThemedButton(
-                        label: 'Complete sign in',
-                        size: ThemedButtonSize.lg,
-                        loading: _isVerifying,
-                        onPressed: () {
-                          _handleSubmit();
-                        },
-                      ),
-                      const SizedBox(height: 24),
                       Row(
                         children: [
-                          Expanded(
-                            child: Divider(color: context.appColors.border),
-                          ),
-                          const SizedBox(width: 12),
-                          ThemedText(
-                            'Or continue with',
-                            style: TextStyle(
-                              color: context.appColors.textMuted,
-                              fontSize: 12,
+                          Expanded(child: Divider(color: colors.border)),
+                          const Padding(
+                            padding: EdgeInsets.symmetric(horizontal: 16),
+                            child: Text(
+                              'Login with other methods',
+                              style: TextStyle(
+                                color: Color(0xFF9CA3AF),
+                                fontSize: 12,
+                              ),
                             ),
                           ),
-                          const SizedBox(width: 12),
-                          Expanded(
-                            child: Divider(color: context.appColors.border),
-                          ),
+                          Expanded(child: Divider(color: colors.border)),
                         ],
                       ),
-                      const SizedBox(height: 16),
-                      ThemedButton(
-                        label: 'Continue with Google',
-                        variant: ThemedButtonVariant.secondary,
-                        loading: _isGoogleLoading,
-                        onPressed: () {
-                          _handleGoogleSignIn();
-                        },
-                      ),
                       const SizedBox(height: 24),
-                      ThemedView(
-                        variant: ThemedViewVariant.muted,
-                        padding: const EdgeInsets.all(16),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            const ThemedText('Tip', type: ThemedTextType.defaultSemiBold),
-                            const SizedBox(height: 8),
-                            ThemedText(
-                              '- You can resend within 60 seconds\n'
-                              '- Check spam folder if the code does not arrive\n'
-                              '- After login, visit Account to manage your profile',
-                              style: TextStyle(color: context.appColors.textMuted, fontSize: 13, height: 1.4),
+                      // Styled like Apple button but using Google logic for now
+                      // The user image shows Apple. I'll stick to Google but make it outlined black
+                      SizedBox(
+                        width: double.infinity,
+                        height: 50,
+                        child: OutlinedButton.icon(
+                          onPressed: _handleGoogleSignIn,
+                          icon: _isGoogleLoading
+                              ? const SizedBox(
+                                  width: 20,
+                                  height: 20,
+                                  child: CircularProgressIndicator(
+                                    strokeWidth: 2,
+                                  ),
+                                )
+                              : const Icon(
+                                  Icons.g_mobiledata,
+                                  size: 28,
+                                ), // Using Google icon
+                          label: Text(
+                            _isGoogleLoading
+                                ? 'Loading...'
+                                : 'Continue with Google',
+                          ),
+                          style: OutlinedButton.styleFrom(
+                            foregroundColor: Colors.black,
+                            side: const BorderSide(color: Colors.black),
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(
+                                25,
+                              ), // Pill shape
                             ),
-                          ],
+                          ),
                         ),
                       ),
                     ],
                   ),
                 ),
-              ),
+              ],
             ),
+
             PortalSelectorModal(
               visible: _showPortalSelector,
               onSelect: (portal) {

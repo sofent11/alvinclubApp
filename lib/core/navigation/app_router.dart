@@ -38,6 +38,7 @@ import '../../features/wallet/presentation/wallet_screen.dart';
 import '../../features/search/presentation/search_results_screen.dart';
 import '../../features/search/presentation/search_screen.dart';
 import '../../shared/widgets/placeholder_screen.dart';
+import '../../shared/widgets/webview_screen.dart';
 import 'route_paths.dart';
 
 final routerProvider = Provider<GoRouter>((ref) {
@@ -220,7 +221,11 @@ final routerProvider = Provider<GoRouter>((ref) {
       GoRoute(
         path: RoutePaths.webview,
         name: RoutePaths.webview,
-        builder: (context, state) => const PlaceholderScreen(title: 'WebView'),
+        builder: (context, state) {
+          final url = state.uri.queryParameters['url'] ?? '';
+          final title = state.uri.queryParameters['title'];
+          return WebViewScreen(url: url, title: title);
+        },
       ),
       GoRoute(
         path: RoutePaths.modal,

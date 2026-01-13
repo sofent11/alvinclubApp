@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "166762050155",
+    "project_id": "alvinclubapp",
+    "storage_bucket": "alvinclubapp.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:166762050155:android:e94a5562462fbfe822b72e",
+        "android_client_info": {
+          "package_name": "com.echoo.w2c"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDDoB8R7EI9GNeTfypJzmFfeyiF4urYB-4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
