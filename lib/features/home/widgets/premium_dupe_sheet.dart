@@ -20,6 +20,8 @@ class PremiumDupeSheet extends ConsumerStatefulWidget {
       context: context,
       isScrollControlled: true,
       backgroundColor: Colors.transparent,
+      barrierColor: Colors.black,
+      useSafeArea: true,
       builder: (context) => const PremiumDupeSheet(),
     );
   }
@@ -51,7 +53,8 @@ class _PremiumDupeSheetState extends ConsumerState<PremiumDupeSheet> {
 
   void _handleScroll() {
     if (!_scrollController.hasClients) return;
-    if (_scrollController.position.pixels >= _scrollController.position.maxScrollExtent - 200) {
+    if (_scrollController.position.pixels >=
+        _scrollController.position.maxScrollExtent - 200) {
       ref.read(premiumDupePageProvider(_activeCategoryId).notifier).loadMore();
     }
   }
@@ -74,16 +77,13 @@ class _PremiumDupeSheetState extends ConsumerState<PremiumDupeSheet> {
   @override
   Widget build(BuildContext context) {
     final colors = context.appColors;
-    final size = MediaQuery.of(context).size;
-    final insets = MediaQuery.of(context).padding;
-    final heroHeight = size.width * 0.75;
-    final maxHeight = size.height - insets.top - 36;
 
     final configAsync = ref.watch(premiumInspiredConfigProvider);
     final metaAsync = ref.watch(premiumDupeMetaProvider);
     final pageState = ref.watch(premiumDupePageProvider(_activeCategoryId));
 
-    final configItems = configAsync.valueOrNull ?? const <PremiumInspiredConfigItem>[];
+    final configItems =
+        configAsync.valueOrNull ?? const <PremiumInspiredConfigItem>[];
 
     if (configItems.isNotEmpty && (_timer == null || !_timer!.isActive)) {
       WidgetsBinding.instance.addPostFrameCallback((_) {
@@ -95,115 +95,133 @@ class _PremiumDupeSheetState extends ConsumerState<PremiumDupeSheet> {
         ? configItems[_heroIndex.clamp(0, configItems.length - 1)]
         : null;
 
-    final tabsBackground = _parseColor(activeConfig?.tabsBackgroundColor) ?? colors.surface;
-    final tabNormal = _parseColor(activeConfig?.tabNormalColor) ?? colors.surface;
-    final tabSelected = _parseColor(activeConfig?.tabSelectedColor) ?? const Color(0xFF1A1A1A);
+    final tabsBackground =
+        _parseColor(activeConfig?.tabsBackgroundColor) ?? colors.surface;
+    final tabNormal =
+        _parseColor(activeConfig?.tabNormalColor) ?? colors.surface;
+    final tabSelected =
+        _parseColor(activeConfig?.tabSelectedColor) ?? const Color(0xFF1A1A1A);
 
     final categories = metaAsync.valueOrNull ?? const <PremiumDupeCategory>[];
     final activeCategoryName = _activeCategoryId == null
         ? 'All'
-        : categories.firstWhere((c) => int.tryParse(c.id) == _activeCategoryId, orElse: () => const PremiumDupeCategory(id: '', name: '')).name;
+        : categories
+              .firstWhere(
+                (c) => int.tryParse(c.id) == _activeCategoryId,
+                orElse: () => const PremiumDupeCategory(id: '', name: ''),
+              )
+              .name;
 
-    return Material(
-      color: Colors.transparent,
-      child: Stack(
-        children: [
-          Positioned.fill(
-            child: GestureDetector(
-              onTap: () => Navigator.of(context).pop(),
-              child: Container(color: colors.overlay.withValues(alpha: 0.35)),
-            ),
-          ),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: Container(
-              height: maxHeight,
-              decoration: BoxDecoration(
-                color: colors.surface,
-                borderRadius: const BorderRadius.vertical(top: Radius.circular(24)),
+    return LayoutBuilder(
+      builder: (context, constraints) {
+        final heroHeight = constraints.maxWidth * 0.75;
+        final maxHeight = constraints.maxHeight - 36;
+
+        return Material(
+          color: Colors.transparent,
+          child: Stack(
+            children: [
+              Positioned.fill(
+                child: GestureDetector(
+                  onTap: () => Navigator.of(context).pop(),
+                  child: Container(color: Colors.black),
+                ),
               ),
-              clipBehavior: Clip.antiAlias,
-              child: CustomScrollView(
-                controller: _scrollController,
-                slivers: [
-                  SliverPersistentHeader(
-                    pinned: true,
-                    delegate: _PremiumDupeSheetHeaderDelegate(
-                      heroHeight: heroHeight,
-                      configItems: configItems,
-                      pageController: _pageController,
-                      onHeroPageChanged: (index) {
-                        setState(() {
-                          _heroIndex = index;
-                        });
-                      },
-                      tabsBackground: tabsBackground,
-                      tabSelected: tabSelected,
-                      tabNormal: tabNormal,
-                      activeCategoryId: _activeCategoryId,
-                      categories: categories,
-                      onCategoryChanged: (id) {
-                        setState(() {
-                          _activeCategoryId = id;
-                        });
-                      },
-                      onClose: () => Navigator.of(context).pop(),
-                      paddingTop: 0,
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: Container(
+                  height: maxHeight,
+                  decoration: BoxDecoration(
+                    color: colors.surface,
+                    borderRadius: const BorderRadius.vertical(
+                      top: Radius.circular(24),
                     ),
                   ),
-                  SliverToBoxAdapter(
-                    child: Padding(
-                      padding: const EdgeInsets.fromLTRB(16, 20, 16, 8),
-                      child: ThemedText(
-                        activeCategoryName,
-                        style: const TextStyle(
-                          fontSize: 28,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
-                  ),
-                  if (pageState.isLoading && pageState.products.isEmpty)
-                    const SliverFillRemaining(
-                      child: Center(child: CircularProgressIndicator()),
-                    )
-                  else if (pageState.products.isEmpty)
-                    const SliverFillRemaining(
-                      child: Center(child: Text('No products found')),
-                    )
-                  else
-                    SliverPadding(
-                      padding: const EdgeInsets.symmetric(horizontal: 16),
-                      sliver: SliverGrid(
-                        delegate: SliverChildBuilderDelegate(
-                          (context, index) {
-                            final product = pageState.products[index];
-                            return _PremiumDupeProductCard(product: product);
+                  clipBehavior: Clip.antiAlias,
+                  child: CustomScrollView(
+                    controller: _scrollController,
+                    slivers: [
+                      SliverPersistentHeader(
+                        pinned: true,
+                        delegate: _PremiumDupeSheetHeaderDelegate(
+                          heroHeight: heroHeight,
+                          configItems: configItems,
+                          pageController: _pageController,
+                          onHeroPageChanged: (index) {
+                            setState(() {
+                              _heroIndex = index;
+                            });
                           },
-                          childCount: pageState.products.length,
-                        ),
-                        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2,
-                          mainAxisSpacing: 16,
-                          crossAxisSpacing: 12,
-                          childAspectRatio: 0.68,
+                          tabsBackground: tabsBackground,
+                          tabSelected: tabSelected,
+                          tabNormal: tabNormal,
+                          activeCategoryId: _activeCategoryId,
+                          categories: categories,
+                          onCategoryChanged: (id) {
+                            setState(() {
+                              _activeCategoryId = id;
+                            });
+                          },
+                          onClose: () => Navigator.of(context).pop(),
+                          paddingTop: 0,
                         ),
                       ),
-                    ),
-                  if (pageState.isLoading && pageState.products.isNotEmpty)
-                    const SliverToBoxAdapter(
-                      child: Padding(
-                        padding: EdgeInsets.symmetric(vertical: 24),
-                        child: Center(child: CircularProgressIndicator()),
+                      SliverToBoxAdapter(
+                        child: Padding(
+                          padding: const EdgeInsets.fromLTRB(16, 20, 16, 8),
+                          child: ThemedText(
+                            activeCategoryName,
+                            style: const TextStyle(
+                              fontSize: 28,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
                       ),
-                    ),
-                  const SliverToBoxAdapter(child: SizedBox(height: 32)),
-                ],
+                      if (pageState.isLoading && pageState.products.isEmpty)
+                        const SliverFillRemaining(
+                          child: Center(child: CircularProgressIndicator()),
+                        )
+                      else if (pageState.products.isEmpty)
+                        const SliverFillRemaining(
+                          child: Center(child: Text('No products found')),
+                        )
+                      else
+                        SliverPadding(
+                          padding: const EdgeInsets.symmetric(horizontal: 16),
+                          sliver: SliverGrid(
+                            delegate: SliverChildBuilderDelegate((
+                              context,
+                              index,
+                            ) {
+                              final product = pageState.products[index];
+                              return _PremiumDupeProductCard(product: product);
+                            }, childCount: pageState.products.length),
+                            gridDelegate:
+                                const SliverGridDelegateWithFixedCrossAxisCount(
+                                  crossAxisCount: 2,
+                                  mainAxisSpacing: 16,
+                                  crossAxisSpacing: 12,
+                                  childAspectRatio: 0.68,
+                                ),
+                          ),
+                        ),
+                      if (pageState.isLoading && pageState.products.isNotEmpty)
+                        const SliverToBoxAdapter(
+                          child: Padding(
+                            padding: EdgeInsets.symmetric(vertical: 24),
+                            child: Center(child: CircularProgressIndicator()),
+                          ),
+                        ),
+                      const SliverToBoxAdapter(child: SizedBox(height: 32)),
+                    ],
+                  ),
+                ),
               ),
-            ),
+            ],
           ),
-        ],
-      ),
+        );
+      },
     );
   }
 }
@@ -238,7 +256,11 @@ class _PremiumDupeSheetHeaderDelegate extends SliverPersistentHeaderDelegate {
   final double paddingTop;
 
   @override
-  Widget build(BuildContext context, double shrinkOffset, bool overlapsContent) {
+  Widget build(
+    BuildContext context,
+    double shrinkOffset,
+    bool overlapsContent,
+  ) {
     final progress = (shrinkOffset / (maxExtent - minExtent)).clamp(0.0, 1.0);
 
     return Container(
@@ -254,17 +276,16 @@ class _PremiumDupeSheetHeaderDelegate extends SliverPersistentHeaderDelegate {
               itemCount: configItems.isNotEmpty ? configItems.length : 1,
               onPageChanged: onHeroPageChanged,
               itemBuilder: (context, index) {
-                final image = configItems.isNotEmpty ? configItems[index].image : '';
+                final image = configItems.isNotEmpty
+                    ? configItems[index].image
+                    : '';
                 return image.isNotEmpty
-                    ? CachedNetworkImage(
-                        imageUrl: image,
-                        fit: BoxFit.cover,
-                      )
+                    ? CachedNetworkImage(imageUrl: image, fit: BoxFit.cover)
                     : Container(color: const Color(0xFFEEF2FF));
               },
             ),
           ),
-          
+
           // Title (Centered)
           Positioned(
             top: paddingTop + 10,
@@ -286,7 +307,7 @@ class _PremiumDupeSheetHeaderDelegate extends SliverPersistentHeaderDelegate {
               ),
             ),
           ),
-          
+
           // Close Button
           Positioned(
             top: paddingTop + 8,
@@ -304,7 +325,7 @@ class _PremiumDupeSheetHeaderDelegate extends SliverPersistentHeaderDelegate {
               ),
             ),
           ),
-          
+
           // Tabs
           Positioned(
             left: 0,
@@ -312,9 +333,7 @@ class _PremiumDupeSheetHeaderDelegate extends SliverPersistentHeaderDelegate {
             bottom: 0,
             child: Container(
               height: 60,
-              decoration: BoxDecoration(
-                color: tabsBackground,
-              ),
+              decoration: BoxDecoration(color: tabsBackground),
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 10),
               child: Row(
                 children: [
@@ -325,7 +344,11 @@ class _PremiumDupeSheetHeaderDelegate extends SliverPersistentHeaderDelegate {
                       color: tabSelected,
                       shape: BoxShape.circle,
                     ),
-                    child: const Icon(Icons.search, color: Colors.white, size: 16),
+                    child: const Icon(
+                      Icons.search,
+                      color: Colors.white,
+                      size: 16,
+                    ),
                   ),
                   const SizedBox(width: 8),
                   Expanded(
@@ -449,7 +472,8 @@ class _PremiumDupeProductCard extends StatelessWidget {
   Widget build(BuildContext context) {
     final colors = context.appColors;
     final priceParts = _formatPriceParts(product.price);
-    final hasOriginal = product.originalPrice != null && product.originalPrice! > 0;
+    final hasOriginal =
+        product.originalPrice != null && product.originalPrice! > 0;
 
     return GestureDetector(
       onTap: () => context.push(
@@ -470,7 +494,8 @@ class _PremiumDupeProductCard extends StatelessWidget {
                   fit: BoxFit.contain,
                   width: double.infinity,
                   placeholder: (context, url) => Container(color: colors.muted),
-                  errorWidget: (context, url, error) => Container(color: colors.muted),
+                  errorWidget: (context, url, error) =>
+                      Container(color: colors.muted),
                 ),
               ),
             ),
@@ -497,15 +522,24 @@ class _PremiumDupeProductCard extends StatelessWidget {
                     children: [
                       Text(
                         product.currency,
-                        style: const TextStyle(fontSize: 12, fontWeight: FontWeight.bold),
+                        style: const TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                       Text(
                         priceParts.$1,
-                        style: const TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                        style: const TextStyle(
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                       Text(
                         '.${priceParts.$2}',
-                        style: const TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
+                        style: const TextStyle(
+                          fontSize: 10,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                       if (hasOriginal) ...[
                         const SizedBox(width: 6),
@@ -531,7 +565,11 @@ class _PremiumDupeProductCard extends StatelessWidget {
                     color: Color(0xFFF75555), // Red button
                     shape: BoxShape.circle,
                   ),
-                  child: const Icon(Icons.shopping_cart, size: 14, color: Colors.white),
+                  child: const Icon(
+                    Icons.shopping_cart,
+                    size: 14,
+                    color: Colors.white,
+                  ),
                 ),
               ],
             ),
