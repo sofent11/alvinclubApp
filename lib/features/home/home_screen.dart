@@ -125,9 +125,7 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
             PageView.builder(
               controller: _pageController,
               itemCount: topNavItems.length,
-              physics: const ClampingScrollPhysics(
-                parent: PageScrollPhysics(),
-              ),
+              physics: const ClampingScrollPhysics(parent: PageScrollPhysics()),
               onPageChanged: (index) {
                 setState(() {
                   _activeTopNav = topNavItems[index].key;
@@ -222,9 +220,13 @@ class _HomeTabContent extends ConsumerStatefulWidget {
   ConsumerState<_HomeTabContent> createState() => _HomeTabContentState();
 }
 
-class _HomeTabContentState extends ConsumerState<_HomeTabContent> {
+class _HomeTabContentState extends ConsumerState<_HomeTabContent>
+    with AutomaticKeepAliveClientMixin {
   final ScrollController _scrollController = ScrollController();
   String? _activeCategoryId;
+
+  @override
+  bool get wantKeepAlive => true;
 
   @override
   void initState() {
@@ -293,6 +295,7 @@ class _HomeTabContentState extends ConsumerState<_HomeTabContent> {
         }
       }
     }
+
     walk(categories);
     return map;
   }
@@ -311,8 +314,21 @@ class _HomeTabContentState extends ConsumerState<_HomeTabContent> {
     return [const HomeCategoryTab(name: 'All'), ...tabs];
   }
 
+  Future<void> _handleTabRefresh() async {
+    final isForYou = widget.item.key == 'for-you';
+    if (isForYou) {
+      await widget.onRefresh();
+    } else {
+      final params = _recommendParams();
+      await ref
+          .read(homeRecommendProductsProvider(params).notifier)
+          .loadFirstPage();
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
+    super.build(context);
     final isForYou = widget.item.key == 'for-you';
     final isFashion = widget.item.key == 'fashion';
 
@@ -326,29 +342,31 @@ class _HomeTabContentState extends ConsumerState<_HomeTabContent> {
     }
 
     final albumAsync = isForYou ? ref.watch(homeAlbumProvider) : null;
-    final premiumDupeAsync =
-        isForYou ? ref.watch(premiumDupeSelectionProvider) : null;
+    final premiumDupeAsync = isForYou
+        ? ref.watch(premiumDupeSelectionProvider)
+        : null;
     final hotState = isForYou ? ref.watch(homeHotProductsProvider) : null;
-    final flashSaleAsync = isForYou ? ref.watch(flashSaleProductsProvider) : null;
-    final flashSaleActivitiesAsync =
-        isForYou ? ref.watch(flashSaleActivitiesProvider) : null;
+    final flashSaleAsync = isForYou
+        ? ref.watch(flashSaleProductsProvider)
+        : null;
+    final flashSaleActivitiesAsync = isForYou
+        ? ref.watch(flashSaleActivitiesProvider)
+        : null;
 
     final categoriesAsync = !isForYou ? ref.watch(categoriesProvider) : null;
     final recommendParams = !isForYou ? _recommendParams() : null;
-    final recommendState =
-        (!isForYou && recommendParams != null)
-            ? ref.watch(homeRecommendProductsProvider(recommendParams))
-            : null;
+    final recommendState = (!isForYou && recommendParams != null)
+        ? ref.watch(homeRecommendProductsProvider(recommendParams))
+        : null;
 
-    final categoryNameMap =
-        categoriesAsync != null
-            ? _buildCategoryNameMap(categoriesAsync.valueOrNull ?? [])
-            : <String, String>{};
+    final categoryNameMap = categoriesAsync != null
+        ? _buildCategoryNameMap(categoriesAsync.valueOrNull ?? [])
+        : <String, String>{};
     final categoryIds = _parseCategoryIds(widget.item.categoryId);
     final categoryTabs = _buildCategoryTabs(categoryIds, categoryNameMap);
 
     return RefreshIndicator(
-      onRefresh: widget.onRefresh,
+      onRefresh: _handleTabRefresh,
       edgeOffset: topPadding,
       child: CustomScrollView(
         controller: _scrollController,
@@ -401,20 +419,18 @@ class _HomeTabContentState extends ConsumerState<_HomeTabContent> {
             SliverToBoxAdapter(
               child: albumAsync.when(
                 data: (entries) {
-                  final quickEntries =
-                      entries
-                          .map(
-                            (item) => QuickEntryItem(
-                              id: item.albumCode,
-                              title: item.title,
-                              iconUrl: item.icon,
-                              onTap:
-                                  () => context.push(
-                                    '${RoutePaths.topicDetail.replaceFirst(':id', item.albumCode)}?title=${Uri.encodeComponent(item.title)}',
-                                  ),
-                            ),
-                          )
-                          .toList();
+                  final quickEntries = entries
+                      .map(
+                        (item) => QuickEntryItem(
+                          id: item.albumCode,
+                          title: item.title,
+                          iconUrl: item.icon,
+                          onTap: () => context.push(
+                            '${RoutePaths.topicDetail.replaceFirst(':id', item.albumCode)}?title=${Uri.encodeComponent(item.title)}',
+                          ),
+                        ),
+                      )
+                      .toList();
                   return Padding(
                     padding: const EdgeInsets.only(top: 6, bottom: 8),
                     child: QuickEntryGrid(entries: quickEntries),
@@ -442,10 +458,10 @@ class _HomeTabContentState extends ConsumerState<_HomeTabContent> {
     final imageUrl = headerImage?.url ?? '';
     final ratio =
         (headerImage?.width != null &&
-                headerImage?.height != null &&
-                headerImage!.height != 0)
-            ? headerImage.width! / headerImage.height!
-            : 16 / 9;
+            headerImage?.height != null &&
+            headerImage!.height != 0)
+        ? headerImage.width! / headerImage.height!
+        : 16 / 9;
 
     return SliverToBoxAdapter(
       child: Padding(
@@ -518,11 +534,10 @@ class _HomeTabContentState extends ConsumerState<_HomeTabContent> {
                 onMoreTap: () {},
               );
             },
-            loading:
-                () => const SizedBox(
-                  height: 100,
-                  child: Center(child: CircularProgressIndicator()),
-                ),
+            loading: () => const SizedBox(
+              height: 100,
+              child: Center(child: CircularProgressIndicator()),
+            ),
             error: (_, _) => const SizedBox.shrink(),
           );
         },
@@ -578,20 +593,18 @@ class _HomeTabContentState extends ConsumerState<_HomeTabContent> {
           return ProductCard(
             product: state.products[index],
             variant: ProductCardVariant.compact,
-            onTap:
-                () => context.push(
-                  RoutePaths.productDetail.replaceFirst(
-                    ':productCode',
-                    state.products[index].id,
-                  ),
-                ),
+            onTap: () => context.push(
+              RoutePaths.productDetail.replaceFirst(
+                ':productCode',
+                state.products[index].id,
+              ),
+            ),
           );
         },
       ),
     );
   }
 }
-
 
 class _HomeHeaderBar extends StatelessWidget {
   const _HomeHeaderBar({required this.onTap});
