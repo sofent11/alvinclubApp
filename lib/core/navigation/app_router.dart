@@ -109,7 +109,12 @@ final routerProvider = Provider<GoRouter>((ref) {
         builder: (context, state) {
           final id = state.pathParameters['id'] ?? '';
           final title = state.uri.queryParameters['title'];
-          return CategoryDetailScreen(id: id, title: title);
+          final selectedId = state.uri.queryParameters['selected'];
+          return CategoryDetailScreen(
+            id: id,
+            title: title,
+            selectedId: selectedId,
+          );
         },
       ),
       GoRoute(

@@ -40,7 +40,8 @@ class CategoryProductsState {
 }
 
 class CategoryProductsNotifier extends StateNotifier<CategoryProductsState> {
-  CategoryProductsNotifier(this._repository, this._categoryId) : super(const CategoryProductsState()) {
+  CategoryProductsNotifier(this._repository, this._categoryId)
+    : super(const CategoryProductsState()) {
     loadFirstPage();
   }
 
@@ -51,11 +52,13 @@ class CategoryProductsNotifier extends StateNotifier<CategoryProductsState> {
   Future<void> loadFirstPage() async {
     state = state.copyWith(isLoading: true, error: null, products: []);
     try {
-      final response = await _repository.getCategoryProducts(CategoryProductsParams(
-        categoryId: _categoryId,
-        page: 1,
-        pageSize: _pageSize,
-      ));
+      final response = await _repository.getCategoryProducts(
+        CategoryProductsParams(
+          categoryId: _categoryId,
+          page: 1,
+          pageSize: _pageSize,
+        ),
+      );
       state = state.copyWith(
         products: response.products,
         hasMore: response.hasMore,
@@ -74,11 +77,13 @@ class CategoryProductsNotifier extends StateNotifier<CategoryProductsState> {
     state = state.copyWith(isLoading: true);
 
     try {
-      final response = await _repository.getCategoryProducts(CategoryProductsParams(
-        categoryId: _categoryId,
-        page: nextPage,
-        pageSize: _pageSize,
-      ));
+      final response = await _repository.getCategoryProducts(
+        CategoryProductsParams(
+          categoryId: _categoryId,
+          page: nextPage,
+          pageSize: _pageSize,
+        ),
+      );
       state = state.copyWith(
         products: [...state.products, ...response.products],
         hasMore: response.hasMore,
@@ -91,10 +96,77 @@ class CategoryProductsNotifier extends StateNotifier<CategoryProductsState> {
   }
 }
 
-final categoryProductsProvider =
-    StateNotifierProvider.family.autoDispose<CategoryProductsNotifier, CategoryProductsState, String>(
-  (ref, categoryId) {
-    final repo = ref.watch(productRepositoryProvider);
-    return CategoryProductsNotifier(repo, categoryId);
-  },
-);
+final categoryProductsProvider = StateNotifierProvider.family
+    .autoDispose<CategoryProductsNotifier, CategoryProductsState, String>((
+      ref,
+      categoryId,
+    ) {
+      final repo = ref.watch(productRepositoryProvider);
+      return CategoryProductsNotifier(repo, categoryId);
+    });
+
+class CategoryHotProductsNotifier extends StateNotifier<CategoryProductsState> {
+  CategoryHotProductsNotifier(this._repository, this._categoryId)
+    : super(const CategoryProductsState()) {
+    loadFirstPage();
+  }
+
+  final ProductRepository _repository;
+  final String _categoryId;
+  static const int _pageSize = 20;
+
+  Future<void> loadFirstPage() async {
+    state = state.copyWith(isLoading: true, error: null, products: []);
+    try {
+      final response = await _repository.getHotProductsV2(
+        params: ProductListParams(
+          page: 1,
+          pageSize: _pageSize,
+          categoryId: _categoryId,
+        ),
+      );
+      state = state.copyWith(
+        products: response.products,
+        hasMore: response.hasMore,
+        page: 1,
+        isLoading: false,
+      );
+    } catch (e) {
+      state = state.copyWith(isLoading: false, error: e.toString());
+    }
+  }
+
+  Future<void> loadMore() async {
+    if (state.isLoading || !state.hasMore) return;
+
+    final nextPage = state.page + 1;
+    state = state.copyWith(isLoading: true);
+
+    try {
+      final response = await _repository.getHotProductsV2(
+        params: ProductListParams(
+          page: nextPage,
+          pageSize: _pageSize,
+          categoryId: _categoryId,
+        ),
+      );
+      state = state.copyWith(
+        products: [...state.products, ...response.products],
+        hasMore: response.hasMore,
+        page: nextPage,
+        isLoading: false,
+      );
+    } catch (e) {
+      state = state.copyWith(isLoading: false, error: e.toString());
+    }
+  }
+}
+
+final categoryHotProductsProvider = StateNotifierProvider.family
+    .autoDispose<CategoryHotProductsNotifier, CategoryProductsState, String>((
+      ref,
+      categoryId,
+    ) {
+      final repo = ref.watch(productRepositoryProvider);
+      return CategoryHotProductsNotifier(repo, categoryId);
+    });
