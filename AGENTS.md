@@ -2,274 +2,127 @@
 
 This file contains build commands, code style guidelines, and architectural patterns for agentic coding agents working on this Flutter e-commerce application.
 
-**Note: The migration from React Native is complete. This Flutter codebase is now the single source of truth. Do NOT refer to the original React Native implementation for future iterations or feature development.**
+> **CRITICAL**: The migration from React Native is complete. This Flutter codebase is the single source of truth. Do NOT refer to legacy React Native code.
 
-## Build & Development Commands
+## 1. Build & Verification Commands
 
-### Core Commands
+Use these commands for all development tasks. Always verify your changes before finishing.
+
 ```bash
-# Install dependencies
-flutter pub get
+# Core
+flutter pub get               # Install dependencies
+flutter analyze               # Run linter (REQUIRED before committing)
+dart format .                 # Format code (REQUIRED before committing)
+flutter test                  # Run all tests
+flutter test test/features/   # Run specific feature tests
 
-# Run the app in development mode
-flutter run
+# Build
+flutter run                   # Dev mode
+flutter build apk --release   # Android release build
+flutter build ios --release   # iOS release build
 
-# Build for production
-flutter build apk --release
-flutter build ios --release
-
-# Run tests
-flutter test
-
-# Run a single test file
-flutter test test/widget_test.dart
-
-# Run tests with coverage
-flutter test --coverage
-
-# Code generation (API clients, models, serializers)
-flutter pub run build_runner build --delete-conflicting-outputs
-
-# Watch mode for code generation
+# Code Generation (Run after editing models or API specs)
+# Watch mode (recommended during dev)
 flutter pub run build_runner watch --delete-conflicting-outputs
-
-# Code analysis and linting
-flutter analyze
-
-# Format code
-dart format .
-
-# Clean build artifacts
-flutter clean
-```
-
-### API Generation Workflow
-```bash
-# Sanitize swagger specs (when raw specs change)
-python3 scripts/sanitize_all_swagger.py
-
-# Generate API clients and models
+# One-off build
 flutter pub run build_runner build --delete-conflicting-outputs
 ```
 
-## Architecture Overview
+## 2. Architecture & Patterns
 
-### Project Structure
-```
+### Directory Structure
+Reflects a feature-first architecture.
+```text
 lib/
-├── core/                 # Core utilities and singletons
-│   ├── auth/            # Authentication state management
-│   ├── env/             # Environment configuration
-│   ├── error/           # Error handling utilities
-│   ├── navigation/      # App routing configuration
-│   ├── storage/         # Local storage abstractions
-│   └── theme/           # App theming
-├── data/                # Data layer
-│   ├── api/            # Generated API clients
-│   └── repositories/   # Repository implementations
-├── features/           # Feature modules
-│   ├── auth/          # Authentication flows
-│   ├── catalog/       # Product catalog
-│   ├── cart/          # Shopping cart
-│   ├── checkout/      # Checkout process
-│   └── shared/        # Feature-specific utilities
-└── shared/            # Cross-cutting concerns
-    └── widgets/       # Reusable UI components
+├── core/                 # App-wide singletons (Auth, Env, Theme, Routing)
+├── data/                 # Repositories & API clients (Generated code lives here)
+├── features/             # Business logic modules (Auth, Cart, Catalog)
+├── shared/               # Reusable UI widgets & extensions
+└── main.dart             # App entry point (Environment & State hydration)
 ```
 
-### State Management
-- Uses **Riverpod** for state management
-- Controllers extend `StateNotifier` for business logic
-- Providers follow naming convention: `featureControllerProvider`
-- Authentication state managed in `core/auth/auth_store.dart`
+### State Management (Riverpod)
+- **Providers**: Use `Provider`, `StateNotifierProvider`, or `FutureProvider`.
+- **Naming**: Suffix with `Provider` (e.g., `authControllerProvider`).
+- **Hydration**: Critical global state (like Auth) is hydrated **before** `runApp` in `main.dart`.
+  ```dart
+  // main.dart pattern
+  final container = ProviderContainer();
+  await container.read(authControllerProvider.notifier).hydrate();
+  runApp(UncontrolledProviderScope(container: container, child: const MyApp()));
+  ```
 
 ### API Layer
-- Generated clients in `lib/data/api/generated/` (excluded from analysis)
-- Repository pattern in `lib/data/repositories/`
-- Error handling with custom `ApiError` class
-- Dio for HTTP client with interceptors
+- **Generation**: Swagger specs in `docs/api/` -> `lib/data/api/generated/`.
+- **Workflow**:
+  1. Update raw specs in `docs/api/`.
+  2. Run `python3 scripts/sanitize_all_swagger.py` to clean specs.
+  3. Run `flutter pub run build_runner build` to regenerate Dart code.
+- **Error Handling**: 
+  - Repositories MUST catch Dio exceptions and throw `ApiError`.
+  - Use `normalizeApiError(e)` helper.
 
-## Code Style Guidelines
+## 3. Code Style & Conventions
 
-### Import Organization
+### Imports
+Order imports to separate layers clearly:
+1. Dart core (`dart:convert`)
+2. Flutter/Riverpod (`package:flutter/...`)
+3. Third-party packages (`package:dio/...`)
+4. Internal absolute/relative imports (`../../core/...`)
+
+### Naming
+- **Files**: `snake_case.dart`
+- **Classes**: `PascalCase`
+- **Variables/Methods**: `camelCase`
+- **Constants**: `UPPER_SNAKE_CASE`
+
+### Coding Standards
+- **Null Safety**: Use `required` for mandatory fields. Avoid `!`. Use `?` and `??`.
+- **Async**: Always use `async/await` instead of `.then()`.
+- **Types**: Explicitly type public APIs. Use `typedef` for complex structures.
+- **Widgets**: 
+  - Extract complex UI into small, `const` widgets in `shared/widgets`.
+  - Use `context.appColors` (Theme extension) instead of hardcoded colors.
+
+### Example Component
 ```dart
-// Dart core imports first
-import 'dart:convert';
-
-// Flutter imports next
-import 'package:flutter/material.dart';
-import 'package:flutter_riverpod/flutter_riverpod.dart';
-
-// Package imports (alphabetical)
-import 'package:dio/dio.dart';
-import 'package:cached_network_image/cached_network_image.dart';
-
-// Project imports (relative, organized by layer)
-import '../../core/auth/auth_store.dart';
-import '../../core/error/api_error.dart';
-import '../data/api/swagger_client.dart';
-import 'widgets/input_field.dart';
-```
-
-### Naming Conventions
-- **Files**: snake_case (e.g., `auth_store.dart`, `input_field.dart`)
-- **Classes**: PascalCase (e.g., `AuthController`, `InputField`)
-- **Variables**: camelCase (e.g., `authController`, `isLoading`)
-- **Constants**: UPPER_SNAKE_CASE (e.g., `SECURE_STORAGE_KEY`)
-- **Private members**: prefix with `_` (e.g., `_storage`, `_persist()`)
-
-### Type Definitions
-- Use `typedef` for complex function signatures and data maps
-```dart
-typedef JsonMap = Map<String, dynamic>;
-typedef ApiResponse<T> = Future<Result<T>>;
-```
-
-### Class Structure
-```dart
-class ExampleClass {
-  // 1. Constants
-  static const String _storageKey = 'example-key';
-  
-  // 2. Constructor (const when possible)
-  const ExampleClass({
-    required this.requiredField,
-    this.optionalField,
-  });
-  
-  // 3. Final fields
-  final String requiredField;
-  final String? optionalField;
-  
-  // 4. Getters (computed properties)
-  bool get isValid => requiredField.isNotEmpty;
-  
-  // 5. Public methods
-  Future<void> performAction() async {
-    // Implementation
-  }
-  
-  // 6. Private methods
-  Future<void> _persist() async {
-    // Implementation
-  }
-  
-  // 7. Factory constructors (fromJson, copyWith)
-  factory ExampleClass.fromJson(JsonMap json) {
-    return ExampleClass(
-      requiredField: json['requiredField'] as String,
-      optionalField: json['optionalField'] as String?,
-    );
-  }
-  
-  ExampleClass copyWith({
-    String? requiredField,
-    String? optionalField,
-  }) {
-    return ExampleClass(
-      requiredField: requiredField ?? this.requiredField,
-      optionalField: optionalField ?? this.optionalField,
-    );
-  }
-}
-```
-
-### Error Handling
-- Use custom `ApiError` class for API-related errors
-- Repository methods should throw `ApiError` on failures
-- Use `normalizeApiError()` helper function for Dio exceptions
-- UI layers catch errors and show user-friendly messages
-
-```dart
-try {
-  final result = await repository.getData();
-  return Result.success(result);
-} on ApiError catch (e) {
-  return Result.failure(e.message);
-} catch (e) {
-  return Result.failure('Unexpected error occurred');
-}
-```
-
-### UI Component Guidelines
-- Use shared widgets from `lib/shared/widgets/`
-- Follow theming system with `context.appColors`
-- Components should be reusable and accept configuration via constructor
-- Use `const` constructors where possible for performance
-
-```dart
-class CustomButton extends StatelessWidget {
-  const CustomButton({
+class ProductCard extends StatelessWidget {
+  const ProductCard({
     super.key,
-    required this.label,
-    this.onPressed,
-    this.variant = ButtonVariant.primary,
+    required this.product,
+    this.onTap,
   });
 
-  final String label;
-  final VoidCallback? onPressed;
-  final ButtonVariant variant;
+  final Product product;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
-    final colors = context.appColors;
-    // Implementation using theme colors
+    return InkWell(
+      onTap: onTap,
+      child: Container(
+        color: context.appColors.surface, // Theme usage
+        child: Text(product.name),
+      ),
+    );
   }
 }
 ```
 
-### Null Safety
-- Use nullable types (`String?`) for optional fields
-- Provide default values or handle null cases appropriately
-- Use null-aware operators (`?.`, `??`) safely
-- Use `required` keyword for non-nullable constructor parameters
+## 4. Testing Strategy
+- **Structure**: `test/` directory mirrors `lib/` (e.g., `lib/features/auth` -> `test/features/auth`).
+- **Unit Tests**: Test `StateNotifier` logic and Repositories. Mock dependencies using `mockito`.
+- **Widget Tests**: Test UI components in isolation using `pumpWidget`.
 
-### Async/Await
-- Always use `async/await` for Future-based operations
-- Handle errors in async operations with try-catch blocks
-- Use `Future<void>` for methods that don't return values
-- Avoid blocking the UI thread - use proper async patterns
+## 5. Environment & Security
+- **Config**: Loaded via `EnvConfig.load()` in `main.dart` using `flutter_dotenv`.
+- **Files**: `.env.dev` (default), `.env.test`, `.env.prod`.
+- **Secrets**: NEVER commit `.env` files.
+- **Storage**: Use `flutter_secure_storage` for tokens/credentials.
 
-### Testing
-- Write widget tests for UI components
-- Use `flutter_test` package
-- Test providers and controllers with unit tests
-- Mock dependencies using `mockito` or similar packages
-
-```dart
-testWidgets('CustomButton renders correctly', (WidgetTester tester) async {
-  await tester.pumpWidget(
-    MaterialApp(
-      home: CustomButton(label: 'Test', onPressed: () {}),
-    ),
-  );
-  
-  expect(find.text('Test'), findsOneWidget);
-});
-```
-
-## Environment Configuration
-- Environment files: `.env.dev`, `.env.test`, `.env.example`
-- Use `flutter_dotenv` for environment variable loading
-- Never commit sensitive data to version control
-- Environment loading happens in `main.dart`
-
-## Code Generation
-- API clients generated from Swagger/OpenAPI specs
-- JSON serialization with `json_annotation` and `json_serializable`
-- Run `flutter pub run build_runner build` after modifying models
-- Generated files are in `lib/data/api/generated/` (excluded from analysis)
-
-## Performance Considerations
-- Use `const` constructors for widgets that don't change
-- Implement proper image caching with `cached_network_image`
-- Use `ListView.builder` for long lists
-- Avoid unnecessary widget rebuilds with proper provider usage
-- Use `AutomaticKeepAliveClientMixin` for state preservation when needed
-
-## Security
-- Store sensitive data in `flutter_secure_storage`
-- Never log tokens, passwords, or other sensitive information
-- Use HTTPS for all API calls
-- Validate and sanitize user inputs
-- Implement proper authentication and authorization checks
+## 6. Common Tasks Checklist
+- [ ] **New Feature**: Create directory in `features/`. Add `StateNotifier`. Add Repository.
+- [ ] **New API Endpoint**: Update Swagger spec -> Sanitize -> Run build_runner.
+- [ ] **UI Change**: Update Widget. Verify Dark/Light mode.
+- [ ] **Pre-Commit**: Run `flutter analyze` and `flutter test`.
