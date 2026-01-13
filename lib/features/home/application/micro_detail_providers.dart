@@ -35,7 +35,9 @@ class MicroDetailState {
 
 class MicroDetailNotifier extends StateNotifier<MicroDetailState> {
   MicroDetailNotifier(this._repository, this._initialProduct)
-    : super(MicroDetailState(products: [_initialProduct])) {
+    : super(
+        MicroDetailState(products: [_initialProduct], hasMore: true, page: 0),
+      ) {
     loadMore();
   }
 
@@ -52,10 +54,7 @@ class MicroDetailNotifier extends StateNotifier<MicroDetailState> {
 
     try {
       final response = await _repository.getHotProductsV3(
-        params: ProductListParams(
-          page: 1, // Always fetch page 1 first as the "next" products
-          pageSize: _pageSize,
-        ),
+        params: ProductListParams(page: nextPage, pageSize: _pageSize),
       );
 
       // Filter out the initial product if it exists in the response to avoid duplicates
@@ -66,7 +65,7 @@ class MicroDetailNotifier extends StateNotifier<MicroDetailState> {
       state = state.copyWith(
         products: [...state.products, ...newProducts],
         hasMore: response.hasMore,
-        page: 1, // We just loaded page 1 effectively
+        page: nextPage,
         isLoading: false,
       );
     } catch (e) {

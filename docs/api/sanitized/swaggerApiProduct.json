@@ -3672,6 +3672,24 @@
                               }
                             }
                           },
+                          "imgCollection": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "width": {
+                                  "type": "number"
+                                },
+                                "height": {
+                                  "type": "number"
+                                },
+                                "url": {
+                                  "type": "string"
+                                }
+                              }
+                            },
+                            "description": "图集"
+                          },
                           "sourcePlatform": {
                             "type": "string"
                           },

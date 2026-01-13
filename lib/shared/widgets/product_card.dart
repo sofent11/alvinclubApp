@@ -8,6 +8,7 @@ import '../../data/repositories/product_repository.dart';
 import '../../features/favorites/application/favorites_notifier.dart'
     hide isFavoriteProvider;
 import '../../features/product/product_providers.dart';
+import '../utils/price_utils.dart';
 
 enum ProductCardVariant { standard, compact }
 
@@ -68,7 +69,7 @@ class _ProductCardState extends ConsumerState<ProductCard> {
     final colors = context.appColors;
     final isCompact = widget.variant == ProductCardVariant.compact;
     final isFavoriteAsync = ref.watch(isFavoriteProvider(widget.product.id));
-    final currency = _currencySymbol(widget.product.currency);
+    final currency = PriceUtils.getCurrencySymbol(widget.product.currency);
     final borderRadius = BorderRadius.circular(isCompact ? 14 : 12);
 
     return AnimatedOpacity(
@@ -226,7 +227,7 @@ class _ProductCardState extends ConsumerState<ProductCard> {
                               widget.product.sales! > 0) ...[
                             SizedBox(height: isCompact ? 3 : 6),
                             Text(
-                              '销量${_formatSales(widget.product.sales!)}',
+                              '销量${PriceUtils.formatSales(widget.product.sales!)}',
                               style: TextStyle(
                                 fontSize: isCompact ? 9 : 12,
                                 height: isCompact ? 12 / 9 : 16 / 12,
@@ -382,31 +383,4 @@ class _ProductCardState extends ConsumerState<ProductCard> {
   }
 }
 
-String _formatSales(int sales) {
-  if (sales >= 10000) {
-    return '${(sales / 10000).toStringAsFixed(1)}万+';
-  }
-  if (sales >= 1000) {
-    return '${(sales / 1000).toStringAsFixed(1)}k+';
-  }
-  return '$sales+';
-}
-
-String _currencySymbol(String? currency) {
-  if (currency == null || currency.trim().isEmpty) {
-    return '¥';
-  }
-  final normalized = currency.trim().toUpperCase();
-  const symbolMap = {
-    'CNY': '¥',
-    'RMB': '¥',
-    'USD': '\$',
-    'AUD': 'A\$',
-    'CAD': 'C\$',
-    'GBP': '£',
-    'EUR': '€',
-    'JPY': '¥',
-    'HKD': 'HK\$',
-  };
-  return symbolMap[normalized] ?? currency;
-}
+// Deleted private helper functions as they are replaced by PriceUtils

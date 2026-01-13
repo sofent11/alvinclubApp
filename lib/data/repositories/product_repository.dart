@@ -542,9 +542,17 @@ class ProductRepository {
           .toList();
       final imageUrl = item.image?.url ?? '';
 
-      // Note: imgCollection is not yet available in the generated Swagger code for V3.
-      // We use the main image as a fallback for the collection.
-      final images = imageUrl.isNotEmpty ? [imageUrl] : const <String>[];
+      // Map imgCollection from the new V3 field
+      final imgCollection = (item.imgCollection ?? const [])
+          .map((img) => img.url)
+          .whereType<String>()
+          .where((url) => url.isNotEmpty)
+          .toList();
+
+      // Use imgCollection if available, otherwise fallback to main image
+      final images = imgCollection.isNotEmpty
+          ? imgCollection
+          : (imageUrl.isNotEmpty ? [imageUrl] : const <String>[]);
 
       return ProductItem(
         id: item.productCode ?? '',

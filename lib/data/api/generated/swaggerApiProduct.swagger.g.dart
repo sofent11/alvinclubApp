@@ -3294,6 +3294,14 @@ _$ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$ItemFromJson(
       : ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$Image.fromJson(
           json['image'] as Map<String, dynamic>,
         ),
+  imgCollection: (json['imgCollection'] as List<dynamic>?)
+      ?.map(
+        (e) =>
+            ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$ImgCollection$Item.fromJson(
+              e as Map<String, dynamic>,
+            ),
+      )
+      .toList(),
   sourcePlatform: JsonCoerce.asString(json['sourcePlatform']),
   platformProductId: JsonCoerce.asString(json['platformProductId']),
   skuCode: JsonCoerce.asString(json['skuCode']),
@@ -3339,6 +3347,7 @@ _$ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$ItemToJson(
   'productCode': instance.productCode,
   'productName': instance.productName,
   'image': instance.image?.toJson(),
+  'imgCollection': instance.imgCollection?.map((e) => e.toJson()).toList(),
   'sourcePlatform': instance.sourcePlatform,
   'platformProductId': instance.platformProductId,
   'skuCode': instance.skuCode,
@@ -4888,6 +4897,26 @@ _$ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$ImageFro
 Map<String, dynamic>
 _$ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$ImageToJson(
   ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$Image
+  instance,
+) => <String, dynamic>{
+  'width': instance.width,
+  'height': instance.height,
+  'url': instance.url,
+};
+
+ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$ImgCollection$Item
+_$ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$ImgCollection$ItemFromJson(
+  Map<String, dynamic> json,
+) =>
+    ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$ImgCollection$Item(
+      width: JsonCoerce.asDouble(json['width']),
+      height: JsonCoerce.asDouble(json['height']),
+      url: JsonCoerce.asString(json['url']),
+    );
+
+Map<String, dynamic>
+_$ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$ImgCollection$ItemToJson(
+  ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$ImgCollection$Item
   instance,
 ) => <String, dynamic>{
   'width': instance.width,
