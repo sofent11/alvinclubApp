@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:math' as math;
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
@@ -244,6 +245,7 @@ class _HomeTabContentState extends ConsumerState<_HomeTabContent>
     if (!_scrollController.hasClients) return;
     if (_scrollController.position.pixels <
         _scrollController.position.maxScrollExtent - 200) {
+      setState(() {});
       return;
     }
 
@@ -267,6 +269,14 @@ class _HomeTabContentState extends ConsumerState<_HomeTabContent>
       return HomeRecommendParams(categoryId: _activeCategoryId);
     }
     return HomeRecommendParams(categoryIds: categoryIds);
+  }
+
+  double _calculateOpacity(double heroHeight, double topPadding) {
+    if (!_scrollController.hasClients) return 0.0;
+    final offset = _scrollController.offset;
+    final maxOffset = math.max(0, heroHeight - topPadding);
+    if (maxOffset <= 0) return 1.0;
+    return (offset / maxOffset).clamp(0.0, 1.0);
   }
 
   void _onCategoryTap(String? id) {
@@ -365,106 +375,25 @@ class _HomeTabContentState extends ConsumerState<_HomeTabContent>
     final categoryIds = _parseCategoryIds(widget.item.categoryId);
     final categoryTabs = _buildCategoryTabs(categoryIds, categoryNameMap);
 
-    return RefreshIndicator(
-      onRefresh: _handleTabRefresh,
-      edgeOffset: topPadding,
-      child: CustomScrollView(
-        controller: _scrollController,
-        slivers: [
-          if (!isForYou)
-            _buildHeroHeader(context)
-          else
-            SliverToBoxAdapter(child: SizedBox(height: topPadding)),
+    Widget? heroImageWidget;
+    double heroHeight = 0;
 
-          if (!isForYou)
-            SliverPersistentHeader(
-              pinned: true,
-              delegate: _FixedHeaderDelegate(
-                height: 40,
-                child: HomeCategoryTabs(
-                  items: categoryTabs,
-                  activeId: _activeCategoryId,
-                  backgroundColor: context.appColors.surface,
-                  onChange: _onCategoryTap,
-                ),
-              ),
-            ),
+    if (!isForYou) {
+      final activeItem = widget.item;
+      final headerImage =
+          activeItem.bgImage ?? activeItem.active ?? activeItem.icon;
+      final imageUrl = headerImage?.url ?? '';
+      final ratio =
+          (headerImage?.width != null &&
+              headerImage?.height != null &&
+              headerImage!.height != 0)
+          ? headerImage.width! / headerImage.height!
+          : 16 / 9;
 
-          if (isForYou && premiumDupeAsync != null)
-            SliverToBoxAdapter(
-              child: premiumDupeAsync.when(
-                data: (products) {
-                  if (products.isEmpty) return const SizedBox.shrink();
-                  return PremiumDupeList(
-                    products: products,
-                    onProductTap: (_) => PremiumDupeSheet.show(context),
-                    onMoreTap: () => PremiumDupeSheet.show(context),
-                  );
-                },
-                loading: () => const SizedBox.shrink(),
-                error: (_, _) => const SizedBox.shrink(),
-              ),
-            ),
+      final screenWidth = MediaQuery.of(context).size.width;
+      heroHeight = (screenWidth / ratio) + 8;
 
-          if (isForYou &&
-              flashSaleActivitiesAsync != null &&
-              flashSaleAsync != null)
-            _buildFlashSaleSection(
-              context,
-              flashSaleActivitiesAsync,
-              flashSaleAsync,
-            ),
-
-          if (isForYou && albumAsync != null)
-            SliverToBoxAdapter(
-              child: albumAsync.when(
-                data: (entries) {
-                  final quickEntries = entries
-                      .map(
-                        (item) => QuickEntryItem(
-                          id: item.albumCode,
-                          title: item.title,
-                          iconUrl: item.icon,
-                          onTap: () => context.push(
-                            '${RoutePaths.topicDetail.replaceFirst(':id', item.albumCode)}?title=${Uri.encodeComponent(item.title)}',
-                          ),
-                        ),
-                      )
-                      .toList();
-                  return Padding(
-                    padding: const EdgeInsets.only(top: 6, bottom: 8),
-                    child: QuickEntryGrid(entries: quickEntries),
-                  );
-                },
-                loading: () => const SizedBox.shrink(),
-                error: (_, _) => const SizedBox.shrink(),
-              ),
-            ),
-
-          if (isForYou && hotState != null)
-            _buildProductGrid(context, hotState),
-          if (!isForYou && recommendState != null)
-            _buildProductGrid(context, recommendState),
-          const SliverToBoxAdapter(child: SizedBox(height: 16)),
-        ],
-      ),
-    );
-  }
-
-  Widget _buildHeroHeader(BuildContext context) {
-    final activeItem = widget.item;
-    final headerImage =
-        activeItem.bgImage ?? activeItem.active ?? activeItem.icon;
-    final imageUrl = headerImage?.url ?? '';
-    final ratio =
-        (headerImage?.width != null &&
-            headerImage?.height != null &&
-            headerImage!.height != 0)
-        ? headerImage.width! / headerImage.height!
-        : 16 / 9;
-
-    return SliverToBoxAdapter(
-      child: Padding(
+      heroImageWidget = Padding(
         padding: const EdgeInsets.only(bottom: 8),
         child: ClipRRect(
           borderRadius: const BorderRadius.only(
@@ -499,7 +428,111 @@ class _HomeTabContentState extends ConsumerState<_HomeTabContent>
             ),
           ),
         ),
-      ),
+      );
+    }
+
+    return Stack(
+      children: [
+        if (!isForYou && heroImageWidget != null)
+          Positioned(
+            top: 0,
+            left: 0,
+            right: 0,
+            height: heroHeight,
+            child: heroImageWidget,
+          ),
+        RefreshIndicator(
+          onRefresh: _handleTabRefresh,
+          edgeOffset: topPadding,
+          child: CustomScrollView(
+            controller: _scrollController,
+            slivers: [
+              if (!isForYou)
+                SliverToBoxAdapter(
+                  child: SizedBox(height: math.max(0, heroHeight - topPadding)),
+                )
+              else
+                SliverToBoxAdapter(child: SizedBox(height: topPadding)),
+              if (!isForYou)
+                SliverPersistentHeader(
+                  pinned: true,
+                  delegate: _StickyCategoryHeaderDelegate(
+                    topPadding: topPadding,
+                    child: HomeCategoryTabs(
+                      items: categoryTabs,
+                      activeId: _activeCategoryId,
+                      backgroundColor: context.appColors.surface,
+                      onChange: _onCategoryTap,
+                    ),
+                    opacity: _calculateOpacity(heroHeight, topPadding),
+                  ),
+                ),
+              if (isForYou && premiumDupeAsync != null)
+                SliverToBoxAdapter(
+                  child: premiumDupeAsync.when(
+                    data: (products) {
+                      if (products.isEmpty) return const SizedBox.shrink();
+                      return PremiumDupeList(
+                        products: products,
+                        onProductTap: (_) => PremiumDupeSheet.show(context),
+                        onMoreTap: () => PremiumDupeSheet.show(context),
+                      );
+                    },
+                    loading: () => const SizedBox.shrink(),
+                    error: (_, _) => const SizedBox.shrink(),
+                  ),
+                ),
+              if (isForYou &&
+                  flashSaleActivitiesAsync != null &&
+                  flashSaleAsync != null)
+                _buildFlashSaleSection(
+                  context,
+                  flashSaleActivitiesAsync,
+                  flashSaleAsync,
+                ),
+              if (isForYou && albumAsync != null)
+                SliverToBoxAdapter(
+                  child: albumAsync.when(
+                    data: (entries) {
+                      final quickEntries = entries
+                          .map(
+                            (item) => QuickEntryItem(
+                              id: item.albumCode,
+                              title: item.title,
+                              iconUrl: item.icon,
+                              onTap: () => context.push(
+                                '${RoutePaths.topicDetail.replaceFirst(':id', item.albumCode)}?title=${Uri.encodeComponent(item.title)}',
+                              ),
+                            ),
+                          )
+                          .toList();
+                      return Padding(
+                        padding: const EdgeInsets.only(top: 6, bottom: 8),
+                        child: QuickEntryGrid(entries: quickEntries),
+                      );
+                    },
+                    loading: () => const SizedBox.shrink(),
+                    error: (_, _) => const SizedBox.shrink(),
+                  ),
+                ),
+              if (isForYou && hotState != null)
+                _buildProductGrid(context, hotState),
+              if (!isForYou && recommendState != null)
+                SliverToBoxAdapter(
+                  child: Container(
+                    color: Colors.white,
+                    child: CustomScrollView(
+                      shrinkWrap: true,
+                      physics: const NeverScrollableScrollPhysics(),
+                      slivers: [_buildProductGrid(context, recommendState)],
+                    ),
+                  ),
+                ),
+              const SliverToBoxAdapter(child: SizedBox(height: 16)),
+            ],
+          ),
+        ),
+      ],
     );
   }
 
@@ -671,17 +704,22 @@ class _HomeHeaderBar extends StatelessWidget {
   }
 }
 
-class _FixedHeaderDelegate extends SliverPersistentHeaderDelegate {
-  _FixedHeaderDelegate({required this.height, required this.child});
+class _StickyCategoryHeaderDelegate extends SliverPersistentHeaderDelegate {
+  _StickyCategoryHeaderDelegate({
+    required this.topPadding,
+    required this.child,
+    required this.opacity,
+  });
 
-  final double height;
+  final double topPadding;
   final Widget child;
+  final double opacity;
 
   @override
-  double get minExtent => height;
+  double get minExtent => topPadding + 40;
 
   @override
-  double get maxExtent => height;
+  double get maxExtent => topPadding + 40;
 
   @override
   Widget build(
@@ -689,12 +727,25 @@ class _FixedHeaderDelegate extends SliverPersistentHeaderDelegate {
     double shrinkOffset,
     bool overlapsContent,
   ) {
-    return SizedBox(height: height, child: child);
+    return Column(
+      children: [
+        Container(
+          height: topPadding,
+          color: Colors.white.withValues(alpha: opacity),
+        ),
+        SizedBox(
+          height: 40,
+          child: Container(color: Colors.white, child: child),
+        ),
+      ],
+    );
   }
 
   @override
-  bool shouldRebuild(covariant _FixedHeaderDelegate oldDelegate) {
-    return oldDelegate.height != height || oldDelegate.child != child;
+  bool shouldRebuild(covariant _StickyCategoryHeaderDelegate oldDelegate) {
+    return oldDelegate.topPadding != topPadding ||
+        oldDelegate.child != child ||
+        oldDelegate.opacity != opacity;
   }
 }
 
