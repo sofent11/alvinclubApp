@@ -1,249 +1,213 @@
-import 'dart:async';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:go_router/go_router.dart';
+import 'package:collection/collection.dart';
 
 import '../../../core/navigation/route_paths.dart';
-import '../../../core/theme/app_theme.dart';
 import '../../../data/repositories/product_repository.dart';
 import '../../../shared/widgets/empty_state.dart';
-import '../../../shared/widgets/product_card.dart';
-import '../../../shared/widgets/themed_text.dart';
 import '../application/flash_sale_providers.dart';
+import 'widgets/flash_sale_header.dart';
+import 'widgets/time_slot_tabs.dart';
+import 'widgets/category_filter_bar.dart';
+import 'widgets/flash_sale_product_card.dart';
 
 class FlashSaleScreen extends ConsumerStatefulWidget {
-  const FlashSaleScreen({super.key});
+  const FlashSaleScreen({super.key, this.productCode});
+
+  final String? productCode;
 
   @override
   ConsumerState<FlashSaleScreen> createState() => _FlashSaleScreenState();
 }
 
-class _FlashSaleScreenState extends ConsumerState<FlashSaleScreen> with SingleTickerProviderStateMixin {
-  TabController? _tabController;
+class _FlashSaleScreenState extends ConsumerState<FlashSaleScreen> {
+  String? _selectedActivityId;
+  String? _selectedCategoryName;
+  bool _isInit = true;
 
-  @override
-  void dispose() {
-    _tabController?.dispose();
-    super.dispose();
+  void _onActivitySelected(FlashSaleActivity activity) {
+    if (_selectedActivityId == activity.id) return;
+    setState(() {
+      _selectedActivityId = activity.id;
+    });
+  }
+
+  void _onCategorySelected(String? categoryName) {
+    if (_selectedCategoryName == categoryName) return;
+    setState(() {
+      _selectedCategoryName = categoryName;
+    });
+
+    // Notify provider to filter
+    if (_selectedActivityId != null) {
+      ref
+          .read(flashSaleProductsProvider(_selectedActivityId!).notifier)
+          .setCategory(categoryName);
+    }
   }
 
   @override
   Widget build(BuildContext context) {
     final activitiesAsync = ref.watch(flashSaleActivitiesProvider);
+    final categoriesAsync = ref.watch(flashSaleCategoriesProvider);
 
     return Scaffold(
-      backgroundColor: context.appColors.background,
-      appBar: AppBar(
-        title: const Text('Flash Sale'),
-      ),
+      backgroundColor: const Color(0xFFF5F5F5),
       body: activitiesAsync.when(
+        loading: () => const Center(child: CircularProgressIndicator()),
+        error: (err, stack) => Center(child: Text('Error: $err')),
         data: (activities) {
           if (activities.isEmpty) {
-            return const EmptyState(
-              type: EmptyStateType.search,
-              title: 'No flash sales',
-              description: 'Please check back later.',
+            return _buildHeaderWrapper(
+              context,
+              const EmptyState(
+                type: EmptyStateType.search,
+                title: 'No flash sales',
+                description: 'Please check back later.',
+              ),
             );
           }
 
-          if (_tabController == null || _tabController!.length != activities.length) {
-            _tabController = TabController(length: activities.length, vsync: this);
+          // Initialize selection
+          if (_isInit) {
+            _isInit = false;
+            // Select ongoing (status 2) or first
+            final ongoing = activities.firstWhereOrNull((a) => a.status == 2);
+            _selectedActivityId = ongoing?.id ?? activities.first.id;
+
+            // Handle deep link productCode
+            if (widget.productCode != null && _selectedActivityId != null) {
+              // Defer to next frame to avoid provider modification during build
+              WidgetsBinding.instance.addPostFrameCallback((_) {
+                ref
+                    .read(
+                      flashSaleProductsProvider(_selectedActivityId!).notifier,
+                    )
+                    .setTargetProductCode(widget.productCode);
+              });
+            }
+          }
+
+          // Safety check if selected ID is somehow invalid (e.g. data refresh)
+          if (_selectedActivityId == null ||
+              !activities.any((a) => a.id == _selectedActivityId)) {
+            _selectedActivityId = activities.first.id;
           }
 
           return Column(
             children: [
-              TabBar(
-                controller: _tabController,
-                isScrollable: true,
-                tabs: activities.map((a) => Tab(text: a.title)).toList(),
+              FlashSaleHeader(
+                onBack: () => context.pop(),
+                onRulesTap: () {
+                  // TODO: Show rules
+                },
               ),
-              Expanded(
-                child: TabBarView(
-                  controller: _tabController,
-                  children: activities.map((a) => _FlashSaleList(activity: a)).toList(),
+              TimeSlotTabs(
+                activities: activities,
+                selectedActivityId: _selectedActivityId!,
+                onActivitySelected: _onActivitySelected,
+              ),
+
+              // Category Filter
+              categoriesAsync.when(
+                data: (categories) => CategoryFilterBar(
+                  categories: categories,
+                  selectedCategoryName: _selectedCategoryName,
+                  onCategorySelected: _onCategorySelected,
                 ),
+                loading: () => const SizedBox(
+                  height: 50,
+                  child: Center(child: CircularProgressIndicator()),
+                ),
+                error: (_, __) => const SizedBox.shrink(),
+              ),
+
+              // Product List
+              Expanded(
+                child: _FlashSaleProductList(activityId: _selectedActivityId!),
               ),
             ],
           );
         },
-        loading: () => const Center(child: CircularProgressIndicator()),
-        error: (err, _) => ErrorState(
-          title: 'Unable to load flash sale',
-          description: err.toString(),
-          onRetry: () => ref.invalidate(flashSaleActivitiesProvider),
-        ),
       ),
     );
   }
-}
 
-class _FlashSaleList extends ConsumerWidget {
-  const _FlashSaleList({required this.activity});
-
-  final FlashSaleActivity activity;
-
-  @override
-  Widget build(BuildContext context, WidgetRef ref) {
-    final state = ref.watch(flashSaleProductsProvider(activity.id));
-    final notifier = ref.read(flashSaleProductsProvider(activity.id).notifier);
-
-    return CustomScrollView(
-      slivers: [
-        SliverToBoxAdapter(
-          child: _FlashSaleHeader(activity: activity),
-        ),
-        if (state.isLoading && state.products.isEmpty)
-          const SliverFillRemaining(child: Center(child: CircularProgressIndicator()))
-        else if (state.error != null && state.products.isEmpty)
-          SliverFillRemaining(
-            child: ErrorState(
-              title: 'Unable to load products',
-              description: state.error,
-              onRetry: notifier.loadFirstPage,
-            ),
-          )
-        else if (state.products.isEmpty)
-          const SliverFillRemaining(
-            child: EmptyState(
-              type: EmptyStateType.search,
-              title: 'No products found',
-              description: 'Try again later.',
-            ),
-          )
-        else
-          SliverPadding(
-            padding: const EdgeInsets.all(12),
-            sliver: SliverMasonryGrid.count(
-              crossAxisCount: 2,
-              mainAxisSpacing: 12,
-              crossAxisSpacing: 12,
-              childCount: state.products.length,
-              itemBuilder: (context, index) {
-                // Load more check
-                if (index >= state.products.length - 2) {
-                  WidgetsBinding.instance.addPostFrameCallback((_) => notifier.loadMore());
-                }
-                
-                final product = state.products[index];
-                return ProductCard(
-                  product: product,
-                  variant: ProductCardVariant.compact,
-                  aspectRatio: _staggeredAspectRatio(index),
-                  onTap: () => context.pushNamed(
-                    RoutePaths.productDetail,
-                    pathParameters: {'productCode': product.id},
-                  ),
-                );
-              },
-            ),
-          ),
-        if (state.isLoading && state.products.isNotEmpty)
-          const SliverToBoxAdapter(
-            child: Padding(
-              padding: EdgeInsets.all(16),
-              child: Center(child: CircularProgressIndicator()),
-            ),
-          ),
+  Widget _buildHeaderWrapper(BuildContext context, Widget child) {
+    return Column(
+      children: [
+        FlashSaleHeader(onBack: () => context.pop()),
+        Expanded(child: child),
       ],
     );
   }
 }
 
-double _staggeredAspectRatio(int index) {
-  if (index % 3 == 0) return 1;
-  if (index % 2 == 0) return 1.2;
-  return 0.8;
-}
+class _FlashSaleProductList extends ConsumerWidget {
+  const _FlashSaleProductList({required this.activityId});
 
-class _FlashSaleHeader extends StatefulWidget {
-  const _FlashSaleHeader({required this.activity});
-
-  final FlashSaleActivity activity;
+  final String activityId;
 
   @override
-  State<_FlashSaleHeader> createState() => _FlashSaleHeaderState();
-}
+  Widget build(BuildContext context, WidgetRef ref) {
+    final state = ref.watch(flashSaleProductsProvider(activityId));
+    final notifier = ref.read(flashSaleProductsProvider(activityId).notifier);
 
-class _FlashSaleHeaderState extends State<_FlashSaleHeader> {
-  Timer? _timer;
-  Duration _timeLeft = Duration.zero;
+    if (state.isLoading && state.products.isEmpty) {
+      return const Center(child: CircularProgressIndicator());
+    }
 
-  @override
-  void initState() {
-    super.initState();
-    _startTimer();
-  }
-
-  @override
-  void dispose() {
-    _timer?.cancel();
-    super.dispose();
-  }
-
-  void _startTimer() {
-    final endTime = DateTime.tryParse(widget.activity.endTime);
-    if (endTime == null) return;
-
-    _updateTime(endTime);
-    _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
-      _updateTime(endTime);
-    });
-  }
-
-  void _updateTime(DateTime endTime) {
-    final now = DateTime.now();
-    setState(() {
-      _timeLeft = endTime.isAfter(now) ? endTime.difference(now) : Duration.zero;
-    });
-  }
-
-  String _formatDuration(Duration d) {
-    final hours = d.inHours.toString().padLeft(2, '0');
-    final minutes = (d.inMinutes % 60).toString().padLeft(2, '0');
-    final seconds = (d.inSeconds % 60).toString().padLeft(2, '0');
-    return '$hours:$minutes:$seconds';
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    final colors = context.appColors;
-
-    return Container(
-      padding: const EdgeInsets.all(16),
-      decoration: BoxDecoration(
-        color: colors.tint.withValues(alpha: 0.05),
-      ),
-      child: Column(
-        children: [
-          if (widget.activity.banner != null)
-            Padding(
-              padding: const EdgeInsets.only(bottom: 16),
-              child: ClipRRect(
-                borderRadius: BorderRadius.circular(8),
-                child: CachedNetworkImage(imageUrl: widget.activity.banner!, fit: BoxFit.cover),
-              ),
+    if (state.error != null && state.products.isEmpty) {
+      return Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(state.error!),
+            ElevatedButton(
+              onPressed: notifier.loadFirstPage,
+              child: const Text('Retry'),
             ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              const ThemedText('Ends In: ', type: ThemedTextType.defaultSemiBold),
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-                decoration: BoxDecoration(
-                  color: colors.tint,
-                  borderRadius: BorderRadius.circular(4),
-                ),
-                child: Text(
-                  _formatDuration(_timeLeft),
-                  style: const TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16),
-                ),
-              ),
-            ],
+          ],
+        ),
+      );
+    }
+
+    if (state.products.isEmpty) {
+      return const EmptyState(
+        type: EmptyStateType.search,
+        title: 'No products found',
+        description: 'Try checking other categories.',
+      );
+    }
+
+    return ListView.builder(
+      padding: const EdgeInsets.only(top: 8, bottom: 20),
+      itemCount: state.products.length + (state.hasMore ? 1 : 0),
+      itemBuilder: (context, index) {
+        if (index == state.products.length) {
+          // Load more indicator
+          WidgetsBinding.instance.addPostFrameCallback(
+            (_) => notifier.loadMore(),
+          );
+          return const Padding(
+            padding: EdgeInsets.all(16),
+            child: Center(child: CircularProgressIndicator()),
+          );
+        }
+
+        final product = state.products[index];
+        return FlashSaleProductCard(
+          product: product,
+          onTap: () => context.pushNamed(
+            RoutePaths.productDetail,
+            pathParameters: {'productCode': product.id},
           ),
-        ],
-      ),
+          onAddToCart: () {
+            // TODO: Implement add to cart
+          },
+        );
+      },
     );
   }
 }

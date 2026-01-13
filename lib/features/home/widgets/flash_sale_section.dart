@@ -103,7 +103,8 @@ class FlashSaleSection extends StatelessWidget {
                         child: Align(
                           alignment: Alignment.centerRight,
                           child: GestureDetector(
-                            onTap: onMoreTap,
+                            onTap: () =>
+                                context.pushNamed(RoutePaths.flashSale),
                             child: Row(
                               mainAxisSize: MainAxisSize.min,
                               children: [
@@ -431,8 +432,9 @@ class _FlashSaleItem extends StatelessWidget {
     final currency = _getCurrencySymbol(product.currency);
 
     return GestureDetector(
-      onTap: () => context.push(
-        RoutePaths.productDetail.replaceFirst(':productCode', product.id),
+      onTap: () => context.pushNamed(
+        RoutePaths.flashSale,
+        queryParameters: {'productCode': product.id},
       ),
       child: SizedBox(
         width: 86,

@@ -609,6 +609,8 @@ class ProductRepository {
 
   Future<ProductListResponse> getFlashSaleActivityProducts(
     String activityId, {
+    String? categoryName,
+    String? productCode,
     int page = 1,
     int pageSize = 20,
   }) async {
@@ -616,7 +618,8 @@ class ProductRepository {
     final response = await api
         .productServiceActivityNoAuthFlashSaleActivityProductGet(
           activityCode: activityId,
-          name: null,
+          name: categoryName,
+          productCode: productCode,
           current: page.toString(),
           size: pageSize.toString(),
         );

@@ -129,7 +129,9 @@ final routerProvider = Provider<GoRouter>((ref) {
       GoRoute(
         path: RoutePaths.flashSale,
         name: RoutePaths.flashSale,
-        builder: (context, state) => const FlashSaleScreen(),
+        builder: (context, state) => FlashSaleScreen(
+          productCode: state.uri.queryParameters['productCode'],
+        ),
       ),
       GoRoute(
         path: RoutePaths.kol,
