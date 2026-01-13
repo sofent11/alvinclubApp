@@ -8,6 +8,7 @@ class RoutePaths {
   static const search = '/search';
   static const searchResults = '/search-results';
   static const productDetail = '/product/:productCode';
+  static const microDetail = '/micro-detail/:productCode';
   static const categoryDetail = '/category/:id';
   static const topicDetail = '/topic/:id';
   static const flashSale = '/flash-sale';

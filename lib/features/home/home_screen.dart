@@ -627,10 +627,11 @@ class _HomeTabContentState extends ConsumerState<_HomeTabContent>
             product: state.products[index],
             variant: ProductCardVariant.compact,
             onTap: () => context.push(
-              RoutePaths.productDetail.replaceFirst(
+              RoutePaths.microDetail.replaceFirst(
                 ':productCode',
                 state.products[index].id,
               ),
+              extra: state.products[index],
             ),
           );
         },

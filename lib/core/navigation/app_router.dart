@@ -13,8 +13,10 @@ import '../../features/catalog/category_detail_screen.dart';
 import '../../features/catalog/topic_detail_screen.dart';
 import '../../features/home/home_screen.dart';
 import '../../features/home/kol_landing_screen.dart';
+import '../../features/home/presentation/micro_detail_page.dart';
 import '../../data/repositories/cart_repository.dart';
 import '../../data/repositories/address_repository.dart';
+import '../../data/repositories/product_repository.dart';
 import '../../features/account/presentation/profile_edit_screen.dart';
 import '../../features/address/presentation/address_edit_screen.dart';
 import '../../features/address/presentation/address_list_screen.dart';
@@ -102,6 +104,18 @@ final routerProvider = Provider<GoRouter>((ref) {
         builder: (context, state) => ProductDetailScreen(
           productCode: state.pathParameters['productCode'] ?? '',
         ),
+      ),
+      GoRoute(
+        path: RoutePaths.microDetail,
+        name: RoutePaths.microDetail,
+        builder: (context, state) {
+          final productCode = state.pathParameters['productCode'] ?? '';
+          final initialProduct = state.extra as ProductItem;
+          return MicroDetailPage(
+            productCode: productCode,
+            initialProduct: initialProduct,
+          );
+        },
       ),
       GoRoute(
         path: RoutePaths.categoryDetail,

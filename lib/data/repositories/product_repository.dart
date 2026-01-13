@@ -348,6 +348,7 @@ class ProductListParams {
     this.brandId,
     this.sortBy,
     this.sortOrder,
+    this.productCode,
   });
 
   final int? page;
@@ -356,6 +357,7 @@ class ProductListParams {
   final String? brandId;
   final String? sortBy;
   final String? sortOrder;
+  final String? productCode;
 }
 
 class CategoryProductsParams {
@@ -490,9 +492,82 @@ class ProductRepository {
       );
     }).toList();
 
-    final total = data?.total ?? 0;
-    final current = data?.current ?? 0;
-    final pageSizeValue = data?.pageSize ?? 0;
+    final total = data?.total?.toInt() ?? 0;
+    final current = data?.current?.toInt() ?? 0;
+    final pageSizeValue = data?.pageSize?.toInt() ?? 0;
+
+    return ProductListResponse(
+      products: products,
+      total: total,
+      hasMore: current * pageSizeValue < total,
+    );
+  }
+
+  Future<ProductListResponse> getHotProductsV3({
+    ProductListParams? params,
+  }) async {
+    final api = _ref.read(swaggerProductApiProvider);
+
+    final response = await api.productServiceProductNoAuthHotProductV3Get(
+      current: (params?.page ?? 1).toString(),
+      size: (params?.pageSize ?? 20).toString(),
+    );
+
+    if (!response.isSuccessful || response.body == null) {
+      throw _createApiError('获取热门商品V3失败', {
+        'statusCode': response.statusCode,
+        'error': response.error,
+      });
+    }
+
+    final body = response.body!;
+    final code = body.code ?? -1;
+    final message = body.message ?? '';
+    if (code != 0) {
+      throw _createApiError(message.isNotEmpty ? message : '获取热门商品V3失败', body);
+    }
+
+    final data = body.data;
+    final records = data?.records ?? const [];
+    if (records.isEmpty) {
+      return const ProductListResponse(products: [], total: 0, hasMore: false);
+    }
+
+    final products = records.map((item) {
+      final tagCodes = (item.tags ?? const [])
+          .map((t) => t.tagCode)
+          .whereType<String>()
+          .map((t) => t.trim())
+          .where((t) => t.isNotEmpty)
+          .toList();
+      final imageUrl = item.image?.url ?? '';
+
+      // Note: imgCollection is not yet available in the generated Swagger code for V3.
+      // We use the main image as a fallback for the collection.
+      final images = imageUrl.isNotEmpty ? [imageUrl] : const <String>[];
+
+      return ProductItem(
+        id: item.productCode ?? '',
+        skuCode: item.skuCode,
+        recommendedSkuCode: item.skuCode,
+        name: item.productName ?? '',
+        price: _parsePrice(item.targetSellPrice),
+        originalPrice: _parseOptionalPrice(item.targetOriginPrice),
+        currency: item.targetSellCur ?? '',
+        imageUrl: imageUrl,
+        images: images,
+        sales: _parseInt(item.sellQuantity),
+        tags: tagCodes.isEmpty ? null : tagCodes,
+        rating: _parsePrice(item.rate) > 0
+            ? _parsePrice(item.rate)
+            : _getMockRating(item.productCode ?? ''),
+        discount: item.marketingInfo,
+      );
+    }).toList();
+
+    final total = data?.total?.toInt() ?? 0;
+    final current = data?.current?.toInt() ?? 0;
+    final pageSizeValue = data?.pageSize?.toInt() ?? 0;
 
     return ProductListResponse(
       products: products,
