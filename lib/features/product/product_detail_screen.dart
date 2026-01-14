@@ -196,14 +196,15 @@ class _ProductDetailContentState extends ConsumerState<_ProductDetailContent> {
                         ),
                         child: Row(
                           children: [
-                            Text(
-                              'Selected: ${state.selectedOptions.entries.map((e) => e.value).join("; ")}',
-                              style: const TextStyle(
-                                fontWeight: FontWeight.bold,
-                                fontSize: 14,
+                            Expanded(
+                              child: Text(
+                                'Selected: ${state.selectedOptions.entries.map((e) => e.value).join("; ")}',
+                                style: const TextStyle(
+                                  fontWeight: FontWeight.bold,
+                                  fontSize: 13,
+                                ),
                               ),
                             ),
-                            const Spacer(),
                             const Icon(Icons.chevron_right, color: Colors.grey),
                           ],
                         ),
