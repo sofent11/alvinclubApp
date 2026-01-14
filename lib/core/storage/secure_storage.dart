@@ -1,4 +1,5 @@
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class SecureStorage {
   SecureStorage({FlutterSecureStorage? secureStorage})
@@ -33,3 +34,5 @@ class SecureStorage {
     _memory.remove(key);
   }
 }
+
+final secureStorageProvider = Provider<SecureStorage>((ref) => SecureStorage());

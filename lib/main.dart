@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import 'core/auth/auth_store.dart';
+import 'core/device/device_id_service.dart';
 import 'core/env/env_config.dart';
+
 import 'core/navigation/app_router.dart';
 import 'core/theme/app_theme.dart';
 
@@ -11,7 +13,10 @@ Future<void> main() async {
   await EnvConfig.load();
 
   final container = ProviderContainer();
-  await container.read(authControllerProvider.notifier).hydrate();
+  await Future.wait([
+    container.read(authControllerProvider.notifier).hydrate(),
+    container.read(deviceIdServiceProvider).init(),
+  ]);
 
   runApp(UncontrolledProviderScope(container: container, child: const MyApp()));
 }

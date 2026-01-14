@@ -244,7 +244,6 @@ class AuthController extends StateNotifier<AuthState> {
   }
 }
 
-final secureStorageProvider = Provider<SecureStorage>((ref) => SecureStorage());
 final authControllerProvider = StateNotifierProvider<AuthController, AuthState>(
   (ref) => AuthController(ref.read(secureStorageProvider)),
 );

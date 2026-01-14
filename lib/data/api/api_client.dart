@@ -4,7 +4,9 @@ import 'package:dio/dio.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../core/auth/auth_store.dart';
+import '../../core/device/device_id_service.dart';
 import '../../core/env/env_config.dart';
+
 import '../../core/error/api_error.dart';
 import '../../core/logging/logger.dart';
 
@@ -51,6 +53,10 @@ final dioProvider = Provider<Dio>((ref) {
 
         options.headers['PortalCode'] = user?.portalCode ?? 'US';
         options.headers['Currency'] = user?.currency ?? 'USD';
+
+        final deviceIdService = ref.read(deviceIdServiceProvider);
+        options.headers['DeviceId'] = deviceIdService.deviceId;
+        options.headers['Platform'] = deviceIdService.platform;
 
         if (token != null && token.isNotEmpty) {
           options.headers['Authorization'] = token;
