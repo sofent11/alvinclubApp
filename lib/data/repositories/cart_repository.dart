@@ -2,6 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../core/error/api_error.dart';
 import '../api/swagger_client.dart';
+import '../api/generated/swaggerApiOrder.swagger.dart' as order;
 
 class CartSkuOption {
   const CartSkuOption({required this.name, required this.value});
@@ -229,21 +230,21 @@ class CartRepository {
     }
 
     final api = _ref.read(swaggerOrderApiProvider);
-    final payload = {
-      'type': input.type,
-      'cart': input.items
+    final request = order.OrderServiceCartUpdatePostRequest(
+      type: input.type,
+      cart: input.items
           .map(
-            (item) => {
-              'skuCode': item.skuCode,
-              'quantity': item.quantity,
-              'orderUpdate': input.orderUpdate ?? '1',
-              'remark': item.remark,
-            },
+            (item) => order.OrderServiceCartUpdatePostRequest$Cart$Item(
+              skuCode: item.skuCode,
+              quantity: item.quantity?.toDouble(),
+              orderUpdate: input.orderUpdate ?? '1',
+              remark: item.remark,
+            ),
           )
           .toList(),
-    };
+    );
 
-    final response = await api.orderServiceCartUpdatePost(root: payload);
+    final response = await api.orderServiceCartUpdatePost(root: request);
     if (!response.isSuccessful) {
       throw _createApiError('更新购物车失败', response.error);
     }
@@ -258,14 +259,18 @@ class CartRepository {
     }
 
     final api = _ref.read(swaggerOrderApiProvider);
-    final response = await api.orderServiceCartPricingPost(
-      root: {
-        'skuList': items
-            .map((item) => {'skuCode': item.skuCode, 'quantity': item.quantity})
-            .toList(),
-        'userCouponCode': couponCode,
-      },
+    final request = order.OrderServiceCartPricingPostRequest(
+      skuList: items
+          .map(
+            (item) => order.OrderServiceCartPricingPostRequest$SkuList$Item(
+              skuCode: item.skuCode,
+              quantity: item.quantity.toDouble(),
+            ),
+          )
+          .toList(),
+      userCouponCode: couponCode,
     );
+    final response = await api.orderServiceCartPricingPost(root: request);
 
     final body = response.body;
     if (body == null || _parseInt(body.code) != 0 || body.data == null) {
@@ -288,15 +293,15 @@ class CartRepository {
 
   Future<void> addToCart(AddToCartInput input) async {
     final api = _ref.read(swaggerOrderApiProvider);
-    final payload = {
-      'skuCode': input.skuCode,
-      'quantity': (input.quantity ?? 1).toString(),
-      'inviteCode': input.inviteCode,
-      'remark': input.remark,
-      'sourceDetail': input.sourceDetail,
-    };
+    final request = order.OrderServiceCartAddPostRequest(
+      skuCode: input.skuCode,
+      quantity: (input.quantity ?? 1).toString(),
+      inviteCode: input.inviteCode,
+      remark: input.remark,
+      sourceDetail: input.sourceDetail,
+    );
 
-    final response = await api.orderServiceCartAddPost(root: payload);
+    final response = await api.orderServiceCartAddPost(root: request);
     if (!response.isSuccessful) {
       throw _createApiError('加入购物车失败', response.error);
     }

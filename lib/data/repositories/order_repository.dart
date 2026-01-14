@@ -310,11 +310,17 @@ class OrderRepository {
 
     final api = _ref.read(swaggerOrderApiProvider);
     final response = await api.orderServiceOrderAvailableCouponPost(
-      root: {
-        'skuList': items
-            .map((item) => {'skuCode': item.skuCode, 'quantity': item.quantity})
+      root: order.OrderServiceOrderAvailableCouponPostRequest(
+        skuList: items
+            .map(
+              (item) =>
+                  order.OrderServiceOrderAvailableCouponPostRequest$SkuList$Item(
+                    skuCode: item.skuCode,
+                    quantity: item.quantity.toDouble(),
+                  ),
+            )
             .toList(),
-      },
+      ),
     );
 
     final body = response.body;
@@ -353,26 +359,27 @@ class OrderRepository {
 
     final api = _ref.read(swaggerOrderApiProvider);
     final response = await api.orderServiceOrderAppSubmitPost(
-      root: {
-        'country': input.country,
-        'buyType': 1,
-        'userAddressId': input.userAddressId,
-        'userCouponCode': input.couponCode,
-        'remark': input.remark,
-        'isDraft': input.submitAsDraft ?? false,
-        'sourceItems': [
-          {
-            'skuList': input.items
+      root: order.OrderServiceOrderAppSubmitPostRequest(
+        country: input.country,
+        buyType: 1,
+        userAddressId: input.userAddressId?.toDouble(),
+        userCouponCode: input.couponCode,
+        remark: input.remark,
+        isDraft: input.submitAsDraft ?? false,
+        sourceItems: [
+          order.OrderServiceOrderAppSubmitPostRequest$SourceItems$Item(
+            skuList: input.items
                 .map(
-                  (item) => {
-                    'skuCode': item.skuCode,
-                    'quantity': item.quantity,
-                  },
+                  (item) =>
+                      order.OrderServiceOrderAppSubmitPostRequest$SourceItems$Item$SkuList$Item(
+                        skuCode: item.skuCode,
+                        quantity: item.quantity,
+                      ),
                 )
                 .toList(),
-          },
+          ),
         ],
-      },
+      ),
     );
 
     final body = response.body;
@@ -397,24 +404,27 @@ class OrderRepository {
       throw _createApiError('更新订单需要提供订单号', null);
     }
 
-    final payload = <String, dynamic>{
-      'orderId': input.orderId,
-      'userAddressId': input.userAddressId,
-      'userCouponCode': input.couponCode,
-      'remark': input.remark,
-      'submitAnyWay': input.submitAnyway ?? false,
-      'paySubmit': input.paySubmit ?? false,
-      'removePackage': input.removePackage,
-    };
-
-    if (input.items != null && input.items!.isNotEmpty) {
-      payload['itemList'] = input.items!
-          .map((item) => {'skuCode': item.skuCode, 'remark': item.remark})
-          .toList();
-    }
-
     final api = _ref.read(swaggerOrderApiProvider);
-    final response = await api.orderServiceOrderAppUpdatePost(root: payload);
+    final response = await api.orderServiceOrderAppUpdatePost(
+      root: order.OrderServiceOrderAppUpdatePostRequest(
+        orderId: input.orderId,
+        userAddressId: input.userAddressId?.toDouble(),
+        userCouponCode: input.couponCode,
+        remark: input.remark,
+        submitAnyWay: input.submitAnyway ?? false,
+        paySubmit: input.paySubmit ?? false,
+        removePackage: input.removePackage,
+        itemList: input.items
+            ?.map(
+              (item) =>
+                  order.OrderServiceOrderAppUpdatePostRequest$ItemList$Item(
+                    skuCode: item.skuCode,
+                    remark: item.remark,
+                  ),
+            )
+            .toList(),
+      ),
+    );
 
     final body = response.body;
     if (body == null) {
@@ -555,12 +565,17 @@ class OrderRepository {
 
     final api = _ref.read(swaggerOrderApiProvider);
     final response = await api.orderServiceOrderPricingPost(
-      root: {
-        'skuList': items
-            .map((item) => {'skuCode': item.skuCode, 'quantity': item.quantity})
+      root: order.OrderServiceOrderPricingPostRequest(
+        skuList: items
+            .map(
+              (item) => order.OrderServiceOrderPricingPostRequest$SkuList$Item(
+                skuCode: item.skuCode,
+                quantity: item.quantity.toDouble(),
+              ),
+            )
             .toList(),
-        'userCouponCode': couponCode,
-      },
+        userCouponCode: couponCode,
+      ),
     );
 
     final body = response.body;

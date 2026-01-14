@@ -1,6 +1,7 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../api/swagger_client.dart';
+import '../api/generated/swaggerApiCombo.swagger.dart' as combo;
 
 class CommunityPost {
   const CommunityPost({
@@ -67,9 +68,14 @@ class CommunityRepository {
 
   Future<void> toggleLike(String postId, bool isLiked) async {
     final api = _ref.read(swaggerComboApiProvider);
+    final postIdInt = int.tryParse(postId);
+    if (postIdInt == null) return;
+
     if (isLiked) {
       final response = await api.comboServiceBizCommunityPostUnlikePost(
-        root: {'id': postId},
+        root: combo.ComboServiceBizCommunityPostUnlikePostRequest(
+          postId: postIdInt,
+        ),
       );
       final body = response.body;
       if (body == null || body.code != 0) {
@@ -79,7 +85,9 @@ class CommunityRepository {
     }
 
     final response = await api.comboServiceBizCommunityPostLikePost(
-      root: {'id': postId},
+      root: combo.ComboServiceBizCommunityPostLikePostRequest(
+        postId: postIdInt,
+      ),
     );
     final body = response.body;
     if (body == null || body.code != 0) {

@@ -2,6 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../core/error/api_error.dart';
 import '../api/generated/swaggerApiProduct.swagger.dart' as product;
+import '../api/generated/swaggerApiProduct.enums.swagger.dart' as enums;
 import '../api/swagger_client.dart';
 
 class ProductListResponse {
@@ -864,18 +865,18 @@ class ProductRepository {
 
     final api = _ref.read(swaggerProductApiProvider);
     final response = await api.productServiceRecommendNoAuthCategoryPost(
-      root: {
-        'current': params.page ?? 1,
-        'pageSize': params.pageSize ?? 20,
-        'categoryId': int.tryParse(params.categoryId),
-        'brandName': params.brandName,
-        'sortedField': params.sortBy == null
+      root: product.ProductServiceRecommendNoAuthCategoryPostRequest(
+        current: params.page ?? 1,
+        pageSize: params.pageSize ?? 20,
+        categoryId: int.tryParse(params.categoryId),
+        brandName: params.brandName,
+        sortedField: params.sortBy == null
             ? null
-            : {
-                'name': params.sortBy,
-                'order': (params.sortOrder ?? 'asc').toUpperCase(),
-              },
-      },
+            : product.ProductServiceRecommendNoAuthCategoryPostRequest$SortedField(
+                name: params.sortBy,
+                order: (params.sortOrder ?? 'asc').toUpperCase(),
+              ),
+      ),
     );
 
     final body = response.body;
@@ -945,20 +946,22 @@ class ProductRepository {
 
     final api = _ref.read(swaggerProductApiProvider);
     final response = await api.productServiceRecommendNoAuthCategoryPost(
-      root: {
-        'current': params.page ?? 1,
-        'pageSize': params.pageSize ?? 20,
-        'categoryId': categoryId,
-        'categoryIds': categoryId == null ? categoryIds : null,
-        'brandName': params.brandName,
-        'productCode': params.productCode,
-        'sortedField': params.sortBy == null
+      root: product.ProductServiceRecommendNoAuthCategoryPostRequest(
+        current: params.page ?? 1,
+        pageSize: params.pageSize ?? 20,
+        categoryId: categoryId,
+        categoryIds: categoryId == null
+            ? categoryIds?.map((e) => e.toDouble()).toList()
+            : null,
+        brandName: params.brandName,
+        productCode: params.productCode,
+        sortedField: params.sortBy == null
             ? null
-            : {
-                'name': params.sortBy,
-                'order': (params.sortOrder ?? 'asc').toUpperCase(),
-              },
-      },
+            : product.ProductServiceRecommendNoAuthCategoryPostRequest$SortedField(
+                name: params.sortBy,
+                order: (params.sortOrder ?? 'asc').toUpperCase(),
+              ),
+      ),
     );
 
     final body = response.body;
@@ -1098,14 +1101,34 @@ class ProductRepository {
     final api = _ref.read(swaggerProductApiProvider);
 
     final response = await api.productServiceProductPremiumDupeNoAuthPagePost(
-      root: {
-        'current': params.current ?? 1,
-        'pageSize': params.pageSize ?? 20,
-        if (params.categoryId != null) 'categoryId': params.categoryId,
-        if (params.sort != null) 'sort': params.sort,
-        if (params.order != null) 'order': params.order,
-        if (params.productCode != null) 'productCode': params.productCode,
-      },
+      root: product.ProductServiceProductPremiumDupeNoAuthPagePostRequest(
+        current: params.current ?? 1,
+        pageSize: params.pageSize ?? 20,
+        categoryId: params.categoryId,
+        sort: params.sort == null
+            ? null
+            : enums
+                  .ProductServiceProductPremiumDupeNoAuthPagePostRequestSort
+                  .values
+                  .firstWhere(
+                    (e) => e.value == params.sort,
+                    orElse: () => enums
+                        .ProductServiceProductPremiumDupeNoAuthPagePostRequestSort
+                        .swaggerGeneratedUnknown,
+                  ),
+        order: params.order == null
+            ? null
+            : enums
+                  .ProductServiceProductPremiumDupeNoAuthPagePostRequestOrder
+                  .values
+                  .firstWhere(
+                    (e) => e.value == params.order,
+                    orElse: () => enums
+                        .ProductServiceProductPremiumDupeNoAuthPagePostRequestOrder
+                        .swaggerGeneratedUnknown,
+                  ),
+        productCode: params.productCode,
+      ),
     );
 
     if (!response.isSuccessful || response.body == null) {
@@ -1565,7 +1588,9 @@ class ProductRepository {
 
     final api = _ref.read(swaggerProductApiProvider);
     final response = await api.productServiceRecommendNoAuthSimilarProductPost(
-      root: {'productCode': productCode},
+      root: product.ProductServiceRecommendNoAuthSimilarproductPostRequest(
+        productCode: productCode,
+      ),
     );
 
     final body = response.body;

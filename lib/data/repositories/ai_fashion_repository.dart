@@ -2,6 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../core/error/api_error.dart';
 import '../api/swagger_client.dart';
+import '../api/generated/swaggerApiCombo.swagger.dart' as combo;
 
 class AiModel {
   const AiModel({
@@ -353,15 +354,19 @@ class AiFashionRepository {
   }) async {
     final api = _ref.read(swaggerComboApiProvider);
     final response = await api.comboServiceApiV1StyleOutfitsGeneratePost(
-      root: {
-        if (productImageUrl != null) 'modelImageUrl': productImageUrl,
-        if (modelId != null) 'customModelId': modelId,
-        if (customPrompt != null) 'customPrompt': customPrompt,
-        if (styleTrendyElements != null)
-          'styleTrendyElements': styleTrendyElements,
-        'selections': selections,
-        'count': 1,
-      },
+      root: combo.ComboServiceApiV1StyleOutfitsGeneratePostRequest(
+        modelImageUrl: productImageUrl,
+        customModelId: modelId,
+        customPrompt: customPrompt,
+        styleTrendyElements: styleTrendyElements,
+        selections: selections == null
+            ? null
+            : combo
+                  .ComboServiceApiV1StyleOutfitsGeneratePostRequest$Selections.fromJson(
+                selections,
+              ),
+        count: 1,
+      ),
     );
 
     final body = response.body;
@@ -476,16 +481,16 @@ class AiFashionRepository {
   }) async {
     final api = _ref.read(swaggerComboApiProvider);
     final response = await api.comboServiceApiV1StyleOutfitsGenerateModelPost(
-      root: {
-        'imageUrl': imageUrl,
-        'segmentedGender': gender,
-        'gender': gender == 'female' ? 2 : 1,
-        'age': age,
-        'ethnicity': race,
-        'bodyShapeModel': bodyShapeModel ?? 'standard',
-        'hairStyle': style ?? 'short',
-        'setAsDefault': false,
-      },
+      root: combo.ComboServiceApiV1StyleOutfitsGeneratemodelPostRequest(
+        imageUrl: imageUrl,
+        segmentedGender: gender,
+        gender: gender == 'female' ? 2 : 1,
+        age: age,
+        ethnicity: race,
+        bodyShapeModel: bodyShapeModel ?? 'standard',
+        hairStyle: style ?? 'short',
+        setAsDefault: false,
+      ),
     );
 
     final body = response.body;
@@ -538,7 +543,10 @@ class AiFashionRepository {
   }) async {
     final api = _ref.read(swaggerComboApiProvider);
     final response = await api.comboServiceBizAiFashionModelSavePost(
-      root: {'taskId': taskId, 'selectedIndex': selectedIndex},
+      root: combo.ComboServiceBizAiFashionModelSavePostRequest(
+        taskId: taskId,
+        selectedIndex: selectedIndex.toDouble(),
+      ),
     );
 
     final body = response.body;

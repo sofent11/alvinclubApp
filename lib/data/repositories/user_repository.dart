@@ -2,6 +2,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../core/error/api_error.dart';
 import '../api/swagger_client.dart';
+import '../api/generated/swaggerApiUser.swagger.dart' as user;
 
 class UserProfile {
   const UserProfile({
@@ -64,12 +65,12 @@ class UserRepository {
   }) async {
     final api = _ref.read(swaggerUserApiProvider);
     final response = await api.userServiceUserUpdatePost(
-      root: {
-        'nickname': nickname,
-        'photo': photo,
-        'gender': gender,
-        'birthday': birthday,
-      },
+      root: user.UserServiceUserUpdatePostRequest(
+        nickname: nickname,
+        photo: photo,
+        gender: gender?.toDouble(),
+        birthday: birthday,
+      ),
     );
 
     if (!response.isSuccessful) {

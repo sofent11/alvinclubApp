@@ -5,6 +5,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../core/error/api_error.dart';
 import '../../core/env/env_config.dart';
 import '../api/swagger_client.dart';
+import '../api/generated/swaggerApiPay.swagger.dart' as pay;
 
 class PaymentMethod {
   const PaymentMethod({
@@ -229,15 +230,15 @@ class PayRepository {
 
     final api = _ref.read(swaggerPayApiProvider);
     final response = await api.payServicePayPayPost(
-      root: {
-        'orderId': input.orderId,
-        'payType': input.payType,
-        'orderType': input.orderType ?? '0',
-        'chainId': input.chainId,
-        'payTokenSymbol': input.payTokenSymbol,
-        'callbackUrl': input.callbackUrl,
-        'uiType': input.uiType,
-      },
+      root: pay.PayServicePayPayPostRequest(
+        orderId: input.orderId,
+        payType: input.payType,
+        orderType: input.orderType ?? '0',
+        chainId: input.chainId,
+        payTokenSymbol: input.payTokenSymbol,
+        callbackUrl: input.callbackUrl,
+        uiType: input.uiType?.toDouble(),
+      ),
     );
 
     final body = response.body;

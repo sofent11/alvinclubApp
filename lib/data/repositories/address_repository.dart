@@ -97,7 +97,19 @@ class AddressRepository {
   Future<void> createShippingAddress(ShippingAddress address) async {
     final api = _ref.read(swaggerUserApiProvider);
     final response = await api.userServiceAddressAddPost(
-      root: _addressToMap(address),
+      root: user.UserServiceAddressAddPostRequest(
+        firstName: address.firstName,
+        lastName: address.lastName,
+        phoneNumber: address.phone,
+        email: address.email,
+        country: address.country,
+        state: address.province,
+        city: address.city,
+        street: address.addressLine1,
+        apartment: address.addressLine2,
+        zipCode: address.zipCode,
+        isDefault: address.isDefault ? 1.0 : 0.0,
+      ),
     );
 
     final body = response.body;
@@ -109,7 +121,20 @@ class AddressRepository {
   Future<void> updateShippingAddress(ShippingAddress address) async {
     final api = _ref.read(swaggerUserApiProvider);
     final response = await api.userServiceAddressUpdatePost(
-      root: _addressToMap(address),
+      root: user.UserServiceAddressUpdatePostRequest(
+        id: double.tryParse(address.id),
+        firstName: address.firstName,
+        lastName: address.lastName,
+        phoneNumber: address.phone,
+        email: address.email,
+        country: address.country,
+        state: address.province,
+        city: address.city,
+        street: address.addressLine1,
+        apartment: address.addressLine2,
+        zipCode: address.zipCode,
+        isDefault: address.isDefault ? 1.0 : 0.0,
+      ),
     );
 
     final body = response.body;

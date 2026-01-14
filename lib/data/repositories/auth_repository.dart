@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../core/auth/auth_store.dart';
 import '../../core/error/api_error.dart';
 import '../api/swagger_client.dart';
+import '../api/generated/swaggerApiUser.swagger.dart' as user;
 
 class SignInInitPayload {
   SignInInitPayload({required this.email});
@@ -81,11 +82,11 @@ class AuthRepository {
   Future<SignInInitResponse> initSignIn(SignInInitPayload payload) async {
     final api = _ref.read(swaggerUserApiProvider);
     final response = await api.userServiceSignInInitPost(
-      root: {
-        'loginName': payload.email,
-        'authWay': _emailAuthWay,
-        'source': _defaultSource,
-      },
+      root: user.UserServiceSigninInitPostRequest(
+        loginName: payload.email,
+        authWay: _emailAuthWay.toDouble(),
+        source: _defaultSource.toDouble(),
+      ),
     );
 
     final body = response.body;
@@ -103,13 +104,13 @@ class AuthRepository {
   Future<SignInVerifyResponse> verifySignIn(SignInVerifyPayload payload) async {
     final api = _ref.read(swaggerUserApiProvider);
     final response = await api.userServiceSignInVerifyPost(
-      root: {
-        'loginName': payload.email,
-        'authWay': _emailAuthWayString,
-        'code': payload.code,
-        'source': _defaultSource,
-        'portalCode': payload.portalCode,
-      },
+      root: user.UserServiceSigninVerifyPostRequest(
+        loginName: payload.email,
+        authWay: _emailAuthWayString,
+        code: payload.code,
+        source: _defaultSource,
+        portalCode: payload.portalCode,
+      ),
     );
 
     final body = response.body;
@@ -147,13 +148,13 @@ class AuthRepository {
   ) async {
     final api = _ref.read(swaggerUserApiProvider);
     final response = await api.userServiceSignInVerifyPost(
-      root: {
-        'loginName': payload.email,
-        'authWay': _googleAuthWayString,
-        'code': payload.token,
-        'source': _defaultSource,
-        'portalCode': payload.portalCode,
-      },
+      root: user.UserServiceSigninVerifyPostRequest(
+        loginName: payload.email,
+        authWay: _googleAuthWayString,
+        code: payload.token,
+        source: _defaultSource,
+        portalCode: payload.portalCode,
+      ),
     );
 
     final body = response.body;
