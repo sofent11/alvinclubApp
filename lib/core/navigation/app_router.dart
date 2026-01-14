@@ -30,6 +30,7 @@ import '../../features/ai_fashion/presentation/outfit_result_screen.dart';
 import '../../features/checkout/presentation/checkout_screen.dart';
 import '../../features/checkout/presentation/order_success_screen.dart';
 import '../../features/checkout/presentation/payment_screen.dart';
+import '../../features/inbox/presentation/inbox_screen.dart';
 import '../../features/community/presentation/community_screen.dart';
 import '../../features/coupon/presentation/coupon_screen.dart';
 import '../../features/favorites/presentation/favorites_screen.dart';
@@ -73,6 +74,11 @@ final routerProvider = Provider<GoRouter>((ref) {
             path: RoutePaths.account,
             name: RoutePaths.account,
             builder: (context, state) => const AccountScreen(),
+          ),
+          GoRoute(
+            path: RoutePaths.inbox,
+            name: RoutePaths.inbox,
+            builder: (context, state) => const InboxScreen(),
           ),
         ],
       ),
@@ -225,6 +231,7 @@ final routerProvider = Provider<GoRouter>((ref) {
         name: RoutePaths.coupon,
         builder: (context, state) => const CouponScreen(),
       ),
+
       GoRoute(
         path: RoutePaths.community,
         name: RoutePaths.community,
@@ -343,6 +350,7 @@ const List<String> _protectedPrefixes = [
   RoutePaths.coupon,
   RoutePaths.favorite,
   RoutePaths.community,
+  RoutePaths.inbox,
   RoutePaths.wallet,
 ];
 
@@ -354,7 +362,7 @@ class TabsScaffold extends StatelessWidget {
 
   int _indexForLocation() {
     if (location.startsWith(RoutePaths.categories)) return 1;
-    if (location.startsWith(RoutePaths.community)) return 2;
+    if (location.startsWith(RoutePaths.inbox)) return 2;
     if (location.startsWith(RoutePaths.cart)) return 3;
     if (location.startsWith(RoutePaths.account)) return 4;
     return 0;
@@ -367,7 +375,7 @@ class TabsScaffold extends StatelessWidget {
         context.go(RoutePaths.categories);
         break;
       case 2:
-        context.go(RoutePaths.community);
+        context.go(RoutePaths.inbox);
         break;
       case 3:
         context.go(RoutePaths.cart);

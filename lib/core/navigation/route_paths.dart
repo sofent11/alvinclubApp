@@ -24,6 +24,7 @@ class RoutePaths {
   static const profileEdit = '/profile/edit';
   static const coupon = '/coupon';
   static const favorite = '/favorite';
+  static const inbox = '/inbox';
   static const community = '/community';
   static const wallet = '/wallet';
   static const walletRebate = '/wallet/rebate';
