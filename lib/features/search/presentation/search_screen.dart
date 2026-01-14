@@ -38,7 +38,10 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
     if (query.trim().isEmpty) return;
     ref.read(searchHistoryNotifierProvider.notifier).add(query);
     context.push(
-      Uri(path: RoutePaths.searchResults, queryParameters: {'q': query}).toString(),
+      Uri(
+        path: RoutePaths.searchResults,
+        queryParameters: {'q': query},
+      ).toString(),
     );
   }
 
@@ -83,7 +86,10 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
                                 hintStyle: TextStyle(color: colors.textMuted),
                                 border: InputBorder.none,
                               ),
-                              style: TextStyle(color: colors.text, fontSize: 15),
+                              style: TextStyle(
+                                color: colors.text,
+                                fontSize: 15,
+                              ),
                             ),
                           ),
                         ],
@@ -106,9 +112,7 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
               ),
             ),
             Expanded(
-              child: SingleChildScrollView(
-                child: _buildHistory(colors),
-              ),
+              child: SingleChildScrollView(child: _buildHistory(colors)),
             ),
           ],
         ),
@@ -145,12 +149,19 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  const ThemedText('历史记录', type: ThemedTextType.defaultSemiBold),
+                  const ThemedText(
+                    '历史记录',
+                    type: ThemedTextType.defaultSemiBold,
+                  ),
                   GestureDetector(
                     onTap: () {
                       ref.read(searchHistoryNotifierProvider.notifier).clear();
                     },
-                    child: Icon(Icons.delete_outline, size: 20, color: colors.textMuted),
+                    child: Icon(
+                      Icons.delete_outline,
+                      size: 20,
+                      color: colors.textMuted,
+                    ),
                   ),
                 ],
               ),
@@ -168,7 +179,10 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
                           _onSearch(keyword);
                         },
                         child: Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 16,
+                            vertical: 8,
+                          ),
                           decoration: BoxDecoration(
                             color: colors.border,
                             borderRadius: BorderRadius.circular(20),
@@ -184,9 +198,15 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
                         right: -6,
                         child: GestureDetector(
                           onTap: () {
-                            ref.read(searchHistoryNotifierProvider.notifier).remove(keyword);
+                            ref
+                                .read(searchHistoryNotifierProvider.notifier)
+                                .remove(keyword);
                           },
-                          child: Icon(Icons.cancel, size: 18, color: colors.textMuted),
+                          child: Icon(
+                            Icons.cancel,
+                            size: 18,
+                            color: colors.textMuted,
+                          ),
                         ),
                       ),
                     ],
@@ -199,9 +219,7 @@ class _SearchScreenState extends ConsumerState<SearchScreen> {
       },
       loading: () => Padding(
         padding: const EdgeInsets.symmetric(vertical: 20),
-        child: Center(
-          child: CircularProgressIndicator(color: colors.tint),
-        ),
+        child: Center(child: CircularProgressIndicator(color: colors.tint)),
       ),
       error: (e, s) => const SizedBox.shrink(),
     );

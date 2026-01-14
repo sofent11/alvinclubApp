@@ -153,7 +153,9 @@ class _ProfileHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = context.appColors;
-    final name = profile.nickname?.isNotEmpty == true ? profile.nickname! : 'Member';
+    final name = profile.nickname?.isNotEmpty == true
+        ? profile.nickname!
+        : 'Member';
     final subtitle = profile.email ?? profile.phone ?? 'Welcome back';
 
     return _SectionCard(
@@ -190,11 +192,7 @@ class _ProfileHeader extends StatelessWidget {
 }
 
 class _AccountTile extends StatelessWidget {
-  const _AccountTile({
-    required this.icon,
-    required this.label,
-    this.onTap,
-  });
+  const _AccountTile({required this.icon, required this.label, this.onTap});
 
   final IconData icon;
   final String label;

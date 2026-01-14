@@ -6,10 +6,9 @@ import 'package:go_router/go_router.dart';
 import '../../core/navigation/route_paths.dart';
 import '../../core/theme/app_theme.dart';
 import '../../data/repositories/cart_repository.dart';
+import '../../features/address/application/address_providers.dart';
 import '../../shared/utils/price_utils.dart';
 import '../../shared/widgets/empty_state.dart';
-import '../../shared/widgets/themed_button.dart';
-import '../../shared/widgets/themed_text.dart';
 import '../../shared/widgets/toast.dart';
 import 'cart_controller.dart';
 import 'cart_providers.dart';
@@ -81,6 +80,8 @@ class _CartScreenState extends ConsumerState<CartScreen> {
   }
 
   Widget _buildHeader(BuildContext context, int count, bool hasSelection) {
+    final addressAsync = ref.watch(currentShippingAddressProvider);
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
       child: Row(
@@ -95,19 +96,58 @@ class _CartScreenState extends ConsumerState<CartScreen> {
           ),
           const SizedBox(width: 12),
           Expanded(
-            child: Row(
-              children: [
-                Icon(Icons.location_on, size: 14, color: Colors.grey[600]),
-                const SizedBox(width: 4),
-                Expanded(
-                  child: Text(
-                    'hm m+1 1234567890S...', // Mock location
-                    style: TextStyle(fontSize: 12, color: Colors.grey[600]),
-                    overflow: TextOverflow.ellipsis,
+            child: GestureDetector(
+              onTap: () async {
+                await context.push(
+                  Uri(
+                    path: RoutePaths.addressList,
+                    queryParameters: {'picker': 'true'},
+                  ).toString(),
+                );
+                // Note: The provider automatically updates if addressListProvider invalidates.
+                // If we implemented local selection state, we'd update it here.
+                // For now, simple list view logic.
+              },
+              child: Row(
+                children: [
+                  Icon(Icons.location_on, size: 14, color: Colors.grey[600]),
+                  const SizedBox(width: 4),
+                  Expanded(
+                    child: addressAsync.when(
+                      data: (address) {
+                        if (address == null) {
+                          return Text(
+                            'Add Address',
+                            style: TextStyle(
+                              fontSize: 12,
+                              color: Colors.grey[600],
+                            ),
+                            overflow: TextOverflow.ellipsis,
+                          );
+                        }
+                        return Text(
+                          '${address.firstName} ${address.lastName} ${address.phone}',
+                          style: TextStyle(
+                            fontSize: 12,
+                            color: Colors.grey[600],
+                          ),
+                          overflow: TextOverflow.ellipsis,
+                        );
+                      },
+                      loading: () => const SizedBox(
+                        width: 60,
+                        height: 12,
+                        child: LinearProgressIndicator(minHeight: 2),
+                      ),
+                      error: (_, __) => Text(
+                        'Address Error',
+                        style: TextStyle(fontSize: 12, color: Colors.red[300]),
+                      ),
+                    ),
                   ),
-                ),
-                const Icon(Icons.chevron_right, size: 16, color: Colors.grey),
-              ],
+                  const Icon(Icons.chevron_right, size: 16, color: Colors.grey),
+                ],
+              ),
             ),
           ),
           const SizedBox(width: 12),

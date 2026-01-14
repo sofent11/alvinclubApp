@@ -46,14 +46,23 @@ class PortalSelectorModal extends StatelessWidget {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Padding(
-                          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+                          padding: const EdgeInsets.symmetric(
+                            horizontal: 20,
+                            vertical: 16,
+                          ),
                           child: Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
-                              const ThemedText('Select portal', type: ThemedTextType.subtitle),
+                              const ThemedText(
+                                'Select portal',
+                                type: ThemedTextType.subtitle,
+                              ),
                               IconButton(
                                 onPressed: onCancel,
-                                icon: Icon(Icons.close, color: colors.textMuted),
+                                icon: Icon(
+                                  Icons.close,
+                                  color: colors.textMuted,
+                                ),
                               ),
                             ],
                           ),
@@ -62,13 +71,17 @@ class PortalSelectorModal extends StatelessWidget {
                         Flexible(
                           child: ListView.separated(
                             itemCount: portals.length,
-                            separatorBuilder: (_, _) => Divider(height: 1, color: colors.border),
+                            separatorBuilder: (_, _) =>
+                                Divider(height: 1, color: colors.border),
                             itemBuilder: (context, index) {
                               final portal = portals[index];
                               return InkWell(
                                 onTap: () => onSelect(portal),
                                 child: Padding(
-                                  padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal: 20,
+                                    vertical: 14,
+                                  ),
                                   child: Row(
                                     children: [
                                       Container(
@@ -77,7 +90,9 @@ class PortalSelectorModal extends StatelessWidget {
                                         alignment: Alignment.center,
                                         decoration: BoxDecoration(
                                           color: colors.muted,
-                                          borderRadius: BorderRadius.circular(10),
+                                          borderRadius: BorderRadius.circular(
+                                            10,
+                                          ),
                                         ),
                                         child: ThemedText(
                                           portal.code,
@@ -88,16 +103,21 @@ class PortalSelectorModal extends StatelessWidget {
                                       const SizedBox(width: 16),
                                       Expanded(
                                         child: Column(
-                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
                                           children: [
                                             ThemedText(
                                               portal.name,
-                                              type: ThemedTextType.defaultSemiBold,
+                                              type: ThemedTextType
+                                                  .defaultSemiBold,
                                             ),
                                             const SizedBox(height: 4),
                                             ThemedText(
                                               '${portal.code} - ${portal.currency}',
-                                              style: TextStyle(color: colors.textMuted, fontSize: 12),
+                                              style: TextStyle(
+                                                color: colors.textMuted,
+                                                fontSize: 12,
+                                              ),
                                             ),
                                           ],
                                         ),

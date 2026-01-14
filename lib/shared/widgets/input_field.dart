@@ -77,7 +77,9 @@ class _InputFieldState extends State<InputField> {
     final borderColor = widget.errorText == null
         ? (_isFocused ? colors.tint : colors.border)
         : colors.danger;
-    final helperColor = widget.errorText != null ? colors.danger : colors.textMuted;
+    final helperColor = widget.errorText != null
+        ? colors.danger
+        : colors.textMuted;
 
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,

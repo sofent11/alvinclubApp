@@ -1,13 +1,16 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../data/repositories/community_repository.dart';
 
-final communityPostsProvider = FutureProvider.autoDispose<List<CommunityPost>>((ref) async {
+final communityPostsProvider = FutureProvider.autoDispose<List<CommunityPost>>((
+  ref,
+) async {
   final repo = ref.watch(communityRepositoryProvider);
   return repo.getPosts();
 });
 
 class CommunityNotifier extends StateNotifier<AsyncValue<void>> {
-  CommunityNotifier(this._repository, this._ref) : super(const AsyncValue.data(null));
+  CommunityNotifier(this._repository, this._ref)
+    : super(const AsyncValue.data(null));
 
   final CommunityRepository _repository;
   final Ref _ref;
@@ -21,6 +24,9 @@ class CommunityNotifier extends StateNotifier<AsyncValue<void>> {
   }
 }
 
-final communityControllerProvider = StateNotifierProvider.autoDispose<CommunityNotifier, AsyncValue<void>>((ref) {
-  return CommunityNotifier(ref.watch(communityRepositoryProvider), ref);
-});
+final communityControllerProvider =
+    StateNotifierProvider.autoDispose<CommunityNotifier, AsyncValue<void>>((
+      ref,
+    ) {
+      return CommunityNotifier(ref.watch(communityRepositoryProvider), ref);
+    });

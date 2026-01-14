@@ -53,7 +53,8 @@ class CheckoutState {
       items: items ?? this.items,
       address: address ?? this.address,
       paymentMethods: paymentMethods ?? this.paymentMethods,
-      selectedPaymentMethod: selectedPaymentMethod ?? this.selectedPaymentMethod,
+      selectedPaymentMethod:
+          selectedPaymentMethod ?? this.selectedPaymentMethod,
       couponCode: clearCoupon ? null : (couponCode ?? this.couponCode),
       availableCoupons: availableCoupons ?? this.availableCoupons,
       pricing: pricing ?? this.pricing,
@@ -67,23 +68,21 @@ class CheckoutState {
 }
 
 class CheckoutController extends StateNotifier<CheckoutState> {
-  CheckoutController(
-    this._addressRepository,
-    this._orderRepository,
-  ) : super(const CheckoutState(items: []));
+  CheckoutController(this._addressRepository, this._orderRepository)
+    : super(const CheckoutState(items: []));
 
   final AddressRepository _addressRepository;
   final OrderRepository _orderRepository;
 
   Future<void> init(List<CartPricingRequestItem> items) async {
     if (items.isEmpty) return;
-    
+
     state = state.copyWith(items: items, isLoading: true);
 
     try {
       // 1. Get Default Address
       final address = await _addressRepository.getDefaultShippingAddress();
-      
+
       // 2. Initial Pricing (without coupon)
       final pricing = await _orderRepository.priceOrder(items);
 
@@ -103,7 +102,10 @@ class CheckoutController extends StateNotifier<CheckoutState> {
 
       if (!state.couponTouched && bestCoupon != null) {
         try {
-          finalPricing = await _orderRepository.priceOrder(items, couponCode: bestCoupon.code);
+          finalPricing = await _orderRepository.priceOrder(
+            items,
+            couponCode: bestCoupon.code,
+          );
           finalCouponCode = bestCoupon.code;
         } catch (_) {
           finalPricing = pricing;
@@ -111,7 +113,10 @@ class CheckoutController extends StateNotifier<CheckoutState> {
         }
       } else if (state.couponTouched && state.couponCode != null) {
         try {
-          finalPricing = await _orderRepository.priceOrder(items, couponCode: state.couponCode);
+          finalPricing = await _orderRepository.priceOrder(
+            items,
+            couponCode: state.couponCode,
+          );
           finalCouponCode = state.couponCode;
         } catch (_) {
           finalPricing = pricing;
@@ -129,7 +134,6 @@ class CheckoutController extends StateNotifier<CheckoutState> {
 
       // 5. Load Payment Methods (needs orderId usually? PayRepo says getPaymentMethods(orderId...))
       // ...
-      
     } catch (e) {
       state = state.copyWith(isLoading: false, error: e.toString());
     }
@@ -137,7 +141,7 @@ class CheckoutController extends StateNotifier<CheckoutState> {
 
   Future<void> refreshPricing() async {
     if (state.items.isEmpty) return;
-    
+
     try {
       final pricing = await _orderRepository.priceOrder(
         state.items,
@@ -193,7 +197,7 @@ class CheckoutController extends StateNotifier<CheckoutState> {
           remark: state.remark,
         ),
       );
-      
+
       state = state.copyWith(isSubmitting: false);
       return result;
     } catch (e) {
@@ -203,9 +207,10 @@ class CheckoutController extends StateNotifier<CheckoutState> {
   }
 }
 
-final checkoutControllerProvider = StateNotifierProvider.autoDispose<CheckoutController, CheckoutState>((ref) {
-  return CheckoutController(
-    ref.watch(addressRepositoryProvider),
-    ref.watch(orderRepositoryProvider),
-  );
-});
+final checkoutControllerProvider =
+    StateNotifierProvider.autoDispose<CheckoutController, CheckoutState>((ref) {
+      return CheckoutController(
+        ref.watch(addressRepositoryProvider),
+        ref.watch(orderRepositoryProvider),
+      );
+    });

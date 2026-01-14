@@ -16,7 +16,7 @@ class FileRepository {
   Future<String> uploadLogo(XFile file) async {
     final bytes = await file.readAsBytes();
     final api = _ref.read(swaggerUserApiProvider);
-    
+
     // Note: The generated chopper client might need adjustment for multipart if it's not handled automatically.
     // UserServiceFileLogoUploadPost takes List<int>? file.
     final response = await api.userServiceFileLogoUploadPost(file: bytes);

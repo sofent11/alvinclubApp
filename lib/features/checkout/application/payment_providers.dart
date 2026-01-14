@@ -62,7 +62,7 @@ class PaymentController extends StateNotifier<PaymentState> {
 
   Future<String?> initiatePayment(String orderId) async {
     if (state.selectedMethod == null) return null;
-    
+
     state = state.copyWith(isLoading: true, error: null);
     try {
       final result = await _payRepository.initiatePayment(
@@ -87,24 +87,26 @@ class PaymentController extends StateNotifier<PaymentState> {
   }
 }
 
-final paymentControllerProvider = StateNotifierProvider.autoDispose<PaymentController, PaymentState>((ref) {
-  return PaymentController(ref.watch(payRepositoryProvider));
-});
+final paymentControllerProvider =
+    StateNotifierProvider.autoDispose<PaymentController, PaymentState>((ref) {
+      return PaymentController(ref.watch(payRepositoryProvider));
+    });
 
-final paymentResultProvider = StreamProvider.family.autoDispose<PayResult, String>((ref, orderId) async* {
-  final repo = ref.watch(payRepositoryProvider);
-  
-  while (true) {
-    try {
-      final result = await repo.getPayResult(orderId);
-      yield result;
-      
-      // If status is terminal (success, failed, canceled, timeout)
-      // we stop polling.
-      if (result.isTerminal) break;
-    } catch (_) {
-      // Ignore errors during polling
-    }
-    await Future.delayed(const Duration(seconds: 3));
-  }
-});
+final paymentResultProvider = StreamProvider.family
+    .autoDispose<PayResult, String>((ref, orderId) async* {
+      final repo = ref.watch(payRepositoryProvider);
+
+      while (true) {
+        try {
+          final result = await repo.getPayResult(orderId);
+          yield result;
+
+          // If status is terminal (success, failed, canceled, timeout)
+          // we stop polling.
+          if (result.isTerminal) break;
+        } catch (_) {
+          // Ignore errors during polling
+        }
+        await Future.delayed(const Duration(seconds: 3));
+      }
+    });

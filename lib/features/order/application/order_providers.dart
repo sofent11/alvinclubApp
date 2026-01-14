@@ -3,7 +3,9 @@ import '../../../data/repositories/order_repository.dart';
 
 // --- Providers ---
 
-final orderStatusCountProvider = FutureProvider.autoDispose<OrderStatusCount>((ref) async {
+final orderStatusCountProvider = FutureProvider.autoDispose<OrderStatusCount>((
+  ref,
+) async {
   final repo = ref.watch(orderRepositoryProvider);
   return repo.getOrderStatusCount();
 });
@@ -50,7 +52,7 @@ class OrderListState {
 
 class OrderListNotifier extends StateNotifier<OrderListState> {
   OrderListNotifier(this._repository, {String? frontStatus})
-      : super(OrderListState(frontStatus: frontStatus)) {
+    : super(OrderListState(frontStatus: frontStatus)) {
     loadFirstPage();
   }
 
@@ -112,10 +114,11 @@ class OrderListNotifier extends StateNotifier<OrderListState> {
 }
 
 // Family provider to cache order lists by status
-final orderListProvider =
-    StateNotifierProvider.family.autoDispose<OrderListNotifier, OrderListState, String?>(
-  (ref, frontStatus) {
-    final repo = ref.watch(orderRepositoryProvider);
-    return OrderListNotifier(repo, frontStatus: frontStatus);
-  },
-);
+final orderListProvider = StateNotifierProvider.family
+    .autoDispose<OrderListNotifier, OrderListState, String?>((
+      ref,
+      frontStatus,
+    ) {
+      final repo = ref.watch(orderRepositoryProvider);
+      return OrderListNotifier(repo, frontStatus: frontStatus);
+    });

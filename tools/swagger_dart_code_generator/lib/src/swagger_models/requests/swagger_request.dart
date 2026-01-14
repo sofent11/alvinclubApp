@@ -71,10 +71,7 @@ class RequestBody {
 
   bool get hasRef => ref.isNotEmpty;
 
-  RequestBody({
-    this.content,
-    this.ref = '',
-  });
+  RequestBody({this.content, this.ref = ''});
 
   Map<String, dynamic> toJson() => _$RequestBodyToJson(this);
 
@@ -93,16 +90,21 @@ RequestContent? _contentFromJson(Map<String, dynamic>? map) {
     final multipart =
         map['multipart/form-data']['schema'] as Map<String, dynamic>;
     return RequestContent(
-        isMultipart: true, schema: SwaggerSchema.fromJson(multipart));
+      isMultipart: true,
+      schema: SwaggerSchema.fromJson(multipart),
+    );
   }
 
   if (map.containsKey('application/x-www-form-urlencoded') &&
       !map.containsKey('application/json') &&
       !map.containsKey('multipart/form-data')) {
-    final multipart = map['application/x-www-form-urlencoded']['schema']
-        as Map<String, dynamic>;
+    final multipart =
+        map['application/x-www-form-urlencoded']['schema']
+            as Map<String, dynamic>;
     return RequestContent(
-        isUrlencoded: true, schema: SwaggerSchema.fromJson(multipart));
+      isUrlencoded: true,
+      schema: SwaggerSchema.fromJson(multipart),
+    );
   }
 
   final content = map.values.first as Map<String, dynamic>;
@@ -112,11 +114,7 @@ RequestContent? _contentFromJson(Map<String, dynamic>? map) {
 
 @JsonSerializable()
 class RequestContent {
-  RequestContent({
-    this.isMultipart,
-    this.isUrlencoded,
-    this.schema,
-  });
+  RequestContent({this.isMultipart, this.isUrlencoded, this.schema});
 
   @JsonKey(name: 'schema')
   final SwaggerSchema? schema;

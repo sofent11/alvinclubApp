@@ -8,7 +8,7 @@ void main() async {
       name: 'Vovanella',
       photoUrls: [
         'https://i.ytimg.com/vi/hO6G8jxV-YU/maxresdefault.jpg',
-        'https://i.ytimg.com/vi/5u3iv8AT8G8/maxresdefault.jpg'
+        'https://i.ytimg.com/vi/5u3iv8AT8G8/maxresdefault.jpg',
       ],
       status: PetStatus.available,
       category: Category(),

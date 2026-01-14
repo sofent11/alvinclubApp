@@ -7,10 +7,7 @@ part 'swagger_path.g.dart';
 
 @JsonSerializable()
 class SwaggerPath {
-  SwaggerPath({
-    this.requests = const {},
-    this.parameters = const [],
-  });
+  SwaggerPath({this.requests = const {}, this.parameters = const []});
 
   @JsonKey(name: 'requests')
   Map<String, SwaggerRequest> requests;

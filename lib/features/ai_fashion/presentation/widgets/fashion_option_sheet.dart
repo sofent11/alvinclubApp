@@ -3,11 +3,7 @@ import '../../../../core/theme/app_theme.dart';
 import '../../../../shared/widgets/themed_text.dart';
 
 class FashionOptionItem {
-  const FashionOptionItem({
-    required this.label,
-    required this.value,
-    this.key,
-  });
+  const FashionOptionItem({required this.label, required this.value, this.key});
 
   final String label;
   final String value;
@@ -15,11 +11,7 @@ class FashionOptionItem {
 }
 
 class FashionOptionGroup {
-  const FashionOptionGroup({
-    required this.key,
-    this.title,
-    required this.data,
-  });
+  const FashionOptionGroup({required this.key, this.title, required this.data});
 
   final String key;
   final String? title;
@@ -54,15 +46,19 @@ class _FashionOptionSheetState extends State<FashionOptionSheet> {
   }
 
   bool _isSelected(FashionOptionItem item) {
-    return _selectedItems.any((i) => i.label == item.label && i.value == item.value);
+    return _selectedItems.any(
+      (i) => i.label == item.label && i.value == item.value,
+    );
   }
 
   void _toggleItem(FashionOptionItem item) {
     setState(() {
       if (_isSelected(item)) {
-        _selectedItems.removeWhere((i) => i.label == item.label && i.value == item.value);
+        _selectedItems.removeWhere(
+          (i) => i.label == item.label && i.value == item.value,
+        );
       } else {
-        // For simplicity, let's assume single selection per group for now, 
+        // For simplicity, let's assume single selection per group for now,
         // to match RN occasionText and vibeText behavior.
         // If we want multi-selection, we'd need to handle it differently.
         _selectedItems.removeWhere((i) => i.key == item.key);
@@ -110,7 +106,10 @@ class _FashionOptionSheetState extends State<FashionOptionSheet> {
                       if (group.title != null)
                         Padding(
                           padding: const EdgeInsets.only(bottom: 12),
-                          child: ThemedText(group.title!, type: ThemedTextType.defaultSemiBold),
+                          child: ThemedText(
+                            group.title!,
+                            type: ThemedTextType.defaultSemiBold,
+                          ),
                         ),
                       Wrap(
                         spacing: 8,
@@ -120,19 +119,30 @@ class _FashionOptionSheetState extends State<FashionOptionSheet> {
                           return GestureDetector(
                             onTap: () => _toggleItem(item),
                             child: Container(
-                              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                              padding: const EdgeInsets.symmetric(
+                                horizontal: 16,
+                                vertical: 8,
+                              ),
                               decoration: BoxDecoration(
-                                color: selected ? context.appColors.tint : Colors.grey[100],
+                                color: selected
+                                    ? context.appColors.tint
+                                    : Colors.grey[100],
                                 borderRadius: BorderRadius.circular(20),
                                 border: Border.all(
-                                  color: selected ? context.appColors.tint : Colors.transparent,
+                                  color: selected
+                                      ? context.appColors.tint
+                                      : Colors.transparent,
                                 ),
                               ),
                               child: Text(
                                 item.label,
                                 style: TextStyle(
-                                  color: selected ? Colors.white : Colors.black87,
-                                  fontWeight: selected ? FontWeight.bold : FontWeight.normal,
+                                  color: selected
+                                      ? Colors.white
+                                      : Colors.black87,
+                                  fontWeight: selected
+                                      ? FontWeight.bold
+                                      : FontWeight.normal,
                                 ),
                               ),
                             ),
@@ -158,9 +168,14 @@ class _FashionOptionSheetState extends State<FashionOptionSheet> {
                 backgroundColor: Colors.black,
                 foregroundColor: Colors.white,
                 padding: const EdgeInsets.symmetric(vertical: 16),
-                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(28)),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(28),
+                ),
               ),
-              child: const Text('Confirm', style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold)),
+              child: const Text(
+                'Confirm',
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              ),
             ),
           ),
         ],

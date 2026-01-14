@@ -37,7 +37,10 @@ class SearchHistoryStore {
 
     try {
       final history = await get();
-      final next = [trimmed, ...history.where((item) => item != trimmed)].take(_maxItems).toList();
+      final next = [
+        trimmed,
+        ...history.where((item) => item != trimmed),
+      ].take(_maxItems).toList();
       await _storage.setString(StorageKeys.searchHistory, jsonEncode(next));
     } catch (error) {
       if (kDebugMode) {

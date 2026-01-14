@@ -13,7 +13,8 @@ class ModelSettingsScreen extends ConsumerStatefulWidget {
   const ModelSettingsScreen({super.key});
 
   @override
-  ConsumerState<ModelSettingsScreen> createState() => _ModelSettingsScreenState();
+  ConsumerState<ModelSettingsScreen> createState() =>
+      _ModelSettingsScreenState();
 }
 
 class _ModelSettingsScreenState extends ConsumerState<ModelSettingsScreen> {
@@ -48,8 +49,22 @@ class _ModelSettingsScreenState extends ConsumerState<ModelSettingsScreen> {
       appBar: AppBar(title: const Text('Model Setup')),
       body: modelsAsync.when(
         data: (groups) {
-          final userGroup = groups.firstWhere((g) => g.groupId == 1, orElse: () => FashionModelGroup(groupId: 1, title: 'My Model Library', models: []));
-          final systemGroup = groups.firstWhere((g) => g.groupId == 0, orElse: () => FashionModelGroup(groupId: 0, title: 'Model Library', models: []));
+          final userGroup = groups.firstWhere(
+            (g) => g.groupId == 1,
+            orElse: () => FashionModelGroup(
+              groupId: 1,
+              title: 'My Model Library',
+              models: [],
+            ),
+          );
+          final systemGroup = groups.firstWhere(
+            (g) => g.groupId == 0,
+            orElse: () => FashionModelGroup(
+              groupId: 0,
+              title: 'Model Library',
+              models: [],
+            ),
+          );
 
           return Column(
             children: [
@@ -59,7 +74,11 @@ class _ModelSettingsScreenState extends ConsumerState<ModelSettingsScreen> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      _buildSection('My Model Library', userGroup.models, showCreate: true),
+                      _buildSection(
+                        'My Model Library',
+                        userGroup.models,
+                        showCreate: true,
+                      ),
                       const SizedBox(height: 32),
                       _buildSection('Model Library', systemGroup.models),
                     ],
@@ -71,7 +90,9 @@ class _ModelSettingsScreenState extends ConsumerState<ModelSettingsScreen> {
                 child: SafeArea(
                   child: ThemedButton(
                     label: 'Done',
-                    onPressed: _selectedModelId != null ? () => _handleDone(groups) : null,
+                    onPressed: _selectedModelId != null
+                        ? () => _handleDone(groups)
+                        : null,
                   ),
                 ),
               ),
@@ -84,7 +105,11 @@ class _ModelSettingsScreenState extends ConsumerState<ModelSettingsScreen> {
     );
   }
 
-  Widget _buildSection(String title, List<FashionModel> models, {bool showCreate = false}) {
+  Widget _buildSection(
+    String title,
+    List<FashionModel> models, {
+    bool showCreate = false,
+  }) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [

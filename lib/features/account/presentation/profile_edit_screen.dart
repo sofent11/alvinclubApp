@@ -43,15 +43,19 @@ class _ProfileEditScreenState extends ConsumerState<ProfileEditScreen> {
   }
 
   Future<void> _save() async {
-    await ref.read(profileControllerProvider.notifier).updateProfile(
-      nickname: _nicknameController.text,
-      avatarFile: _imageFile,
-      gender: _gender,
-      birthday: _birthday,
-    );
+    await ref
+        .read(profileControllerProvider.notifier)
+        .updateProfile(
+          nickname: _nicknameController.text,
+          avatarFile: _imageFile,
+          gender: _gender,
+          birthday: _birthday,
+        );
 
     if (mounted && !ref.read(profileControllerProvider).hasError) {
-      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Profile updated successfully')));
+      ScaffoldMessenger.of(context).showSnackBar(
+        const SnackBar(content: Text('Profile updated successfully')),
+      );
       context.pop();
     }
   }
@@ -62,9 +66,7 @@ class _ProfileEditScreenState extends ConsumerState<ProfileEditScreen> {
     final state = ref.watch(profileControllerProvider);
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Edit Profile'),
-      ),
+      appBar: AppBar(title: const Text('Edit Profile')),
       body: profileAsync.when(
         data: (profile) {
           // Sync controllers only once or when needed
@@ -87,9 +89,15 @@ class _ProfileEditScreenState extends ConsumerState<ProfileEditScreen> {
                         backgroundColor: Colors.grey[200],
                         backgroundImage: _imageFile != null
                             ? FileImage(File(_imageFile!.path)) as ImageProvider
-                            : (profile.avatar != null ? CachedNetworkImageProvider(profile.avatar!) : null),
+                            : (profile.avatar != null
+                                  ? CachedNetworkImageProvider(profile.avatar!)
+                                  : null),
                         child: _imageFile == null && profile.avatar == null
-                            ? const Icon(Icons.person, size: 50, color: Colors.grey)
+                            ? const Icon(
+                                Icons.person,
+                                size: 50,
+                                color: Colors.grey,
+                              )
                             : null,
                       ),
                       Positioned(
@@ -101,7 +109,11 @@ class _ProfileEditScreenState extends ConsumerState<ProfileEditScreen> {
                             color: context.appColors.tint,
                             shape: BoxShape.circle,
                           ),
-                          child: const Icon(Icons.camera_alt, color: Colors.white, size: 20),
+                          child: const Icon(
+                            Icons.camera_alt,
+                            color: Colors.white,
+                            size: 20,
+                          ),
                         ),
                       ),
                     ],
@@ -131,7 +143,10 @@ class _ProfileEditScreenState extends ConsumerState<ProfileEditScreen> {
                 if (state.hasError)
                   Padding(
                     padding: const EdgeInsets.only(top: 16),
-                    child: Text(state.error.toString(), style: const TextStyle(color: Colors.red)),
+                    child: Text(
+                      state.error.toString(),
+                      style: const TextStyle(color: Colors.red),
+                    ),
                   ),
               ],
             ),
@@ -180,7 +195,9 @@ class _ProfileEditScreenState extends ConsumerState<ProfileEditScreen> {
   Widget _buildBirthdayPicker() {
     return InkWell(
       onTap: () async {
-        final initialDate = _birthday != null ? DateTime.tryParse(_birthday!) : null;
+        final initialDate = _birthday != null
+            ? DateTime.tryParse(_birthday!)
+            : null;
         final picked = await showDatePicker(
           context: context,
           initialDate: initialDate ?? DateTime(2000),
@@ -200,7 +217,12 @@ class _ProfileEditScreenState extends ConsumerState<ProfileEditScreen> {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(_birthday ?? 'Select Birthday', style: TextStyle(color: _birthday == null ? Colors.grey[600] : Colors.black)),
+            Text(
+              _birthday ?? 'Select Birthday',
+              style: TextStyle(
+                color: _birthday == null ? Colors.grey[600] : Colors.black,
+              ),
+            ),
             const Icon(Icons.calendar_today, size: 20, color: Colors.grey),
           ],
         ),
@@ -230,7 +252,9 @@ class _GenderOption extends StatelessWidget {
       child: Container(
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 8),
         decoration: BoxDecoration(
-          color: selected ? colors.tint.withValues(alpha: 0.1) : Colors.transparent,
+          color: selected
+              ? colors.tint.withValues(alpha: 0.1)
+              : Colors.transparent,
           border: Border.all(color: selected ? colors.tint : Colors.grey[300]!),
           borderRadius: BorderRadius.circular(20),
         ),

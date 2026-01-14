@@ -144,7 +144,9 @@ EnhancedError handleOtpError(ApiError error) {
     );
   }
 
-  if (message.contains('invalid') || message.contains('错误') || message.contains('不正确')) {
+  if (message.contains('invalid') ||
+      message.contains('错误') ||
+      message.contains('不正确')) {
     return EnhancedError(
       type: ErrorType.validation,
       severity: ErrorSeverity.warning,

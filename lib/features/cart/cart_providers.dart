@@ -18,7 +18,12 @@ final cartPricingProvider = FutureProvider<CartPricing>((ref) async {
 
   final itemsToPrice = cartValue.items
       .where((item) => selection.contains(item.skuCode))
-      .map((item) => CartPricingRequestItem(skuCode: item.skuCode, quantity: item.quantity))
+      .map(
+        (item) => CartPricingRequestItem(
+          skuCode: item.skuCode,
+          quantity: item.quantity,
+        ),
+      )
       .toList();
 
   if (itemsToPrice.isEmpty) {

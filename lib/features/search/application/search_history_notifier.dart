@@ -46,7 +46,9 @@ class SearchHistoryNotifier extends StateNotifier<AsyncValue<List<String>>> {
 }
 
 final searchHistoryNotifierProvider =
-    StateNotifierProvider<SearchHistoryNotifier, AsyncValue<List<String>>>((ref) {
-  final store = ref.watch(searchHistoryProvider);
-  return SearchHistoryNotifier(store);
-});
+    StateNotifierProvider<SearchHistoryNotifier, AsyncValue<List<String>>>((
+      ref,
+    ) {
+      final store = ref.watch(searchHistoryProvider);
+      return SearchHistoryNotifier(store);
+    });

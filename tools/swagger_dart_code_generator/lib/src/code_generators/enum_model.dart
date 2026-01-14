@@ -41,15 +41,18 @@ class EnumModel {
         allFieldNames,
       );
 
-      allFieldNames
-          .add(validatedValue.substring(0, validatedValue.indexOf('(')));
+      allFieldNames.add(
+        validatedValue.substring(0, validatedValue.indexOf('(')),
+      );
 
       if (isInteger) {
         resultStrings.add(
-            "\t@JsonValue(${_normalizeJsonKeyString(value)})\n\t$validatedValue");
+          "\t@JsonValue(${_normalizeJsonKeyString(value)})\n\t$validatedValue",
+        );
       } else {
         resultStrings.add(
-            "\t@JsonValue('${_normalizeJsonKeyString(value)}')\n\t$validatedValue");
+          "\t@JsonValue('${_normalizeJsonKeyString(value)}')\n\t$validatedValue",
+        );
       }
     }
 
@@ -112,9 +115,9 @@ const $name(this.value);
         : 'return enums.$name.values.firstWhereOrNull((e) => e.value.toString().toLowerCase() == ${name.camelCase}${nullCheck ? '?' : ''}.toString().toLowerCase()) ?? defaultValue';
 
     final enumListFromJsonReturn = isInteger
-      ? 'return ${name.camelCase}.map((e) => ${name.camelCase}FromJson(e)).toList()'
-      : 'return ${name.camelCase}.map((e) => ${name.camelCase}FromJson(e.toString())).toList()';
-    
+        ? 'return ${name.camelCase}.map((e) => ${name.camelCase}FromJson(e)).toList()'
+        : 'return ${name.camelCase}.map((e) => ${name.camelCase}FromJson(e.toString())).toList()';
+
     return '''
 $type? ${name.camelCase}NullableToJson(enums.$name? ${name.camelCase}) {
   return ${name.camelCase}?.value;

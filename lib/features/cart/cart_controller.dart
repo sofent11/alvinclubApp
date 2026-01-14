@@ -4,18 +4,12 @@ import '../../data/repositories/cart_repository.dart';
 import 'cart_providers.dart';
 
 class CartState {
-  const CartState({
-    this.selectedSkuCodes = const {},
-    this.isUpdating = false,
-  });
+  const CartState({this.selectedSkuCodes = const {}, this.isUpdating = false});
 
   final Set<String> selectedSkuCodes;
   final bool isUpdating;
 
-  CartState copyWith({
-    Set<String>? selectedSkuCodes,
-    bool? isUpdating,
-  }) {
+  CartState copyWith({Set<String>? selectedSkuCodes, bool? isUpdating}) {
     return CartState(
       selectedSkuCodes: selectedSkuCodes ?? this.selectedSkuCodes,
       isUpdating: isUpdating ?? this.isUpdating,
@@ -50,9 +44,13 @@ class CartController extends StateNotifier<CartState> {
   }
 
   void toggleAll(List<CartLineItem> items) {
-    final available = items.where((item) => item.status == 'available').toList();
-    final allSelected = available.every((item) => state.selectedSkuCodes.contains(item.skuCode));
-    
+    final available = items
+        .where((item) => item.status == 'available')
+        .toList();
+    final allSelected = available.every(
+      (item) => state.selectedSkuCodes.contains(item.skuCode),
+    );
+
     if (allSelected) {
       state = state.copyWith(selectedSkuCodes: {});
     } else {
@@ -65,10 +63,12 @@ class CartController extends StateNotifier<CartState> {
     state = state.copyWith(isUpdating: true);
     try {
       final repo = _ref.read(cartRepositoryProvider);
-      await repo.updateCart(UpdateCartInput(
-        type: 'update',
-        items: [UpdateCartItem(skuCode: skuCode, quantity: quantity)],
-      ));
+      await repo.updateCart(
+        UpdateCartInput(
+          type: 'update',
+          items: [UpdateCartItem(skuCode: skuCode, quantity: quantity)],
+        ),
+      );
       _ref.invalidate(cartProvider);
     } finally {
       state = state.copyWith(isUpdating: false);
@@ -79,15 +79,17 @@ class CartController extends StateNotifier<CartState> {
     state = state.copyWith(isUpdating: true);
     try {
       final repo = _ref.read(cartRepositoryProvider);
-       await repo.updateCart(UpdateCartInput(
-        type: 'delete',
-        items: skuCodes.map((code) => UpdateCartItem(skuCode: code)).toList(),
-      ));
-      
+      await repo.updateCart(
+        UpdateCartInput(
+          type: 'delete',
+          items: skuCodes.map((code) => UpdateCartItem(skuCode: code)).toList(),
+        ),
+      );
+
       final nextSelection = Set<String>.from(state.selectedSkuCodes);
       nextSelection.removeAll(skuCodes);
       state = state.copyWith(selectedSkuCodes: nextSelection);
-      
+
       _ref.invalidate(cartProvider);
     } finally {
       state = state.copyWith(isUpdating: false);
@@ -95,6 +97,8 @@ class CartController extends StateNotifier<CartState> {
   }
 }
 
-final cartControllerProvider = StateNotifierProvider<CartController, CartState>((ref) {
-  return CartController(ref);
-});
+final cartControllerProvider = StateNotifierProvider<CartController, CartState>(
+  (ref) {
+    return CartController(ref);
+  },
+);

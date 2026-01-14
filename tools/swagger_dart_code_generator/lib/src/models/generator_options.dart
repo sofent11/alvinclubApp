@@ -41,7 +41,7 @@ class GeneratorOptions {
     this.multipartFileType = 'List<int>',
     this.urlencodedFileType = 'Map<String, String>',
     this.generateFirstSucceedResponse = true,
-    this.customAnnotations = const[],
+    this.customAnnotations = const [],
   });
 
   /// Build options from a JSON map.
@@ -86,6 +86,7 @@ class GeneratorOptions {
 
   @JsonKey(defaultValue: <CustomAnnotationMap>[])
   final List<CustomAnnotationMap> customAnnotations;
+
   /// Convert this options instance to JSON.
   Map<String, dynamic> toJson() => _$GeneratorOptionsToJson(this);
 }
@@ -110,8 +111,11 @@ class DefaultValueMap {
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class ResponseOverrideValueMap {
-  ResponseOverrideValueMap(
-      {required this.url, required this.method, required this.overriddenValue});
+  ResponseOverrideValueMap({
+    required this.url,
+    required this.method,
+    required this.overriddenValue,
+  });
 
   /// Build a default value map from a JSON map.
   factory ResponseOverrideValueMap.fromJson(Map<String, dynamic> json) =>
@@ -148,10 +152,7 @@ class DefaultHeaderValueMap {
 
 @JsonSerializable(fieldRename: FieldRename.snake)
 class InputUrl {
-  InputUrl({
-    required this.url,
-    this.fileName,
-  });
+  InputUrl({required this.url, this.fileName});
 
   @JsonKey()
   final String url;

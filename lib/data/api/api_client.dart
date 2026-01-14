@@ -20,7 +20,9 @@ String _toCurl(RequestOptions options) {
   });
 
   if (options.data != null && method != 'GET') {
-    final body = options.data is String ? options.data.toString() : jsonEncode(options.data);
+    final body = options.data is String
+        ? options.data.toString()
+        : jsonEncode(options.data);
     final escaped = body.replaceAll("'", "\\'");
     buffer.write(" -d '$escaped'");
   }
@@ -62,7 +64,9 @@ final dioProvider = Provider<Dio>((ref) {
       },
       onResponse: (response, handler) {
         if (kDebugMode) {
-          debugPrint('✅ API Response: ${response.requestOptions.method.toUpperCase()} ${response.requestOptions.path}');
+          debugPrint(
+            '✅ API Response: ${response.requestOptions.method.toUpperCase()} ${response.requestOptions.path}',
+          );
         }
         handler.next(response);
       },

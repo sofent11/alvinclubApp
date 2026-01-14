@@ -42,9 +42,7 @@ Map<String, SwaggerSchema> _mapResponses(Map<String, dynamic>? json) {
   json.forEach((key, value) {
     final map = value as Map<String, dynamic>? ?? {};
     if (kBasicTypes.contains(value?['type'])) {
-      results[key] = SwaggerSchema(
-        type: value!['type'].toString(),
-      );
+      results[key] = SwaggerSchema(type: value!['type'].toString());
     }
 
     final content = map['content'] as Map<String, dynamic>?;
@@ -58,8 +56,9 @@ Map<String, SwaggerSchema> _mapResponses(Map<String, dynamic>? json) {
     }
 
     if (appJson != null && appJson['schema'] != null) {
-      results[key] =
-          SwaggerSchema.fromJson(appJson['schema'] as Map<String, dynamic>);
+      results[key] = SwaggerSchema.fromJson(
+        appJson['schema'] as Map<String, dynamic>,
+      );
     }
   });
 

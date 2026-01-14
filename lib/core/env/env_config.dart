@@ -35,7 +35,9 @@ class EnvConfig {
   static late EnvConfig current;
 
   static Future<void> load({String? envFile}) async {
-    final fileName = envFile ?? const String.fromEnvironment('ENV_FILE', defaultValue: '.env.dev');
+    final fileName =
+        envFile ??
+        const String.fromEnvironment('ENV_FILE', defaultValue: '.env.dev');
     await dotenv.load(fileName: fileName);
 
     final fallbackLocale = 'en-US';
@@ -47,7 +49,9 @@ class EnvConfig {
     final rawUploadPrefix = dotenv.env['EXPO_PUBLIC_UPLOAD_PREFIX'];
 
     if (kDebugMode && rawApiBase.isEmpty) {
-      debugPrint('[env] Missing EXPO_PUBLIC_API_BASE_URL. Update your .env file before hitting real APIs.');
+      debugPrint(
+        '[env] Missing EXPO_PUBLIC_API_BASE_URL. Update your .env file before hitting real APIs.',
+      );
     }
 
     current = EnvConfig(

@@ -76,7 +76,8 @@ class _PostCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => context.push(RoutePaths.fashionPost.replaceFirst(':id', post.id)),
+      onTap: () =>
+          context.push(RoutePaths.fashionPost.replaceFirst(':id', post.id)),
       child: Card(
         clipBehavior: Clip.antiAlias,
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
@@ -90,7 +91,8 @@ class _PostCard extends StatelessWidget {
               child: CachedNetworkImage(
                 imageUrl: post.imageUrl,
                 fit: BoxFit.cover,
-                placeholder: (context, url) => Container(color: Colors.grey[200]),
+                placeholder: (context, url) =>
+                    Container(color: Colors.grey[200]),
               ),
             ),
             Padding(

@@ -5,17 +5,16 @@ extension ParameterExtension on Parameter {
     Reference? type,
     List<Expression>? annotations,
     String? name,
-  }) =>
-      Parameter(
-        (p) => p
-          ..name = name ?? this.name
-          ..named = named
-          ..required = required
-          ..type = type ?? this.type
-          ..named = named
-          ..defaultTo = defaultTo
-          ..annotations.addAll(annotations ?? this.annotations),
-      );
+  }) => Parameter(
+    (p) => p
+      ..name = name ?? this.name
+      ..named = named
+      ..required = required
+      ..type = type ?? this.type
+      ..named = named
+      ..defaultTo = defaultTo
+      ..annotations.addAll(annotations ?? this.annotations),
+  );
 }
 
 extension ParameterListExtension on List<Parameter> {

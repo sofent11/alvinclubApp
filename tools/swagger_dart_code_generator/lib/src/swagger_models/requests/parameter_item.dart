@@ -4,8 +4,11 @@ part 'parameter_item.g.dart';
 
 @JsonSerializable()
 class ParameterItem {
-  ParameterItem(
-      {this.type = '', this.enumValues = const [], this.defaultValue = ''});
+  ParameterItem({
+    this.type = '',
+    this.enumValues = const [],
+    this.defaultValue = '',
+  });
 
   factory ParameterItem.fromJson(Map<String, dynamic> json) =>
       _$ParameterItemFromJson(json);

@@ -59,8 +59,9 @@ extension TypeExtension on String {
       return kDynamic;
     }
 
-    final result =
-        split('-').map((String str) => str == str.capitalize).toList().join();
+    final result = split(
+      '-',
+    ).map((String str) => str == str.capitalize).toList().join();
 
     return result;
   }

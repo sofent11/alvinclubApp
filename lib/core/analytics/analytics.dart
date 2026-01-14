@@ -27,7 +27,11 @@ enum EventName {
 }
 
 class AnalyticsEvent {
-  AnalyticsEvent({required this.name, required this.params, required this.timestamp});
+  AnalyticsEvent({
+    required this.name,
+    required this.params,
+    required this.timestamp,
+  });
 
   final EventName name;
   final EventParams params;
@@ -63,7 +67,11 @@ class AnalyticsClient {
     });
   }
 
-  void productClick(String productId, {String? productName, String? pageSource}) {
+  void productClick(
+    String productId, {
+    String? productName,
+    String? pageSource,
+  }) {
     track(EventName.productClick, {
       'product_id': productId,
       'product_name': productName,
@@ -86,13 +94,14 @@ class AnalyticsClient {
   }
 
   void topicView(String topicId, {String? topicName}) {
-    track(EventName.topicView, {
-      'topic_id': topicId,
-      'topic_name': topicName,
-    });
+    track(EventName.topicView, {'topic_id': topicId, 'topic_name': topicName});
   }
 
-  void categoryClick(String categoryId, String categoryName, {String? pageSource}) {
+  void categoryClick(
+    String categoryId,
+    String categoryName, {
+    String? pageSource,
+  }) {
     track(EventName.categoryClick, {
       'category_id': categoryId,
       'category_name': categoryName,
@@ -123,7 +132,12 @@ class AnalyticsClient {
     });
   }
 
-  void paymentSuccess(String orderId, double amount, String currency, String method) {
+  void paymentSuccess(
+    String orderId,
+    double amount,
+    String currency,
+    String method,
+  ) {
     track(EventName.paymentSuccess, {
       'order_id': orderId,
       'amount': amount,
@@ -133,17 +147,11 @@ class AnalyticsClient {
   }
 
   void paymentFail(String orderId, String reason) {
-    track(EventName.paymentFail, {
-      'order_id': orderId,
-      'reason': reason,
-    });
+    track(EventName.paymentFail, {'order_id': orderId, 'reason': reason});
   }
 
   void submitRebate(String orderId, double amount) {
-    track(EventName.submitRebate, {
-      'order_id': orderId,
-      'amount': amount,
-    });
+    track(EventName.submitRebate, {'order_id': orderId, 'amount': amount});
   }
 
   void shareClick(String contentType, String contentId, {String? platform}) {
@@ -159,11 +167,17 @@ class AnalyticsClient {
   }
 
   void communityPostLike(String postId, bool isLiked) {
-    track(EventName.communityPostLike, {'post_id': postId, 'is_liked': isLiked});
+    track(EventName.communityPostLike, {
+      'post_id': postId,
+      'is_liked': isLiked,
+    });
   }
 
   void imageTranslate(String imageUrl, bool success) {
-    track(EventName.imageTranslate, {'image_url': imageUrl, 'success': success});
+    track(EventName.imageTranslate, {
+      'image_url': imageUrl,
+      'success': success,
+    });
   }
 
   void couponClaim(String couponId) {

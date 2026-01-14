@@ -27,9 +27,15 @@ class KolLandingScreen extends ConsumerWidget {
                       child: Icon(Icons.person, size: 50),
                     ),
                     const SizedBox(height: 24),
-                    ThemedText('KOL Shared Content', type: ThemedTextType.title),
+                    ThemedText(
+                      'KOL Shared Content',
+                      type: ThemedTextType.title,
+                    ),
                     const SizedBox(height: 8),
-                    Text('Influencer Code: $code', style: const TextStyle(color: Colors.grey)),
+                    Text(
+                      'Influencer Code: $code',
+                      style: const TextStyle(color: Colors.grey),
+                    ),
                     const SizedBox(height: 32),
                     const Padding(
                       padding: EdgeInsets.symmetric(horizontal: 40),

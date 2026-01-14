@@ -41,16 +41,22 @@ class HistoryScreen extends ConsumerWidget {
                           width: 50,
                           height: 50,
                           fit: BoxFit.cover,
-                          placeholder: (context, url) => Container(color: Colors.grey[200]),
-                          errorWidget: (context, url, error) => const Icon(Icons.error),
+                          placeholder: (context, url) =>
+                              Container(color: Colors.grey[200]),
+                          errorWidget: (context, url, error) =>
+                              const Icon(Icons.error),
                         ),
                       )
                     : const Icon(Icons.image_not_supported),
                 title: Text(item.status),
-                subtitle: Text(DateFormat('yyyy-MM-dd HH:mm').format(item.createdAt)),
+                subtitle: Text(
+                  DateFormat('yyyy-MM-dd HH:mm').format(item.createdAt),
+                ),
                 trailing: const Icon(Icons.chevron_right),
                 onTap: () {
-                  context.push('${RoutePaths.fashionOutfitResult}?taskId=${item.taskId}');
+                  context.push(
+                    '${RoutePaths.fashionOutfitResult}?taskId=${item.taskId}',
+                  );
                 },
               );
             },

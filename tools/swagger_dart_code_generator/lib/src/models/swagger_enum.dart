@@ -9,9 +9,9 @@ class SwaggerEnum {
   });
 
   SwaggerEnum.fromSchema(Map<String, dynamic> schema)
-      : name = schema['name'] as String,
-        isInteger = kIntegerTypes.contains(schema['type']),
-        defaultValue = schema['default'];
+    : name = schema['name'] as String,
+      isInteger = kIntegerTypes.contains(schema['type']),
+      defaultValue = schema['default'];
 
   final String name;
 

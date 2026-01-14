@@ -11,11 +11,7 @@ import '../../../shared/widgets/themed_button.dart';
 import '../application/payment_providers.dart';
 
 class PaymentScreen extends ConsumerStatefulWidget {
-  const PaymentScreen({
-    super.key,
-    required this.orderId,
-    this.timeoutSeconds,
-  });
+  const PaymentScreen({super.key, required this.orderId, this.timeoutSeconds});
 
   final String orderId;
   final int? timeoutSeconds;
@@ -98,15 +94,15 @@ class _PaymentScreenState extends ConsumerState<PaymentScreen> {
   Future<void> _onPay() async {
     final controller = ref.read(paymentControllerProvider.notifier);
     final url = await controller.initiatePayment(widget.orderId);
-    
+
     if (url != null && mounted) {
       _initWebView(url);
     } else {
       final error = ref.read(paymentControllerProvider).error;
       if (error != null && mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(error)),
-        );
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(SnackBar(content: Text(error)));
       }
     }
   }
@@ -188,7 +184,7 @@ class _PaymentScreenState extends ConsumerState<PaymentScreen> {
 
   Widget _buildMethodCard(dynamic method, bool isSelected) {
     final colors = context.appColors;
-    
+
     return InkWell(
       onTap: () {
         ref.read(paymentControllerProvider.notifier).selectMethod(method);
@@ -224,7 +220,8 @@ class _PaymentScreenState extends ConsumerState<PaymentScreen> {
                     method.name,
                     style: const TextStyle(fontWeight: FontWeight.bold),
                   ),
-                  if (method.description != null && method.description!.isNotEmpty)
+                  if (method.description != null &&
+                      method.description!.isNotEmpty)
                     Text(
                       method.description!,
                       style: TextStyle(color: colors.textMuted, fontSize: 12),
@@ -232,8 +229,7 @@ class _PaymentScreenState extends ConsumerState<PaymentScreen> {
                 ],
               ),
             ),
-            if (isSelected)
-              Icon(Icons.check_circle, color: colors.tint),
+            if (isSelected) Icon(Icons.check_circle, color: colors.tint),
           ],
         ),
       ),

@@ -51,11 +51,12 @@ final Map<Type, Object Function(Map<String, dynamic>)> $mappingVariableName = {}
   ) {
     final result = StringBuffer();
 
-    final chopperPartImport =
-        buildOnlyModels ? '' : "part '$swaggerFileName.swagger.chopper.dart';";
+    final chopperPartImport = buildOnlyModels
+        ? ''
+        : "part '$swaggerFileName.swagger.chopper.dart';";
 
-    final overridenModels = options.overridenModels
-            .any((e) => e.fileName == swaggerFileName)
+    final overridenModels =
+        options.overridenModels.any((e) => e.fileName == swaggerFileName)
         ? 'import \'${options.overridenModels.firstWhere((e) => e.fileName == swaggerFileName).importUrl}\';'
         : '';
 
@@ -73,8 +74,9 @@ import 'package:chopper/chopper.dart' as chopper;''';
         ? "import '$swaggerFileName.enums.swagger.dart' as enums;"
         : '';
 
-    final enumsExport =
-        hasEnums ? "export '$swaggerFileName.enums.swagger.dart';" : '';
+    final enumsExport = hasEnums
+        ? "export '$swaggerFileName.enums.swagger.dart';"
+        : '';
 
     result.writeln("""
 // coverage:ignore-file

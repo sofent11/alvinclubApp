@@ -106,11 +106,16 @@ class AppColorScheme extends ThemeExtension<AppColorScheme> {
       danger: Color.lerp(danger, other.danger, t) ?? danger,
       border: Color.lerp(border, other.border, t) ?? border,
       muted: Color.lerp(muted, other.muted, t) ?? muted,
-      mutedBackground: Color.lerp(mutedBackground, other.mutedBackground, t) ?? mutedBackground,
+      mutedBackground:
+          Color.lerp(mutedBackground, other.mutedBackground, t) ??
+          mutedBackground,
       tint: Color.lerp(tint, other.tint, t) ?? tint,
       icon: Color.lerp(icon, other.icon, t) ?? icon,
-      tabIconDefault: Color.lerp(tabIconDefault, other.tabIconDefault, t) ?? tabIconDefault,
-      tabIconSelected: Color.lerp(tabIconSelected, other.tabIconSelected, t) ?? tabIconSelected,
+      tabIconDefault:
+          Color.lerp(tabIconDefault, other.tabIconDefault, t) ?? tabIconDefault,
+      tabIconSelected:
+          Color.lerp(tabIconSelected, other.tabIconSelected, t) ??
+          tabIconSelected,
       shadow: Color.lerp(shadow, other.shadow, t) ?? shadow,
     );
   }
@@ -178,40 +183,33 @@ class AppSpacing {
 }
 
 class AppTextStyles {
-  static TextStyle base(AppColorScheme colors) => TextStyle(
-        fontSize: 16,
-        height: 24 / 16,
-        color: colors.text,
-      );
+  static TextStyle base(AppColorScheme colors) =>
+      TextStyle(fontSize: 16, height: 24 / 16, color: colors.text);
 
-  static TextStyle defaultStyle(AppColorScheme colors) => base(colors).copyWith(fontWeight: FontWeight.w400);
+  static TextStyle defaultStyle(AppColorScheme colors) =>
+      base(colors).copyWith(fontWeight: FontWeight.w400);
 
-  static TextStyle defaultSemiBold(AppColorScheme colors) => base(colors).copyWith(fontWeight: FontWeight.w600);
+  static TextStyle defaultSemiBold(AppColorScheme colors) =>
+      base(colors).copyWith(fontWeight: FontWeight.w600);
 
-  static TextStyle title(AppColorScheme colors) => base(colors).copyWith(
-        fontSize: 28,
-        height: 34 / 28,
-        fontWeight: FontWeight.w700,
-      );
+  static TextStyle title(AppColorScheme colors) => base(
+    colors,
+  ).copyWith(fontSize: 28, height: 34 / 28, fontWeight: FontWeight.w700);
 
-  static TextStyle subtitle(AppColorScheme colors) => base(colors).copyWith(
-        fontSize: 20,
-        height: 27 / 20,
-        fontWeight: FontWeight.w600,
-      );
+  static TextStyle subtitle(AppColorScheme colors) => base(
+    colors,
+  ).copyWith(fontSize: 20, height: 27 / 20, fontWeight: FontWeight.w600);
 
-  static TextStyle caption(AppColorScheme colors) => base(colors).copyWith(
-        fontSize: 13,
-        height: 18 / 13,
-        color: colors.text.withAlpha(204),
-      );
+  static TextStyle caption(AppColorScheme colors) => base(
+    colors,
+  ).copyWith(fontSize: 13, height: 18 / 13, color: colors.text.withAlpha(204));
 
   static TextStyle eyebrow(AppColorScheme colors) => base(colors).copyWith(
-        fontSize: 12,
-        height: 16 / 12,
-        letterSpacing: 1,
-        fontWeight: FontWeight.w600,
-      );
+    fontSize: 12,
+    height: 16 / 12,
+    letterSpacing: 1,
+    fontWeight: FontWeight.w600,
+  );
 }
 
 class AppTheme {

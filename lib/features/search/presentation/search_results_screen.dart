@@ -15,7 +15,8 @@ class SearchResultsScreen extends ConsumerStatefulWidget {
   final String query;
 
   @override
-  ConsumerState<SearchResultsScreen> createState() => _SearchResultsScreenState();
+  ConsumerState<SearchResultsScreen> createState() =>
+      _SearchResultsScreenState();
 }
 
 class _SearchResultsScreenState extends ConsumerState<SearchResultsScreen> {
@@ -51,20 +52,24 @@ class _SearchResultsScreenState extends ConsumerState<SearchResultsScreen> {
   }
 
   void _onScroll() {
-    if (_scrollController.position.pixels >= _scrollController.position.maxScrollExtent - 200) {
+    if (_scrollController.position.pixels >=
+        _scrollController.position.maxScrollExtent - 200) {
       ref.read(searchControllerProvider.notifier).loadMore();
     }
   }
 
   void _onSearch(String query) {
     if (query.trim().isEmpty) return;
-    
+
     // Add to history
     ref.read(searchHistoryNotifierProvider.notifier).add(query);
-    
+
     // Update URL and trigger search
     context.pushReplacement(
-      Uri(path: RoutePaths.searchResults, queryParameters: {'q': query}).toString(),
+      Uri(
+        path: RoutePaths.searchResults,
+        queryParameters: {'q': query},
+      ).toString(),
     );
   }
 
@@ -126,30 +131,36 @@ class _SearchResultsScreenState extends ConsumerState<SearchResultsScreen> {
           _FilterButton(
             label: 'Relevance',
             isSelected: state.sortBy == null,
-            onTap: () => ref.read(searchControllerProvider.notifier).updateFilters(
-                  sortBy: null,
-                  sortOrder: null,
-                ),
+            onTap: () => ref
+                .read(searchControllerProvider.notifier)
+                .updateFilters(sortBy: null, sortOrder: null),
           ),
           _FilterButton(
             label: 'Price',
             isSelected: state.sortBy == 'price',
             icon: state.sortBy == 'price'
-                ? (state.sortOrder == 'asc' ? Icons.arrow_upward : Icons.arrow_downward)
+                ? (state.sortOrder == 'asc'
+                      ? Icons.arrow_upward
+                      : Icons.arrow_downward)
                 : null,
             onTap: () {
-              final newOrder = (state.sortBy == 'price' && state.sortOrder == 'asc') ? 'desc' : 'asc';
-              ref.read(searchControllerProvider.notifier).updateFilters(
-                    sortBy: 'price',
-                    sortOrder: newOrder,
-                  );
+              final newOrder =
+                  (state.sortBy == 'price' && state.sortOrder == 'asc')
+                  ? 'desc'
+                  : 'asc';
+              ref
+                  .read(searchControllerProvider.notifier)
+                  .updateFilters(sortBy: 'price', sortOrder: newOrder);
             },
           ),
           _FilterButton(
             label: 'New',
             isSelected: state.sortBy == 'new',
-            onTap: () => ref.read(searchControllerProvider.notifier).updateFilters(
-                  sortBy: 'createTime', // Assuming backend uses createTime or similar
+            onTap: () => ref
+                .read(searchControllerProvider.notifier)
+                .updateFilters(
+                  sortBy:
+                      'createTime', // Assuming backend uses createTime or similar
                   sortOrder: 'desc',
                 ),
           ),
@@ -167,7 +178,8 @@ class _SearchResultsScreenState extends ConsumerState<SearchResultsScreen> {
       return ErrorState(
         title: 'Unable to load results',
         description: state.error,
-        onRetry: () => ref.read(searchControllerProvider.notifier).search(state.query),
+        onRetry: () =>
+            ref.read(searchControllerProvider.notifier).search(state.query),
       );
     }
 
@@ -190,10 +202,12 @@ class _SearchResultsScreenState extends ConsumerState<SearchResultsScreen> {
       itemCount: state.results.length + (state.isLoading ? 1 : 0),
       itemBuilder: (context, index) {
         if (index == state.results.length) {
-          return const Center(child: Padding(
-            padding: EdgeInsets.all(8.0),
-            child: CircularProgressIndicator(),
-          ));
+          return const Center(
+            child: Padding(
+              padding: EdgeInsets.all(8.0),
+              child: CircularProgressIndicator(),
+            ),
+          );
         }
         final product = state.results[index];
         return ProductCard(
@@ -245,7 +259,11 @@ class _FilterButton extends StatelessWidget {
             ),
             if (icon != null) ...[
               const SizedBox(width: 4),
-              Icon(icon, size: 16, color: isSelected ? Colors.black : Colors.grey),
+              Icon(
+                icon,
+                size: 16,
+                color: isSelected ? Colors.black : Colors.grey,
+              ),
             ],
           ],
         ),

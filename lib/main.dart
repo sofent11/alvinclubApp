@@ -13,12 +13,7 @@ Future<void> main() async {
   final container = ProviderContainer();
   await container.read(authControllerProvider.notifier).hydrate();
 
-  runApp(
-    UncontrolledProviderScope(
-      container: container,
-      child: const MyApp(),
-    ),
-  );
+  runApp(UncontrolledProviderScope(container: container, child: const MyApp()));
 }
 
 class MyApp extends ConsumerWidget {

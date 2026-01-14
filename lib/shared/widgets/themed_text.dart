@@ -38,7 +38,9 @@ class ThemedText extends StatelessWidget {
   Widget build(BuildContext context) {
     final colors = context.appColors;
     final brightness = Theme.of(context).brightness;
-    final resolvedColor = brightness == Brightness.dark ? darkColor : lightColor;
+    final resolvedColor = brightness == Brightness.dark
+        ? darkColor
+        : lightColor;
 
     TextStyle baseStyle;
     switch (type) {
@@ -58,14 +60,18 @@ class ThemedText extends StatelessWidget {
         baseStyle = AppTextStyles.eyebrow(colors);
         break;
       case ThemedTextType.link:
-        baseStyle = AppTextStyles.defaultSemiBold(colors).copyWith(color: colors.tint);
+        baseStyle = AppTextStyles.defaultSemiBold(
+          colors,
+        ).copyWith(color: colors.tint);
         break;
       case ThemedTextType.defaultStyle:
         baseStyle = AppTextStyles.defaultStyle(colors);
         break;
     }
 
-    final resolvedStyle = baseStyle.copyWith(color: resolvedColor ?? baseStyle.color);
+    final resolvedStyle = baseStyle.copyWith(
+      color: resolvedColor ?? baseStyle.color,
+    );
 
     return Text(
       data,

@@ -50,7 +50,8 @@ class SearchState {
       hasMore: hasMore ?? this.hasMore,
       page: page ?? this.page,
       isLoading: isLoading ?? this.isLoading,
-      error: error, // If not provided, it clears error? No, let's keep it simple.
+      error:
+          error, // If not provided, it clears error? No, let's keep it simple.
       query: query ?? this.query,
       sortBy: sortBy ?? this.sortBy,
       sortOrder: sortOrder ?? this.sortOrder,
@@ -79,16 +80,18 @@ class SearchController extends StateNotifier<SearchState> {
     );
 
     try {
-      final response = await _repository.searchProducts(SearchProductsParams(
-        query: query,
-        page: 1,
-        pageSize: _pageSize,
-        sort: state.sortBy,
-        order: state.sortOrder,
-        minPrice: state.minPrice,
-        maxPrice: state.maxPrice,
-        filterProductType: state.filterProductType,
-      ));
+      final response = await _repository.searchProducts(
+        SearchProductsParams(
+          query: query,
+          page: 1,
+          pageSize: _pageSize,
+          sort: state.sortBy,
+          order: state.sortOrder,
+          minPrice: state.minPrice,
+          maxPrice: state.maxPrice,
+          filterProductType: state.filterProductType,
+        ),
+      );
 
       state = state.copyWith(
         results: response.products,
@@ -97,10 +100,7 @@ class SearchController extends StateNotifier<SearchState> {
         isLoading: false,
       );
     } catch (e) {
-      state = state.copyWith(
-        isLoading: false,
-        error: e.toString(),
-      );
+      state = state.copyWith(isLoading: false, error: e.toString());
     }
   }
 
@@ -111,16 +111,18 @@ class SearchController extends StateNotifier<SearchState> {
     state = state.copyWith(isLoading: true, error: null);
 
     try {
-      final response = await _repository.searchProducts(SearchProductsParams(
-        query: state.query,
-        page: nextPage,
-        pageSize: _pageSize,
-        sort: state.sortBy,
-        order: state.sortOrder,
-        minPrice: state.minPrice,
-        maxPrice: state.maxPrice,
-        filterProductType: state.filterProductType,
-      ));
+      final response = await _repository.searchProducts(
+        SearchProductsParams(
+          query: state.query,
+          page: nextPage,
+          pageSize: _pageSize,
+          sort: state.sortBy,
+          order: state.sortOrder,
+          minPrice: state.minPrice,
+          maxPrice: state.maxPrice,
+          filterProductType: state.filterProductType,
+        ),
+      );
 
       state = state.copyWith(
         results: [...state.results, ...response.products],
@@ -130,10 +132,7 @@ class SearchController extends StateNotifier<SearchState> {
         isLoading: false,
       );
     } catch (e) {
-      state = state.copyWith(
-        isLoading: false,
-        error: e.toString(),
-      );
+      state = state.copyWith(isLoading: false, error: e.toString());
     }
   }
 
@@ -164,6 +163,6 @@ class SearchController extends StateNotifier<SearchState> {
 
 final searchControllerProvider =
     StateNotifierProvider.autoDispose<SearchController, SearchState>((ref) {
-  final repository = ref.watch(productRepositoryProvider);
-  return SearchController(repository);
-});
+      final repository = ref.watch(productRepositoryProvider);
+      return SearchController(repository);
+    });

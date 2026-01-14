@@ -24,15 +24,18 @@ class OrderSuccessScreen extends ConsumerWidget {
             child: resultAsync.when(
               data: (result) {
                 final isSuccess = result.isSuccess;
-                final isFailed = result.status == PayStatus.failed || result.status == PayStatus.canceled || result.status == PayStatus.timeout;
-                
-                final icon = isSuccess 
-                  ? Icons.check_circle 
-                  : (isFailed ? Icons.error_outline : Icons.hourglass_empty);
-                
-                final color = isSuccess 
-                  ? Colors.green 
-                  : (isFailed ? Colors.red : Colors.orange);
+                final isFailed =
+                    result.status == PayStatus.failed ||
+                    result.status == PayStatus.canceled ||
+                    result.status == PayStatus.timeout;
+
+                final icon = isSuccess
+                    ? Icons.check_circle
+                    : (isFailed ? Icons.error_outline : Icons.hourglass_empty);
+
+                final color = isSuccess
+                    ? Colors.green
+                    : (isFailed ? Colors.red : Colors.orange);
 
                 return Column(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -41,16 +44,19 @@ class OrderSuccessScreen extends ConsumerWidget {
                     const SizedBox(height: 24),
                     Text(
                       result.statusText,
-                      style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+                      style: const TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                      ),
                       textAlign: TextAlign.center,
                     ),
                     const SizedBox(height: 16),
                     Text(
                       isSuccess
                           ? 'Your order $orderId has been placed successfully.'
-                          : (isFailed 
-                              ? 'Issue with payment for order $orderId.' 
-                              : 'We are verifying your payment for order $orderId. Please wait a moment.'),
+                          : (isFailed
+                                ? 'Issue with payment for order $orderId.'
+                                : 'We are verifying your payment for order $orderId. Please wait a moment.'),
                       textAlign: TextAlign.center,
                       style: const TextStyle(fontSize: 16, color: Colors.grey),
                     ),
@@ -78,7 +84,10 @@ class OrderSuccessScreen extends ConsumerWidget {
                 children: [
                   const Icon(Icons.error_outline, color: Colors.red, size: 80),
                   const SizedBox(height: 24),
-                  const Text('Something went wrong', style: TextStyle(fontSize: 20)),
+                  const Text(
+                    'Something went wrong',
+                    style: TextStyle(fontSize: 20),
+                  ),
                   const SizedBox(height: 16),
                   Text(err.toString(), textAlign: TextAlign.center),
                   const SizedBox(height: 32),

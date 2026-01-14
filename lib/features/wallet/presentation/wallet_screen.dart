@@ -16,10 +16,7 @@ class WalletScreen extends ConsumerWidget {
     final colors = context.appColors;
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('My Wallet'),
-        elevation: 0,
-      ),
+      appBar: AppBar(title: const Text('My Wallet'), elevation: 0),
       body: RefreshIndicator(
         onRefresh: () async {
           ref.invalidate(walletBalanceProvider);
@@ -32,7 +29,9 @@ class WalletScreen extends ConsumerWidget {
                 padding: const EdgeInsets.all(24),
                 decoration: BoxDecoration(
                   color: colors.tint,
-                  borderRadius: const BorderRadius.vertical(bottom: Radius.circular(24)),
+                  borderRadius: const BorderRadius.vertical(
+                    bottom: Radius.circular(24),
+                  ),
                 ),
                 child: balanceAsync.when(
                   data: (balance) => Column(
@@ -56,11 +55,17 @@ class WalletScreen extends ConsumerWidget {
                           Expanded(
                             child: _BalanceItem(
                               label: 'Rebate',
-                              value: '${balance.currency} ${balance.rebate.toStringAsFixed(2)}',
-                              onTap: () => context.push(RoutePaths.walletRebate),
+                              value:
+                                  '${balance.currency} ${balance.rebate.toStringAsFixed(2)}',
+                              onTap: () =>
+                                  context.push(RoutePaths.walletRebate),
                             ),
                           ),
-                          Container(width: 1, height: 40, color: Colors.white24),
+                          Container(
+                            width: 1,
+                            height: 40,
+                            color: Colors.white24,
+                          ),
                           Expanded(
                             child: _BalanceItem(
                               label: 'Cashback',
@@ -76,7 +81,10 @@ class WalletScreen extends ConsumerWidget {
                     child: CircularProgressIndicator(color: Colors.white),
                   ),
                   error: (err, _) => Center(
-                    child: Text('Error: $err', style: const TextStyle(color: Colors.white)),
+                    child: Text(
+                      'Error: $err',
+                      style: const TextStyle(color: Colors.white),
+                    ),
                   ),
                 ),
               ),
@@ -84,7 +92,10 @@ class WalletScreen extends ConsumerWidget {
             const SliverToBoxAdapter(
               child: Padding(
                 padding: EdgeInsets.fromLTRB(16, 24, 16, 16),
-                child: ThemedText('Recent Transactions', type: ThemedTextType.subtitle),
+                child: ThemedText(
+                  'Recent Transactions',
+                  type: ThemedTextType.subtitle,
+                ),
               ),
             ),
             const _TransactionList(),
@@ -96,11 +107,7 @@ class WalletScreen extends ConsumerWidget {
 }
 
 class _BalanceItem extends StatelessWidget {
-  const _BalanceItem({
-    required this.label,
-    required this.value,
-    this.onTap,
-  });
+  const _BalanceItem({required this.label, required this.value, this.onTap});
 
   final String label;
   final String value;
@@ -112,11 +119,18 @@ class _BalanceItem extends StatelessWidget {
       onTap: onTap,
       child: Column(
         children: [
-          Text(label, style: const TextStyle(color: Colors.white70, fontSize: 12)),
+          Text(
+            label,
+            style: const TextStyle(color: Colors.white70, fontSize: 12),
+          ),
           const SizedBox(height: 4),
           Text(
             value,
-            style: const TextStyle(color: Colors.white, fontSize: 18, fontWeight: FontWeight.bold),
+            style: const TextStyle(
+              color: Colors.white,
+              fontSize: 18,
+              fontWeight: FontWeight.bold,
+            ),
           ),
         ],
       ),
@@ -145,64 +159,81 @@ class _TransactionList extends ConsumerWidget {
         }
 
         return SliverList(
-          delegate: SliverChildBuilderDelegate(
-            (context, index) {
-              final tx = transactions[index];
-              final isPositive = tx.amount > 0;
-              return Container(
-                padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-                decoration: BoxDecoration(
-                  border: Border(bottom: BorderSide(color: Colors.grey[100]!)),
-                ),
-                child: Row(
-                  children: [
-                    Container(
-                      width: 40,
-                      height: 40,
-                      decoration: BoxDecoration(
-                        color: Colors.grey[100],
-                        shape: BoxShape.circle,
-                      ),
-                      child: Icon(
-                        isPositive ? Icons.add_circle_outline : Icons.remove_circle_outline,
-                        color: isPositive ? Colors.green : Colors.red,
-                      ),
+          delegate: SliverChildBuilderDelegate((context, index) {
+            final tx = transactions[index];
+            final isPositive = tx.amount > 0;
+            return Container(
+              padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+              decoration: BoxDecoration(
+                border: Border(bottom: BorderSide(color: Colors.grey[100]!)),
+              ),
+              child: Row(
+                children: [
+                  Container(
+                    width: 40,
+                    height: 40,
+                    decoration: BoxDecoration(
+                      color: Colors.grey[100],
+                      shape: BoxShape.circle,
                     ),
-                    const SizedBox(width: 12),
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(tx.title, style: const TextStyle(fontWeight: FontWeight.w500)),
-                          Text(tx.createdAt, style: TextStyle(color: Colors.grey[500], fontSize: 12)),
-                        ],
-                      ),
+                    child: Icon(
+                      isPositive
+                          ? Icons.add_circle_outline
+                          : Icons.remove_circle_outline,
+                      color: isPositive ? Colors.green : Colors.red,
                     ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.end,
+                  ),
+                  const SizedBox(width: 12),
+                  Expanded(
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          '${isPositive ? '+' : ''}${tx.amount.toStringAsFixed(2)}',
+                          tx.title,
+                          style: const TextStyle(fontWeight: FontWeight.w500),
+                        ),
+                        Text(
+                          tx.createdAt,
                           style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            color: isPositive ? Colors.green : Colors.black,
+                            color: Colors.grey[500],
+                            fontSize: 12,
                           ),
                         ),
-                        Text(tx.status, style: TextStyle(color: Colors.grey[400], fontSize: 11)),
                       ],
                     ),
-                  ],
-                ),
-              );
-            },
-            childCount: transactions.length,
-          ),
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      Text(
+                        '${isPositive ? '+' : ''}${tx.amount.toStringAsFixed(2)}',
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: isPositive ? Colors.green : Colors.black,
+                        ),
+                      ),
+                      Text(
+                        tx.status,
+                        style: TextStyle(color: Colors.grey[400], fontSize: 11),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            );
+          }, childCount: transactions.length),
         );
       },
       loading: () => const SliverToBoxAdapter(
-        child: Center(child: Padding(padding: EdgeInsets.all(20), child: CircularProgressIndicator())),
+        child: Center(
+          child: Padding(
+            padding: EdgeInsets.all(20),
+            child: CircularProgressIndicator(),
+          ),
+        ),
       ),
-      error: (err, _) => SliverToBoxAdapter(child: Center(child: Text('Error: $err'))),
+      error: (err, _) =>
+          SliverToBoxAdapter(child: Center(child: Text('Error: $err'))),
     );
   }
 }

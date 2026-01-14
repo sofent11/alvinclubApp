@@ -88,7 +88,8 @@ class SwaggerSchema {
   MsEnum? msEnum;
 
   List<String> get enumValues {
-    final values = (msEnum?.values.isNotEmpty == true
+    final values =
+        (msEnum?.values.isNotEmpty == true
             ? msEnum?.values.map((e) => e.value)
             : enumValuesObj) ??
         [];
@@ -143,9 +144,9 @@ class SwaggerSchema {
         ..isNullable = (json[kIsNullable] ?? json[kNullable] ?? false) as bool;
 
   Map<String, dynamic> toJson() => {
-        ..._$SwaggerSchemaToJson(this),
-        if (enumNames != null) kEnumNames: enumNames,
-      };
+    ..._$SwaggerSchemaToJson(this),
+    if (enumNames != null) kEnumNames: enumNames,
+  };
 }
 
 bool _additionalsFromJson(dynamic value) => value != false;
@@ -163,9 +164,7 @@ class MsEnum {
   @JsonKey(name: 'values')
   final List<MsEnumValue> values;
 
-  const MsEnum({
-    this.values = const [],
-  });
+  const MsEnum({this.values = const []});
 
   Map<String, dynamic> toJson() => _$MsEnumToJson(this);
 

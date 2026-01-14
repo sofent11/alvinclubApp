@@ -5,7 +5,6 @@ import 'package:go_router/go_router.dart';
 import '../../../core/navigation/route_paths.dart';
 import '../../../core/theme/app_theme.dart';
 import '../../../data/repositories/address_repository.dart';
-import '../../../shared/widgets/themed_button.dart';
 import '../../../shared/widgets/themed_text.dart';
 import '../application/address_providers.dart';
 
@@ -17,16 +16,21 @@ class AddressListScreen extends ConsumerWidget {
   @override
   Widget build(BuildContext context, WidgetRef ref) {
     final addressListAsync = ref.watch(addressListProvider);
+    final currentAddressAsync = ref.watch(currentShippingAddressProvider);
+    final selectedId = currentAddressAsync.valueOrNull?.id;
 
     return Scaffold(
+      backgroundColor: const Color(
+        0xFFF7F7F7,
+      ), // Light grey background for contrast
       appBar: AppBar(
-        title: const Text('Shipping Addresses'),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.add),
-            onPressed: () => context.push(RoutePaths.addressNew),
-          ),
-        ],
+        title: const Text(
+          'Select Shipping Address',
+          style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+        ),
+        backgroundColor: Colors.white,
+        elevation: 0,
+        centerTitle: true,
       ),
       body: addressListAsync.when(
         data: (addresses) {
@@ -35,13 +39,15 @@ class AddressListScreen extends ConsumerWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  const Icon(Icons.location_off_outlined, size: 64, color: Colors.grey),
+                  const Icon(
+                    Icons.location_off_outlined,
+                    size: 64,
+                    color: Colors.grey,
+                  ),
                   const SizedBox(height: 16),
-                  const Text('No addresses found'),
-                  const SizedBox(height: 24),
-                  ThemedButton(
-                    label: 'Add New Address',
-                    onPressed: () => context.push(RoutePaths.addressNew),
+                  const Text(
+                    'No addresses found',
+                    style: TextStyle(fontSize: 14, color: Colors.grey),
                   ),
                 ],
               ),
@@ -54,12 +60,26 @@ class AddressListScreen extends ConsumerWidget {
             separatorBuilder: (_, _) => const SizedBox(height: 12),
             itemBuilder: (context, index) {
               final address = addresses[index];
+              final isSelected = isPicker && address.id == selectedId;
+
               return _AddressCard(
                 address: address,
                 isPicker: isPicker,
-                onTap: () {
+                isSelected: isSelected,
+                onTap: () async {
                   if (isPicker) {
-                    context.pop(address);
+                    // 1. Update selection immediately
+                    await ref
+                        .read(addressSelectionProvider.notifier)
+                        .selectAddress(address.id);
+
+                    // 2. Wait for visual feedback
+                    await Future.delayed(const Duration(milliseconds: 200));
+
+                    // 3. Pop
+                    if (context.mounted) {
+                      context.pop();
+                    }
                   } else {
                     context.push(
                       RoutePaths.addressDetail.replaceFirst(':id', address.id),
@@ -74,17 +94,30 @@ class AddressListScreen extends ConsumerWidget {
         loading: () => const Center(child: CircularProgressIndicator()),
         error: (err, _) => Center(child: Text('Error: $err')),
       ),
-      bottomNavigationBar: addressListAsync.valueOrNull?.isNotEmpty == true
-          ? SafeArea(
-              child: Padding(
-                padding: const EdgeInsets.all(16),
-                child: ThemedButton(
-                  label: 'Add New Address',
-                  onPressed: () => context.push(RoutePaths.addressNew),
+      bottomNavigationBar: SafeArea(
+        child: Container(
+          padding: const EdgeInsets.all(16),
+          child: SizedBox(
+            width: double.infinity,
+            height: 54,
+            child: ElevatedButton(
+              onPressed: () => context.push(RoutePaths.addressNew),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color(0xFF9F7AEA), // Purple background
+                foregroundColor: Colors.white,
+                elevation: 0,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(27), // Pill shape
                 ),
               ),
-            )
-          : null,
+              child: const Text(
+                'Add New Address',
+                style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),
+              ),
+            ),
+          ),
+        ),
+      ),
     );
   }
 }
@@ -93,11 +126,13 @@ class _AddressCard extends StatelessWidget {
   const _AddressCard({
     required this.address,
     required this.isPicker,
+    this.isSelected = false,
     this.onTap,
   });
 
   final ShippingAddress address;
   final bool isPicker;
+  final bool isSelected;
   final VoidCallback? onTap;
 
   @override
@@ -106,60 +141,79 @@ class _AddressCard extends StatelessWidget {
 
     return InkWell(
       onTap: onTap,
+      borderRadius: BorderRadius.circular(12),
       child: Container(
         padding: const EdgeInsets.all(16),
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(12),
-          border: Border.all(color: colors.border),
+          border: Border.all(
+            color: colors.border, // Always subtle grey border
+            width: 1,
+          ),
         ),
         child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Expanded(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
+                  // Row 1: Name + Phone
                   Row(
                     children: [
                       ThemedText(
                         '${address.firstName} ${address.lastName}',
                         type: ThemedTextType.defaultSemiBold,
-                      ),
-                      if (address.isDefault) ...[
-                        const SizedBox(width: 8),
-                        Container(
-                          padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
-                          decoration: BoxDecoration(
-                            color: colors.tint.withValues(alpha: 0.1),
-                            borderRadius: BorderRadius.circular(4),
-                          ),
-                          child: Text(
-                            'Default',
-                            style: TextStyle(color: colors.tint, fontSize: 10, fontWeight: FontWeight.bold),
-                          ),
+                        style: const TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 14,
                         ),
-                      ],
+                      ),
+                      const SizedBox(width: 8),
+                      Text(
+                        address.phone,
+                        style: TextStyle(color: colors.textMuted, fontSize: 13),
+                      ),
                     ],
                   ),
                   const SizedBox(height: 4),
-                  Text(address.phone, style: TextStyle(color: colors.textMuted, fontSize: 13)),
-                  const SizedBox(height: 8),
+                  // Row 2: Address Lines
                   Text(
                     '${address.addressLine1}${address.addressLine2 != null ? ', ${address.addressLine2}' : ''}',
-                    style: const TextStyle(fontSize: 14),
+                    style: TextStyle(fontSize: 13, color: colors.textMuted),
                   ),
+                  const SizedBox(height: 2),
+                  // Row 3: City, State, Zip, Country
                   Text(
-                    '${address.city}, ${address.province}, ${address.country} ${address.zipCode}',
-                    style: const TextStyle(fontSize: 14),
+                    '${address.city}, ${address.province}, ${address.zipCode}, ${address.country}',
+                    style: TextStyle(
+                      fontSize: 13,
+                      color: colors.text, // Darker text
+                      fontWeight: FontWeight.w500,
+                    ),
                   ),
                 ],
               ),
             ),
-            if (!isPicker)
-              IconButton(
-                icon: const Icon(Icons.edit_outlined, size: 20),
-                onPressed: onTap,
+            // Selection Indicator
+            if (isSelected)
+              const Padding(
+                padding: EdgeInsets.only(left: 12),
+                child: Icon(
+                  Icons.check_circle,
+                  color: Color(0xFFF56565), // Red/Orange
+                  size: 24,
+                ),
+              )
+            else if (!isPicker)
+              Padding(
+                padding: const EdgeInsets.only(left: 12),
+                child: Icon(
+                  Icons.edit_outlined,
+                  color: colors.textMuted,
+                  size: 20,
+                ),
               ),
           ],
         ),

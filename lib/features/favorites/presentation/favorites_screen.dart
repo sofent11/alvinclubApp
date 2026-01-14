@@ -19,9 +19,7 @@ class FavoritesScreen extends ConsumerWidget {
     final favoritesAsync = ref.watch(favoritesNotifierProvider);
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('My Favorites'),
-      ),
+      appBar: AppBar(title: const Text('My Favorites')),
       body: favoritesAsync.when(
         data: (favorites) {
           if (favorites.isEmpty) {
@@ -85,7 +83,8 @@ class _FavoriteCard extends ConsumerWidget {
                   child: CachedNetworkImage(
                     imageUrl: item.imageUrl,
                     fit: BoxFit.cover,
-                    placeholder: (context, url) => Container(color: Colors.grey[100]),
+                    placeholder: (context, url) =>
+                        Container(color: Colors.grey[100]),
                   ),
                 ),
                 Positioned(
@@ -93,7 +92,9 @@ class _FavoriteCard extends ConsumerWidget {
                   right: 8,
                   child: GestureDetector(
                     onTap: () {
-                      ref.read(favoritesNotifierProvider.notifier).remove(item.productCode);
+                      ref
+                          .read(favoritesNotifierProvider.notifier)
+                          .remove(item.productCode);
                     },
                     child: Container(
                       padding: const EdgeInsets.all(4),
@@ -101,7 +102,11 @@ class _FavoriteCard extends ConsumerWidget {
                         color: Colors.white70,
                         shape: BoxShape.circle,
                       ),
-                      child: const Icon(Icons.favorite, color: Colors.red, size: 20),
+                      child: const Icon(
+                        Icons.favorite,
+                        color: Colors.red,
+                        size: 20,
+                      ),
                     ),
                   ),
                 ),

@@ -19,7 +19,8 @@ class SwaggerModelsGeneratorV3 extends SwaggerModelsGenerator {
     final responses = components?.responses ?? {};
 
     requestBodies.addAll(
-        SwaggerModelsGeneratorV2(options).getRequestBodiesFromRequests(root));
+      SwaggerModelsGeneratorV2(options).getRequestBodiesFromRequests(root),
+    );
 
     final formattedRequestBodies = <String, SwaggerSchema>{};
     requestBodies.forEach((key, value) {
@@ -35,7 +36,7 @@ class SwaggerModelsGeneratorV3 extends SwaggerModelsGenerator {
       ...root.definitions,
       ...root.components?.schemas ?? {},
       ...formattedResponses,
-      ...formattedRequestBodies
+      ...formattedRequestBodies,
     };
 
     final distinctClasses = <String, SwaggerSchema>{};

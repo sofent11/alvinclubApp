@@ -16,9 +16,7 @@ class CommunityScreen extends ConsumerWidget {
     final postsAsync = ref.watch(communityPostsProvider);
 
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Community'),
-      ),
+      appBar: AppBar(title: const Text('Community')),
       body: postsAsync.when(
         data: (posts) {
           if (posts.isEmpty) {
@@ -93,7 +91,9 @@ class _CommunityPostCard extends ConsumerWidget {
                   children: [
                     CircleAvatar(
                       radius: 10,
-                      backgroundImage: CachedNetworkImageProvider(post.authorAvatar),
+                      backgroundImage: CachedNetworkImageProvider(
+                        post.authorAvatar,
+                      ),
                     ),
                     const SizedBox(width: 6),
                     Expanded(
@@ -105,18 +105,25 @@ class _CommunityPostCard extends ConsumerWidget {
                       ),
                     ),
                     GestureDetector(
-                      onTap: () => ref.read(communityControllerProvider.notifier).toggleLike(post),
+                      onTap: () => ref
+                          .read(communityControllerProvider.notifier)
+                          .toggleLike(post),
                       child: Row(
                         children: [
                           Icon(
-                            post.isLiked ? Icons.favorite : Icons.favorite_border,
+                            post.isLiked
+                                ? Icons.favorite
+                                : Icons.favorite_border,
                             size: 14,
                             color: post.isLiked ? Colors.red : Colors.grey,
                           ),
                           const SizedBox(width: 2),
                           Text(
                             post.likeCount.toString(),
-                            style: const TextStyle(fontSize: 11, color: Colors.grey),
+                            style: const TextStyle(
+                              fontSize: 11,
+                              color: Colors.grey,
+                            ),
                           ),
                         ],
                       ),

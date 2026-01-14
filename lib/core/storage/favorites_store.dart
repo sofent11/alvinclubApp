@@ -35,13 +35,13 @@ class FavoriteItem {
   }
 
   Map<String, dynamic> toJson() => {
-        'productCode': productCode,
-        'productName': productName,
-        'imageUrl': imageUrl,
-        'price': price,
-        'currency': currency,
-        'addedAt': addedAt,
-      };
+    'productCode': productCode,
+    'productName': productName,
+    'imageUrl': imageUrl,
+    'price': price,
+    'currency': currency,
+    'addedAt': addedAt,
+  };
 }
 
 class FavoritesStore {
@@ -122,7 +122,9 @@ class FavoritesStore {
   Future<bool> removeFavorite(String productCode) async {
     try {
       final favorites = await getFavorites();
-      final next = favorites.where((item) => item.productCode != productCode).toList();
+      final next = favorites
+          .where((item) => item.productCode != productCode)
+          .toList();
 
       if (next.length == favorites.length) {
         return false;

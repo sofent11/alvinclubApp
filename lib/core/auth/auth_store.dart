@@ -7,11 +7,7 @@ import '../storage/secure_storage.dart';
 typedef JsonMap = Map<String, dynamic>;
 
 class AuthTokens {
-  const AuthTokens({
-    this.accessToken,
-    this.refreshToken,
-    this.expiresAt,
-  });
+  const AuthTokens({this.accessToken, this.refreshToken, this.expiresAt});
 
   final String? accessToken;
   final String? refreshToken;
@@ -30,21 +26,27 @@ class AuthTokens {
   }
 
   JsonMap toJson() => {
-        'accessToken': accessToken,
-        'refreshToken': refreshToken,
-        'expiresAt': expiresAt,
-      };
+    'accessToken': accessToken,
+    'refreshToken': refreshToken,
+    'expiresAt': expiresAt,
+  };
 
   factory AuthTokens.fromJson(JsonMap json) {
     final expiresAtRaw = json['expiresAt'];
     return AuthTokens(
       accessToken: json['accessToken'] as String?,
       refreshToken: json['refreshToken'] as String?,
-      expiresAt: expiresAtRaw is int ? expiresAtRaw : int.tryParse('$expiresAtRaw'),
+      expiresAt: expiresAtRaw is int
+          ? expiresAtRaw
+          : int.tryParse('$expiresAtRaw'),
     );
   }
 
-  static const empty = AuthTokens(accessToken: null, refreshToken: null, expiresAt: null);
+  static const empty = AuthTokens(
+    accessToken: null,
+    refreshToken: null,
+    expiresAt: null,
+  );
 }
 
 class AuthUser {
@@ -77,19 +79,19 @@ class AuthUser {
   final String? inviteCount;
 
   JsonMap toJson() => {
-        'id': id,
-        'name': name,
-        'avatar': avatar,
-        'email': email,
-        'phone': phone,
-        'description': description,
-        'gender': gender,
-        'birthday': birthday,
-        'portalCode': portalCode,
-        'currency': currency,
-        'inviteCode': inviteCode,
-        'inviteCount': inviteCount,
-      };
+    'id': id,
+    'name': name,
+    'avatar': avatar,
+    'email': email,
+    'phone': phone,
+    'description': description,
+    'gender': gender,
+    'birthday': birthday,
+    'portalCode': portalCode,
+    'currency': currency,
+    'inviteCode': inviteCode,
+    'inviteCount': inviteCount,
+  };
 
   factory AuthUser.fromJson(JsonMap json) {
     final genderRaw = json['gender'];
@@ -132,10 +134,10 @@ class AuthState {
   }
 
   JsonMap toJson() => {
-        'tokens': tokens.toJson(),
-        'user': user?.toJson(),
-        'status': status.name,
-      };
+    'tokens': tokens.toJson(),
+    'user': user?.toJson(),
+    'status': status.name,
+  };
 
   factory AuthState.fromJson(JsonMap json) {
     final statusRaw = json['status'] as String?;
@@ -148,13 +150,19 @@ class AuthState {
     final userJson = json['user'];
 
     return AuthState(
-      tokens: tokensJson is JsonMap ? AuthTokens.fromJson(tokensJson) : AuthTokens.empty,
+      tokens: tokensJson is JsonMap
+          ? AuthTokens.fromJson(tokensJson)
+          : AuthTokens.empty,
       user: userJson is JsonMap ? AuthUser.fromJson(userJson) : null,
       status: status,
     );
   }
 
-  static const initial = AuthState(tokens: AuthTokens.empty, user: null, status: AuthStatus.idle);
+  static const initial = AuthState(
+    tokens: AuthTokens.empty,
+    user: null,
+    status: AuthStatus.idle,
+  );
 }
 
 class AuthController extends StateNotifier<AuthState> {
@@ -166,7 +174,11 @@ class AuthController extends StateNotifier<AuthState> {
   Future<void> hydrate() async {
     final stored = await _storage.getItem(_storageKey);
     if (stored == null || stored.isEmpty) {
-      state = const AuthState(tokens: AuthTokens.empty, user: null, status: AuthStatus.anonymous);
+      state = const AuthState(
+        tokens: AuthTokens.empty,
+        user: null,
+        status: AuthStatus.anonymous,
+      );
       return;
     }
 
@@ -175,14 +187,20 @@ class AuthController extends StateNotifier<AuthState> {
       if (decoded is JsonMap) {
         final restored = AuthState.fromJson(decoded);
         final hasToken = restored.tokens.accessToken?.isNotEmpty ?? false;
-        state = restored.copyWith(status: hasToken ? AuthStatus.authenticated : AuthStatus.anonymous);
+        state = restored.copyWith(
+          status: hasToken ? AuthStatus.authenticated : AuthStatus.anonymous,
+        );
         return;
       }
     } catch (_) {
       // Ignore and reset.
     }
 
-    state = const AuthState(tokens: AuthTokens.empty, user: null, status: AuthStatus.anonymous);
+    state = const AuthState(
+      tokens: AuthTokens.empty,
+      user: null,
+      status: AuthStatus.anonymous,
+    );
   }
 
   Future<void> _persist() async {
@@ -190,7 +208,11 @@ class AuthController extends StateNotifier<AuthState> {
     await _storage.setItem(_storageKey, payload);
   }
 
-  Future<void> setTokens({String? accessToken, String? refreshToken, int? expiresAt}) async {
+  Future<void> setTokens({
+    String? accessToken,
+    String? refreshToken,
+    int? expiresAt,
+  }) async {
     final nextTokens = state.tokens.copyWith(
       accessToken: accessToken ?? state.tokens.accessToken,
       refreshToken: refreshToken ?? state.tokens.refreshToken,
@@ -213,7 +235,11 @@ class AuthController extends StateNotifier<AuthState> {
   }
 
   Future<void> clearSession() async {
-    state = const AuthState(tokens: AuthTokens.empty, user: null, status: AuthStatus.anonymous);
+    state = const AuthState(
+      tokens: AuthTokens.empty,
+      user: null,
+      status: AuthStatus.anonymous,
+    );
     await _storage.removeItem(_storageKey);
   }
 }
@@ -223,4 +249,5 @@ final authControllerProvider = StateNotifierProvider<AuthController, AuthState>(
   (ref) => AuthController(ref.read(secureStorageProvider)),
 );
 
-String? getAccessToken(Ref ref) => ref.read(authControllerProvider).tokens.accessToken;
+String? getAccessToken(Ref ref) =>
+    ref.read(authControllerProvider).tokens.accessToken;

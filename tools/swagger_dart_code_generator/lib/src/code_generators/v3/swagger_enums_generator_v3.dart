@@ -20,7 +20,8 @@ class SwaggerEnumsGeneratorV3 extends SwaggerEnumsGenerator {
     final requestBodies = components?.requestBodies ?? {};
 
     requestBodies.addAll(
-        SwaggerModelsGeneratorV2(options).getRequestBodiesFromRequests(root));
+      SwaggerModelsGeneratorV2(options).getRequestBodiesFromRequests(root),
+    );
 
     return generateFromMap(
       root,

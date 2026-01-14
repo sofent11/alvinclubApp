@@ -81,7 +81,8 @@ class _OrderListTab extends ConsumerStatefulWidget {
   ConsumerState<_OrderListTab> createState() => _OrderListTabState();
 }
 
-class _OrderListTabState extends ConsumerState<_OrderListTab> with AutomaticKeepAliveClientMixin {
+class _OrderListTabState extends ConsumerState<_OrderListTab>
+    with AutomaticKeepAliveClientMixin {
   @override
   bool get wantKeepAlive => true;
 
@@ -167,7 +168,10 @@ class OrderCard extends StatelessWidget {
                 style: const TextStyle(fontWeight: FontWeight.bold),
               ),
               Container(
-                padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 4),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 10,
+                  vertical: 4,
+                ),
                 decoration: BoxDecoration(
                   color: badge.background,
                   borderRadius: BorderRadius.circular(12),
@@ -196,7 +200,8 @@ class OrderCard extends StatelessWidget {
                       width: 60,
                       height: 60,
                       fit: BoxFit.cover,
-                      errorWidget: (_, _, _) => Container(color: Colors.grey[200]),
+                      errorWidget: (_, _, _) =>
+                          Container(color: Colors.grey[200]),
                     ),
                   ),
                   const SizedBox(width: 12),
@@ -212,10 +217,16 @@ class OrderCard extends StatelessWidget {
                         if (item.options.isNotEmpty)
                           Text(
                             item.options.map((o) => o.value).join(', '),
-                            style: TextStyle(color: colors.textMuted, fontSize: 12),
+                            style: TextStyle(
+                              color: colors.textMuted,
+                              fontSize: 12,
+                            ),
                           ),
                         const SizedBox(height: 4),
-                        Text('x${item.quantity}', style: TextStyle(color: colors.textMuted)),
+                        Text(
+                          'x${item.quantity}',
+                          style: TextStyle(color: colors.textMuted),
+                        ),
                       ],
                     ),
                   ),
@@ -243,7 +254,10 @@ class OrderCard extends StatelessWidget {
                     const TextSpan(text: 'Total: '),
                     TextSpan(
                       text: '$currency ${total.toStringAsFixed(2)}',
-                      style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                      style: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16,
+                      ),
                     ),
                   ],
                 ),
@@ -280,7 +294,7 @@ class OrderCard extends StatelessWidget {
               ],
               if (order.frontStatus == 3) ...[
                 // To Receive
-                 ThemedButton(
+                ThemedButton(
                   label: 'Confirm Receipt',
                   variant: ThemedButtonVariant.primary,
                   size: ThemedButtonSize.sm,
@@ -297,16 +311,31 @@ class OrderCard extends StatelessWidget {
   }
 }
 
-({Color background, Color foreground}) _statusBadgeStyle(int status, AppColorScheme colors) {
+({Color background, Color foreground}) _statusBadgeStyle(
+  int status,
+  AppColorScheme colors,
+) {
   switch (status) {
     case 1:
-      return (background: colors.warning.withValues(alpha: 0.15), foreground: colors.warning);
+      return (
+        background: colors.warning.withValues(alpha: 0.15),
+        foreground: colors.warning,
+      );
     case 2:
-      return (background: colors.secondary.withValues(alpha: 0.15), foreground: colors.secondary);
+      return (
+        background: colors.secondary.withValues(alpha: 0.15),
+        foreground: colors.secondary,
+      );
     case 3:
-      return (background: colors.tint.withValues(alpha: 0.15), foreground: colors.tint);
+      return (
+        background: colors.tint.withValues(alpha: 0.15),
+        foreground: colors.tint,
+      );
     case 4:
-      return (background: colors.success.withValues(alpha: 0.15), foreground: colors.success);
+      return (
+        background: colors.success.withValues(alpha: 0.15),
+        foreground: colors.success,
+      );
     case 5:
       return (background: colors.mutedBackground, foreground: colors.textMuted);
     default:

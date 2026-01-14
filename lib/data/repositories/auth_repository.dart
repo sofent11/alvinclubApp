@@ -142,7 +142,9 @@ class AuthRepository {
     );
   }
 
-  Future<SignInVerifyResponse> verifyGoogleSignIn(GoogleSignInPayload payload) async {
+  Future<SignInVerifyResponse> verifyGoogleSignIn(
+    GoogleSignInPayload payload,
+  ) async {
     final api = _ref.read(swaggerUserApiProvider);
     final response = await api.userServiceSignInVerifyPost(
       root: {

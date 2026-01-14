@@ -201,7 +201,10 @@ final routerProvider = Provider<GoRouter>((ref) {
       GoRoute(
         path: RoutePaths.addressList,
         name: RoutePaths.addressList,
-        builder: (context, state) => const AddressListScreen(),
+        builder: (context, state) {
+          final isPicker = state.uri.queryParameters['picker'] == 'true';
+          return AddressListScreen(isPicker: isPicker);
+        },
       ),
       GoRoute(
         path: RoutePaths.addressNew,

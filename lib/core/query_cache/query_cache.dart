@@ -1,7 +1,11 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 class CacheEntry<T> {
-  CacheEntry({required this.value, required this.createdAt, required this.staleTime});
+  CacheEntry({
+    required this.value,
+    required this.createdAt,
+    required this.staleTime,
+  });
 
   final T value;
   final DateTime createdAt;
@@ -11,7 +15,8 @@ class CacheEntry<T> {
 }
 
 class QueryCache {
-  final Map<String, CacheEntry<dynamic>> _entries = <String, CacheEntry<dynamic>>{};
+  final Map<String, CacheEntry<dynamic>> _entries =
+      <String, CacheEntry<dynamic>>{};
 
   T? get<T>(String key) {
     final entry = _entries[key];
@@ -25,7 +30,11 @@ class QueryCache {
     return !entry.isStale;
   }
 
-  void set<T>(String key, T value, {Duration staleTime = const Duration(seconds: 0)}) {
+  void set<T>(
+    String key,
+    T value, {
+    Duration staleTime = const Duration(seconds: 0),
+  }) {
     _entries[key] = CacheEntry<T>(
       value: value,
       createdAt: DateTime.now(),

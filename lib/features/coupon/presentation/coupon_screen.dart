@@ -13,7 +13,8 @@ class CouponScreen extends StatefulWidget {
   State<CouponScreen> createState() => _CouponScreenState();
 }
 
-class _CouponScreenState extends State<CouponScreen> with SingleTickerProviderStateMixin {
+class _CouponScreenState extends State<CouponScreen>
+    with SingleTickerProviderStateMixin {
   late TabController _tabController;
 
   @override
@@ -70,7 +71,11 @@ class _CouponList extends ConsumerWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Icon(Icons.local_offer_outlined, size: 64, color: Colors.grey[300]),
+                Icon(
+                  Icons.local_offer_outlined,
+                  size: 64,
+                  color: Colors.grey[300],
+                ),
                 const SizedBox(height: 16),
                 const Text('No coupons available'),
               ],
@@ -119,7 +124,9 @@ class _CouponCard extends StatelessWidget {
           children: [
             Container(
               width: 100,
-              color: isInactive ? Colors.grey[400] : colors.tint.withValues(alpha: 0.1),
+              color: isInactive
+                  ? Colors.grey[400]
+                  : colors.tint.withValues(alpha: 0.1),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
@@ -149,7 +156,10 @@ class _CouponCard extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    ThemedText(coupon.title, type: ThemedTextType.defaultSemiBold),
+                    ThemedText(
+                      coupon.title,
+                      type: ThemedTextType.defaultSemiBold,
+                    ),
                     if (coupon.minSpend != null)
                       Text(
                         'Min Spend: $currency ${coupon.minSpend}',

@@ -13,13 +13,6 @@ class SwaggerEnumsGeneratorV2 extends SwaggerEnumsGenerator {
   }) {
     final definitions = root.definitions;
 
-    return generateFromMap(
-      root,
-      fileName,
-      definitions,
-      {},
-      {},
-      allEnums,
-    );
+    return generateFromMap(root, fileName, definitions, {}, {}, allEnums);
   }
 }

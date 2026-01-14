@@ -68,7 +68,7 @@ class _HomeTopNavBarState extends State<HomeTopNavBar> {
             final index = entry.key;
             final item = entry.value;
             final isActive = item.key == widget.activeKey;
-            
+
             final itemKey = _itemKeys.putIfAbsent(item.key, () => GlobalKey());
 
             final isIconTab = item.showType?.toLowerCase() == 'icon';
@@ -148,4 +148,3 @@ class _HomeTopNavBarState extends State<HomeTopNavBar> {
     );
   }
 }
-

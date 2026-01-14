@@ -73,7 +73,8 @@ class SwaggerRoot {
 }
 
 Map<String, SwaggerRequestParameter> _mapSecurityDefinitions(
-    Map<String, dynamic>? definitions) {
+  Map<String, dynamic>? definitions,
+) {
   if (definitions == null) {
     return {};
   }
@@ -96,14 +97,19 @@ Map<String, SwaggerPath> _mapPaths(Map<String, dynamic>? paths) {
     final value = pathValue as Map<String, dynamic>;
     final parameters = value['parameters'] as List<dynamic>?;
     value.removeWhere(
-        (key, value) => !supportedRequestTypes.contains(key.toLowerCase()));
+      (key, value) => !supportedRequestTypes.contains(key.toLowerCase()),
+    );
 
     return MapEntry(
       path,
       SwaggerPath(
-        parameters: parameters
-                ?.map((parameter) => SwaggerRequestParameter.fromJson(
-                    parameter as Map<String, dynamic>))
+        parameters:
+            parameters
+                ?.map(
+                  (parameter) => SwaggerRequestParameter.fromJson(
+                    parameter as Map<String, dynamic>,
+                  ),
+                )
                 .toList() ??
             [],
         requests: value.map(

@@ -24,7 +24,11 @@ class FloatingBanner extends StatelessWidget {
               ),
               child: const ThemedText(
                 '10%',
-                style: TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.bold),
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 12,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
             const SizedBox(width: 8),
@@ -42,7 +46,11 @@ class FloatingBanner extends StatelessWidget {
               ),
               child: const ThemedText(
                 'Claim Now',
-                style: TextStyle(color: Colors.white, fontSize: 12, fontWeight: FontWeight.bold),
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 12,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ),
           ],

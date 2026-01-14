@@ -15,6 +15,7 @@ class ThemedButton extends StatefulWidget {
     this.variant = ThemedButtonVariant.primary,
     this.size = ThemedButtonSize.md,
     this.loading = false,
+    this.backgroundColor,
   });
 
   final String label;
@@ -22,6 +23,7 @@ class ThemedButton extends StatefulWidget {
   final ThemedButtonVariant variant;
   final ThemedButtonSize size;
   final bool loading;
+  final Color? backgroundColor;
 
   @override
   State<ThemedButton> createState() => _ThemedButtonState();
@@ -57,7 +59,7 @@ class _ThemedButtonState extends State<ThemedButton> {
     };
 
     final background = switch (widget.variant) {
-      ThemedButtonVariant.primary => colors.tint,
+      ThemedButtonVariant.primary => widget.backgroundColor ?? colors.tint,
       ThemedButtonVariant.secondary => colors.secondary,
       ThemedButtonVariant.ghost => Colors.transparent,
     };

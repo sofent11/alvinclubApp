@@ -21,7 +21,8 @@ class SwaggerMetaDataGenerator extends SwaggerGeneratorBase {
       (c) => c
         ..name = kSwaggerMetaData
         ..docs.add(
-            '/// Metadata class containing information from SwaggerRequest')
+          '/// Metadata class containing information from SwaggerRequest',
+        )
         ..constructors.add(
           Constructor(
             (constructor) => constructor

@@ -57,7 +57,10 @@ class FashionFeed extends ConsumerWidget {
             child: GestureDetector(
               onTap: () => context.push(RoutePaths.fashionStyleMe),
               child: Container(
-                padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 24,
+                  vertical: 12,
+                ),
                 decoration: BoxDecoration(
                   color: colors.tint,
                   borderRadius: BorderRadius.circular(24),
@@ -71,7 +74,10 @@ class FashionFeed extends ConsumerWidget {
                 ),
                 child: const ThemedText(
                   'Style Me Today',
-                  style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold),
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
               ),
             ),
@@ -90,14 +96,14 @@ class _FashionCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final colors = context.appColors;
-    final ratio = (post.width != null && post.height != null && post.height != 0)
+    final ratio =
+        (post.width != null && post.height != null && post.height != 0)
         ? post.width! / post.height!
         : 0.75;
 
     return GestureDetector(
-      onTap: () => context.push(
-        RoutePaths.fashionPost.replaceFirst(':id', post.id),
-      ),
+      onTap: () =>
+          context.push(RoutePaths.fashionPost.replaceFirst(':id', post.id)),
       child: Container(
         decoration: BoxDecoration(
           color: colors.surface,
@@ -120,7 +126,8 @@ class _FashionCard extends StatelessWidget {
                 imageUrl: post.imageUrl,
                 fit: BoxFit.cover,
                 placeholder: (context, url) => Container(color: colors.muted),
-                errorWidget: (context, url, error) => Container(color: colors.muted),
+                errorWidget: (context, url, error) =>
+                    Container(color: colors.muted),
               ),
             ),
             Padding(

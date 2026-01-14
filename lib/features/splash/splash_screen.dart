@@ -40,77 +40,78 @@ class _SplashScreenState extends ConsumerState<SplashScreen> {
             SafeArea(
               child: Column(
                 children: [
-                const Spacer(flex: 3),
-                // Logo Area
-                Center(
-                  child: Image.asset(
-                    'assets/images/splash-icon.png',
-                    height: 120,
-                    width: 120,
-                    fit: BoxFit.contain,
+                  const Spacer(flex: 3),
+                  // Logo Area
+                  Center(
+                    child: Image.asset(
+                      'assets/images/splash-icon.png',
+                      height: 120,
+                      width: 120,
+                      fit: BoxFit.contain,
+                    ),
                   ),
-                ),
-                const Spacer(flex: 2),
-                // Title
-                const Text(
-                  "Alvin's Club",
-                  style: TextStyle(
-                    fontSize: 32,
-                    fontWeight: FontWeight.bold,
-                    fontFamily: 'Serif', // Fallback to Serif
-                    color: Colors.black,
+                  const Spacer(flex: 2),
+                  // Title
+                  const Text(
+                    "Alvin's Club",
+                    style: TextStyle(
+                      fontSize: 32,
+                      fontWeight: FontWeight.bold,
+                      fontFamily: 'Serif', // Fallback to Serif
+                      color: Colors.black,
+                    ),
                   ),
-                ),
-                const SizedBox(height: 16),
-                // Subtitles
-                const Text(
-                  "YOUR AI SHOPPING EXPERT",
-                  style: TextStyle(
-                    fontSize: 14,
-                    letterSpacing: 1.2,
-                    fontWeight: FontWeight.w500,
-                    color: Colors.black87,
+                  const SizedBox(height: 16),
+                  // Subtitles
+                  const Text(
+                    "YOUR AI SHOPPING EXPERT",
+                    style: TextStyle(
+                      fontSize: 14,
+                      letterSpacing: 1.2,
+                      fontWeight: FontWeight.w500,
+                      color: Colors.black87,
+                    ),
                   ),
-                ),
-                const SizedBox(height: 8),
-                const Text(
-                  "YOUR WORLD, YOUR WAY, FOR LESS",
-                  style: TextStyle(
-                    fontSize: 12,
-                    letterSpacing: 1.0,
-                    color: Colors.black54,
+                  const SizedBox(height: 8),
+                  const Text(
+                    "YOUR WORLD, YOUR WAY, FOR LESS",
+                    style: TextStyle(
+                      fontSize: 12,
+                      letterSpacing: 1.0,
+                      color: Colors.black54,
+                    ),
                   ),
-                ),
-                const Spacer(flex: 2),
-                // Features List
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 40.0),
-                  child: Column(
-                    children: [
-                      _buildFeatureItem(
-                        icon: Icons.star_outline_rounded,
-                        text: "Personalized",
-                      ),
-                      const SizedBox(height: 16),
-                      _buildFeatureItem(
-                        icon: Icons.favorite_border_rounded,
-                        text: "Curated",
-                      ),
-                      const SizedBox(height: 16),
-                      _buildFeatureItem(
-                        icon: Icons.diamond_outlined,
-                        text: "Premium Alternatives",
-                      ),
-                    ],
+                  const Spacer(flex: 2),
+                  // Features List
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 40.0),
+                    child: Column(
+                      children: [
+                        _buildFeatureItem(
+                          icon: Icons.star_outline_rounded,
+                          text: "Personalized",
+                        ),
+                        const SizedBox(height: 16),
+                        _buildFeatureItem(
+                          icon: Icons.favorite_border_rounded,
+                          text: "Curated",
+                        ),
+                        const SizedBox(height: 16),
+                        _buildFeatureItem(
+                          icon: Icons.diamond_outlined,
+                          text: "Premium Alternatives",
+                        ),
+                      ],
+                    ),
                   ),
-                ),
-                const Spacer(flex: 3),
-              ],
+                  const Spacer(flex: 3),
+                ],
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
-    ));
+    );
   }
 
   Widget _buildFeatureItem({required IconData icon, required String text}) {
@@ -161,8 +162,10 @@ class _HeaderClipper extends CustomClipper<Path> {
     path.lineTo(0, size.height - 60);
     // Create a curve that goes up in the middle
     path.quadraticBezierTo(
-      size.width / 2, size.height - 120, // Control point (higher than endpoints)
-      size.width, size.height - 60,      // End point
+      size.width / 2,
+      size.height - 120, // Control point (higher than endpoints)
+      size.width,
+      size.height - 60, // End point
     );
     path.lineTo(size.width, 0);
     path.close();

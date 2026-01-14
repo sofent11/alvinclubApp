@@ -1,13 +1,15 @@
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import '../../../data/repositories/coupon_repository.dart';
 
-final userCouponsProvider = FutureProvider.family.autoDispose<List<UserCoupon>, String>((ref, status) async {
-  final repo = ref.watch(couponRepositoryProvider);
-  return repo.getUserCoupons(status: status);
-});
+final userCouponsProvider = FutureProvider.family
+    .autoDispose<List<UserCoupon>, String>((ref, status) async {
+      final repo = ref.watch(couponRepositoryProvider);
+      return repo.getUserCoupons(status: status);
+    });
 
 class CouponNotifier extends StateNotifier<AsyncValue<void>> {
-  CouponNotifier(this._repository, this._ref) : super(const AsyncValue.data(null));
+  CouponNotifier(this._repository, this._ref)
+    : super(const AsyncValue.data(null));
 
   final CouponRepository _repository;
   final Ref _ref;
@@ -24,6 +26,7 @@ class CouponNotifier extends StateNotifier<AsyncValue<void>> {
   }
 }
 
-final couponControllerProvider = StateNotifierProvider.autoDispose<CouponNotifier, AsyncValue<void>>((ref) {
-  return CouponNotifier(ref.watch(couponRepositoryProvider), ref);
-});
+final couponControllerProvider =
+    StateNotifierProvider.autoDispose<CouponNotifier, AsyncValue<void>>((ref) {
+      return CouponNotifier(ref.watch(couponRepositoryProvider), ref);
+    });

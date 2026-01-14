@@ -3,13 +3,16 @@ import 'package:image_picker/image_picker.dart';
 import '../../../data/repositories/user_repository.dart';
 import '../../../data/repositories/file_repository.dart';
 
-final userProfileProvider = FutureProvider.autoDispose<UserProfile>((ref) async {
+final userProfileProvider = FutureProvider.autoDispose<UserProfile>((
+  ref,
+) async {
   final repo = ref.watch(userRepositoryProvider);
   return repo.getUserProfile();
 });
 
 class ProfileNotifier extends StateNotifier<AsyncValue<void>> {
-  ProfileNotifier(this._userRepo, this._fileRepo, this._ref) : super(const AsyncValue.data(null));
+  ProfileNotifier(this._userRepo, this._fileRepo, this._ref)
+    : super(const AsyncValue.data(null));
 
   final UserRepository _userRepo;
   final FileRepository _fileRepo;
@@ -43,10 +46,11 @@ class ProfileNotifier extends StateNotifier<AsyncValue<void>> {
   }
 }
 
-final profileControllerProvider = StateNotifierProvider.autoDispose<ProfileNotifier, AsyncValue<void>>((ref) {
-  return ProfileNotifier(
-    ref.watch(userRepositoryProvider),
-    ref.watch(fileRepositoryProvider),
-    ref,
-  );
-});
+final profileControllerProvider =
+    StateNotifierProvider.autoDispose<ProfileNotifier, AsyncValue<void>>((ref) {
+      return ProfileNotifier(
+        ref.watch(userRepositoryProvider),
+        ref.watch(fileRepositoryProvider),
+        ref,
+      );
+    });

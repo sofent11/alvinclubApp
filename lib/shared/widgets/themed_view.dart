@@ -28,7 +28,9 @@ class ThemedView extends StatelessWidget {
   Widget build(BuildContext context) {
     final colors = context.appColors;
     final brightness = Theme.of(context).brightness;
-    final resolvedColor = brightness == Brightness.dark ? darkColor : lightColor;
+    final resolvedColor = brightness == Brightness.dark
+        ? darkColor
+        : lightColor;
 
     Color background;
     switch (variant) {
@@ -46,7 +48,9 @@ class ThemedView extends StatelessWidget {
         break;
     }
 
-    final border = bordered ? Border.all(color: colors.border, width: 0.5) : null;
+    final border = bordered
+        ? Border.all(color: colors.border, width: 0.5)
+        : null;
 
     final boxShadow = variant == ThemedViewVariant.card
         ? [

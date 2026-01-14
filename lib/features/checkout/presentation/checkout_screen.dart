@@ -40,7 +40,7 @@ class _CheckoutScreenState extends ConsumerState<CheckoutScreen> {
   Future<void> _submitOrder() async {
     final controller = ref.read(checkoutControllerProvider.notifier);
     final result = await controller.submitOrder();
-    
+
     if (result != null && mounted) {
       context.goNamed(
         RoutePaths.orderPay, // Ensure this route name matches AppRouter
@@ -50,9 +50,9 @@ class _CheckoutScreenState extends ConsumerState<CheckoutScreen> {
     } else {
       final error = ref.read(checkoutControllerProvider).error;
       if (error != null && mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(error)),
-        );
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(SnackBar(content: Text(error)));
       }
     }
   }
@@ -114,7 +114,11 @@ class _CheckoutScreenState extends ConsumerState<CheckoutScreen> {
                 onPressed: () {
                   context.push(RoutePaths.addressList);
                 },
-                icon: Icon(Icons.edit_location_alt, size: 16, color: colors.tint),
+                icon: Icon(
+                  Icons.edit_location_alt,
+                  size: 16,
+                  color: colors.tint,
+                ),
                 label: Text('Change', style: TextStyle(color: colors.tint)),
               ),
             ],
@@ -202,7 +206,9 @@ class _CheckoutScreenState extends ConsumerState<CheckoutScreen> {
                 IconButton(
                   icon: Icon(Icons.close, color: colors.textMuted),
                   onPressed: () {
-                    ref.read(checkoutControllerProvider.notifier).removeCoupon();
+                    ref
+                        .read(checkoutControllerProvider.notifier)
+                        .removeCoupon();
                     _couponController.clear();
                   },
                 ),
@@ -244,7 +250,7 @@ class _CheckoutScreenState extends ConsumerState<CheckoutScreen> {
       ),
     );
   }
-  
+
   Widget _buildRemarkSection(CheckoutState state) {
     final colors = context.appColors;
 
@@ -252,7 +258,10 @@ class _CheckoutScreenState extends ConsumerState<CheckoutScreen> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const ThemedText('Remark (Optional)', type: ThemedTextType.defaultSemiBold),
+          const ThemedText(
+            'Remark (Optional)',
+            type: ThemedTextType.defaultSemiBold,
+          ),
           const SizedBox(height: 8),
           TextField(
             onChanged: (val) {
@@ -263,7 +272,10 @@ class _CheckoutScreenState extends ConsumerState<CheckoutScreen> {
               isDense: true,
               filled: true,
               fillColor: colors.surface,
-              contentPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 10),
+              contentPadding: const EdgeInsets.symmetric(
+                horizontal: 12,
+                vertical: 10,
+              ),
               hintStyle: TextStyle(color: colors.textMuted),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(AppRadius.md),
@@ -319,7 +331,13 @@ class _CheckoutScreenState extends ConsumerState<CheckoutScreen> {
     );
   }
 
-  Widget _buildPriceRow(String label, String value, {bool isBold = false, double? fontSize, Color? color}) {
+  Widget _buildPriceRow(
+    String label,
+    String value, {
+    bool isBold = false,
+    double? fontSize,
+    Color? color,
+  }) {
     final colors = context.appColors;
 
     return Padding(
