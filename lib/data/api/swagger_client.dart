@@ -2,11 +2,11 @@ import 'dart:async';
 import 'dart:convert';
 
 import 'package:chopper/chopper.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../core/auth/auth_store.dart';
 import '../../core/env/env_config.dart';
+import '../../core/logging/logger.dart';
 import 'generated/swaggerApiCombo.swagger.dart' as combo;
 import 'generated/swaggerApiConfig.swagger.dart' as config;
 import 'generated/swaggerApiOrder.swagger.dart' as order;
@@ -38,17 +38,13 @@ class ApiInterceptor implements Interceptor {
 
     final request = chain.request.copyWith(headers: headers);
 
-    if (kDebugMode) {
-      debugPrint('🚀 API Request (curl): ${_toCurl(request)}');
-    }
+    logDebug('🚀 API Request (curl): ${_toCurl(request)}');
 
     final response = await chain.proceed(request);
 
-    if (kDebugMode) {
-      debugPrint(
-        '✅ API Response: ${request.method} ${request.url} ${response.statusCode}',
-      );
-    }
+    logDebug(
+      '✅ API Response: ${request.method} ${request.url} ${response.statusCode}',
+    );
 
     if (response.statusCode == 401) {
       await _ref.read(authControllerProvider.notifier).clearSession();

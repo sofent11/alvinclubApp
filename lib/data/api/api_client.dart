@@ -1,12 +1,12 @@
 import 'dart:convert';
 
 import 'package:dio/dio.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../core/auth/auth_store.dart';
 import '../../core/env/env_config.dart';
 import '../../core/error/api_error.dart';
+import '../../core/logging/logger.dart';
 
 String _toCurl(RequestOptions options) {
   final method = options.method.toUpperCase();
@@ -56,26 +56,20 @@ final dioProvider = Provider<Dio>((ref) {
           options.headers['Authorization'] = token;
         }
 
-        if (kDebugMode) {
-          debugPrint('🚀 API Request (curl): ${_toCurl(options)}');
-        }
+        logDebug('🚀 API Request (curl): ${_toCurl(options)}');
 
         handler.next(options);
       },
       onResponse: (response, handler) {
-        if (kDebugMode) {
-          debugPrint(
-            '✅ API Response: ${response.requestOptions.method.toUpperCase()} ${response.requestOptions.path}',
-          );
-        }
+        logDebug(
+          '✅ API Response: ${response.requestOptions.method.toUpperCase()} ${response.requestOptions.path}',
+        );
         handler.next(response);
       },
       onError: (error, handler) {
         final normalized = normalizeApiError(error);
 
-        if (kDebugMode) {
-          debugPrint('❌ API Error: ${normalized.status} ${normalized.message}');
-        }
+        logDebug('❌ API Error: ${normalized.status} ${normalized.message}');
 
         if (normalized.status == 401) {
           ref.read(authControllerProvider.notifier).clearSession();
