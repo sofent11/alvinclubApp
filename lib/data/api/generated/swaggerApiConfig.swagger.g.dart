@@ -6,6 +6,40 @@ part of 'swaggerApiConfig.swagger.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
+ConfigServiceUserConfigPostRequest _$ConfigServiceUserConfigPostRequestFromJson(
+  Map<String, dynamic> json,
+) => ConfigServiceUserConfigPostRequest(
+  key: JsonCoerce.asString(json['key']),
+  value: JsonCoerce.asString(json['value']),
+);
+
+Map<String, dynamic> _$ConfigServiceUserConfigPostRequestToJson(
+  ConfigServiceUserConfigPostRequest instance,
+) => <String, dynamic>{'key': instance.key, 'value': instance.value};
+
+ConfigServiceUserConfigGetRequest _$ConfigServiceUserConfigGetRequestFromJson(
+  Map<String, dynamic> json,
+) => ConfigServiceUserConfigGetRequest(
+  key: JsonCoerce.asString(json['key']),
+  value: JsonCoerce.asString(json['value']),
+);
+
+Map<String, dynamic> _$ConfigServiceUserConfigGetRequestToJson(
+  ConfigServiceUserConfigGetRequest instance,
+) => <String, dynamic>{'key': instance.key, 'value': instance.value};
+
+ConfigServiceUserConfigNoAuthInstanceGetRequest
+_$ConfigServiceUserConfigNoAuthInstanceGetRequestFromJson(
+  Map<String, dynamic> json,
+) => ConfigServiceUserConfigNoAuthInstanceGetRequest(
+  key: JsonCoerce.asString(json['key']),
+  value: JsonCoerce.asString(json['value']),
+);
+
+Map<String, dynamic> _$ConfigServiceUserConfigNoAuthInstanceGetRequestToJson(
+  ConfigServiceUserConfigNoAuthInstanceGetRequest instance,
+) => <String, dynamic>{'key': instance.key, 'value': instance.value};
+
 ConfigServiceUserConfigPost$Response
 _$ConfigServiceUserConfigPost$ResponseFromJson(Map<String, dynamic> json) =>
     ConfigServiceUserConfigPost$Response(

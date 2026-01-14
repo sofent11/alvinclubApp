@@ -60,16 +60,7 @@
             "name": "root",
             "in": "body",
             "schema": {
-              "$schema": "http://json-schema.org/draft-04/schema#",
-              "type": "object",
-              "properties": {
-                "imgUrl": {
-                  "type": "string"
-                },
-                "target": {
-                  "type": "string"
-                }
-              }
+              "$ref": "#/definitions/ComboServiceNoAuthBizKolKolinfoGetRequest"
             }
           }
         ],
@@ -263,15 +254,7 @@
             "name": "root",
             "in": "body",
             "schema": {
-              "type": "object",
-              "properties": {
-                "postId": {
-                  "type": "integer",
-                  "format": "int64",
-                  "description": "帖子ID"
-                }
-              },
-              "$$ref": "#/components/schemas/CommunityPostLikeReq"
+              "$ref": "#/definitions/ComboServiceBizCommunityPostUnlikePostRequest"
             }
           }
         ],
@@ -331,26 +314,7 @@
             "name": "root",
             "in": "body",
             "schema": {
-              "type": "object",
-              "properties": {
-                "cursor": {
-                  "type": "string",
-                  "description": "上一页返回的游标，不传默认从第一页开始"
-                },
-                "pageSize": {
-                  "type": "integer",
-                  "format": "int32",
-                  "default": 10,
-                  "minimum": 1,
-                  "maximum": 100,
-                  "description": "每页条数，1-100"
-                },
-                "tenantCode": {
-                  "type": "string",
-                  "description": "指定租户编码，不传则使用当前用户租户"
-                }
-              },
-              "$$ref": "#/components/schemas/CommunityPostCursorPageReq"
+              "$ref": "#/definitions/ComboServiceBizCommunityPostLikedGetRequest"
             }
           }
         ],
@@ -785,26 +749,7 @@
             "name": "root",
             "in": "body",
             "schema": {
-              "type": "object",
-              "properties": {
-                "cursor": {
-                  "type": "string",
-                  "description": "上一页返回的游标，不传默认从第一页开始"
-                },
-                "pageSize": {
-                  "type": "integer",
-                  "format": "int32",
-                  "default": 10,
-                  "minimum": 1,
-                  "maximum": 100,
-                  "description": "每页条数，1-100"
-                },
-                "tenantCode": {
-                  "type": "string",
-                  "description": "指定租户编码，不传则使用当前用户租户"
-                }
-              },
-              "$$ref": "#/components/schemas/CommunityPostCursorPageReq"
+              "$ref": "#/definitions/ComboServiceBizCommunityPostNoAuthListGetRequest"
             }
           }
         ],
@@ -1224,15 +1169,7 @@
             "name": "root",
             "in": "body",
             "schema": {
-              "type": "object",
-              "properties": {
-                "postId": {
-                  "type": "integer",
-                  "format": "int64",
-                  "description": "帖子ID"
-                }
-              },
-              "$$ref": "#/components/schemas/CommunityPostLikeReq"
+              "$ref": "#/definitions/ComboServiceBizCommunityPostLikePostRequest"
             }
           }
         ],
@@ -1278,16 +1215,7 @@
             "name": "root",
             "in": "body",
             "schema": {
-              "$schema": "http://json-schema.org/draft-04/schema#",
-              "type": "object",
-              "properties": {
-                "imgUrl": {
-                  "type": "string"
-                },
-                "target": {
-                  "type": "string"
-                }
-              }
+              "$ref": "#/definitions/ComboServiceNoAuthBizImageTransTranslatePostRequest"
             }
           }
         ],
@@ -1393,82 +1321,7 @@
             "name": "root",
             "in": "body",
             "schema": {
-              "$schema": "http://json-schema.org/draft-04/schema#",
-              "type": "object",
-              "properties": {
-                "segmentedType": {
-                  "type": "number",
-                  "description": "可以不传，背景抠图类型，字典：1=默认"
-                },
-                "segmentedGender": {
-                  "type": "string",
-                  "description": "抠图性别，枚举：male/female"
-                },
-                "gender": {
-                  "type": "number",
-                  "description": "性别，字典：0=自动，1=男，2=女"
-                },
-                "age": {
-                  "type": "string",
-                  "description": "年龄"
-                },
-                "ethnicity": {
-                  "type": "string",
-                  "description": "种族"
-                },
-                "skinColor": {
-                  "type": "string",
-                  "description": "肤色"
-                },
-                "bodyShape": {
-                  "type": "string",
-                  "description": "体型"
-                },
-                "bustSize": {
-                  "type": "string",
-                  "description": "胸围"
-                },
-                "hairStyle": {
-                  "type": "string",
-                  "description": "发型"
-                },
-                "hairColor": {
-                  "type": "string",
-                  "description": "发色"
-                },
-                "hairLength": {
-                  "type": "string",
-                  "description": "发长"
-                },
-                "eyewearStyle": {
-                  "type": "string",
-                  "description": "眼镜款式"
-                },
-                "customDescription": {
-                  "type": "string",
-                  "description": "用户自定义描述"
-                },
-                "bodyShapeModel": {
-                  "type": "string",
-                  "description": "体型参考图"
-                },
-                "imageUrl": {
-                  "type": "string",
-                  "description": "原图地址"
-                },
-                "userId": {
-                  "type": "string",
-                  "description": "用户ID"
-                },
-                "imageType": {
-                  "type": "string",
-                  "description": "可以不传，自动检测，face/half_body/full_body"
-                },
-                "setAsDefault": {
-                  "type": "boolean",
-                  "description": "是否设为默认模特"
-                }
-              }
+              "$ref": "#/definitions/ComboServiceApiV1StyleOutfitsGeneratemodelPostRequest"
             }
           }
         ],
@@ -1624,22 +1477,7 @@
             "name": "root",
             "in": "body",
             "schema": {
-              "$schema": "http://json-schema.org/draft-04/schema#",
-              "type": "object",
-              "properties": {
-                "taskId": {
-                  "type": "string",
-                  "description": "模特生成任务ID"
-                },
-                "selectedIndex": {
-                  "type": "number",
-                  "description": "选中的生成结果索引"
-                },
-                "modelDesc": {
-                  "type": "string",
-                  "description": "模特描述"
-                }
-              }
+              "$ref": "#/definitions/ComboServiceBizAiFashionModelSavePostRequest"
             }
           }
         ],
@@ -1732,16 +1570,7 @@
             "name": "root",
             "in": "body",
             "schema": {
-              "$schema": "http://json-schema.org/draft-04/schema#",
-              "type": "object",
-              "properties": {
-                "imgUrl": {
-                  "type": "string"
-                },
-                "target": {
-                  "type": "string"
-                }
-              }
+              "$ref": "#/definitions/ComboServiceApiV1StyleOutfitsResultPageGetRequest"
             }
           }
         ],
@@ -2762,73 +2591,7 @@
             "name": "root",
             "in": "body",
             "schema": {
-              "$schema": "http://json-schema.org/draft-04/schema#",
-              "type": "object",
-              "properties": {
-                "useMultiModelImage": {
-                  "type": "boolean",
-                  "description": "是否多模特图"
-                },
-                "referenceImages": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "customPrompt": {
-                  "type": "string"
-                },
-                "gender": {
-                  "type": "number",
-                  "description": "性别，字典：0=自动，1=男，2=女"
-                },
-                "count": {
-                  "type": "number",
-                  "description": "生成数量"
-                },
-                "age": {
-                  "type": "string"
-                },
-                "physicalAppearance": {
-                  "type": "string"
-                },
-                "styleTrendyElements": {
-                  "type": "string"
-                },
-                "brand": {
-                  "type": "string"
-                },
-                "budget": {
-                  "type": "string"
-                },
-                "aspectRatio": {
-                  "type": "string"
-                },
-                "modelImageUrl": {
-                  "type": "string"
-                },
-                "enableFullPipeline": {
-                  "type": "boolean"
-                },
-                "referenceMode": {
-                  "type": "string",
-                  "description": "参考模式（如 style，与下游约定）"
-                },
-                "customModelId": {
-                  "type": "string"
-                },
-                "selections": {
-                  "type": "object",
-                  "properties": {
-                    "occasion": {
-                      "type": "string"
-                    }
-                  }
-                },
-                "imageIndex": {
-                  "type": "number"
-                }
-              }
+              "$ref": "#/definitions/ComboServiceApiV1StyleOutfitsGeneratePostRequest"
             }
           }
         ],
@@ -3400,14 +3163,7 @@
             "name": "root",
             "in": "body",
             "schema": {
-              "$schema": "http://json-schema.org/draft-04/schema#",
-              "type": "object",
-              "properties": {
-                "taskId": {
-                  "type": "string",
-                  "description": "上一次生成模特的任务ID，复用之前请求参数重新排队"
-                }
-              }
+              "$ref": "#/definitions/ComboServiceApiV1StyleOutfitsGeneratemodelRegeneratePostRequest"
             }
           }
         ],
@@ -3462,14 +3218,7 @@
             "name": "root",
             "in": "body",
             "schema": {
-              "$schema": "http://json-schema.org/draft-04/schema#",
-              "type": "object",
-              "properties": {
-                "taskId": {
-                  "type": "string",
-                  "description": "上一次生成穿搭的任务ID，复用原始请求参数重新生成"
-                }
-              }
+              "$ref": "#/definitions/ComboServiceApiV1StyleOutfitsGenerateRegeneratePostRequest"
             }
           }
         ],
@@ -3545,16 +3294,7 @@
             "name": "root",
             "in": "body",
             "schema": {
-              "$schema": "http://json-schema.org/draft-04/schema#",
-              "type": "object",
-              "properties": {
-                "imgUrl": {
-                  "type": "string"
-                },
-                "target": {
-                  "type": "string"
-                }
-              }
+              "$ref": "#/definitions/ComboServiceBizUserShareRewardPageGetRequest"
             }
           }
         ],
@@ -3650,16 +3390,7 @@
             "name": "root",
             "in": "body",
             "schema": {
-              "$schema": "http://json-schema.org/draft-04/schema#",
-              "type": "object",
-              "properties": {
-                "orderId": {
-                  "type": "string"
-                },
-                "content": {
-                  "type": "string"
-                }
-              }
+              "$ref": "#/definitions/ComboServiceBizUserShareRewardPostRequest"
             }
           }
         ],
@@ -3716,16 +3447,7 @@
             "name": "root",
             "in": "body",
             "schema": {
-              "$schema": "http://json-schema.org/draft-04/schema#",
-              "type": "object",
-              "properties": {
-                "imgUrl": {
-                  "type": "string"
-                },
-                "target": {
-                  "type": "string"
-                }
-              }
+              "$ref": "#/definitions/ComboServiceNoAuthBizAlbumAlbuminfoGetRequest"
             }
           }
         ],
@@ -3857,6 +3579,331 @@
               }
             }
           }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "ComboServiceNoAuthBizKolKolinfoGetRequest": {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "type": "object",
+      "properties": {
+        "imgUrl": {
+          "type": "string"
+        },
+        "target": {
+          "type": "string"
+        }
+      }
+    },
+    "ComboServiceBizCommunityPostUnlikePostRequest": {
+      "type": "object",
+      "properties": {
+        "postId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "帖子ID"
+        }
+      },
+      "$$ref": "#/components/schemas/CommunityPostLikeReq"
+    },
+    "ComboServiceBizCommunityPostLikedGetRequest": {
+      "type": "object",
+      "properties": {
+        "cursor": {
+          "type": "string",
+          "description": "上一页返回的游标，不传默认从第一页开始"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32",
+          "default": 10,
+          "minimum": 1,
+          "maximum": 100,
+          "description": "每页条数，1-100"
+        },
+        "tenantCode": {
+          "type": "string",
+          "description": "指定租户编码，不传则使用当前用户租户"
+        }
+      },
+      "$$ref": "#/components/schemas/CommunityPostCursorPageReq"
+    },
+    "ComboServiceBizCommunityPostNoAuthListGetRequest": {
+      "type": "object",
+      "properties": {
+        "cursor": {
+          "type": "string",
+          "description": "上一页返回的游标，不传默认从第一页开始"
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32",
+          "default": 10,
+          "minimum": 1,
+          "maximum": 100,
+          "description": "每页条数，1-100"
+        },
+        "tenantCode": {
+          "type": "string",
+          "description": "指定租户编码，不传则使用当前用户租户"
+        }
+      },
+      "$$ref": "#/components/schemas/CommunityPostCursorPageReq"
+    },
+    "ComboServiceBizCommunityPostLikePostRequest": {
+      "type": "object",
+      "properties": {
+        "postId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "帖子ID"
+        }
+      },
+      "$$ref": "#/components/schemas/CommunityPostLikeReq"
+    },
+    "ComboServiceNoAuthBizImageTransTranslatePostRequest": {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "type": "object",
+      "properties": {
+        "imgUrl": {
+          "type": "string"
+        },
+        "target": {
+          "type": "string"
+        }
+      }
+    },
+    "ComboServiceApiV1StyleOutfitsGeneratemodelPostRequest": {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "type": "object",
+      "properties": {
+        "segmentedType": {
+          "type": "number",
+          "description": "可以不传，背景抠图类型，字典：1=默认"
+        },
+        "segmentedGender": {
+          "type": "string",
+          "description": "抠图性别，枚举：male/female"
+        },
+        "gender": {
+          "type": "number",
+          "description": "性别，字典：0=自动，1=男，2=女"
+        },
+        "age": {
+          "type": "string",
+          "description": "年龄"
+        },
+        "ethnicity": {
+          "type": "string",
+          "description": "种族"
+        },
+        "skinColor": {
+          "type": "string",
+          "description": "肤色"
+        },
+        "bodyShape": {
+          "type": "string",
+          "description": "体型"
+        },
+        "bustSize": {
+          "type": "string",
+          "description": "胸围"
+        },
+        "hairStyle": {
+          "type": "string",
+          "description": "发型"
+        },
+        "hairColor": {
+          "type": "string",
+          "description": "发色"
+        },
+        "hairLength": {
+          "type": "string",
+          "description": "发长"
+        },
+        "eyewearStyle": {
+          "type": "string",
+          "description": "眼镜款式"
+        },
+        "customDescription": {
+          "type": "string",
+          "description": "用户自定义描述"
+        },
+        "bodyShapeModel": {
+          "type": "string",
+          "description": "体型参考图"
+        },
+        "imageUrl": {
+          "type": "string",
+          "description": "原图地址"
+        },
+        "userId": {
+          "type": "string",
+          "description": "用户ID"
+        },
+        "imageType": {
+          "type": "string",
+          "description": "可以不传，自动检测，face/half_body/full_body"
+        },
+        "setAsDefault": {
+          "type": "boolean",
+          "description": "是否设为默认模特"
+        }
+      }
+    },
+    "ComboServiceBizAiFashionModelSavePostRequest": {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "type": "object",
+      "properties": {
+        "taskId": {
+          "type": "string",
+          "description": "模特生成任务ID"
+        },
+        "selectedIndex": {
+          "type": "number",
+          "description": "选中的生成结果索引"
+        },
+        "modelDesc": {
+          "type": "string",
+          "description": "模特描述"
+        }
+      }
+    },
+    "ComboServiceApiV1StyleOutfitsResultPageGetRequest": {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "type": "object",
+      "properties": {
+        "imgUrl": {
+          "type": "string"
+        },
+        "target": {
+          "type": "string"
+        }
+      }
+    },
+    "ComboServiceApiV1StyleOutfitsGeneratePostRequest": {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "type": "object",
+      "properties": {
+        "useMultiModelImage": {
+          "type": "boolean",
+          "description": "是否多模特图"
+        },
+        "referenceImages": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "customPrompt": {
+          "type": "string"
+        },
+        "gender": {
+          "type": "number",
+          "description": "性别，字典：0=自动，1=男，2=女"
+        },
+        "count": {
+          "type": "number",
+          "description": "生成数量"
+        },
+        "age": {
+          "type": "string"
+        },
+        "physicalAppearance": {
+          "type": "string"
+        },
+        "styleTrendyElements": {
+          "type": "string"
+        },
+        "brand": {
+          "type": "string"
+        },
+        "budget": {
+          "type": "string"
+        },
+        "aspectRatio": {
+          "type": "string"
+        },
+        "modelImageUrl": {
+          "type": "string"
+        },
+        "enableFullPipeline": {
+          "type": "boolean"
+        },
+        "referenceMode": {
+          "type": "string",
+          "description": "参考模式（如 style，与下游约定）"
+        },
+        "customModelId": {
+          "type": "string"
+        },
+        "selections": {
+          "type": "object",
+          "properties": {
+            "occasion": {
+              "type": "string"
+            }
+          }
+        },
+        "imageIndex": {
+          "type": "number"
+        }
+      }
+    },
+    "ComboServiceApiV1StyleOutfitsGeneratemodelRegeneratePostRequest": {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "type": "object",
+      "properties": {
+        "taskId": {
+          "type": "string",
+          "description": "上一次生成模特的任务ID，复用之前请求参数重新排队"
+        }
+      }
+    },
+    "ComboServiceApiV1StyleOutfitsGenerateRegeneratePostRequest": {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "type": "object",
+      "properties": {
+        "taskId": {
+          "type": "string",
+          "description": "上一次生成穿搭的任务ID，复用原始请求参数重新生成"
+        }
+      }
+    },
+    "ComboServiceBizUserShareRewardPageGetRequest": {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "type": "object",
+      "properties": {
+        "imgUrl": {
+          "type": "string"
+        },
+        "target": {
+          "type": "string"
+        }
+      }
+    },
+    "ComboServiceBizUserShareRewardPostRequest": {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "type": "object",
+      "properties": {
+        "orderId": {
+          "type": "string"
+        },
+        "content": {
+          "type": "string"
+        }
+      }
+    },
+    "ComboServiceNoAuthBizAlbumAlbuminfoGetRequest": {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "type": "object",
+      "properties": {
+        "imgUrl": {
+          "type": "string"
+        },
+        "target": {
+          "type": "string"
         }
       }
     }

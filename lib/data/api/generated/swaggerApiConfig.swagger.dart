@@ -54,7 +54,11 @@ abstract class SwaggerApiConfig extends ChopperService {
   ///保存用户配置
   ///@param root
   Future<chopper.Response<ConfigServiceUserConfigPost$Response>>
-  configServiceUserConfigPost({Object? root}) {
+  configServiceUserConfigPost({ConfigServiceUserConfigPostRequest? root}) {
+    generatedMapping.putIfAbsent(
+      ConfigServiceUserConfigPostRequest,
+      () => ConfigServiceUserConfigPostRequest.fromJsonFactory,
+    );
     generatedMapping.putIfAbsent(
       ConfigServiceUserConfigPost$Response,
       () => ConfigServiceUserConfigPost$Response.fromJsonFactory,
@@ -68,7 +72,7 @@ abstract class SwaggerApiConfig extends ChopperService {
   @POST(path: '/config-service/user/config')
   Future<chopper.Response<ConfigServiceUserConfigPost$Response>>
   _configServiceUserConfigPost({
-    @Body() Object? root,
+    @Body() ConfigServiceUserConfigPostRequest? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -86,7 +90,14 @@ abstract class SwaggerApiConfig extends ChopperService {
   ///@param key
   ///@param root
   Future<chopper.Response<ConfigServiceUserConfigGet$Response>>
-  configServiceUserConfigGet({required String? key, Object? root}) {
+  configServiceUserConfigGet({
+    required String? key,
+    ConfigServiceUserConfigGetRequest? root,
+  }) {
+    generatedMapping.putIfAbsent(
+      ConfigServiceUserConfigGetRequest,
+      () => ConfigServiceUserConfigGetRequest.fromJsonFactory,
+    );
     generatedMapping.putIfAbsent(
       ConfigServiceUserConfigGet$Response,
       () => ConfigServiceUserConfigGet$Response.fromJsonFactory,
@@ -102,7 +113,7 @@ abstract class SwaggerApiConfig extends ChopperService {
   Future<chopper.Response<ConfigServiceUserConfigGet$Response>>
   _configServiceUserConfigGet({
     @Query('key') required String? key,
-    @Body() Object? root,
+    @Body() ConfigServiceUserConfigGetRequest? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -124,8 +135,12 @@ abstract class SwaggerApiConfig extends ChopperService {
   configServiceUserConfigNoAuthInstanceGet({
     String? configKey,
     required String? instanceId,
-    Object? root,
+    ConfigServiceUserConfigNoAuthInstanceGetRequest? root,
   }) {
+    generatedMapping.putIfAbsent(
+      ConfigServiceUserConfigNoAuthInstanceGetRequest,
+      () => ConfigServiceUserConfigNoAuthInstanceGetRequest.fromJsonFactory,
+    );
     generatedMapping.putIfAbsent(
       ConfigServiceUserConfigNoAuthInstanceGet$Response,
       () => ConfigServiceUserConfigNoAuthInstanceGet$Response.fromJsonFactory,
@@ -147,7 +162,7 @@ abstract class SwaggerApiConfig extends ChopperService {
   _configServiceUserConfigNoAuthInstanceGet({
     @Query('configKey') String? configKey,
     @Query('instanceId') required String? instanceId,
-    @Body() Object? root,
+    @Body() ConfigServiceUserConfigNoAuthInstanceGetRequest? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -160,6 +175,185 @@ abstract class SwaggerApiConfig extends ChopperService {
       deprecated: false,
     ),
   });
+}
+
+@JsonSerializable(explicitToJson: true)
+class ConfigServiceUserConfigPostRequest {
+  const ConfigServiceUserConfigPostRequest({this.key, this.value});
+
+  factory ConfigServiceUserConfigPostRequest.fromJson(
+    Map<String, dynamic> json,
+  ) => _$ConfigServiceUserConfigPostRequestFromJson(json);
+
+  static const toJsonFactory = _$ConfigServiceUserConfigPostRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$ConfigServiceUserConfigPostRequestToJson(this);
+
+  @JsonKey(name: 'key', fromJson: JsonCoerce.asString)
+  final String? key;
+  @JsonKey(name: 'value', fromJson: JsonCoerce.asString)
+  final String? value;
+  static const fromJsonFactory = _$ConfigServiceUserConfigPostRequestFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is ConfigServiceUserConfigPostRequest &&
+            (identical(other.key, key) ||
+                const DeepCollectionEquality().equals(other.key, key)) &&
+            (identical(other.value, value) ||
+                const DeepCollectionEquality().equals(other.value, value)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(key) ^
+      const DeepCollectionEquality().hash(value) ^
+      runtimeType.hashCode;
+}
+
+extension $ConfigServiceUserConfigPostRequestExtension
+    on ConfigServiceUserConfigPostRequest {
+  ConfigServiceUserConfigPostRequest copyWith({String? key, String? value}) {
+    return ConfigServiceUserConfigPostRequest(
+      key: key ?? this.key,
+      value: value ?? this.value,
+    );
+  }
+
+  ConfigServiceUserConfigPostRequest copyWithWrapped({
+    Wrapped<String?>? key,
+    Wrapped<String?>? value,
+  }) {
+    return ConfigServiceUserConfigPostRequest(
+      key: (key != null ? key.value : this.key),
+      value: (value != null ? value.value : this.value),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class ConfigServiceUserConfigGetRequest {
+  const ConfigServiceUserConfigGetRequest({this.key, this.value});
+
+  factory ConfigServiceUserConfigGetRequest.fromJson(
+    Map<String, dynamic> json,
+  ) => _$ConfigServiceUserConfigGetRequestFromJson(json);
+
+  static const toJsonFactory = _$ConfigServiceUserConfigGetRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$ConfigServiceUserConfigGetRequestToJson(this);
+
+  @JsonKey(name: 'key', fromJson: JsonCoerce.asString)
+  final String? key;
+  @JsonKey(name: 'value', fromJson: JsonCoerce.asString)
+  final String? value;
+  static const fromJsonFactory = _$ConfigServiceUserConfigGetRequestFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is ConfigServiceUserConfigGetRequest &&
+            (identical(other.key, key) ||
+                const DeepCollectionEquality().equals(other.key, key)) &&
+            (identical(other.value, value) ||
+                const DeepCollectionEquality().equals(other.value, value)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(key) ^
+      const DeepCollectionEquality().hash(value) ^
+      runtimeType.hashCode;
+}
+
+extension $ConfigServiceUserConfigGetRequestExtension
+    on ConfigServiceUserConfigGetRequest {
+  ConfigServiceUserConfigGetRequest copyWith({String? key, String? value}) {
+    return ConfigServiceUserConfigGetRequest(
+      key: key ?? this.key,
+      value: value ?? this.value,
+    );
+  }
+
+  ConfigServiceUserConfigGetRequest copyWithWrapped({
+    Wrapped<String?>? key,
+    Wrapped<String?>? value,
+  }) {
+    return ConfigServiceUserConfigGetRequest(
+      key: (key != null ? key.value : this.key),
+      value: (value != null ? value.value : this.value),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class ConfigServiceUserConfigNoAuthInstanceGetRequest {
+  const ConfigServiceUserConfigNoAuthInstanceGetRequest({this.key, this.value});
+
+  factory ConfigServiceUserConfigNoAuthInstanceGetRequest.fromJson(
+    Map<String, dynamic> json,
+  ) => _$ConfigServiceUserConfigNoAuthInstanceGetRequestFromJson(json);
+
+  static const toJsonFactory =
+      _$ConfigServiceUserConfigNoAuthInstanceGetRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$ConfigServiceUserConfigNoAuthInstanceGetRequestToJson(this);
+
+  @JsonKey(name: 'key', fromJson: JsonCoerce.asString)
+  final String? key;
+  @JsonKey(name: 'value', fromJson: JsonCoerce.asString)
+  final String? value;
+  static const fromJsonFactory =
+      _$ConfigServiceUserConfigNoAuthInstanceGetRequestFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is ConfigServiceUserConfigNoAuthInstanceGetRequest &&
+            (identical(other.key, key) ||
+                const DeepCollectionEquality().equals(other.key, key)) &&
+            (identical(other.value, value) ||
+                const DeepCollectionEquality().equals(other.value, value)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(key) ^
+      const DeepCollectionEquality().hash(value) ^
+      runtimeType.hashCode;
+}
+
+extension $ConfigServiceUserConfigNoAuthInstanceGetRequestExtension
+    on ConfigServiceUserConfigNoAuthInstanceGetRequest {
+  ConfigServiceUserConfigNoAuthInstanceGetRequest copyWith({
+    String? key,
+    String? value,
+  }) {
+    return ConfigServiceUserConfigNoAuthInstanceGetRequest(
+      key: key ?? this.key,
+      value: value ?? this.value,
+    );
+  }
+
+  ConfigServiceUserConfigNoAuthInstanceGetRequest copyWithWrapped({
+    Wrapped<String?>? key,
+    Wrapped<String?>? value,
+  }) {
+    return ConfigServiceUserConfigNoAuthInstanceGetRequest(
+      key: (key != null ? key.value : this.key),
+      value: (value != null ? value.value : this.value),
+    );
+  }
 }
 
 @JsonSerializable(explicitToJson: true)

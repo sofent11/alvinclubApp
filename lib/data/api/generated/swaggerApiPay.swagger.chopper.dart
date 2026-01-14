@@ -55,7 +55,7 @@ final class _$SwaggerApiPay extends SwaggerApiPay {
   @override
   Future<Response<PayServiceWithdrawApplyPost$Response>>
   _payServiceWithdrawApplyPost({
-    Object? root,
+    PayServiceWithdrawApplyPostRequest? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '申请提现',
@@ -239,7 +239,7 @@ final class _$SwaggerApiPay extends SwaggerApiPay {
   @override
   Future<Response<PayServiceRechargeCreateOrderPost$Response>>
   _payServiceRechargeCreateOrderPost({
-    Object? root,
+    PayServiceRechargeCreateorderPostRequest? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '发起充值接口',
@@ -268,7 +268,7 @@ final class _$SwaggerApiPay extends SwaggerApiPay {
 
   @override
   Future<Response<PayServicePayPayPost$Response>> _payServicePayPayPost({
-    Object? root,
+    PayServicePayPayPostRequest? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '发起支付',

@@ -63,8 +63,12 @@ abstract class SwaggerApiProduct extends ChopperService {
     required String? productCode,
     required String? current,
     required String? size,
-    Object? root,
+    ProductServiceProductReviewNoAuthPageGetRequest? root,
   }) {
+    generatedMapping.putIfAbsent(
+      ProductServiceProductReviewNoAuthPageGetRequest,
+      () => ProductServiceProductReviewNoAuthPageGetRequest.fromJsonFactory,
+    );
     generatedMapping.putIfAbsent(
       ProductServiceProductReviewNoAuthPageGet$Response,
       () => ProductServiceProductReviewNoAuthPageGet$Response.fromJsonFactory,
@@ -89,7 +93,7 @@ abstract class SwaggerApiProduct extends ChopperService {
     @Query('productCode') required String? productCode,
     @Query('current') required String? current,
     @Query('size') required String? size,
-    @Body() Object? root,
+    @Body() ProductServiceProductReviewNoAuthPageGetRequest? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -109,8 +113,12 @@ abstract class SwaggerApiProduct extends ChopperService {
   Future<chopper.Response<ProductServiceProductReviewNoAuthSummaryGet$Response>>
   productServiceProductReviewNoAuthSummaryGet({
     required String? productCode,
-    Object? root,
+    ProductServiceProductReviewNoAuthSummaryGetRequest? root,
   }) {
+    generatedMapping.putIfAbsent(
+      ProductServiceProductReviewNoAuthSummaryGetRequest,
+      () => ProductServiceProductReviewNoAuthSummaryGetRequest.fromJsonFactory,
+    );
     generatedMapping.putIfAbsent(
       ProductServiceProductReviewNoAuthSummaryGet$Response,
       () =>
@@ -130,7 +138,7 @@ abstract class SwaggerApiProduct extends ChopperService {
   Future<chopper.Response<ProductServiceProductReviewNoAuthSummaryGet$Response>>
   _productServiceProductReviewNoAuthSummaryGet({
     @Query('productCode') required String? productCode,
-    @Body() Object? root,
+    @Body() ProductServiceProductReviewNoAuthSummaryGetRequest? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -295,7 +303,14 @@ abstract class SwaggerApiProduct extends ChopperService {
   Future<
     chopper.Response<ProductServiceProductPremiumDupeNoAuthPagePost$Response>
   >
-  productServiceProductPremiumDupeNoAuthPagePost({Object? root}) {
+  productServiceProductPremiumDupeNoAuthPagePost({
+    ProductServiceProductPremiumDupeNoAuthPagePostRequest? root,
+  }) {
+    generatedMapping.putIfAbsent(
+      ProductServiceProductPremiumDupeNoAuthPagePostRequest,
+      () =>
+          ProductServiceProductPremiumDupeNoAuthPagePostRequest.fromJsonFactory,
+    );
     generatedMapping.putIfAbsent(
       ProductServiceProductPremiumDupeNoAuthPagePost$Response,
       () => ProductServiceProductPremiumDupeNoAuthPagePost$Response
@@ -312,7 +327,7 @@ abstract class SwaggerApiProduct extends ChopperService {
     chopper.Response<ProductServiceProductPremiumDupeNoAuthPagePost$Response>
   >
   _productServiceProductPremiumDupeNoAuthPagePost({
-    @Body() Object? root,
+    @Body() ProductServiceProductPremiumDupeNoAuthPagePostRequest? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '分页获取大牌平替商品列表，支持按分类过滤和多种排序方式。无需登录认证。',
@@ -449,7 +464,14 @@ abstract class SwaggerApiProduct extends ChopperService {
       ProductServiceSizeChartNoAuthTranslateCallbackPost$Response
     >
   >
-  productServiceSizeChartNoAuthTranslateCallbackPost({Object? root}) {
+  productServiceSizeChartNoAuthTranslateCallbackPost({
+    ProductServiceSizeChartNoAuthTranslateCallbackPostRequest? root,
+  }) {
+    generatedMapping.putIfAbsent(
+      ProductServiceSizeChartNoAuthTranslateCallbackPostRequest,
+      () => ProductServiceSizeChartNoAuthTranslateCallbackPostRequest
+          .fromJsonFactory,
+    );
     generatedMapping.putIfAbsent(
       ProductServiceSizeChartNoAuthTranslateCallbackPost$Response,
       () => ProductServiceSizeChartNoAuthTranslateCallbackPost$Response
@@ -468,7 +490,7 @@ abstract class SwaggerApiProduct extends ChopperService {
     >
   >
   _productServiceSizeChartNoAuthTranslateCallbackPost({
-    @Body() Object? root,
+    @Body() ProductServiceSizeChartNoAuthTranslateCallbackPostRequest? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -1294,7 +1316,14 @@ abstract class SwaggerApiProduct extends ChopperService {
       ProductServiceRecommendNoAuthCategoryRecommendationGet$Response
     >
   >
-  productServiceRecommendNoAuthCategoryRecommendationGet({Object? root}) {
+  productServiceRecommendNoAuthCategoryRecommendationGet({
+    ProductServiceRecommendNoAuthCategoryrecommendationGetRequest? root,
+  }) {
+    generatedMapping.putIfAbsent(
+      ProductServiceRecommendNoAuthCategoryrecommendationGetRequest,
+      () => ProductServiceRecommendNoAuthCategoryrecommendationGetRequest
+          .fromJsonFactory,
+    );
     generatedMapping.putIfAbsent(
       ProductServiceRecommendNoAuthCategoryRecommendationGet$Response,
       () => ProductServiceRecommendNoAuthCategoryRecommendationGet$Response
@@ -1313,7 +1342,7 @@ abstract class SwaggerApiProduct extends ChopperService {
     >
   >
   _productServiceRecommendNoAuthCategoryRecommendationGet({
-    @Body() Object? root,
+    @Body() ProductServiceRecommendNoAuthCategoryrecommendationGetRequest? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -1330,7 +1359,13 @@ abstract class SwaggerApiProduct extends ChopperService {
   ///分类页商品
   ///@param root
   Future<chopper.Response<ProductServiceRecommendNoAuthCategoryPost$Response>>
-  productServiceRecommendNoAuthCategoryPost({Object? root}) {
+  productServiceRecommendNoAuthCategoryPost({
+    ProductServiceRecommendNoAuthCategoryPostRequest? root,
+  }) {
+    generatedMapping.putIfAbsent(
+      ProductServiceRecommendNoAuthCategoryPostRequest,
+      () => ProductServiceRecommendNoAuthCategoryPostRequest.fromJsonFactory,
+    );
     generatedMapping.putIfAbsent(
       ProductServiceRecommendNoAuthCategoryPost$Response,
       () => ProductServiceRecommendNoAuthCategoryPost$Response.fromJsonFactory,
@@ -1344,7 +1379,7 @@ abstract class SwaggerApiProduct extends ChopperService {
   @POST(path: '/product-service/recommend/no-auth/category')
   Future<chopper.Response<ProductServiceRecommendNoAuthCategoryPost$Response>>
   _productServiceRecommendNoAuthCategoryPost({
-    @Body() Object? root,
+    @Body() ProductServiceRecommendNoAuthCategoryPostRequest? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -1361,7 +1396,13 @@ abstract class SwaggerApiProduct extends ChopperService {
   ///店铺页商品
   ///@param root
   Future<chopper.Response<ProductServiceRecommendNoAuthShopPost$Response>>
-  productServiceRecommendNoAuthShopPost({Object? root}) {
+  productServiceRecommendNoAuthShopPost({
+    ProductServiceRecommendNoAuthShopPostRequest? root,
+  }) {
+    generatedMapping.putIfAbsent(
+      ProductServiceRecommendNoAuthShopPostRequest,
+      () => ProductServiceRecommendNoAuthShopPostRequest.fromJsonFactory,
+    );
     generatedMapping.putIfAbsent(
       ProductServiceRecommendNoAuthShopPost$Response,
       () => ProductServiceRecommendNoAuthShopPost$Response.fromJsonFactory,
@@ -1375,7 +1416,7 @@ abstract class SwaggerApiProduct extends ChopperService {
   @POST(path: '/product-service/recommend/no-auth/shop')
   Future<chopper.Response<ProductServiceRecommendNoAuthShopPost$Response>>
   _productServiceRecommendNoAuthShopPost({
-    @Body() Object? root,
+    @Body() ProductServiceRecommendNoAuthShopPostRequest? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -1394,7 +1435,14 @@ abstract class SwaggerApiProduct extends ChopperService {
   Future<
     chopper.Response<ProductServiceRecommendNoAuthSimilarProductPost$Response>
   >
-  productServiceRecommendNoAuthSimilarProductPost({Object? root}) {
+  productServiceRecommendNoAuthSimilarProductPost({
+    ProductServiceRecommendNoAuthSimilarproductPostRequest? root,
+  }) {
+    generatedMapping.putIfAbsent(
+      ProductServiceRecommendNoAuthSimilarproductPostRequest,
+      () => ProductServiceRecommendNoAuthSimilarproductPostRequest
+          .fromJsonFactory,
+    );
     generatedMapping.putIfAbsent(
       ProductServiceRecommendNoAuthSimilarProductPost$Response,
       () => ProductServiceRecommendNoAuthSimilarProductPost$Response
@@ -1411,7 +1459,7 @@ abstract class SwaggerApiProduct extends ChopperService {
     chopper.Response<ProductServiceRecommendNoAuthSimilarProductPost$Response>
   >
   _productServiceRecommendNoAuthSimilarProductPost({
-    @Body() Object? root,
+    @Body() ProductServiceRecommendNoAuthSimilarproductPostRequest? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -1424,6 +1472,944 @@ abstract class SwaggerApiProduct extends ChopperService {
       deprecated: false,
     ),
   });
+}
+
+@JsonSerializable(explicitToJson: true)
+class ProductServiceProductReviewNoAuthPageGetRequest {
+  const ProductServiceProductReviewNoAuthPageGetRequest({
+    this.current,
+    this.pageSize,
+    this.categoryId,
+    this.brandName,
+    this.sortedField,
+  });
+
+  factory ProductServiceProductReviewNoAuthPageGetRequest.fromJson(
+    Map<String, dynamic> json,
+  ) => _$ProductServiceProductReviewNoAuthPageGetRequestFromJson(json);
+
+  static const toJsonFactory =
+      _$ProductServiceProductReviewNoAuthPageGetRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$ProductServiceProductReviewNoAuthPageGetRequestToJson(this);
+
+  @JsonKey(name: 'current', fromJson: JsonCoerce.asInt)
+  final int? current;
+  @JsonKey(name: 'pageSize', fromJson: JsonCoerce.asInt)
+  final int? pageSize;
+  @JsonKey(name: 'categoryId', fromJson: JsonCoerce.asInt)
+  final int? categoryId;
+  @JsonKey(name: 'brandName', fromJson: JsonCoerce.asString)
+  final String? brandName;
+  @JsonKey(name: 'sortedField')
+  final ProductServiceProductReviewNoAuthPageGetRequest$SortedField?
+  sortedField;
+  static const fromJsonFactory =
+      _$ProductServiceProductReviewNoAuthPageGetRequestFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is ProductServiceProductReviewNoAuthPageGetRequest &&
+            (identical(other.current, current) ||
+                const DeepCollectionEquality().equals(
+                  other.current,
+                  current,
+                )) &&
+            (identical(other.pageSize, pageSize) ||
+                const DeepCollectionEquality().equals(
+                  other.pageSize,
+                  pageSize,
+                )) &&
+            (identical(other.categoryId, categoryId) ||
+                const DeepCollectionEquality().equals(
+                  other.categoryId,
+                  categoryId,
+                )) &&
+            (identical(other.brandName, brandName) ||
+                const DeepCollectionEquality().equals(
+                  other.brandName,
+                  brandName,
+                )) &&
+            (identical(other.sortedField, sortedField) ||
+                const DeepCollectionEquality().equals(
+                  other.sortedField,
+                  sortedField,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(current) ^
+      const DeepCollectionEquality().hash(pageSize) ^
+      const DeepCollectionEquality().hash(categoryId) ^
+      const DeepCollectionEquality().hash(brandName) ^
+      const DeepCollectionEquality().hash(sortedField) ^
+      runtimeType.hashCode;
+}
+
+extension $ProductServiceProductReviewNoAuthPageGetRequestExtension
+    on ProductServiceProductReviewNoAuthPageGetRequest {
+  ProductServiceProductReviewNoAuthPageGetRequest copyWith({
+    int? current,
+    int? pageSize,
+    int? categoryId,
+    String? brandName,
+    ProductServiceProductReviewNoAuthPageGetRequest$SortedField? sortedField,
+  }) {
+    return ProductServiceProductReviewNoAuthPageGetRequest(
+      current: current ?? this.current,
+      pageSize: pageSize ?? this.pageSize,
+      categoryId: categoryId ?? this.categoryId,
+      brandName: brandName ?? this.brandName,
+      sortedField: sortedField ?? this.sortedField,
+    );
+  }
+
+  ProductServiceProductReviewNoAuthPageGetRequest copyWithWrapped({
+    Wrapped<int?>? current,
+    Wrapped<int?>? pageSize,
+    Wrapped<int?>? categoryId,
+    Wrapped<String?>? brandName,
+    Wrapped<ProductServiceProductReviewNoAuthPageGetRequest$SortedField?>?
+    sortedField,
+  }) {
+    return ProductServiceProductReviewNoAuthPageGetRequest(
+      current: (current != null ? current.value : this.current),
+      pageSize: (pageSize != null ? pageSize.value : this.pageSize),
+      categoryId: (categoryId != null ? categoryId.value : this.categoryId),
+      brandName: (brandName != null ? brandName.value : this.brandName),
+      sortedField: (sortedField != null ? sortedField.value : this.sortedField),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class ProductServiceProductReviewNoAuthSummaryGetRequest {
+  const ProductServiceProductReviewNoAuthSummaryGetRequest({
+    this.current,
+    this.pageSize,
+    this.categoryId,
+    this.brandName,
+    this.sortedField,
+  });
+
+  factory ProductServiceProductReviewNoAuthSummaryGetRequest.fromJson(
+    Map<String, dynamic> json,
+  ) => _$ProductServiceProductReviewNoAuthSummaryGetRequestFromJson(json);
+
+  static const toJsonFactory =
+      _$ProductServiceProductReviewNoAuthSummaryGetRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$ProductServiceProductReviewNoAuthSummaryGetRequestToJson(this);
+
+  @JsonKey(name: 'current', fromJson: JsonCoerce.asInt)
+  final int? current;
+  @JsonKey(name: 'pageSize', fromJson: JsonCoerce.asInt)
+  final int? pageSize;
+  @JsonKey(name: 'categoryId', fromJson: JsonCoerce.asInt)
+  final int? categoryId;
+  @JsonKey(name: 'brandName', fromJson: JsonCoerce.asString)
+  final String? brandName;
+  @JsonKey(name: 'sortedField')
+  final ProductServiceProductReviewNoAuthSummaryGetRequest$SortedField?
+  sortedField;
+  static const fromJsonFactory =
+      _$ProductServiceProductReviewNoAuthSummaryGetRequestFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is ProductServiceProductReviewNoAuthSummaryGetRequest &&
+            (identical(other.current, current) ||
+                const DeepCollectionEquality().equals(
+                  other.current,
+                  current,
+                )) &&
+            (identical(other.pageSize, pageSize) ||
+                const DeepCollectionEquality().equals(
+                  other.pageSize,
+                  pageSize,
+                )) &&
+            (identical(other.categoryId, categoryId) ||
+                const DeepCollectionEquality().equals(
+                  other.categoryId,
+                  categoryId,
+                )) &&
+            (identical(other.brandName, brandName) ||
+                const DeepCollectionEquality().equals(
+                  other.brandName,
+                  brandName,
+                )) &&
+            (identical(other.sortedField, sortedField) ||
+                const DeepCollectionEquality().equals(
+                  other.sortedField,
+                  sortedField,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(current) ^
+      const DeepCollectionEquality().hash(pageSize) ^
+      const DeepCollectionEquality().hash(categoryId) ^
+      const DeepCollectionEquality().hash(brandName) ^
+      const DeepCollectionEquality().hash(sortedField) ^
+      runtimeType.hashCode;
+}
+
+extension $ProductServiceProductReviewNoAuthSummaryGetRequestExtension
+    on ProductServiceProductReviewNoAuthSummaryGetRequest {
+  ProductServiceProductReviewNoAuthSummaryGetRequest copyWith({
+    int? current,
+    int? pageSize,
+    int? categoryId,
+    String? brandName,
+    ProductServiceProductReviewNoAuthSummaryGetRequest$SortedField? sortedField,
+  }) {
+    return ProductServiceProductReviewNoAuthSummaryGetRequest(
+      current: current ?? this.current,
+      pageSize: pageSize ?? this.pageSize,
+      categoryId: categoryId ?? this.categoryId,
+      brandName: brandName ?? this.brandName,
+      sortedField: sortedField ?? this.sortedField,
+    );
+  }
+
+  ProductServiceProductReviewNoAuthSummaryGetRequest copyWithWrapped({
+    Wrapped<int?>? current,
+    Wrapped<int?>? pageSize,
+    Wrapped<int?>? categoryId,
+    Wrapped<String?>? brandName,
+    Wrapped<ProductServiceProductReviewNoAuthSummaryGetRequest$SortedField?>?
+    sortedField,
+  }) {
+    return ProductServiceProductReviewNoAuthSummaryGetRequest(
+      current: (current != null ? current.value : this.current),
+      pageSize: (pageSize != null ? pageSize.value : this.pageSize),
+      categoryId: (categoryId != null ? categoryId.value : this.categoryId),
+      brandName: (brandName != null ? brandName.value : this.brandName),
+      sortedField: (sortedField != null ? sortedField.value : this.sortedField),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class ProductServiceProductPremiumDupeNoAuthPagePostRequest {
+  const ProductServiceProductPremiumDupeNoAuthPagePostRequest({
+    this.current,
+    this.pageSize,
+    this.categoryId,
+    this.productCode,
+    this.sort,
+    this.order,
+  });
+
+  factory ProductServiceProductPremiumDupeNoAuthPagePostRequest.fromJson(
+    Map<String, dynamic> json,
+  ) => _$ProductServiceProductPremiumDupeNoAuthPagePostRequestFromJson(json);
+
+  static const toJsonFactory =
+      _$ProductServiceProductPremiumDupeNoAuthPagePostRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$ProductServiceProductPremiumDupeNoAuthPagePostRequestToJson(this);
+
+  @JsonKey(name: 'current', fromJson: JsonCoerce.asInt)
+  final int? current;
+  @JsonKey(name: 'pageSize', fromJson: JsonCoerce.asInt)
+  final int? pageSize;
+  @JsonKey(name: 'categoryId', fromJson: JsonCoerce.asInt)
+  final int? categoryId;
+  @JsonKey(name: 'productCode', fromJson: JsonCoerce.asString)
+  final String? productCode;
+  @JsonKey(
+    name: 'sort',
+    toJson:
+        productServiceProductPremiumDupeNoAuthPagePostRequestSortNullableToJson,
+    fromJson:
+        productServiceProductPremiumDupeNoAuthPagePostRequestSortSortNullableFromJson,
+  )
+  final enums.ProductServiceProductPremiumDupeNoAuthPagePostRequestSort? sort;
+  static enums.ProductServiceProductPremiumDupeNoAuthPagePostRequestSort?
+  productServiceProductPremiumDupeNoAuthPagePostRequestSortSortNullableFromJson(
+    Object? value,
+  ) =>
+      productServiceProductPremiumDupeNoAuthPagePostRequestSortNullableFromJson(
+        value,
+        enums
+            .ProductServiceProductPremiumDupeNoAuthPagePostRequestSort
+            .$default,
+      );
+
+  @JsonKey(
+    name: 'order',
+    toJson:
+        productServiceProductPremiumDupeNoAuthPagePostRequestOrderNullableToJson,
+    fromJson:
+        productServiceProductPremiumDupeNoAuthPagePostRequestOrderNullableFromJson,
+  )
+  final enums.ProductServiceProductPremiumDupeNoAuthPagePostRequestOrder? order;
+  static const fromJsonFactory =
+      _$ProductServiceProductPremiumDupeNoAuthPagePostRequestFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is ProductServiceProductPremiumDupeNoAuthPagePostRequest &&
+            (identical(other.current, current) ||
+                const DeepCollectionEquality().equals(
+                  other.current,
+                  current,
+                )) &&
+            (identical(other.pageSize, pageSize) ||
+                const DeepCollectionEquality().equals(
+                  other.pageSize,
+                  pageSize,
+                )) &&
+            (identical(other.categoryId, categoryId) ||
+                const DeepCollectionEquality().equals(
+                  other.categoryId,
+                  categoryId,
+                )) &&
+            (identical(other.productCode, productCode) ||
+                const DeepCollectionEquality().equals(
+                  other.productCode,
+                  productCode,
+                )) &&
+            (identical(other.sort, sort) ||
+                const DeepCollectionEquality().equals(other.sort, sort)) &&
+            (identical(other.order, order) ||
+                const DeepCollectionEquality().equals(other.order, order)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(current) ^
+      const DeepCollectionEquality().hash(pageSize) ^
+      const DeepCollectionEquality().hash(categoryId) ^
+      const DeepCollectionEquality().hash(productCode) ^
+      const DeepCollectionEquality().hash(sort) ^
+      const DeepCollectionEquality().hash(order) ^
+      runtimeType.hashCode;
+}
+
+extension $ProductServiceProductPremiumDupeNoAuthPagePostRequestExtension
+    on ProductServiceProductPremiumDupeNoAuthPagePostRequest {
+  ProductServiceProductPremiumDupeNoAuthPagePostRequest copyWith({
+    int? current,
+    int? pageSize,
+    int? categoryId,
+    String? productCode,
+    enums.ProductServiceProductPremiumDupeNoAuthPagePostRequestSort? sort,
+    enums.ProductServiceProductPremiumDupeNoAuthPagePostRequestOrder? order,
+  }) {
+    return ProductServiceProductPremiumDupeNoAuthPagePostRequest(
+      current: current ?? this.current,
+      pageSize: pageSize ?? this.pageSize,
+      categoryId: categoryId ?? this.categoryId,
+      productCode: productCode ?? this.productCode,
+      sort: sort ?? this.sort,
+      order: order ?? this.order,
+    );
+  }
+
+  ProductServiceProductPremiumDupeNoAuthPagePostRequest copyWithWrapped({
+    Wrapped<int?>? current,
+    Wrapped<int?>? pageSize,
+    Wrapped<int?>? categoryId,
+    Wrapped<String?>? productCode,
+    Wrapped<enums.ProductServiceProductPremiumDupeNoAuthPagePostRequestSort?>?
+    sort,
+    Wrapped<enums.ProductServiceProductPremiumDupeNoAuthPagePostRequestOrder?>?
+    order,
+  }) {
+    return ProductServiceProductPremiumDupeNoAuthPagePostRequest(
+      current: (current != null ? current.value : this.current),
+      pageSize: (pageSize != null ? pageSize.value : this.pageSize),
+      categoryId: (categoryId != null ? categoryId.value : this.categoryId),
+      productCode: (productCode != null ? productCode.value : this.productCode),
+      sort: (sort != null ? sort.value : this.sort),
+      order: (order != null ? order.value : this.order),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class ProductServiceSizeChartNoAuthTranslateCallbackPostRequest {
+  const ProductServiceSizeChartNoAuthTranslateCallbackPostRequest({
+    this.taskId,
+    this.imageUrl,
+    this.taskResult,
+    this.translateSource,
+    this.errorMessage,
+    this.status,
+  });
+
+  factory ProductServiceSizeChartNoAuthTranslateCallbackPostRequest.fromJson(
+    Map<String, dynamic> json,
+  ) =>
+      _$ProductServiceSizeChartNoAuthTranslateCallbackPostRequestFromJson(json);
+
+  static const toJsonFactory =
+      _$ProductServiceSizeChartNoAuthTranslateCallbackPostRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$ProductServiceSizeChartNoAuthTranslateCallbackPostRequestToJson(this);
+
+  @JsonKey(name: 'taskId', fromJson: JsonCoerce.asString)
+  final String? taskId;
+  @JsonKey(name: 'imageUrl', fromJson: JsonCoerce.asString)
+  final String? imageUrl;
+  @JsonKey(name: 'taskResult', fromJson: JsonCoerce.asString)
+  final String? taskResult;
+  @JsonKey(name: 'translateSource', fromJson: JsonCoerce.asString)
+  final String? translateSource;
+  @JsonKey(name: 'errorMessage', fromJson: JsonCoerce.asString)
+  final String? errorMessage;
+  @JsonKey(name: 'status', fromJson: JsonCoerce.asString)
+  final String? status;
+  static const fromJsonFactory =
+      _$ProductServiceSizeChartNoAuthTranslateCallbackPostRequestFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is ProductServiceSizeChartNoAuthTranslateCallbackPostRequest &&
+            (identical(other.taskId, taskId) ||
+                const DeepCollectionEquality().equals(other.taskId, taskId)) &&
+            (identical(other.imageUrl, imageUrl) ||
+                const DeepCollectionEquality().equals(
+                  other.imageUrl,
+                  imageUrl,
+                )) &&
+            (identical(other.taskResult, taskResult) ||
+                const DeepCollectionEquality().equals(
+                  other.taskResult,
+                  taskResult,
+                )) &&
+            (identical(other.translateSource, translateSource) ||
+                const DeepCollectionEquality().equals(
+                  other.translateSource,
+                  translateSource,
+                )) &&
+            (identical(other.errorMessage, errorMessage) ||
+                const DeepCollectionEquality().equals(
+                  other.errorMessage,
+                  errorMessage,
+                )) &&
+            (identical(other.status, status) ||
+                const DeepCollectionEquality().equals(other.status, status)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(taskId) ^
+      const DeepCollectionEquality().hash(imageUrl) ^
+      const DeepCollectionEquality().hash(taskResult) ^
+      const DeepCollectionEquality().hash(translateSource) ^
+      const DeepCollectionEquality().hash(errorMessage) ^
+      const DeepCollectionEquality().hash(status) ^
+      runtimeType.hashCode;
+}
+
+extension $ProductServiceSizeChartNoAuthTranslateCallbackPostRequestExtension
+    on ProductServiceSizeChartNoAuthTranslateCallbackPostRequest {
+  ProductServiceSizeChartNoAuthTranslateCallbackPostRequest copyWith({
+    String? taskId,
+    String? imageUrl,
+    String? taskResult,
+    String? translateSource,
+    String? errorMessage,
+    String? status,
+  }) {
+    return ProductServiceSizeChartNoAuthTranslateCallbackPostRequest(
+      taskId: taskId ?? this.taskId,
+      imageUrl: imageUrl ?? this.imageUrl,
+      taskResult: taskResult ?? this.taskResult,
+      translateSource: translateSource ?? this.translateSource,
+      errorMessage: errorMessage ?? this.errorMessage,
+      status: status ?? this.status,
+    );
+  }
+
+  ProductServiceSizeChartNoAuthTranslateCallbackPostRequest copyWithWrapped({
+    Wrapped<String?>? taskId,
+    Wrapped<String?>? imageUrl,
+    Wrapped<String?>? taskResult,
+    Wrapped<String?>? translateSource,
+    Wrapped<String?>? errorMessage,
+    Wrapped<String?>? status,
+  }) {
+    return ProductServiceSizeChartNoAuthTranslateCallbackPostRequest(
+      taskId: (taskId != null ? taskId.value : this.taskId),
+      imageUrl: (imageUrl != null ? imageUrl.value : this.imageUrl),
+      taskResult: (taskResult != null ? taskResult.value : this.taskResult),
+      translateSource: (translateSource != null
+          ? translateSource.value
+          : this.translateSource),
+      errorMessage: (errorMessage != null
+          ? errorMessage.value
+          : this.errorMessage),
+      status: (status != null ? status.value : this.status),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class ProductServiceRecommendNoAuthCategoryrecommendationGetRequest {
+  const ProductServiceRecommendNoAuthCategoryrecommendationGetRequest({
+    this.current,
+    this.pageSize,
+    this.categoryId,
+    this.brandName,
+    this.sortedField,
+  });
+
+  factory ProductServiceRecommendNoAuthCategoryrecommendationGetRequest.fromJson(
+    Map<String, dynamic> json,
+  ) => _$ProductServiceRecommendNoAuthCategoryrecommendationGetRequestFromJson(
+    json,
+  );
+
+  static const toJsonFactory =
+      _$ProductServiceRecommendNoAuthCategoryrecommendationGetRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$ProductServiceRecommendNoAuthCategoryrecommendationGetRequestToJson(
+        this,
+      );
+
+  @JsonKey(name: 'current', fromJson: JsonCoerce.asInt)
+  final int? current;
+  @JsonKey(name: 'pageSize', fromJson: JsonCoerce.asInt)
+  final int? pageSize;
+  @JsonKey(name: 'categoryId', fromJson: JsonCoerce.asInt)
+  final int? categoryId;
+  @JsonKey(name: 'brandName', fromJson: JsonCoerce.asString)
+  final String? brandName;
+  @JsonKey(name: 'sortedField')
+  final ProductServiceRecommendNoAuthCategoryrecommendationGetRequest$SortedField?
+  sortedField;
+  static const fromJsonFactory =
+      _$ProductServiceRecommendNoAuthCategoryrecommendationGetRequestFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other
+                is ProductServiceRecommendNoAuthCategoryrecommendationGetRequest &&
+            (identical(other.current, current) ||
+                const DeepCollectionEquality().equals(
+                  other.current,
+                  current,
+                )) &&
+            (identical(other.pageSize, pageSize) ||
+                const DeepCollectionEquality().equals(
+                  other.pageSize,
+                  pageSize,
+                )) &&
+            (identical(other.categoryId, categoryId) ||
+                const DeepCollectionEquality().equals(
+                  other.categoryId,
+                  categoryId,
+                )) &&
+            (identical(other.brandName, brandName) ||
+                const DeepCollectionEquality().equals(
+                  other.brandName,
+                  brandName,
+                )) &&
+            (identical(other.sortedField, sortedField) ||
+                const DeepCollectionEquality().equals(
+                  other.sortedField,
+                  sortedField,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(current) ^
+      const DeepCollectionEquality().hash(pageSize) ^
+      const DeepCollectionEquality().hash(categoryId) ^
+      const DeepCollectionEquality().hash(brandName) ^
+      const DeepCollectionEquality().hash(sortedField) ^
+      runtimeType.hashCode;
+}
+
+extension $ProductServiceRecommendNoAuthCategoryrecommendationGetRequestExtension
+    on ProductServiceRecommendNoAuthCategoryrecommendationGetRequest {
+  ProductServiceRecommendNoAuthCategoryrecommendationGetRequest copyWith({
+    int? current,
+    int? pageSize,
+    int? categoryId,
+    String? brandName,
+    ProductServiceRecommendNoAuthCategoryrecommendationGetRequest$SortedField?
+    sortedField,
+  }) {
+    return ProductServiceRecommendNoAuthCategoryrecommendationGetRequest(
+      current: current ?? this.current,
+      pageSize: pageSize ?? this.pageSize,
+      categoryId: categoryId ?? this.categoryId,
+      brandName: brandName ?? this.brandName,
+      sortedField: sortedField ?? this.sortedField,
+    );
+  }
+
+  ProductServiceRecommendNoAuthCategoryrecommendationGetRequest
+  copyWithWrapped({
+    Wrapped<int?>? current,
+    Wrapped<int?>? pageSize,
+    Wrapped<int?>? categoryId,
+    Wrapped<String?>? brandName,
+    Wrapped<
+      ProductServiceRecommendNoAuthCategoryrecommendationGetRequest$SortedField?
+    >?
+    sortedField,
+  }) {
+    return ProductServiceRecommendNoAuthCategoryrecommendationGetRequest(
+      current: (current != null ? current.value : this.current),
+      pageSize: (pageSize != null ? pageSize.value : this.pageSize),
+      categoryId: (categoryId != null ? categoryId.value : this.categoryId),
+      brandName: (brandName != null ? brandName.value : this.brandName),
+      sortedField: (sortedField != null ? sortedField.value : this.sortedField),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class ProductServiceRecommendNoAuthCategoryPostRequest {
+  const ProductServiceRecommendNoAuthCategoryPostRequest({
+    this.current,
+    this.pageSize,
+    this.categoryId,
+    this.categoryIds,
+    this.brandName,
+    this.sortedField,
+    this.productCode,
+  });
+
+  factory ProductServiceRecommendNoAuthCategoryPostRequest.fromJson(
+    Map<String, dynamic> json,
+  ) => _$ProductServiceRecommendNoAuthCategoryPostRequestFromJson(json);
+
+  static const toJsonFactory =
+      _$ProductServiceRecommendNoAuthCategoryPostRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$ProductServiceRecommendNoAuthCategoryPostRequestToJson(this);
+
+  @JsonKey(name: 'current', fromJson: JsonCoerce.asInt)
+  final int? current;
+  @JsonKey(name: 'pageSize', fromJson: JsonCoerce.asInt)
+  final int? pageSize;
+  @JsonKey(name: 'categoryId', fromJson: JsonCoerce.asInt)
+  final int? categoryId;
+  @JsonKey(
+    name: 'categoryIds',
+    fromJson: JsonCoerce.asDoubleList,
+    defaultValue: <double>[],
+  )
+  final List<double>? categoryIds;
+  @JsonKey(name: 'brandName', fromJson: JsonCoerce.asString)
+  final String? brandName;
+  @JsonKey(name: 'sortedField')
+  final ProductServiceRecommendNoAuthCategoryPostRequest$SortedField?
+  sortedField;
+  @JsonKey(name: 'productCode', fromJson: JsonCoerce.asString)
+  final String? productCode;
+  static const fromJsonFactory =
+      _$ProductServiceRecommendNoAuthCategoryPostRequestFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is ProductServiceRecommendNoAuthCategoryPostRequest &&
+            (identical(other.current, current) ||
+                const DeepCollectionEquality().equals(
+                  other.current,
+                  current,
+                )) &&
+            (identical(other.pageSize, pageSize) ||
+                const DeepCollectionEquality().equals(
+                  other.pageSize,
+                  pageSize,
+                )) &&
+            (identical(other.categoryId, categoryId) ||
+                const DeepCollectionEquality().equals(
+                  other.categoryId,
+                  categoryId,
+                )) &&
+            (identical(other.categoryIds, categoryIds) ||
+                const DeepCollectionEquality().equals(
+                  other.categoryIds,
+                  categoryIds,
+                )) &&
+            (identical(other.brandName, brandName) ||
+                const DeepCollectionEquality().equals(
+                  other.brandName,
+                  brandName,
+                )) &&
+            (identical(other.sortedField, sortedField) ||
+                const DeepCollectionEquality().equals(
+                  other.sortedField,
+                  sortedField,
+                )) &&
+            (identical(other.productCode, productCode) ||
+                const DeepCollectionEquality().equals(
+                  other.productCode,
+                  productCode,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(current) ^
+      const DeepCollectionEquality().hash(pageSize) ^
+      const DeepCollectionEquality().hash(categoryId) ^
+      const DeepCollectionEquality().hash(categoryIds) ^
+      const DeepCollectionEquality().hash(brandName) ^
+      const DeepCollectionEquality().hash(sortedField) ^
+      const DeepCollectionEquality().hash(productCode) ^
+      runtimeType.hashCode;
+}
+
+extension $ProductServiceRecommendNoAuthCategoryPostRequestExtension
+    on ProductServiceRecommendNoAuthCategoryPostRequest {
+  ProductServiceRecommendNoAuthCategoryPostRequest copyWith({
+    int? current,
+    int? pageSize,
+    int? categoryId,
+    List<double>? categoryIds,
+    String? brandName,
+    ProductServiceRecommendNoAuthCategoryPostRequest$SortedField? sortedField,
+    String? productCode,
+  }) {
+    return ProductServiceRecommendNoAuthCategoryPostRequest(
+      current: current ?? this.current,
+      pageSize: pageSize ?? this.pageSize,
+      categoryId: categoryId ?? this.categoryId,
+      categoryIds: categoryIds ?? this.categoryIds,
+      brandName: brandName ?? this.brandName,
+      sortedField: sortedField ?? this.sortedField,
+      productCode: productCode ?? this.productCode,
+    );
+  }
+
+  ProductServiceRecommendNoAuthCategoryPostRequest copyWithWrapped({
+    Wrapped<int?>? current,
+    Wrapped<int?>? pageSize,
+    Wrapped<int?>? categoryId,
+    Wrapped<List<double>?>? categoryIds,
+    Wrapped<String?>? brandName,
+    Wrapped<ProductServiceRecommendNoAuthCategoryPostRequest$SortedField?>?
+    sortedField,
+    Wrapped<String?>? productCode,
+  }) {
+    return ProductServiceRecommendNoAuthCategoryPostRequest(
+      current: (current != null ? current.value : this.current),
+      pageSize: (pageSize != null ? pageSize.value : this.pageSize),
+      categoryId: (categoryId != null ? categoryId.value : this.categoryId),
+      categoryIds: (categoryIds != null ? categoryIds.value : this.categoryIds),
+      brandName: (brandName != null ? brandName.value : this.brandName),
+      sortedField: (sortedField != null ? sortedField.value : this.sortedField),
+      productCode: (productCode != null ? productCode.value : this.productCode),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class ProductServiceRecommendNoAuthShopPostRequest {
+  const ProductServiceRecommendNoAuthShopPostRequest({
+    this.current,
+    this.pageSize,
+    this.shopCode,
+    this.sortedField,
+  });
+
+  factory ProductServiceRecommendNoAuthShopPostRequest.fromJson(
+    Map<String, dynamic> json,
+  ) => _$ProductServiceRecommendNoAuthShopPostRequestFromJson(json);
+
+  static const toJsonFactory =
+      _$ProductServiceRecommendNoAuthShopPostRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$ProductServiceRecommendNoAuthShopPostRequestToJson(this);
+
+  @JsonKey(name: 'current', fromJson: JsonCoerce.asInt)
+  final int? current;
+  @JsonKey(name: 'pageSize', fromJson: JsonCoerce.asInt)
+  final int? pageSize;
+  @JsonKey(name: 'shopCode', fromJson: JsonCoerce.asString)
+  final String? shopCode;
+  @JsonKey(name: 'sortedField')
+  final ProductServiceRecommendNoAuthShopPostRequest$SortedField? sortedField;
+  static const fromJsonFactory =
+      _$ProductServiceRecommendNoAuthShopPostRequestFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is ProductServiceRecommendNoAuthShopPostRequest &&
+            (identical(other.current, current) ||
+                const DeepCollectionEquality().equals(
+                  other.current,
+                  current,
+                )) &&
+            (identical(other.pageSize, pageSize) ||
+                const DeepCollectionEquality().equals(
+                  other.pageSize,
+                  pageSize,
+                )) &&
+            (identical(other.shopCode, shopCode) ||
+                const DeepCollectionEquality().equals(
+                  other.shopCode,
+                  shopCode,
+                )) &&
+            (identical(other.sortedField, sortedField) ||
+                const DeepCollectionEquality().equals(
+                  other.sortedField,
+                  sortedField,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(current) ^
+      const DeepCollectionEquality().hash(pageSize) ^
+      const DeepCollectionEquality().hash(shopCode) ^
+      const DeepCollectionEquality().hash(sortedField) ^
+      runtimeType.hashCode;
+}
+
+extension $ProductServiceRecommendNoAuthShopPostRequestExtension
+    on ProductServiceRecommendNoAuthShopPostRequest {
+  ProductServiceRecommendNoAuthShopPostRequest copyWith({
+    int? current,
+    int? pageSize,
+    String? shopCode,
+    ProductServiceRecommendNoAuthShopPostRequest$SortedField? sortedField,
+  }) {
+    return ProductServiceRecommendNoAuthShopPostRequest(
+      current: current ?? this.current,
+      pageSize: pageSize ?? this.pageSize,
+      shopCode: shopCode ?? this.shopCode,
+      sortedField: sortedField ?? this.sortedField,
+    );
+  }
+
+  ProductServiceRecommendNoAuthShopPostRequest copyWithWrapped({
+    Wrapped<int?>? current,
+    Wrapped<int?>? pageSize,
+    Wrapped<String?>? shopCode,
+    Wrapped<ProductServiceRecommendNoAuthShopPostRequest$SortedField?>?
+    sortedField,
+  }) {
+    return ProductServiceRecommendNoAuthShopPostRequest(
+      current: (current != null ? current.value : this.current),
+      pageSize: (pageSize != null ? pageSize.value : this.pageSize),
+      shopCode: (shopCode != null ? shopCode.value : this.shopCode),
+      sortedField: (sortedField != null ? sortedField.value : this.sortedField),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class ProductServiceRecommendNoAuthSimilarproductPostRequest {
+  const ProductServiceRecommendNoAuthSimilarproductPostRequest({
+    this.productCode,
+    this.pageSize,
+    this.current,
+  });
+
+  factory ProductServiceRecommendNoAuthSimilarproductPostRequest.fromJson(
+    Map<String, dynamic> json,
+  ) => _$ProductServiceRecommendNoAuthSimilarproductPostRequestFromJson(json);
+
+  static const toJsonFactory =
+      _$ProductServiceRecommendNoAuthSimilarproductPostRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$ProductServiceRecommendNoAuthSimilarproductPostRequestToJson(this);
+
+  @JsonKey(name: 'productCode', fromJson: JsonCoerce.asString)
+  final String? productCode;
+  @JsonKey(name: 'pageSize', fromJson: JsonCoerce.asString)
+  final String? pageSize;
+  @JsonKey(name: 'current', fromJson: JsonCoerce.asString)
+  final String? current;
+  static const fromJsonFactory =
+      _$ProductServiceRecommendNoAuthSimilarproductPostRequestFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is ProductServiceRecommendNoAuthSimilarproductPostRequest &&
+            (identical(other.productCode, productCode) ||
+                const DeepCollectionEquality().equals(
+                  other.productCode,
+                  productCode,
+                )) &&
+            (identical(other.pageSize, pageSize) ||
+                const DeepCollectionEquality().equals(
+                  other.pageSize,
+                  pageSize,
+                )) &&
+            (identical(other.current, current) ||
+                const DeepCollectionEquality().equals(other.current, current)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(productCode) ^
+      const DeepCollectionEquality().hash(pageSize) ^
+      const DeepCollectionEquality().hash(current) ^
+      runtimeType.hashCode;
+}
+
+extension $ProductServiceRecommendNoAuthSimilarproductPostRequestExtension
+    on ProductServiceRecommendNoAuthSimilarproductPostRequest {
+  ProductServiceRecommendNoAuthSimilarproductPostRequest copyWith({
+    String? productCode,
+    String? pageSize,
+    String? current,
+  }) {
+    return ProductServiceRecommendNoAuthSimilarproductPostRequest(
+      productCode: productCode ?? this.productCode,
+      pageSize: pageSize ?? this.pageSize,
+      current: current ?? this.current,
+    );
+  }
+
+  ProductServiceRecommendNoAuthSimilarproductPostRequest copyWithWrapped({
+    Wrapped<String?>? productCode,
+    Wrapped<String?>? pageSize,
+    Wrapped<String?>? current,
+  }) {
+    return ProductServiceRecommendNoAuthSimilarproductPostRequest(
+      productCode: (productCode != null ? productCode.value : this.productCode),
+      pageSize: (pageSize != null ? pageSize.value : this.pageSize),
+      current: (current != null ? current.value : this.current),
+    );
+  }
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -4573,6 +5559,346 @@ extension $ProductServiceRecommendNoAuthSimilarProductPost$ResponseExtension
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
       traceId: (traceId != null ? traceId.value : this.traceId),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class ProductServiceProductReviewNoAuthPageGetRequest$SortedField {
+  const ProductServiceProductReviewNoAuthPageGetRequest$SortedField({
+    this.name,
+    this.order,
+  });
+
+  factory ProductServiceProductReviewNoAuthPageGetRequest$SortedField.fromJson(
+    Map<String, dynamic> json,
+  ) => _$ProductServiceProductReviewNoAuthPageGetRequest$SortedFieldFromJson(
+    json,
+  );
+
+  static const toJsonFactory =
+      _$ProductServiceProductReviewNoAuthPageGetRequest$SortedFieldToJson;
+  Map<String, dynamic> toJson() =>
+      _$ProductServiceProductReviewNoAuthPageGetRequest$SortedFieldToJson(this);
+
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
+  final String? name;
+  @JsonKey(name: 'order', fromJson: JsonCoerce.asString)
+  final String? order;
+  static const fromJsonFactory =
+      _$ProductServiceProductReviewNoAuthPageGetRequest$SortedFieldFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is ProductServiceProductReviewNoAuthPageGetRequest$SortedField &&
+            (identical(other.name, name) ||
+                const DeepCollectionEquality().equals(other.name, name)) &&
+            (identical(other.order, order) ||
+                const DeepCollectionEquality().equals(other.order, order)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(name) ^
+      const DeepCollectionEquality().hash(order) ^
+      runtimeType.hashCode;
+}
+
+extension $ProductServiceProductReviewNoAuthPageGetRequest$SortedFieldExtension
+    on ProductServiceProductReviewNoAuthPageGetRequest$SortedField {
+  ProductServiceProductReviewNoAuthPageGetRequest$SortedField copyWith({
+    String? name,
+    String? order,
+  }) {
+    return ProductServiceProductReviewNoAuthPageGetRequest$SortedField(
+      name: name ?? this.name,
+      order: order ?? this.order,
+    );
+  }
+
+  ProductServiceProductReviewNoAuthPageGetRequest$SortedField copyWithWrapped({
+    Wrapped<String?>? name,
+    Wrapped<String?>? order,
+  }) {
+    return ProductServiceProductReviewNoAuthPageGetRequest$SortedField(
+      name: (name != null ? name.value : this.name),
+      order: (order != null ? order.value : this.order),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class ProductServiceProductReviewNoAuthSummaryGetRequest$SortedField {
+  const ProductServiceProductReviewNoAuthSummaryGetRequest$SortedField({
+    this.name,
+    this.order,
+  });
+
+  factory ProductServiceProductReviewNoAuthSummaryGetRequest$SortedField.fromJson(
+    Map<String, dynamic> json,
+  ) => _$ProductServiceProductReviewNoAuthSummaryGetRequest$SortedFieldFromJson(
+    json,
+  );
+
+  static const toJsonFactory =
+      _$ProductServiceProductReviewNoAuthSummaryGetRequest$SortedFieldToJson;
+  Map<String, dynamic> toJson() =>
+      _$ProductServiceProductReviewNoAuthSummaryGetRequest$SortedFieldToJson(
+        this,
+      );
+
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
+  final String? name;
+  @JsonKey(name: 'order', fromJson: JsonCoerce.asString)
+  final String? order;
+  static const fromJsonFactory =
+      _$ProductServiceProductReviewNoAuthSummaryGetRequest$SortedFieldFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is ProductServiceProductReviewNoAuthSummaryGetRequest$SortedField &&
+            (identical(other.name, name) ||
+                const DeepCollectionEquality().equals(other.name, name)) &&
+            (identical(other.order, order) ||
+                const DeepCollectionEquality().equals(other.order, order)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(name) ^
+      const DeepCollectionEquality().hash(order) ^
+      runtimeType.hashCode;
+}
+
+extension $ProductServiceProductReviewNoAuthSummaryGetRequest$SortedFieldExtension
+    on ProductServiceProductReviewNoAuthSummaryGetRequest$SortedField {
+  ProductServiceProductReviewNoAuthSummaryGetRequest$SortedField copyWith({
+    String? name,
+    String? order,
+  }) {
+    return ProductServiceProductReviewNoAuthSummaryGetRequest$SortedField(
+      name: name ?? this.name,
+      order: order ?? this.order,
+    );
+  }
+
+  ProductServiceProductReviewNoAuthSummaryGetRequest$SortedField
+  copyWithWrapped({Wrapped<String?>? name, Wrapped<String?>? order}) {
+    return ProductServiceProductReviewNoAuthSummaryGetRequest$SortedField(
+      name: (name != null ? name.value : this.name),
+      order: (order != null ? order.value : this.order),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class ProductServiceRecommendNoAuthCategoryrecommendationGetRequest$SortedField {
+  const ProductServiceRecommendNoAuthCategoryrecommendationGetRequest$SortedField({
+    this.name,
+    this.order,
+  });
+
+  factory ProductServiceRecommendNoAuthCategoryrecommendationGetRequest$SortedField.fromJson(
+    Map<String, dynamic> json,
+  ) =>
+      _$ProductServiceRecommendNoAuthCategoryrecommendationGetRequest$SortedFieldFromJson(
+        json,
+      );
+
+  static const toJsonFactory =
+      _$ProductServiceRecommendNoAuthCategoryrecommendationGetRequest$SortedFieldToJson;
+  Map<String, dynamic> toJson() =>
+      _$ProductServiceRecommendNoAuthCategoryrecommendationGetRequest$SortedFieldToJson(
+        this,
+      );
+
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
+  final String? name;
+  @JsonKey(name: 'order', fromJson: JsonCoerce.asString)
+  final String? order;
+  static const fromJsonFactory =
+      _$ProductServiceRecommendNoAuthCategoryrecommendationGetRequest$SortedFieldFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other
+                is ProductServiceRecommendNoAuthCategoryrecommendationGetRequest$SortedField &&
+            (identical(other.name, name) ||
+                const DeepCollectionEquality().equals(other.name, name)) &&
+            (identical(other.order, order) ||
+                const DeepCollectionEquality().equals(other.order, order)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(name) ^
+      const DeepCollectionEquality().hash(order) ^
+      runtimeType.hashCode;
+}
+
+extension $ProductServiceRecommendNoAuthCategoryrecommendationGetRequest$SortedFieldExtension
+    on ProductServiceRecommendNoAuthCategoryrecommendationGetRequest$SortedField {
+  ProductServiceRecommendNoAuthCategoryrecommendationGetRequest$SortedField
+  copyWith({String? name, String? order}) {
+    return ProductServiceRecommendNoAuthCategoryrecommendationGetRequest$SortedField(
+      name: name ?? this.name,
+      order: order ?? this.order,
+    );
+  }
+
+  ProductServiceRecommendNoAuthCategoryrecommendationGetRequest$SortedField
+  copyWithWrapped({Wrapped<String?>? name, Wrapped<String?>? order}) {
+    return ProductServiceRecommendNoAuthCategoryrecommendationGetRequest$SortedField(
+      name: (name != null ? name.value : this.name),
+      order: (order != null ? order.value : this.order),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class ProductServiceRecommendNoAuthCategoryPostRequest$SortedField {
+  const ProductServiceRecommendNoAuthCategoryPostRequest$SortedField({
+    this.name,
+    this.order,
+  });
+
+  factory ProductServiceRecommendNoAuthCategoryPostRequest$SortedField.fromJson(
+    Map<String, dynamic> json,
+  ) => _$ProductServiceRecommendNoAuthCategoryPostRequest$SortedFieldFromJson(
+    json,
+  );
+
+  static const toJsonFactory =
+      _$ProductServiceRecommendNoAuthCategoryPostRequest$SortedFieldToJson;
+  Map<String, dynamic> toJson() =>
+      _$ProductServiceRecommendNoAuthCategoryPostRequest$SortedFieldToJson(
+        this,
+      );
+
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
+  final String? name;
+  @JsonKey(name: 'order', fromJson: JsonCoerce.asString)
+  final String? order;
+  static const fromJsonFactory =
+      _$ProductServiceRecommendNoAuthCategoryPostRequest$SortedFieldFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is ProductServiceRecommendNoAuthCategoryPostRequest$SortedField &&
+            (identical(other.name, name) ||
+                const DeepCollectionEquality().equals(other.name, name)) &&
+            (identical(other.order, order) ||
+                const DeepCollectionEquality().equals(other.order, order)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(name) ^
+      const DeepCollectionEquality().hash(order) ^
+      runtimeType.hashCode;
+}
+
+extension $ProductServiceRecommendNoAuthCategoryPostRequest$SortedFieldExtension
+    on ProductServiceRecommendNoAuthCategoryPostRequest$SortedField {
+  ProductServiceRecommendNoAuthCategoryPostRequest$SortedField copyWith({
+    String? name,
+    String? order,
+  }) {
+    return ProductServiceRecommendNoAuthCategoryPostRequest$SortedField(
+      name: name ?? this.name,
+      order: order ?? this.order,
+    );
+  }
+
+  ProductServiceRecommendNoAuthCategoryPostRequest$SortedField copyWithWrapped({
+    Wrapped<String?>? name,
+    Wrapped<String?>? order,
+  }) {
+    return ProductServiceRecommendNoAuthCategoryPostRequest$SortedField(
+      name: (name != null ? name.value : this.name),
+      order: (order != null ? order.value : this.order),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class ProductServiceRecommendNoAuthShopPostRequest$SortedField {
+  const ProductServiceRecommendNoAuthShopPostRequest$SortedField({
+    this.name,
+    this.order,
+  });
+
+  factory ProductServiceRecommendNoAuthShopPostRequest$SortedField.fromJson(
+    Map<String, dynamic> json,
+  ) => _$ProductServiceRecommendNoAuthShopPostRequest$SortedFieldFromJson(json);
+
+  static const toJsonFactory =
+      _$ProductServiceRecommendNoAuthShopPostRequest$SortedFieldToJson;
+  Map<String, dynamic> toJson() =>
+      _$ProductServiceRecommendNoAuthShopPostRequest$SortedFieldToJson(this);
+
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
+  final String? name;
+  @JsonKey(name: 'order', fromJson: JsonCoerce.asString)
+  final String? order;
+  static const fromJsonFactory =
+      _$ProductServiceRecommendNoAuthShopPostRequest$SortedFieldFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is ProductServiceRecommendNoAuthShopPostRequest$SortedField &&
+            (identical(other.name, name) ||
+                const DeepCollectionEquality().equals(other.name, name)) &&
+            (identical(other.order, order) ||
+                const DeepCollectionEquality().equals(other.order, order)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(name) ^
+      const DeepCollectionEquality().hash(order) ^
+      runtimeType.hashCode;
+}
+
+extension $ProductServiceRecommendNoAuthShopPostRequest$SortedFieldExtension
+    on ProductServiceRecommendNoAuthShopPostRequest$SortedField {
+  ProductServiceRecommendNoAuthShopPostRequest$SortedField copyWith({
+    String? name,
+    String? order,
+  }) {
+    return ProductServiceRecommendNoAuthShopPostRequest$SortedField(
+      name: name ?? this.name,
+      order: order ?? this.order,
+    );
+  }
+
+  ProductServiceRecommendNoAuthShopPostRequest$SortedField copyWithWrapped({
+    Wrapped<String?>? name,
+    Wrapped<String?>? order,
+  }) {
+    return ProductServiceRecommendNoAuthShopPostRequest$SortedField(
+      name: (name != null ? name.value : this.name),
+      order: (order != null ? order.value : this.order),
     );
   }
 }
@@ -26077,6 +27403,235 @@ extension $ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$
       brandImg: (brandImg != null ? brandImg.value : this.brandImg),
     );
   }
+}
+
+String? productServiceProductPremiumDupeNoAuthPagePostRequestSortNullableToJson(
+  enums.ProductServiceProductPremiumDupeNoAuthPagePostRequestSort?
+  productServiceProductPremiumDupeNoAuthPagePostRequestSort,
+) {
+  return productServiceProductPremiumDupeNoAuthPagePostRequestSort?.value;
+}
+
+String? productServiceProductPremiumDupeNoAuthPagePostRequestSortToJson(
+  enums.ProductServiceProductPremiumDupeNoAuthPagePostRequestSort
+  productServiceProductPremiumDupeNoAuthPagePostRequestSort,
+) {
+  return productServiceProductPremiumDupeNoAuthPagePostRequestSort.value;
+}
+
+enums.ProductServiceProductPremiumDupeNoAuthPagePostRequestSort
+productServiceProductPremiumDupeNoAuthPagePostRequestSortFromJson(
+  Object? productServiceProductPremiumDupeNoAuthPagePostRequestSort, [
+  enums.ProductServiceProductPremiumDupeNoAuthPagePostRequestSort? defaultValue,
+]) {
+  return enums.ProductServiceProductPremiumDupeNoAuthPagePostRequestSort.values
+          .firstWhereOrNull(
+            (e) =>
+                e.value ==
+                productServiceProductPremiumDupeNoAuthPagePostRequestSort,
+          ) ??
+      defaultValue ??
+      enums
+          .ProductServiceProductPremiumDupeNoAuthPagePostRequestSort
+          .swaggerGeneratedUnknown;
+}
+
+enums.ProductServiceProductPremiumDupeNoAuthPagePostRequestSort?
+productServiceProductPremiumDupeNoAuthPagePostRequestSortNullableFromJson(
+  Object? productServiceProductPremiumDupeNoAuthPagePostRequestSort, [
+  enums.ProductServiceProductPremiumDupeNoAuthPagePostRequestSort? defaultValue,
+]) {
+  if (productServiceProductPremiumDupeNoAuthPagePostRequestSort == null) {
+    return null;
+  }
+  return enums.ProductServiceProductPremiumDupeNoAuthPagePostRequestSort.values
+          .firstWhereOrNull(
+            (e) =>
+                e.value ==
+                productServiceProductPremiumDupeNoAuthPagePostRequestSort,
+          ) ??
+      defaultValue;
+}
+
+String
+productServiceProductPremiumDupeNoAuthPagePostRequestSortExplodedListToJson(
+  List<enums.ProductServiceProductPremiumDupeNoAuthPagePostRequestSort>?
+  productServiceProductPremiumDupeNoAuthPagePostRequestSort,
+) {
+  return productServiceProductPremiumDupeNoAuthPagePostRequestSort
+          ?.map((e) => e.value!)
+          .join(',') ??
+      '';
+}
+
+List<String>
+productServiceProductPremiumDupeNoAuthPagePostRequestSortListToJson(
+  List<enums.ProductServiceProductPremiumDupeNoAuthPagePostRequestSort>?
+  productServiceProductPremiumDupeNoAuthPagePostRequestSort,
+) {
+  if (productServiceProductPremiumDupeNoAuthPagePostRequestSort == null) {
+    return [];
+  }
+
+  return productServiceProductPremiumDupeNoAuthPagePostRequestSort
+      .map((e) => e.value!)
+      .toList();
+}
+
+List<enums.ProductServiceProductPremiumDupeNoAuthPagePostRequestSort>
+productServiceProductPremiumDupeNoAuthPagePostRequestSortListFromJson(
+  List? productServiceProductPremiumDupeNoAuthPagePostRequestSort, [
+  List<enums.ProductServiceProductPremiumDupeNoAuthPagePostRequestSort>?
+  defaultValue,
+]) {
+  if (productServiceProductPremiumDupeNoAuthPagePostRequestSort == null) {
+    return defaultValue ?? [];
+  }
+
+  return productServiceProductPremiumDupeNoAuthPagePostRequestSort
+      .map(
+        (e) =>
+            productServiceProductPremiumDupeNoAuthPagePostRequestSortFromJson(
+              e.toString(),
+            ),
+      )
+      .toList();
+}
+
+List<enums.ProductServiceProductPremiumDupeNoAuthPagePostRequestSort>?
+productServiceProductPremiumDupeNoAuthPagePostRequestSortNullableListFromJson(
+  List? productServiceProductPremiumDupeNoAuthPagePostRequestSort, [
+  List<enums.ProductServiceProductPremiumDupeNoAuthPagePostRequestSort>?
+  defaultValue,
+]) {
+  if (productServiceProductPremiumDupeNoAuthPagePostRequestSort == null) {
+    return defaultValue;
+  }
+
+  return productServiceProductPremiumDupeNoAuthPagePostRequestSort
+      .map(
+        (e) =>
+            productServiceProductPremiumDupeNoAuthPagePostRequestSortFromJson(
+              e.toString(),
+            ),
+      )
+      .toList();
+}
+
+String?
+productServiceProductPremiumDupeNoAuthPagePostRequestOrderNullableToJson(
+  enums.ProductServiceProductPremiumDupeNoAuthPagePostRequestOrder?
+  productServiceProductPremiumDupeNoAuthPagePostRequestOrder,
+) {
+  return productServiceProductPremiumDupeNoAuthPagePostRequestOrder?.value;
+}
+
+String? productServiceProductPremiumDupeNoAuthPagePostRequestOrderToJson(
+  enums.ProductServiceProductPremiumDupeNoAuthPagePostRequestOrder
+  productServiceProductPremiumDupeNoAuthPagePostRequestOrder,
+) {
+  return productServiceProductPremiumDupeNoAuthPagePostRequestOrder.value;
+}
+
+enums.ProductServiceProductPremiumDupeNoAuthPagePostRequestOrder
+productServiceProductPremiumDupeNoAuthPagePostRequestOrderFromJson(
+  Object? productServiceProductPremiumDupeNoAuthPagePostRequestOrder, [
+  enums.ProductServiceProductPremiumDupeNoAuthPagePostRequestOrder?
+  defaultValue,
+]) {
+  return enums.ProductServiceProductPremiumDupeNoAuthPagePostRequestOrder.values
+          .firstWhereOrNull(
+            (e) =>
+                e.value ==
+                productServiceProductPremiumDupeNoAuthPagePostRequestOrder,
+          ) ??
+      defaultValue ??
+      enums
+          .ProductServiceProductPremiumDupeNoAuthPagePostRequestOrder
+          .swaggerGeneratedUnknown;
+}
+
+enums.ProductServiceProductPremiumDupeNoAuthPagePostRequestOrder?
+productServiceProductPremiumDupeNoAuthPagePostRequestOrderNullableFromJson(
+  Object? productServiceProductPremiumDupeNoAuthPagePostRequestOrder, [
+  enums.ProductServiceProductPremiumDupeNoAuthPagePostRequestOrder?
+  defaultValue,
+]) {
+  if (productServiceProductPremiumDupeNoAuthPagePostRequestOrder == null) {
+    return null;
+  }
+  return enums.ProductServiceProductPremiumDupeNoAuthPagePostRequestOrder.values
+          .firstWhereOrNull(
+            (e) =>
+                e.value ==
+                productServiceProductPremiumDupeNoAuthPagePostRequestOrder,
+          ) ??
+      defaultValue;
+}
+
+String
+productServiceProductPremiumDupeNoAuthPagePostRequestOrderExplodedListToJson(
+  List<enums.ProductServiceProductPremiumDupeNoAuthPagePostRequestOrder>?
+  productServiceProductPremiumDupeNoAuthPagePostRequestOrder,
+) {
+  return productServiceProductPremiumDupeNoAuthPagePostRequestOrder
+          ?.map((e) => e.value!)
+          .join(',') ??
+      '';
+}
+
+List<String>
+productServiceProductPremiumDupeNoAuthPagePostRequestOrderListToJson(
+  List<enums.ProductServiceProductPremiumDupeNoAuthPagePostRequestOrder>?
+  productServiceProductPremiumDupeNoAuthPagePostRequestOrder,
+) {
+  if (productServiceProductPremiumDupeNoAuthPagePostRequestOrder == null) {
+    return [];
+  }
+
+  return productServiceProductPremiumDupeNoAuthPagePostRequestOrder
+      .map((e) => e.value!)
+      .toList();
+}
+
+List<enums.ProductServiceProductPremiumDupeNoAuthPagePostRequestOrder>
+productServiceProductPremiumDupeNoAuthPagePostRequestOrderListFromJson(
+  List? productServiceProductPremiumDupeNoAuthPagePostRequestOrder, [
+  List<enums.ProductServiceProductPremiumDupeNoAuthPagePostRequestOrder>?
+  defaultValue,
+]) {
+  if (productServiceProductPremiumDupeNoAuthPagePostRequestOrder == null) {
+    return defaultValue ?? [];
+  }
+
+  return productServiceProductPremiumDupeNoAuthPagePostRequestOrder
+      .map(
+        (e) =>
+            productServiceProductPremiumDupeNoAuthPagePostRequestOrderFromJson(
+              e.toString(),
+            ),
+      )
+      .toList();
+}
+
+List<enums.ProductServiceProductPremiumDupeNoAuthPagePostRequestOrder>?
+productServiceProductPremiumDupeNoAuthPagePostRequestOrderNullableListFromJson(
+  List? productServiceProductPremiumDupeNoAuthPagePostRequestOrder, [
+  List<enums.ProductServiceProductPremiumDupeNoAuthPagePostRequestOrder>?
+  defaultValue,
+]) {
+  if (productServiceProductPremiumDupeNoAuthPagePostRequestOrder == null) {
+    return defaultValue;
+  }
+
+  return productServiceProductPremiumDupeNoAuthPagePostRequestOrder
+      .map(
+        (e) =>
+            productServiceProductPremiumDupeNoAuthPagePostRequestOrderFromJson(
+              e.toString(),
+            ),
+      )
+      .toList();
 }
 
 String?

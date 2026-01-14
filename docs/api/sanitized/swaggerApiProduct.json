@@ -78,35 +78,7 @@
             "name": "root",
             "in": "body",
             "schema": {
-              "type": "object",
-              "title": "empty object",
-              "properties": {
-                "current": {
-                  "type": "integer"
-                },
-                "pageSize": {
-                  "type": "integer"
-                },
-                "categoryId": {
-                  "type": "integer"
-                },
-                "brandName": {
-                  "type": "string"
-                },
-                "sortedField": {
-                  "type": "object",
-                  "properties": {
-                    "name": {
-                      "type": "string",
-                      "description": "排序字段，目前只支持price"
-                    },
-                    "order": {
-                      "type": "string",
-                      "description": "ASC或DESC"
-                    }
-                  }
-                }
-              }
+              "$ref": "#/definitions/ProductServiceProductReviewNoAuthPageGetRequest"
             }
           }
         ],
@@ -203,35 +175,7 @@
             "name": "root",
             "in": "body",
             "schema": {
-              "type": "object",
-              "title": "empty object",
-              "properties": {
-                "current": {
-                  "type": "integer"
-                },
-                "pageSize": {
-                  "type": "integer"
-                },
-                "categoryId": {
-                  "type": "integer"
-                },
-                "brandName": {
-                  "type": "string"
-                },
-                "sortedField": {
-                  "type": "object",
-                  "properties": {
-                    "name": {
-                      "type": "string",
-                      "description": "排序字段，目前只支持price"
-                    },
-                    "order": {
-                      "type": "string",
-                      "description": "ASC或DESC"
-                    }
-                  }
-                }
-              }
+              "$ref": "#/definitions/ProductServiceProductReviewNoAuthSummaryGetRequest"
             }
           }
         ],
@@ -729,58 +673,7 @@
             "in": "body",
             "description": "大牌平替商品分页查询请求",
             "schema": {
-              "type": "object",
-              "description": "大牌平替商品分页查询请求",
-              "properties": {
-                "current": {
-                  "type": "integer",
-                  "format": "int32",
-                  "description": "当前页码",
-                  "default": 1,
-                  "minimum": 1,
-                  "example": 1
-                },
-                "pageSize": {
-                  "type": "integer",
-                  "format": "int32",
-                  "description": "每页数量，最大50",
-                  "default": 10,
-                  "minimum": 1,
-                  "maximum": 50,
-                  "example": 10
-                },
-                "categoryId": {
-                  "type": "integer",
-                  "format": "int64",
-                  "description": "一级分类ID过滤",
-                  "example": 100
-                },
-                "productCode": {
-                  "type": "string",
-                  "description": "置顶商品链接"
-                },
-                "sort": {
-                  "type": "string",
-                  "description": "排序类型",
-                  "enum": [
-                    "DEFAULT",
-                    "PRICE",
-                    "SALES"
-                  ],
-                  "default": "DEFAULT",
-                  "example": "SALES"
-                },
-                "order": {
-                  "type": "string",
-                  "description": "排序方向",
-                  "enum": [
-                    "ASC",
-                    "DESC"
-                  ],
-                  "example": "DESC"
-                }
-              },
-              "$$ref": "#/components/schemas/PremiumDupePageReq"
+              "$ref": "#/definitions/ProductServiceProductPremiumDupeNoAuthPagePostRequest"
             }
           }
         ],
@@ -1520,28 +1413,7 @@
             "name": "root",
             "in": "body",
             "schema": {
-              "$schema": "http://json-schema.org/draft-04/schema#",
-              "type": "object",
-              "properties": {
-                "taskId": {
-                  "type": "string"
-                },
-                "imageUrl": {
-                  "type": "string"
-                },
-                "taskResult": {
-                  "type": "string"
-                },
-                "translateSource": {
-                  "type": "string"
-                },
-                "errorMessage": {
-                  "type": "string"
-                },
-                "status": {
-                  "type": "string"
-                }
-              }
+              "$ref": "#/definitions/ProductServiceSizeChartNoAuthTranslateCallbackPostRequest"
             }
           }
         ],
@@ -5339,35 +5211,7 @@
             "name": "root",
             "in": "body",
             "schema": {
-              "type": "object",
-              "title": "empty object",
-              "properties": {
-                "current": {
-                  "type": "integer"
-                },
-                "pageSize": {
-                  "type": "integer"
-                },
-                "categoryId": {
-                  "type": "integer"
-                },
-                "brandName": {
-                  "type": "string"
-                },
-                "sortedField": {
-                  "type": "object",
-                  "properties": {
-                    "name": {
-                      "type": "string",
-                      "description": "排序字段，目前只支持price"
-                    },
-                    "order": {
-                      "type": "string",
-                      "description": "ASC或DESC"
-                    }
-                  }
-                }
-              }
+              "$ref": "#/definitions/ProductServiceRecommendNoAuthCategoryrecommendationGetRequest"
             }
           }
         ],
@@ -5517,44 +5361,7 @@
             "name": "root",
             "in": "body",
             "schema": {
-              "type": "object",
-              "title": "empty object",
-              "properties": {
-                "current": {
-                  "type": "integer"
-                },
-                "pageSize": {
-                  "type": "integer"
-                },
-                "categoryId": {
-                  "type": "integer"
-                },
-                "categoryIds": {
-                  "type": "array",
-                  "items": {
-                    "type": "number"
-                  }
-                },
-                "brandName": {
-                  "type": "string"
-                },
-                "sortedField": {
-                  "type": "object",
-                  "properties": {
-                    "name": {
-                      "type": "string",
-                      "description": "排序字段，目前只支持price  sold_quantity shelf_time"
-                    },
-                    "order": {
-                      "type": "string",
-                      "description": "ASC或DESC"
-                    }
-                  }
-                },
-                "productCode": {
-                  "type": "string"
-                }
-              }
+              "$ref": "#/definitions/ProductServiceRecommendNoAuthCategoryPostRequest"
             }
           }
         ],
@@ -5698,32 +5505,7 @@
             "name": "root",
             "in": "body",
             "schema": {
-              "type": "object",
-              "title": "empty object",
-              "properties": {
-                "current": {
-                  "type": "integer"
-                },
-                "pageSize": {
-                  "type": "integer"
-                },
-                "shopCode": {
-                  "type": "string"
-                },
-                "sortedField": {
-                  "type": "object",
-                  "properties": {
-                    "name": {
-                      "type": "string",
-                      "description": "排序字段名，目前仅支持price"
-                    },
-                    "order": {
-                      "type": "string",
-                      "description": "升序:ASC,降序:DESC"
-                    }
-                  }
-                }
-              }
+              "$ref": "#/definitions/ProductServiceRecommendNoAuthShopPostRequest"
             }
           }
         ],
@@ -5873,22 +5655,7 @@
             "name": "root",
             "in": "body",
             "schema": {
-              "type": "object",
-              "title": "empty object",
-              "properties": {
-                "productCode": {
-                  "type": "string",
-                  "description": "当前商品ID"
-                },
-                "pageSize": {
-                  "type": "string",
-                  "description": "根据UI，默认12"
-                },
-                "current": {
-                  "type": "string",
-                  "description": "默认为1"
-                }
-              }
+              "$ref": "#/definitions/ProductServiceRecommendNoAuthSimilarproductPostRequest"
             }
           }
         ],
@@ -6020,6 +5787,265 @@
               }
             }
           }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "ProductServiceProductReviewNoAuthPageGetRequest": {
+      "type": "object",
+      "title": "empty object",
+      "properties": {
+        "current": {
+          "type": "integer"
+        },
+        "pageSize": {
+          "type": "integer"
+        },
+        "categoryId": {
+          "type": "integer"
+        },
+        "brandName": {
+          "type": "string"
+        },
+        "sortedField": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "排序字段，目前只支持price"
+            },
+            "order": {
+              "type": "string",
+              "description": "ASC或DESC"
+            }
+          }
+        }
+      }
+    },
+    "ProductServiceProductReviewNoAuthSummaryGetRequest": {
+      "type": "object",
+      "title": "empty object",
+      "properties": {
+        "current": {
+          "type": "integer"
+        },
+        "pageSize": {
+          "type": "integer"
+        },
+        "categoryId": {
+          "type": "integer"
+        },
+        "brandName": {
+          "type": "string"
+        },
+        "sortedField": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "排序字段，目前只支持price"
+            },
+            "order": {
+              "type": "string",
+              "description": "ASC或DESC"
+            }
+          }
+        }
+      }
+    },
+    "ProductServiceProductPremiumDupeNoAuthPagePostRequest": {
+      "type": "object",
+      "description": "大牌平替商品分页查询请求",
+      "properties": {
+        "current": {
+          "type": "integer",
+          "format": "int32",
+          "description": "当前页码",
+          "default": 1,
+          "minimum": 1,
+          "example": 1
+        },
+        "pageSize": {
+          "type": "integer",
+          "format": "int32",
+          "description": "每页数量，最大50",
+          "default": 10,
+          "minimum": 1,
+          "maximum": 50,
+          "example": 10
+        },
+        "categoryId": {
+          "type": "integer",
+          "format": "int64",
+          "description": "一级分类ID过滤",
+          "example": 100
+        },
+        "productCode": {
+          "type": "string",
+          "description": "置顶商品链接"
+        },
+        "sort": {
+          "type": "string",
+          "description": "排序类型",
+          "enum": [
+            "DEFAULT",
+            "PRICE",
+            "SALES"
+          ],
+          "default": "DEFAULT",
+          "example": "SALES"
+        },
+        "order": {
+          "type": "string",
+          "description": "排序方向",
+          "enum": [
+            "ASC",
+            "DESC"
+          ],
+          "example": "DESC"
+        }
+      },
+      "$$ref": "#/components/schemas/PremiumDupePageReq"
+    },
+    "ProductServiceSizeChartNoAuthTranslateCallbackPostRequest": {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "type": "object",
+      "properties": {
+        "taskId": {
+          "type": "string"
+        },
+        "imageUrl": {
+          "type": "string"
+        },
+        "taskResult": {
+          "type": "string"
+        },
+        "translateSource": {
+          "type": "string"
+        },
+        "errorMessage": {
+          "type": "string"
+        },
+        "status": {
+          "type": "string"
+        }
+      }
+    },
+    "ProductServiceRecommendNoAuthCategoryrecommendationGetRequest": {
+      "type": "object",
+      "title": "empty object",
+      "properties": {
+        "current": {
+          "type": "integer"
+        },
+        "pageSize": {
+          "type": "integer"
+        },
+        "categoryId": {
+          "type": "integer"
+        },
+        "brandName": {
+          "type": "string"
+        },
+        "sortedField": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "排序字段，目前只支持price"
+            },
+            "order": {
+              "type": "string",
+              "description": "ASC或DESC"
+            }
+          }
+        }
+      }
+    },
+    "ProductServiceRecommendNoAuthCategoryPostRequest": {
+      "type": "object",
+      "title": "empty object",
+      "properties": {
+        "current": {
+          "type": "integer"
+        },
+        "pageSize": {
+          "type": "integer"
+        },
+        "categoryId": {
+          "type": "integer"
+        },
+        "categoryIds": {
+          "type": "array",
+          "items": {
+            "type": "number"
+          }
+        },
+        "brandName": {
+          "type": "string"
+        },
+        "sortedField": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "排序字段，目前只支持price  sold_quantity shelf_time"
+            },
+            "order": {
+              "type": "string",
+              "description": "ASC或DESC"
+            }
+          }
+        },
+        "productCode": {
+          "type": "string"
+        }
+      }
+    },
+    "ProductServiceRecommendNoAuthShopPostRequest": {
+      "type": "object",
+      "title": "empty object",
+      "properties": {
+        "current": {
+          "type": "integer"
+        },
+        "pageSize": {
+          "type": "integer"
+        },
+        "shopCode": {
+          "type": "string"
+        },
+        "sortedField": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "排序字段名，目前仅支持price"
+            },
+            "order": {
+              "type": "string",
+              "description": "升序:ASC,降序:DESC"
+            }
+          }
+        }
+      }
+    },
+    "ProductServiceRecommendNoAuthSimilarproductPostRequest": {
+      "type": "object",
+      "title": "empty object",
+      "properties": {
+        "productCode": {
+          "type": "string",
+          "description": "当前商品ID"
+        },
+        "pageSize": {
+          "type": "string",
+          "description": "根据UI，默认12"
+        },
+        "current": {
+          "type": "string",
+          "description": "默认为1"
         }
       }
     }

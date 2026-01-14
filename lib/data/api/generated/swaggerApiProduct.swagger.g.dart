@@ -6,6 +6,214 @@ part of 'swaggerApiProduct.swagger.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
+ProductServiceProductReviewNoAuthPageGetRequest
+_$ProductServiceProductReviewNoAuthPageGetRequestFromJson(
+  Map<String, dynamic> json,
+) => ProductServiceProductReviewNoAuthPageGetRequest(
+  current: JsonCoerce.asInt(json['current']),
+  pageSize: JsonCoerce.asInt(json['pageSize']),
+  categoryId: JsonCoerce.asInt(json['categoryId']),
+  brandName: JsonCoerce.asString(json['brandName']),
+  sortedField: json['sortedField'] == null
+      ? null
+      : ProductServiceProductReviewNoAuthPageGetRequest$SortedField.fromJson(
+          json['sortedField'] as Map<String, dynamic>,
+        ),
+);
+
+Map<String, dynamic> _$ProductServiceProductReviewNoAuthPageGetRequestToJson(
+  ProductServiceProductReviewNoAuthPageGetRequest instance,
+) => <String, dynamic>{
+  'current': instance.current,
+  'pageSize': instance.pageSize,
+  'categoryId': instance.categoryId,
+  'brandName': instance.brandName,
+  'sortedField': instance.sortedField?.toJson(),
+};
+
+ProductServiceProductReviewNoAuthSummaryGetRequest
+_$ProductServiceProductReviewNoAuthSummaryGetRequestFromJson(
+  Map<String, dynamic> json,
+) => ProductServiceProductReviewNoAuthSummaryGetRequest(
+  current: JsonCoerce.asInt(json['current']),
+  pageSize: JsonCoerce.asInt(json['pageSize']),
+  categoryId: JsonCoerce.asInt(json['categoryId']),
+  brandName: JsonCoerce.asString(json['brandName']),
+  sortedField: json['sortedField'] == null
+      ? null
+      : ProductServiceProductReviewNoAuthSummaryGetRequest$SortedField.fromJson(
+          json['sortedField'] as Map<String, dynamic>,
+        ),
+);
+
+Map<String, dynamic> _$ProductServiceProductReviewNoAuthSummaryGetRequestToJson(
+  ProductServiceProductReviewNoAuthSummaryGetRequest instance,
+) => <String, dynamic>{
+  'current': instance.current,
+  'pageSize': instance.pageSize,
+  'categoryId': instance.categoryId,
+  'brandName': instance.brandName,
+  'sortedField': instance.sortedField?.toJson(),
+};
+
+ProductServiceProductPremiumDupeNoAuthPagePostRequest
+_$ProductServiceProductPremiumDupeNoAuthPagePostRequestFromJson(
+  Map<String, dynamic> json,
+) => ProductServiceProductPremiumDupeNoAuthPagePostRequest(
+  current: JsonCoerce.asInt(json['current']),
+  pageSize: JsonCoerce.asInt(json['pageSize']),
+  categoryId: JsonCoerce.asInt(json['categoryId']),
+  productCode: JsonCoerce.asString(json['productCode']),
+  sort:
+      ProductServiceProductPremiumDupeNoAuthPagePostRequest.productServiceProductPremiumDupeNoAuthPagePostRequestSortSortNullableFromJson(
+        json['sort'],
+      ),
+  order:
+      productServiceProductPremiumDupeNoAuthPagePostRequestOrderNullableFromJson(
+        json['order'],
+      ),
+);
+
+Map<String, dynamic>
+_$ProductServiceProductPremiumDupeNoAuthPagePostRequestToJson(
+  ProductServiceProductPremiumDupeNoAuthPagePostRequest instance,
+) => <String, dynamic>{
+  'current': instance.current,
+  'pageSize': instance.pageSize,
+  'categoryId': instance.categoryId,
+  'productCode': instance.productCode,
+  'sort':
+      productServiceProductPremiumDupeNoAuthPagePostRequestSortNullableToJson(
+        instance.sort,
+      ),
+  'order':
+      productServiceProductPremiumDupeNoAuthPagePostRequestOrderNullableToJson(
+        instance.order,
+      ),
+};
+
+ProductServiceSizeChartNoAuthTranslateCallbackPostRequest
+_$ProductServiceSizeChartNoAuthTranslateCallbackPostRequestFromJson(
+  Map<String, dynamic> json,
+) => ProductServiceSizeChartNoAuthTranslateCallbackPostRequest(
+  taskId: JsonCoerce.asString(json['taskId']),
+  imageUrl: JsonCoerce.asString(json['imageUrl']),
+  taskResult: JsonCoerce.asString(json['taskResult']),
+  translateSource: JsonCoerce.asString(json['translateSource']),
+  errorMessage: JsonCoerce.asString(json['errorMessage']),
+  status: JsonCoerce.asString(json['status']),
+);
+
+Map<String, dynamic>
+_$ProductServiceSizeChartNoAuthTranslateCallbackPostRequestToJson(
+  ProductServiceSizeChartNoAuthTranslateCallbackPostRequest instance,
+) => <String, dynamic>{
+  'taskId': instance.taskId,
+  'imageUrl': instance.imageUrl,
+  'taskResult': instance.taskResult,
+  'translateSource': instance.translateSource,
+  'errorMessage': instance.errorMessage,
+  'status': instance.status,
+};
+
+ProductServiceRecommendNoAuthCategoryrecommendationGetRequest
+_$ProductServiceRecommendNoAuthCategoryrecommendationGetRequestFromJson(
+  Map<String, dynamic> json,
+) => ProductServiceRecommendNoAuthCategoryrecommendationGetRequest(
+  current: JsonCoerce.asInt(json['current']),
+  pageSize: JsonCoerce.asInt(json['pageSize']),
+  categoryId: JsonCoerce.asInt(json['categoryId']),
+  brandName: JsonCoerce.asString(json['brandName']),
+  sortedField: json['sortedField'] == null
+      ? null
+      : ProductServiceRecommendNoAuthCategoryrecommendationGetRequest$SortedField.fromJson(
+          json['sortedField'] as Map<String, dynamic>,
+        ),
+);
+
+Map<String, dynamic>
+_$ProductServiceRecommendNoAuthCategoryrecommendationGetRequestToJson(
+  ProductServiceRecommendNoAuthCategoryrecommendationGetRequest instance,
+) => <String, dynamic>{
+  'current': instance.current,
+  'pageSize': instance.pageSize,
+  'categoryId': instance.categoryId,
+  'brandName': instance.brandName,
+  'sortedField': instance.sortedField?.toJson(),
+};
+
+ProductServiceRecommendNoAuthCategoryPostRequest
+_$ProductServiceRecommendNoAuthCategoryPostRequestFromJson(
+  Map<String, dynamic> json,
+) => ProductServiceRecommendNoAuthCategoryPostRequest(
+  current: JsonCoerce.asInt(json['current']),
+  pageSize: JsonCoerce.asInt(json['pageSize']),
+  categoryId: JsonCoerce.asInt(json['categoryId']),
+  categoryIds: json['categoryIds'] == null
+      ? []
+      : JsonCoerce.asDoubleList(json['categoryIds']),
+  brandName: JsonCoerce.asString(json['brandName']),
+  sortedField: json['sortedField'] == null
+      ? null
+      : ProductServiceRecommendNoAuthCategoryPostRequest$SortedField.fromJson(
+          json['sortedField'] as Map<String, dynamic>,
+        ),
+  productCode: JsonCoerce.asString(json['productCode']),
+);
+
+Map<String, dynamic> _$ProductServiceRecommendNoAuthCategoryPostRequestToJson(
+  ProductServiceRecommendNoAuthCategoryPostRequest instance,
+) => <String, dynamic>{
+  'current': instance.current,
+  'pageSize': instance.pageSize,
+  'categoryId': instance.categoryId,
+  'categoryIds': instance.categoryIds,
+  'brandName': instance.brandName,
+  'sortedField': instance.sortedField?.toJson(),
+  'productCode': instance.productCode,
+};
+
+ProductServiceRecommendNoAuthShopPostRequest
+_$ProductServiceRecommendNoAuthShopPostRequestFromJson(
+  Map<String, dynamic> json,
+) => ProductServiceRecommendNoAuthShopPostRequest(
+  current: JsonCoerce.asInt(json['current']),
+  pageSize: JsonCoerce.asInt(json['pageSize']),
+  shopCode: JsonCoerce.asString(json['shopCode']),
+  sortedField: json['sortedField'] == null
+      ? null
+      : ProductServiceRecommendNoAuthShopPostRequest$SortedField.fromJson(
+          json['sortedField'] as Map<String, dynamic>,
+        ),
+);
+
+Map<String, dynamic> _$ProductServiceRecommendNoAuthShopPostRequestToJson(
+  ProductServiceRecommendNoAuthShopPostRequest instance,
+) => <String, dynamic>{
+  'current': instance.current,
+  'pageSize': instance.pageSize,
+  'shopCode': instance.shopCode,
+  'sortedField': instance.sortedField?.toJson(),
+};
+
+ProductServiceRecommendNoAuthSimilarproductPostRequest
+_$ProductServiceRecommendNoAuthSimilarproductPostRequestFromJson(
+  Map<String, dynamic> json,
+) => ProductServiceRecommendNoAuthSimilarproductPostRequest(
+  productCode: JsonCoerce.asString(json['productCode']),
+  pageSize: JsonCoerce.asString(json['pageSize']),
+  current: JsonCoerce.asString(json['current']),
+);
+
+Map<String, dynamic>
+_$ProductServiceRecommendNoAuthSimilarproductPostRequestToJson(
+  ProductServiceRecommendNoAuthSimilarproductPostRequest instance,
+) => <String, dynamic>{
+  'productCode': instance.productCode,
+  'pageSize': instance.pageSize,
+  'current': instance.current,
+};
+
 ProductServiceProductReviewNoAuthPageGet$Response
 _$ProductServiceProductReviewNoAuthPageGet$ResponseFromJson(
   Map<String, dynamic> json,
@@ -787,6 +995,72 @@ _$ProductServiceRecommendNoAuthSimilarProductPost$ResponseToJson(
   'data': instance.data?.toJson(),
   'traceId': instance.traceId,
 };
+
+ProductServiceProductReviewNoAuthPageGetRequest$SortedField
+_$ProductServiceProductReviewNoAuthPageGetRequest$SortedFieldFromJson(
+  Map<String, dynamic> json,
+) => ProductServiceProductReviewNoAuthPageGetRequest$SortedField(
+  name: JsonCoerce.asString(json['name']),
+  order: JsonCoerce.asString(json['order']),
+);
+
+Map<String, dynamic>
+_$ProductServiceProductReviewNoAuthPageGetRequest$SortedFieldToJson(
+  ProductServiceProductReviewNoAuthPageGetRequest$SortedField instance,
+) => <String, dynamic>{'name': instance.name, 'order': instance.order};
+
+ProductServiceProductReviewNoAuthSummaryGetRequest$SortedField
+_$ProductServiceProductReviewNoAuthSummaryGetRequest$SortedFieldFromJson(
+  Map<String, dynamic> json,
+) => ProductServiceProductReviewNoAuthSummaryGetRequest$SortedField(
+  name: JsonCoerce.asString(json['name']),
+  order: JsonCoerce.asString(json['order']),
+);
+
+Map<String, dynamic>
+_$ProductServiceProductReviewNoAuthSummaryGetRequest$SortedFieldToJson(
+  ProductServiceProductReviewNoAuthSummaryGetRequest$SortedField instance,
+) => <String, dynamic>{'name': instance.name, 'order': instance.order};
+
+ProductServiceRecommendNoAuthCategoryrecommendationGetRequest$SortedField
+_$ProductServiceRecommendNoAuthCategoryrecommendationGetRequest$SortedFieldFromJson(
+  Map<String, dynamic> json,
+) => ProductServiceRecommendNoAuthCategoryrecommendationGetRequest$SortedField(
+  name: JsonCoerce.asString(json['name']),
+  order: JsonCoerce.asString(json['order']),
+);
+
+Map<String, dynamic>
+_$ProductServiceRecommendNoAuthCategoryrecommendationGetRequest$SortedFieldToJson(
+  ProductServiceRecommendNoAuthCategoryrecommendationGetRequest$SortedField
+  instance,
+) => <String, dynamic>{'name': instance.name, 'order': instance.order};
+
+ProductServiceRecommendNoAuthCategoryPostRequest$SortedField
+_$ProductServiceRecommendNoAuthCategoryPostRequest$SortedFieldFromJson(
+  Map<String, dynamic> json,
+) => ProductServiceRecommendNoAuthCategoryPostRequest$SortedField(
+  name: JsonCoerce.asString(json['name']),
+  order: JsonCoerce.asString(json['order']),
+);
+
+Map<String, dynamic>
+_$ProductServiceRecommendNoAuthCategoryPostRequest$SortedFieldToJson(
+  ProductServiceRecommendNoAuthCategoryPostRequest$SortedField instance,
+) => <String, dynamic>{'name': instance.name, 'order': instance.order};
+
+ProductServiceRecommendNoAuthShopPostRequest$SortedField
+_$ProductServiceRecommendNoAuthShopPostRequest$SortedFieldFromJson(
+  Map<String, dynamic> json,
+) => ProductServiceRecommendNoAuthShopPostRequest$SortedField(
+  name: JsonCoerce.asString(json['name']),
+  order: JsonCoerce.asString(json['order']),
+);
+
+Map<String, dynamic>
+_$ProductServiceRecommendNoAuthShopPostRequest$SortedFieldToJson(
+  ProductServiceRecommendNoAuthShopPostRequest$SortedField instance,
+) => <String, dynamic>{'name': instance.name, 'order': instance.order};
 
 ProductServiceProductReviewNoAuthPageGet$Response$Data
 _$ProductServiceProductReviewNoAuthPageGet$Response$DataFromJson(

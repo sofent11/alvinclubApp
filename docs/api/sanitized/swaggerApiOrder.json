@@ -49,13 +49,7 @@
             "name": "root",
             "in": "body",
             "schema": {
-              "type": "object",
-              "title": "empty object",
-              "properties": {
-                "orderId": {
-                  "type": "string"
-                }
-              }
+              "$ref": "#/definitions/OrderServiceOrderAppCancelPostRequest"
             }
           }
         ],
@@ -104,174 +98,7 @@
             "name": "root",
             "in": "body",
             "schema": {
-              "type": "object",
-              "title": "empty object",
-              "properties": {
-                "orderId": {
-                  "type": "string",
-                  "description": "sku列表"
-                },
-                "userAddressId": {
-                  "type": "number"
-                },
-                "userAddress": {
-                  "type": "object",
-                  "properties": {
-                    "isDefault": {
-                      "type": "number",
-                      "description": "是否默认地址1是0否"
-                    },
-                    "email": {
-                      "type": "string",
-                      "description": "邮件"
-                    },
-                    "country": {
-                      "type": "string",
-                      "description": "国家"
-                    },
-                    "countryCode": {
-                      "type": "string",
-                      "description": "国家编码(areaCode)"
-                    },
-                    "state": {
-                      "type": "string",
-                      "description": "州\\省"
-                    },
-                    "stateCode": {
-                      "type": "string",
-                      "description": "州省编码(areaCode)"
-                    },
-                    "city": {
-                      "type": "string",
-                      "description": "城市"
-                    },
-                    "cityCode": {
-                      "type": "string"
-                    },
-                    "street": {
-                      "type": "string",
-                      "description": "街道"
-                    },
-                    "apartment": {
-                      "type": "string",
-                      "description": "公寓单元"
-                    },
-                    "address": {
-                      "type": "string",
-                      "description": "详细地址"
-                    },
-                    "coordinate": {
-                      "type": "string",
-                      "description": "经纬度"
-                    },
-                    "firstName": {
-                      "type": "string",
-                      "description": "姓"
-                    },
-                    "lastName": {
-                      "type": "string",
-                      "description": "名"
-                    },
-                    "phoneNumber": {
-                      "type": "string",
-                      "description": "手机号(\"区号不带+\"+\"手机号\")",
-                      "mock": {
-                        "mock": "86+18888888888"
-                      }
-                    },
-                    "zipCode": {
-                      "type": "string",
-                      "description": "邮编"
-                    },
-                    "userId": {
-                      "type": "string",
-                      "description": "用户Id"
-                    },
-                    "id": {
-                      "type": "number",
-                      "description": "地址id"
-                    }
-                  }
-                },
-                "addBatch": {
-                  "type": "boolean"
-                },
-                "paySubmit": {
-                  "type": "boolean"
-                },
-                "payFreight": {
-                  "type": "boolean"
-                },
-                "submitAnyWay": {
-                  "type": "boolean"
-                },
-                "userCouponCode": {
-                  "type": "string"
-                },
-                "userDiscountCode": {
-                  "type": "string"
-                },
-                "removePackage": {
-                  "type": "boolean"
-                },
-                "remark": {
-                  "type": "string"
-                },
-                "giveawayGift": {
-                  "type": "integer"
-                },
-                "sourceItems": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "skuList": {
-                        "type": "array",
-                        "items": {
-                          "type": "object",
-                          "properties": {
-                            "skuCode": {
-                              "type": "string"
-                            },
-                            "quantity": {
-                              "type": "integer"
-                            },
-                            "remark": {
-                              "type": "string"
-                            }
-                          }
-                        }
-                      },
-                      "addBatch": {
-                        "type": "boolean"
-                      },
-                      "removePackage": {
-                        "type": "boolean"
-                      },
-                      "remark": {
-                        "type": "string"
-                      },
-                      "skuSourceCode": {
-                        "type": "string"
-                      }
-                    }
-                  }
-                },
-                "itemList": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "skuCode": {
-                        "type": "string"
-                      },
-                      "remark": {
-                        "type": "string"
-                      }
-                    }
-                  }
-                }
-              }
+              "$ref": "#/definitions/OrderServiceOrderAppBatchinfosGetRequest"
             }
           }
         ],
@@ -343,77 +170,7 @@
             "name": "root",
             "in": "body",
             "schema": {
-              "type": "object",
-              "title": "empty object",
-              "properties": {
-                "sourceItems": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "skuList": {
-                        "type": "array",
-                        "items": {
-                          "type": "object",
-                          "properties": {
-                            "skuCode": {
-                              "type": "string"
-                            },
-                            "quantity": {
-                              "type": "integer"
-                            }
-                          }
-                        }
-                      },
-                      "skuSourceCode": {
-                        "type": "string"
-                      },
-                      "addBatch": {
-                        "type": "boolean"
-                      },
-                      "removePackage": {
-                        "type": "boolean"
-                      },
-                      "remark": {
-                        "type": "string"
-                      }
-                    }
-                  }
-                },
-                "country": {
-                  "type": "string",
-                  "description": "国家：US,CA,AU,GB"
-                },
-                "buyType": {
-                  "type": "integer",
-                  "description": "1购物车，2立即下单，3心愿下单"
-                },
-                "invitedCode": {
-                  "type": "string"
-                },
-                "userAddressId": {
-                  "type": "number"
-                },
-                "addBatch": {
-                  "type": "boolean"
-                },
-                "remark": {
-                  "type": "string"
-                },
-                "isDraft": {
-                  "type": "boolean",
-                  "description": "true - 草稿订单，false - 待支付订单"
-                },
-                "submitAnyWay": {
-                  "type": "boolean"
-                },
-                "userCouponCode": {
-                  "type": "string"
-                },
-                "removePackage": {
-                  "type": "boolean"
-                }
-              }
+              "$ref": "#/definitions/OrderServiceOrderAppSubmitPostRequest"
             }
           }
         ],
@@ -471,178 +228,7 @@
             "name": "root",
             "in": "body",
             "schema": {
-              "type": "object",
-              "title": "empty object",
-              "properties": {
-                "orderId": {
-                  "type": "string",
-                  "description": "sku列表"
-                },
-                "userAddressId": {
-                  "type": "number"
-                },
-                "userAddress": {
-                  "type": "object",
-                  "properties": {
-                    "isDefault": {
-                      "type": "number",
-                      "description": "是否默认地址1是0否"
-                    },
-                    "email": {
-                      "type": "string",
-                      "description": "邮件"
-                    },
-                    "country": {
-                      "type": "string",
-                      "description": "国家"
-                    },
-                    "countryCode": {
-                      "type": "string",
-                      "description": "国家编码(areaCode)"
-                    },
-                    "state": {
-                      "type": "string",
-                      "description": "州\\省"
-                    },
-                    "stateCode": {
-                      "type": "string",
-                      "description": "州省编码(areaCode)"
-                    },
-                    "city": {
-                      "type": "string",
-                      "description": "城市"
-                    },
-                    "cityCode": {
-                      "type": "string"
-                    },
-                    "street": {
-                      "type": "string",
-                      "description": "街道"
-                    },
-                    "apartment": {
-                      "type": "string",
-                      "description": "公寓单元"
-                    },
-                    "address": {
-                      "type": "string",
-                      "description": "详细地址"
-                    },
-                    "coordinate": {
-                      "type": "string",
-                      "description": "经纬度"
-                    },
-                    "firstName": {
-                      "type": "string",
-                      "description": "姓"
-                    },
-                    "lastName": {
-                      "type": "string",
-                      "description": "名"
-                    },
-                    "phoneNumber": {
-                      "type": "string",
-                      "description": "手机号(\"区号不带+\"+\"手机号\")",
-                      "mock": {
-                        "mock": "86+18888888888"
-                      }
-                    },
-                    "zipCode": {
-                      "type": "string",
-                      "description": "邮编"
-                    },
-                    "userId": {
-                      "type": "string",
-                      "description": "用户Id"
-                    },
-                    "id": {
-                      "type": "number",
-                      "description": "地址id"
-                    }
-                  }
-                },
-                "addBatch": {
-                  "type": "boolean"
-                },
-                "targetTip": {
-                  "type": "number"
-                },
-                "paySubmit": {
-                  "type": "boolean",
-                  "description": "更新false 结算提交true"
-                },
-                "payFreight": {
-                  "type": "boolean"
-                },
-                "submitAnyWay": {
-                  "type": "boolean"
-                },
-                "userCouponCode": {
-                  "type": "string"
-                },
-                "userDiscountCode": {
-                  "type": "string"
-                },
-                "removePackage": {
-                  "type": "boolean"
-                },
-                "remark": {
-                  "type": "string"
-                },
-                "giveawayGift": {
-                  "type": "integer"
-                },
-                "sourceItems": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "skuList": {
-                        "type": "array",
-                        "items": {
-                          "type": "object",
-                          "properties": {
-                            "skuCode": {
-                              "type": "string"
-                            },
-                            "quantity": {
-                              "type": "integer"
-                            },
-                            "remark": {
-                              "type": "string"
-                            }
-                          }
-                        }
-                      },
-                      "addBatch": {
-                        "type": "boolean"
-                      },
-                      "removePackage": {
-                        "type": "boolean"
-                      },
-                      "remark": {
-                        "type": "string"
-                      },
-                      "skuSourceCode": {
-                        "type": "string"
-                      }
-                    }
-                  }
-                },
-                "itemList": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "skuCode": {
-                        "type": "string"
-                      },
-                      "remark": {
-                        "type": "string"
-                      }
-                    }
-                  }
-                }
-              }
+              "$ref": "#/definitions/OrderServiceOrderAppUpdatePostRequest"
             }
           }
         ],
@@ -2106,13 +1692,7 @@
             "name": "root",
             "in": "body",
             "schema": {
-              "type": "object",
-              "title": "empty object",
-              "properties": {
-                "orderId": {
-                  "type": "string"
-                }
-              }
+              "$ref": "#/definitions/OrderServiceOrderCancelPostRequest"
             }
           }
         ],
@@ -2154,109 +1734,7 @@
             "name": "root",
             "in": "body",
             "schema": {
-              "type": "object",
-              "title": "empty object",
-              "properties": {
-                "sourceItems": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "skuList": {
-                        "type": "array",
-                        "items": {
-                          "type": "object",
-                          "properties": {
-                            "skuCode": {
-                              "type": "string"
-                            },
-                            "quantity": {
-                              "type": "integer"
-                            },
-                            "price": {
-                              "type": "number"
-                            },
-                            "remark": {
-                              "type": "string"
-                            },
-                            "inviteCode": {
-                              "type": "string"
-                            }
-                          }
-                        }
-                      },
-                      "skuSourceCode": {
-                        "type": "string"
-                      },
-                      "addBatch": {
-                        "type": "boolean"
-                      },
-                      "removePackage": {
-                        "type": "boolean"
-                      },
-                      "remark": {
-                        "type": "string"
-                      }
-                    }
-                  }
-                },
-                "skuList": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "skuCode": {
-                        "type": "string"
-                      },
-                      "price": {
-                        "type": "string"
-                      },
-                      "quantity": {
-                        "type": "string"
-                      },
-                      "inviteCode": {
-                        "type": "string"
-                      },
-                      "remark": {
-                        "type": "string"
-                      }
-                    }
-                  }
-                },
-                "country": {
-                  "type": "string",
-                  "description": "国家：US,CA,AU,GB"
-                },
-                "buyType": {
-                  "type": "integer",
-                  "description": "1购物车，2立即下单，3心愿下单"
-                },
-                "invitedCode": {
-                  "type": "string"
-                },
-                "userAddressId": {
-                  "type": "number"
-                },
-                "addBatch": {
-                  "type": "boolean"
-                },
-                "remark": {
-                  "type": "string"
-                },
-                "isDraft": {
-                  "type": "boolean",
-                  "description": "true - 草稿订单，false - 待支付订单"
-                },
-                "submitAnyWay": {
-                  "type": "boolean"
-                },
-                "userCouponCode": {
-                  "type": "string"
-                },
-                "removePackage": {
-                  "type": "boolean"
-                }
-              }
+              "$ref": "#/definitions/OrderServiceOrderSubmitPostRequest"
             }
           }
         ],
@@ -2311,199 +1789,7 @@
             "name": "root",
             "in": "body",
             "schema": {
-              "type": "object",
-              "title": "empty object",
-              "properties": {
-                "orderId": {
-                  "type": "string",
-                  "description": "sku列表"
-                },
-                "userAddressId": {
-                  "type": "number"
-                },
-                "userAddress": {
-                  "type": "object",
-                  "properties": {
-                    "isDefault": {
-                      "type": "number",
-                      "description": "是否默认地址1是0否"
-                    },
-                    "email": {
-                      "type": "string",
-                      "description": "邮件"
-                    },
-                    "country": {
-                      "type": "string",
-                      "description": "国家"
-                    },
-                    "countryCode": {
-                      "type": "string",
-                      "description": "国家编码(areaCode)"
-                    },
-                    "state": {
-                      "type": "string",
-                      "description": "州\\省"
-                    },
-                    "stateCode": {
-                      "type": "string",
-                      "description": "州省编码(areaCode)"
-                    },
-                    "city": {
-                      "type": "string",
-                      "description": "城市"
-                    },
-                    "cityCode": {
-                      "type": "string"
-                    },
-                    "street": {
-                      "type": "string",
-                      "description": "街道"
-                    },
-                    "apartment": {
-                      "type": "string",
-                      "description": "公寓单元"
-                    },
-                    "address": {
-                      "type": "string",
-                      "description": "详细地址"
-                    },
-                    "coordinate": {
-                      "type": "string",
-                      "description": "经纬度"
-                    },
-                    "firstName": {
-                      "type": "string",
-                      "description": "姓"
-                    },
-                    "lastName": {
-                      "type": "string",
-                      "description": "名"
-                    },
-                    "phoneNumber": {
-                      "type": "string",
-                      "description": "手机号(\"区号不带+\"+\"手机号\")",
-                      "mock": {
-                        "mock": "86+18888888888"
-                      }
-                    },
-                    "zipCode": {
-                      "type": "string",
-                      "description": "邮编"
-                    },
-                    "userId": {
-                      "type": "string",
-                      "description": "用户Id"
-                    },
-                    "id": {
-                      "type": "number",
-                      "description": "地址id"
-                    }
-                  }
-                },
-                "addBatch": {
-                  "type": "boolean"
-                },
-                "paySubmit": {
-                  "type": "boolean"
-                },
-                "payFreight": {
-                  "type": "boolean"
-                },
-                "submitAnyWay": {
-                  "type": "boolean"
-                },
-                "userCouponCode": {
-                  "type": "string"
-                },
-                "userDiscountCode": {
-                  "type": "string"
-                },
-                "removePackage": {
-                  "type": "boolean"
-                },
-                "remark": {
-                  "type": "string"
-                },
-                "giveawayGift": {
-                  "type": "integer"
-                },
-                "targetTip": {
-                  "type": "number"
-                },
-                "skuList": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "skuCode": {
-                        "type": "string"
-                      },
-                      "quantity": {
-                        "type": "integer"
-                      },
-                      "remark": {
-                        "type": "string"
-                      }
-                    }
-                  }
-                },
-                "sourceItems": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "skuList": {
-                        "type": "array",
-                        "items": {
-                          "type": "object",
-                          "properties": {
-                            "skuCode": {
-                              "type": "string"
-                            },
-                            "quantity": {
-                              "type": "integer"
-                            },
-                            "remark": {
-                              "type": "string"
-                            }
-                          }
-                        }
-                      },
-                      "addBatch": {
-                        "type": "boolean"
-                      },
-                      "payFreight": {
-                        "type": "boolean",
-                        "description": "下单并支付运费"
-                      },
-                      "removePackage": {
-                        "type": "boolean"
-                      },
-                      "remark": {
-                        "type": "string"
-                      },
-                      "skuSourceCode": {
-                        "type": "string"
-                      }
-                    }
-                  },
-                  "description": "多仓商品"
-                },
-                "itemList": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "skuCode": {
-                        "type": "string"
-                      },
-                      "remark": {
-                        "type": "string"
-                      }
-                    }
-                  }
-                }
-              }
+              "$ref": "#/definitions/OrderServiceOrderUpdatePostRequest"
             }
           }
         ],
@@ -2545,35 +1831,7 @@
             "name": "root",
             "in": "body",
             "schema": {
-              "type": "object",
-              "title": "empty object",
-              "properties": {
-                "code": {
-                  "type": "string"
-                },
-                "message": {
-                  "type": "string"
-                },
-                "data": {
-                  "type": "object",
-                  "properties": {
-                    "skuList": {
-                      "type": "object",
-                      "properties": {
-                        "skuCode": {
-                          "type": "string"
-                        },
-                        "quantity": {
-                          "type": "string"
-                        },
-                        "price": {
-                          "type": "string"
-                        }
-                      }
-                    }
-                  }
-                }
-              }
+              "$ref": "#/definitions/OrderServiceOrderConfirmPostRequest"
             }
           }
         ],
@@ -3071,21 +2329,7 @@
             "name": "root",
             "in": "body",
             "schema": {
-              "type": "object",
-              "title": "empty object",
-              "properties": {
-                "orderId": {
-                  "type": "string"
-                },
-                "isRecharge": {
-                  "type": "integer",
-                  "description": "0 不抵扣，1 抵扣"
-                },
-                "rechargeAmount": {
-                  "type": "number",
-                  "description": "抵扣金额（CNY）"
-                }
-              }
+              "$ref": "#/definitions/OrderServiceOrderSettlementPostRequest"
             }
           }
         ],
@@ -3137,31 +2381,7 @@
             "name": "root",
             "in": "body",
             "schema": {
-              "type": "object",
-              "title": "empty object",
-              "properties": {
-                "skuList": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "skuCode": {
-                        "type": "string"
-                      },
-                      "quantity": {
-                        "type": "number"
-                      },
-                      "price": {
-                        "type": "number"
-                      }
-                    }
-                  }
-                },
-                "userCouponCode": {
-                  "type": "string",
-                  "description": "优惠券code"
-                }
-              }
+              "$ref": "#/definitions/OrderServiceOrderPricingPostRequest"
             }
           }
         ],
@@ -3211,34 +2431,7 @@
             "name": "root",
             "in": "body",
             "schema": {
-              "type": "object",
-              "title": "empty object",
-              "properties": {
-                "orderId": {
-                  "type": "string"
-                },
-                "skuList": {
-                  "type": "string"
-                },
-                "returnPayMethod": {
-                  "type": "string",
-                  "description": "退款类型（1原路退回, 2退至充值钱包, 3退款至银行卡，4退款至支付宝微信）"
-                },
-                "returnType": {
-                  "type": "string",
-                  "description": "业务类型（1仅退款, 2退货退款）"
-                },
-                "remark": {
-                  "type": "string"
-                },
-                "remarkImages": {
-                  "type": "string"
-                },
-                "allReturn": {
-                  "type": "boolean",
-                  "description": "true 整单退"
-                }
-              }
+              "$ref": "#/definitions/OrderServiceAftersaleOrderSubmitPostRequest"
             }
           }
         ],
@@ -4181,13 +3374,7 @@
             "name": "root",
             "in": "body",
             "schema": {
-              "type": "object",
-              "title": "empty object",
-              "properties": {
-                "orderId": {
-                  "type": "string"
-                }
-              }
+              "$ref": "#/definitions/OrderServiceOrderCouponlistPostRequest"
             }
           }
         ],
@@ -4337,16 +3524,7 @@
             "name": "root",
             "in": "body",
             "schema": {
-              "type": "object",
-              "title": "empty object",
-              "properties": {
-                "orderId": {
-                  "type": "string"
-                },
-                "discountCode": {
-                  "type": "string"
-                }
-              }
+              "$ref": "#/definitions/OrderServiceOrderDiscountlistPostRequest"
             }
           }
         ],
@@ -4428,23 +3606,7 @@
             "name": "root",
             "in": "body",
             "schema": {
-              "type": "object",
-              "properties": {
-                "skuList": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "skuCode": {
-                        "type": "string"
-                      },
-                      "quantity": {
-                        "type": "number"
-                      }
-                    }
-                  }
-                }
-              }
+              "$ref": "#/definitions/OrderServiceOrderAvailableCouponPostRequest"
             }
           }
         ],
@@ -4523,23 +3685,7 @@
             "name": "root",
             "in": "body",
             "schema": {
-              "type": "object",
-              "properties": {
-                "skuList": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "skuCode": {
-                        "type": "string"
-                      },
-                      "quantity": {
-                        "type": "number"
-                      }
-                    }
-                  }
-                }
-              }
+              "$ref": "#/definitions/OrderServiceOrderCoupontitlePostRequest"
             }
           }
         ],
@@ -6272,38 +5418,7 @@
             "name": "root",
             "in": "body",
             "schema": {
-              "type": "object",
-              "properties": {
-                "itemReviewList": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "skuCode": {
-                        "type": "string"
-                      },
-                      "comment": {
-                        "type": "number"
-                      },
-                      "score": {
-                        "type": "string"
-                      },
-                      "images": {
-                        "type": "array",
-                        "items": {
-                          "type": "string"
-                        }
-                      },
-                      "extraComment": {
-                        "type": "string"
-                      }
-                    }
-                  }
-                },
-                "orderId": {
-                  "type": "string"
-                }
-              }
+              "$ref": "#/definitions/OrderServiceOrderReviewPostRequest"
             }
           }
         ],
@@ -9120,25 +8235,7 @@
             "name": "root",
             "in": "body",
             "schema": {
-              "type": "object",
-              "title": "empty object",
-              "properties": {
-                "skuCode": {
-                  "type": "string"
-                },
-                "quantity": {
-                  "type": "string"
-                },
-                "inviteCode": {
-                  "type": "string"
-                },
-                "remark": {
-                  "type": "string"
-                },
-                "sourceDetail": {
-                  "type": "string"
-                }
-              }
+              "$ref": "#/definitions/OrderServiceCartAddPostRequest"
             }
           }
         ],
@@ -9170,34 +8267,7 @@
             "in": "body",
             "description": "sku列表",
             "schema": {
-              "type": "object",
-              "properties": {
-                "skuList": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "skuCode": {
-                        "type": "string"
-                      },
-                      "quantity": {
-                        "type": "string",
-                        "description": "数量"
-                      },
-                      "token": {
-                        "type": "string",
-                        "description": "换购token"
-                      },
-                      "groupType": {
-                        "type": "string",
-                        "description": "命中的活动，换购活动：\"discount_additional\"，3元3件：”quantity_discount“"
-                      }
-                    }
-                  },
-                  "description": "sku列表"
-                }
-              },
-              "description": "sku列表"
+              "$ref": "#/definitions/OrderServiceCartListGetRequest"
             }
           }
         ],
@@ -9428,36 +8498,7 @@
             "name": "root",
             "in": "body",
             "schema": {
-              "type": "object",
-              "title": "empty object",
-              "properties": {
-                "type": {
-                  "type": "string",
-                  "description": "type: delete, update,clear, add, "
-                },
-                "cart": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "skuCode": {
-                        "type": "string"
-                      },
-                      "quantity": {
-                        "type": "number",
-                        "description": " 数量"
-                      },
-                      "orderUpdate": {
-                        "type": "string",
-                        "description": "是否更新排序。1是，0不是"
-                      },
-                      "remark": {
-                        "type": "string"
-                      }
-                    }
-                  }
-                }
-              }
+              "$ref": "#/definitions/OrderServiceCartUpdatePostRequest"
             }
           }
         ],
@@ -9488,29 +8529,7 @@
             "name": "root",
             "in": "body",
             "schema": {
-              "type": "object",
-              "title": "empty object",
-              "properties": {
-                "skuList": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "skuCode": {
-                        "type": "string"
-                      },
-                      "quantity": {
-                        "type": "number",
-                        "description": "数量"
-                      },
-                      "price": {
-                        "type": "string",
-                        "description": "当前价格"
-                      }
-                    }
-                  }
-                }
-              }
+              "$ref": "#/definitions/OrderServiceCartSettlementPostRequest"
             }
           }
         ],
@@ -9552,31 +8571,7 @@
             "name": "root",
             "in": "body",
             "schema": {
-              "type": "object",
-              "title": "empty object",
-              "properties": {
-                "skuList": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "skuCode": {
-                        "type": "string"
-                      },
-                      "quantity": {
-                        "type": "number"
-                      },
-                      "price": {
-                        "type": "number"
-                      }
-                    }
-                  }
-                },
-                "userCouponCode": {
-                  "type": "string",
-                  "description": "优惠券code"
-                }
-              }
+              "$ref": "#/definitions/OrderServiceCartPricingPostRequest"
             }
           }
         ],
@@ -9731,31 +8726,7 @@
             "name": "root",
             "in": "body",
             "schema": {
-              "type": "object",
-              "title": "empty object",
-              "properties": {
-                "skuList": {
-                  "type": "array",
-                  "items": {
-                    "type": "object",
-                    "properties": {
-                      "skuCode": {
-                        "type": "string"
-                      },
-                      "quantity": {
-                        "type": "number"
-                      },
-                      "price": {
-                        "type": "number"
-                      }
-                    }
-                  }
-                },
-                "userCouponCode": {
-                  "type": "string",
-                  "description": "优惠券code"
-                }
-              }
+              "$ref": "#/definitions/OrderServiceCartNoAuthPricingPostRequest"
             }
           }
         ],
@@ -9883,6 +8854,1103 @@
               }
             }
           }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "OrderServiceOrderAppCancelPostRequest": {
+      "type": "object",
+      "title": "empty object",
+      "properties": {
+        "orderId": {
+          "type": "string"
+        }
+      }
+    },
+    "OrderServiceOrderAppBatchinfosGetRequest": {
+      "type": "object",
+      "title": "empty object",
+      "properties": {
+        "orderId": {
+          "type": "string",
+          "description": "sku列表"
+        },
+        "userAddressId": {
+          "type": "number"
+        },
+        "userAddress": {
+          "type": "object",
+          "properties": {
+            "isDefault": {
+              "type": "number",
+              "description": "是否默认地址1是0否"
+            },
+            "email": {
+              "type": "string",
+              "description": "邮件"
+            },
+            "country": {
+              "type": "string",
+              "description": "国家"
+            },
+            "countryCode": {
+              "type": "string",
+              "description": "国家编码(areaCode)"
+            },
+            "state": {
+              "type": "string",
+              "description": "州\\省"
+            },
+            "stateCode": {
+              "type": "string",
+              "description": "州省编码(areaCode)"
+            },
+            "city": {
+              "type": "string",
+              "description": "城市"
+            },
+            "cityCode": {
+              "type": "string"
+            },
+            "street": {
+              "type": "string",
+              "description": "街道"
+            },
+            "apartment": {
+              "type": "string",
+              "description": "公寓单元"
+            },
+            "address": {
+              "type": "string",
+              "description": "详细地址"
+            },
+            "coordinate": {
+              "type": "string",
+              "description": "经纬度"
+            },
+            "firstName": {
+              "type": "string",
+              "description": "姓"
+            },
+            "lastName": {
+              "type": "string",
+              "description": "名"
+            },
+            "phoneNumber": {
+              "type": "string",
+              "description": "手机号(\"区号不带+\"+\"手机号\")",
+              "mock": {
+                "mock": "86+18888888888"
+              }
+            },
+            "zipCode": {
+              "type": "string",
+              "description": "邮编"
+            },
+            "userId": {
+              "type": "string",
+              "description": "用户Id"
+            },
+            "id": {
+              "type": "number",
+              "description": "地址id"
+            }
+          }
+        },
+        "addBatch": {
+          "type": "boolean"
+        },
+        "paySubmit": {
+          "type": "boolean"
+        },
+        "payFreight": {
+          "type": "boolean"
+        },
+        "submitAnyWay": {
+          "type": "boolean"
+        },
+        "userCouponCode": {
+          "type": "string"
+        },
+        "userDiscountCode": {
+          "type": "string"
+        },
+        "removePackage": {
+          "type": "boolean"
+        },
+        "remark": {
+          "type": "string"
+        },
+        "giveawayGift": {
+          "type": "integer"
+        },
+        "sourceItems": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "skuList": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "skuCode": {
+                      "type": "string"
+                    },
+                    "quantity": {
+                      "type": "integer"
+                    },
+                    "remark": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "addBatch": {
+                "type": "boolean"
+              },
+              "removePackage": {
+                "type": "boolean"
+              },
+              "remark": {
+                "type": "string"
+              },
+              "skuSourceCode": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "itemList": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "skuCode": {
+                "type": "string"
+              },
+              "remark": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "OrderServiceOrderAppSubmitPostRequest": {
+      "type": "object",
+      "title": "empty object",
+      "properties": {
+        "sourceItems": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "skuList": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "skuCode": {
+                      "type": "string"
+                    },
+                    "quantity": {
+                      "type": "integer"
+                    }
+                  }
+                }
+              },
+              "skuSourceCode": {
+                "type": "string"
+              },
+              "addBatch": {
+                "type": "boolean"
+              },
+              "removePackage": {
+                "type": "boolean"
+              },
+              "remark": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "country": {
+          "type": "string",
+          "description": "国家：US,CA,AU,GB"
+        },
+        "buyType": {
+          "type": "integer",
+          "description": "1购物车，2立即下单，3心愿下单"
+        },
+        "invitedCode": {
+          "type": "string"
+        },
+        "userAddressId": {
+          "type": "number"
+        },
+        "addBatch": {
+          "type": "boolean"
+        },
+        "remark": {
+          "type": "string"
+        },
+        "isDraft": {
+          "type": "boolean",
+          "description": "true - 草稿订单，false - 待支付订单"
+        },
+        "submitAnyWay": {
+          "type": "boolean"
+        },
+        "userCouponCode": {
+          "type": "string"
+        },
+        "removePackage": {
+          "type": "boolean"
+        }
+      }
+    },
+    "OrderServiceOrderAppUpdatePostRequest": {
+      "type": "object",
+      "title": "empty object",
+      "properties": {
+        "orderId": {
+          "type": "string",
+          "description": "sku列表"
+        },
+        "userAddressId": {
+          "type": "number"
+        },
+        "userAddress": {
+          "type": "object",
+          "properties": {
+            "isDefault": {
+              "type": "number",
+              "description": "是否默认地址1是0否"
+            },
+            "email": {
+              "type": "string",
+              "description": "邮件"
+            },
+            "country": {
+              "type": "string",
+              "description": "国家"
+            },
+            "countryCode": {
+              "type": "string",
+              "description": "国家编码(areaCode)"
+            },
+            "state": {
+              "type": "string",
+              "description": "州\\省"
+            },
+            "stateCode": {
+              "type": "string",
+              "description": "州省编码(areaCode)"
+            },
+            "city": {
+              "type": "string",
+              "description": "城市"
+            },
+            "cityCode": {
+              "type": "string"
+            },
+            "street": {
+              "type": "string",
+              "description": "街道"
+            },
+            "apartment": {
+              "type": "string",
+              "description": "公寓单元"
+            },
+            "address": {
+              "type": "string",
+              "description": "详细地址"
+            },
+            "coordinate": {
+              "type": "string",
+              "description": "经纬度"
+            },
+            "firstName": {
+              "type": "string",
+              "description": "姓"
+            },
+            "lastName": {
+              "type": "string",
+              "description": "名"
+            },
+            "phoneNumber": {
+              "type": "string",
+              "description": "手机号(\"区号不带+\"+\"手机号\")",
+              "mock": {
+                "mock": "86+18888888888"
+              }
+            },
+            "zipCode": {
+              "type": "string",
+              "description": "邮编"
+            },
+            "userId": {
+              "type": "string",
+              "description": "用户Id"
+            },
+            "id": {
+              "type": "number",
+              "description": "地址id"
+            }
+          }
+        },
+        "addBatch": {
+          "type": "boolean"
+        },
+        "targetTip": {
+          "type": "number"
+        },
+        "paySubmit": {
+          "type": "boolean",
+          "description": "更新false 结算提交true"
+        },
+        "payFreight": {
+          "type": "boolean"
+        },
+        "submitAnyWay": {
+          "type": "boolean"
+        },
+        "userCouponCode": {
+          "type": "string"
+        },
+        "userDiscountCode": {
+          "type": "string"
+        },
+        "removePackage": {
+          "type": "boolean"
+        },
+        "remark": {
+          "type": "string"
+        },
+        "giveawayGift": {
+          "type": "integer"
+        },
+        "sourceItems": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "skuList": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "skuCode": {
+                      "type": "string"
+                    },
+                    "quantity": {
+                      "type": "integer"
+                    },
+                    "remark": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "addBatch": {
+                "type": "boolean"
+              },
+              "removePackage": {
+                "type": "boolean"
+              },
+              "remark": {
+                "type": "string"
+              },
+              "skuSourceCode": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "itemList": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "skuCode": {
+                "type": "string"
+              },
+              "remark": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "OrderServiceOrderCancelPostRequest": {
+      "type": "object",
+      "title": "empty object",
+      "properties": {
+        "orderId": {
+          "type": "string"
+        }
+      }
+    },
+    "OrderServiceOrderSubmitPostRequest": {
+      "type": "object",
+      "title": "empty object",
+      "properties": {
+        "sourceItems": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "skuList": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "skuCode": {
+                      "type": "string"
+                    },
+                    "quantity": {
+                      "type": "integer"
+                    },
+                    "price": {
+                      "type": "number"
+                    },
+                    "remark": {
+                      "type": "string"
+                    },
+                    "inviteCode": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "skuSourceCode": {
+                "type": "string"
+              },
+              "addBatch": {
+                "type": "boolean"
+              },
+              "removePackage": {
+                "type": "boolean"
+              },
+              "remark": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "skuList": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "skuCode": {
+                "type": "string"
+              },
+              "price": {
+                "type": "string"
+              },
+              "quantity": {
+                "type": "string"
+              },
+              "inviteCode": {
+                "type": "string"
+              },
+              "remark": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "country": {
+          "type": "string",
+          "description": "国家：US,CA,AU,GB"
+        },
+        "buyType": {
+          "type": "integer",
+          "description": "1购物车，2立即下单，3心愿下单"
+        },
+        "invitedCode": {
+          "type": "string"
+        },
+        "userAddressId": {
+          "type": "number"
+        },
+        "addBatch": {
+          "type": "boolean"
+        },
+        "remark": {
+          "type": "string"
+        },
+        "isDraft": {
+          "type": "boolean",
+          "description": "true - 草稿订单，false - 待支付订单"
+        },
+        "submitAnyWay": {
+          "type": "boolean"
+        },
+        "userCouponCode": {
+          "type": "string"
+        },
+        "removePackage": {
+          "type": "boolean"
+        }
+      }
+    },
+    "OrderServiceOrderUpdatePostRequest": {
+      "type": "object",
+      "title": "empty object",
+      "properties": {
+        "orderId": {
+          "type": "string",
+          "description": "sku列表"
+        },
+        "userAddressId": {
+          "type": "number"
+        },
+        "userAddress": {
+          "type": "object",
+          "properties": {
+            "isDefault": {
+              "type": "number",
+              "description": "是否默认地址1是0否"
+            },
+            "email": {
+              "type": "string",
+              "description": "邮件"
+            },
+            "country": {
+              "type": "string",
+              "description": "国家"
+            },
+            "countryCode": {
+              "type": "string",
+              "description": "国家编码(areaCode)"
+            },
+            "state": {
+              "type": "string",
+              "description": "州\\省"
+            },
+            "stateCode": {
+              "type": "string",
+              "description": "州省编码(areaCode)"
+            },
+            "city": {
+              "type": "string",
+              "description": "城市"
+            },
+            "cityCode": {
+              "type": "string"
+            },
+            "street": {
+              "type": "string",
+              "description": "街道"
+            },
+            "apartment": {
+              "type": "string",
+              "description": "公寓单元"
+            },
+            "address": {
+              "type": "string",
+              "description": "详细地址"
+            },
+            "coordinate": {
+              "type": "string",
+              "description": "经纬度"
+            },
+            "firstName": {
+              "type": "string",
+              "description": "姓"
+            },
+            "lastName": {
+              "type": "string",
+              "description": "名"
+            },
+            "phoneNumber": {
+              "type": "string",
+              "description": "手机号(\"区号不带+\"+\"手机号\")",
+              "mock": {
+                "mock": "86+18888888888"
+              }
+            },
+            "zipCode": {
+              "type": "string",
+              "description": "邮编"
+            },
+            "userId": {
+              "type": "string",
+              "description": "用户Id"
+            },
+            "id": {
+              "type": "number",
+              "description": "地址id"
+            }
+          }
+        },
+        "addBatch": {
+          "type": "boolean"
+        },
+        "paySubmit": {
+          "type": "boolean"
+        },
+        "payFreight": {
+          "type": "boolean"
+        },
+        "submitAnyWay": {
+          "type": "boolean"
+        },
+        "userCouponCode": {
+          "type": "string"
+        },
+        "userDiscountCode": {
+          "type": "string"
+        },
+        "removePackage": {
+          "type": "boolean"
+        },
+        "remark": {
+          "type": "string"
+        },
+        "giveawayGift": {
+          "type": "integer"
+        },
+        "targetTip": {
+          "type": "number"
+        },
+        "skuList": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "skuCode": {
+                "type": "string"
+              },
+              "quantity": {
+                "type": "integer"
+              },
+              "remark": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "sourceItems": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "skuList": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "skuCode": {
+                      "type": "string"
+                    },
+                    "quantity": {
+                      "type": "integer"
+                    },
+                    "remark": {
+                      "type": "string"
+                    }
+                  }
+                }
+              },
+              "addBatch": {
+                "type": "boolean"
+              },
+              "payFreight": {
+                "type": "boolean",
+                "description": "下单并支付运费"
+              },
+              "removePackage": {
+                "type": "boolean"
+              },
+              "remark": {
+                "type": "string"
+              },
+              "skuSourceCode": {
+                "type": "string"
+              }
+            }
+          },
+          "description": "多仓商品"
+        },
+        "itemList": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "skuCode": {
+                "type": "string"
+              },
+              "remark": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "OrderServiceOrderConfirmPostRequest": {
+      "type": "object",
+      "title": "empty object",
+      "properties": {
+        "code": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        },
+        "data": {
+          "type": "object",
+          "properties": {
+            "skuList": {
+              "type": "object",
+              "properties": {
+                "skuCode": {
+                  "type": "string"
+                },
+                "quantity": {
+                  "type": "string"
+                },
+                "price": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "OrderServiceOrderSettlementPostRequest": {
+      "type": "object",
+      "title": "empty object",
+      "properties": {
+        "orderId": {
+          "type": "string"
+        },
+        "isRecharge": {
+          "type": "integer",
+          "description": "0 不抵扣，1 抵扣"
+        },
+        "rechargeAmount": {
+          "type": "number",
+          "description": "抵扣金额（CNY）"
+        }
+      }
+    },
+    "OrderServiceOrderPricingPostRequest": {
+      "type": "object",
+      "title": "empty object",
+      "properties": {
+        "skuList": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "skuCode": {
+                "type": "string"
+              },
+              "quantity": {
+                "type": "number"
+              },
+              "price": {
+                "type": "number"
+              }
+            }
+          }
+        },
+        "userCouponCode": {
+          "type": "string",
+          "description": "优惠券code"
+        }
+      }
+    },
+    "OrderServiceAftersaleOrderSubmitPostRequest": {
+      "type": "object",
+      "title": "empty object",
+      "properties": {
+        "orderId": {
+          "type": "string"
+        },
+        "skuList": {
+          "type": "string"
+        },
+        "returnPayMethod": {
+          "type": "string",
+          "description": "退款类型（1原路退回, 2退至充值钱包, 3退款至银行卡，4退款至支付宝微信）"
+        },
+        "returnType": {
+          "type": "string",
+          "description": "业务类型（1仅退款, 2退货退款）"
+        },
+        "remark": {
+          "type": "string"
+        },
+        "remarkImages": {
+          "type": "string"
+        },
+        "allReturn": {
+          "type": "boolean",
+          "description": "true 整单退"
+        }
+      }
+    },
+    "OrderServiceOrderCouponlistPostRequest": {
+      "type": "object",
+      "title": "empty object",
+      "properties": {
+        "orderId": {
+          "type": "string"
+        }
+      }
+    },
+    "OrderServiceOrderDiscountlistPostRequest": {
+      "type": "object",
+      "title": "empty object",
+      "properties": {
+        "orderId": {
+          "type": "string"
+        },
+        "discountCode": {
+          "type": "string"
+        }
+      }
+    },
+    "OrderServiceOrderAvailableCouponPostRequest": {
+      "type": "object",
+      "properties": {
+        "skuList": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "skuCode": {
+                "type": "string"
+              },
+              "quantity": {
+                "type": "number"
+              }
+            }
+          }
+        }
+      }
+    },
+    "OrderServiceOrderCoupontitlePostRequest": {
+      "type": "object",
+      "properties": {
+        "skuList": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "skuCode": {
+                "type": "string"
+              },
+              "quantity": {
+                "type": "number"
+              }
+            }
+          }
+        }
+      }
+    },
+    "OrderServiceOrderReviewPostRequest": {
+      "type": "object",
+      "properties": {
+        "itemReviewList": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "skuCode": {
+                "type": "string"
+              },
+              "comment": {
+                "type": "number"
+              },
+              "score": {
+                "type": "string"
+              },
+              "images": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "extraComment": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "orderId": {
+          "type": "string"
+        }
+      }
+    },
+    "OrderServiceCartAddPostRequest": {
+      "type": "object",
+      "title": "empty object",
+      "properties": {
+        "skuCode": {
+          "type": "string"
+        },
+        "quantity": {
+          "type": "string"
+        },
+        "inviteCode": {
+          "type": "string"
+        },
+        "remark": {
+          "type": "string"
+        },
+        "sourceDetail": {
+          "type": "string"
+        }
+      }
+    },
+    "OrderServiceCartListGetRequest": {
+      "type": "object",
+      "properties": {
+        "skuList": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "skuCode": {
+                "type": "string"
+              },
+              "quantity": {
+                "type": "string",
+                "description": "数量"
+              },
+              "token": {
+                "type": "string",
+                "description": "换购token"
+              },
+              "groupType": {
+                "type": "string",
+                "description": "命中的活动，换购活动：\"discount_additional\"，3元3件：”quantity_discount“"
+              }
+            }
+          },
+          "description": "sku列表"
+        }
+      },
+      "description": "sku列表"
+    },
+    "OrderServiceCartUpdatePostRequest": {
+      "type": "object",
+      "title": "empty object",
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "type: delete, update,clear, add, "
+        },
+        "cart": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "skuCode": {
+                "type": "string"
+              },
+              "quantity": {
+                "type": "number",
+                "description": " 数量"
+              },
+              "orderUpdate": {
+                "type": "string",
+                "description": "是否更新排序。1是，0不是"
+              },
+              "remark": {
+                "type": "string"
+              }
+            }
+          }
+        }
+      }
+    },
+    "OrderServiceCartSettlementPostRequest": {
+      "type": "object",
+      "title": "empty object",
+      "properties": {
+        "skuList": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "skuCode": {
+                "type": "string"
+              },
+              "quantity": {
+                "type": "number",
+                "description": "数量"
+              },
+              "price": {
+                "type": "string",
+                "description": "当前价格"
+              }
+            }
+          }
+        }
+      }
+    },
+    "OrderServiceCartPricingPostRequest": {
+      "type": "object",
+      "title": "empty object",
+      "properties": {
+        "skuList": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "skuCode": {
+                "type": "string"
+              },
+              "quantity": {
+                "type": "number"
+              },
+              "price": {
+                "type": "number"
+              }
+            }
+          }
+        },
+        "userCouponCode": {
+          "type": "string",
+          "description": "优惠券code"
+        }
+      }
+    },
+    "OrderServiceCartNoAuthPricingPostRequest": {
+      "type": "object",
+      "title": "empty object",
+      "properties": {
+        "skuList": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "skuCode": {
+                "type": "string"
+              },
+              "quantity": {
+                "type": "number"
+              },
+              "price": {
+                "type": "number"
+              }
+            }
+          }
+        },
+        "userCouponCode": {
+          "type": "string",
+          "description": "优惠券code"
         }
       }
     }

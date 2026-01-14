@@ -54,7 +54,13 @@ abstract class SwaggerApiOrder extends ChopperService {
   ///取消订单
   ///@param root
   Future<chopper.Response<OrderServiceOrderAppCancelPost$Response>>
-  orderServiceOrderAppCancelPost({Object? root}) {
+  orderServiceOrderAppCancelPost({
+    OrderServiceOrderAppCancelPostRequest? root,
+  }) {
+    generatedMapping.putIfAbsent(
+      OrderServiceOrderAppCancelPostRequest,
+      () => OrderServiceOrderAppCancelPostRequest.fromJsonFactory,
+    );
     generatedMapping.putIfAbsent(
       OrderServiceOrderAppCancelPost$Response,
       () => OrderServiceOrderAppCancelPost$Response.fromJsonFactory,
@@ -68,7 +74,7 @@ abstract class SwaggerApiOrder extends ChopperService {
   @POST(path: '/order-service/order/app/cancel')
   Future<chopper.Response<OrderServiceOrderAppCancelPost$Response>>
   _orderServiceOrderAppCancelPost({
-    @Body() Object? root,
+    @Body() OrderServiceOrderAppCancelPostRequest? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -86,7 +92,14 @@ abstract class SwaggerApiOrder extends ChopperService {
   ///@param orderId
   ///@param root
   Future<chopper.Response<OrderServiceOrderAppBatchInfosGet$Response>>
-  orderServiceOrderAppBatchInfosGet({required String? orderId, Object? root}) {
+  orderServiceOrderAppBatchInfosGet({
+    required String? orderId,
+    OrderServiceOrderAppBatchinfosGetRequest? root,
+  }) {
+    generatedMapping.putIfAbsent(
+      OrderServiceOrderAppBatchinfosGetRequest,
+      () => OrderServiceOrderAppBatchinfosGetRequest.fromJsonFactory,
+    );
     generatedMapping.putIfAbsent(
       OrderServiceOrderAppBatchInfosGet$Response,
       () => OrderServiceOrderAppBatchInfosGet$Response.fromJsonFactory,
@@ -102,7 +115,7 @@ abstract class SwaggerApiOrder extends ChopperService {
   Future<chopper.Response<OrderServiceOrderAppBatchInfosGet$Response>>
   _orderServiceOrderAppBatchInfosGet({
     @Query('orderId') required String? orderId,
-    @Body() Object? root,
+    @Body() OrderServiceOrderAppBatchinfosGetRequest? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -119,7 +132,13 @@ abstract class SwaggerApiOrder extends ChopperService {
   ///提交订单
   ///@param root
   Future<chopper.Response<OrderServiceOrderAppSubmitPost$Response>>
-  orderServiceOrderAppSubmitPost({Object? root}) {
+  orderServiceOrderAppSubmitPost({
+    OrderServiceOrderAppSubmitPostRequest? root,
+  }) {
+    generatedMapping.putIfAbsent(
+      OrderServiceOrderAppSubmitPostRequest,
+      () => OrderServiceOrderAppSubmitPostRequest.fromJsonFactory,
+    );
     generatedMapping.putIfAbsent(
       OrderServiceOrderAppSubmitPost$Response,
       () => OrderServiceOrderAppSubmitPost$Response.fromJsonFactory,
@@ -133,7 +152,7 @@ abstract class SwaggerApiOrder extends ChopperService {
   @POST(path: '/order-service/order/app/submit')
   Future<chopper.Response<OrderServiceOrderAppSubmitPost$Response>>
   _orderServiceOrderAppSubmitPost({
-    @Body() Object? root,
+    @Body() OrderServiceOrderAppSubmitPostRequest? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -150,7 +169,13 @@ abstract class SwaggerApiOrder extends ChopperService {
   ///更新订单
   ///@param root
   Future<chopper.Response<OrderServiceOrderAppUpdatePost$Response>>
-  orderServiceOrderAppUpdatePost({Object? root}) {
+  orderServiceOrderAppUpdatePost({
+    OrderServiceOrderAppUpdatePostRequest? root,
+  }) {
+    generatedMapping.putIfAbsent(
+      OrderServiceOrderAppUpdatePostRequest,
+      () => OrderServiceOrderAppUpdatePostRequest.fromJsonFactory,
+    );
     generatedMapping.putIfAbsent(
       OrderServiceOrderAppUpdatePost$Response,
       () => OrderServiceOrderAppUpdatePost$Response.fromJsonFactory,
@@ -164,7 +189,7 @@ abstract class SwaggerApiOrder extends ChopperService {
   @POST(path: '/order-service/order/app/update')
   Future<chopper.Response<OrderServiceOrderAppUpdatePost$Response>>
   _orderServiceOrderAppUpdatePost({
-    @Body() Object? root,
+    @Body() OrderServiceOrderAppUpdatePostRequest? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -314,7 +339,11 @@ abstract class SwaggerApiOrder extends ChopperService {
   ///取消订单
   ///@param root
   Future<chopper.Response<OrderServiceOrderCancelPost$Response>>
-  orderServiceOrderCancelPost({Object? root}) {
+  orderServiceOrderCancelPost({OrderServiceOrderCancelPostRequest? root}) {
+    generatedMapping.putIfAbsent(
+      OrderServiceOrderCancelPostRequest,
+      () => OrderServiceOrderCancelPostRequest.fromJsonFactory,
+    );
     generatedMapping.putIfAbsent(
       OrderServiceOrderCancelPost$Response,
       () => OrderServiceOrderCancelPost$Response.fromJsonFactory,
@@ -328,7 +357,7 @@ abstract class SwaggerApiOrder extends ChopperService {
   @POST(path: '/order-service/order/cancel')
   Future<chopper.Response<OrderServiceOrderCancelPost$Response>>
   _orderServiceOrderCancelPost({
-    @Body() Object? root,
+    @Body() OrderServiceOrderCancelPostRequest? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -345,7 +374,11 @@ abstract class SwaggerApiOrder extends ChopperService {
   ///提交订单
   ///@param root
   Future<chopper.Response<OrderServiceOrderSubmitPost$Response>>
-  orderServiceOrderSubmitPost({Object? root}) {
+  orderServiceOrderSubmitPost({OrderServiceOrderSubmitPostRequest? root}) {
+    generatedMapping.putIfAbsent(
+      OrderServiceOrderSubmitPostRequest,
+      () => OrderServiceOrderSubmitPostRequest.fromJsonFactory,
+    );
     generatedMapping.putIfAbsent(
       OrderServiceOrderSubmitPost$Response,
       () => OrderServiceOrderSubmitPost$Response.fromJsonFactory,
@@ -359,7 +392,7 @@ abstract class SwaggerApiOrder extends ChopperService {
   @POST(path: '/order-service/order/submit')
   Future<chopper.Response<OrderServiceOrderSubmitPost$Response>>
   _orderServiceOrderSubmitPost({
-    @Body() Object? root,
+    @Body() OrderServiceOrderSubmitPostRequest? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -376,7 +409,11 @@ abstract class SwaggerApiOrder extends ChopperService {
   ///更新订单
   ///@param root
   Future<chopper.Response<OrderServiceOrderUpdatePost$Response>>
-  orderServiceOrderUpdatePost({Object? root}) {
+  orderServiceOrderUpdatePost({OrderServiceOrderUpdatePostRequest? root}) {
+    generatedMapping.putIfAbsent(
+      OrderServiceOrderUpdatePostRequest,
+      () => OrderServiceOrderUpdatePostRequest.fromJsonFactory,
+    );
     generatedMapping.putIfAbsent(
       OrderServiceOrderUpdatePost$Response,
       () => OrderServiceOrderUpdatePost$Response.fromJsonFactory,
@@ -390,7 +427,7 @@ abstract class SwaggerApiOrder extends ChopperService {
   @POST(path: '/order-service/order/update')
   Future<chopper.Response<OrderServiceOrderUpdatePost$Response>>
   _orderServiceOrderUpdatePost({
-    @Body() Object? root,
+    @Body() OrderServiceOrderUpdatePostRequest? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -407,7 +444,11 @@ abstract class SwaggerApiOrder extends ChopperService {
   ///订单确认(暂时没有)
   ///@param root
   Future<chopper.Response<OrderServiceOrderConfirmPost$Response>>
-  orderServiceOrderConfirmPost({Object? root}) {
+  orderServiceOrderConfirmPost({OrderServiceOrderConfirmPostRequest? root}) {
+    generatedMapping.putIfAbsent(
+      OrderServiceOrderConfirmPostRequest,
+      () => OrderServiceOrderConfirmPostRequest.fromJsonFactory,
+    );
     generatedMapping.putIfAbsent(
       OrderServiceOrderConfirmPost$Response,
       () => OrderServiceOrderConfirmPost$Response.fromJsonFactory,
@@ -421,7 +462,7 @@ abstract class SwaggerApiOrder extends ChopperService {
   @POST(path: '/order-service/order/confirm')
   Future<chopper.Response<OrderServiceOrderConfirmPost$Response>>
   _orderServiceOrderConfirmPost({
-    @Body() Object? root,
+    @Body() OrderServiceOrderConfirmPostRequest? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -438,7 +479,13 @@ abstract class SwaggerApiOrder extends ChopperService {
   ///订单结算支付
   ///@param root
   Future<chopper.Response<OrderServiceOrderSettlementPost$Response>>
-  orderServiceOrderSettlementPost({Object? root}) {
+  orderServiceOrderSettlementPost({
+    OrderServiceOrderSettlementPostRequest? root,
+  }) {
+    generatedMapping.putIfAbsent(
+      OrderServiceOrderSettlementPostRequest,
+      () => OrderServiceOrderSettlementPostRequest.fromJsonFactory,
+    );
     generatedMapping.putIfAbsent(
       OrderServiceOrderSettlementPost$Response,
       () => OrderServiceOrderSettlementPost$Response.fromJsonFactory,
@@ -452,7 +499,7 @@ abstract class SwaggerApiOrder extends ChopperService {
   @POST(path: '/order-service/order/settlement')
   Future<chopper.Response<OrderServiceOrderSettlementPost$Response>>
   _orderServiceOrderSettlementPost({
-    @Body() Object? root,
+    @Body() OrderServiceOrderSettlementPostRequest? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -469,7 +516,11 @@ abstract class SwaggerApiOrder extends ChopperService {
   ///订单金额校验
   ///@param root
   Future<chopper.Response<OrderServiceOrderPricingPost$Response>>
-  orderServiceOrderPricingPost({Object? root}) {
+  orderServiceOrderPricingPost({OrderServiceOrderPricingPostRequest? root}) {
+    generatedMapping.putIfAbsent(
+      OrderServiceOrderPricingPostRequest,
+      () => OrderServiceOrderPricingPostRequest.fromJsonFactory,
+    );
     generatedMapping.putIfAbsent(
       OrderServiceOrderPricingPost$Response,
       () => OrderServiceOrderPricingPost$Response.fromJsonFactory,
@@ -483,7 +534,7 @@ abstract class SwaggerApiOrder extends ChopperService {
   @POST(path: '/order-service/order/pricing')
   Future<chopper.Response<OrderServiceOrderPricingPost$Response>>
   _orderServiceOrderPricingPost({
-    @Body() Object? root,
+    @Body() OrderServiceOrderPricingPostRequest? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -500,8 +551,13 @@ abstract class SwaggerApiOrder extends ChopperService {
   ///生成逆向单
   ///@param root
   Future<chopper.Response<Object>> orderServiceAftersaleOrderSubmitPost({
-    Object? root,
+    OrderServiceAftersaleOrderSubmitPostRequest? root,
   }) {
+    generatedMapping.putIfAbsent(
+      OrderServiceAftersaleOrderSubmitPostRequest,
+      () => OrderServiceAftersaleOrderSubmitPostRequest.fromJsonFactory,
+    );
+
     return _orderServiceAftersaleOrderSubmitPost(root: root);
   }
 
@@ -509,7 +565,7 @@ abstract class SwaggerApiOrder extends ChopperService {
   ///@param root
   @POST(path: '/order-service/aftersale/order/submit')
   Future<chopper.Response<Object>> _orderServiceAftersaleOrderSubmitPost({
-    @Body() Object? root,
+    @Body() OrderServiceAftersaleOrderSubmitPostRequest? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -650,7 +706,13 @@ abstract class SwaggerApiOrder extends ChopperService {
   ///优惠券列表
   ///@param root
   Future<chopper.Response<OrderServiceOrderCouponListPost$Response>>
-  orderServiceOrderCouponListPost({Object? root}) {
+  orderServiceOrderCouponListPost({
+    OrderServiceOrderCouponlistPostRequest? root,
+  }) {
+    generatedMapping.putIfAbsent(
+      OrderServiceOrderCouponlistPostRequest,
+      () => OrderServiceOrderCouponlistPostRequest.fromJsonFactory,
+    );
     generatedMapping.putIfAbsent(
       OrderServiceOrderCouponListPost$Response,
       () => OrderServiceOrderCouponListPost$Response.fromJsonFactory,
@@ -664,7 +726,7 @@ abstract class SwaggerApiOrder extends ChopperService {
   @POST(path: '/order-service/order/couponList')
   Future<chopper.Response<OrderServiceOrderCouponListPost$Response>>
   _orderServiceOrderCouponListPost({
-    @Body() Object? root,
+    @Body() OrderServiceOrderCouponlistPostRequest? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -681,7 +743,13 @@ abstract class SwaggerApiOrder extends ChopperService {
   ///兑换折扣码
   ///@param root
   Future<chopper.Response<OrderServiceOrderDiscountListPost$Response>>
-  orderServiceOrderDiscountListPost({Object? root}) {
+  orderServiceOrderDiscountListPost({
+    OrderServiceOrderDiscountlistPostRequest? root,
+  }) {
+    generatedMapping.putIfAbsent(
+      OrderServiceOrderDiscountlistPostRequest,
+      () => OrderServiceOrderDiscountlistPostRequest.fromJsonFactory,
+    );
     generatedMapping.putIfAbsent(
       OrderServiceOrderDiscountListPost$Response,
       () => OrderServiceOrderDiscountListPost$Response.fromJsonFactory,
@@ -695,7 +763,7 @@ abstract class SwaggerApiOrder extends ChopperService {
   @POST(path: '/order-service/order/discountList')
   Future<chopper.Response<OrderServiceOrderDiscountListPost$Response>>
   _orderServiceOrderDiscountListPost({
-    @Body() Object? root,
+    @Body() OrderServiceOrderDiscountlistPostRequest? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -712,7 +780,13 @@ abstract class SwaggerApiOrder extends ChopperService {
   ///可用优惠券
   ///@param root
   Future<chopper.Response<OrderServiceOrderAvailableCouponPost$Response>>
-  orderServiceOrderAvailableCouponPost({Object? root}) {
+  orderServiceOrderAvailableCouponPost({
+    OrderServiceOrderAvailableCouponPostRequest? root,
+  }) {
+    generatedMapping.putIfAbsent(
+      OrderServiceOrderAvailableCouponPostRequest,
+      () => OrderServiceOrderAvailableCouponPostRequest.fromJsonFactory,
+    );
     generatedMapping.putIfAbsent(
       OrderServiceOrderAvailableCouponPost$Response,
       () => OrderServiceOrderAvailableCouponPost$Response.fromJsonFactory,
@@ -726,7 +800,7 @@ abstract class SwaggerApiOrder extends ChopperService {
   @POST(path: '/order-service/order/available/coupon')
   Future<chopper.Response<OrderServiceOrderAvailableCouponPost$Response>>
   _orderServiceOrderAvailableCouponPost({
-    @Body() Object? root,
+    @Body() OrderServiceOrderAvailableCouponPostRequest? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -743,7 +817,13 @@ abstract class SwaggerApiOrder extends ChopperService {
   ///可用优惠券提示
   ///@param root
   Future<chopper.Response<OrderServiceOrderCouponTitlePost$Response>>
-  orderServiceOrderCouponTitlePost({Object? root}) {
+  orderServiceOrderCouponTitlePost({
+    OrderServiceOrderCoupontitlePostRequest? root,
+  }) {
+    generatedMapping.putIfAbsent(
+      OrderServiceOrderCoupontitlePostRequest,
+      () => OrderServiceOrderCoupontitlePostRequest.fromJsonFactory,
+    );
     generatedMapping.putIfAbsent(
       OrderServiceOrderCouponTitlePost$Response,
       () => OrderServiceOrderCouponTitlePost$Response.fromJsonFactory,
@@ -757,7 +837,7 @@ abstract class SwaggerApiOrder extends ChopperService {
   @POST(path: '/order-service/order/couponTitle')
   Future<chopper.Response<OrderServiceOrderCouponTitlePost$Response>>
   _orderServiceOrderCouponTitlePost({
-    @Body() Object? root,
+    @Body() OrderServiceOrderCoupontitlePostRequest? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -994,7 +1074,11 @@ abstract class SwaggerApiOrder extends ChopperService {
   ///订单评论提交
   ///@param root
   Future<chopper.Response<OrderServiceOrderReviewPost$Response>>
-  orderServiceOrderReviewPost({Object? root}) {
+  orderServiceOrderReviewPost({OrderServiceOrderReviewPostRequest? root}) {
+    generatedMapping.putIfAbsent(
+      OrderServiceOrderReviewPostRequest,
+      () => OrderServiceOrderReviewPostRequest.fromJsonFactory,
+    );
     generatedMapping.putIfAbsent(
       OrderServiceOrderReviewPost$Response,
       () => OrderServiceOrderReviewPost$Response.fromJsonFactory,
@@ -1008,7 +1092,7 @@ abstract class SwaggerApiOrder extends ChopperService {
   @POST(path: '/order-service/order/review')
   Future<chopper.Response<OrderServiceOrderReviewPost$Response>>
   _orderServiceOrderReviewPost({
-    @Body() Object? root,
+    @Body() OrderServiceOrderReviewPostRequest? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -1157,7 +1241,14 @@ abstract class SwaggerApiOrder extends ChopperService {
 
   ///加入购物车
   ///@param root
-  Future<chopper.Response<Object>> orderServiceCartAddPost({Object? root}) {
+  Future<chopper.Response<Object>> orderServiceCartAddPost({
+    OrderServiceCartAddPostRequest? root,
+  }) {
+    generatedMapping.putIfAbsent(
+      OrderServiceCartAddPostRequest,
+      () => OrderServiceCartAddPostRequest.fromJsonFactory,
+    );
+
     return _orderServiceCartAddPost(root: root);
   }
 
@@ -1165,7 +1256,7 @@ abstract class SwaggerApiOrder extends ChopperService {
   ///@param root
   @POST(path: '/order-service/cart/add')
   Future<chopper.Response<Object>> _orderServiceCartAddPost({
-    @Body() Object? root,
+    @Body() OrderServiceCartAddPostRequest? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -1182,7 +1273,11 @@ abstract class SwaggerApiOrder extends ChopperService {
   ///购物车列表
   ///@param root sku列表
   Future<chopper.Response<OrderServiceCartListGet$Response>>
-  orderServiceCartListGet({Object? root}) {
+  orderServiceCartListGet({OrderServiceCartListGetRequest? root}) {
+    generatedMapping.putIfAbsent(
+      OrderServiceCartListGetRequest,
+      () => OrderServiceCartListGetRequest.fromJsonFactory,
+    );
     generatedMapping.putIfAbsent(
       OrderServiceCartListGet$Response,
       () => OrderServiceCartListGet$Response.fromJsonFactory,
@@ -1196,7 +1291,7 @@ abstract class SwaggerApiOrder extends ChopperService {
   @GET(path: '/order-service/cart/list')
   Future<chopper.Response<OrderServiceCartListGet$Response>>
   _orderServiceCartListGet({
-    @Body() Object? root,
+    @Body() OrderServiceCartListGetRequest? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -1212,7 +1307,14 @@ abstract class SwaggerApiOrder extends ChopperService {
 
   ///购物车更新
   ///@param root
-  Future<chopper.Response<Object>> orderServiceCartUpdatePost({Object? root}) {
+  Future<chopper.Response<Object>> orderServiceCartUpdatePost({
+    OrderServiceCartUpdatePostRequest? root,
+  }) {
+    generatedMapping.putIfAbsent(
+      OrderServiceCartUpdatePostRequest,
+      () => OrderServiceCartUpdatePostRequest.fromJsonFactory,
+    );
+
     return _orderServiceCartUpdatePost(root: root);
   }
 
@@ -1220,7 +1322,7 @@ abstract class SwaggerApiOrder extends ChopperService {
   ///@param root
   @POST(path: '/order-service/cart/update')
   Future<chopper.Response<Object>> _orderServiceCartUpdatePost({
-    @Body() Object? root,
+    @Body() OrderServiceCartUpdatePostRequest? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -1237,7 +1339,13 @@ abstract class SwaggerApiOrder extends ChopperService {
   ///购物车结算
   ///@param root
   Future<chopper.Response<OrderServiceCartSettlementPost$Response>>
-  orderServiceCartSettlementPost({Object? root}) {
+  orderServiceCartSettlementPost({
+    OrderServiceCartSettlementPostRequest? root,
+  }) {
+    generatedMapping.putIfAbsent(
+      OrderServiceCartSettlementPostRequest,
+      () => OrderServiceCartSettlementPostRequest.fromJsonFactory,
+    );
     generatedMapping.putIfAbsent(
       OrderServiceCartSettlementPost$Response,
       () => OrderServiceCartSettlementPost$Response.fromJsonFactory,
@@ -1251,7 +1359,7 @@ abstract class SwaggerApiOrder extends ChopperService {
   @POST(path: '/order-service/cart/settlement')
   Future<chopper.Response<OrderServiceCartSettlementPost$Response>>
   _orderServiceCartSettlementPost({
-    @Body() Object? root,
+    @Body() OrderServiceCartSettlementPostRequest? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -1268,7 +1376,11 @@ abstract class SwaggerApiOrder extends ChopperService {
   ///购物车金额
   ///@param root
   Future<chopper.Response<OrderServiceCartPricingPost$Response>>
-  orderServiceCartPricingPost({Object? root}) {
+  orderServiceCartPricingPost({OrderServiceCartPricingPostRequest? root}) {
+    generatedMapping.putIfAbsent(
+      OrderServiceCartPricingPostRequest,
+      () => OrderServiceCartPricingPostRequest.fromJsonFactory,
+    );
     generatedMapping.putIfAbsent(
       OrderServiceCartPricingPost$Response,
       () => OrderServiceCartPricingPost$Response.fromJsonFactory,
@@ -1282,7 +1394,7 @@ abstract class SwaggerApiOrder extends ChopperService {
   @POST(path: '/order-service/cart/pricing')
   Future<chopper.Response<OrderServiceCartPricingPost$Response>>
   _orderServiceCartPricingPost({
-    @Body() Object? root,
+    @Body() OrderServiceCartPricingPostRequest? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -1299,7 +1411,13 @@ abstract class SwaggerApiOrder extends ChopperService {
   ///购物车金额_非验权
   ///@param root
   Future<chopper.Response<OrderServiceCartNoAuthPricingPost$Response>>
-  orderServiceCartNoAuthPricingPost({Object? root}) {
+  orderServiceCartNoAuthPricingPost({
+    OrderServiceCartNoAuthPricingPostRequest? root,
+  }) {
+    generatedMapping.putIfAbsent(
+      OrderServiceCartNoAuthPricingPostRequest,
+      () => OrderServiceCartNoAuthPricingPostRequest.fromJsonFactory,
+    );
     generatedMapping.putIfAbsent(
       OrderServiceCartNoAuthPricingPost$Response,
       () => OrderServiceCartNoAuthPricingPost$Response.fromJsonFactory,
@@ -1313,7 +1431,7 @@ abstract class SwaggerApiOrder extends ChopperService {
   @POST(path: '/order-service/cart/no-auth/pricing')
   Future<chopper.Response<OrderServiceCartNoAuthPricingPost$Response>>
   _orderServiceCartNoAuthPricingPost({
-    @Body() Object? root,
+    @Body() OrderServiceCartNoAuthPricingPostRequest? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -1326,6 +1444,2339 @@ abstract class SwaggerApiOrder extends ChopperService {
       deprecated: false,
     ),
   });
+}
+
+@JsonSerializable(explicitToJson: true)
+class OrderServiceOrderAppCancelPostRequest {
+  const OrderServiceOrderAppCancelPostRequest({this.orderId});
+
+  factory OrderServiceOrderAppCancelPostRequest.fromJson(
+    Map<String, dynamic> json,
+  ) => _$OrderServiceOrderAppCancelPostRequestFromJson(json);
+
+  static const toJsonFactory = _$OrderServiceOrderAppCancelPostRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$OrderServiceOrderAppCancelPostRequestToJson(this);
+
+  @JsonKey(name: 'orderId', fromJson: JsonCoerce.asString)
+  final String? orderId;
+  static const fromJsonFactory =
+      _$OrderServiceOrderAppCancelPostRequestFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is OrderServiceOrderAppCancelPostRequest &&
+            (identical(other.orderId, orderId) ||
+                const DeepCollectionEquality().equals(other.orderId, orderId)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(orderId) ^ runtimeType.hashCode;
+}
+
+extension $OrderServiceOrderAppCancelPostRequestExtension
+    on OrderServiceOrderAppCancelPostRequest {
+  OrderServiceOrderAppCancelPostRequest copyWith({String? orderId}) {
+    return OrderServiceOrderAppCancelPostRequest(
+      orderId: orderId ?? this.orderId,
+    );
+  }
+
+  OrderServiceOrderAppCancelPostRequest copyWithWrapped({
+    Wrapped<String?>? orderId,
+  }) {
+    return OrderServiceOrderAppCancelPostRequest(
+      orderId: (orderId != null ? orderId.value : this.orderId),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class OrderServiceOrderAppBatchinfosGetRequest {
+  const OrderServiceOrderAppBatchinfosGetRequest({
+    this.orderId,
+    this.userAddressId,
+    this.userAddress,
+    this.addBatch,
+    this.paySubmit,
+    this.payFreight,
+    this.submitAnyWay,
+    this.userCouponCode,
+    this.userDiscountCode,
+    this.removePackage,
+    this.remark,
+    this.giveawayGift,
+    this.sourceItems,
+    this.itemList,
+  });
+
+  factory OrderServiceOrderAppBatchinfosGetRequest.fromJson(
+    Map<String, dynamic> json,
+  ) => _$OrderServiceOrderAppBatchinfosGetRequestFromJson(json);
+
+  static const toJsonFactory = _$OrderServiceOrderAppBatchinfosGetRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$OrderServiceOrderAppBatchinfosGetRequestToJson(this);
+
+  @JsonKey(name: 'orderId', fromJson: JsonCoerce.asString)
+  final String? orderId;
+  @JsonKey(name: 'userAddressId', fromJson: JsonCoerce.asDouble)
+  final double? userAddressId;
+  @JsonKey(name: 'userAddress')
+  final OrderServiceOrderAppBatchinfosGetRequest$UserAddress? userAddress;
+  @JsonKey(name: 'addBatch', fromJson: JsonCoerce.asBool)
+  final bool? addBatch;
+  @JsonKey(name: 'paySubmit', fromJson: JsonCoerce.asBool)
+  final bool? paySubmit;
+  @JsonKey(name: 'payFreight', fromJson: JsonCoerce.asBool)
+  final bool? payFreight;
+  @JsonKey(name: 'submitAnyWay', fromJson: JsonCoerce.asBool)
+  final bool? submitAnyWay;
+  @JsonKey(name: 'userCouponCode', fromJson: JsonCoerce.asString)
+  final String? userCouponCode;
+  @JsonKey(name: 'userDiscountCode', fromJson: JsonCoerce.asString)
+  final String? userDiscountCode;
+  @JsonKey(name: 'removePackage', fromJson: JsonCoerce.asBool)
+  final bool? removePackage;
+  @JsonKey(name: 'remark', fromJson: JsonCoerce.asString)
+  final String? remark;
+  @JsonKey(name: 'giveawayGift', fromJson: JsonCoerce.asInt)
+  final int? giveawayGift;
+  @JsonKey(name: 'sourceItems')
+  final List<OrderServiceOrderAppBatchinfosGetRequest$SourceItems$Item>?
+  sourceItems;
+  @JsonKey(name: 'itemList')
+  final List<OrderServiceOrderAppBatchinfosGetRequest$ItemList$Item>? itemList;
+  static const fromJsonFactory =
+      _$OrderServiceOrderAppBatchinfosGetRequestFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is OrderServiceOrderAppBatchinfosGetRequest &&
+            (identical(other.orderId, orderId) ||
+                const DeepCollectionEquality().equals(
+                  other.orderId,
+                  orderId,
+                )) &&
+            (identical(other.userAddressId, userAddressId) ||
+                const DeepCollectionEquality().equals(
+                  other.userAddressId,
+                  userAddressId,
+                )) &&
+            (identical(other.userAddress, userAddress) ||
+                const DeepCollectionEquality().equals(
+                  other.userAddress,
+                  userAddress,
+                )) &&
+            (identical(other.addBatch, addBatch) ||
+                const DeepCollectionEquality().equals(
+                  other.addBatch,
+                  addBatch,
+                )) &&
+            (identical(other.paySubmit, paySubmit) ||
+                const DeepCollectionEquality().equals(
+                  other.paySubmit,
+                  paySubmit,
+                )) &&
+            (identical(other.payFreight, payFreight) ||
+                const DeepCollectionEquality().equals(
+                  other.payFreight,
+                  payFreight,
+                )) &&
+            (identical(other.submitAnyWay, submitAnyWay) ||
+                const DeepCollectionEquality().equals(
+                  other.submitAnyWay,
+                  submitAnyWay,
+                )) &&
+            (identical(other.userCouponCode, userCouponCode) ||
+                const DeepCollectionEquality().equals(
+                  other.userCouponCode,
+                  userCouponCode,
+                )) &&
+            (identical(other.userDiscountCode, userDiscountCode) ||
+                const DeepCollectionEquality().equals(
+                  other.userDiscountCode,
+                  userDiscountCode,
+                )) &&
+            (identical(other.removePackage, removePackage) ||
+                const DeepCollectionEquality().equals(
+                  other.removePackage,
+                  removePackage,
+                )) &&
+            (identical(other.remark, remark) ||
+                const DeepCollectionEquality().equals(other.remark, remark)) &&
+            (identical(other.giveawayGift, giveawayGift) ||
+                const DeepCollectionEquality().equals(
+                  other.giveawayGift,
+                  giveawayGift,
+                )) &&
+            (identical(other.sourceItems, sourceItems) ||
+                const DeepCollectionEquality().equals(
+                  other.sourceItems,
+                  sourceItems,
+                )) &&
+            (identical(other.itemList, itemList) ||
+                const DeepCollectionEquality().equals(
+                  other.itemList,
+                  itemList,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(orderId) ^
+      const DeepCollectionEquality().hash(userAddressId) ^
+      const DeepCollectionEquality().hash(userAddress) ^
+      const DeepCollectionEquality().hash(addBatch) ^
+      const DeepCollectionEquality().hash(paySubmit) ^
+      const DeepCollectionEquality().hash(payFreight) ^
+      const DeepCollectionEquality().hash(submitAnyWay) ^
+      const DeepCollectionEquality().hash(userCouponCode) ^
+      const DeepCollectionEquality().hash(userDiscountCode) ^
+      const DeepCollectionEquality().hash(removePackage) ^
+      const DeepCollectionEquality().hash(remark) ^
+      const DeepCollectionEquality().hash(giveawayGift) ^
+      const DeepCollectionEquality().hash(sourceItems) ^
+      const DeepCollectionEquality().hash(itemList) ^
+      runtimeType.hashCode;
+}
+
+extension $OrderServiceOrderAppBatchinfosGetRequestExtension
+    on OrderServiceOrderAppBatchinfosGetRequest {
+  OrderServiceOrderAppBatchinfosGetRequest copyWith({
+    String? orderId,
+    double? userAddressId,
+    OrderServiceOrderAppBatchinfosGetRequest$UserAddress? userAddress,
+    bool? addBatch,
+    bool? paySubmit,
+    bool? payFreight,
+    bool? submitAnyWay,
+    String? userCouponCode,
+    String? userDiscountCode,
+    bool? removePackage,
+    String? remark,
+    int? giveawayGift,
+    List<OrderServiceOrderAppBatchinfosGetRequest$SourceItems$Item>?
+    sourceItems,
+    List<OrderServiceOrderAppBatchinfosGetRequest$ItemList$Item>? itemList,
+  }) {
+    return OrderServiceOrderAppBatchinfosGetRequest(
+      orderId: orderId ?? this.orderId,
+      userAddressId: userAddressId ?? this.userAddressId,
+      userAddress: userAddress ?? this.userAddress,
+      addBatch: addBatch ?? this.addBatch,
+      paySubmit: paySubmit ?? this.paySubmit,
+      payFreight: payFreight ?? this.payFreight,
+      submitAnyWay: submitAnyWay ?? this.submitAnyWay,
+      userCouponCode: userCouponCode ?? this.userCouponCode,
+      userDiscountCode: userDiscountCode ?? this.userDiscountCode,
+      removePackage: removePackage ?? this.removePackage,
+      remark: remark ?? this.remark,
+      giveawayGift: giveawayGift ?? this.giveawayGift,
+      sourceItems: sourceItems ?? this.sourceItems,
+      itemList: itemList ?? this.itemList,
+    );
+  }
+
+  OrderServiceOrderAppBatchinfosGetRequest copyWithWrapped({
+    Wrapped<String?>? orderId,
+    Wrapped<double?>? userAddressId,
+    Wrapped<OrderServiceOrderAppBatchinfosGetRequest$UserAddress?>? userAddress,
+    Wrapped<bool?>? addBatch,
+    Wrapped<bool?>? paySubmit,
+    Wrapped<bool?>? payFreight,
+    Wrapped<bool?>? submitAnyWay,
+    Wrapped<String?>? userCouponCode,
+    Wrapped<String?>? userDiscountCode,
+    Wrapped<bool?>? removePackage,
+    Wrapped<String?>? remark,
+    Wrapped<int?>? giveawayGift,
+    Wrapped<List<OrderServiceOrderAppBatchinfosGetRequest$SourceItems$Item>?>?
+    sourceItems,
+    Wrapped<List<OrderServiceOrderAppBatchinfosGetRequest$ItemList$Item>?>?
+    itemList,
+  }) {
+    return OrderServiceOrderAppBatchinfosGetRequest(
+      orderId: (orderId != null ? orderId.value : this.orderId),
+      userAddressId: (userAddressId != null
+          ? userAddressId.value
+          : this.userAddressId),
+      userAddress: (userAddress != null ? userAddress.value : this.userAddress),
+      addBatch: (addBatch != null ? addBatch.value : this.addBatch),
+      paySubmit: (paySubmit != null ? paySubmit.value : this.paySubmit),
+      payFreight: (payFreight != null ? payFreight.value : this.payFreight),
+      submitAnyWay: (submitAnyWay != null
+          ? submitAnyWay.value
+          : this.submitAnyWay),
+      userCouponCode: (userCouponCode != null
+          ? userCouponCode.value
+          : this.userCouponCode),
+      userDiscountCode: (userDiscountCode != null
+          ? userDiscountCode.value
+          : this.userDiscountCode),
+      removePackage: (removePackage != null
+          ? removePackage.value
+          : this.removePackage),
+      remark: (remark != null ? remark.value : this.remark),
+      giveawayGift: (giveawayGift != null
+          ? giveawayGift.value
+          : this.giveawayGift),
+      sourceItems: (sourceItems != null ? sourceItems.value : this.sourceItems),
+      itemList: (itemList != null ? itemList.value : this.itemList),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class OrderServiceOrderAppSubmitPostRequest {
+  const OrderServiceOrderAppSubmitPostRequest({
+    this.sourceItems,
+    this.country,
+    this.buyType,
+    this.invitedCode,
+    this.userAddressId,
+    this.addBatch,
+    this.remark,
+    this.isDraft,
+    this.submitAnyWay,
+    this.userCouponCode,
+    this.removePackage,
+  });
+
+  factory OrderServiceOrderAppSubmitPostRequest.fromJson(
+    Map<String, dynamic> json,
+  ) => _$OrderServiceOrderAppSubmitPostRequestFromJson(json);
+
+  static const toJsonFactory = _$OrderServiceOrderAppSubmitPostRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$OrderServiceOrderAppSubmitPostRequestToJson(this);
+
+  @JsonKey(name: 'sourceItems')
+  final List<OrderServiceOrderAppSubmitPostRequest$SourceItems$Item>?
+  sourceItems;
+  @JsonKey(name: 'country', fromJson: JsonCoerce.asString)
+  final String? country;
+  @JsonKey(name: 'buyType', fromJson: JsonCoerce.asInt)
+  final int? buyType;
+  @JsonKey(name: 'invitedCode', fromJson: JsonCoerce.asString)
+  final String? invitedCode;
+  @JsonKey(name: 'userAddressId', fromJson: JsonCoerce.asDouble)
+  final double? userAddressId;
+  @JsonKey(name: 'addBatch', fromJson: JsonCoerce.asBool)
+  final bool? addBatch;
+  @JsonKey(name: 'remark', fromJson: JsonCoerce.asString)
+  final String? remark;
+  @JsonKey(name: 'isDraft', fromJson: JsonCoerce.asBool)
+  final bool? isDraft;
+  @JsonKey(name: 'submitAnyWay', fromJson: JsonCoerce.asBool)
+  final bool? submitAnyWay;
+  @JsonKey(name: 'userCouponCode', fromJson: JsonCoerce.asString)
+  final String? userCouponCode;
+  @JsonKey(name: 'removePackage', fromJson: JsonCoerce.asBool)
+  final bool? removePackage;
+  static const fromJsonFactory =
+      _$OrderServiceOrderAppSubmitPostRequestFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is OrderServiceOrderAppSubmitPostRequest &&
+            (identical(other.sourceItems, sourceItems) ||
+                const DeepCollectionEquality().equals(
+                  other.sourceItems,
+                  sourceItems,
+                )) &&
+            (identical(other.country, country) ||
+                const DeepCollectionEquality().equals(
+                  other.country,
+                  country,
+                )) &&
+            (identical(other.buyType, buyType) ||
+                const DeepCollectionEquality().equals(
+                  other.buyType,
+                  buyType,
+                )) &&
+            (identical(other.invitedCode, invitedCode) ||
+                const DeepCollectionEquality().equals(
+                  other.invitedCode,
+                  invitedCode,
+                )) &&
+            (identical(other.userAddressId, userAddressId) ||
+                const DeepCollectionEquality().equals(
+                  other.userAddressId,
+                  userAddressId,
+                )) &&
+            (identical(other.addBatch, addBatch) ||
+                const DeepCollectionEquality().equals(
+                  other.addBatch,
+                  addBatch,
+                )) &&
+            (identical(other.remark, remark) ||
+                const DeepCollectionEquality().equals(other.remark, remark)) &&
+            (identical(other.isDraft, isDraft) ||
+                const DeepCollectionEquality().equals(
+                  other.isDraft,
+                  isDraft,
+                )) &&
+            (identical(other.submitAnyWay, submitAnyWay) ||
+                const DeepCollectionEquality().equals(
+                  other.submitAnyWay,
+                  submitAnyWay,
+                )) &&
+            (identical(other.userCouponCode, userCouponCode) ||
+                const DeepCollectionEquality().equals(
+                  other.userCouponCode,
+                  userCouponCode,
+                )) &&
+            (identical(other.removePackage, removePackage) ||
+                const DeepCollectionEquality().equals(
+                  other.removePackage,
+                  removePackage,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(sourceItems) ^
+      const DeepCollectionEquality().hash(country) ^
+      const DeepCollectionEquality().hash(buyType) ^
+      const DeepCollectionEquality().hash(invitedCode) ^
+      const DeepCollectionEquality().hash(userAddressId) ^
+      const DeepCollectionEquality().hash(addBatch) ^
+      const DeepCollectionEquality().hash(remark) ^
+      const DeepCollectionEquality().hash(isDraft) ^
+      const DeepCollectionEquality().hash(submitAnyWay) ^
+      const DeepCollectionEquality().hash(userCouponCode) ^
+      const DeepCollectionEquality().hash(removePackage) ^
+      runtimeType.hashCode;
+}
+
+extension $OrderServiceOrderAppSubmitPostRequestExtension
+    on OrderServiceOrderAppSubmitPostRequest {
+  OrderServiceOrderAppSubmitPostRequest copyWith({
+    List<OrderServiceOrderAppSubmitPostRequest$SourceItems$Item>? sourceItems,
+    String? country,
+    int? buyType,
+    String? invitedCode,
+    double? userAddressId,
+    bool? addBatch,
+    String? remark,
+    bool? isDraft,
+    bool? submitAnyWay,
+    String? userCouponCode,
+    bool? removePackage,
+  }) {
+    return OrderServiceOrderAppSubmitPostRequest(
+      sourceItems: sourceItems ?? this.sourceItems,
+      country: country ?? this.country,
+      buyType: buyType ?? this.buyType,
+      invitedCode: invitedCode ?? this.invitedCode,
+      userAddressId: userAddressId ?? this.userAddressId,
+      addBatch: addBatch ?? this.addBatch,
+      remark: remark ?? this.remark,
+      isDraft: isDraft ?? this.isDraft,
+      submitAnyWay: submitAnyWay ?? this.submitAnyWay,
+      userCouponCode: userCouponCode ?? this.userCouponCode,
+      removePackage: removePackage ?? this.removePackage,
+    );
+  }
+
+  OrderServiceOrderAppSubmitPostRequest copyWithWrapped({
+    Wrapped<List<OrderServiceOrderAppSubmitPostRequest$SourceItems$Item>?>?
+    sourceItems,
+    Wrapped<String?>? country,
+    Wrapped<int?>? buyType,
+    Wrapped<String?>? invitedCode,
+    Wrapped<double?>? userAddressId,
+    Wrapped<bool?>? addBatch,
+    Wrapped<String?>? remark,
+    Wrapped<bool?>? isDraft,
+    Wrapped<bool?>? submitAnyWay,
+    Wrapped<String?>? userCouponCode,
+    Wrapped<bool?>? removePackage,
+  }) {
+    return OrderServiceOrderAppSubmitPostRequest(
+      sourceItems: (sourceItems != null ? sourceItems.value : this.sourceItems),
+      country: (country != null ? country.value : this.country),
+      buyType: (buyType != null ? buyType.value : this.buyType),
+      invitedCode: (invitedCode != null ? invitedCode.value : this.invitedCode),
+      userAddressId: (userAddressId != null
+          ? userAddressId.value
+          : this.userAddressId),
+      addBatch: (addBatch != null ? addBatch.value : this.addBatch),
+      remark: (remark != null ? remark.value : this.remark),
+      isDraft: (isDraft != null ? isDraft.value : this.isDraft),
+      submitAnyWay: (submitAnyWay != null
+          ? submitAnyWay.value
+          : this.submitAnyWay),
+      userCouponCode: (userCouponCode != null
+          ? userCouponCode.value
+          : this.userCouponCode),
+      removePackage: (removePackage != null
+          ? removePackage.value
+          : this.removePackage),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class OrderServiceOrderAppUpdatePostRequest {
+  const OrderServiceOrderAppUpdatePostRequest({
+    this.orderId,
+    this.userAddressId,
+    this.userAddress,
+    this.addBatch,
+    this.targetTip,
+    this.paySubmit,
+    this.payFreight,
+    this.submitAnyWay,
+    this.userCouponCode,
+    this.userDiscountCode,
+    this.removePackage,
+    this.remark,
+    this.giveawayGift,
+    this.sourceItems,
+    this.itemList,
+  });
+
+  factory OrderServiceOrderAppUpdatePostRequest.fromJson(
+    Map<String, dynamic> json,
+  ) => _$OrderServiceOrderAppUpdatePostRequestFromJson(json);
+
+  static const toJsonFactory = _$OrderServiceOrderAppUpdatePostRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$OrderServiceOrderAppUpdatePostRequestToJson(this);
+
+  @JsonKey(name: 'orderId', fromJson: JsonCoerce.asString)
+  final String? orderId;
+  @JsonKey(name: 'userAddressId', fromJson: JsonCoerce.asDouble)
+  final double? userAddressId;
+  @JsonKey(name: 'userAddress')
+  final OrderServiceOrderAppUpdatePostRequest$UserAddress? userAddress;
+  @JsonKey(name: 'addBatch', fromJson: JsonCoerce.asBool)
+  final bool? addBatch;
+  @JsonKey(name: 'targetTip', fromJson: JsonCoerce.asDouble)
+  final double? targetTip;
+  @JsonKey(name: 'paySubmit', fromJson: JsonCoerce.asBool)
+  final bool? paySubmit;
+  @JsonKey(name: 'payFreight', fromJson: JsonCoerce.asBool)
+  final bool? payFreight;
+  @JsonKey(name: 'submitAnyWay', fromJson: JsonCoerce.asBool)
+  final bool? submitAnyWay;
+  @JsonKey(name: 'userCouponCode', fromJson: JsonCoerce.asString)
+  final String? userCouponCode;
+  @JsonKey(name: 'userDiscountCode', fromJson: JsonCoerce.asString)
+  final String? userDiscountCode;
+  @JsonKey(name: 'removePackage', fromJson: JsonCoerce.asBool)
+  final bool? removePackage;
+  @JsonKey(name: 'remark', fromJson: JsonCoerce.asString)
+  final String? remark;
+  @JsonKey(name: 'giveawayGift', fromJson: JsonCoerce.asInt)
+  final int? giveawayGift;
+  @JsonKey(name: 'sourceItems')
+  final List<OrderServiceOrderAppUpdatePostRequest$SourceItems$Item>?
+  sourceItems;
+  @JsonKey(name: 'itemList')
+  final List<OrderServiceOrderAppUpdatePostRequest$ItemList$Item>? itemList;
+  static const fromJsonFactory =
+      _$OrderServiceOrderAppUpdatePostRequestFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is OrderServiceOrderAppUpdatePostRequest &&
+            (identical(other.orderId, orderId) ||
+                const DeepCollectionEquality().equals(
+                  other.orderId,
+                  orderId,
+                )) &&
+            (identical(other.userAddressId, userAddressId) ||
+                const DeepCollectionEquality().equals(
+                  other.userAddressId,
+                  userAddressId,
+                )) &&
+            (identical(other.userAddress, userAddress) ||
+                const DeepCollectionEquality().equals(
+                  other.userAddress,
+                  userAddress,
+                )) &&
+            (identical(other.addBatch, addBatch) ||
+                const DeepCollectionEquality().equals(
+                  other.addBatch,
+                  addBatch,
+                )) &&
+            (identical(other.targetTip, targetTip) ||
+                const DeepCollectionEquality().equals(
+                  other.targetTip,
+                  targetTip,
+                )) &&
+            (identical(other.paySubmit, paySubmit) ||
+                const DeepCollectionEquality().equals(
+                  other.paySubmit,
+                  paySubmit,
+                )) &&
+            (identical(other.payFreight, payFreight) ||
+                const DeepCollectionEquality().equals(
+                  other.payFreight,
+                  payFreight,
+                )) &&
+            (identical(other.submitAnyWay, submitAnyWay) ||
+                const DeepCollectionEquality().equals(
+                  other.submitAnyWay,
+                  submitAnyWay,
+                )) &&
+            (identical(other.userCouponCode, userCouponCode) ||
+                const DeepCollectionEquality().equals(
+                  other.userCouponCode,
+                  userCouponCode,
+                )) &&
+            (identical(other.userDiscountCode, userDiscountCode) ||
+                const DeepCollectionEquality().equals(
+                  other.userDiscountCode,
+                  userDiscountCode,
+                )) &&
+            (identical(other.removePackage, removePackage) ||
+                const DeepCollectionEquality().equals(
+                  other.removePackage,
+                  removePackage,
+                )) &&
+            (identical(other.remark, remark) ||
+                const DeepCollectionEquality().equals(other.remark, remark)) &&
+            (identical(other.giveawayGift, giveawayGift) ||
+                const DeepCollectionEquality().equals(
+                  other.giveawayGift,
+                  giveawayGift,
+                )) &&
+            (identical(other.sourceItems, sourceItems) ||
+                const DeepCollectionEquality().equals(
+                  other.sourceItems,
+                  sourceItems,
+                )) &&
+            (identical(other.itemList, itemList) ||
+                const DeepCollectionEquality().equals(
+                  other.itemList,
+                  itemList,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(orderId) ^
+      const DeepCollectionEquality().hash(userAddressId) ^
+      const DeepCollectionEquality().hash(userAddress) ^
+      const DeepCollectionEquality().hash(addBatch) ^
+      const DeepCollectionEquality().hash(targetTip) ^
+      const DeepCollectionEquality().hash(paySubmit) ^
+      const DeepCollectionEquality().hash(payFreight) ^
+      const DeepCollectionEquality().hash(submitAnyWay) ^
+      const DeepCollectionEquality().hash(userCouponCode) ^
+      const DeepCollectionEquality().hash(userDiscountCode) ^
+      const DeepCollectionEquality().hash(removePackage) ^
+      const DeepCollectionEquality().hash(remark) ^
+      const DeepCollectionEquality().hash(giveawayGift) ^
+      const DeepCollectionEquality().hash(sourceItems) ^
+      const DeepCollectionEquality().hash(itemList) ^
+      runtimeType.hashCode;
+}
+
+extension $OrderServiceOrderAppUpdatePostRequestExtension
+    on OrderServiceOrderAppUpdatePostRequest {
+  OrderServiceOrderAppUpdatePostRequest copyWith({
+    String? orderId,
+    double? userAddressId,
+    OrderServiceOrderAppUpdatePostRequest$UserAddress? userAddress,
+    bool? addBatch,
+    double? targetTip,
+    bool? paySubmit,
+    bool? payFreight,
+    bool? submitAnyWay,
+    String? userCouponCode,
+    String? userDiscountCode,
+    bool? removePackage,
+    String? remark,
+    int? giveawayGift,
+    List<OrderServiceOrderAppUpdatePostRequest$SourceItems$Item>? sourceItems,
+    List<OrderServiceOrderAppUpdatePostRequest$ItemList$Item>? itemList,
+  }) {
+    return OrderServiceOrderAppUpdatePostRequest(
+      orderId: orderId ?? this.orderId,
+      userAddressId: userAddressId ?? this.userAddressId,
+      userAddress: userAddress ?? this.userAddress,
+      addBatch: addBatch ?? this.addBatch,
+      targetTip: targetTip ?? this.targetTip,
+      paySubmit: paySubmit ?? this.paySubmit,
+      payFreight: payFreight ?? this.payFreight,
+      submitAnyWay: submitAnyWay ?? this.submitAnyWay,
+      userCouponCode: userCouponCode ?? this.userCouponCode,
+      userDiscountCode: userDiscountCode ?? this.userDiscountCode,
+      removePackage: removePackage ?? this.removePackage,
+      remark: remark ?? this.remark,
+      giveawayGift: giveawayGift ?? this.giveawayGift,
+      sourceItems: sourceItems ?? this.sourceItems,
+      itemList: itemList ?? this.itemList,
+    );
+  }
+
+  OrderServiceOrderAppUpdatePostRequest copyWithWrapped({
+    Wrapped<String?>? orderId,
+    Wrapped<double?>? userAddressId,
+    Wrapped<OrderServiceOrderAppUpdatePostRequest$UserAddress?>? userAddress,
+    Wrapped<bool?>? addBatch,
+    Wrapped<double?>? targetTip,
+    Wrapped<bool?>? paySubmit,
+    Wrapped<bool?>? payFreight,
+    Wrapped<bool?>? submitAnyWay,
+    Wrapped<String?>? userCouponCode,
+    Wrapped<String?>? userDiscountCode,
+    Wrapped<bool?>? removePackage,
+    Wrapped<String?>? remark,
+    Wrapped<int?>? giveawayGift,
+    Wrapped<List<OrderServiceOrderAppUpdatePostRequest$SourceItems$Item>?>?
+    sourceItems,
+    Wrapped<List<OrderServiceOrderAppUpdatePostRequest$ItemList$Item>?>?
+    itemList,
+  }) {
+    return OrderServiceOrderAppUpdatePostRequest(
+      orderId: (orderId != null ? orderId.value : this.orderId),
+      userAddressId: (userAddressId != null
+          ? userAddressId.value
+          : this.userAddressId),
+      userAddress: (userAddress != null ? userAddress.value : this.userAddress),
+      addBatch: (addBatch != null ? addBatch.value : this.addBatch),
+      targetTip: (targetTip != null ? targetTip.value : this.targetTip),
+      paySubmit: (paySubmit != null ? paySubmit.value : this.paySubmit),
+      payFreight: (payFreight != null ? payFreight.value : this.payFreight),
+      submitAnyWay: (submitAnyWay != null
+          ? submitAnyWay.value
+          : this.submitAnyWay),
+      userCouponCode: (userCouponCode != null
+          ? userCouponCode.value
+          : this.userCouponCode),
+      userDiscountCode: (userDiscountCode != null
+          ? userDiscountCode.value
+          : this.userDiscountCode),
+      removePackage: (removePackage != null
+          ? removePackage.value
+          : this.removePackage),
+      remark: (remark != null ? remark.value : this.remark),
+      giveawayGift: (giveawayGift != null
+          ? giveawayGift.value
+          : this.giveawayGift),
+      sourceItems: (sourceItems != null ? sourceItems.value : this.sourceItems),
+      itemList: (itemList != null ? itemList.value : this.itemList),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class OrderServiceOrderCancelPostRequest {
+  const OrderServiceOrderCancelPostRequest({this.orderId});
+
+  factory OrderServiceOrderCancelPostRequest.fromJson(
+    Map<String, dynamic> json,
+  ) => _$OrderServiceOrderCancelPostRequestFromJson(json);
+
+  static const toJsonFactory = _$OrderServiceOrderCancelPostRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$OrderServiceOrderCancelPostRequestToJson(this);
+
+  @JsonKey(name: 'orderId', fromJson: JsonCoerce.asString)
+  final String? orderId;
+  static const fromJsonFactory = _$OrderServiceOrderCancelPostRequestFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is OrderServiceOrderCancelPostRequest &&
+            (identical(other.orderId, orderId) ||
+                const DeepCollectionEquality().equals(other.orderId, orderId)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(orderId) ^ runtimeType.hashCode;
+}
+
+extension $OrderServiceOrderCancelPostRequestExtension
+    on OrderServiceOrderCancelPostRequest {
+  OrderServiceOrderCancelPostRequest copyWith({String? orderId}) {
+    return OrderServiceOrderCancelPostRequest(orderId: orderId ?? this.orderId);
+  }
+
+  OrderServiceOrderCancelPostRequest copyWithWrapped({
+    Wrapped<String?>? orderId,
+  }) {
+    return OrderServiceOrderCancelPostRequest(
+      orderId: (orderId != null ? orderId.value : this.orderId),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class OrderServiceOrderSubmitPostRequest {
+  const OrderServiceOrderSubmitPostRequest({
+    this.sourceItems,
+    this.skuList,
+    this.country,
+    this.buyType,
+    this.invitedCode,
+    this.userAddressId,
+    this.addBatch,
+    this.remark,
+    this.isDraft,
+    this.submitAnyWay,
+    this.userCouponCode,
+    this.removePackage,
+  });
+
+  factory OrderServiceOrderSubmitPostRequest.fromJson(
+    Map<String, dynamic> json,
+  ) => _$OrderServiceOrderSubmitPostRequestFromJson(json);
+
+  static const toJsonFactory = _$OrderServiceOrderSubmitPostRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$OrderServiceOrderSubmitPostRequestToJson(this);
+
+  @JsonKey(name: 'sourceItems')
+  final List<OrderServiceOrderSubmitPostRequest$SourceItems$Item>? sourceItems;
+  @JsonKey(name: 'skuList')
+  final List<OrderServiceOrderSubmitPostRequest$SkuList$Item>? skuList;
+  @JsonKey(name: 'country', fromJson: JsonCoerce.asString)
+  final String? country;
+  @JsonKey(name: 'buyType', fromJson: JsonCoerce.asInt)
+  final int? buyType;
+  @JsonKey(name: 'invitedCode', fromJson: JsonCoerce.asString)
+  final String? invitedCode;
+  @JsonKey(name: 'userAddressId', fromJson: JsonCoerce.asDouble)
+  final double? userAddressId;
+  @JsonKey(name: 'addBatch', fromJson: JsonCoerce.asBool)
+  final bool? addBatch;
+  @JsonKey(name: 'remark', fromJson: JsonCoerce.asString)
+  final String? remark;
+  @JsonKey(name: 'isDraft', fromJson: JsonCoerce.asBool)
+  final bool? isDraft;
+  @JsonKey(name: 'submitAnyWay', fromJson: JsonCoerce.asBool)
+  final bool? submitAnyWay;
+  @JsonKey(name: 'userCouponCode', fromJson: JsonCoerce.asString)
+  final String? userCouponCode;
+  @JsonKey(name: 'removePackage', fromJson: JsonCoerce.asBool)
+  final bool? removePackage;
+  static const fromJsonFactory = _$OrderServiceOrderSubmitPostRequestFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is OrderServiceOrderSubmitPostRequest &&
+            (identical(other.sourceItems, sourceItems) ||
+                const DeepCollectionEquality().equals(
+                  other.sourceItems,
+                  sourceItems,
+                )) &&
+            (identical(other.skuList, skuList) ||
+                const DeepCollectionEquality().equals(
+                  other.skuList,
+                  skuList,
+                )) &&
+            (identical(other.country, country) ||
+                const DeepCollectionEquality().equals(
+                  other.country,
+                  country,
+                )) &&
+            (identical(other.buyType, buyType) ||
+                const DeepCollectionEquality().equals(
+                  other.buyType,
+                  buyType,
+                )) &&
+            (identical(other.invitedCode, invitedCode) ||
+                const DeepCollectionEquality().equals(
+                  other.invitedCode,
+                  invitedCode,
+                )) &&
+            (identical(other.userAddressId, userAddressId) ||
+                const DeepCollectionEquality().equals(
+                  other.userAddressId,
+                  userAddressId,
+                )) &&
+            (identical(other.addBatch, addBatch) ||
+                const DeepCollectionEquality().equals(
+                  other.addBatch,
+                  addBatch,
+                )) &&
+            (identical(other.remark, remark) ||
+                const DeepCollectionEquality().equals(other.remark, remark)) &&
+            (identical(other.isDraft, isDraft) ||
+                const DeepCollectionEquality().equals(
+                  other.isDraft,
+                  isDraft,
+                )) &&
+            (identical(other.submitAnyWay, submitAnyWay) ||
+                const DeepCollectionEquality().equals(
+                  other.submitAnyWay,
+                  submitAnyWay,
+                )) &&
+            (identical(other.userCouponCode, userCouponCode) ||
+                const DeepCollectionEquality().equals(
+                  other.userCouponCode,
+                  userCouponCode,
+                )) &&
+            (identical(other.removePackage, removePackage) ||
+                const DeepCollectionEquality().equals(
+                  other.removePackage,
+                  removePackage,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(sourceItems) ^
+      const DeepCollectionEquality().hash(skuList) ^
+      const DeepCollectionEquality().hash(country) ^
+      const DeepCollectionEquality().hash(buyType) ^
+      const DeepCollectionEquality().hash(invitedCode) ^
+      const DeepCollectionEquality().hash(userAddressId) ^
+      const DeepCollectionEquality().hash(addBatch) ^
+      const DeepCollectionEquality().hash(remark) ^
+      const DeepCollectionEquality().hash(isDraft) ^
+      const DeepCollectionEquality().hash(submitAnyWay) ^
+      const DeepCollectionEquality().hash(userCouponCode) ^
+      const DeepCollectionEquality().hash(removePackage) ^
+      runtimeType.hashCode;
+}
+
+extension $OrderServiceOrderSubmitPostRequestExtension
+    on OrderServiceOrderSubmitPostRequest {
+  OrderServiceOrderSubmitPostRequest copyWith({
+    List<OrderServiceOrderSubmitPostRequest$SourceItems$Item>? sourceItems,
+    List<OrderServiceOrderSubmitPostRequest$SkuList$Item>? skuList,
+    String? country,
+    int? buyType,
+    String? invitedCode,
+    double? userAddressId,
+    bool? addBatch,
+    String? remark,
+    bool? isDraft,
+    bool? submitAnyWay,
+    String? userCouponCode,
+    bool? removePackage,
+  }) {
+    return OrderServiceOrderSubmitPostRequest(
+      sourceItems: sourceItems ?? this.sourceItems,
+      skuList: skuList ?? this.skuList,
+      country: country ?? this.country,
+      buyType: buyType ?? this.buyType,
+      invitedCode: invitedCode ?? this.invitedCode,
+      userAddressId: userAddressId ?? this.userAddressId,
+      addBatch: addBatch ?? this.addBatch,
+      remark: remark ?? this.remark,
+      isDraft: isDraft ?? this.isDraft,
+      submitAnyWay: submitAnyWay ?? this.submitAnyWay,
+      userCouponCode: userCouponCode ?? this.userCouponCode,
+      removePackage: removePackage ?? this.removePackage,
+    );
+  }
+
+  OrderServiceOrderSubmitPostRequest copyWithWrapped({
+    Wrapped<List<OrderServiceOrderSubmitPostRequest$SourceItems$Item>?>?
+    sourceItems,
+    Wrapped<List<OrderServiceOrderSubmitPostRequest$SkuList$Item>?>? skuList,
+    Wrapped<String?>? country,
+    Wrapped<int?>? buyType,
+    Wrapped<String?>? invitedCode,
+    Wrapped<double?>? userAddressId,
+    Wrapped<bool?>? addBatch,
+    Wrapped<String?>? remark,
+    Wrapped<bool?>? isDraft,
+    Wrapped<bool?>? submitAnyWay,
+    Wrapped<String?>? userCouponCode,
+    Wrapped<bool?>? removePackage,
+  }) {
+    return OrderServiceOrderSubmitPostRequest(
+      sourceItems: (sourceItems != null ? sourceItems.value : this.sourceItems),
+      skuList: (skuList != null ? skuList.value : this.skuList),
+      country: (country != null ? country.value : this.country),
+      buyType: (buyType != null ? buyType.value : this.buyType),
+      invitedCode: (invitedCode != null ? invitedCode.value : this.invitedCode),
+      userAddressId: (userAddressId != null
+          ? userAddressId.value
+          : this.userAddressId),
+      addBatch: (addBatch != null ? addBatch.value : this.addBatch),
+      remark: (remark != null ? remark.value : this.remark),
+      isDraft: (isDraft != null ? isDraft.value : this.isDraft),
+      submitAnyWay: (submitAnyWay != null
+          ? submitAnyWay.value
+          : this.submitAnyWay),
+      userCouponCode: (userCouponCode != null
+          ? userCouponCode.value
+          : this.userCouponCode),
+      removePackage: (removePackage != null
+          ? removePackage.value
+          : this.removePackage),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class OrderServiceOrderUpdatePostRequest {
+  const OrderServiceOrderUpdatePostRequest({
+    this.orderId,
+    this.userAddressId,
+    this.userAddress,
+    this.addBatch,
+    this.paySubmit,
+    this.payFreight,
+    this.submitAnyWay,
+    this.userCouponCode,
+    this.userDiscountCode,
+    this.removePackage,
+    this.remark,
+    this.giveawayGift,
+    this.targetTip,
+    this.skuList,
+    this.sourceItems,
+    this.itemList,
+  });
+
+  factory OrderServiceOrderUpdatePostRequest.fromJson(
+    Map<String, dynamic> json,
+  ) => _$OrderServiceOrderUpdatePostRequestFromJson(json);
+
+  static const toJsonFactory = _$OrderServiceOrderUpdatePostRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$OrderServiceOrderUpdatePostRequestToJson(this);
+
+  @JsonKey(name: 'orderId', fromJson: JsonCoerce.asString)
+  final String? orderId;
+  @JsonKey(name: 'userAddressId', fromJson: JsonCoerce.asDouble)
+  final double? userAddressId;
+  @JsonKey(name: 'userAddress')
+  final OrderServiceOrderUpdatePostRequest$UserAddress? userAddress;
+  @JsonKey(name: 'addBatch', fromJson: JsonCoerce.asBool)
+  final bool? addBatch;
+  @JsonKey(name: 'paySubmit', fromJson: JsonCoerce.asBool)
+  final bool? paySubmit;
+  @JsonKey(name: 'payFreight', fromJson: JsonCoerce.asBool)
+  final bool? payFreight;
+  @JsonKey(name: 'submitAnyWay', fromJson: JsonCoerce.asBool)
+  final bool? submitAnyWay;
+  @JsonKey(name: 'userCouponCode', fromJson: JsonCoerce.asString)
+  final String? userCouponCode;
+  @JsonKey(name: 'userDiscountCode', fromJson: JsonCoerce.asString)
+  final String? userDiscountCode;
+  @JsonKey(name: 'removePackage', fromJson: JsonCoerce.asBool)
+  final bool? removePackage;
+  @JsonKey(name: 'remark', fromJson: JsonCoerce.asString)
+  final String? remark;
+  @JsonKey(name: 'giveawayGift', fromJson: JsonCoerce.asInt)
+  final int? giveawayGift;
+  @JsonKey(name: 'targetTip', fromJson: JsonCoerce.asDouble)
+  final double? targetTip;
+  @JsonKey(name: 'skuList')
+  final List<OrderServiceOrderUpdatePostRequest$SkuList$Item>? skuList;
+  @JsonKey(name: 'sourceItems')
+  final List<OrderServiceOrderUpdatePostRequest$SourceItems$Item>? sourceItems;
+  @JsonKey(name: 'itemList')
+  final List<OrderServiceOrderUpdatePostRequest$ItemList$Item>? itemList;
+  static const fromJsonFactory = _$OrderServiceOrderUpdatePostRequestFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is OrderServiceOrderUpdatePostRequest &&
+            (identical(other.orderId, orderId) ||
+                const DeepCollectionEquality().equals(
+                  other.orderId,
+                  orderId,
+                )) &&
+            (identical(other.userAddressId, userAddressId) ||
+                const DeepCollectionEquality().equals(
+                  other.userAddressId,
+                  userAddressId,
+                )) &&
+            (identical(other.userAddress, userAddress) ||
+                const DeepCollectionEquality().equals(
+                  other.userAddress,
+                  userAddress,
+                )) &&
+            (identical(other.addBatch, addBatch) ||
+                const DeepCollectionEquality().equals(
+                  other.addBatch,
+                  addBatch,
+                )) &&
+            (identical(other.paySubmit, paySubmit) ||
+                const DeepCollectionEquality().equals(
+                  other.paySubmit,
+                  paySubmit,
+                )) &&
+            (identical(other.payFreight, payFreight) ||
+                const DeepCollectionEquality().equals(
+                  other.payFreight,
+                  payFreight,
+                )) &&
+            (identical(other.submitAnyWay, submitAnyWay) ||
+                const DeepCollectionEquality().equals(
+                  other.submitAnyWay,
+                  submitAnyWay,
+                )) &&
+            (identical(other.userCouponCode, userCouponCode) ||
+                const DeepCollectionEquality().equals(
+                  other.userCouponCode,
+                  userCouponCode,
+                )) &&
+            (identical(other.userDiscountCode, userDiscountCode) ||
+                const DeepCollectionEquality().equals(
+                  other.userDiscountCode,
+                  userDiscountCode,
+                )) &&
+            (identical(other.removePackage, removePackage) ||
+                const DeepCollectionEquality().equals(
+                  other.removePackage,
+                  removePackage,
+                )) &&
+            (identical(other.remark, remark) ||
+                const DeepCollectionEquality().equals(other.remark, remark)) &&
+            (identical(other.giveawayGift, giveawayGift) ||
+                const DeepCollectionEquality().equals(
+                  other.giveawayGift,
+                  giveawayGift,
+                )) &&
+            (identical(other.targetTip, targetTip) ||
+                const DeepCollectionEquality().equals(
+                  other.targetTip,
+                  targetTip,
+                )) &&
+            (identical(other.skuList, skuList) ||
+                const DeepCollectionEquality().equals(
+                  other.skuList,
+                  skuList,
+                )) &&
+            (identical(other.sourceItems, sourceItems) ||
+                const DeepCollectionEquality().equals(
+                  other.sourceItems,
+                  sourceItems,
+                )) &&
+            (identical(other.itemList, itemList) ||
+                const DeepCollectionEquality().equals(
+                  other.itemList,
+                  itemList,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(orderId) ^
+      const DeepCollectionEquality().hash(userAddressId) ^
+      const DeepCollectionEquality().hash(userAddress) ^
+      const DeepCollectionEquality().hash(addBatch) ^
+      const DeepCollectionEquality().hash(paySubmit) ^
+      const DeepCollectionEquality().hash(payFreight) ^
+      const DeepCollectionEquality().hash(submitAnyWay) ^
+      const DeepCollectionEquality().hash(userCouponCode) ^
+      const DeepCollectionEquality().hash(userDiscountCode) ^
+      const DeepCollectionEquality().hash(removePackage) ^
+      const DeepCollectionEquality().hash(remark) ^
+      const DeepCollectionEquality().hash(giveawayGift) ^
+      const DeepCollectionEquality().hash(targetTip) ^
+      const DeepCollectionEquality().hash(skuList) ^
+      const DeepCollectionEquality().hash(sourceItems) ^
+      const DeepCollectionEquality().hash(itemList) ^
+      runtimeType.hashCode;
+}
+
+extension $OrderServiceOrderUpdatePostRequestExtension
+    on OrderServiceOrderUpdatePostRequest {
+  OrderServiceOrderUpdatePostRequest copyWith({
+    String? orderId,
+    double? userAddressId,
+    OrderServiceOrderUpdatePostRequest$UserAddress? userAddress,
+    bool? addBatch,
+    bool? paySubmit,
+    bool? payFreight,
+    bool? submitAnyWay,
+    String? userCouponCode,
+    String? userDiscountCode,
+    bool? removePackage,
+    String? remark,
+    int? giveawayGift,
+    double? targetTip,
+    List<OrderServiceOrderUpdatePostRequest$SkuList$Item>? skuList,
+    List<OrderServiceOrderUpdatePostRequest$SourceItems$Item>? sourceItems,
+    List<OrderServiceOrderUpdatePostRequest$ItemList$Item>? itemList,
+  }) {
+    return OrderServiceOrderUpdatePostRequest(
+      orderId: orderId ?? this.orderId,
+      userAddressId: userAddressId ?? this.userAddressId,
+      userAddress: userAddress ?? this.userAddress,
+      addBatch: addBatch ?? this.addBatch,
+      paySubmit: paySubmit ?? this.paySubmit,
+      payFreight: payFreight ?? this.payFreight,
+      submitAnyWay: submitAnyWay ?? this.submitAnyWay,
+      userCouponCode: userCouponCode ?? this.userCouponCode,
+      userDiscountCode: userDiscountCode ?? this.userDiscountCode,
+      removePackage: removePackage ?? this.removePackage,
+      remark: remark ?? this.remark,
+      giveawayGift: giveawayGift ?? this.giveawayGift,
+      targetTip: targetTip ?? this.targetTip,
+      skuList: skuList ?? this.skuList,
+      sourceItems: sourceItems ?? this.sourceItems,
+      itemList: itemList ?? this.itemList,
+    );
+  }
+
+  OrderServiceOrderUpdatePostRequest copyWithWrapped({
+    Wrapped<String?>? orderId,
+    Wrapped<double?>? userAddressId,
+    Wrapped<OrderServiceOrderUpdatePostRequest$UserAddress?>? userAddress,
+    Wrapped<bool?>? addBatch,
+    Wrapped<bool?>? paySubmit,
+    Wrapped<bool?>? payFreight,
+    Wrapped<bool?>? submitAnyWay,
+    Wrapped<String?>? userCouponCode,
+    Wrapped<String?>? userDiscountCode,
+    Wrapped<bool?>? removePackage,
+    Wrapped<String?>? remark,
+    Wrapped<int?>? giveawayGift,
+    Wrapped<double?>? targetTip,
+    Wrapped<List<OrderServiceOrderUpdatePostRequest$SkuList$Item>?>? skuList,
+    Wrapped<List<OrderServiceOrderUpdatePostRequest$SourceItems$Item>?>?
+    sourceItems,
+    Wrapped<List<OrderServiceOrderUpdatePostRequest$ItemList$Item>?>? itemList,
+  }) {
+    return OrderServiceOrderUpdatePostRequest(
+      orderId: (orderId != null ? orderId.value : this.orderId),
+      userAddressId: (userAddressId != null
+          ? userAddressId.value
+          : this.userAddressId),
+      userAddress: (userAddress != null ? userAddress.value : this.userAddress),
+      addBatch: (addBatch != null ? addBatch.value : this.addBatch),
+      paySubmit: (paySubmit != null ? paySubmit.value : this.paySubmit),
+      payFreight: (payFreight != null ? payFreight.value : this.payFreight),
+      submitAnyWay: (submitAnyWay != null
+          ? submitAnyWay.value
+          : this.submitAnyWay),
+      userCouponCode: (userCouponCode != null
+          ? userCouponCode.value
+          : this.userCouponCode),
+      userDiscountCode: (userDiscountCode != null
+          ? userDiscountCode.value
+          : this.userDiscountCode),
+      removePackage: (removePackage != null
+          ? removePackage.value
+          : this.removePackage),
+      remark: (remark != null ? remark.value : this.remark),
+      giveawayGift: (giveawayGift != null
+          ? giveawayGift.value
+          : this.giveawayGift),
+      targetTip: (targetTip != null ? targetTip.value : this.targetTip),
+      skuList: (skuList != null ? skuList.value : this.skuList),
+      sourceItems: (sourceItems != null ? sourceItems.value : this.sourceItems),
+      itemList: (itemList != null ? itemList.value : this.itemList),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class OrderServiceOrderConfirmPostRequest {
+  const OrderServiceOrderConfirmPostRequest({
+    this.code,
+    this.message,
+    this.data,
+  });
+
+  factory OrderServiceOrderConfirmPostRequest.fromJson(
+    Map<String, dynamic> json,
+  ) => _$OrderServiceOrderConfirmPostRequestFromJson(json);
+
+  static const toJsonFactory = _$OrderServiceOrderConfirmPostRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$OrderServiceOrderConfirmPostRequestToJson(this);
+
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asString)
+  final String? code;
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
+  final String? message;
+  @JsonKey(name: 'data')
+  final OrderServiceOrderConfirmPostRequest$Data? data;
+  static const fromJsonFactory = _$OrderServiceOrderConfirmPostRequestFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is OrderServiceOrderConfirmPostRequest &&
+            (identical(other.code, code) ||
+                const DeepCollectionEquality().equals(other.code, code)) &&
+            (identical(other.message, message) ||
+                const DeepCollectionEquality().equals(
+                  other.message,
+                  message,
+                )) &&
+            (identical(other.data, data) ||
+                const DeepCollectionEquality().equals(other.data, data)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(code) ^
+      const DeepCollectionEquality().hash(message) ^
+      const DeepCollectionEquality().hash(data) ^
+      runtimeType.hashCode;
+}
+
+extension $OrderServiceOrderConfirmPostRequestExtension
+    on OrderServiceOrderConfirmPostRequest {
+  OrderServiceOrderConfirmPostRequest copyWith({
+    String? code,
+    String? message,
+    OrderServiceOrderConfirmPostRequest$Data? data,
+  }) {
+    return OrderServiceOrderConfirmPostRequest(
+      code: code ?? this.code,
+      message: message ?? this.message,
+      data: data ?? this.data,
+    );
+  }
+
+  OrderServiceOrderConfirmPostRequest copyWithWrapped({
+    Wrapped<String?>? code,
+    Wrapped<String?>? message,
+    Wrapped<OrderServiceOrderConfirmPostRequest$Data?>? data,
+  }) {
+    return OrderServiceOrderConfirmPostRequest(
+      code: (code != null ? code.value : this.code),
+      message: (message != null ? message.value : this.message),
+      data: (data != null ? data.value : this.data),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class OrderServiceOrderSettlementPostRequest {
+  const OrderServiceOrderSettlementPostRequest({
+    this.orderId,
+    this.isRecharge,
+    this.rechargeAmount,
+  });
+
+  factory OrderServiceOrderSettlementPostRequest.fromJson(
+    Map<String, dynamic> json,
+  ) => _$OrderServiceOrderSettlementPostRequestFromJson(json);
+
+  static const toJsonFactory = _$OrderServiceOrderSettlementPostRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$OrderServiceOrderSettlementPostRequestToJson(this);
+
+  @JsonKey(name: 'orderId', fromJson: JsonCoerce.asString)
+  final String? orderId;
+  @JsonKey(name: 'isRecharge', fromJson: JsonCoerce.asInt)
+  final int? isRecharge;
+  @JsonKey(name: 'rechargeAmount', fromJson: JsonCoerce.asDouble)
+  final double? rechargeAmount;
+  static const fromJsonFactory =
+      _$OrderServiceOrderSettlementPostRequestFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is OrderServiceOrderSettlementPostRequest &&
+            (identical(other.orderId, orderId) ||
+                const DeepCollectionEquality().equals(
+                  other.orderId,
+                  orderId,
+                )) &&
+            (identical(other.isRecharge, isRecharge) ||
+                const DeepCollectionEquality().equals(
+                  other.isRecharge,
+                  isRecharge,
+                )) &&
+            (identical(other.rechargeAmount, rechargeAmount) ||
+                const DeepCollectionEquality().equals(
+                  other.rechargeAmount,
+                  rechargeAmount,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(orderId) ^
+      const DeepCollectionEquality().hash(isRecharge) ^
+      const DeepCollectionEquality().hash(rechargeAmount) ^
+      runtimeType.hashCode;
+}
+
+extension $OrderServiceOrderSettlementPostRequestExtension
+    on OrderServiceOrderSettlementPostRequest {
+  OrderServiceOrderSettlementPostRequest copyWith({
+    String? orderId,
+    int? isRecharge,
+    double? rechargeAmount,
+  }) {
+    return OrderServiceOrderSettlementPostRequest(
+      orderId: orderId ?? this.orderId,
+      isRecharge: isRecharge ?? this.isRecharge,
+      rechargeAmount: rechargeAmount ?? this.rechargeAmount,
+    );
+  }
+
+  OrderServiceOrderSettlementPostRequest copyWithWrapped({
+    Wrapped<String?>? orderId,
+    Wrapped<int?>? isRecharge,
+    Wrapped<double?>? rechargeAmount,
+  }) {
+    return OrderServiceOrderSettlementPostRequest(
+      orderId: (orderId != null ? orderId.value : this.orderId),
+      isRecharge: (isRecharge != null ? isRecharge.value : this.isRecharge),
+      rechargeAmount: (rechargeAmount != null
+          ? rechargeAmount.value
+          : this.rechargeAmount),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class OrderServiceOrderPricingPostRequest {
+  const OrderServiceOrderPricingPostRequest({
+    this.skuList,
+    this.userCouponCode,
+  });
+
+  factory OrderServiceOrderPricingPostRequest.fromJson(
+    Map<String, dynamic> json,
+  ) => _$OrderServiceOrderPricingPostRequestFromJson(json);
+
+  static const toJsonFactory = _$OrderServiceOrderPricingPostRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$OrderServiceOrderPricingPostRequestToJson(this);
+
+  @JsonKey(name: 'skuList')
+  final List<OrderServiceOrderPricingPostRequest$SkuList$Item>? skuList;
+  @JsonKey(name: 'userCouponCode', fromJson: JsonCoerce.asString)
+  final String? userCouponCode;
+  static const fromJsonFactory = _$OrderServiceOrderPricingPostRequestFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is OrderServiceOrderPricingPostRequest &&
+            (identical(other.skuList, skuList) ||
+                const DeepCollectionEquality().equals(
+                  other.skuList,
+                  skuList,
+                )) &&
+            (identical(other.userCouponCode, userCouponCode) ||
+                const DeepCollectionEquality().equals(
+                  other.userCouponCode,
+                  userCouponCode,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(skuList) ^
+      const DeepCollectionEquality().hash(userCouponCode) ^
+      runtimeType.hashCode;
+}
+
+extension $OrderServiceOrderPricingPostRequestExtension
+    on OrderServiceOrderPricingPostRequest {
+  OrderServiceOrderPricingPostRequest copyWith({
+    List<OrderServiceOrderPricingPostRequest$SkuList$Item>? skuList,
+    String? userCouponCode,
+  }) {
+    return OrderServiceOrderPricingPostRequest(
+      skuList: skuList ?? this.skuList,
+      userCouponCode: userCouponCode ?? this.userCouponCode,
+    );
+  }
+
+  OrderServiceOrderPricingPostRequest copyWithWrapped({
+    Wrapped<List<OrderServiceOrderPricingPostRequest$SkuList$Item>?>? skuList,
+    Wrapped<String?>? userCouponCode,
+  }) {
+    return OrderServiceOrderPricingPostRequest(
+      skuList: (skuList != null ? skuList.value : this.skuList),
+      userCouponCode: (userCouponCode != null
+          ? userCouponCode.value
+          : this.userCouponCode),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class OrderServiceAftersaleOrderSubmitPostRequest {
+  const OrderServiceAftersaleOrderSubmitPostRequest({
+    this.orderId,
+    this.skuList,
+    this.returnPayMethod,
+    this.returnType,
+    this.remark,
+    this.remarkImages,
+    this.allReturn,
+  });
+
+  factory OrderServiceAftersaleOrderSubmitPostRequest.fromJson(
+    Map<String, dynamic> json,
+  ) => _$OrderServiceAftersaleOrderSubmitPostRequestFromJson(json);
+
+  static const toJsonFactory =
+      _$OrderServiceAftersaleOrderSubmitPostRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$OrderServiceAftersaleOrderSubmitPostRequestToJson(this);
+
+  @JsonKey(name: 'orderId', fromJson: JsonCoerce.asString)
+  final String? orderId;
+  @JsonKey(name: 'skuList', fromJson: JsonCoerce.asString)
+  final String? skuList;
+  @JsonKey(name: 'returnPayMethod', fromJson: JsonCoerce.asString)
+  final String? returnPayMethod;
+  @JsonKey(name: 'returnType', fromJson: JsonCoerce.asString)
+  final String? returnType;
+  @JsonKey(name: 'remark', fromJson: JsonCoerce.asString)
+  final String? remark;
+  @JsonKey(name: 'remarkImages', fromJson: JsonCoerce.asString)
+  final String? remarkImages;
+  @JsonKey(name: 'allReturn', fromJson: JsonCoerce.asBool)
+  final bool? allReturn;
+  static const fromJsonFactory =
+      _$OrderServiceAftersaleOrderSubmitPostRequestFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is OrderServiceAftersaleOrderSubmitPostRequest &&
+            (identical(other.orderId, orderId) ||
+                const DeepCollectionEquality().equals(
+                  other.orderId,
+                  orderId,
+                )) &&
+            (identical(other.skuList, skuList) ||
+                const DeepCollectionEquality().equals(
+                  other.skuList,
+                  skuList,
+                )) &&
+            (identical(other.returnPayMethod, returnPayMethod) ||
+                const DeepCollectionEquality().equals(
+                  other.returnPayMethod,
+                  returnPayMethod,
+                )) &&
+            (identical(other.returnType, returnType) ||
+                const DeepCollectionEquality().equals(
+                  other.returnType,
+                  returnType,
+                )) &&
+            (identical(other.remark, remark) ||
+                const DeepCollectionEquality().equals(other.remark, remark)) &&
+            (identical(other.remarkImages, remarkImages) ||
+                const DeepCollectionEquality().equals(
+                  other.remarkImages,
+                  remarkImages,
+                )) &&
+            (identical(other.allReturn, allReturn) ||
+                const DeepCollectionEquality().equals(
+                  other.allReturn,
+                  allReturn,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(orderId) ^
+      const DeepCollectionEquality().hash(skuList) ^
+      const DeepCollectionEquality().hash(returnPayMethod) ^
+      const DeepCollectionEquality().hash(returnType) ^
+      const DeepCollectionEquality().hash(remark) ^
+      const DeepCollectionEquality().hash(remarkImages) ^
+      const DeepCollectionEquality().hash(allReturn) ^
+      runtimeType.hashCode;
+}
+
+extension $OrderServiceAftersaleOrderSubmitPostRequestExtension
+    on OrderServiceAftersaleOrderSubmitPostRequest {
+  OrderServiceAftersaleOrderSubmitPostRequest copyWith({
+    String? orderId,
+    String? skuList,
+    String? returnPayMethod,
+    String? returnType,
+    String? remark,
+    String? remarkImages,
+    bool? allReturn,
+  }) {
+    return OrderServiceAftersaleOrderSubmitPostRequest(
+      orderId: orderId ?? this.orderId,
+      skuList: skuList ?? this.skuList,
+      returnPayMethod: returnPayMethod ?? this.returnPayMethod,
+      returnType: returnType ?? this.returnType,
+      remark: remark ?? this.remark,
+      remarkImages: remarkImages ?? this.remarkImages,
+      allReturn: allReturn ?? this.allReturn,
+    );
+  }
+
+  OrderServiceAftersaleOrderSubmitPostRequest copyWithWrapped({
+    Wrapped<String?>? orderId,
+    Wrapped<String?>? skuList,
+    Wrapped<String?>? returnPayMethod,
+    Wrapped<String?>? returnType,
+    Wrapped<String?>? remark,
+    Wrapped<String?>? remarkImages,
+    Wrapped<bool?>? allReturn,
+  }) {
+    return OrderServiceAftersaleOrderSubmitPostRequest(
+      orderId: (orderId != null ? orderId.value : this.orderId),
+      skuList: (skuList != null ? skuList.value : this.skuList),
+      returnPayMethod: (returnPayMethod != null
+          ? returnPayMethod.value
+          : this.returnPayMethod),
+      returnType: (returnType != null ? returnType.value : this.returnType),
+      remark: (remark != null ? remark.value : this.remark),
+      remarkImages: (remarkImages != null
+          ? remarkImages.value
+          : this.remarkImages),
+      allReturn: (allReturn != null ? allReturn.value : this.allReturn),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class OrderServiceOrderCouponlistPostRequest {
+  const OrderServiceOrderCouponlistPostRequest({this.orderId});
+
+  factory OrderServiceOrderCouponlistPostRequest.fromJson(
+    Map<String, dynamic> json,
+  ) => _$OrderServiceOrderCouponlistPostRequestFromJson(json);
+
+  static const toJsonFactory = _$OrderServiceOrderCouponlistPostRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$OrderServiceOrderCouponlistPostRequestToJson(this);
+
+  @JsonKey(name: 'orderId', fromJson: JsonCoerce.asString)
+  final String? orderId;
+  static const fromJsonFactory =
+      _$OrderServiceOrderCouponlistPostRequestFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is OrderServiceOrderCouponlistPostRequest &&
+            (identical(other.orderId, orderId) ||
+                const DeepCollectionEquality().equals(other.orderId, orderId)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(orderId) ^ runtimeType.hashCode;
+}
+
+extension $OrderServiceOrderCouponlistPostRequestExtension
+    on OrderServiceOrderCouponlistPostRequest {
+  OrderServiceOrderCouponlistPostRequest copyWith({String? orderId}) {
+    return OrderServiceOrderCouponlistPostRequest(
+      orderId: orderId ?? this.orderId,
+    );
+  }
+
+  OrderServiceOrderCouponlistPostRequest copyWithWrapped({
+    Wrapped<String?>? orderId,
+  }) {
+    return OrderServiceOrderCouponlistPostRequest(
+      orderId: (orderId != null ? orderId.value : this.orderId),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class OrderServiceOrderDiscountlistPostRequest {
+  const OrderServiceOrderDiscountlistPostRequest({
+    this.orderId,
+    this.discountCode,
+  });
+
+  factory OrderServiceOrderDiscountlistPostRequest.fromJson(
+    Map<String, dynamic> json,
+  ) => _$OrderServiceOrderDiscountlistPostRequestFromJson(json);
+
+  static const toJsonFactory = _$OrderServiceOrderDiscountlistPostRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$OrderServiceOrderDiscountlistPostRequestToJson(this);
+
+  @JsonKey(name: 'orderId', fromJson: JsonCoerce.asString)
+  final String? orderId;
+  @JsonKey(name: 'discountCode', fromJson: JsonCoerce.asString)
+  final String? discountCode;
+  static const fromJsonFactory =
+      _$OrderServiceOrderDiscountlistPostRequestFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is OrderServiceOrderDiscountlistPostRequest &&
+            (identical(other.orderId, orderId) ||
+                const DeepCollectionEquality().equals(
+                  other.orderId,
+                  orderId,
+                )) &&
+            (identical(other.discountCode, discountCode) ||
+                const DeepCollectionEquality().equals(
+                  other.discountCode,
+                  discountCode,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(orderId) ^
+      const DeepCollectionEquality().hash(discountCode) ^
+      runtimeType.hashCode;
+}
+
+extension $OrderServiceOrderDiscountlistPostRequestExtension
+    on OrderServiceOrderDiscountlistPostRequest {
+  OrderServiceOrderDiscountlistPostRequest copyWith({
+    String? orderId,
+    String? discountCode,
+  }) {
+    return OrderServiceOrderDiscountlistPostRequest(
+      orderId: orderId ?? this.orderId,
+      discountCode: discountCode ?? this.discountCode,
+    );
+  }
+
+  OrderServiceOrderDiscountlistPostRequest copyWithWrapped({
+    Wrapped<String?>? orderId,
+    Wrapped<String?>? discountCode,
+  }) {
+    return OrderServiceOrderDiscountlistPostRequest(
+      orderId: (orderId != null ? orderId.value : this.orderId),
+      discountCode: (discountCode != null
+          ? discountCode.value
+          : this.discountCode),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class OrderServiceOrderAvailableCouponPostRequest {
+  const OrderServiceOrderAvailableCouponPostRequest({this.skuList});
+
+  factory OrderServiceOrderAvailableCouponPostRequest.fromJson(
+    Map<String, dynamic> json,
+  ) => _$OrderServiceOrderAvailableCouponPostRequestFromJson(json);
+
+  static const toJsonFactory =
+      _$OrderServiceOrderAvailableCouponPostRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$OrderServiceOrderAvailableCouponPostRequestToJson(this);
+
+  @JsonKey(name: 'skuList')
+  final List<OrderServiceOrderAvailableCouponPostRequest$SkuList$Item>? skuList;
+  static const fromJsonFactory =
+      _$OrderServiceOrderAvailableCouponPostRequestFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is OrderServiceOrderAvailableCouponPostRequest &&
+            (identical(other.skuList, skuList) ||
+                const DeepCollectionEquality().equals(other.skuList, skuList)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(skuList) ^ runtimeType.hashCode;
+}
+
+extension $OrderServiceOrderAvailableCouponPostRequestExtension
+    on OrderServiceOrderAvailableCouponPostRequest {
+  OrderServiceOrderAvailableCouponPostRequest copyWith({
+    List<OrderServiceOrderAvailableCouponPostRequest$SkuList$Item>? skuList,
+  }) {
+    return OrderServiceOrderAvailableCouponPostRequest(
+      skuList: skuList ?? this.skuList,
+    );
+  }
+
+  OrderServiceOrderAvailableCouponPostRequest copyWithWrapped({
+    Wrapped<List<OrderServiceOrderAvailableCouponPostRequest$SkuList$Item>?>?
+    skuList,
+  }) {
+    return OrderServiceOrderAvailableCouponPostRequest(
+      skuList: (skuList != null ? skuList.value : this.skuList),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class OrderServiceOrderCoupontitlePostRequest {
+  const OrderServiceOrderCoupontitlePostRequest({this.skuList});
+
+  factory OrderServiceOrderCoupontitlePostRequest.fromJson(
+    Map<String, dynamic> json,
+  ) => _$OrderServiceOrderCoupontitlePostRequestFromJson(json);
+
+  static const toJsonFactory = _$OrderServiceOrderCoupontitlePostRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$OrderServiceOrderCoupontitlePostRequestToJson(this);
+
+  @JsonKey(name: 'skuList')
+  final List<OrderServiceOrderCoupontitlePostRequest$SkuList$Item>? skuList;
+  static const fromJsonFactory =
+      _$OrderServiceOrderCoupontitlePostRequestFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is OrderServiceOrderCoupontitlePostRequest &&
+            (identical(other.skuList, skuList) ||
+                const DeepCollectionEquality().equals(other.skuList, skuList)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(skuList) ^ runtimeType.hashCode;
+}
+
+extension $OrderServiceOrderCoupontitlePostRequestExtension
+    on OrderServiceOrderCoupontitlePostRequest {
+  OrderServiceOrderCoupontitlePostRequest copyWith({
+    List<OrderServiceOrderCoupontitlePostRequest$SkuList$Item>? skuList,
+  }) {
+    return OrderServiceOrderCoupontitlePostRequest(
+      skuList: skuList ?? this.skuList,
+    );
+  }
+
+  OrderServiceOrderCoupontitlePostRequest copyWithWrapped({
+    Wrapped<List<OrderServiceOrderCoupontitlePostRequest$SkuList$Item>?>?
+    skuList,
+  }) {
+    return OrderServiceOrderCoupontitlePostRequest(
+      skuList: (skuList != null ? skuList.value : this.skuList),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class OrderServiceOrderReviewPostRequest {
+  const OrderServiceOrderReviewPostRequest({this.itemReviewList, this.orderId});
+
+  factory OrderServiceOrderReviewPostRequest.fromJson(
+    Map<String, dynamic> json,
+  ) => _$OrderServiceOrderReviewPostRequestFromJson(json);
+
+  static const toJsonFactory = _$OrderServiceOrderReviewPostRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$OrderServiceOrderReviewPostRequestToJson(this);
+
+  @JsonKey(name: 'itemReviewList')
+  final List<OrderServiceOrderReviewPostRequest$ItemReviewList$Item>?
+  itemReviewList;
+  @JsonKey(name: 'orderId', fromJson: JsonCoerce.asString)
+  final String? orderId;
+  static const fromJsonFactory = _$OrderServiceOrderReviewPostRequestFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is OrderServiceOrderReviewPostRequest &&
+            (identical(other.itemReviewList, itemReviewList) ||
+                const DeepCollectionEquality().equals(
+                  other.itemReviewList,
+                  itemReviewList,
+                )) &&
+            (identical(other.orderId, orderId) ||
+                const DeepCollectionEquality().equals(other.orderId, orderId)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(itemReviewList) ^
+      const DeepCollectionEquality().hash(orderId) ^
+      runtimeType.hashCode;
+}
+
+extension $OrderServiceOrderReviewPostRequestExtension
+    on OrderServiceOrderReviewPostRequest {
+  OrderServiceOrderReviewPostRequest copyWith({
+    List<OrderServiceOrderReviewPostRequest$ItemReviewList$Item>?
+    itemReviewList,
+    String? orderId,
+  }) {
+    return OrderServiceOrderReviewPostRequest(
+      itemReviewList: itemReviewList ?? this.itemReviewList,
+      orderId: orderId ?? this.orderId,
+    );
+  }
+
+  OrderServiceOrderReviewPostRequest copyWithWrapped({
+    Wrapped<List<OrderServiceOrderReviewPostRequest$ItemReviewList$Item>?>?
+    itemReviewList,
+    Wrapped<String?>? orderId,
+  }) {
+    return OrderServiceOrderReviewPostRequest(
+      itemReviewList: (itemReviewList != null
+          ? itemReviewList.value
+          : this.itemReviewList),
+      orderId: (orderId != null ? orderId.value : this.orderId),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class OrderServiceCartAddPostRequest {
+  const OrderServiceCartAddPostRequest({
+    this.skuCode,
+    this.quantity,
+    this.inviteCode,
+    this.remark,
+    this.sourceDetail,
+  });
+
+  factory OrderServiceCartAddPostRequest.fromJson(Map<String, dynamic> json) =>
+      _$OrderServiceCartAddPostRequestFromJson(json);
+
+  static const toJsonFactory = _$OrderServiceCartAddPostRequestToJson;
+  Map<String, dynamic> toJson() => _$OrderServiceCartAddPostRequestToJson(this);
+
+  @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
+  final String? skuCode;
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asString)
+  final String? quantity;
+  @JsonKey(name: 'inviteCode', fromJson: JsonCoerce.asString)
+  final String? inviteCode;
+  @JsonKey(name: 'remark', fromJson: JsonCoerce.asString)
+  final String? remark;
+  @JsonKey(name: 'sourceDetail', fromJson: JsonCoerce.asString)
+  final String? sourceDetail;
+  static const fromJsonFactory = _$OrderServiceCartAddPostRequestFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is OrderServiceCartAddPostRequest &&
+            (identical(other.skuCode, skuCode) ||
+                const DeepCollectionEquality().equals(
+                  other.skuCode,
+                  skuCode,
+                )) &&
+            (identical(other.quantity, quantity) ||
+                const DeepCollectionEquality().equals(
+                  other.quantity,
+                  quantity,
+                )) &&
+            (identical(other.inviteCode, inviteCode) ||
+                const DeepCollectionEquality().equals(
+                  other.inviteCode,
+                  inviteCode,
+                )) &&
+            (identical(other.remark, remark) ||
+                const DeepCollectionEquality().equals(other.remark, remark)) &&
+            (identical(other.sourceDetail, sourceDetail) ||
+                const DeepCollectionEquality().equals(
+                  other.sourceDetail,
+                  sourceDetail,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(skuCode) ^
+      const DeepCollectionEquality().hash(quantity) ^
+      const DeepCollectionEquality().hash(inviteCode) ^
+      const DeepCollectionEquality().hash(remark) ^
+      const DeepCollectionEquality().hash(sourceDetail) ^
+      runtimeType.hashCode;
+}
+
+extension $OrderServiceCartAddPostRequestExtension
+    on OrderServiceCartAddPostRequest {
+  OrderServiceCartAddPostRequest copyWith({
+    String? skuCode,
+    String? quantity,
+    String? inviteCode,
+    String? remark,
+    String? sourceDetail,
+  }) {
+    return OrderServiceCartAddPostRequest(
+      skuCode: skuCode ?? this.skuCode,
+      quantity: quantity ?? this.quantity,
+      inviteCode: inviteCode ?? this.inviteCode,
+      remark: remark ?? this.remark,
+      sourceDetail: sourceDetail ?? this.sourceDetail,
+    );
+  }
+
+  OrderServiceCartAddPostRequest copyWithWrapped({
+    Wrapped<String?>? skuCode,
+    Wrapped<String?>? quantity,
+    Wrapped<String?>? inviteCode,
+    Wrapped<String?>? remark,
+    Wrapped<String?>? sourceDetail,
+  }) {
+    return OrderServiceCartAddPostRequest(
+      skuCode: (skuCode != null ? skuCode.value : this.skuCode),
+      quantity: (quantity != null ? quantity.value : this.quantity),
+      inviteCode: (inviteCode != null ? inviteCode.value : this.inviteCode),
+      remark: (remark != null ? remark.value : this.remark),
+      sourceDetail: (sourceDetail != null
+          ? sourceDetail.value
+          : this.sourceDetail),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class OrderServiceCartListGetRequest {
+  const OrderServiceCartListGetRequest({this.skuList});
+
+  factory OrderServiceCartListGetRequest.fromJson(Map<String, dynamic> json) =>
+      _$OrderServiceCartListGetRequestFromJson(json);
+
+  static const toJsonFactory = _$OrderServiceCartListGetRequestToJson;
+  Map<String, dynamic> toJson() => _$OrderServiceCartListGetRequestToJson(this);
+
+  @JsonKey(name: 'skuList')
+  final List<OrderServiceCartListGetRequest$SkuList$Item>? skuList;
+  static const fromJsonFactory = _$OrderServiceCartListGetRequestFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is OrderServiceCartListGetRequest &&
+            (identical(other.skuList, skuList) ||
+                const DeepCollectionEquality().equals(other.skuList, skuList)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(skuList) ^ runtimeType.hashCode;
+}
+
+extension $OrderServiceCartListGetRequestExtension
+    on OrderServiceCartListGetRequest {
+  OrderServiceCartListGetRequest copyWith({
+    List<OrderServiceCartListGetRequest$SkuList$Item>? skuList,
+  }) {
+    return OrderServiceCartListGetRequest(skuList: skuList ?? this.skuList);
+  }
+
+  OrderServiceCartListGetRequest copyWithWrapped({
+    Wrapped<List<OrderServiceCartListGetRequest$SkuList$Item>?>? skuList,
+  }) {
+    return OrderServiceCartListGetRequest(
+      skuList: (skuList != null ? skuList.value : this.skuList),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class OrderServiceCartUpdatePostRequest {
+  const OrderServiceCartUpdatePostRequest({this.type, this.cart});
+
+  factory OrderServiceCartUpdatePostRequest.fromJson(
+    Map<String, dynamic> json,
+  ) => _$OrderServiceCartUpdatePostRequestFromJson(json);
+
+  static const toJsonFactory = _$OrderServiceCartUpdatePostRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$OrderServiceCartUpdatePostRequestToJson(this);
+
+  @JsonKey(name: 'type', fromJson: JsonCoerce.asString)
+  final String? type;
+  @JsonKey(name: 'cart')
+  final List<OrderServiceCartUpdatePostRequest$Cart$Item>? cart;
+  static const fromJsonFactory = _$OrderServiceCartUpdatePostRequestFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is OrderServiceCartUpdatePostRequest &&
+            (identical(other.type, type) ||
+                const DeepCollectionEquality().equals(other.type, type)) &&
+            (identical(other.cart, cart) ||
+                const DeepCollectionEquality().equals(other.cart, cart)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(type) ^
+      const DeepCollectionEquality().hash(cart) ^
+      runtimeType.hashCode;
+}
+
+extension $OrderServiceCartUpdatePostRequestExtension
+    on OrderServiceCartUpdatePostRequest {
+  OrderServiceCartUpdatePostRequest copyWith({
+    String? type,
+    List<OrderServiceCartUpdatePostRequest$Cart$Item>? cart,
+  }) {
+    return OrderServiceCartUpdatePostRequest(
+      type: type ?? this.type,
+      cart: cart ?? this.cart,
+    );
+  }
+
+  OrderServiceCartUpdatePostRequest copyWithWrapped({
+    Wrapped<String?>? type,
+    Wrapped<List<OrderServiceCartUpdatePostRequest$Cart$Item>?>? cart,
+  }) {
+    return OrderServiceCartUpdatePostRequest(
+      type: (type != null ? type.value : this.type),
+      cart: (cart != null ? cart.value : this.cart),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class OrderServiceCartSettlementPostRequest {
+  const OrderServiceCartSettlementPostRequest({this.skuList});
+
+  factory OrderServiceCartSettlementPostRequest.fromJson(
+    Map<String, dynamic> json,
+  ) => _$OrderServiceCartSettlementPostRequestFromJson(json);
+
+  static const toJsonFactory = _$OrderServiceCartSettlementPostRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$OrderServiceCartSettlementPostRequestToJson(this);
+
+  @JsonKey(name: 'skuList')
+  final List<OrderServiceCartSettlementPostRequest$SkuList$Item>? skuList;
+  static const fromJsonFactory =
+      _$OrderServiceCartSettlementPostRequestFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is OrderServiceCartSettlementPostRequest &&
+            (identical(other.skuList, skuList) ||
+                const DeepCollectionEquality().equals(other.skuList, skuList)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(skuList) ^ runtimeType.hashCode;
+}
+
+extension $OrderServiceCartSettlementPostRequestExtension
+    on OrderServiceCartSettlementPostRequest {
+  OrderServiceCartSettlementPostRequest copyWith({
+    List<OrderServiceCartSettlementPostRequest$SkuList$Item>? skuList,
+  }) {
+    return OrderServiceCartSettlementPostRequest(
+      skuList: skuList ?? this.skuList,
+    );
+  }
+
+  OrderServiceCartSettlementPostRequest copyWithWrapped({
+    Wrapped<List<OrderServiceCartSettlementPostRequest$SkuList$Item>?>? skuList,
+  }) {
+    return OrderServiceCartSettlementPostRequest(
+      skuList: (skuList != null ? skuList.value : this.skuList),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class OrderServiceCartPricingPostRequest {
+  const OrderServiceCartPricingPostRequest({this.skuList, this.userCouponCode});
+
+  factory OrderServiceCartPricingPostRequest.fromJson(
+    Map<String, dynamic> json,
+  ) => _$OrderServiceCartPricingPostRequestFromJson(json);
+
+  static const toJsonFactory = _$OrderServiceCartPricingPostRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$OrderServiceCartPricingPostRequestToJson(this);
+
+  @JsonKey(name: 'skuList')
+  final List<OrderServiceCartPricingPostRequest$SkuList$Item>? skuList;
+  @JsonKey(name: 'userCouponCode', fromJson: JsonCoerce.asString)
+  final String? userCouponCode;
+  static const fromJsonFactory = _$OrderServiceCartPricingPostRequestFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is OrderServiceCartPricingPostRequest &&
+            (identical(other.skuList, skuList) ||
+                const DeepCollectionEquality().equals(
+                  other.skuList,
+                  skuList,
+                )) &&
+            (identical(other.userCouponCode, userCouponCode) ||
+                const DeepCollectionEquality().equals(
+                  other.userCouponCode,
+                  userCouponCode,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(skuList) ^
+      const DeepCollectionEquality().hash(userCouponCode) ^
+      runtimeType.hashCode;
+}
+
+extension $OrderServiceCartPricingPostRequestExtension
+    on OrderServiceCartPricingPostRequest {
+  OrderServiceCartPricingPostRequest copyWith({
+    List<OrderServiceCartPricingPostRequest$SkuList$Item>? skuList,
+    String? userCouponCode,
+  }) {
+    return OrderServiceCartPricingPostRequest(
+      skuList: skuList ?? this.skuList,
+      userCouponCode: userCouponCode ?? this.userCouponCode,
+    );
+  }
+
+  OrderServiceCartPricingPostRequest copyWithWrapped({
+    Wrapped<List<OrderServiceCartPricingPostRequest$SkuList$Item>?>? skuList,
+    Wrapped<String?>? userCouponCode,
+  }) {
+    return OrderServiceCartPricingPostRequest(
+      skuList: (skuList != null ? skuList.value : this.skuList),
+      userCouponCode: (userCouponCode != null
+          ? userCouponCode.value
+          : this.userCouponCode),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class OrderServiceCartNoAuthPricingPostRequest {
+  const OrderServiceCartNoAuthPricingPostRequest({
+    this.skuList,
+    this.userCouponCode,
+  });
+
+  factory OrderServiceCartNoAuthPricingPostRequest.fromJson(
+    Map<String, dynamic> json,
+  ) => _$OrderServiceCartNoAuthPricingPostRequestFromJson(json);
+
+  static const toJsonFactory = _$OrderServiceCartNoAuthPricingPostRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$OrderServiceCartNoAuthPricingPostRequestToJson(this);
+
+  @JsonKey(name: 'skuList')
+  final List<OrderServiceCartNoAuthPricingPostRequest$SkuList$Item>? skuList;
+  @JsonKey(name: 'userCouponCode', fromJson: JsonCoerce.asString)
+  final String? userCouponCode;
+  static const fromJsonFactory =
+      _$OrderServiceCartNoAuthPricingPostRequestFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is OrderServiceCartNoAuthPricingPostRequest &&
+            (identical(other.skuList, skuList) ||
+                const DeepCollectionEquality().equals(
+                  other.skuList,
+                  skuList,
+                )) &&
+            (identical(other.userCouponCode, userCouponCode) ||
+                const DeepCollectionEquality().equals(
+                  other.userCouponCode,
+                  userCouponCode,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(skuList) ^
+      const DeepCollectionEquality().hash(userCouponCode) ^
+      runtimeType.hashCode;
+}
+
+extension $OrderServiceCartNoAuthPricingPostRequestExtension
+    on OrderServiceCartNoAuthPricingPostRequest {
+  OrderServiceCartNoAuthPricingPostRequest copyWith({
+    List<OrderServiceCartNoAuthPricingPostRequest$SkuList$Item>? skuList,
+    String? userCouponCode,
+  }) {
+    return OrderServiceCartNoAuthPricingPostRequest(
+      skuList: skuList ?? this.skuList,
+      userCouponCode: userCouponCode ?? this.userCouponCode,
+    );
+  }
+
+  OrderServiceCartNoAuthPricingPostRequest copyWithWrapped({
+    Wrapped<List<OrderServiceCartNoAuthPricingPostRequest$SkuList$Item>?>?
+    skuList,
+    Wrapped<String?>? userCouponCode,
+  }) {
+    return OrderServiceCartNoAuthPricingPostRequest(
+      skuList: (skuList != null ? skuList.value : this.skuList),
+      userCouponCode: (userCouponCode != null
+          ? userCouponCode.value
+          : this.userCouponCode),
+    );
+  }
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -4763,6 +7214,2616 @@ extension $OrderServiceCartNoAuthPricingPost$ResponseExtension
       data: (data != null ? data.value : this.data),
       traceId: (traceId != null ? traceId.value : this.traceId),
       success: (success != null ? success.value : this.success),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class OrderServiceOrderAppBatchinfosGetRequest$UserAddress {
+  const OrderServiceOrderAppBatchinfosGetRequest$UserAddress({
+    this.isDefault,
+    this.email,
+    this.country,
+    this.countryCode,
+    this.state,
+    this.stateCode,
+    this.city,
+    this.cityCode,
+    this.street,
+    this.apartment,
+    this.address,
+    this.coordinate,
+    this.firstName,
+    this.lastName,
+    this.phoneNumber,
+    this.zipCode,
+    this.userId,
+    this.id,
+  });
+
+  factory OrderServiceOrderAppBatchinfosGetRequest$UserAddress.fromJson(
+    Map<String, dynamic> json,
+  ) => _$OrderServiceOrderAppBatchinfosGetRequest$UserAddressFromJson(json);
+
+  static const toJsonFactory =
+      _$OrderServiceOrderAppBatchinfosGetRequest$UserAddressToJson;
+  Map<String, dynamic> toJson() =>
+      _$OrderServiceOrderAppBatchinfosGetRequest$UserAddressToJson(this);
+
+  @JsonKey(name: 'isDefault', fromJson: JsonCoerce.asDouble)
+  final double? isDefault;
+  @JsonKey(name: 'email', fromJson: JsonCoerce.asString)
+  final String? email;
+  @JsonKey(name: 'country', fromJson: JsonCoerce.asString)
+  final String? country;
+  @JsonKey(name: 'countryCode', fromJson: JsonCoerce.asString)
+  final String? countryCode;
+  @JsonKey(name: 'state', fromJson: JsonCoerce.asString)
+  final String? state;
+  @JsonKey(name: 'stateCode', fromJson: JsonCoerce.asString)
+  final String? stateCode;
+  @JsonKey(name: 'city', fromJson: JsonCoerce.asString)
+  final String? city;
+  @JsonKey(name: 'cityCode', fromJson: JsonCoerce.asString)
+  final String? cityCode;
+  @JsonKey(name: 'street', fromJson: JsonCoerce.asString)
+  final String? street;
+  @JsonKey(name: 'apartment', fromJson: JsonCoerce.asString)
+  final String? apartment;
+  @JsonKey(name: 'address', fromJson: JsonCoerce.asString)
+  final String? address;
+  @JsonKey(name: 'coordinate', fromJson: JsonCoerce.asString)
+  final String? coordinate;
+  @JsonKey(name: 'firstName', fromJson: JsonCoerce.asString)
+  final String? firstName;
+  @JsonKey(name: 'lastName', fromJson: JsonCoerce.asString)
+  final String? lastName;
+  @JsonKey(name: 'phoneNumber', fromJson: JsonCoerce.asString)
+  final String? phoneNumber;
+  @JsonKey(name: 'zipCode', fromJson: JsonCoerce.asString)
+  final String? zipCode;
+  @JsonKey(name: 'userId', fromJson: JsonCoerce.asString)
+  final String? userId;
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asDouble)
+  final double? id;
+  static const fromJsonFactory =
+      _$OrderServiceOrderAppBatchinfosGetRequest$UserAddressFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is OrderServiceOrderAppBatchinfosGetRequest$UserAddress &&
+            (identical(other.isDefault, isDefault) ||
+                const DeepCollectionEquality().equals(
+                  other.isDefault,
+                  isDefault,
+                )) &&
+            (identical(other.email, email) ||
+                const DeepCollectionEquality().equals(other.email, email)) &&
+            (identical(other.country, country) ||
+                const DeepCollectionEquality().equals(
+                  other.country,
+                  country,
+                )) &&
+            (identical(other.countryCode, countryCode) ||
+                const DeepCollectionEquality().equals(
+                  other.countryCode,
+                  countryCode,
+                )) &&
+            (identical(other.state, state) ||
+                const DeepCollectionEquality().equals(other.state, state)) &&
+            (identical(other.stateCode, stateCode) ||
+                const DeepCollectionEquality().equals(
+                  other.stateCode,
+                  stateCode,
+                )) &&
+            (identical(other.city, city) ||
+                const DeepCollectionEquality().equals(other.city, city)) &&
+            (identical(other.cityCode, cityCode) ||
+                const DeepCollectionEquality().equals(
+                  other.cityCode,
+                  cityCode,
+                )) &&
+            (identical(other.street, street) ||
+                const DeepCollectionEquality().equals(other.street, street)) &&
+            (identical(other.apartment, apartment) ||
+                const DeepCollectionEquality().equals(
+                  other.apartment,
+                  apartment,
+                )) &&
+            (identical(other.address, address) ||
+                const DeepCollectionEquality().equals(
+                  other.address,
+                  address,
+                )) &&
+            (identical(other.coordinate, coordinate) ||
+                const DeepCollectionEquality().equals(
+                  other.coordinate,
+                  coordinate,
+                )) &&
+            (identical(other.firstName, firstName) ||
+                const DeepCollectionEquality().equals(
+                  other.firstName,
+                  firstName,
+                )) &&
+            (identical(other.lastName, lastName) ||
+                const DeepCollectionEquality().equals(
+                  other.lastName,
+                  lastName,
+                )) &&
+            (identical(other.phoneNumber, phoneNumber) ||
+                const DeepCollectionEquality().equals(
+                  other.phoneNumber,
+                  phoneNumber,
+                )) &&
+            (identical(other.zipCode, zipCode) ||
+                const DeepCollectionEquality().equals(
+                  other.zipCode,
+                  zipCode,
+                )) &&
+            (identical(other.userId, userId) ||
+                const DeepCollectionEquality().equals(other.userId, userId)) &&
+            (identical(other.id, id) ||
+                const DeepCollectionEquality().equals(other.id, id)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(isDefault) ^
+      const DeepCollectionEquality().hash(email) ^
+      const DeepCollectionEquality().hash(country) ^
+      const DeepCollectionEquality().hash(countryCode) ^
+      const DeepCollectionEquality().hash(state) ^
+      const DeepCollectionEquality().hash(stateCode) ^
+      const DeepCollectionEquality().hash(city) ^
+      const DeepCollectionEquality().hash(cityCode) ^
+      const DeepCollectionEquality().hash(street) ^
+      const DeepCollectionEquality().hash(apartment) ^
+      const DeepCollectionEquality().hash(address) ^
+      const DeepCollectionEquality().hash(coordinate) ^
+      const DeepCollectionEquality().hash(firstName) ^
+      const DeepCollectionEquality().hash(lastName) ^
+      const DeepCollectionEquality().hash(phoneNumber) ^
+      const DeepCollectionEquality().hash(zipCode) ^
+      const DeepCollectionEquality().hash(userId) ^
+      const DeepCollectionEquality().hash(id) ^
+      runtimeType.hashCode;
+}
+
+extension $OrderServiceOrderAppBatchinfosGetRequest$UserAddressExtension
+    on OrderServiceOrderAppBatchinfosGetRequest$UserAddress {
+  OrderServiceOrderAppBatchinfosGetRequest$UserAddress copyWith({
+    double? isDefault,
+    String? email,
+    String? country,
+    String? countryCode,
+    String? state,
+    String? stateCode,
+    String? city,
+    String? cityCode,
+    String? street,
+    String? apartment,
+    String? address,
+    String? coordinate,
+    String? firstName,
+    String? lastName,
+    String? phoneNumber,
+    String? zipCode,
+    String? userId,
+    double? id,
+  }) {
+    return OrderServiceOrderAppBatchinfosGetRequest$UserAddress(
+      isDefault: isDefault ?? this.isDefault,
+      email: email ?? this.email,
+      country: country ?? this.country,
+      countryCode: countryCode ?? this.countryCode,
+      state: state ?? this.state,
+      stateCode: stateCode ?? this.stateCode,
+      city: city ?? this.city,
+      cityCode: cityCode ?? this.cityCode,
+      street: street ?? this.street,
+      apartment: apartment ?? this.apartment,
+      address: address ?? this.address,
+      coordinate: coordinate ?? this.coordinate,
+      firstName: firstName ?? this.firstName,
+      lastName: lastName ?? this.lastName,
+      phoneNumber: phoneNumber ?? this.phoneNumber,
+      zipCode: zipCode ?? this.zipCode,
+      userId: userId ?? this.userId,
+      id: id ?? this.id,
+    );
+  }
+
+  OrderServiceOrderAppBatchinfosGetRequest$UserAddress copyWithWrapped({
+    Wrapped<double?>? isDefault,
+    Wrapped<String?>? email,
+    Wrapped<String?>? country,
+    Wrapped<String?>? countryCode,
+    Wrapped<String?>? state,
+    Wrapped<String?>? stateCode,
+    Wrapped<String?>? city,
+    Wrapped<String?>? cityCode,
+    Wrapped<String?>? street,
+    Wrapped<String?>? apartment,
+    Wrapped<String?>? address,
+    Wrapped<String?>? coordinate,
+    Wrapped<String?>? firstName,
+    Wrapped<String?>? lastName,
+    Wrapped<String?>? phoneNumber,
+    Wrapped<String?>? zipCode,
+    Wrapped<String?>? userId,
+    Wrapped<double?>? id,
+  }) {
+    return OrderServiceOrderAppBatchinfosGetRequest$UserAddress(
+      isDefault: (isDefault != null ? isDefault.value : this.isDefault),
+      email: (email != null ? email.value : this.email),
+      country: (country != null ? country.value : this.country),
+      countryCode: (countryCode != null ? countryCode.value : this.countryCode),
+      state: (state != null ? state.value : this.state),
+      stateCode: (stateCode != null ? stateCode.value : this.stateCode),
+      city: (city != null ? city.value : this.city),
+      cityCode: (cityCode != null ? cityCode.value : this.cityCode),
+      street: (street != null ? street.value : this.street),
+      apartment: (apartment != null ? apartment.value : this.apartment),
+      address: (address != null ? address.value : this.address),
+      coordinate: (coordinate != null ? coordinate.value : this.coordinate),
+      firstName: (firstName != null ? firstName.value : this.firstName),
+      lastName: (lastName != null ? lastName.value : this.lastName),
+      phoneNumber: (phoneNumber != null ? phoneNumber.value : this.phoneNumber),
+      zipCode: (zipCode != null ? zipCode.value : this.zipCode),
+      userId: (userId != null ? userId.value : this.userId),
+      id: (id != null ? id.value : this.id),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class OrderServiceOrderAppBatchinfosGetRequest$SourceItems$Item {
+  const OrderServiceOrderAppBatchinfosGetRequest$SourceItems$Item({
+    this.skuList,
+    this.addBatch,
+    this.removePackage,
+    this.remark,
+    this.skuSourceCode,
+  });
+
+  factory OrderServiceOrderAppBatchinfosGetRequest$SourceItems$Item.fromJson(
+    Map<String, dynamic> json,
+  ) =>
+      _$OrderServiceOrderAppBatchinfosGetRequest$SourceItems$ItemFromJson(json);
+
+  static const toJsonFactory =
+      _$OrderServiceOrderAppBatchinfosGetRequest$SourceItems$ItemToJson;
+  Map<String, dynamic> toJson() =>
+      _$OrderServiceOrderAppBatchinfosGetRequest$SourceItems$ItemToJson(this);
+
+  @JsonKey(name: 'skuList')
+  final List<
+    OrderServiceOrderAppBatchinfosGetRequest$SourceItems$Item$SkuList$Item
+  >?
+  skuList;
+  @JsonKey(name: 'addBatch', fromJson: JsonCoerce.asBool)
+  final bool? addBatch;
+  @JsonKey(name: 'removePackage', fromJson: JsonCoerce.asBool)
+  final bool? removePackage;
+  @JsonKey(name: 'remark', fromJson: JsonCoerce.asString)
+  final String? remark;
+  @JsonKey(name: 'skuSourceCode', fromJson: JsonCoerce.asString)
+  final String? skuSourceCode;
+  static const fromJsonFactory =
+      _$OrderServiceOrderAppBatchinfosGetRequest$SourceItems$ItemFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is OrderServiceOrderAppBatchinfosGetRequest$SourceItems$Item &&
+            (identical(other.skuList, skuList) ||
+                const DeepCollectionEquality().equals(
+                  other.skuList,
+                  skuList,
+                )) &&
+            (identical(other.addBatch, addBatch) ||
+                const DeepCollectionEquality().equals(
+                  other.addBatch,
+                  addBatch,
+                )) &&
+            (identical(other.removePackage, removePackage) ||
+                const DeepCollectionEquality().equals(
+                  other.removePackage,
+                  removePackage,
+                )) &&
+            (identical(other.remark, remark) ||
+                const DeepCollectionEquality().equals(other.remark, remark)) &&
+            (identical(other.skuSourceCode, skuSourceCode) ||
+                const DeepCollectionEquality().equals(
+                  other.skuSourceCode,
+                  skuSourceCode,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(skuList) ^
+      const DeepCollectionEquality().hash(addBatch) ^
+      const DeepCollectionEquality().hash(removePackage) ^
+      const DeepCollectionEquality().hash(remark) ^
+      const DeepCollectionEquality().hash(skuSourceCode) ^
+      runtimeType.hashCode;
+}
+
+extension $OrderServiceOrderAppBatchinfosGetRequest$SourceItems$ItemExtension
+    on OrderServiceOrderAppBatchinfosGetRequest$SourceItems$Item {
+  OrderServiceOrderAppBatchinfosGetRequest$SourceItems$Item copyWith({
+    List<
+      OrderServiceOrderAppBatchinfosGetRequest$SourceItems$Item$SkuList$Item
+    >?
+    skuList,
+    bool? addBatch,
+    bool? removePackage,
+    String? remark,
+    String? skuSourceCode,
+  }) {
+    return OrderServiceOrderAppBatchinfosGetRequest$SourceItems$Item(
+      skuList: skuList ?? this.skuList,
+      addBatch: addBatch ?? this.addBatch,
+      removePackage: removePackage ?? this.removePackage,
+      remark: remark ?? this.remark,
+      skuSourceCode: skuSourceCode ?? this.skuSourceCode,
+    );
+  }
+
+  OrderServiceOrderAppBatchinfosGetRequest$SourceItems$Item copyWithWrapped({
+    Wrapped<
+      List<
+        OrderServiceOrderAppBatchinfosGetRequest$SourceItems$Item$SkuList$Item
+      >?
+    >?
+    skuList,
+    Wrapped<bool?>? addBatch,
+    Wrapped<bool?>? removePackage,
+    Wrapped<String?>? remark,
+    Wrapped<String?>? skuSourceCode,
+  }) {
+    return OrderServiceOrderAppBatchinfosGetRequest$SourceItems$Item(
+      skuList: (skuList != null ? skuList.value : this.skuList),
+      addBatch: (addBatch != null ? addBatch.value : this.addBatch),
+      removePackage: (removePackage != null
+          ? removePackage.value
+          : this.removePackage),
+      remark: (remark != null ? remark.value : this.remark),
+      skuSourceCode: (skuSourceCode != null
+          ? skuSourceCode.value
+          : this.skuSourceCode),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class OrderServiceOrderAppBatchinfosGetRequest$ItemList$Item {
+  const OrderServiceOrderAppBatchinfosGetRequest$ItemList$Item({
+    this.skuCode,
+    this.remark,
+  });
+
+  factory OrderServiceOrderAppBatchinfosGetRequest$ItemList$Item.fromJson(
+    Map<String, dynamic> json,
+  ) => _$OrderServiceOrderAppBatchinfosGetRequest$ItemList$ItemFromJson(json);
+
+  static const toJsonFactory =
+      _$OrderServiceOrderAppBatchinfosGetRequest$ItemList$ItemToJson;
+  Map<String, dynamic> toJson() =>
+      _$OrderServiceOrderAppBatchinfosGetRequest$ItemList$ItemToJson(this);
+
+  @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
+  final String? skuCode;
+  @JsonKey(name: 'remark', fromJson: JsonCoerce.asString)
+  final String? remark;
+  static const fromJsonFactory =
+      _$OrderServiceOrderAppBatchinfosGetRequest$ItemList$ItemFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is OrderServiceOrderAppBatchinfosGetRequest$ItemList$Item &&
+            (identical(other.skuCode, skuCode) ||
+                const DeepCollectionEquality().equals(
+                  other.skuCode,
+                  skuCode,
+                )) &&
+            (identical(other.remark, remark) ||
+                const DeepCollectionEquality().equals(other.remark, remark)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(skuCode) ^
+      const DeepCollectionEquality().hash(remark) ^
+      runtimeType.hashCode;
+}
+
+extension $OrderServiceOrderAppBatchinfosGetRequest$ItemList$ItemExtension
+    on OrderServiceOrderAppBatchinfosGetRequest$ItemList$Item {
+  OrderServiceOrderAppBatchinfosGetRequest$ItemList$Item copyWith({
+    String? skuCode,
+    String? remark,
+  }) {
+    return OrderServiceOrderAppBatchinfosGetRequest$ItemList$Item(
+      skuCode: skuCode ?? this.skuCode,
+      remark: remark ?? this.remark,
+    );
+  }
+
+  OrderServiceOrderAppBatchinfosGetRequest$ItemList$Item copyWithWrapped({
+    Wrapped<String?>? skuCode,
+    Wrapped<String?>? remark,
+  }) {
+    return OrderServiceOrderAppBatchinfosGetRequest$ItemList$Item(
+      skuCode: (skuCode != null ? skuCode.value : this.skuCode),
+      remark: (remark != null ? remark.value : this.remark),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class OrderServiceOrderAppSubmitPostRequest$SourceItems$Item {
+  const OrderServiceOrderAppSubmitPostRequest$SourceItems$Item({
+    this.skuList,
+    this.skuSourceCode,
+    this.addBatch,
+    this.removePackage,
+    this.remark,
+  });
+
+  factory OrderServiceOrderAppSubmitPostRequest$SourceItems$Item.fromJson(
+    Map<String, dynamic> json,
+  ) => _$OrderServiceOrderAppSubmitPostRequest$SourceItems$ItemFromJson(json);
+
+  static const toJsonFactory =
+      _$OrderServiceOrderAppSubmitPostRequest$SourceItems$ItemToJson;
+  Map<String, dynamic> toJson() =>
+      _$OrderServiceOrderAppSubmitPostRequest$SourceItems$ItemToJson(this);
+
+  @JsonKey(name: 'skuList')
+  final List<
+    OrderServiceOrderAppSubmitPostRequest$SourceItems$Item$SkuList$Item
+  >?
+  skuList;
+  @JsonKey(name: 'skuSourceCode', fromJson: JsonCoerce.asString)
+  final String? skuSourceCode;
+  @JsonKey(name: 'addBatch', fromJson: JsonCoerce.asBool)
+  final bool? addBatch;
+  @JsonKey(name: 'removePackage', fromJson: JsonCoerce.asBool)
+  final bool? removePackage;
+  @JsonKey(name: 'remark', fromJson: JsonCoerce.asString)
+  final String? remark;
+  static const fromJsonFactory =
+      _$OrderServiceOrderAppSubmitPostRequest$SourceItems$ItemFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is OrderServiceOrderAppSubmitPostRequest$SourceItems$Item &&
+            (identical(other.skuList, skuList) ||
+                const DeepCollectionEquality().equals(
+                  other.skuList,
+                  skuList,
+                )) &&
+            (identical(other.skuSourceCode, skuSourceCode) ||
+                const DeepCollectionEquality().equals(
+                  other.skuSourceCode,
+                  skuSourceCode,
+                )) &&
+            (identical(other.addBatch, addBatch) ||
+                const DeepCollectionEquality().equals(
+                  other.addBatch,
+                  addBatch,
+                )) &&
+            (identical(other.removePackage, removePackage) ||
+                const DeepCollectionEquality().equals(
+                  other.removePackage,
+                  removePackage,
+                )) &&
+            (identical(other.remark, remark) ||
+                const DeepCollectionEquality().equals(other.remark, remark)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(skuList) ^
+      const DeepCollectionEquality().hash(skuSourceCode) ^
+      const DeepCollectionEquality().hash(addBatch) ^
+      const DeepCollectionEquality().hash(removePackage) ^
+      const DeepCollectionEquality().hash(remark) ^
+      runtimeType.hashCode;
+}
+
+extension $OrderServiceOrderAppSubmitPostRequest$SourceItems$ItemExtension
+    on OrderServiceOrderAppSubmitPostRequest$SourceItems$Item {
+  OrderServiceOrderAppSubmitPostRequest$SourceItems$Item copyWith({
+    List<OrderServiceOrderAppSubmitPostRequest$SourceItems$Item$SkuList$Item>?
+    skuList,
+    String? skuSourceCode,
+    bool? addBatch,
+    bool? removePackage,
+    String? remark,
+  }) {
+    return OrderServiceOrderAppSubmitPostRequest$SourceItems$Item(
+      skuList: skuList ?? this.skuList,
+      skuSourceCode: skuSourceCode ?? this.skuSourceCode,
+      addBatch: addBatch ?? this.addBatch,
+      removePackage: removePackage ?? this.removePackage,
+      remark: remark ?? this.remark,
+    );
+  }
+
+  OrderServiceOrderAppSubmitPostRequest$SourceItems$Item copyWithWrapped({
+    Wrapped<
+      List<OrderServiceOrderAppSubmitPostRequest$SourceItems$Item$SkuList$Item>?
+    >?
+    skuList,
+    Wrapped<String?>? skuSourceCode,
+    Wrapped<bool?>? addBatch,
+    Wrapped<bool?>? removePackage,
+    Wrapped<String?>? remark,
+  }) {
+    return OrderServiceOrderAppSubmitPostRequest$SourceItems$Item(
+      skuList: (skuList != null ? skuList.value : this.skuList),
+      skuSourceCode: (skuSourceCode != null
+          ? skuSourceCode.value
+          : this.skuSourceCode),
+      addBatch: (addBatch != null ? addBatch.value : this.addBatch),
+      removePackage: (removePackage != null
+          ? removePackage.value
+          : this.removePackage),
+      remark: (remark != null ? remark.value : this.remark),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class OrderServiceOrderAppUpdatePostRequest$UserAddress {
+  const OrderServiceOrderAppUpdatePostRequest$UserAddress({
+    this.isDefault,
+    this.email,
+    this.country,
+    this.countryCode,
+    this.state,
+    this.stateCode,
+    this.city,
+    this.cityCode,
+    this.street,
+    this.apartment,
+    this.address,
+    this.coordinate,
+    this.firstName,
+    this.lastName,
+    this.phoneNumber,
+    this.zipCode,
+    this.userId,
+    this.id,
+  });
+
+  factory OrderServiceOrderAppUpdatePostRequest$UserAddress.fromJson(
+    Map<String, dynamic> json,
+  ) => _$OrderServiceOrderAppUpdatePostRequest$UserAddressFromJson(json);
+
+  static const toJsonFactory =
+      _$OrderServiceOrderAppUpdatePostRequest$UserAddressToJson;
+  Map<String, dynamic> toJson() =>
+      _$OrderServiceOrderAppUpdatePostRequest$UserAddressToJson(this);
+
+  @JsonKey(name: 'isDefault', fromJson: JsonCoerce.asDouble)
+  final double? isDefault;
+  @JsonKey(name: 'email', fromJson: JsonCoerce.asString)
+  final String? email;
+  @JsonKey(name: 'country', fromJson: JsonCoerce.asString)
+  final String? country;
+  @JsonKey(name: 'countryCode', fromJson: JsonCoerce.asString)
+  final String? countryCode;
+  @JsonKey(name: 'state', fromJson: JsonCoerce.asString)
+  final String? state;
+  @JsonKey(name: 'stateCode', fromJson: JsonCoerce.asString)
+  final String? stateCode;
+  @JsonKey(name: 'city', fromJson: JsonCoerce.asString)
+  final String? city;
+  @JsonKey(name: 'cityCode', fromJson: JsonCoerce.asString)
+  final String? cityCode;
+  @JsonKey(name: 'street', fromJson: JsonCoerce.asString)
+  final String? street;
+  @JsonKey(name: 'apartment', fromJson: JsonCoerce.asString)
+  final String? apartment;
+  @JsonKey(name: 'address', fromJson: JsonCoerce.asString)
+  final String? address;
+  @JsonKey(name: 'coordinate', fromJson: JsonCoerce.asString)
+  final String? coordinate;
+  @JsonKey(name: 'firstName', fromJson: JsonCoerce.asString)
+  final String? firstName;
+  @JsonKey(name: 'lastName', fromJson: JsonCoerce.asString)
+  final String? lastName;
+  @JsonKey(name: 'phoneNumber', fromJson: JsonCoerce.asString)
+  final String? phoneNumber;
+  @JsonKey(name: 'zipCode', fromJson: JsonCoerce.asString)
+  final String? zipCode;
+  @JsonKey(name: 'userId', fromJson: JsonCoerce.asString)
+  final String? userId;
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asDouble)
+  final double? id;
+  static const fromJsonFactory =
+      _$OrderServiceOrderAppUpdatePostRequest$UserAddressFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is OrderServiceOrderAppUpdatePostRequest$UserAddress &&
+            (identical(other.isDefault, isDefault) ||
+                const DeepCollectionEquality().equals(
+                  other.isDefault,
+                  isDefault,
+                )) &&
+            (identical(other.email, email) ||
+                const DeepCollectionEquality().equals(other.email, email)) &&
+            (identical(other.country, country) ||
+                const DeepCollectionEquality().equals(
+                  other.country,
+                  country,
+                )) &&
+            (identical(other.countryCode, countryCode) ||
+                const DeepCollectionEquality().equals(
+                  other.countryCode,
+                  countryCode,
+                )) &&
+            (identical(other.state, state) ||
+                const DeepCollectionEquality().equals(other.state, state)) &&
+            (identical(other.stateCode, stateCode) ||
+                const DeepCollectionEquality().equals(
+                  other.stateCode,
+                  stateCode,
+                )) &&
+            (identical(other.city, city) ||
+                const DeepCollectionEquality().equals(other.city, city)) &&
+            (identical(other.cityCode, cityCode) ||
+                const DeepCollectionEquality().equals(
+                  other.cityCode,
+                  cityCode,
+                )) &&
+            (identical(other.street, street) ||
+                const DeepCollectionEquality().equals(other.street, street)) &&
+            (identical(other.apartment, apartment) ||
+                const DeepCollectionEquality().equals(
+                  other.apartment,
+                  apartment,
+                )) &&
+            (identical(other.address, address) ||
+                const DeepCollectionEquality().equals(
+                  other.address,
+                  address,
+                )) &&
+            (identical(other.coordinate, coordinate) ||
+                const DeepCollectionEquality().equals(
+                  other.coordinate,
+                  coordinate,
+                )) &&
+            (identical(other.firstName, firstName) ||
+                const DeepCollectionEquality().equals(
+                  other.firstName,
+                  firstName,
+                )) &&
+            (identical(other.lastName, lastName) ||
+                const DeepCollectionEquality().equals(
+                  other.lastName,
+                  lastName,
+                )) &&
+            (identical(other.phoneNumber, phoneNumber) ||
+                const DeepCollectionEquality().equals(
+                  other.phoneNumber,
+                  phoneNumber,
+                )) &&
+            (identical(other.zipCode, zipCode) ||
+                const DeepCollectionEquality().equals(
+                  other.zipCode,
+                  zipCode,
+                )) &&
+            (identical(other.userId, userId) ||
+                const DeepCollectionEquality().equals(other.userId, userId)) &&
+            (identical(other.id, id) ||
+                const DeepCollectionEquality().equals(other.id, id)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(isDefault) ^
+      const DeepCollectionEquality().hash(email) ^
+      const DeepCollectionEquality().hash(country) ^
+      const DeepCollectionEquality().hash(countryCode) ^
+      const DeepCollectionEquality().hash(state) ^
+      const DeepCollectionEquality().hash(stateCode) ^
+      const DeepCollectionEquality().hash(city) ^
+      const DeepCollectionEquality().hash(cityCode) ^
+      const DeepCollectionEquality().hash(street) ^
+      const DeepCollectionEquality().hash(apartment) ^
+      const DeepCollectionEquality().hash(address) ^
+      const DeepCollectionEquality().hash(coordinate) ^
+      const DeepCollectionEquality().hash(firstName) ^
+      const DeepCollectionEquality().hash(lastName) ^
+      const DeepCollectionEquality().hash(phoneNumber) ^
+      const DeepCollectionEquality().hash(zipCode) ^
+      const DeepCollectionEquality().hash(userId) ^
+      const DeepCollectionEquality().hash(id) ^
+      runtimeType.hashCode;
+}
+
+extension $OrderServiceOrderAppUpdatePostRequest$UserAddressExtension
+    on OrderServiceOrderAppUpdatePostRequest$UserAddress {
+  OrderServiceOrderAppUpdatePostRequest$UserAddress copyWith({
+    double? isDefault,
+    String? email,
+    String? country,
+    String? countryCode,
+    String? state,
+    String? stateCode,
+    String? city,
+    String? cityCode,
+    String? street,
+    String? apartment,
+    String? address,
+    String? coordinate,
+    String? firstName,
+    String? lastName,
+    String? phoneNumber,
+    String? zipCode,
+    String? userId,
+    double? id,
+  }) {
+    return OrderServiceOrderAppUpdatePostRequest$UserAddress(
+      isDefault: isDefault ?? this.isDefault,
+      email: email ?? this.email,
+      country: country ?? this.country,
+      countryCode: countryCode ?? this.countryCode,
+      state: state ?? this.state,
+      stateCode: stateCode ?? this.stateCode,
+      city: city ?? this.city,
+      cityCode: cityCode ?? this.cityCode,
+      street: street ?? this.street,
+      apartment: apartment ?? this.apartment,
+      address: address ?? this.address,
+      coordinate: coordinate ?? this.coordinate,
+      firstName: firstName ?? this.firstName,
+      lastName: lastName ?? this.lastName,
+      phoneNumber: phoneNumber ?? this.phoneNumber,
+      zipCode: zipCode ?? this.zipCode,
+      userId: userId ?? this.userId,
+      id: id ?? this.id,
+    );
+  }
+
+  OrderServiceOrderAppUpdatePostRequest$UserAddress copyWithWrapped({
+    Wrapped<double?>? isDefault,
+    Wrapped<String?>? email,
+    Wrapped<String?>? country,
+    Wrapped<String?>? countryCode,
+    Wrapped<String?>? state,
+    Wrapped<String?>? stateCode,
+    Wrapped<String?>? city,
+    Wrapped<String?>? cityCode,
+    Wrapped<String?>? street,
+    Wrapped<String?>? apartment,
+    Wrapped<String?>? address,
+    Wrapped<String?>? coordinate,
+    Wrapped<String?>? firstName,
+    Wrapped<String?>? lastName,
+    Wrapped<String?>? phoneNumber,
+    Wrapped<String?>? zipCode,
+    Wrapped<String?>? userId,
+    Wrapped<double?>? id,
+  }) {
+    return OrderServiceOrderAppUpdatePostRequest$UserAddress(
+      isDefault: (isDefault != null ? isDefault.value : this.isDefault),
+      email: (email != null ? email.value : this.email),
+      country: (country != null ? country.value : this.country),
+      countryCode: (countryCode != null ? countryCode.value : this.countryCode),
+      state: (state != null ? state.value : this.state),
+      stateCode: (stateCode != null ? stateCode.value : this.stateCode),
+      city: (city != null ? city.value : this.city),
+      cityCode: (cityCode != null ? cityCode.value : this.cityCode),
+      street: (street != null ? street.value : this.street),
+      apartment: (apartment != null ? apartment.value : this.apartment),
+      address: (address != null ? address.value : this.address),
+      coordinate: (coordinate != null ? coordinate.value : this.coordinate),
+      firstName: (firstName != null ? firstName.value : this.firstName),
+      lastName: (lastName != null ? lastName.value : this.lastName),
+      phoneNumber: (phoneNumber != null ? phoneNumber.value : this.phoneNumber),
+      zipCode: (zipCode != null ? zipCode.value : this.zipCode),
+      userId: (userId != null ? userId.value : this.userId),
+      id: (id != null ? id.value : this.id),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class OrderServiceOrderAppUpdatePostRequest$SourceItems$Item {
+  const OrderServiceOrderAppUpdatePostRequest$SourceItems$Item({
+    this.skuList,
+    this.addBatch,
+    this.removePackage,
+    this.remark,
+    this.skuSourceCode,
+  });
+
+  factory OrderServiceOrderAppUpdatePostRequest$SourceItems$Item.fromJson(
+    Map<String, dynamic> json,
+  ) => _$OrderServiceOrderAppUpdatePostRequest$SourceItems$ItemFromJson(json);
+
+  static const toJsonFactory =
+      _$OrderServiceOrderAppUpdatePostRequest$SourceItems$ItemToJson;
+  Map<String, dynamic> toJson() =>
+      _$OrderServiceOrderAppUpdatePostRequest$SourceItems$ItemToJson(this);
+
+  @JsonKey(name: 'skuList')
+  final List<
+    OrderServiceOrderAppUpdatePostRequest$SourceItems$Item$SkuList$Item
+  >?
+  skuList;
+  @JsonKey(name: 'addBatch', fromJson: JsonCoerce.asBool)
+  final bool? addBatch;
+  @JsonKey(name: 'removePackage', fromJson: JsonCoerce.asBool)
+  final bool? removePackage;
+  @JsonKey(name: 'remark', fromJson: JsonCoerce.asString)
+  final String? remark;
+  @JsonKey(name: 'skuSourceCode', fromJson: JsonCoerce.asString)
+  final String? skuSourceCode;
+  static const fromJsonFactory =
+      _$OrderServiceOrderAppUpdatePostRequest$SourceItems$ItemFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is OrderServiceOrderAppUpdatePostRequest$SourceItems$Item &&
+            (identical(other.skuList, skuList) ||
+                const DeepCollectionEquality().equals(
+                  other.skuList,
+                  skuList,
+                )) &&
+            (identical(other.addBatch, addBatch) ||
+                const DeepCollectionEquality().equals(
+                  other.addBatch,
+                  addBatch,
+                )) &&
+            (identical(other.removePackage, removePackage) ||
+                const DeepCollectionEquality().equals(
+                  other.removePackage,
+                  removePackage,
+                )) &&
+            (identical(other.remark, remark) ||
+                const DeepCollectionEquality().equals(other.remark, remark)) &&
+            (identical(other.skuSourceCode, skuSourceCode) ||
+                const DeepCollectionEquality().equals(
+                  other.skuSourceCode,
+                  skuSourceCode,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(skuList) ^
+      const DeepCollectionEquality().hash(addBatch) ^
+      const DeepCollectionEquality().hash(removePackage) ^
+      const DeepCollectionEquality().hash(remark) ^
+      const DeepCollectionEquality().hash(skuSourceCode) ^
+      runtimeType.hashCode;
+}
+
+extension $OrderServiceOrderAppUpdatePostRequest$SourceItems$ItemExtension
+    on OrderServiceOrderAppUpdatePostRequest$SourceItems$Item {
+  OrderServiceOrderAppUpdatePostRequest$SourceItems$Item copyWith({
+    List<OrderServiceOrderAppUpdatePostRequest$SourceItems$Item$SkuList$Item>?
+    skuList,
+    bool? addBatch,
+    bool? removePackage,
+    String? remark,
+    String? skuSourceCode,
+  }) {
+    return OrderServiceOrderAppUpdatePostRequest$SourceItems$Item(
+      skuList: skuList ?? this.skuList,
+      addBatch: addBatch ?? this.addBatch,
+      removePackage: removePackage ?? this.removePackage,
+      remark: remark ?? this.remark,
+      skuSourceCode: skuSourceCode ?? this.skuSourceCode,
+    );
+  }
+
+  OrderServiceOrderAppUpdatePostRequest$SourceItems$Item copyWithWrapped({
+    Wrapped<
+      List<OrderServiceOrderAppUpdatePostRequest$SourceItems$Item$SkuList$Item>?
+    >?
+    skuList,
+    Wrapped<bool?>? addBatch,
+    Wrapped<bool?>? removePackage,
+    Wrapped<String?>? remark,
+    Wrapped<String?>? skuSourceCode,
+  }) {
+    return OrderServiceOrderAppUpdatePostRequest$SourceItems$Item(
+      skuList: (skuList != null ? skuList.value : this.skuList),
+      addBatch: (addBatch != null ? addBatch.value : this.addBatch),
+      removePackage: (removePackage != null
+          ? removePackage.value
+          : this.removePackage),
+      remark: (remark != null ? remark.value : this.remark),
+      skuSourceCode: (skuSourceCode != null
+          ? skuSourceCode.value
+          : this.skuSourceCode),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class OrderServiceOrderAppUpdatePostRequest$ItemList$Item {
+  const OrderServiceOrderAppUpdatePostRequest$ItemList$Item({
+    this.skuCode,
+    this.remark,
+  });
+
+  factory OrderServiceOrderAppUpdatePostRequest$ItemList$Item.fromJson(
+    Map<String, dynamic> json,
+  ) => _$OrderServiceOrderAppUpdatePostRequest$ItemList$ItemFromJson(json);
+
+  static const toJsonFactory =
+      _$OrderServiceOrderAppUpdatePostRequest$ItemList$ItemToJson;
+  Map<String, dynamic> toJson() =>
+      _$OrderServiceOrderAppUpdatePostRequest$ItemList$ItemToJson(this);
+
+  @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
+  final String? skuCode;
+  @JsonKey(name: 'remark', fromJson: JsonCoerce.asString)
+  final String? remark;
+  static const fromJsonFactory =
+      _$OrderServiceOrderAppUpdatePostRequest$ItemList$ItemFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is OrderServiceOrderAppUpdatePostRequest$ItemList$Item &&
+            (identical(other.skuCode, skuCode) ||
+                const DeepCollectionEquality().equals(
+                  other.skuCode,
+                  skuCode,
+                )) &&
+            (identical(other.remark, remark) ||
+                const DeepCollectionEquality().equals(other.remark, remark)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(skuCode) ^
+      const DeepCollectionEquality().hash(remark) ^
+      runtimeType.hashCode;
+}
+
+extension $OrderServiceOrderAppUpdatePostRequest$ItemList$ItemExtension
+    on OrderServiceOrderAppUpdatePostRequest$ItemList$Item {
+  OrderServiceOrderAppUpdatePostRequest$ItemList$Item copyWith({
+    String? skuCode,
+    String? remark,
+  }) {
+    return OrderServiceOrderAppUpdatePostRequest$ItemList$Item(
+      skuCode: skuCode ?? this.skuCode,
+      remark: remark ?? this.remark,
+    );
+  }
+
+  OrderServiceOrderAppUpdatePostRequest$ItemList$Item copyWithWrapped({
+    Wrapped<String?>? skuCode,
+    Wrapped<String?>? remark,
+  }) {
+    return OrderServiceOrderAppUpdatePostRequest$ItemList$Item(
+      skuCode: (skuCode != null ? skuCode.value : this.skuCode),
+      remark: (remark != null ? remark.value : this.remark),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class OrderServiceOrderSubmitPostRequest$SourceItems$Item {
+  const OrderServiceOrderSubmitPostRequest$SourceItems$Item({
+    this.skuList,
+    this.skuSourceCode,
+    this.addBatch,
+    this.removePackage,
+    this.remark,
+  });
+
+  factory OrderServiceOrderSubmitPostRequest$SourceItems$Item.fromJson(
+    Map<String, dynamic> json,
+  ) => _$OrderServiceOrderSubmitPostRequest$SourceItems$ItemFromJson(json);
+
+  static const toJsonFactory =
+      _$OrderServiceOrderSubmitPostRequest$SourceItems$ItemToJson;
+  Map<String, dynamic> toJson() =>
+      _$OrderServiceOrderSubmitPostRequest$SourceItems$ItemToJson(this);
+
+  @JsonKey(name: 'skuList')
+  final List<OrderServiceOrderSubmitPostRequest$SourceItems$Item$SkuList$Item>?
+  skuList;
+  @JsonKey(name: 'skuSourceCode', fromJson: JsonCoerce.asString)
+  final String? skuSourceCode;
+  @JsonKey(name: 'addBatch', fromJson: JsonCoerce.asBool)
+  final bool? addBatch;
+  @JsonKey(name: 'removePackage', fromJson: JsonCoerce.asBool)
+  final bool? removePackage;
+  @JsonKey(name: 'remark', fromJson: JsonCoerce.asString)
+  final String? remark;
+  static const fromJsonFactory =
+      _$OrderServiceOrderSubmitPostRequest$SourceItems$ItemFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is OrderServiceOrderSubmitPostRequest$SourceItems$Item &&
+            (identical(other.skuList, skuList) ||
+                const DeepCollectionEquality().equals(
+                  other.skuList,
+                  skuList,
+                )) &&
+            (identical(other.skuSourceCode, skuSourceCode) ||
+                const DeepCollectionEquality().equals(
+                  other.skuSourceCode,
+                  skuSourceCode,
+                )) &&
+            (identical(other.addBatch, addBatch) ||
+                const DeepCollectionEquality().equals(
+                  other.addBatch,
+                  addBatch,
+                )) &&
+            (identical(other.removePackage, removePackage) ||
+                const DeepCollectionEquality().equals(
+                  other.removePackage,
+                  removePackage,
+                )) &&
+            (identical(other.remark, remark) ||
+                const DeepCollectionEquality().equals(other.remark, remark)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(skuList) ^
+      const DeepCollectionEquality().hash(skuSourceCode) ^
+      const DeepCollectionEquality().hash(addBatch) ^
+      const DeepCollectionEquality().hash(removePackage) ^
+      const DeepCollectionEquality().hash(remark) ^
+      runtimeType.hashCode;
+}
+
+extension $OrderServiceOrderSubmitPostRequest$SourceItems$ItemExtension
+    on OrderServiceOrderSubmitPostRequest$SourceItems$Item {
+  OrderServiceOrderSubmitPostRequest$SourceItems$Item copyWith({
+    List<OrderServiceOrderSubmitPostRequest$SourceItems$Item$SkuList$Item>?
+    skuList,
+    String? skuSourceCode,
+    bool? addBatch,
+    bool? removePackage,
+    String? remark,
+  }) {
+    return OrderServiceOrderSubmitPostRequest$SourceItems$Item(
+      skuList: skuList ?? this.skuList,
+      skuSourceCode: skuSourceCode ?? this.skuSourceCode,
+      addBatch: addBatch ?? this.addBatch,
+      removePackage: removePackage ?? this.removePackage,
+      remark: remark ?? this.remark,
+    );
+  }
+
+  OrderServiceOrderSubmitPostRequest$SourceItems$Item copyWithWrapped({
+    Wrapped<
+      List<OrderServiceOrderSubmitPostRequest$SourceItems$Item$SkuList$Item>?
+    >?
+    skuList,
+    Wrapped<String?>? skuSourceCode,
+    Wrapped<bool?>? addBatch,
+    Wrapped<bool?>? removePackage,
+    Wrapped<String?>? remark,
+  }) {
+    return OrderServiceOrderSubmitPostRequest$SourceItems$Item(
+      skuList: (skuList != null ? skuList.value : this.skuList),
+      skuSourceCode: (skuSourceCode != null
+          ? skuSourceCode.value
+          : this.skuSourceCode),
+      addBatch: (addBatch != null ? addBatch.value : this.addBatch),
+      removePackage: (removePackage != null
+          ? removePackage.value
+          : this.removePackage),
+      remark: (remark != null ? remark.value : this.remark),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class OrderServiceOrderSubmitPostRequest$SkuList$Item {
+  const OrderServiceOrderSubmitPostRequest$SkuList$Item({
+    this.skuCode,
+    this.price,
+    this.quantity,
+    this.inviteCode,
+    this.remark,
+  });
+
+  factory OrderServiceOrderSubmitPostRequest$SkuList$Item.fromJson(
+    Map<String, dynamic> json,
+  ) => _$OrderServiceOrderSubmitPostRequest$SkuList$ItemFromJson(json);
+
+  static const toJsonFactory =
+      _$OrderServiceOrderSubmitPostRequest$SkuList$ItemToJson;
+  Map<String, dynamic> toJson() =>
+      _$OrderServiceOrderSubmitPostRequest$SkuList$ItemToJson(this);
+
+  @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
+  final String? skuCode;
+  @JsonKey(name: 'price', fromJson: JsonCoerce.asString)
+  final String? price;
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asString)
+  final String? quantity;
+  @JsonKey(name: 'inviteCode', fromJson: JsonCoerce.asString)
+  final String? inviteCode;
+  @JsonKey(name: 'remark', fromJson: JsonCoerce.asString)
+  final String? remark;
+  static const fromJsonFactory =
+      _$OrderServiceOrderSubmitPostRequest$SkuList$ItemFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is OrderServiceOrderSubmitPostRequest$SkuList$Item &&
+            (identical(other.skuCode, skuCode) ||
+                const DeepCollectionEquality().equals(
+                  other.skuCode,
+                  skuCode,
+                )) &&
+            (identical(other.price, price) ||
+                const DeepCollectionEquality().equals(other.price, price)) &&
+            (identical(other.quantity, quantity) ||
+                const DeepCollectionEquality().equals(
+                  other.quantity,
+                  quantity,
+                )) &&
+            (identical(other.inviteCode, inviteCode) ||
+                const DeepCollectionEquality().equals(
+                  other.inviteCode,
+                  inviteCode,
+                )) &&
+            (identical(other.remark, remark) ||
+                const DeepCollectionEquality().equals(other.remark, remark)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(skuCode) ^
+      const DeepCollectionEquality().hash(price) ^
+      const DeepCollectionEquality().hash(quantity) ^
+      const DeepCollectionEquality().hash(inviteCode) ^
+      const DeepCollectionEquality().hash(remark) ^
+      runtimeType.hashCode;
+}
+
+extension $OrderServiceOrderSubmitPostRequest$SkuList$ItemExtension
+    on OrderServiceOrderSubmitPostRequest$SkuList$Item {
+  OrderServiceOrderSubmitPostRequest$SkuList$Item copyWith({
+    String? skuCode,
+    String? price,
+    String? quantity,
+    String? inviteCode,
+    String? remark,
+  }) {
+    return OrderServiceOrderSubmitPostRequest$SkuList$Item(
+      skuCode: skuCode ?? this.skuCode,
+      price: price ?? this.price,
+      quantity: quantity ?? this.quantity,
+      inviteCode: inviteCode ?? this.inviteCode,
+      remark: remark ?? this.remark,
+    );
+  }
+
+  OrderServiceOrderSubmitPostRequest$SkuList$Item copyWithWrapped({
+    Wrapped<String?>? skuCode,
+    Wrapped<String?>? price,
+    Wrapped<String?>? quantity,
+    Wrapped<String?>? inviteCode,
+    Wrapped<String?>? remark,
+  }) {
+    return OrderServiceOrderSubmitPostRequest$SkuList$Item(
+      skuCode: (skuCode != null ? skuCode.value : this.skuCode),
+      price: (price != null ? price.value : this.price),
+      quantity: (quantity != null ? quantity.value : this.quantity),
+      inviteCode: (inviteCode != null ? inviteCode.value : this.inviteCode),
+      remark: (remark != null ? remark.value : this.remark),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class OrderServiceOrderUpdatePostRequest$UserAddress {
+  const OrderServiceOrderUpdatePostRequest$UserAddress({
+    this.isDefault,
+    this.email,
+    this.country,
+    this.countryCode,
+    this.state,
+    this.stateCode,
+    this.city,
+    this.cityCode,
+    this.street,
+    this.apartment,
+    this.address,
+    this.coordinate,
+    this.firstName,
+    this.lastName,
+    this.phoneNumber,
+    this.zipCode,
+    this.userId,
+    this.id,
+  });
+
+  factory OrderServiceOrderUpdatePostRequest$UserAddress.fromJson(
+    Map<String, dynamic> json,
+  ) => _$OrderServiceOrderUpdatePostRequest$UserAddressFromJson(json);
+
+  static const toJsonFactory =
+      _$OrderServiceOrderUpdatePostRequest$UserAddressToJson;
+  Map<String, dynamic> toJson() =>
+      _$OrderServiceOrderUpdatePostRequest$UserAddressToJson(this);
+
+  @JsonKey(name: 'isDefault', fromJson: JsonCoerce.asDouble)
+  final double? isDefault;
+  @JsonKey(name: 'email', fromJson: JsonCoerce.asString)
+  final String? email;
+  @JsonKey(name: 'country', fromJson: JsonCoerce.asString)
+  final String? country;
+  @JsonKey(name: 'countryCode', fromJson: JsonCoerce.asString)
+  final String? countryCode;
+  @JsonKey(name: 'state', fromJson: JsonCoerce.asString)
+  final String? state;
+  @JsonKey(name: 'stateCode', fromJson: JsonCoerce.asString)
+  final String? stateCode;
+  @JsonKey(name: 'city', fromJson: JsonCoerce.asString)
+  final String? city;
+  @JsonKey(name: 'cityCode', fromJson: JsonCoerce.asString)
+  final String? cityCode;
+  @JsonKey(name: 'street', fromJson: JsonCoerce.asString)
+  final String? street;
+  @JsonKey(name: 'apartment', fromJson: JsonCoerce.asString)
+  final String? apartment;
+  @JsonKey(name: 'address', fromJson: JsonCoerce.asString)
+  final String? address;
+  @JsonKey(name: 'coordinate', fromJson: JsonCoerce.asString)
+  final String? coordinate;
+  @JsonKey(name: 'firstName', fromJson: JsonCoerce.asString)
+  final String? firstName;
+  @JsonKey(name: 'lastName', fromJson: JsonCoerce.asString)
+  final String? lastName;
+  @JsonKey(name: 'phoneNumber', fromJson: JsonCoerce.asString)
+  final String? phoneNumber;
+  @JsonKey(name: 'zipCode', fromJson: JsonCoerce.asString)
+  final String? zipCode;
+  @JsonKey(name: 'userId', fromJson: JsonCoerce.asString)
+  final String? userId;
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asDouble)
+  final double? id;
+  static const fromJsonFactory =
+      _$OrderServiceOrderUpdatePostRequest$UserAddressFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is OrderServiceOrderUpdatePostRequest$UserAddress &&
+            (identical(other.isDefault, isDefault) ||
+                const DeepCollectionEquality().equals(
+                  other.isDefault,
+                  isDefault,
+                )) &&
+            (identical(other.email, email) ||
+                const DeepCollectionEquality().equals(other.email, email)) &&
+            (identical(other.country, country) ||
+                const DeepCollectionEquality().equals(
+                  other.country,
+                  country,
+                )) &&
+            (identical(other.countryCode, countryCode) ||
+                const DeepCollectionEquality().equals(
+                  other.countryCode,
+                  countryCode,
+                )) &&
+            (identical(other.state, state) ||
+                const DeepCollectionEquality().equals(other.state, state)) &&
+            (identical(other.stateCode, stateCode) ||
+                const DeepCollectionEquality().equals(
+                  other.stateCode,
+                  stateCode,
+                )) &&
+            (identical(other.city, city) ||
+                const DeepCollectionEquality().equals(other.city, city)) &&
+            (identical(other.cityCode, cityCode) ||
+                const DeepCollectionEquality().equals(
+                  other.cityCode,
+                  cityCode,
+                )) &&
+            (identical(other.street, street) ||
+                const DeepCollectionEquality().equals(other.street, street)) &&
+            (identical(other.apartment, apartment) ||
+                const DeepCollectionEquality().equals(
+                  other.apartment,
+                  apartment,
+                )) &&
+            (identical(other.address, address) ||
+                const DeepCollectionEquality().equals(
+                  other.address,
+                  address,
+                )) &&
+            (identical(other.coordinate, coordinate) ||
+                const DeepCollectionEquality().equals(
+                  other.coordinate,
+                  coordinate,
+                )) &&
+            (identical(other.firstName, firstName) ||
+                const DeepCollectionEquality().equals(
+                  other.firstName,
+                  firstName,
+                )) &&
+            (identical(other.lastName, lastName) ||
+                const DeepCollectionEquality().equals(
+                  other.lastName,
+                  lastName,
+                )) &&
+            (identical(other.phoneNumber, phoneNumber) ||
+                const DeepCollectionEquality().equals(
+                  other.phoneNumber,
+                  phoneNumber,
+                )) &&
+            (identical(other.zipCode, zipCode) ||
+                const DeepCollectionEquality().equals(
+                  other.zipCode,
+                  zipCode,
+                )) &&
+            (identical(other.userId, userId) ||
+                const DeepCollectionEquality().equals(other.userId, userId)) &&
+            (identical(other.id, id) ||
+                const DeepCollectionEquality().equals(other.id, id)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(isDefault) ^
+      const DeepCollectionEquality().hash(email) ^
+      const DeepCollectionEquality().hash(country) ^
+      const DeepCollectionEquality().hash(countryCode) ^
+      const DeepCollectionEquality().hash(state) ^
+      const DeepCollectionEquality().hash(stateCode) ^
+      const DeepCollectionEquality().hash(city) ^
+      const DeepCollectionEquality().hash(cityCode) ^
+      const DeepCollectionEquality().hash(street) ^
+      const DeepCollectionEquality().hash(apartment) ^
+      const DeepCollectionEquality().hash(address) ^
+      const DeepCollectionEquality().hash(coordinate) ^
+      const DeepCollectionEquality().hash(firstName) ^
+      const DeepCollectionEquality().hash(lastName) ^
+      const DeepCollectionEquality().hash(phoneNumber) ^
+      const DeepCollectionEquality().hash(zipCode) ^
+      const DeepCollectionEquality().hash(userId) ^
+      const DeepCollectionEquality().hash(id) ^
+      runtimeType.hashCode;
+}
+
+extension $OrderServiceOrderUpdatePostRequest$UserAddressExtension
+    on OrderServiceOrderUpdatePostRequest$UserAddress {
+  OrderServiceOrderUpdatePostRequest$UserAddress copyWith({
+    double? isDefault,
+    String? email,
+    String? country,
+    String? countryCode,
+    String? state,
+    String? stateCode,
+    String? city,
+    String? cityCode,
+    String? street,
+    String? apartment,
+    String? address,
+    String? coordinate,
+    String? firstName,
+    String? lastName,
+    String? phoneNumber,
+    String? zipCode,
+    String? userId,
+    double? id,
+  }) {
+    return OrderServiceOrderUpdatePostRequest$UserAddress(
+      isDefault: isDefault ?? this.isDefault,
+      email: email ?? this.email,
+      country: country ?? this.country,
+      countryCode: countryCode ?? this.countryCode,
+      state: state ?? this.state,
+      stateCode: stateCode ?? this.stateCode,
+      city: city ?? this.city,
+      cityCode: cityCode ?? this.cityCode,
+      street: street ?? this.street,
+      apartment: apartment ?? this.apartment,
+      address: address ?? this.address,
+      coordinate: coordinate ?? this.coordinate,
+      firstName: firstName ?? this.firstName,
+      lastName: lastName ?? this.lastName,
+      phoneNumber: phoneNumber ?? this.phoneNumber,
+      zipCode: zipCode ?? this.zipCode,
+      userId: userId ?? this.userId,
+      id: id ?? this.id,
+    );
+  }
+
+  OrderServiceOrderUpdatePostRequest$UserAddress copyWithWrapped({
+    Wrapped<double?>? isDefault,
+    Wrapped<String?>? email,
+    Wrapped<String?>? country,
+    Wrapped<String?>? countryCode,
+    Wrapped<String?>? state,
+    Wrapped<String?>? stateCode,
+    Wrapped<String?>? city,
+    Wrapped<String?>? cityCode,
+    Wrapped<String?>? street,
+    Wrapped<String?>? apartment,
+    Wrapped<String?>? address,
+    Wrapped<String?>? coordinate,
+    Wrapped<String?>? firstName,
+    Wrapped<String?>? lastName,
+    Wrapped<String?>? phoneNumber,
+    Wrapped<String?>? zipCode,
+    Wrapped<String?>? userId,
+    Wrapped<double?>? id,
+  }) {
+    return OrderServiceOrderUpdatePostRequest$UserAddress(
+      isDefault: (isDefault != null ? isDefault.value : this.isDefault),
+      email: (email != null ? email.value : this.email),
+      country: (country != null ? country.value : this.country),
+      countryCode: (countryCode != null ? countryCode.value : this.countryCode),
+      state: (state != null ? state.value : this.state),
+      stateCode: (stateCode != null ? stateCode.value : this.stateCode),
+      city: (city != null ? city.value : this.city),
+      cityCode: (cityCode != null ? cityCode.value : this.cityCode),
+      street: (street != null ? street.value : this.street),
+      apartment: (apartment != null ? apartment.value : this.apartment),
+      address: (address != null ? address.value : this.address),
+      coordinate: (coordinate != null ? coordinate.value : this.coordinate),
+      firstName: (firstName != null ? firstName.value : this.firstName),
+      lastName: (lastName != null ? lastName.value : this.lastName),
+      phoneNumber: (phoneNumber != null ? phoneNumber.value : this.phoneNumber),
+      zipCode: (zipCode != null ? zipCode.value : this.zipCode),
+      userId: (userId != null ? userId.value : this.userId),
+      id: (id != null ? id.value : this.id),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class OrderServiceOrderUpdatePostRequest$SkuList$Item {
+  const OrderServiceOrderUpdatePostRequest$SkuList$Item({
+    this.skuCode,
+    this.quantity,
+    this.remark,
+  });
+
+  factory OrderServiceOrderUpdatePostRequest$SkuList$Item.fromJson(
+    Map<String, dynamic> json,
+  ) => _$OrderServiceOrderUpdatePostRequest$SkuList$ItemFromJson(json);
+
+  static const toJsonFactory =
+      _$OrderServiceOrderUpdatePostRequest$SkuList$ItemToJson;
+  Map<String, dynamic> toJson() =>
+      _$OrderServiceOrderUpdatePostRequest$SkuList$ItemToJson(this);
+
+  @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
+  final String? skuCode;
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asInt)
+  final int? quantity;
+  @JsonKey(name: 'remark', fromJson: JsonCoerce.asString)
+  final String? remark;
+  static const fromJsonFactory =
+      _$OrderServiceOrderUpdatePostRequest$SkuList$ItemFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is OrderServiceOrderUpdatePostRequest$SkuList$Item &&
+            (identical(other.skuCode, skuCode) ||
+                const DeepCollectionEquality().equals(
+                  other.skuCode,
+                  skuCode,
+                )) &&
+            (identical(other.quantity, quantity) ||
+                const DeepCollectionEquality().equals(
+                  other.quantity,
+                  quantity,
+                )) &&
+            (identical(other.remark, remark) ||
+                const DeepCollectionEquality().equals(other.remark, remark)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(skuCode) ^
+      const DeepCollectionEquality().hash(quantity) ^
+      const DeepCollectionEquality().hash(remark) ^
+      runtimeType.hashCode;
+}
+
+extension $OrderServiceOrderUpdatePostRequest$SkuList$ItemExtension
+    on OrderServiceOrderUpdatePostRequest$SkuList$Item {
+  OrderServiceOrderUpdatePostRequest$SkuList$Item copyWith({
+    String? skuCode,
+    int? quantity,
+    String? remark,
+  }) {
+    return OrderServiceOrderUpdatePostRequest$SkuList$Item(
+      skuCode: skuCode ?? this.skuCode,
+      quantity: quantity ?? this.quantity,
+      remark: remark ?? this.remark,
+    );
+  }
+
+  OrderServiceOrderUpdatePostRequest$SkuList$Item copyWithWrapped({
+    Wrapped<String?>? skuCode,
+    Wrapped<int?>? quantity,
+    Wrapped<String?>? remark,
+  }) {
+    return OrderServiceOrderUpdatePostRequest$SkuList$Item(
+      skuCode: (skuCode != null ? skuCode.value : this.skuCode),
+      quantity: (quantity != null ? quantity.value : this.quantity),
+      remark: (remark != null ? remark.value : this.remark),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class OrderServiceOrderUpdatePostRequest$SourceItems$Item {
+  const OrderServiceOrderUpdatePostRequest$SourceItems$Item({
+    this.skuList,
+    this.addBatch,
+    this.payFreight,
+    this.removePackage,
+    this.remark,
+    this.skuSourceCode,
+  });
+
+  factory OrderServiceOrderUpdatePostRequest$SourceItems$Item.fromJson(
+    Map<String, dynamic> json,
+  ) => _$OrderServiceOrderUpdatePostRequest$SourceItems$ItemFromJson(json);
+
+  static const toJsonFactory =
+      _$OrderServiceOrderUpdatePostRequest$SourceItems$ItemToJson;
+  Map<String, dynamic> toJson() =>
+      _$OrderServiceOrderUpdatePostRequest$SourceItems$ItemToJson(this);
+
+  @JsonKey(name: 'skuList')
+  final List<OrderServiceOrderUpdatePostRequest$SourceItems$Item$SkuList$Item>?
+  skuList;
+  @JsonKey(name: 'addBatch', fromJson: JsonCoerce.asBool)
+  final bool? addBatch;
+  @JsonKey(name: 'payFreight', fromJson: JsonCoerce.asBool)
+  final bool? payFreight;
+  @JsonKey(name: 'removePackage', fromJson: JsonCoerce.asBool)
+  final bool? removePackage;
+  @JsonKey(name: 'remark', fromJson: JsonCoerce.asString)
+  final String? remark;
+  @JsonKey(name: 'skuSourceCode', fromJson: JsonCoerce.asString)
+  final String? skuSourceCode;
+  static const fromJsonFactory =
+      _$OrderServiceOrderUpdatePostRequest$SourceItems$ItemFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is OrderServiceOrderUpdatePostRequest$SourceItems$Item &&
+            (identical(other.skuList, skuList) ||
+                const DeepCollectionEquality().equals(
+                  other.skuList,
+                  skuList,
+                )) &&
+            (identical(other.addBatch, addBatch) ||
+                const DeepCollectionEquality().equals(
+                  other.addBatch,
+                  addBatch,
+                )) &&
+            (identical(other.payFreight, payFreight) ||
+                const DeepCollectionEquality().equals(
+                  other.payFreight,
+                  payFreight,
+                )) &&
+            (identical(other.removePackage, removePackage) ||
+                const DeepCollectionEquality().equals(
+                  other.removePackage,
+                  removePackage,
+                )) &&
+            (identical(other.remark, remark) ||
+                const DeepCollectionEquality().equals(other.remark, remark)) &&
+            (identical(other.skuSourceCode, skuSourceCode) ||
+                const DeepCollectionEquality().equals(
+                  other.skuSourceCode,
+                  skuSourceCode,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(skuList) ^
+      const DeepCollectionEquality().hash(addBatch) ^
+      const DeepCollectionEquality().hash(payFreight) ^
+      const DeepCollectionEquality().hash(removePackage) ^
+      const DeepCollectionEquality().hash(remark) ^
+      const DeepCollectionEquality().hash(skuSourceCode) ^
+      runtimeType.hashCode;
+}
+
+extension $OrderServiceOrderUpdatePostRequest$SourceItems$ItemExtension
+    on OrderServiceOrderUpdatePostRequest$SourceItems$Item {
+  OrderServiceOrderUpdatePostRequest$SourceItems$Item copyWith({
+    List<OrderServiceOrderUpdatePostRequest$SourceItems$Item$SkuList$Item>?
+    skuList,
+    bool? addBatch,
+    bool? payFreight,
+    bool? removePackage,
+    String? remark,
+    String? skuSourceCode,
+  }) {
+    return OrderServiceOrderUpdatePostRequest$SourceItems$Item(
+      skuList: skuList ?? this.skuList,
+      addBatch: addBatch ?? this.addBatch,
+      payFreight: payFreight ?? this.payFreight,
+      removePackage: removePackage ?? this.removePackage,
+      remark: remark ?? this.remark,
+      skuSourceCode: skuSourceCode ?? this.skuSourceCode,
+    );
+  }
+
+  OrderServiceOrderUpdatePostRequest$SourceItems$Item copyWithWrapped({
+    Wrapped<
+      List<OrderServiceOrderUpdatePostRequest$SourceItems$Item$SkuList$Item>?
+    >?
+    skuList,
+    Wrapped<bool?>? addBatch,
+    Wrapped<bool?>? payFreight,
+    Wrapped<bool?>? removePackage,
+    Wrapped<String?>? remark,
+    Wrapped<String?>? skuSourceCode,
+  }) {
+    return OrderServiceOrderUpdatePostRequest$SourceItems$Item(
+      skuList: (skuList != null ? skuList.value : this.skuList),
+      addBatch: (addBatch != null ? addBatch.value : this.addBatch),
+      payFreight: (payFreight != null ? payFreight.value : this.payFreight),
+      removePackage: (removePackage != null
+          ? removePackage.value
+          : this.removePackage),
+      remark: (remark != null ? remark.value : this.remark),
+      skuSourceCode: (skuSourceCode != null
+          ? skuSourceCode.value
+          : this.skuSourceCode),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class OrderServiceOrderUpdatePostRequest$ItemList$Item {
+  const OrderServiceOrderUpdatePostRequest$ItemList$Item({
+    this.skuCode,
+    this.remark,
+  });
+
+  factory OrderServiceOrderUpdatePostRequest$ItemList$Item.fromJson(
+    Map<String, dynamic> json,
+  ) => _$OrderServiceOrderUpdatePostRequest$ItemList$ItemFromJson(json);
+
+  static const toJsonFactory =
+      _$OrderServiceOrderUpdatePostRequest$ItemList$ItemToJson;
+  Map<String, dynamic> toJson() =>
+      _$OrderServiceOrderUpdatePostRequest$ItemList$ItemToJson(this);
+
+  @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
+  final String? skuCode;
+  @JsonKey(name: 'remark', fromJson: JsonCoerce.asString)
+  final String? remark;
+  static const fromJsonFactory =
+      _$OrderServiceOrderUpdatePostRequest$ItemList$ItemFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is OrderServiceOrderUpdatePostRequest$ItemList$Item &&
+            (identical(other.skuCode, skuCode) ||
+                const DeepCollectionEquality().equals(
+                  other.skuCode,
+                  skuCode,
+                )) &&
+            (identical(other.remark, remark) ||
+                const DeepCollectionEquality().equals(other.remark, remark)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(skuCode) ^
+      const DeepCollectionEquality().hash(remark) ^
+      runtimeType.hashCode;
+}
+
+extension $OrderServiceOrderUpdatePostRequest$ItemList$ItemExtension
+    on OrderServiceOrderUpdatePostRequest$ItemList$Item {
+  OrderServiceOrderUpdatePostRequest$ItemList$Item copyWith({
+    String? skuCode,
+    String? remark,
+  }) {
+    return OrderServiceOrderUpdatePostRequest$ItemList$Item(
+      skuCode: skuCode ?? this.skuCode,
+      remark: remark ?? this.remark,
+    );
+  }
+
+  OrderServiceOrderUpdatePostRequest$ItemList$Item copyWithWrapped({
+    Wrapped<String?>? skuCode,
+    Wrapped<String?>? remark,
+  }) {
+    return OrderServiceOrderUpdatePostRequest$ItemList$Item(
+      skuCode: (skuCode != null ? skuCode.value : this.skuCode),
+      remark: (remark != null ? remark.value : this.remark),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class OrderServiceOrderConfirmPostRequest$Data {
+  const OrderServiceOrderConfirmPostRequest$Data({this.skuList});
+
+  factory OrderServiceOrderConfirmPostRequest$Data.fromJson(
+    Map<String, dynamic> json,
+  ) => _$OrderServiceOrderConfirmPostRequest$DataFromJson(json);
+
+  static const toJsonFactory = _$OrderServiceOrderConfirmPostRequest$DataToJson;
+  Map<String, dynamic> toJson() =>
+      _$OrderServiceOrderConfirmPostRequest$DataToJson(this);
+
+  @JsonKey(name: 'skuList')
+  final OrderServiceOrderConfirmPostRequest$Data$SkuList? skuList;
+  static const fromJsonFactory =
+      _$OrderServiceOrderConfirmPostRequest$DataFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is OrderServiceOrderConfirmPostRequest$Data &&
+            (identical(other.skuList, skuList) ||
+                const DeepCollectionEquality().equals(other.skuList, skuList)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(skuList) ^ runtimeType.hashCode;
+}
+
+extension $OrderServiceOrderConfirmPostRequest$DataExtension
+    on OrderServiceOrderConfirmPostRequest$Data {
+  OrderServiceOrderConfirmPostRequest$Data copyWith({
+    OrderServiceOrderConfirmPostRequest$Data$SkuList? skuList,
+  }) {
+    return OrderServiceOrderConfirmPostRequest$Data(
+      skuList: skuList ?? this.skuList,
+    );
+  }
+
+  OrderServiceOrderConfirmPostRequest$Data copyWithWrapped({
+    Wrapped<OrderServiceOrderConfirmPostRequest$Data$SkuList?>? skuList,
+  }) {
+    return OrderServiceOrderConfirmPostRequest$Data(
+      skuList: (skuList != null ? skuList.value : this.skuList),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class OrderServiceOrderPricingPostRequest$SkuList$Item {
+  const OrderServiceOrderPricingPostRequest$SkuList$Item({
+    this.skuCode,
+    this.quantity,
+    this.price,
+  });
+
+  factory OrderServiceOrderPricingPostRequest$SkuList$Item.fromJson(
+    Map<String, dynamic> json,
+  ) => _$OrderServiceOrderPricingPostRequest$SkuList$ItemFromJson(json);
+
+  static const toJsonFactory =
+      _$OrderServiceOrderPricingPostRequest$SkuList$ItemToJson;
+  Map<String, dynamic> toJson() =>
+      _$OrderServiceOrderPricingPostRequest$SkuList$ItemToJson(this);
+
+  @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
+  final String? skuCode;
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asDouble)
+  final double? quantity;
+  @JsonKey(name: 'price', fromJson: JsonCoerce.asDouble)
+  final double? price;
+  static const fromJsonFactory =
+      _$OrderServiceOrderPricingPostRequest$SkuList$ItemFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is OrderServiceOrderPricingPostRequest$SkuList$Item &&
+            (identical(other.skuCode, skuCode) ||
+                const DeepCollectionEquality().equals(
+                  other.skuCode,
+                  skuCode,
+                )) &&
+            (identical(other.quantity, quantity) ||
+                const DeepCollectionEquality().equals(
+                  other.quantity,
+                  quantity,
+                )) &&
+            (identical(other.price, price) ||
+                const DeepCollectionEquality().equals(other.price, price)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(skuCode) ^
+      const DeepCollectionEquality().hash(quantity) ^
+      const DeepCollectionEquality().hash(price) ^
+      runtimeType.hashCode;
+}
+
+extension $OrderServiceOrderPricingPostRequest$SkuList$ItemExtension
+    on OrderServiceOrderPricingPostRequest$SkuList$Item {
+  OrderServiceOrderPricingPostRequest$SkuList$Item copyWith({
+    String? skuCode,
+    double? quantity,
+    double? price,
+  }) {
+    return OrderServiceOrderPricingPostRequest$SkuList$Item(
+      skuCode: skuCode ?? this.skuCode,
+      quantity: quantity ?? this.quantity,
+      price: price ?? this.price,
+    );
+  }
+
+  OrderServiceOrderPricingPostRequest$SkuList$Item copyWithWrapped({
+    Wrapped<String?>? skuCode,
+    Wrapped<double?>? quantity,
+    Wrapped<double?>? price,
+  }) {
+    return OrderServiceOrderPricingPostRequest$SkuList$Item(
+      skuCode: (skuCode != null ? skuCode.value : this.skuCode),
+      quantity: (quantity != null ? quantity.value : this.quantity),
+      price: (price != null ? price.value : this.price),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class OrderServiceOrderAvailableCouponPostRequest$SkuList$Item {
+  const OrderServiceOrderAvailableCouponPostRequest$SkuList$Item({
+    this.skuCode,
+    this.quantity,
+  });
+
+  factory OrderServiceOrderAvailableCouponPostRequest$SkuList$Item.fromJson(
+    Map<String, dynamic> json,
+  ) => _$OrderServiceOrderAvailableCouponPostRequest$SkuList$ItemFromJson(json);
+
+  static const toJsonFactory =
+      _$OrderServiceOrderAvailableCouponPostRequest$SkuList$ItemToJson;
+  Map<String, dynamic> toJson() =>
+      _$OrderServiceOrderAvailableCouponPostRequest$SkuList$ItemToJson(this);
+
+  @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
+  final String? skuCode;
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asDouble)
+  final double? quantity;
+  static const fromJsonFactory =
+      _$OrderServiceOrderAvailableCouponPostRequest$SkuList$ItemFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is OrderServiceOrderAvailableCouponPostRequest$SkuList$Item &&
+            (identical(other.skuCode, skuCode) ||
+                const DeepCollectionEquality().equals(
+                  other.skuCode,
+                  skuCode,
+                )) &&
+            (identical(other.quantity, quantity) ||
+                const DeepCollectionEquality().equals(
+                  other.quantity,
+                  quantity,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(skuCode) ^
+      const DeepCollectionEquality().hash(quantity) ^
+      runtimeType.hashCode;
+}
+
+extension $OrderServiceOrderAvailableCouponPostRequest$SkuList$ItemExtension
+    on OrderServiceOrderAvailableCouponPostRequest$SkuList$Item {
+  OrderServiceOrderAvailableCouponPostRequest$SkuList$Item copyWith({
+    String? skuCode,
+    double? quantity,
+  }) {
+    return OrderServiceOrderAvailableCouponPostRequest$SkuList$Item(
+      skuCode: skuCode ?? this.skuCode,
+      quantity: quantity ?? this.quantity,
+    );
+  }
+
+  OrderServiceOrderAvailableCouponPostRequest$SkuList$Item copyWithWrapped({
+    Wrapped<String?>? skuCode,
+    Wrapped<double?>? quantity,
+  }) {
+    return OrderServiceOrderAvailableCouponPostRequest$SkuList$Item(
+      skuCode: (skuCode != null ? skuCode.value : this.skuCode),
+      quantity: (quantity != null ? quantity.value : this.quantity),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class OrderServiceOrderCoupontitlePostRequest$SkuList$Item {
+  const OrderServiceOrderCoupontitlePostRequest$SkuList$Item({
+    this.skuCode,
+    this.quantity,
+  });
+
+  factory OrderServiceOrderCoupontitlePostRequest$SkuList$Item.fromJson(
+    Map<String, dynamic> json,
+  ) => _$OrderServiceOrderCoupontitlePostRequest$SkuList$ItemFromJson(json);
+
+  static const toJsonFactory =
+      _$OrderServiceOrderCoupontitlePostRequest$SkuList$ItemToJson;
+  Map<String, dynamic> toJson() =>
+      _$OrderServiceOrderCoupontitlePostRequest$SkuList$ItemToJson(this);
+
+  @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
+  final String? skuCode;
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asDouble)
+  final double? quantity;
+  static const fromJsonFactory =
+      _$OrderServiceOrderCoupontitlePostRequest$SkuList$ItemFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is OrderServiceOrderCoupontitlePostRequest$SkuList$Item &&
+            (identical(other.skuCode, skuCode) ||
+                const DeepCollectionEquality().equals(
+                  other.skuCode,
+                  skuCode,
+                )) &&
+            (identical(other.quantity, quantity) ||
+                const DeepCollectionEquality().equals(
+                  other.quantity,
+                  quantity,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(skuCode) ^
+      const DeepCollectionEquality().hash(quantity) ^
+      runtimeType.hashCode;
+}
+
+extension $OrderServiceOrderCoupontitlePostRequest$SkuList$ItemExtension
+    on OrderServiceOrderCoupontitlePostRequest$SkuList$Item {
+  OrderServiceOrderCoupontitlePostRequest$SkuList$Item copyWith({
+    String? skuCode,
+    double? quantity,
+  }) {
+    return OrderServiceOrderCoupontitlePostRequest$SkuList$Item(
+      skuCode: skuCode ?? this.skuCode,
+      quantity: quantity ?? this.quantity,
+    );
+  }
+
+  OrderServiceOrderCoupontitlePostRequest$SkuList$Item copyWithWrapped({
+    Wrapped<String?>? skuCode,
+    Wrapped<double?>? quantity,
+  }) {
+    return OrderServiceOrderCoupontitlePostRequest$SkuList$Item(
+      skuCode: (skuCode != null ? skuCode.value : this.skuCode),
+      quantity: (quantity != null ? quantity.value : this.quantity),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class OrderServiceOrderReviewPostRequest$ItemReviewList$Item {
+  const OrderServiceOrderReviewPostRequest$ItemReviewList$Item({
+    this.skuCode,
+    this.comment,
+    this.score,
+    this.images,
+    this.extraComment,
+  });
+
+  factory OrderServiceOrderReviewPostRequest$ItemReviewList$Item.fromJson(
+    Map<String, dynamic> json,
+  ) => _$OrderServiceOrderReviewPostRequest$ItemReviewList$ItemFromJson(json);
+
+  static const toJsonFactory =
+      _$OrderServiceOrderReviewPostRequest$ItemReviewList$ItemToJson;
+  Map<String, dynamic> toJson() =>
+      _$OrderServiceOrderReviewPostRequest$ItemReviewList$ItemToJson(this);
+
+  @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
+  final String? skuCode;
+  @JsonKey(name: 'comment', fromJson: JsonCoerce.asDouble)
+  final double? comment;
+  @JsonKey(name: 'score', fromJson: JsonCoerce.asString)
+  final String? score;
+  @JsonKey(name: 'images', defaultValue: <Object>[])
+  final List<Object>? images;
+  @JsonKey(name: 'extraComment', fromJson: JsonCoerce.asString)
+  final String? extraComment;
+  static const fromJsonFactory =
+      _$OrderServiceOrderReviewPostRequest$ItemReviewList$ItemFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is OrderServiceOrderReviewPostRequest$ItemReviewList$Item &&
+            (identical(other.skuCode, skuCode) ||
+                const DeepCollectionEquality().equals(
+                  other.skuCode,
+                  skuCode,
+                )) &&
+            (identical(other.comment, comment) ||
+                const DeepCollectionEquality().equals(
+                  other.comment,
+                  comment,
+                )) &&
+            (identical(other.score, score) ||
+                const DeepCollectionEquality().equals(other.score, score)) &&
+            (identical(other.images, images) ||
+                const DeepCollectionEquality().equals(other.images, images)) &&
+            (identical(other.extraComment, extraComment) ||
+                const DeepCollectionEquality().equals(
+                  other.extraComment,
+                  extraComment,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(skuCode) ^
+      const DeepCollectionEquality().hash(comment) ^
+      const DeepCollectionEquality().hash(score) ^
+      const DeepCollectionEquality().hash(images) ^
+      const DeepCollectionEquality().hash(extraComment) ^
+      runtimeType.hashCode;
+}
+
+extension $OrderServiceOrderReviewPostRequest$ItemReviewList$ItemExtension
+    on OrderServiceOrderReviewPostRequest$ItemReviewList$Item {
+  OrderServiceOrderReviewPostRequest$ItemReviewList$Item copyWith({
+    String? skuCode,
+    double? comment,
+    String? score,
+    List<Object>? images,
+    String? extraComment,
+  }) {
+    return OrderServiceOrderReviewPostRequest$ItemReviewList$Item(
+      skuCode: skuCode ?? this.skuCode,
+      comment: comment ?? this.comment,
+      score: score ?? this.score,
+      images: images ?? this.images,
+      extraComment: extraComment ?? this.extraComment,
+    );
+  }
+
+  OrderServiceOrderReviewPostRequest$ItemReviewList$Item copyWithWrapped({
+    Wrapped<String?>? skuCode,
+    Wrapped<double?>? comment,
+    Wrapped<String?>? score,
+    Wrapped<List<Object>?>? images,
+    Wrapped<String?>? extraComment,
+  }) {
+    return OrderServiceOrderReviewPostRequest$ItemReviewList$Item(
+      skuCode: (skuCode != null ? skuCode.value : this.skuCode),
+      comment: (comment != null ? comment.value : this.comment),
+      score: (score != null ? score.value : this.score),
+      images: (images != null ? images.value : this.images),
+      extraComment: (extraComment != null
+          ? extraComment.value
+          : this.extraComment),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class OrderServiceCartListGetRequest$SkuList$Item {
+  const OrderServiceCartListGetRequest$SkuList$Item({
+    this.skuCode,
+    this.quantity,
+    this.token,
+    this.groupType,
+  });
+
+  factory OrderServiceCartListGetRequest$SkuList$Item.fromJson(
+    Map<String, dynamic> json,
+  ) => _$OrderServiceCartListGetRequest$SkuList$ItemFromJson(json);
+
+  static const toJsonFactory =
+      _$OrderServiceCartListGetRequest$SkuList$ItemToJson;
+  Map<String, dynamic> toJson() =>
+      _$OrderServiceCartListGetRequest$SkuList$ItemToJson(this);
+
+  @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
+  final String? skuCode;
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asString)
+  final String? quantity;
+  @JsonKey(name: 'token', fromJson: JsonCoerce.asString)
+  final String? token;
+  @JsonKey(name: 'groupType', fromJson: JsonCoerce.asString)
+  final String? groupType;
+  static const fromJsonFactory =
+      _$OrderServiceCartListGetRequest$SkuList$ItemFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is OrderServiceCartListGetRequest$SkuList$Item &&
+            (identical(other.skuCode, skuCode) ||
+                const DeepCollectionEquality().equals(
+                  other.skuCode,
+                  skuCode,
+                )) &&
+            (identical(other.quantity, quantity) ||
+                const DeepCollectionEquality().equals(
+                  other.quantity,
+                  quantity,
+                )) &&
+            (identical(other.token, token) ||
+                const DeepCollectionEquality().equals(other.token, token)) &&
+            (identical(other.groupType, groupType) ||
+                const DeepCollectionEquality().equals(
+                  other.groupType,
+                  groupType,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(skuCode) ^
+      const DeepCollectionEquality().hash(quantity) ^
+      const DeepCollectionEquality().hash(token) ^
+      const DeepCollectionEquality().hash(groupType) ^
+      runtimeType.hashCode;
+}
+
+extension $OrderServiceCartListGetRequest$SkuList$ItemExtension
+    on OrderServiceCartListGetRequest$SkuList$Item {
+  OrderServiceCartListGetRequest$SkuList$Item copyWith({
+    String? skuCode,
+    String? quantity,
+    String? token,
+    String? groupType,
+  }) {
+    return OrderServiceCartListGetRequest$SkuList$Item(
+      skuCode: skuCode ?? this.skuCode,
+      quantity: quantity ?? this.quantity,
+      token: token ?? this.token,
+      groupType: groupType ?? this.groupType,
+    );
+  }
+
+  OrderServiceCartListGetRequest$SkuList$Item copyWithWrapped({
+    Wrapped<String?>? skuCode,
+    Wrapped<String?>? quantity,
+    Wrapped<String?>? token,
+    Wrapped<String?>? groupType,
+  }) {
+    return OrderServiceCartListGetRequest$SkuList$Item(
+      skuCode: (skuCode != null ? skuCode.value : this.skuCode),
+      quantity: (quantity != null ? quantity.value : this.quantity),
+      token: (token != null ? token.value : this.token),
+      groupType: (groupType != null ? groupType.value : this.groupType),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class OrderServiceCartUpdatePostRequest$Cart$Item {
+  const OrderServiceCartUpdatePostRequest$Cart$Item({
+    this.skuCode,
+    this.quantity,
+    this.orderUpdate,
+    this.remark,
+  });
+
+  factory OrderServiceCartUpdatePostRequest$Cart$Item.fromJson(
+    Map<String, dynamic> json,
+  ) => _$OrderServiceCartUpdatePostRequest$Cart$ItemFromJson(json);
+
+  static const toJsonFactory =
+      _$OrderServiceCartUpdatePostRequest$Cart$ItemToJson;
+  Map<String, dynamic> toJson() =>
+      _$OrderServiceCartUpdatePostRequest$Cart$ItemToJson(this);
+
+  @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
+  final String? skuCode;
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asDouble)
+  final double? quantity;
+  @JsonKey(name: 'orderUpdate', fromJson: JsonCoerce.asString)
+  final String? orderUpdate;
+  @JsonKey(name: 'remark', fromJson: JsonCoerce.asString)
+  final String? remark;
+  static const fromJsonFactory =
+      _$OrderServiceCartUpdatePostRequest$Cart$ItemFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is OrderServiceCartUpdatePostRequest$Cart$Item &&
+            (identical(other.skuCode, skuCode) ||
+                const DeepCollectionEquality().equals(
+                  other.skuCode,
+                  skuCode,
+                )) &&
+            (identical(other.quantity, quantity) ||
+                const DeepCollectionEquality().equals(
+                  other.quantity,
+                  quantity,
+                )) &&
+            (identical(other.orderUpdate, orderUpdate) ||
+                const DeepCollectionEquality().equals(
+                  other.orderUpdate,
+                  orderUpdate,
+                )) &&
+            (identical(other.remark, remark) ||
+                const DeepCollectionEquality().equals(other.remark, remark)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(skuCode) ^
+      const DeepCollectionEquality().hash(quantity) ^
+      const DeepCollectionEquality().hash(orderUpdate) ^
+      const DeepCollectionEquality().hash(remark) ^
+      runtimeType.hashCode;
+}
+
+extension $OrderServiceCartUpdatePostRequest$Cart$ItemExtension
+    on OrderServiceCartUpdatePostRequest$Cart$Item {
+  OrderServiceCartUpdatePostRequest$Cart$Item copyWith({
+    String? skuCode,
+    double? quantity,
+    String? orderUpdate,
+    String? remark,
+  }) {
+    return OrderServiceCartUpdatePostRequest$Cart$Item(
+      skuCode: skuCode ?? this.skuCode,
+      quantity: quantity ?? this.quantity,
+      orderUpdate: orderUpdate ?? this.orderUpdate,
+      remark: remark ?? this.remark,
+    );
+  }
+
+  OrderServiceCartUpdatePostRequest$Cart$Item copyWithWrapped({
+    Wrapped<String?>? skuCode,
+    Wrapped<double?>? quantity,
+    Wrapped<String?>? orderUpdate,
+    Wrapped<String?>? remark,
+  }) {
+    return OrderServiceCartUpdatePostRequest$Cart$Item(
+      skuCode: (skuCode != null ? skuCode.value : this.skuCode),
+      quantity: (quantity != null ? quantity.value : this.quantity),
+      orderUpdate: (orderUpdate != null ? orderUpdate.value : this.orderUpdate),
+      remark: (remark != null ? remark.value : this.remark),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class OrderServiceCartSettlementPostRequest$SkuList$Item {
+  const OrderServiceCartSettlementPostRequest$SkuList$Item({
+    this.skuCode,
+    this.quantity,
+    this.price,
+  });
+
+  factory OrderServiceCartSettlementPostRequest$SkuList$Item.fromJson(
+    Map<String, dynamic> json,
+  ) => _$OrderServiceCartSettlementPostRequest$SkuList$ItemFromJson(json);
+
+  static const toJsonFactory =
+      _$OrderServiceCartSettlementPostRequest$SkuList$ItemToJson;
+  Map<String, dynamic> toJson() =>
+      _$OrderServiceCartSettlementPostRequest$SkuList$ItemToJson(this);
+
+  @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
+  final String? skuCode;
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asDouble)
+  final double? quantity;
+  @JsonKey(name: 'price', fromJson: JsonCoerce.asString)
+  final String? price;
+  static const fromJsonFactory =
+      _$OrderServiceCartSettlementPostRequest$SkuList$ItemFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is OrderServiceCartSettlementPostRequest$SkuList$Item &&
+            (identical(other.skuCode, skuCode) ||
+                const DeepCollectionEquality().equals(
+                  other.skuCode,
+                  skuCode,
+                )) &&
+            (identical(other.quantity, quantity) ||
+                const DeepCollectionEquality().equals(
+                  other.quantity,
+                  quantity,
+                )) &&
+            (identical(other.price, price) ||
+                const DeepCollectionEquality().equals(other.price, price)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(skuCode) ^
+      const DeepCollectionEquality().hash(quantity) ^
+      const DeepCollectionEquality().hash(price) ^
+      runtimeType.hashCode;
+}
+
+extension $OrderServiceCartSettlementPostRequest$SkuList$ItemExtension
+    on OrderServiceCartSettlementPostRequest$SkuList$Item {
+  OrderServiceCartSettlementPostRequest$SkuList$Item copyWith({
+    String? skuCode,
+    double? quantity,
+    String? price,
+  }) {
+    return OrderServiceCartSettlementPostRequest$SkuList$Item(
+      skuCode: skuCode ?? this.skuCode,
+      quantity: quantity ?? this.quantity,
+      price: price ?? this.price,
+    );
+  }
+
+  OrderServiceCartSettlementPostRequest$SkuList$Item copyWithWrapped({
+    Wrapped<String?>? skuCode,
+    Wrapped<double?>? quantity,
+    Wrapped<String?>? price,
+  }) {
+    return OrderServiceCartSettlementPostRequest$SkuList$Item(
+      skuCode: (skuCode != null ? skuCode.value : this.skuCode),
+      quantity: (quantity != null ? quantity.value : this.quantity),
+      price: (price != null ? price.value : this.price),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class OrderServiceCartPricingPostRequest$SkuList$Item {
+  const OrderServiceCartPricingPostRequest$SkuList$Item({
+    this.skuCode,
+    this.quantity,
+    this.price,
+  });
+
+  factory OrderServiceCartPricingPostRequest$SkuList$Item.fromJson(
+    Map<String, dynamic> json,
+  ) => _$OrderServiceCartPricingPostRequest$SkuList$ItemFromJson(json);
+
+  static const toJsonFactory =
+      _$OrderServiceCartPricingPostRequest$SkuList$ItemToJson;
+  Map<String, dynamic> toJson() =>
+      _$OrderServiceCartPricingPostRequest$SkuList$ItemToJson(this);
+
+  @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
+  final String? skuCode;
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asDouble)
+  final double? quantity;
+  @JsonKey(name: 'price', fromJson: JsonCoerce.asDouble)
+  final double? price;
+  static const fromJsonFactory =
+      _$OrderServiceCartPricingPostRequest$SkuList$ItemFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is OrderServiceCartPricingPostRequest$SkuList$Item &&
+            (identical(other.skuCode, skuCode) ||
+                const DeepCollectionEquality().equals(
+                  other.skuCode,
+                  skuCode,
+                )) &&
+            (identical(other.quantity, quantity) ||
+                const DeepCollectionEquality().equals(
+                  other.quantity,
+                  quantity,
+                )) &&
+            (identical(other.price, price) ||
+                const DeepCollectionEquality().equals(other.price, price)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(skuCode) ^
+      const DeepCollectionEquality().hash(quantity) ^
+      const DeepCollectionEquality().hash(price) ^
+      runtimeType.hashCode;
+}
+
+extension $OrderServiceCartPricingPostRequest$SkuList$ItemExtension
+    on OrderServiceCartPricingPostRequest$SkuList$Item {
+  OrderServiceCartPricingPostRequest$SkuList$Item copyWith({
+    String? skuCode,
+    double? quantity,
+    double? price,
+  }) {
+    return OrderServiceCartPricingPostRequest$SkuList$Item(
+      skuCode: skuCode ?? this.skuCode,
+      quantity: quantity ?? this.quantity,
+      price: price ?? this.price,
+    );
+  }
+
+  OrderServiceCartPricingPostRequest$SkuList$Item copyWithWrapped({
+    Wrapped<String?>? skuCode,
+    Wrapped<double?>? quantity,
+    Wrapped<double?>? price,
+  }) {
+    return OrderServiceCartPricingPostRequest$SkuList$Item(
+      skuCode: (skuCode != null ? skuCode.value : this.skuCode),
+      quantity: (quantity != null ? quantity.value : this.quantity),
+      price: (price != null ? price.value : this.price),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class OrderServiceCartNoAuthPricingPostRequest$SkuList$Item {
+  const OrderServiceCartNoAuthPricingPostRequest$SkuList$Item({
+    this.skuCode,
+    this.quantity,
+    this.price,
+  });
+
+  factory OrderServiceCartNoAuthPricingPostRequest$SkuList$Item.fromJson(
+    Map<String, dynamic> json,
+  ) => _$OrderServiceCartNoAuthPricingPostRequest$SkuList$ItemFromJson(json);
+
+  static const toJsonFactory =
+      _$OrderServiceCartNoAuthPricingPostRequest$SkuList$ItemToJson;
+  Map<String, dynamic> toJson() =>
+      _$OrderServiceCartNoAuthPricingPostRequest$SkuList$ItemToJson(this);
+
+  @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
+  final String? skuCode;
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asDouble)
+  final double? quantity;
+  @JsonKey(name: 'price', fromJson: JsonCoerce.asDouble)
+  final double? price;
+  static const fromJsonFactory =
+      _$OrderServiceCartNoAuthPricingPostRequest$SkuList$ItemFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is OrderServiceCartNoAuthPricingPostRequest$SkuList$Item &&
+            (identical(other.skuCode, skuCode) ||
+                const DeepCollectionEquality().equals(
+                  other.skuCode,
+                  skuCode,
+                )) &&
+            (identical(other.quantity, quantity) ||
+                const DeepCollectionEquality().equals(
+                  other.quantity,
+                  quantity,
+                )) &&
+            (identical(other.price, price) ||
+                const DeepCollectionEquality().equals(other.price, price)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(skuCode) ^
+      const DeepCollectionEquality().hash(quantity) ^
+      const DeepCollectionEquality().hash(price) ^
+      runtimeType.hashCode;
+}
+
+extension $OrderServiceCartNoAuthPricingPostRequest$SkuList$ItemExtension
+    on OrderServiceCartNoAuthPricingPostRequest$SkuList$Item {
+  OrderServiceCartNoAuthPricingPostRequest$SkuList$Item copyWith({
+    String? skuCode,
+    double? quantity,
+    double? price,
+  }) {
+    return OrderServiceCartNoAuthPricingPostRequest$SkuList$Item(
+      skuCode: skuCode ?? this.skuCode,
+      quantity: quantity ?? this.quantity,
+      price: price ?? this.price,
+    );
+  }
+
+  OrderServiceCartNoAuthPricingPostRequest$SkuList$Item copyWithWrapped({
+    Wrapped<String?>? skuCode,
+    Wrapped<double?>? quantity,
+    Wrapped<double?>? price,
+  }) {
+    return OrderServiceCartNoAuthPricingPostRequest$SkuList$Item(
+      skuCode: (skuCode != null ? skuCode.value : this.skuCode),
+      quantity: (quantity != null ? quantity.value : this.quantity),
+      price: (price != null ? price.value : this.price),
     );
   }
 }
@@ -8362,6 +13423,538 @@ extension $OrderServiceCartNoAuthPricingPost$Response$DataExtension
           ? amountValidContent.value
           : this.amountValidContent),
       contentInfo: (contentInfo != null ? contentInfo.value : this.contentInfo),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class OrderServiceOrderAppBatchinfosGetRequest$SourceItems$Item$SkuList$Item {
+  const OrderServiceOrderAppBatchinfosGetRequest$SourceItems$Item$SkuList$Item({
+    this.skuCode,
+    this.quantity,
+    this.remark,
+  });
+
+  factory OrderServiceOrderAppBatchinfosGetRequest$SourceItems$Item$SkuList$Item.fromJson(
+    Map<String, dynamic> json,
+  ) =>
+      _$OrderServiceOrderAppBatchinfosGetRequest$SourceItems$Item$SkuList$ItemFromJson(
+        json,
+      );
+
+  static const toJsonFactory =
+      _$OrderServiceOrderAppBatchinfosGetRequest$SourceItems$Item$SkuList$ItemToJson;
+  Map<String, dynamic> toJson() =>
+      _$OrderServiceOrderAppBatchinfosGetRequest$SourceItems$Item$SkuList$ItemToJson(
+        this,
+      );
+
+  @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
+  final String? skuCode;
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asInt)
+  final int? quantity;
+  @JsonKey(name: 'remark', fromJson: JsonCoerce.asString)
+  final String? remark;
+  static const fromJsonFactory =
+      _$OrderServiceOrderAppBatchinfosGetRequest$SourceItems$Item$SkuList$ItemFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other
+                is OrderServiceOrderAppBatchinfosGetRequest$SourceItems$Item$SkuList$Item &&
+            (identical(other.skuCode, skuCode) ||
+                const DeepCollectionEquality().equals(
+                  other.skuCode,
+                  skuCode,
+                )) &&
+            (identical(other.quantity, quantity) ||
+                const DeepCollectionEquality().equals(
+                  other.quantity,
+                  quantity,
+                )) &&
+            (identical(other.remark, remark) ||
+                const DeepCollectionEquality().equals(other.remark, remark)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(skuCode) ^
+      const DeepCollectionEquality().hash(quantity) ^
+      const DeepCollectionEquality().hash(remark) ^
+      runtimeType.hashCode;
+}
+
+extension $OrderServiceOrderAppBatchinfosGetRequest$SourceItems$Item$SkuList$ItemExtension
+    on OrderServiceOrderAppBatchinfosGetRequest$SourceItems$Item$SkuList$Item {
+  OrderServiceOrderAppBatchinfosGetRequest$SourceItems$Item$SkuList$Item
+  copyWith({String? skuCode, int? quantity, String? remark}) {
+    return OrderServiceOrderAppBatchinfosGetRequest$SourceItems$Item$SkuList$Item(
+      skuCode: skuCode ?? this.skuCode,
+      quantity: quantity ?? this.quantity,
+      remark: remark ?? this.remark,
+    );
+  }
+
+  OrderServiceOrderAppBatchinfosGetRequest$SourceItems$Item$SkuList$Item
+  copyWithWrapped({
+    Wrapped<String?>? skuCode,
+    Wrapped<int?>? quantity,
+    Wrapped<String?>? remark,
+  }) {
+    return OrderServiceOrderAppBatchinfosGetRequest$SourceItems$Item$SkuList$Item(
+      skuCode: (skuCode != null ? skuCode.value : this.skuCode),
+      quantity: (quantity != null ? quantity.value : this.quantity),
+      remark: (remark != null ? remark.value : this.remark),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class OrderServiceOrderAppSubmitPostRequest$SourceItems$Item$SkuList$Item {
+  const OrderServiceOrderAppSubmitPostRequest$SourceItems$Item$SkuList$Item({
+    this.skuCode,
+    this.quantity,
+  });
+
+  factory OrderServiceOrderAppSubmitPostRequest$SourceItems$Item$SkuList$Item.fromJson(
+    Map<String, dynamic> json,
+  ) =>
+      _$OrderServiceOrderAppSubmitPostRequest$SourceItems$Item$SkuList$ItemFromJson(
+        json,
+      );
+
+  static const toJsonFactory =
+      _$OrderServiceOrderAppSubmitPostRequest$SourceItems$Item$SkuList$ItemToJson;
+  Map<String, dynamic> toJson() =>
+      _$OrderServiceOrderAppSubmitPostRequest$SourceItems$Item$SkuList$ItemToJson(
+        this,
+      );
+
+  @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
+  final String? skuCode;
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asInt)
+  final int? quantity;
+  static const fromJsonFactory =
+      _$OrderServiceOrderAppSubmitPostRequest$SourceItems$Item$SkuList$ItemFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other
+                is OrderServiceOrderAppSubmitPostRequest$SourceItems$Item$SkuList$Item &&
+            (identical(other.skuCode, skuCode) ||
+                const DeepCollectionEquality().equals(
+                  other.skuCode,
+                  skuCode,
+                )) &&
+            (identical(other.quantity, quantity) ||
+                const DeepCollectionEquality().equals(
+                  other.quantity,
+                  quantity,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(skuCode) ^
+      const DeepCollectionEquality().hash(quantity) ^
+      runtimeType.hashCode;
+}
+
+extension $OrderServiceOrderAppSubmitPostRequest$SourceItems$Item$SkuList$ItemExtension
+    on OrderServiceOrderAppSubmitPostRequest$SourceItems$Item$SkuList$Item {
+  OrderServiceOrderAppSubmitPostRequest$SourceItems$Item$SkuList$Item copyWith({
+    String? skuCode,
+    int? quantity,
+  }) {
+    return OrderServiceOrderAppSubmitPostRequest$SourceItems$Item$SkuList$Item(
+      skuCode: skuCode ?? this.skuCode,
+      quantity: quantity ?? this.quantity,
+    );
+  }
+
+  OrderServiceOrderAppSubmitPostRequest$SourceItems$Item$SkuList$Item
+  copyWithWrapped({Wrapped<String?>? skuCode, Wrapped<int?>? quantity}) {
+    return OrderServiceOrderAppSubmitPostRequest$SourceItems$Item$SkuList$Item(
+      skuCode: (skuCode != null ? skuCode.value : this.skuCode),
+      quantity: (quantity != null ? quantity.value : this.quantity),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class OrderServiceOrderAppUpdatePostRequest$SourceItems$Item$SkuList$Item {
+  const OrderServiceOrderAppUpdatePostRequest$SourceItems$Item$SkuList$Item({
+    this.skuCode,
+    this.quantity,
+    this.remark,
+  });
+
+  factory OrderServiceOrderAppUpdatePostRequest$SourceItems$Item$SkuList$Item.fromJson(
+    Map<String, dynamic> json,
+  ) =>
+      _$OrderServiceOrderAppUpdatePostRequest$SourceItems$Item$SkuList$ItemFromJson(
+        json,
+      );
+
+  static const toJsonFactory =
+      _$OrderServiceOrderAppUpdatePostRequest$SourceItems$Item$SkuList$ItemToJson;
+  Map<String, dynamic> toJson() =>
+      _$OrderServiceOrderAppUpdatePostRequest$SourceItems$Item$SkuList$ItemToJson(
+        this,
+      );
+
+  @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
+  final String? skuCode;
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asInt)
+  final int? quantity;
+  @JsonKey(name: 'remark', fromJson: JsonCoerce.asString)
+  final String? remark;
+  static const fromJsonFactory =
+      _$OrderServiceOrderAppUpdatePostRequest$SourceItems$Item$SkuList$ItemFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is OrderServiceOrderAppUpdatePostRequest$SourceItems$Item$SkuList$Item &&
+            (identical(other.skuCode, skuCode) ||
+                const DeepCollectionEquality().equals(
+                  other.skuCode,
+                  skuCode,
+                )) &&
+            (identical(other.quantity, quantity) ||
+                const DeepCollectionEquality().equals(
+                  other.quantity,
+                  quantity,
+                )) &&
+            (identical(other.remark, remark) ||
+                const DeepCollectionEquality().equals(other.remark, remark)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(skuCode) ^
+      const DeepCollectionEquality().hash(quantity) ^
+      const DeepCollectionEquality().hash(remark) ^
+      runtimeType.hashCode;
+}
+
+extension $OrderServiceOrderAppUpdatePostRequest$SourceItems$Item$SkuList$ItemExtension
+    on OrderServiceOrderAppUpdatePostRequest$SourceItems$Item$SkuList$Item {
+  OrderServiceOrderAppUpdatePostRequest$SourceItems$Item$SkuList$Item copyWith({
+    String? skuCode,
+    int? quantity,
+    String? remark,
+  }) {
+    return OrderServiceOrderAppUpdatePostRequest$SourceItems$Item$SkuList$Item(
+      skuCode: skuCode ?? this.skuCode,
+      quantity: quantity ?? this.quantity,
+      remark: remark ?? this.remark,
+    );
+  }
+
+  OrderServiceOrderAppUpdatePostRequest$SourceItems$Item$SkuList$Item
+  copyWithWrapped({
+    Wrapped<String?>? skuCode,
+    Wrapped<int?>? quantity,
+    Wrapped<String?>? remark,
+  }) {
+    return OrderServiceOrderAppUpdatePostRequest$SourceItems$Item$SkuList$Item(
+      skuCode: (skuCode != null ? skuCode.value : this.skuCode),
+      quantity: (quantity != null ? quantity.value : this.quantity),
+      remark: (remark != null ? remark.value : this.remark),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class OrderServiceOrderSubmitPostRequest$SourceItems$Item$SkuList$Item {
+  const OrderServiceOrderSubmitPostRequest$SourceItems$Item$SkuList$Item({
+    this.skuCode,
+    this.quantity,
+    this.price,
+    this.remark,
+    this.inviteCode,
+  });
+
+  factory OrderServiceOrderSubmitPostRequest$SourceItems$Item$SkuList$Item.fromJson(
+    Map<String, dynamic> json,
+  ) =>
+      _$OrderServiceOrderSubmitPostRequest$SourceItems$Item$SkuList$ItemFromJson(
+        json,
+      );
+
+  static const toJsonFactory =
+      _$OrderServiceOrderSubmitPostRequest$SourceItems$Item$SkuList$ItemToJson;
+  Map<String, dynamic> toJson() =>
+      _$OrderServiceOrderSubmitPostRequest$SourceItems$Item$SkuList$ItemToJson(
+        this,
+      );
+
+  @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
+  final String? skuCode;
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asInt)
+  final int? quantity;
+  @JsonKey(name: 'price', fromJson: JsonCoerce.asDouble)
+  final double? price;
+  @JsonKey(name: 'remark', fromJson: JsonCoerce.asString)
+  final String? remark;
+  @JsonKey(name: 'inviteCode', fromJson: JsonCoerce.asString)
+  final String? inviteCode;
+  static const fromJsonFactory =
+      _$OrderServiceOrderSubmitPostRequest$SourceItems$Item$SkuList$ItemFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other
+                is OrderServiceOrderSubmitPostRequest$SourceItems$Item$SkuList$Item &&
+            (identical(other.skuCode, skuCode) ||
+                const DeepCollectionEquality().equals(
+                  other.skuCode,
+                  skuCode,
+                )) &&
+            (identical(other.quantity, quantity) ||
+                const DeepCollectionEquality().equals(
+                  other.quantity,
+                  quantity,
+                )) &&
+            (identical(other.price, price) ||
+                const DeepCollectionEquality().equals(other.price, price)) &&
+            (identical(other.remark, remark) ||
+                const DeepCollectionEquality().equals(other.remark, remark)) &&
+            (identical(other.inviteCode, inviteCode) ||
+                const DeepCollectionEquality().equals(
+                  other.inviteCode,
+                  inviteCode,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(skuCode) ^
+      const DeepCollectionEquality().hash(quantity) ^
+      const DeepCollectionEquality().hash(price) ^
+      const DeepCollectionEquality().hash(remark) ^
+      const DeepCollectionEquality().hash(inviteCode) ^
+      runtimeType.hashCode;
+}
+
+extension $OrderServiceOrderSubmitPostRequest$SourceItems$Item$SkuList$ItemExtension
+    on OrderServiceOrderSubmitPostRequest$SourceItems$Item$SkuList$Item {
+  OrderServiceOrderSubmitPostRequest$SourceItems$Item$SkuList$Item copyWith({
+    String? skuCode,
+    int? quantity,
+    double? price,
+    String? remark,
+    String? inviteCode,
+  }) {
+    return OrderServiceOrderSubmitPostRequest$SourceItems$Item$SkuList$Item(
+      skuCode: skuCode ?? this.skuCode,
+      quantity: quantity ?? this.quantity,
+      price: price ?? this.price,
+      remark: remark ?? this.remark,
+      inviteCode: inviteCode ?? this.inviteCode,
+    );
+  }
+
+  OrderServiceOrderSubmitPostRequest$SourceItems$Item$SkuList$Item
+  copyWithWrapped({
+    Wrapped<String?>? skuCode,
+    Wrapped<int?>? quantity,
+    Wrapped<double?>? price,
+    Wrapped<String?>? remark,
+    Wrapped<String?>? inviteCode,
+  }) {
+    return OrderServiceOrderSubmitPostRequest$SourceItems$Item$SkuList$Item(
+      skuCode: (skuCode != null ? skuCode.value : this.skuCode),
+      quantity: (quantity != null ? quantity.value : this.quantity),
+      price: (price != null ? price.value : this.price),
+      remark: (remark != null ? remark.value : this.remark),
+      inviteCode: (inviteCode != null ? inviteCode.value : this.inviteCode),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class OrderServiceOrderUpdatePostRequest$SourceItems$Item$SkuList$Item {
+  const OrderServiceOrderUpdatePostRequest$SourceItems$Item$SkuList$Item({
+    this.skuCode,
+    this.quantity,
+    this.remark,
+  });
+
+  factory OrderServiceOrderUpdatePostRequest$SourceItems$Item$SkuList$Item.fromJson(
+    Map<String, dynamic> json,
+  ) =>
+      _$OrderServiceOrderUpdatePostRequest$SourceItems$Item$SkuList$ItemFromJson(
+        json,
+      );
+
+  static const toJsonFactory =
+      _$OrderServiceOrderUpdatePostRequest$SourceItems$Item$SkuList$ItemToJson;
+  Map<String, dynamic> toJson() =>
+      _$OrderServiceOrderUpdatePostRequest$SourceItems$Item$SkuList$ItemToJson(
+        this,
+      );
+
+  @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
+  final String? skuCode;
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asInt)
+  final int? quantity;
+  @JsonKey(name: 'remark', fromJson: JsonCoerce.asString)
+  final String? remark;
+  static const fromJsonFactory =
+      _$OrderServiceOrderUpdatePostRequest$SourceItems$Item$SkuList$ItemFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is OrderServiceOrderUpdatePostRequest$SourceItems$Item$SkuList$Item &&
+            (identical(other.skuCode, skuCode) ||
+                const DeepCollectionEquality().equals(
+                  other.skuCode,
+                  skuCode,
+                )) &&
+            (identical(other.quantity, quantity) ||
+                const DeepCollectionEquality().equals(
+                  other.quantity,
+                  quantity,
+                )) &&
+            (identical(other.remark, remark) ||
+                const DeepCollectionEquality().equals(other.remark, remark)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(skuCode) ^
+      const DeepCollectionEquality().hash(quantity) ^
+      const DeepCollectionEquality().hash(remark) ^
+      runtimeType.hashCode;
+}
+
+extension $OrderServiceOrderUpdatePostRequest$SourceItems$Item$SkuList$ItemExtension
+    on OrderServiceOrderUpdatePostRequest$SourceItems$Item$SkuList$Item {
+  OrderServiceOrderUpdatePostRequest$SourceItems$Item$SkuList$Item copyWith({
+    String? skuCode,
+    int? quantity,
+    String? remark,
+  }) {
+    return OrderServiceOrderUpdatePostRequest$SourceItems$Item$SkuList$Item(
+      skuCode: skuCode ?? this.skuCode,
+      quantity: quantity ?? this.quantity,
+      remark: remark ?? this.remark,
+    );
+  }
+
+  OrderServiceOrderUpdatePostRequest$SourceItems$Item$SkuList$Item
+  copyWithWrapped({
+    Wrapped<String?>? skuCode,
+    Wrapped<int?>? quantity,
+    Wrapped<String?>? remark,
+  }) {
+    return OrderServiceOrderUpdatePostRequest$SourceItems$Item$SkuList$Item(
+      skuCode: (skuCode != null ? skuCode.value : this.skuCode),
+      quantity: (quantity != null ? quantity.value : this.quantity),
+      remark: (remark != null ? remark.value : this.remark),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class OrderServiceOrderConfirmPostRequest$Data$SkuList {
+  const OrderServiceOrderConfirmPostRequest$Data$SkuList({
+    this.skuCode,
+    this.quantity,
+    this.price,
+  });
+
+  factory OrderServiceOrderConfirmPostRequest$Data$SkuList.fromJson(
+    Map<String, dynamic> json,
+  ) => _$OrderServiceOrderConfirmPostRequest$Data$SkuListFromJson(json);
+
+  static const toJsonFactory =
+      _$OrderServiceOrderConfirmPostRequest$Data$SkuListToJson;
+  Map<String, dynamic> toJson() =>
+      _$OrderServiceOrderConfirmPostRequest$Data$SkuListToJson(this);
+
+  @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
+  final String? skuCode;
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asString)
+  final String? quantity;
+  @JsonKey(name: 'price', fromJson: JsonCoerce.asString)
+  final String? price;
+  static const fromJsonFactory =
+      _$OrderServiceOrderConfirmPostRequest$Data$SkuListFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is OrderServiceOrderConfirmPostRequest$Data$SkuList &&
+            (identical(other.skuCode, skuCode) ||
+                const DeepCollectionEquality().equals(
+                  other.skuCode,
+                  skuCode,
+                )) &&
+            (identical(other.quantity, quantity) ||
+                const DeepCollectionEquality().equals(
+                  other.quantity,
+                  quantity,
+                )) &&
+            (identical(other.price, price) ||
+                const DeepCollectionEquality().equals(other.price, price)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(skuCode) ^
+      const DeepCollectionEquality().hash(quantity) ^
+      const DeepCollectionEquality().hash(price) ^
+      runtimeType.hashCode;
+}
+
+extension $OrderServiceOrderConfirmPostRequest$Data$SkuListExtension
+    on OrderServiceOrderConfirmPostRequest$Data$SkuList {
+  OrderServiceOrderConfirmPostRequest$Data$SkuList copyWith({
+    String? skuCode,
+    String? quantity,
+    String? price,
+  }) {
+    return OrderServiceOrderConfirmPostRequest$Data$SkuList(
+      skuCode: skuCode ?? this.skuCode,
+      quantity: quantity ?? this.quantity,
+      price: price ?? this.price,
+    );
+  }
+
+  OrderServiceOrderConfirmPostRequest$Data$SkuList copyWithWrapped({
+    Wrapped<String?>? skuCode,
+    Wrapped<String?>? quantity,
+    Wrapped<String?>? price,
+  }) {
+    return OrderServiceOrderConfirmPostRequest$Data$SkuList(
+      skuCode: (skuCode != null ? skuCode.value : this.skuCode),
+      quantity: (quantity != null ? quantity.value : this.quantity),
+      price: (price != null ? price.value : this.price),
     );
   }
 }

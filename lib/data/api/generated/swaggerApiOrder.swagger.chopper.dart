@@ -21,7 +21,7 @@ final class _$SwaggerApiOrder extends SwaggerApiOrder {
   @override
   Future<Response<OrderServiceOrderAppCancelPost$Response>>
   _orderServiceOrderAppCancelPost({
-    Object? root,
+    OrderServiceOrderAppCancelPostRequest? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '取消订单',
@@ -52,7 +52,7 @@ final class _$SwaggerApiOrder extends SwaggerApiOrder {
   Future<Response<OrderServiceOrderAppBatchInfosGet$Response>>
   _orderServiceOrderAppBatchInfosGet({
     required String? orderId,
-    Object? root,
+    OrderServiceOrderAppBatchinfosGetRequest? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '合并订单信息',
@@ -84,7 +84,7 @@ final class _$SwaggerApiOrder extends SwaggerApiOrder {
   @override
   Future<Response<OrderServiceOrderAppSubmitPost$Response>>
   _orderServiceOrderAppSubmitPost({
-    Object? root,
+    OrderServiceOrderAppSubmitPostRequest? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '提交订单',
@@ -114,7 +114,7 @@ final class _$SwaggerApiOrder extends SwaggerApiOrder {
   @override
   Future<Response<OrderServiceOrderAppUpdatePost$Response>>
   _orderServiceOrderAppUpdatePost({
-    Object? root,
+    OrderServiceOrderAppUpdatePostRequest? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '更新订单',
@@ -252,7 +252,7 @@ final class _$SwaggerApiOrder extends SwaggerApiOrder {
   @override
   Future<Response<OrderServiceOrderCancelPost$Response>>
   _orderServiceOrderCancelPost({
-    Object? root,
+    OrderServiceOrderCancelPostRequest? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '取消订单',
@@ -282,7 +282,7 @@ final class _$SwaggerApiOrder extends SwaggerApiOrder {
   @override
   Future<Response<OrderServiceOrderSubmitPost$Response>>
   _orderServiceOrderSubmitPost({
-    Object? root,
+    OrderServiceOrderSubmitPostRequest? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '提交订单',
@@ -312,7 +312,7 @@ final class _$SwaggerApiOrder extends SwaggerApiOrder {
   @override
   Future<Response<OrderServiceOrderUpdatePost$Response>>
   _orderServiceOrderUpdatePost({
-    Object? root,
+    OrderServiceOrderUpdatePostRequest? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '更新订单',
@@ -342,7 +342,7 @@ final class _$SwaggerApiOrder extends SwaggerApiOrder {
   @override
   Future<Response<OrderServiceOrderConfirmPost$Response>>
   _orderServiceOrderConfirmPost({
-    Object? root,
+    OrderServiceOrderConfirmPostRequest? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '订单确认(暂时没有)',
@@ -372,7 +372,7 @@ final class _$SwaggerApiOrder extends SwaggerApiOrder {
   @override
   Future<Response<OrderServiceOrderSettlementPost$Response>>
   _orderServiceOrderSettlementPost({
-    Object? root,
+    OrderServiceOrderSettlementPostRequest? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '订单结算支付',
@@ -402,7 +402,7 @@ final class _$SwaggerApiOrder extends SwaggerApiOrder {
   @override
   Future<Response<OrderServiceOrderPricingPost$Response>>
   _orderServiceOrderPricingPost({
-    Object? root,
+    OrderServiceOrderPricingPostRequest? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '订单金额校验',
@@ -431,7 +431,7 @@ final class _$SwaggerApiOrder extends SwaggerApiOrder {
 
   @override
   Future<Response<Object>> _orderServiceAftersaleOrderSubmitPost({
-    Object? root,
+    OrderServiceAftersaleOrderSubmitPostRequest? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '生成逆向单',
@@ -575,7 +575,7 @@ final class _$SwaggerApiOrder extends SwaggerApiOrder {
   @override
   Future<Response<OrderServiceOrderCouponListPost$Response>>
   _orderServiceOrderCouponListPost({
-    Object? root,
+    OrderServiceOrderCouponlistPostRequest? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '优惠券列表',
@@ -605,7 +605,7 @@ final class _$SwaggerApiOrder extends SwaggerApiOrder {
   @override
   Future<Response<OrderServiceOrderDiscountListPost$Response>>
   _orderServiceOrderDiscountListPost({
-    Object? root,
+    OrderServiceOrderDiscountlistPostRequest? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '兑换折扣码',
@@ -635,7 +635,7 @@ final class _$SwaggerApiOrder extends SwaggerApiOrder {
   @override
   Future<Response<OrderServiceOrderAvailableCouponPost$Response>>
   _orderServiceOrderAvailableCouponPost({
-    Object? root,
+    OrderServiceOrderAvailableCouponPostRequest? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '可用优惠券',
@@ -665,7 +665,7 @@ final class _$SwaggerApiOrder extends SwaggerApiOrder {
   @override
   Future<Response<OrderServiceOrderCouponTitlePost$Response>>
   _orderServiceOrderCouponTitlePost({
-    Object? root,
+    OrderServiceOrderCoupontitlePostRequest? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '可用优惠券提示',
@@ -870,7 +870,7 @@ final class _$SwaggerApiOrder extends SwaggerApiOrder {
   @override
   Future<Response<OrderServiceOrderReviewPost$Response>>
   _orderServiceOrderReviewPost({
-    Object? root,
+    OrderServiceOrderReviewPostRequest? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '订单评论提交',
@@ -1023,7 +1023,7 @@ final class _$SwaggerApiOrder extends SwaggerApiOrder {
 
   @override
   Future<Response<Object>> _orderServiceCartAddPost({
-    Object? root,
+    OrderServiceCartAddPostRequest? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '加入购物车',
@@ -1049,7 +1049,7 @@ final class _$SwaggerApiOrder extends SwaggerApiOrder {
 
   @override
   Future<Response<OrderServiceCartListGet$Response>> _orderServiceCartListGet({
-    Object? root,
+    OrderServiceCartListGetRequest? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '购物车列表',
@@ -1078,7 +1078,7 @@ final class _$SwaggerApiOrder extends SwaggerApiOrder {
 
   @override
   Future<Response<Object>> _orderServiceCartUpdatePost({
-    Object? root,
+    OrderServiceCartUpdatePostRequest? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '购物车更新',
@@ -1105,7 +1105,7 @@ final class _$SwaggerApiOrder extends SwaggerApiOrder {
   @override
   Future<Response<OrderServiceCartSettlementPost$Response>>
   _orderServiceCartSettlementPost({
-    Object? root,
+    OrderServiceCartSettlementPostRequest? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '购物车结算',
@@ -1135,7 +1135,7 @@ final class _$SwaggerApiOrder extends SwaggerApiOrder {
   @override
   Future<Response<OrderServiceCartPricingPost$Response>>
   _orderServiceCartPricingPost({
-    Object? root,
+    OrderServiceCartPricingPostRequest? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '购物车金额',
@@ -1165,7 +1165,7 @@ final class _$SwaggerApiOrder extends SwaggerApiOrder {
   @override
   Future<Response<OrderServiceCartNoAuthPricingPost$Response>>
   _orderServiceCartNoAuthPricingPost({
-    Object? root,
+    OrderServiceCartNoAuthPricingPostRequest? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '购物车金额_非验权',

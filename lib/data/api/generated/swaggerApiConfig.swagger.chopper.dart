@@ -21,7 +21,7 @@ final class _$SwaggerApiConfig extends SwaggerApiConfig {
   @override
   Future<Response<ConfigServiceUserConfigPost$Response>>
   _configServiceUserConfigPost({
-    Object? root,
+    ConfigServiceUserConfigPostRequest? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '保存用户配置',
@@ -52,7 +52,7 @@ final class _$SwaggerApiConfig extends SwaggerApiConfig {
   Future<Response<ConfigServiceUserConfigGet$Response>>
   _configServiceUserConfigGet({
     required String? key,
-    Object? root,
+    ConfigServiceUserConfigGetRequest? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '拉取用户配置',
@@ -86,7 +86,7 @@ final class _$SwaggerApiConfig extends SwaggerApiConfig {
   _configServiceUserConfigNoAuthInstanceGet({
     String? configKey,
     required String? instanceId,
-    Object? root,
+    ConfigServiceUserConfigNoAuthInstanceGetRequest? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '拉取通用配置',

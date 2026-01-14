@@ -140,19 +140,7 @@
             "name": "root",
             "in": "body",
             "schema": {
-              "$schema": "http://json-schema.org/draft-04/schema#",
-              "type": "object",
-              "properties": {
-                "amount": {
-                  "type": "string"
-                },
-                "accountType": {
-                  "type": "string"
-                },
-                "accountNo": {
-                  "type": "string"
-                }
-              }
+              "$ref": "#/definitions/PayServiceWithdrawApplyPostRequest"
             }
           }
         ],
@@ -632,22 +620,7 @@
             "name": "root",
             "in": "body",
             "schema": {
-              "type": "object",
-              "title": "empty object",
-              "properties": {
-                "amount": {
-                  "type": "string"
-                },
-                "currency": {
-                  "type": "string"
-                },
-                "relatedOrderId": {
-                  "type": "string"
-                },
-                "relatedOrderType": {
-                  "type": "number"
-                }
-              }
+              "$ref": "#/definitions/PayServiceRechargeCreateorderPostRequest"
             }
           }
         ],
@@ -702,36 +675,7 @@
             "name": "root",
             "in": "body",
             "schema": {
-              "type": "object",
-              "title": "empty object",
-              "properties": {
-                "orderId": {
-                  "type": "string",
-                  "description": "订单号"
-                },
-                "payType": {
-                  "type": "string"
-                },
-                "orderType": {
-                  "type": "string",
-                  "description": "0 电商下单 1 充值卡 2 运费下单"
-                },
-                "chainId": {
-                  "type": "string",
-                  "description": "链id"
-                },
-                "payTokenSymbol": {
-                  "type": "string",
-                  "description": "支付代币符号"
-                },
-                "callbackUrl": {
-                  "type": "string"
-                },
-                "uiType": {
-                  "type": "number",
-                  "description": "0默认，1自定义"
-                }
-              }
+              "$ref": "#/definitions/PayServicePayPayPostRequest"
             }
           }
         ],
@@ -1215,6 +1159,73 @@
               }
             }
           }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "PayServiceWithdrawApplyPostRequest": {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "type": "object",
+      "properties": {
+        "amount": {
+          "type": "string"
+        },
+        "accountType": {
+          "type": "string"
+        },
+        "accountNo": {
+          "type": "string"
+        }
+      }
+    },
+    "PayServiceRechargeCreateorderPostRequest": {
+      "type": "object",
+      "title": "empty object",
+      "properties": {
+        "amount": {
+          "type": "string"
+        },
+        "currency": {
+          "type": "string"
+        },
+        "relatedOrderId": {
+          "type": "string"
+        },
+        "relatedOrderType": {
+          "type": "number"
+        }
+      }
+    },
+    "PayServicePayPayPostRequest": {
+      "type": "object",
+      "title": "empty object",
+      "properties": {
+        "orderId": {
+          "type": "string",
+          "description": "订单号"
+        },
+        "payType": {
+          "type": "string"
+        },
+        "orderType": {
+          "type": "string",
+          "description": "0 电商下单 1 充值卡 2 运费下单"
+        },
+        "chainId": {
+          "type": "string",
+          "description": "链id"
+        },
+        "payTokenSymbol": {
+          "type": "string",
+          "description": "支付代币符号"
+        },
+        "callbackUrl": {
+          "type": "string"
+        },
+        "uiType": {
+          "type": "number",
+          "description": "0默认，1自定义"
         }
       }
     }

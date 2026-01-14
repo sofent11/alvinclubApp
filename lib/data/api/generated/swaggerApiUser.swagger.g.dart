@@ -6,6 +6,424 @@ part of 'swaggerApiUser.swagger.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
+UserServiceAddressUpdatePostRequest
+_$UserServiceAddressUpdatePostRequestFromJson(Map<String, dynamic> json) =>
+    UserServiceAddressUpdatePostRequest(
+      isDefault: JsonCoerce.asDouble(json['isDefault']),
+      country: JsonCoerce.asString(json['country']),
+      countryCode: JsonCoerce.asString(json['countryCode']),
+      state: JsonCoerce.asString(json['state']),
+      stateCode: JsonCoerce.asString(json['stateCode']),
+      city: JsonCoerce.asString(json['city']),
+      cityCode: JsonCoerce.asString(json['cityCode']),
+      street: JsonCoerce.asString(json['street']),
+      apartment: JsonCoerce.asString(json['apartment']),
+      address: JsonCoerce.asString(json['address']),
+      coordinate: JsonCoerce.asString(json['coordinate']),
+      firstName: JsonCoerce.asString(json['firstName']),
+      lastName: JsonCoerce.asString(json['lastName']),
+      phoneNumber: JsonCoerce.asString(json['phoneNumber']),
+      zipCode: JsonCoerce.asString(json['zipCode']),
+      userId: JsonCoerce.asString(json['userId']),
+      id: JsonCoerce.asDouble(json['id']),
+      remark: JsonCoerce.asString(json['remark']),
+      accessCode: JsonCoerce.asString(json['accessCode']),
+      email: JsonCoerce.asString(json['email']),
+      tin: JsonCoerce.asString(json['tin']),
+    );
+
+Map<String, dynamic> _$UserServiceAddressUpdatePostRequestToJson(
+  UserServiceAddressUpdatePostRequest instance,
+) => <String, dynamic>{
+  'isDefault': instance.isDefault,
+  'country': instance.country,
+  'countryCode': instance.countryCode,
+  'state': instance.state,
+  'stateCode': instance.stateCode,
+  'city': instance.city,
+  'cityCode': instance.cityCode,
+  'street': instance.street,
+  'apartment': instance.apartment,
+  'address': instance.address,
+  'coordinate': instance.coordinate,
+  'firstName': instance.firstName,
+  'lastName': instance.lastName,
+  'phoneNumber': instance.phoneNumber,
+  'zipCode': instance.zipCode,
+  'userId': instance.userId,
+  'id': instance.id,
+  'remark': instance.remark,
+  'accessCode': instance.accessCode,
+  'email': instance.email,
+  'tin': instance.tin,
+};
+
+UserServiceAddressAddPostRequest _$UserServiceAddressAddPostRequestFromJson(
+  Map<String, dynamic> json,
+) => UserServiceAddressAddPostRequest(
+  isDefault: JsonCoerce.asDouble(json['isDefault']),
+  username: JsonCoerce.asString(json['username']),
+  country: JsonCoerce.asString(json['country']),
+  countryCode: JsonCoerce.asString(json['countryCode']),
+  state: JsonCoerce.asString(json['state']),
+  stateCode: JsonCoerce.asString(json['stateCode']),
+  city: JsonCoerce.asString(json['city']),
+  cityCode: JsonCoerce.asString(json['cityCode']),
+  street: JsonCoerce.asString(json['street']),
+  apartment: JsonCoerce.asString(json['apartment']),
+  address: JsonCoerce.asString(json['address']),
+  coordinate: JsonCoerce.asString(json['coordinate']),
+  firstName: JsonCoerce.asString(json['firstName']),
+  lastName: JsonCoerce.asString(json['lastName']),
+  phoneNumber: JsonCoerce.asString(json['phoneNumber']),
+  zipCode: JsonCoerce.asString(json['zipCode']),
+  remark: JsonCoerce.asString(json['remark']),
+  accessCode: JsonCoerce.asString(json['accessCode']),
+  email: JsonCoerce.asString(json['email']),
+  tin: JsonCoerce.asString(json['tin']),
+);
+
+Map<String, dynamic> _$UserServiceAddressAddPostRequestToJson(
+  UserServiceAddressAddPostRequest instance,
+) => <String, dynamic>{
+  'isDefault': instance.isDefault,
+  'username': instance.username,
+  'country': instance.country,
+  'countryCode': instance.countryCode,
+  'state': instance.state,
+  'stateCode': instance.stateCode,
+  'city': instance.city,
+  'cityCode': instance.cityCode,
+  'street': instance.street,
+  'apartment': instance.apartment,
+  'address': instance.address,
+  'coordinate': instance.coordinate,
+  'firstName': instance.firstName,
+  'lastName': instance.lastName,
+  'phoneNumber': instance.phoneNumber,
+  'zipCode': instance.zipCode,
+  'remark': instance.remark,
+  'accessCode': instance.accessCode,
+  'email': instance.email,
+  'tin': instance.tin,
+};
+
+UserServiceUserInnerUpdUserLevelPostRequest
+_$UserServiceUserInnerUpdUserLevelPostRequestFromJson(
+  Map<String, dynamic> json,
+) => UserServiceUserInnerUpdUserLevelPostRequest(
+  userId: JsonCoerce.asString(json['userId']),
+  tenantCode: JsonCoerce.asString(json['tenantCode']),
+  level: JsonCoerce.asString(json['level']),
+);
+
+Map<String, dynamic> _$UserServiceUserInnerUpdUserLevelPostRequestToJson(
+  UserServiceUserInnerUpdUserLevelPostRequest instance,
+) => <String, dynamic>{
+  'userId': instance.userId,
+  'tenantCode': instance.tenantCode,
+  'level': instance.level,
+};
+
+UserServiceSigninSwitchportalPostRequest
+_$UserServiceSigninSwitchportalPostRequestFromJson(Map<String, dynamic> json) =>
+    UserServiceSigninSwitchportalPostRequest(
+      dstPortalCode: JsonCoerce.asString(json['dstPortalCode']),
+    );
+
+Map<String, dynamic> _$UserServiceSigninSwitchportalPostRequestToJson(
+  UserServiceSigninSwitchportalPostRequest instance,
+) => <String, dynamic>{'dstPortalCode': instance.dstPortalCode};
+
+UserServiceSigninInitPostRequest _$UserServiceSigninInitPostRequestFromJson(
+  Map<String, dynamic> json,
+) => UserServiceSigninInitPostRequest(
+  loginName: JsonCoerce.asString(json['loginName']),
+  authWay: JsonCoerce.asDouble(json['authWay']),
+  source: JsonCoerce.asDouble(json['source']),
+);
+
+Map<String, dynamic> _$UserServiceSigninInitPostRequestToJson(
+  UserServiceSigninInitPostRequest instance,
+) => <String, dynamic>{
+  'loginName': instance.loginName,
+  'authWay': instance.authWay,
+  'source': instance.source,
+};
+
+UserServiceOtpApplyPostRequest _$UserServiceOtpApplyPostRequestFromJson(
+  Map<String, dynamic> json,
+) => UserServiceOtpApplyPostRequest();
+
+Map<String, dynamic> _$UserServiceOtpApplyPostRequestToJson(
+  UserServiceOtpApplyPostRequest instance,
+) => <String, dynamic>{};
+
+UserServiceSigninVerifyPostRequest _$UserServiceSigninVerifyPostRequestFromJson(
+  Map<String, dynamic> json,
+) => UserServiceSigninVerifyPostRequest(
+  loginName: JsonCoerce.asString(json['loginName']),
+  authWay: JsonCoerce.asString(json['authWay']),
+  code: JsonCoerce.asString(json['code']),
+  source: JsonCoerce.asInt(json['source']),
+  inviteCode: JsonCoerce.asString(json['inviteCode']),
+  portalCode: JsonCoerce.asString(json['portalCode']),
+);
+
+Map<String, dynamic> _$UserServiceSigninVerifyPostRequestToJson(
+  UserServiceSigninVerifyPostRequest instance,
+) => <String, dynamic>{
+  'loginName': instance.loginName,
+  'authWay': instance.authWay,
+  'code': instance.code,
+  'source': instance.source,
+  'inviteCode': instance.inviteCode,
+  'portalCode': instance.portalCode,
+};
+
+UserServiceSigninCallPostRequest _$UserServiceSigninCallPostRequestFromJson(
+  Map<String, dynamic> json,
+) => UserServiceSigninCallPostRequest(
+  authWay: JsonCoerce.asDouble(json['authWay']),
+  code: JsonCoerce.asString(json['code']),
+  inviteCode: JsonCoerce.asString(json['inviteCode']),
+  portalCode: JsonCoerce.asString(json['portalCode']),
+);
+
+Map<String, dynamic> _$UserServiceSigninCallPostRequestToJson(
+  UserServiceSigninCallPostRequest instance,
+) => <String, dynamic>{
+  'authWay': instance.authWay,
+  'code': instance.code,
+  'inviteCode': instance.inviteCode,
+  'portalCode': instance.portalCode,
+};
+
+UserServiceNoAuthOtpVerifyPostRequest
+_$UserServiceNoAuthOtpVerifyPostRequestFromJson(Map<String, dynamic> json) =>
+    UserServiceNoAuthOtpVerifyPostRequest(
+      code: JsonCoerce.asString(json['code']),
+    );
+
+Map<String, dynamic> _$UserServiceNoAuthOtpVerifyPostRequestToJson(
+  UserServiceNoAuthOtpVerifyPostRequest instance,
+) => <String, dynamic>{'code': instance.code};
+
+UserServiceNoAuthEmailUnsubscribePostRequest
+_$UserServiceNoAuthEmailUnsubscribePostRequestFromJson(
+  Map<String, dynamic> json,
+) => UserServiceNoAuthEmailUnsubscribePostRequest(
+  email: JsonCoerce.asString(json['email']),
+  token: JsonCoerce.asString(json['token']),
+  source: JsonCoerce.asString(json['source']),
+);
+
+Map<String, dynamic> _$UserServiceNoAuthEmailUnsubscribePostRequestToJson(
+  UserServiceNoAuthEmailUnsubscribePostRequest instance,
+) => <String, dynamic>{
+  'email': instance.email,
+  'token': instance.token,
+  'source': instance.source,
+};
+
+UserServiceUserCouponCode2couponGetRequest
+_$UserServiceUserCouponCode2couponGetRequestFromJson(
+  Map<String, dynamic> json,
+) => UserServiceUserCouponCode2couponGetRequest(
+  sourceCode: JsonCoerce.asString(json['sourceCode']),
+  isDiscount: JsonCoerce.asString(json['isDiscount']),
+);
+
+Map<String, dynamic> _$UserServiceUserCouponCode2couponGetRequestToJson(
+  UserServiceUserCouponCode2couponGetRequest instance,
+) => <String, dynamic>{
+  'sourceCode': instance.sourceCode,
+  'isDiscount': instance.isDiscount,
+};
+
+UserServiceUserCouponGetusercouponbyactivityPostRequest
+_$UserServiceUserCouponGetusercouponbyactivityPostRequestFromJson(
+  Map<String, dynamic> json,
+) => UserServiceUserCouponGetusercouponbyactivityPostRequest(
+  couponActivityCodes: json['couponActivityCodes'] == null
+      ? []
+      : JsonCoerce.asStringList(json['couponActivityCodes']),
+);
+
+Map<String, dynamic>
+_$UserServiceUserCouponGetusercouponbyactivityPostRequestToJson(
+  UserServiceUserCouponGetusercouponbyactivityPostRequest instance,
+) => <String, dynamic>{'couponActivityCodes': instance.couponActivityCodes};
+
+UserServiceImGetinfoPostRequest _$UserServiceImGetinfoPostRequestFromJson(
+  Map<String, dynamic> json,
+) => UserServiceImGetinfoPostRequest();
+
+Map<String, dynamic> _$UserServiceImGetinfoPostRequestToJson(
+  UserServiceImGetinfoPostRequest instance,
+) => <String, dynamic>{};
+
+UserServiceUserShareListGetRequest _$UserServiceUserShareListGetRequestFromJson(
+  Map<String, dynamic> json,
+) => UserServiceUserShareListGetRequest(
+  orderId: JsonCoerce.asString(json['orderId']),
+  tiktokUrl: JsonCoerce.asString(json['tiktokUrl']),
+  insUrl: JsonCoerce.asString(json['insUrl']),
+);
+
+Map<String, dynamic> _$UserServiceUserShareListGetRequestToJson(
+  UserServiceUserShareListGetRequest instance,
+) => <String, dynamic>{
+  'orderId': instance.orderId,
+  'tiktokUrl': instance.tiktokUrl,
+  'insUrl': instance.insUrl,
+};
+
+UserServiceUserShareRewardinfoGetRequest
+_$UserServiceUserShareRewardinfoGetRequestFromJson(Map<String, dynamic> json) =>
+    UserServiceUserShareRewardinfoGetRequest(
+      orderId: JsonCoerce.asString(json['orderId']),
+      tiktokUrl: JsonCoerce.asString(json['tiktokUrl']),
+      insUrl: JsonCoerce.asString(json['insUrl']),
+    );
+
+Map<String, dynamic> _$UserServiceUserShareRewardinfoGetRequestToJson(
+  UserServiceUserShareRewardinfoGetRequest instance,
+) => <String, dynamic>{
+  'orderId': instance.orderId,
+  'tiktokUrl': instance.tiktokUrl,
+  'insUrl': instance.insUrl,
+};
+
+UserServiceUserShareSubmitPostRequest
+_$UserServiceUserShareSubmitPostRequestFromJson(Map<String, dynamic> json) =>
+    UserServiceUserShareSubmitPostRequest(
+      orderId: JsonCoerce.asString(json['orderId']),
+      tiktokUrl: JsonCoerce.asString(json['tiktokUrl']),
+      insUrl: JsonCoerce.asString(json['insUrl']),
+    );
+
+Map<String, dynamic> _$UserServiceUserShareSubmitPostRequestToJson(
+  UserServiceUserShareSubmitPostRequest instance,
+) => <String, dynamic>{
+  'orderId': instance.orderId,
+  'tiktokUrl': instance.tiktokUrl,
+  'insUrl': instance.insUrl,
+};
+
+UserServiceUserUpdatePostRequest _$UserServiceUserUpdatePostRequestFromJson(
+  Map<String, dynamic> json,
+) => UserServiceUserUpdatePostRequest(
+  userId: JsonCoerce.asString(json['userId']),
+  nickname: JsonCoerce.asString(json['nickname']),
+  description: JsonCoerce.asString(json['description']),
+  gender: JsonCoerce.asDouble(json['gender']),
+  birthday: JsonCoerce.asString(json['birthday']),
+  photo: JsonCoerce.asString(json['photo']),
+  phoneNumber: JsonCoerce.asString(json['phoneNumber']),
+  email: JsonCoerce.asString(json['email']),
+  platform: JsonCoerce.asString(json['platform']),
+  delete: JsonCoerce.asBool(json['delete']),
+);
+
+Map<String, dynamic> _$UserServiceUserUpdatePostRequestToJson(
+  UserServiceUserUpdatePostRequest instance,
+) => <String, dynamic>{
+  'userId': instance.userId,
+  'nickname': instance.nickname,
+  'description': instance.description,
+  'gender': instance.gender,
+  'birthday': instance.birthday,
+  'photo': instance.photo,
+  'phoneNumber': instance.phoneNumber,
+  'email': instance.email,
+  'platform': instance.platform,
+  'delete': instance.delete,
+};
+
+UserServiceUserShareUpdatePostRequest
+_$UserServiceUserShareUpdatePostRequestFromJson(Map<String, dynamic> json) =>
+    UserServiceUserShareUpdatePostRequest(
+      rewardId: JsonCoerce.asString(json['rewardId']),
+      tiktokUrl: JsonCoerce.asString(json['tiktokUrl']),
+      insUrl: JsonCoerce.asString(json['insUrl']),
+    );
+
+Map<String, dynamic> _$UserServiceUserShareUpdatePostRequestToJson(
+  UserServiceUserShareUpdatePostRequest instance,
+) => <String, dynamic>{
+  'rewardId': instance.rewardId,
+  'tiktokUrl': instance.tiktokUrl,
+  'insUrl': instance.insUrl,
+};
+
+UserServiceUserTagPortraitAiToPortraitV2PostRequest
+_$UserServiceUserTagPortraitAiToPortraitV2PostRequestFromJson(
+  Map<String, dynamic> json,
+) => UserServiceUserTagPortraitAiToPortraitV2PostRequest(
+  userAnswers: json['userAnswers'] == null
+      ? []
+      : JsonCoerce.asStringList(json['userAnswers']),
+);
+
+Map<String, dynamic>
+_$UserServiceUserTagPortraitAiToPortraitV2PostRequestToJson(
+  UserServiceUserTagPortraitAiToPortraitV2PostRequest instance,
+) => <String, dynamic>{'userAnswers': instance.userAnswers};
+
+UserServiceUserTagPortraitUpdatePortraitPostRequest
+_$UserServiceUserTagPortraitUpdatePortraitPostRequestFromJson(
+  Map<String, dynamic> json,
+) => UserServiceUserTagPortraitUpdatePortraitPostRequest(
+  age: JsonCoerce.asDouble(json['age']),
+  sex: JsonCoerce.asDouble(json['sex']),
+  birthday: JsonCoerce.asDouble(json['birthday']),
+  nickname: JsonCoerce.asString(json['nickname']),
+  avatarUrl: JsonCoerce.asString(json['avatarUrl']),
+  favoriteShoppingPlatforms: json['favoriteShoppingPlatforms'] == null
+      ? []
+      : JsonCoerce.asStringList(json['favoriteShoppingPlatforms']),
+  favoriteBrands: JsonCoerce.asString(json['favoriteBrands']),
+);
+
+Map<String, dynamic>
+_$UserServiceUserTagPortraitUpdatePortraitPostRequestToJson(
+  UserServiceUserTagPortraitUpdatePortraitPostRequest instance,
+) => <String, dynamic>{
+  'age': instance.age,
+  'sex': instance.sex,
+  'birthday': instance.birthday,
+  'nickname': instance.nickname,
+  'avatarUrl': instance.avatarUrl,
+  'favoriteShoppingPlatforms': instance.favoriteShoppingPlatforms,
+  'favoriteBrands': instance.favoriteBrands,
+};
+
+UserServiceUserTagPortraitGetPortraitGetRequest
+_$UserServiceUserTagPortraitGetPortraitGetRequestFromJson(
+  Map<String, dynamic> json,
+) => UserServiceUserTagPortraitGetPortraitGetRequest(
+  age: JsonCoerce.asDouble(json['age']),
+  sex: JsonCoerce.asDouble(json['sex']),
+  birthday: JsonCoerce.asDouble(json['birthday']),
+  nickname: JsonCoerce.asString(json['nickname']),
+  favoriteShoppingPlatforms: json['favoriteShoppingPlatforms'] == null
+      ? []
+      : JsonCoerce.asStringList(json['favoriteShoppingPlatforms']),
+  favoriteBrands: JsonCoerce.asString(json['favoriteBrands']),
+);
+
+Map<String, dynamic> _$UserServiceUserTagPortraitGetPortraitGetRequestToJson(
+  UserServiceUserTagPortraitGetPortraitGetRequest instance,
+) => <String, dynamic>{
+  'age': instance.age,
+  'sex': instance.sex,
+  'birthday': instance.birthday,
+  'nickname': instance.nickname,
+  'favoriteShoppingPlatforms': instance.favoriteShoppingPlatforms,
+  'favoriteBrands': instance.favoriteBrands,
+};
+
 UserServiceAddressUpdatePost$Response
 _$UserServiceAddressUpdatePost$ResponseFromJson(Map<String, dynamic> json) =>
     UserServiceAddressUpdatePost$Response(

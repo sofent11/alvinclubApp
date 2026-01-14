@@ -22,7 +22,7 @@ final class _$SwaggerApiCombo extends SwaggerApiCombo {
   Future<Response<ComboServiceNoAuthBizKolKolInfoGet$Response>>
   _comboServiceNoAuthBizKolKolInfoGet({
     required String? code,
-    Object? root,
+    ComboServiceNoAuthBizKolKolinfoGetRequest? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '根据拉取KOL分享链接',
@@ -111,7 +111,7 @@ final class _$SwaggerApiCombo extends SwaggerApiCombo {
   @override
   Future<Response<ComboServiceBizCommunityPostUnlikePost$Response>>
   _comboServiceBizCommunityPostUnlikePost({
-    Object? root,
+    ComboServiceBizCommunityPostUnlikePostRequest? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '取消点赞帖子',
@@ -143,7 +143,7 @@ final class _$SwaggerApiCombo extends SwaggerApiCombo {
   _comboServiceBizCommunityPostLikedGet({
     String? cursor,
     required String? pageSize,
-    Object? root,
+    ComboServiceBizCommunityPostLikedGetRequest? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '游标分页查询已点赞帖子',
@@ -180,7 +180,7 @@ final class _$SwaggerApiCombo extends SwaggerApiCombo {
   _comboServiceBizCommunityPostNoAuthListGet({
     String? cursor,
     required String? pageSize,
-    Object? root,
+    ComboServiceBizCommunityPostNoAuthListGetRequest? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '游标分页查询帖子',
@@ -217,7 +217,7 @@ final class _$SwaggerApiCombo extends SwaggerApiCombo {
   @override
   Future<Response<ComboServiceBizCommunityPostLikePost$Response>>
   _comboServiceBizCommunityPostLikePost({
-    Object? root,
+    ComboServiceBizCommunityPostLikePostRequest? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '点赞帖子',
@@ -247,7 +247,7 @@ final class _$SwaggerApiCombo extends SwaggerApiCombo {
   @override
   Future<Response<ComboServiceNoAuthBizImageTransTranslatePost$Response>>
   _comboServiceNoAuthBizImageTransTranslatePost({
-    Object? root,
+    ComboServiceNoAuthBizImageTransTranslatePostRequest? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '图片翻译',
@@ -306,7 +306,7 @@ final class _$SwaggerApiCombo extends SwaggerApiCombo {
   @override
   Future<Response<ComboServiceApiV1StyleOutfitsGenerateModelPost$Response>>
   _comboServiceApiV1StyleOutfitsGenerateModelPost({
-    Object? root,
+    ComboServiceApiV1StyleOutfitsGeneratemodelPostRequest? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: 'AI生成模特',
@@ -367,7 +367,7 @@ final class _$SwaggerApiCombo extends SwaggerApiCombo {
   @override
   Future<Response<ComboServiceBizAiFashionModelSavePost$Response>>
   _comboServiceBizAiFashionModelSavePost({
-    Object? root,
+    ComboServiceBizAiFashionModelSavePostRequest? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '保存模特',
@@ -399,7 +399,7 @@ final class _$SwaggerApiCombo extends SwaggerApiCombo {
   _comboServiceApiV1StyleOutfitsResultPageGet({
     required String? pageNum,
     required String? pageSize,
-    Object? root,
+    ComboServiceApiV1StyleOutfitsResultPageGetRequest? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '分页获取生成穿搭任务',
@@ -585,7 +585,7 @@ final class _$SwaggerApiCombo extends SwaggerApiCombo {
   @override
   Future<Response<ComboServiceApiV1StyleOutfitsGeneratePost$Response>>
   _comboServiceApiV1StyleOutfitsGeneratePost({
-    Object? root,
+    ComboServiceApiV1StyleOutfitsGeneratePostRequest? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '生成穿搭',
@@ -754,7 +754,7 @@ final class _$SwaggerApiCombo extends SwaggerApiCombo {
     Response<ComboServiceApiV1StyleOutfitsGenerateModelRegeneratePost$Response>
   >
   _comboServiceApiV1StyleOutfitsGenerateModelRegeneratePost({
-    Object? root,
+    ComboServiceApiV1StyleOutfitsGeneratemodelRegeneratePostRequest? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '重新生成模特',
@@ -786,7 +786,7 @@ final class _$SwaggerApiCombo extends SwaggerApiCombo {
   @override
   Future<Response<ComboServiceApiV1StyleOutfitsGenerateRegeneratePost$Response>>
   _comboServiceApiV1StyleOutfitsGenerateRegeneratePost({
-    Object? root,
+    ComboServiceApiV1StyleOutfitsGenerateRegeneratePostRequest? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '重新生成穿搭',
@@ -821,7 +821,7 @@ final class _$SwaggerApiCombo extends SwaggerApiCombo {
     required String? pageNum,
     required String? pageSize,
     String? orderId,
-    Object? root,
+    ComboServiceBizUserShareRewardPageGetRequest? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '拉取已提交的返利记录',
@@ -857,7 +857,7 @@ final class _$SwaggerApiCombo extends SwaggerApiCombo {
   @override
   Future<Response<ComboServiceBizUserShareRewardPost$Response>>
   _comboServiceBizUserShareRewardPost({
-    Object? root,
+    ComboServiceBizUserShareRewardPostRequest? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '提交返利请求',
@@ -888,7 +888,7 @@ final class _$SwaggerApiCombo extends SwaggerApiCombo {
   Future<Response<ComboServiceNoAuthBizAlbumAlbumInfoGet$Response>>
   _comboServiceNoAuthBizAlbumAlbumInfoGet({
     required String? albumCode,
-    Object? root,
+    ComboServiceNoAuthBizAlbumAlbuminfoGetRequest? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '根据拉取相册信息',

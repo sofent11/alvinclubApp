@@ -6,6 +6,569 @@ part of 'swaggerApiOrder.swagger.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
+OrderServiceOrderAppCancelPostRequest
+_$OrderServiceOrderAppCancelPostRequestFromJson(Map<String, dynamic> json) =>
+    OrderServiceOrderAppCancelPostRequest(
+      orderId: JsonCoerce.asString(json['orderId']),
+    );
+
+Map<String, dynamic> _$OrderServiceOrderAppCancelPostRequestToJson(
+  OrderServiceOrderAppCancelPostRequest instance,
+) => <String, dynamic>{'orderId': instance.orderId};
+
+OrderServiceOrderAppBatchinfosGetRequest
+_$OrderServiceOrderAppBatchinfosGetRequestFromJson(
+  Map<String, dynamic> json,
+) => OrderServiceOrderAppBatchinfosGetRequest(
+  orderId: JsonCoerce.asString(json['orderId']),
+  userAddressId: JsonCoerce.asDouble(json['userAddressId']),
+  userAddress: json['userAddress'] == null
+      ? null
+      : OrderServiceOrderAppBatchinfosGetRequest$UserAddress.fromJson(
+          json['userAddress'] as Map<String, dynamic>,
+        ),
+  addBatch: JsonCoerce.asBool(json['addBatch']),
+  paySubmit: JsonCoerce.asBool(json['paySubmit']),
+  payFreight: JsonCoerce.asBool(json['payFreight']),
+  submitAnyWay: JsonCoerce.asBool(json['submitAnyWay']),
+  userCouponCode: JsonCoerce.asString(json['userCouponCode']),
+  userDiscountCode: JsonCoerce.asString(json['userDiscountCode']),
+  removePackage: JsonCoerce.asBool(json['removePackage']),
+  remark: JsonCoerce.asString(json['remark']),
+  giveawayGift: JsonCoerce.asInt(json['giveawayGift']),
+  sourceItems: (json['sourceItems'] as List<dynamic>?)
+      ?.map(
+        (e) =>
+            OrderServiceOrderAppBatchinfosGetRequest$SourceItems$Item.fromJson(
+              e as Map<String, dynamic>,
+            ),
+      )
+      .toList(),
+  itemList: (json['itemList'] as List<dynamic>?)
+      ?.map(
+        (e) => OrderServiceOrderAppBatchinfosGetRequest$ItemList$Item.fromJson(
+          e as Map<String, dynamic>,
+        ),
+      )
+      .toList(),
+);
+
+Map<String, dynamic> _$OrderServiceOrderAppBatchinfosGetRequestToJson(
+  OrderServiceOrderAppBatchinfosGetRequest instance,
+) => <String, dynamic>{
+  'orderId': instance.orderId,
+  'userAddressId': instance.userAddressId,
+  'userAddress': instance.userAddress?.toJson(),
+  'addBatch': instance.addBatch,
+  'paySubmit': instance.paySubmit,
+  'payFreight': instance.payFreight,
+  'submitAnyWay': instance.submitAnyWay,
+  'userCouponCode': instance.userCouponCode,
+  'userDiscountCode': instance.userDiscountCode,
+  'removePackage': instance.removePackage,
+  'remark': instance.remark,
+  'giveawayGift': instance.giveawayGift,
+  'sourceItems': instance.sourceItems?.map((e) => e.toJson()).toList(),
+  'itemList': instance.itemList?.map((e) => e.toJson()).toList(),
+};
+
+OrderServiceOrderAppSubmitPostRequest
+_$OrderServiceOrderAppSubmitPostRequestFromJson(Map<String, dynamic> json) =>
+    OrderServiceOrderAppSubmitPostRequest(
+      sourceItems: (json['sourceItems'] as List<dynamic>?)
+          ?.map(
+            (e) =>
+                OrderServiceOrderAppSubmitPostRequest$SourceItems$Item.fromJson(
+                  e as Map<String, dynamic>,
+                ),
+          )
+          .toList(),
+      country: JsonCoerce.asString(json['country']),
+      buyType: JsonCoerce.asInt(json['buyType']),
+      invitedCode: JsonCoerce.asString(json['invitedCode']),
+      userAddressId: JsonCoerce.asDouble(json['userAddressId']),
+      addBatch: JsonCoerce.asBool(json['addBatch']),
+      remark: JsonCoerce.asString(json['remark']),
+      isDraft: JsonCoerce.asBool(json['isDraft']),
+      submitAnyWay: JsonCoerce.asBool(json['submitAnyWay']),
+      userCouponCode: JsonCoerce.asString(json['userCouponCode']),
+      removePackage: JsonCoerce.asBool(json['removePackage']),
+    );
+
+Map<String, dynamic> _$OrderServiceOrderAppSubmitPostRequestToJson(
+  OrderServiceOrderAppSubmitPostRequest instance,
+) => <String, dynamic>{
+  'sourceItems': instance.sourceItems?.map((e) => e.toJson()).toList(),
+  'country': instance.country,
+  'buyType': instance.buyType,
+  'invitedCode': instance.invitedCode,
+  'userAddressId': instance.userAddressId,
+  'addBatch': instance.addBatch,
+  'remark': instance.remark,
+  'isDraft': instance.isDraft,
+  'submitAnyWay': instance.submitAnyWay,
+  'userCouponCode': instance.userCouponCode,
+  'removePackage': instance.removePackage,
+};
+
+OrderServiceOrderAppUpdatePostRequest
+_$OrderServiceOrderAppUpdatePostRequestFromJson(Map<String, dynamic> json) =>
+    OrderServiceOrderAppUpdatePostRequest(
+      orderId: JsonCoerce.asString(json['orderId']),
+      userAddressId: JsonCoerce.asDouble(json['userAddressId']),
+      userAddress: json['userAddress'] == null
+          ? null
+          : OrderServiceOrderAppUpdatePostRequest$UserAddress.fromJson(
+              json['userAddress'] as Map<String, dynamic>,
+            ),
+      addBatch: JsonCoerce.asBool(json['addBatch']),
+      targetTip: JsonCoerce.asDouble(json['targetTip']),
+      paySubmit: JsonCoerce.asBool(json['paySubmit']),
+      payFreight: JsonCoerce.asBool(json['payFreight']),
+      submitAnyWay: JsonCoerce.asBool(json['submitAnyWay']),
+      userCouponCode: JsonCoerce.asString(json['userCouponCode']),
+      userDiscountCode: JsonCoerce.asString(json['userDiscountCode']),
+      removePackage: JsonCoerce.asBool(json['removePackage']),
+      remark: JsonCoerce.asString(json['remark']),
+      giveawayGift: JsonCoerce.asInt(json['giveawayGift']),
+      sourceItems: (json['sourceItems'] as List<dynamic>?)
+          ?.map(
+            (e) =>
+                OrderServiceOrderAppUpdatePostRequest$SourceItems$Item.fromJson(
+                  e as Map<String, dynamic>,
+                ),
+          )
+          .toList(),
+      itemList: (json['itemList'] as List<dynamic>?)
+          ?.map(
+            (e) => OrderServiceOrderAppUpdatePostRequest$ItemList$Item.fromJson(
+              e as Map<String, dynamic>,
+            ),
+          )
+          .toList(),
+    );
+
+Map<String, dynamic> _$OrderServiceOrderAppUpdatePostRequestToJson(
+  OrderServiceOrderAppUpdatePostRequest instance,
+) => <String, dynamic>{
+  'orderId': instance.orderId,
+  'userAddressId': instance.userAddressId,
+  'userAddress': instance.userAddress?.toJson(),
+  'addBatch': instance.addBatch,
+  'targetTip': instance.targetTip,
+  'paySubmit': instance.paySubmit,
+  'payFreight': instance.payFreight,
+  'submitAnyWay': instance.submitAnyWay,
+  'userCouponCode': instance.userCouponCode,
+  'userDiscountCode': instance.userDiscountCode,
+  'removePackage': instance.removePackage,
+  'remark': instance.remark,
+  'giveawayGift': instance.giveawayGift,
+  'sourceItems': instance.sourceItems?.map((e) => e.toJson()).toList(),
+  'itemList': instance.itemList?.map((e) => e.toJson()).toList(),
+};
+
+OrderServiceOrderCancelPostRequest _$OrderServiceOrderCancelPostRequestFromJson(
+  Map<String, dynamic> json,
+) => OrderServiceOrderCancelPostRequest(
+  orderId: JsonCoerce.asString(json['orderId']),
+);
+
+Map<String, dynamic> _$OrderServiceOrderCancelPostRequestToJson(
+  OrderServiceOrderCancelPostRequest instance,
+) => <String, dynamic>{'orderId': instance.orderId};
+
+OrderServiceOrderSubmitPostRequest _$OrderServiceOrderSubmitPostRequestFromJson(
+  Map<String, dynamic> json,
+) => OrderServiceOrderSubmitPostRequest(
+  sourceItems: (json['sourceItems'] as List<dynamic>?)
+      ?.map(
+        (e) => OrderServiceOrderSubmitPostRequest$SourceItems$Item.fromJson(
+          e as Map<String, dynamic>,
+        ),
+      )
+      .toList(),
+  skuList: (json['skuList'] as List<dynamic>?)
+      ?.map(
+        (e) => OrderServiceOrderSubmitPostRequest$SkuList$Item.fromJson(
+          e as Map<String, dynamic>,
+        ),
+      )
+      .toList(),
+  country: JsonCoerce.asString(json['country']),
+  buyType: JsonCoerce.asInt(json['buyType']),
+  invitedCode: JsonCoerce.asString(json['invitedCode']),
+  userAddressId: JsonCoerce.asDouble(json['userAddressId']),
+  addBatch: JsonCoerce.asBool(json['addBatch']),
+  remark: JsonCoerce.asString(json['remark']),
+  isDraft: JsonCoerce.asBool(json['isDraft']),
+  submitAnyWay: JsonCoerce.asBool(json['submitAnyWay']),
+  userCouponCode: JsonCoerce.asString(json['userCouponCode']),
+  removePackage: JsonCoerce.asBool(json['removePackage']),
+);
+
+Map<String, dynamic> _$OrderServiceOrderSubmitPostRequestToJson(
+  OrderServiceOrderSubmitPostRequest instance,
+) => <String, dynamic>{
+  'sourceItems': instance.sourceItems?.map((e) => e.toJson()).toList(),
+  'skuList': instance.skuList?.map((e) => e.toJson()).toList(),
+  'country': instance.country,
+  'buyType': instance.buyType,
+  'invitedCode': instance.invitedCode,
+  'userAddressId': instance.userAddressId,
+  'addBatch': instance.addBatch,
+  'remark': instance.remark,
+  'isDraft': instance.isDraft,
+  'submitAnyWay': instance.submitAnyWay,
+  'userCouponCode': instance.userCouponCode,
+  'removePackage': instance.removePackage,
+};
+
+OrderServiceOrderUpdatePostRequest _$OrderServiceOrderUpdatePostRequestFromJson(
+  Map<String, dynamic> json,
+) => OrderServiceOrderUpdatePostRequest(
+  orderId: JsonCoerce.asString(json['orderId']),
+  userAddressId: JsonCoerce.asDouble(json['userAddressId']),
+  userAddress: json['userAddress'] == null
+      ? null
+      : OrderServiceOrderUpdatePostRequest$UserAddress.fromJson(
+          json['userAddress'] as Map<String, dynamic>,
+        ),
+  addBatch: JsonCoerce.asBool(json['addBatch']),
+  paySubmit: JsonCoerce.asBool(json['paySubmit']),
+  payFreight: JsonCoerce.asBool(json['payFreight']),
+  submitAnyWay: JsonCoerce.asBool(json['submitAnyWay']),
+  userCouponCode: JsonCoerce.asString(json['userCouponCode']),
+  userDiscountCode: JsonCoerce.asString(json['userDiscountCode']),
+  removePackage: JsonCoerce.asBool(json['removePackage']),
+  remark: JsonCoerce.asString(json['remark']),
+  giveawayGift: JsonCoerce.asInt(json['giveawayGift']),
+  targetTip: JsonCoerce.asDouble(json['targetTip']),
+  skuList: (json['skuList'] as List<dynamic>?)
+      ?.map(
+        (e) => OrderServiceOrderUpdatePostRequest$SkuList$Item.fromJson(
+          e as Map<String, dynamic>,
+        ),
+      )
+      .toList(),
+  sourceItems: (json['sourceItems'] as List<dynamic>?)
+      ?.map(
+        (e) => OrderServiceOrderUpdatePostRequest$SourceItems$Item.fromJson(
+          e as Map<String, dynamic>,
+        ),
+      )
+      .toList(),
+  itemList: (json['itemList'] as List<dynamic>?)
+      ?.map(
+        (e) => OrderServiceOrderUpdatePostRequest$ItemList$Item.fromJson(
+          e as Map<String, dynamic>,
+        ),
+      )
+      .toList(),
+);
+
+Map<String, dynamic> _$OrderServiceOrderUpdatePostRequestToJson(
+  OrderServiceOrderUpdatePostRequest instance,
+) => <String, dynamic>{
+  'orderId': instance.orderId,
+  'userAddressId': instance.userAddressId,
+  'userAddress': instance.userAddress?.toJson(),
+  'addBatch': instance.addBatch,
+  'paySubmit': instance.paySubmit,
+  'payFreight': instance.payFreight,
+  'submitAnyWay': instance.submitAnyWay,
+  'userCouponCode': instance.userCouponCode,
+  'userDiscountCode': instance.userDiscountCode,
+  'removePackage': instance.removePackage,
+  'remark': instance.remark,
+  'giveawayGift': instance.giveawayGift,
+  'targetTip': instance.targetTip,
+  'skuList': instance.skuList?.map((e) => e.toJson()).toList(),
+  'sourceItems': instance.sourceItems?.map((e) => e.toJson()).toList(),
+  'itemList': instance.itemList?.map((e) => e.toJson()).toList(),
+};
+
+OrderServiceOrderConfirmPostRequest
+_$OrderServiceOrderConfirmPostRequestFromJson(Map<String, dynamic> json) =>
+    OrderServiceOrderConfirmPostRequest(
+      code: JsonCoerce.asString(json['code']),
+      message: JsonCoerce.asString(json['message']),
+      data: json['data'] == null
+          ? null
+          : OrderServiceOrderConfirmPostRequest$Data.fromJson(
+              json['data'] as Map<String, dynamic>,
+            ),
+    );
+
+Map<String, dynamic> _$OrderServiceOrderConfirmPostRequestToJson(
+  OrderServiceOrderConfirmPostRequest instance,
+) => <String, dynamic>{
+  'code': instance.code,
+  'message': instance.message,
+  'data': instance.data?.toJson(),
+};
+
+OrderServiceOrderSettlementPostRequest
+_$OrderServiceOrderSettlementPostRequestFromJson(Map<String, dynamic> json) =>
+    OrderServiceOrderSettlementPostRequest(
+      orderId: JsonCoerce.asString(json['orderId']),
+      isRecharge: JsonCoerce.asInt(json['isRecharge']),
+      rechargeAmount: JsonCoerce.asDouble(json['rechargeAmount']),
+    );
+
+Map<String, dynamic> _$OrderServiceOrderSettlementPostRequestToJson(
+  OrderServiceOrderSettlementPostRequest instance,
+) => <String, dynamic>{
+  'orderId': instance.orderId,
+  'isRecharge': instance.isRecharge,
+  'rechargeAmount': instance.rechargeAmount,
+};
+
+OrderServiceOrderPricingPostRequest
+_$OrderServiceOrderPricingPostRequestFromJson(Map<String, dynamic> json) =>
+    OrderServiceOrderPricingPostRequest(
+      skuList: (json['skuList'] as List<dynamic>?)
+          ?.map(
+            (e) => OrderServiceOrderPricingPostRequest$SkuList$Item.fromJson(
+              e as Map<String, dynamic>,
+            ),
+          )
+          .toList(),
+      userCouponCode: JsonCoerce.asString(json['userCouponCode']),
+    );
+
+Map<String, dynamic> _$OrderServiceOrderPricingPostRequestToJson(
+  OrderServiceOrderPricingPostRequest instance,
+) => <String, dynamic>{
+  'skuList': instance.skuList?.map((e) => e.toJson()).toList(),
+  'userCouponCode': instance.userCouponCode,
+};
+
+OrderServiceAftersaleOrderSubmitPostRequest
+_$OrderServiceAftersaleOrderSubmitPostRequestFromJson(
+  Map<String, dynamic> json,
+) => OrderServiceAftersaleOrderSubmitPostRequest(
+  orderId: JsonCoerce.asString(json['orderId']),
+  skuList: JsonCoerce.asString(json['skuList']),
+  returnPayMethod: JsonCoerce.asString(json['returnPayMethod']),
+  returnType: JsonCoerce.asString(json['returnType']),
+  remark: JsonCoerce.asString(json['remark']),
+  remarkImages: JsonCoerce.asString(json['remarkImages']),
+  allReturn: JsonCoerce.asBool(json['allReturn']),
+);
+
+Map<String, dynamic> _$OrderServiceAftersaleOrderSubmitPostRequestToJson(
+  OrderServiceAftersaleOrderSubmitPostRequest instance,
+) => <String, dynamic>{
+  'orderId': instance.orderId,
+  'skuList': instance.skuList,
+  'returnPayMethod': instance.returnPayMethod,
+  'returnType': instance.returnType,
+  'remark': instance.remark,
+  'remarkImages': instance.remarkImages,
+  'allReturn': instance.allReturn,
+};
+
+OrderServiceOrderCouponlistPostRequest
+_$OrderServiceOrderCouponlistPostRequestFromJson(Map<String, dynamic> json) =>
+    OrderServiceOrderCouponlistPostRequest(
+      orderId: JsonCoerce.asString(json['orderId']),
+    );
+
+Map<String, dynamic> _$OrderServiceOrderCouponlistPostRequestToJson(
+  OrderServiceOrderCouponlistPostRequest instance,
+) => <String, dynamic>{'orderId': instance.orderId};
+
+OrderServiceOrderDiscountlistPostRequest
+_$OrderServiceOrderDiscountlistPostRequestFromJson(Map<String, dynamic> json) =>
+    OrderServiceOrderDiscountlistPostRequest(
+      orderId: JsonCoerce.asString(json['orderId']),
+      discountCode: JsonCoerce.asString(json['discountCode']),
+    );
+
+Map<String, dynamic> _$OrderServiceOrderDiscountlistPostRequestToJson(
+  OrderServiceOrderDiscountlistPostRequest instance,
+) => <String, dynamic>{
+  'orderId': instance.orderId,
+  'discountCode': instance.discountCode,
+};
+
+OrderServiceOrderAvailableCouponPostRequest
+_$OrderServiceOrderAvailableCouponPostRequestFromJson(
+  Map<String, dynamic> json,
+) => OrderServiceOrderAvailableCouponPostRequest(
+  skuList: (json['skuList'] as List<dynamic>?)
+      ?.map(
+        (e) =>
+            OrderServiceOrderAvailableCouponPostRequest$SkuList$Item.fromJson(
+              e as Map<String, dynamic>,
+            ),
+      )
+      .toList(),
+);
+
+Map<String, dynamic> _$OrderServiceOrderAvailableCouponPostRequestToJson(
+  OrderServiceOrderAvailableCouponPostRequest instance,
+) => <String, dynamic>{
+  'skuList': instance.skuList?.map((e) => e.toJson()).toList(),
+};
+
+OrderServiceOrderCoupontitlePostRequest
+_$OrderServiceOrderCoupontitlePostRequestFromJson(Map<String, dynamic> json) =>
+    OrderServiceOrderCoupontitlePostRequest(
+      skuList: (json['skuList'] as List<dynamic>?)
+          ?.map(
+            (e) =>
+                OrderServiceOrderCoupontitlePostRequest$SkuList$Item.fromJson(
+                  e as Map<String, dynamic>,
+                ),
+          )
+          .toList(),
+    );
+
+Map<String, dynamic> _$OrderServiceOrderCoupontitlePostRequestToJson(
+  OrderServiceOrderCoupontitlePostRequest instance,
+) => <String, dynamic>{
+  'skuList': instance.skuList?.map((e) => e.toJson()).toList(),
+};
+
+OrderServiceOrderReviewPostRequest _$OrderServiceOrderReviewPostRequestFromJson(
+  Map<String, dynamic> json,
+) => OrderServiceOrderReviewPostRequest(
+  itemReviewList: (json['itemReviewList'] as List<dynamic>?)
+      ?.map(
+        (e) => OrderServiceOrderReviewPostRequest$ItemReviewList$Item.fromJson(
+          e as Map<String, dynamic>,
+        ),
+      )
+      .toList(),
+  orderId: JsonCoerce.asString(json['orderId']),
+);
+
+Map<String, dynamic> _$OrderServiceOrderReviewPostRequestToJson(
+  OrderServiceOrderReviewPostRequest instance,
+) => <String, dynamic>{
+  'itemReviewList': instance.itemReviewList?.map((e) => e.toJson()).toList(),
+  'orderId': instance.orderId,
+};
+
+OrderServiceCartAddPostRequest _$OrderServiceCartAddPostRequestFromJson(
+  Map<String, dynamic> json,
+) => OrderServiceCartAddPostRequest(
+  skuCode: JsonCoerce.asString(json['skuCode']),
+  quantity: JsonCoerce.asString(json['quantity']),
+  inviteCode: JsonCoerce.asString(json['inviteCode']),
+  remark: JsonCoerce.asString(json['remark']),
+  sourceDetail: JsonCoerce.asString(json['sourceDetail']),
+);
+
+Map<String, dynamic> _$OrderServiceCartAddPostRequestToJson(
+  OrderServiceCartAddPostRequest instance,
+) => <String, dynamic>{
+  'skuCode': instance.skuCode,
+  'quantity': instance.quantity,
+  'inviteCode': instance.inviteCode,
+  'remark': instance.remark,
+  'sourceDetail': instance.sourceDetail,
+};
+
+OrderServiceCartListGetRequest _$OrderServiceCartListGetRequestFromJson(
+  Map<String, dynamic> json,
+) => OrderServiceCartListGetRequest(
+  skuList: (json['skuList'] as List<dynamic>?)
+      ?.map(
+        (e) => OrderServiceCartListGetRequest$SkuList$Item.fromJson(
+          e as Map<String, dynamic>,
+        ),
+      )
+      .toList(),
+);
+
+Map<String, dynamic> _$OrderServiceCartListGetRequestToJson(
+  OrderServiceCartListGetRequest instance,
+) => <String, dynamic>{
+  'skuList': instance.skuList?.map((e) => e.toJson()).toList(),
+};
+
+OrderServiceCartUpdatePostRequest _$OrderServiceCartUpdatePostRequestFromJson(
+  Map<String, dynamic> json,
+) => OrderServiceCartUpdatePostRequest(
+  type: JsonCoerce.asString(json['type']),
+  cart: (json['cart'] as List<dynamic>?)
+      ?.map(
+        (e) => OrderServiceCartUpdatePostRequest$Cart$Item.fromJson(
+          e as Map<String, dynamic>,
+        ),
+      )
+      .toList(),
+);
+
+Map<String, dynamic> _$OrderServiceCartUpdatePostRequestToJson(
+  OrderServiceCartUpdatePostRequest instance,
+) => <String, dynamic>{
+  'type': instance.type,
+  'cart': instance.cart?.map((e) => e.toJson()).toList(),
+};
+
+OrderServiceCartSettlementPostRequest
+_$OrderServiceCartSettlementPostRequestFromJson(Map<String, dynamic> json) =>
+    OrderServiceCartSettlementPostRequest(
+      skuList: (json['skuList'] as List<dynamic>?)
+          ?.map(
+            (e) => OrderServiceCartSettlementPostRequest$SkuList$Item.fromJson(
+              e as Map<String, dynamic>,
+            ),
+          )
+          .toList(),
+    );
+
+Map<String, dynamic> _$OrderServiceCartSettlementPostRequestToJson(
+  OrderServiceCartSettlementPostRequest instance,
+) => <String, dynamic>{
+  'skuList': instance.skuList?.map((e) => e.toJson()).toList(),
+};
+
+OrderServiceCartPricingPostRequest _$OrderServiceCartPricingPostRequestFromJson(
+  Map<String, dynamic> json,
+) => OrderServiceCartPricingPostRequest(
+  skuList: (json['skuList'] as List<dynamic>?)
+      ?.map(
+        (e) => OrderServiceCartPricingPostRequest$SkuList$Item.fromJson(
+          e as Map<String, dynamic>,
+        ),
+      )
+      .toList(),
+  userCouponCode: JsonCoerce.asString(json['userCouponCode']),
+);
+
+Map<String, dynamic> _$OrderServiceCartPricingPostRequestToJson(
+  OrderServiceCartPricingPostRequest instance,
+) => <String, dynamic>{
+  'skuList': instance.skuList?.map((e) => e.toJson()).toList(),
+  'userCouponCode': instance.userCouponCode,
+};
+
+OrderServiceCartNoAuthPricingPostRequest
+_$OrderServiceCartNoAuthPricingPostRequestFromJson(Map<String, dynamic> json) =>
+    OrderServiceCartNoAuthPricingPostRequest(
+      skuList: (json['skuList'] as List<dynamic>?)
+          ?.map(
+            (e) =>
+                OrderServiceCartNoAuthPricingPostRequest$SkuList$Item.fromJson(
+                  e as Map<String, dynamic>,
+                ),
+          )
+          .toList(),
+      userCouponCode: JsonCoerce.asString(json['userCouponCode']),
+    );
+
+Map<String, dynamic> _$OrderServiceCartNoAuthPricingPostRequestToJson(
+  OrderServiceCartNoAuthPricingPostRequest instance,
+) => <String, dynamic>{
+  'skuList': instance.skuList?.map((e) => e.toJson()).toList(),
+  'userCouponCode': instance.userCouponCode,
+};
+
 OrderServiceOrderAppCancelPost$Response
 _$OrderServiceOrderAppCancelPost$ResponseFromJson(Map<String, dynamic> json) =>
     OrderServiceOrderAppCancelPost$Response(
@@ -781,6 +1344,548 @@ Map<String, dynamic> _$OrderServiceCartNoAuthPricingPost$ResponseToJson(
   'data': instance.data?.toJson(),
   'traceId': instance.traceId,
   'success': instance.success,
+};
+
+OrderServiceOrderAppBatchinfosGetRequest$UserAddress
+_$OrderServiceOrderAppBatchinfosGetRequest$UserAddressFromJson(
+  Map<String, dynamic> json,
+) => OrderServiceOrderAppBatchinfosGetRequest$UserAddress(
+  isDefault: JsonCoerce.asDouble(json['isDefault']),
+  email: JsonCoerce.asString(json['email']),
+  country: JsonCoerce.asString(json['country']),
+  countryCode: JsonCoerce.asString(json['countryCode']),
+  state: JsonCoerce.asString(json['state']),
+  stateCode: JsonCoerce.asString(json['stateCode']),
+  city: JsonCoerce.asString(json['city']),
+  cityCode: JsonCoerce.asString(json['cityCode']),
+  street: JsonCoerce.asString(json['street']),
+  apartment: JsonCoerce.asString(json['apartment']),
+  address: JsonCoerce.asString(json['address']),
+  coordinate: JsonCoerce.asString(json['coordinate']),
+  firstName: JsonCoerce.asString(json['firstName']),
+  lastName: JsonCoerce.asString(json['lastName']),
+  phoneNumber: JsonCoerce.asString(json['phoneNumber']),
+  zipCode: JsonCoerce.asString(json['zipCode']),
+  userId: JsonCoerce.asString(json['userId']),
+  id: JsonCoerce.asDouble(json['id']),
+);
+
+Map<String, dynamic>
+_$OrderServiceOrderAppBatchinfosGetRequest$UserAddressToJson(
+  OrderServiceOrderAppBatchinfosGetRequest$UserAddress instance,
+) => <String, dynamic>{
+  'isDefault': instance.isDefault,
+  'email': instance.email,
+  'country': instance.country,
+  'countryCode': instance.countryCode,
+  'state': instance.state,
+  'stateCode': instance.stateCode,
+  'city': instance.city,
+  'cityCode': instance.cityCode,
+  'street': instance.street,
+  'apartment': instance.apartment,
+  'address': instance.address,
+  'coordinate': instance.coordinate,
+  'firstName': instance.firstName,
+  'lastName': instance.lastName,
+  'phoneNumber': instance.phoneNumber,
+  'zipCode': instance.zipCode,
+  'userId': instance.userId,
+  'id': instance.id,
+};
+
+OrderServiceOrderAppBatchinfosGetRequest$SourceItems$Item
+_$OrderServiceOrderAppBatchinfosGetRequest$SourceItems$ItemFromJson(
+  Map<String, dynamic> json,
+) => OrderServiceOrderAppBatchinfosGetRequest$SourceItems$Item(
+  skuList: (json['skuList'] as List<dynamic>?)
+      ?.map(
+        (e) =>
+            OrderServiceOrderAppBatchinfosGetRequest$SourceItems$Item$SkuList$Item.fromJson(
+              e as Map<String, dynamic>,
+            ),
+      )
+      .toList(),
+  addBatch: JsonCoerce.asBool(json['addBatch']),
+  removePackage: JsonCoerce.asBool(json['removePackage']),
+  remark: JsonCoerce.asString(json['remark']),
+  skuSourceCode: JsonCoerce.asString(json['skuSourceCode']),
+);
+
+Map<String, dynamic>
+_$OrderServiceOrderAppBatchinfosGetRequest$SourceItems$ItemToJson(
+  OrderServiceOrderAppBatchinfosGetRequest$SourceItems$Item instance,
+) => <String, dynamic>{
+  'skuList': instance.skuList?.map((e) => e.toJson()).toList(),
+  'addBatch': instance.addBatch,
+  'removePackage': instance.removePackage,
+  'remark': instance.remark,
+  'skuSourceCode': instance.skuSourceCode,
+};
+
+OrderServiceOrderAppBatchinfosGetRequest$ItemList$Item
+_$OrderServiceOrderAppBatchinfosGetRequest$ItemList$ItemFromJson(
+  Map<String, dynamic> json,
+) => OrderServiceOrderAppBatchinfosGetRequest$ItemList$Item(
+  skuCode: JsonCoerce.asString(json['skuCode']),
+  remark: JsonCoerce.asString(json['remark']),
+);
+
+Map<String, dynamic>
+_$OrderServiceOrderAppBatchinfosGetRequest$ItemList$ItemToJson(
+  OrderServiceOrderAppBatchinfosGetRequest$ItemList$Item instance,
+) => <String, dynamic>{'skuCode': instance.skuCode, 'remark': instance.remark};
+
+OrderServiceOrderAppSubmitPostRequest$SourceItems$Item
+_$OrderServiceOrderAppSubmitPostRequest$SourceItems$ItemFromJson(
+  Map<String, dynamic> json,
+) => OrderServiceOrderAppSubmitPostRequest$SourceItems$Item(
+  skuList: (json['skuList'] as List<dynamic>?)
+      ?.map(
+        (e) =>
+            OrderServiceOrderAppSubmitPostRequest$SourceItems$Item$SkuList$Item.fromJson(
+              e as Map<String, dynamic>,
+            ),
+      )
+      .toList(),
+  skuSourceCode: JsonCoerce.asString(json['skuSourceCode']),
+  addBatch: JsonCoerce.asBool(json['addBatch']),
+  removePackage: JsonCoerce.asBool(json['removePackage']),
+  remark: JsonCoerce.asString(json['remark']),
+);
+
+Map<String, dynamic>
+_$OrderServiceOrderAppSubmitPostRequest$SourceItems$ItemToJson(
+  OrderServiceOrderAppSubmitPostRequest$SourceItems$Item instance,
+) => <String, dynamic>{
+  'skuList': instance.skuList?.map((e) => e.toJson()).toList(),
+  'skuSourceCode': instance.skuSourceCode,
+  'addBatch': instance.addBatch,
+  'removePackage': instance.removePackage,
+  'remark': instance.remark,
+};
+
+OrderServiceOrderAppUpdatePostRequest$UserAddress
+_$OrderServiceOrderAppUpdatePostRequest$UserAddressFromJson(
+  Map<String, dynamic> json,
+) => OrderServiceOrderAppUpdatePostRequest$UserAddress(
+  isDefault: JsonCoerce.asDouble(json['isDefault']),
+  email: JsonCoerce.asString(json['email']),
+  country: JsonCoerce.asString(json['country']),
+  countryCode: JsonCoerce.asString(json['countryCode']),
+  state: JsonCoerce.asString(json['state']),
+  stateCode: JsonCoerce.asString(json['stateCode']),
+  city: JsonCoerce.asString(json['city']),
+  cityCode: JsonCoerce.asString(json['cityCode']),
+  street: JsonCoerce.asString(json['street']),
+  apartment: JsonCoerce.asString(json['apartment']),
+  address: JsonCoerce.asString(json['address']),
+  coordinate: JsonCoerce.asString(json['coordinate']),
+  firstName: JsonCoerce.asString(json['firstName']),
+  lastName: JsonCoerce.asString(json['lastName']),
+  phoneNumber: JsonCoerce.asString(json['phoneNumber']),
+  zipCode: JsonCoerce.asString(json['zipCode']),
+  userId: JsonCoerce.asString(json['userId']),
+  id: JsonCoerce.asDouble(json['id']),
+);
+
+Map<String, dynamic> _$OrderServiceOrderAppUpdatePostRequest$UserAddressToJson(
+  OrderServiceOrderAppUpdatePostRequest$UserAddress instance,
+) => <String, dynamic>{
+  'isDefault': instance.isDefault,
+  'email': instance.email,
+  'country': instance.country,
+  'countryCode': instance.countryCode,
+  'state': instance.state,
+  'stateCode': instance.stateCode,
+  'city': instance.city,
+  'cityCode': instance.cityCode,
+  'street': instance.street,
+  'apartment': instance.apartment,
+  'address': instance.address,
+  'coordinate': instance.coordinate,
+  'firstName': instance.firstName,
+  'lastName': instance.lastName,
+  'phoneNumber': instance.phoneNumber,
+  'zipCode': instance.zipCode,
+  'userId': instance.userId,
+  'id': instance.id,
+};
+
+OrderServiceOrderAppUpdatePostRequest$SourceItems$Item
+_$OrderServiceOrderAppUpdatePostRequest$SourceItems$ItemFromJson(
+  Map<String, dynamic> json,
+) => OrderServiceOrderAppUpdatePostRequest$SourceItems$Item(
+  skuList: (json['skuList'] as List<dynamic>?)
+      ?.map(
+        (e) =>
+            OrderServiceOrderAppUpdatePostRequest$SourceItems$Item$SkuList$Item.fromJson(
+              e as Map<String, dynamic>,
+            ),
+      )
+      .toList(),
+  addBatch: JsonCoerce.asBool(json['addBatch']),
+  removePackage: JsonCoerce.asBool(json['removePackage']),
+  remark: JsonCoerce.asString(json['remark']),
+  skuSourceCode: JsonCoerce.asString(json['skuSourceCode']),
+);
+
+Map<String, dynamic>
+_$OrderServiceOrderAppUpdatePostRequest$SourceItems$ItemToJson(
+  OrderServiceOrderAppUpdatePostRequest$SourceItems$Item instance,
+) => <String, dynamic>{
+  'skuList': instance.skuList?.map((e) => e.toJson()).toList(),
+  'addBatch': instance.addBatch,
+  'removePackage': instance.removePackage,
+  'remark': instance.remark,
+  'skuSourceCode': instance.skuSourceCode,
+};
+
+OrderServiceOrderAppUpdatePostRequest$ItemList$Item
+_$OrderServiceOrderAppUpdatePostRequest$ItemList$ItemFromJson(
+  Map<String, dynamic> json,
+) => OrderServiceOrderAppUpdatePostRequest$ItemList$Item(
+  skuCode: JsonCoerce.asString(json['skuCode']),
+  remark: JsonCoerce.asString(json['remark']),
+);
+
+Map<String, dynamic>
+_$OrderServiceOrderAppUpdatePostRequest$ItemList$ItemToJson(
+  OrderServiceOrderAppUpdatePostRequest$ItemList$Item instance,
+) => <String, dynamic>{'skuCode': instance.skuCode, 'remark': instance.remark};
+
+OrderServiceOrderSubmitPostRequest$SourceItems$Item
+_$OrderServiceOrderSubmitPostRequest$SourceItems$ItemFromJson(
+  Map<String, dynamic> json,
+) => OrderServiceOrderSubmitPostRequest$SourceItems$Item(
+  skuList: (json['skuList'] as List<dynamic>?)
+      ?.map(
+        (e) =>
+            OrderServiceOrderSubmitPostRequest$SourceItems$Item$SkuList$Item.fromJson(
+              e as Map<String, dynamic>,
+            ),
+      )
+      .toList(),
+  skuSourceCode: JsonCoerce.asString(json['skuSourceCode']),
+  addBatch: JsonCoerce.asBool(json['addBatch']),
+  removePackage: JsonCoerce.asBool(json['removePackage']),
+  remark: JsonCoerce.asString(json['remark']),
+);
+
+Map<String, dynamic>
+_$OrderServiceOrderSubmitPostRequest$SourceItems$ItemToJson(
+  OrderServiceOrderSubmitPostRequest$SourceItems$Item instance,
+) => <String, dynamic>{
+  'skuList': instance.skuList?.map((e) => e.toJson()).toList(),
+  'skuSourceCode': instance.skuSourceCode,
+  'addBatch': instance.addBatch,
+  'removePackage': instance.removePackage,
+  'remark': instance.remark,
+};
+
+OrderServiceOrderSubmitPostRequest$SkuList$Item
+_$OrderServiceOrderSubmitPostRequest$SkuList$ItemFromJson(
+  Map<String, dynamic> json,
+) => OrderServiceOrderSubmitPostRequest$SkuList$Item(
+  skuCode: JsonCoerce.asString(json['skuCode']),
+  price: JsonCoerce.asString(json['price']),
+  quantity: JsonCoerce.asString(json['quantity']),
+  inviteCode: JsonCoerce.asString(json['inviteCode']),
+  remark: JsonCoerce.asString(json['remark']),
+);
+
+Map<String, dynamic> _$OrderServiceOrderSubmitPostRequest$SkuList$ItemToJson(
+  OrderServiceOrderSubmitPostRequest$SkuList$Item instance,
+) => <String, dynamic>{
+  'skuCode': instance.skuCode,
+  'price': instance.price,
+  'quantity': instance.quantity,
+  'inviteCode': instance.inviteCode,
+  'remark': instance.remark,
+};
+
+OrderServiceOrderUpdatePostRequest$UserAddress
+_$OrderServiceOrderUpdatePostRequest$UserAddressFromJson(
+  Map<String, dynamic> json,
+) => OrderServiceOrderUpdatePostRequest$UserAddress(
+  isDefault: JsonCoerce.asDouble(json['isDefault']),
+  email: JsonCoerce.asString(json['email']),
+  country: JsonCoerce.asString(json['country']),
+  countryCode: JsonCoerce.asString(json['countryCode']),
+  state: JsonCoerce.asString(json['state']),
+  stateCode: JsonCoerce.asString(json['stateCode']),
+  city: JsonCoerce.asString(json['city']),
+  cityCode: JsonCoerce.asString(json['cityCode']),
+  street: JsonCoerce.asString(json['street']),
+  apartment: JsonCoerce.asString(json['apartment']),
+  address: JsonCoerce.asString(json['address']),
+  coordinate: JsonCoerce.asString(json['coordinate']),
+  firstName: JsonCoerce.asString(json['firstName']),
+  lastName: JsonCoerce.asString(json['lastName']),
+  phoneNumber: JsonCoerce.asString(json['phoneNumber']),
+  zipCode: JsonCoerce.asString(json['zipCode']),
+  userId: JsonCoerce.asString(json['userId']),
+  id: JsonCoerce.asDouble(json['id']),
+);
+
+Map<String, dynamic> _$OrderServiceOrderUpdatePostRequest$UserAddressToJson(
+  OrderServiceOrderUpdatePostRequest$UserAddress instance,
+) => <String, dynamic>{
+  'isDefault': instance.isDefault,
+  'email': instance.email,
+  'country': instance.country,
+  'countryCode': instance.countryCode,
+  'state': instance.state,
+  'stateCode': instance.stateCode,
+  'city': instance.city,
+  'cityCode': instance.cityCode,
+  'street': instance.street,
+  'apartment': instance.apartment,
+  'address': instance.address,
+  'coordinate': instance.coordinate,
+  'firstName': instance.firstName,
+  'lastName': instance.lastName,
+  'phoneNumber': instance.phoneNumber,
+  'zipCode': instance.zipCode,
+  'userId': instance.userId,
+  'id': instance.id,
+};
+
+OrderServiceOrderUpdatePostRequest$SkuList$Item
+_$OrderServiceOrderUpdatePostRequest$SkuList$ItemFromJson(
+  Map<String, dynamic> json,
+) => OrderServiceOrderUpdatePostRequest$SkuList$Item(
+  skuCode: JsonCoerce.asString(json['skuCode']),
+  quantity: JsonCoerce.asInt(json['quantity']),
+  remark: JsonCoerce.asString(json['remark']),
+);
+
+Map<String, dynamic> _$OrderServiceOrderUpdatePostRequest$SkuList$ItemToJson(
+  OrderServiceOrderUpdatePostRequest$SkuList$Item instance,
+) => <String, dynamic>{
+  'skuCode': instance.skuCode,
+  'quantity': instance.quantity,
+  'remark': instance.remark,
+};
+
+OrderServiceOrderUpdatePostRequest$SourceItems$Item
+_$OrderServiceOrderUpdatePostRequest$SourceItems$ItemFromJson(
+  Map<String, dynamic> json,
+) => OrderServiceOrderUpdatePostRequest$SourceItems$Item(
+  skuList: (json['skuList'] as List<dynamic>?)
+      ?.map(
+        (e) =>
+            OrderServiceOrderUpdatePostRequest$SourceItems$Item$SkuList$Item.fromJson(
+              e as Map<String, dynamic>,
+            ),
+      )
+      .toList(),
+  addBatch: JsonCoerce.asBool(json['addBatch']),
+  payFreight: JsonCoerce.asBool(json['payFreight']),
+  removePackage: JsonCoerce.asBool(json['removePackage']),
+  remark: JsonCoerce.asString(json['remark']),
+  skuSourceCode: JsonCoerce.asString(json['skuSourceCode']),
+);
+
+Map<String, dynamic>
+_$OrderServiceOrderUpdatePostRequest$SourceItems$ItemToJson(
+  OrderServiceOrderUpdatePostRequest$SourceItems$Item instance,
+) => <String, dynamic>{
+  'skuList': instance.skuList?.map((e) => e.toJson()).toList(),
+  'addBatch': instance.addBatch,
+  'payFreight': instance.payFreight,
+  'removePackage': instance.removePackage,
+  'remark': instance.remark,
+  'skuSourceCode': instance.skuSourceCode,
+};
+
+OrderServiceOrderUpdatePostRequest$ItemList$Item
+_$OrderServiceOrderUpdatePostRequest$ItemList$ItemFromJson(
+  Map<String, dynamic> json,
+) => OrderServiceOrderUpdatePostRequest$ItemList$Item(
+  skuCode: JsonCoerce.asString(json['skuCode']),
+  remark: JsonCoerce.asString(json['remark']),
+);
+
+Map<String, dynamic> _$OrderServiceOrderUpdatePostRequest$ItemList$ItemToJson(
+  OrderServiceOrderUpdatePostRequest$ItemList$Item instance,
+) => <String, dynamic>{'skuCode': instance.skuCode, 'remark': instance.remark};
+
+OrderServiceOrderConfirmPostRequest$Data
+_$OrderServiceOrderConfirmPostRequest$DataFromJson(Map<String, dynamic> json) =>
+    OrderServiceOrderConfirmPostRequest$Data(
+      skuList: json['skuList'] == null
+          ? null
+          : OrderServiceOrderConfirmPostRequest$Data$SkuList.fromJson(
+              json['skuList'] as Map<String, dynamic>,
+            ),
+    );
+
+Map<String, dynamic> _$OrderServiceOrderConfirmPostRequest$DataToJson(
+  OrderServiceOrderConfirmPostRequest$Data instance,
+) => <String, dynamic>{'skuList': instance.skuList?.toJson()};
+
+OrderServiceOrderPricingPostRequest$SkuList$Item
+_$OrderServiceOrderPricingPostRequest$SkuList$ItemFromJson(
+  Map<String, dynamic> json,
+) => OrderServiceOrderPricingPostRequest$SkuList$Item(
+  skuCode: JsonCoerce.asString(json['skuCode']),
+  quantity: JsonCoerce.asDouble(json['quantity']),
+  price: JsonCoerce.asDouble(json['price']),
+);
+
+Map<String, dynamic> _$OrderServiceOrderPricingPostRequest$SkuList$ItemToJson(
+  OrderServiceOrderPricingPostRequest$SkuList$Item instance,
+) => <String, dynamic>{
+  'skuCode': instance.skuCode,
+  'quantity': instance.quantity,
+  'price': instance.price,
+};
+
+OrderServiceOrderAvailableCouponPostRequest$SkuList$Item
+_$OrderServiceOrderAvailableCouponPostRequest$SkuList$ItemFromJson(
+  Map<String, dynamic> json,
+) => OrderServiceOrderAvailableCouponPostRequest$SkuList$Item(
+  skuCode: JsonCoerce.asString(json['skuCode']),
+  quantity: JsonCoerce.asDouble(json['quantity']),
+);
+
+Map<String, dynamic>
+_$OrderServiceOrderAvailableCouponPostRequest$SkuList$ItemToJson(
+  OrderServiceOrderAvailableCouponPostRequest$SkuList$Item instance,
+) => <String, dynamic>{
+  'skuCode': instance.skuCode,
+  'quantity': instance.quantity,
+};
+
+OrderServiceOrderCoupontitlePostRequest$SkuList$Item
+_$OrderServiceOrderCoupontitlePostRequest$SkuList$ItemFromJson(
+  Map<String, dynamic> json,
+) => OrderServiceOrderCoupontitlePostRequest$SkuList$Item(
+  skuCode: JsonCoerce.asString(json['skuCode']),
+  quantity: JsonCoerce.asDouble(json['quantity']),
+);
+
+Map<String, dynamic>
+_$OrderServiceOrderCoupontitlePostRequest$SkuList$ItemToJson(
+  OrderServiceOrderCoupontitlePostRequest$SkuList$Item instance,
+) => <String, dynamic>{
+  'skuCode': instance.skuCode,
+  'quantity': instance.quantity,
+};
+
+OrderServiceOrderReviewPostRequest$ItemReviewList$Item
+_$OrderServiceOrderReviewPostRequest$ItemReviewList$ItemFromJson(
+  Map<String, dynamic> json,
+) => OrderServiceOrderReviewPostRequest$ItemReviewList$Item(
+  skuCode: JsonCoerce.asString(json['skuCode']),
+  comment: JsonCoerce.asDouble(json['comment']),
+  score: JsonCoerce.asString(json['score']),
+  images:
+      (json['images'] as List<dynamic>?)?.map((e) => e as Object).toList() ??
+      [],
+  extraComment: JsonCoerce.asString(json['extraComment']),
+);
+
+Map<String, dynamic>
+_$OrderServiceOrderReviewPostRequest$ItemReviewList$ItemToJson(
+  OrderServiceOrderReviewPostRequest$ItemReviewList$Item instance,
+) => <String, dynamic>{
+  'skuCode': instance.skuCode,
+  'comment': instance.comment,
+  'score': instance.score,
+  'images': instance.images,
+  'extraComment': instance.extraComment,
+};
+
+OrderServiceCartListGetRequest$SkuList$Item
+_$OrderServiceCartListGetRequest$SkuList$ItemFromJson(
+  Map<String, dynamic> json,
+) => OrderServiceCartListGetRequest$SkuList$Item(
+  skuCode: JsonCoerce.asString(json['skuCode']),
+  quantity: JsonCoerce.asString(json['quantity']),
+  token: JsonCoerce.asString(json['token']),
+  groupType: JsonCoerce.asString(json['groupType']),
+);
+
+Map<String, dynamic> _$OrderServiceCartListGetRequest$SkuList$ItemToJson(
+  OrderServiceCartListGetRequest$SkuList$Item instance,
+) => <String, dynamic>{
+  'skuCode': instance.skuCode,
+  'quantity': instance.quantity,
+  'token': instance.token,
+  'groupType': instance.groupType,
+};
+
+OrderServiceCartUpdatePostRequest$Cart$Item
+_$OrderServiceCartUpdatePostRequest$Cart$ItemFromJson(
+  Map<String, dynamic> json,
+) => OrderServiceCartUpdatePostRequest$Cart$Item(
+  skuCode: JsonCoerce.asString(json['skuCode']),
+  quantity: JsonCoerce.asDouble(json['quantity']),
+  orderUpdate: JsonCoerce.asString(json['orderUpdate']),
+  remark: JsonCoerce.asString(json['remark']),
+);
+
+Map<String, dynamic> _$OrderServiceCartUpdatePostRequest$Cart$ItemToJson(
+  OrderServiceCartUpdatePostRequest$Cart$Item instance,
+) => <String, dynamic>{
+  'skuCode': instance.skuCode,
+  'quantity': instance.quantity,
+  'orderUpdate': instance.orderUpdate,
+  'remark': instance.remark,
+};
+
+OrderServiceCartSettlementPostRequest$SkuList$Item
+_$OrderServiceCartSettlementPostRequest$SkuList$ItemFromJson(
+  Map<String, dynamic> json,
+) => OrderServiceCartSettlementPostRequest$SkuList$Item(
+  skuCode: JsonCoerce.asString(json['skuCode']),
+  quantity: JsonCoerce.asDouble(json['quantity']),
+  price: JsonCoerce.asString(json['price']),
+);
+
+Map<String, dynamic> _$OrderServiceCartSettlementPostRequest$SkuList$ItemToJson(
+  OrderServiceCartSettlementPostRequest$SkuList$Item instance,
+) => <String, dynamic>{
+  'skuCode': instance.skuCode,
+  'quantity': instance.quantity,
+  'price': instance.price,
+};
+
+OrderServiceCartPricingPostRequest$SkuList$Item
+_$OrderServiceCartPricingPostRequest$SkuList$ItemFromJson(
+  Map<String, dynamic> json,
+) => OrderServiceCartPricingPostRequest$SkuList$Item(
+  skuCode: JsonCoerce.asString(json['skuCode']),
+  quantity: JsonCoerce.asDouble(json['quantity']),
+  price: JsonCoerce.asDouble(json['price']),
+);
+
+Map<String, dynamic> _$OrderServiceCartPricingPostRequest$SkuList$ItemToJson(
+  OrderServiceCartPricingPostRequest$SkuList$Item instance,
+) => <String, dynamic>{
+  'skuCode': instance.skuCode,
+  'quantity': instance.quantity,
+  'price': instance.price,
+};
+
+OrderServiceCartNoAuthPricingPostRequest$SkuList$Item
+_$OrderServiceCartNoAuthPricingPostRequest$SkuList$ItemFromJson(
+  Map<String, dynamic> json,
+) => OrderServiceCartNoAuthPricingPostRequest$SkuList$Item(
+  skuCode: JsonCoerce.asString(json['skuCode']),
+  quantity: JsonCoerce.asDouble(json['quantity']),
+  price: JsonCoerce.asDouble(json['price']),
+);
+
+Map<String, dynamic>
+_$OrderServiceCartNoAuthPricingPostRequest$SkuList$ItemToJson(
+  OrderServiceCartNoAuthPricingPostRequest$SkuList$Item instance,
+) => <String, dynamic>{
+  'skuCode': instance.skuCode,
+  'quantity': instance.quantity,
+  'price': instance.price,
 };
 
 OrderServiceOrderAppBatchInfosGet$Response$Data
@@ -1668,6 +2773,116 @@ Map<String, dynamic> _$OrderServiceCartNoAuthPricingPost$Response$DataToJson(
   'targetItemsTotalAmount': instance.targetItemsTotalAmount,
   'amountValidContent': instance.amountValidContent,
   'contentInfo': instance.contentInfo?.toJson(),
+};
+
+OrderServiceOrderAppBatchinfosGetRequest$SourceItems$Item$SkuList$Item
+_$OrderServiceOrderAppBatchinfosGetRequest$SourceItems$Item$SkuList$ItemFromJson(
+  Map<String, dynamic> json,
+) => OrderServiceOrderAppBatchinfosGetRequest$SourceItems$Item$SkuList$Item(
+  skuCode: JsonCoerce.asString(json['skuCode']),
+  quantity: JsonCoerce.asInt(json['quantity']),
+  remark: JsonCoerce.asString(json['remark']),
+);
+
+Map<String, dynamic>
+_$OrderServiceOrderAppBatchinfosGetRequest$SourceItems$Item$SkuList$ItemToJson(
+  OrderServiceOrderAppBatchinfosGetRequest$SourceItems$Item$SkuList$Item
+  instance,
+) => <String, dynamic>{
+  'skuCode': instance.skuCode,
+  'quantity': instance.quantity,
+  'remark': instance.remark,
+};
+
+OrderServiceOrderAppSubmitPostRequest$SourceItems$Item$SkuList$Item
+_$OrderServiceOrderAppSubmitPostRequest$SourceItems$Item$SkuList$ItemFromJson(
+  Map<String, dynamic> json,
+) => OrderServiceOrderAppSubmitPostRequest$SourceItems$Item$SkuList$Item(
+  skuCode: JsonCoerce.asString(json['skuCode']),
+  quantity: JsonCoerce.asInt(json['quantity']),
+);
+
+Map<String, dynamic>
+_$OrderServiceOrderAppSubmitPostRequest$SourceItems$Item$SkuList$ItemToJson(
+  OrderServiceOrderAppSubmitPostRequest$SourceItems$Item$SkuList$Item instance,
+) => <String, dynamic>{
+  'skuCode': instance.skuCode,
+  'quantity': instance.quantity,
+};
+
+OrderServiceOrderAppUpdatePostRequest$SourceItems$Item$SkuList$Item
+_$OrderServiceOrderAppUpdatePostRequest$SourceItems$Item$SkuList$ItemFromJson(
+  Map<String, dynamic> json,
+) => OrderServiceOrderAppUpdatePostRequest$SourceItems$Item$SkuList$Item(
+  skuCode: JsonCoerce.asString(json['skuCode']),
+  quantity: JsonCoerce.asInt(json['quantity']),
+  remark: JsonCoerce.asString(json['remark']),
+);
+
+Map<String, dynamic>
+_$OrderServiceOrderAppUpdatePostRequest$SourceItems$Item$SkuList$ItemToJson(
+  OrderServiceOrderAppUpdatePostRequest$SourceItems$Item$SkuList$Item instance,
+) => <String, dynamic>{
+  'skuCode': instance.skuCode,
+  'quantity': instance.quantity,
+  'remark': instance.remark,
+};
+
+OrderServiceOrderSubmitPostRequest$SourceItems$Item$SkuList$Item
+_$OrderServiceOrderSubmitPostRequest$SourceItems$Item$SkuList$ItemFromJson(
+  Map<String, dynamic> json,
+) => OrderServiceOrderSubmitPostRequest$SourceItems$Item$SkuList$Item(
+  skuCode: JsonCoerce.asString(json['skuCode']),
+  quantity: JsonCoerce.asInt(json['quantity']),
+  price: JsonCoerce.asDouble(json['price']),
+  remark: JsonCoerce.asString(json['remark']),
+  inviteCode: JsonCoerce.asString(json['inviteCode']),
+);
+
+Map<String, dynamic>
+_$OrderServiceOrderSubmitPostRequest$SourceItems$Item$SkuList$ItemToJson(
+  OrderServiceOrderSubmitPostRequest$SourceItems$Item$SkuList$Item instance,
+) => <String, dynamic>{
+  'skuCode': instance.skuCode,
+  'quantity': instance.quantity,
+  'price': instance.price,
+  'remark': instance.remark,
+  'inviteCode': instance.inviteCode,
+};
+
+OrderServiceOrderUpdatePostRequest$SourceItems$Item$SkuList$Item
+_$OrderServiceOrderUpdatePostRequest$SourceItems$Item$SkuList$ItemFromJson(
+  Map<String, dynamic> json,
+) => OrderServiceOrderUpdatePostRequest$SourceItems$Item$SkuList$Item(
+  skuCode: JsonCoerce.asString(json['skuCode']),
+  quantity: JsonCoerce.asInt(json['quantity']),
+  remark: JsonCoerce.asString(json['remark']),
+);
+
+Map<String, dynamic>
+_$OrderServiceOrderUpdatePostRequest$SourceItems$Item$SkuList$ItemToJson(
+  OrderServiceOrderUpdatePostRequest$SourceItems$Item$SkuList$Item instance,
+) => <String, dynamic>{
+  'skuCode': instance.skuCode,
+  'quantity': instance.quantity,
+  'remark': instance.remark,
+};
+
+OrderServiceOrderConfirmPostRequest$Data$SkuList
+_$OrderServiceOrderConfirmPostRequest$Data$SkuListFromJson(
+  Map<String, dynamic> json,
+) => OrderServiceOrderConfirmPostRequest$Data$SkuList(
+  skuCode: JsonCoerce.asString(json['skuCode']),
+  quantity: JsonCoerce.asString(json['quantity']),
+  price: JsonCoerce.asString(json['price']),
+);
+
+Map<String, dynamic> _$OrderServiceOrderConfirmPostRequest$Data$SkuListToJson(
+  OrderServiceOrderConfirmPostRequest$Data$SkuList instance,
+) => <String, dynamic>{
+  'skuCode': instance.skuCode,
+  'quantity': instance.quantity,
+  'price': instance.price,
 };
 
 OrderServiceOrderAppBatchInfosGet$Response$Data$LogisticsJoinInfoList$Item

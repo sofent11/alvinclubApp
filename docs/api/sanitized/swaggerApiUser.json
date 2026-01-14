@@ -65,92 +65,7 @@
             "name": "root",
             "in": "body",
             "schema": {
-              "$schema": "http://json-schema.org/draft-04/schema#",
-              "type": "object",
-              "properties": {
-                "isDefault": {
-                  "type": "number",
-                  "description": "是否默认地址1是0否"
-                },
-                "country": {
-                  "type": "string",
-                  "description": "国家"
-                },
-                "countryCode": {
-                  "type": "string",
-                  "description": "国家编码(areaCode)"
-                },
-                "state": {
-                  "type": "string",
-                  "description": "州\\省"
-                },
-                "stateCode": {
-                  "type": "string",
-                  "description": "州省编码(areaCode)"
-                },
-                "city": {
-                  "type": "string",
-                  "description": "城市"
-                },
-                "cityCode": {
-                  "type": "string"
-                },
-                "street": {
-                  "type": "string",
-                  "description": "街道"
-                },
-                "apartment": {
-                  "type": "string",
-                  "description": "公寓单元"
-                },
-                "address": {
-                  "type": "string",
-                  "description": "详细地址"
-                },
-                "coordinate": {
-                  "type": "string",
-                  "description": "经纬度"
-                },
-                "firstName": {
-                  "type": "string",
-                  "description": "姓"
-                },
-                "lastName": {
-                  "type": "string",
-                  "description": "名"
-                },
-                "phoneNumber": {
-                  "type": "string",
-                  "description": "手机号(\"区号不带+\"+\"手机号\")",
-                  "mock": {
-                    "mock": "86+18888888888"
-                  }
-                },
-                "zipCode": {
-                  "type": "string",
-                  "description": "邮编"
-                },
-                "userId": {
-                  "type": "string",
-                  "description": "用户Id"
-                },
-                "id": {
-                  "type": "number",
-                  "description": "地址id"
-                },
-                "remark": {
-                  "type": "string"
-                },
-                "accessCode": {
-                  "type": "string"
-                },
-                "email": {
-                  "type": "string"
-                },
-                "tin": {
-                  "type": "string"
-                }
-              }
+              "$ref": "#/definitions/UserServiceAddressUpdatePostRequest"
             }
           }
         ],
@@ -595,89 +510,7 @@
             "name": "root",
             "in": "body",
             "schema": {
-              "$schema": "http://json-schema.org/draft-04/schema#",
-              "type": "object",
-              "properties": {
-                "isDefault": {
-                  "type": "number",
-                  "description": "是否默认地址 1是0否"
-                },
-                "username": {
-                  "type": "string",
-                  "description": "用户名"
-                },
-                "country": {
-                  "type": "string",
-                  "description": "国家"
-                },
-                "countryCode": {
-                  "type": "string",
-                  "description": "国家编码"
-                },
-                "state": {
-                  "type": "string",
-                  "description": "州\\省"
-                },
-                "stateCode": {
-                  "type": "string",
-                  "description": "州\\省编码"
-                },
-                "city": {
-                  "type": "string",
-                  "description": "城市"
-                },
-                "cityCode": {
-                  "type": "string",
-                  "description": "城市编码"
-                },
-                "street": {
-                  "type": "string",
-                  "description": "街道"
-                },
-                "apartment": {
-                  "type": "string",
-                  "description": "公寓单元"
-                },
-                "address": {
-                  "type": "string",
-                  "description": "详细地址"
-                },
-                "coordinate": {
-                  "type": "string",
-                  "description": "经纬度"
-                },
-                "firstName": {
-                  "type": "string",
-                  "description": "姓"
-                },
-                "lastName": {
-                  "type": "string",
-                  "description": "名"
-                },
-                "phoneNumber": {
-                  "type": "string",
-                  "description": "手机号(\"区号不带+\"+\"手机号\")",
-                  "mock": {
-                    "mock": "86+18888888888"
-                  }
-                },
-                "zipCode": {
-                  "type": "string",
-                  "description": "邮编"
-                },
-                "remark": {
-                  "type": "string"
-                },
-                "accessCode": {
-                  "type": "string"
-                },
-                "email": {
-                  "type": "string"
-                },
-                "tin": {
-                  "type": "string"
-                }
-              }
+              "$ref": "#/definitions/UserServiceAddressAddPostRequest"
             }
           }
         ],
@@ -1005,18 +838,7 @@
             "name": "root",
             "in": "body",
             "schema": {
-              "type": "object",
-              "properties": {
-                "userId": {
-                  "type": "string"
-                },
-                "tenantCode": {
-                  "type": "string"
-                },
-                "level": {
-                  "type": "string"
-                }
-              }
+              "$ref": "#/definitions/UserServiceUserInnerUpdUserLevelPostRequest"
             }
           }
         ],
@@ -1064,13 +886,7 @@
             "name": "root",
             "in": "body",
             "schema": {
-              "type": "object",
-              "title": "empty object",
-              "properties": {
-                "dstPortalCode": {
-                  "type": "string"
-                }
-              }
+              "$ref": "#/definitions/UserServiceSigninSwitchportalPostRequest"
             }
           }
         ],
@@ -1200,25 +1016,7 @@
             "name": "root",
             "in": "body",
             "schema": {
-              "type": "object",
-              "title": "empty object",
-              "properties": {
-                "loginName": {
-                  "type": "string",
-                  "description": "email",
-                  "mock": {
-                    "mock": "86+18888888888"
-                  }
-                },
-                "authWay": {
-                  "type": "number",
-                  "description": "1:密码登录 2:邮箱验证码 3:手机验证码 4第三方登入"
-                },
-                "source": {
-                  "type": "number",
-                  "description": "0 web"
-                }
-              }
+              "$ref": "#/definitions/UserServiceSigninInitPostRequest"
             }
           }
         ],
@@ -1273,9 +1071,7 @@
             "name": "root",
             "in": "body",
             "schema": {
-              "type": "object",
-              "title": "empty object",
-              "properties": {}
+              "$ref": "#/definitions/UserServiceOtpApplyPostRequest"
             }
           }
         ],
@@ -1351,33 +1147,7 @@
             "name": "root",
             "in": "body",
             "schema": {
-              "type": "object",
-              "title": "empty object",
-              "properties": {
-                "loginName": {
-                  "type": "string",
-                  "description": "邮箱或第三方id"
-                },
-                "authWay": {
-                  "type": "string",
-                  "description": "1:密码登录（暂不支持） 2:邮箱验证码 ，5：telegarm，6：Echooo，7: 谷歌登录， 8: AC登录"
-                },
-                "code": {
-                  "type": "string",
-                  "description": "password和验证码都填这,telegram将返回的object直接stringfy填入，谷歌登录返回绑定token"
-                },
-                "source": {
-                  "type": "integer",
-                  "description": "0 web"
-                },
-                "inviteCode": {
-                  "type": "string"
-                },
-                "portalCode": {
-                  "type": "string",
-                  "description": "05租户必填"
-                }
-              }
+              "$ref": "#/definitions/UserServiceSigninVerifyPostRequest"
             }
           }
         ],
@@ -1507,24 +1277,7 @@
             "name": "root",
             "in": "body",
             "schema": {
-              "type": "object",
-              "title": "empty object",
-              "properties": {
-                "authWay": {
-                  "type": "number",
-                  "description": "1:密码登录 2:邮箱验证码 3:手机验证码 4第三方登入"
-                },
-                "code": {
-                  "type": "string",
-                  "description": "验证code"
-                },
-                "inviteCode": {
-                  "type": "string"
-                },
-                "portalCode": {
-                  "type": "string"
-                }
-              }
+              "$ref": "#/definitions/UserServiceSigninCallPostRequest"
             }
           }
         ],
@@ -1651,14 +1404,7 @@
             "name": "root",
             "in": "body",
             "schema": {
-              "type": "object",
-              "title": "empty object",
-              "properties": {
-                "code": {
-                  "type": "string",
-                  "description": "password和验证码都填这,telegram将返回的object直接stringfy填入，谷歌登录返回绑定token"
-                }
-              }
+              "$ref": "#/definitions/UserServiceNoAuthOtpVerifyPostRequest"
             }
           }
         ],
@@ -1788,20 +1534,7 @@
             "name": "root",
             "in": "body",
             "schema": {
-              "type": "object",
-              "title": "empty object",
-              "properties": {
-                "email": {
-                  "type": "string"
-                },
-                "token": {
-                  "type": "string"
-                },
-                "source": {
-                  "type": "string",
-                  "description": "0-营销邮箱，1-用户邮箱"
-                }
-              }
+              "$ref": "#/definitions/UserServiceNoAuthEmailUnsubscribePostRequest"
             }
           }
         ],
@@ -2137,16 +1870,7 @@
             "name": "root",
             "in": "body",
             "schema": {
-              "type": "object",
-              "title": "empty object",
-              "properties": {
-                "sourceCode": {
-                  "type": "string"
-                },
-                "isDiscount": {
-                  "type": "string"
-                }
-              }
+              "$ref": "#/definitions/UserServiceUserCouponCode2couponGetRequest"
             }
           }
         ],
@@ -2487,16 +2211,7 @@
             "name": "root",
             "in": "body",
             "schema": {
-              "type": "object",
-              "title": "empty object",
-              "properties": {
-                "couponActivityCodes": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                }
-              }
+              "$ref": "#/definitions/UserServiceUserCouponGetusercouponbyactivityPostRequest"
             }
           }
         ],
@@ -2893,9 +2608,7 @@
             "name": "root",
             "in": "body",
             "schema": {
-              "type": "object",
-              "title": "empty object",
-              "properties": {}
+              "$ref": "#/definitions/UserServiceImGetinfoPostRequest"
             }
           }
         ],
@@ -3055,19 +2768,7 @@
             "name": "root",
             "in": "body",
             "schema": {
-              "type": "object",
-              "title": "empty object",
-              "properties": {
-                "orderId": {
-                  "type": "string"
-                },
-                "tiktokUrl": {
-                  "type": "string"
-                },
-                "insUrl": {
-                  "type": "string"
-                }
-              }
+              "$ref": "#/definitions/UserServiceUserShareListGetRequest"
             }
           }
         ],
@@ -3154,19 +2855,7 @@
             "name": "root",
             "in": "body",
             "schema": {
-              "type": "object",
-              "title": "empty object",
-              "properties": {
-                "orderId": {
-                  "type": "string"
-                },
-                "tiktokUrl": {
-                  "type": "string"
-                },
-                "insUrl": {
-                  "type": "string"
-                }
-              }
+              "$ref": "#/definitions/UserServiceUserShareRewardinfoGetRequest"
             }
           }
         ],
@@ -3243,19 +2932,7 @@
             "name": "root",
             "in": "body",
             "schema": {
-              "type": "object",
-              "title": "empty object",
-              "properties": {
-                "orderId": {
-                  "type": "string"
-                },
-                "tiktokUrl": {
-                  "type": "string"
-                },
-                "insUrl": {
-                  "type": "string"
-                }
-              }
+              "$ref": "#/definitions/UserServiceUserShareSubmitPostRequest"
             }
           }
         ],
@@ -3394,41 +3071,7 @@
             "name": "root",
             "in": "body",
             "schema": {
-              "$schema": "http://json-schema.org/draft-04/schema#",
-              "type": "object",
-              "properties": {
-                "userId": {
-                  "type": "string"
-                },
-                "nickname": {
-                  "type": "string"
-                },
-                "description": {
-                  "type": "string"
-                },
-                "gender": {
-                  "type": "number",
-                  "description": "性别：0保密 1男 2女',"
-                },
-                "birthday": {
-                  "type": "string"
-                },
-                "photo": {
-                  "type": "string"
-                },
-                "phoneNumber": {
-                  "type": "string"
-                },
-                "email": {
-                  "type": "string"
-                },
-                "platform": {
-                  "type": "string"
-                },
-                "delete": {
-                  "type": "boolean"
-                }
-              }
+              "$ref": "#/definitions/UserServiceUserUpdatePostRequest"
             }
           }
         ],
@@ -3739,19 +3382,7 @@
             "name": "root",
             "in": "body",
             "schema": {
-              "type": "object",
-              "title": "empty object",
-              "properties": {
-                "rewardId": {
-                  "type": "string"
-                },
-                "tiktokUrl": {
-                  "type": "string"
-                },
-                "insUrl": {
-                  "type": "string"
-                }
-              }
+              "$ref": "#/definitions/UserServiceUserShareUpdatePostRequest"
             }
           }
         ],
@@ -3927,16 +3558,7 @@
             "name": "root",
             "in": "body",
             "schema": {
-              "type": "object",
-              "properties": {
-                "userAnswers": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  },
-                  "description": "用户回答记录，每一个问题一条"
-                }
-              }
+              "$ref": "#/definitions/UserServiceUserTagPortraitAiToPortraitV2PostRequest"
             }
           }
         ],
@@ -4009,36 +3631,7 @@
             "name": "root",
             "in": "body",
             "schema": {
-              "type": "object",
-              "title": "empty object",
-              "properties": {
-                "age": {
-                  "type": "number"
-                },
-                "sex": {
-                  "type": "number",
-                  "description": "1 male,2 female, 3 unknown"
-                },
-                "birthday": {
-                  "type": "number",
-                  "description": "epoch sec from 1970"
-                },
-                "nickname": {
-                  "type": "string"
-                },
-                "avatarUrl": {
-                  "type": "string"
-                },
-                "favoriteShoppingPlatforms": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "favoriteBrands": {
-                  "type": "string"
-                }
-              }
+              "$ref": "#/definitions/UserServiceUserTagPortraitUpdatePortraitPostRequest"
             }
           }
         ],
@@ -4085,33 +3678,7 @@
             "name": "root",
             "in": "body",
             "schema": {
-              "type": "object",
-              "title": "empty object",
-              "properties": {
-                "age": {
-                  "type": "number"
-                },
-                "sex": {
-                  "type": "number",
-                  "description": "1 male,2 female, 3 unknown"
-                },
-                "birthday": {
-                  "type": "number",
-                  "description": "epoch sec from 1970"
-                },
-                "nickname": {
-                  "type": "string"
-                },
-                "favoriteShoppingPlatforms": {
-                  "type": "array",
-                  "items": {
-                    "type": "string"
-                  }
-                },
-                "favoriteBrands": {
-                  "type": "string"
-                }
-              }
+              "$ref": "#/definitions/UserServiceUserTagPortraitGetPortraitGetRequest"
             }
           }
         ],
@@ -4281,6 +3848,504 @@
               }
             }
           }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "UserServiceAddressUpdatePostRequest": {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "type": "object",
+      "properties": {
+        "isDefault": {
+          "type": "number",
+          "description": "是否默认地址1是0否"
+        },
+        "country": {
+          "type": "string",
+          "description": "国家"
+        },
+        "countryCode": {
+          "type": "string",
+          "description": "国家编码(areaCode)"
+        },
+        "state": {
+          "type": "string",
+          "description": "州\\省"
+        },
+        "stateCode": {
+          "type": "string",
+          "description": "州省编码(areaCode)"
+        },
+        "city": {
+          "type": "string",
+          "description": "城市"
+        },
+        "cityCode": {
+          "type": "string"
+        },
+        "street": {
+          "type": "string",
+          "description": "街道"
+        },
+        "apartment": {
+          "type": "string",
+          "description": "公寓单元"
+        },
+        "address": {
+          "type": "string",
+          "description": "详细地址"
+        },
+        "coordinate": {
+          "type": "string",
+          "description": "经纬度"
+        },
+        "firstName": {
+          "type": "string",
+          "description": "姓"
+        },
+        "lastName": {
+          "type": "string",
+          "description": "名"
+        },
+        "phoneNumber": {
+          "type": "string",
+          "description": "手机号(\"区号不带+\"+\"手机号\")",
+          "mock": {
+            "mock": "86+18888888888"
+          }
+        },
+        "zipCode": {
+          "type": "string",
+          "description": "邮编"
+        },
+        "userId": {
+          "type": "string",
+          "description": "用户Id"
+        },
+        "id": {
+          "type": "number",
+          "description": "地址id"
+        },
+        "remark": {
+          "type": "string"
+        },
+        "accessCode": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "tin": {
+          "type": "string"
+        }
+      }
+    },
+    "UserServiceAddressAddPostRequest": {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "type": "object",
+      "properties": {
+        "isDefault": {
+          "type": "number",
+          "description": "是否默认地址 1是0否"
+        },
+        "username": {
+          "type": "string",
+          "description": "用户名"
+        },
+        "country": {
+          "type": "string",
+          "description": "国家"
+        },
+        "countryCode": {
+          "type": "string",
+          "description": "国家编码"
+        },
+        "state": {
+          "type": "string",
+          "description": "州\\省"
+        },
+        "stateCode": {
+          "type": "string",
+          "description": "州\\省编码"
+        },
+        "city": {
+          "type": "string",
+          "description": "城市"
+        },
+        "cityCode": {
+          "type": "string",
+          "description": "城市编码"
+        },
+        "street": {
+          "type": "string",
+          "description": "街道"
+        },
+        "apartment": {
+          "type": "string",
+          "description": "公寓单元"
+        },
+        "address": {
+          "type": "string",
+          "description": "详细地址"
+        },
+        "coordinate": {
+          "type": "string",
+          "description": "经纬度"
+        },
+        "firstName": {
+          "type": "string",
+          "description": "姓"
+        },
+        "lastName": {
+          "type": "string",
+          "description": "名"
+        },
+        "phoneNumber": {
+          "type": "string",
+          "description": "手机号(\"区号不带+\"+\"手机号\")",
+          "mock": {
+            "mock": "86+18888888888"
+          }
+        },
+        "zipCode": {
+          "type": "string",
+          "description": "邮编"
+        },
+        "remark": {
+          "type": "string"
+        },
+        "accessCode": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "tin": {
+          "type": "string"
+        }
+      }
+    },
+    "UserServiceUserInnerUpdUserLevelPostRequest": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string"
+        },
+        "tenantCode": {
+          "type": "string"
+        },
+        "level": {
+          "type": "string"
+        }
+      }
+    },
+    "UserServiceSigninSwitchportalPostRequest": {
+      "type": "object",
+      "title": "empty object",
+      "properties": {
+        "dstPortalCode": {
+          "type": "string"
+        }
+      }
+    },
+    "UserServiceSigninInitPostRequest": {
+      "type": "object",
+      "title": "empty object",
+      "properties": {
+        "loginName": {
+          "type": "string",
+          "description": "email",
+          "mock": {
+            "mock": "86+18888888888"
+          }
+        },
+        "authWay": {
+          "type": "number",
+          "description": "1:密码登录 2:邮箱验证码 3:手机验证码 4第三方登入"
+        },
+        "source": {
+          "type": "number",
+          "description": "0 web"
+        }
+      }
+    },
+    "UserServiceOtpApplyPostRequest": {
+      "type": "object",
+      "title": "empty object",
+      "properties": {}
+    },
+    "UserServiceSigninVerifyPostRequest": {
+      "type": "object",
+      "title": "empty object",
+      "properties": {
+        "loginName": {
+          "type": "string",
+          "description": "邮箱或第三方id"
+        },
+        "authWay": {
+          "type": "string",
+          "description": "1:密码登录（暂不支持） 2:邮箱验证码 ，5：telegarm，6：Echooo，7: 谷歌登录， 8: AC登录"
+        },
+        "code": {
+          "type": "string",
+          "description": "password和验证码都填这,telegram将返回的object直接stringfy填入，谷歌登录返回绑定token"
+        },
+        "source": {
+          "type": "integer",
+          "description": "0 web"
+        },
+        "inviteCode": {
+          "type": "string"
+        },
+        "portalCode": {
+          "type": "string",
+          "description": "05租户必填"
+        }
+      }
+    },
+    "UserServiceSigninCallPostRequest": {
+      "type": "object",
+      "title": "empty object",
+      "properties": {
+        "authWay": {
+          "type": "number",
+          "description": "1:密码登录 2:邮箱验证码 3:手机验证码 4第三方登入"
+        },
+        "code": {
+          "type": "string",
+          "description": "验证code"
+        },
+        "inviteCode": {
+          "type": "string"
+        },
+        "portalCode": {
+          "type": "string"
+        }
+      }
+    },
+    "UserServiceNoAuthOtpVerifyPostRequest": {
+      "type": "object",
+      "title": "empty object",
+      "properties": {
+        "code": {
+          "type": "string",
+          "description": "password和验证码都填这,telegram将返回的object直接stringfy填入，谷歌登录返回绑定token"
+        }
+      }
+    },
+    "UserServiceNoAuthEmailUnsubscribePostRequest": {
+      "type": "object",
+      "title": "empty object",
+      "properties": {
+        "email": {
+          "type": "string"
+        },
+        "token": {
+          "type": "string"
+        },
+        "source": {
+          "type": "string",
+          "description": "0-营销邮箱，1-用户邮箱"
+        }
+      }
+    },
+    "UserServiceUserCouponCode2couponGetRequest": {
+      "type": "object",
+      "title": "empty object",
+      "properties": {
+        "sourceCode": {
+          "type": "string"
+        },
+        "isDiscount": {
+          "type": "string"
+        }
+      }
+    },
+    "UserServiceUserCouponGetusercouponbyactivityPostRequest": {
+      "type": "object",
+      "title": "empty object",
+      "properties": {
+        "couponActivityCodes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "UserServiceImGetinfoPostRequest": {
+      "type": "object",
+      "title": "empty object",
+      "properties": {}
+    },
+    "UserServiceUserShareListGetRequest": {
+      "type": "object",
+      "title": "empty object",
+      "properties": {
+        "orderId": {
+          "type": "string"
+        },
+        "tiktokUrl": {
+          "type": "string"
+        },
+        "insUrl": {
+          "type": "string"
+        }
+      }
+    },
+    "UserServiceUserShareRewardinfoGetRequest": {
+      "type": "object",
+      "title": "empty object",
+      "properties": {
+        "orderId": {
+          "type": "string"
+        },
+        "tiktokUrl": {
+          "type": "string"
+        },
+        "insUrl": {
+          "type": "string"
+        }
+      }
+    },
+    "UserServiceUserShareSubmitPostRequest": {
+      "type": "object",
+      "title": "empty object",
+      "properties": {
+        "orderId": {
+          "type": "string"
+        },
+        "tiktokUrl": {
+          "type": "string"
+        },
+        "insUrl": {
+          "type": "string"
+        }
+      }
+    },
+    "UserServiceUserUpdatePostRequest": {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string"
+        },
+        "nickname": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "gender": {
+          "type": "number",
+          "description": "性别：0保密 1男 2女',"
+        },
+        "birthday": {
+          "type": "string"
+        },
+        "photo": {
+          "type": "string"
+        },
+        "phoneNumber": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "platform": {
+          "type": "string"
+        },
+        "delete": {
+          "type": "boolean"
+        }
+      }
+    },
+    "UserServiceUserShareUpdatePostRequest": {
+      "type": "object",
+      "title": "empty object",
+      "properties": {
+        "rewardId": {
+          "type": "string"
+        },
+        "tiktokUrl": {
+          "type": "string"
+        },
+        "insUrl": {
+          "type": "string"
+        }
+      }
+    },
+    "UserServiceUserTagPortraitAiToPortraitV2PostRequest": {
+      "type": "object",
+      "properties": {
+        "userAnswers": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "用户回答记录，每一个问题一条"
+        }
+      }
+    },
+    "UserServiceUserTagPortraitUpdatePortraitPostRequest": {
+      "type": "object",
+      "title": "empty object",
+      "properties": {
+        "age": {
+          "type": "number"
+        },
+        "sex": {
+          "type": "number",
+          "description": "1 male,2 female, 3 unknown"
+        },
+        "birthday": {
+          "type": "number",
+          "description": "epoch sec from 1970"
+        },
+        "nickname": {
+          "type": "string"
+        },
+        "avatarUrl": {
+          "type": "string"
+        },
+        "favoriteShoppingPlatforms": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "favoriteBrands": {
+          "type": "string"
+        }
+      }
+    },
+    "UserServiceUserTagPortraitGetPortraitGetRequest": {
+      "type": "object",
+      "title": "empty object",
+      "properties": {
+        "age": {
+          "type": "number"
+        },
+        "sex": {
+          "type": "number",
+          "description": "1 male,2 female, 3 unknown"
+        },
+        "birthday": {
+          "type": "number",
+          "description": "epoch sec from 1970"
+        },
+        "nickname": {
+          "type": "string"
+        },
+        "favoriteShoppingPlatforms": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "favoriteBrands": {
+          "type": "string"
         }
       }
     }

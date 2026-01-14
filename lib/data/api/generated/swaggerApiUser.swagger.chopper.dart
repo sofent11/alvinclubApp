@@ -21,7 +21,7 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
   @override
   Future<Response<UserServiceAddressUpdatePost$Response>>
   _userServiceAddressUpdatePost({
-    Object? root,
+    UserServiceAddressUpdatePostRequest? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '修改地址',
@@ -199,7 +199,7 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
   @override
   Future<Response<UserServiceAddressAddPost$Response>>
   _userServiceAddressAddPost({
-    Object? root,
+    UserServiceAddressAddPostRequest? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '新增用户地址',
@@ -332,7 +332,7 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
   @override
   Future<Response<UserServiceUserInnerUpdUserLevelPost$Response>>
   _userServiceUserInnerUpdUserLevelPost({
-    Object? root,
+    UserServiceUserInnerUpdUserLevelPostRequest? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '更新用户等级',
@@ -362,7 +362,7 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
   @override
   Future<Response<UserServiceSigninSwitchPortalPost$Response>>
   _userServiceSigninSwitchPortalPost({
-    Object? root,
+    UserServiceSigninSwitchportalPostRequest? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '切换国家',
@@ -392,7 +392,7 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
   @override
   Future<Response<UserServiceSignInInitPost$Response>>
   _userServiceSignInInitPost({
-    Object? root,
+    UserServiceSigninInitPostRequest? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '发送验证码',
@@ -421,7 +421,7 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
 
   @override
   Future<Response<UserServiceOtpApplyPost$Response>> _userServiceOtpApplyPost({
-    Object? root,
+    UserServiceOtpApplyPostRequest? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '生成临时token',
@@ -479,7 +479,7 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
   @override
   Future<Response<UserServiceSignInVerifyPost$Response>>
   _userServiceSignInVerifyPost({
-    Object? root,
+    UserServiceSigninVerifyPostRequest? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '登录校验密码\验证码',
@@ -509,7 +509,7 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
   @override
   Future<Response<UserServiceSignInCallPost$Response>>
   _userServiceSignInCallPost({
-    Object? root,
+    UserServiceSigninCallPostRequest? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '轮询登录信息',
@@ -539,7 +539,7 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
   @override
   Future<Response<UserServiceNoAuthOtpVerifyPost$Response>>
   _userServiceNoAuthOtpVerifyPost({
-    Object? root,
+    UserServiceNoAuthOtpVerifyPostRequest? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '验证临时token',
@@ -568,7 +568,7 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
 
   @override
   Future<Response<Object>> _userServiceNoAuthEmailUnsubscribePost({
-    Object? root,
+    UserServiceNoAuthEmailUnsubscribePostRequest? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '邮箱取消订阅',
@@ -748,7 +748,7 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
   _userServiceUserCouponCode2CouponGet({
     required String? code,
     String? isDiscount,
-    Object? root,
+    UserServiceUserCouponCode2couponGetRequest? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '按code领取',
@@ -874,7 +874,7 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
   @override
   Future<Response<UserServiceUserCouponGetUserCouponByActivityPost$Response>>
   _userServiceUserCouponGetUserCouponByActivityPost({
-    Object? root,
+    UserServiceUserCouponGetusercouponbyactivityPostRequest? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '领取优惠券（多活动）',
@@ -1034,7 +1034,7 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
   @override
   Future<Response<UserServiceImGetInfoPost$Response>>
   _userServiceImGetInfoPost({
-    Object? root,
+    UserServiceImGetinfoPostRequest? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '交换IMtoken',
@@ -1064,7 +1064,7 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
   @override
   Future<Response<UserServiceUserShareListGet$Response>>
   _userServiceUserShareListGet({
-    Object? root,
+    UserServiceUserShareListGetRequest? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '分享列表',
@@ -1095,7 +1095,7 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
   Future<Response<UserServiceUserShareRewardInfoGet$Response>>
   _userServiceUserShareRewardInfoGet({
     required String? orderId,
-    Object? root,
+    UserServiceUserShareRewardinfoGetRequest? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '分享返利信息',
@@ -1127,7 +1127,7 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
   @override
   Future<Response<UserServiceUserShareSubmitPost$Response>>
   _userServiceUserShareSubmitPost({
-    Object? root,
+    UserServiceUserShareSubmitPostRequest? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '提交分享',
@@ -1214,7 +1214,7 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
   @override
   Future<Response<Object>> _userServiceUserUpdatePost({
     String? authorization,
-    Object? root,
+    UserServiceUserUpdatePostRequest? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '用户修改',
@@ -1384,7 +1384,7 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
   @override
   Future<Response<UserServiceUserShareUpdatePost$Response>>
   _userServiceUserShareUpdatePost({
-    Object? root,
+    UserServiceUserShareUpdatePostRequest? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '重新提交分享',
@@ -1480,7 +1480,7 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
   @override
   Future<Response<UserServiceUserTagPortraitAiToPortraitV2Post$Response>>
   _userServiceUserTagPortraitAiToPortraitV2Post({
-    Object? root,
+    UserServiceUserTagPortraitAiToPortraitV2PostRequest? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: 'ai解析画像V2',
@@ -1512,7 +1512,7 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
   @override
   Future<Response<UserServiceUserTagPortraitUpdatePortraitPost$Response>>
   _userServiceUserTagPortraitUpdatePortraitPost({
-    Object? root,
+    UserServiceUserTagPortraitUpdatePortraitPostRequest? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '更新用户画像',
@@ -1544,7 +1544,7 @@ final class _$SwaggerApiUser extends SwaggerApiUser {
   @override
   Future<Response<UserServiceUserTagPortraitGetPortraitGet$Response>>
   _userServiceUserTagPortraitGetPortraitGet({
-    Object? root,
+    UserServiceUserTagPortraitGetPortraitGetRequest? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '获取用户画像',

@@ -91,7 +91,11 @@ abstract class SwaggerApiPay extends ChopperService {
   ///申请提现
   ///@param root
   Future<chopper.Response<PayServiceWithdrawApplyPost$Response>>
-  payServiceWithdrawApplyPost({Object? root}) {
+  payServiceWithdrawApplyPost({PayServiceWithdrawApplyPostRequest? root}) {
+    generatedMapping.putIfAbsent(
+      PayServiceWithdrawApplyPostRequest,
+      () => PayServiceWithdrawApplyPostRequest.fromJsonFactory,
+    );
     generatedMapping.putIfAbsent(
       PayServiceWithdrawApplyPost$Response,
       () => PayServiceWithdrawApplyPost$Response.fromJsonFactory,
@@ -105,7 +109,7 @@ abstract class SwaggerApiPay extends ChopperService {
   @POST(path: '/pay-service/withdraw/apply')
   Future<chopper.Response<PayServiceWithdrawApplyPost$Response>>
   _payServiceWithdrawApplyPost({
-    @Body() Object? root,
+    @Body() PayServiceWithdrawApplyPostRequest? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -290,7 +294,13 @@ abstract class SwaggerApiPay extends ChopperService {
   ///发起充值接口
   ///@param root
   Future<chopper.Response<PayServiceRechargeCreateOrderPost$Response>>
-  payServiceRechargeCreateOrderPost({Object? root}) {
+  payServiceRechargeCreateOrderPost({
+    PayServiceRechargeCreateorderPostRequest? root,
+  }) {
+    generatedMapping.putIfAbsent(
+      PayServiceRechargeCreateorderPostRequest,
+      () => PayServiceRechargeCreateorderPostRequest.fromJsonFactory,
+    );
     generatedMapping.putIfAbsent(
       PayServiceRechargeCreateOrderPost$Response,
       () => PayServiceRechargeCreateOrderPost$Response.fromJsonFactory,
@@ -304,7 +314,7 @@ abstract class SwaggerApiPay extends ChopperService {
   @POST(path: '/pay-service/recharge/createOrder')
   Future<chopper.Response<PayServiceRechargeCreateOrderPost$Response>>
   _payServiceRechargeCreateOrderPost({
-    @Body() Object? root,
+    @Body() PayServiceRechargeCreateorderPostRequest? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -321,8 +331,12 @@ abstract class SwaggerApiPay extends ChopperService {
   ///发起支付
   ///@param root
   Future<chopper.Response<PayServicePayPayPost$Response>> payServicePayPayPost({
-    Object? root,
+    PayServicePayPayPostRequest? root,
   }) {
+    generatedMapping.putIfAbsent(
+      PayServicePayPayPostRequest,
+      () => PayServicePayPayPostRequest.fromJsonFactory,
+    );
     generatedMapping.putIfAbsent(
       PayServicePayPayPost$Response,
       () => PayServicePayPayPost$Response.fromJsonFactory,
@@ -336,7 +350,7 @@ abstract class SwaggerApiPay extends ChopperService {
   @POST(path: '/pay-service/pay/pay')
   Future<chopper.Response<PayServicePayPayPost$Response>>
   _payServicePayPayPost({
-    @Body() Object? root,
+    @Body() PayServicePayPayPostRequest? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -573,6 +587,315 @@ abstract class SwaggerApiPay extends ChopperService {
       deprecated: false,
     ),
   });
+}
+
+@JsonSerializable(explicitToJson: true)
+class PayServiceWithdrawApplyPostRequest {
+  const PayServiceWithdrawApplyPostRequest({
+    this.amount,
+    this.accountType,
+    this.accountNo,
+  });
+
+  factory PayServiceWithdrawApplyPostRequest.fromJson(
+    Map<String, dynamic> json,
+  ) => _$PayServiceWithdrawApplyPostRequestFromJson(json);
+
+  static const toJsonFactory = _$PayServiceWithdrawApplyPostRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$PayServiceWithdrawApplyPostRequestToJson(this);
+
+  @JsonKey(name: 'amount', fromJson: JsonCoerce.asString)
+  final String? amount;
+  @JsonKey(name: 'accountType', fromJson: JsonCoerce.asString)
+  final String? accountType;
+  @JsonKey(name: 'accountNo', fromJson: JsonCoerce.asString)
+  final String? accountNo;
+  static const fromJsonFactory = _$PayServiceWithdrawApplyPostRequestFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is PayServiceWithdrawApplyPostRequest &&
+            (identical(other.amount, amount) ||
+                const DeepCollectionEquality().equals(other.amount, amount)) &&
+            (identical(other.accountType, accountType) ||
+                const DeepCollectionEquality().equals(
+                  other.accountType,
+                  accountType,
+                )) &&
+            (identical(other.accountNo, accountNo) ||
+                const DeepCollectionEquality().equals(
+                  other.accountNo,
+                  accountNo,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(amount) ^
+      const DeepCollectionEquality().hash(accountType) ^
+      const DeepCollectionEquality().hash(accountNo) ^
+      runtimeType.hashCode;
+}
+
+extension $PayServiceWithdrawApplyPostRequestExtension
+    on PayServiceWithdrawApplyPostRequest {
+  PayServiceWithdrawApplyPostRequest copyWith({
+    String? amount,
+    String? accountType,
+    String? accountNo,
+  }) {
+    return PayServiceWithdrawApplyPostRequest(
+      amount: amount ?? this.amount,
+      accountType: accountType ?? this.accountType,
+      accountNo: accountNo ?? this.accountNo,
+    );
+  }
+
+  PayServiceWithdrawApplyPostRequest copyWithWrapped({
+    Wrapped<String?>? amount,
+    Wrapped<String?>? accountType,
+    Wrapped<String?>? accountNo,
+  }) {
+    return PayServiceWithdrawApplyPostRequest(
+      amount: (amount != null ? amount.value : this.amount),
+      accountType: (accountType != null ? accountType.value : this.accountType),
+      accountNo: (accountNo != null ? accountNo.value : this.accountNo),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class PayServiceRechargeCreateorderPostRequest {
+  const PayServiceRechargeCreateorderPostRequest({
+    this.amount,
+    this.currency,
+    this.relatedOrderId,
+    this.relatedOrderType,
+  });
+
+  factory PayServiceRechargeCreateorderPostRequest.fromJson(
+    Map<String, dynamic> json,
+  ) => _$PayServiceRechargeCreateorderPostRequestFromJson(json);
+
+  static const toJsonFactory = _$PayServiceRechargeCreateorderPostRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$PayServiceRechargeCreateorderPostRequestToJson(this);
+
+  @JsonKey(name: 'amount', fromJson: JsonCoerce.asString)
+  final String? amount;
+  @JsonKey(name: 'currency', fromJson: JsonCoerce.asString)
+  final String? currency;
+  @JsonKey(name: 'relatedOrderId', fromJson: JsonCoerce.asString)
+  final String? relatedOrderId;
+  @JsonKey(name: 'relatedOrderType', fromJson: JsonCoerce.asDouble)
+  final double? relatedOrderType;
+  static const fromJsonFactory =
+      _$PayServiceRechargeCreateorderPostRequestFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is PayServiceRechargeCreateorderPostRequest &&
+            (identical(other.amount, amount) ||
+                const DeepCollectionEquality().equals(other.amount, amount)) &&
+            (identical(other.currency, currency) ||
+                const DeepCollectionEquality().equals(
+                  other.currency,
+                  currency,
+                )) &&
+            (identical(other.relatedOrderId, relatedOrderId) ||
+                const DeepCollectionEquality().equals(
+                  other.relatedOrderId,
+                  relatedOrderId,
+                )) &&
+            (identical(other.relatedOrderType, relatedOrderType) ||
+                const DeepCollectionEquality().equals(
+                  other.relatedOrderType,
+                  relatedOrderType,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(amount) ^
+      const DeepCollectionEquality().hash(currency) ^
+      const DeepCollectionEquality().hash(relatedOrderId) ^
+      const DeepCollectionEquality().hash(relatedOrderType) ^
+      runtimeType.hashCode;
+}
+
+extension $PayServiceRechargeCreateorderPostRequestExtension
+    on PayServiceRechargeCreateorderPostRequest {
+  PayServiceRechargeCreateorderPostRequest copyWith({
+    String? amount,
+    String? currency,
+    String? relatedOrderId,
+    double? relatedOrderType,
+  }) {
+    return PayServiceRechargeCreateorderPostRequest(
+      amount: amount ?? this.amount,
+      currency: currency ?? this.currency,
+      relatedOrderId: relatedOrderId ?? this.relatedOrderId,
+      relatedOrderType: relatedOrderType ?? this.relatedOrderType,
+    );
+  }
+
+  PayServiceRechargeCreateorderPostRequest copyWithWrapped({
+    Wrapped<String?>? amount,
+    Wrapped<String?>? currency,
+    Wrapped<String?>? relatedOrderId,
+    Wrapped<double?>? relatedOrderType,
+  }) {
+    return PayServiceRechargeCreateorderPostRequest(
+      amount: (amount != null ? amount.value : this.amount),
+      currency: (currency != null ? currency.value : this.currency),
+      relatedOrderId: (relatedOrderId != null
+          ? relatedOrderId.value
+          : this.relatedOrderId),
+      relatedOrderType: (relatedOrderType != null
+          ? relatedOrderType.value
+          : this.relatedOrderType),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class PayServicePayPayPostRequest {
+  const PayServicePayPayPostRequest({
+    this.orderId,
+    this.payType,
+    this.orderType,
+    this.chainId,
+    this.payTokenSymbol,
+    this.callbackUrl,
+    this.uiType,
+  });
+
+  factory PayServicePayPayPostRequest.fromJson(Map<String, dynamic> json) =>
+      _$PayServicePayPayPostRequestFromJson(json);
+
+  static const toJsonFactory = _$PayServicePayPayPostRequestToJson;
+  Map<String, dynamic> toJson() => _$PayServicePayPayPostRequestToJson(this);
+
+  @JsonKey(name: 'orderId', fromJson: JsonCoerce.asString)
+  final String? orderId;
+  @JsonKey(name: 'payType', fromJson: JsonCoerce.asString)
+  final String? payType;
+  @JsonKey(name: 'orderType', fromJson: JsonCoerce.asString)
+  final String? orderType;
+  @JsonKey(name: 'chainId', fromJson: JsonCoerce.asString)
+  final String? chainId;
+  @JsonKey(name: 'payTokenSymbol', fromJson: JsonCoerce.asString)
+  final String? payTokenSymbol;
+  @JsonKey(name: 'callbackUrl', fromJson: JsonCoerce.asString)
+  final String? callbackUrl;
+  @JsonKey(name: 'uiType', fromJson: JsonCoerce.asDouble)
+  final double? uiType;
+  static const fromJsonFactory = _$PayServicePayPayPostRequestFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is PayServicePayPayPostRequest &&
+            (identical(other.orderId, orderId) ||
+                const DeepCollectionEquality().equals(
+                  other.orderId,
+                  orderId,
+                )) &&
+            (identical(other.payType, payType) ||
+                const DeepCollectionEquality().equals(
+                  other.payType,
+                  payType,
+                )) &&
+            (identical(other.orderType, orderType) ||
+                const DeepCollectionEquality().equals(
+                  other.orderType,
+                  orderType,
+                )) &&
+            (identical(other.chainId, chainId) ||
+                const DeepCollectionEquality().equals(
+                  other.chainId,
+                  chainId,
+                )) &&
+            (identical(other.payTokenSymbol, payTokenSymbol) ||
+                const DeepCollectionEquality().equals(
+                  other.payTokenSymbol,
+                  payTokenSymbol,
+                )) &&
+            (identical(other.callbackUrl, callbackUrl) ||
+                const DeepCollectionEquality().equals(
+                  other.callbackUrl,
+                  callbackUrl,
+                )) &&
+            (identical(other.uiType, uiType) ||
+                const DeepCollectionEquality().equals(other.uiType, uiType)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(orderId) ^
+      const DeepCollectionEquality().hash(payType) ^
+      const DeepCollectionEquality().hash(orderType) ^
+      const DeepCollectionEquality().hash(chainId) ^
+      const DeepCollectionEquality().hash(payTokenSymbol) ^
+      const DeepCollectionEquality().hash(callbackUrl) ^
+      const DeepCollectionEquality().hash(uiType) ^
+      runtimeType.hashCode;
+}
+
+extension $PayServicePayPayPostRequestExtension on PayServicePayPayPostRequest {
+  PayServicePayPayPostRequest copyWith({
+    String? orderId,
+    String? payType,
+    String? orderType,
+    String? chainId,
+    String? payTokenSymbol,
+    String? callbackUrl,
+    double? uiType,
+  }) {
+    return PayServicePayPayPostRequest(
+      orderId: orderId ?? this.orderId,
+      payType: payType ?? this.payType,
+      orderType: orderType ?? this.orderType,
+      chainId: chainId ?? this.chainId,
+      payTokenSymbol: payTokenSymbol ?? this.payTokenSymbol,
+      callbackUrl: callbackUrl ?? this.callbackUrl,
+      uiType: uiType ?? this.uiType,
+    );
+  }
+
+  PayServicePayPayPostRequest copyWithWrapped({
+    Wrapped<String?>? orderId,
+    Wrapped<String?>? payType,
+    Wrapped<String?>? orderType,
+    Wrapped<String?>? chainId,
+    Wrapped<String?>? payTokenSymbol,
+    Wrapped<String?>? callbackUrl,
+    Wrapped<double?>? uiType,
+  }) {
+    return PayServicePayPayPostRequest(
+      orderId: (orderId != null ? orderId.value : this.orderId),
+      payType: (payType != null ? payType.value : this.payType),
+      orderType: (orderType != null ? orderType.value : this.orderType),
+      chainId: (chainId != null ? chainId.value : this.chainId),
+      payTokenSymbol: (payTokenSymbol != null
+          ? payTokenSymbol.value
+          : this.payTokenSymbol),
+      callbackUrl: (callbackUrl != null ? callbackUrl.value : this.callbackUrl),
+      uiType: (uiType != null ? uiType.value : this.uiType),
+    );
+  }
 }
 
 @JsonSerializable(explicitToJson: true)

@@ -6,6 +6,64 @@ part of 'swaggerApiPay.swagger.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
+PayServiceWithdrawApplyPostRequest _$PayServiceWithdrawApplyPostRequestFromJson(
+  Map<String, dynamic> json,
+) => PayServiceWithdrawApplyPostRequest(
+  amount: JsonCoerce.asString(json['amount']),
+  accountType: JsonCoerce.asString(json['accountType']),
+  accountNo: JsonCoerce.asString(json['accountNo']),
+);
+
+Map<String, dynamic> _$PayServiceWithdrawApplyPostRequestToJson(
+  PayServiceWithdrawApplyPostRequest instance,
+) => <String, dynamic>{
+  'amount': instance.amount,
+  'accountType': instance.accountType,
+  'accountNo': instance.accountNo,
+};
+
+PayServiceRechargeCreateorderPostRequest
+_$PayServiceRechargeCreateorderPostRequestFromJson(Map<String, dynamic> json) =>
+    PayServiceRechargeCreateorderPostRequest(
+      amount: JsonCoerce.asString(json['amount']),
+      currency: JsonCoerce.asString(json['currency']),
+      relatedOrderId: JsonCoerce.asString(json['relatedOrderId']),
+      relatedOrderType: JsonCoerce.asDouble(json['relatedOrderType']),
+    );
+
+Map<String, dynamic> _$PayServiceRechargeCreateorderPostRequestToJson(
+  PayServiceRechargeCreateorderPostRequest instance,
+) => <String, dynamic>{
+  'amount': instance.amount,
+  'currency': instance.currency,
+  'relatedOrderId': instance.relatedOrderId,
+  'relatedOrderType': instance.relatedOrderType,
+};
+
+PayServicePayPayPostRequest _$PayServicePayPayPostRequestFromJson(
+  Map<String, dynamic> json,
+) => PayServicePayPayPostRequest(
+  orderId: JsonCoerce.asString(json['orderId']),
+  payType: JsonCoerce.asString(json['payType']),
+  orderType: JsonCoerce.asString(json['orderType']),
+  chainId: JsonCoerce.asString(json['chainId']),
+  payTokenSymbol: JsonCoerce.asString(json['payTokenSymbol']),
+  callbackUrl: JsonCoerce.asString(json['callbackUrl']),
+  uiType: JsonCoerce.asDouble(json['uiType']),
+);
+
+Map<String, dynamic> _$PayServicePayPayPostRequestToJson(
+  PayServicePayPayPostRequest instance,
+) => <String, dynamic>{
+  'orderId': instance.orderId,
+  'payType': instance.payType,
+  'orderType': instance.orderType,
+  'chainId': instance.chainId,
+  'payTokenSymbol': instance.payTokenSymbol,
+  'callbackUrl': instance.callbackUrl,
+  'uiType': instance.uiType,
+};
+
 PayServiceWithdrawOrdersGet$Response
 _$PayServiceWithdrawOrdersGet$ResponseFromJson(Map<String, dynamic> json) =>
     PayServiceWithdrawOrdersGet$Response(

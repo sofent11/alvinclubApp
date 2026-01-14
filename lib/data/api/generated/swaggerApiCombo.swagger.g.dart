@@ -6,6 +6,278 @@ part of 'swaggerApiCombo.swagger.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
+ComboServiceNoAuthBizKolKolinfoGetRequest
+_$ComboServiceNoAuthBizKolKolinfoGetRequestFromJson(
+  Map<String, dynamic> json,
+) => ComboServiceNoAuthBizKolKolinfoGetRequest(
+  imgUrl: JsonCoerce.asString(json['imgUrl']),
+  target: JsonCoerce.asString(json['target']),
+);
+
+Map<String, dynamic> _$ComboServiceNoAuthBizKolKolinfoGetRequestToJson(
+  ComboServiceNoAuthBizKolKolinfoGetRequest instance,
+) => <String, dynamic>{'imgUrl': instance.imgUrl, 'target': instance.target};
+
+ComboServiceBizCommunityPostUnlikePostRequest
+_$ComboServiceBizCommunityPostUnlikePostRequestFromJson(
+  Map<String, dynamic> json,
+) => ComboServiceBizCommunityPostUnlikePostRequest(
+  postId: JsonCoerce.asInt(json['postId']),
+);
+
+Map<String, dynamic> _$ComboServiceBizCommunityPostUnlikePostRequestToJson(
+  ComboServiceBizCommunityPostUnlikePostRequest instance,
+) => <String, dynamic>{'postId': instance.postId};
+
+ComboServiceBizCommunityPostLikedGetRequest
+_$ComboServiceBizCommunityPostLikedGetRequestFromJson(
+  Map<String, dynamic> json,
+) => ComboServiceBizCommunityPostLikedGetRequest(
+  cursor: JsonCoerce.asString(json['cursor']),
+  pageSize: JsonCoerce.asInt(json['pageSize']),
+  tenantCode: JsonCoerce.asString(json['tenantCode']),
+);
+
+Map<String, dynamic> _$ComboServiceBizCommunityPostLikedGetRequestToJson(
+  ComboServiceBizCommunityPostLikedGetRequest instance,
+) => <String, dynamic>{
+  'cursor': instance.cursor,
+  'pageSize': instance.pageSize,
+  'tenantCode': instance.tenantCode,
+};
+
+ComboServiceBizCommunityPostNoAuthListGetRequest
+_$ComboServiceBizCommunityPostNoAuthListGetRequestFromJson(
+  Map<String, dynamic> json,
+) => ComboServiceBizCommunityPostNoAuthListGetRequest(
+  cursor: JsonCoerce.asString(json['cursor']),
+  pageSize: JsonCoerce.asInt(json['pageSize']),
+  tenantCode: JsonCoerce.asString(json['tenantCode']),
+);
+
+Map<String, dynamic> _$ComboServiceBizCommunityPostNoAuthListGetRequestToJson(
+  ComboServiceBizCommunityPostNoAuthListGetRequest instance,
+) => <String, dynamic>{
+  'cursor': instance.cursor,
+  'pageSize': instance.pageSize,
+  'tenantCode': instance.tenantCode,
+};
+
+ComboServiceBizCommunityPostLikePostRequest
+_$ComboServiceBizCommunityPostLikePostRequestFromJson(
+  Map<String, dynamic> json,
+) => ComboServiceBizCommunityPostLikePostRequest(
+  postId: JsonCoerce.asInt(json['postId']),
+);
+
+Map<String, dynamic> _$ComboServiceBizCommunityPostLikePostRequestToJson(
+  ComboServiceBizCommunityPostLikePostRequest instance,
+) => <String, dynamic>{'postId': instance.postId};
+
+ComboServiceNoAuthBizImageTransTranslatePostRequest
+_$ComboServiceNoAuthBizImageTransTranslatePostRequestFromJson(
+  Map<String, dynamic> json,
+) => ComboServiceNoAuthBizImageTransTranslatePostRequest(
+  imgUrl: JsonCoerce.asString(json['imgUrl']),
+  target: JsonCoerce.asString(json['target']),
+);
+
+Map<String, dynamic>
+_$ComboServiceNoAuthBizImageTransTranslatePostRequestToJson(
+  ComboServiceNoAuthBizImageTransTranslatePostRequest instance,
+) => <String, dynamic>{'imgUrl': instance.imgUrl, 'target': instance.target};
+
+ComboServiceApiV1StyleOutfitsGeneratemodelPostRequest
+_$ComboServiceApiV1StyleOutfitsGeneratemodelPostRequestFromJson(
+  Map<String, dynamic> json,
+) => ComboServiceApiV1StyleOutfitsGeneratemodelPostRequest(
+  segmentedType: JsonCoerce.asDouble(json['segmentedType']),
+  segmentedGender: JsonCoerce.asString(json['segmentedGender']),
+  gender: JsonCoerce.asDouble(json['gender']),
+  age: JsonCoerce.asString(json['age']),
+  ethnicity: JsonCoerce.asString(json['ethnicity']),
+  skinColor: JsonCoerce.asString(json['skinColor']),
+  bodyShape: JsonCoerce.asString(json['bodyShape']),
+  bustSize: JsonCoerce.asString(json['bustSize']),
+  hairStyle: JsonCoerce.asString(json['hairStyle']),
+  hairColor: JsonCoerce.asString(json['hairColor']),
+  hairLength: JsonCoerce.asString(json['hairLength']),
+  eyewearStyle: JsonCoerce.asString(json['eyewearStyle']),
+  customDescription: JsonCoerce.asString(json['customDescription']),
+  bodyShapeModel: JsonCoerce.asString(json['bodyShapeModel']),
+  imageUrl: JsonCoerce.asString(json['imageUrl']),
+  userId: JsonCoerce.asString(json['userId']),
+  imageType: JsonCoerce.asString(json['imageType']),
+  setAsDefault: JsonCoerce.asBool(json['setAsDefault']),
+);
+
+Map<String, dynamic>
+_$ComboServiceApiV1StyleOutfitsGeneratemodelPostRequestToJson(
+  ComboServiceApiV1StyleOutfitsGeneratemodelPostRequest instance,
+) => <String, dynamic>{
+  'segmentedType': instance.segmentedType,
+  'segmentedGender': instance.segmentedGender,
+  'gender': instance.gender,
+  'age': instance.age,
+  'ethnicity': instance.ethnicity,
+  'skinColor': instance.skinColor,
+  'bodyShape': instance.bodyShape,
+  'bustSize': instance.bustSize,
+  'hairStyle': instance.hairStyle,
+  'hairColor': instance.hairColor,
+  'hairLength': instance.hairLength,
+  'eyewearStyle': instance.eyewearStyle,
+  'customDescription': instance.customDescription,
+  'bodyShapeModel': instance.bodyShapeModel,
+  'imageUrl': instance.imageUrl,
+  'userId': instance.userId,
+  'imageType': instance.imageType,
+  'setAsDefault': instance.setAsDefault,
+};
+
+ComboServiceBizAiFashionModelSavePostRequest
+_$ComboServiceBizAiFashionModelSavePostRequestFromJson(
+  Map<String, dynamic> json,
+) => ComboServiceBizAiFashionModelSavePostRequest(
+  taskId: JsonCoerce.asString(json['taskId']),
+  selectedIndex: JsonCoerce.asDouble(json['selectedIndex']),
+  modelDesc: JsonCoerce.asString(json['modelDesc']),
+);
+
+Map<String, dynamic> _$ComboServiceBizAiFashionModelSavePostRequestToJson(
+  ComboServiceBizAiFashionModelSavePostRequest instance,
+) => <String, dynamic>{
+  'taskId': instance.taskId,
+  'selectedIndex': instance.selectedIndex,
+  'modelDesc': instance.modelDesc,
+};
+
+ComboServiceApiV1StyleOutfitsResultPageGetRequest
+_$ComboServiceApiV1StyleOutfitsResultPageGetRequestFromJson(
+  Map<String, dynamic> json,
+) => ComboServiceApiV1StyleOutfitsResultPageGetRequest(
+  imgUrl: JsonCoerce.asString(json['imgUrl']),
+  target: JsonCoerce.asString(json['target']),
+);
+
+Map<String, dynamic> _$ComboServiceApiV1StyleOutfitsResultPageGetRequestToJson(
+  ComboServiceApiV1StyleOutfitsResultPageGetRequest instance,
+) => <String, dynamic>{'imgUrl': instance.imgUrl, 'target': instance.target};
+
+ComboServiceApiV1StyleOutfitsGeneratePostRequest
+_$ComboServiceApiV1StyleOutfitsGeneratePostRequestFromJson(
+  Map<String, dynamic> json,
+) => ComboServiceApiV1StyleOutfitsGeneratePostRequest(
+  useMultiModelImage: JsonCoerce.asBool(json['useMultiModelImage']),
+  referenceImages: json['referenceImages'] == null
+      ? []
+      : JsonCoerce.asStringList(json['referenceImages']),
+  customPrompt: JsonCoerce.asString(json['customPrompt']),
+  gender: JsonCoerce.asDouble(json['gender']),
+  count: JsonCoerce.asDouble(json['count']),
+  age: JsonCoerce.asString(json['age']),
+  physicalAppearance: JsonCoerce.asString(json['physicalAppearance']),
+  styleTrendyElements: JsonCoerce.asString(json['styleTrendyElements']),
+  brand: JsonCoerce.asString(json['brand']),
+  budget: JsonCoerce.asString(json['budget']),
+  aspectRatio: JsonCoerce.asString(json['aspectRatio']),
+  modelImageUrl: JsonCoerce.asString(json['modelImageUrl']),
+  enableFullPipeline: JsonCoerce.asBool(json['enableFullPipeline']),
+  referenceMode: JsonCoerce.asString(json['referenceMode']),
+  customModelId: JsonCoerce.asString(json['customModelId']),
+  selections: json['selections'] == null
+      ? null
+      : ComboServiceApiV1StyleOutfitsGeneratePostRequest$Selections.fromJson(
+          json['selections'] as Map<String, dynamic>,
+        ),
+  imageIndex: JsonCoerce.asDouble(json['imageIndex']),
+);
+
+Map<String, dynamic> _$ComboServiceApiV1StyleOutfitsGeneratePostRequestToJson(
+  ComboServiceApiV1StyleOutfitsGeneratePostRequest instance,
+) => <String, dynamic>{
+  'useMultiModelImage': instance.useMultiModelImage,
+  'referenceImages': instance.referenceImages,
+  'customPrompt': instance.customPrompt,
+  'gender': instance.gender,
+  'count': instance.count,
+  'age': instance.age,
+  'physicalAppearance': instance.physicalAppearance,
+  'styleTrendyElements': instance.styleTrendyElements,
+  'brand': instance.brand,
+  'budget': instance.budget,
+  'aspectRatio': instance.aspectRatio,
+  'modelImageUrl': instance.modelImageUrl,
+  'enableFullPipeline': instance.enableFullPipeline,
+  'referenceMode': instance.referenceMode,
+  'customModelId': instance.customModelId,
+  'selections': instance.selections?.toJson(),
+  'imageIndex': instance.imageIndex,
+};
+
+ComboServiceApiV1StyleOutfitsGeneratemodelRegeneratePostRequest
+_$ComboServiceApiV1StyleOutfitsGeneratemodelRegeneratePostRequestFromJson(
+  Map<String, dynamic> json,
+) => ComboServiceApiV1StyleOutfitsGeneratemodelRegeneratePostRequest(
+  taskId: JsonCoerce.asString(json['taskId']),
+);
+
+Map<String, dynamic>
+_$ComboServiceApiV1StyleOutfitsGeneratemodelRegeneratePostRequestToJson(
+  ComboServiceApiV1StyleOutfitsGeneratemodelRegeneratePostRequest instance,
+) => <String, dynamic>{'taskId': instance.taskId};
+
+ComboServiceApiV1StyleOutfitsGenerateRegeneratePostRequest
+_$ComboServiceApiV1StyleOutfitsGenerateRegeneratePostRequestFromJson(
+  Map<String, dynamic> json,
+) => ComboServiceApiV1StyleOutfitsGenerateRegeneratePostRequest(
+  taskId: JsonCoerce.asString(json['taskId']),
+);
+
+Map<String, dynamic>
+_$ComboServiceApiV1StyleOutfitsGenerateRegeneratePostRequestToJson(
+  ComboServiceApiV1StyleOutfitsGenerateRegeneratePostRequest instance,
+) => <String, dynamic>{'taskId': instance.taskId};
+
+ComboServiceBizUserShareRewardPageGetRequest
+_$ComboServiceBizUserShareRewardPageGetRequestFromJson(
+  Map<String, dynamic> json,
+) => ComboServiceBizUserShareRewardPageGetRequest(
+  imgUrl: JsonCoerce.asString(json['imgUrl']),
+  target: JsonCoerce.asString(json['target']),
+);
+
+Map<String, dynamic> _$ComboServiceBizUserShareRewardPageGetRequestToJson(
+  ComboServiceBizUserShareRewardPageGetRequest instance,
+) => <String, dynamic>{'imgUrl': instance.imgUrl, 'target': instance.target};
+
+ComboServiceBizUserShareRewardPostRequest
+_$ComboServiceBizUserShareRewardPostRequestFromJson(
+  Map<String, dynamic> json,
+) => ComboServiceBizUserShareRewardPostRequest(
+  orderId: JsonCoerce.asString(json['orderId']),
+  content: JsonCoerce.asString(json['content']),
+);
+
+Map<String, dynamic> _$ComboServiceBizUserShareRewardPostRequestToJson(
+  ComboServiceBizUserShareRewardPostRequest instance,
+) => <String, dynamic>{
+  'orderId': instance.orderId,
+  'content': instance.content,
+};
+
+ComboServiceNoAuthBizAlbumAlbuminfoGetRequest
+_$ComboServiceNoAuthBizAlbumAlbuminfoGetRequestFromJson(
+  Map<String, dynamic> json,
+) => ComboServiceNoAuthBizAlbumAlbuminfoGetRequest(
+  imgUrl: JsonCoerce.asString(json['imgUrl']),
+  target: JsonCoerce.asString(json['target']),
+);
+
+Map<String, dynamic> _$ComboServiceNoAuthBizAlbumAlbuminfoGetRequestToJson(
+  ComboServiceNoAuthBizAlbumAlbuminfoGetRequest instance,
+) => <String, dynamic>{'imgUrl': instance.imgUrl, 'target': instance.target};
+
 ComboServiceNoAuthBizKolKolInfoGet$Response
 _$ComboServiceNoAuthBizKolKolInfoGet$ResponseFromJson(
   Map<String, dynamic> json,
@@ -685,6 +957,18 @@ Map<String, dynamic> _$ComboServiceNoAuthBizAlbumAlbumInfoGet$ResponseToJson(
   'placeholder': instance.placeholder,
   'success': instance.success,
 };
+
+ComboServiceApiV1StyleOutfitsGeneratePostRequest$Selections
+_$ComboServiceApiV1StyleOutfitsGeneratePostRequest$SelectionsFromJson(
+  Map<String, dynamic> json,
+) => ComboServiceApiV1StyleOutfitsGeneratePostRequest$Selections(
+  occasion: JsonCoerce.asString(json['occasion']),
+);
+
+Map<String, dynamic>
+_$ComboServiceApiV1StyleOutfitsGeneratePostRequest$SelectionsToJson(
+  ComboServiceApiV1StyleOutfitsGeneratePostRequest$Selections instance,
+) => <String, dynamic>{'occasion': instance.occasion};
 
 ComboServiceNoAuthBizKolKolInfoGet$Response$Data
 _$ComboServiceNoAuthBizKolKolInfoGet$Response$DataFromJson(

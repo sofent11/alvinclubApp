@@ -54,7 +54,11 @@ abstract class SwaggerApiUser extends ChopperService {
   ///修改地址
   ///@param root
   Future<chopper.Response<UserServiceAddressUpdatePost$Response>>
-  userServiceAddressUpdatePost({Object? root}) {
+  userServiceAddressUpdatePost({UserServiceAddressUpdatePostRequest? root}) {
+    generatedMapping.putIfAbsent(
+      UserServiceAddressUpdatePostRequest,
+      () => UserServiceAddressUpdatePostRequest.fromJsonFactory,
+    );
     generatedMapping.putIfAbsent(
       UserServiceAddressUpdatePost$Response,
       () => UserServiceAddressUpdatePost$Response.fromJsonFactory,
@@ -68,7 +72,7 @@ abstract class SwaggerApiUser extends ChopperService {
   @POST(path: '/user-service/address/update')
   Future<chopper.Response<UserServiceAddressUpdatePost$Response>>
   _userServiceAddressUpdatePost({
-    @Body() Object? root,
+    @Body() UserServiceAddressUpdatePostRequest? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -243,7 +247,11 @@ abstract class SwaggerApiUser extends ChopperService {
   ///新增用户地址
   ///@param root
   Future<chopper.Response<UserServiceAddressAddPost$Response>>
-  userServiceAddressAddPost({Object? root}) {
+  userServiceAddressAddPost({UserServiceAddressAddPostRequest? root}) {
+    generatedMapping.putIfAbsent(
+      UserServiceAddressAddPostRequest,
+      () => UserServiceAddressAddPostRequest.fromJsonFactory,
+    );
     generatedMapping.putIfAbsent(
       UserServiceAddressAddPost$Response,
       () => UserServiceAddressAddPost$Response.fromJsonFactory,
@@ -257,7 +265,7 @@ abstract class SwaggerApiUser extends ChopperService {
   @POST(path: '/user-service/address/add')
   Future<chopper.Response<UserServiceAddressAddPost$Response>>
   _userServiceAddressAddPost({
-    @Body() Object? root,
+    @Body() UserServiceAddressAddPostRequest? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -394,7 +402,13 @@ abstract class SwaggerApiUser extends ChopperService {
   ///更新用户等级
   ///@param root
   Future<chopper.Response<UserServiceUserInnerUpdUserLevelPost$Response>>
-  userServiceUserInnerUpdUserLevelPost({Object? root}) {
+  userServiceUserInnerUpdUserLevelPost({
+    UserServiceUserInnerUpdUserLevelPostRequest? root,
+  }) {
+    generatedMapping.putIfAbsent(
+      UserServiceUserInnerUpdUserLevelPostRequest,
+      () => UserServiceUserInnerUpdUserLevelPostRequest.fromJsonFactory,
+    );
     generatedMapping.putIfAbsent(
       UserServiceUserInnerUpdUserLevelPost$Response,
       () => UserServiceUserInnerUpdUserLevelPost$Response.fromJsonFactory,
@@ -408,7 +422,7 @@ abstract class SwaggerApiUser extends ChopperService {
   @POST(path: '/user-service/user/inner/upd/user-level')
   Future<chopper.Response<UserServiceUserInnerUpdUserLevelPost$Response>>
   _userServiceUserInnerUpdUserLevelPost({
-    @Body() Object? root,
+    @Body() UserServiceUserInnerUpdUserLevelPostRequest? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -425,7 +439,13 @@ abstract class SwaggerApiUser extends ChopperService {
   ///切换国家
   ///@param root
   Future<chopper.Response<UserServiceSigninSwitchPortalPost$Response>>
-  userServiceSigninSwitchPortalPost({Object? root}) {
+  userServiceSigninSwitchPortalPost({
+    UserServiceSigninSwitchportalPostRequest? root,
+  }) {
+    generatedMapping.putIfAbsent(
+      UserServiceSigninSwitchportalPostRequest,
+      () => UserServiceSigninSwitchportalPostRequest.fromJsonFactory,
+    );
     generatedMapping.putIfAbsent(
       UserServiceSigninSwitchPortalPost$Response,
       () => UserServiceSigninSwitchPortalPost$Response.fromJsonFactory,
@@ -439,7 +459,7 @@ abstract class SwaggerApiUser extends ChopperService {
   @POST(path: '/user-service/signin/switchPortal')
   Future<chopper.Response<UserServiceSigninSwitchPortalPost$Response>>
   _userServiceSigninSwitchPortalPost({
-    @Body() Object? root,
+    @Body() UserServiceSigninSwitchportalPostRequest? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -456,7 +476,11 @@ abstract class SwaggerApiUser extends ChopperService {
   ///发送验证码
   ///@param root
   Future<chopper.Response<UserServiceSignInInitPost$Response>>
-  userServiceSignInInitPost({Object? root}) {
+  userServiceSignInInitPost({UserServiceSigninInitPostRequest? root}) {
+    generatedMapping.putIfAbsent(
+      UserServiceSigninInitPostRequest,
+      () => UserServiceSigninInitPostRequest.fromJsonFactory,
+    );
     generatedMapping.putIfAbsent(
       UserServiceSignInInitPost$Response,
       () => UserServiceSignInInitPost$Response.fromJsonFactory,
@@ -470,7 +494,7 @@ abstract class SwaggerApiUser extends ChopperService {
   @POST(path: '/user-service/signIn/init')
   Future<chopper.Response<UserServiceSignInInitPost$Response>>
   _userServiceSignInInitPost({
-    @Body() Object? root,
+    @Body() UserServiceSigninInitPostRequest? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -487,7 +511,11 @@ abstract class SwaggerApiUser extends ChopperService {
   ///生成临时token
   ///@param root
   Future<chopper.Response<UserServiceOtpApplyPost$Response>>
-  userServiceOtpApplyPost({Object? root}) {
+  userServiceOtpApplyPost({UserServiceOtpApplyPostRequest? root}) {
+    generatedMapping.putIfAbsent(
+      UserServiceOtpApplyPostRequest,
+      () => UserServiceOtpApplyPostRequest.fromJsonFactory,
+    );
     generatedMapping.putIfAbsent(
       UserServiceOtpApplyPost$Response,
       () => UserServiceOtpApplyPost$Response.fromJsonFactory,
@@ -501,7 +529,7 @@ abstract class SwaggerApiUser extends ChopperService {
   @POST(path: '/user-service/otp/apply')
   Future<chopper.Response<UserServiceOtpApplyPost$Response>>
   _userServiceOtpApplyPost({
-    @Body() Object? root,
+    @Body() UserServiceOtpApplyPostRequest? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -544,7 +572,11 @@ abstract class SwaggerApiUser extends ChopperService {
   ///登录校验密码\验证码
   ///@param root
   Future<chopper.Response<UserServiceSignInVerifyPost$Response>>
-  userServiceSignInVerifyPost({Object? root}) {
+  userServiceSignInVerifyPost({UserServiceSigninVerifyPostRequest? root}) {
+    generatedMapping.putIfAbsent(
+      UserServiceSigninVerifyPostRequest,
+      () => UserServiceSigninVerifyPostRequest.fromJsonFactory,
+    );
     generatedMapping.putIfAbsent(
       UserServiceSignInVerifyPost$Response,
       () => UserServiceSignInVerifyPost$Response.fromJsonFactory,
@@ -558,7 +590,7 @@ abstract class SwaggerApiUser extends ChopperService {
   @POST(path: '/user-service/signIn/verify')
   Future<chopper.Response<UserServiceSignInVerifyPost$Response>>
   _userServiceSignInVerifyPost({
-    @Body() Object? root,
+    @Body() UserServiceSigninVerifyPostRequest? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -575,7 +607,11 @@ abstract class SwaggerApiUser extends ChopperService {
   ///轮询登录信息
   ///@param root
   Future<chopper.Response<UserServiceSignInCallPost$Response>>
-  userServiceSignInCallPost({Object? root}) {
+  userServiceSignInCallPost({UserServiceSigninCallPostRequest? root}) {
+    generatedMapping.putIfAbsent(
+      UserServiceSigninCallPostRequest,
+      () => UserServiceSigninCallPostRequest.fromJsonFactory,
+    );
     generatedMapping.putIfAbsent(
       UserServiceSignInCallPost$Response,
       () => UserServiceSignInCallPost$Response.fromJsonFactory,
@@ -589,7 +625,7 @@ abstract class SwaggerApiUser extends ChopperService {
   @POST(path: '/user-service/signIn/call')
   Future<chopper.Response<UserServiceSignInCallPost$Response>>
   _userServiceSignInCallPost({
-    @Body() Object? root,
+    @Body() UserServiceSigninCallPostRequest? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -606,7 +642,13 @@ abstract class SwaggerApiUser extends ChopperService {
   ///验证临时token
   ///@param root
   Future<chopper.Response<UserServiceNoAuthOtpVerifyPost$Response>>
-  userServiceNoAuthOtpVerifyPost({Object? root}) {
+  userServiceNoAuthOtpVerifyPost({
+    UserServiceNoAuthOtpVerifyPostRequest? root,
+  }) {
+    generatedMapping.putIfAbsent(
+      UserServiceNoAuthOtpVerifyPostRequest,
+      () => UserServiceNoAuthOtpVerifyPostRequest.fromJsonFactory,
+    );
     generatedMapping.putIfAbsent(
       UserServiceNoAuthOtpVerifyPost$Response,
       () => UserServiceNoAuthOtpVerifyPost$Response.fromJsonFactory,
@@ -620,7 +662,7 @@ abstract class SwaggerApiUser extends ChopperService {
   @POST(path: '/user-service/no-auth/otp/verify')
   Future<chopper.Response<UserServiceNoAuthOtpVerifyPost$Response>>
   _userServiceNoAuthOtpVerifyPost({
-    @Body() Object? root,
+    @Body() UserServiceNoAuthOtpVerifyPostRequest? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -637,8 +679,13 @@ abstract class SwaggerApiUser extends ChopperService {
   ///邮箱取消订阅
   ///@param root
   Future<chopper.Response<Object>> userServiceNoAuthEmailUnsubscribePost({
-    Object? root,
+    UserServiceNoAuthEmailUnsubscribePostRequest? root,
   }) {
+    generatedMapping.putIfAbsent(
+      UserServiceNoAuthEmailUnsubscribePostRequest,
+      () => UserServiceNoAuthEmailUnsubscribePostRequest.fromJsonFactory,
+    );
+
     return _userServiceNoAuthEmailUnsubscribePost(root: root);
   }
 
@@ -646,7 +693,7 @@ abstract class SwaggerApiUser extends ChopperService {
   ///@param root
   @POST(path: '/user-service/no-auth/email/unsubscribe')
   Future<chopper.Response<Object>> _userServiceNoAuthEmailUnsubscribePost({
-    @Body() Object? root,
+    @Body() UserServiceNoAuthEmailUnsubscribePostRequest? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -837,8 +884,12 @@ abstract class SwaggerApiUser extends ChopperService {
   userServiceUserCouponCode2CouponGet({
     required String? code,
     String? isDiscount,
-    Object? root,
+    UserServiceUserCouponCode2couponGetRequest? root,
   }) {
+    generatedMapping.putIfAbsent(
+      UserServiceUserCouponCode2couponGetRequest,
+      () => UserServiceUserCouponCode2couponGetRequest.fromJsonFactory,
+    );
     generatedMapping.putIfAbsent(
       UserServiceUserCouponCode2CouponGet$Response,
       () => UserServiceUserCouponCode2CouponGet$Response.fromJsonFactory,
@@ -860,7 +911,7 @@ abstract class SwaggerApiUser extends ChopperService {
   _userServiceUserCouponCode2CouponGet({
     @Query('code') required String? code,
     @Query('isDiscount') String? isDiscount,
-    @Body() Object? root,
+    @Body() UserServiceUserCouponCode2couponGetRequest? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -971,7 +1022,14 @@ abstract class SwaggerApiUser extends ChopperService {
   Future<
     chopper.Response<UserServiceUserCouponGetUserCouponByActivityPost$Response>
   >
-  userServiceUserCouponGetUserCouponByActivityPost({Object? root}) {
+  userServiceUserCouponGetUserCouponByActivityPost({
+    UserServiceUserCouponGetusercouponbyactivityPostRequest? root,
+  }) {
+    generatedMapping.putIfAbsent(
+      UserServiceUserCouponGetusercouponbyactivityPostRequest,
+      () => UserServiceUserCouponGetusercouponbyactivityPostRequest
+          .fromJsonFactory,
+    );
     generatedMapping.putIfAbsent(
       UserServiceUserCouponGetUserCouponByActivityPost$Response,
       () => UserServiceUserCouponGetUserCouponByActivityPost$Response
@@ -988,7 +1046,7 @@ abstract class SwaggerApiUser extends ChopperService {
     chopper.Response<UserServiceUserCouponGetUserCouponByActivityPost$Response>
   >
   _userServiceUserCouponGetUserCouponByActivityPost({
-    @Body() Object? root,
+    @Body() UserServiceUserCouponGetusercouponbyactivityPostRequest? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -1147,7 +1205,11 @@ abstract class SwaggerApiUser extends ChopperService {
   ///交换IMtoken
   ///@param root
   Future<chopper.Response<UserServiceImGetInfoPost$Response>>
-  userServiceImGetInfoPost({Object? root}) {
+  userServiceImGetInfoPost({UserServiceImGetinfoPostRequest? root}) {
+    generatedMapping.putIfAbsent(
+      UserServiceImGetinfoPostRequest,
+      () => UserServiceImGetinfoPostRequest.fromJsonFactory,
+    );
     generatedMapping.putIfAbsent(
       UserServiceImGetInfoPost$Response,
       () => UserServiceImGetInfoPost$Response.fromJsonFactory,
@@ -1161,7 +1223,7 @@ abstract class SwaggerApiUser extends ChopperService {
   @POST(path: '/user-service/im/getInfo')
   Future<chopper.Response<UserServiceImGetInfoPost$Response>>
   _userServiceImGetInfoPost({
-    @Body() Object? root,
+    @Body() UserServiceImGetinfoPostRequest? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -1178,7 +1240,11 @@ abstract class SwaggerApiUser extends ChopperService {
   ///分享列表
   ///@param root
   Future<chopper.Response<UserServiceUserShareListGet$Response>>
-  userServiceUserShareListGet({Object? root}) {
+  userServiceUserShareListGet({UserServiceUserShareListGetRequest? root}) {
+    generatedMapping.putIfAbsent(
+      UserServiceUserShareListGetRequest,
+      () => UserServiceUserShareListGetRequest.fromJsonFactory,
+    );
     generatedMapping.putIfAbsent(
       UserServiceUserShareListGet$Response,
       () => UserServiceUserShareListGet$Response.fromJsonFactory,
@@ -1192,7 +1258,7 @@ abstract class SwaggerApiUser extends ChopperService {
   @GET(path: '/user-service/user/share/list')
   Future<chopper.Response<UserServiceUserShareListGet$Response>>
   _userServiceUserShareListGet({
-    @Body() Object? root,
+    @Body() UserServiceUserShareListGetRequest? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -1210,7 +1276,14 @@ abstract class SwaggerApiUser extends ChopperService {
   ///@param orderId
   ///@param root
   Future<chopper.Response<UserServiceUserShareRewardInfoGet$Response>>
-  userServiceUserShareRewardInfoGet({required String? orderId, Object? root}) {
+  userServiceUserShareRewardInfoGet({
+    required String? orderId,
+    UserServiceUserShareRewardinfoGetRequest? root,
+  }) {
+    generatedMapping.putIfAbsent(
+      UserServiceUserShareRewardinfoGetRequest,
+      () => UserServiceUserShareRewardinfoGetRequest.fromJsonFactory,
+    );
     generatedMapping.putIfAbsent(
       UserServiceUserShareRewardInfoGet$Response,
       () => UserServiceUserShareRewardInfoGet$Response.fromJsonFactory,
@@ -1226,7 +1299,7 @@ abstract class SwaggerApiUser extends ChopperService {
   Future<chopper.Response<UserServiceUserShareRewardInfoGet$Response>>
   _userServiceUserShareRewardInfoGet({
     @Query('orderId') required String? orderId,
-    @Body() Object? root,
+    @Body() UserServiceUserShareRewardinfoGetRequest? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -1243,7 +1316,13 @@ abstract class SwaggerApiUser extends ChopperService {
   ///提交分享
   ///@param root
   Future<chopper.Response<UserServiceUserShareSubmitPost$Response>>
-  userServiceUserShareSubmitPost({Object? root}) {
+  userServiceUserShareSubmitPost({
+    UserServiceUserShareSubmitPostRequest? root,
+  }) {
+    generatedMapping.putIfAbsent(
+      UserServiceUserShareSubmitPostRequest,
+      () => UserServiceUserShareSubmitPostRequest.fromJsonFactory,
+    );
     generatedMapping.putIfAbsent(
       UserServiceUserShareSubmitPost$Response,
       () => UserServiceUserShareSubmitPost$Response.fromJsonFactory,
@@ -1257,7 +1336,7 @@ abstract class SwaggerApiUser extends ChopperService {
   @POST(path: '/user-service/user/share/submit')
   Future<chopper.Response<UserServiceUserShareSubmitPost$Response>>
   _userServiceUserShareSubmitPost({
-    @Body() Object? root,
+    @Body() UserServiceUserShareSubmitPostRequest? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -1335,8 +1414,13 @@ abstract class SwaggerApiUser extends ChopperService {
   ///@param root
   Future<chopper.Response<Object>> userServiceUserUpdatePost({
     String? authorization,
-    Object? root,
+    UserServiceUserUpdatePostRequest? root,
   }) {
+    generatedMapping.putIfAbsent(
+      UserServiceUserUpdatePostRequest,
+      () => UserServiceUserUpdatePostRequest.fromJsonFactory,
+    );
+
     return _userServiceUserUpdatePost(
       authorization: authorization?.toString(),
       root: root,
@@ -1349,7 +1433,7 @@ abstract class SwaggerApiUser extends ChopperService {
   @POST(path: '/user-service/user/update')
   Future<chopper.Response<Object>> _userServiceUserUpdatePost({
     @Header('Authorization') String? authorization,
-    @Body() Object? root,
+    @Body() UserServiceUserUpdatePostRequest? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -1509,7 +1593,13 @@ abstract class SwaggerApiUser extends ChopperService {
   ///重新提交分享
   ///@param root
   Future<chopper.Response<UserServiceUserShareUpdatePost$Response>>
-  userServiceUserShareUpdatePost({Object? root}) {
+  userServiceUserShareUpdatePost({
+    UserServiceUserShareUpdatePostRequest? root,
+  }) {
+    generatedMapping.putIfAbsent(
+      UserServiceUserShareUpdatePostRequest,
+      () => UserServiceUserShareUpdatePostRequest.fromJsonFactory,
+    );
     generatedMapping.putIfAbsent(
       UserServiceUserShareUpdatePost$Response,
       () => UserServiceUserShareUpdatePost$Response.fromJsonFactory,
@@ -1523,7 +1613,7 @@ abstract class SwaggerApiUser extends ChopperService {
   @POST(path: '/user-service/user/share/update')
   Future<chopper.Response<UserServiceUserShareUpdatePost$Response>>
   _userServiceUserShareUpdatePost({
-    @Body() Object? root,
+    @Body() UserServiceUserShareUpdatePostRequest? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -1610,7 +1700,13 @@ abstract class SwaggerApiUser extends ChopperService {
   Future<
     chopper.Response<UserServiceUserTagPortraitAiToPortraitV2Post$Response>
   >
-  userServiceUserTagPortraitAiToPortraitV2Post({Object? root}) {
+  userServiceUserTagPortraitAiToPortraitV2Post({
+    UserServiceUserTagPortraitAiToPortraitV2PostRequest? root,
+  }) {
+    generatedMapping.putIfAbsent(
+      UserServiceUserTagPortraitAiToPortraitV2PostRequest,
+      () => UserServiceUserTagPortraitAiToPortraitV2PostRequest.fromJsonFactory,
+    );
     generatedMapping.putIfAbsent(
       UserServiceUserTagPortraitAiToPortraitV2Post$Response,
       () =>
@@ -1627,7 +1723,7 @@ abstract class SwaggerApiUser extends ChopperService {
     chopper.Response<UserServiceUserTagPortraitAiToPortraitV2Post$Response>
   >
   _userServiceUserTagPortraitAiToPortraitV2Post({
-    @Body() Object? root,
+    @Body() UserServiceUserTagPortraitAiToPortraitV2PostRequest? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -1646,7 +1742,13 @@ abstract class SwaggerApiUser extends ChopperService {
   Future<
     chopper.Response<UserServiceUserTagPortraitUpdatePortraitPost$Response>
   >
-  userServiceUserTagPortraitUpdatePortraitPost({Object? root}) {
+  userServiceUserTagPortraitUpdatePortraitPost({
+    UserServiceUserTagPortraitUpdatePortraitPostRequest? root,
+  }) {
+    generatedMapping.putIfAbsent(
+      UserServiceUserTagPortraitUpdatePortraitPostRequest,
+      () => UserServiceUserTagPortraitUpdatePortraitPostRequest.fromJsonFactory,
+    );
     generatedMapping.putIfAbsent(
       UserServiceUserTagPortraitUpdatePortraitPost$Response,
       () =>
@@ -1663,7 +1765,7 @@ abstract class SwaggerApiUser extends ChopperService {
     chopper.Response<UserServiceUserTagPortraitUpdatePortraitPost$Response>
   >
   _userServiceUserTagPortraitUpdatePortraitPost({
-    @Body() Object? root,
+    @Body() UserServiceUserTagPortraitUpdatePortraitPostRequest? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -1680,7 +1782,13 @@ abstract class SwaggerApiUser extends ChopperService {
   ///获取用户画像
   ///@param root
   Future<chopper.Response<UserServiceUserTagPortraitGetPortraitGet$Response>>
-  userServiceUserTagPortraitGetPortraitGet({Object? root}) {
+  userServiceUserTagPortraitGetPortraitGet({
+    UserServiceUserTagPortraitGetPortraitGetRequest? root,
+  }) {
+    generatedMapping.putIfAbsent(
+      UserServiceUserTagPortraitGetPortraitGetRequest,
+      () => UserServiceUserTagPortraitGetPortraitGetRequest.fromJsonFactory,
+    );
     generatedMapping.putIfAbsent(
       UserServiceUserTagPortraitGetPortraitGet$Response,
       () => UserServiceUserTagPortraitGetPortraitGet$Response.fromJsonFactory,
@@ -1694,7 +1802,7 @@ abstract class SwaggerApiUser extends ChopperService {
   @GET(path: '/user-service/user-tag-portrait/get-portrait')
   Future<chopper.Response<UserServiceUserTagPortraitGetPortraitGet$Response>>
   _userServiceUserTagPortraitGetPortraitGet({
-    @Body() Object? root,
+    @Body() UserServiceUserTagPortraitGetPortraitGetRequest? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -1735,6 +1843,2123 @@ abstract class SwaggerApiUser extends ChopperService {
       deprecated: false,
     ),
   });
+}
+
+@JsonSerializable(explicitToJson: true)
+class UserServiceAddressUpdatePostRequest {
+  const UserServiceAddressUpdatePostRequest({
+    this.isDefault,
+    this.country,
+    this.countryCode,
+    this.state,
+    this.stateCode,
+    this.city,
+    this.cityCode,
+    this.street,
+    this.apartment,
+    this.address,
+    this.coordinate,
+    this.firstName,
+    this.lastName,
+    this.phoneNumber,
+    this.zipCode,
+    this.userId,
+    this.id,
+    this.remark,
+    this.accessCode,
+    this.email,
+    this.tin,
+  });
+
+  factory UserServiceAddressUpdatePostRequest.fromJson(
+    Map<String, dynamic> json,
+  ) => _$UserServiceAddressUpdatePostRequestFromJson(json);
+
+  static const toJsonFactory = _$UserServiceAddressUpdatePostRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$UserServiceAddressUpdatePostRequestToJson(this);
+
+  @JsonKey(name: 'isDefault', fromJson: JsonCoerce.asDouble)
+  final double? isDefault;
+  @JsonKey(name: 'country', fromJson: JsonCoerce.asString)
+  final String? country;
+  @JsonKey(name: 'countryCode', fromJson: JsonCoerce.asString)
+  final String? countryCode;
+  @JsonKey(name: 'state', fromJson: JsonCoerce.asString)
+  final String? state;
+  @JsonKey(name: 'stateCode', fromJson: JsonCoerce.asString)
+  final String? stateCode;
+  @JsonKey(name: 'city', fromJson: JsonCoerce.asString)
+  final String? city;
+  @JsonKey(name: 'cityCode', fromJson: JsonCoerce.asString)
+  final String? cityCode;
+  @JsonKey(name: 'street', fromJson: JsonCoerce.asString)
+  final String? street;
+  @JsonKey(name: 'apartment', fromJson: JsonCoerce.asString)
+  final String? apartment;
+  @JsonKey(name: 'address', fromJson: JsonCoerce.asString)
+  final String? address;
+  @JsonKey(name: 'coordinate', fromJson: JsonCoerce.asString)
+  final String? coordinate;
+  @JsonKey(name: 'firstName', fromJson: JsonCoerce.asString)
+  final String? firstName;
+  @JsonKey(name: 'lastName', fromJson: JsonCoerce.asString)
+  final String? lastName;
+  @JsonKey(name: 'phoneNumber', fromJson: JsonCoerce.asString)
+  final String? phoneNumber;
+  @JsonKey(name: 'zipCode', fromJson: JsonCoerce.asString)
+  final String? zipCode;
+  @JsonKey(name: 'userId', fromJson: JsonCoerce.asString)
+  final String? userId;
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asDouble)
+  final double? id;
+  @JsonKey(name: 'remark', fromJson: JsonCoerce.asString)
+  final String? remark;
+  @JsonKey(name: 'accessCode', fromJson: JsonCoerce.asString)
+  final String? accessCode;
+  @JsonKey(name: 'email', fromJson: JsonCoerce.asString)
+  final String? email;
+  @JsonKey(name: 'tin', fromJson: JsonCoerce.asString)
+  final String? tin;
+  static const fromJsonFactory = _$UserServiceAddressUpdatePostRequestFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is UserServiceAddressUpdatePostRequest &&
+            (identical(other.isDefault, isDefault) ||
+                const DeepCollectionEquality().equals(
+                  other.isDefault,
+                  isDefault,
+                )) &&
+            (identical(other.country, country) ||
+                const DeepCollectionEquality().equals(
+                  other.country,
+                  country,
+                )) &&
+            (identical(other.countryCode, countryCode) ||
+                const DeepCollectionEquality().equals(
+                  other.countryCode,
+                  countryCode,
+                )) &&
+            (identical(other.state, state) ||
+                const DeepCollectionEquality().equals(other.state, state)) &&
+            (identical(other.stateCode, stateCode) ||
+                const DeepCollectionEquality().equals(
+                  other.stateCode,
+                  stateCode,
+                )) &&
+            (identical(other.city, city) ||
+                const DeepCollectionEquality().equals(other.city, city)) &&
+            (identical(other.cityCode, cityCode) ||
+                const DeepCollectionEquality().equals(
+                  other.cityCode,
+                  cityCode,
+                )) &&
+            (identical(other.street, street) ||
+                const DeepCollectionEquality().equals(other.street, street)) &&
+            (identical(other.apartment, apartment) ||
+                const DeepCollectionEquality().equals(
+                  other.apartment,
+                  apartment,
+                )) &&
+            (identical(other.address, address) ||
+                const DeepCollectionEquality().equals(
+                  other.address,
+                  address,
+                )) &&
+            (identical(other.coordinate, coordinate) ||
+                const DeepCollectionEquality().equals(
+                  other.coordinate,
+                  coordinate,
+                )) &&
+            (identical(other.firstName, firstName) ||
+                const DeepCollectionEquality().equals(
+                  other.firstName,
+                  firstName,
+                )) &&
+            (identical(other.lastName, lastName) ||
+                const DeepCollectionEquality().equals(
+                  other.lastName,
+                  lastName,
+                )) &&
+            (identical(other.phoneNumber, phoneNumber) ||
+                const DeepCollectionEquality().equals(
+                  other.phoneNumber,
+                  phoneNumber,
+                )) &&
+            (identical(other.zipCode, zipCode) ||
+                const DeepCollectionEquality().equals(
+                  other.zipCode,
+                  zipCode,
+                )) &&
+            (identical(other.userId, userId) ||
+                const DeepCollectionEquality().equals(other.userId, userId)) &&
+            (identical(other.id, id) ||
+                const DeepCollectionEquality().equals(other.id, id)) &&
+            (identical(other.remark, remark) ||
+                const DeepCollectionEquality().equals(other.remark, remark)) &&
+            (identical(other.accessCode, accessCode) ||
+                const DeepCollectionEquality().equals(
+                  other.accessCode,
+                  accessCode,
+                )) &&
+            (identical(other.email, email) ||
+                const DeepCollectionEquality().equals(other.email, email)) &&
+            (identical(other.tin, tin) ||
+                const DeepCollectionEquality().equals(other.tin, tin)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(isDefault) ^
+      const DeepCollectionEquality().hash(country) ^
+      const DeepCollectionEquality().hash(countryCode) ^
+      const DeepCollectionEquality().hash(state) ^
+      const DeepCollectionEquality().hash(stateCode) ^
+      const DeepCollectionEquality().hash(city) ^
+      const DeepCollectionEquality().hash(cityCode) ^
+      const DeepCollectionEquality().hash(street) ^
+      const DeepCollectionEquality().hash(apartment) ^
+      const DeepCollectionEquality().hash(address) ^
+      const DeepCollectionEquality().hash(coordinate) ^
+      const DeepCollectionEquality().hash(firstName) ^
+      const DeepCollectionEquality().hash(lastName) ^
+      const DeepCollectionEquality().hash(phoneNumber) ^
+      const DeepCollectionEquality().hash(zipCode) ^
+      const DeepCollectionEquality().hash(userId) ^
+      const DeepCollectionEquality().hash(id) ^
+      const DeepCollectionEquality().hash(remark) ^
+      const DeepCollectionEquality().hash(accessCode) ^
+      const DeepCollectionEquality().hash(email) ^
+      const DeepCollectionEquality().hash(tin) ^
+      runtimeType.hashCode;
+}
+
+extension $UserServiceAddressUpdatePostRequestExtension
+    on UserServiceAddressUpdatePostRequest {
+  UserServiceAddressUpdatePostRequest copyWith({
+    double? isDefault,
+    String? country,
+    String? countryCode,
+    String? state,
+    String? stateCode,
+    String? city,
+    String? cityCode,
+    String? street,
+    String? apartment,
+    String? address,
+    String? coordinate,
+    String? firstName,
+    String? lastName,
+    String? phoneNumber,
+    String? zipCode,
+    String? userId,
+    double? id,
+    String? remark,
+    String? accessCode,
+    String? email,
+    String? tin,
+  }) {
+    return UserServiceAddressUpdatePostRequest(
+      isDefault: isDefault ?? this.isDefault,
+      country: country ?? this.country,
+      countryCode: countryCode ?? this.countryCode,
+      state: state ?? this.state,
+      stateCode: stateCode ?? this.stateCode,
+      city: city ?? this.city,
+      cityCode: cityCode ?? this.cityCode,
+      street: street ?? this.street,
+      apartment: apartment ?? this.apartment,
+      address: address ?? this.address,
+      coordinate: coordinate ?? this.coordinate,
+      firstName: firstName ?? this.firstName,
+      lastName: lastName ?? this.lastName,
+      phoneNumber: phoneNumber ?? this.phoneNumber,
+      zipCode: zipCode ?? this.zipCode,
+      userId: userId ?? this.userId,
+      id: id ?? this.id,
+      remark: remark ?? this.remark,
+      accessCode: accessCode ?? this.accessCode,
+      email: email ?? this.email,
+      tin: tin ?? this.tin,
+    );
+  }
+
+  UserServiceAddressUpdatePostRequest copyWithWrapped({
+    Wrapped<double?>? isDefault,
+    Wrapped<String?>? country,
+    Wrapped<String?>? countryCode,
+    Wrapped<String?>? state,
+    Wrapped<String?>? stateCode,
+    Wrapped<String?>? city,
+    Wrapped<String?>? cityCode,
+    Wrapped<String?>? street,
+    Wrapped<String?>? apartment,
+    Wrapped<String?>? address,
+    Wrapped<String?>? coordinate,
+    Wrapped<String?>? firstName,
+    Wrapped<String?>? lastName,
+    Wrapped<String?>? phoneNumber,
+    Wrapped<String?>? zipCode,
+    Wrapped<String?>? userId,
+    Wrapped<double?>? id,
+    Wrapped<String?>? remark,
+    Wrapped<String?>? accessCode,
+    Wrapped<String?>? email,
+    Wrapped<String?>? tin,
+  }) {
+    return UserServiceAddressUpdatePostRequest(
+      isDefault: (isDefault != null ? isDefault.value : this.isDefault),
+      country: (country != null ? country.value : this.country),
+      countryCode: (countryCode != null ? countryCode.value : this.countryCode),
+      state: (state != null ? state.value : this.state),
+      stateCode: (stateCode != null ? stateCode.value : this.stateCode),
+      city: (city != null ? city.value : this.city),
+      cityCode: (cityCode != null ? cityCode.value : this.cityCode),
+      street: (street != null ? street.value : this.street),
+      apartment: (apartment != null ? apartment.value : this.apartment),
+      address: (address != null ? address.value : this.address),
+      coordinate: (coordinate != null ? coordinate.value : this.coordinate),
+      firstName: (firstName != null ? firstName.value : this.firstName),
+      lastName: (lastName != null ? lastName.value : this.lastName),
+      phoneNumber: (phoneNumber != null ? phoneNumber.value : this.phoneNumber),
+      zipCode: (zipCode != null ? zipCode.value : this.zipCode),
+      userId: (userId != null ? userId.value : this.userId),
+      id: (id != null ? id.value : this.id),
+      remark: (remark != null ? remark.value : this.remark),
+      accessCode: (accessCode != null ? accessCode.value : this.accessCode),
+      email: (email != null ? email.value : this.email),
+      tin: (tin != null ? tin.value : this.tin),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class UserServiceAddressAddPostRequest {
+  const UserServiceAddressAddPostRequest({
+    this.isDefault,
+    this.username,
+    this.country,
+    this.countryCode,
+    this.state,
+    this.stateCode,
+    this.city,
+    this.cityCode,
+    this.street,
+    this.apartment,
+    this.address,
+    this.coordinate,
+    this.firstName,
+    this.lastName,
+    this.phoneNumber,
+    this.zipCode,
+    this.remark,
+    this.accessCode,
+    this.email,
+    this.tin,
+  });
+
+  factory UserServiceAddressAddPostRequest.fromJson(
+    Map<String, dynamic> json,
+  ) => _$UserServiceAddressAddPostRequestFromJson(json);
+
+  static const toJsonFactory = _$UserServiceAddressAddPostRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$UserServiceAddressAddPostRequestToJson(this);
+
+  @JsonKey(name: 'isDefault', fromJson: JsonCoerce.asDouble)
+  final double? isDefault;
+  @JsonKey(name: 'username', fromJson: JsonCoerce.asString)
+  final String? username;
+  @JsonKey(name: 'country', fromJson: JsonCoerce.asString)
+  final String? country;
+  @JsonKey(name: 'countryCode', fromJson: JsonCoerce.asString)
+  final String? countryCode;
+  @JsonKey(name: 'state', fromJson: JsonCoerce.asString)
+  final String? state;
+  @JsonKey(name: 'stateCode', fromJson: JsonCoerce.asString)
+  final String? stateCode;
+  @JsonKey(name: 'city', fromJson: JsonCoerce.asString)
+  final String? city;
+  @JsonKey(name: 'cityCode', fromJson: JsonCoerce.asString)
+  final String? cityCode;
+  @JsonKey(name: 'street', fromJson: JsonCoerce.asString)
+  final String? street;
+  @JsonKey(name: 'apartment', fromJson: JsonCoerce.asString)
+  final String? apartment;
+  @JsonKey(name: 'address', fromJson: JsonCoerce.asString)
+  final String? address;
+  @JsonKey(name: 'coordinate', fromJson: JsonCoerce.asString)
+  final String? coordinate;
+  @JsonKey(name: 'firstName', fromJson: JsonCoerce.asString)
+  final String? firstName;
+  @JsonKey(name: 'lastName', fromJson: JsonCoerce.asString)
+  final String? lastName;
+  @JsonKey(name: 'phoneNumber', fromJson: JsonCoerce.asString)
+  final String? phoneNumber;
+  @JsonKey(name: 'zipCode', fromJson: JsonCoerce.asString)
+  final String? zipCode;
+  @JsonKey(name: 'remark', fromJson: JsonCoerce.asString)
+  final String? remark;
+  @JsonKey(name: 'accessCode', fromJson: JsonCoerce.asString)
+  final String? accessCode;
+  @JsonKey(name: 'email', fromJson: JsonCoerce.asString)
+  final String? email;
+  @JsonKey(name: 'tin', fromJson: JsonCoerce.asString)
+  final String? tin;
+  static const fromJsonFactory = _$UserServiceAddressAddPostRequestFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is UserServiceAddressAddPostRequest &&
+            (identical(other.isDefault, isDefault) ||
+                const DeepCollectionEquality().equals(
+                  other.isDefault,
+                  isDefault,
+                )) &&
+            (identical(other.username, username) ||
+                const DeepCollectionEquality().equals(
+                  other.username,
+                  username,
+                )) &&
+            (identical(other.country, country) ||
+                const DeepCollectionEquality().equals(
+                  other.country,
+                  country,
+                )) &&
+            (identical(other.countryCode, countryCode) ||
+                const DeepCollectionEquality().equals(
+                  other.countryCode,
+                  countryCode,
+                )) &&
+            (identical(other.state, state) ||
+                const DeepCollectionEquality().equals(other.state, state)) &&
+            (identical(other.stateCode, stateCode) ||
+                const DeepCollectionEquality().equals(
+                  other.stateCode,
+                  stateCode,
+                )) &&
+            (identical(other.city, city) ||
+                const DeepCollectionEquality().equals(other.city, city)) &&
+            (identical(other.cityCode, cityCode) ||
+                const DeepCollectionEquality().equals(
+                  other.cityCode,
+                  cityCode,
+                )) &&
+            (identical(other.street, street) ||
+                const DeepCollectionEquality().equals(other.street, street)) &&
+            (identical(other.apartment, apartment) ||
+                const DeepCollectionEquality().equals(
+                  other.apartment,
+                  apartment,
+                )) &&
+            (identical(other.address, address) ||
+                const DeepCollectionEquality().equals(
+                  other.address,
+                  address,
+                )) &&
+            (identical(other.coordinate, coordinate) ||
+                const DeepCollectionEquality().equals(
+                  other.coordinate,
+                  coordinate,
+                )) &&
+            (identical(other.firstName, firstName) ||
+                const DeepCollectionEquality().equals(
+                  other.firstName,
+                  firstName,
+                )) &&
+            (identical(other.lastName, lastName) ||
+                const DeepCollectionEquality().equals(
+                  other.lastName,
+                  lastName,
+                )) &&
+            (identical(other.phoneNumber, phoneNumber) ||
+                const DeepCollectionEquality().equals(
+                  other.phoneNumber,
+                  phoneNumber,
+                )) &&
+            (identical(other.zipCode, zipCode) ||
+                const DeepCollectionEquality().equals(
+                  other.zipCode,
+                  zipCode,
+                )) &&
+            (identical(other.remark, remark) ||
+                const DeepCollectionEquality().equals(other.remark, remark)) &&
+            (identical(other.accessCode, accessCode) ||
+                const DeepCollectionEquality().equals(
+                  other.accessCode,
+                  accessCode,
+                )) &&
+            (identical(other.email, email) ||
+                const DeepCollectionEquality().equals(other.email, email)) &&
+            (identical(other.tin, tin) ||
+                const DeepCollectionEquality().equals(other.tin, tin)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(isDefault) ^
+      const DeepCollectionEquality().hash(username) ^
+      const DeepCollectionEquality().hash(country) ^
+      const DeepCollectionEquality().hash(countryCode) ^
+      const DeepCollectionEquality().hash(state) ^
+      const DeepCollectionEquality().hash(stateCode) ^
+      const DeepCollectionEquality().hash(city) ^
+      const DeepCollectionEquality().hash(cityCode) ^
+      const DeepCollectionEquality().hash(street) ^
+      const DeepCollectionEquality().hash(apartment) ^
+      const DeepCollectionEquality().hash(address) ^
+      const DeepCollectionEquality().hash(coordinate) ^
+      const DeepCollectionEquality().hash(firstName) ^
+      const DeepCollectionEquality().hash(lastName) ^
+      const DeepCollectionEquality().hash(phoneNumber) ^
+      const DeepCollectionEquality().hash(zipCode) ^
+      const DeepCollectionEquality().hash(remark) ^
+      const DeepCollectionEquality().hash(accessCode) ^
+      const DeepCollectionEquality().hash(email) ^
+      const DeepCollectionEquality().hash(tin) ^
+      runtimeType.hashCode;
+}
+
+extension $UserServiceAddressAddPostRequestExtension
+    on UserServiceAddressAddPostRequest {
+  UserServiceAddressAddPostRequest copyWith({
+    double? isDefault,
+    String? username,
+    String? country,
+    String? countryCode,
+    String? state,
+    String? stateCode,
+    String? city,
+    String? cityCode,
+    String? street,
+    String? apartment,
+    String? address,
+    String? coordinate,
+    String? firstName,
+    String? lastName,
+    String? phoneNumber,
+    String? zipCode,
+    String? remark,
+    String? accessCode,
+    String? email,
+    String? tin,
+  }) {
+    return UserServiceAddressAddPostRequest(
+      isDefault: isDefault ?? this.isDefault,
+      username: username ?? this.username,
+      country: country ?? this.country,
+      countryCode: countryCode ?? this.countryCode,
+      state: state ?? this.state,
+      stateCode: stateCode ?? this.stateCode,
+      city: city ?? this.city,
+      cityCode: cityCode ?? this.cityCode,
+      street: street ?? this.street,
+      apartment: apartment ?? this.apartment,
+      address: address ?? this.address,
+      coordinate: coordinate ?? this.coordinate,
+      firstName: firstName ?? this.firstName,
+      lastName: lastName ?? this.lastName,
+      phoneNumber: phoneNumber ?? this.phoneNumber,
+      zipCode: zipCode ?? this.zipCode,
+      remark: remark ?? this.remark,
+      accessCode: accessCode ?? this.accessCode,
+      email: email ?? this.email,
+      tin: tin ?? this.tin,
+    );
+  }
+
+  UserServiceAddressAddPostRequest copyWithWrapped({
+    Wrapped<double?>? isDefault,
+    Wrapped<String?>? username,
+    Wrapped<String?>? country,
+    Wrapped<String?>? countryCode,
+    Wrapped<String?>? state,
+    Wrapped<String?>? stateCode,
+    Wrapped<String?>? city,
+    Wrapped<String?>? cityCode,
+    Wrapped<String?>? street,
+    Wrapped<String?>? apartment,
+    Wrapped<String?>? address,
+    Wrapped<String?>? coordinate,
+    Wrapped<String?>? firstName,
+    Wrapped<String?>? lastName,
+    Wrapped<String?>? phoneNumber,
+    Wrapped<String?>? zipCode,
+    Wrapped<String?>? remark,
+    Wrapped<String?>? accessCode,
+    Wrapped<String?>? email,
+    Wrapped<String?>? tin,
+  }) {
+    return UserServiceAddressAddPostRequest(
+      isDefault: (isDefault != null ? isDefault.value : this.isDefault),
+      username: (username != null ? username.value : this.username),
+      country: (country != null ? country.value : this.country),
+      countryCode: (countryCode != null ? countryCode.value : this.countryCode),
+      state: (state != null ? state.value : this.state),
+      stateCode: (stateCode != null ? stateCode.value : this.stateCode),
+      city: (city != null ? city.value : this.city),
+      cityCode: (cityCode != null ? cityCode.value : this.cityCode),
+      street: (street != null ? street.value : this.street),
+      apartment: (apartment != null ? apartment.value : this.apartment),
+      address: (address != null ? address.value : this.address),
+      coordinate: (coordinate != null ? coordinate.value : this.coordinate),
+      firstName: (firstName != null ? firstName.value : this.firstName),
+      lastName: (lastName != null ? lastName.value : this.lastName),
+      phoneNumber: (phoneNumber != null ? phoneNumber.value : this.phoneNumber),
+      zipCode: (zipCode != null ? zipCode.value : this.zipCode),
+      remark: (remark != null ? remark.value : this.remark),
+      accessCode: (accessCode != null ? accessCode.value : this.accessCode),
+      email: (email != null ? email.value : this.email),
+      tin: (tin != null ? tin.value : this.tin),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class UserServiceUserInnerUpdUserLevelPostRequest {
+  const UserServiceUserInnerUpdUserLevelPostRequest({
+    this.userId,
+    this.tenantCode,
+    this.level,
+  });
+
+  factory UserServiceUserInnerUpdUserLevelPostRequest.fromJson(
+    Map<String, dynamic> json,
+  ) => _$UserServiceUserInnerUpdUserLevelPostRequestFromJson(json);
+
+  static const toJsonFactory =
+      _$UserServiceUserInnerUpdUserLevelPostRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$UserServiceUserInnerUpdUserLevelPostRequestToJson(this);
+
+  @JsonKey(name: 'userId', fromJson: JsonCoerce.asString)
+  final String? userId;
+  @JsonKey(name: 'tenantCode', fromJson: JsonCoerce.asString)
+  final String? tenantCode;
+  @JsonKey(name: 'level', fromJson: JsonCoerce.asString)
+  final String? level;
+  static const fromJsonFactory =
+      _$UserServiceUserInnerUpdUserLevelPostRequestFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is UserServiceUserInnerUpdUserLevelPostRequest &&
+            (identical(other.userId, userId) ||
+                const DeepCollectionEquality().equals(other.userId, userId)) &&
+            (identical(other.tenantCode, tenantCode) ||
+                const DeepCollectionEquality().equals(
+                  other.tenantCode,
+                  tenantCode,
+                )) &&
+            (identical(other.level, level) ||
+                const DeepCollectionEquality().equals(other.level, level)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(userId) ^
+      const DeepCollectionEquality().hash(tenantCode) ^
+      const DeepCollectionEquality().hash(level) ^
+      runtimeType.hashCode;
+}
+
+extension $UserServiceUserInnerUpdUserLevelPostRequestExtension
+    on UserServiceUserInnerUpdUserLevelPostRequest {
+  UserServiceUserInnerUpdUserLevelPostRequest copyWith({
+    String? userId,
+    String? tenantCode,
+    String? level,
+  }) {
+    return UserServiceUserInnerUpdUserLevelPostRequest(
+      userId: userId ?? this.userId,
+      tenantCode: tenantCode ?? this.tenantCode,
+      level: level ?? this.level,
+    );
+  }
+
+  UserServiceUserInnerUpdUserLevelPostRequest copyWithWrapped({
+    Wrapped<String?>? userId,
+    Wrapped<String?>? tenantCode,
+    Wrapped<String?>? level,
+  }) {
+    return UserServiceUserInnerUpdUserLevelPostRequest(
+      userId: (userId != null ? userId.value : this.userId),
+      tenantCode: (tenantCode != null ? tenantCode.value : this.tenantCode),
+      level: (level != null ? level.value : this.level),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class UserServiceSigninSwitchportalPostRequest {
+  const UserServiceSigninSwitchportalPostRequest({this.dstPortalCode});
+
+  factory UserServiceSigninSwitchportalPostRequest.fromJson(
+    Map<String, dynamic> json,
+  ) => _$UserServiceSigninSwitchportalPostRequestFromJson(json);
+
+  static const toJsonFactory = _$UserServiceSigninSwitchportalPostRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$UserServiceSigninSwitchportalPostRequestToJson(this);
+
+  @JsonKey(name: 'dstPortalCode', fromJson: JsonCoerce.asString)
+  final String? dstPortalCode;
+  static const fromJsonFactory =
+      _$UserServiceSigninSwitchportalPostRequestFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is UserServiceSigninSwitchportalPostRequest &&
+            (identical(other.dstPortalCode, dstPortalCode) ||
+                const DeepCollectionEquality().equals(
+                  other.dstPortalCode,
+                  dstPortalCode,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(dstPortalCode) ^ runtimeType.hashCode;
+}
+
+extension $UserServiceSigninSwitchportalPostRequestExtension
+    on UserServiceSigninSwitchportalPostRequest {
+  UserServiceSigninSwitchportalPostRequest copyWith({String? dstPortalCode}) {
+    return UserServiceSigninSwitchportalPostRequest(
+      dstPortalCode: dstPortalCode ?? this.dstPortalCode,
+    );
+  }
+
+  UserServiceSigninSwitchportalPostRequest copyWithWrapped({
+    Wrapped<String?>? dstPortalCode,
+  }) {
+    return UserServiceSigninSwitchportalPostRequest(
+      dstPortalCode: (dstPortalCode != null
+          ? dstPortalCode.value
+          : this.dstPortalCode),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class UserServiceSigninInitPostRequest {
+  const UserServiceSigninInitPostRequest({
+    this.loginName,
+    this.authWay,
+    this.source,
+  });
+
+  factory UserServiceSigninInitPostRequest.fromJson(
+    Map<String, dynamic> json,
+  ) => _$UserServiceSigninInitPostRequestFromJson(json);
+
+  static const toJsonFactory = _$UserServiceSigninInitPostRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$UserServiceSigninInitPostRequestToJson(this);
+
+  @JsonKey(name: 'loginName', fromJson: JsonCoerce.asString)
+  final String? loginName;
+  @JsonKey(name: 'authWay', fromJson: JsonCoerce.asDouble)
+  final double? authWay;
+  @JsonKey(name: 'source', fromJson: JsonCoerce.asDouble)
+  final double? source;
+  static const fromJsonFactory = _$UserServiceSigninInitPostRequestFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is UserServiceSigninInitPostRequest &&
+            (identical(other.loginName, loginName) ||
+                const DeepCollectionEquality().equals(
+                  other.loginName,
+                  loginName,
+                )) &&
+            (identical(other.authWay, authWay) ||
+                const DeepCollectionEquality().equals(
+                  other.authWay,
+                  authWay,
+                )) &&
+            (identical(other.source, source) ||
+                const DeepCollectionEquality().equals(other.source, source)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(loginName) ^
+      const DeepCollectionEquality().hash(authWay) ^
+      const DeepCollectionEquality().hash(source) ^
+      runtimeType.hashCode;
+}
+
+extension $UserServiceSigninInitPostRequestExtension
+    on UserServiceSigninInitPostRequest {
+  UserServiceSigninInitPostRequest copyWith({
+    String? loginName,
+    double? authWay,
+    double? source,
+  }) {
+    return UserServiceSigninInitPostRequest(
+      loginName: loginName ?? this.loginName,
+      authWay: authWay ?? this.authWay,
+      source: source ?? this.source,
+    );
+  }
+
+  UserServiceSigninInitPostRequest copyWithWrapped({
+    Wrapped<String?>? loginName,
+    Wrapped<double?>? authWay,
+    Wrapped<double?>? source,
+  }) {
+    return UserServiceSigninInitPostRequest(
+      loginName: (loginName != null ? loginName.value : this.loginName),
+      authWay: (authWay != null ? authWay.value : this.authWay),
+      source: (source != null ? source.value : this.source),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class UserServiceOtpApplyPostRequest {
+  const UserServiceOtpApplyPostRequest();
+
+  factory UserServiceOtpApplyPostRequest.fromJson(Map<String, dynamic> json) =>
+      _$UserServiceOtpApplyPostRequestFromJson(json);
+
+  static const toJsonFactory = _$UserServiceOtpApplyPostRequestToJson;
+  Map<String, dynamic> toJson() => _$UserServiceOtpApplyPostRequestToJson(this);
+
+  static const fromJsonFactory = _$UserServiceOtpApplyPostRequestFromJson;
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+}
+
+@JsonSerializable(explicitToJson: true)
+class UserServiceSigninVerifyPostRequest {
+  const UserServiceSigninVerifyPostRequest({
+    this.loginName,
+    this.authWay,
+    this.code,
+    this.source,
+    this.inviteCode,
+    this.portalCode,
+  });
+
+  factory UserServiceSigninVerifyPostRequest.fromJson(
+    Map<String, dynamic> json,
+  ) => _$UserServiceSigninVerifyPostRequestFromJson(json);
+
+  static const toJsonFactory = _$UserServiceSigninVerifyPostRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$UserServiceSigninVerifyPostRequestToJson(this);
+
+  @JsonKey(name: 'loginName', fromJson: JsonCoerce.asString)
+  final String? loginName;
+  @JsonKey(name: 'authWay', fromJson: JsonCoerce.asString)
+  final String? authWay;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asString)
+  final String? code;
+  @JsonKey(name: 'source', fromJson: JsonCoerce.asInt)
+  final int? source;
+  @JsonKey(name: 'inviteCode', fromJson: JsonCoerce.asString)
+  final String? inviteCode;
+  @JsonKey(name: 'portalCode', fromJson: JsonCoerce.asString)
+  final String? portalCode;
+  static const fromJsonFactory = _$UserServiceSigninVerifyPostRequestFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is UserServiceSigninVerifyPostRequest &&
+            (identical(other.loginName, loginName) ||
+                const DeepCollectionEquality().equals(
+                  other.loginName,
+                  loginName,
+                )) &&
+            (identical(other.authWay, authWay) ||
+                const DeepCollectionEquality().equals(
+                  other.authWay,
+                  authWay,
+                )) &&
+            (identical(other.code, code) ||
+                const DeepCollectionEquality().equals(other.code, code)) &&
+            (identical(other.source, source) ||
+                const DeepCollectionEquality().equals(other.source, source)) &&
+            (identical(other.inviteCode, inviteCode) ||
+                const DeepCollectionEquality().equals(
+                  other.inviteCode,
+                  inviteCode,
+                )) &&
+            (identical(other.portalCode, portalCode) ||
+                const DeepCollectionEquality().equals(
+                  other.portalCode,
+                  portalCode,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(loginName) ^
+      const DeepCollectionEquality().hash(authWay) ^
+      const DeepCollectionEquality().hash(code) ^
+      const DeepCollectionEquality().hash(source) ^
+      const DeepCollectionEquality().hash(inviteCode) ^
+      const DeepCollectionEquality().hash(portalCode) ^
+      runtimeType.hashCode;
+}
+
+extension $UserServiceSigninVerifyPostRequestExtension
+    on UserServiceSigninVerifyPostRequest {
+  UserServiceSigninVerifyPostRequest copyWith({
+    String? loginName,
+    String? authWay,
+    String? code,
+    int? source,
+    String? inviteCode,
+    String? portalCode,
+  }) {
+    return UserServiceSigninVerifyPostRequest(
+      loginName: loginName ?? this.loginName,
+      authWay: authWay ?? this.authWay,
+      code: code ?? this.code,
+      source: source ?? this.source,
+      inviteCode: inviteCode ?? this.inviteCode,
+      portalCode: portalCode ?? this.portalCode,
+    );
+  }
+
+  UserServiceSigninVerifyPostRequest copyWithWrapped({
+    Wrapped<String?>? loginName,
+    Wrapped<String?>? authWay,
+    Wrapped<String?>? code,
+    Wrapped<int?>? source,
+    Wrapped<String?>? inviteCode,
+    Wrapped<String?>? portalCode,
+  }) {
+    return UserServiceSigninVerifyPostRequest(
+      loginName: (loginName != null ? loginName.value : this.loginName),
+      authWay: (authWay != null ? authWay.value : this.authWay),
+      code: (code != null ? code.value : this.code),
+      source: (source != null ? source.value : this.source),
+      inviteCode: (inviteCode != null ? inviteCode.value : this.inviteCode),
+      portalCode: (portalCode != null ? portalCode.value : this.portalCode),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class UserServiceSigninCallPostRequest {
+  const UserServiceSigninCallPostRequest({
+    this.authWay,
+    this.code,
+    this.inviteCode,
+    this.portalCode,
+  });
+
+  factory UserServiceSigninCallPostRequest.fromJson(
+    Map<String, dynamic> json,
+  ) => _$UserServiceSigninCallPostRequestFromJson(json);
+
+  static const toJsonFactory = _$UserServiceSigninCallPostRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$UserServiceSigninCallPostRequestToJson(this);
+
+  @JsonKey(name: 'authWay', fromJson: JsonCoerce.asDouble)
+  final double? authWay;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asString)
+  final String? code;
+  @JsonKey(name: 'inviteCode', fromJson: JsonCoerce.asString)
+  final String? inviteCode;
+  @JsonKey(name: 'portalCode', fromJson: JsonCoerce.asString)
+  final String? portalCode;
+  static const fromJsonFactory = _$UserServiceSigninCallPostRequestFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is UserServiceSigninCallPostRequest &&
+            (identical(other.authWay, authWay) ||
+                const DeepCollectionEquality().equals(
+                  other.authWay,
+                  authWay,
+                )) &&
+            (identical(other.code, code) ||
+                const DeepCollectionEquality().equals(other.code, code)) &&
+            (identical(other.inviteCode, inviteCode) ||
+                const DeepCollectionEquality().equals(
+                  other.inviteCode,
+                  inviteCode,
+                )) &&
+            (identical(other.portalCode, portalCode) ||
+                const DeepCollectionEquality().equals(
+                  other.portalCode,
+                  portalCode,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(authWay) ^
+      const DeepCollectionEquality().hash(code) ^
+      const DeepCollectionEquality().hash(inviteCode) ^
+      const DeepCollectionEquality().hash(portalCode) ^
+      runtimeType.hashCode;
+}
+
+extension $UserServiceSigninCallPostRequestExtension
+    on UserServiceSigninCallPostRequest {
+  UserServiceSigninCallPostRequest copyWith({
+    double? authWay,
+    String? code,
+    String? inviteCode,
+    String? portalCode,
+  }) {
+    return UserServiceSigninCallPostRequest(
+      authWay: authWay ?? this.authWay,
+      code: code ?? this.code,
+      inviteCode: inviteCode ?? this.inviteCode,
+      portalCode: portalCode ?? this.portalCode,
+    );
+  }
+
+  UserServiceSigninCallPostRequest copyWithWrapped({
+    Wrapped<double?>? authWay,
+    Wrapped<String?>? code,
+    Wrapped<String?>? inviteCode,
+    Wrapped<String?>? portalCode,
+  }) {
+    return UserServiceSigninCallPostRequest(
+      authWay: (authWay != null ? authWay.value : this.authWay),
+      code: (code != null ? code.value : this.code),
+      inviteCode: (inviteCode != null ? inviteCode.value : this.inviteCode),
+      portalCode: (portalCode != null ? portalCode.value : this.portalCode),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class UserServiceNoAuthOtpVerifyPostRequest {
+  const UserServiceNoAuthOtpVerifyPostRequest({this.code});
+
+  factory UserServiceNoAuthOtpVerifyPostRequest.fromJson(
+    Map<String, dynamic> json,
+  ) => _$UserServiceNoAuthOtpVerifyPostRequestFromJson(json);
+
+  static const toJsonFactory = _$UserServiceNoAuthOtpVerifyPostRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$UserServiceNoAuthOtpVerifyPostRequestToJson(this);
+
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asString)
+  final String? code;
+  static const fromJsonFactory =
+      _$UserServiceNoAuthOtpVerifyPostRequestFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is UserServiceNoAuthOtpVerifyPostRequest &&
+            (identical(other.code, code) ||
+                const DeepCollectionEquality().equals(other.code, code)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(code) ^ runtimeType.hashCode;
+}
+
+extension $UserServiceNoAuthOtpVerifyPostRequestExtension
+    on UserServiceNoAuthOtpVerifyPostRequest {
+  UserServiceNoAuthOtpVerifyPostRequest copyWith({String? code}) {
+    return UserServiceNoAuthOtpVerifyPostRequest(code: code ?? this.code);
+  }
+
+  UserServiceNoAuthOtpVerifyPostRequest copyWithWrapped({
+    Wrapped<String?>? code,
+  }) {
+    return UserServiceNoAuthOtpVerifyPostRequest(
+      code: (code != null ? code.value : this.code),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class UserServiceNoAuthEmailUnsubscribePostRequest {
+  const UserServiceNoAuthEmailUnsubscribePostRequest({
+    this.email,
+    this.token,
+    this.source,
+  });
+
+  factory UserServiceNoAuthEmailUnsubscribePostRequest.fromJson(
+    Map<String, dynamic> json,
+  ) => _$UserServiceNoAuthEmailUnsubscribePostRequestFromJson(json);
+
+  static const toJsonFactory =
+      _$UserServiceNoAuthEmailUnsubscribePostRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$UserServiceNoAuthEmailUnsubscribePostRequestToJson(this);
+
+  @JsonKey(name: 'email', fromJson: JsonCoerce.asString)
+  final String? email;
+  @JsonKey(name: 'token', fromJson: JsonCoerce.asString)
+  final String? token;
+  @JsonKey(name: 'source', fromJson: JsonCoerce.asString)
+  final String? source;
+  static const fromJsonFactory =
+      _$UserServiceNoAuthEmailUnsubscribePostRequestFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is UserServiceNoAuthEmailUnsubscribePostRequest &&
+            (identical(other.email, email) ||
+                const DeepCollectionEquality().equals(other.email, email)) &&
+            (identical(other.token, token) ||
+                const DeepCollectionEquality().equals(other.token, token)) &&
+            (identical(other.source, source) ||
+                const DeepCollectionEquality().equals(other.source, source)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(email) ^
+      const DeepCollectionEquality().hash(token) ^
+      const DeepCollectionEquality().hash(source) ^
+      runtimeType.hashCode;
+}
+
+extension $UserServiceNoAuthEmailUnsubscribePostRequestExtension
+    on UserServiceNoAuthEmailUnsubscribePostRequest {
+  UserServiceNoAuthEmailUnsubscribePostRequest copyWith({
+    String? email,
+    String? token,
+    String? source,
+  }) {
+    return UserServiceNoAuthEmailUnsubscribePostRequest(
+      email: email ?? this.email,
+      token: token ?? this.token,
+      source: source ?? this.source,
+    );
+  }
+
+  UserServiceNoAuthEmailUnsubscribePostRequest copyWithWrapped({
+    Wrapped<String?>? email,
+    Wrapped<String?>? token,
+    Wrapped<String?>? source,
+  }) {
+    return UserServiceNoAuthEmailUnsubscribePostRequest(
+      email: (email != null ? email.value : this.email),
+      token: (token != null ? token.value : this.token),
+      source: (source != null ? source.value : this.source),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class UserServiceUserCouponCode2couponGetRequest {
+  const UserServiceUserCouponCode2couponGetRequest({
+    this.sourceCode,
+    this.isDiscount,
+  });
+
+  factory UserServiceUserCouponCode2couponGetRequest.fromJson(
+    Map<String, dynamic> json,
+  ) => _$UserServiceUserCouponCode2couponGetRequestFromJson(json);
+
+  static const toJsonFactory =
+      _$UserServiceUserCouponCode2couponGetRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$UserServiceUserCouponCode2couponGetRequestToJson(this);
+
+  @JsonKey(name: 'sourceCode', fromJson: JsonCoerce.asString)
+  final String? sourceCode;
+  @JsonKey(name: 'isDiscount', fromJson: JsonCoerce.asString)
+  final String? isDiscount;
+  static const fromJsonFactory =
+      _$UserServiceUserCouponCode2couponGetRequestFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is UserServiceUserCouponCode2couponGetRequest &&
+            (identical(other.sourceCode, sourceCode) ||
+                const DeepCollectionEquality().equals(
+                  other.sourceCode,
+                  sourceCode,
+                )) &&
+            (identical(other.isDiscount, isDiscount) ||
+                const DeepCollectionEquality().equals(
+                  other.isDiscount,
+                  isDiscount,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(sourceCode) ^
+      const DeepCollectionEquality().hash(isDiscount) ^
+      runtimeType.hashCode;
+}
+
+extension $UserServiceUserCouponCode2couponGetRequestExtension
+    on UserServiceUserCouponCode2couponGetRequest {
+  UserServiceUserCouponCode2couponGetRequest copyWith({
+    String? sourceCode,
+    String? isDiscount,
+  }) {
+    return UserServiceUserCouponCode2couponGetRequest(
+      sourceCode: sourceCode ?? this.sourceCode,
+      isDiscount: isDiscount ?? this.isDiscount,
+    );
+  }
+
+  UserServiceUserCouponCode2couponGetRequest copyWithWrapped({
+    Wrapped<String?>? sourceCode,
+    Wrapped<String?>? isDiscount,
+  }) {
+    return UserServiceUserCouponCode2couponGetRequest(
+      sourceCode: (sourceCode != null ? sourceCode.value : this.sourceCode),
+      isDiscount: (isDiscount != null ? isDiscount.value : this.isDiscount),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class UserServiceUserCouponGetusercouponbyactivityPostRequest {
+  const UserServiceUserCouponGetusercouponbyactivityPostRequest({
+    this.couponActivityCodes,
+  });
+
+  factory UserServiceUserCouponGetusercouponbyactivityPostRequest.fromJson(
+    Map<String, dynamic> json,
+  ) => _$UserServiceUserCouponGetusercouponbyactivityPostRequestFromJson(json);
+
+  static const toJsonFactory =
+      _$UserServiceUserCouponGetusercouponbyactivityPostRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$UserServiceUserCouponGetusercouponbyactivityPostRequestToJson(this);
+
+  @JsonKey(
+    name: 'couponActivityCodes',
+    fromJson: JsonCoerce.asStringList,
+    defaultValue: <String>[],
+  )
+  final List<String>? couponActivityCodes;
+  static const fromJsonFactory =
+      _$UserServiceUserCouponGetusercouponbyactivityPostRequestFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is UserServiceUserCouponGetusercouponbyactivityPostRequest &&
+            (identical(other.couponActivityCodes, couponActivityCodes) ||
+                const DeepCollectionEquality().equals(
+                  other.couponActivityCodes,
+                  couponActivityCodes,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(couponActivityCodes) ^
+      runtimeType.hashCode;
+}
+
+extension $UserServiceUserCouponGetusercouponbyactivityPostRequestExtension
+    on UserServiceUserCouponGetusercouponbyactivityPostRequest {
+  UserServiceUserCouponGetusercouponbyactivityPostRequest copyWith({
+    List<String>? couponActivityCodes,
+  }) {
+    return UserServiceUserCouponGetusercouponbyactivityPostRequest(
+      couponActivityCodes: couponActivityCodes ?? this.couponActivityCodes,
+    );
+  }
+
+  UserServiceUserCouponGetusercouponbyactivityPostRequest copyWithWrapped({
+    Wrapped<List<String>?>? couponActivityCodes,
+  }) {
+    return UserServiceUserCouponGetusercouponbyactivityPostRequest(
+      couponActivityCodes: (couponActivityCodes != null
+          ? couponActivityCodes.value
+          : this.couponActivityCodes),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class UserServiceImGetinfoPostRequest {
+  const UserServiceImGetinfoPostRequest();
+
+  factory UserServiceImGetinfoPostRequest.fromJson(Map<String, dynamic> json) =>
+      _$UserServiceImGetinfoPostRequestFromJson(json);
+
+  static const toJsonFactory = _$UserServiceImGetinfoPostRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$UserServiceImGetinfoPostRequestToJson(this);
+
+  static const fromJsonFactory = _$UserServiceImGetinfoPostRequestFromJson;
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+}
+
+@JsonSerializable(explicitToJson: true)
+class UserServiceUserShareListGetRequest {
+  const UserServiceUserShareListGetRequest({
+    this.orderId,
+    this.tiktokUrl,
+    this.insUrl,
+  });
+
+  factory UserServiceUserShareListGetRequest.fromJson(
+    Map<String, dynamic> json,
+  ) => _$UserServiceUserShareListGetRequestFromJson(json);
+
+  static const toJsonFactory = _$UserServiceUserShareListGetRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$UserServiceUserShareListGetRequestToJson(this);
+
+  @JsonKey(name: 'orderId', fromJson: JsonCoerce.asString)
+  final String? orderId;
+  @JsonKey(name: 'tiktokUrl', fromJson: JsonCoerce.asString)
+  final String? tiktokUrl;
+  @JsonKey(name: 'insUrl', fromJson: JsonCoerce.asString)
+  final String? insUrl;
+  static const fromJsonFactory = _$UserServiceUserShareListGetRequestFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is UserServiceUserShareListGetRequest &&
+            (identical(other.orderId, orderId) ||
+                const DeepCollectionEquality().equals(
+                  other.orderId,
+                  orderId,
+                )) &&
+            (identical(other.tiktokUrl, tiktokUrl) ||
+                const DeepCollectionEquality().equals(
+                  other.tiktokUrl,
+                  tiktokUrl,
+                )) &&
+            (identical(other.insUrl, insUrl) ||
+                const DeepCollectionEquality().equals(other.insUrl, insUrl)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(orderId) ^
+      const DeepCollectionEquality().hash(tiktokUrl) ^
+      const DeepCollectionEquality().hash(insUrl) ^
+      runtimeType.hashCode;
+}
+
+extension $UserServiceUserShareListGetRequestExtension
+    on UserServiceUserShareListGetRequest {
+  UserServiceUserShareListGetRequest copyWith({
+    String? orderId,
+    String? tiktokUrl,
+    String? insUrl,
+  }) {
+    return UserServiceUserShareListGetRequest(
+      orderId: orderId ?? this.orderId,
+      tiktokUrl: tiktokUrl ?? this.tiktokUrl,
+      insUrl: insUrl ?? this.insUrl,
+    );
+  }
+
+  UserServiceUserShareListGetRequest copyWithWrapped({
+    Wrapped<String?>? orderId,
+    Wrapped<String?>? tiktokUrl,
+    Wrapped<String?>? insUrl,
+  }) {
+    return UserServiceUserShareListGetRequest(
+      orderId: (orderId != null ? orderId.value : this.orderId),
+      tiktokUrl: (tiktokUrl != null ? tiktokUrl.value : this.tiktokUrl),
+      insUrl: (insUrl != null ? insUrl.value : this.insUrl),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class UserServiceUserShareRewardinfoGetRequest {
+  const UserServiceUserShareRewardinfoGetRequest({
+    this.orderId,
+    this.tiktokUrl,
+    this.insUrl,
+  });
+
+  factory UserServiceUserShareRewardinfoGetRequest.fromJson(
+    Map<String, dynamic> json,
+  ) => _$UserServiceUserShareRewardinfoGetRequestFromJson(json);
+
+  static const toJsonFactory = _$UserServiceUserShareRewardinfoGetRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$UserServiceUserShareRewardinfoGetRequestToJson(this);
+
+  @JsonKey(name: 'orderId', fromJson: JsonCoerce.asString)
+  final String? orderId;
+  @JsonKey(name: 'tiktokUrl', fromJson: JsonCoerce.asString)
+  final String? tiktokUrl;
+  @JsonKey(name: 'insUrl', fromJson: JsonCoerce.asString)
+  final String? insUrl;
+  static const fromJsonFactory =
+      _$UserServiceUserShareRewardinfoGetRequestFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is UserServiceUserShareRewardinfoGetRequest &&
+            (identical(other.orderId, orderId) ||
+                const DeepCollectionEquality().equals(
+                  other.orderId,
+                  orderId,
+                )) &&
+            (identical(other.tiktokUrl, tiktokUrl) ||
+                const DeepCollectionEquality().equals(
+                  other.tiktokUrl,
+                  tiktokUrl,
+                )) &&
+            (identical(other.insUrl, insUrl) ||
+                const DeepCollectionEquality().equals(other.insUrl, insUrl)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(orderId) ^
+      const DeepCollectionEquality().hash(tiktokUrl) ^
+      const DeepCollectionEquality().hash(insUrl) ^
+      runtimeType.hashCode;
+}
+
+extension $UserServiceUserShareRewardinfoGetRequestExtension
+    on UserServiceUserShareRewardinfoGetRequest {
+  UserServiceUserShareRewardinfoGetRequest copyWith({
+    String? orderId,
+    String? tiktokUrl,
+    String? insUrl,
+  }) {
+    return UserServiceUserShareRewardinfoGetRequest(
+      orderId: orderId ?? this.orderId,
+      tiktokUrl: tiktokUrl ?? this.tiktokUrl,
+      insUrl: insUrl ?? this.insUrl,
+    );
+  }
+
+  UserServiceUserShareRewardinfoGetRequest copyWithWrapped({
+    Wrapped<String?>? orderId,
+    Wrapped<String?>? tiktokUrl,
+    Wrapped<String?>? insUrl,
+  }) {
+    return UserServiceUserShareRewardinfoGetRequest(
+      orderId: (orderId != null ? orderId.value : this.orderId),
+      tiktokUrl: (tiktokUrl != null ? tiktokUrl.value : this.tiktokUrl),
+      insUrl: (insUrl != null ? insUrl.value : this.insUrl),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class UserServiceUserShareSubmitPostRequest {
+  const UserServiceUserShareSubmitPostRequest({
+    this.orderId,
+    this.tiktokUrl,
+    this.insUrl,
+  });
+
+  factory UserServiceUserShareSubmitPostRequest.fromJson(
+    Map<String, dynamic> json,
+  ) => _$UserServiceUserShareSubmitPostRequestFromJson(json);
+
+  static const toJsonFactory = _$UserServiceUserShareSubmitPostRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$UserServiceUserShareSubmitPostRequestToJson(this);
+
+  @JsonKey(name: 'orderId', fromJson: JsonCoerce.asString)
+  final String? orderId;
+  @JsonKey(name: 'tiktokUrl', fromJson: JsonCoerce.asString)
+  final String? tiktokUrl;
+  @JsonKey(name: 'insUrl', fromJson: JsonCoerce.asString)
+  final String? insUrl;
+  static const fromJsonFactory =
+      _$UserServiceUserShareSubmitPostRequestFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is UserServiceUserShareSubmitPostRequest &&
+            (identical(other.orderId, orderId) ||
+                const DeepCollectionEquality().equals(
+                  other.orderId,
+                  orderId,
+                )) &&
+            (identical(other.tiktokUrl, tiktokUrl) ||
+                const DeepCollectionEquality().equals(
+                  other.tiktokUrl,
+                  tiktokUrl,
+                )) &&
+            (identical(other.insUrl, insUrl) ||
+                const DeepCollectionEquality().equals(other.insUrl, insUrl)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(orderId) ^
+      const DeepCollectionEquality().hash(tiktokUrl) ^
+      const DeepCollectionEquality().hash(insUrl) ^
+      runtimeType.hashCode;
+}
+
+extension $UserServiceUserShareSubmitPostRequestExtension
+    on UserServiceUserShareSubmitPostRequest {
+  UserServiceUserShareSubmitPostRequest copyWith({
+    String? orderId,
+    String? tiktokUrl,
+    String? insUrl,
+  }) {
+    return UserServiceUserShareSubmitPostRequest(
+      orderId: orderId ?? this.orderId,
+      tiktokUrl: tiktokUrl ?? this.tiktokUrl,
+      insUrl: insUrl ?? this.insUrl,
+    );
+  }
+
+  UserServiceUserShareSubmitPostRequest copyWithWrapped({
+    Wrapped<String?>? orderId,
+    Wrapped<String?>? tiktokUrl,
+    Wrapped<String?>? insUrl,
+  }) {
+    return UserServiceUserShareSubmitPostRequest(
+      orderId: (orderId != null ? orderId.value : this.orderId),
+      tiktokUrl: (tiktokUrl != null ? tiktokUrl.value : this.tiktokUrl),
+      insUrl: (insUrl != null ? insUrl.value : this.insUrl),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class UserServiceUserUpdatePostRequest {
+  const UserServiceUserUpdatePostRequest({
+    this.userId,
+    this.nickname,
+    this.description,
+    this.gender,
+    this.birthday,
+    this.photo,
+    this.phoneNumber,
+    this.email,
+    this.platform,
+    this.delete,
+  });
+
+  factory UserServiceUserUpdatePostRequest.fromJson(
+    Map<String, dynamic> json,
+  ) => _$UserServiceUserUpdatePostRequestFromJson(json);
+
+  static const toJsonFactory = _$UserServiceUserUpdatePostRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$UserServiceUserUpdatePostRequestToJson(this);
+
+  @JsonKey(name: 'userId', fromJson: JsonCoerce.asString)
+  final String? userId;
+  @JsonKey(name: 'nickname', fromJson: JsonCoerce.asString)
+  final String? nickname;
+  @JsonKey(name: 'description', fromJson: JsonCoerce.asString)
+  final String? description;
+  @JsonKey(name: 'gender', fromJson: JsonCoerce.asDouble)
+  final double? gender;
+  @JsonKey(name: 'birthday', fromJson: JsonCoerce.asString)
+  final String? birthday;
+  @JsonKey(name: 'photo', fromJson: JsonCoerce.asString)
+  final String? photo;
+  @JsonKey(name: 'phoneNumber', fromJson: JsonCoerce.asString)
+  final String? phoneNumber;
+  @JsonKey(name: 'email', fromJson: JsonCoerce.asString)
+  final String? email;
+  @JsonKey(name: 'platform', fromJson: JsonCoerce.asString)
+  final String? platform;
+  @JsonKey(name: 'delete', fromJson: JsonCoerce.asBool)
+  final bool? delete;
+  static const fromJsonFactory = _$UserServiceUserUpdatePostRequestFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is UserServiceUserUpdatePostRequest &&
+            (identical(other.userId, userId) ||
+                const DeepCollectionEquality().equals(other.userId, userId)) &&
+            (identical(other.nickname, nickname) ||
+                const DeepCollectionEquality().equals(
+                  other.nickname,
+                  nickname,
+                )) &&
+            (identical(other.description, description) ||
+                const DeepCollectionEquality().equals(
+                  other.description,
+                  description,
+                )) &&
+            (identical(other.gender, gender) ||
+                const DeepCollectionEquality().equals(other.gender, gender)) &&
+            (identical(other.birthday, birthday) ||
+                const DeepCollectionEquality().equals(
+                  other.birthday,
+                  birthday,
+                )) &&
+            (identical(other.photo, photo) ||
+                const DeepCollectionEquality().equals(other.photo, photo)) &&
+            (identical(other.phoneNumber, phoneNumber) ||
+                const DeepCollectionEquality().equals(
+                  other.phoneNumber,
+                  phoneNumber,
+                )) &&
+            (identical(other.email, email) ||
+                const DeepCollectionEquality().equals(other.email, email)) &&
+            (identical(other.platform, platform) ||
+                const DeepCollectionEquality().equals(
+                  other.platform,
+                  platform,
+                )) &&
+            (identical(other.delete, delete) ||
+                const DeepCollectionEquality().equals(other.delete, delete)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(userId) ^
+      const DeepCollectionEquality().hash(nickname) ^
+      const DeepCollectionEquality().hash(description) ^
+      const DeepCollectionEquality().hash(gender) ^
+      const DeepCollectionEquality().hash(birthday) ^
+      const DeepCollectionEquality().hash(photo) ^
+      const DeepCollectionEquality().hash(phoneNumber) ^
+      const DeepCollectionEquality().hash(email) ^
+      const DeepCollectionEquality().hash(platform) ^
+      const DeepCollectionEquality().hash(delete) ^
+      runtimeType.hashCode;
+}
+
+extension $UserServiceUserUpdatePostRequestExtension
+    on UserServiceUserUpdatePostRequest {
+  UserServiceUserUpdatePostRequest copyWith({
+    String? userId,
+    String? nickname,
+    String? description,
+    double? gender,
+    String? birthday,
+    String? photo,
+    String? phoneNumber,
+    String? email,
+    String? platform,
+    bool? delete,
+  }) {
+    return UserServiceUserUpdatePostRequest(
+      userId: userId ?? this.userId,
+      nickname: nickname ?? this.nickname,
+      description: description ?? this.description,
+      gender: gender ?? this.gender,
+      birthday: birthday ?? this.birthday,
+      photo: photo ?? this.photo,
+      phoneNumber: phoneNumber ?? this.phoneNumber,
+      email: email ?? this.email,
+      platform: platform ?? this.platform,
+      delete: delete ?? this.delete,
+    );
+  }
+
+  UserServiceUserUpdatePostRequest copyWithWrapped({
+    Wrapped<String?>? userId,
+    Wrapped<String?>? nickname,
+    Wrapped<String?>? description,
+    Wrapped<double?>? gender,
+    Wrapped<String?>? birthday,
+    Wrapped<String?>? photo,
+    Wrapped<String?>? phoneNumber,
+    Wrapped<String?>? email,
+    Wrapped<String?>? platform,
+    Wrapped<bool?>? delete,
+  }) {
+    return UserServiceUserUpdatePostRequest(
+      userId: (userId != null ? userId.value : this.userId),
+      nickname: (nickname != null ? nickname.value : this.nickname),
+      description: (description != null ? description.value : this.description),
+      gender: (gender != null ? gender.value : this.gender),
+      birthday: (birthday != null ? birthday.value : this.birthday),
+      photo: (photo != null ? photo.value : this.photo),
+      phoneNumber: (phoneNumber != null ? phoneNumber.value : this.phoneNumber),
+      email: (email != null ? email.value : this.email),
+      platform: (platform != null ? platform.value : this.platform),
+      delete: (delete != null ? delete.value : this.delete),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class UserServiceUserShareUpdatePostRequest {
+  const UserServiceUserShareUpdatePostRequest({
+    this.rewardId,
+    this.tiktokUrl,
+    this.insUrl,
+  });
+
+  factory UserServiceUserShareUpdatePostRequest.fromJson(
+    Map<String, dynamic> json,
+  ) => _$UserServiceUserShareUpdatePostRequestFromJson(json);
+
+  static const toJsonFactory = _$UserServiceUserShareUpdatePostRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$UserServiceUserShareUpdatePostRequestToJson(this);
+
+  @JsonKey(name: 'rewardId', fromJson: JsonCoerce.asString)
+  final String? rewardId;
+  @JsonKey(name: 'tiktokUrl', fromJson: JsonCoerce.asString)
+  final String? tiktokUrl;
+  @JsonKey(name: 'insUrl', fromJson: JsonCoerce.asString)
+  final String? insUrl;
+  static const fromJsonFactory =
+      _$UserServiceUserShareUpdatePostRequestFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is UserServiceUserShareUpdatePostRequest &&
+            (identical(other.rewardId, rewardId) ||
+                const DeepCollectionEquality().equals(
+                  other.rewardId,
+                  rewardId,
+                )) &&
+            (identical(other.tiktokUrl, tiktokUrl) ||
+                const DeepCollectionEquality().equals(
+                  other.tiktokUrl,
+                  tiktokUrl,
+                )) &&
+            (identical(other.insUrl, insUrl) ||
+                const DeepCollectionEquality().equals(other.insUrl, insUrl)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(rewardId) ^
+      const DeepCollectionEquality().hash(tiktokUrl) ^
+      const DeepCollectionEquality().hash(insUrl) ^
+      runtimeType.hashCode;
+}
+
+extension $UserServiceUserShareUpdatePostRequestExtension
+    on UserServiceUserShareUpdatePostRequest {
+  UserServiceUserShareUpdatePostRequest copyWith({
+    String? rewardId,
+    String? tiktokUrl,
+    String? insUrl,
+  }) {
+    return UserServiceUserShareUpdatePostRequest(
+      rewardId: rewardId ?? this.rewardId,
+      tiktokUrl: tiktokUrl ?? this.tiktokUrl,
+      insUrl: insUrl ?? this.insUrl,
+    );
+  }
+
+  UserServiceUserShareUpdatePostRequest copyWithWrapped({
+    Wrapped<String?>? rewardId,
+    Wrapped<String?>? tiktokUrl,
+    Wrapped<String?>? insUrl,
+  }) {
+    return UserServiceUserShareUpdatePostRequest(
+      rewardId: (rewardId != null ? rewardId.value : this.rewardId),
+      tiktokUrl: (tiktokUrl != null ? tiktokUrl.value : this.tiktokUrl),
+      insUrl: (insUrl != null ? insUrl.value : this.insUrl),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class UserServiceUserTagPortraitAiToPortraitV2PostRequest {
+  const UserServiceUserTagPortraitAiToPortraitV2PostRequest({this.userAnswers});
+
+  factory UserServiceUserTagPortraitAiToPortraitV2PostRequest.fromJson(
+    Map<String, dynamic> json,
+  ) => _$UserServiceUserTagPortraitAiToPortraitV2PostRequestFromJson(json);
+
+  static const toJsonFactory =
+      _$UserServiceUserTagPortraitAiToPortraitV2PostRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$UserServiceUserTagPortraitAiToPortraitV2PostRequestToJson(this);
+
+  @JsonKey(
+    name: 'userAnswers',
+    fromJson: JsonCoerce.asStringList,
+    defaultValue: <String>[],
+  )
+  final List<String>? userAnswers;
+  static const fromJsonFactory =
+      _$UserServiceUserTagPortraitAiToPortraitV2PostRequestFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is UserServiceUserTagPortraitAiToPortraitV2PostRequest &&
+            (identical(other.userAnswers, userAnswers) ||
+                const DeepCollectionEquality().equals(
+                  other.userAnswers,
+                  userAnswers,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(userAnswers) ^ runtimeType.hashCode;
+}
+
+extension $UserServiceUserTagPortraitAiToPortraitV2PostRequestExtension
+    on UserServiceUserTagPortraitAiToPortraitV2PostRequest {
+  UserServiceUserTagPortraitAiToPortraitV2PostRequest copyWith({
+    List<String>? userAnswers,
+  }) {
+    return UserServiceUserTagPortraitAiToPortraitV2PostRequest(
+      userAnswers: userAnswers ?? this.userAnswers,
+    );
+  }
+
+  UserServiceUserTagPortraitAiToPortraitV2PostRequest copyWithWrapped({
+    Wrapped<List<String>?>? userAnswers,
+  }) {
+    return UserServiceUserTagPortraitAiToPortraitV2PostRequest(
+      userAnswers: (userAnswers != null ? userAnswers.value : this.userAnswers),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class UserServiceUserTagPortraitUpdatePortraitPostRequest {
+  const UserServiceUserTagPortraitUpdatePortraitPostRequest({
+    this.age,
+    this.sex,
+    this.birthday,
+    this.nickname,
+    this.avatarUrl,
+    this.favoriteShoppingPlatforms,
+    this.favoriteBrands,
+  });
+
+  factory UserServiceUserTagPortraitUpdatePortraitPostRequest.fromJson(
+    Map<String, dynamic> json,
+  ) => _$UserServiceUserTagPortraitUpdatePortraitPostRequestFromJson(json);
+
+  static const toJsonFactory =
+      _$UserServiceUserTagPortraitUpdatePortraitPostRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$UserServiceUserTagPortraitUpdatePortraitPostRequestToJson(this);
+
+  @JsonKey(name: 'age', fromJson: JsonCoerce.asDouble)
+  final double? age;
+  @JsonKey(name: 'sex', fromJson: JsonCoerce.asDouble)
+  final double? sex;
+  @JsonKey(name: 'birthday', fromJson: JsonCoerce.asDouble)
+  final double? birthday;
+  @JsonKey(name: 'nickname', fromJson: JsonCoerce.asString)
+  final String? nickname;
+  @JsonKey(name: 'avatarUrl', fromJson: JsonCoerce.asString)
+  final String? avatarUrl;
+  @JsonKey(
+    name: 'favoriteShoppingPlatforms',
+    fromJson: JsonCoerce.asStringList,
+    defaultValue: <String>[],
+  )
+  final List<String>? favoriteShoppingPlatforms;
+  @JsonKey(name: 'favoriteBrands', fromJson: JsonCoerce.asString)
+  final String? favoriteBrands;
+  static const fromJsonFactory =
+      _$UserServiceUserTagPortraitUpdatePortraitPostRequestFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is UserServiceUserTagPortraitUpdatePortraitPostRequest &&
+            (identical(other.age, age) ||
+                const DeepCollectionEquality().equals(other.age, age)) &&
+            (identical(other.sex, sex) ||
+                const DeepCollectionEquality().equals(other.sex, sex)) &&
+            (identical(other.birthday, birthday) ||
+                const DeepCollectionEquality().equals(
+                  other.birthday,
+                  birthday,
+                )) &&
+            (identical(other.nickname, nickname) ||
+                const DeepCollectionEquality().equals(
+                  other.nickname,
+                  nickname,
+                )) &&
+            (identical(other.avatarUrl, avatarUrl) ||
+                const DeepCollectionEquality().equals(
+                  other.avatarUrl,
+                  avatarUrl,
+                )) &&
+            (identical(
+                  other.favoriteShoppingPlatforms,
+                  favoriteShoppingPlatforms,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.favoriteShoppingPlatforms,
+                  favoriteShoppingPlatforms,
+                )) &&
+            (identical(other.favoriteBrands, favoriteBrands) ||
+                const DeepCollectionEquality().equals(
+                  other.favoriteBrands,
+                  favoriteBrands,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(age) ^
+      const DeepCollectionEquality().hash(sex) ^
+      const DeepCollectionEquality().hash(birthday) ^
+      const DeepCollectionEquality().hash(nickname) ^
+      const DeepCollectionEquality().hash(avatarUrl) ^
+      const DeepCollectionEquality().hash(favoriteShoppingPlatforms) ^
+      const DeepCollectionEquality().hash(favoriteBrands) ^
+      runtimeType.hashCode;
+}
+
+extension $UserServiceUserTagPortraitUpdatePortraitPostRequestExtension
+    on UserServiceUserTagPortraitUpdatePortraitPostRequest {
+  UserServiceUserTagPortraitUpdatePortraitPostRequest copyWith({
+    double? age,
+    double? sex,
+    double? birthday,
+    String? nickname,
+    String? avatarUrl,
+    List<String>? favoriteShoppingPlatforms,
+    String? favoriteBrands,
+  }) {
+    return UserServiceUserTagPortraitUpdatePortraitPostRequest(
+      age: age ?? this.age,
+      sex: sex ?? this.sex,
+      birthday: birthday ?? this.birthday,
+      nickname: nickname ?? this.nickname,
+      avatarUrl: avatarUrl ?? this.avatarUrl,
+      favoriteShoppingPlatforms:
+          favoriteShoppingPlatforms ?? this.favoriteShoppingPlatforms,
+      favoriteBrands: favoriteBrands ?? this.favoriteBrands,
+    );
+  }
+
+  UserServiceUserTagPortraitUpdatePortraitPostRequest copyWithWrapped({
+    Wrapped<double?>? age,
+    Wrapped<double?>? sex,
+    Wrapped<double?>? birthday,
+    Wrapped<String?>? nickname,
+    Wrapped<String?>? avatarUrl,
+    Wrapped<List<String>?>? favoriteShoppingPlatforms,
+    Wrapped<String?>? favoriteBrands,
+  }) {
+    return UserServiceUserTagPortraitUpdatePortraitPostRequest(
+      age: (age != null ? age.value : this.age),
+      sex: (sex != null ? sex.value : this.sex),
+      birthday: (birthday != null ? birthday.value : this.birthday),
+      nickname: (nickname != null ? nickname.value : this.nickname),
+      avatarUrl: (avatarUrl != null ? avatarUrl.value : this.avatarUrl),
+      favoriteShoppingPlatforms: (favoriteShoppingPlatforms != null
+          ? favoriteShoppingPlatforms.value
+          : this.favoriteShoppingPlatforms),
+      favoriteBrands: (favoriteBrands != null
+          ? favoriteBrands.value
+          : this.favoriteBrands),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class UserServiceUserTagPortraitGetPortraitGetRequest {
+  const UserServiceUserTagPortraitGetPortraitGetRequest({
+    this.age,
+    this.sex,
+    this.birthday,
+    this.nickname,
+    this.favoriteShoppingPlatforms,
+    this.favoriteBrands,
+  });
+
+  factory UserServiceUserTagPortraitGetPortraitGetRequest.fromJson(
+    Map<String, dynamic> json,
+  ) => _$UserServiceUserTagPortraitGetPortraitGetRequestFromJson(json);
+
+  static const toJsonFactory =
+      _$UserServiceUserTagPortraitGetPortraitGetRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$UserServiceUserTagPortraitGetPortraitGetRequestToJson(this);
+
+  @JsonKey(name: 'age', fromJson: JsonCoerce.asDouble)
+  final double? age;
+  @JsonKey(name: 'sex', fromJson: JsonCoerce.asDouble)
+  final double? sex;
+  @JsonKey(name: 'birthday', fromJson: JsonCoerce.asDouble)
+  final double? birthday;
+  @JsonKey(name: 'nickname', fromJson: JsonCoerce.asString)
+  final String? nickname;
+  @JsonKey(
+    name: 'favoriteShoppingPlatforms',
+    fromJson: JsonCoerce.asStringList,
+    defaultValue: <String>[],
+  )
+  final List<String>? favoriteShoppingPlatforms;
+  @JsonKey(name: 'favoriteBrands', fromJson: JsonCoerce.asString)
+  final String? favoriteBrands;
+  static const fromJsonFactory =
+      _$UserServiceUserTagPortraitGetPortraitGetRequestFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is UserServiceUserTagPortraitGetPortraitGetRequest &&
+            (identical(other.age, age) ||
+                const DeepCollectionEquality().equals(other.age, age)) &&
+            (identical(other.sex, sex) ||
+                const DeepCollectionEquality().equals(other.sex, sex)) &&
+            (identical(other.birthday, birthday) ||
+                const DeepCollectionEquality().equals(
+                  other.birthday,
+                  birthday,
+                )) &&
+            (identical(other.nickname, nickname) ||
+                const DeepCollectionEquality().equals(
+                  other.nickname,
+                  nickname,
+                )) &&
+            (identical(
+                  other.favoriteShoppingPlatforms,
+                  favoriteShoppingPlatforms,
+                ) ||
+                const DeepCollectionEquality().equals(
+                  other.favoriteShoppingPlatforms,
+                  favoriteShoppingPlatforms,
+                )) &&
+            (identical(other.favoriteBrands, favoriteBrands) ||
+                const DeepCollectionEquality().equals(
+                  other.favoriteBrands,
+                  favoriteBrands,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(age) ^
+      const DeepCollectionEquality().hash(sex) ^
+      const DeepCollectionEquality().hash(birthday) ^
+      const DeepCollectionEquality().hash(nickname) ^
+      const DeepCollectionEquality().hash(favoriteShoppingPlatforms) ^
+      const DeepCollectionEquality().hash(favoriteBrands) ^
+      runtimeType.hashCode;
+}
+
+extension $UserServiceUserTagPortraitGetPortraitGetRequestExtension
+    on UserServiceUserTagPortraitGetPortraitGetRequest {
+  UserServiceUserTagPortraitGetPortraitGetRequest copyWith({
+    double? age,
+    double? sex,
+    double? birthday,
+    String? nickname,
+    List<String>? favoriteShoppingPlatforms,
+    String? favoriteBrands,
+  }) {
+    return UserServiceUserTagPortraitGetPortraitGetRequest(
+      age: age ?? this.age,
+      sex: sex ?? this.sex,
+      birthday: birthday ?? this.birthday,
+      nickname: nickname ?? this.nickname,
+      favoriteShoppingPlatforms:
+          favoriteShoppingPlatforms ?? this.favoriteShoppingPlatforms,
+      favoriteBrands: favoriteBrands ?? this.favoriteBrands,
+    );
+  }
+
+  UserServiceUserTagPortraitGetPortraitGetRequest copyWithWrapped({
+    Wrapped<double?>? age,
+    Wrapped<double?>? sex,
+    Wrapped<double?>? birthday,
+    Wrapped<String?>? nickname,
+    Wrapped<List<String>?>? favoriteShoppingPlatforms,
+    Wrapped<String?>? favoriteBrands,
+  }) {
+    return UserServiceUserTagPortraitGetPortraitGetRequest(
+      age: (age != null ? age.value : this.age),
+      sex: (sex != null ? sex.value : this.sex),
+      birthday: (birthday != null ? birthday.value : this.birthday),
+      nickname: (nickname != null ? nickname.value : this.nickname),
+      favoriteShoppingPlatforms: (favoriteShoppingPlatforms != null
+          ? favoriteShoppingPlatforms.value
+          : this.favoriteShoppingPlatforms),
+      favoriteBrands: (favoriteBrands != null
+          ? favoriteBrands.value
+          : this.favoriteBrands),
+    );
+  }
 }
 
 @JsonSerializable(explicitToJson: true)

@@ -55,7 +55,14 @@ abstract class SwaggerApiCombo extends ChopperService {
   ///@param code
   ///@param root
   Future<chopper.Response<ComboServiceNoAuthBizKolKolInfoGet$Response>>
-  comboServiceNoAuthBizKolKolInfoGet({required String? code, Object? root}) {
+  comboServiceNoAuthBizKolKolInfoGet({
+    required String? code,
+    ComboServiceNoAuthBizKolKolinfoGetRequest? root,
+  }) {
+    generatedMapping.putIfAbsent(
+      ComboServiceNoAuthBizKolKolinfoGetRequest,
+      () => ComboServiceNoAuthBizKolKolinfoGetRequest.fromJsonFactory,
+    );
     generatedMapping.putIfAbsent(
       ComboServiceNoAuthBizKolKolInfoGet$Response,
       () => ComboServiceNoAuthBizKolKolInfoGet$Response.fromJsonFactory,
@@ -71,7 +78,7 @@ abstract class SwaggerApiCombo extends ChopperService {
   Future<chopper.Response<ComboServiceNoAuthBizKolKolInfoGet$Response>>
   _comboServiceNoAuthBizKolKolInfoGet({
     @Query('code') required String? code,
-    @Body() Object? root,
+    @Body() ComboServiceNoAuthBizKolKolinfoGetRequest? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -150,7 +157,13 @@ abstract class SwaggerApiCombo extends ChopperService {
   ///取消点赞帖子
   ///@param root
   Future<chopper.Response<ComboServiceBizCommunityPostUnlikePost$Response>>
-  comboServiceBizCommunityPostUnlikePost({Object? root}) {
+  comboServiceBizCommunityPostUnlikePost({
+    ComboServiceBizCommunityPostUnlikePostRequest? root,
+  }) {
+    generatedMapping.putIfAbsent(
+      ComboServiceBizCommunityPostUnlikePostRequest,
+      () => ComboServiceBizCommunityPostUnlikePostRequest.fromJsonFactory,
+    );
     generatedMapping.putIfAbsent(
       ComboServiceBizCommunityPostUnlikePost$Response,
       () => ComboServiceBizCommunityPostUnlikePost$Response.fromJsonFactory,
@@ -164,7 +177,7 @@ abstract class SwaggerApiCombo extends ChopperService {
   @POST(path: '/combo-service/biz/community-post/unlike')
   Future<chopper.Response<ComboServiceBizCommunityPostUnlikePost$Response>>
   _comboServiceBizCommunityPostUnlikePost({
-    @Body() Object? root,
+    @Body() ComboServiceBizCommunityPostUnlikePostRequest? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -186,8 +199,12 @@ abstract class SwaggerApiCombo extends ChopperService {
   comboServiceBizCommunityPostLikedGet({
     String? cursor,
     required String? pageSize,
-    Object? root,
+    ComboServiceBizCommunityPostLikedGetRequest? root,
   }) {
+    generatedMapping.putIfAbsent(
+      ComboServiceBizCommunityPostLikedGetRequest,
+      () => ComboServiceBizCommunityPostLikedGetRequest.fromJsonFactory,
+    );
     generatedMapping.putIfAbsent(
       ComboServiceBizCommunityPostLikedGet$Response,
       () => ComboServiceBizCommunityPostLikedGet$Response.fromJsonFactory,
@@ -209,7 +226,7 @@ abstract class SwaggerApiCombo extends ChopperService {
   _comboServiceBizCommunityPostLikedGet({
     @Query('cursor') String? cursor,
     @Query('pageSize') required String? pageSize,
-    @Body() Object? root,
+    @Body() ComboServiceBizCommunityPostLikedGetRequest? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -231,8 +248,12 @@ abstract class SwaggerApiCombo extends ChopperService {
   comboServiceBizCommunityPostNoAuthListGet({
     String? cursor,
     required String? pageSize,
-    Object? root,
+    ComboServiceBizCommunityPostNoAuthListGetRequest? root,
   }) {
+    generatedMapping.putIfAbsent(
+      ComboServiceBizCommunityPostNoAuthListGetRequest,
+      () => ComboServiceBizCommunityPostNoAuthListGetRequest.fromJsonFactory,
+    );
     generatedMapping.putIfAbsent(
       ComboServiceBizCommunityPostNoAuthListGet$Response,
       () => ComboServiceBizCommunityPostNoAuthListGet$Response.fromJsonFactory,
@@ -254,7 +275,7 @@ abstract class SwaggerApiCombo extends ChopperService {
   _comboServiceBizCommunityPostNoAuthListGet({
     @Query('cursor') String? cursor,
     @Query('pageSize') required String? pageSize,
-    @Body() Object? root,
+    @Body() ComboServiceBizCommunityPostNoAuthListGetRequest? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -271,7 +292,13 @@ abstract class SwaggerApiCombo extends ChopperService {
   ///点赞帖子
   ///@param root
   Future<chopper.Response<ComboServiceBizCommunityPostLikePost$Response>>
-  comboServiceBizCommunityPostLikePost({Object? root}) {
+  comboServiceBizCommunityPostLikePost({
+    ComboServiceBizCommunityPostLikePostRequest? root,
+  }) {
+    generatedMapping.putIfAbsent(
+      ComboServiceBizCommunityPostLikePostRequest,
+      () => ComboServiceBizCommunityPostLikePostRequest.fromJsonFactory,
+    );
     generatedMapping.putIfAbsent(
       ComboServiceBizCommunityPostLikePost$Response,
       () => ComboServiceBizCommunityPostLikePost$Response.fromJsonFactory,
@@ -285,7 +312,7 @@ abstract class SwaggerApiCombo extends ChopperService {
   @POST(path: '/combo-service/biz/community-post/like')
   Future<chopper.Response<ComboServiceBizCommunityPostLikePost$Response>>
   _comboServiceBizCommunityPostLikePost({
-    @Body() Object? root,
+    @Body() ComboServiceBizCommunityPostLikePostRequest? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -304,7 +331,13 @@ abstract class SwaggerApiCombo extends ChopperService {
   Future<
     chopper.Response<ComboServiceNoAuthBizImageTransTranslatePost$Response>
   >
-  comboServiceNoAuthBizImageTransTranslatePost({Object? root}) {
+  comboServiceNoAuthBizImageTransTranslatePost({
+    ComboServiceNoAuthBizImageTransTranslatePostRequest? root,
+  }) {
+    generatedMapping.putIfAbsent(
+      ComboServiceNoAuthBizImageTransTranslatePostRequest,
+      () => ComboServiceNoAuthBizImageTransTranslatePostRequest.fromJsonFactory,
+    );
     generatedMapping.putIfAbsent(
       ComboServiceNoAuthBizImageTransTranslatePost$Response,
       () =>
@@ -321,7 +354,7 @@ abstract class SwaggerApiCombo extends ChopperService {
     chopper.Response<ComboServiceNoAuthBizImageTransTranslatePost$Response>
   >
   _comboServiceNoAuthBizImageTransTranslatePost({
-    @Body() Object? root,
+    @Body() ComboServiceNoAuthBizImageTransTranslatePostRequest? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -368,7 +401,14 @@ abstract class SwaggerApiCombo extends ChopperService {
   Future<
     chopper.Response<ComboServiceApiV1StyleOutfitsGenerateModelPost$Response>
   >
-  comboServiceApiV1StyleOutfitsGenerateModelPost({Object? root}) {
+  comboServiceApiV1StyleOutfitsGenerateModelPost({
+    ComboServiceApiV1StyleOutfitsGeneratemodelPostRequest? root,
+  }) {
+    generatedMapping.putIfAbsent(
+      ComboServiceApiV1StyleOutfitsGeneratemodelPostRequest,
+      () =>
+          ComboServiceApiV1StyleOutfitsGeneratemodelPostRequest.fromJsonFactory,
+    );
     generatedMapping.putIfAbsent(
       ComboServiceApiV1StyleOutfitsGenerateModelPost$Response,
       () => ComboServiceApiV1StyleOutfitsGenerateModelPost$Response
@@ -385,7 +425,7 @@ abstract class SwaggerApiCombo extends ChopperService {
     chopper.Response<ComboServiceApiV1StyleOutfitsGenerateModelPost$Response>
   >
   _comboServiceApiV1StyleOutfitsGenerateModelPost({
-    @Body() Object? root,
+    @Body() ComboServiceApiV1StyleOutfitsGeneratemodelPostRequest? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -430,7 +470,13 @@ abstract class SwaggerApiCombo extends ChopperService {
   ///保存模特
   ///@param root
   Future<chopper.Response<ComboServiceBizAiFashionModelSavePost$Response>>
-  comboServiceBizAiFashionModelSavePost({Object? root}) {
+  comboServiceBizAiFashionModelSavePost({
+    ComboServiceBizAiFashionModelSavePostRequest? root,
+  }) {
+    generatedMapping.putIfAbsent(
+      ComboServiceBizAiFashionModelSavePostRequest,
+      () => ComboServiceBizAiFashionModelSavePostRequest.fromJsonFactory,
+    );
     generatedMapping.putIfAbsent(
       ComboServiceBizAiFashionModelSavePost$Response,
       () => ComboServiceBizAiFashionModelSavePost$Response.fromJsonFactory,
@@ -444,7 +490,7 @@ abstract class SwaggerApiCombo extends ChopperService {
   @POST(path: '/combo-service/biz/ai-fashion/model/save')
   Future<chopper.Response<ComboServiceBizAiFashionModelSavePost$Response>>
   _comboServiceBizAiFashionModelSavePost({
-    @Body() Object? root,
+    @Body() ComboServiceBizAiFashionModelSavePostRequest? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -466,8 +512,12 @@ abstract class SwaggerApiCombo extends ChopperService {
   comboServiceApiV1StyleOutfitsResultPageGet({
     required String? pageNum,
     required String? pageSize,
-    Object? root,
+    ComboServiceApiV1StyleOutfitsResultPageGetRequest? root,
   }) {
+    generatedMapping.putIfAbsent(
+      ComboServiceApiV1StyleOutfitsResultPageGetRequest,
+      () => ComboServiceApiV1StyleOutfitsResultPageGetRequest.fromJsonFactory,
+    );
     generatedMapping.putIfAbsent(
       ComboServiceApiV1StyleOutfitsResultPageGet$Response,
       () => ComboServiceApiV1StyleOutfitsResultPageGet$Response.fromJsonFactory,
@@ -489,7 +539,7 @@ abstract class SwaggerApiCombo extends ChopperService {
   _comboServiceApiV1StyleOutfitsResultPageGet({
     @Query('pageNum') required String? pageNum,
     @Query('pageSize') required String? pageSize,
-    @Body() Object? root,
+    @Body() ComboServiceApiV1StyleOutfitsResultPageGetRequest? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -674,7 +724,13 @@ abstract class SwaggerApiCombo extends ChopperService {
   ///生成穿搭
   ///@param root
   Future<chopper.Response<ComboServiceApiV1StyleOutfitsGeneratePost$Response>>
-  comboServiceApiV1StyleOutfitsGeneratePost({Object? root}) {
+  comboServiceApiV1StyleOutfitsGeneratePost({
+    ComboServiceApiV1StyleOutfitsGeneratePostRequest? root,
+  }) {
+    generatedMapping.putIfAbsent(
+      ComboServiceApiV1StyleOutfitsGeneratePostRequest,
+      () => ComboServiceApiV1StyleOutfitsGeneratePostRequest.fromJsonFactory,
+    );
     generatedMapping.putIfAbsent(
       ComboServiceApiV1StyleOutfitsGeneratePost$Response,
       () => ComboServiceApiV1StyleOutfitsGeneratePost$Response.fromJsonFactory,
@@ -688,7 +744,7 @@ abstract class SwaggerApiCombo extends ChopperService {
   @POST(path: '/combo-service/api/v1/style-outfits/generate')
   Future<chopper.Response<ComboServiceApiV1StyleOutfitsGeneratePost$Response>>
   _comboServiceApiV1StyleOutfitsGeneratePost({
-    @Body() Object? root,
+    @Body() ComboServiceApiV1StyleOutfitsGeneratePostRequest? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -869,7 +925,14 @@ abstract class SwaggerApiCombo extends ChopperService {
       ComboServiceApiV1StyleOutfitsGenerateModelRegeneratePost$Response
     >
   >
-  comboServiceApiV1StyleOutfitsGenerateModelRegeneratePost({Object? root}) {
+  comboServiceApiV1StyleOutfitsGenerateModelRegeneratePost({
+    ComboServiceApiV1StyleOutfitsGeneratemodelRegeneratePostRequest? root,
+  }) {
+    generatedMapping.putIfAbsent(
+      ComboServiceApiV1StyleOutfitsGeneratemodelRegeneratePostRequest,
+      () => ComboServiceApiV1StyleOutfitsGeneratemodelRegeneratePostRequest
+          .fromJsonFactory,
+    );
     generatedMapping.putIfAbsent(
       ComboServiceApiV1StyleOutfitsGenerateModelRegeneratePost$Response,
       () => ComboServiceApiV1StyleOutfitsGenerateModelRegeneratePost$Response
@@ -890,7 +953,8 @@ abstract class SwaggerApiCombo extends ChopperService {
     >
   >
   _comboServiceApiV1StyleOutfitsGenerateModelRegeneratePost({
-    @Body() Object? root,
+    @Body()
+    ComboServiceApiV1StyleOutfitsGeneratemodelRegeneratePostRequest? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -911,7 +975,14 @@ abstract class SwaggerApiCombo extends ChopperService {
       ComboServiceApiV1StyleOutfitsGenerateRegeneratePost$Response
     >
   >
-  comboServiceApiV1StyleOutfitsGenerateRegeneratePost({Object? root}) {
+  comboServiceApiV1StyleOutfitsGenerateRegeneratePost({
+    ComboServiceApiV1StyleOutfitsGenerateRegeneratePostRequest? root,
+  }) {
+    generatedMapping.putIfAbsent(
+      ComboServiceApiV1StyleOutfitsGenerateRegeneratePostRequest,
+      () => ComboServiceApiV1StyleOutfitsGenerateRegeneratePostRequest
+          .fromJsonFactory,
+    );
     generatedMapping.putIfAbsent(
       ComboServiceApiV1StyleOutfitsGenerateRegeneratePost$Response,
       () => ComboServiceApiV1StyleOutfitsGenerateRegeneratePost$Response
@@ -930,7 +1001,7 @@ abstract class SwaggerApiCombo extends ChopperService {
     >
   >
   _comboServiceApiV1StyleOutfitsGenerateRegeneratePost({
-    @Body() Object? root,
+    @Body() ComboServiceApiV1StyleOutfitsGenerateRegeneratePostRequest? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -954,8 +1025,12 @@ abstract class SwaggerApiCombo extends ChopperService {
     required String? pageNum,
     required String? pageSize,
     String? orderId,
-    Object? root,
+    ComboServiceBizUserShareRewardPageGetRequest? root,
   }) {
+    generatedMapping.putIfAbsent(
+      ComboServiceBizUserShareRewardPageGetRequest,
+      () => ComboServiceBizUserShareRewardPageGetRequest.fromJsonFactory,
+    );
     generatedMapping.putIfAbsent(
       ComboServiceBizUserShareRewardPageGet$Response,
       () => ComboServiceBizUserShareRewardPageGet$Response.fromJsonFactory,
@@ -980,7 +1055,7 @@ abstract class SwaggerApiCombo extends ChopperService {
     @Query('pageNum') required String? pageNum,
     @Query('pageSize') required String? pageSize,
     @Query('orderId') String? orderId,
-    @Body() Object? root,
+    @Body() ComboServiceBizUserShareRewardPageGetRequest? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -997,7 +1072,13 @@ abstract class SwaggerApiCombo extends ChopperService {
   ///提交返利请求
   ///@param root
   Future<chopper.Response<ComboServiceBizUserShareRewardPost$Response>>
-  comboServiceBizUserShareRewardPost({Object? root}) {
+  comboServiceBizUserShareRewardPost({
+    ComboServiceBizUserShareRewardPostRequest? root,
+  }) {
+    generatedMapping.putIfAbsent(
+      ComboServiceBizUserShareRewardPostRequest,
+      () => ComboServiceBizUserShareRewardPostRequest.fromJsonFactory,
+    );
     generatedMapping.putIfAbsent(
       ComboServiceBizUserShareRewardPost$Response,
       () => ComboServiceBizUserShareRewardPost$Response.fromJsonFactory,
@@ -1011,7 +1092,7 @@ abstract class SwaggerApiCombo extends ChopperService {
   @POST(path: '/combo-service/biz/user-share-reward')
   Future<chopper.Response<ComboServiceBizUserShareRewardPost$Response>>
   _comboServiceBizUserShareRewardPost({
-    @Body() Object? root,
+    @Body() ComboServiceBizUserShareRewardPostRequest? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -1031,8 +1112,12 @@ abstract class SwaggerApiCombo extends ChopperService {
   Future<chopper.Response<ComboServiceNoAuthBizAlbumAlbumInfoGet$Response>>
   comboServiceNoAuthBizAlbumAlbumInfoGet({
     required String? albumCode,
-    Object? root,
+    ComboServiceNoAuthBizAlbumAlbuminfoGetRequest? root,
   }) {
+    generatedMapping.putIfAbsent(
+      ComboServiceNoAuthBizAlbumAlbuminfoGetRequest,
+      () => ComboServiceNoAuthBizAlbumAlbuminfoGetRequest.fromJsonFactory,
+    );
     generatedMapping.putIfAbsent(
       ComboServiceNoAuthBizAlbumAlbumInfoGet$Response,
       () => ComboServiceNoAuthBizAlbumAlbumInfoGet$Response.fromJsonFactory,
@@ -1051,7 +1136,7 @@ abstract class SwaggerApiCombo extends ChopperService {
   Future<chopper.Response<ComboServiceNoAuthBizAlbumAlbumInfoGet$Response>>
   _comboServiceNoAuthBizAlbumAlbumInfoGet({
     @Query('albumCode') required String? albumCode,
-    @Body() Object? root,
+    @Body() ComboServiceNoAuthBizAlbumAlbuminfoGetRequest? root,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -1064,6 +1149,1423 @@ abstract class SwaggerApiCombo extends ChopperService {
       deprecated: false,
     ),
   });
+}
+
+@JsonSerializable(explicitToJson: true)
+class ComboServiceNoAuthBizKolKolinfoGetRequest {
+  const ComboServiceNoAuthBizKolKolinfoGetRequest({this.imgUrl, this.target});
+
+  factory ComboServiceNoAuthBizKolKolinfoGetRequest.fromJson(
+    Map<String, dynamic> json,
+  ) => _$ComboServiceNoAuthBizKolKolinfoGetRequestFromJson(json);
+
+  static const toJsonFactory =
+      _$ComboServiceNoAuthBizKolKolinfoGetRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$ComboServiceNoAuthBizKolKolinfoGetRequestToJson(this);
+
+  @JsonKey(name: 'imgUrl', fromJson: JsonCoerce.asString)
+  final String? imgUrl;
+  @JsonKey(name: 'target', fromJson: JsonCoerce.asString)
+  final String? target;
+  static const fromJsonFactory =
+      _$ComboServiceNoAuthBizKolKolinfoGetRequestFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is ComboServiceNoAuthBizKolKolinfoGetRequest &&
+            (identical(other.imgUrl, imgUrl) ||
+                const DeepCollectionEquality().equals(other.imgUrl, imgUrl)) &&
+            (identical(other.target, target) ||
+                const DeepCollectionEquality().equals(other.target, target)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(imgUrl) ^
+      const DeepCollectionEquality().hash(target) ^
+      runtimeType.hashCode;
+}
+
+extension $ComboServiceNoAuthBizKolKolinfoGetRequestExtension
+    on ComboServiceNoAuthBizKolKolinfoGetRequest {
+  ComboServiceNoAuthBizKolKolinfoGetRequest copyWith({
+    String? imgUrl,
+    String? target,
+  }) {
+    return ComboServiceNoAuthBizKolKolinfoGetRequest(
+      imgUrl: imgUrl ?? this.imgUrl,
+      target: target ?? this.target,
+    );
+  }
+
+  ComboServiceNoAuthBizKolKolinfoGetRequest copyWithWrapped({
+    Wrapped<String?>? imgUrl,
+    Wrapped<String?>? target,
+  }) {
+    return ComboServiceNoAuthBizKolKolinfoGetRequest(
+      imgUrl: (imgUrl != null ? imgUrl.value : this.imgUrl),
+      target: (target != null ? target.value : this.target),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class ComboServiceBizCommunityPostUnlikePostRequest {
+  const ComboServiceBizCommunityPostUnlikePostRequest({this.postId});
+
+  factory ComboServiceBizCommunityPostUnlikePostRequest.fromJson(
+    Map<String, dynamic> json,
+  ) => _$ComboServiceBizCommunityPostUnlikePostRequestFromJson(json);
+
+  static const toJsonFactory =
+      _$ComboServiceBizCommunityPostUnlikePostRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$ComboServiceBizCommunityPostUnlikePostRequestToJson(this);
+
+  @JsonKey(name: 'postId', fromJson: JsonCoerce.asInt)
+  final int? postId;
+  static const fromJsonFactory =
+      _$ComboServiceBizCommunityPostUnlikePostRequestFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is ComboServiceBizCommunityPostUnlikePostRequest &&
+            (identical(other.postId, postId) ||
+                const DeepCollectionEquality().equals(other.postId, postId)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(postId) ^ runtimeType.hashCode;
+}
+
+extension $ComboServiceBizCommunityPostUnlikePostRequestExtension
+    on ComboServiceBizCommunityPostUnlikePostRequest {
+  ComboServiceBizCommunityPostUnlikePostRequest copyWith({int? postId}) {
+    return ComboServiceBizCommunityPostUnlikePostRequest(
+      postId: postId ?? this.postId,
+    );
+  }
+
+  ComboServiceBizCommunityPostUnlikePostRequest copyWithWrapped({
+    Wrapped<int?>? postId,
+  }) {
+    return ComboServiceBizCommunityPostUnlikePostRequest(
+      postId: (postId != null ? postId.value : this.postId),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class ComboServiceBizCommunityPostLikedGetRequest {
+  const ComboServiceBizCommunityPostLikedGetRequest({
+    this.cursor,
+    this.pageSize,
+    this.tenantCode,
+  });
+
+  factory ComboServiceBizCommunityPostLikedGetRequest.fromJson(
+    Map<String, dynamic> json,
+  ) => _$ComboServiceBizCommunityPostLikedGetRequestFromJson(json);
+
+  static const toJsonFactory =
+      _$ComboServiceBizCommunityPostLikedGetRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$ComboServiceBizCommunityPostLikedGetRequestToJson(this);
+
+  @JsonKey(name: 'cursor', fromJson: JsonCoerce.asString)
+  final String? cursor;
+  @JsonKey(name: 'pageSize', fromJson: JsonCoerce.asInt)
+  final int? pageSize;
+  @JsonKey(name: 'tenantCode', fromJson: JsonCoerce.asString)
+  final String? tenantCode;
+  static const fromJsonFactory =
+      _$ComboServiceBizCommunityPostLikedGetRequestFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is ComboServiceBizCommunityPostLikedGetRequest &&
+            (identical(other.cursor, cursor) ||
+                const DeepCollectionEquality().equals(other.cursor, cursor)) &&
+            (identical(other.pageSize, pageSize) ||
+                const DeepCollectionEquality().equals(
+                  other.pageSize,
+                  pageSize,
+                )) &&
+            (identical(other.tenantCode, tenantCode) ||
+                const DeepCollectionEquality().equals(
+                  other.tenantCode,
+                  tenantCode,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(cursor) ^
+      const DeepCollectionEquality().hash(pageSize) ^
+      const DeepCollectionEquality().hash(tenantCode) ^
+      runtimeType.hashCode;
+}
+
+extension $ComboServiceBizCommunityPostLikedGetRequestExtension
+    on ComboServiceBizCommunityPostLikedGetRequest {
+  ComboServiceBizCommunityPostLikedGetRequest copyWith({
+    String? cursor,
+    int? pageSize,
+    String? tenantCode,
+  }) {
+    return ComboServiceBizCommunityPostLikedGetRequest(
+      cursor: cursor ?? this.cursor,
+      pageSize: pageSize ?? this.pageSize,
+      tenantCode: tenantCode ?? this.tenantCode,
+    );
+  }
+
+  ComboServiceBizCommunityPostLikedGetRequest copyWithWrapped({
+    Wrapped<String?>? cursor,
+    Wrapped<int?>? pageSize,
+    Wrapped<String?>? tenantCode,
+  }) {
+    return ComboServiceBizCommunityPostLikedGetRequest(
+      cursor: (cursor != null ? cursor.value : this.cursor),
+      pageSize: (pageSize != null ? pageSize.value : this.pageSize),
+      tenantCode: (tenantCode != null ? tenantCode.value : this.tenantCode),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class ComboServiceBizCommunityPostNoAuthListGetRequest {
+  const ComboServiceBizCommunityPostNoAuthListGetRequest({
+    this.cursor,
+    this.pageSize,
+    this.tenantCode,
+  });
+
+  factory ComboServiceBizCommunityPostNoAuthListGetRequest.fromJson(
+    Map<String, dynamic> json,
+  ) => _$ComboServiceBizCommunityPostNoAuthListGetRequestFromJson(json);
+
+  static const toJsonFactory =
+      _$ComboServiceBizCommunityPostNoAuthListGetRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$ComboServiceBizCommunityPostNoAuthListGetRequestToJson(this);
+
+  @JsonKey(name: 'cursor', fromJson: JsonCoerce.asString)
+  final String? cursor;
+  @JsonKey(name: 'pageSize', fromJson: JsonCoerce.asInt)
+  final int? pageSize;
+  @JsonKey(name: 'tenantCode', fromJson: JsonCoerce.asString)
+  final String? tenantCode;
+  static const fromJsonFactory =
+      _$ComboServiceBizCommunityPostNoAuthListGetRequestFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is ComboServiceBizCommunityPostNoAuthListGetRequest &&
+            (identical(other.cursor, cursor) ||
+                const DeepCollectionEquality().equals(other.cursor, cursor)) &&
+            (identical(other.pageSize, pageSize) ||
+                const DeepCollectionEquality().equals(
+                  other.pageSize,
+                  pageSize,
+                )) &&
+            (identical(other.tenantCode, tenantCode) ||
+                const DeepCollectionEquality().equals(
+                  other.tenantCode,
+                  tenantCode,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(cursor) ^
+      const DeepCollectionEquality().hash(pageSize) ^
+      const DeepCollectionEquality().hash(tenantCode) ^
+      runtimeType.hashCode;
+}
+
+extension $ComboServiceBizCommunityPostNoAuthListGetRequestExtension
+    on ComboServiceBizCommunityPostNoAuthListGetRequest {
+  ComboServiceBizCommunityPostNoAuthListGetRequest copyWith({
+    String? cursor,
+    int? pageSize,
+    String? tenantCode,
+  }) {
+    return ComboServiceBizCommunityPostNoAuthListGetRequest(
+      cursor: cursor ?? this.cursor,
+      pageSize: pageSize ?? this.pageSize,
+      tenantCode: tenantCode ?? this.tenantCode,
+    );
+  }
+
+  ComboServiceBizCommunityPostNoAuthListGetRequest copyWithWrapped({
+    Wrapped<String?>? cursor,
+    Wrapped<int?>? pageSize,
+    Wrapped<String?>? tenantCode,
+  }) {
+    return ComboServiceBizCommunityPostNoAuthListGetRequest(
+      cursor: (cursor != null ? cursor.value : this.cursor),
+      pageSize: (pageSize != null ? pageSize.value : this.pageSize),
+      tenantCode: (tenantCode != null ? tenantCode.value : this.tenantCode),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class ComboServiceBizCommunityPostLikePostRequest {
+  const ComboServiceBizCommunityPostLikePostRequest({this.postId});
+
+  factory ComboServiceBizCommunityPostLikePostRequest.fromJson(
+    Map<String, dynamic> json,
+  ) => _$ComboServiceBizCommunityPostLikePostRequestFromJson(json);
+
+  static const toJsonFactory =
+      _$ComboServiceBizCommunityPostLikePostRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$ComboServiceBizCommunityPostLikePostRequestToJson(this);
+
+  @JsonKey(name: 'postId', fromJson: JsonCoerce.asInt)
+  final int? postId;
+  static const fromJsonFactory =
+      _$ComboServiceBizCommunityPostLikePostRequestFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is ComboServiceBizCommunityPostLikePostRequest &&
+            (identical(other.postId, postId) ||
+                const DeepCollectionEquality().equals(other.postId, postId)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(postId) ^ runtimeType.hashCode;
+}
+
+extension $ComboServiceBizCommunityPostLikePostRequestExtension
+    on ComboServiceBizCommunityPostLikePostRequest {
+  ComboServiceBizCommunityPostLikePostRequest copyWith({int? postId}) {
+    return ComboServiceBizCommunityPostLikePostRequest(
+      postId: postId ?? this.postId,
+    );
+  }
+
+  ComboServiceBizCommunityPostLikePostRequest copyWithWrapped({
+    Wrapped<int?>? postId,
+  }) {
+    return ComboServiceBizCommunityPostLikePostRequest(
+      postId: (postId != null ? postId.value : this.postId),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class ComboServiceNoAuthBizImageTransTranslatePostRequest {
+  const ComboServiceNoAuthBizImageTransTranslatePostRequest({
+    this.imgUrl,
+    this.target,
+  });
+
+  factory ComboServiceNoAuthBizImageTransTranslatePostRequest.fromJson(
+    Map<String, dynamic> json,
+  ) => _$ComboServiceNoAuthBizImageTransTranslatePostRequestFromJson(json);
+
+  static const toJsonFactory =
+      _$ComboServiceNoAuthBizImageTransTranslatePostRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$ComboServiceNoAuthBizImageTransTranslatePostRequestToJson(this);
+
+  @JsonKey(name: 'imgUrl', fromJson: JsonCoerce.asString)
+  final String? imgUrl;
+  @JsonKey(name: 'target', fromJson: JsonCoerce.asString)
+  final String? target;
+  static const fromJsonFactory =
+      _$ComboServiceNoAuthBizImageTransTranslatePostRequestFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is ComboServiceNoAuthBizImageTransTranslatePostRequest &&
+            (identical(other.imgUrl, imgUrl) ||
+                const DeepCollectionEquality().equals(other.imgUrl, imgUrl)) &&
+            (identical(other.target, target) ||
+                const DeepCollectionEquality().equals(other.target, target)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(imgUrl) ^
+      const DeepCollectionEquality().hash(target) ^
+      runtimeType.hashCode;
+}
+
+extension $ComboServiceNoAuthBizImageTransTranslatePostRequestExtension
+    on ComboServiceNoAuthBizImageTransTranslatePostRequest {
+  ComboServiceNoAuthBizImageTransTranslatePostRequest copyWith({
+    String? imgUrl,
+    String? target,
+  }) {
+    return ComboServiceNoAuthBizImageTransTranslatePostRequest(
+      imgUrl: imgUrl ?? this.imgUrl,
+      target: target ?? this.target,
+    );
+  }
+
+  ComboServiceNoAuthBizImageTransTranslatePostRequest copyWithWrapped({
+    Wrapped<String?>? imgUrl,
+    Wrapped<String?>? target,
+  }) {
+    return ComboServiceNoAuthBizImageTransTranslatePostRequest(
+      imgUrl: (imgUrl != null ? imgUrl.value : this.imgUrl),
+      target: (target != null ? target.value : this.target),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class ComboServiceApiV1StyleOutfitsGeneratemodelPostRequest {
+  const ComboServiceApiV1StyleOutfitsGeneratemodelPostRequest({
+    this.segmentedType,
+    this.segmentedGender,
+    this.gender,
+    this.age,
+    this.ethnicity,
+    this.skinColor,
+    this.bodyShape,
+    this.bustSize,
+    this.hairStyle,
+    this.hairColor,
+    this.hairLength,
+    this.eyewearStyle,
+    this.customDescription,
+    this.bodyShapeModel,
+    this.imageUrl,
+    this.userId,
+    this.imageType,
+    this.setAsDefault,
+  });
+
+  factory ComboServiceApiV1StyleOutfitsGeneratemodelPostRequest.fromJson(
+    Map<String, dynamic> json,
+  ) => _$ComboServiceApiV1StyleOutfitsGeneratemodelPostRequestFromJson(json);
+
+  static const toJsonFactory =
+      _$ComboServiceApiV1StyleOutfitsGeneratemodelPostRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$ComboServiceApiV1StyleOutfitsGeneratemodelPostRequestToJson(this);
+
+  @JsonKey(name: 'segmentedType', fromJson: JsonCoerce.asDouble)
+  final double? segmentedType;
+  @JsonKey(name: 'segmentedGender', fromJson: JsonCoerce.asString)
+  final String? segmentedGender;
+  @JsonKey(name: 'gender', fromJson: JsonCoerce.asDouble)
+  final double? gender;
+  @JsonKey(name: 'age', fromJson: JsonCoerce.asString)
+  final String? age;
+  @JsonKey(name: 'ethnicity', fromJson: JsonCoerce.asString)
+  final String? ethnicity;
+  @JsonKey(name: 'skinColor', fromJson: JsonCoerce.asString)
+  final String? skinColor;
+  @JsonKey(name: 'bodyShape', fromJson: JsonCoerce.asString)
+  final String? bodyShape;
+  @JsonKey(name: 'bustSize', fromJson: JsonCoerce.asString)
+  final String? bustSize;
+  @JsonKey(name: 'hairStyle', fromJson: JsonCoerce.asString)
+  final String? hairStyle;
+  @JsonKey(name: 'hairColor', fromJson: JsonCoerce.asString)
+  final String? hairColor;
+  @JsonKey(name: 'hairLength', fromJson: JsonCoerce.asString)
+  final String? hairLength;
+  @JsonKey(name: 'eyewearStyle', fromJson: JsonCoerce.asString)
+  final String? eyewearStyle;
+  @JsonKey(name: 'customDescription', fromJson: JsonCoerce.asString)
+  final String? customDescription;
+  @JsonKey(name: 'bodyShapeModel', fromJson: JsonCoerce.asString)
+  final String? bodyShapeModel;
+  @JsonKey(name: 'imageUrl', fromJson: JsonCoerce.asString)
+  final String? imageUrl;
+  @JsonKey(name: 'userId', fromJson: JsonCoerce.asString)
+  final String? userId;
+  @JsonKey(name: 'imageType', fromJson: JsonCoerce.asString)
+  final String? imageType;
+  @JsonKey(name: 'setAsDefault', fromJson: JsonCoerce.asBool)
+  final bool? setAsDefault;
+  static const fromJsonFactory =
+      _$ComboServiceApiV1StyleOutfitsGeneratemodelPostRequestFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is ComboServiceApiV1StyleOutfitsGeneratemodelPostRequest &&
+            (identical(other.segmentedType, segmentedType) ||
+                const DeepCollectionEquality().equals(
+                  other.segmentedType,
+                  segmentedType,
+                )) &&
+            (identical(other.segmentedGender, segmentedGender) ||
+                const DeepCollectionEquality().equals(
+                  other.segmentedGender,
+                  segmentedGender,
+                )) &&
+            (identical(other.gender, gender) ||
+                const DeepCollectionEquality().equals(other.gender, gender)) &&
+            (identical(other.age, age) ||
+                const DeepCollectionEquality().equals(other.age, age)) &&
+            (identical(other.ethnicity, ethnicity) ||
+                const DeepCollectionEquality().equals(
+                  other.ethnicity,
+                  ethnicity,
+                )) &&
+            (identical(other.skinColor, skinColor) ||
+                const DeepCollectionEquality().equals(
+                  other.skinColor,
+                  skinColor,
+                )) &&
+            (identical(other.bodyShape, bodyShape) ||
+                const DeepCollectionEquality().equals(
+                  other.bodyShape,
+                  bodyShape,
+                )) &&
+            (identical(other.bustSize, bustSize) ||
+                const DeepCollectionEquality().equals(
+                  other.bustSize,
+                  bustSize,
+                )) &&
+            (identical(other.hairStyle, hairStyle) ||
+                const DeepCollectionEquality().equals(
+                  other.hairStyle,
+                  hairStyle,
+                )) &&
+            (identical(other.hairColor, hairColor) ||
+                const DeepCollectionEquality().equals(
+                  other.hairColor,
+                  hairColor,
+                )) &&
+            (identical(other.hairLength, hairLength) ||
+                const DeepCollectionEquality().equals(
+                  other.hairLength,
+                  hairLength,
+                )) &&
+            (identical(other.eyewearStyle, eyewearStyle) ||
+                const DeepCollectionEquality().equals(
+                  other.eyewearStyle,
+                  eyewearStyle,
+                )) &&
+            (identical(other.customDescription, customDescription) ||
+                const DeepCollectionEquality().equals(
+                  other.customDescription,
+                  customDescription,
+                )) &&
+            (identical(other.bodyShapeModel, bodyShapeModel) ||
+                const DeepCollectionEquality().equals(
+                  other.bodyShapeModel,
+                  bodyShapeModel,
+                )) &&
+            (identical(other.imageUrl, imageUrl) ||
+                const DeepCollectionEquality().equals(
+                  other.imageUrl,
+                  imageUrl,
+                )) &&
+            (identical(other.userId, userId) ||
+                const DeepCollectionEquality().equals(other.userId, userId)) &&
+            (identical(other.imageType, imageType) ||
+                const DeepCollectionEquality().equals(
+                  other.imageType,
+                  imageType,
+                )) &&
+            (identical(other.setAsDefault, setAsDefault) ||
+                const DeepCollectionEquality().equals(
+                  other.setAsDefault,
+                  setAsDefault,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(segmentedType) ^
+      const DeepCollectionEquality().hash(segmentedGender) ^
+      const DeepCollectionEquality().hash(gender) ^
+      const DeepCollectionEquality().hash(age) ^
+      const DeepCollectionEquality().hash(ethnicity) ^
+      const DeepCollectionEquality().hash(skinColor) ^
+      const DeepCollectionEquality().hash(bodyShape) ^
+      const DeepCollectionEquality().hash(bustSize) ^
+      const DeepCollectionEquality().hash(hairStyle) ^
+      const DeepCollectionEquality().hash(hairColor) ^
+      const DeepCollectionEquality().hash(hairLength) ^
+      const DeepCollectionEquality().hash(eyewearStyle) ^
+      const DeepCollectionEquality().hash(customDescription) ^
+      const DeepCollectionEquality().hash(bodyShapeModel) ^
+      const DeepCollectionEquality().hash(imageUrl) ^
+      const DeepCollectionEquality().hash(userId) ^
+      const DeepCollectionEquality().hash(imageType) ^
+      const DeepCollectionEquality().hash(setAsDefault) ^
+      runtimeType.hashCode;
+}
+
+extension $ComboServiceApiV1StyleOutfitsGeneratemodelPostRequestExtension
+    on ComboServiceApiV1StyleOutfitsGeneratemodelPostRequest {
+  ComboServiceApiV1StyleOutfitsGeneratemodelPostRequest copyWith({
+    double? segmentedType,
+    String? segmentedGender,
+    double? gender,
+    String? age,
+    String? ethnicity,
+    String? skinColor,
+    String? bodyShape,
+    String? bustSize,
+    String? hairStyle,
+    String? hairColor,
+    String? hairLength,
+    String? eyewearStyle,
+    String? customDescription,
+    String? bodyShapeModel,
+    String? imageUrl,
+    String? userId,
+    String? imageType,
+    bool? setAsDefault,
+  }) {
+    return ComboServiceApiV1StyleOutfitsGeneratemodelPostRequest(
+      segmentedType: segmentedType ?? this.segmentedType,
+      segmentedGender: segmentedGender ?? this.segmentedGender,
+      gender: gender ?? this.gender,
+      age: age ?? this.age,
+      ethnicity: ethnicity ?? this.ethnicity,
+      skinColor: skinColor ?? this.skinColor,
+      bodyShape: bodyShape ?? this.bodyShape,
+      bustSize: bustSize ?? this.bustSize,
+      hairStyle: hairStyle ?? this.hairStyle,
+      hairColor: hairColor ?? this.hairColor,
+      hairLength: hairLength ?? this.hairLength,
+      eyewearStyle: eyewearStyle ?? this.eyewearStyle,
+      customDescription: customDescription ?? this.customDescription,
+      bodyShapeModel: bodyShapeModel ?? this.bodyShapeModel,
+      imageUrl: imageUrl ?? this.imageUrl,
+      userId: userId ?? this.userId,
+      imageType: imageType ?? this.imageType,
+      setAsDefault: setAsDefault ?? this.setAsDefault,
+    );
+  }
+
+  ComboServiceApiV1StyleOutfitsGeneratemodelPostRequest copyWithWrapped({
+    Wrapped<double?>? segmentedType,
+    Wrapped<String?>? segmentedGender,
+    Wrapped<double?>? gender,
+    Wrapped<String?>? age,
+    Wrapped<String?>? ethnicity,
+    Wrapped<String?>? skinColor,
+    Wrapped<String?>? bodyShape,
+    Wrapped<String?>? bustSize,
+    Wrapped<String?>? hairStyle,
+    Wrapped<String?>? hairColor,
+    Wrapped<String?>? hairLength,
+    Wrapped<String?>? eyewearStyle,
+    Wrapped<String?>? customDescription,
+    Wrapped<String?>? bodyShapeModel,
+    Wrapped<String?>? imageUrl,
+    Wrapped<String?>? userId,
+    Wrapped<String?>? imageType,
+    Wrapped<bool?>? setAsDefault,
+  }) {
+    return ComboServiceApiV1StyleOutfitsGeneratemodelPostRequest(
+      segmentedType: (segmentedType != null
+          ? segmentedType.value
+          : this.segmentedType),
+      segmentedGender: (segmentedGender != null
+          ? segmentedGender.value
+          : this.segmentedGender),
+      gender: (gender != null ? gender.value : this.gender),
+      age: (age != null ? age.value : this.age),
+      ethnicity: (ethnicity != null ? ethnicity.value : this.ethnicity),
+      skinColor: (skinColor != null ? skinColor.value : this.skinColor),
+      bodyShape: (bodyShape != null ? bodyShape.value : this.bodyShape),
+      bustSize: (bustSize != null ? bustSize.value : this.bustSize),
+      hairStyle: (hairStyle != null ? hairStyle.value : this.hairStyle),
+      hairColor: (hairColor != null ? hairColor.value : this.hairColor),
+      hairLength: (hairLength != null ? hairLength.value : this.hairLength),
+      eyewearStyle: (eyewearStyle != null
+          ? eyewearStyle.value
+          : this.eyewearStyle),
+      customDescription: (customDescription != null
+          ? customDescription.value
+          : this.customDescription),
+      bodyShapeModel: (bodyShapeModel != null
+          ? bodyShapeModel.value
+          : this.bodyShapeModel),
+      imageUrl: (imageUrl != null ? imageUrl.value : this.imageUrl),
+      userId: (userId != null ? userId.value : this.userId),
+      imageType: (imageType != null ? imageType.value : this.imageType),
+      setAsDefault: (setAsDefault != null
+          ? setAsDefault.value
+          : this.setAsDefault),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class ComboServiceBizAiFashionModelSavePostRequest {
+  const ComboServiceBizAiFashionModelSavePostRequest({
+    this.taskId,
+    this.selectedIndex,
+    this.modelDesc,
+  });
+
+  factory ComboServiceBizAiFashionModelSavePostRequest.fromJson(
+    Map<String, dynamic> json,
+  ) => _$ComboServiceBizAiFashionModelSavePostRequestFromJson(json);
+
+  static const toJsonFactory =
+      _$ComboServiceBizAiFashionModelSavePostRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$ComboServiceBizAiFashionModelSavePostRequestToJson(this);
+
+  @JsonKey(name: 'taskId', fromJson: JsonCoerce.asString)
+  final String? taskId;
+  @JsonKey(name: 'selectedIndex', fromJson: JsonCoerce.asDouble)
+  final double? selectedIndex;
+  @JsonKey(name: 'modelDesc', fromJson: JsonCoerce.asString)
+  final String? modelDesc;
+  static const fromJsonFactory =
+      _$ComboServiceBizAiFashionModelSavePostRequestFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is ComboServiceBizAiFashionModelSavePostRequest &&
+            (identical(other.taskId, taskId) ||
+                const DeepCollectionEquality().equals(other.taskId, taskId)) &&
+            (identical(other.selectedIndex, selectedIndex) ||
+                const DeepCollectionEquality().equals(
+                  other.selectedIndex,
+                  selectedIndex,
+                )) &&
+            (identical(other.modelDesc, modelDesc) ||
+                const DeepCollectionEquality().equals(
+                  other.modelDesc,
+                  modelDesc,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(taskId) ^
+      const DeepCollectionEquality().hash(selectedIndex) ^
+      const DeepCollectionEquality().hash(modelDesc) ^
+      runtimeType.hashCode;
+}
+
+extension $ComboServiceBizAiFashionModelSavePostRequestExtension
+    on ComboServiceBizAiFashionModelSavePostRequest {
+  ComboServiceBizAiFashionModelSavePostRequest copyWith({
+    String? taskId,
+    double? selectedIndex,
+    String? modelDesc,
+  }) {
+    return ComboServiceBizAiFashionModelSavePostRequest(
+      taskId: taskId ?? this.taskId,
+      selectedIndex: selectedIndex ?? this.selectedIndex,
+      modelDesc: modelDesc ?? this.modelDesc,
+    );
+  }
+
+  ComboServiceBizAiFashionModelSavePostRequest copyWithWrapped({
+    Wrapped<String?>? taskId,
+    Wrapped<double?>? selectedIndex,
+    Wrapped<String?>? modelDesc,
+  }) {
+    return ComboServiceBizAiFashionModelSavePostRequest(
+      taskId: (taskId != null ? taskId.value : this.taskId),
+      selectedIndex: (selectedIndex != null
+          ? selectedIndex.value
+          : this.selectedIndex),
+      modelDesc: (modelDesc != null ? modelDesc.value : this.modelDesc),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class ComboServiceApiV1StyleOutfitsResultPageGetRequest {
+  const ComboServiceApiV1StyleOutfitsResultPageGetRequest({
+    this.imgUrl,
+    this.target,
+  });
+
+  factory ComboServiceApiV1StyleOutfitsResultPageGetRequest.fromJson(
+    Map<String, dynamic> json,
+  ) => _$ComboServiceApiV1StyleOutfitsResultPageGetRequestFromJson(json);
+
+  static const toJsonFactory =
+      _$ComboServiceApiV1StyleOutfitsResultPageGetRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$ComboServiceApiV1StyleOutfitsResultPageGetRequestToJson(this);
+
+  @JsonKey(name: 'imgUrl', fromJson: JsonCoerce.asString)
+  final String? imgUrl;
+  @JsonKey(name: 'target', fromJson: JsonCoerce.asString)
+  final String? target;
+  static const fromJsonFactory =
+      _$ComboServiceApiV1StyleOutfitsResultPageGetRequestFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is ComboServiceApiV1StyleOutfitsResultPageGetRequest &&
+            (identical(other.imgUrl, imgUrl) ||
+                const DeepCollectionEquality().equals(other.imgUrl, imgUrl)) &&
+            (identical(other.target, target) ||
+                const DeepCollectionEquality().equals(other.target, target)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(imgUrl) ^
+      const DeepCollectionEquality().hash(target) ^
+      runtimeType.hashCode;
+}
+
+extension $ComboServiceApiV1StyleOutfitsResultPageGetRequestExtension
+    on ComboServiceApiV1StyleOutfitsResultPageGetRequest {
+  ComboServiceApiV1StyleOutfitsResultPageGetRequest copyWith({
+    String? imgUrl,
+    String? target,
+  }) {
+    return ComboServiceApiV1StyleOutfitsResultPageGetRequest(
+      imgUrl: imgUrl ?? this.imgUrl,
+      target: target ?? this.target,
+    );
+  }
+
+  ComboServiceApiV1StyleOutfitsResultPageGetRequest copyWithWrapped({
+    Wrapped<String?>? imgUrl,
+    Wrapped<String?>? target,
+  }) {
+    return ComboServiceApiV1StyleOutfitsResultPageGetRequest(
+      imgUrl: (imgUrl != null ? imgUrl.value : this.imgUrl),
+      target: (target != null ? target.value : this.target),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class ComboServiceApiV1StyleOutfitsGeneratePostRequest {
+  const ComboServiceApiV1StyleOutfitsGeneratePostRequest({
+    this.useMultiModelImage,
+    this.referenceImages,
+    this.customPrompt,
+    this.gender,
+    this.count,
+    this.age,
+    this.physicalAppearance,
+    this.styleTrendyElements,
+    this.brand,
+    this.budget,
+    this.aspectRatio,
+    this.modelImageUrl,
+    this.enableFullPipeline,
+    this.referenceMode,
+    this.customModelId,
+    this.selections,
+    this.imageIndex,
+  });
+
+  factory ComboServiceApiV1StyleOutfitsGeneratePostRequest.fromJson(
+    Map<String, dynamic> json,
+  ) => _$ComboServiceApiV1StyleOutfitsGeneratePostRequestFromJson(json);
+
+  static const toJsonFactory =
+      _$ComboServiceApiV1StyleOutfitsGeneratePostRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$ComboServiceApiV1StyleOutfitsGeneratePostRequestToJson(this);
+
+  @JsonKey(name: 'useMultiModelImage', fromJson: JsonCoerce.asBool)
+  final bool? useMultiModelImage;
+  @JsonKey(
+    name: 'referenceImages',
+    fromJson: JsonCoerce.asStringList,
+    defaultValue: <String>[],
+  )
+  final List<String>? referenceImages;
+  @JsonKey(name: 'customPrompt', fromJson: JsonCoerce.asString)
+  final String? customPrompt;
+  @JsonKey(name: 'gender', fromJson: JsonCoerce.asDouble)
+  final double? gender;
+  @JsonKey(name: 'count', fromJson: JsonCoerce.asDouble)
+  final double? count;
+  @JsonKey(name: 'age', fromJson: JsonCoerce.asString)
+  final String? age;
+  @JsonKey(name: 'physicalAppearance', fromJson: JsonCoerce.asString)
+  final String? physicalAppearance;
+  @JsonKey(name: 'styleTrendyElements', fromJson: JsonCoerce.asString)
+  final String? styleTrendyElements;
+  @JsonKey(name: 'brand', fromJson: JsonCoerce.asString)
+  final String? brand;
+  @JsonKey(name: 'budget', fromJson: JsonCoerce.asString)
+  final String? budget;
+  @JsonKey(name: 'aspectRatio', fromJson: JsonCoerce.asString)
+  final String? aspectRatio;
+  @JsonKey(name: 'modelImageUrl', fromJson: JsonCoerce.asString)
+  final String? modelImageUrl;
+  @JsonKey(name: 'enableFullPipeline', fromJson: JsonCoerce.asBool)
+  final bool? enableFullPipeline;
+  @JsonKey(name: 'referenceMode', fromJson: JsonCoerce.asString)
+  final String? referenceMode;
+  @JsonKey(name: 'customModelId', fromJson: JsonCoerce.asString)
+  final String? customModelId;
+  @JsonKey(name: 'selections')
+  final ComboServiceApiV1StyleOutfitsGeneratePostRequest$Selections? selections;
+  @JsonKey(name: 'imageIndex', fromJson: JsonCoerce.asDouble)
+  final double? imageIndex;
+  static const fromJsonFactory =
+      _$ComboServiceApiV1StyleOutfitsGeneratePostRequestFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is ComboServiceApiV1StyleOutfitsGeneratePostRequest &&
+            (identical(other.useMultiModelImage, useMultiModelImage) ||
+                const DeepCollectionEquality().equals(
+                  other.useMultiModelImage,
+                  useMultiModelImage,
+                )) &&
+            (identical(other.referenceImages, referenceImages) ||
+                const DeepCollectionEquality().equals(
+                  other.referenceImages,
+                  referenceImages,
+                )) &&
+            (identical(other.customPrompt, customPrompt) ||
+                const DeepCollectionEquality().equals(
+                  other.customPrompt,
+                  customPrompt,
+                )) &&
+            (identical(other.gender, gender) ||
+                const DeepCollectionEquality().equals(other.gender, gender)) &&
+            (identical(other.count, count) ||
+                const DeepCollectionEquality().equals(other.count, count)) &&
+            (identical(other.age, age) ||
+                const DeepCollectionEquality().equals(other.age, age)) &&
+            (identical(other.physicalAppearance, physicalAppearance) ||
+                const DeepCollectionEquality().equals(
+                  other.physicalAppearance,
+                  physicalAppearance,
+                )) &&
+            (identical(other.styleTrendyElements, styleTrendyElements) ||
+                const DeepCollectionEquality().equals(
+                  other.styleTrendyElements,
+                  styleTrendyElements,
+                )) &&
+            (identical(other.brand, brand) ||
+                const DeepCollectionEquality().equals(other.brand, brand)) &&
+            (identical(other.budget, budget) ||
+                const DeepCollectionEquality().equals(other.budget, budget)) &&
+            (identical(other.aspectRatio, aspectRatio) ||
+                const DeepCollectionEquality().equals(
+                  other.aspectRatio,
+                  aspectRatio,
+                )) &&
+            (identical(other.modelImageUrl, modelImageUrl) ||
+                const DeepCollectionEquality().equals(
+                  other.modelImageUrl,
+                  modelImageUrl,
+                )) &&
+            (identical(other.enableFullPipeline, enableFullPipeline) ||
+                const DeepCollectionEquality().equals(
+                  other.enableFullPipeline,
+                  enableFullPipeline,
+                )) &&
+            (identical(other.referenceMode, referenceMode) ||
+                const DeepCollectionEquality().equals(
+                  other.referenceMode,
+                  referenceMode,
+                )) &&
+            (identical(other.customModelId, customModelId) ||
+                const DeepCollectionEquality().equals(
+                  other.customModelId,
+                  customModelId,
+                )) &&
+            (identical(other.selections, selections) ||
+                const DeepCollectionEquality().equals(
+                  other.selections,
+                  selections,
+                )) &&
+            (identical(other.imageIndex, imageIndex) ||
+                const DeepCollectionEquality().equals(
+                  other.imageIndex,
+                  imageIndex,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(useMultiModelImage) ^
+      const DeepCollectionEquality().hash(referenceImages) ^
+      const DeepCollectionEquality().hash(customPrompt) ^
+      const DeepCollectionEquality().hash(gender) ^
+      const DeepCollectionEquality().hash(count) ^
+      const DeepCollectionEquality().hash(age) ^
+      const DeepCollectionEquality().hash(physicalAppearance) ^
+      const DeepCollectionEquality().hash(styleTrendyElements) ^
+      const DeepCollectionEquality().hash(brand) ^
+      const DeepCollectionEquality().hash(budget) ^
+      const DeepCollectionEquality().hash(aspectRatio) ^
+      const DeepCollectionEquality().hash(modelImageUrl) ^
+      const DeepCollectionEquality().hash(enableFullPipeline) ^
+      const DeepCollectionEquality().hash(referenceMode) ^
+      const DeepCollectionEquality().hash(customModelId) ^
+      const DeepCollectionEquality().hash(selections) ^
+      const DeepCollectionEquality().hash(imageIndex) ^
+      runtimeType.hashCode;
+}
+
+extension $ComboServiceApiV1StyleOutfitsGeneratePostRequestExtension
+    on ComboServiceApiV1StyleOutfitsGeneratePostRequest {
+  ComboServiceApiV1StyleOutfitsGeneratePostRequest copyWith({
+    bool? useMultiModelImage,
+    List<String>? referenceImages,
+    String? customPrompt,
+    double? gender,
+    double? count,
+    String? age,
+    String? physicalAppearance,
+    String? styleTrendyElements,
+    String? brand,
+    String? budget,
+    String? aspectRatio,
+    String? modelImageUrl,
+    bool? enableFullPipeline,
+    String? referenceMode,
+    String? customModelId,
+    ComboServiceApiV1StyleOutfitsGeneratePostRequest$Selections? selections,
+    double? imageIndex,
+  }) {
+    return ComboServiceApiV1StyleOutfitsGeneratePostRequest(
+      useMultiModelImage: useMultiModelImage ?? this.useMultiModelImage,
+      referenceImages: referenceImages ?? this.referenceImages,
+      customPrompt: customPrompt ?? this.customPrompt,
+      gender: gender ?? this.gender,
+      count: count ?? this.count,
+      age: age ?? this.age,
+      physicalAppearance: physicalAppearance ?? this.physicalAppearance,
+      styleTrendyElements: styleTrendyElements ?? this.styleTrendyElements,
+      brand: brand ?? this.brand,
+      budget: budget ?? this.budget,
+      aspectRatio: aspectRatio ?? this.aspectRatio,
+      modelImageUrl: modelImageUrl ?? this.modelImageUrl,
+      enableFullPipeline: enableFullPipeline ?? this.enableFullPipeline,
+      referenceMode: referenceMode ?? this.referenceMode,
+      customModelId: customModelId ?? this.customModelId,
+      selections: selections ?? this.selections,
+      imageIndex: imageIndex ?? this.imageIndex,
+    );
+  }
+
+  ComboServiceApiV1StyleOutfitsGeneratePostRequest copyWithWrapped({
+    Wrapped<bool?>? useMultiModelImage,
+    Wrapped<List<String>?>? referenceImages,
+    Wrapped<String?>? customPrompt,
+    Wrapped<double?>? gender,
+    Wrapped<double?>? count,
+    Wrapped<String?>? age,
+    Wrapped<String?>? physicalAppearance,
+    Wrapped<String?>? styleTrendyElements,
+    Wrapped<String?>? brand,
+    Wrapped<String?>? budget,
+    Wrapped<String?>? aspectRatio,
+    Wrapped<String?>? modelImageUrl,
+    Wrapped<bool?>? enableFullPipeline,
+    Wrapped<String?>? referenceMode,
+    Wrapped<String?>? customModelId,
+    Wrapped<ComboServiceApiV1StyleOutfitsGeneratePostRequest$Selections?>?
+    selections,
+    Wrapped<double?>? imageIndex,
+  }) {
+    return ComboServiceApiV1StyleOutfitsGeneratePostRequest(
+      useMultiModelImage: (useMultiModelImage != null
+          ? useMultiModelImage.value
+          : this.useMultiModelImage),
+      referenceImages: (referenceImages != null
+          ? referenceImages.value
+          : this.referenceImages),
+      customPrompt: (customPrompt != null
+          ? customPrompt.value
+          : this.customPrompt),
+      gender: (gender != null ? gender.value : this.gender),
+      count: (count != null ? count.value : this.count),
+      age: (age != null ? age.value : this.age),
+      physicalAppearance: (physicalAppearance != null
+          ? physicalAppearance.value
+          : this.physicalAppearance),
+      styleTrendyElements: (styleTrendyElements != null
+          ? styleTrendyElements.value
+          : this.styleTrendyElements),
+      brand: (brand != null ? brand.value : this.brand),
+      budget: (budget != null ? budget.value : this.budget),
+      aspectRatio: (aspectRatio != null ? aspectRatio.value : this.aspectRatio),
+      modelImageUrl: (modelImageUrl != null
+          ? modelImageUrl.value
+          : this.modelImageUrl),
+      enableFullPipeline: (enableFullPipeline != null
+          ? enableFullPipeline.value
+          : this.enableFullPipeline),
+      referenceMode: (referenceMode != null
+          ? referenceMode.value
+          : this.referenceMode),
+      customModelId: (customModelId != null
+          ? customModelId.value
+          : this.customModelId),
+      selections: (selections != null ? selections.value : this.selections),
+      imageIndex: (imageIndex != null ? imageIndex.value : this.imageIndex),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class ComboServiceApiV1StyleOutfitsGeneratemodelRegeneratePostRequest {
+  const ComboServiceApiV1StyleOutfitsGeneratemodelRegeneratePostRequest({
+    this.taskId,
+  });
+
+  factory ComboServiceApiV1StyleOutfitsGeneratemodelRegeneratePostRequest.fromJson(
+    Map<String, dynamic> json,
+  ) =>
+      _$ComboServiceApiV1StyleOutfitsGeneratemodelRegeneratePostRequestFromJson(
+        json,
+      );
+
+  static const toJsonFactory =
+      _$ComboServiceApiV1StyleOutfitsGeneratemodelRegeneratePostRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$ComboServiceApiV1StyleOutfitsGeneratemodelRegeneratePostRequestToJson(
+        this,
+      );
+
+  @JsonKey(name: 'taskId', fromJson: JsonCoerce.asString)
+  final String? taskId;
+  static const fromJsonFactory =
+      _$ComboServiceApiV1StyleOutfitsGeneratemodelRegeneratePostRequestFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is ComboServiceApiV1StyleOutfitsGeneratemodelRegeneratePostRequest &&
+            (identical(other.taskId, taskId) ||
+                const DeepCollectionEquality().equals(other.taskId, taskId)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(taskId) ^ runtimeType.hashCode;
+}
+
+extension $ComboServiceApiV1StyleOutfitsGeneratemodelRegeneratePostRequestExtension
+    on ComboServiceApiV1StyleOutfitsGeneratemodelRegeneratePostRequest {
+  ComboServiceApiV1StyleOutfitsGeneratemodelRegeneratePostRequest copyWith({
+    String? taskId,
+  }) {
+    return ComboServiceApiV1StyleOutfitsGeneratemodelRegeneratePostRequest(
+      taskId: taskId ?? this.taskId,
+    );
+  }
+
+  ComboServiceApiV1StyleOutfitsGeneratemodelRegeneratePostRequest
+  copyWithWrapped({Wrapped<String?>? taskId}) {
+    return ComboServiceApiV1StyleOutfitsGeneratemodelRegeneratePostRequest(
+      taskId: (taskId != null ? taskId.value : this.taskId),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class ComboServiceApiV1StyleOutfitsGenerateRegeneratePostRequest {
+  const ComboServiceApiV1StyleOutfitsGenerateRegeneratePostRequest({
+    this.taskId,
+  });
+
+  factory ComboServiceApiV1StyleOutfitsGenerateRegeneratePostRequest.fromJson(
+    Map<String, dynamic> json,
+  ) => _$ComboServiceApiV1StyleOutfitsGenerateRegeneratePostRequestFromJson(
+    json,
+  );
+
+  static const toJsonFactory =
+      _$ComboServiceApiV1StyleOutfitsGenerateRegeneratePostRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$ComboServiceApiV1StyleOutfitsGenerateRegeneratePostRequestToJson(this);
+
+  @JsonKey(name: 'taskId', fromJson: JsonCoerce.asString)
+  final String? taskId;
+  static const fromJsonFactory =
+      _$ComboServiceApiV1StyleOutfitsGenerateRegeneratePostRequestFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is ComboServiceApiV1StyleOutfitsGenerateRegeneratePostRequest &&
+            (identical(other.taskId, taskId) ||
+                const DeepCollectionEquality().equals(other.taskId, taskId)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(taskId) ^ runtimeType.hashCode;
+}
+
+extension $ComboServiceApiV1StyleOutfitsGenerateRegeneratePostRequestExtension
+    on ComboServiceApiV1StyleOutfitsGenerateRegeneratePostRequest {
+  ComboServiceApiV1StyleOutfitsGenerateRegeneratePostRequest copyWith({
+    String? taskId,
+  }) {
+    return ComboServiceApiV1StyleOutfitsGenerateRegeneratePostRequest(
+      taskId: taskId ?? this.taskId,
+    );
+  }
+
+  ComboServiceApiV1StyleOutfitsGenerateRegeneratePostRequest copyWithWrapped({
+    Wrapped<String?>? taskId,
+  }) {
+    return ComboServiceApiV1StyleOutfitsGenerateRegeneratePostRequest(
+      taskId: (taskId != null ? taskId.value : this.taskId),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class ComboServiceBizUserShareRewardPageGetRequest {
+  const ComboServiceBizUserShareRewardPageGetRequest({
+    this.imgUrl,
+    this.target,
+  });
+
+  factory ComboServiceBizUserShareRewardPageGetRequest.fromJson(
+    Map<String, dynamic> json,
+  ) => _$ComboServiceBizUserShareRewardPageGetRequestFromJson(json);
+
+  static const toJsonFactory =
+      _$ComboServiceBizUserShareRewardPageGetRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$ComboServiceBizUserShareRewardPageGetRequestToJson(this);
+
+  @JsonKey(name: 'imgUrl', fromJson: JsonCoerce.asString)
+  final String? imgUrl;
+  @JsonKey(name: 'target', fromJson: JsonCoerce.asString)
+  final String? target;
+  static const fromJsonFactory =
+      _$ComboServiceBizUserShareRewardPageGetRequestFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is ComboServiceBizUserShareRewardPageGetRequest &&
+            (identical(other.imgUrl, imgUrl) ||
+                const DeepCollectionEquality().equals(other.imgUrl, imgUrl)) &&
+            (identical(other.target, target) ||
+                const DeepCollectionEquality().equals(other.target, target)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(imgUrl) ^
+      const DeepCollectionEquality().hash(target) ^
+      runtimeType.hashCode;
+}
+
+extension $ComboServiceBizUserShareRewardPageGetRequestExtension
+    on ComboServiceBizUserShareRewardPageGetRequest {
+  ComboServiceBizUserShareRewardPageGetRequest copyWith({
+    String? imgUrl,
+    String? target,
+  }) {
+    return ComboServiceBizUserShareRewardPageGetRequest(
+      imgUrl: imgUrl ?? this.imgUrl,
+      target: target ?? this.target,
+    );
+  }
+
+  ComboServiceBizUserShareRewardPageGetRequest copyWithWrapped({
+    Wrapped<String?>? imgUrl,
+    Wrapped<String?>? target,
+  }) {
+    return ComboServiceBizUserShareRewardPageGetRequest(
+      imgUrl: (imgUrl != null ? imgUrl.value : this.imgUrl),
+      target: (target != null ? target.value : this.target),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class ComboServiceBizUserShareRewardPostRequest {
+  const ComboServiceBizUserShareRewardPostRequest({this.orderId, this.content});
+
+  factory ComboServiceBizUserShareRewardPostRequest.fromJson(
+    Map<String, dynamic> json,
+  ) => _$ComboServiceBizUserShareRewardPostRequestFromJson(json);
+
+  static const toJsonFactory =
+      _$ComboServiceBizUserShareRewardPostRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$ComboServiceBizUserShareRewardPostRequestToJson(this);
+
+  @JsonKey(name: 'orderId', fromJson: JsonCoerce.asString)
+  final String? orderId;
+  @JsonKey(name: 'content', fromJson: JsonCoerce.asString)
+  final String? content;
+  static const fromJsonFactory =
+      _$ComboServiceBizUserShareRewardPostRequestFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is ComboServiceBizUserShareRewardPostRequest &&
+            (identical(other.orderId, orderId) ||
+                const DeepCollectionEquality().equals(
+                  other.orderId,
+                  orderId,
+                )) &&
+            (identical(other.content, content) ||
+                const DeepCollectionEquality().equals(other.content, content)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(orderId) ^
+      const DeepCollectionEquality().hash(content) ^
+      runtimeType.hashCode;
+}
+
+extension $ComboServiceBizUserShareRewardPostRequestExtension
+    on ComboServiceBizUserShareRewardPostRequest {
+  ComboServiceBizUserShareRewardPostRequest copyWith({
+    String? orderId,
+    String? content,
+  }) {
+    return ComboServiceBizUserShareRewardPostRequest(
+      orderId: orderId ?? this.orderId,
+      content: content ?? this.content,
+    );
+  }
+
+  ComboServiceBizUserShareRewardPostRequest copyWithWrapped({
+    Wrapped<String?>? orderId,
+    Wrapped<String?>? content,
+  }) {
+    return ComboServiceBizUserShareRewardPostRequest(
+      orderId: (orderId != null ? orderId.value : this.orderId),
+      content: (content != null ? content.value : this.content),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class ComboServiceNoAuthBizAlbumAlbuminfoGetRequest {
+  const ComboServiceNoAuthBizAlbumAlbuminfoGetRequest({
+    this.imgUrl,
+    this.target,
+  });
+
+  factory ComboServiceNoAuthBizAlbumAlbuminfoGetRequest.fromJson(
+    Map<String, dynamic> json,
+  ) => _$ComboServiceNoAuthBizAlbumAlbuminfoGetRequestFromJson(json);
+
+  static const toJsonFactory =
+      _$ComboServiceNoAuthBizAlbumAlbuminfoGetRequestToJson;
+  Map<String, dynamic> toJson() =>
+      _$ComboServiceNoAuthBizAlbumAlbuminfoGetRequestToJson(this);
+
+  @JsonKey(name: 'imgUrl', fromJson: JsonCoerce.asString)
+  final String? imgUrl;
+  @JsonKey(name: 'target', fromJson: JsonCoerce.asString)
+  final String? target;
+  static const fromJsonFactory =
+      _$ComboServiceNoAuthBizAlbumAlbuminfoGetRequestFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is ComboServiceNoAuthBizAlbumAlbuminfoGetRequest &&
+            (identical(other.imgUrl, imgUrl) ||
+                const DeepCollectionEquality().equals(other.imgUrl, imgUrl)) &&
+            (identical(other.target, target) ||
+                const DeepCollectionEquality().equals(other.target, target)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(imgUrl) ^
+      const DeepCollectionEquality().hash(target) ^
+      runtimeType.hashCode;
+}
+
+extension $ComboServiceNoAuthBizAlbumAlbuminfoGetRequestExtension
+    on ComboServiceNoAuthBizAlbumAlbuminfoGetRequest {
+  ComboServiceNoAuthBizAlbumAlbuminfoGetRequest copyWith({
+    String? imgUrl,
+    String? target,
+  }) {
+    return ComboServiceNoAuthBizAlbumAlbuminfoGetRequest(
+      imgUrl: imgUrl ?? this.imgUrl,
+      target: target ?? this.target,
+    );
+  }
+
+  ComboServiceNoAuthBizAlbumAlbuminfoGetRequest copyWithWrapped({
+    Wrapped<String?>? imgUrl,
+    Wrapped<String?>? target,
+  }) {
+    return ComboServiceNoAuthBizAlbumAlbuminfoGetRequest(
+      imgUrl: (imgUrl != null ? imgUrl.value : this.imgUrl),
+      target: (target != null ? target.value : this.target),
+    );
+  }
 }
 
 @JsonSerializable(explicitToJson: true)
@@ -3872,6 +5374,66 @@ extension $ComboServiceNoAuthBizAlbumAlbumInfoGet$ResponseExtension
       traceId: (traceId != null ? traceId.value : this.traceId),
       placeholder: (placeholder != null ? placeholder.value : this.placeholder),
       success: (success != null ? success.value : this.success),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class ComboServiceApiV1StyleOutfitsGeneratePostRequest$Selections {
+  const ComboServiceApiV1StyleOutfitsGeneratePostRequest$Selections({
+    this.occasion,
+  });
+
+  factory ComboServiceApiV1StyleOutfitsGeneratePostRequest$Selections.fromJson(
+    Map<String, dynamic> json,
+  ) => _$ComboServiceApiV1StyleOutfitsGeneratePostRequest$SelectionsFromJson(
+    json,
+  );
+
+  static const toJsonFactory =
+      _$ComboServiceApiV1StyleOutfitsGeneratePostRequest$SelectionsToJson;
+  Map<String, dynamic> toJson() =>
+      _$ComboServiceApiV1StyleOutfitsGeneratePostRequest$SelectionsToJson(this);
+
+  @JsonKey(name: 'occasion', fromJson: JsonCoerce.asString)
+  final String? occasion;
+  static const fromJsonFactory =
+      _$ComboServiceApiV1StyleOutfitsGeneratePostRequest$SelectionsFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is ComboServiceApiV1StyleOutfitsGeneratePostRequest$Selections &&
+            (identical(other.occasion, occasion) ||
+                const DeepCollectionEquality().equals(
+                  other.occasion,
+                  occasion,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(occasion) ^ runtimeType.hashCode;
+}
+
+extension $ComboServiceApiV1StyleOutfitsGeneratePostRequest$SelectionsExtension
+    on ComboServiceApiV1StyleOutfitsGeneratePostRequest$Selections {
+  ComboServiceApiV1StyleOutfitsGeneratePostRequest$Selections copyWith({
+    String? occasion,
+  }) {
+    return ComboServiceApiV1StyleOutfitsGeneratePostRequest$Selections(
+      occasion: occasion ?? this.occasion,
+    );
+  }
+
+  ComboServiceApiV1StyleOutfitsGeneratePostRequest$Selections copyWithWrapped({
+    Wrapped<String?>? occasion,
+  }) {
+    return ComboServiceApiV1StyleOutfitsGeneratePostRequest$Selections(
+      occasion: (occasion != null ? occasion.value : this.occasion),
     );
   }
 }

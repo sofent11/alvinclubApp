@@ -29,16 +29,7 @@
             "name": "root",
             "in": "body",
             "schema": {
-              "$schema": "http://json-schema.org/draft-04/schema#",
-              "type": "object",
-              "properties": {
-                "key": {
-                  "type": "string"
-                },
-                "value": {
-                  "type": "string"
-                }
-              }
+              "$ref": "#/definitions/ConfigServiceUserConfigPostRequest"
             }
           }
         ],
@@ -93,16 +84,7 @@
             "name": "root",
             "in": "body",
             "schema": {
-              "$schema": "http://json-schema.org/draft-04/schema#",
-              "type": "object",
-              "properties": {
-                "key": {
-                  "type": "string"
-                },
-                "value": {
-                  "type": "string"
-                }
-              }
+              "$ref": "#/definitions/ConfigServiceUserConfigGetRequest"
             }
           }
         ],
@@ -174,16 +156,7 @@
             "name": "root",
             "in": "body",
             "schema": {
-              "$schema": "http://json-schema.org/draft-04/schema#",
-              "type": "object",
-              "properties": {
-                "key": {
-                  "type": "string"
-                },
-                "value": {
-                  "type": "string"
-                }
-              }
+              "$ref": "#/definitions/ConfigServiceUserConfigNoAuthInstanceGetRequest"
             }
           }
         ],
@@ -212,6 +185,44 @@
               }
             }
           }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "ConfigServiceUserConfigPostRequest": {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      }
+    },
+    "ConfigServiceUserConfigGetRequest": {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
+        }
+      }
+    },
+    "ConfigServiceUserConfigNoAuthInstanceGetRequest": {
+      "$schema": "http://json-schema.org/draft-04/schema#",
+      "type": "object",
+      "properties": {
+        "key": {
+          "type": "string"
+        },
+        "value": {
+          "type": "string"
         }
       }
     }

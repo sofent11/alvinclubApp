@@ -24,7 +24,7 @@ final class _$SwaggerApiProduct extends SwaggerApiProduct {
     required String? productCode,
     required String? current,
     required String? size,
-    Object? root,
+    ProductServiceProductReviewNoAuthPageGetRequest? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '分页拉取商品评论',
@@ -61,7 +61,7 @@ final class _$SwaggerApiProduct extends SwaggerApiProduct {
   Future<Response<ProductServiceProductReviewNoAuthSummaryGet$Response>>
   _productServiceProductReviewNoAuthSummaryGet({
     required String? productCode,
-    Object? root,
+    ProductServiceProductReviewNoAuthSummaryGetRequest? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '拉取商品精选评论',
@@ -220,7 +220,7 @@ final class _$SwaggerApiProduct extends SwaggerApiProduct {
   @override
   Future<Response<ProductServiceProductPremiumDupeNoAuthPagePost$Response>>
   _productServiceProductPremiumDupeNoAuthPagePost({
-    Object? root,
+    ProductServiceProductPremiumDupeNoAuthPagePostRequest? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '分页获取大牌平替商品列表，支持按分类过滤和多种排序方式。无需登录认证。',
       summary: '分页查询大牌平替商品',
@@ -351,7 +351,7 @@ final class _$SwaggerApiProduct extends SwaggerApiProduct {
   @override
   Future<Response<ProductServiceSizeChartNoAuthTranslateCallbackPost$Response>>
   _productServiceSizeChartNoAuthTranslateCallbackPost({
-    Object? root,
+    ProductServiceSizeChartNoAuthTranslateCallbackPostRequest? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '更新尺码图回调接口',
@@ -1014,7 +1014,7 @@ final class _$SwaggerApiProduct extends SwaggerApiProduct {
     Response<ProductServiceRecommendNoAuthCategoryRecommendationGet$Response>
   >
   _productServiceRecommendNoAuthCategoryRecommendationGet({
-    Object? root,
+    ProductServiceRecommendNoAuthCategoryrecommendationGetRequest? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '分类热门商品推荐',
@@ -1046,7 +1046,7 @@ final class _$SwaggerApiProduct extends SwaggerApiProduct {
   @override
   Future<Response<ProductServiceRecommendNoAuthCategoryPost$Response>>
   _productServiceRecommendNoAuthCategoryPost({
-    Object? root,
+    ProductServiceRecommendNoAuthCategoryPostRequest? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '分类页商品',
@@ -1076,7 +1076,7 @@ final class _$SwaggerApiProduct extends SwaggerApiProduct {
   @override
   Future<Response<ProductServiceRecommendNoAuthShopPost$Response>>
   _productServiceRecommendNoAuthShopPost({
-    Object? root,
+    ProductServiceRecommendNoAuthShopPostRequest? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '店铺页商品',
@@ -1106,7 +1106,7 @@ final class _$SwaggerApiProduct extends SwaggerApiProduct {
   @override
   Future<Response<ProductServiceRecommendNoAuthSimilarProductPost$Response>>
   _productServiceRecommendNoAuthSimilarProductPost({
-    Object? root,
+    ProductServiceRecommendNoAuthSimilarproductPostRequest? root,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '相关商品【后续可能会有换一批之类，用分页接口】',
