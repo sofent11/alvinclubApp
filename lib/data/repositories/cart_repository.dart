@@ -156,7 +156,7 @@ class CartRepository {
 
   Future<CartPayload> getCart() async {
     final api = _ref.read(swaggerOrderApiProvider);
-    final response = await api.orderServiceCartListGet(root: {'skuList': []});
+    final response = await api.orderServiceCartListGet(root: null);
 
     final body = response.body;
     if (body == null || _parseInt(body.code) != 0 || body.data == null) {

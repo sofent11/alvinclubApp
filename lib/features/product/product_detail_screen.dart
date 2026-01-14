@@ -596,7 +596,7 @@ class _ProductDetailContentState extends ConsumerState<_ProductDetailContent> {
             ),
             const SizedBox(width: 8),
             IconButton(
-              onPressed: () => context.push(RoutePaths.cart),
+              onPressed: () => context.go(RoutePaths.cart),
               icon: const Icon(Icons.shopping_cart_outlined),
               color: Colors.black,
             ),
