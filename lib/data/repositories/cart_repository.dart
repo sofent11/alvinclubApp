@@ -236,7 +236,7 @@ class CartRepository {
           .map(
             (item) => order.OrderServiceCartUpdatePostRequest$Cart$Item(
               skuCode: item.skuCode,
-              quantity: item.quantity?.toDouble(),
+              quantity: item.quantity,
               orderUpdate: input.orderUpdate ?? '1',
               remark: item.remark,
             ),
@@ -264,7 +264,7 @@ class CartRepository {
           .map(
             (item) => order.OrderServiceCartPricingPostRequest$SkuList$Item(
               skuCode: item.skuCode,
-              quantity: item.quantity.toDouble(),
+              quantity: item.quantity,
             ),
           )
           .toList(),

@@ -1879,8 +1879,8 @@ class UserServiceAddressUpdatePostRequest {
   Map<String, dynamic> toJson() =>
       _$UserServiceAddressUpdatePostRequestToJson(this);
 
-  @JsonKey(name: 'isDefault', fromJson: JsonCoerce.asDouble)
-  final double? isDefault;
+  @JsonKey(name: 'isDefault', fromJson: JsonCoerce.asInt)
+  final int? isDefault;
   @JsonKey(name: 'country', fromJson: JsonCoerce.asString)
   final String? country;
   @JsonKey(name: 'countryCode', fromJson: JsonCoerce.asString)
@@ -1911,8 +1911,8 @@ class UserServiceAddressUpdatePostRequest {
   final String? zipCode;
   @JsonKey(name: 'userId', fromJson: JsonCoerce.asString)
   final String? userId;
-  @JsonKey(name: 'id', fromJson: JsonCoerce.asDouble)
-  final double? id;
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asInt)
+  final int? id;
   @JsonKey(name: 'remark', fromJson: JsonCoerce.asString)
   final String? remark;
   @JsonKey(name: 'accessCode', fromJson: JsonCoerce.asString)
@@ -2042,7 +2042,7 @@ class UserServiceAddressUpdatePostRequest {
 extension $UserServiceAddressUpdatePostRequestExtension
     on UserServiceAddressUpdatePostRequest {
   UserServiceAddressUpdatePostRequest copyWith({
-    double? isDefault,
+    int? isDefault,
     String? country,
     String? countryCode,
     String? state,
@@ -2058,7 +2058,7 @@ extension $UserServiceAddressUpdatePostRequestExtension
     String? phoneNumber,
     String? zipCode,
     String? userId,
-    double? id,
+    int? id,
     String? remark,
     String? accessCode,
     String? email,
@@ -2090,7 +2090,7 @@ extension $UserServiceAddressUpdatePostRequestExtension
   }
 
   UserServiceAddressUpdatePostRequest copyWithWrapped({
-    Wrapped<double?>? isDefault,
+    Wrapped<int?>? isDefault,
     Wrapped<String?>? country,
     Wrapped<String?>? countryCode,
     Wrapped<String?>? state,
@@ -2106,7 +2106,7 @@ extension $UserServiceAddressUpdatePostRequestExtension
     Wrapped<String?>? phoneNumber,
     Wrapped<String?>? zipCode,
     Wrapped<String?>? userId,
-    Wrapped<double?>? id,
+    Wrapped<int?>? id,
     Wrapped<String?>? remark,
     Wrapped<String?>? accessCode,
     Wrapped<String?>? email,
@@ -2171,8 +2171,8 @@ class UserServiceAddressAddPostRequest {
   Map<String, dynamic> toJson() =>
       _$UserServiceAddressAddPostRequestToJson(this);
 
-  @JsonKey(name: 'isDefault', fromJson: JsonCoerce.asDouble)
-  final double? isDefault;
+  @JsonKey(name: 'isDefault', fromJson: JsonCoerce.asInt)
+  final int? isDefault;
   @JsonKey(name: 'username', fromJson: JsonCoerce.asString)
   final String? username;
   @JsonKey(name: 'country', fromJson: JsonCoerce.asString)
@@ -2332,7 +2332,7 @@ class UserServiceAddressAddPostRequest {
 extension $UserServiceAddressAddPostRequestExtension
     on UserServiceAddressAddPostRequest {
   UserServiceAddressAddPostRequest copyWith({
-    double? isDefault,
+    int? isDefault,
     String? username,
     String? country,
     String? countryCode,
@@ -2378,7 +2378,7 @@ extension $UserServiceAddressAddPostRequestExtension
   }
 
   UserServiceAddressAddPostRequest copyWithWrapped({
-    Wrapped<double?>? isDefault,
+    Wrapped<int?>? isDefault,
     Wrapped<String?>? username,
     Wrapped<String?>? country,
     Wrapped<String?>? countryCode,
@@ -2576,10 +2576,10 @@ class UserServiceSigninInitPostRequest {
 
   @JsonKey(name: 'loginName', fromJson: JsonCoerce.asString)
   final String? loginName;
-  @JsonKey(name: 'authWay', fromJson: JsonCoerce.asDouble)
-  final double? authWay;
-  @JsonKey(name: 'source', fromJson: JsonCoerce.asDouble)
-  final double? source;
+  @JsonKey(name: 'authWay', fromJson: JsonCoerce.asInt)
+  final int? authWay;
+  @JsonKey(name: 'source', fromJson: JsonCoerce.asInt)
+  final int? source;
   static const fromJsonFactory = _$UserServiceSigninInitPostRequestFromJson;
 
   @override
@@ -2615,8 +2615,8 @@ extension $UserServiceSigninInitPostRequestExtension
     on UserServiceSigninInitPostRequest {
   UserServiceSigninInitPostRequest copyWith({
     String? loginName,
-    double? authWay,
-    double? source,
+    int? authWay,
+    int? source,
   }) {
     return UserServiceSigninInitPostRequest(
       loginName: loginName ?? this.loginName,
@@ -2627,8 +2627,8 @@ extension $UserServiceSigninInitPostRequestExtension
 
   UserServiceSigninInitPostRequest copyWithWrapped({
     Wrapped<String?>? loginName,
-    Wrapped<double?>? authWay,
-    Wrapped<double?>? source,
+    Wrapped<int?>? authWay,
+    Wrapped<int?>? source,
   }) {
     return UserServiceSigninInitPostRequest(
       loginName: (loginName != null ? loginName.value : this.loginName),
@@ -2790,8 +2790,8 @@ class UserServiceSigninCallPostRequest {
   Map<String, dynamic> toJson() =>
       _$UserServiceSigninCallPostRequestToJson(this);
 
-  @JsonKey(name: 'authWay', fromJson: JsonCoerce.asDouble)
-  final double? authWay;
+  @JsonKey(name: 'authWay', fromJson: JsonCoerce.asInt)
+  final int? authWay;
   @JsonKey(name: 'code', fromJson: JsonCoerce.asString)
   final String? code;
   @JsonKey(name: 'inviteCode', fromJson: JsonCoerce.asString)
@@ -2838,7 +2838,7 @@ class UserServiceSigninCallPostRequest {
 extension $UserServiceSigninCallPostRequestExtension
     on UserServiceSigninCallPostRequest {
   UserServiceSigninCallPostRequest copyWith({
-    double? authWay,
+    int? authWay,
     String? code,
     String? inviteCode,
     String? portalCode,
@@ -2852,7 +2852,7 @@ extension $UserServiceSigninCallPostRequestExtension
   }
 
   UserServiceSigninCallPostRequest copyWithWrapped({
-    Wrapped<double?>? authWay,
+    Wrapped<int?>? authWay,
     Wrapped<String?>? code,
     Wrapped<String?>? inviteCode,
     Wrapped<String?>? portalCode,
@@ -3418,8 +3418,8 @@ class UserServiceUserUpdatePostRequest {
   final String? nickname;
   @JsonKey(name: 'description', fromJson: JsonCoerce.asString)
   final String? description;
-  @JsonKey(name: 'gender', fromJson: JsonCoerce.asDouble)
-  final double? gender;
+  @JsonKey(name: 'gender', fromJson: JsonCoerce.asInt)
+  final int? gender;
   @JsonKey(name: 'birthday', fromJson: JsonCoerce.asString)
   final String? birthday;
   @JsonKey(name: 'photo', fromJson: JsonCoerce.asString)
@@ -3499,7 +3499,7 @@ extension $UserServiceUserUpdatePostRequestExtension
     String? userId,
     String? nickname,
     String? description,
-    double? gender,
+    int? gender,
     String? birthday,
     String? photo,
     String? phoneNumber,
@@ -3525,7 +3525,7 @@ extension $UserServiceUserUpdatePostRequestExtension
     Wrapped<String?>? userId,
     Wrapped<String?>? nickname,
     Wrapped<String?>? description,
-    Wrapped<double?>? gender,
+    Wrapped<int?>? gender,
     Wrapped<String?>? birthday,
     Wrapped<String?>? photo,
     Wrapped<String?>? phoneNumber,
@@ -3710,12 +3710,12 @@ class UserServiceUserTagPortraitUpdatePortraitPostRequest {
   Map<String, dynamic> toJson() =>
       _$UserServiceUserTagPortraitUpdatePortraitPostRequestToJson(this);
 
-  @JsonKey(name: 'age', fromJson: JsonCoerce.asDouble)
-  final double? age;
-  @JsonKey(name: 'sex', fromJson: JsonCoerce.asDouble)
-  final double? sex;
-  @JsonKey(name: 'birthday', fromJson: JsonCoerce.asDouble)
-  final double? birthday;
+  @JsonKey(name: 'age', fromJson: JsonCoerce.asInt)
+  final int? age;
+  @JsonKey(name: 'sex', fromJson: JsonCoerce.asInt)
+  final int? sex;
+  @JsonKey(name: 'birthday', fromJson: JsonCoerce.asInt)
+  final int? birthday;
   @JsonKey(name: 'nickname', fromJson: JsonCoerce.asString)
   final String? nickname;
   @JsonKey(name: 'avatarUrl', fromJson: JsonCoerce.asString)
@@ -3787,9 +3787,9 @@ class UserServiceUserTagPortraitUpdatePortraitPostRequest {
 extension $UserServiceUserTagPortraitUpdatePortraitPostRequestExtension
     on UserServiceUserTagPortraitUpdatePortraitPostRequest {
   UserServiceUserTagPortraitUpdatePortraitPostRequest copyWith({
-    double? age,
-    double? sex,
-    double? birthday,
+    int? age,
+    int? sex,
+    int? birthday,
     String? nickname,
     String? avatarUrl,
     List<String>? favoriteShoppingPlatforms,
@@ -3808,9 +3808,9 @@ extension $UserServiceUserTagPortraitUpdatePortraitPostRequestExtension
   }
 
   UserServiceUserTagPortraitUpdatePortraitPostRequest copyWithWrapped({
-    Wrapped<double?>? age,
-    Wrapped<double?>? sex,
-    Wrapped<double?>? birthday,
+    Wrapped<int?>? age,
+    Wrapped<int?>? sex,
+    Wrapped<int?>? birthday,
     Wrapped<String?>? nickname,
     Wrapped<String?>? avatarUrl,
     Wrapped<List<String>?>? favoriteShoppingPlatforms,
@@ -3852,12 +3852,12 @@ class UserServiceUserTagPortraitGetPortraitGetRequest {
   Map<String, dynamic> toJson() =>
       _$UserServiceUserTagPortraitGetPortraitGetRequestToJson(this);
 
-  @JsonKey(name: 'age', fromJson: JsonCoerce.asDouble)
-  final double? age;
-  @JsonKey(name: 'sex', fromJson: JsonCoerce.asDouble)
-  final double? sex;
-  @JsonKey(name: 'birthday', fromJson: JsonCoerce.asDouble)
-  final double? birthday;
+  @JsonKey(name: 'age', fromJson: JsonCoerce.asInt)
+  final int? age;
+  @JsonKey(name: 'sex', fromJson: JsonCoerce.asInt)
+  final int? sex;
+  @JsonKey(name: 'birthday', fromJson: JsonCoerce.asInt)
+  final int? birthday;
   @JsonKey(name: 'nickname', fromJson: JsonCoerce.asString)
   final String? nickname;
   @JsonKey(
@@ -3921,9 +3921,9 @@ class UserServiceUserTagPortraitGetPortraitGetRequest {
 extension $UserServiceUserTagPortraitGetPortraitGetRequestExtension
     on UserServiceUserTagPortraitGetPortraitGetRequest {
   UserServiceUserTagPortraitGetPortraitGetRequest copyWith({
-    double? age,
-    double? sex,
-    double? birthday,
+    int? age,
+    int? sex,
+    int? birthday,
     String? nickname,
     List<String>? favoriteShoppingPlatforms,
     String? favoriteBrands,
@@ -3940,9 +3940,9 @@ extension $UserServiceUserTagPortraitGetPortraitGetRequestExtension
   }
 
   UserServiceUserTagPortraitGetPortraitGetRequest copyWithWrapped({
-    Wrapped<double?>? age,
-    Wrapped<double?>? sex,
-    Wrapped<double?>? birthday,
+    Wrapped<int?>? age,
+    Wrapped<int?>? sex,
+    Wrapped<int?>? birthday,
     Wrapped<String?>? nickname,
     Wrapped<List<String>?>? favoriteShoppingPlatforms,
     Wrapped<String?>? favoriteBrands,
@@ -3980,12 +3980,12 @@ class UserServiceAddressUpdatePost$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceAddressUpdatePost$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
-  @JsonKey(name: 'data', fromJson: JsonCoerce.asDouble)
-  final double? data;
+  @JsonKey(name: 'data', fromJson: JsonCoerce.asInt)
+  final int? data;
   @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
@@ -4031,9 +4031,9 @@ class UserServiceAddressUpdatePost$Response {
 extension $UserServiceAddressUpdatePost$ResponseExtension
     on UserServiceAddressUpdatePost$Response {
   UserServiceAddressUpdatePost$Response copyWith({
-    double? code,
+    int? code,
     String? message,
-    double? data,
+    int? data,
     String? traceId,
     bool? success,
   }) {
@@ -4047,9 +4047,9 @@ extension $UserServiceAddressUpdatePost$ResponseExtension
   }
 
   UserServiceAddressUpdatePost$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
-    Wrapped<double?>? data,
+    Wrapped<int?>? data,
     Wrapped<String?>? traceId,
     Wrapped<bool?>? success,
   }) {
@@ -4081,12 +4081,12 @@ class UserServiceAddressDeleteDelete$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceAddressDeleteDelete$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
-  @JsonKey(name: 'data', fromJson: JsonCoerce.asDouble)
-  final double? data;
+  @JsonKey(name: 'data', fromJson: JsonCoerce.asInt)
+  final int? data;
   @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
@@ -4132,9 +4132,9 @@ class UserServiceAddressDeleteDelete$Response {
 extension $UserServiceAddressDeleteDelete$ResponseExtension
     on UserServiceAddressDeleteDelete$Response {
   UserServiceAddressDeleteDelete$Response copyWith({
-    double? code,
+    int? code,
     String? message,
-    double? data,
+    int? data,
     String? traceId,
     bool? success,
   }) {
@@ -4148,9 +4148,9 @@ extension $UserServiceAddressDeleteDelete$ResponseExtension
   }
 
   UserServiceAddressDeleteDelete$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
-    Wrapped<double?>? data,
+    Wrapped<int?>? data,
     Wrapped<String?>? traceId,
     Wrapped<bool?>? success,
   }) {
@@ -4183,8 +4183,8 @@ class UserServiceAddressQueryGet$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceAddressQueryGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
@@ -4241,7 +4241,7 @@ class UserServiceAddressQueryGet$Response {
 extension $UserServiceAddressQueryGet$ResponseExtension
     on UserServiceAddressQueryGet$Response {
   UserServiceAddressQueryGet$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     List<UserServiceAddressQueryGet$Response$Data$Item>? data,
     String? traceId,
@@ -4259,7 +4259,7 @@ extension $UserServiceAddressQueryGet$ResponseExtension
   }
 
   UserServiceAddressQueryGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<List<UserServiceAddressQueryGet$Response$Data$Item>?>? data,
     Wrapped<String?>? traceId,
@@ -4296,8 +4296,8 @@ class UserServiceNoAuthSupportCountryGet$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceNoAuthSupportCountryGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(
@@ -4351,7 +4351,7 @@ class UserServiceNoAuthSupportCountryGet$Response {
 extension $UserServiceNoAuthSupportCountryGet$ResponseExtension
     on UserServiceNoAuthSupportCountryGet$Response {
   UserServiceNoAuthSupportCountryGet$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     List<String>? data,
     Object? placeholder,
@@ -4367,7 +4367,7 @@ extension $UserServiceNoAuthSupportCountryGet$ResponseExtension
   }
 
   UserServiceNoAuthSupportCountryGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<List<String>?>? data,
     Wrapped<Object?>? placeholder,
@@ -4402,8 +4402,8 @@ class UserServiceAddressListGet$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceAddressListGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
@@ -4460,7 +4460,7 @@ class UserServiceAddressListGet$Response {
 extension $UserServiceAddressListGet$ResponseExtension
     on UserServiceAddressListGet$Response {
   UserServiceAddressListGet$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     List<UserServiceAddressListGet$Response$Data$Item>? data,
     String? traceId,
@@ -4478,7 +4478,7 @@ extension $UserServiceAddressListGet$ResponseExtension
   }
 
   UserServiceAddressListGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<List<UserServiceAddressListGet$Response$Data$Item>?>? data,
     Wrapped<String?>? traceId,
@@ -4515,8 +4515,8 @@ class UserServiceGetShippingAddressByCountryGet$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceGetShippingAddressByCountryGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
@@ -4566,7 +4566,7 @@ class UserServiceGetShippingAddressByCountryGet$Response {
 extension $UserServiceGetShippingAddressByCountryGet$ResponseExtension
     on UserServiceGetShippingAddressByCountryGet$Response {
   UserServiceGetShippingAddressByCountryGet$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     UserServiceGetShippingAddressByCountryGet$Response$Data? data,
     Object? placeholder,
@@ -4582,7 +4582,7 @@ extension $UserServiceGetShippingAddressByCountryGet$ResponseExtension
   }
 
   UserServiceGetShippingAddressByCountryGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<UserServiceGetShippingAddressByCountryGet$Response$Data?>? data,
     Wrapped<Object?>? placeholder,
@@ -4616,12 +4616,12 @@ class UserServiceAddressAddPost$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceAddressAddPost$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
-  @JsonKey(name: 'data', fromJson: JsonCoerce.asDouble)
-  final double? data;
+  @JsonKey(name: 'data', fromJson: JsonCoerce.asInt)
+  final int? data;
   @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
   final String? traceId;
   @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
@@ -4666,9 +4666,9 @@ class UserServiceAddressAddPost$Response {
 extension $UserServiceAddressAddPost$ResponseExtension
     on UserServiceAddressAddPost$Response {
   UserServiceAddressAddPost$Response copyWith({
-    double? code,
+    int? code,
     String? message,
-    double? data,
+    int? data,
     String? traceId,
     bool? success,
   }) {
@@ -4682,9 +4682,9 @@ extension $UserServiceAddressAddPost$ResponseExtension
   }
 
   UserServiceAddressAddPost$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
-    Wrapped<double?>? data,
+    Wrapped<int?>? data,
     Wrapped<String?>? traceId,
     Wrapped<bool?>? success,
   }) {
@@ -4717,8 +4717,8 @@ class UserServiceGetDefaultShippingAddressGet$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceGetDefaultShippingAddressGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
@@ -4768,7 +4768,7 @@ class UserServiceGetDefaultShippingAddressGet$Response {
 extension $UserServiceGetDefaultShippingAddressGet$ResponseExtension
     on UserServiceGetDefaultShippingAddressGet$Response {
   UserServiceGetDefaultShippingAddressGet$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     UserServiceGetDefaultShippingAddressGet$Response$Data? data,
     Object? placeholder,
@@ -4784,7 +4784,7 @@ extension $UserServiceGetDefaultShippingAddressGet$ResponseExtension
   }
 
   UserServiceGetDefaultShippingAddressGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<UserServiceGetDefaultShippingAddressGet$Response$Data?>? data,
     Wrapped<Object?>? placeholder,
@@ -4818,8 +4818,8 @@ class UserServiceAddressCountryGet$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceAddressCountryGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
@@ -4869,7 +4869,7 @@ class UserServiceAddressCountryGet$Response {
 extension $UserServiceAddressCountryGet$ResponseExtension
     on UserServiceAddressCountryGet$Response {
   UserServiceAddressCountryGet$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     List<UserServiceAddressCountryGet$Response$Data$Item>? data,
     Object? placeholder,
@@ -4885,7 +4885,7 @@ extension $UserServiceAddressCountryGet$ResponseExtension
   }
 
   UserServiceAddressCountryGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<List<UserServiceAddressCountryGet$Response$Data$Item>?>? data,
     Wrapped<Object?>? placeholder,
@@ -4921,8 +4921,8 @@ class UserServiceAddressQueryByZipCodeGet$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceAddressQueryByZipCodeGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
@@ -4980,7 +4980,7 @@ class UserServiceAddressQueryByZipCodeGet$Response {
 extension $UserServiceAddressQueryByZipCodeGet$ResponseExtension
     on UserServiceAddressQueryByZipCodeGet$Response {
   UserServiceAddressQueryByZipCodeGet$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     List<UserServiceAddressQueryByZipCodeGet$Response$Data$Item>? data,
     String? traceId,
@@ -4998,7 +4998,7 @@ extension $UserServiceAddressQueryByZipCodeGet$ResponseExtension
   }
 
   UserServiceAddressQueryByZipCodeGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<List<UserServiceAddressQueryByZipCodeGet$Response$Data$Item>?>?
     data,
@@ -5036,8 +5036,8 @@ class UserServiceUserInnerUpdUserLevelPost$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceUserInnerUpdUserLevelPost$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
@@ -5087,7 +5087,7 @@ class UserServiceUserInnerUpdUserLevelPost$Response {
 extension $UserServiceUserInnerUpdUserLevelPost$ResponseExtension
     on UserServiceUserInnerUpdUserLevelPost$Response {
   UserServiceUserInnerUpdUserLevelPost$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     Object? data,
     String? traceId,
@@ -5103,7 +5103,7 @@ extension $UserServiceUserInnerUpdUserLevelPost$ResponseExtension
   }
 
   UserServiceUserInnerUpdUserLevelPost$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<Object?>? data,
     Wrapped<String?>? traceId,
@@ -5140,8 +5140,8 @@ class UserServiceSigninSwitchPortalPost$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceSigninSwitchPortalPost$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
@@ -5207,7 +5207,7 @@ class UserServiceSigninSwitchPortalPost$Response {
 extension $UserServiceSigninSwitchPortalPost$ResponseExtension
     on UserServiceSigninSwitchPortalPost$Response {
   UserServiceSigninSwitchPortalPost$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     UserServiceSigninSwitchPortalPost$Response$Data? data,
     String? traceId,
@@ -5227,7 +5227,7 @@ extension $UserServiceSigninSwitchPortalPost$ResponseExtension
   }
 
   UserServiceSigninSwitchPortalPost$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<UserServiceSigninSwitchPortalPost$Response$Data?>? data,
     Wrapped<String?>? traceId,
@@ -5264,8 +5264,8 @@ class UserServiceSignInInitPost$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceSignInInitPost$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
@@ -5306,7 +5306,7 @@ class UserServiceSignInInitPost$Response {
 extension $UserServiceSignInInitPost$ResponseExtension
     on UserServiceSignInInitPost$Response {
   UserServiceSignInInitPost$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     UserServiceSignInInitPost$Response$Data? data,
     Object? traceId,
@@ -5320,7 +5320,7 @@ extension $UserServiceSignInInitPost$ResponseExtension
   }
 
   UserServiceSignInInitPost$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<UserServiceSignInInitPost$Response$Data?>? data,
     Wrapped<Object?>? traceId,
@@ -5351,8 +5351,8 @@ class UserServiceOtpApplyPost$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceOtpApplyPost$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data', fromJson: JsonCoerce.asString)
@@ -5393,7 +5393,7 @@ class UserServiceOtpApplyPost$Response {
 extension $UserServiceOtpApplyPost$ResponseExtension
     on UserServiceOtpApplyPost$Response {
   UserServiceOtpApplyPost$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     String? data,
     Object? traceId,
@@ -5407,7 +5407,7 @@ extension $UserServiceOtpApplyPost$ResponseExtension
   }
 
   UserServiceOtpApplyPost$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<String?>? data,
     Wrapped<Object?>? traceId,
@@ -5441,8 +5441,8 @@ class UserServiceSignInVerifyPost$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceSignInVerifyPost$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
@@ -5507,7 +5507,7 @@ class UserServiceSignInVerifyPost$Response {
 extension $UserServiceSignInVerifyPost$ResponseExtension
     on UserServiceSignInVerifyPost$Response {
   UserServiceSignInVerifyPost$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     UserServiceSignInVerifyPost$Response$Data? data,
     String? traceId,
@@ -5527,7 +5527,7 @@ extension $UserServiceSignInVerifyPost$ResponseExtension
   }
 
   UserServiceSignInVerifyPost$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<UserServiceSignInVerifyPost$Response$Data?>? data,
     Wrapped<String?>? traceId,
@@ -5567,8 +5567,8 @@ class UserServiceSignInCallPost$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceSignInCallPost$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
@@ -5633,7 +5633,7 @@ class UserServiceSignInCallPost$Response {
 extension $UserServiceSignInCallPost$ResponseExtension
     on UserServiceSignInCallPost$Response {
   UserServiceSignInCallPost$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     UserServiceSignInCallPost$Response$Data? data,
     String? traceId,
@@ -5653,7 +5653,7 @@ extension $UserServiceSignInCallPost$ResponseExtension
   }
 
   UserServiceSignInCallPost$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<UserServiceSignInCallPost$Response$Data?>? data,
     Wrapped<String?>? traceId,
@@ -5693,8 +5693,8 @@ class UserServiceNoAuthOtpVerifyPost$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceNoAuthOtpVerifyPost$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
@@ -5760,7 +5760,7 @@ class UserServiceNoAuthOtpVerifyPost$Response {
 extension $UserServiceNoAuthOtpVerifyPost$ResponseExtension
     on UserServiceNoAuthOtpVerifyPost$Response {
   UserServiceNoAuthOtpVerifyPost$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     UserServiceNoAuthOtpVerifyPost$Response$Data? data,
     String? traceId,
@@ -5780,7 +5780,7 @@ extension $UserServiceNoAuthOtpVerifyPost$ResponseExtension
   }
 
   UserServiceNoAuthOtpVerifyPost$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<UserServiceNoAuthOtpVerifyPost$Response$Data?>? data,
     Wrapped<String?>? traceId,
@@ -5819,8 +5819,8 @@ class UserServiceNoAuthCommonConfigDefaultSettingGet$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceNoAuthCommonConfigDefaultSettingGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
@@ -5870,7 +5870,7 @@ class UserServiceNoAuthCommonConfigDefaultSettingGet$Response {
 extension $UserServiceNoAuthCommonConfigDefaultSettingGet$ResponseExtension
     on UserServiceNoAuthCommonConfigDefaultSettingGet$Response {
   UserServiceNoAuthCommonConfigDefaultSettingGet$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     UserServiceNoAuthCommonConfigDefaultSettingGet$Response$Data? data,
     Object? placeholder,
@@ -5886,7 +5886,7 @@ extension $UserServiceNoAuthCommonConfigDefaultSettingGet$ResponseExtension
   }
 
   UserServiceNoAuthCommonConfigDefaultSettingGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<UserServiceNoAuthCommonConfigDefaultSettingGet$Response$Data?>?
     data,
@@ -6077,8 +6077,8 @@ class UserServiceUserCouponCountGet$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceUserCouponCountGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
@@ -6136,7 +6136,7 @@ class UserServiceUserCouponCountGet$Response {
 extension $UserServiceUserCouponCountGet$ResponseExtension
     on UserServiceUserCouponCountGet$Response {
   UserServiceUserCouponCountGet$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     UserServiceUserCouponCountGet$Response$Data? data,
     String? traceId,
@@ -6154,7 +6154,7 @@ extension $UserServiceUserCouponCountGet$ResponseExtension
   }
 
   UserServiceUserCouponCountGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<UserServiceUserCouponCountGet$Response$Data?>? data,
     Wrapped<String?>? traceId,
@@ -6261,8 +6261,8 @@ class UserServiceUserCouponCode2CouponGet$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceUserCouponCode2CouponGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
@@ -6320,7 +6320,7 @@ class UserServiceUserCouponCode2CouponGet$Response {
 extension $UserServiceUserCouponCode2CouponGet$ResponseExtension
     on UserServiceUserCouponCode2CouponGet$Response {
   UserServiceUserCouponCode2CouponGet$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     UserServiceUserCouponCode2CouponGet$Response$Data? data,
     String? traceId,
@@ -6338,7 +6338,7 @@ extension $UserServiceUserCouponCode2CouponGet$ResponseExtension
   }
 
   UserServiceUserCouponCode2CouponGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<UserServiceUserCouponCode2CouponGet$Response$Data?>? data,
     Wrapped<String?>? traceId,
@@ -6446,8 +6446,8 @@ class UserServiceUserCouponGetActivitiesGet$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceUserCouponGetActivitiesGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(
@@ -6509,7 +6509,7 @@ class UserServiceUserCouponGetActivitiesGet$Response {
 extension $UserServiceUserCouponGetActivitiesGet$ResponseExtension
     on UserServiceUserCouponGetActivitiesGet$Response {
   UserServiceUserCouponGetActivitiesGet$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     List<String>? data,
     String? traceId,
@@ -6527,7 +6527,7 @@ extension $UserServiceUserCouponGetActivitiesGet$ResponseExtension
   }
 
   UserServiceUserCouponGetActivitiesGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<List<String>?>? data,
     Wrapped<String?>? traceId,
@@ -6564,8 +6564,8 @@ class UserServiceUserCouponGetListGet$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceUserCouponGetListGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
@@ -6623,7 +6623,7 @@ class UserServiceUserCouponGetListGet$Response {
 extension $UserServiceUserCouponGetListGet$ResponseExtension
     on UserServiceUserCouponGetListGet$Response {
   UserServiceUserCouponGetListGet$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     List<UserServiceUserCouponGetListGet$Response$Data$Item>? data,
     String? traceId,
@@ -6641,7 +6641,7 @@ extension $UserServiceUserCouponGetListGet$ResponseExtension
   }
 
   UserServiceUserCouponGetListGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<List<UserServiceUserCouponGetListGet$Response$Data$Item>?>? data,
     Wrapped<String?>? traceId,
@@ -6680,8 +6680,8 @@ class UserServiceUserCouponGetUserCouponByActivityPost$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceUserCouponGetUserCouponByActivityPost$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data', fromJson: JsonCoerce.asBool)
@@ -6739,7 +6739,7 @@ class UserServiceUserCouponGetUserCouponByActivityPost$Response {
 extension $UserServiceUserCouponGetUserCouponByActivityPost$ResponseExtension
     on UserServiceUserCouponGetUserCouponByActivityPost$Response {
   UserServiceUserCouponGetUserCouponByActivityPost$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     bool? data,
     String? traceId,
@@ -6757,7 +6757,7 @@ extension $UserServiceUserCouponGetUserCouponByActivityPost$ResponseExtension
   }
 
   UserServiceUserCouponGetUserCouponByActivityPost$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<bool?>? data,
     Wrapped<String?>? traceId,
@@ -6794,8 +6794,8 @@ class UserServiceUserCouponSaveGet$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceUserCouponSaveGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data', fromJson: JsonCoerce.asString)
@@ -6853,7 +6853,7 @@ class UserServiceUserCouponSaveGet$Response {
 extension $UserServiceUserCouponSaveGet$ResponseExtension
     on UserServiceUserCouponSaveGet$Response {
   UserServiceUserCouponSaveGet$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     String? data,
     String? traceId,
@@ -6871,7 +6871,7 @@ extension $UserServiceUserCouponSaveGet$ResponseExtension
   }
 
   UserServiceUserCouponSaveGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<String?>? data,
     Wrapped<String?>? traceId,
@@ -6978,8 +6978,8 @@ class UserServiceUserCouponGetCouponByActivityPost$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceUserCouponGetCouponByActivityPost$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
@@ -7038,7 +7038,7 @@ class UserServiceUserCouponGetCouponByActivityPost$Response {
 extension $UserServiceUserCouponGetCouponByActivityPost$ResponseExtension
     on UserServiceUserCouponGetCouponByActivityPost$Response {
   UserServiceUserCouponGetCouponByActivityPost$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     List<UserServiceUserCouponGetCouponByActivityPost$Response$Data$Item>? data,
     String? traceId,
@@ -7056,7 +7056,7 @@ extension $UserServiceUserCouponGetCouponByActivityPost$ResponseExtension
   }
 
   UserServiceUserCouponGetCouponByActivityPost$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<
       List<UserServiceUserCouponGetCouponByActivityPost$Response$Data$Item>?
@@ -7096,8 +7096,8 @@ class UserServiceUserCouponGetGet$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceUserCouponGetGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
@@ -7154,7 +7154,7 @@ class UserServiceUserCouponGetGet$Response {
 extension $UserServiceUserCouponGetGet$ResponseExtension
     on UserServiceUserCouponGetGet$Response {
   UserServiceUserCouponGetGet$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     List<UserServiceUserCouponGetGet$Response$Data$Item>? data,
     String? traceId,
@@ -7172,7 +7172,7 @@ extension $UserServiceUserCouponGetGet$ResponseExtension
   }
 
   UserServiceUserCouponGetGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<List<UserServiceUserCouponGetGet$Response$Data$Item>?>? data,
     Wrapped<String?>? traceId,
@@ -7285,8 +7285,8 @@ class UserServiceUserShareListGet$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceUserShareListGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
@@ -7335,7 +7335,7 @@ class UserServiceUserShareListGet$Response {
 extension $UserServiceUserShareListGet$ResponseExtension
     on UserServiceUserShareListGet$Response {
   UserServiceUserShareListGet$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     List<UserServiceUserShareListGet$Response$Data$Item>? data,
     Object? placeholder,
@@ -7351,7 +7351,7 @@ extension $UserServiceUserShareListGet$ResponseExtension
   }
 
   UserServiceUserShareListGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<List<UserServiceUserShareListGet$Response$Data$Item>?>? data,
     Wrapped<Object?>? placeholder,
@@ -7386,8 +7386,8 @@ class UserServiceUserShareRewardInfoGet$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceUserShareRewardInfoGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
@@ -7437,7 +7437,7 @@ class UserServiceUserShareRewardInfoGet$Response {
 extension $UserServiceUserShareRewardInfoGet$ResponseExtension
     on UserServiceUserShareRewardInfoGet$Response {
   UserServiceUserShareRewardInfoGet$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     UserServiceUserShareRewardInfoGet$Response$Data? data,
     Object? placeholder,
@@ -7453,7 +7453,7 @@ extension $UserServiceUserShareRewardInfoGet$ResponseExtension
   }
 
   UserServiceUserShareRewardInfoGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<UserServiceUserShareRewardInfoGet$Response$Data?>? data,
     Wrapped<Object?>? placeholder,
@@ -7487,8 +7487,8 @@ class UserServiceUserShareSubmitPost$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceUserShareSubmitPost$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data', fromJson: JsonCoerce.asString)
@@ -7538,7 +7538,7 @@ class UserServiceUserShareSubmitPost$Response {
 extension $UserServiceUserShareSubmitPost$ResponseExtension
     on UserServiceUserShareSubmitPost$Response {
   UserServiceUserShareSubmitPost$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     String? data,
     Object? placeholder,
@@ -7554,7 +7554,7 @@ extension $UserServiceUserShareSubmitPost$ResponseExtension
   }
 
   UserServiceUserShareSubmitPost$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<String?>? data,
     Wrapped<Object?>? placeholder,
@@ -7588,8 +7588,8 @@ class UserServiceUserDeleteGet$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceUserDeleteGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
@@ -7638,7 +7638,7 @@ class UserServiceUserDeleteGet$Response {
 extension $UserServiceUserDeleteGet$ResponseExtension
     on UserServiceUserDeleteGet$Response {
   UserServiceUserDeleteGet$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     UserServiceUserDeleteGet$Response$Data? data,
     Object? placeholder,
@@ -7654,7 +7654,7 @@ extension $UserServiceUserDeleteGet$ResponseExtension
   }
 
   UserServiceUserDeleteGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<UserServiceUserDeleteGet$Response$Data?>? data,
     Wrapped<Object?>? placeholder,
@@ -7688,8 +7688,8 @@ class UserServiceUserDeleteConfirmGet$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceUserDeleteConfirmGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data', fromJson: JsonCoerce.asBool)
@@ -7739,7 +7739,7 @@ class UserServiceUserDeleteConfirmGet$Response {
 extension $UserServiceUserDeleteConfirmGet$ResponseExtension
     on UserServiceUserDeleteConfirmGet$Response {
   UserServiceUserDeleteConfirmGet$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     bool? data,
     Object? placeholder,
@@ -7755,7 +7755,7 @@ extension $UserServiceUserDeleteConfirmGet$ResponseExtension
   }
 
   UserServiceUserDeleteConfirmGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<bool?>? data,
     Wrapped<Object?>? placeholder,
@@ -7787,8 +7787,8 @@ class UserServiceUserGetGet$Response {
   static const toJsonFactory = _$UserServiceUserGetGet$ResponseToJson;
   Map<String, dynamic> toJson() => _$UserServiceUserGetGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
@@ -7837,7 +7837,7 @@ class UserServiceUserGetGet$Response {
 extension $UserServiceUserGetGet$ResponseExtension
     on UserServiceUserGetGet$Response {
   UserServiceUserGetGet$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     UserServiceUserGetGet$Response$Data? data,
     Object? placeholder,
@@ -7853,7 +7853,7 @@ extension $UserServiceUserGetGet$ResponseExtension
   }
 
   UserServiceUserGetGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<UserServiceUserGetGet$Response$Data?>? data,
     Wrapped<Object?>? placeholder,
@@ -7888,8 +7888,8 @@ class UserServiceUserUserCommissionGet$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceUserUserCommissionGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
@@ -7939,7 +7939,7 @@ class UserServiceUserUserCommissionGet$Response {
 extension $UserServiceUserUserCommissionGet$ResponseExtension
     on UserServiceUserUserCommissionGet$Response {
   UserServiceUserUserCommissionGet$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     UserServiceUserUserCommissionGet$Response$Data? data,
     Object? placeholder,
@@ -7955,7 +7955,7 @@ extension $UserServiceUserUserCommissionGet$ResponseExtension
   }
 
   UserServiceUserUserCommissionGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<UserServiceUserUserCommissionGet$Response$Data?>? data,
     Wrapped<Object?>? placeholder,
@@ -7990,8 +7990,8 @@ class UserServiceUserConfigureSettingGet$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceUserConfigureSettingGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
@@ -8041,7 +8041,7 @@ class UserServiceUserConfigureSettingGet$Response {
 extension $UserServiceUserConfigureSettingGet$ResponseExtension
     on UserServiceUserConfigureSettingGet$Response {
   UserServiceUserConfigureSettingGet$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     UserServiceUserConfigureSettingGet$Response$Data? data,
     Object? placeholder,
@@ -8057,7 +8057,7 @@ extension $UserServiceUserConfigureSettingGet$ResponseExtension
   }
 
   UserServiceUserConfigureSettingGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<UserServiceUserConfigureSettingGet$Response$Data?>? data,
     Wrapped<Object?>? placeholder,
@@ -8091,8 +8091,8 @@ class UserServiceUserInviteCountGet$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceUserInviteCountGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data', fromJson: JsonCoerce.asInt)
@@ -8142,7 +8142,7 @@ class UserServiceUserInviteCountGet$Response {
 extension $UserServiceUserInviteCountGet$ResponseExtension
     on UserServiceUserInviteCountGet$Response {
   UserServiceUserInviteCountGet$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     int? data,
     Object? placeholder,
@@ -8158,7 +8158,7 @@ extension $UserServiceUserInviteCountGet$ResponseExtension
   }
 
   UserServiceUserInviteCountGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<int?>? data,
     Wrapped<Object?>? placeholder,
@@ -8192,8 +8192,8 @@ class UserServiceUserInviteNumGet$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceUserInviteNumGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
@@ -8242,7 +8242,7 @@ class UserServiceUserInviteNumGet$Response {
 extension $UserServiceUserInviteNumGet$ResponseExtension
     on UserServiceUserInviteNumGet$Response {
   UserServiceUserInviteNumGet$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     UserServiceUserInviteNumGet$Response$Data? data,
     Object? placeholder,
@@ -8258,7 +8258,7 @@ extension $UserServiceUserInviteNumGet$ResponseExtension
   }
 
   UserServiceUserInviteNumGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<UserServiceUserInviteNumGet$Response$Data?>? data,
     Wrapped<Object?>? placeholder,
@@ -8292,8 +8292,8 @@ class UserServiceUserShareUpdatePost$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceUserShareUpdatePost$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data', fromJson: JsonCoerce.asString)
@@ -8343,7 +8343,7 @@ class UserServiceUserShareUpdatePost$Response {
 extension $UserServiceUserShareUpdatePost$ResponseExtension
     on UserServiceUserShareUpdatePost$Response {
   UserServiceUserShareUpdatePost$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     String? data,
     Object? placeholder,
@@ -8359,7 +8359,7 @@ extension $UserServiceUserShareUpdatePost$ResponseExtension
   }
 
   UserServiceUserShareUpdatePost$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<String?>? data,
     Wrapped<Object?>? placeholder,
@@ -8393,8 +8393,8 @@ class UserServiceUserUserRewardGet$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceUserUserRewardGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data', fromJson: JsonCoerce.asBool)
@@ -8444,7 +8444,7 @@ class UserServiceUserUserRewardGet$Response {
 extension $UserServiceUserUserRewardGet$ResponseExtension
     on UserServiceUserUserRewardGet$Response {
   UserServiceUserUserRewardGet$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     bool? data,
     Object? placeholder,
@@ -8460,7 +8460,7 @@ extension $UserServiceUserUserRewardGet$ResponseExtension
   }
 
   UserServiceUserUserRewardGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<bool?>? data,
     Wrapped<Object?>? placeholder,
@@ -8495,8 +8495,8 @@ class UserServiceUserTagPortraitAiToPortraitPost$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceUserTagPortraitAiToPortraitPost$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
@@ -8546,7 +8546,7 @@ class UserServiceUserTagPortraitAiToPortraitPost$Response {
 extension $UserServiceUserTagPortraitAiToPortraitPost$ResponseExtension
     on UserServiceUserTagPortraitAiToPortraitPost$Response {
   UserServiceUserTagPortraitAiToPortraitPost$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     UserServiceUserTagPortraitAiToPortraitPost$Response$Data? data,
     String? traceId,
@@ -8562,7 +8562,7 @@ extension $UserServiceUserTagPortraitAiToPortraitPost$ResponseExtension
   }
 
   UserServiceUserTagPortraitAiToPortraitPost$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<UserServiceUserTagPortraitAiToPortraitPost$Response$Data?>? data,
     Wrapped<String?>? traceId,
@@ -8597,8 +8597,8 @@ class UserServiceUserTagPortraitAiToPortraitV2Post$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceUserTagPortraitAiToPortraitV2Post$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
@@ -8648,7 +8648,7 @@ class UserServiceUserTagPortraitAiToPortraitV2Post$Response {
 extension $UserServiceUserTagPortraitAiToPortraitV2Post$ResponseExtension
     on UserServiceUserTagPortraitAiToPortraitV2Post$Response {
   UserServiceUserTagPortraitAiToPortraitV2Post$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     UserServiceUserTagPortraitAiToPortraitV2Post$Response$Data? data,
     String? traceId,
@@ -8664,7 +8664,7 @@ extension $UserServiceUserTagPortraitAiToPortraitV2Post$ResponseExtension
   }
 
   UserServiceUserTagPortraitAiToPortraitV2Post$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<UserServiceUserTagPortraitAiToPortraitV2Post$Response$Data?>? data,
     Wrapped<String?>? traceId,
@@ -8699,8 +8699,8 @@ class UserServiceUserTagPortraitUpdatePortraitPost$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceUserTagPortraitUpdatePortraitPost$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data', fromJson: JsonCoerce.asBool)
@@ -8750,7 +8750,7 @@ class UserServiceUserTagPortraitUpdatePortraitPost$Response {
 extension $UserServiceUserTagPortraitUpdatePortraitPost$ResponseExtension
     on UserServiceUserTagPortraitUpdatePortraitPost$Response {
   UserServiceUserTagPortraitUpdatePortraitPost$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     bool? data,
     String? traceId,
@@ -8766,7 +8766,7 @@ extension $UserServiceUserTagPortraitUpdatePortraitPost$ResponseExtension
   }
 
   UserServiceUserTagPortraitUpdatePortraitPost$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<bool?>? data,
     Wrapped<String?>? traceId,
@@ -8801,8 +8801,8 @@ class UserServiceUserTagPortraitGetPortraitGet$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceUserTagPortraitGetPortraitGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
@@ -8852,7 +8852,7 @@ class UserServiceUserTagPortraitGetPortraitGet$Response {
 extension $UserServiceUserTagPortraitGetPortraitGet$ResponseExtension
     on UserServiceUserTagPortraitGetPortraitGet$Response {
   UserServiceUserTagPortraitGetPortraitGet$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     UserServiceUserTagPortraitGetPortraitGet$Response$Data? data,
     String? traceId,
@@ -8868,7 +8868,7 @@ extension $UserServiceUserTagPortraitGetPortraitGet$ResponseExtension
   }
 
   UserServiceUserTagPortraitGetPortraitGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<UserServiceUserTagPortraitGetPortraitGet$Response$Data?>? data,
     Wrapped<String?>? traceId,
@@ -8904,8 +8904,8 @@ class UserServiceUserCouponAppHomeActivityPost$Response {
   Map<String, dynamic> toJson() =>
       _$UserServiceUserCouponAppHomeActivityPost$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
@@ -8963,7 +8963,7 @@ class UserServiceUserCouponAppHomeActivityPost$Response {
 extension $UserServiceUserCouponAppHomeActivityPost$ResponseExtension
     on UserServiceUserCouponAppHomeActivityPost$Response {
   UserServiceUserCouponAppHomeActivityPost$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     List<UserServiceUserCouponAppHomeActivityPost$Response$Data$Item>? data,
     String? traceId,
@@ -8981,7 +8981,7 @@ extension $UserServiceUserCouponAppHomeActivityPost$ResponseExtension
   }
 
   UserServiceUserCouponAppHomeActivityPost$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<List<UserServiceUserCouponAppHomeActivityPost$Response$Data$Item>?>?
     data,
@@ -9046,10 +9046,10 @@ class UserServiceAddressQueryGet$Response$Data$Item {
   final String? address;
   @JsonKey(name: 'zipCode', fromJson: JsonCoerce.asString)
   final String? zipCode;
-  @JsonKey(name: 'latitude', fromJson: JsonCoerce.asDouble)
-  final double? latitude;
-  @JsonKey(name: 'longitude', fromJson: JsonCoerce.asDouble)
-  final double? longitude;
+  @JsonKey(name: 'latitude', fromJson: JsonCoerce.asInt)
+  final int? latitude;
+  @JsonKey(name: 'longitude', fromJson: JsonCoerce.asInt)
+  final int? longitude;
   static const fromJsonFactory =
       _$UserServiceAddressQueryGet$Response$Data$ItemFromJson;
 
@@ -9143,8 +9143,8 @@ extension $UserServiceAddressQueryGet$Response$Data$ItemExtension
     String? countryCode,
     String? address,
     String? zipCode,
-    double? latitude,
-    double? longitude,
+    int? latitude,
+    int? longitude,
   }) {
     return UserServiceAddressQueryGet$Response$Data$Item(
       apartment: apartment ?? this.apartment,
@@ -9173,8 +9173,8 @@ extension $UserServiceAddressQueryGet$Response$Data$ItemExtension
     Wrapped<String?>? countryCode,
     Wrapped<String?>? address,
     Wrapped<String?>? zipCode,
-    Wrapped<double?>? latitude,
-    Wrapped<double?>? longitude,
+    Wrapped<int?>? latitude,
+    Wrapped<int?>? longitude,
   }) {
     return UserServiceAddressQueryGet$Response$Data$Item(
       apartment: (apartment != null ? apartment.value : this.apartment),
@@ -9230,14 +9230,14 @@ class UserServiceAddressListGet$Response$Data$Item {
   Map<String, dynamic> toJson() =>
       _$UserServiceAddressListGet$Response$Data$ItemToJson(this);
 
-  @JsonKey(name: 'id', fromJson: JsonCoerce.asDouble)
-  final double? id;
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asInt)
+  final int? id;
   @JsonKey(name: 'tenantCode', fromJson: JsonCoerce.asString)
   final String? tenantCode;
   @JsonKey(name: 'userId', fromJson: JsonCoerce.asString)
   final String? userId;
-  @JsonKey(name: 'isDefault', fromJson: JsonCoerce.asDouble)
-  final double? isDefault;
+  @JsonKey(name: 'isDefault', fromJson: JsonCoerce.asInt)
+  final int? isDefault;
   @JsonKey(name: 'country', fromJson: JsonCoerce.asString)
   final String? country;
   @JsonKey(name: 'countryCode', fromJson: JsonCoerce.asString)
@@ -9266,10 +9266,10 @@ class UserServiceAddressListGet$Response$Data$Item {
   final String? phoneNumber;
   @JsonKey(name: 'zipCode', fromJson: JsonCoerce.asString)
   final String? zipCode;
-  @JsonKey(name: 'deleted', fromJson: JsonCoerce.asDouble)
-  final double? deleted;
-  @JsonKey(name: 'isDelivered', fromJson: JsonCoerce.asDouble)
-  final double? isDelivered;
+  @JsonKey(name: 'deleted', fromJson: JsonCoerce.asInt)
+  final int? deleted;
+  @JsonKey(name: 'isDelivered', fromJson: JsonCoerce.asInt)
+  final int? isDelivered;
   @JsonKey(name: 'gmtCreate', fromJson: JsonCoerce.asString)
   final String? gmtCreate;
   @JsonKey(name: 'gmtUpdate', fromJson: JsonCoerce.asString)
@@ -9416,10 +9416,10 @@ class UserServiceAddressListGet$Response$Data$Item {
 extension $UserServiceAddressListGet$Response$Data$ItemExtension
     on UserServiceAddressListGet$Response$Data$Item {
   UserServiceAddressListGet$Response$Data$Item copyWith({
-    double? id,
+    int? id,
     String? tenantCode,
     String? userId,
-    double? isDefault,
+    int? isDefault,
     String? country,
     String? countryCode,
     String? state,
@@ -9434,8 +9434,8 @@ extension $UserServiceAddressListGet$Response$Data$ItemExtension
     String? lastName,
     String? phoneNumber,
     String? zipCode,
-    double? deleted,
-    double? isDelivered,
+    int? deleted,
+    int? isDelivered,
     String? gmtCreate,
     String? gmtUpdate,
     String? tin,
@@ -9468,10 +9468,10 @@ extension $UserServiceAddressListGet$Response$Data$ItemExtension
   }
 
   UserServiceAddressListGet$Response$Data$Item copyWithWrapped({
-    Wrapped<double?>? id,
+    Wrapped<int?>? id,
     Wrapped<String?>? tenantCode,
     Wrapped<String?>? userId,
-    Wrapped<double?>? isDefault,
+    Wrapped<int?>? isDefault,
     Wrapped<String?>? country,
     Wrapped<String?>? countryCode,
     Wrapped<String?>? state,
@@ -9486,8 +9486,8 @@ extension $UserServiceAddressListGet$Response$Data$ItemExtension
     Wrapped<String?>? lastName,
     Wrapped<String?>? phoneNumber,
     Wrapped<String?>? zipCode,
-    Wrapped<double?>? deleted,
-    Wrapped<double?>? isDelivered,
+    Wrapped<int?>? deleted,
+    Wrapped<int?>? isDelivered,
     Wrapped<String?>? gmtCreate,
     Wrapped<String?>? gmtUpdate,
     Wrapped<String?>? tin,
@@ -10352,8 +10352,8 @@ class UserServiceSigninSwitchPortalPost$Response$Data {
   final String? accessToken;
   @JsonKey(name: 'refreshToken', fromJson: JsonCoerce.asString)
   final String? refreshToken;
-  @JsonKey(name: 'expiresIn', fromJson: JsonCoerce.asDouble)
-  final double? expiresIn;
+  @JsonKey(name: 'expiresIn', fromJson: JsonCoerce.asInt)
+  final int? expiresIn;
   @JsonKey(name: 'tokenType', fromJson: JsonCoerce.asString)
   final String? tokenType;
   @JsonKey(name: 'authWay', fromJson: JsonCoerce.asString)
@@ -10362,10 +10362,10 @@ class UserServiceSigninSwitchPortalPost$Response$Data {
   final String? remainTimes;
   @JsonKey(name: 'lockTime', fromJson: JsonCoerce.asString)
   final String? lockTime;
-  @JsonKey(name: 'loginStatus', fromJson: JsonCoerce.asDouble)
-  final double? loginStatus;
-  @JsonKey(name: 'timestamp', fromJson: JsonCoerce.asDouble)
-  final double? timestamp;
+  @JsonKey(name: 'loginStatus', fromJson: JsonCoerce.asInt)
+  final int? loginStatus;
+  @JsonKey(name: 'timestamp', fromJson: JsonCoerce.asInt)
+  final int? timestamp;
   @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   @JsonKey(name: 'portalCode', fromJson: JsonCoerce.asString)
@@ -10376,8 +10376,8 @@ class UserServiceSigninSwitchPortalPost$Response$Data {
   final bool? newUser;
   @JsonKey(name: 'compliance', fromJson: JsonCoerce.asString)
   final String? compliance;
-  @JsonKey(name: 'finalSuccess', fromJson: JsonCoerce.asDouble)
-  final double? finalSuccess;
+  @JsonKey(name: 'finalSuccess', fromJson: JsonCoerce.asInt)
+  final int? finalSuccess;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'currency', fromJson: JsonCoerce.asString)
@@ -10550,19 +10550,19 @@ extension $UserServiceSigninSwitchPortalPost$Response$DataExtension
     String? signUpName,
     String? accessToken,
     String? refreshToken,
-    double? expiresIn,
+    int? expiresIn,
     String? tokenType,
     String? authWay,
     String? remainTimes,
     String? lockTime,
-    double? loginStatus,
-    double? timestamp,
+    int? loginStatus,
+    int? timestamp,
     bool? success,
     String? portalCode,
     String? source,
     bool? newUser,
     String? compliance,
-    double? finalSuccess,
+    int? finalSuccess,
     String? message,
     String? currency,
   }) {
@@ -10606,19 +10606,19 @@ extension $UserServiceSigninSwitchPortalPost$Response$DataExtension
     Wrapped<String?>? signUpName,
     Wrapped<String?>? accessToken,
     Wrapped<String?>? refreshToken,
-    Wrapped<double?>? expiresIn,
+    Wrapped<int?>? expiresIn,
     Wrapped<String?>? tokenType,
     Wrapped<String?>? authWay,
     Wrapped<String?>? remainTimes,
     Wrapped<String?>? lockTime,
-    Wrapped<double?>? loginStatus,
-    Wrapped<double?>? timestamp,
+    Wrapped<int?>? loginStatus,
+    Wrapped<int?>? timestamp,
     Wrapped<bool?>? success,
     Wrapped<String?>? portalCode,
     Wrapped<String?>? source,
     Wrapped<bool?>? newUser,
     Wrapped<String?>? compliance,
-    Wrapped<double?>? finalSuccess,
+    Wrapped<int?>? finalSuccess,
     Wrapped<String?>? message,
     Wrapped<String?>? currency,
   }) {
@@ -10793,8 +10793,8 @@ class UserServiceSignInVerifyPost$Response$Data {
   final String? accessToken;
   @JsonKey(name: 'refreshToken', fromJson: JsonCoerce.asString)
   final String? refreshToken;
-  @JsonKey(name: 'expiresIn', fromJson: JsonCoerce.asDouble)
-  final double? expiresIn;
+  @JsonKey(name: 'expiresIn', fromJson: JsonCoerce.asInt)
+  final int? expiresIn;
   @JsonKey(name: 'tokenType', fromJson: JsonCoerce.asString)
   final String? tokenType;
   @JsonKey(name: 'authWay', fromJson: JsonCoerce.asString)
@@ -10803,10 +10803,10 @@ class UserServiceSignInVerifyPost$Response$Data {
   final String? remainTimes;
   @JsonKey(name: 'lockTime', fromJson: JsonCoerce.asString)
   final String? lockTime;
-  @JsonKey(name: 'loginStatus', fromJson: JsonCoerce.asDouble)
-  final double? loginStatus;
-  @JsonKey(name: 'timestamp', fromJson: JsonCoerce.asDouble)
-  final double? timestamp;
+  @JsonKey(name: 'loginStatus', fromJson: JsonCoerce.asInt)
+  final int? loginStatus;
+  @JsonKey(name: 'timestamp', fromJson: JsonCoerce.asInt)
+  final int? timestamp;
   @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   @JsonKey(name: 'portalCode', fromJson: JsonCoerce.asString)
@@ -10817,8 +10817,8 @@ class UserServiceSignInVerifyPost$Response$Data {
   final bool? newUser;
   @JsonKey(name: 'compliance', fromJson: JsonCoerce.asString)
   final String? compliance;
-  @JsonKey(name: 'finalSuccess', fromJson: JsonCoerce.asDouble)
-  final double? finalSuccess;
+  @JsonKey(name: 'finalSuccess', fromJson: JsonCoerce.asInt)
+  final int? finalSuccess;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'currency', fromJson: JsonCoerce.asString)
@@ -10991,19 +10991,19 @@ extension $UserServiceSignInVerifyPost$Response$DataExtension
     String? signUpName,
     String? accessToken,
     String? refreshToken,
-    double? expiresIn,
+    int? expiresIn,
     String? tokenType,
     String? authWay,
     String? remainTimes,
     String? lockTime,
-    double? loginStatus,
-    double? timestamp,
+    int? loginStatus,
+    int? timestamp,
     bool? success,
     String? portalCode,
     String? source,
     bool? newUser,
     String? compliance,
-    double? finalSuccess,
+    int? finalSuccess,
     String? message,
     String? currency,
   }) {
@@ -11047,19 +11047,19 @@ extension $UserServiceSignInVerifyPost$Response$DataExtension
     Wrapped<String?>? signUpName,
     Wrapped<String?>? accessToken,
     Wrapped<String?>? refreshToken,
-    Wrapped<double?>? expiresIn,
+    Wrapped<int?>? expiresIn,
     Wrapped<String?>? tokenType,
     Wrapped<String?>? authWay,
     Wrapped<String?>? remainTimes,
     Wrapped<String?>? lockTime,
-    Wrapped<double?>? loginStatus,
-    Wrapped<double?>? timestamp,
+    Wrapped<int?>? loginStatus,
+    Wrapped<int?>? timestamp,
     Wrapped<bool?>? success,
     Wrapped<String?>? portalCode,
     Wrapped<String?>? source,
     Wrapped<bool?>? newUser,
     Wrapped<String?>? compliance,
-    Wrapped<double?>? finalSuccess,
+    Wrapped<int?>? finalSuccess,
     Wrapped<String?>? message,
     Wrapped<String?>? currency,
   }) {
@@ -11154,8 +11154,8 @@ class UserServiceSignInCallPost$Response$Data {
   final String? accessToken;
   @JsonKey(name: 'refreshToken', fromJson: JsonCoerce.asString)
   final String? refreshToken;
-  @JsonKey(name: 'expiresIn', fromJson: JsonCoerce.asDouble)
-  final double? expiresIn;
+  @JsonKey(name: 'expiresIn', fromJson: JsonCoerce.asInt)
+  final int? expiresIn;
   @JsonKey(name: 'tokenType', fromJson: JsonCoerce.asString)
   final String? tokenType;
   @JsonKey(name: 'authWay', fromJson: JsonCoerce.asString)
@@ -11164,10 +11164,10 @@ class UserServiceSignInCallPost$Response$Data {
   final String? remainTimes;
   @JsonKey(name: 'lockTime', fromJson: JsonCoerce.asString)
   final String? lockTime;
-  @JsonKey(name: 'loginStatus', fromJson: JsonCoerce.asDouble)
-  final double? loginStatus;
-  @JsonKey(name: 'timestamp', fromJson: JsonCoerce.asDouble)
-  final double? timestamp;
+  @JsonKey(name: 'loginStatus', fromJson: JsonCoerce.asInt)
+  final int? loginStatus;
+  @JsonKey(name: 'timestamp', fromJson: JsonCoerce.asInt)
+  final int? timestamp;
   @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   @JsonKey(name: 'portalCode', fromJson: JsonCoerce.asString)
@@ -11178,8 +11178,8 @@ class UserServiceSignInCallPost$Response$Data {
   final bool? newUser;
   @JsonKey(name: 'compliance', fromJson: JsonCoerce.asString)
   final String? compliance;
-  @JsonKey(name: 'finalSuccess', fromJson: JsonCoerce.asDouble)
-  final double? finalSuccess;
+  @JsonKey(name: 'finalSuccess', fromJson: JsonCoerce.asInt)
+  final int? finalSuccess;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   static const fromJsonFactory =
@@ -11341,19 +11341,19 @@ extension $UserServiceSignInCallPost$Response$DataExtension
     String? signUpName,
     String? accessToken,
     String? refreshToken,
-    double? expiresIn,
+    int? expiresIn,
     String? tokenType,
     String? authWay,
     String? remainTimes,
     String? lockTime,
-    double? loginStatus,
-    double? timestamp,
+    int? loginStatus,
+    int? timestamp,
     bool? success,
     String? portalCode,
     String? source,
     bool? newUser,
     String? compliance,
-    double? finalSuccess,
+    int? finalSuccess,
     String? message,
   }) {
     return UserServiceSignInCallPost$Response$Data(
@@ -11395,19 +11395,19 @@ extension $UserServiceSignInCallPost$Response$DataExtension
     Wrapped<String?>? signUpName,
     Wrapped<String?>? accessToken,
     Wrapped<String?>? refreshToken,
-    Wrapped<double?>? expiresIn,
+    Wrapped<int?>? expiresIn,
     Wrapped<String?>? tokenType,
     Wrapped<String?>? authWay,
     Wrapped<String?>? remainTimes,
     Wrapped<String?>? lockTime,
-    Wrapped<double?>? loginStatus,
-    Wrapped<double?>? timestamp,
+    Wrapped<int?>? loginStatus,
+    Wrapped<int?>? timestamp,
     Wrapped<bool?>? success,
     Wrapped<String?>? portalCode,
     Wrapped<String?>? source,
     Wrapped<bool?>? newUser,
     Wrapped<String?>? compliance,
-    Wrapped<double?>? finalSuccess,
+    Wrapped<int?>? finalSuccess,
     Wrapped<String?>? message,
   }) {
     return UserServiceSignInCallPost$Response$Data(
@@ -11502,8 +11502,8 @@ class UserServiceNoAuthOtpVerifyPost$Response$Data {
   final String? accessToken;
   @JsonKey(name: 'refreshToken', fromJson: JsonCoerce.asString)
   final String? refreshToken;
-  @JsonKey(name: 'expiresIn', fromJson: JsonCoerce.asDouble)
-  final double? expiresIn;
+  @JsonKey(name: 'expiresIn', fromJson: JsonCoerce.asInt)
+  final int? expiresIn;
   @JsonKey(name: 'tokenType', fromJson: JsonCoerce.asString)
   final String? tokenType;
   @JsonKey(name: 'authWay', fromJson: JsonCoerce.asString)
@@ -11512,10 +11512,10 @@ class UserServiceNoAuthOtpVerifyPost$Response$Data {
   final String? remainTimes;
   @JsonKey(name: 'lockTime', fromJson: JsonCoerce.asString)
   final String? lockTime;
-  @JsonKey(name: 'loginStatus', fromJson: JsonCoerce.asDouble)
-  final double? loginStatus;
-  @JsonKey(name: 'timestamp', fromJson: JsonCoerce.asDouble)
-  final double? timestamp;
+  @JsonKey(name: 'loginStatus', fromJson: JsonCoerce.asInt)
+  final int? loginStatus;
+  @JsonKey(name: 'timestamp', fromJson: JsonCoerce.asInt)
+  final int? timestamp;
   @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
   final bool? success;
   @JsonKey(name: 'portalCode', fromJson: JsonCoerce.asString)
@@ -11526,8 +11526,8 @@ class UserServiceNoAuthOtpVerifyPost$Response$Data {
   final bool? newUser;
   @JsonKey(name: 'compliance', fromJson: JsonCoerce.asString)
   final String? compliance;
-  @JsonKey(name: 'finalSuccess', fromJson: JsonCoerce.asDouble)
-  final double? finalSuccess;
+  @JsonKey(name: 'finalSuccess', fromJson: JsonCoerce.asInt)
+  final int? finalSuccess;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'currency', fromJson: JsonCoerce.asString)
@@ -11700,19 +11700,19 @@ extension $UserServiceNoAuthOtpVerifyPost$Response$DataExtension
     String? signUpName,
     String? accessToken,
     String? refreshToken,
-    double? expiresIn,
+    int? expiresIn,
     String? tokenType,
     String? authWay,
     String? remainTimes,
     String? lockTime,
-    double? loginStatus,
-    double? timestamp,
+    int? loginStatus,
+    int? timestamp,
     bool? success,
     String? portalCode,
     String? source,
     bool? newUser,
     String? compliance,
-    double? finalSuccess,
+    int? finalSuccess,
     String? message,
     String? currency,
   }) {
@@ -11756,19 +11756,19 @@ extension $UserServiceNoAuthOtpVerifyPost$Response$DataExtension
     Wrapped<String?>? signUpName,
     Wrapped<String?>? accessToken,
     Wrapped<String?>? refreshToken,
-    Wrapped<double?>? expiresIn,
+    Wrapped<int?>? expiresIn,
     Wrapped<String?>? tokenType,
     Wrapped<String?>? authWay,
     Wrapped<String?>? remainTimes,
     Wrapped<String?>? lockTime,
-    Wrapped<double?>? loginStatus,
-    Wrapped<double?>? timestamp,
+    Wrapped<int?>? loginStatus,
+    Wrapped<int?>? timestamp,
     Wrapped<bool?>? success,
     Wrapped<String?>? portalCode,
     Wrapped<String?>? source,
     Wrapped<bool?>? newUser,
     Wrapped<String?>? compliance,
-    Wrapped<double?>? finalSuccess,
+    Wrapped<int?>? finalSuccess,
     Wrapped<String?>? message,
     Wrapped<String?>? currency,
   }) {
@@ -12230,12 +12230,12 @@ class UserServiceUserCouponCode2CouponGet$Response$Data {
   final String? couponCode;
   @JsonKey(name: 'couponTitle', fromJson: JsonCoerce.asString)
   final String? couponTitle;
-  @JsonKey(name: 'isUsed', fromJson: JsonCoerce.asDouble)
-  final double? isUsed;
+  @JsonKey(name: 'isUsed', fromJson: JsonCoerce.asInt)
+  final int? isUsed;
   @JsonKey(name: 'gmtInvalid', fromJson: JsonCoerce.asString)
   final String? gmtInvalid;
-  @JsonKey(name: 'type', fromJson: JsonCoerce.asDouble)
-  final double? type;
+  @JsonKey(name: 'type', fromJson: JsonCoerce.asInt)
+  final int? type;
   @JsonKey(name: 'discount', fromJson: JsonCoerce.asString)
   final String? discount;
   @JsonKey(name: 'limitAmount', fromJson: JsonCoerce.asString)
@@ -12349,9 +12349,9 @@ extension $UserServiceUserCouponCode2CouponGet$Response$DataExtension
     String? tenantCode,
     String? couponCode,
     String? couponTitle,
-    double? isUsed,
+    int? isUsed,
     String? gmtInvalid,
-    double? type,
+    int? type,
     String? discount,
     String? limitAmount,
     String? currency,
@@ -12383,9 +12383,9 @@ extension $UserServiceUserCouponCode2CouponGet$Response$DataExtension
     Wrapped<String?>? tenantCode,
     Wrapped<String?>? couponCode,
     Wrapped<String?>? couponTitle,
-    Wrapped<double?>? isUsed,
+    Wrapped<int?>? isUsed,
     Wrapped<String?>? gmtInvalid,
-    Wrapped<double?>? type,
+    Wrapped<int?>? type,
     Wrapped<String?>? discount,
     Wrapped<String?>? limitAmount,
     Wrapped<String?>? currency,
@@ -12724,12 +12724,12 @@ class UserServiceUserCouponGetCouponByActivityPost$Response$Data$Item {
   final String? couponCode;
   @JsonKey(name: 'couponTitle', fromJson: JsonCoerce.asString)
   final String? couponTitle;
-  @JsonKey(name: 'isUsed', fromJson: JsonCoerce.asDouble)
-  final double? isUsed;
+  @JsonKey(name: 'isUsed', fromJson: JsonCoerce.asInt)
+  final int? isUsed;
   @JsonKey(name: 'gmtInvalid', fromJson: JsonCoerce.asString)
   final String? gmtInvalid;
-  @JsonKey(name: 'type', fromJson: JsonCoerce.asDouble)
-  final double? type;
+  @JsonKey(name: 'type', fromJson: JsonCoerce.asInt)
+  final int? type;
   @JsonKey(name: 'discount', fromJson: JsonCoerce.asString)
   final String? discount;
   @JsonKey(name: 'limitAmount', fromJson: JsonCoerce.asString)
@@ -12844,9 +12844,9 @@ extension $UserServiceUserCouponGetCouponByActivityPost$Response$Data$ItemExtens
     String? tenantCode,
     String? couponCode,
     String? couponTitle,
-    double? isUsed,
+    int? isUsed,
     String? gmtInvalid,
-    double? type,
+    int? type,
     String? discount,
     String? limitAmount,
     String? currency,
@@ -12879,9 +12879,9 @@ extension $UserServiceUserCouponGetCouponByActivityPost$Response$Data$ItemExtens
     Wrapped<String?>? tenantCode,
     Wrapped<String?>? couponCode,
     Wrapped<String?>? couponTitle,
-    Wrapped<double?>? isUsed,
+    Wrapped<int?>? isUsed,
     Wrapped<String?>? gmtInvalid,
-    Wrapped<double?>? type,
+    Wrapped<int?>? type,
     Wrapped<String?>? discount,
     Wrapped<String?>? limitAmount,
     Wrapped<String?>? currency,
@@ -12953,12 +12953,12 @@ class UserServiceUserCouponGetGet$Response$Data$Item {
   final String? couponCode;
   @JsonKey(name: 'couponTitle', fromJson: JsonCoerce.asString)
   final String? couponTitle;
-  @JsonKey(name: 'isUsed', fromJson: JsonCoerce.asDouble)
-  final double? isUsed;
+  @JsonKey(name: 'isUsed', fromJson: JsonCoerce.asInt)
+  final int? isUsed;
   @JsonKey(name: 'gmtInvalid', fromJson: JsonCoerce.asString)
   final String? gmtInvalid;
-  @JsonKey(name: 'type', fromJson: JsonCoerce.asDouble)
-  final double? type;
+  @JsonKey(name: 'type', fromJson: JsonCoerce.asInt)
+  final int? type;
   @JsonKey(name: 'discount', fromJson: JsonCoerce.asString)
   final String? discount;
   @JsonKey(name: 'limitAmount', fromJson: JsonCoerce.asString)
@@ -13085,9 +13085,9 @@ extension $UserServiceUserCouponGetGet$Response$Data$ItemExtension
     String? tenantCode,
     String? couponCode,
     String? couponTitle,
-    double? isUsed,
+    int? isUsed,
     String? gmtInvalid,
-    double? type,
+    int? type,
     String? discount,
     String? limitAmount,
     String? currency,
@@ -13123,9 +13123,9 @@ extension $UserServiceUserCouponGetGet$Response$Data$ItemExtension
     Wrapped<String?>? tenantCode,
     Wrapped<String?>? couponCode,
     Wrapped<String?>? couponTitle,
-    Wrapped<double?>? isUsed,
+    Wrapped<int?>? isUsed,
     Wrapped<String?>? gmtInvalid,
-    Wrapped<double?>? type,
+    Wrapped<int?>? type,
     Wrapped<String?>? discount,
     Wrapped<String?>? limitAmount,
     Wrapped<String?>? currency,
@@ -13219,8 +13219,8 @@ class UserServiceImGetInfoPost$Response$Data {
   final String? name;
   @JsonKey(name: 'username', fromJson: JsonCoerce.asString)
   final String? username;
-  @JsonKey(name: 'sex', fromJson: JsonCoerce.asDouble)
-  final double? sex;
+  @JsonKey(name: 'sex', fromJson: JsonCoerce.asInt)
+  final int? sex;
   @JsonKey(name: 'category', fromJson: JsonCoerce.asString)
   final String? category;
   @JsonKey(name: 'short_no', fromJson: JsonCoerce.asString)
@@ -13235,18 +13235,18 @@ class UserServiceImGetInfoPost$Response$Data {
   final String? chatPwd;
   @JsonKey(name: 'lock_screen_pwd', fromJson: JsonCoerce.asString)
   final String? lockScreenPwd;
-  @JsonKey(name: 'lock_after_minute', fromJson: JsonCoerce.asDouble)
-  final double? lockAfterMinute;
+  @JsonKey(name: 'lock_after_minute', fromJson: JsonCoerce.asInt)
+  final int? lockAfterMinute;
   @JsonKey(name: 'setting')
   final UserServiceImGetInfoPost$Response$Data$Setting? setting;
   @JsonKey(name: 'rsa_public_key', fromJson: JsonCoerce.asString)
   final String? rsaPublicKey;
-  @JsonKey(name: 'short_status', fromJson: JsonCoerce.asDouble)
-  final double? shortStatus;
-  @JsonKey(name: 'msg_expire_second', fromJson: JsonCoerce.asDouble)
-  final double? msgExpireSecond;
-  @JsonKey(name: 'showStatus', fromJson: JsonCoerce.asDouble)
-  final double? showStatus;
+  @JsonKey(name: 'short_status', fromJson: JsonCoerce.asInt)
+  final int? shortStatus;
+  @JsonKey(name: 'msg_expire_second', fromJson: JsonCoerce.asInt)
+  final int? msgExpireSecond;
+  @JsonKey(name: 'showStatus', fromJson: JsonCoerce.asInt)
+  final int? showStatus;
   static const fromJsonFactory =
       _$UserServiceImGetInfoPost$Response$DataFromJson;
 
@@ -13387,7 +13387,7 @@ extension $UserServiceImGetInfoPost$Response$DataExtension
     String? appId,
     String? name,
     String? username,
-    double? sex,
+    int? sex,
     String? category,
     String? shortNo,
     String? zone,
@@ -13395,12 +13395,12 @@ extension $UserServiceImGetInfoPost$Response$DataExtension
     String? token,
     String? chatPwd,
     String? lockScreenPwd,
-    double? lockAfterMinute,
+    int? lockAfterMinute,
     UserServiceImGetInfoPost$Response$Data$Setting? setting,
     String? rsaPublicKey,
-    double? shortStatus,
-    double? msgExpireSecond,
-    double? showStatus,
+    int? shortStatus,
+    int? msgExpireSecond,
+    int? showStatus,
   }) {
     return UserServiceImGetInfoPost$Response$Data(
       api: api ?? this.api,
@@ -13440,7 +13440,7 @@ extension $UserServiceImGetInfoPost$Response$DataExtension
     Wrapped<String?>? appId,
     Wrapped<String?>? name,
     Wrapped<String?>? username,
-    Wrapped<double?>? sex,
+    Wrapped<int?>? sex,
     Wrapped<String?>? category,
     Wrapped<String?>? shortNo,
     Wrapped<String?>? zone,
@@ -13448,12 +13448,12 @@ extension $UserServiceImGetInfoPost$Response$DataExtension
     Wrapped<String?>? token,
     Wrapped<String?>? chatPwd,
     Wrapped<String?>? lockScreenPwd,
-    Wrapped<double?>? lockAfterMinute,
+    Wrapped<int?>? lockAfterMinute,
     Wrapped<UserServiceImGetInfoPost$Response$Data$Setting?>? setting,
     Wrapped<String?>? rsaPublicKey,
-    Wrapped<double?>? shortStatus,
-    Wrapped<double?>? msgExpireSecond,
-    Wrapped<double?>? showStatus,
+    Wrapped<int?>? shortStatus,
+    Wrapped<int?>? msgExpireSecond,
+    Wrapped<int?>? showStatus,
   }) {
     return UserServiceImGetInfoPost$Response$Data(
       api: (api != null ? api.value : this.api),
@@ -13530,8 +13530,8 @@ class UserServiceUserShareListGet$Response$Data$Item {
   final int? auditStatus;
   @JsonKey(name: 'auditTime', fromJson: JsonCoerce.asString)
   final String? auditTime;
-  @JsonKey(name: 'rewardAmount', fromJson: JsonCoerce.asDouble)
-  final double? rewardAmount;
+  @JsonKey(name: 'rewardAmount', fromJson: JsonCoerce.asInt)
+  final int? rewardAmount;
   @JsonKey(name: 'currency', fromJson: JsonCoerce.asString)
   final String? currency;
   @JsonKey(name: 'rewardType', fromJson: JsonCoerce.asInt)
@@ -13613,7 +13613,7 @@ extension $UserServiceUserShareListGet$Response$Data$ItemExtension
     String? content,
     int? auditStatus,
     String? auditTime,
-    double? rewardAmount,
+    int? rewardAmount,
     String? currency,
     int? rewardType,
   }) {
@@ -13637,7 +13637,7 @@ extension $UserServiceUserShareListGet$Response$Data$ItemExtension
     Wrapped<String?>? content,
     Wrapped<int?>? auditStatus,
     Wrapped<String?>? auditTime,
-    Wrapped<double?>? rewardAmount,
+    Wrapped<int?>? rewardAmount,
     Wrapped<String?>? currency,
     Wrapped<int?>? rewardType,
   }) {
@@ -13692,8 +13692,8 @@ class UserServiceUserShareRewardInfoGet$Response$Data {
   final int? auditStatus;
   @JsonKey(name: 'auditTime', fromJson: JsonCoerce.asString)
   final String? auditTime;
-  @JsonKey(name: 'rewardAmount', fromJson: JsonCoerce.asDouble)
-  final double? rewardAmount;
+  @JsonKey(name: 'rewardAmount', fromJson: JsonCoerce.asInt)
+  final int? rewardAmount;
   @JsonKey(name: 'currency', fromJson: JsonCoerce.asString)
   final String? currency;
   @JsonKey(name: 'rewardType', fromJson: JsonCoerce.asInt)
@@ -13775,7 +13775,7 @@ extension $UserServiceUserShareRewardInfoGet$Response$DataExtension
     String? content,
     int? auditStatus,
     String? auditTime,
-    double? rewardAmount,
+    int? rewardAmount,
     String? currency,
     int? rewardType,
   }) {
@@ -13799,7 +13799,7 @@ extension $UserServiceUserShareRewardInfoGet$Response$DataExtension
     Wrapped<String?>? content,
     Wrapped<int?>? auditStatus,
     Wrapped<String?>? auditTime,
-    Wrapped<double?>? rewardAmount,
+    Wrapped<int?>? rewardAmount,
     Wrapped<String?>? currency,
     Wrapped<int?>? rewardType,
   }) {
@@ -13906,8 +13906,8 @@ class UserServiceUserGetGet$Response$Data {
   final String? nickname;
   @JsonKey(name: 'description', fromJson: JsonCoerce.asString)
   final String? description;
-  @JsonKey(name: 'gender', fromJson: JsonCoerce.asDouble)
-  final double? gender;
+  @JsonKey(name: 'gender', fromJson: JsonCoerce.asInt)
+  final int? gender;
   @JsonKey(name: 'birthday', fromJson: JsonCoerce.asString)
   final String? birthday;
   @JsonKey(name: 'photo', fromJson: JsonCoerce.asString)
@@ -13916,8 +13916,8 @@ class UserServiceUserGetGet$Response$Data {
   final String? phoneNumber;
   @JsonKey(name: 'email', fromJson: JsonCoerce.asString)
   final String? email;
-  @JsonKey(name: 'signUpType', fromJson: JsonCoerce.asDouble)
-  final double? signUpType;
+  @JsonKey(name: 'signUpType', fromJson: JsonCoerce.asInt)
+  final int? signUpType;
   @JsonKey(name: 'platform', fromJson: JsonCoerce.asString)
   final String? platform;
   @JsonKey(name: 'createTime', fromJson: JsonCoerce.asString)
@@ -14051,12 +14051,12 @@ extension $UserServiceUserGetGet$Response$DataExtension
     String? userId,
     String? nickname,
     String? description,
-    double? gender,
+    int? gender,
     String? birthday,
     String? photo,
     String? phoneNumber,
     String? email,
-    double? signUpType,
+    int? signUpType,
     String? platform,
     String? createTime,
     String? inviteCode,
@@ -14093,12 +14093,12 @@ extension $UserServiceUserGetGet$Response$DataExtension
     Wrapped<String?>? userId,
     Wrapped<String?>? nickname,
     Wrapped<String?>? description,
-    Wrapped<double?>? gender,
+    Wrapped<int?>? gender,
     Wrapped<String?>? birthday,
     Wrapped<String?>? photo,
     Wrapped<String?>? phoneNumber,
     Wrapped<String?>? email,
-    Wrapped<double?>? signUpType,
+    Wrapped<int?>? signUpType,
     Wrapped<String?>? platform,
     Wrapped<String?>? createTime,
     Wrapped<String?>? inviteCode,
@@ -14303,12 +14303,12 @@ class UserServiceUserInviteNumGet$Response$Data {
   Map<String, dynamic> toJson() =>
       _$UserServiceUserInviteNumGet$Response$DataToJson(this);
 
-  @JsonKey(name: 'inviteTotalNum', fromJson: JsonCoerce.asDouble)
-  final double? inviteTotalNum;
-  @JsonKey(name: 'inviteNum', fromJson: JsonCoerce.asDouble)
-  final double? inviteNum;
-  @JsonKey(name: 'subInviteNum', fromJson: JsonCoerce.asDouble)
-  final double? subInviteNum;
+  @JsonKey(name: 'inviteTotalNum', fromJson: JsonCoerce.asInt)
+  final int? inviteTotalNum;
+  @JsonKey(name: 'inviteNum', fromJson: JsonCoerce.asInt)
+  final int? inviteNum;
+  @JsonKey(name: 'subInviteNum', fromJson: JsonCoerce.asInt)
+  final int? subInviteNum;
   static const fromJsonFactory =
       _$UserServiceUserInviteNumGet$Response$DataFromJson;
 
@@ -14347,9 +14347,9 @@ class UserServiceUserInviteNumGet$Response$Data {
 extension $UserServiceUserInviteNumGet$Response$DataExtension
     on UserServiceUserInviteNumGet$Response$Data {
   UserServiceUserInviteNumGet$Response$Data copyWith({
-    double? inviteTotalNum,
-    double? inviteNum,
-    double? subInviteNum,
+    int? inviteTotalNum,
+    int? inviteNum,
+    int? subInviteNum,
   }) {
     return UserServiceUserInviteNumGet$Response$Data(
       inviteTotalNum: inviteTotalNum ?? this.inviteTotalNum,
@@ -14359,9 +14359,9 @@ extension $UserServiceUserInviteNumGet$Response$DataExtension
   }
 
   UserServiceUserInviteNumGet$Response$Data copyWithWrapped({
-    Wrapped<double?>? inviteTotalNum,
-    Wrapped<double?>? inviteNum,
-    Wrapped<double?>? subInviteNum,
+    Wrapped<int?>? inviteTotalNum,
+    Wrapped<int?>? inviteNum,
+    Wrapped<int?>? subInviteNum,
   }) {
     return UserServiceUserInviteNumGet$Response$Data(
       inviteTotalNum: (inviteTotalNum != null
@@ -14395,12 +14395,12 @@ class UserServiceUserTagPortraitAiToPortraitPost$Response$Data {
   Map<String, dynamic> toJson() =>
       _$UserServiceUserTagPortraitAiToPortraitPost$Response$DataToJson(this);
 
-  @JsonKey(name: 'age', fromJson: JsonCoerce.asDouble)
-  final double? age;
-  @JsonKey(name: 'sex', fromJson: JsonCoerce.asDouble)
-  final double? sex;
-  @JsonKey(name: 'birthday', fromJson: JsonCoerce.asDouble)
-  final double? birthday;
+  @JsonKey(name: 'age', fromJson: JsonCoerce.asInt)
+  final int? age;
+  @JsonKey(name: 'sex', fromJson: JsonCoerce.asInt)
+  final int? sex;
+  @JsonKey(name: 'birthday', fromJson: JsonCoerce.asInt)
+  final int? birthday;
   @JsonKey(name: 'nickname', fromJson: JsonCoerce.asString)
   final String? nickname;
   @JsonKey(
@@ -14464,9 +14464,9 @@ class UserServiceUserTagPortraitAiToPortraitPost$Response$Data {
 extension $UserServiceUserTagPortraitAiToPortraitPost$Response$DataExtension
     on UserServiceUserTagPortraitAiToPortraitPost$Response$Data {
   UserServiceUserTagPortraitAiToPortraitPost$Response$Data copyWith({
-    double? age,
-    double? sex,
-    double? birthday,
+    int? age,
+    int? sex,
+    int? birthday,
     String? nickname,
     List<String>? favoriteShoppingPlatforms,
     String? favoriteBrands,
@@ -14483,9 +14483,9 @@ extension $UserServiceUserTagPortraitAiToPortraitPost$Response$DataExtension
   }
 
   UserServiceUserTagPortraitAiToPortraitPost$Response$Data copyWithWrapped({
-    Wrapped<double?>? age,
-    Wrapped<double?>? sex,
-    Wrapped<double?>? birthday,
+    Wrapped<int?>? age,
+    Wrapped<int?>? sex,
+    Wrapped<int?>? birthday,
     Wrapped<String?>? nickname,
     Wrapped<List<String>?>? favoriteShoppingPlatforms,
     Wrapped<String?>? favoriteBrands,
@@ -14527,12 +14527,12 @@ class UserServiceUserTagPortraitAiToPortraitV2Post$Response$Data {
   Map<String, dynamic> toJson() =>
       _$UserServiceUserTagPortraitAiToPortraitV2Post$Response$DataToJson(this);
 
-  @JsonKey(name: 'age', fromJson: JsonCoerce.asDouble)
-  final double? age;
-  @JsonKey(name: 'sex', fromJson: JsonCoerce.asDouble)
-  final double? sex;
-  @JsonKey(name: 'birthday', fromJson: JsonCoerce.asDouble)
-  final double? birthday;
+  @JsonKey(name: 'age', fromJson: JsonCoerce.asInt)
+  final int? age;
+  @JsonKey(name: 'sex', fromJson: JsonCoerce.asInt)
+  final int? sex;
+  @JsonKey(name: 'birthday', fromJson: JsonCoerce.asInt)
+  final int? birthday;
   @JsonKey(name: 'nickname', fromJson: JsonCoerce.asString)
   final String? nickname;
   @JsonKey(
@@ -14596,9 +14596,9 @@ class UserServiceUserTagPortraitAiToPortraitV2Post$Response$Data {
 extension $UserServiceUserTagPortraitAiToPortraitV2Post$Response$DataExtension
     on UserServiceUserTagPortraitAiToPortraitV2Post$Response$Data {
   UserServiceUserTagPortraitAiToPortraitV2Post$Response$Data copyWith({
-    double? age,
-    double? sex,
-    double? birthday,
+    int? age,
+    int? sex,
+    int? birthday,
     String? nickname,
     List<String>? favoriteShoppingPlatforms,
     String? favoriteBrands,
@@ -14615,9 +14615,9 @@ extension $UserServiceUserTagPortraitAiToPortraitV2Post$Response$DataExtension
   }
 
   UserServiceUserTagPortraitAiToPortraitV2Post$Response$Data copyWithWrapped({
-    Wrapped<double?>? age,
-    Wrapped<double?>? sex,
-    Wrapped<double?>? birthday,
+    Wrapped<int?>? age,
+    Wrapped<int?>? sex,
+    Wrapped<int?>? birthday,
     Wrapped<String?>? nickname,
     Wrapped<List<String>?>? favoriteShoppingPlatforms,
     Wrapped<String?>? favoriteBrands,
@@ -14658,12 +14658,12 @@ class UserServiceUserTagPortraitGetPortraitGet$Response$Data {
   Map<String, dynamic> toJson() =>
       _$UserServiceUserTagPortraitGetPortraitGet$Response$DataToJson(this);
 
-  @JsonKey(name: 'age', fromJson: JsonCoerce.asDouble)
-  final double? age;
-  @JsonKey(name: 'sex', fromJson: JsonCoerce.asDouble)
-  final double? sex;
-  @JsonKey(name: 'birthday', fromJson: JsonCoerce.asDouble)
-  final double? birthday;
+  @JsonKey(name: 'age', fromJson: JsonCoerce.asInt)
+  final int? age;
+  @JsonKey(name: 'sex', fromJson: JsonCoerce.asInt)
+  final int? sex;
+  @JsonKey(name: 'birthday', fromJson: JsonCoerce.asInt)
+  final int? birthday;
   @JsonKey(name: 'nickname', fromJson: JsonCoerce.asString)
   final String? nickname;
   @JsonKey(name: 'avatarUrl', fromJson: JsonCoerce.asString)
@@ -14735,9 +14735,9 @@ class UserServiceUserTagPortraitGetPortraitGet$Response$Data {
 extension $UserServiceUserTagPortraitGetPortraitGet$Response$DataExtension
     on UserServiceUserTagPortraitGetPortraitGet$Response$Data {
   UserServiceUserTagPortraitGetPortraitGet$Response$Data copyWith({
-    double? age,
-    double? sex,
-    double? birthday,
+    int? age,
+    int? sex,
+    int? birthday,
     String? nickname,
     String? avatarUrl,
     List<String>? favoriteShoppingPlatforms,
@@ -14756,9 +14756,9 @@ extension $UserServiceUserTagPortraitGetPortraitGet$Response$DataExtension
   }
 
   UserServiceUserTagPortraitGetPortraitGet$Response$Data copyWithWrapped({
-    Wrapped<double?>? age,
-    Wrapped<double?>? sex,
-    Wrapped<double?>? birthday,
+    Wrapped<int?>? age,
+    Wrapped<int?>? sex,
+    Wrapped<int?>? birthday,
     Wrapped<String?>? nickname,
     Wrapped<String?>? avatarUrl,
     Wrapped<List<String>?>? favoriteShoppingPlatforms,
@@ -14819,12 +14819,12 @@ class UserServiceUserCouponAppHomeActivityPost$Response$Data$Item {
   final String? couponCode;
   @JsonKey(name: 'couponTitle', fromJson: JsonCoerce.asString)
   final String? couponTitle;
-  @JsonKey(name: 'isUsed', fromJson: JsonCoerce.asDouble)
-  final double? isUsed;
+  @JsonKey(name: 'isUsed', fromJson: JsonCoerce.asInt)
+  final int? isUsed;
   @JsonKey(name: 'gmtInvalid', fromJson: JsonCoerce.asString)
   final String? gmtInvalid;
-  @JsonKey(name: 'type', fromJson: JsonCoerce.asDouble)
-  final double? type;
+  @JsonKey(name: 'type', fromJson: JsonCoerce.asInt)
+  final int? type;
   @JsonKey(name: 'discount', fromJson: JsonCoerce.asString)
   final String? discount;
   @JsonKey(name: 'limitAmount', fromJson: JsonCoerce.asString)
@@ -14944,9 +14944,9 @@ extension $UserServiceUserCouponAppHomeActivityPost$Response$Data$ItemExtension
     String? tenantCode,
     String? couponCode,
     String? couponTitle,
-    double? isUsed,
+    int? isUsed,
     String? gmtInvalid,
-    double? type,
+    int? type,
     String? discount,
     String? limitAmount,
     String? currency,
@@ -14981,9 +14981,9 @@ extension $UserServiceUserCouponAppHomeActivityPost$Response$Data$ItemExtension
     Wrapped<String?>? tenantCode,
     Wrapped<String?>? couponCode,
     Wrapped<String?>? couponTitle,
-    Wrapped<double?>? isUsed,
+    Wrapped<int?>? isUsed,
     Wrapped<String?>? gmtInvalid,
-    Wrapped<double?>? type,
+    Wrapped<int?>? type,
     Wrapped<String?>? discount,
     Wrapped<String?>? limitAmount,
     Wrapped<String?>? currency,
@@ -15049,14 +15049,14 @@ class UserServiceUserCouponActivityInfoGet$Response$Data$CouponList$Item {
 
   @JsonKey(name: 'currencySymbol', fromJson: JsonCoerce.asString)
   final String? currencySymbol;
-  @JsonKey(name: 'discountType', fromJson: JsonCoerce.asDouble)
-  final double? discountType;
-  @JsonKey(name: 'discountInfo', fromJson: JsonCoerce.asDouble)
-  final double? discountInfo;
-  @JsonKey(name: 'limitAmount', fromJson: JsonCoerce.asDouble)
-  final double? limitAmount;
-  @JsonKey(name: 'invalidPeriod', fromJson: JsonCoerce.asDouble)
-  final double? invalidPeriod;
+  @JsonKey(name: 'discountType', fromJson: JsonCoerce.asInt)
+  final int? discountType;
+  @JsonKey(name: 'discountInfo', fromJson: JsonCoerce.asInt)
+  final int? discountInfo;
+  @JsonKey(name: 'limitAmount', fromJson: JsonCoerce.asInt)
+  final int? limitAmount;
+  @JsonKey(name: 'invalidPeriod', fromJson: JsonCoerce.asInt)
+  final int? invalidPeriod;
   @JsonKey(name: 'userCouponCode', fromJson: JsonCoerce.asString)
   final String? userCouponCode;
   static const fromJsonFactory =
@@ -15117,10 +15117,10 @@ extension $UserServiceUserCouponActivityInfoGet$Response$Data$CouponList$ItemExt
     on UserServiceUserCouponActivityInfoGet$Response$Data$CouponList$Item {
   UserServiceUserCouponActivityInfoGet$Response$Data$CouponList$Item copyWith({
     String? currencySymbol,
-    double? discountType,
-    double? discountInfo,
-    double? limitAmount,
-    double? invalidPeriod,
+    int? discountType,
+    int? discountInfo,
+    int? limitAmount,
+    int? invalidPeriod,
     String? userCouponCode,
   }) {
     return UserServiceUserCouponActivityInfoGet$Response$Data$CouponList$Item(
@@ -15136,10 +15136,10 @@ extension $UserServiceUserCouponActivityInfoGet$Response$Data$CouponList$ItemExt
   UserServiceUserCouponActivityInfoGet$Response$Data$CouponList$Item
   copyWithWrapped({
     Wrapped<String?>? currencySymbol,
-    Wrapped<double?>? discountType,
-    Wrapped<double?>? discountInfo,
-    Wrapped<double?>? limitAmount,
-    Wrapped<double?>? invalidPeriod,
+    Wrapped<int?>? discountType,
+    Wrapped<int?>? discountInfo,
+    Wrapped<int?>? limitAmount,
+    Wrapped<int?>? invalidPeriod,
     Wrapped<String?>? userCouponCode,
   }) {
     return UserServiceUserCouponActivityInfoGet$Response$Data$CouponList$Item(
@@ -15190,16 +15190,16 @@ class UserServiceUserCouponActivityInfosGet$Response$Data$Item$CouponList$Item {
 
   @JsonKey(name: 'couponCode', fromJson: JsonCoerce.asString)
   final String? couponCode;
-  @JsonKey(name: 'invalidPeriod', fromJson: JsonCoerce.asDouble)
-  final double? invalidPeriod;
+  @JsonKey(name: 'invalidPeriod', fromJson: JsonCoerce.asInt)
+  final int? invalidPeriod;
   @JsonKey(name: 'currencySymbol', fromJson: JsonCoerce.asString)
   final String? currencySymbol;
   @JsonKey(name: 'discountType', fromJson: JsonCoerce.asInt)
   final int? discountType;
-  @JsonKey(name: 'discountInfo', fromJson: JsonCoerce.asDouble)
-  final double? discountInfo;
-  @JsonKey(name: 'limitAmount', fromJson: JsonCoerce.asDouble)
-  final double? limitAmount;
+  @JsonKey(name: 'discountInfo', fromJson: JsonCoerce.asInt)
+  final int? discountInfo;
+  @JsonKey(name: 'limitAmount', fromJson: JsonCoerce.asInt)
+  final int? limitAmount;
   static const fromJsonFactory =
       _$UserServiceUserCouponActivityInfosGet$Response$Data$Item$CouponList$ItemFromJson;
 
@@ -15259,11 +15259,11 @@ extension $UserServiceUserCouponActivityInfosGet$Response$Data$Item$CouponList$I
   UserServiceUserCouponActivityInfosGet$Response$Data$Item$CouponList$Item
   copyWith({
     String? couponCode,
-    double? invalidPeriod,
+    int? invalidPeriod,
     String? currencySymbol,
     int? discountType,
-    double? discountInfo,
-    double? limitAmount,
+    int? discountInfo,
+    int? limitAmount,
   }) {
     return UserServiceUserCouponActivityInfosGet$Response$Data$Item$CouponList$Item(
       couponCode: couponCode ?? this.couponCode,
@@ -15278,11 +15278,11 @@ extension $UserServiceUserCouponActivityInfosGet$Response$Data$Item$CouponList$I
   UserServiceUserCouponActivityInfosGet$Response$Data$Item$CouponList$Item
   copyWithWrapped({
     Wrapped<String?>? couponCode,
-    Wrapped<double?>? invalidPeriod,
+    Wrapped<int?>? invalidPeriod,
     Wrapped<String?>? currencySymbol,
     Wrapped<int?>? discountType,
-    Wrapped<double?>? discountInfo,
-    Wrapped<double?>? limitAmount,
+    Wrapped<int?>? discountInfo,
+    Wrapped<int?>? limitAmount,
   }) {
     return UserServiceUserCouponActivityInfosGet$Response$Data$Item$CouponList$Item(
       couponCode: (couponCode != null ? couponCode.value : this.couponCode),
@@ -15345,12 +15345,12 @@ class UserServiceUserCouponGetListGet$Response$Data$Item$UserCouponDtos$Item {
   final String? couponCode;
   @JsonKey(name: 'couponTitle', fromJson: JsonCoerce.asString)
   final String? couponTitle;
-  @JsonKey(name: 'isUsed', fromJson: JsonCoerce.asDouble)
-  final double? isUsed;
+  @JsonKey(name: 'isUsed', fromJson: JsonCoerce.asInt)
+  final int? isUsed;
   @JsonKey(name: 'gmtInvalid', fromJson: JsonCoerce.asString)
   final String? gmtInvalid;
-  @JsonKey(name: 'type', fromJson: JsonCoerce.asDouble)
-  final double? type;
+  @JsonKey(name: 'type', fromJson: JsonCoerce.asInt)
+  final int? type;
   @JsonKey(name: 'discount', fromJson: JsonCoerce.asString)
   final String? discount;
   @JsonKey(name: 'limitAmount', fromJson: JsonCoerce.asString)
@@ -15365,8 +15365,8 @@ class UserServiceUserCouponGetListGet$Response$Data$Item$UserCouponDtos$Item {
   final String? currencyTarget;
   @JsonKey(name: 'couponImage', fromJson: JsonCoerce.asString)
   final String? couponImage;
-  @JsonKey(name: 'invalidPeriod', fromJson: JsonCoerce.asDouble)
-  final double? invalidPeriod;
+  @JsonKey(name: 'invalidPeriod', fromJson: JsonCoerce.asInt)
+  final int? invalidPeriod;
   static const fromJsonFactory =
       _$UserServiceUserCouponGetListGet$Response$Data$Item$UserCouponDtos$ItemFromJson;
 
@@ -15474,9 +15474,9 @@ extension $UserServiceUserCouponGetListGet$Response$Data$Item$UserCouponDtos$Ite
     String? tenantCode,
     String? couponCode,
     String? couponTitle,
-    double? isUsed,
+    int? isUsed,
     String? gmtInvalid,
-    double? type,
+    int? type,
     String? discount,
     String? limitAmount,
     String? currency,
@@ -15484,7 +15484,7 @@ extension $UserServiceUserCouponGetListGet$Response$Data$Item$UserCouponDtos$Ite
     String? limitAmountTarget,
     String? currencyTarget,
     String? couponImage,
-    double? invalidPeriod,
+    int? invalidPeriod,
   }) {
     return UserServiceUserCouponGetListGet$Response$Data$Item$UserCouponDtos$Item(
       userId: userId ?? this.userId,
@@ -15511,9 +15511,9 @@ extension $UserServiceUserCouponGetListGet$Response$Data$Item$UserCouponDtos$Ite
     Wrapped<String?>? tenantCode,
     Wrapped<String?>? couponCode,
     Wrapped<String?>? couponTitle,
-    Wrapped<double?>? isUsed,
+    Wrapped<int?>? isUsed,
     Wrapped<String?>? gmtInvalid,
-    Wrapped<double?>? type,
+    Wrapped<int?>? type,
     Wrapped<String?>? discount,
     Wrapped<String?>? limitAmount,
     Wrapped<String?>? currency,
@@ -15521,7 +15521,7 @@ extension $UserServiceUserCouponGetListGet$Response$Data$Item$UserCouponDtos$Ite
     Wrapped<String?>? limitAmountTarget,
     Wrapped<String?>? currencyTarget,
     Wrapped<String?>? couponImage,
-    Wrapped<double?>? invalidPeriod,
+    Wrapped<int?>? invalidPeriod,
   }) {
     return UserServiceUserCouponGetListGet$Response$Data$Item$UserCouponDtos$Item(
       userId: (userId != null ? userId.value : this.userId),
@@ -15576,12 +15576,12 @@ class UserServiceUserCouponNoAuthActivityInfoGet$Response$Data$CouponList$Item {
 
   @JsonKey(name: 'currencySymbol', fromJson: JsonCoerce.asString)
   final String? currencySymbol;
-  @JsonKey(name: 'discountType', fromJson: JsonCoerce.asDouble)
-  final double? discountType;
-  @JsonKey(name: 'discountInfo', fromJson: JsonCoerce.asDouble)
-  final double? discountInfo;
-  @JsonKey(name: 'limitAmount', fromJson: JsonCoerce.asDouble)
-  final double? limitAmount;
+  @JsonKey(name: 'discountType', fromJson: JsonCoerce.asInt)
+  final int? discountType;
+  @JsonKey(name: 'discountInfo', fromJson: JsonCoerce.asInt)
+  final int? discountInfo;
+  @JsonKey(name: 'limitAmount', fromJson: JsonCoerce.asInt)
+  final int? limitAmount;
   static const fromJsonFactory =
       _$UserServiceUserCouponNoAuthActivityInfoGet$Response$Data$CouponList$ItemFromJson;
 
@@ -15629,9 +15629,9 @@ extension $UserServiceUserCouponNoAuthActivityInfoGet$Response$Data$CouponList$I
   UserServiceUserCouponNoAuthActivityInfoGet$Response$Data$CouponList$Item
   copyWith({
     String? currencySymbol,
-    double? discountType,
-    double? discountInfo,
-    double? limitAmount,
+    int? discountType,
+    int? discountInfo,
+    int? limitAmount,
   }) {
     return UserServiceUserCouponNoAuthActivityInfoGet$Response$Data$CouponList$Item(
       currencySymbol: currencySymbol ?? this.currencySymbol,
@@ -15644,9 +15644,9 @@ extension $UserServiceUserCouponNoAuthActivityInfoGet$Response$Data$CouponList$I
   UserServiceUserCouponNoAuthActivityInfoGet$Response$Data$CouponList$Item
   copyWithWrapped({
     Wrapped<String?>? currencySymbol,
-    Wrapped<double?>? discountType,
-    Wrapped<double?>? discountInfo,
-    Wrapped<double?>? limitAmount,
+    Wrapped<int?>? discountType,
+    Wrapped<int?>? discountInfo,
+    Wrapped<int?>? limitAmount,
   }) {
     return UserServiceUserCouponNoAuthActivityInfoGet$Response$Data$CouponList$Item(
       currencySymbol: (currencySymbol != null
@@ -15862,24 +15862,24 @@ class UserServiceImGetInfoPost$Response$Data$Setting {
   Map<String, dynamic> toJson() =>
       _$UserServiceImGetInfoPost$Response$Data$SettingToJson(this);
 
-  @JsonKey(name: 'search_by_phone', fromJson: JsonCoerce.asDouble)
-  final double? searchByPhone;
-  @JsonKey(name: 'search_by_short', fromJson: JsonCoerce.asDouble)
-  final double? searchByShort;
-  @JsonKey(name: 'new_msg_notice', fromJson: JsonCoerce.asDouble)
-  final double? newMsgNotice;
-  @JsonKey(name: 'msg_show_detail', fromJson: JsonCoerce.asDouble)
-  final double? msgShowDetail;
-  @JsonKey(name: 'voice_on', fromJson: JsonCoerce.asDouble)
-  final double? voiceOn;
-  @JsonKey(name: 'shock_on', fromJson: JsonCoerce.asDouble)
-  final double? shockOn;
-  @JsonKey(name: 'offline_protection', fromJson: JsonCoerce.asDouble)
-  final double? offlineProtection;
-  @JsonKey(name: 'device_lock', fromJson: JsonCoerce.asDouble)
-  final double? deviceLock;
-  @JsonKey(name: 'mute_of_app', fromJson: JsonCoerce.asDouble)
-  final double? muteOfApp;
+  @JsonKey(name: 'search_by_phone', fromJson: JsonCoerce.asInt)
+  final int? searchByPhone;
+  @JsonKey(name: 'search_by_short', fromJson: JsonCoerce.asInt)
+  final int? searchByShort;
+  @JsonKey(name: 'new_msg_notice', fromJson: JsonCoerce.asInt)
+  final int? newMsgNotice;
+  @JsonKey(name: 'msg_show_detail', fromJson: JsonCoerce.asInt)
+  final int? msgShowDetail;
+  @JsonKey(name: 'voice_on', fromJson: JsonCoerce.asInt)
+  final int? voiceOn;
+  @JsonKey(name: 'shock_on', fromJson: JsonCoerce.asInt)
+  final int? shockOn;
+  @JsonKey(name: 'offline_protection', fromJson: JsonCoerce.asInt)
+  final int? offlineProtection;
+  @JsonKey(name: 'device_lock', fromJson: JsonCoerce.asInt)
+  final int? deviceLock;
+  @JsonKey(name: 'mute_of_app', fromJson: JsonCoerce.asInt)
+  final int? muteOfApp;
   static const fromJsonFactory =
       _$UserServiceImGetInfoPost$Response$Data$SettingFromJson;
 
@@ -15954,15 +15954,15 @@ class UserServiceImGetInfoPost$Response$Data$Setting {
 extension $UserServiceImGetInfoPost$Response$Data$SettingExtension
     on UserServiceImGetInfoPost$Response$Data$Setting {
   UserServiceImGetInfoPost$Response$Data$Setting copyWith({
-    double? searchByPhone,
-    double? searchByShort,
-    double? newMsgNotice,
-    double? msgShowDetail,
-    double? voiceOn,
-    double? shockOn,
-    double? offlineProtection,
-    double? deviceLock,
-    double? muteOfApp,
+    int? searchByPhone,
+    int? searchByShort,
+    int? newMsgNotice,
+    int? msgShowDetail,
+    int? voiceOn,
+    int? shockOn,
+    int? offlineProtection,
+    int? deviceLock,
+    int? muteOfApp,
   }) {
     return UserServiceImGetInfoPost$Response$Data$Setting(
       searchByPhone: searchByPhone ?? this.searchByPhone,
@@ -15978,15 +15978,15 @@ extension $UserServiceImGetInfoPost$Response$Data$SettingExtension
   }
 
   UserServiceImGetInfoPost$Response$Data$Setting copyWithWrapped({
-    Wrapped<double?>? searchByPhone,
-    Wrapped<double?>? searchByShort,
-    Wrapped<double?>? newMsgNotice,
-    Wrapped<double?>? msgShowDetail,
-    Wrapped<double?>? voiceOn,
-    Wrapped<double?>? shockOn,
-    Wrapped<double?>? offlineProtection,
-    Wrapped<double?>? deviceLock,
-    Wrapped<double?>? muteOfApp,
+    Wrapped<int?>? searchByPhone,
+    Wrapped<int?>? searchByShort,
+    Wrapped<int?>? newMsgNotice,
+    Wrapped<int?>? msgShowDetail,
+    Wrapped<int?>? voiceOn,
+    Wrapped<int?>? shockOn,
+    Wrapped<int?>? offlineProtection,
+    Wrapped<int?>? deviceLock,
+    Wrapped<int?>? muteOfApp,
   }) {
     return UserServiceImGetInfoPost$Response$Data$Setting(
       searchByPhone: (searchByPhone != null

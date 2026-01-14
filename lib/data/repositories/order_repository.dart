@@ -316,7 +316,7 @@ class OrderRepository {
               (item) =>
                   order.OrderServiceOrderAvailableCouponPostRequest$SkuList$Item(
                     skuCode: item.skuCode,
-                    quantity: item.quantity.toDouble(),
+                    quantity: item.quantity,
                   ),
             )
             .toList(),
@@ -362,7 +362,7 @@ class OrderRepository {
       root: order.OrderServiceOrderAppSubmitPostRequest(
         country: input.country,
         buyType: 1,
-        userAddressId: input.userAddressId?.toDouble(),
+        userAddressId: input.userAddressId,
         userCouponCode: input.couponCode,
         remark: input.remark,
         isDraft: input.submitAsDraft ?? false,
@@ -408,7 +408,7 @@ class OrderRepository {
     final response = await api.orderServiceOrderAppUpdatePost(
       root: order.OrderServiceOrderAppUpdatePostRequest(
         orderId: input.orderId,
-        userAddressId: input.userAddressId?.toDouble(),
+        userAddressId: input.userAddressId,
         userCouponCode: input.couponCode,
         remark: input.remark,
         submitAnyWay: input.submitAnyway ?? false,
@@ -570,7 +570,7 @@ class OrderRepository {
             .map(
               (item) => order.OrderServiceOrderPricingPostRequest$SkuList$Item(
                 skuCode: item.skuCode,
-                quantity: item.quantity.toDouble(),
+                quantity: item.quantity,
               ),
             )
             .toList(),

@@ -7,11 +7,7 @@ import '../../../core/theme/app_theme.dart';
 import '../../../data/repositories/address_repository.dart';
 import '../../../data/repositories/cart_repository.dart';
 import '../../../data/repositories/order_repository.dart';
-import '../../../data/repositories/pay_repository.dart';
 import '../../../shared/utils/price_utils.dart';
-import '../../../shared/widgets/input_field.dart';
-import '../../../shared/widgets/themed_button.dart';
-import '../../../shared/widgets/themed_text.dart';
 import '../application/checkout_providers.dart';
 
 class CheckoutScreen extends ConsumerStatefulWidget {
@@ -194,7 +190,7 @@ class _CheckoutScreenState extends ConsumerState<CheckoutScreen> {
           child: ListView.separated(
             scrollDirection: Axis.horizontal,
             itemCount: items.length,
-            separatorBuilder: (_, __) => const SizedBox(width: 10),
+            separatorBuilder: (context, index) => const SizedBox(width: 10),
             itemBuilder: (context, index) {
               final item = items[index];
               return _buildProductCard(item);
@@ -226,7 +222,7 @@ class _CheckoutScreenState extends ConsumerState<CheckoutScreen> {
                   ? Image.network(
                       item.image!,
                       fit: BoxFit.cover,
-                      errorBuilder: (_, __, ___) =>
+                      errorBuilder: (context, error, stackTrace) =>
                           Container(color: colors.mutedBackground),
                     )
                   : Container(color: colors.mutedBackground),
@@ -474,33 +470,43 @@ class _CheckoutScreenState extends ConsumerState<CheckoutScreen> {
           ),
           const SizedBox(height: 10),
           ...state.paymentMethods.map((method) {
-            return RadioListTile<String>(
-              title: Row(
-                children: [
-                  if (method.icon != null) ...[
-                    Image.network(
-                      method.icon!,
-                      width: 20,
-                      height: 20,
-                      errorBuilder: (_, __, ___) =>
-                          const Icon(Icons.payment, size: 20),
-                    ),
-                    const SizedBox(width: 10),
-                  ],
-                  Text(method.name, style: const TextStyle(fontSize: 13)),
-                ],
-              ),
-              value: method.type,
-              groupValue: state.selectedPaymentMethod?.type,
-              onChanged: (val) {
+            final isSelected = state.selectedPaymentMethod?.type == method.type;
+            return InkWell(
+              onTap: () {
                 ref
                     .read(checkoutControllerProvider.notifier)
                     .selectPaymentMethod(method);
               },
-              contentPadding: EdgeInsets.zero,
-              activeColor: Colors.purple,
-              dense: true,
-              visualDensity: VisualDensity.compact,
+              child: Padding(
+                padding: const EdgeInsets.symmetric(vertical: 8, horizontal: 4),
+                child: Row(
+                  children: [
+                    if (method.icon != null) ...[
+                      Image.network(
+                        method.icon!,
+                        width: 20,
+                        height: 20,
+                        errorBuilder: (context, error, stackTrace) =>
+                            const Icon(Icons.payment, size: 20),
+                      ),
+                      const SizedBox(width: 10),
+                    ],
+                    Expanded(
+                      child: Text(
+                        method.name,
+                        style: const TextStyle(fontSize: 13),
+                      ),
+                    ),
+                    Icon(
+                      isSelected
+                          ? Icons.radio_button_checked
+                          : Icons.radio_button_off,
+                      color: isSelected ? Colors.purple : Colors.grey,
+                      size: 20,
+                    ),
+                  ],
+                ),
+              ),
             );
           }),
         ],

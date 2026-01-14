@@ -151,7 +151,7 @@ _$ProductServiceRecommendNoAuthCategoryPostRequestFromJson(
   categoryId: JsonCoerce.asInt(json['categoryId']),
   categoryIds: json['categoryIds'] == null
       ? []
-      : JsonCoerce.asDoubleList(json['categoryIds']),
+      : JsonCoerce.asIntList(json['categoryIds']),
   brandName: JsonCoerce.asString(json['brandName']),
   sortedField: json['sortedField'] == null
       ? null
@@ -218,7 +218,7 @@ ProductServiceProductReviewNoAuthPageGet$Response
 _$ProductServiceProductReviewNoAuthPageGet$ResponseFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceProductReviewNoAuthPageGet$Response(
-  code: JsonCoerce.asDouble(json['code']),
+  code: JsonCoerce.asInt(json['code']),
   message: JsonCoerce.asString(json['message']),
   data: json['data'] == null
       ? null
@@ -239,7 +239,7 @@ ProductServiceProductReviewNoAuthSummaryGet$Response
 _$ProductServiceProductReviewNoAuthSummaryGet$ResponseFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceProductReviewNoAuthSummaryGet$Response(
-  code: JsonCoerce.asDouble(json['code']),
+  code: JsonCoerce.asInt(json['code']),
   message: JsonCoerce.asString(json['message']),
   data: json['data'] == null
       ? null
@@ -261,7 +261,7 @@ ProductServiceCategoryNoAuthTreeGet$Response
 _$ProductServiceCategoryNoAuthTreeGet$ResponseFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceCategoryNoAuthTreeGet$Response(
-  code: JsonCoerce.asDouble(json['code']),
+  code: JsonCoerce.asInt(json['code']),
   message: JsonCoerce.asString(json['message']),
   data: json['data'] == null
       ? null
@@ -288,7 +288,7 @@ ProductServiceActivityNoAuthFlashSaleActivityGet$Response
 _$ProductServiceActivityNoAuthFlashSaleActivityGet$ResponseFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceActivityNoAuthFlashSaleActivityGet$Response(
-  code: JsonCoerce.asDouble(json['code']),
+  code: JsonCoerce.asInt(json['code']),
   message: JsonCoerce.asString(json['message']),
   data: json['data'] == null
       ? null
@@ -413,7 +413,7 @@ ProductServiceExternalPurchaseRecordPost$Response
 _$ProductServiceExternalPurchaseRecordPost$ResponseFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceExternalPurchaseRecordPost$Response(
-  code: JsonCoerce.asDouble(json['code']),
+  code: JsonCoerce.asInt(json['code']),
   message: JsonCoerce.asString(json['message']),
   data: JsonCoerce.asBool(json['data']),
 );
@@ -430,7 +430,7 @@ ProductServiceSizeChartNoAuthTranslateCallbackPost$Response
 _$ProductServiceSizeChartNoAuthTranslateCallbackPost$ResponseFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceSizeChartNoAuthTranslateCallbackPost$Response(
-  code: JsonCoerce.asDouble(json['code']),
+  code: JsonCoerce.asInt(json['code']),
   message: JsonCoerce.asString(json['message']),
   data: json['data'],
   reasonCode: json['reasonCode'],
@@ -502,7 +502,7 @@ ProductServiceProductNoAuthCombineSearchGet$Response
 _$ProductServiceProductNoAuthCombineSearchGet$ResponseFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceProductNoAuthCombineSearchGet$Response(
-  code: JsonCoerce.asDouble(json['code']),
+  code: JsonCoerce.asInt(json['code']),
   message: JsonCoerce.asString(json['message']),
   data: json['data'] == null
       ? null
@@ -530,7 +530,7 @@ ProductServiceProductNoAuthNewArrivalProductGet$Response
 _$ProductServiceProductNoAuthNewArrivalProductGet$ResponseFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceProductNoAuthNewArrivalProductGet$Response(
-  code: JsonCoerce.asDouble(json['code']),
+  code: JsonCoerce.asInt(json['code']),
   message: JsonCoerce.asString(json['message']),
   data: json['data'] == null
       ? null
@@ -558,7 +558,7 @@ ProductServiceProductNoAuthNewArrivalProductBrandGet$Response
 _$ProductServiceProductNoAuthNewArrivalProductBrandGet$ResponseFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceProductNoAuthNewArrivalProductBrandGet$Response(
-  code: JsonCoerce.asDouble(json['code']),
+  code: JsonCoerce.asInt(json['code']),
   message: JsonCoerce.asString(json['message']),
   data: json['data'] == null ? [] : JsonCoerce.asStringList(json['data']),
   traceId: JsonCoerce.asString(json['traceId']),
@@ -608,7 +608,7 @@ ProductServiceProductNoAuthGetProductInfoGet$Response
 _$ProductServiceProductNoAuthGetProductInfoGet$ResponseFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceProductNoAuthGetProductInfoGet$Response(
-  code: JsonCoerce.asDouble(json['code']),
+  code: JsonCoerce.asInt(json['code']),
   message: JsonCoerce.asString(json['message']),
   data: json['data'] == null
       ? null
@@ -636,7 +636,7 @@ ProductServiceProductNoAuthPremierProductCategoryGet$Response
 _$ProductServiceProductNoAuthPremierProductCategoryGet$ResponseFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceProductNoAuthPremierProductCategoryGet$Response(
-  code: JsonCoerce.asDouble(json['code']),
+  code: JsonCoerce.asInt(json['code']),
   message: JsonCoerce.asString(json['message']),
   data: json['data'] == null
       ? null
@@ -714,7 +714,7 @@ ProductServiceProductNoAuthHotProductV3Get$Response
 _$ProductServiceProductNoAuthHotProductV3Get$ResponseFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceProductNoAuthHotProductV3Get$Response(
-  code: JsonCoerce.asDouble(json['code']),
+  code: JsonCoerce.asInt(json['code']),
   message: JsonCoerce.asString(json['message']),
   data: json['data'] == null
       ? null
@@ -740,7 +740,7 @@ ProductServiceProductNoAuthFlashSaleProductGet$Response
 _$ProductServiceProductNoAuthFlashSaleProductGet$ResponseFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceProductNoAuthFlashSaleProductGet$Response(
-  code: JsonCoerce.asDouble(json['code']),
+  code: JsonCoerce.asInt(json['code']),
   message: JsonCoerce.asString(json['message']),
   data: (json['data'] as List<dynamic>?)
       ?.map(
@@ -771,7 +771,7 @@ ProductServiceProductNoAuthAlbumProductGet$Response
 _$ProductServiceProductNoAuthAlbumProductGet$ResponseFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceProductNoAuthAlbumProductGet$Response(
-  code: JsonCoerce.asDouble(json['code']),
+  code: JsonCoerce.asInt(json['code']),
   message: JsonCoerce.asString(json['message']),
   data: json['data'] == null
       ? null
@@ -822,7 +822,7 @@ ProductServiceProductNoAuthKolProductGet$Response
 _$ProductServiceProductNoAuthKolProductGet$ResponseFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceProductNoAuthKolProductGet$Response(
-  code: JsonCoerce.asDouble(json['code']),
+  code: JsonCoerce.asInt(json['code']),
   message: JsonCoerce.asString(json['message']),
   data: (json['data'] as List<dynamic>?)
       ?.map(
@@ -852,7 +852,7 @@ ProductServiceProductNoAuthPremierProductGet$Response
 _$ProductServiceProductNoAuthPremierProductGet$ResponseFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceProductNoAuthPremierProductGet$Response(
-  code: JsonCoerce.asDouble(json['code']),
+  code: JsonCoerce.asInt(json['code']),
   message: JsonCoerce.asString(json['message']),
   data: json['data'] == null
       ? null
@@ -880,7 +880,7 @@ ProductServiceProductNoAuthPremierProductBrandGet$Response
 _$ProductServiceProductNoAuthPremierProductBrandGet$ResponseFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceProductNoAuthPremierProductBrandGet$Response(
-  code: JsonCoerce.asDouble(json['code']),
+  code: JsonCoerce.asInt(json['code']),
   message: JsonCoerce.asString(json['message']),
   data: json['data'] == null ? [] : JsonCoerce.asStringList(json['data']),
   traceId: JsonCoerce.asString(json['traceId']),
@@ -904,7 +904,7 @@ ProductServiceRecommendNoAuthCategoryRecommendationGet$Response
 _$ProductServiceRecommendNoAuthCategoryRecommendationGet$ResponseFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceRecommendNoAuthCategoryRecommendationGet$Response(
-  code: JsonCoerce.asDouble(json['code']),
+  code: JsonCoerce.asInt(json['code']),
   message: JsonCoerce.asString(json['message']),
   data: json['data'] == null
       ? null
@@ -1066,10 +1066,10 @@ ProductServiceProductReviewNoAuthPageGet$Response$Data
 _$ProductServiceProductReviewNoAuthPageGet$Response$DataFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceProductReviewNoAuthPageGet$Response$Data(
-  current: JsonCoerce.asDouble(json['current']),
-  size: JsonCoerce.asDouble(json['size']),
-  total: JsonCoerce.asDouble(json['total']),
-  pages: JsonCoerce.asDouble(json['pages']),
+  current: JsonCoerce.asInt(json['current']),
+  size: JsonCoerce.asInt(json['size']),
+  total: JsonCoerce.asInt(json['total']),
+  pages: JsonCoerce.asInt(json['pages']),
   records: (json['records'] as List<dynamic>?)
       ?.map(
         (e) =>
@@ -1096,8 +1096,8 @@ _$ProductServiceProductReviewNoAuthSummaryGet$Response$DataFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceProductReviewNoAuthSummaryGet$Response$Data(
   productCode: JsonCoerce.asString(json['productCode']),
-  reviewCount: JsonCoerce.asDouble(json['reviewCount']),
-  averageScore: JsonCoerce.asDouble(json['averageScore']),
+  reviewCount: JsonCoerce.asInt(json['reviewCount']),
+  averageScore: JsonCoerce.asInt(json['averageScore']),
   aiSummary: JsonCoerce.asString(json['aiSummary']),
   featuredReviews: (json['featuredReviews'] as List<dynamic>?)
       ?.map(
@@ -1478,10 +1478,10 @@ _$ProductServiceProductNoAuthCombineSearchGet$Response$DataFromJson(
             ),
       )
       .toList(),
-  total: JsonCoerce.asDouble(json['total']),
-  pageSize: JsonCoerce.asDouble(json['pageSize']),
-  current: JsonCoerce.asDouble(json['current']),
-  totalPages: JsonCoerce.asDouble(json['totalPages']),
+  total: JsonCoerce.asInt(json['total']),
+  pageSize: JsonCoerce.asInt(json['pageSize']),
+  current: JsonCoerce.asInt(json['current']),
+  totalPages: JsonCoerce.asInt(json['totalPages']),
 );
 
 Map<String, dynamic>
@@ -1499,10 +1499,10 @@ ProductServiceProductNoAuthNewArrivalProductGet$Response$Data
 _$ProductServiceProductNoAuthNewArrivalProductGet$Response$DataFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceProductNoAuthNewArrivalProductGet$Response$Data(
-  total: JsonCoerce.asDouble(json['total']),
-  pageSize: JsonCoerce.asDouble(json['pageSize']),
-  totalPages: JsonCoerce.asDouble(json['totalPages']),
-  current: JsonCoerce.asDouble(json['current']),
+  total: JsonCoerce.asInt(json['total']),
+  pageSize: JsonCoerce.asInt(json['pageSize']),
+  totalPages: JsonCoerce.asInt(json['totalPages']),
+  current: JsonCoerce.asInt(json['current']),
   records: (json['records'] as List<dynamic>?)
       ?.map(
         (e) =>
@@ -1640,7 +1640,7 @@ _$ProductServiceProductNoAuthGetProductInfoGet$Response$DataFromJson(
             ),
       )
       .toList(),
-  categoryId: JsonCoerce.asDouble(json['categoryId']),
+  categoryId: JsonCoerce.asInt(json['categoryId']),
   productOptions: (json['productOptions'] as List<dynamic>?)
       ?.map(
         (e) =>
@@ -1692,7 +1692,7 @@ _$ProductServiceProductNoAuthGetProductInfoGet$Response$DataFromJson(
       : JsonCoerce.asStringList(json['sellPoints']),
   categoryTree: json['categoryTree'] == null
       ? []
-      : JsonCoerce.asDoubleList(json['categoryTree']),
+      : JsonCoerce.asIntList(json['categoryTree']),
   ext: json['ext'] == null
       ? null
       : ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Ext.fromJson(
@@ -1861,10 +1861,10 @@ ProductServiceProductNoAuthHotProductV3Get$Response$Data
 _$ProductServiceProductNoAuthHotProductV3Get$Response$DataFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceProductNoAuthHotProductV3Get$Response$Data(
-  total: JsonCoerce.asDouble(json['total']),
-  pageSize: JsonCoerce.asDouble(json['pageSize']),
-  totalPages: JsonCoerce.asDouble(json['totalPages']),
-  current: JsonCoerce.asDouble(json['current']),
+  total: JsonCoerce.asInt(json['total']),
+  pageSize: JsonCoerce.asInt(json['pageSize']),
+  totalPages: JsonCoerce.asInt(json['totalPages']),
+  current: JsonCoerce.asInt(json['current']),
   records: (json['records'] as List<dynamic>?)
       ?.map(
         (e) =>
@@ -1929,7 +1929,7 @@ _$ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$ItemFromJson(
             ),
       )
       .toList(),
-  categoryId: JsonCoerce.asDouble(json['categoryId']),
+  categoryId: JsonCoerce.asInt(json['categoryId']),
   productOptions: (json['productOptions'] as List<dynamic>?)
       ?.map(
         (e) =>
@@ -2015,10 +2015,10 @@ ProductServiceProductNoAuthAlbumProductGet$Response$Data
 _$ProductServiceProductNoAuthAlbumProductGet$Response$DataFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceProductNoAuthAlbumProductGet$Response$Data(
-  total: JsonCoerce.asDouble(json['total']),
-  pageSize: JsonCoerce.asDouble(json['pageSize']),
-  totalPages: JsonCoerce.asDouble(json['totalPages']),
-  current: JsonCoerce.asDouble(json['current']),
+  total: JsonCoerce.asInt(json['total']),
+  pageSize: JsonCoerce.asInt(json['pageSize']),
+  totalPages: JsonCoerce.asInt(json['totalPages']),
+  current: JsonCoerce.asInt(json['current']),
   records: (json['records'] as List<dynamic>?)
       ?.map(
         (e) =>
@@ -2112,7 +2112,7 @@ _$ProductServiceProductNoAuthKolProductGet$Response$Data$ItemFromJson(
             ),
       )
       .toList(),
-  categoryId: JsonCoerce.asDouble(json['categoryId']),
+  categoryId: JsonCoerce.asInt(json['categoryId']),
   productOptions: (json['productOptions'] as List<dynamic>?)
       ?.map(
         (e) =>
@@ -2198,10 +2198,10 @@ ProductServiceProductNoAuthPremierProductGet$Response$Data
 _$ProductServiceProductNoAuthPremierProductGet$Response$DataFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceProductNoAuthPremierProductGet$Response$Data(
-  total: JsonCoerce.asDouble(json['total']),
-  pageSize: JsonCoerce.asDouble(json['pageSize']),
-  totalPages: JsonCoerce.asDouble(json['totalPages']),
-  current: JsonCoerce.asDouble(json['current']),
+  total: JsonCoerce.asInt(json['total']),
+  pageSize: JsonCoerce.asInt(json['pageSize']),
+  totalPages: JsonCoerce.asInt(json['totalPages']),
+  current: JsonCoerce.asInt(json['current']),
   records: (json['records'] as List<dynamic>?)
       ?.map(
         (e) =>
@@ -2337,16 +2337,16 @@ ProductServiceProductReviewNoAuthPageGet$Response$Data$Records$Item
 _$ProductServiceProductReviewNoAuthPageGet$Response$Data$Records$ItemFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceProductReviewNoAuthPageGet$Response$Data$Records$Item(
-  id: JsonCoerce.asDouble(json['id']),
+  id: JsonCoerce.asInt(json['id']),
   username: JsonCoerce.asString(json['username']),
   comment: JsonCoerce.asString(json['comment']),
-  score: JsonCoerce.asDouble(json['score']),
+  score: JsonCoerce.asInt(json['score']),
   images:
       (json['images'] as List<dynamic>?)?.map((e) => e as Object).toList() ??
       [],
   extraComment: JsonCoerce.asString(json['extraComment']),
   reviewTime: JsonCoerce.asString(json['reviewTime']),
-  salesQuantity: JsonCoerce.asDouble(json['salesQuantity']),
+  salesQuantity: JsonCoerce.asInt(json['salesQuantity']),
 );
 
 Map<String, dynamic>
@@ -2368,10 +2368,10 @@ _$ProductServiceProductReviewNoAuthSummaryGet$Response$Data$FeaturedReviews$Item
   Map<String, dynamic> json,
 ) =>
     ProductServiceProductReviewNoAuthSummaryGet$Response$Data$FeaturedReviews$Item(
-      id: JsonCoerce.asDouble(json['id']),
+      id: JsonCoerce.asInt(json['id']),
       username: JsonCoerce.asString(json['username']),
       comment: JsonCoerce.asString(json['comment']),
-      score: JsonCoerce.asDouble(json['score']),
+      score: JsonCoerce.asInt(json['score']),
       images:
           (json['images'] as List<dynamic>?)
               ?.map((e) => e as Object)
@@ -2379,7 +2379,7 @@ _$ProductServiceProductReviewNoAuthSummaryGet$Response$Data$FeaturedReviews$Item
           [],
       extraComment: JsonCoerce.asString(json['extraComment']),
       reviewTime: JsonCoerce.asString(json['reviewTime']),
-      salesQuantity: JsonCoerce.asDouble(json['salesQuantity']),
+      salesQuantity: JsonCoerce.asInt(json['salesQuantity']),
     );
 
 Map<String, dynamic>
@@ -2401,10 +2401,10 @@ ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item
 _$ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$ItemFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item(
-  id: JsonCoerce.asDouble(json['id']),
-  parentId: JsonCoerce.asDouble(json['parentId']),
-  level: JsonCoerce.asDouble(json['level']),
-  showOrder: JsonCoerce.asDouble(json['showOrder']),
+  id: JsonCoerce.asInt(json['id']),
+  parentId: JsonCoerce.asInt(json['parentId']),
+  level: JsonCoerce.asInt(json['level']),
+  showOrder: JsonCoerce.asInt(json['showOrder']),
   name: JsonCoerce.asString(json['name']),
   iconUrl: JsonCoerce.asString(json['iconUrl']),
   categoryList: (json['categoryList'] as List<dynamic>?)
@@ -2442,8 +2442,8 @@ _$ProductServiceActivityNoAuthFlashSaleActivityGet$Response$Data$Activities$Item
       activityCode: JsonCoerce.asString(json['activityCode']),
       title: JsonCoerce.asString(json['title']),
       status: JsonCoerce.asString(json['status']),
-      startTime: JsonCoerce.asDouble(json['startTime']),
-      endTime: JsonCoerce.asDouble(json['endTime']),
+      startTime: JsonCoerce.asInt(json['startTime']),
+      endTime: JsonCoerce.asInt(json['endTime']),
       names:
           (json['names'] as List<dynamic>?)?.map((e) => e as Object).toList() ??
           [],
@@ -2948,7 +2948,7 @@ _$ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$ItemFromJson
             ),
       )
       .toList(),
-  categoryId: JsonCoerce.asDouble(json['categoryId']),
+  categoryId: JsonCoerce.asInt(json['categoryId']),
   productOptions: (json['productOptions'] as List<dynamic>?)
       ?.map(
         (e) =>
@@ -3062,7 +3062,7 @@ _$ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$ItemFrom
             ),
       )
       .toList(),
-  categoryId: JsonCoerce.asDouble(json['categoryId']),
+  categoryId: JsonCoerce.asInt(json['categoryId']),
   productOptions: (json['productOptions'] as List<dynamic>?)
       ?.map(
         (e) =>
@@ -3207,8 +3207,8 @@ ProductServiceProductNoAuthGetProductInfoGet$Response$Data$MainImg$Item
 _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$MainImg$ItemFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceProductNoAuthGetProductInfoGet$Response$Data$MainImg$Item(
-  width: JsonCoerce.asDouble(json['width']),
-  height: JsonCoerce.asDouble(json['height']),
+  width: JsonCoerce.asInt(json['width']),
+  height: JsonCoerce.asInt(json['height']),
   url: JsonCoerce.asString(json['url']),
 );
 
@@ -3250,8 +3250,8 @@ _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgCollection$ItemF
   Map<String, dynamic> json,
 ) =>
     ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgCollection$Item(
-      width: JsonCoerce.asDouble(json['width']),
-      height: JsonCoerce.asDouble(json['height']),
+      width: JsonCoerce.asInt(json['width']),
+      height: JsonCoerce.asInt(json['height']),
       url: JsonCoerce.asString(json['url']),
     );
 
@@ -3269,8 +3269,8 @@ ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgDetail$Item
 _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgDetail$ItemFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgDetail$Item(
-  width: JsonCoerce.asDouble(json['width']),
-  height: JsonCoerce.asDouble(json['height']),
+  width: JsonCoerce.asInt(json['width']),
+  height: JsonCoerce.asInt(json['height']),
   url: JsonCoerce.asString(json['url']),
 );
 
@@ -3309,7 +3309,7 @@ _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item
   Map<String, dynamic> json,
 ) => ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item(
   name: JsonCoerce.asString(json['name']),
-  type: JsonCoerce.asDouble(json['type']),
+  type: JsonCoerce.asInt(json['type']),
   optionValues: (json['optionValues'] as List<dynamic>?)
       ?.map(
         (e) =>
@@ -3458,10 +3458,10 @@ ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$
 _$ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$ItemFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item(
-  id: JsonCoerce.asDouble(json['id']),
-  parentId: JsonCoerce.asDouble(json['parentId']),
-  level: JsonCoerce.asDouble(json['level']),
-  showOrder: JsonCoerce.asDouble(json['showOrder']),
+  id: JsonCoerce.asInt(json['id']),
+  parentId: JsonCoerce.asInt(json['parentId']),
+  level: JsonCoerce.asInt(json['level']),
+  showOrder: JsonCoerce.asInt(json['showOrder']),
   name: JsonCoerce.asString(json['name']),
   iconUrl: JsonCoerce.asString(json['iconUrl']),
   categoryList: (json['categoryList'] as List<dynamic>?)
@@ -3646,7 +3646,7 @@ _$ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$ItemFromJson(
   targetOriginPrice: JsonCoerce.asString(json['targetOriginPrice']),
   targetSellCur: JsonCoerce.asString(json['targetSellCur']),
   sellQuantity: JsonCoerce.asString(json['sellQuantity']),
-  skuCount: JsonCoerce.asDouble(json['skuCount']),
+  skuCount: JsonCoerce.asInt(json['skuCount']),
   marketingInfo: JsonCoerce.asString(json['marketingInfo']),
   tags: (json['tags'] as List<dynamic>?)
       ?.map(
@@ -3707,8 +3707,8 @@ _$ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$MainImg$Item
   Map<String, dynamic> json,
 ) =>
     ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$MainImg$Item(
-      width: JsonCoerce.asDouble(json['width']),
-      height: JsonCoerce.asDouble(json['height']),
+      width: JsonCoerce.asInt(json['width']),
+      height: JsonCoerce.asInt(json['height']),
       url: JsonCoerce.asString(json['url']),
     );
 
@@ -3730,8 +3730,8 @@ _$ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$MainVideo$It
       videoUrl: JsonCoerce.asString(json['videoUrl']),
       vodUrl: JsonCoerce.asString(json['vodUrl']),
       previewUrl: JsonCoerce.asString(json['previewUrl']),
-      width: JsonCoerce.asDouble(json['width']),
-      height: JsonCoerce.asDouble(json['height']),
+      width: JsonCoerce.asInt(json['width']),
+      height: JsonCoerce.asInt(json['height']),
     );
 
 Map<String, dynamic>
@@ -3751,8 +3751,8 @@ _$ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgCollectio
   Map<String, dynamic> json,
 ) =>
     ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgCollection$Item(
-      width: JsonCoerce.asDouble(json['width']),
-      height: JsonCoerce.asDouble(json['height']),
+      width: JsonCoerce.asInt(json['width']),
+      height: JsonCoerce.asInt(json['height']),
       url: JsonCoerce.asString(json['url']),
     );
 
@@ -3771,8 +3771,8 @@ _$ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgDetail$It
   Map<String, dynamic> json,
 ) =>
     ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgDetail$Item(
-      width: JsonCoerce.asDouble(json['width']),
-      height: JsonCoerce.asDouble(json['height']),
+      width: JsonCoerce.asInt(json['width']),
+      height: JsonCoerce.asInt(json['height']),
       url: JsonCoerce.asString(json['url']),
     );
 
@@ -3791,7 +3791,7 @@ _$ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptio
   Map<String, dynamic> json,
 ) => ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item(
   name: JsonCoerce.asString(json['name']),
-  type: JsonCoerce.asDouble(json['type']),
+  type: JsonCoerce.asInt(json['type']),
   optionValues: (json['optionValues'] as List<dynamic>?)
       ?.map(
         (e) =>
@@ -3898,7 +3898,7 @@ _$ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$ItemFromJson(
             ),
       )
       .toList(),
-  categoryId: JsonCoerce.asDouble(json['categoryId']),
+  categoryId: JsonCoerce.asInt(json['categoryId']),
   productOptions: (json['productOptions'] as List<dynamic>?)
       ?.map(
         (e) =>
@@ -4034,8 +4034,8 @@ ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainImg$Item
 _$ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainImg$ItemFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainImg$Item(
-  width: JsonCoerce.asDouble(json['width']),
-  height: JsonCoerce.asDouble(json['height']),
+  width: JsonCoerce.asInt(json['width']),
+  height: JsonCoerce.asInt(json['height']),
   url: JsonCoerce.asString(json['url']),
 );
 
@@ -4056,8 +4056,8 @@ _$ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainVideo$ItemFrom
   videoUrl: JsonCoerce.asString(json['videoUrl']),
   vodUrl: JsonCoerce.asString(json['vodUrl']),
   previewUrl: JsonCoerce.asString(json['previewUrl']),
-  width: JsonCoerce.asDouble(json['width']),
-  height: JsonCoerce.asDouble(json['height']),
+  width: JsonCoerce.asInt(json['width']),
+  height: JsonCoerce.asInt(json['height']),
 );
 
 Map<String, dynamic>
@@ -4077,8 +4077,8 @@ _$ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgCollection$Item
   Map<String, dynamic> json,
 ) =>
     ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgCollection$Item(
-      width: JsonCoerce.asDouble(json['width']),
-      height: JsonCoerce.asDouble(json['height']),
+      width: JsonCoerce.asInt(json['width']),
+      height: JsonCoerce.asInt(json['height']),
       url: JsonCoerce.asString(json['url']),
     );
 
@@ -4096,8 +4096,8 @@ ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgDetail$Item
 _$ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgDetail$ItemFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgDetail$Item(
-  width: JsonCoerce.asDouble(json['width']),
-  height: JsonCoerce.asDouble(json['height']),
+  width: JsonCoerce.asInt(json['width']),
+  height: JsonCoerce.asInt(json['height']),
   url: JsonCoerce.asString(json['url']),
 );
 
@@ -4116,7 +4116,7 @@ _$ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Ite
   Map<String, dynamic> json,
 ) => ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item(
   name: JsonCoerce.asString(json['name']),
-  type: JsonCoerce.asDouble(json['type']),
+  type: JsonCoerce.asInt(json['type']),
   optionValues: (json['optionValues'] as List<dynamic>?)
       ?.map(
         (e) =>
@@ -4222,7 +4222,7 @@ _$ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$ItemFromJso
             ),
       )
       .toList(),
-  categoryId: JsonCoerce.asDouble(json['categoryId']),
+  categoryId: JsonCoerce.asInt(json['categoryId']),
   productOptions: (json['productOptions'] as List<dynamic>?)
       ?.map(
         (e) =>
@@ -4514,10 +4514,10 @@ ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList
 _$ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$ItemFromJson(
   Map<String, dynamic> json,
 ) => ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item(
-  id: JsonCoerce.asDouble(json['id']),
-  parentId: JsonCoerce.asDouble(json['parentId']),
-  level: JsonCoerce.asDouble(json['level']),
-  showOrder: JsonCoerce.asDouble(json['showOrder']),
+  id: JsonCoerce.asInt(json['id']),
+  parentId: JsonCoerce.asInt(json['parentId']),
+  level: JsonCoerce.asInt(json['level']),
+  showOrder: JsonCoerce.asInt(json['showOrder']),
   name: JsonCoerce.asString(json['name']),
   iconUrl: JsonCoerce.asString(json['iconUrl']),
   categoryList: (json['categoryList'] as List<dynamic>?)
@@ -4781,8 +4781,8 @@ _$ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainImg
   Map<String, dynamic> json,
 ) =>
     ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainImg$Item(
-      width: JsonCoerce.asDouble(json['width']),
-      height: JsonCoerce.asDouble(json['height']),
+      width: JsonCoerce.asInt(json['width']),
+      height: JsonCoerce.asInt(json['height']),
       url: JsonCoerce.asString(json['url']),
     );
 
@@ -4825,8 +4825,8 @@ _$ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgColl
   Map<String, dynamic> json,
 ) =>
     ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgCollection$Item(
-      width: JsonCoerce.asDouble(json['width']),
-      height: JsonCoerce.asDouble(json['height']),
+      width: JsonCoerce.asInt(json['width']),
+      height: JsonCoerce.asInt(json['height']),
       url: JsonCoerce.asString(json['url']),
     );
 
@@ -4845,8 +4845,8 @@ _$ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgDeta
   Map<String, dynamic> json,
 ) =>
     ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgDetail$Item(
-      width: JsonCoerce.asDouble(json['width']),
-      height: JsonCoerce.asDouble(json['height']),
+      width: JsonCoerce.asInt(json['width']),
+      height: JsonCoerce.asInt(json['height']),
       url: JsonCoerce.asString(json['url']),
     );
 
@@ -4865,7 +4865,7 @@ _$ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$Product
   Map<String, dynamic> json,
 ) => ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$Item(
   name: JsonCoerce.asString(json['name']),
-  type: JsonCoerce.asDouble(json['type']),
+  type: JsonCoerce.asInt(json['type']),
   optionValues: (json['optionValues'] as List<dynamic>?)
       ?.map(
         (e) =>
@@ -4924,8 +4924,8 @@ _$ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$Mai
   Map<String, dynamic> json,
 ) =>
     ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$MainImg$Item(
-      width: JsonCoerce.asDouble(json['width']),
-      height: JsonCoerce.asDouble(json['height']),
+      width: JsonCoerce.asInt(json['width']),
+      height: JsonCoerce.asInt(json['height']),
       url: JsonCoerce.asString(json['url']),
     );
 
@@ -4944,8 +4944,8 @@ _$ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$Img
   Map<String, dynamic> json,
 ) =>
     ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgCollection$Item(
-      width: JsonCoerce.asDouble(json['width']),
-      height: JsonCoerce.asDouble(json['height']),
+      width: JsonCoerce.asInt(json['width']),
+      height: JsonCoerce.asInt(json['height']),
       url: JsonCoerce.asString(json['url']),
     );
 
@@ -4964,8 +4964,8 @@ _$ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$Img
   Map<String, dynamic> json,
 ) =>
     ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgDetail$Item(
-      width: JsonCoerce.asDouble(json['width']),
-      height: JsonCoerce.asDouble(json['height']),
+      width: JsonCoerce.asInt(json['width']),
+      height: JsonCoerce.asInt(json['height']),
       url: JsonCoerce.asString(json['url']),
     );
 
@@ -4984,7 +4984,7 @@ _$ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$Pro
   Map<String, dynamic> json,
 ) => ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$Item(
   name: JsonCoerce.asString(json['name']),
-  type: JsonCoerce.asDouble(json['type']),
+  type: JsonCoerce.asInt(json['type']),
   optionValues: (json['optionValues'] as List<dynamic>?)
       ?.map(
         (e) =>
@@ -5104,10 +5104,10 @@ _$ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data$CategoryLis
   Map<String, dynamic> json,
 ) =>
     ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item$CategoryList$Item(
-      id: JsonCoerce.asDouble(json['id']),
-      parentId: JsonCoerce.asDouble(json['parentId']),
-      level: JsonCoerce.asDouble(json['level']),
-      showOrder: JsonCoerce.asDouble(json['showOrder']),
+      id: JsonCoerce.asInt(json['id']),
+      parentId: JsonCoerce.asInt(json['parentId']),
+      level: JsonCoerce.asInt(json['level']),
+      showOrder: JsonCoerce.asInt(json['showOrder']),
       name: JsonCoerce.asString(json['name']),
       iconUrl: JsonCoerce.asString(json['iconUrl']),
       categoryList:
@@ -5225,8 +5225,8 @@ _$ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$ImageFro
   Map<String, dynamic> json,
 ) =>
     ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$Image(
-      width: JsonCoerce.asDouble(json['width']),
-      height: JsonCoerce.asDouble(json['height']),
+      width: JsonCoerce.asInt(json['width']),
+      height: JsonCoerce.asInt(json['height']),
       url: JsonCoerce.asString(json['url']),
     );
 
@@ -5245,8 +5245,8 @@ _$ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$ImgColle
   Map<String, dynamic> json,
 ) =>
     ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$ImgCollection$Item(
-      width: JsonCoerce.asDouble(json['width']),
-      height: JsonCoerce.asDouble(json['height']),
+      width: JsonCoerce.asInt(json['width']),
+      height: JsonCoerce.asInt(json['height']),
       url: JsonCoerce.asString(json['url']),
     );
 
@@ -5265,7 +5265,7 @@ _$ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$ProductO
   Map<String, dynamic> json,
 ) => ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$ProductOptions$Item(
   name: JsonCoerce.asString(json['name']),
-  type: JsonCoerce.asDouble(json['type']),
+  type: JsonCoerce.asInt(json['type']),
   optionValues: (json['optionValues'] as List<dynamic>?)
       ?.map(
         (e) =>
@@ -5293,8 +5293,8 @@ _$ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$Tags$Ite
     ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$Tags$Item(
       tagCode: JsonCoerce.asString(json['tagCode']),
       tagImg: JsonCoerce.asString(json['tagImg']),
-      order: JsonCoerce.asDouble(json['order']),
-      frontShow: JsonCoerce.asDouble(json['frontShow']),
+      order: JsonCoerce.asInt(json['order']),
+      frontShow: JsonCoerce.asInt(json['frontShow']),
     );
 
 Map<String, dynamic>
@@ -5381,8 +5381,8 @@ _$ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$MainImg$
   Map<String, dynamic> json,
 ) =>
     ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$MainImg$Item(
-      width: JsonCoerce.asDouble(json['width']),
-      height: JsonCoerce.asDouble(json['height']),
+      width: JsonCoerce.asInt(json['width']),
+      height: JsonCoerce.asInt(json['height']),
       url: JsonCoerce.asString(json['url']),
     );
 
@@ -5401,8 +5401,8 @@ _$ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgColle
   Map<String, dynamic> json,
 ) =>
     ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgCollection$Item(
-      width: JsonCoerce.asDouble(json['width']),
-      height: JsonCoerce.asDouble(json['height']),
+      width: JsonCoerce.asInt(json['width']),
+      height: JsonCoerce.asInt(json['height']),
       url: JsonCoerce.asString(json['url']),
     );
 
@@ -5421,8 +5421,8 @@ _$ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgDetai
   Map<String, dynamic> json,
 ) =>
     ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgDetail$Item(
-      width: JsonCoerce.asDouble(json['width']),
-      height: JsonCoerce.asDouble(json['height']),
+      width: JsonCoerce.asInt(json['width']),
+      height: JsonCoerce.asInt(json['height']),
       url: JsonCoerce.asString(json['url']),
     );
 
@@ -5441,7 +5441,7 @@ _$ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductO
   Map<String, dynamic> json,
 ) => ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$Item(
   name: JsonCoerce.asString(json['name']),
-  type: JsonCoerce.asDouble(json['type']),
+  type: JsonCoerce.asInt(json['type']),
   optionValues: (json['optionValues'] as List<dynamic>?)
       ?.map(
         (e) =>
@@ -5559,8 +5559,8 @@ _$ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$MainIm
   Map<String, dynamic> json,
 ) =>
     ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$MainImg$Item(
-      width: JsonCoerce.asDouble(json['width']),
-      height: JsonCoerce.asDouble(json['height']),
+      width: JsonCoerce.asInt(json['width']),
+      height: JsonCoerce.asInt(json['height']),
       url: JsonCoerce.asString(json['url']),
     );
 
@@ -5579,8 +5579,8 @@ _$ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgCol
   Map<String, dynamic> json,
 ) =>
     ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgCollection$Item(
-      width: JsonCoerce.asDouble(json['width']),
-      height: JsonCoerce.asDouble(json['height']),
+      width: JsonCoerce.asInt(json['width']),
+      height: JsonCoerce.asInt(json['height']),
       url: JsonCoerce.asString(json['url']),
     );
 
@@ -5599,8 +5599,8 @@ _$ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgDet
   Map<String, dynamic> json,
 ) =>
     ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgDetail$Item(
-      width: JsonCoerce.asDouble(json['width']),
-      height: JsonCoerce.asDouble(json['height']),
+      width: JsonCoerce.asInt(json['width']),
+      height: JsonCoerce.asInt(json['height']),
       url: JsonCoerce.asString(json['url']),
     );
 
@@ -5619,7 +5619,7 @@ _$ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$Produc
   Map<String, dynamic> json,
 ) => ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$Item(
   name: JsonCoerce.asString(json['name']),
-  type: JsonCoerce.asDouble(json['type']),
+  type: JsonCoerce.asInt(json['type']),
   optionValues: (json['optionValues'] as List<dynamic>?)
       ?.map(
         (e) =>
@@ -5693,7 +5693,7 @@ _$ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categorie
   targetOriginPrice: JsonCoerce.asString(json['targetOriginPrice']),
   targetSellCur: JsonCoerce.asString(json['targetSellCur']),
   sellQuantity: JsonCoerce.asString(json['sellQuantity']),
-  skuCount: JsonCoerce.asDouble(json['skuCount']),
+  skuCount: JsonCoerce.asInt(json['skuCount']),
   marketingInfo: JsonCoerce.asString(json['marketingInfo']),
   tags:
       (json['tags'] as List<dynamic>?)?.map((e) => e as Object).toList() ?? [],
@@ -5888,11 +5888,11 @@ _$ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryLi
   Map<String, dynamic> json,
 ) =>
     ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item$CategoryList$Item(
-      id: JsonCoerce.asDouble(json['id']),
+      id: JsonCoerce.asInt(json['id']),
       name: JsonCoerce.asString(json['name']),
       iconUrl: JsonCoerce.asString(json['iconUrl']),
-      parentId: JsonCoerce.asDouble(json['parentId']),
-      level: JsonCoerce.asDouble(json['level']),
+      parentId: JsonCoerce.asInt(json['parentId']),
+      level: JsonCoerce.asInt(json['level']),
     );
 
 Map<String, dynamic>
@@ -6022,8 +6022,8 @@ _$ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categorie
   Map<String, dynamic> json,
 ) =>
     ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item$Image(
-      width: JsonCoerce.asDouble(json['width']),
-      height: JsonCoerce.asDouble(json['height']),
+      width: JsonCoerce.asInt(json['width']),
+      height: JsonCoerce.asInt(json['height']),
       url: JsonCoerce.asString(json['url']),
     );
 

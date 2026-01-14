@@ -375,8 +375,8 @@ class ConfigServiceUserConfigPost$Response {
   Map<String, dynamic> toJson() =>
       _$ConfigServiceUserConfigPost$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data', fromJson: JsonCoerce.asBool)
@@ -433,7 +433,7 @@ class ConfigServiceUserConfigPost$Response {
 extension $ConfigServiceUserConfigPost$ResponseExtension
     on ConfigServiceUserConfigPost$Response {
   ConfigServiceUserConfigPost$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     bool? data,
     String? traceId,
@@ -451,7 +451,7 @@ extension $ConfigServiceUserConfigPost$ResponseExtension
   }
 
   ConfigServiceUserConfigPost$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<bool?>? data,
     Wrapped<String?>? traceId,
@@ -488,8 +488,8 @@ class ConfigServiceUserConfigGet$Response {
   Map<String, dynamic> toJson() =>
       _$ConfigServiceUserConfigGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
@@ -546,7 +546,7 @@ class ConfigServiceUserConfigGet$Response {
 extension $ConfigServiceUserConfigGet$ResponseExtension
     on ConfigServiceUserConfigGet$Response {
   ConfigServiceUserConfigGet$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     ConfigServiceUserConfigGet$Response$Data? data,
     String? traceId,
@@ -564,7 +564,7 @@ extension $ConfigServiceUserConfigGet$ResponseExtension
   }
 
   ConfigServiceUserConfigGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<ConfigServiceUserConfigGet$Response$Data?>? data,
     Wrapped<String?>? traceId,
@@ -601,8 +601,8 @@ class ConfigServiceUserConfigNoAuthInstanceGet$Response {
   Map<String, dynamic> toJson() =>
       _$ConfigServiceUserConfigNoAuthInstanceGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'data', fromJson: JsonCoerce.asString)
   final String? data;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
@@ -652,7 +652,7 @@ class ConfigServiceUserConfigNoAuthInstanceGet$Response {
 extension $ConfigServiceUserConfigNoAuthInstanceGet$ResponseExtension
     on ConfigServiceUserConfigNoAuthInstanceGet$Response {
   ConfigServiceUserConfigNoAuthInstanceGet$Response copyWith({
-    double? code,
+    int? code,
     String? data,
     String? message,
     bool? success,
@@ -668,7 +668,7 @@ extension $ConfigServiceUserConfigNoAuthInstanceGet$ResponseExtension
   }
 
   ConfigServiceUserConfigNoAuthInstanceGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? data,
     Wrapped<String?>? message,
     Wrapped<bool?>? success,

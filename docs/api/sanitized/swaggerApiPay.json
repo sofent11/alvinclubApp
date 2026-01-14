@@ -53,7 +53,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -76,7 +76,7 @@
                             "type": "string"
                           },
                           "status": {
-                            "type": "number"
+                            "type": "integer"
                           },
                           "remark": {
                             "type": "string"
@@ -100,16 +100,16 @@
                       }
                     },
                     "total": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "size": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "current": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "pages": {
-                      "type": "number"
+                      "type": "integer"
                     }
                   }
                 },
@@ -152,7 +152,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -170,7 +170,7 @@
                       "type": "string"
                     },
                     "status": {
-                      "type": "number",
+                      "type": "integer",
                       "description": "状态：1-提现中，2-已打款，3-已拒绝"
                     },
                     "rejectReason": {
@@ -214,7 +214,7 @@
               "title": "empty object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -243,7 +243,7 @@
                       "description": "待确认订单佣金数"
                     },
                     "totalPoints": {
-                      "type": "number",
+                      "type": "integer",
                       "description": "总积分"
                     },
                     "pendingWithdrawAmount": {
@@ -296,7 +296,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -305,16 +305,16 @@
                   "type": "object",
                   "properties": {
                     "total": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "pageSize": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "totalPages": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "current": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "records": {
                       "type": "array",
@@ -373,7 +373,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -423,7 +423,7 @@
                           "type": "string"
                         },
                         "expireAt": {
-                          "type": "number"
+                          "type": "integer"
                         }
                       }
                     },
@@ -486,7 +486,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -500,7 +500,7 @@
                         "type": "object",
                         "properties": {
                           "id": {
-                            "type": "number"
+                            "type": "integer"
                           },
                           "userId": {
                             "type": "string"
@@ -527,10 +527,10 @@
                             "type": "string"
                           },
                           "status": {
-                            "type": "number"
+                            "type": "integer"
                           },
                           "payType": {
-                            "type": "number"
+                            "type": "integer"
                           },
                           "payAmount": {
                             "type": "string"
@@ -545,16 +545,16 @@
                       }
                     },
                     "total": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "size": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "current": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "pages": {
-                      "type": "number"
+                      "type": "integer"
                     }
                   }
                 },
@@ -632,7 +632,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -687,7 +687,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -744,7 +744,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -753,10 +753,10 @@
                   "type": "object",
                   "properties": {
                     "payStatus": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "orderType": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "currency": {
                       "type": "object",
@@ -834,7 +834,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -960,7 +960,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -971,7 +971,7 @@
                     "type": "object",
                     "properties": {
                       "type": {
-                        "type": "number",
+                        "type": "integer",
                         "description": "类型(查询时传入)全部: 客户端写死空, 充值卡收益: 14"
                       },
                       "name": {
@@ -1012,7 +1012,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -1021,7 +1021,7 @@
                   "type": "object",
                   "properties": {
                     "balance": {
-                      "type": "number",
+                      "type": "integer",
                       "description": "回想币余额"
                     },
                     "percentage": {
@@ -1103,7 +1103,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -1112,16 +1112,16 @@
                   "type": "object",
                   "properties": {
                     "total": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "pageSize": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "totalPages": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "current": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "records": {
                       "type": "array",
@@ -1129,13 +1129,13 @@
                         "type": "object",
                         "properties": {
                           "actualAmount": {
-                            "type": "number"
+                            "type": "integer"
                           },
                           "gmtCreate": {
-                            "type": "number"
+                            "type": "integer"
                           },
                           "type": {
-                            "type": "number",
+                            "type": "integer",
                             "description": "(0购物返 1订单抵扣 2活动奖励 3售后扣减)"
                           },
                           "name": {
@@ -1193,7 +1193,7 @@
           "type": "string"
         },
         "relatedOrderType": {
-          "type": "number"
+          "type": "integer"
         }
       }
     },
@@ -1224,7 +1224,7 @@
           "type": "string"
         },
         "uiType": {
-          "type": "number",
+          "type": "integer",
           "description": "0默认，1自定义"
         }
       }

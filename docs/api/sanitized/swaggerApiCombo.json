@@ -72,7 +72,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -209,7 +209,7 @@
               "title": "empty object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -1227,7 +1227,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -1266,7 +1266,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -1275,19 +1275,19 @@
                   "type": "object",
                   "properties": {
                     "pendingOrderCount": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "totalOrderCount": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "pendingWarehouseItemCount": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "pendingPackageCount": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "totalPackageCount": {
-                      "type": "number"
+                      "type": "integer"
                     }
                   }
                 },
@@ -1333,7 +1333,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -1382,7 +1382,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "msg": {
                   "type": "string"
@@ -1489,7 +1489,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -1501,7 +1501,7 @@
                   "type": "object",
                   "properties": {
                     "id": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "tenantCode": {
                       "type": "string"
@@ -1522,7 +1522,7 @@
                       "type": "null"
                     },
                     "isDeleted": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "gmtCreate": {
                       "type": "string"
@@ -1531,7 +1531,7 @@
                       "type": "string"
                     },
                     "groupId": {
-                      "type": "number"
+                      "type": "integer"
                     }
                   }
                 }
@@ -1582,7 +1582,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -1603,16 +1603,16 @@
                             "description": "任务状态（RUNNING/SUBMITTING/PENDING/SUCCESS/FAILED/CANCELED/TIMEOUT）"
                           },
                           "count": {
-                            "type": "number"
+                            "type": "integer"
                           },
                           "createdAt": {
-                            "type": "number"
+                            "type": "integer"
                           },
                           "completedAt": {
-                            "type": "number"
+                            "type": "integer"
                           },
                           "totalDuration": {
-                            "type": "number"
+                            "type": "integer"
                           },
                           "requestParams": {
                             "type": "object",
@@ -1627,7 +1627,7 @@
                                 "type": "string"
                               },
                               "gender": {
-                                "type": "number"
+                                "type": "integer"
                               },
                               "age": {
                                 "type": "string"
@@ -1714,7 +1714,7 @@
                                   "type": "string"
                                 },
                                 "selectedId": {
-                                  "type": "number"
+                                  "type": "integer"
                                 },
                                 "options": {
                                   "type": "array",
@@ -1722,7 +1722,7 @@
                                     "type": "object",
                                     "properties": {
                                       "id": {
-                                        "type": "number"
+                                        "type": "integer"
                                       },
                                       "title": {
                                         "type": "string"
@@ -1749,10 +1749,10 @@
                                   "type": "string"
                                 },
                                 "cachedImageSelectedId": {
-                                  "type": "number"
+                                  "type": "integer"
                                 },
                                 "cachedImageUpdatedAt": {
-                                  "type": "number"
+                                  "type": "integer"
                                 }
                               }
                             }
@@ -1772,7 +1772,7 @@
                                   "type": "object",
                                   "properties": {
                                     "sharingImageId": {
-                                      "type": "number"
+                                      "type": "integer"
                                     },
                                     "imageUrl": {
                                       "type": "string"
@@ -1813,13 +1813,13 @@
                                           "type": "string"
                                         },
                                         "generatedAt": {
-                                          "type": "number"
+                                          "type": "integer"
                                         },
                                         "version": {
-                                          "type": "number"
+                                          "type": "integer"
                                         },
                                         "temperature": {
-                                          "type": "number"
+                                          "type": "integer"
                                         },
                                         "regenerationStatus": {
                                           "type": "string"
@@ -1830,7 +1830,7 @@
                                 }
                               },
                               "generated_at": {
-                                "type": "number"
+                                "type": "integer"
                               },
                               "multi_model_image_url": {
                                 "type": "string"
@@ -1847,7 +1847,7 @@
                                   "type": "object",
                                   "properties": {
                                     "sharingImageId": {
-                                      "type": "number"
+                                      "type": "integer"
                                     },
                                     "imageUrl": {
                                       "type": "string"
@@ -1864,7 +1864,7 @@
                                 "type": "boolean"
                               },
                               "count": {
-                                "type": "number"
+                                "type": "integer"
                               }
                             }
                           }
@@ -1872,16 +1872,16 @@
                       }
                     },
                     "total": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "size": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "current": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "pages": {
-                      "type": "number"
+                      "type": "integer"
                     }
                   }
                 },
@@ -1916,7 +1916,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -1931,7 +1931,7 @@
                   "type": "object",
                   "properties": {
                     "id": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "tenantCode": {
                       "type": "string"
@@ -1955,7 +1955,7 @@
                       "type": "null"
                     },
                     "isDeleted": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "gmtCreate": {
                       "type": "string"
@@ -1964,7 +1964,7 @@
                       "type": "string"
                     },
                     "groupId": {
-                      "type": "number"
+                      "type": "integer"
                     }
                   }
                 }
@@ -2005,7 +2005,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -2027,26 +2027,26 @@
                       "description": "生成状态（RUNNING/SUBMITTING/PENDING/SUCCESS/FAILED/CANCELED/TIMEOUT）"
                     },
                     "totalCount": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "completedCount": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "selectedIndex": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "originalImageUrl": {
                       "type": "string"
                     },
                     "gender": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "isDefault": {
                       "type": "boolean",
                       "description": "是否默认模特"
                     },
                     "usageCount": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "createdAt": {
                       "type": "string"
@@ -2060,7 +2060,7 @@
                         "type": "object",
                         "properties": {
                           "index": {
-                            "type": "number"
+                            "type": "integer"
                           },
                           "url": {
                             "type": "string"
@@ -2101,7 +2101,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -2123,16 +2123,16 @@
                       "description": "任务状态（RUNNING/SUBMITTING/PENDING/SUCCESS/FAILED/CANCELED/TIMEOUT）"
                     },
                     "count": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "createdAt": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "completedAt": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "totalDuration": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "requestParams": {
                       "type": "object",
@@ -2147,7 +2147,7 @@
                           "type": "string"
                         },
                         "gender": {
-                          "type": "number"
+                          "type": "integer"
                         },
                         "age": {
                           "type": "string"
@@ -2234,7 +2234,7 @@
                             "type": "string"
                           },
                           "selectedId": {
-                            "type": "number"
+                            "type": "integer"
                           },
                           "options": {
                             "type": "array",
@@ -2242,7 +2242,7 @@
                               "type": "object",
                               "properties": {
                                 "id": {
-                                  "type": "number"
+                                  "type": "integer"
                                 },
                                 "title": {
                                   "type": "string"
@@ -2269,10 +2269,10 @@
                             "type": "string"
                           },
                           "cachedImageSelectedId": {
-                            "type": "number"
+                            "type": "integer"
                           },
                           "cachedImageUpdatedAt": {
-                            "type": "number"
+                            "type": "integer"
                           }
                         }
                       }
@@ -2292,7 +2292,7 @@
                             "type": "object",
                             "properties": {
                               "sharingImageId": {
-                                "type": "number"
+                                "type": "integer"
                               },
                               "imageUrl": {
                                 "type": "string"
@@ -2333,13 +2333,13 @@
                                     "type": "string"
                                   },
                                   "generatedAt": {
-                                    "type": "number"
+                                    "type": "integer"
                                   },
                                   "version": {
-                                    "type": "number"
+                                    "type": "integer"
                                   },
                                   "temperature": {
-                                    "type": "number"
+                                    "type": "integer"
                                   },
                                   "regenerationStatus": {
                                     "type": "string"
@@ -2350,7 +2350,7 @@
                           }
                         },
                         "generated_at": {
-                          "type": "number"
+                          "type": "integer"
                         },
                         "multi_model_image_url": {
                           "type": "string"
@@ -2367,7 +2367,7 @@
                             "type": "object",
                             "properties": {
                               "sharingImageId": {
-                                "type": "number"
+                                "type": "integer"
                               },
                               "imageUrl": {
                                 "type": "string"
@@ -2384,7 +2384,7 @@
                           "type": "boolean"
                         },
                         "count": {
-                          "type": "number"
+                          "type": "integer"
                         }
                       }
                     }
@@ -2420,7 +2420,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -2429,7 +2429,7 @@
                   "type": "object",
                   "properties": {
                     "id": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "tenantCode": {
                       "type": "string"
@@ -2453,7 +2453,7 @@
                       "type": "string"
                     },
                     "isDeleted": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "gmtCreate": {
                       "type": "string"
@@ -2462,7 +2462,7 @@
                       "type": "string"
                     },
                     "groupId": {
-                      "type": "number"
+                      "type": "integer"
                     }
                   }
                 }
@@ -2488,7 +2488,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -2505,7 +2505,7 @@
                         "type": "object",
                         "properties": {
                           "groupId": {
-                            "type": "number",
+                            "type": "integer",
                             "description": "0:system，1:user"
                           },
                           "title": {
@@ -2517,7 +2517,7 @@
                               "type": "object",
                               "properties": {
                                 "id": {
-                                  "type": "number"
+                                  "type": "integer"
                                 },
                                 "tenantCode": {
                                   "type": "string"
@@ -2541,7 +2541,7 @@
                                   "type": "null"
                                 },
                                 "isDeleted": {
-                                  "type": "number"
+                                  "type": "integer"
                                 },
                                 "gmtCreate": {
                                   "type": "string"
@@ -2550,7 +2550,7 @@
                                   "type": "string"
                                 },
                                 "groupId": {
-                                  "type": "number"
+                                  "type": "integer"
                                 },
                                 "modelData": {
                                   "type": "array",
@@ -2603,7 +2603,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -2625,13 +2625,13 @@
                       "description": "processing-生成中，completed-生成完成 ，failed-生成失败"
                     },
                     "count": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "estimatedTime": {
                       "type": "string"
                     },
                     "createdAt": {
-                      "type": "number"
+                      "type": "integer"
                     }
                   }
                 }
@@ -2672,7 +2672,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -2772,16 +2772,16 @@
                 }
               },
               "total": {
-                "type": "number"
+                "type": "integer"
               },
               "size": {
-                "type": "number"
+                "type": "integer"
               },
               "current": {
-                "type": "number"
+                "type": "integer"
               },
               "pages": {
-                "type": "number"
+                "type": "integer"
               }
             }
           }
@@ -2833,7 +2833,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -2855,10 +2855,10 @@
                               "type": "object",
                               "properties": {
                                 "width": {
-                                  "type": "number"
+                                  "type": "integer"
                                 },
                                 "height": {
-                                  "type": "number"
+                                  "type": "integer"
                                 },
                                 "url": {
                                   "type": "string"
@@ -2873,17 +2873,17 @@
                             "type": "string"
                           },
                           "postId": {
-                            "type": "number",
+                            "type": "integer",
                             "description": "帖子 id"
                           },
                           "frontImage": {
                             "type": "object",
                             "properties": {
                               "width": {
-                                "type": "number"
+                                "type": "integer"
                               },
                               "height": {
-                                "type": "number"
+                                "type": "integer"
                               },
                               "url": {
                                 "type": "string"
@@ -2931,7 +2931,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -2940,7 +2940,7 @@
                   "type": "object",
                   "properties": {
                     "postId": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "postTitle": {
                       "type": "string"
@@ -2949,10 +2949,10 @@
                       "type": "object",
                       "properties": {
                         "width": {
-                          "type": "number"
+                          "type": "integer"
                         },
                         "height": {
-                          "type": "number"
+                          "type": "integer"
                         },
                         "url": {
                           "type": "string"
@@ -2963,10 +2963,10 @@
                       "type": "object",
                       "properties": {
                         "width": {
-                          "type": "number"
+                          "type": "integer"
                         },
                         "height": {
-                          "type": "number"
+                          "type": "integer"
                         },
                         "url": {
                           "type": "string"
@@ -2980,10 +2980,10 @@
                           "type": "string"
                         },
                         "height": {
-                          "type": "number"
+                          "type": "integer"
                         },
                         "width": {
-                          "type": "number"
+                          "type": "integer"
                         }
                       }
                     },
@@ -2993,10 +2993,10 @@
                         "type": "object",
                         "properties": {
                           "width": {
-                            "type": "number"
+                            "type": "integer"
                           },
                           "height": {
-                            "type": "number"
+                            "type": "integer"
                           },
                           "url": {
                             "type": "string"
@@ -3010,10 +3010,10 @@
                         "type": "object",
                         "properties": {
                           "width": {
-                            "type": "number"
+                            "type": "integer"
                           },
                           "height": {
-                            "type": "number"
+                            "type": "integer"
                           },
                           "url": {
                             "type": "string"
@@ -3072,7 +3072,7 @@
                       }
                     },
                     "templateId": {
-                      "type": "number"
+                      "type": "integer"
                     }
                   }
                 },
@@ -3104,7 +3104,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -3175,7 +3175,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -3230,7 +3230,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -3306,7 +3306,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -3329,16 +3329,16 @@
                             "type": "string"
                           },
                           "auditStatus": {
-                            "type": "number"
+                            "type": "integer"
                           },
                           "rewardAmount": {
                             "type": "string"
                           },
                           "rewardType": {
-                            "type": "number"
+                            "type": "integer"
                           },
                           "rewardStatus": {
-                            "type": "number"
+                            "type": "integer"
                           },
                           "rewardTime": {
                             "type": "string"
@@ -3347,16 +3347,16 @@
                       }
                     },
                     "total": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "size": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "current": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "pages": {
-                      "type": "number"
+                      "type": "integer"
                     }
                   }
                 },
@@ -3402,7 +3402,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -3459,7 +3459,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -3679,7 +3679,7 @@
       "type": "object",
       "properties": {
         "segmentedType": {
-          "type": "number",
+          "type": "integer",
           "description": "可以不传，背景抠图类型，字典：1=默认"
         },
         "segmentedGender": {
@@ -3687,7 +3687,7 @@
           "description": "抠图性别，枚举：male/female"
         },
         "gender": {
-          "type": "number",
+          "type": "integer",
           "description": "性别，字典：0=自动，1=男，2=女"
         },
         "age": {
@@ -3761,7 +3761,7 @@
           "description": "模特生成任务ID"
         },
         "selectedIndex": {
-          "type": "number",
+          "type": "integer",
           "description": "选中的生成结果索引"
         },
         "modelDesc": {
@@ -3800,11 +3800,11 @@
           "type": "string"
         },
         "gender": {
-          "type": "number",
+          "type": "integer",
           "description": "性别，字典：0=自动，1=男，2=女"
         },
         "count": {
-          "type": "number",
+          "type": "integer",
           "description": "生成数量"
         },
         "age": {
@@ -3847,7 +3847,7 @@
           }
         },
         "imageIndex": {
-          "type": "number"
+          "type": "integer"
         }
       }
     },

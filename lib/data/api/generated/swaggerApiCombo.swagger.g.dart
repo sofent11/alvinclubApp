@@ -91,9 +91,9 @@ ComboServiceApiV1StyleOutfitsGeneratemodelPostRequest
 _$ComboServiceApiV1StyleOutfitsGeneratemodelPostRequestFromJson(
   Map<String, dynamic> json,
 ) => ComboServiceApiV1StyleOutfitsGeneratemodelPostRequest(
-  segmentedType: JsonCoerce.asDouble(json['segmentedType']),
+  segmentedType: JsonCoerce.asInt(json['segmentedType']),
   segmentedGender: JsonCoerce.asString(json['segmentedGender']),
-  gender: JsonCoerce.asDouble(json['gender']),
+  gender: JsonCoerce.asInt(json['gender']),
   age: JsonCoerce.asString(json['age']),
   ethnicity: JsonCoerce.asString(json['ethnicity']),
   skinColor: JsonCoerce.asString(json['skinColor']),
@@ -140,7 +140,7 @@ _$ComboServiceBizAiFashionModelSavePostRequestFromJson(
   Map<String, dynamic> json,
 ) => ComboServiceBizAiFashionModelSavePostRequest(
   taskId: JsonCoerce.asString(json['taskId']),
-  selectedIndex: JsonCoerce.asDouble(json['selectedIndex']),
+  selectedIndex: JsonCoerce.asInt(json['selectedIndex']),
   modelDesc: JsonCoerce.asString(json['modelDesc']),
 );
 
@@ -173,8 +173,8 @@ _$ComboServiceApiV1StyleOutfitsGeneratePostRequestFromJson(
       ? []
       : JsonCoerce.asStringList(json['referenceImages']),
   customPrompt: JsonCoerce.asString(json['customPrompt']),
-  gender: JsonCoerce.asDouble(json['gender']),
-  count: JsonCoerce.asDouble(json['count']),
+  gender: JsonCoerce.asInt(json['gender']),
+  count: JsonCoerce.asInt(json['count']),
   age: JsonCoerce.asString(json['age']),
   physicalAppearance: JsonCoerce.asString(json['physicalAppearance']),
   styleTrendyElements: JsonCoerce.asString(json['styleTrendyElements']),
@@ -190,7 +190,7 @@ _$ComboServiceApiV1StyleOutfitsGeneratePostRequestFromJson(
       : ComboServiceApiV1StyleOutfitsGeneratePostRequest$Selections.fromJson(
           json['selections'] as Map<String, dynamic>,
         ),
-  imageIndex: JsonCoerce.asDouble(json['imageIndex']),
+  imageIndex: JsonCoerce.asInt(json['imageIndex']),
 );
 
 Map<String, dynamic> _$ComboServiceApiV1StyleOutfitsGeneratePostRequestToJson(
@@ -282,7 +282,7 @@ ComboServiceNoAuthBizKolKolInfoGet$Response
 _$ComboServiceNoAuthBizKolKolInfoGet$ResponseFromJson(
   Map<String, dynamic> json,
 ) => ComboServiceNoAuthBizKolKolInfoGet$Response(
-  code: JsonCoerce.asDouble(json['code']),
+  code: JsonCoerce.asInt(json['code']),
   message: JsonCoerce.asString(json['message']),
   data: json['data'] == null
       ? null
@@ -332,7 +332,7 @@ ComboServiceNoAuthCommonAppConfigVersionCheckGet$Response
 _$ComboServiceNoAuthCommonAppConfigVersionCheckGet$ResponseFromJson(
   Map<String, dynamic> json,
 ) => ComboServiceNoAuthCommonAppConfigVersionCheckGet$Response(
-  code: JsonCoerce.asDouble(json['code']),
+  code: JsonCoerce.asInt(json['code']),
   message: JsonCoerce.asString(json['message']),
   data: json['data'] == null
       ? null
@@ -442,7 +442,7 @@ ComboServiceNoAuthBizImageTransTranslatePost$Response
 _$ComboServiceNoAuthBizImageTransTranslatePost$ResponseFromJson(
   Map<String, dynamic> json,
 ) => ComboServiceNoAuthBizImageTransTranslatePost$Response(
-  code: JsonCoerce.asDouble(json['code']),
+  code: JsonCoerce.asInt(json['code']),
   message: JsonCoerce.asString(json['message']),
   data: JsonCoerce.asString(json['data']),
   traceId: JsonCoerce.asString(json['traceId']),
@@ -466,7 +466,7 @@ ComboServiceBizUserOrderPendingGet$Response
 _$ComboServiceBizUserOrderPendingGet$ResponseFromJson(
   Map<String, dynamic> json,
 ) => ComboServiceBizUserOrderPendingGet$Response(
-  code: JsonCoerce.asDouble(json['code']),
+  code: JsonCoerce.asInt(json['code']),
   message: JsonCoerce.asString(json['message']),
   data: json['data'] == null
       ? null
@@ -493,7 +493,7 @@ ComboServiceApiV1StyleOutfitsGenerateModelPost$Response
 _$ComboServiceApiV1StyleOutfitsGenerateModelPost$ResponseFromJson(
   Map<String, dynamic> json,
 ) => ComboServiceApiV1StyleOutfitsGenerateModelPost$Response(
-  code: JsonCoerce.asDouble(json['code']),
+  code: JsonCoerce.asInt(json['code']),
   message: JsonCoerce.asString(json['message']),
   traceId: JsonCoerce.asString(json['traceId']),
   success: JsonCoerce.asBool(json['success']),
@@ -519,7 +519,7 @@ ComboServiceBizAiFashionNoAuthBodyShapeGet$Response
 _$ComboServiceBizAiFashionNoAuthBodyShapeGet$ResponseFromJson(
   Map<String, dynamic> json,
 ) => ComboServiceBizAiFashionNoAuthBodyShapeGet$Response(
-  code: JsonCoerce.asDouble(json['code']),
+  code: JsonCoerce.asInt(json['code']),
   msg: JsonCoerce.asString(json['msg']),
   data: json['data'] == null
       ? null
@@ -541,7 +541,7 @@ ComboServiceBizAiFashionModelSavePost$Response
 _$ComboServiceBizAiFashionModelSavePost$ResponseFromJson(
   Map<String, dynamic> json,
 ) => ComboServiceBizAiFashionModelSavePost$Response(
-  code: JsonCoerce.asDouble(json['code']),
+  code: JsonCoerce.asInt(json['code']),
   message: JsonCoerce.asString(json['message']),
   traceId: JsonCoerce.asString(json['traceId']),
   data: json['data'] == null
@@ -564,7 +564,7 @@ ComboServiceApiV1StyleOutfitsResultPageGet$Response
 _$ComboServiceApiV1StyleOutfitsResultPageGet$ResponseFromJson(
   Map<String, dynamic> json,
 ) => ComboServiceApiV1StyleOutfitsResultPageGet$Response(
-  code: JsonCoerce.asDouble(json['code']),
+  code: JsonCoerce.asInt(json['code']),
   message: JsonCoerce.asString(json['message']),
   data: json['data'] == null
       ? null
@@ -592,7 +592,7 @@ ComboServiceBizAiFashionModelRecentlyUsedGet$Response
 _$ComboServiceBizAiFashionModelRecentlyUsedGet$ResponseFromJson(
   Map<String, dynamic> json,
 ) => ComboServiceBizAiFashionModelRecentlyUsedGet$Response(
-  code: JsonCoerce.asDouble(json['code']),
+  code: JsonCoerce.asInt(json['code']),
   message: JsonCoerce.asString(json['message']),
   traceId: JsonCoerce.asString(json['traceId']),
   success: JsonCoerce.asBool(json['success']),
@@ -618,7 +618,7 @@ ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response
 _$ComboServiceApiV1StyleOutfitsModelIdStatusGet$ResponseFromJson(
   Map<String, dynamic> json,
 ) => ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response(
-  code: JsonCoerce.asDouble(json['code']),
+  code: JsonCoerce.asInt(json['code']),
   message: JsonCoerce.asString(json['message']),
   traceId: JsonCoerce.asString(json['traceId']),
   success: JsonCoerce.asBool(json['success']),
@@ -644,7 +644,7 @@ ComboServiceApiV1StyleOutfitsResultGet$Response
 _$ComboServiceApiV1StyleOutfitsResultGet$ResponseFromJson(
   Map<String, dynamic> json,
 ) => ComboServiceApiV1StyleOutfitsResultGet$Response(
-  code: JsonCoerce.asDouble(json['code']),
+  code: JsonCoerce.asInt(json['code']),
   message: JsonCoerce.asString(json['message']),
   traceId: JsonCoerce.asString(json['traceId']),
   success: JsonCoerce.asBool(json['success']),
@@ -669,7 +669,7 @@ ComboServiceBizAiFashionModelModelIdGet$Response
 _$ComboServiceBizAiFashionModelModelIdGet$ResponseFromJson(
   Map<String, dynamic> json,
 ) => ComboServiceBizAiFashionModelModelIdGet$Response(
-  code: JsonCoerce.asDouble(json['code']),
+  code: JsonCoerce.asInt(json['code']),
   message: JsonCoerce.asString(json['message']),
   data: json['data'] == null
       ? null
@@ -690,7 +690,7 @@ ComboServiceBizAiFashionModelListGet$Response
 _$ComboServiceBizAiFashionModelListGet$ResponseFromJson(
   Map<String, dynamic> json,
 ) => ComboServiceBizAiFashionModelListGet$Response(
-  code: JsonCoerce.asDouble(json['code']),
+  code: JsonCoerce.asInt(json['code']),
   message: JsonCoerce.asString(json['message']),
   traceId: JsonCoerce.asString(json['traceId']),
   data: json['data'] == null
@@ -713,7 +713,7 @@ ComboServiceApiV1StyleOutfitsGeneratePost$Response
 _$ComboServiceApiV1StyleOutfitsGeneratePost$ResponseFromJson(
   Map<String, dynamic> json,
 ) => ComboServiceApiV1StyleOutfitsGeneratePost$Response(
-  code: JsonCoerce.asDouble(json['code']),
+  code: JsonCoerce.asInt(json['code']),
   message: JsonCoerce.asString(json['message']),
   traceId: JsonCoerce.asString(json['traceId']),
   success: JsonCoerce.asBool(json['success']),
@@ -738,7 +738,7 @@ ComboServiceBizAiFashionNoAuthStylePresetGet$Response
 _$ComboServiceBizAiFashionNoAuthStylePresetGet$ResponseFromJson(
   Map<String, dynamic> json,
 ) => ComboServiceBizAiFashionNoAuthStylePresetGet$Response(
-  code: JsonCoerce.asDouble(json['code']),
+  code: JsonCoerce.asInt(json['code']),
   message: JsonCoerce.asString(json['message']),
   data: json['data'] == null
       ? null
@@ -760,7 +760,7 @@ ComboServiceBizAiFashionNoAuthPostListGet$Response
 _$ComboServiceBizAiFashionNoAuthPostListGet$ResponseFromJson(
   Map<String, dynamic> json,
 ) => ComboServiceBizAiFashionNoAuthPostListGet$Response(
-  code: JsonCoerce.asDouble(json['code']),
+  code: JsonCoerce.asInt(json['code']),
   message: JsonCoerce.asString(json['message']),
   traceId: JsonCoerce.asString(json['traceId']),
   data: json['data'] == null
@@ -783,7 +783,7 @@ ComboServiceBizAiFashionNoAuthPostDetailGet$Response
 _$ComboServiceBizAiFashionNoAuthPostDetailGet$ResponseFromJson(
   Map<String, dynamic> json,
 ) => ComboServiceBizAiFashionNoAuthPostDetailGet$Response(
-  code: JsonCoerce.asDouble(json['code']),
+  code: JsonCoerce.asInt(json['code']),
   message: JsonCoerce.asString(json['message']),
   data: json['data'] == null
       ? null
@@ -809,7 +809,7 @@ ComboServiceBizAiFashionNoAuthSelectOptionGet$Response
 _$ComboServiceBizAiFashionNoAuthSelectOptionGet$ResponseFromJson(
   Map<String, dynamic> json,
 ) => ComboServiceBizAiFashionNoAuthSelectOptionGet$Response(
-  code: JsonCoerce.asDouble(json['code']),
+  code: JsonCoerce.asInt(json['code']),
   message: JsonCoerce.asString(json['message']),
   traceId: JsonCoerce.asString(json['traceId']),
   data: json['data'] == null
@@ -833,7 +833,7 @@ ComboServiceApiV1StyleOutfitsGenerateModelRegeneratePost$Response
 _$ComboServiceApiV1StyleOutfitsGenerateModelRegeneratePost$ResponseFromJson(
   Map<String, dynamic> json,
 ) => ComboServiceApiV1StyleOutfitsGenerateModelRegeneratePost$Response(
-  code: JsonCoerce.asDouble(json['code']),
+  code: JsonCoerce.asInt(json['code']),
   message: JsonCoerce.asString(json['message']),
   traceId: JsonCoerce.asString(json['traceId']),
   success: JsonCoerce.asBool(json['success']),
@@ -859,7 +859,7 @@ ComboServiceApiV1StyleOutfitsGenerateRegeneratePost$Response
 _$ComboServiceApiV1StyleOutfitsGenerateRegeneratePost$ResponseFromJson(
   Map<String, dynamic> json,
 ) => ComboServiceApiV1StyleOutfitsGenerateRegeneratePost$Response(
-  code: JsonCoerce.asDouble(json['code']),
+  code: JsonCoerce.asInt(json['code']),
   message: JsonCoerce.asString(json['message']),
   traceId: JsonCoerce.asString(json['traceId']),
   success: JsonCoerce.asBool(json['success']),
@@ -885,7 +885,7 @@ ComboServiceBizUserShareRewardPageGet$Response
 _$ComboServiceBizUserShareRewardPageGet$ResponseFromJson(
   Map<String, dynamic> json,
 ) => ComboServiceBizUserShareRewardPageGet$Response(
-  code: JsonCoerce.asDouble(json['code']),
+  code: JsonCoerce.asInt(json['code']),
   message: JsonCoerce.asString(json['message']),
   data: json['data'] == null
       ? null
@@ -912,7 +912,7 @@ ComboServiceBizUserShareRewardPost$Response
 _$ComboServiceBizUserShareRewardPost$ResponseFromJson(
   Map<String, dynamic> json,
 ) => ComboServiceBizUserShareRewardPost$Response(
-  code: JsonCoerce.asDouble(json['code']),
+  code: JsonCoerce.asInt(json['code']),
   message: JsonCoerce.asString(json['message']),
   data: JsonCoerce.asString(json['data']),
   traceId: JsonCoerce.asString(json['traceId']),
@@ -935,7 +935,7 @@ ComboServiceNoAuthBizAlbumAlbumInfoGet$Response
 _$ComboServiceNoAuthBizAlbumAlbumInfoGet$ResponseFromJson(
   Map<String, dynamic> json,
 ) => ComboServiceNoAuthBizAlbumAlbumInfoGet$Response(
-  code: JsonCoerce.asDouble(json['code']),
+  code: JsonCoerce.asInt(json['code']),
   message: JsonCoerce.asString(json['message']),
   data: json['data'] == null
       ? null
@@ -1089,13 +1089,13 @@ ComboServiceBizUserOrderPendingGet$Response$Data
 _$ComboServiceBizUserOrderPendingGet$Response$DataFromJson(
   Map<String, dynamic> json,
 ) => ComboServiceBizUserOrderPendingGet$Response$Data(
-  pendingOrderCount: JsonCoerce.asDouble(json['pendingOrderCount']),
-  totalOrderCount: JsonCoerce.asDouble(json['totalOrderCount']),
-  pendingWarehouseItemCount: JsonCoerce.asDouble(
+  pendingOrderCount: JsonCoerce.asInt(json['pendingOrderCount']),
+  totalOrderCount: JsonCoerce.asInt(json['totalOrderCount']),
+  pendingWarehouseItemCount: JsonCoerce.asInt(
     json['pendingWarehouseItemCount'],
   ),
-  pendingPackageCount: JsonCoerce.asDouble(json['pendingPackageCount']),
-  totalPackageCount: JsonCoerce.asDouble(json['totalPackageCount']),
+  pendingPackageCount: JsonCoerce.asInt(json['pendingPackageCount']),
+  totalPackageCount: JsonCoerce.asInt(json['totalPackageCount']),
 );
 
 Map<String, dynamic> _$ComboServiceBizUserOrderPendingGet$Response$DataToJson(
@@ -1160,17 +1160,17 @@ ComboServiceBizAiFashionModelSavePost$Response$Data
 _$ComboServiceBizAiFashionModelSavePost$Response$DataFromJson(
   Map<String, dynamic> json,
 ) => ComboServiceBizAiFashionModelSavePost$Response$Data(
-  id: JsonCoerce.asDouble(json['id']),
+  id: JsonCoerce.asInt(json['id']),
   tenantCode: JsonCoerce.asString(json['tenantCode']),
   userId: JsonCoerce.asString(json['userId']),
   modelDesc: JsonCoerce.asString(json['modelDesc']),
   modelId: JsonCoerce.asString(json['modelId']),
   modelImage: JsonCoerce.asString(json['modelImage']),
   ext: json['ext'],
-  isDeleted: JsonCoerce.asDouble(json['isDeleted']),
+  isDeleted: JsonCoerce.asInt(json['isDeleted']),
   gmtCreate: JsonCoerce.asString(json['gmtCreate']),
   gmtUpdate: JsonCoerce.asString(json['gmtUpdate']),
-  groupId: JsonCoerce.asDouble(json['groupId']),
+  groupId: JsonCoerce.asInt(json['groupId']),
 );
 
 Map<String, dynamic>
@@ -1202,10 +1202,10 @@ _$ComboServiceApiV1StyleOutfitsResultPageGet$Response$DataFromJson(
             ),
       )
       .toList(),
-  total: JsonCoerce.asDouble(json['total']),
-  size: JsonCoerce.asDouble(json['size']),
-  current: JsonCoerce.asDouble(json['current']),
-  pages: JsonCoerce.asDouble(json['pages']),
+  total: JsonCoerce.asInt(json['total']),
+  size: JsonCoerce.asInt(json['size']),
+  current: JsonCoerce.asInt(json['current']),
+  pages: JsonCoerce.asInt(json['pages']),
 );
 
 Map<String, dynamic>
@@ -1223,7 +1223,7 @@ ComboServiceBizAiFashionModelRecentlyUsedGet$Response$Data
 _$ComboServiceBizAiFashionModelRecentlyUsedGet$Response$DataFromJson(
   Map<String, dynamic> json,
 ) => ComboServiceBizAiFashionModelRecentlyUsedGet$Response$Data(
-  id: JsonCoerce.asDouble(json['id']),
+  id: JsonCoerce.asInt(json['id']),
   tenantCode: JsonCoerce.asString(json['tenantCode']),
   userId: JsonCoerce.asString(json['userId']),
   modelDesc: JsonCoerce.asString(json['modelDesc']),
@@ -1231,10 +1231,10 @@ _$ComboServiceBizAiFashionModelRecentlyUsedGet$Response$DataFromJson(
   modelImage: JsonCoerce.asString(json['modelImage']),
   modelHeaderImage: JsonCoerce.asString(json['modelHeaderImage']),
   ext: json['ext'],
-  isDeleted: JsonCoerce.asDouble(json['isDeleted']),
+  isDeleted: JsonCoerce.asInt(json['isDeleted']),
   gmtCreate: JsonCoerce.asString(json['gmtCreate']),
   gmtUpdate: JsonCoerce.asString(json['gmtUpdate']),
-  groupId: JsonCoerce.asDouble(json['groupId']),
+  groupId: JsonCoerce.asInt(json['groupId']),
 );
 
 Map<String, dynamic>
@@ -1261,13 +1261,13 @@ _$ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response$DataFromJson(
 ) => ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response$Data(
   taskId: JsonCoerce.asString(json['taskId']),
   status: JsonCoerce.asString(json['status']),
-  totalCount: JsonCoerce.asDouble(json['totalCount']),
-  completedCount: JsonCoerce.asDouble(json['completedCount']),
-  selectedIndex: JsonCoerce.asDouble(json['selectedIndex']),
+  totalCount: JsonCoerce.asInt(json['totalCount']),
+  completedCount: JsonCoerce.asInt(json['completedCount']),
+  selectedIndex: JsonCoerce.asInt(json['selectedIndex']),
   originalImageUrl: JsonCoerce.asString(json['originalImageUrl']),
-  gender: JsonCoerce.asDouble(json['gender']),
+  gender: JsonCoerce.asInt(json['gender']),
   isDefault: JsonCoerce.asBool(json['isDefault']),
-  usageCount: JsonCoerce.asDouble(json['usageCount']),
+  usageCount: JsonCoerce.asInt(json['usageCount']),
   createdAt: JsonCoerce.asString(json['createdAt']),
   error: json['error'],
   generatedModels: (json['generatedModels'] as List<dynamic>?)
@@ -1304,10 +1304,10 @@ _$ComboServiceApiV1StyleOutfitsResultGet$Response$DataFromJson(
 ) => ComboServiceApiV1StyleOutfitsResultGet$Response$Data(
   taskId: JsonCoerce.asString(json['taskId']),
   status: JsonCoerce.asString(json['status']),
-  count: JsonCoerce.asDouble(json['count']),
-  createdAt: JsonCoerce.asDouble(json['createdAt']),
-  completedAt: JsonCoerce.asDouble(json['completedAt']),
-  totalDuration: JsonCoerce.asDouble(json['totalDuration']),
+  count: JsonCoerce.asInt(json['count']),
+  createdAt: JsonCoerce.asInt(json['createdAt']),
+  completedAt: JsonCoerce.asInt(json['completedAt']),
+  totalDuration: JsonCoerce.asInt(json['totalDuration']),
   requestParams: json['requestParams'] == null
       ? null
       : ComboServiceApiV1StyleOutfitsResultGet$Response$Data$RequestParams.fromJson(
@@ -1367,7 +1367,7 @@ ComboServiceBizAiFashionModelModelIdGet$Response$Data
 _$ComboServiceBizAiFashionModelModelIdGet$Response$DataFromJson(
   Map<String, dynamic> json,
 ) => ComboServiceBizAiFashionModelModelIdGet$Response$Data(
-  id: JsonCoerce.asDouble(json['id']),
+  id: JsonCoerce.asInt(json['id']),
   tenantCode: JsonCoerce.asString(json['tenantCode']),
   userId: JsonCoerce.asString(json['userId']),
   modelDesc: JsonCoerce.asString(json['modelDesc']),
@@ -1375,10 +1375,10 @@ _$ComboServiceBizAiFashionModelModelIdGet$Response$DataFromJson(
   modelImage: JsonCoerce.asString(json['modelImage']),
   modelHeaderImage: JsonCoerce.asString(json['modelHeaderImage']),
   ext: JsonCoerce.asString(json['ext']),
-  isDeleted: JsonCoerce.asDouble(json['isDeleted']),
+  isDeleted: JsonCoerce.asInt(json['isDeleted']),
   gmtCreate: JsonCoerce.asString(json['gmtCreate']),
   gmtUpdate: JsonCoerce.asString(json['gmtUpdate']),
-  groupId: JsonCoerce.asDouble(json['groupId']),
+  groupId: JsonCoerce.asInt(json['groupId']),
 );
 
 Map<String, dynamic>
@@ -1427,9 +1427,9 @@ _$ComboServiceApiV1StyleOutfitsGeneratePost$Response$DataFromJson(
 ) => ComboServiceApiV1StyleOutfitsGeneratePost$Response$Data(
   taskId: JsonCoerce.asString(json['taskId']),
   status: JsonCoerce.asString(json['status']),
-  count: JsonCoerce.asDouble(json['count']),
+  count: JsonCoerce.asInt(json['count']),
   estimatedTime: JsonCoerce.asString(json['estimatedTime']),
-  createdAt: JsonCoerce.asDouble(json['createdAt']),
+  createdAt: JsonCoerce.asInt(json['createdAt']),
 );
 
 Map<String, dynamic>
@@ -1509,7 +1509,7 @@ ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data
 _$ComboServiceBizAiFashionNoAuthPostDetailGet$Response$DataFromJson(
   Map<String, dynamic> json,
 ) => ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data(
-  postId: JsonCoerce.asDouble(json['postId']),
+  postId: JsonCoerce.asInt(json['postId']),
   postTitle: JsonCoerce.asString(json['postTitle']),
   frontImage: json['frontImage'] == null
       ? null
@@ -1548,7 +1548,7 @@ _$ComboServiceBizAiFashionNoAuthPostDetailGet$Response$DataFromJson(
       : ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$Option.fromJson(
           json['option'] as Map<String, dynamic>,
         ),
-  templateId: JsonCoerce.asDouble(json['templateId']),
+  templateId: JsonCoerce.asInt(json['templateId']),
 );
 
 Map<String, dynamic>
@@ -1627,10 +1627,10 @@ _$ComboServiceBizUserShareRewardPageGet$Response$DataFromJson(
             ),
       )
       .toList(),
-  total: JsonCoerce.asDouble(json['total']),
-  size: JsonCoerce.asDouble(json['size']),
-  current: JsonCoerce.asDouble(json['current']),
-  pages: JsonCoerce.asDouble(json['pages']),
+  total: JsonCoerce.asInt(json['total']),
+  size: JsonCoerce.asInt(json['size']),
+  current: JsonCoerce.asInt(json['current']),
+  pages: JsonCoerce.asInt(json['pages']),
 );
 
 Map<String, dynamic>
@@ -1899,10 +1899,10 @@ _$ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$ItemFromJson(
 ) => ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item(
   taskId: JsonCoerce.asString(json['taskId']),
   status: JsonCoerce.asString(json['status']),
-  count: JsonCoerce.asDouble(json['count']),
-  createdAt: JsonCoerce.asDouble(json['createdAt']),
-  completedAt: JsonCoerce.asDouble(json['completedAt']),
-  totalDuration: JsonCoerce.asDouble(json['totalDuration']),
+  count: JsonCoerce.asInt(json['count']),
+  createdAt: JsonCoerce.asInt(json['createdAt']),
+  completedAt: JsonCoerce.asInt(json['completedAt']),
+  totalDuration: JsonCoerce.asInt(json['totalDuration']),
   requestParams: json['requestParams'] == null
       ? null
       : ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$RequestParams.fromJson(
@@ -1966,7 +1966,7 @@ _$ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response$Data$GeneratedModels$It
   Map<String, dynamic> json,
 ) =>
     ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response$Data$GeneratedModels$Item(
-      index: JsonCoerce.asDouble(json['index']),
+      index: JsonCoerce.asInt(json['index']),
       url: JsonCoerce.asString(json['url']),
     );
 
@@ -1984,7 +1984,7 @@ _$ComboServiceApiV1StyleOutfitsResultGet$Response$Data$RequestParamsFromJson(
       ? []
       : JsonCoerce.asStringList(json['referenceImages']),
   customPrompt: JsonCoerce.asString(json['customPrompt']),
-  gender: JsonCoerce.asDouble(json['gender']),
+  gender: JsonCoerce.asInt(json['gender']),
   age: JsonCoerce.asString(json['age']),
   physicalAppearance: JsonCoerce.asString(json['physicalAppearance']),
   styleTrendyElements: JsonCoerce.asString(json['styleTrendyElements']),
@@ -2028,7 +2028,7 @@ _$ComboServiceApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$ItemFromJson
   image: JsonCoerce.asString(json['image']),
   fallback: JsonCoerce.asBool(json['fallback']),
   pending: JsonCoerce.asString(json['pending']),
-  selectedId: JsonCoerce.asDouble(json['selectedId']),
+  selectedId: JsonCoerce.asInt(json['selectedId']),
   options: (json['options'] as List<dynamic>?)
       ?.map(
         (e) =>
@@ -2039,8 +2039,8 @@ _$ComboServiceApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$ItemFromJson
       .toList(),
   cachedImage: JsonCoerce.asString(json['cachedImage']),
   cachedImageMime: JsonCoerce.asString(json['cachedImageMime']),
-  cachedImageSelectedId: JsonCoerce.asDouble(json['cachedImageSelectedId']),
-  cachedImageUpdatedAt: JsonCoerce.asDouble(json['cachedImageUpdatedAt']),
+  cachedImageSelectedId: JsonCoerce.asInt(json['cachedImageSelectedId']),
+  cachedImageUpdatedAt: JsonCoerce.asInt(json['cachedImageUpdatedAt']),
 );
 
 Map<String, dynamic>
@@ -2077,7 +2077,7 @@ _$ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImagesFromJson(
             ),
       )
       .toList(),
-  generatedAt: JsonCoerce.asDouble(json['generated_at']),
+  generatedAt: JsonCoerce.asInt(json['generated_at']),
   multiModelImageUrl: JsonCoerce.asString(json['multi_model_image_url']),
   whiteBgImages: json['white_bg_images'] == null
       ? []
@@ -2109,7 +2109,7 @@ _$ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImagesStatusFromJs
   Map<String, dynamic> json,
 ) => ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImagesStatus(
   ready: JsonCoerce.asBool(json['ready']),
-  count: JsonCoerce.asDouble(json['count']),
+  count: JsonCoerce.asInt(json['count']),
 );
 
 Map<String, dynamic>
@@ -2122,7 +2122,7 @@ ComboServiceBizAiFashionModelListGet$Response$Data$Models$Item
 _$ComboServiceBizAiFashionModelListGet$Response$Data$Models$ItemFromJson(
   Map<String, dynamic> json,
 ) => ComboServiceBizAiFashionModelListGet$Response$Data$Models$Item(
-  groupId: JsonCoerce.asDouble(json['groupId']),
+  groupId: JsonCoerce.asInt(json['groupId']),
   title: JsonCoerce.asString(json['title']),
   data: (json['data'] as List<dynamic>?)
       ?.map(
@@ -2229,7 +2229,7 @@ _$ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$ItemFromJson(
       .toList(),
   prompt: JsonCoerce.asString(json['prompt']),
   postTitle: JsonCoerce.asString(json['postTitle']),
-  postId: JsonCoerce.asDouble(json['postId']),
+  postId: JsonCoerce.asInt(json['postId']),
   frontImage: json['frontImage'] == null
       ? null
       : ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$FrontImage.fromJson(
@@ -2252,8 +2252,8 @@ ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FrontImage
 _$ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FrontImageFromJson(
   Map<String, dynamic> json,
 ) => ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FrontImage(
-  width: JsonCoerce.asDouble(json['width']),
-  height: JsonCoerce.asDouble(json['height']),
+  width: JsonCoerce.asInt(json['width']),
+  height: JsonCoerce.asInt(json['height']),
   url: JsonCoerce.asString(json['url']),
 );
 
@@ -2270,8 +2270,8 @@ ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$HeaderImage
 _$ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$HeaderImageFromJson(
   Map<String, dynamic> json,
 ) => ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$HeaderImage(
-  width: JsonCoerce.asDouble(json['width']),
-  height: JsonCoerce.asDouble(json['height']),
+  width: JsonCoerce.asInt(json['width']),
+  height: JsonCoerce.asInt(json['height']),
   url: JsonCoerce.asString(json['url']),
 );
 
@@ -2290,8 +2290,8 @@ _$ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$ModelImageFromJson(
   Map<String, dynamic> json,
 ) => ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$ModelImage(
   url: JsonCoerce.asString(json['url']),
-  height: JsonCoerce.asDouble(json['height']),
-  width: JsonCoerce.asDouble(json['width']),
+  height: JsonCoerce.asInt(json['height']),
+  width: JsonCoerce.asInt(json['width']),
 );
 
 Map<String, dynamic>
@@ -2307,8 +2307,8 @@ ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$Images$Item
 _$ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$Images$ItemFromJson(
   Map<String, dynamic> json,
 ) => ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$Images$Item(
-  width: JsonCoerce.asDouble(json['width']),
-  height: JsonCoerce.asDouble(json['height']),
+  width: JsonCoerce.asInt(json['width']),
+  height: JsonCoerce.asInt(json['height']),
   url: JsonCoerce.asString(json['url']),
 );
 
@@ -2327,8 +2327,8 @@ _$ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FooterImages$ItemFro
   Map<String, dynamic> json,
 ) =>
     ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FooterImages$Item(
-      width: JsonCoerce.asDouble(json['width']),
-      height: JsonCoerce.asDouble(json['height']),
+      width: JsonCoerce.asInt(json['width']),
+      height: JsonCoerce.asInt(json['height']),
       url: JsonCoerce.asString(json['url']),
     );
 
@@ -2413,10 +2413,10 @@ _$ComboServiceBizUserShareRewardPageGet$Response$Data$Records$ItemFromJson(
   rewardId: JsonCoerce.asString(json['rewardId']),
   userId: JsonCoerce.asString(json['userId']),
   content: JsonCoerce.asString(json['content']),
-  auditStatus: JsonCoerce.asDouble(json['auditStatus']),
+  auditStatus: JsonCoerce.asInt(json['auditStatus']),
   rewardAmount: JsonCoerce.asString(json['rewardAmount']),
-  rewardType: JsonCoerce.asDouble(json['rewardType']),
-  rewardStatus: JsonCoerce.asDouble(json['rewardStatus']),
+  rewardType: JsonCoerce.asInt(json['rewardType']),
+  rewardStatus: JsonCoerce.asInt(json['rewardStatus']),
   rewardTime: JsonCoerce.asString(json['rewardTime']),
 );
 
@@ -2766,7 +2766,7 @@ _$ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$RequestP
           ? []
           : JsonCoerce.asStringList(json['referenceImages']),
       customPrompt: JsonCoerce.asString(json['customPrompt']),
-      gender: JsonCoerce.asDouble(json['gender']),
+      gender: JsonCoerce.asInt(json['gender']),
       age: JsonCoerce.asString(json['age']),
       physicalAppearance: JsonCoerce.asString(json['physicalAppearance']),
       styleTrendyElements: JsonCoerce.asString(json['styleTrendyElements']),
@@ -2811,7 +2811,7 @@ _$ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductL
   image: JsonCoerce.asString(json['image']),
   fallback: JsonCoerce.asBool(json['fallback']),
   pending: JsonCoerce.asString(json['pending']),
-  selectedId: JsonCoerce.asDouble(json['selectedId']),
+  selectedId: JsonCoerce.asInt(json['selectedId']),
   options: (json['options'] as List<dynamic>?)
       ?.map(
         (e) =>
@@ -2822,8 +2822,8 @@ _$ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductL
       .toList(),
   cachedImage: JsonCoerce.asString(json['cachedImage']),
   cachedImageMime: JsonCoerce.asString(json['cachedImageMime']),
-  cachedImageSelectedId: JsonCoerce.asDouble(json['cachedImageSelectedId']),
-  cachedImageUpdatedAt: JsonCoerce.asDouble(json['cachedImageUpdatedAt']),
+  cachedImageSelectedId: JsonCoerce.asInt(json['cachedImageSelectedId']),
+  cachedImageUpdatedAt: JsonCoerce.asInt(json['cachedImageUpdatedAt']),
 );
 
 Map<String, dynamic>
@@ -2860,7 +2860,7 @@ _$ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingI
             ),
       )
       .toList(),
-  generatedAt: JsonCoerce.asDouble(json['generated_at']),
+  generatedAt: JsonCoerce.asInt(json['generated_at']),
   multiModelImageUrl: JsonCoerce.asString(json['multi_model_image_url']),
   whiteBgImages: json['white_bg_images'] == null
       ? []
@@ -2894,7 +2894,7 @@ _$ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingI
 ) =>
     ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImagesStatus(
       ready: JsonCoerce.asBool(json['ready']),
-      count: JsonCoerce.asDouble(json['count']),
+      count: JsonCoerce.asInt(json['count']),
     );
 
 Map<String, dynamic>
@@ -2908,7 +2908,7 @@ _$ComboServiceApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item$Options
   Map<String, dynamic> json,
 ) =>
     ComboServiceApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item$Options$Item(
-      id: JsonCoerce.asDouble(json['id']),
+      id: JsonCoerce.asInt(json['id']),
       title: JsonCoerce.asString(json['title']),
       link: JsonCoerce.asString(json['link']),
       source: JsonCoerce.asString(json['source']),
@@ -2933,7 +2933,7 @@ ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item
 _$ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$ItemFromJson(
   Map<String, dynamic> json,
 ) => ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item(
-  sharingImageId: JsonCoerce.asDouble(json['sharingImageId']),
+  sharingImageId: JsonCoerce.asInt(json['sharingImageId']),
   imageUrl: JsonCoerce.asString(json['imageUrl']),
   caption: json['caption'] == null
       ? null
@@ -2963,7 +2963,7 @@ _$ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Images$Item
   Map<String, dynamic> json,
 ) =>
     ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Images$Item(
-      sharingImageId: JsonCoerce.asDouble(json['sharingImageId']),
+      sharingImageId: JsonCoerce.asInt(json['sharingImageId']),
       imageUrl: JsonCoerce.asString(json['imageUrl']),
     );
 
@@ -2980,7 +2980,7 @@ ComboServiceBizAiFashionModelListGet$Response$Data$Models$Item$Data$Item
 _$ComboServiceBizAiFashionModelListGet$Response$Data$Models$Item$Data$ItemFromJson(
   Map<String, dynamic> json,
 ) => ComboServiceBizAiFashionModelListGet$Response$Data$Models$Item$Data$Item(
-  id: JsonCoerce.asDouble(json['id']),
+  id: JsonCoerce.asInt(json['id']),
   tenantCode: JsonCoerce.asString(json['tenantCode']),
   userId: JsonCoerce.asString(json['userId']),
   modelDesc: JsonCoerce.asString(json['modelDesc']),
@@ -2988,10 +2988,10 @@ _$ComboServiceBizAiFashionModelListGet$Response$Data$Models$Item$Data$ItemFromJs
   modelImage: JsonCoerce.asString(json['modelImage']),
   modelHeaderImage: JsonCoerce.asString(json['modelHeaderImage']),
   ext: json['ext'],
-  isDeleted: JsonCoerce.asDouble(json['isDeleted']),
+  isDeleted: JsonCoerce.asInt(json['isDeleted']),
   gmtCreate: JsonCoerce.asString(json['gmtCreate']),
   gmtUpdate: JsonCoerce.asString(json['gmtUpdate']),
-  groupId: JsonCoerce.asDouble(json['groupId']),
+  groupId: JsonCoerce.asInt(json['groupId']),
   modelData:
       (json['modelData'] as List<dynamic>?)?.map((e) => e as Object).toList() ??
       [],
@@ -3022,8 +3022,8 @@ _$ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$Images$Item
   Map<String, dynamic> json,
 ) =>
     ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$Images$Item(
-      width: JsonCoerce.asDouble(json['width']),
-      height: JsonCoerce.asDouble(json['height']),
+      width: JsonCoerce.asInt(json['width']),
+      height: JsonCoerce.asInt(json['height']),
       url: JsonCoerce.asString(json['url']),
     );
 
@@ -3042,8 +3042,8 @@ _$ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$FrontImageF
   Map<String, dynamic> json,
 ) =>
     ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$FrontImage(
-      width: JsonCoerce.asDouble(json['width']),
-      height: JsonCoerce.asDouble(json['height']),
+      width: JsonCoerce.asInt(json['width']),
+      height: JsonCoerce.asInt(json['height']),
       url: JsonCoerce.asString(json['url']),
     );
 
@@ -3491,7 +3491,7 @@ _$ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductL
   Map<String, dynamic> json,
 ) =>
     ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item$Options$Item(
-      id: JsonCoerce.asDouble(json['id']),
+      id: JsonCoerce.asInt(json['id']),
       title: JsonCoerce.asString(json['title']),
       link: JsonCoerce.asString(json['link']),
       source: JsonCoerce.asString(json['source']),
@@ -3516,7 +3516,7 @@ ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingIma
 _$ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$ItemFromJson(
   Map<String, dynamic> json,
 ) => ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item(
-  sharingImageId: JsonCoerce.asDouble(json['sharingImageId']),
+  sharingImageId: JsonCoerce.asInt(json['sharingImageId']),
   imageUrl: JsonCoerce.asString(json['imageUrl']),
   caption: json['caption'] == null
       ? null
@@ -3546,7 +3546,7 @@ _$ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingI
   Map<String, dynamic> json,
 ) =>
     ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Images$Item(
-      sharingImageId: JsonCoerce.asDouble(json['sharingImageId']),
+      sharingImageId: JsonCoerce.asInt(json['sharingImageId']),
       imageUrl: JsonCoerce.asString(json['imageUrl']),
     );
 
@@ -3592,9 +3592,9 @@ _$ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$
       styleDescription: JsonCoerce.asString(json['styleDescription']),
       occasion: JsonCoerce.asString(json['occasion']),
       customPrompt: JsonCoerce.asString(json['customPrompt']),
-      generatedAt: JsonCoerce.asDouble(json['generatedAt']),
-      version: JsonCoerce.asDouble(json['version']),
-      temperature: JsonCoerce.asDouble(json['temperature']),
+      generatedAt: JsonCoerce.asInt(json['generatedAt']),
+      version: JsonCoerce.asInt(json['version']),
+      temperature: JsonCoerce.asInt(json['temperature']),
       regenerationStatus: JsonCoerce.asString(json['regenerationStatus']),
     );
 
@@ -3746,9 +3746,9 @@ _$ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingI
       styleDescription: JsonCoerce.asString(json['styleDescription']),
       occasion: JsonCoerce.asString(json['occasion']),
       customPrompt: JsonCoerce.asString(json['customPrompt']),
-      generatedAt: JsonCoerce.asDouble(json['generatedAt']),
-      version: JsonCoerce.asDouble(json['version']),
-      temperature: JsonCoerce.asDouble(json['temperature']),
+      generatedAt: JsonCoerce.asInt(json['generatedAt']),
+      version: JsonCoerce.asInt(json['version']),
+      temperature: JsonCoerce.asInt(json['temperature']),
       regenerationStatus: JsonCoerce.asString(json['regenerationStatus']),
     );
 

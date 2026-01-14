@@ -642,17 +642,22 @@ class _SignInScreenState extends ConsumerState<SignInScreen> {
                               SizedBox(
                                 width: 24,
                                 height: 24,
-                                child: Radio(
-                                  value: true,
-                                  groupValue: _agreedToMarketing ? true : null,
-                                  activeColor: const Color(0xFF8B5CF6),
-                                  toggleable: true,
-                                  onChanged: (val) {
+                                child: InkWell(
+                                  onTap: () {
                                     setState(
                                       () => _agreedToMarketing =
                                           !_agreedToMarketing,
                                     );
                                   },
+                                  child: Icon(
+                                    _agreedToMarketing
+                                        ? Icons.radio_button_checked
+                                        : Icons.radio_button_off,
+                                    color: _agreedToMarketing
+                                        ? const Color(0xFF8B5CF6)
+                                        : Colors.grey,
+                                    size: 20,
+                                  ),
                                 ),
                               ),
                               const SizedBox(width: 8),

@@ -84,8 +84,8 @@ class AuthRepository {
     final response = await api.userServiceSignInInitPost(
       root: user.UserServiceSigninInitPostRequest(
         loginName: payload.email,
-        authWay: _emailAuthWay.toDouble(),
-        source: _defaultSource.toDouble(),
+        authWay: _emailAuthWay,
+        source: _defaultSource,
       ),
     );
 

@@ -50,8 +50,8 @@ class AiFashionPost {
   final String title;
   final String imageUrl;
   final String? prompt;
-  final double? width;
-  final double? height;
+  final int? width;
+  final int? height;
 }
 
 class AiFashionHistoryItem {
@@ -545,7 +545,7 @@ class AiFashionRepository {
     final response = await api.comboServiceBizAiFashionModelSavePost(
       root: combo.ComboServiceBizAiFashionModelSavePostRequest(
         taskId: taskId,
-        selectedIndex: selectedIndex.toDouble(),
+        selectedIndex: selectedIndex,
       ),
     );
 

@@ -28,7 +28,7 @@ _$PayServiceRechargeCreateorderPostRequestFromJson(Map<String, dynamic> json) =>
       amount: JsonCoerce.asString(json['amount']),
       currency: JsonCoerce.asString(json['currency']),
       relatedOrderId: JsonCoerce.asString(json['relatedOrderId']),
-      relatedOrderType: JsonCoerce.asDouble(json['relatedOrderType']),
+      relatedOrderType: JsonCoerce.asInt(json['relatedOrderType']),
     );
 
 Map<String, dynamic> _$PayServiceRechargeCreateorderPostRequestToJson(
@@ -49,7 +49,7 @@ PayServicePayPayPostRequest _$PayServicePayPayPostRequestFromJson(
   chainId: JsonCoerce.asString(json['chainId']),
   payTokenSymbol: JsonCoerce.asString(json['payTokenSymbol']),
   callbackUrl: JsonCoerce.asString(json['callbackUrl']),
-  uiType: JsonCoerce.asDouble(json['uiType']),
+  uiType: JsonCoerce.asInt(json['uiType']),
 );
 
 Map<String, dynamic> _$PayServicePayPayPostRequestToJson(
@@ -67,7 +67,7 @@ Map<String, dynamic> _$PayServicePayPayPostRequestToJson(
 PayServiceWithdrawOrdersGet$Response
 _$PayServiceWithdrawOrdersGet$ResponseFromJson(Map<String, dynamic> json) =>
     PayServiceWithdrawOrdersGet$Response(
-      code: JsonCoerce.asDouble(json['code']),
+      code: JsonCoerce.asInt(json['code']),
       message: JsonCoerce.asString(json['message']),
       data: json['data'] == null
           ? null
@@ -91,7 +91,7 @@ Map<String, dynamic> _$PayServiceWithdrawOrdersGet$ResponseToJson(
 PayServiceWithdrawApplyPost$Response
 _$PayServiceWithdrawApplyPost$ResponseFromJson(Map<String, dynamic> json) =>
     PayServiceWithdrawApplyPost$Response(
-      code: JsonCoerce.asDouble(json['code']),
+      code: JsonCoerce.asInt(json['code']),
       message: JsonCoerce.asString(json['message']),
       data: json['data'] == null
           ? null
@@ -115,7 +115,7 @@ Map<String, dynamic> _$PayServiceWithdrawApplyPost$ResponseToJson(
 PayServiceCommissionSummaryGet$Response
 _$PayServiceCommissionSummaryGet$ResponseFromJson(Map<String, dynamic> json) =>
     PayServiceCommissionSummaryGet$Response(
-      code: JsonCoerce.asDouble(json['code']),
+      code: JsonCoerce.asInt(json['code']),
       message: JsonCoerce.asString(json['message']),
       data: json['data'] == null
           ? null
@@ -136,7 +136,7 @@ PayServiceCommissionTransactionGet$Response
 _$PayServiceCommissionTransactionGet$ResponseFromJson(
   Map<String, dynamic> json,
 ) => PayServiceCommissionTransactionGet$Response(
-  code: JsonCoerce.asDouble(json['code']),
+  code: JsonCoerce.asInt(json['code']),
   message: JsonCoerce.asString(json['message']),
   data: json['data'] == null
       ? null
@@ -162,7 +162,7 @@ Map<String, dynamic> _$PayServiceCommissionTransactionGet$ResponseToJson(
 PayServiceRechargeBalanceGet$Response
 _$PayServiceRechargeBalanceGet$ResponseFromJson(Map<String, dynamic> json) =>
     PayServiceRechargeBalanceGet$Response(
-      code: JsonCoerce.asDouble(json['code']),
+      code: JsonCoerce.asInt(json['code']),
       message: JsonCoerce.asString(json['message']),
       data: json['data'] == null
           ? null
@@ -188,7 +188,7 @@ Map<String, dynamic> _$PayServiceRechargeBalanceGet$ResponseToJson(
 PayServiceRechargeOrdersGet$Response
 _$PayServiceRechargeOrdersGet$ResponseFromJson(Map<String, dynamic> json) =>
     PayServiceRechargeOrdersGet$Response(
-      code: JsonCoerce.asDouble(json['code']),
+      code: JsonCoerce.asInt(json['code']),
       message: JsonCoerce.asString(json['message']),
       data: json['data'] == null
           ? null
@@ -213,7 +213,7 @@ PayServiceRechargeCreateOrderPost$Response
 _$PayServiceRechargeCreateOrderPost$ResponseFromJson(
   Map<String, dynamic> json,
 ) => PayServiceRechargeCreateOrderPost$Response(
-  code: JsonCoerce.asDouble(json['code']),
+  code: JsonCoerce.asInt(json['code']),
   message: JsonCoerce.asString(json['message']),
   data: json['data'] == null
       ? null
@@ -239,7 +239,7 @@ Map<String, dynamic> _$PayServiceRechargeCreateOrderPost$ResponseToJson(
 PayServicePayPayPost$Response _$PayServicePayPayPost$ResponseFromJson(
   Map<String, dynamic> json,
 ) => PayServicePayPayPost$Response(
-  code: JsonCoerce.asDouble(json['code']),
+  code: JsonCoerce.asInt(json['code']),
   message: JsonCoerce.asString(json['message']),
   data: json['data'] == null
       ? null
@@ -265,7 +265,7 @@ Map<String, dynamic> _$PayServicePayPayPost$ResponseToJson(
 PayServicePayPayResultGet$Response _$PayServicePayPayResultGet$ResponseFromJson(
   Map<String, dynamic> json,
 ) => PayServicePayPayResultGet$Response(
-  code: JsonCoerce.asDouble(json['code']),
+  code: JsonCoerce.asInt(json['code']),
   message: JsonCoerce.asString(json['message']),
   data: json['data'] == null
       ? null
@@ -291,7 +291,7 @@ Map<String, dynamic> _$PayServicePayPayResultGet$ResponseToJson(
 PayServicePayPayTypeGet$Response _$PayServicePayPayTypeGet$ResponseFromJson(
   Map<String, dynamic> json,
 ) => PayServicePayPayTypeGet$Response(
-  code: JsonCoerce.asDouble(json['code']),
+  code: JsonCoerce.asInt(json['code']),
   message: JsonCoerce.asString(json['message']),
   data: json['data'] == null
       ? null
@@ -317,7 +317,7 @@ Map<String, dynamic> _$PayServicePayPayTypeGet$ResponseToJson(
 PayServiceEchoooCoinTypeGet$Response
 _$PayServiceEchoooCoinTypeGet$ResponseFromJson(Map<String, dynamic> json) =>
     PayServiceEchoooCoinTypeGet$Response(
-      code: JsonCoerce.asDouble(json['code']),
+      code: JsonCoerce.asInt(json['code']),
       message: JsonCoerce.asString(json['message']),
       data: (json['data'] as List<dynamic>?)
           ?.map(
@@ -345,7 +345,7 @@ Map<String, dynamic> _$PayServiceEchoooCoinTypeGet$ResponseToJson(
 PayServiceEchoooCoinInfoGet$Response
 _$PayServiceEchoooCoinInfoGet$ResponseFromJson(Map<String, dynamic> json) =>
     PayServiceEchoooCoinInfoGet$Response(
-      code: JsonCoerce.asDouble(json['code']),
+      code: JsonCoerce.asInt(json['code']),
       message: JsonCoerce.asString(json['message']),
       data: json['data'] == null
           ? null
@@ -371,7 +371,7 @@ Map<String, dynamic> _$PayServiceEchoooCoinInfoGet$ResponseToJson(
 PayServiceEchoooCoinLogGet$Response
 _$PayServiceEchoooCoinLogGet$ResponseFromJson(Map<String, dynamic> json) =>
     PayServiceEchoooCoinLogGet$Response(
-      code: JsonCoerce.asDouble(json['code']),
+      code: JsonCoerce.asInt(json['code']),
       message: JsonCoerce.asString(json['message']),
       data: json['data'] == null
           ? null
@@ -405,10 +405,10 @@ _$PayServiceWithdrawOrdersGet$Response$DataFromJson(
         ),
       )
       .toList(),
-  total: JsonCoerce.asDouble(json['total']),
-  size: JsonCoerce.asDouble(json['size']),
-  current: JsonCoerce.asDouble(json['current']),
-  pages: JsonCoerce.asDouble(json['pages']),
+  total: JsonCoerce.asInt(json['total']),
+  size: JsonCoerce.asInt(json['size']),
+  current: JsonCoerce.asInt(json['current']),
+  pages: JsonCoerce.asInt(json['pages']),
 );
 
 Map<String, dynamic> _$PayServiceWithdrawOrdersGet$Response$DataToJson(
@@ -428,7 +428,7 @@ _$PayServiceWithdrawApplyPost$Response$DataFromJson(
   orderNo: JsonCoerce.asString(json['orderNo']),
   amount: JsonCoerce.asString(json['amount']),
   currency: JsonCoerce.asString(json['currency']),
-  status: JsonCoerce.asDouble(json['status']),
+  status: JsonCoerce.asInt(json['status']),
   rejectReason: JsonCoerce.asString(json['rejectReason']),
   createTime: JsonCoerce.asString(json['createTime']),
   completedTime: JsonCoerce.asString(json['completedTime']),
@@ -455,7 +455,7 @@ _$PayServiceCommissionSummaryGet$Response$DataFromJson(
   withdrawAmount: JsonCoerce.asString(json['withdrawAmount']),
   withdrawableBalance: JsonCoerce.asString(json['withdrawableBalance']),
   pendingCommission: JsonCoerce.asString(json['pendingCommission']),
-  totalPoints: JsonCoerce.asDouble(json['totalPoints']),
+  totalPoints: JsonCoerce.asInt(json['totalPoints']),
   pendingWithdrawAmount: JsonCoerce.asString(json['pendingWithdrawAmount']),
 );
 
@@ -475,10 +475,10 @@ PayServiceCommissionTransactionGet$Response$Data
 _$PayServiceCommissionTransactionGet$Response$DataFromJson(
   Map<String, dynamic> json,
 ) => PayServiceCommissionTransactionGet$Response$Data(
-  total: JsonCoerce.asDouble(json['total']),
-  pageSize: JsonCoerce.asDouble(json['pageSize']),
-  totalPages: JsonCoerce.asDouble(json['totalPages']),
-  current: JsonCoerce.asDouble(json['current']),
+  total: JsonCoerce.asInt(json['total']),
+  pageSize: JsonCoerce.asInt(json['pageSize']),
+  totalPages: JsonCoerce.asInt(json['totalPages']),
+  current: JsonCoerce.asInt(json['current']),
   records: (json['records'] as List<dynamic>?)
       ?.map(
         (e) =>
@@ -555,10 +555,10 @@ _$PayServiceRechargeOrdersGet$Response$DataFromJson(
         ),
       )
       .toList(),
-  total: JsonCoerce.asDouble(json['total']),
-  size: JsonCoerce.asDouble(json['size']),
-  current: JsonCoerce.asDouble(json['current']),
-  pages: JsonCoerce.asDouble(json['pages']),
+  total: JsonCoerce.asInt(json['total']),
+  size: JsonCoerce.asInt(json['size']),
+  current: JsonCoerce.asInt(json['current']),
+  pages: JsonCoerce.asInt(json['pages']),
 );
 
 Map<String, dynamic> _$PayServiceRechargeOrdersGet$Response$DataToJson(
@@ -599,8 +599,8 @@ Map<String, dynamic> _$PayServicePayPayPost$Response$DataToJson(
 PayServicePayPayResultGet$Response$Data
 _$PayServicePayPayResultGet$Response$DataFromJson(Map<String, dynamic> json) =>
     PayServicePayPayResultGet$Response$Data(
-      payStatus: JsonCoerce.asDouble(json['payStatus']),
-      orderType: JsonCoerce.asDouble(json['orderType']),
+      payStatus: JsonCoerce.asInt(json['payStatus']),
+      orderType: JsonCoerce.asInt(json['orderType']),
       currency: json['currency'] == null
           ? null
           : PayServicePayPayResultGet$Response$Data$Currency.fromJson(
@@ -638,7 +638,7 @@ PayServiceEchoooCoinTypeGet$Response$Data$Item
 _$PayServiceEchoooCoinTypeGet$Response$Data$ItemFromJson(
   Map<String, dynamic> json,
 ) => PayServiceEchoooCoinTypeGet$Response$Data$Item(
-  type: JsonCoerce.asDouble(json['type']),
+  type: JsonCoerce.asInt(json['type']),
   name: JsonCoerce.asString(json['name']),
 );
 
@@ -650,7 +650,7 @@ PayServiceEchoooCoinInfoGet$Response$Data
 _$PayServiceEchoooCoinInfoGet$Response$DataFromJson(
   Map<String, dynamic> json,
 ) => PayServiceEchoooCoinInfoGet$Response$Data(
-  balance: JsonCoerce.asDouble(json['balance']),
+  balance: JsonCoerce.asInt(json['balance']),
   percentage: JsonCoerce.asString(json['percentage']),
   deductibleAmount: JsonCoerce.asString(json['deductibleAmount']),
   accumulateAmount: JsonCoerce.asString(json['accumulateAmount']),
@@ -674,10 +674,10 @@ Map<String, dynamic> _$PayServiceEchoooCoinInfoGet$Response$DataToJson(
 PayServiceEchoooCoinLogGet$Response$Data
 _$PayServiceEchoooCoinLogGet$Response$DataFromJson(Map<String, dynamic> json) =>
     PayServiceEchoooCoinLogGet$Response$Data(
-      total: JsonCoerce.asDouble(json['total']),
-      pageSize: JsonCoerce.asDouble(json['pageSize']),
-      totalPages: JsonCoerce.asDouble(json['totalPages']),
-      current: JsonCoerce.asDouble(json['current']),
+      total: JsonCoerce.asInt(json['total']),
+      pageSize: JsonCoerce.asInt(json['pageSize']),
+      totalPages: JsonCoerce.asInt(json['totalPages']),
+      current: JsonCoerce.asInt(json['current']),
       records: (json['records'] as List<dynamic>?)
           ?.map(
             (e) =>
@@ -705,7 +705,7 @@ _$PayServiceWithdrawOrdersGet$Response$Data$Records$ItemFromJson(
   orderNo: JsonCoerce.asString(json['orderNo']),
   amount: JsonCoerce.asString(json['amount']),
   currency: JsonCoerce.asString(json['currency']),
-  status: JsonCoerce.asDouble(json['status']),
+  status: JsonCoerce.asInt(json['status']),
   remark: JsonCoerce.asString(json['remark']),
   createTime: JsonCoerce.asString(json['createTime']),
   completedTime: JsonCoerce.asString(json['completedTime']),
@@ -768,7 +768,7 @@ _$PayServiceRechargeBalanceGet$Response$Data$RechargeRewardFromJson(
   Map<String, dynamic> json,
 ) => PayServiceRechargeBalanceGet$Response$Data$RechargeReward(
   amount: JsonCoerce.asString(json['amount']),
-  expireAt: JsonCoerce.asDouble(json['expireAt']),
+  expireAt: JsonCoerce.asInt(json['expireAt']),
 );
 
 Map<String, dynamic>
@@ -796,7 +796,7 @@ PayServiceRechargeOrdersGet$Response$Data$Records$Item
 _$PayServiceRechargeOrdersGet$Response$Data$Records$ItemFromJson(
   Map<String, dynamic> json,
 ) => PayServiceRechargeOrdersGet$Response$Data$Records$Item(
-  id: JsonCoerce.asDouble(json['id']),
+  id: JsonCoerce.asInt(json['id']),
   userId: JsonCoerce.asString(json['userId']),
   tenantCode: JsonCoerce.asString(json['tenantCode']),
   amount: JsonCoerce.asString(json['amount']),
@@ -805,8 +805,8 @@ _$PayServiceRechargeOrdersGet$Response$Data$Records$ItemFromJson(
   targetCurrency: JsonCoerce.asString(json['targetCurrency']),
   gmtCreate: JsonCoerce.asString(json['gmtCreate']),
   gmtUpdate: JsonCoerce.asString(json['gmtUpdate']),
-  status: JsonCoerce.asDouble(json['status']),
-  payType: JsonCoerce.asDouble(json['payType']),
+  status: JsonCoerce.asInt(json['status']),
+  payType: JsonCoerce.asInt(json['payType']),
   payAmount: JsonCoerce.asString(json['payAmount']),
   payFee: JsonCoerce.asString(json['payFee']),
   payOrderId: JsonCoerce.asString(json['payOrderId']),
@@ -895,9 +895,9 @@ PayServiceEchoooCoinLogGet$Response$Data$Records$Item
 _$PayServiceEchoooCoinLogGet$Response$Data$Records$ItemFromJson(
   Map<String, dynamic> json,
 ) => PayServiceEchoooCoinLogGet$Response$Data$Records$Item(
-  actualAmount: JsonCoerce.asDouble(json['actualAmount']),
-  gmtCreate: JsonCoerce.asDouble(json['gmtCreate']),
-  type: JsonCoerce.asDouble(json['type']),
+  actualAmount: JsonCoerce.asInt(json['actualAmount']),
+  gmtCreate: JsonCoerce.asInt(json['gmtCreate']),
+  type: JsonCoerce.asInt(json['type']),
   name: JsonCoerce.asString(json['name']),
 );
 

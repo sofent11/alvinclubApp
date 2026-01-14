@@ -9,7 +9,7 @@ part of 'swaggerApiUser.swagger.dart';
 UserServiceAddressUpdatePostRequest
 _$UserServiceAddressUpdatePostRequestFromJson(Map<String, dynamic> json) =>
     UserServiceAddressUpdatePostRequest(
-      isDefault: JsonCoerce.asDouble(json['isDefault']),
+      isDefault: JsonCoerce.asInt(json['isDefault']),
       country: JsonCoerce.asString(json['country']),
       countryCode: JsonCoerce.asString(json['countryCode']),
       state: JsonCoerce.asString(json['state']),
@@ -25,7 +25,7 @@ _$UserServiceAddressUpdatePostRequestFromJson(Map<String, dynamic> json) =>
       phoneNumber: JsonCoerce.asString(json['phoneNumber']),
       zipCode: JsonCoerce.asString(json['zipCode']),
       userId: JsonCoerce.asString(json['userId']),
-      id: JsonCoerce.asDouble(json['id']),
+      id: JsonCoerce.asInt(json['id']),
       remark: JsonCoerce.asString(json['remark']),
       accessCode: JsonCoerce.asString(json['accessCode']),
       email: JsonCoerce.asString(json['email']),
@@ -61,7 +61,7 @@ Map<String, dynamic> _$UserServiceAddressUpdatePostRequestToJson(
 UserServiceAddressAddPostRequest _$UserServiceAddressAddPostRequestFromJson(
   Map<String, dynamic> json,
 ) => UserServiceAddressAddPostRequest(
-  isDefault: JsonCoerce.asDouble(json['isDefault']),
+  isDefault: JsonCoerce.asInt(json['isDefault']),
   username: JsonCoerce.asString(json['username']),
   country: JsonCoerce.asString(json['country']),
   countryCode: JsonCoerce.asString(json['countryCode']),
@@ -139,8 +139,8 @@ UserServiceSigninInitPostRequest _$UserServiceSigninInitPostRequestFromJson(
   Map<String, dynamic> json,
 ) => UserServiceSigninInitPostRequest(
   loginName: JsonCoerce.asString(json['loginName']),
-  authWay: JsonCoerce.asDouble(json['authWay']),
-  source: JsonCoerce.asDouble(json['source']),
+  authWay: JsonCoerce.asInt(json['authWay']),
+  source: JsonCoerce.asInt(json['source']),
 );
 
 Map<String, dynamic> _$UserServiceSigninInitPostRequestToJson(
@@ -184,7 +184,7 @@ Map<String, dynamic> _$UserServiceSigninVerifyPostRequestToJson(
 UserServiceSigninCallPostRequest _$UserServiceSigninCallPostRequestFromJson(
   Map<String, dynamic> json,
 ) => UserServiceSigninCallPostRequest(
-  authWay: JsonCoerce.asDouble(json['authWay']),
+  authWay: JsonCoerce.asInt(json['authWay']),
   code: JsonCoerce.asString(json['code']),
   inviteCode: JsonCoerce.asString(json['inviteCode']),
   portalCode: JsonCoerce.asString(json['portalCode']),
@@ -317,7 +317,7 @@ UserServiceUserUpdatePostRequest _$UserServiceUserUpdatePostRequestFromJson(
   userId: JsonCoerce.asString(json['userId']),
   nickname: JsonCoerce.asString(json['nickname']),
   description: JsonCoerce.asString(json['description']),
-  gender: JsonCoerce.asDouble(json['gender']),
+  gender: JsonCoerce.asInt(json['gender']),
   birthday: JsonCoerce.asString(json['birthday']),
   photo: JsonCoerce.asString(json['photo']),
   phoneNumber: JsonCoerce.asString(json['phoneNumber']),
@@ -375,9 +375,9 @@ UserServiceUserTagPortraitUpdatePortraitPostRequest
 _$UserServiceUserTagPortraitUpdatePortraitPostRequestFromJson(
   Map<String, dynamic> json,
 ) => UserServiceUserTagPortraitUpdatePortraitPostRequest(
-  age: JsonCoerce.asDouble(json['age']),
-  sex: JsonCoerce.asDouble(json['sex']),
-  birthday: JsonCoerce.asDouble(json['birthday']),
+  age: JsonCoerce.asInt(json['age']),
+  sex: JsonCoerce.asInt(json['sex']),
+  birthday: JsonCoerce.asInt(json['birthday']),
   nickname: JsonCoerce.asString(json['nickname']),
   avatarUrl: JsonCoerce.asString(json['avatarUrl']),
   favoriteShoppingPlatforms: json['favoriteShoppingPlatforms'] == null
@@ -403,9 +403,9 @@ UserServiceUserTagPortraitGetPortraitGetRequest
 _$UserServiceUserTagPortraitGetPortraitGetRequestFromJson(
   Map<String, dynamic> json,
 ) => UserServiceUserTagPortraitGetPortraitGetRequest(
-  age: JsonCoerce.asDouble(json['age']),
-  sex: JsonCoerce.asDouble(json['sex']),
-  birthday: JsonCoerce.asDouble(json['birthday']),
+  age: JsonCoerce.asInt(json['age']),
+  sex: JsonCoerce.asInt(json['sex']),
+  birthday: JsonCoerce.asInt(json['birthday']),
   nickname: JsonCoerce.asString(json['nickname']),
   favoriteShoppingPlatforms: json['favoriteShoppingPlatforms'] == null
       ? []
@@ -427,9 +427,9 @@ Map<String, dynamic> _$UserServiceUserTagPortraitGetPortraitGetRequestToJson(
 UserServiceAddressUpdatePost$Response
 _$UserServiceAddressUpdatePost$ResponseFromJson(Map<String, dynamic> json) =>
     UserServiceAddressUpdatePost$Response(
-      code: JsonCoerce.asDouble(json['code']),
+      code: JsonCoerce.asInt(json['code']),
       message: JsonCoerce.asString(json['message']),
-      data: JsonCoerce.asDouble(json['data']),
+      data: JsonCoerce.asInt(json['data']),
       traceId: JsonCoerce.asString(json['traceId']),
       success: JsonCoerce.asBool(json['success']),
     );
@@ -447,9 +447,9 @@ Map<String, dynamic> _$UserServiceAddressUpdatePost$ResponseToJson(
 UserServiceAddressDeleteDelete$Response
 _$UserServiceAddressDeleteDelete$ResponseFromJson(Map<String, dynamic> json) =>
     UserServiceAddressDeleteDelete$Response(
-      code: JsonCoerce.asDouble(json['code']),
+      code: JsonCoerce.asInt(json['code']),
       message: JsonCoerce.asString(json['message']),
-      data: JsonCoerce.asDouble(json['data']),
+      data: JsonCoerce.asInt(json['data']),
       traceId: JsonCoerce.asString(json['traceId']),
       success: JsonCoerce.asBool(json['success']),
     );
@@ -467,7 +467,7 @@ Map<String, dynamic> _$UserServiceAddressDeleteDelete$ResponseToJson(
 UserServiceAddressQueryGet$Response
 _$UserServiceAddressQueryGet$ResponseFromJson(Map<String, dynamic> json) =>
     UserServiceAddressQueryGet$Response(
-      code: JsonCoerce.asDouble(json['code']),
+      code: JsonCoerce.asInt(json['code']),
       message: JsonCoerce.asString(json['message']),
       data: (json['data'] as List<dynamic>?)
           ?.map(
@@ -496,7 +496,7 @@ UserServiceNoAuthSupportCountryGet$Response
 _$UserServiceNoAuthSupportCountryGet$ResponseFromJson(
   Map<String, dynamic> json,
 ) => UserServiceNoAuthSupportCountryGet$Response(
-  code: JsonCoerce.asDouble(json['code']),
+  code: JsonCoerce.asInt(json['code']),
   message: JsonCoerce.asString(json['message']),
   data: json['data'] == null ? [] : JsonCoerce.asStringList(json['data']),
   placeholder: json['placeholder'],
@@ -516,7 +516,7 @@ Map<String, dynamic> _$UserServiceNoAuthSupportCountryGet$ResponseToJson(
 UserServiceAddressListGet$Response _$UserServiceAddressListGet$ResponseFromJson(
   Map<String, dynamic> json,
 ) => UserServiceAddressListGet$Response(
-  code: JsonCoerce.asDouble(json['code']),
+  code: JsonCoerce.asInt(json['code']),
   message: JsonCoerce.asString(json['message']),
   data: (json['data'] as List<dynamic>?)
       ?.map(
@@ -545,7 +545,7 @@ UserServiceGetShippingAddressByCountryGet$Response
 _$UserServiceGetShippingAddressByCountryGet$ResponseFromJson(
   Map<String, dynamic> json,
 ) => UserServiceGetShippingAddressByCountryGet$Response(
-  code: JsonCoerce.asDouble(json['code']),
+  code: JsonCoerce.asInt(json['code']),
   message: JsonCoerce.asString(json['message']),
   data: json['data'] == null
       ? null
@@ -569,9 +569,9 @@ Map<String, dynamic> _$UserServiceGetShippingAddressByCountryGet$ResponseToJson(
 UserServiceAddressAddPost$Response _$UserServiceAddressAddPost$ResponseFromJson(
   Map<String, dynamic> json,
 ) => UserServiceAddressAddPost$Response(
-  code: JsonCoerce.asDouble(json['code']),
+  code: JsonCoerce.asInt(json['code']),
   message: JsonCoerce.asString(json['message']),
-  data: JsonCoerce.asDouble(json['data']),
+  data: JsonCoerce.asInt(json['data']),
   traceId: JsonCoerce.asString(json['traceId']),
   success: JsonCoerce.asBool(json['success']),
 );
@@ -590,7 +590,7 @@ UserServiceGetDefaultShippingAddressGet$Response
 _$UserServiceGetDefaultShippingAddressGet$ResponseFromJson(
   Map<String, dynamic> json,
 ) => UserServiceGetDefaultShippingAddressGet$Response(
-  code: JsonCoerce.asDouble(json['code']),
+  code: JsonCoerce.asInt(json['code']),
   message: JsonCoerce.asString(json['message']),
   data: json['data'] == null
       ? null
@@ -614,7 +614,7 @@ Map<String, dynamic> _$UserServiceGetDefaultShippingAddressGet$ResponseToJson(
 UserServiceAddressCountryGet$Response
 _$UserServiceAddressCountryGet$ResponseFromJson(Map<String, dynamic> json) =>
     UserServiceAddressCountryGet$Response(
-      code: JsonCoerce.asDouble(json['code']),
+      code: JsonCoerce.asInt(json['code']),
       message: JsonCoerce.asString(json['message']),
       data: (json['data'] as List<dynamic>?)
           ?.map(
@@ -641,7 +641,7 @@ UserServiceAddressQueryByZipCodeGet$Response
 _$UserServiceAddressQueryByZipCodeGet$ResponseFromJson(
   Map<String, dynamic> json,
 ) => UserServiceAddressQueryByZipCodeGet$Response(
-  code: JsonCoerce.asDouble(json['code']),
+  code: JsonCoerce.asInt(json['code']),
   message: JsonCoerce.asString(json['message']),
   data: (json['data'] as List<dynamic>?)
       ?.map(
@@ -670,7 +670,7 @@ UserServiceUserInnerUpdUserLevelPost$Response
 _$UserServiceUserInnerUpdUserLevelPost$ResponseFromJson(
   Map<String, dynamic> json,
 ) => UserServiceUserInnerUpdUserLevelPost$Response(
-  code: JsonCoerce.asDouble(json['code']),
+  code: JsonCoerce.asInt(json['code']),
   message: JsonCoerce.asString(json['message']),
   data: json['data'],
   traceId: JsonCoerce.asString(json['traceId']),
@@ -691,7 +691,7 @@ UserServiceSigninSwitchPortalPost$Response
 _$UserServiceSigninSwitchPortalPost$ResponseFromJson(
   Map<String, dynamic> json,
 ) => UserServiceSigninSwitchPortalPost$Response(
-  code: JsonCoerce.asDouble(json['code']),
+  code: JsonCoerce.asInt(json['code']),
   message: JsonCoerce.asString(json['message']),
   data: json['data'] == null
       ? null
@@ -719,7 +719,7 @@ Map<String, dynamic> _$UserServiceSigninSwitchPortalPost$ResponseToJson(
 UserServiceSignInInitPost$Response _$UserServiceSignInInitPost$ResponseFromJson(
   Map<String, dynamic> json,
 ) => UserServiceSignInInitPost$Response(
-  code: JsonCoerce.asDouble(json['code']),
+  code: JsonCoerce.asInt(json['code']),
   message: JsonCoerce.asString(json['message']),
   data: json['data'] == null
       ? null
@@ -741,7 +741,7 @@ Map<String, dynamic> _$UserServiceSignInInitPost$ResponseToJson(
 UserServiceOtpApplyPost$Response _$UserServiceOtpApplyPost$ResponseFromJson(
   Map<String, dynamic> json,
 ) => UserServiceOtpApplyPost$Response(
-  code: JsonCoerce.asDouble(json['code']),
+  code: JsonCoerce.asInt(json['code']),
   message: JsonCoerce.asString(json['message']),
   data: JsonCoerce.asString(json['data']),
   traceId: json['traceId'],
@@ -759,7 +759,7 @@ Map<String, dynamic> _$UserServiceOtpApplyPost$ResponseToJson(
 UserServiceSignInVerifyPost$Response
 _$UserServiceSignInVerifyPost$ResponseFromJson(Map<String, dynamic> json) =>
     UserServiceSignInVerifyPost$Response(
-      code: JsonCoerce.asDouble(json['code']),
+      code: JsonCoerce.asInt(json['code']),
       message: JsonCoerce.asString(json['message']),
       data: json['data'] == null
           ? null
@@ -787,7 +787,7 @@ Map<String, dynamic> _$UserServiceSignInVerifyPost$ResponseToJson(
 UserServiceSignInCallPost$Response _$UserServiceSignInCallPost$ResponseFromJson(
   Map<String, dynamic> json,
 ) => UserServiceSignInCallPost$Response(
-  code: JsonCoerce.asDouble(json['code']),
+  code: JsonCoerce.asInt(json['code']),
   message: JsonCoerce.asString(json['message']),
   data: json['data'] == null
       ? null
@@ -815,7 +815,7 @@ Map<String, dynamic> _$UserServiceSignInCallPost$ResponseToJson(
 UserServiceNoAuthOtpVerifyPost$Response
 _$UserServiceNoAuthOtpVerifyPost$ResponseFromJson(Map<String, dynamic> json) =>
     UserServiceNoAuthOtpVerifyPost$Response(
-      code: JsonCoerce.asDouble(json['code']),
+      code: JsonCoerce.asInt(json['code']),
       message: JsonCoerce.asString(json['message']),
       data: json['data'] == null
           ? null
@@ -844,7 +844,7 @@ UserServiceNoAuthCommonConfigDefaultSettingGet$Response
 _$UserServiceNoAuthCommonConfigDefaultSettingGet$ResponseFromJson(
   Map<String, dynamic> json,
 ) => UserServiceNoAuthCommonConfigDefaultSettingGet$Response(
-  code: JsonCoerce.asDouble(json['code']),
+  code: JsonCoerce.asInt(json['code']),
   message: JsonCoerce.asString(json['message']),
   data: json['data'] == null
       ? null
@@ -911,7 +911,7 @@ Map<String, dynamic> _$UserServiceFileLogoUploadPost$ResponseToJson(
 UserServiceUserCouponCountGet$Response
 _$UserServiceUserCouponCountGet$ResponseFromJson(Map<String, dynamic> json) =>
     UserServiceUserCouponCountGet$Response(
-      code: JsonCoerce.asDouble(json['code']),
+      code: JsonCoerce.asInt(json['code']),
       message: JsonCoerce.asString(json['message']),
       data: json['data'] == null
           ? null
@@ -957,7 +957,7 @@ UserServiceUserCouponCode2CouponGet$Response
 _$UserServiceUserCouponCode2CouponGet$ResponseFromJson(
   Map<String, dynamic> json,
 ) => UserServiceUserCouponCode2CouponGet$Response(
-  code: JsonCoerce.asDouble(json['code']),
+  code: JsonCoerce.asInt(json['code']),
   message: JsonCoerce.asString(json['message']),
   data: json['data'] == null
       ? null
@@ -1006,7 +1006,7 @@ UserServiceUserCouponGetActivitiesGet$Response
 _$UserServiceUserCouponGetActivitiesGet$ResponseFromJson(
   Map<String, dynamic> json,
 ) => UserServiceUserCouponGetActivitiesGet$Response(
-  code: JsonCoerce.asDouble(json['code']),
+  code: JsonCoerce.asInt(json['code']),
   message: JsonCoerce.asString(json['message']),
   data: json['data'] == null ? [] : JsonCoerce.asStringList(json['data']),
   traceId: JsonCoerce.asString(json['traceId']),
@@ -1028,7 +1028,7 @@ Map<String, dynamic> _$UserServiceUserCouponGetActivitiesGet$ResponseToJson(
 UserServiceUserCouponGetListGet$Response
 _$UserServiceUserCouponGetListGet$ResponseFromJson(Map<String, dynamic> json) =>
     UserServiceUserCouponGetListGet$Response(
-      code: JsonCoerce.asDouble(json['code']),
+      code: JsonCoerce.asInt(json['code']),
       message: JsonCoerce.asString(json['message']),
       data: (json['data'] as List<dynamic>?)
           ?.map(
@@ -1057,7 +1057,7 @@ UserServiceUserCouponGetUserCouponByActivityPost$Response
 _$UserServiceUserCouponGetUserCouponByActivityPost$ResponseFromJson(
   Map<String, dynamic> json,
 ) => UserServiceUserCouponGetUserCouponByActivityPost$Response(
-  code: JsonCoerce.asDouble(json['code']),
+  code: JsonCoerce.asInt(json['code']),
   message: JsonCoerce.asString(json['message']),
   data: JsonCoerce.asBool(json['data']),
   traceId: JsonCoerce.asString(json['traceId']),
@@ -1080,7 +1080,7 @@ _$UserServiceUserCouponGetUserCouponByActivityPost$ResponseToJson(
 UserServiceUserCouponSaveGet$Response
 _$UserServiceUserCouponSaveGet$ResponseFromJson(Map<String, dynamic> json) =>
     UserServiceUserCouponSaveGet$Response(
-      code: JsonCoerce.asDouble(json['code']),
+      code: JsonCoerce.asInt(json['code']),
       message: JsonCoerce.asString(json['message']),
       data: JsonCoerce.asString(json['data']),
       traceId: JsonCoerce.asString(json['traceId']),
@@ -1123,7 +1123,7 @@ UserServiceUserCouponGetCouponByActivityPost$Response
 _$UserServiceUserCouponGetCouponByActivityPost$ResponseFromJson(
   Map<String, dynamic> json,
 ) => UserServiceUserCouponGetCouponByActivityPost$Response(
-  code: JsonCoerce.asDouble(json['code']),
+  code: JsonCoerce.asInt(json['code']),
   message: JsonCoerce.asString(json['message']),
   data: (json['data'] as List<dynamic>?)
       ?.map(
@@ -1153,7 +1153,7 @@ _$UserServiceUserCouponGetCouponByActivityPost$ResponseToJson(
 UserServiceUserCouponGetGet$Response
 _$UserServiceUserCouponGetGet$ResponseFromJson(Map<String, dynamic> json) =>
     UserServiceUserCouponGetGet$Response(
-      code: JsonCoerce.asDouble(json['code']),
+      code: JsonCoerce.asInt(json['code']),
       message: JsonCoerce.asString(json['message']),
       data: (json['data'] as List<dynamic>?)
           ?.map(
@@ -1201,7 +1201,7 @@ Map<String, dynamic> _$UserServiceImGetInfoPost$ResponseToJson(
 UserServiceUserShareListGet$Response
 _$UserServiceUserShareListGet$ResponseFromJson(Map<String, dynamic> json) =>
     UserServiceUserShareListGet$Response(
-      code: JsonCoerce.asDouble(json['code']),
+      code: JsonCoerce.asInt(json['code']),
       message: JsonCoerce.asString(json['message']),
       data: (json['data'] as List<dynamic>?)
           ?.map(
@@ -1228,7 +1228,7 @@ UserServiceUserShareRewardInfoGet$Response
 _$UserServiceUserShareRewardInfoGet$ResponseFromJson(
   Map<String, dynamic> json,
 ) => UserServiceUserShareRewardInfoGet$Response(
-  code: JsonCoerce.asDouble(json['code']),
+  code: JsonCoerce.asInt(json['code']),
   message: JsonCoerce.asString(json['message']),
   data: json['data'] == null
       ? null
@@ -1252,7 +1252,7 @@ Map<String, dynamic> _$UserServiceUserShareRewardInfoGet$ResponseToJson(
 UserServiceUserShareSubmitPost$Response
 _$UserServiceUserShareSubmitPost$ResponseFromJson(Map<String, dynamic> json) =>
     UserServiceUserShareSubmitPost$Response(
-      code: JsonCoerce.asDouble(json['code']),
+      code: JsonCoerce.asInt(json['code']),
       message: JsonCoerce.asString(json['message']),
       data: JsonCoerce.asString(json['data']),
       placeholder: json['placeholder'],
@@ -1272,7 +1272,7 @@ Map<String, dynamic> _$UserServiceUserShareSubmitPost$ResponseToJson(
 UserServiceUserDeleteGet$Response _$UserServiceUserDeleteGet$ResponseFromJson(
   Map<String, dynamic> json,
 ) => UserServiceUserDeleteGet$Response(
-  code: JsonCoerce.asDouble(json['code']),
+  code: JsonCoerce.asInt(json['code']),
   message: JsonCoerce.asString(json['message']),
   data: json['data'] == null
       ? null
@@ -1296,7 +1296,7 @@ Map<String, dynamic> _$UserServiceUserDeleteGet$ResponseToJson(
 UserServiceUserDeleteConfirmGet$Response
 _$UserServiceUserDeleteConfirmGet$ResponseFromJson(Map<String, dynamic> json) =>
     UserServiceUserDeleteConfirmGet$Response(
-      code: JsonCoerce.asDouble(json['code']),
+      code: JsonCoerce.asInt(json['code']),
       message: JsonCoerce.asString(json['message']),
       data: JsonCoerce.asBool(json['data']),
       placeholder: json['placeholder'],
@@ -1316,7 +1316,7 @@ Map<String, dynamic> _$UserServiceUserDeleteConfirmGet$ResponseToJson(
 UserServiceUserGetGet$Response _$UserServiceUserGetGet$ResponseFromJson(
   Map<String, dynamic> json,
 ) => UserServiceUserGetGet$Response(
-  code: JsonCoerce.asDouble(json['code']),
+  code: JsonCoerce.asInt(json['code']),
   message: JsonCoerce.asString(json['message']),
   data: json['data'] == null
       ? null
@@ -1341,7 +1341,7 @@ UserServiceUserUserCommissionGet$Response
 _$UserServiceUserUserCommissionGet$ResponseFromJson(
   Map<String, dynamic> json,
 ) => UserServiceUserUserCommissionGet$Response(
-  code: JsonCoerce.asDouble(json['code']),
+  code: JsonCoerce.asInt(json['code']),
   message: JsonCoerce.asString(json['message']),
   data: json['data'] == null
       ? null
@@ -1366,7 +1366,7 @@ UserServiceUserConfigureSettingGet$Response
 _$UserServiceUserConfigureSettingGet$ResponseFromJson(
   Map<String, dynamic> json,
 ) => UserServiceUserConfigureSettingGet$Response(
-  code: JsonCoerce.asDouble(json['code']),
+  code: JsonCoerce.asInt(json['code']),
   message: JsonCoerce.asString(json['message']),
   data: json['data'] == null
       ? null
@@ -1390,7 +1390,7 @@ Map<String, dynamic> _$UserServiceUserConfigureSettingGet$ResponseToJson(
 UserServiceUserInviteCountGet$Response
 _$UserServiceUserInviteCountGet$ResponseFromJson(Map<String, dynamic> json) =>
     UserServiceUserInviteCountGet$Response(
-      code: JsonCoerce.asDouble(json['code']),
+      code: JsonCoerce.asInt(json['code']),
       message: JsonCoerce.asString(json['message']),
       data: JsonCoerce.asInt(json['data']),
       placeholder: json['placeholder'],
@@ -1410,7 +1410,7 @@ Map<String, dynamic> _$UserServiceUserInviteCountGet$ResponseToJson(
 UserServiceUserInviteNumGet$Response
 _$UserServiceUserInviteNumGet$ResponseFromJson(Map<String, dynamic> json) =>
     UserServiceUserInviteNumGet$Response(
-      code: JsonCoerce.asDouble(json['code']),
+      code: JsonCoerce.asInt(json['code']),
       message: JsonCoerce.asString(json['message']),
       data: json['data'] == null
           ? null
@@ -1434,7 +1434,7 @@ Map<String, dynamic> _$UserServiceUserInviteNumGet$ResponseToJson(
 UserServiceUserShareUpdatePost$Response
 _$UserServiceUserShareUpdatePost$ResponseFromJson(Map<String, dynamic> json) =>
     UserServiceUserShareUpdatePost$Response(
-      code: JsonCoerce.asDouble(json['code']),
+      code: JsonCoerce.asInt(json['code']),
       message: JsonCoerce.asString(json['message']),
       data: JsonCoerce.asString(json['data']),
       placeholder: json['placeholder'],
@@ -1454,7 +1454,7 @@ Map<String, dynamic> _$UserServiceUserShareUpdatePost$ResponseToJson(
 UserServiceUserUserRewardGet$Response
 _$UserServiceUserUserRewardGet$ResponseFromJson(Map<String, dynamic> json) =>
     UserServiceUserUserRewardGet$Response(
-      code: JsonCoerce.asDouble(json['code']),
+      code: JsonCoerce.asInt(json['code']),
       message: JsonCoerce.asString(json['message']),
       data: JsonCoerce.asBool(json['data']),
       placeholder: json['placeholder'],
@@ -1475,7 +1475,7 @@ UserServiceUserTagPortraitAiToPortraitPost$Response
 _$UserServiceUserTagPortraitAiToPortraitPost$ResponseFromJson(
   Map<String, dynamic> json,
 ) => UserServiceUserTagPortraitAiToPortraitPost$Response(
-  code: JsonCoerce.asDouble(json['code']),
+  code: JsonCoerce.asInt(json['code']),
   message: JsonCoerce.asString(json['message']),
   data: json['data'] == null
       ? null
@@ -1501,7 +1501,7 @@ UserServiceUserTagPortraitAiToPortraitV2Post$Response
 _$UserServiceUserTagPortraitAiToPortraitV2Post$ResponseFromJson(
   Map<String, dynamic> json,
 ) => UserServiceUserTagPortraitAiToPortraitV2Post$Response(
-  code: JsonCoerce.asDouble(json['code']),
+  code: JsonCoerce.asInt(json['code']),
   message: JsonCoerce.asString(json['message']),
   data: json['data'] == null
       ? null
@@ -1527,7 +1527,7 @@ UserServiceUserTagPortraitUpdatePortraitPost$Response
 _$UserServiceUserTagPortraitUpdatePortraitPost$ResponseFromJson(
   Map<String, dynamic> json,
 ) => UserServiceUserTagPortraitUpdatePortraitPost$Response(
-  code: JsonCoerce.asDouble(json['code']),
+  code: JsonCoerce.asInt(json['code']),
   message: JsonCoerce.asString(json['message']),
   data: JsonCoerce.asBool(json['data']),
   traceId: JsonCoerce.asString(json['traceId']),
@@ -1549,7 +1549,7 @@ UserServiceUserTagPortraitGetPortraitGet$Response
 _$UserServiceUserTagPortraitGetPortraitGet$ResponseFromJson(
   Map<String, dynamic> json,
 ) => UserServiceUserTagPortraitGetPortraitGet$Response(
-  code: JsonCoerce.asDouble(json['code']),
+  code: JsonCoerce.asInt(json['code']),
   message: JsonCoerce.asString(json['message']),
   data: json['data'] == null
       ? null
@@ -1574,7 +1574,7 @@ UserServiceUserCouponAppHomeActivityPost$Response
 _$UserServiceUserCouponAppHomeActivityPost$ResponseFromJson(
   Map<String, dynamic> json,
 ) => UserServiceUserCouponAppHomeActivityPost$Response(
-  code: JsonCoerce.asDouble(json['code']),
+  code: JsonCoerce.asInt(json['code']),
   message: JsonCoerce.asString(json['message']),
   data: (json['data'] as List<dynamic>?)
       ?.map(
@@ -1614,8 +1614,8 @@ _$UserServiceAddressQueryGet$Response$Data$ItemFromJson(
   countryCode: JsonCoerce.asString(json['countryCode']),
   address: JsonCoerce.asString(json['address']),
   zipCode: JsonCoerce.asString(json['zipCode']),
-  latitude: JsonCoerce.asDouble(json['latitude']),
-  longitude: JsonCoerce.asDouble(json['longitude']),
+  latitude: JsonCoerce.asInt(json['latitude']),
+  longitude: JsonCoerce.asInt(json['longitude']),
 );
 
 Map<String, dynamic> _$UserServiceAddressQueryGet$Response$Data$ItemToJson(
@@ -1639,10 +1639,10 @@ UserServiceAddressListGet$Response$Data$Item
 _$UserServiceAddressListGet$Response$Data$ItemFromJson(
   Map<String, dynamic> json,
 ) => UserServiceAddressListGet$Response$Data$Item(
-  id: JsonCoerce.asDouble(json['id']),
+  id: JsonCoerce.asInt(json['id']),
   tenantCode: JsonCoerce.asString(json['tenantCode']),
   userId: JsonCoerce.asString(json['userId']),
-  isDefault: JsonCoerce.asDouble(json['isDefault']),
+  isDefault: JsonCoerce.asInt(json['isDefault']),
   country: JsonCoerce.asString(json['country']),
   countryCode: JsonCoerce.asString(json['countryCode']),
   state: JsonCoerce.asString(json['state']),
@@ -1657,8 +1657,8 @@ _$UserServiceAddressListGet$Response$Data$ItemFromJson(
   lastName: JsonCoerce.asString(json['lastName']),
   phoneNumber: JsonCoerce.asString(json['phoneNumber']),
   zipCode: JsonCoerce.asString(json['zipCode']),
-  deleted: JsonCoerce.asDouble(json['deleted']),
-  isDelivered: JsonCoerce.asDouble(json['isDelivered']),
+  deleted: JsonCoerce.asInt(json['deleted']),
+  isDelivered: JsonCoerce.asInt(json['isDelivered']),
   gmtCreate: JsonCoerce.asString(json['gmtCreate']),
   gmtUpdate: JsonCoerce.asString(json['gmtUpdate']),
   tin: JsonCoerce.asString(json['tin']),
@@ -1849,19 +1849,19 @@ _$UserServiceSigninSwitchPortalPost$Response$DataFromJson(
   signUpName: JsonCoerce.asString(json['signUpName']),
   accessToken: JsonCoerce.asString(json['accessToken']),
   refreshToken: JsonCoerce.asString(json['refreshToken']),
-  expiresIn: JsonCoerce.asDouble(json['expiresIn']),
+  expiresIn: JsonCoerce.asInt(json['expiresIn']),
   tokenType: JsonCoerce.asString(json['tokenType']),
   authWay: JsonCoerce.asString(json['authWay']),
   remainTimes: JsonCoerce.asString(json['remainTimes']),
   lockTime: JsonCoerce.asString(json['lockTime']),
-  loginStatus: JsonCoerce.asDouble(json['loginStatus']),
-  timestamp: JsonCoerce.asDouble(json['timestamp']),
+  loginStatus: JsonCoerce.asInt(json['loginStatus']),
+  timestamp: JsonCoerce.asInt(json['timestamp']),
   success: JsonCoerce.asBool(json['success']),
   portalCode: JsonCoerce.asString(json['portalCode']),
   source: JsonCoerce.asString(json['source']),
   newUser: JsonCoerce.asBool(json['newUser']),
   compliance: JsonCoerce.asString(json['compliance']),
-  finalSuccess: JsonCoerce.asDouble(json['finalSuccess']),
+  finalSuccess: JsonCoerce.asInt(json['finalSuccess']),
   message: JsonCoerce.asString(json['message']),
   currency: JsonCoerce.asString(json['currency']),
 );
@@ -1926,19 +1926,19 @@ _$UserServiceSignInVerifyPost$Response$DataFromJson(
   signUpName: JsonCoerce.asString(json['signUpName']),
   accessToken: JsonCoerce.asString(json['accessToken']),
   refreshToken: JsonCoerce.asString(json['refreshToken']),
-  expiresIn: JsonCoerce.asDouble(json['expiresIn']),
+  expiresIn: JsonCoerce.asInt(json['expiresIn']),
   tokenType: JsonCoerce.asString(json['tokenType']),
   authWay: JsonCoerce.asString(json['authWay']),
   remainTimes: JsonCoerce.asString(json['remainTimes']),
   lockTime: JsonCoerce.asString(json['lockTime']),
-  loginStatus: JsonCoerce.asDouble(json['loginStatus']),
-  timestamp: JsonCoerce.asDouble(json['timestamp']),
+  loginStatus: JsonCoerce.asInt(json['loginStatus']),
+  timestamp: JsonCoerce.asInt(json['timestamp']),
   success: JsonCoerce.asBool(json['success']),
   portalCode: JsonCoerce.asString(json['portalCode']),
   source: JsonCoerce.asString(json['source']),
   newUser: JsonCoerce.asBool(json['newUser']),
   compliance: JsonCoerce.asString(json['compliance']),
-  finalSuccess: JsonCoerce.asDouble(json['finalSuccess']),
+  finalSuccess: JsonCoerce.asInt(json['finalSuccess']),
   message: JsonCoerce.asString(json['message']),
   currency: JsonCoerce.asString(json['currency']),
 );
@@ -1986,19 +1986,19 @@ _$UserServiceSignInCallPost$Response$DataFromJson(Map<String, dynamic> json) =>
       signUpName: JsonCoerce.asString(json['signUpName']),
       accessToken: JsonCoerce.asString(json['accessToken']),
       refreshToken: JsonCoerce.asString(json['refreshToken']),
-      expiresIn: JsonCoerce.asDouble(json['expiresIn']),
+      expiresIn: JsonCoerce.asInt(json['expiresIn']),
       tokenType: JsonCoerce.asString(json['tokenType']),
       authWay: JsonCoerce.asString(json['authWay']),
       remainTimes: JsonCoerce.asString(json['remainTimes']),
       lockTime: JsonCoerce.asString(json['lockTime']),
-      loginStatus: JsonCoerce.asDouble(json['loginStatus']),
-      timestamp: JsonCoerce.asDouble(json['timestamp']),
+      loginStatus: JsonCoerce.asInt(json['loginStatus']),
+      timestamp: JsonCoerce.asInt(json['timestamp']),
       success: JsonCoerce.asBool(json['success']),
       portalCode: JsonCoerce.asString(json['portalCode']),
       source: JsonCoerce.asString(json['source']),
       newUser: JsonCoerce.asBool(json['newUser']),
       compliance: JsonCoerce.asString(json['compliance']),
-      finalSuccess: JsonCoerce.asDouble(json['finalSuccess']),
+      finalSuccess: JsonCoerce.asInt(json['finalSuccess']),
       message: JsonCoerce.asString(json['message']),
     );
 
@@ -2045,19 +2045,19 @@ _$UserServiceNoAuthOtpVerifyPost$Response$DataFromJson(
   signUpName: JsonCoerce.asString(json['signUpName']),
   accessToken: JsonCoerce.asString(json['accessToken']),
   refreshToken: JsonCoerce.asString(json['refreshToken']),
-  expiresIn: JsonCoerce.asDouble(json['expiresIn']),
+  expiresIn: JsonCoerce.asInt(json['expiresIn']),
   tokenType: JsonCoerce.asString(json['tokenType']),
   authWay: JsonCoerce.asString(json['authWay']),
   remainTimes: JsonCoerce.asString(json['remainTimes']),
   lockTime: JsonCoerce.asString(json['lockTime']),
-  loginStatus: JsonCoerce.asDouble(json['loginStatus']),
-  timestamp: JsonCoerce.asDouble(json['timestamp']),
+  loginStatus: JsonCoerce.asInt(json['loginStatus']),
+  timestamp: JsonCoerce.asInt(json['timestamp']),
   success: JsonCoerce.asBool(json['success']),
   portalCode: JsonCoerce.asString(json['portalCode']),
   source: JsonCoerce.asString(json['source']),
   newUser: JsonCoerce.asBool(json['newUser']),
   compliance: JsonCoerce.asString(json['compliance']),
-  finalSuccess: JsonCoerce.asDouble(json['finalSuccess']),
+  finalSuccess: JsonCoerce.asInt(json['finalSuccess']),
   message: JsonCoerce.asString(json['message']),
   currency: JsonCoerce.asString(json['currency']),
 );
@@ -2185,9 +2185,9 @@ _$UserServiceUserCouponCode2CouponGet$Response$DataFromJson(
   tenantCode: JsonCoerce.asString(json['tenantCode']),
   couponCode: JsonCoerce.asString(json['couponCode']),
   couponTitle: JsonCoerce.asString(json['couponTitle']),
-  isUsed: JsonCoerce.asDouble(json['isUsed']),
+  isUsed: JsonCoerce.asInt(json['isUsed']),
   gmtInvalid: JsonCoerce.asString(json['gmtInvalid']),
-  type: JsonCoerce.asDouble(json['type']),
+  type: JsonCoerce.asInt(json['type']),
   discount: JsonCoerce.asString(json['discount']),
   limitAmount: JsonCoerce.asString(json['limitAmount']),
   currency: JsonCoerce.asString(json['currency']),
@@ -2294,9 +2294,9 @@ _$UserServiceUserCouponGetCouponByActivityPost$Response$Data$ItemFromJson(
   tenantCode: JsonCoerce.asString(json['tenantCode']),
   couponCode: JsonCoerce.asString(json['couponCode']),
   couponTitle: JsonCoerce.asString(json['couponTitle']),
-  isUsed: JsonCoerce.asDouble(json['isUsed']),
+  isUsed: JsonCoerce.asInt(json['isUsed']),
   gmtInvalid: JsonCoerce.asString(json['gmtInvalid']),
-  type: JsonCoerce.asDouble(json['type']),
+  type: JsonCoerce.asInt(json['type']),
   discount: JsonCoerce.asString(json['discount']),
   limitAmount: JsonCoerce.asString(json['limitAmount']),
   currency: JsonCoerce.asString(json['currency']),
@@ -2334,9 +2334,9 @@ _$UserServiceUserCouponGetGet$Response$Data$ItemFromJson(
   tenantCode: JsonCoerce.asString(json['tenantCode']),
   couponCode: JsonCoerce.asString(json['couponCode']),
   couponTitle: JsonCoerce.asString(json['couponTitle']),
-  isUsed: JsonCoerce.asDouble(json['isUsed']),
+  isUsed: JsonCoerce.asInt(json['isUsed']),
   gmtInvalid: JsonCoerce.asString(json['gmtInvalid']),
-  type: JsonCoerce.asDouble(json['type']),
+  type: JsonCoerce.asInt(json['type']),
   discount: JsonCoerce.asString(json['discount']),
   limitAmount: JsonCoerce.asString(json['limitAmount']),
   currency: JsonCoerce.asString(json['currency']),
@@ -2392,7 +2392,7 @@ _$UserServiceImGetInfoPost$Response$DataFromJson(Map<String, dynamic> json) =>
       appId: JsonCoerce.asString(json['app_id']),
       name: JsonCoerce.asString(json['name']),
       username: JsonCoerce.asString(json['username']),
-      sex: JsonCoerce.asDouble(json['sex']),
+      sex: JsonCoerce.asInt(json['sex']),
       category: JsonCoerce.asString(json['category']),
       shortNo: JsonCoerce.asString(json['short_no']),
       zone: JsonCoerce.asString(json['zone']),
@@ -2400,16 +2400,16 @@ _$UserServiceImGetInfoPost$Response$DataFromJson(Map<String, dynamic> json) =>
       token: JsonCoerce.asString(json['token']),
       chatPwd: JsonCoerce.asString(json['chat_pwd']),
       lockScreenPwd: JsonCoerce.asString(json['lock_screen_pwd']),
-      lockAfterMinute: JsonCoerce.asDouble(json['lock_after_minute']),
+      lockAfterMinute: JsonCoerce.asInt(json['lock_after_minute']),
       setting: json['setting'] == null
           ? null
           : UserServiceImGetInfoPost$Response$Data$Setting.fromJson(
               json['setting'] as Map<String, dynamic>,
             ),
       rsaPublicKey: JsonCoerce.asString(json['rsa_public_key']),
-      shortStatus: JsonCoerce.asDouble(json['short_status']),
-      msgExpireSecond: JsonCoerce.asDouble(json['msg_expire_second']),
-      showStatus: JsonCoerce.asDouble(json['showStatus']),
+      shortStatus: JsonCoerce.asInt(json['short_status']),
+      msgExpireSecond: JsonCoerce.asInt(json['msg_expire_second']),
+      showStatus: JsonCoerce.asInt(json['showStatus']),
     );
 
 Map<String, dynamic> _$UserServiceImGetInfoPost$Response$DataToJson(
@@ -2450,7 +2450,7 @@ _$UserServiceUserShareListGet$Response$Data$ItemFromJson(
   content: JsonCoerce.asString(json['content']),
   auditStatus: JsonCoerce.asInt(json['auditStatus']),
   auditTime: JsonCoerce.asString(json['auditTime']),
-  rewardAmount: JsonCoerce.asDouble(json['rewardAmount']),
+  rewardAmount: JsonCoerce.asInt(json['rewardAmount']),
   currency: JsonCoerce.asString(json['currency']),
   rewardType: JsonCoerce.asInt(json['rewardType']),
 );
@@ -2479,7 +2479,7 @@ _$UserServiceUserShareRewardInfoGet$Response$DataFromJson(
   content: JsonCoerce.asString(json['content']),
   auditStatus: JsonCoerce.asInt(json['auditStatus']),
   auditTime: JsonCoerce.asString(json['auditTime']),
-  rewardAmount: JsonCoerce.asDouble(json['rewardAmount']),
+  rewardAmount: JsonCoerce.asInt(json['rewardAmount']),
   currency: JsonCoerce.asString(json['currency']),
   rewardType: JsonCoerce.asInt(json['rewardType']),
 );
@@ -2514,12 +2514,12 @@ _$UserServiceUserGetGet$Response$DataFromJson(Map<String, dynamic> json) =>
       userId: JsonCoerce.asString(json['userId']),
       nickname: JsonCoerce.asString(json['nickname']),
       description: JsonCoerce.asString(json['description']),
-      gender: JsonCoerce.asDouble(json['gender']),
+      gender: JsonCoerce.asInt(json['gender']),
       birthday: JsonCoerce.asString(json['birthday']),
       photo: JsonCoerce.asString(json['photo']),
       phoneNumber: JsonCoerce.asString(json['phoneNumber']),
       email: JsonCoerce.asString(json['email']),
-      signUpType: JsonCoerce.asDouble(json['signUpType']),
+      signUpType: JsonCoerce.asInt(json['signUpType']),
       platform: JsonCoerce.asString(json['platform']),
       createTime: JsonCoerce.asString(json['createTime']),
       inviteCode: JsonCoerce.asString(json['inviteCode']),
@@ -2586,9 +2586,9 @@ UserServiceUserInviteNumGet$Response$Data
 _$UserServiceUserInviteNumGet$Response$DataFromJson(
   Map<String, dynamic> json,
 ) => UserServiceUserInviteNumGet$Response$Data(
-  inviteTotalNum: JsonCoerce.asDouble(json['inviteTotalNum']),
-  inviteNum: JsonCoerce.asDouble(json['inviteNum']),
-  subInviteNum: JsonCoerce.asDouble(json['subInviteNum']),
+  inviteTotalNum: JsonCoerce.asInt(json['inviteTotalNum']),
+  inviteNum: JsonCoerce.asInt(json['inviteNum']),
+  subInviteNum: JsonCoerce.asInt(json['subInviteNum']),
 );
 
 Map<String, dynamic> _$UserServiceUserInviteNumGet$Response$DataToJson(
@@ -2603,9 +2603,9 @@ UserServiceUserTagPortraitAiToPortraitPost$Response$Data
 _$UserServiceUserTagPortraitAiToPortraitPost$Response$DataFromJson(
   Map<String, dynamic> json,
 ) => UserServiceUserTagPortraitAiToPortraitPost$Response$Data(
-  age: JsonCoerce.asDouble(json['age']),
-  sex: JsonCoerce.asDouble(json['sex']),
-  birthday: JsonCoerce.asDouble(json['birthday']),
+  age: JsonCoerce.asInt(json['age']),
+  sex: JsonCoerce.asInt(json['sex']),
+  birthday: JsonCoerce.asInt(json['birthday']),
   nickname: JsonCoerce.asString(json['nickname']),
   favoriteShoppingPlatforms: json['favoriteShoppingPlatforms'] == null
       ? []
@@ -2629,9 +2629,9 @@ UserServiceUserTagPortraitAiToPortraitV2Post$Response$Data
 _$UserServiceUserTagPortraitAiToPortraitV2Post$Response$DataFromJson(
   Map<String, dynamic> json,
 ) => UserServiceUserTagPortraitAiToPortraitV2Post$Response$Data(
-  age: JsonCoerce.asDouble(json['age']),
-  sex: JsonCoerce.asDouble(json['sex']),
-  birthday: JsonCoerce.asDouble(json['birthday']),
+  age: JsonCoerce.asInt(json['age']),
+  sex: JsonCoerce.asInt(json['sex']),
+  birthday: JsonCoerce.asInt(json['birthday']),
   nickname: JsonCoerce.asString(json['nickname']),
   favoriteShoppingPlatforms: json['favoriteShoppingPlatforms'] == null
       ? []
@@ -2655,9 +2655,9 @@ UserServiceUserTagPortraitGetPortraitGet$Response$Data
 _$UserServiceUserTagPortraitGetPortraitGet$Response$DataFromJson(
   Map<String, dynamic> json,
 ) => UserServiceUserTagPortraitGetPortraitGet$Response$Data(
-  age: JsonCoerce.asDouble(json['age']),
-  sex: JsonCoerce.asDouble(json['sex']),
-  birthday: JsonCoerce.asDouble(json['birthday']),
+  age: JsonCoerce.asInt(json['age']),
+  sex: JsonCoerce.asInt(json['sex']),
+  birthday: JsonCoerce.asInt(json['birthday']),
   nickname: JsonCoerce.asString(json['nickname']),
   avatarUrl: JsonCoerce.asString(json['avatarUrl']),
   favoriteShoppingPlatforms: json['favoriteShoppingPlatforms'] == null
@@ -2687,9 +2687,9 @@ _$UserServiceUserCouponAppHomeActivityPost$Response$Data$ItemFromJson(
   tenantCode: JsonCoerce.asString(json['tenantCode']),
   couponCode: JsonCoerce.asString(json['couponCode']),
   couponTitle: JsonCoerce.asString(json['couponTitle']),
-  isUsed: JsonCoerce.asDouble(json['isUsed']),
+  isUsed: JsonCoerce.asInt(json['isUsed']),
   gmtInvalid: JsonCoerce.asString(json['gmtInvalid']),
-  type: JsonCoerce.asDouble(json['type']),
+  type: JsonCoerce.asInt(json['type']),
   discount: JsonCoerce.asString(json['discount']),
   limitAmount: JsonCoerce.asString(json['limitAmount']),
   currency: JsonCoerce.asString(json['currency']),
@@ -2730,10 +2730,10 @@ _$UserServiceUserCouponActivityInfoGet$Response$Data$CouponList$ItemFromJson(
   Map<String, dynamic> json,
 ) => UserServiceUserCouponActivityInfoGet$Response$Data$CouponList$Item(
   currencySymbol: JsonCoerce.asString(json['currencySymbol']),
-  discountType: JsonCoerce.asDouble(json['discountType']),
-  discountInfo: JsonCoerce.asDouble(json['discountInfo']),
-  limitAmount: JsonCoerce.asDouble(json['limitAmount']),
-  invalidPeriod: JsonCoerce.asDouble(json['invalidPeriod']),
+  discountType: JsonCoerce.asInt(json['discountType']),
+  discountInfo: JsonCoerce.asInt(json['discountInfo']),
+  limitAmount: JsonCoerce.asInt(json['limitAmount']),
+  invalidPeriod: JsonCoerce.asInt(json['invalidPeriod']),
   userCouponCode: JsonCoerce.asString(json['userCouponCode']),
 );
 
@@ -2754,11 +2754,11 @@ _$UserServiceUserCouponActivityInfosGet$Response$Data$Item$CouponList$ItemFromJs
   Map<String, dynamic> json,
 ) => UserServiceUserCouponActivityInfosGet$Response$Data$Item$CouponList$Item(
   couponCode: JsonCoerce.asString(json['couponCode']),
-  invalidPeriod: JsonCoerce.asDouble(json['invalidPeriod']),
+  invalidPeriod: JsonCoerce.asInt(json['invalidPeriod']),
   currencySymbol: JsonCoerce.asString(json['currencySymbol']),
   discountType: JsonCoerce.asInt(json['discountType']),
-  discountInfo: JsonCoerce.asDouble(json['discountInfo']),
-  limitAmount: JsonCoerce.asDouble(json['limitAmount']),
+  discountInfo: JsonCoerce.asInt(json['discountInfo']),
+  limitAmount: JsonCoerce.asInt(json['limitAmount']),
 );
 
 Map<String, dynamic>
@@ -2782,9 +2782,9 @@ _$UserServiceUserCouponGetListGet$Response$Data$Item$UserCouponDtos$ItemFromJson
   tenantCode: JsonCoerce.asString(json['tenantCode']),
   couponCode: JsonCoerce.asString(json['couponCode']),
   couponTitle: JsonCoerce.asString(json['couponTitle']),
-  isUsed: JsonCoerce.asDouble(json['isUsed']),
+  isUsed: JsonCoerce.asInt(json['isUsed']),
   gmtInvalid: JsonCoerce.asString(json['gmtInvalid']),
-  type: JsonCoerce.asDouble(json['type']),
+  type: JsonCoerce.asInt(json['type']),
   discount: JsonCoerce.asString(json['discount']),
   limitAmount: JsonCoerce.asString(json['limitAmount']),
   currency: JsonCoerce.asString(json['currency']),
@@ -2792,7 +2792,7 @@ _$UserServiceUserCouponGetListGet$Response$Data$Item$UserCouponDtos$ItemFromJson
   limitAmountTarget: JsonCoerce.asString(json['limitAmountTarget']),
   currencyTarget: JsonCoerce.asString(json['currencyTarget']),
   couponImage: JsonCoerce.asString(json['couponImage']),
-  invalidPeriod: JsonCoerce.asDouble(json['invalidPeriod']),
+  invalidPeriod: JsonCoerce.asInt(json['invalidPeriod']),
 );
 
 Map<String, dynamic>
@@ -2822,9 +2822,9 @@ _$UserServiceUserCouponNoAuthActivityInfoGet$Response$Data$CouponList$ItemFromJs
   Map<String, dynamic> json,
 ) => UserServiceUserCouponNoAuthActivityInfoGet$Response$Data$CouponList$Item(
   currencySymbol: JsonCoerce.asString(json['currencySymbol']),
-  discountType: JsonCoerce.asDouble(json['discountType']),
-  discountInfo: JsonCoerce.asDouble(json['discountInfo']),
-  limitAmount: JsonCoerce.asDouble(json['limitAmount']),
+  discountType: JsonCoerce.asInt(json['discountType']),
+  discountInfo: JsonCoerce.asInt(json['discountInfo']),
+  limitAmount: JsonCoerce.asInt(json['limitAmount']),
 );
 
 Map<String, dynamic>
@@ -2880,15 +2880,15 @@ UserServiceImGetInfoPost$Response$Data$Setting
 _$UserServiceImGetInfoPost$Response$Data$SettingFromJson(
   Map<String, dynamic> json,
 ) => UserServiceImGetInfoPost$Response$Data$Setting(
-  searchByPhone: JsonCoerce.asDouble(json['search_by_phone']),
-  searchByShort: JsonCoerce.asDouble(json['search_by_short']),
-  newMsgNotice: JsonCoerce.asDouble(json['new_msg_notice']),
-  msgShowDetail: JsonCoerce.asDouble(json['msg_show_detail']),
-  voiceOn: JsonCoerce.asDouble(json['voice_on']),
-  shockOn: JsonCoerce.asDouble(json['shock_on']),
-  offlineProtection: JsonCoerce.asDouble(json['offline_protection']),
-  deviceLock: JsonCoerce.asDouble(json['device_lock']),
-  muteOfApp: JsonCoerce.asDouble(json['mute_of_app']),
+  searchByPhone: JsonCoerce.asInt(json['search_by_phone']),
+  searchByShort: JsonCoerce.asInt(json['search_by_short']),
+  newMsgNotice: JsonCoerce.asInt(json['new_msg_notice']),
+  msgShowDetail: JsonCoerce.asInt(json['msg_show_detail']),
+  voiceOn: JsonCoerce.asInt(json['voice_on']),
+  shockOn: JsonCoerce.asInt(json['shock_on']),
+  offlineProtection: JsonCoerce.asInt(json['offline_protection']),
+  deviceLock: JsonCoerce.asInt(json['device_lock']),
+  muteOfApp: JsonCoerce.asInt(json['mute_of_app']),
 );
 
 Map<String, dynamic> _$UserServiceImGetInfoPost$Response$Data$SettingToJson(

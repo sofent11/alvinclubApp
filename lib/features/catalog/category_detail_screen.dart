@@ -102,7 +102,7 @@ class _CategoryDetailScreenState extends ConsumerState<CategoryDetailScreen> {
               );
             },
             loading: () => const SizedBox.shrink(),
-            error: (_, __) => const SizedBox.shrink(),
+            error: (error, stack) => const SizedBox.shrink(),
           ),
           Expanded(child: _buildBody(state, activeId)),
         ],
@@ -201,7 +201,7 @@ class _SubCategorySelector extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
         itemCount: items.length + 1,
-        separatorBuilder: (_, __) => const SizedBox(width: 12),
+        separatorBuilder: (context, index) => const SizedBox(width: 12),
         itemBuilder: (context, index) {
           final isAll = index == 0;
           final item = isAll ? null : items[index - 1];
@@ -236,7 +236,7 @@ class _SubCategorySelector extends StatelessWidget {
                               ? CachedNetworkImage(
                                   imageUrl: item!.iconUrl!,
                                   fit: BoxFit.cover,
-                                  errorWidget: (_, __, ___) => Icon(
+                                  errorWidget: (context, url, error) => Icon(
                                     Icons.image_not_supported,
                                     color: colors.textMuted,
                                   ),

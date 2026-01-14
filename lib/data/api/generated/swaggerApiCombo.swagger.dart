@@ -1578,12 +1578,12 @@ class ComboServiceApiV1StyleOutfitsGeneratemodelPostRequest {
   Map<String, dynamic> toJson() =>
       _$ComboServiceApiV1StyleOutfitsGeneratemodelPostRequestToJson(this);
 
-  @JsonKey(name: 'segmentedType', fromJson: JsonCoerce.asDouble)
-  final double? segmentedType;
+  @JsonKey(name: 'segmentedType', fromJson: JsonCoerce.asInt)
+  final int? segmentedType;
   @JsonKey(name: 'segmentedGender', fromJson: JsonCoerce.asString)
   final String? segmentedGender;
-  @JsonKey(name: 'gender', fromJson: JsonCoerce.asDouble)
-  final double? gender;
+  @JsonKey(name: 'gender', fromJson: JsonCoerce.asInt)
+  final int? gender;
   @JsonKey(name: 'age', fromJson: JsonCoerce.asString)
   final String? age;
   @JsonKey(name: 'ethnicity', fromJson: JsonCoerce.asString)
@@ -1733,9 +1733,9 @@ class ComboServiceApiV1StyleOutfitsGeneratemodelPostRequest {
 extension $ComboServiceApiV1StyleOutfitsGeneratemodelPostRequestExtension
     on ComboServiceApiV1StyleOutfitsGeneratemodelPostRequest {
   ComboServiceApiV1StyleOutfitsGeneratemodelPostRequest copyWith({
-    double? segmentedType,
+    int? segmentedType,
     String? segmentedGender,
-    double? gender,
+    int? gender,
     String? age,
     String? ethnicity,
     String? skinColor,
@@ -1775,9 +1775,9 @@ extension $ComboServiceApiV1StyleOutfitsGeneratemodelPostRequestExtension
   }
 
   ComboServiceApiV1StyleOutfitsGeneratemodelPostRequest copyWithWrapped({
-    Wrapped<double?>? segmentedType,
+    Wrapped<int?>? segmentedType,
     Wrapped<String?>? segmentedGender,
-    Wrapped<double?>? gender,
+    Wrapped<int?>? gender,
     Wrapped<String?>? age,
     Wrapped<String?>? ethnicity,
     Wrapped<String?>? skinColor,
@@ -1848,8 +1848,8 @@ class ComboServiceBizAiFashionModelSavePostRequest {
 
   @JsonKey(name: 'taskId', fromJson: JsonCoerce.asString)
   final String? taskId;
-  @JsonKey(name: 'selectedIndex', fromJson: JsonCoerce.asDouble)
-  final double? selectedIndex;
+  @JsonKey(name: 'selectedIndex', fromJson: JsonCoerce.asInt)
+  final int? selectedIndex;
   @JsonKey(name: 'modelDesc', fromJson: JsonCoerce.asString)
   final String? modelDesc;
   static const fromJsonFactory =
@@ -1888,7 +1888,7 @@ extension $ComboServiceBizAiFashionModelSavePostRequestExtension
     on ComboServiceBizAiFashionModelSavePostRequest {
   ComboServiceBizAiFashionModelSavePostRequest copyWith({
     String? taskId,
-    double? selectedIndex,
+    int? selectedIndex,
     String? modelDesc,
   }) {
     return ComboServiceBizAiFashionModelSavePostRequest(
@@ -1900,7 +1900,7 @@ extension $ComboServiceBizAiFashionModelSavePostRequestExtension
 
   ComboServiceBizAiFashionModelSavePostRequest copyWithWrapped({
     Wrapped<String?>? taskId,
-    Wrapped<double?>? selectedIndex,
+    Wrapped<int?>? selectedIndex,
     Wrapped<String?>? modelDesc,
   }) {
     return ComboServiceBizAiFashionModelSavePostRequest(
@@ -2020,10 +2020,10 @@ class ComboServiceApiV1StyleOutfitsGeneratePostRequest {
   final List<String>? referenceImages;
   @JsonKey(name: 'customPrompt', fromJson: JsonCoerce.asString)
   final String? customPrompt;
-  @JsonKey(name: 'gender', fromJson: JsonCoerce.asDouble)
-  final double? gender;
-  @JsonKey(name: 'count', fromJson: JsonCoerce.asDouble)
-  final double? count;
+  @JsonKey(name: 'gender', fromJson: JsonCoerce.asInt)
+  final int? gender;
+  @JsonKey(name: 'count', fromJson: JsonCoerce.asInt)
+  final int? count;
   @JsonKey(name: 'age', fromJson: JsonCoerce.asString)
   final String? age;
   @JsonKey(name: 'physicalAppearance', fromJson: JsonCoerce.asString)
@@ -2046,8 +2046,8 @@ class ComboServiceApiV1StyleOutfitsGeneratePostRequest {
   final String? customModelId;
   @JsonKey(name: 'selections')
   final ComboServiceApiV1StyleOutfitsGeneratePostRequest$Selections? selections;
-  @JsonKey(name: 'imageIndex', fromJson: JsonCoerce.asDouble)
-  final double? imageIndex;
+  @JsonKey(name: 'imageIndex', fromJson: JsonCoerce.asInt)
+  final int? imageIndex;
   static const fromJsonFactory =
       _$ComboServiceApiV1StyleOutfitsGeneratePostRequestFromJson;
 
@@ -2158,8 +2158,8 @@ extension $ComboServiceApiV1StyleOutfitsGeneratePostRequestExtension
     bool? useMultiModelImage,
     List<String>? referenceImages,
     String? customPrompt,
-    double? gender,
-    double? count,
+    int? gender,
+    int? count,
     String? age,
     String? physicalAppearance,
     String? styleTrendyElements,
@@ -2171,7 +2171,7 @@ extension $ComboServiceApiV1StyleOutfitsGeneratePostRequestExtension
     String? referenceMode,
     String? customModelId,
     ComboServiceApiV1StyleOutfitsGeneratePostRequest$Selections? selections,
-    double? imageIndex,
+    int? imageIndex,
   }) {
     return ComboServiceApiV1StyleOutfitsGeneratePostRequest(
       useMultiModelImage: useMultiModelImage ?? this.useMultiModelImage,
@@ -2198,8 +2198,8 @@ extension $ComboServiceApiV1StyleOutfitsGeneratePostRequestExtension
     Wrapped<bool?>? useMultiModelImage,
     Wrapped<List<String>?>? referenceImages,
     Wrapped<String?>? customPrompt,
-    Wrapped<double?>? gender,
-    Wrapped<double?>? count,
+    Wrapped<int?>? gender,
+    Wrapped<int?>? count,
     Wrapped<String?>? age,
     Wrapped<String?>? physicalAppearance,
     Wrapped<String?>? styleTrendyElements,
@@ -2212,7 +2212,7 @@ extension $ComboServiceApiV1StyleOutfitsGeneratePostRequestExtension
     Wrapped<String?>? customModelId,
     Wrapped<ComboServiceApiV1StyleOutfitsGeneratePostRequest$Selections?>?
     selections,
-    Wrapped<double?>? imageIndex,
+    Wrapped<int?>? imageIndex,
   }) {
     return ComboServiceApiV1StyleOutfitsGeneratePostRequest(
       useMultiModelImage: (useMultiModelImage != null
@@ -2588,8 +2588,8 @@ class ComboServiceNoAuthBizKolKolInfoGet$Response {
   Map<String, dynamic> toJson() =>
       _$ComboServiceNoAuthBizKolKolInfoGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
@@ -2647,7 +2647,7 @@ class ComboServiceNoAuthBizKolKolInfoGet$Response {
 extension $ComboServiceNoAuthBizKolKolInfoGet$ResponseExtension
     on ComboServiceNoAuthBizKolKolInfoGet$Response {
   ComboServiceNoAuthBizKolKolInfoGet$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     ComboServiceNoAuthBizKolKolInfoGet$Response$Data? data,
     String? traceId,
@@ -2665,7 +2665,7 @@ extension $ComboServiceNoAuthBizKolKolInfoGet$ResponseExtension
   }
 
   ComboServiceNoAuthBizKolKolInfoGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<ComboServiceNoAuthBizKolKolInfoGet$Response$Data?>? data,
     Wrapped<String?>? traceId,
@@ -2792,8 +2792,8 @@ class ComboServiceNoAuthCommonAppConfigVersionCheckGet$Response {
   Map<String, dynamic> toJson() =>
       _$ComboServiceNoAuthCommonAppConfigVersionCheckGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
@@ -2843,7 +2843,7 @@ class ComboServiceNoAuthCommonAppConfigVersionCheckGet$Response {
 extension $ComboServiceNoAuthCommonAppConfigVersionCheckGet$ResponseExtension
     on ComboServiceNoAuthCommonAppConfigVersionCheckGet$Response {
   ComboServiceNoAuthCommonAppConfigVersionCheckGet$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     ComboServiceNoAuthCommonAppConfigVersionCheckGet$Response$Data? data,
     bool? success,
@@ -2859,7 +2859,7 @@ extension $ComboServiceNoAuthCommonAppConfigVersionCheckGet$ResponseExtension
   }
 
   ComboServiceNoAuthCommonAppConfigVersionCheckGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<ComboServiceNoAuthCommonAppConfigVersionCheckGet$Response$Data?>?
     data,
@@ -3252,8 +3252,8 @@ class ComboServiceNoAuthBizImageTransTranslatePost$Response {
   Map<String, dynamic> toJson() =>
       _$ComboServiceNoAuthBizImageTransTranslatePost$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data', fromJson: JsonCoerce.asString)
@@ -3311,7 +3311,7 @@ class ComboServiceNoAuthBizImageTransTranslatePost$Response {
 extension $ComboServiceNoAuthBizImageTransTranslatePost$ResponseExtension
     on ComboServiceNoAuthBizImageTransTranslatePost$Response {
   ComboServiceNoAuthBizImageTransTranslatePost$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     String? data,
     String? traceId,
@@ -3329,7 +3329,7 @@ extension $ComboServiceNoAuthBizImageTransTranslatePost$ResponseExtension
   }
 
   ComboServiceNoAuthBizImageTransTranslatePost$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<String?>? data,
     Wrapped<String?>? traceId,
@@ -3367,8 +3367,8 @@ class ComboServiceBizUserOrderPendingGet$Response {
   Map<String, dynamic> toJson() =>
       _$ComboServiceBizUserOrderPendingGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
@@ -3426,7 +3426,7 @@ class ComboServiceBizUserOrderPendingGet$Response {
 extension $ComboServiceBizUserOrderPendingGet$ResponseExtension
     on ComboServiceBizUserOrderPendingGet$Response {
   ComboServiceBizUserOrderPendingGet$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     ComboServiceBizUserOrderPendingGet$Response$Data? data,
     String? traceId,
@@ -3444,7 +3444,7 @@ extension $ComboServiceBizUserOrderPendingGet$ResponseExtension
   }
 
   ComboServiceBizUserOrderPendingGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<ComboServiceBizUserOrderPendingGet$Response$Data?>? data,
     Wrapped<String?>? traceId,
@@ -3481,8 +3481,8 @@ class ComboServiceApiV1StyleOutfitsGenerateModelPost$Response {
   Map<String, dynamic> toJson() =>
       _$ComboServiceApiV1StyleOutfitsGenerateModelPost$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
@@ -3535,7 +3535,7 @@ class ComboServiceApiV1StyleOutfitsGenerateModelPost$Response {
 extension $ComboServiceApiV1StyleOutfitsGenerateModelPost$ResponseExtension
     on ComboServiceApiV1StyleOutfitsGenerateModelPost$Response {
   ComboServiceApiV1StyleOutfitsGenerateModelPost$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     String? traceId,
     bool? success,
@@ -3551,7 +3551,7 @@ extension $ComboServiceApiV1StyleOutfitsGenerateModelPost$ResponseExtension
   }
 
   ComboServiceApiV1StyleOutfitsGenerateModelPost$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<String?>? traceId,
     Wrapped<bool?>? success,
@@ -3585,8 +3585,8 @@ class ComboServiceBizAiFashionNoAuthBodyShapeGet$Response {
   Map<String, dynamic> toJson() =>
       _$ComboServiceBizAiFashionNoAuthBodyShapeGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'msg', fromJson: JsonCoerce.asString)
   final String? msg;
   @JsonKey(name: 'data')
@@ -3620,7 +3620,7 @@ class ComboServiceBizAiFashionNoAuthBodyShapeGet$Response {
 extension $ComboServiceBizAiFashionNoAuthBodyShapeGet$ResponseExtension
     on ComboServiceBizAiFashionNoAuthBodyShapeGet$Response {
   ComboServiceBizAiFashionNoAuthBodyShapeGet$Response copyWith({
-    double? code,
+    int? code,
     String? msg,
     ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data? data,
   }) {
@@ -3632,7 +3632,7 @@ extension $ComboServiceBizAiFashionNoAuthBodyShapeGet$ResponseExtension
   }
 
   ComboServiceBizAiFashionNoAuthBodyShapeGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? msg,
     Wrapped<ComboServiceBizAiFashionNoAuthBodyShapeGet$Response$Data?>? data,
   }) {
@@ -3662,8 +3662,8 @@ class ComboServiceBizAiFashionModelSavePost$Response {
   Map<String, dynamic> toJson() =>
       _$ComboServiceBizAiFashionModelSavePost$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
@@ -3708,7 +3708,7 @@ class ComboServiceBizAiFashionModelSavePost$Response {
 extension $ComboServiceBizAiFashionModelSavePost$ResponseExtension
     on ComboServiceBizAiFashionModelSavePost$Response {
   ComboServiceBizAiFashionModelSavePost$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     String? traceId,
     ComboServiceBizAiFashionModelSavePost$Response$Data? data,
@@ -3722,7 +3722,7 @@ extension $ComboServiceBizAiFashionModelSavePost$ResponseExtension
   }
 
   ComboServiceBizAiFashionModelSavePost$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<String?>? traceId,
     Wrapped<ComboServiceBizAiFashionModelSavePost$Response$Data?>? data,
@@ -3756,8 +3756,8 @@ class ComboServiceApiV1StyleOutfitsResultPageGet$Response {
   Map<String, dynamic> toJson() =>
       _$ComboServiceApiV1StyleOutfitsResultPageGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
@@ -3815,7 +3815,7 @@ class ComboServiceApiV1StyleOutfitsResultPageGet$Response {
 extension $ComboServiceApiV1StyleOutfitsResultPageGet$ResponseExtension
     on ComboServiceApiV1StyleOutfitsResultPageGet$Response {
   ComboServiceApiV1StyleOutfitsResultPageGet$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data? data,
     String? traceId,
@@ -3833,7 +3833,7 @@ extension $ComboServiceApiV1StyleOutfitsResultPageGet$ResponseExtension
   }
 
   ComboServiceApiV1StyleOutfitsResultPageGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data?>? data,
     Wrapped<String?>? traceId,
@@ -3870,8 +3870,8 @@ class ComboServiceBizAiFashionModelRecentlyUsedGet$Response {
   Map<String, dynamic> toJson() =>
       _$ComboServiceBizAiFashionModelRecentlyUsedGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
@@ -3924,7 +3924,7 @@ class ComboServiceBizAiFashionModelRecentlyUsedGet$Response {
 extension $ComboServiceBizAiFashionModelRecentlyUsedGet$ResponseExtension
     on ComboServiceBizAiFashionModelRecentlyUsedGet$Response {
   ComboServiceBizAiFashionModelRecentlyUsedGet$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     String? traceId,
     bool? success,
@@ -3940,7 +3940,7 @@ extension $ComboServiceBizAiFashionModelRecentlyUsedGet$ResponseExtension
   }
 
   ComboServiceBizAiFashionModelRecentlyUsedGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<String?>? traceId,
     Wrapped<bool?>? success,
@@ -3975,8 +3975,8 @@ class ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response {
   Map<String, dynamic> toJson() =>
       _$ComboServiceApiV1StyleOutfitsModelIdStatusGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
@@ -4029,7 +4029,7 @@ class ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response {
 extension $ComboServiceApiV1StyleOutfitsModelIdStatusGet$ResponseExtension
     on ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response {
   ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     String? traceId,
     bool? success,
@@ -4045,7 +4045,7 @@ extension $ComboServiceApiV1StyleOutfitsModelIdStatusGet$ResponseExtension
   }
 
   ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<String?>? traceId,
     Wrapped<bool?>? success,
@@ -4080,8 +4080,8 @@ class ComboServiceApiV1StyleOutfitsResultGet$Response {
   Map<String, dynamic> toJson() =>
       _$ComboServiceApiV1StyleOutfitsResultGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
@@ -4134,7 +4134,7 @@ class ComboServiceApiV1StyleOutfitsResultGet$Response {
 extension $ComboServiceApiV1StyleOutfitsResultGet$ResponseExtension
     on ComboServiceApiV1StyleOutfitsResultGet$Response {
   ComboServiceApiV1StyleOutfitsResultGet$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     String? traceId,
     bool? success,
@@ -4150,7 +4150,7 @@ extension $ComboServiceApiV1StyleOutfitsResultGet$ResponseExtension
   }
 
   ComboServiceApiV1StyleOutfitsResultGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<String?>? traceId,
     Wrapped<bool?>? success,
@@ -4183,8 +4183,8 @@ class ComboServiceBizAiFashionModelModelIdGet$Response {
   Map<String, dynamic> toJson() =>
       _$ComboServiceBizAiFashionModelModelIdGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
@@ -4221,7 +4221,7 @@ class ComboServiceBizAiFashionModelModelIdGet$Response {
 extension $ComboServiceBizAiFashionModelModelIdGet$ResponseExtension
     on ComboServiceBizAiFashionModelModelIdGet$Response {
   ComboServiceBizAiFashionModelModelIdGet$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     ComboServiceBizAiFashionModelModelIdGet$Response$Data? data,
   }) {
@@ -4233,7 +4233,7 @@ extension $ComboServiceBizAiFashionModelModelIdGet$ResponseExtension
   }
 
   ComboServiceBizAiFashionModelModelIdGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<ComboServiceBizAiFashionModelModelIdGet$Response$Data?>? data,
   }) {
@@ -4263,8 +4263,8 @@ class ComboServiceBizAiFashionModelListGet$Response {
   Map<String, dynamic> toJson() =>
       _$ComboServiceBizAiFashionModelListGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
@@ -4309,7 +4309,7 @@ class ComboServiceBizAiFashionModelListGet$Response {
 extension $ComboServiceBizAiFashionModelListGet$ResponseExtension
     on ComboServiceBizAiFashionModelListGet$Response {
   ComboServiceBizAiFashionModelListGet$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     String? traceId,
     ComboServiceBizAiFashionModelListGet$Response$Data? data,
@@ -4323,7 +4323,7 @@ extension $ComboServiceBizAiFashionModelListGet$ResponseExtension
   }
 
   ComboServiceBizAiFashionModelListGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<String?>? traceId,
     Wrapped<ComboServiceBizAiFashionModelListGet$Response$Data?>? data,
@@ -4356,8 +4356,8 @@ class ComboServiceApiV1StyleOutfitsGeneratePost$Response {
   Map<String, dynamic> toJson() =>
       _$ComboServiceApiV1StyleOutfitsGeneratePost$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
@@ -4410,7 +4410,7 @@ class ComboServiceApiV1StyleOutfitsGeneratePost$Response {
 extension $ComboServiceApiV1StyleOutfitsGeneratePost$ResponseExtension
     on ComboServiceApiV1StyleOutfitsGeneratePost$Response {
   ComboServiceApiV1StyleOutfitsGeneratePost$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     String? traceId,
     bool? success,
@@ -4426,7 +4426,7 @@ extension $ComboServiceApiV1StyleOutfitsGeneratePost$ResponseExtension
   }
 
   ComboServiceApiV1StyleOutfitsGeneratePost$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<String?>? traceId,
     Wrapped<bool?>? success,
@@ -4459,8 +4459,8 @@ class ComboServiceBizAiFashionNoAuthStylePresetGet$Response {
   Map<String, dynamic> toJson() =>
       _$ComboServiceBizAiFashionNoAuthStylePresetGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
@@ -4497,7 +4497,7 @@ class ComboServiceBizAiFashionNoAuthStylePresetGet$Response {
 extension $ComboServiceBizAiFashionNoAuthStylePresetGet$ResponseExtension
     on ComboServiceBizAiFashionNoAuthStylePresetGet$Response {
   ComboServiceBizAiFashionNoAuthStylePresetGet$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data? data,
   }) {
@@ -4509,7 +4509,7 @@ extension $ComboServiceBizAiFashionNoAuthStylePresetGet$ResponseExtension
   }
 
   ComboServiceBizAiFashionNoAuthStylePresetGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<ComboServiceBizAiFashionNoAuthStylePresetGet$Response$Data?>? data,
   }) {
@@ -4539,8 +4539,8 @@ class ComboServiceBizAiFashionNoAuthPostListGet$Response {
   Map<String, dynamic> toJson() =>
       _$ComboServiceBizAiFashionNoAuthPostListGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
@@ -4585,7 +4585,7 @@ class ComboServiceBizAiFashionNoAuthPostListGet$Response {
 extension $ComboServiceBizAiFashionNoAuthPostListGet$ResponseExtension
     on ComboServiceBizAiFashionNoAuthPostListGet$Response {
   ComboServiceBizAiFashionNoAuthPostListGet$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     String? traceId,
     ComboServiceBizAiFashionNoAuthPostListGet$Response$Data? data,
@@ -4599,7 +4599,7 @@ extension $ComboServiceBizAiFashionNoAuthPostListGet$ResponseExtension
   }
 
   ComboServiceBizAiFashionNoAuthPostListGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<String?>? traceId,
     Wrapped<ComboServiceBizAiFashionNoAuthPostListGet$Response$Data?>? data,
@@ -4632,8 +4632,8 @@ class ComboServiceBizAiFashionNoAuthPostDetailGet$Response {
   Map<String, dynamic> toJson() =>
       _$ComboServiceBizAiFashionNoAuthPostDetailGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
@@ -4683,7 +4683,7 @@ class ComboServiceBizAiFashionNoAuthPostDetailGet$Response {
 extension $ComboServiceBizAiFashionNoAuthPostDetailGet$ResponseExtension
     on ComboServiceBizAiFashionNoAuthPostDetailGet$Response {
   ComboServiceBizAiFashionNoAuthPostDetailGet$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data? data,
     Object? reasonCode,
@@ -4699,7 +4699,7 @@ extension $ComboServiceBizAiFashionNoAuthPostDetailGet$ResponseExtension
   }
 
   ComboServiceBizAiFashionNoAuthPostDetailGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data?>? data,
     Wrapped<Object?>? reasonCode,
@@ -4733,8 +4733,8 @@ class ComboServiceBizAiFashionNoAuthSelectOptionGet$Response {
   Map<String, dynamic> toJson() =>
       _$ComboServiceBizAiFashionNoAuthSelectOptionGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
@@ -4779,7 +4779,7 @@ class ComboServiceBizAiFashionNoAuthSelectOptionGet$Response {
 extension $ComboServiceBizAiFashionNoAuthSelectOptionGet$ResponseExtension
     on ComboServiceBizAiFashionNoAuthSelectOptionGet$Response {
   ComboServiceBizAiFashionNoAuthSelectOptionGet$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     String? traceId,
     ComboServiceBizAiFashionNoAuthSelectOptionGet$Response$Data? data,
@@ -4793,7 +4793,7 @@ extension $ComboServiceBizAiFashionNoAuthSelectOptionGet$ResponseExtension
   }
 
   ComboServiceBizAiFashionNoAuthSelectOptionGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<String?>? traceId,
     Wrapped<ComboServiceBizAiFashionNoAuthSelectOptionGet$Response$Data?>? data,
@@ -4831,8 +4831,8 @@ class ComboServiceApiV1StyleOutfitsGenerateModelRegeneratePost$Response {
         this,
       );
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
@@ -4886,7 +4886,7 @@ class ComboServiceApiV1StyleOutfitsGenerateModelRegeneratePost$Response {
 extension $ComboServiceApiV1StyleOutfitsGenerateModelRegeneratePost$ResponseExtension
     on ComboServiceApiV1StyleOutfitsGenerateModelRegeneratePost$Response {
   ComboServiceApiV1StyleOutfitsGenerateModelRegeneratePost$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     String? traceId,
     bool? success,
@@ -4904,7 +4904,7 @@ extension $ComboServiceApiV1StyleOutfitsGenerateModelRegeneratePost$ResponseExte
 
   ComboServiceApiV1StyleOutfitsGenerateModelRegeneratePost$Response
   copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<String?>? traceId,
     Wrapped<bool?>? success,
@@ -4946,8 +4946,8 @@ class ComboServiceApiV1StyleOutfitsGenerateRegeneratePost$Response {
         this,
       );
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
@@ -5000,7 +5000,7 @@ class ComboServiceApiV1StyleOutfitsGenerateRegeneratePost$Response {
 extension $ComboServiceApiV1StyleOutfitsGenerateRegeneratePost$ResponseExtension
     on ComboServiceApiV1StyleOutfitsGenerateRegeneratePost$Response {
   ComboServiceApiV1StyleOutfitsGenerateRegeneratePost$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     String? traceId,
     bool? success,
@@ -5016,7 +5016,7 @@ extension $ComboServiceApiV1StyleOutfitsGenerateRegeneratePost$ResponseExtension
   }
 
   ComboServiceApiV1StyleOutfitsGenerateRegeneratePost$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<String?>? traceId,
     Wrapped<bool?>? success,
@@ -5053,8 +5053,8 @@ class ComboServiceBizUserShareRewardPageGet$Response {
   Map<String, dynamic> toJson() =>
       _$ComboServiceBizUserShareRewardPageGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
@@ -5112,7 +5112,7 @@ class ComboServiceBizUserShareRewardPageGet$Response {
 extension $ComboServiceBizUserShareRewardPageGet$ResponseExtension
     on ComboServiceBizUserShareRewardPageGet$Response {
   ComboServiceBizUserShareRewardPageGet$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     ComboServiceBizUserShareRewardPageGet$Response$Data? data,
     String? traceId,
@@ -5130,7 +5130,7 @@ extension $ComboServiceBizUserShareRewardPageGet$ResponseExtension
   }
 
   ComboServiceBizUserShareRewardPageGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<ComboServiceBizUserShareRewardPageGet$Response$Data?>? data,
     Wrapped<String?>? traceId,
@@ -5168,8 +5168,8 @@ class ComboServiceBizUserShareRewardPost$Response {
   Map<String, dynamic> toJson() =>
       _$ComboServiceBizUserShareRewardPost$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data', fromJson: JsonCoerce.asString)
@@ -5227,7 +5227,7 @@ class ComboServiceBizUserShareRewardPost$Response {
 extension $ComboServiceBizUserShareRewardPost$ResponseExtension
     on ComboServiceBizUserShareRewardPost$Response {
   ComboServiceBizUserShareRewardPost$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     String? data,
     String? traceId,
@@ -5245,7 +5245,7 @@ extension $ComboServiceBizUserShareRewardPost$ResponseExtension
   }
 
   ComboServiceBizUserShareRewardPost$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<String?>? data,
     Wrapped<String?>? traceId,
@@ -5283,8 +5283,8 @@ class ComboServiceNoAuthBizAlbumAlbumInfoGet$Response {
   Map<String, dynamic> toJson() =>
       _$ComboServiceNoAuthBizAlbumAlbumInfoGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
@@ -5342,7 +5342,7 @@ class ComboServiceNoAuthBizAlbumAlbumInfoGet$Response {
 extension $ComboServiceNoAuthBizAlbumAlbumInfoGet$ResponseExtension
     on ComboServiceNoAuthBizAlbumAlbumInfoGet$Response {
   ComboServiceNoAuthBizAlbumAlbumInfoGet$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data? data,
     String? traceId,
@@ -5360,7 +5360,7 @@ extension $ComboServiceNoAuthBizAlbumAlbumInfoGet$ResponseExtension
   }
 
   ComboServiceNoAuthBizAlbumAlbumInfoGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<ComboServiceNoAuthBizAlbumAlbumInfoGet$Response$Data?>? data,
     Wrapped<String?>? traceId,
@@ -5887,16 +5887,16 @@ class ComboServiceBizUserOrderPendingGet$Response$Data {
   Map<String, dynamic> toJson() =>
       _$ComboServiceBizUserOrderPendingGet$Response$DataToJson(this);
 
-  @JsonKey(name: 'pendingOrderCount', fromJson: JsonCoerce.asDouble)
-  final double? pendingOrderCount;
-  @JsonKey(name: 'totalOrderCount', fromJson: JsonCoerce.asDouble)
-  final double? totalOrderCount;
-  @JsonKey(name: 'pendingWarehouseItemCount', fromJson: JsonCoerce.asDouble)
-  final double? pendingWarehouseItemCount;
-  @JsonKey(name: 'pendingPackageCount', fromJson: JsonCoerce.asDouble)
-  final double? pendingPackageCount;
-  @JsonKey(name: 'totalPackageCount', fromJson: JsonCoerce.asDouble)
-  final double? totalPackageCount;
+  @JsonKey(name: 'pendingOrderCount', fromJson: JsonCoerce.asInt)
+  final int? pendingOrderCount;
+  @JsonKey(name: 'totalOrderCount', fromJson: JsonCoerce.asInt)
+  final int? totalOrderCount;
+  @JsonKey(name: 'pendingWarehouseItemCount', fromJson: JsonCoerce.asInt)
+  final int? pendingWarehouseItemCount;
+  @JsonKey(name: 'pendingPackageCount', fromJson: JsonCoerce.asInt)
+  final int? pendingPackageCount;
+  @JsonKey(name: 'totalPackageCount', fromJson: JsonCoerce.asInt)
+  final int? totalPackageCount;
   static const fromJsonFactory =
       _$ComboServiceBizUserOrderPendingGet$Response$DataFromJson;
 
@@ -5950,11 +5950,11 @@ class ComboServiceBizUserOrderPendingGet$Response$Data {
 extension $ComboServiceBizUserOrderPendingGet$Response$DataExtension
     on ComboServiceBizUserOrderPendingGet$Response$Data {
   ComboServiceBizUserOrderPendingGet$Response$Data copyWith({
-    double? pendingOrderCount,
-    double? totalOrderCount,
-    double? pendingWarehouseItemCount,
-    double? pendingPackageCount,
-    double? totalPackageCount,
+    int? pendingOrderCount,
+    int? totalOrderCount,
+    int? pendingWarehouseItemCount,
+    int? pendingPackageCount,
+    int? totalPackageCount,
   }) {
     return ComboServiceBizUserOrderPendingGet$Response$Data(
       pendingOrderCount: pendingOrderCount ?? this.pendingOrderCount,
@@ -5967,11 +5967,11 @@ extension $ComboServiceBizUserOrderPendingGet$Response$DataExtension
   }
 
   ComboServiceBizUserOrderPendingGet$Response$Data copyWithWrapped({
-    Wrapped<double?>? pendingOrderCount,
-    Wrapped<double?>? totalOrderCount,
-    Wrapped<double?>? pendingWarehouseItemCount,
-    Wrapped<double?>? pendingPackageCount,
-    Wrapped<double?>? totalPackageCount,
+    Wrapped<int?>? pendingOrderCount,
+    Wrapped<int?>? totalOrderCount,
+    Wrapped<int?>? pendingWarehouseItemCount,
+    Wrapped<int?>? pendingPackageCount,
+    Wrapped<int?>? totalPackageCount,
   }) {
     return ComboServiceBizUserOrderPendingGet$Response$Data(
       pendingOrderCount: (pendingOrderCount != null
@@ -6186,8 +6186,8 @@ class ComboServiceBizAiFashionModelSavePost$Response$Data {
   Map<String, dynamic> toJson() =>
       _$ComboServiceBizAiFashionModelSavePost$Response$DataToJson(this);
 
-  @JsonKey(name: 'id', fromJson: JsonCoerce.asDouble)
-  final double? id;
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asInt)
+  final int? id;
   @JsonKey(name: 'tenantCode', fromJson: JsonCoerce.asString)
   final String? tenantCode;
   @JsonKey(name: 'userId', fromJson: JsonCoerce.asString)
@@ -6200,14 +6200,14 @@ class ComboServiceBizAiFashionModelSavePost$Response$Data {
   final String? modelImage;
   @JsonKey(name: 'ext')
   final Object? ext;
-  @JsonKey(name: 'isDeleted', fromJson: JsonCoerce.asDouble)
-  final double? isDeleted;
+  @JsonKey(name: 'isDeleted', fromJson: JsonCoerce.asInt)
+  final int? isDeleted;
   @JsonKey(name: 'gmtCreate', fromJson: JsonCoerce.asString)
   final String? gmtCreate;
   @JsonKey(name: 'gmtUpdate', fromJson: JsonCoerce.asString)
   final String? gmtUpdate;
-  @JsonKey(name: 'groupId', fromJson: JsonCoerce.asDouble)
-  final double? groupId;
+  @JsonKey(name: 'groupId', fromJson: JsonCoerce.asInt)
+  final int? groupId;
   static const fromJsonFactory =
       _$ComboServiceBizAiFashionModelSavePost$Response$DataFromJson;
 
@@ -6282,17 +6282,17 @@ class ComboServiceBizAiFashionModelSavePost$Response$Data {
 extension $ComboServiceBizAiFashionModelSavePost$Response$DataExtension
     on ComboServiceBizAiFashionModelSavePost$Response$Data {
   ComboServiceBizAiFashionModelSavePost$Response$Data copyWith({
-    double? id,
+    int? id,
     String? tenantCode,
     String? userId,
     String? modelDesc,
     String? modelId,
     String? modelImage,
     Object? ext,
-    double? isDeleted,
+    int? isDeleted,
     String? gmtCreate,
     String? gmtUpdate,
-    double? groupId,
+    int? groupId,
   }) {
     return ComboServiceBizAiFashionModelSavePost$Response$Data(
       id: id ?? this.id,
@@ -6310,17 +6310,17 @@ extension $ComboServiceBizAiFashionModelSavePost$Response$DataExtension
   }
 
   ComboServiceBizAiFashionModelSavePost$Response$Data copyWithWrapped({
-    Wrapped<double?>? id,
+    Wrapped<int?>? id,
     Wrapped<String?>? tenantCode,
     Wrapped<String?>? userId,
     Wrapped<String?>? modelDesc,
     Wrapped<String?>? modelId,
     Wrapped<String?>? modelImage,
     Wrapped<Object?>? ext,
-    Wrapped<double?>? isDeleted,
+    Wrapped<int?>? isDeleted,
     Wrapped<String?>? gmtCreate,
     Wrapped<String?>? gmtUpdate,
-    Wrapped<double?>? groupId,
+    Wrapped<int?>? groupId,
   }) {
     return ComboServiceBizAiFashionModelSavePost$Response$Data(
       id: (id != null ? id.value : this.id),
@@ -6362,14 +6362,14 @@ class ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data {
     ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item
   >?
   records;
-  @JsonKey(name: 'total', fromJson: JsonCoerce.asDouble)
-  final double? total;
-  @JsonKey(name: 'size', fromJson: JsonCoerce.asDouble)
-  final double? size;
-  @JsonKey(name: 'current', fromJson: JsonCoerce.asDouble)
-  final double? current;
-  @JsonKey(name: 'pages', fromJson: JsonCoerce.asDouble)
-  final double? pages;
+  @JsonKey(name: 'total', fromJson: JsonCoerce.asInt)
+  final int? total;
+  @JsonKey(name: 'size', fromJson: JsonCoerce.asInt)
+  final int? size;
+  @JsonKey(name: 'current', fromJson: JsonCoerce.asInt)
+  final int? current;
+  @JsonKey(name: 'pages', fromJson: JsonCoerce.asInt)
+  final int? pages;
   static const fromJsonFactory =
       _$ComboServiceApiV1StyleOutfitsResultPageGet$Response$DataFromJson;
 
@@ -6413,10 +6413,10 @@ extension $ComboServiceApiV1StyleOutfitsResultPageGet$Response$DataExtension
   ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data copyWith({
     List<ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item>?
     records,
-    double? total,
-    double? size,
-    double? current,
-    double? pages,
+    int? total,
+    int? size,
+    int? current,
+    int? pages,
   }) {
     return ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data(
       records: records ?? this.records,
@@ -6434,10 +6434,10 @@ extension $ComboServiceApiV1StyleOutfitsResultPageGet$Response$DataExtension
       >?
     >?
     records,
-    Wrapped<double?>? total,
-    Wrapped<double?>? size,
-    Wrapped<double?>? current,
-    Wrapped<double?>? pages,
+    Wrapped<int?>? total,
+    Wrapped<int?>? size,
+    Wrapped<int?>? current,
+    Wrapped<int?>? pages,
   }) {
     return ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data(
       records: (records != null ? records.value : this.records),
@@ -6477,8 +6477,8 @@ class ComboServiceBizAiFashionModelRecentlyUsedGet$Response$Data {
   Map<String, dynamic> toJson() =>
       _$ComboServiceBizAiFashionModelRecentlyUsedGet$Response$DataToJson(this);
 
-  @JsonKey(name: 'id', fromJson: JsonCoerce.asDouble)
-  final double? id;
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asInt)
+  final int? id;
   @JsonKey(name: 'tenantCode', fromJson: JsonCoerce.asString)
   final String? tenantCode;
   @JsonKey(name: 'userId', fromJson: JsonCoerce.asString)
@@ -6493,14 +6493,14 @@ class ComboServiceBizAiFashionModelRecentlyUsedGet$Response$Data {
   final String? modelHeaderImage;
   @JsonKey(name: 'ext')
   final Object? ext;
-  @JsonKey(name: 'isDeleted', fromJson: JsonCoerce.asDouble)
-  final double? isDeleted;
+  @JsonKey(name: 'isDeleted', fromJson: JsonCoerce.asInt)
+  final int? isDeleted;
   @JsonKey(name: 'gmtCreate', fromJson: JsonCoerce.asString)
   final String? gmtCreate;
   @JsonKey(name: 'gmtUpdate', fromJson: JsonCoerce.asString)
   final String? gmtUpdate;
-  @JsonKey(name: 'groupId', fromJson: JsonCoerce.asDouble)
-  final double? groupId;
+  @JsonKey(name: 'groupId', fromJson: JsonCoerce.asInt)
+  final int? groupId;
   static const fromJsonFactory =
       _$ComboServiceBizAiFashionModelRecentlyUsedGet$Response$DataFromJson;
 
@@ -6581,7 +6581,7 @@ class ComboServiceBizAiFashionModelRecentlyUsedGet$Response$Data {
 extension $ComboServiceBizAiFashionModelRecentlyUsedGet$Response$DataExtension
     on ComboServiceBizAiFashionModelRecentlyUsedGet$Response$Data {
   ComboServiceBizAiFashionModelRecentlyUsedGet$Response$Data copyWith({
-    double? id,
+    int? id,
     String? tenantCode,
     String? userId,
     String? modelDesc,
@@ -6589,10 +6589,10 @@ extension $ComboServiceBizAiFashionModelRecentlyUsedGet$Response$DataExtension
     String? modelImage,
     String? modelHeaderImage,
     Object? ext,
-    double? isDeleted,
+    int? isDeleted,
     String? gmtCreate,
     String? gmtUpdate,
-    double? groupId,
+    int? groupId,
   }) {
     return ComboServiceBizAiFashionModelRecentlyUsedGet$Response$Data(
       id: id ?? this.id,
@@ -6611,7 +6611,7 @@ extension $ComboServiceBizAiFashionModelRecentlyUsedGet$Response$DataExtension
   }
 
   ComboServiceBizAiFashionModelRecentlyUsedGet$Response$Data copyWithWrapped({
-    Wrapped<double?>? id,
+    Wrapped<int?>? id,
     Wrapped<String?>? tenantCode,
     Wrapped<String?>? userId,
     Wrapped<String?>? modelDesc,
@@ -6619,10 +6619,10 @@ extension $ComboServiceBizAiFashionModelRecentlyUsedGet$Response$DataExtension
     Wrapped<String?>? modelImage,
     Wrapped<String?>? modelHeaderImage,
     Wrapped<Object?>? ext,
-    Wrapped<double?>? isDeleted,
+    Wrapped<int?>? isDeleted,
     Wrapped<String?>? gmtCreate,
     Wrapped<String?>? gmtUpdate,
-    Wrapped<double?>? groupId,
+    Wrapped<int?>? groupId,
   }) {
     return ComboServiceBizAiFashionModelRecentlyUsedGet$Response$Data(
       id: (id != null ? id.value : this.id),
@@ -6675,20 +6675,20 @@ class ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response$Data {
   final String? taskId;
   @JsonKey(name: 'status', fromJson: JsonCoerce.asString)
   final String? status;
-  @JsonKey(name: 'totalCount', fromJson: JsonCoerce.asDouble)
-  final double? totalCount;
-  @JsonKey(name: 'completedCount', fromJson: JsonCoerce.asDouble)
-  final double? completedCount;
-  @JsonKey(name: 'selectedIndex', fromJson: JsonCoerce.asDouble)
-  final double? selectedIndex;
+  @JsonKey(name: 'totalCount', fromJson: JsonCoerce.asInt)
+  final int? totalCount;
+  @JsonKey(name: 'completedCount', fromJson: JsonCoerce.asInt)
+  final int? completedCount;
+  @JsonKey(name: 'selectedIndex', fromJson: JsonCoerce.asInt)
+  final int? selectedIndex;
   @JsonKey(name: 'originalImageUrl', fromJson: JsonCoerce.asString)
   final String? originalImageUrl;
-  @JsonKey(name: 'gender', fromJson: JsonCoerce.asDouble)
-  final double? gender;
+  @JsonKey(name: 'gender', fromJson: JsonCoerce.asInt)
+  final int? gender;
   @JsonKey(name: 'isDefault', fromJson: JsonCoerce.asBool)
   final bool? isDefault;
-  @JsonKey(name: 'usageCount', fromJson: JsonCoerce.asDouble)
-  final double? usageCount;
+  @JsonKey(name: 'usageCount', fromJson: JsonCoerce.asInt)
+  final int? usageCount;
   @JsonKey(name: 'createdAt', fromJson: JsonCoerce.asString)
   final String? createdAt;
   @JsonKey(name: 'error')
@@ -6780,13 +6780,13 @@ extension $ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response$DataExtension
   ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response$Data copyWith({
     String? taskId,
     String? status,
-    double? totalCount,
-    double? completedCount,
-    double? selectedIndex,
+    int? totalCount,
+    int? completedCount,
+    int? selectedIndex,
     String? originalImageUrl,
-    double? gender,
+    int? gender,
     bool? isDefault,
-    double? usageCount,
+    int? usageCount,
     String? createdAt,
     Object? error,
     List<
@@ -6813,13 +6813,13 @@ extension $ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response$DataExtension
   ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response$Data copyWithWrapped({
     Wrapped<String?>? taskId,
     Wrapped<String?>? status,
-    Wrapped<double?>? totalCount,
-    Wrapped<double?>? completedCount,
-    Wrapped<double?>? selectedIndex,
+    Wrapped<int?>? totalCount,
+    Wrapped<int?>? completedCount,
+    Wrapped<int?>? selectedIndex,
     Wrapped<String?>? originalImageUrl,
-    Wrapped<double?>? gender,
+    Wrapped<int?>? gender,
     Wrapped<bool?>? isDefault,
-    Wrapped<double?>? usageCount,
+    Wrapped<int?>? usageCount,
     Wrapped<String?>? createdAt,
     Wrapped<Object?>? error,
     Wrapped<
@@ -6889,14 +6889,14 @@ class ComboServiceApiV1StyleOutfitsResultGet$Response$Data {
   final String? taskId;
   @JsonKey(name: 'status', fromJson: JsonCoerce.asString)
   final String? status;
-  @JsonKey(name: 'count', fromJson: JsonCoerce.asDouble)
-  final double? count;
-  @JsonKey(name: 'createdAt', fromJson: JsonCoerce.asDouble)
-  final double? createdAt;
-  @JsonKey(name: 'completedAt', fromJson: JsonCoerce.asDouble)
-  final double? completedAt;
-  @JsonKey(name: 'totalDuration', fromJson: JsonCoerce.asDouble)
-  final double? totalDuration;
+  @JsonKey(name: 'count', fromJson: JsonCoerce.asInt)
+  final int? count;
+  @JsonKey(name: 'createdAt', fromJson: JsonCoerce.asInt)
+  final int? createdAt;
+  @JsonKey(name: 'completedAt', fromJson: JsonCoerce.asInt)
+  final int? completedAt;
+  @JsonKey(name: 'totalDuration', fromJson: JsonCoerce.asInt)
+  final int? totalDuration;
   @JsonKey(name: 'requestParams')
   final ComboServiceApiV1StyleOutfitsResultGet$Response$Data$RequestParams?
   requestParams;
@@ -7041,10 +7041,10 @@ extension $ComboServiceApiV1StyleOutfitsResultGet$Response$DataExtension
   ComboServiceApiV1StyleOutfitsResultGet$Response$Data copyWith({
     String? taskId,
     String? status,
-    double? count,
-    double? createdAt,
-    double? completedAt,
-    double? totalDuration,
+    int? count,
+    int? createdAt,
+    int? completedAt,
+    int? totalDuration,
     ComboServiceApiV1StyleOutfitsResultGet$Response$Data$RequestParams?
     requestParams,
     List<String>? images,
@@ -7088,10 +7088,10 @@ extension $ComboServiceApiV1StyleOutfitsResultGet$Response$DataExtension
   ComboServiceApiV1StyleOutfitsResultGet$Response$Data copyWithWrapped({
     Wrapped<String?>? taskId,
     Wrapped<String?>? status,
-    Wrapped<double?>? count,
-    Wrapped<double?>? createdAt,
-    Wrapped<double?>? completedAt,
-    Wrapped<double?>? totalDuration,
+    Wrapped<int?>? count,
+    Wrapped<int?>? createdAt,
+    Wrapped<int?>? completedAt,
+    Wrapped<int?>? totalDuration,
     Wrapped<
       ComboServiceApiV1StyleOutfitsResultGet$Response$Data$RequestParams?
     >?
@@ -7188,8 +7188,8 @@ class ComboServiceBizAiFashionModelModelIdGet$Response$Data {
   Map<String, dynamic> toJson() =>
       _$ComboServiceBizAiFashionModelModelIdGet$Response$DataToJson(this);
 
-  @JsonKey(name: 'id', fromJson: JsonCoerce.asDouble)
-  final double? id;
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asInt)
+  final int? id;
   @JsonKey(name: 'tenantCode', fromJson: JsonCoerce.asString)
   final String? tenantCode;
   @JsonKey(name: 'userId', fromJson: JsonCoerce.asString)
@@ -7204,14 +7204,14 @@ class ComboServiceBizAiFashionModelModelIdGet$Response$Data {
   final String? modelHeaderImage;
   @JsonKey(name: 'ext', fromJson: JsonCoerce.asString)
   final String? ext;
-  @JsonKey(name: 'isDeleted', fromJson: JsonCoerce.asDouble)
-  final double? isDeleted;
+  @JsonKey(name: 'isDeleted', fromJson: JsonCoerce.asInt)
+  final int? isDeleted;
   @JsonKey(name: 'gmtCreate', fromJson: JsonCoerce.asString)
   final String? gmtCreate;
   @JsonKey(name: 'gmtUpdate', fromJson: JsonCoerce.asString)
   final String? gmtUpdate;
-  @JsonKey(name: 'groupId', fromJson: JsonCoerce.asDouble)
-  final double? groupId;
+  @JsonKey(name: 'groupId', fromJson: JsonCoerce.asInt)
+  final int? groupId;
   static const fromJsonFactory =
       _$ComboServiceBizAiFashionModelModelIdGet$Response$DataFromJson;
 
@@ -7292,7 +7292,7 @@ class ComboServiceBizAiFashionModelModelIdGet$Response$Data {
 extension $ComboServiceBizAiFashionModelModelIdGet$Response$DataExtension
     on ComboServiceBizAiFashionModelModelIdGet$Response$Data {
   ComboServiceBizAiFashionModelModelIdGet$Response$Data copyWith({
-    double? id,
+    int? id,
     String? tenantCode,
     String? userId,
     String? modelDesc,
@@ -7300,10 +7300,10 @@ extension $ComboServiceBizAiFashionModelModelIdGet$Response$DataExtension
     String? modelImage,
     String? modelHeaderImage,
     String? ext,
-    double? isDeleted,
+    int? isDeleted,
     String? gmtCreate,
     String? gmtUpdate,
-    double? groupId,
+    int? groupId,
   }) {
     return ComboServiceBizAiFashionModelModelIdGet$Response$Data(
       id: id ?? this.id,
@@ -7322,7 +7322,7 @@ extension $ComboServiceBizAiFashionModelModelIdGet$Response$DataExtension
   }
 
   ComboServiceBizAiFashionModelModelIdGet$Response$Data copyWithWrapped({
-    Wrapped<double?>? id,
+    Wrapped<int?>? id,
     Wrapped<String?>? tenantCode,
     Wrapped<String?>? userId,
     Wrapped<String?>? modelDesc,
@@ -7330,10 +7330,10 @@ extension $ComboServiceBizAiFashionModelModelIdGet$Response$DataExtension
     Wrapped<String?>? modelImage,
     Wrapped<String?>? modelHeaderImage,
     Wrapped<String?>? ext,
-    Wrapped<double?>? isDeleted,
+    Wrapped<int?>? isDeleted,
     Wrapped<String?>? gmtCreate,
     Wrapped<String?>? gmtUpdate,
-    Wrapped<double?>? groupId,
+    Wrapped<int?>? groupId,
   }) {
     return ComboServiceBizAiFashionModelModelIdGet$Response$Data(
       id: (id != null ? id.value : this.id),
@@ -7451,12 +7451,12 @@ class ComboServiceApiV1StyleOutfitsGeneratePost$Response$Data {
   final String? taskId;
   @JsonKey(name: 'status', fromJson: JsonCoerce.asString)
   final String? status;
-  @JsonKey(name: 'count', fromJson: JsonCoerce.asDouble)
-  final double? count;
+  @JsonKey(name: 'count', fromJson: JsonCoerce.asInt)
+  final int? count;
   @JsonKey(name: 'estimatedTime', fromJson: JsonCoerce.asString)
   final String? estimatedTime;
-  @JsonKey(name: 'createdAt', fromJson: JsonCoerce.asDouble)
-  final double? createdAt;
+  @JsonKey(name: 'createdAt', fromJson: JsonCoerce.asInt)
+  final int? createdAt;
   static const fromJsonFactory =
       _$ComboServiceApiV1StyleOutfitsGeneratePost$Response$DataFromJson;
 
@@ -7500,9 +7500,9 @@ extension $ComboServiceApiV1StyleOutfitsGeneratePost$Response$DataExtension
   ComboServiceApiV1StyleOutfitsGeneratePost$Response$Data copyWith({
     String? taskId,
     String? status,
-    double? count,
+    int? count,
     String? estimatedTime,
-    double? createdAt,
+    int? createdAt,
   }) {
     return ComboServiceApiV1StyleOutfitsGeneratePost$Response$Data(
       taskId: taskId ?? this.taskId,
@@ -7516,9 +7516,9 @@ extension $ComboServiceApiV1StyleOutfitsGeneratePost$Response$DataExtension
   ComboServiceApiV1StyleOutfitsGeneratePost$Response$Data copyWithWrapped({
     Wrapped<String?>? taskId,
     Wrapped<String?>? status,
-    Wrapped<double?>? count,
+    Wrapped<int?>? count,
     Wrapped<String?>? estimatedTime,
-    Wrapped<double?>? createdAt,
+    Wrapped<int?>? createdAt,
   }) {
     return ComboServiceApiV1StyleOutfitsGeneratePost$Response$Data(
       taskId: (taskId != null ? taskId.value : this.taskId),
@@ -7770,8 +7770,8 @@ class ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data {
   Map<String, dynamic> toJson() =>
       _$ComboServiceBizAiFashionNoAuthPostDetailGet$Response$DataToJson(this);
 
-  @JsonKey(name: 'postId', fromJson: JsonCoerce.asDouble)
-  final double? postId;
+  @JsonKey(name: 'postId', fromJson: JsonCoerce.asInt)
+  final int? postId;
   @JsonKey(name: 'postTitle', fromJson: JsonCoerce.asString)
   final String? postTitle;
   @JsonKey(name: 'frontImage')
@@ -7798,8 +7798,8 @@ class ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data {
   @JsonKey(name: 'option')
   final ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$Option?
   option;
-  @JsonKey(name: 'templateId', fromJson: JsonCoerce.asDouble)
-  final double? templateId;
+  @JsonKey(name: 'templateId', fromJson: JsonCoerce.asInt)
+  final int? templateId;
   static const fromJsonFactory =
       _$ComboServiceBizAiFashionNoAuthPostDetailGet$Response$DataFromJson;
 
@@ -7868,7 +7868,7 @@ class ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data {
 extension $ComboServiceBizAiFashionNoAuthPostDetailGet$Response$DataExtension
     on ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data {
   ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data copyWith({
-    double? postId,
+    int? postId,
     String? postTitle,
     ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FrontImage?
     frontImage,
@@ -7884,7 +7884,7 @@ extension $ComboServiceBizAiFashionNoAuthPostDetailGet$Response$DataExtension
     footerImages,
     String? prompt,
     ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$Option? option,
-    double? templateId,
+    int? templateId,
   }) {
     return ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data(
       postId: postId ?? this.postId,
@@ -7901,7 +7901,7 @@ extension $ComboServiceBizAiFashionNoAuthPostDetailGet$Response$DataExtension
   }
 
   ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data copyWithWrapped({
-    Wrapped<double?>? postId,
+    Wrapped<int?>? postId,
     Wrapped<String?>? postTitle,
     Wrapped<
       ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FrontImage?
@@ -7930,7 +7930,7 @@ extension $ComboServiceBizAiFashionNoAuthPostDetailGet$Response$DataExtension
     Wrapped<String?>? prompt,
     Wrapped<ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$Option?>?
     option,
-    Wrapped<double?>? templateId,
+    Wrapped<int?>? templateId,
   }) {
     return ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data(
       postId: (postId != null ? postId.value : this.postId),
@@ -8184,14 +8184,14 @@ class ComboServiceBizUserShareRewardPageGet$Response$Data {
   @JsonKey(name: 'records')
   final List<ComboServiceBizUserShareRewardPageGet$Response$Data$Records$Item>?
   records;
-  @JsonKey(name: 'total', fromJson: JsonCoerce.asDouble)
-  final double? total;
-  @JsonKey(name: 'size', fromJson: JsonCoerce.asDouble)
-  final double? size;
-  @JsonKey(name: 'current', fromJson: JsonCoerce.asDouble)
-  final double? current;
-  @JsonKey(name: 'pages', fromJson: JsonCoerce.asDouble)
-  final double? pages;
+  @JsonKey(name: 'total', fromJson: JsonCoerce.asInt)
+  final int? total;
+  @JsonKey(name: 'size', fromJson: JsonCoerce.asInt)
+  final int? size;
+  @JsonKey(name: 'current', fromJson: JsonCoerce.asInt)
+  final int? current;
+  @JsonKey(name: 'pages', fromJson: JsonCoerce.asInt)
+  final int? pages;
   static const fromJsonFactory =
       _$ComboServiceBizUserShareRewardPageGet$Response$DataFromJson;
 
@@ -8235,10 +8235,10 @@ extension $ComboServiceBizUserShareRewardPageGet$Response$DataExtension
   ComboServiceBizUserShareRewardPageGet$Response$Data copyWith({
     List<ComboServiceBizUserShareRewardPageGet$Response$Data$Records$Item>?
     records,
-    double? total,
-    double? size,
-    double? current,
-    double? pages,
+    int? total,
+    int? size,
+    int? current,
+    int? pages,
   }) {
     return ComboServiceBizUserShareRewardPageGet$Response$Data(
       records: records ?? this.records,
@@ -8254,10 +8254,10 @@ extension $ComboServiceBizUserShareRewardPageGet$Response$DataExtension
       List<ComboServiceBizUserShareRewardPageGet$Response$Data$Records$Item>?
     >?
     records,
-    Wrapped<double?>? total,
-    Wrapped<double?>? size,
-    Wrapped<double?>? current,
-    Wrapped<double?>? pages,
+    Wrapped<int?>? total,
+    Wrapped<int?>? size,
+    Wrapped<int?>? current,
+    Wrapped<int?>? pages,
   }) {
     return ComboServiceBizUserShareRewardPageGet$Response$Data(
       records: (records != null ? records.value : this.records),
@@ -9393,14 +9393,14 @@ class ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item {
   final String? taskId;
   @JsonKey(name: 'status', fromJson: JsonCoerce.asString)
   final String? status;
-  @JsonKey(name: 'count', fromJson: JsonCoerce.asDouble)
-  final double? count;
-  @JsonKey(name: 'createdAt', fromJson: JsonCoerce.asDouble)
-  final double? createdAt;
-  @JsonKey(name: 'completedAt', fromJson: JsonCoerce.asDouble)
-  final double? completedAt;
-  @JsonKey(name: 'totalDuration', fromJson: JsonCoerce.asDouble)
-  final double? totalDuration;
+  @JsonKey(name: 'count', fromJson: JsonCoerce.asInt)
+  final int? count;
+  @JsonKey(name: 'createdAt', fromJson: JsonCoerce.asInt)
+  final int? createdAt;
+  @JsonKey(name: 'completedAt', fromJson: JsonCoerce.asInt)
+  final int? completedAt;
+  @JsonKey(name: 'totalDuration', fromJson: JsonCoerce.asInt)
+  final int? totalDuration;
   @JsonKey(name: 'requestParams')
   final ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$RequestParams?
   requestParams;
@@ -9543,10 +9543,10 @@ extension $ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item
   copyWith({
     String? taskId,
     String? status,
-    double? count,
-    double? createdAt,
-    double? completedAt,
-    double? totalDuration,
+    int? count,
+    int? createdAt,
+    int? completedAt,
+    int? totalDuration,
     ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$RequestParams?
     requestParams,
     List<Object>? images,
@@ -9591,10 +9591,10 @@ extension $ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item
   copyWithWrapped({
     Wrapped<String?>? taskId,
     Wrapped<String?>? status,
-    Wrapped<double?>? count,
-    Wrapped<double?>? createdAt,
-    Wrapped<double?>? completedAt,
-    Wrapped<double?>? totalDuration,
+    Wrapped<int?>? count,
+    Wrapped<int?>? createdAt,
+    Wrapped<int?>? completedAt,
+    Wrapped<int?>? totalDuration,
     Wrapped<
       ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$RequestParams?
     >?
@@ -9686,8 +9686,8 @@ class ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response$Data$GeneratedModel
         this,
       );
 
-  @JsonKey(name: 'index', fromJson: JsonCoerce.asDouble)
-  final double? index;
+  @JsonKey(name: 'index', fromJson: JsonCoerce.asInt)
+  final int? index;
   @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory =
@@ -9718,7 +9718,7 @@ extension $ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response$Data$Generated
     on
         ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response$Data$GeneratedModels$Item {
   ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response$Data$GeneratedModels$Item
-  copyWith({double? index, String? url}) {
+  copyWith({int? index, String? url}) {
     return ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response$Data$GeneratedModels$Item(
       index: index ?? this.index,
       url: url ?? this.url,
@@ -9726,7 +9726,7 @@ extension $ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response$Data$Generated
   }
 
   ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response$Data$GeneratedModels$Item
-  copyWithWrapped({Wrapped<double?>? index, Wrapped<String?>? url}) {
+  copyWithWrapped({Wrapped<int?>? index, Wrapped<String?>? url}) {
     return ComboServiceApiV1StyleOutfitsModelIdStatusGet$Response$Data$GeneratedModels$Item(
       index: (index != null ? index.value : this.index),
       url: (url != null ? url.value : this.url),
@@ -9774,8 +9774,8 @@ class ComboServiceApiV1StyleOutfitsResultGet$Response$Data$RequestParams {
   final List<String>? referenceImages;
   @JsonKey(name: 'customPrompt', fromJson: JsonCoerce.asString)
   final String? customPrompt;
-  @JsonKey(name: 'gender', fromJson: JsonCoerce.asDouble)
-  final double? gender;
+  @JsonKey(name: 'gender', fromJson: JsonCoerce.asInt)
+  final int? gender;
   @JsonKey(name: 'age', fromJson: JsonCoerce.asString)
   final String? age;
   @JsonKey(name: 'physicalAppearance', fromJson: JsonCoerce.asString)
@@ -9885,7 +9885,7 @@ extension $ComboServiceApiV1StyleOutfitsResultGet$Response$Data$RequestParamsExt
   ComboServiceApiV1StyleOutfitsResultGet$Response$Data$RequestParams copyWith({
     List<String>? referenceImages,
     String? customPrompt,
-    double? gender,
+    int? gender,
     String? age,
     String? physicalAppearance,
     String? styleTrendyElements,
@@ -9918,7 +9918,7 @@ extension $ComboServiceApiV1StyleOutfitsResultGet$Response$Data$RequestParamsExt
   copyWithWrapped({
     Wrapped<List<String>?>? referenceImages,
     Wrapped<String?>? customPrompt,
-    Wrapped<double?>? gender,
+    Wrapped<int?>? gender,
     Wrapped<String?>? age,
     Wrapped<String?>? physicalAppearance,
     Wrapped<String?>? styleTrendyElements,
@@ -10013,8 +10013,8 @@ class ComboServiceApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item {
   final bool? fallback;
   @JsonKey(name: 'pending', fromJson: JsonCoerce.asString)
   final String? pending;
-  @JsonKey(name: 'selectedId', fromJson: JsonCoerce.asDouble)
-  final double? selectedId;
+  @JsonKey(name: 'selectedId', fromJson: JsonCoerce.asInt)
+  final int? selectedId;
   @JsonKey(name: 'options')
   final List<
     ComboServiceApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item$Options$Item
@@ -10024,10 +10024,10 @@ class ComboServiceApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item {
   final String? cachedImage;
   @JsonKey(name: 'cachedImageMime', fromJson: JsonCoerce.asString)
   final String? cachedImageMime;
-  @JsonKey(name: 'cachedImageSelectedId', fromJson: JsonCoerce.asDouble)
-  final double? cachedImageSelectedId;
-  @JsonKey(name: 'cachedImageUpdatedAt', fromJson: JsonCoerce.asDouble)
-  final double? cachedImageUpdatedAt;
+  @JsonKey(name: 'cachedImageSelectedId', fromJson: JsonCoerce.asInt)
+  final int? cachedImageSelectedId;
+  @JsonKey(name: 'cachedImageUpdatedAt', fromJson: JsonCoerce.asInt)
+  final int? cachedImageUpdatedAt;
   static const fromJsonFactory =
       _$ComboServiceApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$ItemFromJson;
 
@@ -10124,15 +10124,15 @@ extension $ComboServiceApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Ite
     String? image,
     bool? fallback,
     String? pending,
-    double? selectedId,
+    int? selectedId,
     List<
       ComboServiceApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item$Options$Item
     >?
     options,
     String? cachedImage,
     String? cachedImageMime,
-    double? cachedImageSelectedId,
-    double? cachedImageUpdatedAt,
+    int? cachedImageSelectedId,
+    int? cachedImageUpdatedAt,
   }) {
     return ComboServiceApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item(
       name: name ?? this.name,
@@ -10163,7 +10163,7 @@ extension $ComboServiceApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Ite
     Wrapped<String?>? image,
     Wrapped<bool?>? fallback,
     Wrapped<String?>? pending,
-    Wrapped<double?>? selectedId,
+    Wrapped<int?>? selectedId,
     Wrapped<
       List<
         ComboServiceApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item$Options$Item
@@ -10172,8 +10172,8 @@ extension $ComboServiceApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Ite
     options,
     Wrapped<String?>? cachedImage,
     Wrapped<String?>? cachedImageMime,
-    Wrapped<double?>? cachedImageSelectedId,
-    Wrapped<double?>? cachedImageUpdatedAt,
+    Wrapped<int?>? cachedImageSelectedId,
+    Wrapped<int?>? cachedImageUpdatedAt,
   }) {
     return ComboServiceApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item(
       name: (name != null ? name.value : this.name),
@@ -10232,8 +10232,8 @@ class ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages {
     ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item
   >?
   items;
-  @JsonKey(name: 'generated_at', fromJson: JsonCoerce.asDouble)
-  final double? generatedAt;
+  @JsonKey(name: 'generated_at', fromJson: JsonCoerce.asInt)
+  final int? generatedAt;
   @JsonKey(name: 'multi_model_image_url', fromJson: JsonCoerce.asString)
   final String? multiModelImageUrl;
   @JsonKey(
@@ -10299,7 +10299,7 @@ extension $ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImagesExt
       ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item
     >?
     items,
-    double? generatedAt,
+    int? generatedAt,
     String? multiModelImageUrl,
     List<String>? whiteBgImages,
     List<
@@ -10326,7 +10326,7 @@ extension $ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImagesExt
       >?
     >?
     items,
-    Wrapped<double?>? generatedAt,
+    Wrapped<int?>? generatedAt,
     Wrapped<String?>? multiModelImageUrl,
     Wrapped<List<String>?>? whiteBgImages,
     Wrapped<
@@ -10374,8 +10374,8 @@ class ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImagesStatus {
 
   @JsonKey(name: 'ready', fromJson: JsonCoerce.asBool)
   final bool? ready;
-  @JsonKey(name: 'count', fromJson: JsonCoerce.asDouble)
-  final double? count;
+  @JsonKey(name: 'count', fromJson: JsonCoerce.asInt)
+  final int? count;
   static const fromJsonFactory =
       _$ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImagesStatusFromJson;
 
@@ -10403,7 +10403,7 @@ class ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImagesStatus {
 extension $ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImagesStatusExtension
     on ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImagesStatus {
   ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImagesStatus
-  copyWith({bool? ready, double? count}) {
+  copyWith({bool? ready, int? count}) {
     return ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImagesStatus(
       ready: ready ?? this.ready,
       count: count ?? this.count,
@@ -10411,7 +10411,7 @@ extension $ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImagesSta
   }
 
   ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImagesStatus
-  copyWithWrapped({Wrapped<bool?>? ready, Wrapped<double?>? count}) {
+  copyWithWrapped({Wrapped<bool?>? ready, Wrapped<int?>? count}) {
     return ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImagesStatus(
       ready: (ready != null ? ready.value : this.ready),
       count: (count != null ? count.value : this.count),
@@ -10440,8 +10440,8 @@ class ComboServiceBizAiFashionModelListGet$Response$Data$Models$Item {
         this,
       );
 
-  @JsonKey(name: 'groupId', fromJson: JsonCoerce.asDouble)
-  final double? groupId;
+  @JsonKey(name: 'groupId', fromJson: JsonCoerce.asInt)
+  final int? groupId;
   @JsonKey(name: 'title', fromJson: JsonCoerce.asString)
   final String? title;
   @JsonKey(name: 'data')
@@ -10481,7 +10481,7 @@ class ComboServiceBizAiFashionModelListGet$Response$Data$Models$Item {
 extension $ComboServiceBizAiFashionModelListGet$Response$Data$Models$ItemExtension
     on ComboServiceBizAiFashionModelListGet$Response$Data$Models$Item {
   ComboServiceBizAiFashionModelListGet$Response$Data$Models$Item copyWith({
-    double? groupId,
+    int? groupId,
     String? title,
     List<
       ComboServiceBizAiFashionModelListGet$Response$Data$Models$Item$Data$Item
@@ -10497,7 +10497,7 @@ extension $ComboServiceBizAiFashionModelListGet$Response$Data$Models$ItemExtensi
 
   ComboServiceBizAiFashionModelListGet$Response$Data$Models$Item
   copyWithWrapped({
-    Wrapped<double?>? groupId,
+    Wrapped<int?>? groupId,
     Wrapped<String?>? title,
     Wrapped<
       List<
@@ -10908,8 +10908,8 @@ class ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item {
   final String? prompt;
   @JsonKey(name: 'postTitle', fromJson: JsonCoerce.asString)
   final String? postTitle;
-  @JsonKey(name: 'postId', fromJson: JsonCoerce.asDouble)
-  final double? postId;
+  @JsonKey(name: 'postId', fromJson: JsonCoerce.asInt)
+  final int? postId;
   @JsonKey(name: 'frontImage')
   final ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$FrontImage?
   frontImage;
@@ -10961,7 +10961,7 @@ extension $ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$ItemExt
     images,
     String? prompt,
     String? postTitle,
-    double? postId,
+    int? postId,
     ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$FrontImage?
     frontImage,
   }) {
@@ -10984,7 +10984,7 @@ extension $ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$ItemExt
     images,
     Wrapped<String?>? prompt,
     Wrapped<String?>? postTitle,
-    Wrapped<double?>? postId,
+    Wrapped<int?>? postId,
     Wrapped<
       ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$FrontImage?
     >?
@@ -11022,10 +11022,10 @@ class ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FrontImage {
         this,
       );
 
-  @JsonKey(name: 'width', fromJson: JsonCoerce.asDouble)
-  final double? width;
-  @JsonKey(name: 'height', fromJson: JsonCoerce.asDouble)
-  final double? height;
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asInt)
+  final int? width;
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asInt)
+  final int? height;
   @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory =
@@ -11057,7 +11057,7 @@ class ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FrontImage {
 extension $ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FrontImageExtension
     on ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FrontImage {
   ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FrontImage
-  copyWith({double? width, double? height, String? url}) {
+  copyWith({int? width, int? height, String? url}) {
     return ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FrontImage(
       width: width ?? this.width,
       height: height ?? this.height,
@@ -11067,8 +11067,8 @@ extension $ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FrontImageE
 
   ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FrontImage
   copyWithWrapped({
-    Wrapped<double?>? width,
-    Wrapped<double?>? height,
+    Wrapped<int?>? width,
+    Wrapped<int?>? height,
     Wrapped<String?>? url,
   }) {
     return ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FrontImage(
@@ -11101,10 +11101,10 @@ class ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$HeaderImage {
         this,
       );
 
-  @JsonKey(name: 'width', fromJson: JsonCoerce.asDouble)
-  final double? width;
-  @JsonKey(name: 'height', fromJson: JsonCoerce.asDouble)
-  final double? height;
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asInt)
+  final int? width;
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asInt)
+  final int? height;
   @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory =
@@ -11137,7 +11137,7 @@ class ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$HeaderImage {
 extension $ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$HeaderImageExtension
     on ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$HeaderImage {
   ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$HeaderImage
-  copyWith({double? width, double? height, String? url}) {
+  copyWith({int? width, int? height, String? url}) {
     return ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$HeaderImage(
       width: width ?? this.width,
       height: height ?? this.height,
@@ -11147,8 +11147,8 @@ extension $ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$HeaderImage
 
   ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$HeaderImage
   copyWithWrapped({
-    Wrapped<double?>? width,
-    Wrapped<double?>? height,
+    Wrapped<int?>? width,
+    Wrapped<int?>? height,
     Wrapped<String?>? url,
   }) {
     return ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$HeaderImage(
@@ -11183,10 +11183,10 @@ class ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$ModelImage {
 
   @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
-  @JsonKey(name: 'height', fromJson: JsonCoerce.asDouble)
-  final double? height;
-  @JsonKey(name: 'width', fromJson: JsonCoerce.asDouble)
-  final double? width;
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asInt)
+  final int? height;
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asInt)
+  final int? width;
   static const fromJsonFactory =
       _$ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$ModelImageFromJson;
 
@@ -11216,7 +11216,7 @@ class ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$ModelImage {
 extension $ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$ModelImageExtension
     on ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$ModelImage {
   ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$ModelImage
-  copyWith({String? url, double? height, double? width}) {
+  copyWith({String? url, int? height, int? width}) {
     return ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$ModelImage(
       url: url ?? this.url,
       height: height ?? this.height,
@@ -11227,8 +11227,8 @@ extension $ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$ModelImageE
   ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$ModelImage
   copyWithWrapped({
     Wrapped<String?>? url,
-    Wrapped<double?>? height,
-    Wrapped<double?>? width,
+    Wrapped<int?>? height,
+    Wrapped<int?>? width,
   }) {
     return ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$ModelImage(
       url: (url != null ? url.value : this.url),
@@ -11260,10 +11260,10 @@ class ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$Images$Item {
         this,
       );
 
-  @JsonKey(name: 'width', fromJson: JsonCoerce.asDouble)
-  final double? width;
-  @JsonKey(name: 'height', fromJson: JsonCoerce.asDouble)
-  final double? height;
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asInt)
+  final int? width;
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asInt)
+  final int? height;
   @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory =
@@ -11296,7 +11296,7 @@ class ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$Images$Item {
 extension $ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$Images$ItemExtension
     on ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$Images$Item {
   ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$Images$Item
-  copyWith({double? width, double? height, String? url}) {
+  copyWith({int? width, int? height, String? url}) {
     return ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$Images$Item(
       width: width ?? this.width,
       height: height ?? this.height,
@@ -11306,8 +11306,8 @@ extension $ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$Images$Item
 
   ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$Images$Item
   copyWithWrapped({
-    Wrapped<double?>? width,
-    Wrapped<double?>? height,
+    Wrapped<int?>? width,
+    Wrapped<int?>? height,
     Wrapped<String?>? url,
   }) {
     return ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$Images$Item(
@@ -11340,10 +11340,10 @@ class ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FooterImages$Ite
         this,
       );
 
-  @JsonKey(name: 'width', fromJson: JsonCoerce.asDouble)
-  final double? width;
-  @JsonKey(name: 'height', fromJson: JsonCoerce.asDouble)
-  final double? height;
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asInt)
+  final int? width;
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asInt)
+  final int? height;
   @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory =
@@ -11376,7 +11376,7 @@ class ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FooterImages$Ite
 extension $ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FooterImages$ItemExtension
     on ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FooterImages$Item {
   ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FooterImages$Item
-  copyWith({double? width, double? height, String? url}) {
+  copyWith({int? width, int? height, String? url}) {
     return ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FooterImages$Item(
       width: width ?? this.width,
       height: height ?? this.height,
@@ -11386,8 +11386,8 @@ extension $ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FooterImage
 
   ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FooterImages$Item
   copyWithWrapped({
-    Wrapped<double?>? width,
-    Wrapped<double?>? height,
+    Wrapped<int?>? width,
+    Wrapped<int?>? height,
     Wrapped<String?>? url,
   }) {
     return ComboServiceBizAiFashionNoAuthPostDetailGet$Response$Data$FooterImages$Item(
@@ -11737,14 +11737,14 @@ class ComboServiceBizUserShareRewardPageGet$Response$Data$Records$Item {
   final String? userId;
   @JsonKey(name: 'content', fromJson: JsonCoerce.asString)
   final String? content;
-  @JsonKey(name: 'auditStatus', fromJson: JsonCoerce.asDouble)
-  final double? auditStatus;
+  @JsonKey(name: 'auditStatus', fromJson: JsonCoerce.asInt)
+  final int? auditStatus;
   @JsonKey(name: 'rewardAmount', fromJson: JsonCoerce.asString)
   final String? rewardAmount;
-  @JsonKey(name: 'rewardType', fromJson: JsonCoerce.asDouble)
-  final double? rewardType;
-  @JsonKey(name: 'rewardStatus', fromJson: JsonCoerce.asDouble)
-  final double? rewardStatus;
+  @JsonKey(name: 'rewardType', fromJson: JsonCoerce.asInt)
+  final int? rewardType;
+  @JsonKey(name: 'rewardStatus', fromJson: JsonCoerce.asInt)
+  final int? rewardStatus;
   @JsonKey(name: 'rewardTime', fromJson: JsonCoerce.asString)
   final String? rewardTime;
   static const fromJsonFactory =
@@ -11816,10 +11816,10 @@ extension $ComboServiceBizUserShareRewardPageGet$Response$Data$Records$ItemExten
     String? rewardId,
     String? userId,
     String? content,
-    double? auditStatus,
+    int? auditStatus,
     String? rewardAmount,
-    double? rewardType,
-    double? rewardStatus,
+    int? rewardType,
+    int? rewardStatus,
     String? rewardTime,
   }) {
     return ComboServiceBizUserShareRewardPageGet$Response$Data$Records$Item(
@@ -11839,10 +11839,10 @@ extension $ComboServiceBizUserShareRewardPageGet$Response$Data$Records$ItemExten
     Wrapped<String?>? rewardId,
     Wrapped<String?>? userId,
     Wrapped<String?>? content,
-    Wrapped<double?>? auditStatus,
+    Wrapped<int?>? auditStatus,
     Wrapped<String?>? rewardAmount,
-    Wrapped<double?>? rewardType,
-    Wrapped<double?>? rewardStatus,
+    Wrapped<int?>? rewardType,
+    Wrapped<int?>? rewardStatus,
     Wrapped<String?>? rewardTime,
   }) {
     return ComboServiceBizUserShareRewardPageGet$Response$Data$Records$Item(
@@ -13223,8 +13223,8 @@ class ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$Requ
   final List<String>? referenceImages;
   @JsonKey(name: 'customPrompt', fromJson: JsonCoerce.asString)
   final String? customPrompt;
-  @JsonKey(name: 'gender', fromJson: JsonCoerce.asDouble)
-  final double? gender;
+  @JsonKey(name: 'gender', fromJson: JsonCoerce.asInt)
+  final int? gender;
   @JsonKey(name: 'age', fromJson: JsonCoerce.asString)
   final String? age;
   @JsonKey(name: 'physicalAppearance', fromJson: JsonCoerce.asString)
@@ -13336,7 +13336,7 @@ extension $ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item
   copyWith({
     List<String>? referenceImages,
     String? customPrompt,
-    double? gender,
+    int? gender,
     String? age,
     String? physicalAppearance,
     String? styleTrendyElements,
@@ -13369,7 +13369,7 @@ extension $ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item
   copyWithWrapped({
     Wrapped<List<String>?>? referenceImages,
     Wrapped<String?>? customPrompt,
-    Wrapped<double?>? gender,
+    Wrapped<int?>? gender,
     Wrapped<String?>? age,
     Wrapped<String?>? physicalAppearance,
     Wrapped<String?>? styleTrendyElements,
@@ -13464,8 +13464,8 @@ class ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$Prod
   final bool? fallback;
   @JsonKey(name: 'pending', fromJson: JsonCoerce.asString)
   final String? pending;
-  @JsonKey(name: 'selectedId', fromJson: JsonCoerce.asDouble)
-  final double? selectedId;
+  @JsonKey(name: 'selectedId', fromJson: JsonCoerce.asInt)
+  final int? selectedId;
   @JsonKey(name: 'options')
   final List<
     ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item$Options$Item
@@ -13475,10 +13475,10 @@ class ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$Prod
   final String? cachedImage;
   @JsonKey(name: 'cachedImageMime', fromJson: JsonCoerce.asString)
   final String? cachedImageMime;
-  @JsonKey(name: 'cachedImageSelectedId', fromJson: JsonCoerce.asDouble)
-  final double? cachedImageSelectedId;
-  @JsonKey(name: 'cachedImageUpdatedAt', fromJson: JsonCoerce.asDouble)
-  final double? cachedImageUpdatedAt;
+  @JsonKey(name: 'cachedImageSelectedId', fromJson: JsonCoerce.asInt)
+  final int? cachedImageSelectedId;
+  @JsonKey(name: 'cachedImageUpdatedAt', fromJson: JsonCoerce.asInt)
+  final int? cachedImageUpdatedAt;
   static const fromJsonFactory =
       _$ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$ItemFromJson;
 
@@ -13576,15 +13576,15 @@ extension $ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item
     String? image,
     bool? fallback,
     String? pending,
-    double? selectedId,
+    int? selectedId,
     List<
       ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item$Options$Item
     >?
     options,
     String? cachedImage,
     String? cachedImageMime,
-    double? cachedImageSelectedId,
-    double? cachedImageUpdatedAt,
+    int? cachedImageSelectedId,
+    int? cachedImageUpdatedAt,
   }) {
     return ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item(
       name: name ?? this.name,
@@ -13615,7 +13615,7 @@ extension $ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item
     Wrapped<String?>? image,
     Wrapped<bool?>? fallback,
     Wrapped<String?>? pending,
-    Wrapped<double?>? selectedId,
+    Wrapped<int?>? selectedId,
     Wrapped<
       List<
         ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item$Options$Item
@@ -13624,8 +13624,8 @@ extension $ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item
     options,
     Wrapped<String?>? cachedImage,
     Wrapped<String?>? cachedImageMime,
-    Wrapped<double?>? cachedImageSelectedId,
-    Wrapped<double?>? cachedImageUpdatedAt,
+    Wrapped<int?>? cachedImageSelectedId,
+    Wrapped<int?>? cachedImageUpdatedAt,
   }) {
     return ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item(
       name: (name != null ? name.value : this.name),
@@ -13684,8 +13684,8 @@ class ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$Shar
     ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item
   >?
   items;
-  @JsonKey(name: 'generated_at', fromJson: JsonCoerce.asDouble)
-  final double? generatedAt;
+  @JsonKey(name: 'generated_at', fromJson: JsonCoerce.asInt)
+  final int? generatedAt;
   @JsonKey(name: 'multi_model_image_url', fromJson: JsonCoerce.asString)
   final String? multiModelImageUrl;
   @JsonKey(
@@ -13754,7 +13754,7 @@ extension $ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item
       ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item
     >?
     items,
-    double? generatedAt,
+    int? generatedAt,
     String? multiModelImageUrl,
     List<String>? whiteBgImages,
     List<
@@ -13781,7 +13781,7 @@ extension $ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item
       >?
     >?
     items,
-    Wrapped<double?>? generatedAt,
+    Wrapped<int?>? generatedAt,
     Wrapped<String?>? multiModelImageUrl,
     Wrapped<List<String>?>? whiteBgImages,
     Wrapped<
@@ -13829,8 +13829,8 @@ class ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$Shar
 
   @JsonKey(name: 'ready', fromJson: JsonCoerce.asBool)
   final bool? ready;
-  @JsonKey(name: 'count', fromJson: JsonCoerce.asDouble)
-  final double? count;
+  @JsonKey(name: 'count', fromJson: JsonCoerce.asInt)
+  final int? count;
   static const fromJsonFactory =
       _$ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImagesStatusFromJson;
 
@@ -13859,7 +13859,7 @@ extension $ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item
     on
         ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImagesStatus {
   ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImagesStatus
-  copyWith({bool? ready, double? count}) {
+  copyWith({bool? ready, int? count}) {
     return ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImagesStatus(
       ready: ready ?? this.ready,
       count: count ?? this.count,
@@ -13867,7 +13867,7 @@ extension $ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item
   }
 
   ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImagesStatus
-  copyWithWrapped({Wrapped<bool?>? ready, Wrapped<double?>? count}) {
+  copyWithWrapped({Wrapped<bool?>? ready, Wrapped<int?>? count}) {
     return ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImagesStatus(
       ready: (ready != null ? ready.value : this.ready),
       count: (count != null ? count.value : this.count),
@@ -13900,8 +13900,8 @@ class ComboServiceApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item$Opt
         this,
       );
 
-  @JsonKey(name: 'id', fromJson: JsonCoerce.asDouble)
-  final double? id;
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asInt)
+  final int? id;
   @JsonKey(name: 'title', fromJson: JsonCoerce.asString)
   final String? title;
   @JsonKey(name: 'link', fromJson: JsonCoerce.asString)
@@ -13953,7 +13953,7 @@ extension $ComboServiceApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Ite
         ComboServiceApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item$Options$Item {
   ComboServiceApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item$Options$Item
   copyWith({
-    double? id,
+    int? id,
     String? title,
     String? link,
     String? source,
@@ -13972,7 +13972,7 @@ extension $ComboServiceApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Ite
 
   ComboServiceApiV1StyleOutfitsResultGet$Response$Data$ProductLinks$Item$Options$Item
   copyWithWrapped({
-    Wrapped<double?>? id,
+    Wrapped<int?>? id,
     Wrapped<String?>? title,
     Wrapped<String?>? link,
     Wrapped<String?>? source,
@@ -14013,8 +14013,8 @@ class ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$I
         this,
       );
 
-  @JsonKey(name: 'sharingImageId', fromJson: JsonCoerce.asDouble)
-  final double? sharingImageId;
+  @JsonKey(name: 'sharingImageId', fromJson: JsonCoerce.asInt)
+  final int? sharingImageId;
   @JsonKey(name: 'imageUrl', fromJson: JsonCoerce.asString)
   final String? imageUrl;
   @JsonKey(name: 'caption')
@@ -14069,7 +14069,7 @@ extension $ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$It
     on ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item {
   ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item
   copyWith({
-    double? sharingImageId,
+    int? sharingImageId,
     String? imageUrl,
     ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$Caption?
     caption,
@@ -14086,7 +14086,7 @@ extension $ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$It
 
   ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item
   copyWithWrapped({
-    Wrapped<double?>? sharingImageId,
+    Wrapped<int?>? sharingImageId,
     Wrapped<String?>? imageUrl,
     Wrapped<
       ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$Caption?
@@ -14129,8 +14129,8 @@ class ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Images$
         this,
       );
 
-  @JsonKey(name: 'sharingImageId', fromJson: JsonCoerce.asDouble)
-  final double? sharingImageId;
+  @JsonKey(name: 'sharingImageId', fromJson: JsonCoerce.asInt)
+  final int? sharingImageId;
   @JsonKey(name: 'imageUrl', fromJson: JsonCoerce.asString)
   final String? imageUrl;
   static const fromJsonFactory =
@@ -14166,7 +14166,7 @@ class ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Images$
 extension $ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Images$ItemExtension
     on ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Images$Item {
   ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Images$Item
-  copyWith({double? sharingImageId, String? imageUrl}) {
+  copyWith({int? sharingImageId, String? imageUrl}) {
     return ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Images$Item(
       sharingImageId: sharingImageId ?? this.sharingImageId,
       imageUrl: imageUrl ?? this.imageUrl,
@@ -14174,10 +14174,7 @@ extension $ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Im
   }
 
   ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Images$Item
-  copyWithWrapped({
-    Wrapped<double?>? sharingImageId,
-    Wrapped<String?>? imageUrl,
-  }) {
+  copyWithWrapped({Wrapped<int?>? sharingImageId, Wrapped<String?>? imageUrl}) {
     return ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Images$Item(
       sharingImageId: (sharingImageId != null
           ? sharingImageId.value
@@ -14219,8 +14216,8 @@ class ComboServiceBizAiFashionModelListGet$Response$Data$Models$Item$Data$Item {
         this,
       );
 
-  @JsonKey(name: 'id', fromJson: JsonCoerce.asDouble)
-  final double? id;
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asInt)
+  final int? id;
   @JsonKey(name: 'tenantCode', fromJson: JsonCoerce.asString)
   final String? tenantCode;
   @JsonKey(name: 'userId', fromJson: JsonCoerce.asString)
@@ -14235,14 +14232,14 @@ class ComboServiceBizAiFashionModelListGet$Response$Data$Models$Item$Data$Item {
   final String? modelHeaderImage;
   @JsonKey(name: 'ext')
   final Object? ext;
-  @JsonKey(name: 'isDeleted', fromJson: JsonCoerce.asDouble)
-  final double? isDeleted;
+  @JsonKey(name: 'isDeleted', fromJson: JsonCoerce.asInt)
+  final int? isDeleted;
   @JsonKey(name: 'gmtCreate', fromJson: JsonCoerce.asString)
   final String? gmtCreate;
   @JsonKey(name: 'gmtUpdate', fromJson: JsonCoerce.asString)
   final String? gmtUpdate;
-  @JsonKey(name: 'groupId', fromJson: JsonCoerce.asDouble)
-  final double? groupId;
+  @JsonKey(name: 'groupId', fromJson: JsonCoerce.asInt)
+  final int? groupId;
   @JsonKey(name: 'modelData', defaultValue: <Object>[])
   final List<Object>? modelData;
   static const fromJsonFactory =
@@ -14336,7 +14333,7 @@ extension $ComboServiceBizAiFashionModelListGet$Response$Data$Models$Item$Data$I
     on ComboServiceBizAiFashionModelListGet$Response$Data$Models$Item$Data$Item {
   ComboServiceBizAiFashionModelListGet$Response$Data$Models$Item$Data$Item
   copyWith({
-    double? id,
+    int? id,
     String? tenantCode,
     String? userId,
     String? modelDesc,
@@ -14344,10 +14341,10 @@ extension $ComboServiceBizAiFashionModelListGet$Response$Data$Models$Item$Data$I
     String? modelImage,
     String? modelHeaderImage,
     Object? ext,
-    double? isDeleted,
+    int? isDeleted,
     String? gmtCreate,
     String? gmtUpdate,
-    double? groupId,
+    int? groupId,
     List<Object>? modelData,
   }) {
     return ComboServiceBizAiFashionModelListGet$Response$Data$Models$Item$Data$Item(
@@ -14369,7 +14366,7 @@ extension $ComboServiceBizAiFashionModelListGet$Response$Data$Models$Item$Data$I
 
   ComboServiceBizAiFashionModelListGet$Response$Data$Models$Item$Data$Item
   copyWithWrapped({
-    Wrapped<double?>? id,
+    Wrapped<int?>? id,
     Wrapped<String?>? tenantCode,
     Wrapped<String?>? userId,
     Wrapped<String?>? modelDesc,
@@ -14377,10 +14374,10 @@ extension $ComboServiceBizAiFashionModelListGet$Response$Data$Models$Item$Data$I
     Wrapped<String?>? modelImage,
     Wrapped<String?>? modelHeaderImage,
     Wrapped<Object?>? ext,
-    Wrapped<double?>? isDeleted,
+    Wrapped<int?>? isDeleted,
     Wrapped<String?>? gmtCreate,
     Wrapped<String?>? gmtUpdate,
-    Wrapped<double?>? groupId,
+    Wrapped<int?>? groupId,
     Wrapped<List<Object>?>? modelData,
   }) {
     return ComboServiceBizAiFashionModelListGet$Response$Data$Models$Item$Data$Item(
@@ -14425,10 +14422,10 @@ class ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$Images$
         this,
       );
 
-  @JsonKey(name: 'width', fromJson: JsonCoerce.asDouble)
-  final double? width;
-  @JsonKey(name: 'height', fromJson: JsonCoerce.asDouble)
-  final double? height;
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asInt)
+  final int? width;
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asInt)
+  final int? height;
   @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory =
@@ -14461,7 +14458,7 @@ class ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$Images$
 extension $ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$Images$ItemExtension
     on ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$Images$Item {
   ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$Images$Item
-  copyWith({double? width, double? height, String? url}) {
+  copyWith({int? width, int? height, String? url}) {
     return ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$Images$Item(
       width: width ?? this.width,
       height: height ?? this.height,
@@ -14471,8 +14468,8 @@ extension $ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$Im
 
   ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$Images$Item
   copyWithWrapped({
-    Wrapped<double?>? width,
-    Wrapped<double?>? height,
+    Wrapped<int?>? width,
+    Wrapped<int?>? height,
     Wrapped<String?>? url,
   }) {
     return ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$Images$Item(
@@ -14505,10 +14502,10 @@ class ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$FrontIm
         this,
       );
 
-  @JsonKey(name: 'width', fromJson: JsonCoerce.asDouble)
-  final double? width;
-  @JsonKey(name: 'height', fromJson: JsonCoerce.asDouble)
-  final double? height;
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asInt)
+  final int? width;
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asInt)
+  final int? height;
   @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory =
@@ -14541,7 +14538,7 @@ class ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$FrontIm
 extension $ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$FrontImageExtension
     on ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$FrontImage {
   ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$FrontImage
-  copyWith({double? width, double? height, String? url}) {
+  copyWith({int? width, int? height, String? url}) {
     return ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$FrontImage(
       width: width ?? this.width,
       height: height ?? this.height,
@@ -14551,8 +14548,8 @@ extension $ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$Fr
 
   ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$FrontImage
   copyWithWrapped({
-    Wrapped<double?>? width,
-    Wrapped<double?>? height,
+    Wrapped<int?>? width,
+    Wrapped<int?>? height,
     Wrapped<String?>? url,
   }) {
     return ComboServiceBizAiFashionNoAuthPostListGet$Response$Data$Posts$Item$FrontImage(
@@ -16375,8 +16372,8 @@ class ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$Prod
         this,
       );
 
-  @JsonKey(name: 'id', fromJson: JsonCoerce.asDouble)
-  final double? id;
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asInt)
+  final int? id;
   @JsonKey(name: 'title', fromJson: JsonCoerce.asString)
   final String? title;
   @JsonKey(name: 'link', fromJson: JsonCoerce.asString)
@@ -16428,7 +16425,7 @@ extension $ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item
         ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item$Options$Item {
   ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item$Options$Item
   copyWith({
-    double? id,
+    int? id,
     String? title,
     String? link,
     String? source,
@@ -16447,7 +16444,7 @@ extension $ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item
 
   ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$ProductLinks$Item$Options$Item
   copyWithWrapped({
-    Wrapped<double?>? id,
+    Wrapped<int?>? id,
     Wrapped<String?>? title,
     Wrapped<String?>? link,
     Wrapped<String?>? source,
@@ -16488,8 +16485,8 @@ class ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$Shar
         this,
       );
 
-  @JsonKey(name: 'sharingImageId', fromJson: JsonCoerce.asDouble)
-  final double? sharingImageId;
+  @JsonKey(name: 'sharingImageId', fromJson: JsonCoerce.asInt)
+  final int? sharingImageId;
   @JsonKey(name: 'imageUrl', fromJson: JsonCoerce.asString)
   final String? imageUrl;
   @JsonKey(name: 'caption')
@@ -16545,7 +16542,7 @@ extension $ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item
         ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item {
   ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item
   copyWith({
-    double? sharingImageId,
+    int? sharingImageId,
     String? imageUrl,
     ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$Caption?
     caption,
@@ -16562,7 +16559,7 @@ extension $ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item
 
   ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item
   copyWithWrapped({
-    Wrapped<double?>? sharingImageId,
+    Wrapped<int?>? sharingImageId,
     Wrapped<String?>? imageUrl,
     Wrapped<
       ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$Caption?
@@ -16605,8 +16602,8 @@ class ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$Shar
         this,
       );
 
-  @JsonKey(name: 'sharingImageId', fromJson: JsonCoerce.asDouble)
-  final double? sharingImageId;
+  @JsonKey(name: 'sharingImageId', fromJson: JsonCoerce.asInt)
+  final int? sharingImageId;
   @JsonKey(name: 'imageUrl', fromJson: JsonCoerce.asString)
   final String? imageUrl;
   static const fromJsonFactory =
@@ -16643,7 +16640,7 @@ extension $ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item
     on
         ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Images$Item {
   ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Images$Item
-  copyWith({double? sharingImageId, String? imageUrl}) {
+  copyWith({int? sharingImageId, String? imageUrl}) {
     return ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Images$Item(
       sharingImageId: sharingImageId ?? this.sharingImageId,
       imageUrl: imageUrl ?? this.imageUrl,
@@ -16651,10 +16648,7 @@ extension $ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item
   }
 
   ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Images$Item
-  copyWithWrapped({
-    Wrapped<double?>? sharingImageId,
-    Wrapped<String?>? imageUrl,
-  }) {
+  copyWithWrapped({Wrapped<int?>? sharingImageId, Wrapped<String?>? imageUrl}) {
     return ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Images$Item(
       sharingImageId: (sharingImageId != null
           ? sharingImageId.value
@@ -16807,12 +16801,12 @@ class ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$I
   final String? occasion;
   @JsonKey(name: 'customPrompt', fromJson: JsonCoerce.asString)
   final String? customPrompt;
-  @JsonKey(name: 'generatedAt', fromJson: JsonCoerce.asDouble)
-  final double? generatedAt;
-  @JsonKey(name: 'version', fromJson: JsonCoerce.asDouble)
-  final double? version;
-  @JsonKey(name: 'temperature', fromJson: JsonCoerce.asDouble)
-  final double? temperature;
+  @JsonKey(name: 'generatedAt', fromJson: JsonCoerce.asInt)
+  final int? generatedAt;
+  @JsonKey(name: 'version', fromJson: JsonCoerce.asInt)
+  final int? version;
+  @JsonKey(name: 'temperature', fromJson: JsonCoerce.asInt)
+  final int? temperature;
   @JsonKey(name: 'regenerationStatus', fromJson: JsonCoerce.asString)
   final String? regenerationStatus;
   static const fromJsonFactory =
@@ -16890,9 +16884,9 @@ extension $ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$It
     String? styleDescription,
     String? occasion,
     String? customPrompt,
-    double? generatedAt,
-    double? version,
-    double? temperature,
+    int? generatedAt,
+    int? version,
+    int? temperature,
     String? regenerationStatus,
   }) {
     return ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$Metadata(
@@ -16913,9 +16907,9 @@ extension $ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$It
     Wrapped<String?>? styleDescription,
     Wrapped<String?>? occasion,
     Wrapped<String?>? customPrompt,
-    Wrapped<double?>? generatedAt,
-    Wrapped<double?>? version,
-    Wrapped<double?>? temperature,
+    Wrapped<int?>? generatedAt,
+    Wrapped<int?>? version,
+    Wrapped<int?>? temperature,
     Wrapped<String?>? regenerationStatus,
   }) {
     return ComboServiceApiV1StyleOutfitsResultGet$Response$Data$SharingImages$Items$Item$Metadata(
@@ -17533,12 +17527,12 @@ class ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$Shar
   final String? occasion;
   @JsonKey(name: 'customPrompt', fromJson: JsonCoerce.asString)
   final String? customPrompt;
-  @JsonKey(name: 'generatedAt', fromJson: JsonCoerce.asDouble)
-  final double? generatedAt;
-  @JsonKey(name: 'version', fromJson: JsonCoerce.asDouble)
-  final double? version;
-  @JsonKey(name: 'temperature', fromJson: JsonCoerce.asDouble)
-  final double? temperature;
+  @JsonKey(name: 'generatedAt', fromJson: JsonCoerce.asInt)
+  final int? generatedAt;
+  @JsonKey(name: 'version', fromJson: JsonCoerce.asInt)
+  final int? version;
+  @JsonKey(name: 'temperature', fromJson: JsonCoerce.asInt)
+  final int? temperature;
   @JsonKey(name: 'regenerationStatus', fromJson: JsonCoerce.asString)
   final String? regenerationStatus;
   static const fromJsonFactory =
@@ -17616,9 +17610,9 @@ extension $ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item
     String? styleDescription,
     String? occasion,
     String? customPrompt,
-    double? generatedAt,
-    double? version,
-    double? temperature,
+    int? generatedAt,
+    int? version,
+    int? temperature,
     String? regenerationStatus,
   }) {
     return ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$Metadata(
@@ -17639,9 +17633,9 @@ extension $ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item
     Wrapped<String?>? styleDescription,
     Wrapped<String?>? occasion,
     Wrapped<String?>? customPrompt,
-    Wrapped<double?>? generatedAt,
-    Wrapped<double?>? version,
-    Wrapped<double?>? temperature,
+    Wrapped<int?>? generatedAt,
+    Wrapped<int?>? version,
+    Wrapped<int?>? temperature,
     Wrapped<String?>? regenerationStatus,
   }) {
     return ComboServiceApiV1StyleOutfitsResultPageGet$Response$Data$Records$Item$SharingImages$Items$Item$Metadata(

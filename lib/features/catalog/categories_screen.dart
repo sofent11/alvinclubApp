@@ -208,7 +208,7 @@ class _Level1Tabs extends StatelessWidget {
         scrollDirection: Axis.horizontal,
         padding: const EdgeInsets.symmetric(horizontal: 16),
         itemCount: items.length,
-        separatorBuilder: (_, __) => const SizedBox(width: 8),
+        separatorBuilder: (context, index) => const SizedBox(width: 8),
         itemBuilder: (context, index) {
           final item = items[index];
           final isActive = item.id == activeId;
@@ -508,7 +508,7 @@ class _Level3Tile extends StatelessWidget {
                   ? CachedNetworkImage(
                       imageUrl: category.iconUrl!,
                       fit: BoxFit.contain,
-                      errorWidget: (_, __, ___) =>
+                      errorWidget: (context, url, error) =>
                           const Icon(Icons.image_not_supported),
                     )
                   : Icon(Icons.image, color: colors.textMuted),

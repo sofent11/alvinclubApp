@@ -43,7 +43,7 @@ Map<String, dynamic> _$ConfigServiceUserConfigNoAuthInstanceGetRequestToJson(
 ConfigServiceUserConfigPost$Response
 _$ConfigServiceUserConfigPost$ResponseFromJson(Map<String, dynamic> json) =>
     ConfigServiceUserConfigPost$Response(
-      code: JsonCoerce.asDouble(json['code']),
+      code: JsonCoerce.asInt(json['code']),
       message: JsonCoerce.asString(json['message']),
       data: JsonCoerce.asBool(json['data']),
       traceId: JsonCoerce.asString(json['traceId']),
@@ -65,7 +65,7 @@ Map<String, dynamic> _$ConfigServiceUserConfigPost$ResponseToJson(
 ConfigServiceUserConfigGet$Response
 _$ConfigServiceUserConfigGet$ResponseFromJson(Map<String, dynamic> json) =>
     ConfigServiceUserConfigGet$Response(
-      code: JsonCoerce.asDouble(json['code']),
+      code: JsonCoerce.asInt(json['code']),
       message: JsonCoerce.asString(json['message']),
       data: json['data'] == null
           ? null
@@ -92,7 +92,7 @@ ConfigServiceUserConfigNoAuthInstanceGet$Response
 _$ConfigServiceUserConfigNoAuthInstanceGet$ResponseFromJson(
   Map<String, dynamic> json,
 ) => ConfigServiceUserConfigNoAuthInstanceGet$Response(
-  code: JsonCoerce.asDouble(json['code']),
+  code: JsonCoerce.asInt(json['code']),
   data: JsonCoerce.asString(json['data']),
   message: JsonCoerce.asString(json['message']),
   success: JsonCoerce.asBool(json['success']),

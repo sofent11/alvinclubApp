@@ -120,7 +120,7 @@ class _FlashSaleScreenState extends ConsumerState<FlashSaleScreen> {
                   height: 50,
                   child: Center(child: CircularProgressIndicator()),
                 ),
-                error: (_, __) => const SizedBox.shrink(),
+                error: (error, stack) => const SizedBox.shrink(),
               ),
 
               // Product List

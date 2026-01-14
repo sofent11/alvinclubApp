@@ -68,7 +68,7 @@ class UserRepository {
       root: user.UserServiceUserUpdatePostRequest(
         nickname: nickname,
         photo: photo,
-        gender: gender?.toDouble(),
+        gender: gender,
         birthday: birthday,
       ),
     );

@@ -287,7 +287,7 @@ class _AddressEditScreenState extends ConsumerState<AddressEditScreen> {
                               ),
                               const SizedBox(height: 8),
                               DropdownButtonFormField<String>(
-                                value: _selectedCountry,
+                                // value: _selectedCountry, // Removed deprecated value
                                 decoration: _inputDecoration(),
                                 style: const TextStyle(
                                   fontSize: 14,
@@ -419,7 +419,8 @@ class _AddressEditScreenState extends ConsumerState<AddressEditScreen> {
                       ),
                       value: _isDefault,
                       onChanged: (val) => setState(() => _isDefault = val),
-                      activeColor: Colors.purple, // Match button style roughly
+                      activeThumbColor:
+                          Colors.purple, // Match button style roughly
                     ),
 
                     const SizedBox(height: 32),

@@ -950,9 +950,7 @@ class ProductRepository {
         current: params.page ?? 1,
         pageSize: params.pageSize ?? 20,
         categoryId: categoryId,
-        categoryIds: categoryId == null
-            ? categoryIds?.map((e) => e.toDouble()).toList()
-            : null,
+        categoryIds: categoryId == null ? categoryIds : null,
         brandName: params.brandName,
         productCode: params.productCode,
         sortedField: params.sortBy == null
@@ -1514,7 +1512,7 @@ class ProductRepository {
 
     final data = body.data!;
     final totalReviews = data.reviewCount?.toInt() ?? 0;
-    final averageRating = data.averageScore ?? 0;
+    final averageRating = (data.averageScore ?? 0).toDouble();
 
     final distribution = <ProductReviewDistribution>[];
     if (totalReviews > 0) {

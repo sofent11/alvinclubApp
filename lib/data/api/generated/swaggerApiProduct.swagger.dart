@@ -2117,10 +2117,10 @@ class ProductServiceRecommendNoAuthCategoryPostRequest {
   final int? categoryId;
   @JsonKey(
     name: 'categoryIds',
-    fromJson: JsonCoerce.asDoubleList,
-    defaultValue: <double>[],
+    fromJson: JsonCoerce.asIntList,
+    defaultValue: <int>[],
   )
-  final List<double>? categoryIds;
+  final List<int>? categoryIds;
   @JsonKey(name: 'brandName', fromJson: JsonCoerce.asString)
   final String? brandName;
   @JsonKey(name: 'sortedField')
@@ -2193,7 +2193,7 @@ extension $ProductServiceRecommendNoAuthCategoryPostRequestExtension
     int? current,
     int? pageSize,
     int? categoryId,
-    List<double>? categoryIds,
+    List<int>? categoryIds,
     String? brandName,
     ProductServiceRecommendNoAuthCategoryPostRequest$SortedField? sortedField,
     String? productCode,
@@ -2213,7 +2213,7 @@ extension $ProductServiceRecommendNoAuthCategoryPostRequestExtension
     Wrapped<int?>? current,
     Wrapped<int?>? pageSize,
     Wrapped<int?>? categoryId,
-    Wrapped<List<double>?>? categoryIds,
+    Wrapped<List<int>?>? categoryIds,
     Wrapped<String?>? brandName,
     Wrapped<ProductServiceRecommendNoAuthCategoryPostRequest$SortedField?>?
     sortedField,
@@ -2429,8 +2429,8 @@ class ProductServiceProductReviewNoAuthPageGet$Response {
   Map<String, dynamic> toJson() =>
       _$ProductServiceProductReviewNoAuthPageGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
@@ -2467,7 +2467,7 @@ class ProductServiceProductReviewNoAuthPageGet$Response {
 extension $ProductServiceProductReviewNoAuthPageGet$ResponseExtension
     on ProductServiceProductReviewNoAuthPageGet$Response {
   ProductServiceProductReviewNoAuthPageGet$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     ProductServiceProductReviewNoAuthPageGet$Response$Data? data,
   }) {
@@ -2479,7 +2479,7 @@ extension $ProductServiceProductReviewNoAuthPageGet$ResponseExtension
   }
 
   ProductServiceProductReviewNoAuthPageGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<ProductServiceProductReviewNoAuthPageGet$Response$Data?>? data,
   }) {
@@ -2508,8 +2508,8 @@ class ProductServiceProductReviewNoAuthSummaryGet$Response {
   Map<String, dynamic> toJson() =>
       _$ProductServiceProductReviewNoAuthSummaryGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
@@ -2546,7 +2546,7 @@ class ProductServiceProductReviewNoAuthSummaryGet$Response {
 extension $ProductServiceProductReviewNoAuthSummaryGet$ResponseExtension
     on ProductServiceProductReviewNoAuthSummaryGet$Response {
   ProductServiceProductReviewNoAuthSummaryGet$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     ProductServiceProductReviewNoAuthSummaryGet$Response$Data? data,
   }) {
@@ -2558,7 +2558,7 @@ extension $ProductServiceProductReviewNoAuthSummaryGet$ResponseExtension
   }
 
   ProductServiceProductReviewNoAuthSummaryGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<ProductServiceProductReviewNoAuthSummaryGet$Response$Data?>? data,
   }) {
@@ -2590,8 +2590,8 @@ class ProductServiceCategoryNoAuthTreeGet$Response {
   Map<String, dynamic> toJson() =>
       _$ProductServiceCategoryNoAuthTreeGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
@@ -2649,7 +2649,7 @@ class ProductServiceCategoryNoAuthTreeGet$Response {
 extension $ProductServiceCategoryNoAuthTreeGet$ResponseExtension
     on ProductServiceCategoryNoAuthTreeGet$Response {
   ProductServiceCategoryNoAuthTreeGet$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     ProductServiceCategoryNoAuthTreeGet$Response$Data? data,
     String? traceId,
@@ -2667,7 +2667,7 @@ extension $ProductServiceCategoryNoAuthTreeGet$ResponseExtension
   }
 
   ProductServiceCategoryNoAuthTreeGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<ProductServiceCategoryNoAuthTreeGet$Response$Data?>? data,
     Wrapped<String?>? traceId,
@@ -2705,8 +2705,8 @@ class ProductServiceActivityNoAuthFlashSaleActivityGet$Response {
   Map<String, dynamic> toJson() =>
       _$ProductServiceActivityNoAuthFlashSaleActivityGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
@@ -2756,7 +2756,7 @@ class ProductServiceActivityNoAuthFlashSaleActivityGet$Response {
 extension $ProductServiceActivityNoAuthFlashSaleActivityGet$ResponseExtension
     on ProductServiceActivityNoAuthFlashSaleActivityGet$Response {
   ProductServiceActivityNoAuthFlashSaleActivityGet$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     ProductServiceActivityNoAuthFlashSaleActivityGet$Response$Data? data,
     String? traceId,
@@ -2772,7 +2772,7 @@ extension $ProductServiceActivityNoAuthFlashSaleActivityGet$ResponseExtension
   }
 
   ProductServiceActivityNoAuthFlashSaleActivityGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<ProductServiceActivityNoAuthFlashSaleActivityGet$Response$Data?>?
     data,
@@ -3184,8 +3184,8 @@ class ProductServiceExternalPurchaseRecordPost$Response {
   Map<String, dynamic> toJson() =>
       _$ProductServiceExternalPurchaseRecordPost$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data', fromJson: JsonCoerce.asBool)
@@ -3222,7 +3222,7 @@ class ProductServiceExternalPurchaseRecordPost$Response {
 extension $ProductServiceExternalPurchaseRecordPost$ResponseExtension
     on ProductServiceExternalPurchaseRecordPost$Response {
   ProductServiceExternalPurchaseRecordPost$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     bool? data,
   }) {
@@ -3234,7 +3234,7 @@ extension $ProductServiceExternalPurchaseRecordPost$ResponseExtension
   }
 
   ProductServiceExternalPurchaseRecordPost$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<bool?>? data,
   }) {
@@ -3268,8 +3268,8 @@ class ProductServiceSizeChartNoAuthTranslateCallbackPost$Response {
   Map<String, dynamic> toJson() =>
       _$ProductServiceSizeChartNoAuthTranslateCallbackPost$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
@@ -3327,7 +3327,7 @@ class ProductServiceSizeChartNoAuthTranslateCallbackPost$Response {
 extension $ProductServiceSizeChartNoAuthTranslateCallbackPost$ResponseExtension
     on ProductServiceSizeChartNoAuthTranslateCallbackPost$Response {
   ProductServiceSizeChartNoAuthTranslateCallbackPost$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     Object? data,
     Object? reasonCode,
@@ -3345,7 +3345,7 @@ extension $ProductServiceSizeChartNoAuthTranslateCallbackPost$ResponseExtension
   }
 
   ProductServiceSizeChartNoAuthTranslateCallbackPost$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<Object?>? data,
     Wrapped<Object?>? reasonCode,
@@ -3562,8 +3562,8 @@ class ProductServiceProductNoAuthCombineSearchGet$Response {
   Map<String, dynamic> toJson() =>
       _$ProductServiceProductNoAuthCombineSearchGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
@@ -3621,7 +3621,7 @@ class ProductServiceProductNoAuthCombineSearchGet$Response {
 extension $ProductServiceProductNoAuthCombineSearchGet$ResponseExtension
     on ProductServiceProductNoAuthCombineSearchGet$Response {
   ProductServiceProductNoAuthCombineSearchGet$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     ProductServiceProductNoAuthCombineSearchGet$Response$Data? data,
     String? traceId,
@@ -3639,7 +3639,7 @@ extension $ProductServiceProductNoAuthCombineSearchGet$ResponseExtension
   }
 
   ProductServiceProductNoAuthCombineSearchGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<ProductServiceProductNoAuthCombineSearchGet$Response$Data?>? data,
     Wrapped<String?>? traceId,
@@ -3677,8 +3677,8 @@ class ProductServiceProductNoAuthNewArrivalProductGet$Response {
   Map<String, dynamic> toJson() =>
       _$ProductServiceProductNoAuthNewArrivalProductGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
@@ -3736,7 +3736,7 @@ class ProductServiceProductNoAuthNewArrivalProductGet$Response {
 extension $ProductServiceProductNoAuthNewArrivalProductGet$ResponseExtension
     on ProductServiceProductNoAuthNewArrivalProductGet$Response {
   ProductServiceProductNoAuthNewArrivalProductGet$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     ProductServiceProductNoAuthNewArrivalProductGet$Response$Data? data,
     String? traceId,
@@ -3754,7 +3754,7 @@ extension $ProductServiceProductNoAuthNewArrivalProductGet$ResponseExtension
   }
 
   ProductServiceProductNoAuthNewArrivalProductGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<ProductServiceProductNoAuthNewArrivalProductGet$Response$Data?>?
     data,
@@ -3797,8 +3797,8 @@ class ProductServiceProductNoAuthNewArrivalProductBrandGet$Response {
         this,
       );
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(
@@ -3860,7 +3860,7 @@ class ProductServiceProductNoAuthNewArrivalProductBrandGet$Response {
 extension $ProductServiceProductNoAuthNewArrivalProductBrandGet$ResponseExtension
     on ProductServiceProductNoAuthNewArrivalProductBrandGet$Response {
   ProductServiceProductNoAuthNewArrivalProductBrandGet$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     List<String>? data,
     String? traceId,
@@ -3879,7 +3879,7 @@ extension $ProductServiceProductNoAuthNewArrivalProductBrandGet$ResponseExtensio
 
   ProductServiceProductNoAuthNewArrivalProductBrandGet$Response
   copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<List<String>?>? data,
     Wrapped<String?>? traceId,
@@ -4007,8 +4007,8 @@ class ProductServiceProductNoAuthGetProductInfoGet$Response {
   Map<String, dynamic> toJson() =>
       _$ProductServiceProductNoAuthGetProductInfoGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
@@ -4066,7 +4066,7 @@ class ProductServiceProductNoAuthGetProductInfoGet$Response {
 extension $ProductServiceProductNoAuthGetProductInfoGet$ResponseExtension
     on ProductServiceProductNoAuthGetProductInfoGet$Response {
   ProductServiceProductNoAuthGetProductInfoGet$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     ProductServiceProductNoAuthGetProductInfoGet$Response$Data? data,
     String? traceId,
@@ -4084,7 +4084,7 @@ extension $ProductServiceProductNoAuthGetProductInfoGet$ResponseExtension
   }
 
   ProductServiceProductNoAuthGetProductInfoGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<ProductServiceProductNoAuthGetProductInfoGet$Response$Data?>? data,
     Wrapped<String?>? traceId,
@@ -4126,8 +4126,8 @@ class ProductServiceProductNoAuthPremierProductCategoryGet$Response {
         this,
       );
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
@@ -4186,7 +4186,7 @@ class ProductServiceProductNoAuthPremierProductCategoryGet$Response {
 extension $ProductServiceProductNoAuthPremierProductCategoryGet$ResponseExtension
     on ProductServiceProductNoAuthPremierProductCategoryGet$Response {
   ProductServiceProductNoAuthPremierProductCategoryGet$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data? data,
     String? traceId,
@@ -4205,7 +4205,7 @@ extension $ProductServiceProductNoAuthPremierProductCategoryGet$ResponseExtensio
 
   ProductServiceProductNoAuthPremierProductCategoryGet$Response
   copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<
       ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data?
@@ -4424,8 +4424,8 @@ class ProductServiceProductNoAuthHotProductV3Get$Response {
   Map<String, dynamic> toJson() =>
       _$ProductServiceProductNoAuthHotProductV3Get$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
@@ -4475,7 +4475,7 @@ class ProductServiceProductNoAuthHotProductV3Get$Response {
 extension $ProductServiceProductNoAuthHotProductV3Get$ResponseExtension
     on ProductServiceProductNoAuthHotProductV3Get$Response {
   ProductServiceProductNoAuthHotProductV3Get$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     ProductServiceProductNoAuthHotProductV3Get$Response$Data? data,
     String? traceId,
@@ -4491,7 +4491,7 @@ extension $ProductServiceProductNoAuthHotProductV3Get$ResponseExtension
   }
 
   ProductServiceProductNoAuthHotProductV3Get$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<ProductServiceProductNoAuthHotProductV3Get$Response$Data?>? data,
     Wrapped<String?>? traceId,
@@ -4527,8 +4527,8 @@ class ProductServiceProductNoAuthFlashSaleProductGet$Response {
   Map<String, dynamic> toJson() =>
       _$ProductServiceProductNoAuthFlashSaleProductGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
@@ -4587,7 +4587,7 @@ class ProductServiceProductNoAuthFlashSaleProductGet$Response {
 extension $ProductServiceProductNoAuthFlashSaleProductGet$ResponseExtension
     on ProductServiceProductNoAuthFlashSaleProductGet$Response {
   ProductServiceProductNoAuthFlashSaleProductGet$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     List<ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item>?
     data,
@@ -4606,7 +4606,7 @@ extension $ProductServiceProductNoAuthFlashSaleProductGet$ResponseExtension
   }
 
   ProductServiceProductNoAuthFlashSaleProductGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<
       List<ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item>?
@@ -4647,8 +4647,8 @@ class ProductServiceProductNoAuthAlbumProductGet$Response {
   Map<String, dynamic> toJson() =>
       _$ProductServiceProductNoAuthAlbumProductGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
@@ -4706,7 +4706,7 @@ class ProductServiceProductNoAuthAlbumProductGet$Response {
 extension $ProductServiceProductNoAuthAlbumProductGet$ResponseExtension
     on ProductServiceProductNoAuthAlbumProductGet$Response {
   ProductServiceProductNoAuthAlbumProductGet$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     ProductServiceProductNoAuthAlbumProductGet$Response$Data? data,
     String? traceId,
@@ -4724,7 +4724,7 @@ extension $ProductServiceProductNoAuthAlbumProductGet$ResponseExtension
   }
 
   ProductServiceProductNoAuthAlbumProductGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<ProductServiceProductNoAuthAlbumProductGet$Response$Data?>? data,
     Wrapped<String?>? traceId,
@@ -4851,8 +4851,8 @@ class ProductServiceProductNoAuthKolProductGet$Response {
   Map<String, dynamic> toJson() =>
       _$ProductServiceProductNoAuthKolProductGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
@@ -4910,7 +4910,7 @@ class ProductServiceProductNoAuthKolProductGet$Response {
 extension $ProductServiceProductNoAuthKolProductGet$ResponseExtension
     on ProductServiceProductNoAuthKolProductGet$Response {
   ProductServiceProductNoAuthKolProductGet$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     List<ProductServiceProductNoAuthKolProductGet$Response$Data$Item>? data,
     String? traceId,
@@ -4928,7 +4928,7 @@ extension $ProductServiceProductNoAuthKolProductGet$ResponseExtension
   }
 
   ProductServiceProductNoAuthKolProductGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<List<ProductServiceProductNoAuthKolProductGet$Response$Data$Item>?>?
     data,
@@ -4967,8 +4967,8 @@ class ProductServiceProductNoAuthPremierProductGet$Response {
   Map<String, dynamic> toJson() =>
       _$ProductServiceProductNoAuthPremierProductGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
@@ -5026,7 +5026,7 @@ class ProductServiceProductNoAuthPremierProductGet$Response {
 extension $ProductServiceProductNoAuthPremierProductGet$ResponseExtension
     on ProductServiceProductNoAuthPremierProductGet$Response {
   ProductServiceProductNoAuthPremierProductGet$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     ProductServiceProductNoAuthPremierProductGet$Response$Data? data,
     String? traceId,
@@ -5044,7 +5044,7 @@ extension $ProductServiceProductNoAuthPremierProductGet$ResponseExtension
   }
 
   ProductServiceProductNoAuthPremierProductGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<ProductServiceProductNoAuthPremierProductGet$Response$Data?>? data,
     Wrapped<String?>? traceId,
@@ -5084,8 +5084,8 @@ class ProductServiceProductNoAuthPremierProductBrandGet$Response {
   Map<String, dynamic> toJson() =>
       _$ProductServiceProductNoAuthPremierProductBrandGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(
@@ -5147,7 +5147,7 @@ class ProductServiceProductNoAuthPremierProductBrandGet$Response {
 extension $ProductServiceProductNoAuthPremierProductBrandGet$ResponseExtension
     on ProductServiceProductNoAuthPremierProductBrandGet$Response {
   ProductServiceProductNoAuthPremierProductBrandGet$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     List<String>? data,
     String? traceId,
@@ -5165,7 +5165,7 @@ extension $ProductServiceProductNoAuthPremierProductBrandGet$ResponseExtension
   }
 
   ProductServiceProductNoAuthPremierProductBrandGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<List<String>?>? data,
     Wrapped<String?>? traceId,
@@ -5207,8 +5207,8 @@ class ProductServiceRecommendNoAuthCategoryRecommendationGet$Response {
         this,
       );
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
@@ -5259,7 +5259,7 @@ class ProductServiceRecommendNoAuthCategoryRecommendationGet$Response {
 extension $ProductServiceRecommendNoAuthCategoryRecommendationGet$ResponseExtension
     on ProductServiceRecommendNoAuthCategoryRecommendationGet$Response {
   ProductServiceRecommendNoAuthCategoryRecommendationGet$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data? data,
     String? traceId,
@@ -5276,7 +5276,7 @@ extension $ProductServiceRecommendNoAuthCategoryRecommendationGet$ResponseExtens
 
   ProductServiceRecommendNoAuthCategoryRecommendationGet$Response
   copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<
       ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data?
@@ -5922,14 +5922,14 @@ class ProductServiceProductReviewNoAuthPageGet$Response$Data {
   Map<String, dynamic> toJson() =>
       _$ProductServiceProductReviewNoAuthPageGet$Response$DataToJson(this);
 
-  @JsonKey(name: 'current', fromJson: JsonCoerce.asDouble)
-  final double? current;
-  @JsonKey(name: 'size', fromJson: JsonCoerce.asDouble)
-  final double? size;
-  @JsonKey(name: 'total', fromJson: JsonCoerce.asDouble)
-  final double? total;
-  @JsonKey(name: 'pages', fromJson: JsonCoerce.asDouble)
-  final double? pages;
+  @JsonKey(name: 'current', fromJson: JsonCoerce.asInt)
+  final int? current;
+  @JsonKey(name: 'size', fromJson: JsonCoerce.asInt)
+  final int? size;
+  @JsonKey(name: 'total', fromJson: JsonCoerce.asInt)
+  final int? total;
+  @JsonKey(name: 'pages', fromJson: JsonCoerce.asInt)
+  final int? pages;
   @JsonKey(name: 'records')
   final List<
     ProductServiceProductReviewNoAuthPageGet$Response$Data$Records$Item
@@ -5973,10 +5973,10 @@ class ProductServiceProductReviewNoAuthPageGet$Response$Data {
 extension $ProductServiceProductReviewNoAuthPageGet$Response$DataExtension
     on ProductServiceProductReviewNoAuthPageGet$Response$Data {
   ProductServiceProductReviewNoAuthPageGet$Response$Data copyWith({
-    double? current,
-    double? size,
-    double? total,
-    double? pages,
+    int? current,
+    int? size,
+    int? total,
+    int? pages,
     List<ProductServiceProductReviewNoAuthPageGet$Response$Data$Records$Item>?
     records,
   }) {
@@ -5990,10 +5990,10 @@ extension $ProductServiceProductReviewNoAuthPageGet$Response$DataExtension
   }
 
   ProductServiceProductReviewNoAuthPageGet$Response$Data copyWithWrapped({
-    Wrapped<double?>? current,
-    Wrapped<double?>? size,
-    Wrapped<double?>? total,
-    Wrapped<double?>? pages,
+    Wrapped<int?>? current,
+    Wrapped<int?>? size,
+    Wrapped<int?>? total,
+    Wrapped<int?>? pages,
     Wrapped<
       List<ProductServiceProductReviewNoAuthPageGet$Response$Data$Records$Item>?
     >?
@@ -6031,10 +6031,10 @@ class ProductServiceProductReviewNoAuthSummaryGet$Response$Data {
 
   @JsonKey(name: 'productCode', fromJson: JsonCoerce.asString)
   final String? productCode;
-  @JsonKey(name: 'reviewCount', fromJson: JsonCoerce.asDouble)
-  final double? reviewCount;
-  @JsonKey(name: 'averageScore', fromJson: JsonCoerce.asDouble)
-  final double? averageScore;
+  @JsonKey(name: 'reviewCount', fromJson: JsonCoerce.asInt)
+  final int? reviewCount;
+  @JsonKey(name: 'averageScore', fromJson: JsonCoerce.asInt)
+  final int? averageScore;
   @JsonKey(name: 'aiSummary', fromJson: JsonCoerce.asString)
   final String? aiSummary;
   @JsonKey(name: 'featuredReviews')
@@ -6093,8 +6093,8 @@ extension $ProductServiceProductReviewNoAuthSummaryGet$Response$DataExtension
     on ProductServiceProductReviewNoAuthSummaryGet$Response$Data {
   ProductServiceProductReviewNoAuthSummaryGet$Response$Data copyWith({
     String? productCode,
-    double? reviewCount,
-    double? averageScore,
+    int? reviewCount,
+    int? averageScore,
     String? aiSummary,
     List<
       ProductServiceProductReviewNoAuthSummaryGet$Response$Data$FeaturedReviews$Item
@@ -6112,8 +6112,8 @@ extension $ProductServiceProductReviewNoAuthSummaryGet$Response$DataExtension
 
   ProductServiceProductReviewNoAuthSummaryGet$Response$Data copyWithWrapped({
     Wrapped<String?>? productCode,
-    Wrapped<double?>? reviewCount,
-    Wrapped<double?>? averageScore,
+    Wrapped<int?>? reviewCount,
+    Wrapped<int?>? averageScore,
     Wrapped<String?>? aiSummary,
     Wrapped<
       List<
@@ -7562,14 +7562,14 @@ class ProductServiceProductNoAuthCombineSearchGet$Response$Data {
     ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item
   >?
   records;
-  @JsonKey(name: 'total', fromJson: JsonCoerce.asDouble)
-  final double? total;
-  @JsonKey(name: 'pageSize', fromJson: JsonCoerce.asDouble)
-  final double? pageSize;
-  @JsonKey(name: 'current', fromJson: JsonCoerce.asDouble)
-  final double? current;
-  @JsonKey(name: 'totalPages', fromJson: JsonCoerce.asDouble)
-  final double? totalPages;
+  @JsonKey(name: 'total', fromJson: JsonCoerce.asInt)
+  final int? total;
+  @JsonKey(name: 'pageSize', fromJson: JsonCoerce.asInt)
+  final int? pageSize;
+  @JsonKey(name: 'current', fromJson: JsonCoerce.asInt)
+  final int? current;
+  @JsonKey(name: 'totalPages', fromJson: JsonCoerce.asInt)
+  final int? totalPages;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthCombineSearchGet$Response$DataFromJson;
 
@@ -7621,10 +7621,10 @@ extension $ProductServiceProductNoAuthCombineSearchGet$Response$DataExtension
       ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item
     >?
     records,
-    double? total,
-    double? pageSize,
-    double? current,
-    double? totalPages,
+    int? total,
+    int? pageSize,
+    int? current,
+    int? totalPages,
   }) {
     return ProductServiceProductNoAuthCombineSearchGet$Response$Data(
       records: records ?? this.records,
@@ -7642,10 +7642,10 @@ extension $ProductServiceProductNoAuthCombineSearchGet$Response$DataExtension
       >?
     >?
     records,
-    Wrapped<double?>? total,
-    Wrapped<double?>? pageSize,
-    Wrapped<double?>? current,
-    Wrapped<double?>? totalPages,
+    Wrapped<int?>? total,
+    Wrapped<int?>? pageSize,
+    Wrapped<int?>? current,
+    Wrapped<int?>? totalPages,
   }) {
     return ProductServiceProductNoAuthCombineSearchGet$Response$Data(
       records: (records != null ? records.value : this.records),
@@ -7680,14 +7680,14 @@ class ProductServiceProductNoAuthNewArrivalProductGet$Response$Data {
         this,
       );
 
-  @JsonKey(name: 'total', fromJson: JsonCoerce.asDouble)
-  final double? total;
-  @JsonKey(name: 'pageSize', fromJson: JsonCoerce.asDouble)
-  final double? pageSize;
-  @JsonKey(name: 'totalPages', fromJson: JsonCoerce.asDouble)
-  final double? totalPages;
-  @JsonKey(name: 'current', fromJson: JsonCoerce.asDouble)
-  final double? current;
+  @JsonKey(name: 'total', fromJson: JsonCoerce.asInt)
+  final int? total;
+  @JsonKey(name: 'pageSize', fromJson: JsonCoerce.asInt)
+  final int? pageSize;
+  @JsonKey(name: 'totalPages', fromJson: JsonCoerce.asInt)
+  final int? totalPages;
+  @JsonKey(name: 'current', fromJson: JsonCoerce.asInt)
+  final int? current;
   @JsonKey(name: 'records')
   final List<
     ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item
@@ -7737,10 +7737,10 @@ class ProductServiceProductNoAuthNewArrivalProductGet$Response$Data {
 extension $ProductServiceProductNoAuthNewArrivalProductGet$Response$DataExtension
     on ProductServiceProductNoAuthNewArrivalProductGet$Response$Data {
   ProductServiceProductNoAuthNewArrivalProductGet$Response$Data copyWith({
-    double? total,
-    double? pageSize,
-    double? totalPages,
-    double? current,
+    int? total,
+    int? pageSize,
+    int? totalPages,
+    int? current,
     List<
       ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item
     >?
@@ -7757,10 +7757,10 @@ extension $ProductServiceProductNoAuthNewArrivalProductGet$Response$DataExtensio
 
   ProductServiceProductNoAuthNewArrivalProductGet$Response$Data
   copyWithWrapped({
-    Wrapped<double?>? total,
-    Wrapped<double?>? pageSize,
-    Wrapped<double?>? totalPages,
-    Wrapped<double?>? current,
+    Wrapped<int?>? total,
+    Wrapped<int?>? pageSize,
+    Wrapped<int?>? totalPages,
+    Wrapped<int?>? current,
     Wrapped<
       List<
         ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item
@@ -8173,8 +8173,8 @@ class ProductServiceProductNoAuthGetProductInfoGet$Response$Data {
     ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgSizeChart$Item
   >?
   imgSizeChart;
-  @JsonKey(name: 'categoryId', fromJson: JsonCoerce.asDouble)
-  final double? categoryId;
+  @JsonKey(name: 'categoryId', fromJson: JsonCoerce.asInt)
+  final int? categoryId;
   @JsonKey(name: 'productOptions')
   final List<
     ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item
@@ -8224,10 +8224,10 @@ class ProductServiceProductNoAuthGetProductInfoGet$Response$Data {
   final List<String>? sellPoints;
   @JsonKey(
     name: 'categoryTree',
-    fromJson: JsonCoerce.asDoubleList,
-    defaultValue: <double>[],
+    fromJson: JsonCoerce.asIntList,
+    defaultValue: <int>[],
   )
-  final List<double>? categoryTree;
+  final List<int>? categoryTree;
   @JsonKey(name: 'ext')
   final ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Ext? ext;
   @JsonKey(name: 'productFlag', fromJson: JsonCoerce.asString)
@@ -8481,7 +8481,7 @@ extension $ProductServiceProductNoAuthGetProductInfoGet$Response$DataExtension
       ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgSizeChart$Item
     >?
     imgSizeChart,
-    double? categoryId,
+    int? categoryId,
     List<
       ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item
     >?
@@ -8508,7 +8508,7 @@ extension $ProductServiceProductNoAuthGetProductInfoGet$Response$DataExtension
     ProductServiceProductNoAuthGetProductInfoGet$Response$Data$PremiumBrandInfo?
     premiumBrandInfo,
     List<String>? sellPoints,
-    List<double>? categoryTree,
+    List<int>? categoryTree,
     ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Ext? ext,
     String? productFlag,
     String? marketingInfo,
@@ -8592,7 +8592,7 @@ extension $ProductServiceProductNoAuthGetProductInfoGet$Response$DataExtension
       >?
     >?
     imgSizeChart,
-    Wrapped<double?>? categoryId,
+    Wrapped<int?>? categoryId,
     Wrapped<
       List<
         ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item
@@ -8631,7 +8631,7 @@ extension $ProductServiceProductNoAuthGetProductInfoGet$Response$DataExtension
     >?
     premiumBrandInfo,
     Wrapped<List<String>?>? sellPoints,
-    Wrapped<List<double>?>? categoryTree,
+    Wrapped<List<int>?>? categoryTree,
     Wrapped<ProductServiceProductNoAuthGetProductInfoGet$Response$Data$Ext?>?
     ext,
     Wrapped<String?>? productFlag,
@@ -9176,14 +9176,14 @@ class ProductServiceProductNoAuthHotProductV3Get$Response$Data {
   Map<String, dynamic> toJson() =>
       _$ProductServiceProductNoAuthHotProductV3Get$Response$DataToJson(this);
 
-  @JsonKey(name: 'total', fromJson: JsonCoerce.asDouble)
-  final double? total;
-  @JsonKey(name: 'pageSize', fromJson: JsonCoerce.asDouble)
-  final double? pageSize;
-  @JsonKey(name: 'totalPages', fromJson: JsonCoerce.asDouble)
-  final double? totalPages;
-  @JsonKey(name: 'current', fromJson: JsonCoerce.asDouble)
-  final double? current;
+  @JsonKey(name: 'total', fromJson: JsonCoerce.asInt)
+  final int? total;
+  @JsonKey(name: 'pageSize', fromJson: JsonCoerce.asInt)
+  final int? pageSize;
+  @JsonKey(name: 'totalPages', fromJson: JsonCoerce.asInt)
+  final int? totalPages;
+  @JsonKey(name: 'current', fromJson: JsonCoerce.asInt)
+  final int? current;
   @JsonKey(name: 'records')
   final List<
     ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item
@@ -9233,10 +9233,10 @@ class ProductServiceProductNoAuthHotProductV3Get$Response$Data {
 extension $ProductServiceProductNoAuthHotProductV3Get$Response$DataExtension
     on ProductServiceProductNoAuthHotProductV3Get$Response$Data {
   ProductServiceProductNoAuthHotProductV3Get$Response$Data copyWith({
-    double? total,
-    double? pageSize,
-    double? totalPages,
-    double? current,
+    int? total,
+    int? pageSize,
+    int? totalPages,
+    int? current,
     List<ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item>?
     records,
   }) {
@@ -9250,10 +9250,10 @@ extension $ProductServiceProductNoAuthHotProductV3Get$Response$DataExtension
   }
 
   ProductServiceProductNoAuthHotProductV3Get$Response$Data copyWithWrapped({
-    Wrapped<double?>? total,
-    Wrapped<double?>? pageSize,
-    Wrapped<double?>? totalPages,
-    Wrapped<double?>? current,
+    Wrapped<int?>? total,
+    Wrapped<int?>? pageSize,
+    Wrapped<int?>? totalPages,
+    Wrapped<int?>? current,
     Wrapped<
       List<
         ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item
@@ -9352,8 +9352,8 @@ class ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item {
     ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgDetail$Item
   >?
   imgDetail;
-  @JsonKey(name: 'categoryId', fromJson: JsonCoerce.asDouble)
-  final double? categoryId;
+  @JsonKey(name: 'categoryId', fromJson: JsonCoerce.asInt)
+  final int? categoryId;
   @JsonKey(name: 'productOptions')
   final List<
     ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item
@@ -9602,7 +9602,7 @@ extension $ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$ItemExte
       ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgDetail$Item
     >?
     imgDetail,
-    double? categoryId,
+    int? categoryId,
     List<
       ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item
     >?
@@ -9695,7 +9695,7 @@ extension $ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$ItemExte
       >?
     >?
     imgDetail,
-    Wrapped<double?>? categoryId,
+    Wrapped<int?>? categoryId,
     Wrapped<
       List<
         ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item
@@ -9805,14 +9805,14 @@ class ProductServiceProductNoAuthAlbumProductGet$Response$Data {
   Map<String, dynamic> toJson() =>
       _$ProductServiceProductNoAuthAlbumProductGet$Response$DataToJson(this);
 
-  @JsonKey(name: 'total', fromJson: JsonCoerce.asDouble)
-  final double? total;
-  @JsonKey(name: 'pageSize', fromJson: JsonCoerce.asDouble)
-  final double? pageSize;
-  @JsonKey(name: 'totalPages', fromJson: JsonCoerce.asDouble)
-  final double? totalPages;
-  @JsonKey(name: 'current', fromJson: JsonCoerce.asDouble)
-  final double? current;
+  @JsonKey(name: 'total', fromJson: JsonCoerce.asInt)
+  final int? total;
+  @JsonKey(name: 'pageSize', fromJson: JsonCoerce.asInt)
+  final int? pageSize;
+  @JsonKey(name: 'totalPages', fromJson: JsonCoerce.asInt)
+  final int? totalPages;
+  @JsonKey(name: 'current', fromJson: JsonCoerce.asInt)
+  final int? current;
   @JsonKey(name: 'records')
   final List<
     ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item
@@ -9862,10 +9862,10 @@ class ProductServiceProductNoAuthAlbumProductGet$Response$Data {
 extension $ProductServiceProductNoAuthAlbumProductGet$Response$DataExtension
     on ProductServiceProductNoAuthAlbumProductGet$Response$Data {
   ProductServiceProductNoAuthAlbumProductGet$Response$Data copyWith({
-    double? total,
-    double? pageSize,
-    double? totalPages,
-    double? current,
+    int? total,
+    int? pageSize,
+    int? totalPages,
+    int? current,
     List<ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item>?
     records,
   }) {
@@ -9879,10 +9879,10 @@ extension $ProductServiceProductNoAuthAlbumProductGet$Response$DataExtension
   }
 
   ProductServiceProductNoAuthAlbumProductGet$Response$Data copyWithWrapped({
-    Wrapped<double?>? total,
-    Wrapped<double?>? pageSize,
-    Wrapped<double?>? totalPages,
-    Wrapped<double?>? current,
+    Wrapped<int?>? total,
+    Wrapped<int?>? pageSize,
+    Wrapped<int?>? totalPages,
+    Wrapped<int?>? current,
     Wrapped<
       List<
         ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item
@@ -10092,8 +10092,8 @@ class ProductServiceProductNoAuthKolProductGet$Response$Data$Item {
     ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgDetail$Item
   >?
   imgDetail;
-  @JsonKey(name: 'categoryId', fromJson: JsonCoerce.asDouble)
-  final double? categoryId;
+  @JsonKey(name: 'categoryId', fromJson: JsonCoerce.asInt)
+  final int? categoryId;
   @JsonKey(name: 'productOptions')
   final List<
     ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item
@@ -10341,7 +10341,7 @@ extension $ProductServiceProductNoAuthKolProductGet$Response$Data$ItemExtension
       ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgDetail$Item
     >?
     imgDetail,
-    double? categoryId,
+    int? categoryId,
     List<
       ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item
     >?
@@ -10431,7 +10431,7 @@ extension $ProductServiceProductNoAuthKolProductGet$Response$Data$ItemExtension
       >?
     >?
     imgDetail,
-    Wrapped<double?>? categoryId,
+    Wrapped<int?>? categoryId,
     Wrapped<
       List<
         ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item
@@ -10543,14 +10543,14 @@ class ProductServiceProductNoAuthPremierProductGet$Response$Data {
   Map<String, dynamic> toJson() =>
       _$ProductServiceProductNoAuthPremierProductGet$Response$DataToJson(this);
 
-  @JsonKey(name: 'total', fromJson: JsonCoerce.asDouble)
-  final double? total;
-  @JsonKey(name: 'pageSize', fromJson: JsonCoerce.asDouble)
-  final double? pageSize;
-  @JsonKey(name: 'totalPages', fromJson: JsonCoerce.asDouble)
-  final double? totalPages;
-  @JsonKey(name: 'current', fromJson: JsonCoerce.asDouble)
-  final double? current;
+  @JsonKey(name: 'total', fromJson: JsonCoerce.asInt)
+  final int? total;
+  @JsonKey(name: 'pageSize', fromJson: JsonCoerce.asInt)
+  final int? pageSize;
+  @JsonKey(name: 'totalPages', fromJson: JsonCoerce.asInt)
+  final int? totalPages;
+  @JsonKey(name: 'current', fromJson: JsonCoerce.asInt)
+  final int? current;
   @JsonKey(name: 'records')
   final List<
     ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item
@@ -10600,10 +10600,10 @@ class ProductServiceProductNoAuthPremierProductGet$Response$Data {
 extension $ProductServiceProductNoAuthPremierProductGet$Response$DataExtension
     on ProductServiceProductNoAuthPremierProductGet$Response$Data {
   ProductServiceProductNoAuthPremierProductGet$Response$Data copyWith({
-    double? total,
-    double? pageSize,
-    double? totalPages,
-    double? current,
+    int? total,
+    int? pageSize,
+    int? totalPages,
+    int? current,
     List<
       ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item
     >?
@@ -10619,10 +10619,10 @@ extension $ProductServiceProductNoAuthPremierProductGet$Response$DataExtension
   }
 
   ProductServiceProductNoAuthPremierProductGet$Response$Data copyWithWrapped({
-    Wrapped<double?>? total,
-    Wrapped<double?>? pageSize,
-    Wrapped<double?>? totalPages,
-    Wrapped<double?>? current,
+    Wrapped<int?>? total,
+    Wrapped<int?>? pageSize,
+    Wrapped<int?>? totalPages,
+    Wrapped<int?>? current,
     Wrapped<
       List<
         ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item
@@ -11103,22 +11103,22 @@ class ProductServiceProductReviewNoAuthPageGet$Response$Data$Records$Item {
         this,
       );
 
-  @JsonKey(name: 'id', fromJson: JsonCoerce.asDouble)
-  final double? id;
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asInt)
+  final int? id;
   @JsonKey(name: 'username', fromJson: JsonCoerce.asString)
   final String? username;
   @JsonKey(name: 'comment', fromJson: JsonCoerce.asString)
   final String? comment;
-  @JsonKey(name: 'score', fromJson: JsonCoerce.asDouble)
-  final double? score;
+  @JsonKey(name: 'score', fromJson: JsonCoerce.asInt)
+  final int? score;
   @JsonKey(name: 'images', defaultValue: <Object>[])
   final List<Object>? images;
   @JsonKey(name: 'extraComment', fromJson: JsonCoerce.asString)
   final String? extraComment;
   @JsonKey(name: 'reviewTime', fromJson: JsonCoerce.asString)
   final String? reviewTime;
-  @JsonKey(name: 'salesQuantity', fromJson: JsonCoerce.asDouble)
-  final double? salesQuantity;
+  @JsonKey(name: 'salesQuantity', fromJson: JsonCoerce.asInt)
+  final int? salesQuantity;
   static const fromJsonFactory =
       _$ProductServiceProductReviewNoAuthPageGet$Response$Data$Records$ItemFromJson;
 
@@ -11179,14 +11179,14 @@ class ProductServiceProductReviewNoAuthPageGet$Response$Data$Records$Item {
 extension $ProductServiceProductReviewNoAuthPageGet$Response$Data$Records$ItemExtension
     on ProductServiceProductReviewNoAuthPageGet$Response$Data$Records$Item {
   ProductServiceProductReviewNoAuthPageGet$Response$Data$Records$Item copyWith({
-    double? id,
+    int? id,
     String? username,
     String? comment,
-    double? score,
+    int? score,
     List<Object>? images,
     String? extraComment,
     String? reviewTime,
-    double? salesQuantity,
+    int? salesQuantity,
   }) {
     return ProductServiceProductReviewNoAuthPageGet$Response$Data$Records$Item(
       id: id ?? this.id,
@@ -11202,14 +11202,14 @@ extension $ProductServiceProductReviewNoAuthPageGet$Response$Data$Records$ItemEx
 
   ProductServiceProductReviewNoAuthPageGet$Response$Data$Records$Item
   copyWithWrapped({
-    Wrapped<double?>? id,
+    Wrapped<int?>? id,
     Wrapped<String?>? username,
     Wrapped<String?>? comment,
-    Wrapped<double?>? score,
+    Wrapped<int?>? score,
     Wrapped<List<Object>?>? images,
     Wrapped<String?>? extraComment,
     Wrapped<String?>? reviewTime,
-    Wrapped<double?>? salesQuantity,
+    Wrapped<int?>? salesQuantity,
   }) {
     return ProductServiceProductReviewNoAuthPageGet$Response$Data$Records$Item(
       id: (id != null ? id.value : this.id),
@@ -11255,22 +11255,22 @@ class ProductServiceProductReviewNoAuthSummaryGet$Response$Data$FeaturedReviews$
         this,
       );
 
-  @JsonKey(name: 'id', fromJson: JsonCoerce.asDouble)
-  final double? id;
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asInt)
+  final int? id;
   @JsonKey(name: 'username', fromJson: JsonCoerce.asString)
   final String? username;
   @JsonKey(name: 'comment', fromJson: JsonCoerce.asString)
   final String? comment;
-  @JsonKey(name: 'score', fromJson: JsonCoerce.asDouble)
-  final double? score;
+  @JsonKey(name: 'score', fromJson: JsonCoerce.asInt)
+  final int? score;
   @JsonKey(name: 'images', defaultValue: <Object>[])
   final List<Object>? images;
   @JsonKey(name: 'extraComment', fromJson: JsonCoerce.asString)
   final String? extraComment;
   @JsonKey(name: 'reviewTime', fromJson: JsonCoerce.asString)
   final String? reviewTime;
-  @JsonKey(name: 'salesQuantity', fromJson: JsonCoerce.asDouble)
-  final double? salesQuantity;
+  @JsonKey(name: 'salesQuantity', fromJson: JsonCoerce.asInt)
+  final int? salesQuantity;
   static const fromJsonFactory =
       _$ProductServiceProductReviewNoAuthSummaryGet$Response$Data$FeaturedReviews$ItemFromJson;
 
@@ -11332,14 +11332,14 @@ extension $ProductServiceProductReviewNoAuthSummaryGet$Response$Data$FeaturedRev
     on ProductServiceProductReviewNoAuthSummaryGet$Response$Data$FeaturedReviews$Item {
   ProductServiceProductReviewNoAuthSummaryGet$Response$Data$FeaturedReviews$Item
   copyWith({
-    double? id,
+    int? id,
     String? username,
     String? comment,
-    double? score,
+    int? score,
     List<Object>? images,
     String? extraComment,
     String? reviewTime,
-    double? salesQuantity,
+    int? salesQuantity,
   }) {
     return ProductServiceProductReviewNoAuthSummaryGet$Response$Data$FeaturedReviews$Item(
       id: id ?? this.id,
@@ -11355,14 +11355,14 @@ extension $ProductServiceProductReviewNoAuthSummaryGet$Response$Data$FeaturedRev
 
   ProductServiceProductReviewNoAuthSummaryGet$Response$Data$FeaturedReviews$Item
   copyWithWrapped({
-    Wrapped<double?>? id,
+    Wrapped<int?>? id,
     Wrapped<String?>? username,
     Wrapped<String?>? comment,
-    Wrapped<double?>? score,
+    Wrapped<int?>? score,
     Wrapped<List<Object>?>? images,
     Wrapped<String?>? extraComment,
     Wrapped<String?>? reviewTime,
-    Wrapped<double?>? salesQuantity,
+    Wrapped<int?>? salesQuantity,
   }) {
     return ProductServiceProductReviewNoAuthSummaryGet$Response$Data$FeaturedReviews$Item(
       id: (id != null ? id.value : this.id),
@@ -11408,14 +11408,14 @@ class ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item {
         this,
       );
 
-  @JsonKey(name: 'id', fromJson: JsonCoerce.asDouble)
-  final double? id;
-  @JsonKey(name: 'parentId', fromJson: JsonCoerce.asDouble)
-  final double? parentId;
-  @JsonKey(name: 'level', fromJson: JsonCoerce.asDouble)
-  final double? level;
-  @JsonKey(name: 'showOrder', fromJson: JsonCoerce.asDouble)
-  final double? showOrder;
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asInt)
+  final int? id;
+  @JsonKey(name: 'parentId', fromJson: JsonCoerce.asInt)
+  final int? parentId;
+  @JsonKey(name: 'level', fromJson: JsonCoerce.asInt)
+  final int? level;
+  @JsonKey(name: 'showOrder', fromJson: JsonCoerce.asInt)
+  final int? showOrder;
   @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
   @JsonKey(name: 'iconUrl', fromJson: JsonCoerce.asString)
@@ -11483,10 +11483,10 @@ class ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item {
 extension $ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$ItemExtension
     on ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item {
   ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item copyWith({
-    double? id,
-    double? parentId,
-    double? level,
-    double? showOrder,
+    int? id,
+    int? parentId,
+    int? level,
+    int? showOrder,
     String? name,
     String? iconUrl,
     List<
@@ -11509,10 +11509,10 @@ extension $ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$ItemEx
 
   ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item
   copyWithWrapped({
-    Wrapped<double?>? id,
-    Wrapped<double?>? parentId,
-    Wrapped<double?>? level,
-    Wrapped<double?>? showOrder,
+    Wrapped<int?>? id,
+    Wrapped<int?>? parentId,
+    Wrapped<int?>? level,
+    Wrapped<int?>? showOrder,
     Wrapped<String?>? name,
     Wrapped<String?>? iconUrl,
     Wrapped<
@@ -11569,10 +11569,10 @@ class ProductServiceActivityNoAuthFlashSaleActivityGet$Response$Data$Activities$
   final String? title;
   @JsonKey(name: 'status', fromJson: JsonCoerce.asString)
   final String? status;
-  @JsonKey(name: 'startTime', fromJson: JsonCoerce.asDouble)
-  final double? startTime;
-  @JsonKey(name: 'endTime', fromJson: JsonCoerce.asDouble)
-  final double? endTime;
+  @JsonKey(name: 'startTime', fromJson: JsonCoerce.asInt)
+  final int? startTime;
+  @JsonKey(name: 'endTime', fromJson: JsonCoerce.asInt)
+  final int? endTime;
   @JsonKey(name: 'names', defaultValue: <Object>[])
   final List<Object>? names;
   static const fromJsonFactory =
@@ -11627,8 +11627,8 @@ extension $ProductServiceActivityNoAuthFlashSaleActivityGet$Response$Data$Activi
     String? activityCode,
     String? title,
     String? status,
-    double? startTime,
-    double? endTime,
+    int? startTime,
+    int? endTime,
     List<Object>? names,
   }) {
     return ProductServiceActivityNoAuthFlashSaleActivityGet$Response$Data$Activities$Item(
@@ -11646,8 +11646,8 @@ extension $ProductServiceActivityNoAuthFlashSaleActivityGet$Response$Data$Activi
     Wrapped<String?>? activityCode,
     Wrapped<String?>? title,
     Wrapped<String?>? status,
-    Wrapped<double?>? startTime,
-    Wrapped<double?>? endTime,
+    Wrapped<int?>? startTime,
+    Wrapped<int?>? endTime,
     Wrapped<List<Object>?>? names,
   }) {
     return ProductServiceActivityNoAuthFlashSaleActivityGet$Response$Data$Activities$Item(
@@ -13701,8 +13701,8 @@ class ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item {
     ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgDetail$Item
   >?
   imgDetail;
-  @JsonKey(name: 'categoryId', fromJson: JsonCoerce.asDouble)
-  final double? categoryId;
+  @JsonKey(name: 'categoryId', fromJson: JsonCoerce.asInt)
+  final int? categoryId;
   @JsonKey(name: 'productOptions')
   final List<
     ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$Item
@@ -13933,7 +13933,7 @@ extension $ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Ite
       ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgDetail$Item
     >?
     imgDetail,
-    double? categoryId,
+    int? categoryId,
     List<
       ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$Item
     >?
@@ -14019,7 +14019,7 @@ extension $ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Ite
       >?
     >?
     imgDetail,
-    Wrapped<double?>? categoryId,
+    Wrapped<int?>? categoryId,
     Wrapped<
       List<
         ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$Item
@@ -14178,8 +14178,8 @@ class ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item
     ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgDetail$Item
   >?
   imgDetail;
-  @JsonKey(name: 'categoryId', fromJson: JsonCoerce.asDouble)
-  final double? categoryId;
+  @JsonKey(name: 'categoryId', fromJson: JsonCoerce.asInt)
+  final int? categoryId;
   @JsonKey(name: 'productOptions')
   final List<
     ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$Item
@@ -14431,7 +14431,7 @@ extension $ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records
       ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgDetail$Item
     >?
     imgDetail,
-    double? categoryId,
+    int? categoryId,
     List<
       ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$Item
     >?
@@ -14518,7 +14518,7 @@ extension $ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records
       >?
     >?
     imgDetail,
-    Wrapped<double?>? categoryId,
+    Wrapped<int?>? categoryId,
     Wrapped<
       List<
         ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$Item
@@ -14935,10 +14935,10 @@ class ProductServiceProductNoAuthGetProductInfoGet$Response$Data$MainImg$Item {
         this,
       );
 
-  @JsonKey(name: 'width', fromJson: JsonCoerce.asDouble)
-  final double? width;
-  @JsonKey(name: 'height', fromJson: JsonCoerce.asDouble)
-  final double? height;
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asInt)
+  final int? width;
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asInt)
+  final int? height;
   @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory =
@@ -14971,7 +14971,7 @@ class ProductServiceProductNoAuthGetProductInfoGet$Response$Data$MainImg$Item {
 extension $ProductServiceProductNoAuthGetProductInfoGet$Response$Data$MainImg$ItemExtension
     on ProductServiceProductNoAuthGetProductInfoGet$Response$Data$MainImg$Item {
   ProductServiceProductNoAuthGetProductInfoGet$Response$Data$MainImg$Item
-  copyWith({double? width, double? height, String? url}) {
+  copyWith({int? width, int? height, String? url}) {
     return ProductServiceProductNoAuthGetProductInfoGet$Response$Data$MainImg$Item(
       width: width ?? this.width,
       height: height ?? this.height,
@@ -14981,8 +14981,8 @@ extension $ProductServiceProductNoAuthGetProductInfoGet$Response$Data$MainImg$It
 
   ProductServiceProductNoAuthGetProductInfoGet$Response$Data$MainImg$Item
   copyWithWrapped({
-    Wrapped<double?>? width,
-    Wrapped<double?>? height,
+    Wrapped<int?>? width,
+    Wrapped<int?>? height,
     Wrapped<String?>? url,
   }) {
     return ProductServiceProductNoAuthGetProductInfoGet$Response$Data$MainImg$Item(
@@ -15125,10 +15125,10 @@ class ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgCollection$I
         this,
       );
 
-  @JsonKey(name: 'width', fromJson: JsonCoerce.asDouble)
-  final double? width;
-  @JsonKey(name: 'height', fromJson: JsonCoerce.asDouble)
-  final double? height;
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asInt)
+  final int? width;
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asInt)
+  final int? height;
   @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory =
@@ -15161,7 +15161,7 @@ class ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgCollection$I
 extension $ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgCollection$ItemExtension
     on ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgCollection$Item {
   ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgCollection$Item
-  copyWith({double? width, double? height, String? url}) {
+  copyWith({int? width, int? height, String? url}) {
     return ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgCollection$Item(
       width: width ?? this.width,
       height: height ?? this.height,
@@ -15171,8 +15171,8 @@ extension $ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgCollect
 
   ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgCollection$Item
   copyWithWrapped({
-    Wrapped<double?>? width,
-    Wrapped<double?>? height,
+    Wrapped<int?>? width,
+    Wrapped<int?>? height,
     Wrapped<String?>? url,
   }) {
     return ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgCollection$Item(
@@ -15205,10 +15205,10 @@ class ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgDetail$Item 
         this,
       );
 
-  @JsonKey(name: 'width', fromJson: JsonCoerce.asDouble)
-  final double? width;
-  @JsonKey(name: 'height', fromJson: JsonCoerce.asDouble)
-  final double? height;
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asInt)
+  final int? width;
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asInt)
+  final int? height;
   @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory =
@@ -15241,7 +15241,7 @@ class ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgDetail$Item 
 extension $ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgDetail$ItemExtension
     on ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgDetail$Item {
   ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgDetail$Item
-  copyWith({double? width, double? height, String? url}) {
+  copyWith({int? width, int? height, String? url}) {
     return ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgDetail$Item(
       width: width ?? this.width,
       height: height ?? this.height,
@@ -15251,8 +15251,8 @@ extension $ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgDetail$
 
   ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgDetail$Item
   copyWithWrapped({
-    Wrapped<double?>? width,
-    Wrapped<double?>? height,
+    Wrapped<int?>? width,
+    Wrapped<int?>? height,
     Wrapped<String?>? url,
   }) {
     return ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgDetail$Item(
@@ -15367,8 +15367,8 @@ class ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$
 
   @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
-  @JsonKey(name: 'type', fromJson: JsonCoerce.asDouble)
-  final double? type;
+  @JsonKey(name: 'type', fromJson: JsonCoerce.asInt)
+  final int? type;
   @JsonKey(name: 'optionValues')
   final List<
     ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item$OptionValues$Item
@@ -15409,7 +15409,7 @@ extension $ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductOpt
   ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item
   copyWith({
     String? name,
-    double? type,
+    int? type,
     List<
       ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item$OptionValues$Item
     >?
@@ -15425,7 +15425,7 @@ extension $ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductOpt
   ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item
   copyWithWrapped({
     Wrapped<String?>? name,
-    Wrapped<double?>? type,
+    Wrapped<int?>? type,
     Wrapped<
       List<
         ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item$OptionValues$Item
@@ -16044,14 +16044,14 @@ class ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data$Categor
         this,
       );
 
-  @JsonKey(name: 'id', fromJson: JsonCoerce.asDouble)
-  final double? id;
-  @JsonKey(name: 'parentId', fromJson: JsonCoerce.asDouble)
-  final double? parentId;
-  @JsonKey(name: 'level', fromJson: JsonCoerce.asDouble)
-  final double? level;
-  @JsonKey(name: 'showOrder', fromJson: JsonCoerce.asDouble)
-  final double? showOrder;
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asInt)
+  final int? id;
+  @JsonKey(name: 'parentId', fromJson: JsonCoerce.asInt)
+  final int? parentId;
+  @JsonKey(name: 'level', fromJson: JsonCoerce.asInt)
+  final int? level;
+  @JsonKey(name: 'showOrder', fromJson: JsonCoerce.asInt)
+  final int? showOrder;
   @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
   @JsonKey(name: 'iconUrl', fromJson: JsonCoerce.asString)
@@ -16122,10 +16122,10 @@ extension $ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data$Ca
         ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item {
   ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item
   copyWith({
-    double? id,
-    double? parentId,
-    double? level,
-    double? showOrder,
+    int? id,
+    int? parentId,
+    int? level,
+    int? showOrder,
     String? name,
     String? iconUrl,
     List<
@@ -16148,10 +16148,10 @@ extension $ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data$Ca
 
   ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item
   copyWithWrapped({
-    Wrapped<double?>? id,
-    Wrapped<double?>? parentId,
-    Wrapped<double?>? level,
-    Wrapped<double?>? showOrder,
+    Wrapped<int?>? id,
+    Wrapped<int?>? parentId,
+    Wrapped<int?>? level,
+    Wrapped<int?>? showOrder,
     Wrapped<String?>? name,
     Wrapped<String?>? iconUrl,
     Wrapped<
@@ -16772,8 +16772,8 @@ class ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item {
   final String? targetSellCur;
   @JsonKey(name: 'sellQuantity', fromJson: JsonCoerce.asString)
   final String? sellQuantity;
-  @JsonKey(name: 'skuCount', fromJson: JsonCoerce.asDouble)
-  final double? skuCount;
+  @JsonKey(name: 'skuCount', fromJson: JsonCoerce.asInt)
+  final int? skuCount;
   @JsonKey(name: 'marketingInfo', fromJson: JsonCoerce.asString)
   final String? marketingInfo;
   @JsonKey(name: 'tags')
@@ -16951,7 +16951,7 @@ extension $ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item
     String? targetOriginPrice,
     String? targetSellCur,
     String? sellQuantity,
-    double? skuCount,
+    int? skuCount,
     String? marketingInfo,
     List<
       ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$Tags$Item
@@ -17018,7 +17018,7 @@ extension $ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item
     Wrapped<String?>? targetOriginPrice,
     Wrapped<String?>? targetSellCur,
     Wrapped<String?>? sellQuantity,
-    Wrapped<double?>? skuCount,
+    Wrapped<int?>? skuCount,
     Wrapped<String?>? marketingInfo,
     Wrapped<
       List<
@@ -17107,10 +17107,10 @@ class ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$MainImg$
         this,
       );
 
-  @JsonKey(name: 'width', fromJson: JsonCoerce.asDouble)
-  final double? width;
-  @JsonKey(name: 'height', fromJson: JsonCoerce.asDouble)
-  final double? height;
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asInt)
+  final int? width;
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asInt)
+  final int? height;
   @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory =
@@ -17143,7 +17143,7 @@ class ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$MainImg$
 extension $ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$MainImg$ItemExtension
     on ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$MainImg$Item {
   ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$MainImg$Item
-  copyWith({double? width, double? height, String? url}) {
+  copyWith({int? width, int? height, String? url}) {
     return ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$MainImg$Item(
       width: width ?? this.width,
       height: height ?? this.height,
@@ -17153,8 +17153,8 @@ extension $ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$Mai
 
   ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$MainImg$Item
   copyWithWrapped({
-    Wrapped<double?>? width,
-    Wrapped<double?>? height,
+    Wrapped<int?>? width,
+    Wrapped<int?>? height,
     Wrapped<String?>? url,
   }) {
     return ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$MainImg$Item(
@@ -17195,10 +17195,10 @@ class ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$MainVide
   final String? vodUrl;
   @JsonKey(name: 'previewUrl', fromJson: JsonCoerce.asString)
   final String? previewUrl;
-  @JsonKey(name: 'width', fromJson: JsonCoerce.asDouble)
-  final double? width;
-  @JsonKey(name: 'height', fromJson: JsonCoerce.asDouble)
-  final double? height;
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asInt)
+  final int? width;
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asInt)
+  final int? height;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$MainVideo$ItemFromJson;
 
@@ -17246,8 +17246,8 @@ extension $ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$Mai
     String? videoUrl,
     String? vodUrl,
     String? previewUrl,
-    double? width,
-    double? height,
+    int? width,
+    int? height,
   }) {
     return ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$MainVideo$Item(
       videoUrl: videoUrl ?? this.videoUrl,
@@ -17263,8 +17263,8 @@ extension $ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$Mai
     Wrapped<String?>? videoUrl,
     Wrapped<String?>? vodUrl,
     Wrapped<String?>? previewUrl,
-    Wrapped<double?>? width,
-    Wrapped<double?>? height,
+    Wrapped<int?>? width,
+    Wrapped<int?>? height,
   }) {
     return ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$MainVideo$Item(
       videoUrl: (videoUrl != null ? videoUrl.value : this.videoUrl),
@@ -17298,10 +17298,10 @@ class ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgColle
         this,
       );
 
-  @JsonKey(name: 'width', fromJson: JsonCoerce.asDouble)
-  final double? width;
-  @JsonKey(name: 'height', fromJson: JsonCoerce.asDouble)
-  final double? height;
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asInt)
+  final int? width;
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asInt)
+  final int? height;
   @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory =
@@ -17335,7 +17335,7 @@ extension $ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$Img
     on
         ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgCollection$Item {
   ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgCollection$Item
-  copyWith({double? width, double? height, String? url}) {
+  copyWith({int? width, int? height, String? url}) {
     return ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgCollection$Item(
       width: width ?? this.width,
       height: height ?? this.height,
@@ -17345,8 +17345,8 @@ extension $ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$Img
 
   ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgCollection$Item
   copyWithWrapped({
-    Wrapped<double?>? width,
-    Wrapped<double?>? height,
+    Wrapped<int?>? width,
+    Wrapped<int?>? height,
     Wrapped<String?>? url,
   }) {
     return ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgCollection$Item(
@@ -17379,10 +17379,10 @@ class ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgDetai
         this,
       );
 
-  @JsonKey(name: 'width', fromJson: JsonCoerce.asDouble)
-  final double? width;
-  @JsonKey(name: 'height', fromJson: JsonCoerce.asDouble)
-  final double? height;
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asInt)
+  final int? width;
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asInt)
+  final int? height;
   @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory =
@@ -17416,7 +17416,7 @@ extension $ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$Img
     on
         ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgDetail$Item {
   ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgDetail$Item
-  copyWith({double? width, double? height, String? url}) {
+  copyWith({int? width, int? height, String? url}) {
     return ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgDetail$Item(
       width: width ?? this.width,
       height: height ?? this.height,
@@ -17426,8 +17426,8 @@ extension $ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$Img
 
   ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgDetail$Item
   copyWithWrapped({
-    Wrapped<double?>? width,
-    Wrapped<double?>? height,
+    Wrapped<int?>? width,
+    Wrapped<int?>? height,
     Wrapped<String?>? url,
   }) {
     return ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ImgDetail$Item(
@@ -17462,8 +17462,8 @@ class ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductO
 
   @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
-  @JsonKey(name: 'type', fromJson: JsonCoerce.asDouble)
-  final double? type;
+  @JsonKey(name: 'type', fromJson: JsonCoerce.asInt)
+  final int? type;
   @JsonKey(name: 'optionValues')
   final List<
     ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item
@@ -17505,7 +17505,7 @@ extension $ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$Pro
   ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item
   copyWith({
     String? name,
-    double? type,
+    int? type,
     List<
       ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item
     >?
@@ -17521,7 +17521,7 @@ extension $ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$Pro
   ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item
   copyWithWrapped({
     Wrapped<String?>? name,
-    Wrapped<double?>? type,
+    Wrapped<int?>? type,
     Wrapped<
       List<
         ProductServiceProductNoAuthFlashSaleProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item
@@ -17833,8 +17833,8 @@ class ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item {
     ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgDetail$Item
   >?
   imgDetail;
-  @JsonKey(name: 'categoryId', fromJson: JsonCoerce.asDouble)
-  final double? categoryId;
+  @JsonKey(name: 'categoryId', fromJson: JsonCoerce.asInt)
+  final int? categoryId;
   @JsonKey(name: 'productOptions')
   final List<
     ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$Item
@@ -18086,7 +18086,7 @@ extension $ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item
       ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgDetail$Item
     >?
     imgDetail,
-    double? categoryId,
+    int? categoryId,
     List<
       ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$Item
     >?
@@ -18173,7 +18173,7 @@ extension $ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item
       >?
     >?
     imgDetail,
-    Wrapped<double?>? categoryId,
+    Wrapped<int?>? categoryId,
     Wrapped<
       List<
         ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$Item
@@ -18528,10 +18528,10 @@ class ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainImg$Item {
         this,
       );
 
-  @JsonKey(name: 'width', fromJson: JsonCoerce.asDouble)
-  final double? width;
-  @JsonKey(name: 'height', fromJson: JsonCoerce.asDouble)
-  final double? height;
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asInt)
+  final int? width;
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asInt)
+  final int? height;
   @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory =
@@ -18564,7 +18564,7 @@ class ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainImg$Item {
 extension $ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainImg$ItemExtension
     on ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainImg$Item {
   ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainImg$Item
-  copyWith({double? width, double? height, String? url}) {
+  copyWith({int? width, int? height, String? url}) {
     return ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainImg$Item(
       width: width ?? this.width,
       height: height ?? this.height,
@@ -18574,8 +18574,8 @@ extension $ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainImg$I
 
   ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainImg$Item
   copyWithWrapped({
-    Wrapped<double?>? width,
-    Wrapped<double?>? height,
+    Wrapped<int?>? width,
+    Wrapped<int?>? height,
     Wrapped<String?>? url,
   }) {
     return ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainImg$Item(
@@ -18616,10 +18616,10 @@ class ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainVideo$Item
   final String? vodUrl;
   @JsonKey(name: 'previewUrl', fromJson: JsonCoerce.asString)
   final String? previewUrl;
-  @JsonKey(name: 'width', fromJson: JsonCoerce.asDouble)
-  final double? width;
-  @JsonKey(name: 'height', fromJson: JsonCoerce.asDouble)
-  final double? height;
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asInt)
+  final int? width;
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asInt)
+  final int? height;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainVideo$ItemFromJson;
 
@@ -18666,8 +18666,8 @@ extension $ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainVideo
     String? videoUrl,
     String? vodUrl,
     String? previewUrl,
-    double? width,
-    double? height,
+    int? width,
+    int? height,
   }) {
     return ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainVideo$Item(
       videoUrl: videoUrl ?? this.videoUrl,
@@ -18683,8 +18683,8 @@ extension $ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainVideo
     Wrapped<String?>? videoUrl,
     Wrapped<String?>? vodUrl,
     Wrapped<String?>? previewUrl,
-    Wrapped<double?>? width,
-    Wrapped<double?>? height,
+    Wrapped<int?>? width,
+    Wrapped<int?>? height,
   }) {
     return ProductServiceProductNoAuthKolProductGet$Response$Data$Item$MainVideo$Item(
       videoUrl: (videoUrl != null ? videoUrl.value : this.videoUrl),
@@ -18718,10 +18718,10 @@ class ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgCollection$
         this,
       );
 
-  @JsonKey(name: 'width', fromJson: JsonCoerce.asDouble)
-  final double? width;
-  @JsonKey(name: 'height', fromJson: JsonCoerce.asDouble)
-  final double? height;
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asInt)
+  final int? width;
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asInt)
+  final int? height;
   @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory =
@@ -18754,7 +18754,7 @@ class ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgCollection$
 extension $ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgCollection$ItemExtension
     on ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgCollection$Item {
   ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgCollection$Item
-  copyWith({double? width, double? height, String? url}) {
+  copyWith({int? width, int? height, String? url}) {
     return ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgCollection$Item(
       width: width ?? this.width,
       height: height ?? this.height,
@@ -18764,8 +18764,8 @@ extension $ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgCollec
 
   ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgCollection$Item
   copyWithWrapped({
-    Wrapped<double?>? width,
-    Wrapped<double?>? height,
+    Wrapped<int?>? width,
+    Wrapped<int?>? height,
     Wrapped<String?>? url,
   }) {
     return ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgCollection$Item(
@@ -18798,10 +18798,10 @@ class ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgDetail$Item
         this,
       );
 
-  @JsonKey(name: 'width', fromJson: JsonCoerce.asDouble)
-  final double? width;
-  @JsonKey(name: 'height', fromJson: JsonCoerce.asDouble)
-  final double? height;
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asInt)
+  final int? width;
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asInt)
+  final int? height;
   @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory =
@@ -18834,7 +18834,7 @@ class ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgDetail$Item
 extension $ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgDetail$ItemExtension
     on ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgDetail$Item {
   ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgDetail$Item
-  copyWith({double? width, double? height, String? url}) {
+  copyWith({int? width, int? height, String? url}) {
     return ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgDetail$Item(
       width: width ?? this.width,
       height: height ?? this.height,
@@ -18844,8 +18844,8 @@ extension $ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgDetail
 
   ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgDetail$Item
   copyWithWrapped({
-    Wrapped<double?>? width,
-    Wrapped<double?>? height,
+    Wrapped<int?>? width,
+    Wrapped<int?>? height,
     Wrapped<String?>? url,
   }) {
     return ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ImgDetail$Item(
@@ -18880,8 +18880,8 @@ class ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductOptions
 
   @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
-  @JsonKey(name: 'type', fromJson: JsonCoerce.asDouble)
-  final double? type;
+  @JsonKey(name: 'type', fromJson: JsonCoerce.asInt)
+  final int? type;
   @JsonKey(name: 'optionValues')
   final List<
     ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item
@@ -18923,7 +18923,7 @@ extension $ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductOp
   ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item
   copyWith({
     String? name,
-    double? type,
+    int? type,
     List<
       ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item
     >?
@@ -18939,7 +18939,7 @@ extension $ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductOp
   ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item
   copyWithWrapped({
     Wrapped<String?>? name,
-    Wrapped<double?>? type,
+    Wrapped<int?>? type,
     Wrapped<
       List<
         ProductServiceProductNoAuthKolProductGet$Response$Data$Item$ProductOptions$Item$OptionValues$Item
@@ -19249,8 +19249,8 @@ class ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item {
     ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgDetail$Item
   >?
   imgDetail;
-  @JsonKey(name: 'categoryId', fromJson: JsonCoerce.asDouble)
-  final double? categoryId;
+  @JsonKey(name: 'categoryId', fromJson: JsonCoerce.asInt)
+  final int? categoryId;
   @JsonKey(name: 'productOptions')
   final List<
     ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$Item
@@ -19502,7 +19502,7 @@ extension $ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$It
       ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgDetail$Item
     >?
     imgDetail,
-    double? categoryId,
+    int? categoryId,
     List<
       ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$Item
     >?
@@ -19589,7 +19589,7 @@ extension $ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$It
       >?
     >?
     imgDetail,
-    Wrapped<double?>? categoryId,
+    Wrapped<int?>? categoryId,
     Wrapped<
       List<
         ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$Item
@@ -20620,14 +20620,14 @@ class ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$Catego
         this,
       );
 
-  @JsonKey(name: 'id', fromJson: JsonCoerce.asDouble)
-  final double? id;
-  @JsonKey(name: 'parentId', fromJson: JsonCoerce.asDouble)
-  final double? parentId;
-  @JsonKey(name: 'level', fromJson: JsonCoerce.asDouble)
-  final double? level;
-  @JsonKey(name: 'showOrder', fromJson: JsonCoerce.asDouble)
-  final double? showOrder;
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asInt)
+  final int? id;
+  @JsonKey(name: 'parentId', fromJson: JsonCoerce.asInt)
+  final int? parentId;
+  @JsonKey(name: 'level', fromJson: JsonCoerce.asInt)
+  final int? level;
+  @JsonKey(name: 'showOrder', fromJson: JsonCoerce.asInt)
+  final int? showOrder;
   @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
   @JsonKey(name: 'iconUrl', fromJson: JsonCoerce.asString)
@@ -20698,10 +20698,10 @@ extension $ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$C
         ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item {
   ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item
   copyWith({
-    double? id,
-    double? parentId,
-    double? level,
-    double? showOrder,
+    int? id,
+    int? parentId,
+    int? level,
+    int? showOrder,
     String? name,
     String? iconUrl,
     List<
@@ -20724,10 +20724,10 @@ extension $ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$C
 
   ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item
   copyWithWrapped({
-    Wrapped<double?>? id,
-    Wrapped<double?>? parentId,
-    Wrapped<double?>? level,
-    Wrapped<double?>? showOrder,
+    Wrapped<int?>? id,
+    Wrapped<int?>? parentId,
+    Wrapped<int?>? level,
+    Wrapped<int?>? showOrder,
     Wrapped<String?>? name,
     Wrapped<String?>? iconUrl,
     Wrapped<
@@ -21809,10 +21809,10 @@ class ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$Mai
         this,
       );
 
-  @JsonKey(name: 'width', fromJson: JsonCoerce.asDouble)
-  final double? width;
-  @JsonKey(name: 'height', fromJson: JsonCoerce.asDouble)
-  final double? height;
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asInt)
+  final int? width;
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asInt)
+  final int? height;
   @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory =
@@ -21846,7 +21846,7 @@ extension $ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Ite
     on
         ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainImg$Item {
   ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainImg$Item
-  copyWith({double? width, double? height, String? url}) {
+  copyWith({int? width, int? height, String? url}) {
     return ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainImg$Item(
       width: width ?? this.width,
       height: height ?? this.height,
@@ -21856,8 +21856,8 @@ extension $ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Ite
 
   ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainImg$Item
   copyWithWrapped({
-    Wrapped<double?>? width,
-    Wrapped<double?>? height,
+    Wrapped<int?>? width,
+    Wrapped<int?>? height,
     Wrapped<String?>? url,
   }) {
     return ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$MainImg$Item(
@@ -22001,10 +22001,10 @@ class ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$Img
         this,
       );
 
-  @JsonKey(name: 'width', fromJson: JsonCoerce.asDouble)
-  final double? width;
-  @JsonKey(name: 'height', fromJson: JsonCoerce.asDouble)
-  final double? height;
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asInt)
+  final int? width;
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asInt)
+  final int? height;
   @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory =
@@ -22038,7 +22038,7 @@ extension $ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Ite
     on
         ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgCollection$Item {
   ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgCollection$Item
-  copyWith({double? width, double? height, String? url}) {
+  copyWith({int? width, int? height, String? url}) {
     return ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgCollection$Item(
       width: width ?? this.width,
       height: height ?? this.height,
@@ -22048,8 +22048,8 @@ extension $ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Ite
 
   ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgCollection$Item
   copyWithWrapped({
-    Wrapped<double?>? width,
-    Wrapped<double?>? height,
+    Wrapped<int?>? width,
+    Wrapped<int?>? height,
     Wrapped<String?>? url,
   }) {
     return ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgCollection$Item(
@@ -22082,10 +22082,10 @@ class ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$Img
         this,
       );
 
-  @JsonKey(name: 'width', fromJson: JsonCoerce.asDouble)
-  final double? width;
-  @JsonKey(name: 'height', fromJson: JsonCoerce.asDouble)
-  final double? height;
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asInt)
+  final int? width;
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asInt)
+  final int? height;
   @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory =
@@ -22119,7 +22119,7 @@ extension $ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Ite
     on
         ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgDetail$Item {
   ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgDetail$Item
-  copyWith({double? width, double? height, String? url}) {
+  copyWith({int? width, int? height, String? url}) {
     return ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgDetail$Item(
       width: width ?? this.width,
       height: height ?? this.height,
@@ -22129,8 +22129,8 @@ extension $ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Ite
 
   ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgDetail$Item
   copyWithWrapped({
-    Wrapped<double?>? width,
-    Wrapped<double?>? height,
+    Wrapped<int?>? width,
+    Wrapped<int?>? height,
     Wrapped<String?>? url,
   }) {
     return ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ImgDetail$Item(
@@ -22165,8 +22165,8 @@ class ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$Pro
 
   @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
-  @JsonKey(name: 'type', fromJson: JsonCoerce.asDouble)
-  final double? type;
+  @JsonKey(name: 'type', fromJson: JsonCoerce.asInt)
+  final int? type;
   @JsonKey(name: 'optionValues')
   final List<
     ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item
@@ -22208,7 +22208,7 @@ extension $ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Ite
   ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$Item
   copyWith({
     String? name,
-    double? type,
+    int? type,
     List<
       ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item
     >?
@@ -22224,7 +22224,7 @@ extension $ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Ite
   ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$Item
   copyWithWrapped({
     Wrapped<String?>? name,
-    Wrapped<double?>? type,
+    Wrapped<int?>? type,
     Wrapped<
       List<
         ProductServiceProductNoAuthCombineSearchGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item
@@ -22411,10 +22411,10 @@ class ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item
         this,
       );
 
-  @JsonKey(name: 'width', fromJson: JsonCoerce.asDouble)
-  final double? width;
-  @JsonKey(name: 'height', fromJson: JsonCoerce.asDouble)
-  final double? height;
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asInt)
+  final int? width;
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asInt)
+  final int? height;
   @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory =
@@ -22448,7 +22448,7 @@ extension $ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records
     on
         ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$MainImg$Item {
   ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$MainImg$Item
-  copyWith({double? width, double? height, String? url}) {
+  copyWith({int? width, int? height, String? url}) {
     return ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$MainImg$Item(
       width: width ?? this.width,
       height: height ?? this.height,
@@ -22458,8 +22458,8 @@ extension $ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records
 
   ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$MainImg$Item
   copyWithWrapped({
-    Wrapped<double?>? width,
-    Wrapped<double?>? height,
+    Wrapped<int?>? width,
+    Wrapped<int?>? height,
     Wrapped<String?>? url,
   }) {
     return ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$MainImg$Item(
@@ -22492,10 +22492,10 @@ class ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item
         this,
       );
 
-  @JsonKey(name: 'width', fromJson: JsonCoerce.asDouble)
-  final double? width;
-  @JsonKey(name: 'height', fromJson: JsonCoerce.asDouble)
-  final double? height;
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asInt)
+  final int? width;
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asInt)
+  final int? height;
   @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory =
@@ -22529,7 +22529,7 @@ extension $ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records
     on
         ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgCollection$Item {
   ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgCollection$Item
-  copyWith({double? width, double? height, String? url}) {
+  copyWith({int? width, int? height, String? url}) {
     return ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgCollection$Item(
       width: width ?? this.width,
       height: height ?? this.height,
@@ -22539,8 +22539,8 @@ extension $ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records
 
   ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgCollection$Item
   copyWithWrapped({
-    Wrapped<double?>? width,
-    Wrapped<double?>? height,
+    Wrapped<int?>? width,
+    Wrapped<int?>? height,
     Wrapped<String?>? url,
   }) {
     return ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgCollection$Item(
@@ -22573,10 +22573,10 @@ class ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item
         this,
       );
 
-  @JsonKey(name: 'width', fromJson: JsonCoerce.asDouble)
-  final double? width;
-  @JsonKey(name: 'height', fromJson: JsonCoerce.asDouble)
-  final double? height;
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asInt)
+  final int? width;
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asInt)
+  final int? height;
   @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory =
@@ -22610,7 +22610,7 @@ extension $ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records
     on
         ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgDetail$Item {
   ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgDetail$Item
-  copyWith({double? width, double? height, String? url}) {
+  copyWith({int? width, int? height, String? url}) {
     return ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgDetail$Item(
       width: width ?? this.width,
       height: height ?? this.height,
@@ -22620,8 +22620,8 @@ extension $ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records
 
   ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgDetail$Item
   copyWithWrapped({
-    Wrapped<double?>? width,
-    Wrapped<double?>? height,
+    Wrapped<int?>? width,
+    Wrapped<int?>? height,
     Wrapped<String?>? url,
   }) {
     return ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ImgDetail$Item(
@@ -22656,8 +22656,8 @@ class ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item
 
   @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
-  @JsonKey(name: 'type', fromJson: JsonCoerce.asDouble)
-  final double? type;
+  @JsonKey(name: 'type', fromJson: JsonCoerce.asInt)
+  final int? type;
   @JsonKey(name: 'optionValues')
   final List<
     ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item
@@ -22699,7 +22699,7 @@ extension $ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records
   ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$Item
   copyWith({
     String? name,
-    double? type,
+    int? type,
     List<
       ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item
     >?
@@ -22715,7 +22715,7 @@ extension $ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records
   ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$Item
   copyWithWrapped({
     Wrapped<String?>? name,
-    Wrapped<double?>? type,
+    Wrapped<int?>? type,
     Wrapped<
       List<
         ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item
@@ -23215,14 +23215,14 @@ class ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data$Categor
         this,
       );
 
-  @JsonKey(name: 'id', fromJson: JsonCoerce.asDouble)
-  final double? id;
-  @JsonKey(name: 'parentId', fromJson: JsonCoerce.asDouble)
-  final double? parentId;
-  @JsonKey(name: 'level', fromJson: JsonCoerce.asDouble)
-  final double? level;
-  @JsonKey(name: 'showOrder', fromJson: JsonCoerce.asDouble)
-  final double? showOrder;
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asInt)
+  final int? id;
+  @JsonKey(name: 'parentId', fromJson: JsonCoerce.asInt)
+  final int? parentId;
+  @JsonKey(name: 'level', fromJson: JsonCoerce.asInt)
+  final int? level;
+  @JsonKey(name: 'showOrder', fromJson: JsonCoerce.asInt)
+  final int? showOrder;
   @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
   @JsonKey(name: 'iconUrl', fromJson: JsonCoerce.asString)
@@ -23290,10 +23290,10 @@ extension $ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data$Ca
         ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item$CategoryList$Item {
   ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item$CategoryList$Item
   copyWith({
-    double? id,
-    double? parentId,
-    double? level,
-    double? showOrder,
+    int? id,
+    int? parentId,
+    int? level,
+    int? showOrder,
     String? name,
     String? iconUrl,
     List<Object>? categoryList,
@@ -23313,10 +23313,10 @@ extension $ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data$Ca
 
   ProductServiceProductNoAuthPremierProductCategoryGet$Response$Data$CategoryList$Item$CategoryList$Item
   copyWithWrapped({
-    Wrapped<double?>? id,
-    Wrapped<double?>? parentId,
-    Wrapped<double?>? level,
-    Wrapped<double?>? showOrder,
+    Wrapped<int?>? id,
+    Wrapped<int?>? parentId,
+    Wrapped<int?>? level,
+    Wrapped<int?>? showOrder,
     Wrapped<String?>? name,
     Wrapped<String?>? iconUrl,
     Wrapped<List<Object>?>? categoryList,
@@ -23757,10 +23757,10 @@ class ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$Imag
         this,
       );
 
-  @JsonKey(name: 'width', fromJson: JsonCoerce.asDouble)
-  final double? width;
-  @JsonKey(name: 'height', fromJson: JsonCoerce.asDouble)
-  final double? height;
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asInt)
+  final int? width;
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asInt)
+  final int? height;
   @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory =
@@ -23793,7 +23793,7 @@ class ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$Imag
 extension $ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$ImageExtension
     on ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$Image {
   ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$Image
-  copyWith({double? width, double? height, String? url}) {
+  copyWith({int? width, int? height, String? url}) {
     return ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$Image(
       width: width ?? this.width,
       height: height ?? this.height,
@@ -23803,8 +23803,8 @@ extension $ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item
 
   ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$Image
   copyWithWrapped({
-    Wrapped<double?>? width,
-    Wrapped<double?>? height,
+    Wrapped<int?>? width,
+    Wrapped<int?>? height,
     Wrapped<String?>? url,
   }) {
     return ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$Image(
@@ -23837,10 +23837,10 @@ class ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$ImgC
         this,
       );
 
-  @JsonKey(name: 'width', fromJson: JsonCoerce.asDouble)
-  final double? width;
-  @JsonKey(name: 'height', fromJson: JsonCoerce.asDouble)
-  final double? height;
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asInt)
+  final int? width;
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asInt)
+  final int? height;
   @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory =
@@ -23874,7 +23874,7 @@ extension $ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item
     on
         ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$ImgCollection$Item {
   ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$ImgCollection$Item
-  copyWith({double? width, double? height, String? url}) {
+  copyWith({int? width, int? height, String? url}) {
     return ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$ImgCollection$Item(
       width: width ?? this.width,
       height: height ?? this.height,
@@ -23884,8 +23884,8 @@ extension $ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item
 
   ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$ImgCollection$Item
   copyWithWrapped({
-    Wrapped<double?>? width,
-    Wrapped<double?>? height,
+    Wrapped<int?>? width,
+    Wrapped<int?>? height,
     Wrapped<String?>? url,
   }) {
     return ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$ImgCollection$Item(
@@ -23920,8 +23920,8 @@ class ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$Prod
 
   @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
-  @JsonKey(name: 'type', fromJson: JsonCoerce.asDouble)
-  final double? type;
+  @JsonKey(name: 'type', fromJson: JsonCoerce.asInt)
+  final int? type;
   @JsonKey(name: 'optionValues')
   final List<
     ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item
@@ -23963,7 +23963,7 @@ extension $ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item
   ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$ProductOptions$Item
   copyWith({
     String? name,
-    double? type,
+    int? type,
     List<
       ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item
     >?
@@ -23979,7 +23979,7 @@ extension $ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item
   ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$ProductOptions$Item
   copyWithWrapped({
     Wrapped<String?>? name,
-    Wrapped<double?>? type,
+    Wrapped<int?>? type,
     Wrapped<
       List<
         ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item
@@ -24024,10 +24024,10 @@ class ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$Tags
   final String? tagCode;
   @JsonKey(name: 'tagImg', fromJson: JsonCoerce.asString)
   final String? tagImg;
-  @JsonKey(name: 'order', fromJson: JsonCoerce.asDouble)
-  final double? order;
-  @JsonKey(name: 'frontShow', fromJson: JsonCoerce.asDouble)
-  final double? frontShow;
+  @JsonKey(name: 'order', fromJson: JsonCoerce.asInt)
+  final int? order;
+  @JsonKey(name: 'frontShow', fromJson: JsonCoerce.asInt)
+  final int? frontShow;
   static const fromJsonFactory =
       _$ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$Tags$ItemFromJson;
 
@@ -24068,12 +24068,7 @@ extension $ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item
     on
         ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$Tags$Item {
   ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$Tags$Item
-  copyWith({
-    String? tagCode,
-    String? tagImg,
-    double? order,
-    double? frontShow,
-  }) {
+  copyWith({String? tagCode, String? tagImg, int? order, int? frontShow}) {
     return ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$Tags$Item(
       tagCode: tagCode ?? this.tagCode,
       tagImg: tagImg ?? this.tagImg,
@@ -24086,8 +24081,8 @@ extension $ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item
   copyWithWrapped({
     Wrapped<String?>? tagCode,
     Wrapped<String?>? tagImg,
-    Wrapped<double?>? order,
-    Wrapped<double?>? frontShow,
+    Wrapped<int?>? order,
+    Wrapped<int?>? frontShow,
   }) {
     return ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$Tags$Item(
       tagCode: (tagCode != null ? tagCode.value : this.tagCode),
@@ -24452,10 +24447,10 @@ class ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$Main
         this,
       );
 
-  @JsonKey(name: 'width', fromJson: JsonCoerce.asDouble)
-  final double? width;
-  @JsonKey(name: 'height', fromJson: JsonCoerce.asDouble)
-  final double? height;
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asInt)
+  final int? width;
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asInt)
+  final int? height;
   @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory =
@@ -24489,7 +24484,7 @@ extension $ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item
     on
         ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$MainImg$Item {
   ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$MainImg$Item
-  copyWith({double? width, double? height, String? url}) {
+  copyWith({int? width, int? height, String? url}) {
     return ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$MainImg$Item(
       width: width ?? this.width,
       height: height ?? this.height,
@@ -24499,8 +24494,8 @@ extension $ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item
 
   ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$MainImg$Item
   copyWithWrapped({
-    Wrapped<double?>? width,
-    Wrapped<double?>? height,
+    Wrapped<int?>? width,
+    Wrapped<int?>? height,
     Wrapped<String?>? url,
   }) {
     return ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$MainImg$Item(
@@ -24533,10 +24528,10 @@ class ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgC
         this,
       );
 
-  @JsonKey(name: 'width', fromJson: JsonCoerce.asDouble)
-  final double? width;
-  @JsonKey(name: 'height', fromJson: JsonCoerce.asDouble)
-  final double? height;
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asInt)
+  final int? width;
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asInt)
+  final int? height;
   @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory =
@@ -24570,7 +24565,7 @@ extension $ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item
     on
         ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgCollection$Item {
   ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgCollection$Item
-  copyWith({double? width, double? height, String? url}) {
+  copyWith({int? width, int? height, String? url}) {
     return ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgCollection$Item(
       width: width ?? this.width,
       height: height ?? this.height,
@@ -24580,8 +24575,8 @@ extension $ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item
 
   ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgCollection$Item
   copyWithWrapped({
-    Wrapped<double?>? width,
-    Wrapped<double?>? height,
+    Wrapped<int?>? width,
+    Wrapped<int?>? height,
     Wrapped<String?>? url,
   }) {
     return ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgCollection$Item(
@@ -24614,10 +24609,10 @@ class ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgD
         this,
       );
 
-  @JsonKey(name: 'width', fromJson: JsonCoerce.asDouble)
-  final double? width;
-  @JsonKey(name: 'height', fromJson: JsonCoerce.asDouble)
-  final double? height;
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asInt)
+  final int? width;
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asInt)
+  final int? height;
   @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory =
@@ -24651,7 +24646,7 @@ extension $ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item
     on
         ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgDetail$Item {
   ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgDetail$Item
-  copyWith({double? width, double? height, String? url}) {
+  copyWith({int? width, int? height, String? url}) {
     return ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgDetail$Item(
       width: width ?? this.width,
       height: height ?? this.height,
@@ -24661,8 +24656,8 @@ extension $ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item
 
   ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgDetail$Item
   copyWithWrapped({
-    Wrapped<double?>? width,
-    Wrapped<double?>? height,
+    Wrapped<int?>? width,
+    Wrapped<int?>? height,
     Wrapped<String?>? url,
   }) {
     return ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ImgDetail$Item(
@@ -24697,8 +24692,8 @@ class ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$Prod
 
   @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
-  @JsonKey(name: 'type', fromJson: JsonCoerce.asDouble)
-  final double? type;
+  @JsonKey(name: 'type', fromJson: JsonCoerce.asInt)
+  final int? type;
   @JsonKey(name: 'optionValues')
   final List<
     ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item
@@ -24740,7 +24735,7 @@ extension $ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item
   ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$Item
   copyWith({
     String? name,
-    double? type,
+    int? type,
     List<
       ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item
     >?
@@ -24756,7 +24751,7 @@ extension $ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item
   ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$Item
   copyWithWrapped({
     Wrapped<String?>? name,
-    Wrapped<double?>? type,
+    Wrapped<int?>? type,
     Wrapped<
       List<
         ProductServiceProductNoAuthAlbumProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item
@@ -25199,10 +25194,10 @@ class ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$Ma
         this,
       );
 
-  @JsonKey(name: 'width', fromJson: JsonCoerce.asDouble)
-  final double? width;
-  @JsonKey(name: 'height', fromJson: JsonCoerce.asDouble)
-  final double? height;
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asInt)
+  final int? width;
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asInt)
+  final int? height;
   @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory =
@@ -25236,7 +25231,7 @@ extension $ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$It
     on
         ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$MainImg$Item {
   ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$MainImg$Item
-  copyWith({double? width, double? height, String? url}) {
+  copyWith({int? width, int? height, String? url}) {
     return ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$MainImg$Item(
       width: width ?? this.width,
       height: height ?? this.height,
@@ -25246,8 +25241,8 @@ extension $ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$It
 
   ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$MainImg$Item
   copyWithWrapped({
-    Wrapped<double?>? width,
-    Wrapped<double?>? height,
+    Wrapped<int?>? width,
+    Wrapped<int?>? height,
     Wrapped<String?>? url,
   }) {
     return ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$MainImg$Item(
@@ -25280,10 +25275,10 @@ class ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$Im
         this,
       );
 
-  @JsonKey(name: 'width', fromJson: JsonCoerce.asDouble)
-  final double? width;
-  @JsonKey(name: 'height', fromJson: JsonCoerce.asDouble)
-  final double? height;
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asInt)
+  final int? width;
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asInt)
+  final int? height;
   @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory =
@@ -25317,7 +25312,7 @@ extension $ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$It
     on
         ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgCollection$Item {
   ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgCollection$Item
-  copyWith({double? width, double? height, String? url}) {
+  copyWith({int? width, int? height, String? url}) {
     return ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgCollection$Item(
       width: width ?? this.width,
       height: height ?? this.height,
@@ -25327,8 +25322,8 @@ extension $ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$It
 
   ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgCollection$Item
   copyWithWrapped({
-    Wrapped<double?>? width,
-    Wrapped<double?>? height,
+    Wrapped<int?>? width,
+    Wrapped<int?>? height,
     Wrapped<String?>? url,
   }) {
     return ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgCollection$Item(
@@ -25361,10 +25356,10 @@ class ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$Im
         this,
       );
 
-  @JsonKey(name: 'width', fromJson: JsonCoerce.asDouble)
-  final double? width;
-  @JsonKey(name: 'height', fromJson: JsonCoerce.asDouble)
-  final double? height;
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asInt)
+  final int? width;
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asInt)
+  final int? height;
   @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory =
@@ -25398,7 +25393,7 @@ extension $ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$It
     on
         ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgDetail$Item {
   ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgDetail$Item
-  copyWith({double? width, double? height, String? url}) {
+  copyWith({int? width, int? height, String? url}) {
     return ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgDetail$Item(
       width: width ?? this.width,
       height: height ?? this.height,
@@ -25408,8 +25403,8 @@ extension $ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$It
 
   ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgDetail$Item
   copyWithWrapped({
-    Wrapped<double?>? width,
-    Wrapped<double?>? height,
+    Wrapped<int?>? width,
+    Wrapped<int?>? height,
     Wrapped<String?>? url,
   }) {
     return ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ImgDetail$Item(
@@ -25444,8 +25439,8 @@ class ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$Pr
 
   @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
-  @JsonKey(name: 'type', fromJson: JsonCoerce.asDouble)
-  final double? type;
+  @JsonKey(name: 'type', fromJson: JsonCoerce.asInt)
+  final int? type;
   @JsonKey(name: 'optionValues')
   final List<
     ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item
@@ -25487,7 +25482,7 @@ extension $ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$It
   ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$Item
   copyWith({
     String? name,
-    double? type,
+    int? type,
     List<
       ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item
     >?
@@ -25503,7 +25498,7 @@ extension $ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$It
   ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$Item
   copyWithWrapped({
     Wrapped<String?>? name,
-    Wrapped<double?>? type,
+    Wrapped<int?>? type,
     Wrapped<
       List<
         ProductServiceProductNoAuthPremierProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item
@@ -25728,8 +25723,8 @@ class ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categ
   final String? targetSellCur;
   @JsonKey(name: 'sellQuantity', fromJson: JsonCoerce.asString)
   final String? sellQuantity;
-  @JsonKey(name: 'skuCount', fromJson: JsonCoerce.asDouble)
-  final double? skuCount;
+  @JsonKey(name: 'skuCount', fromJson: JsonCoerce.asInt)
+  final int? skuCount;
   @JsonKey(name: 'marketingInfo', fromJson: JsonCoerce.asString)
   final String? marketingInfo;
   @JsonKey(name: 'tags', defaultValue: <Object>[])
@@ -25863,7 +25858,7 @@ extension $ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$
     String? targetOriginPrice,
     String? targetSellCur,
     String? sellQuantity,
-    double? skuCount,
+    int? skuCount,
     String? marketingInfo,
     List<Object>? tags,
     ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item$PremiumBrandInfo?
@@ -25906,7 +25901,7 @@ extension $ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$
     Wrapped<String?>? targetOriginPrice,
     Wrapped<String?>? targetSellCur,
     Wrapped<String?>? sellQuantity,
-    Wrapped<double?>? skuCount,
+    Wrapped<int?>? skuCount,
     Wrapped<String?>? marketingInfo,
     Wrapped<List<Object>?>? tags,
     Wrapped<
@@ -26657,16 +26652,16 @@ class ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$Catego
         this,
       );
 
-  @JsonKey(name: 'id', fromJson: JsonCoerce.asDouble)
-  final double? id;
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asInt)
+  final int? id;
   @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
   @JsonKey(name: 'iconUrl', fromJson: JsonCoerce.asString)
   final String? iconUrl;
-  @JsonKey(name: 'parentId', fromJson: JsonCoerce.asDouble)
-  final double? parentId;
-  @JsonKey(name: 'level', fromJson: JsonCoerce.asDouble)
-  final double? level;
+  @JsonKey(name: 'parentId', fromJson: JsonCoerce.asInt)
+  final int? parentId;
+  @JsonKey(name: 'level', fromJson: JsonCoerce.asInt)
+  final int? level;
   static const fromJsonFactory =
       _$ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item$CategoryList$ItemFromJson;
 
@@ -26711,11 +26706,11 @@ extension $ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$C
         ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item$CategoryList$Item {
   ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item$CategoryList$Item
   copyWith({
-    double? id,
+    int? id,
     String? name,
     String? iconUrl,
-    double? parentId,
-    double? level,
+    int? parentId,
+    int? level,
   }) {
     return ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item$CategoryList$Item(
       id: id ?? this.id,
@@ -26728,11 +26723,11 @@ extension $ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$C
 
   ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item$CategoryList$Item
   copyWithWrapped({
-    Wrapped<double?>? id,
+    Wrapped<int?>? id,
     Wrapped<String?>? name,
     Wrapped<String?>? iconUrl,
-    Wrapped<double?>? parentId,
-    Wrapped<double?>? level,
+    Wrapped<int?>? parentId,
+    Wrapped<int?>? level,
   }) {
     return ProductServiceCategoryNoAuthTreeGet$Response$Data$CategoryList$Item$CategoryList$Item$CategoryList$Item(
       id: (id != null ? id.value : this.id),
@@ -27271,10 +27266,10 @@ class ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categ
         this,
       );
 
-  @JsonKey(name: 'width', fromJson: JsonCoerce.asDouble)
-  final double? width;
-  @JsonKey(name: 'height', fromJson: JsonCoerce.asDouble)
-  final double? height;
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asInt)
+  final int? width;
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asInt)
+  final int? height;
   @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
   final String? url;
   static const fromJsonFactory =
@@ -27308,7 +27303,7 @@ extension $ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$
     on
         ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item$Image {
   ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item$Image
-  copyWith({double? width, double? height, String? url}) {
+  copyWith({int? width, int? height, String? url}) {
     return ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item$Image(
       width: width ?? this.width,
       height: height ?? this.height,
@@ -27318,8 +27313,8 @@ extension $ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$
 
   ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item$Image
   copyWithWrapped({
-    Wrapped<double?>? width,
-    Wrapped<double?>? height,
+    Wrapped<int?>? width,
+    Wrapped<int?>? height,
     Wrapped<String?>? url,
   }) {
     return ProductServiceRecommendNoAuthCategoryRecommendationGet$Response$Data$Categories$Item$ProductInfos$Item$Image(

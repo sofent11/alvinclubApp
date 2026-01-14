@@ -64,7 +64,7 @@
                   "type": "string"
                 },
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "data": {
                   "type": "object",
@@ -144,7 +144,7 @@
                   }
                 },
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -193,16 +193,16 @@
                       "description": "true，返回单仓订单Id; false，返回多仓父单Id，"
                     },
                     "orderStatus": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "timeoutPeriod": {
-                      "type": "number",
+                      "type": "integer",
                       "description": "订单超时时间，单位：毫秒，如 30 分钟就是 1800000"
                     }
                   }
                 },
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -244,7 +244,7 @@
                   "properties": {}
                 },
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -321,7 +321,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -330,16 +330,16 @@
                   "type": "object",
                   "properties": {
                     "total": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "pageSize": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "totalPages": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "current": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "records": {
                       "type": "array",
@@ -347,16 +347,16 @@
                         "type": "object",
                         "properties": {
                           "status": {
-                            "type": "number"
+                            "type": "integer"
                           },
                           "frontStatus": {
-                            "type": "number"
+                            "type": "integer"
                           },
                           "statusContent": {
                             "type": "string"
                           },
                           "orderStatus": {
-                            "type": "number"
+                            "type": "integer"
                           },
                           "orderId": {
                             "type": "string"
@@ -365,7 +365,7 @@
                             "type": "string"
                           },
                           "quantity": {
-                            "type": "number"
+                            "type": "integer"
                           },
                           "totalAmount": {
                             "type": "string"
@@ -465,7 +465,7 @@
                                   "type": "string"
                                 },
                                 "quantity": {
-                                  "type": "number"
+                                  "type": "integer"
                                 },
                                 "skuSpecValues": {
                                   "type": "array",
@@ -508,7 +508,7 @@
                                   "type": "null"
                                 },
                                 "quantity": {
-                                  "type": "number"
+                                  "type": "integer"
                                 },
                                 "weight": {
                                   "type": "string"
@@ -561,7 +561,7 @@
                                 "type": "string"
                               },
                               "createTime": {
-                                "type": "number"
+                                "type": "integer"
                               },
                               "warehouseCode": {
                                 "type": "string"
@@ -684,7 +684,7 @@
                                     "type": "string"
                                   },
                                   "id": {
-                                    "type": "number"
+                                    "type": "integer"
                                   }
                                 }
                               },
@@ -706,7 +706,7 @@
                                       "type": "string"
                                     },
                                     "quantity": {
-                                      "type": "number"
+                                      "type": "integer"
                                     },
                                     "imageUrl": {
                                       "type": "string"
@@ -740,7 +740,7 @@
                                   "type": "string"
                                 },
                                 "status": {
-                                  "type": "number"
+                                  "type": "integer"
                                 },
                                 "targetTotalPrice": {
                                   "type": "string"
@@ -794,12 +794,12 @@
                                 "type": "string"
                               },
                               "id": {
-                                "type": "number"
+                                "type": "integer"
                               }
                             }
                           },
                           "createTime": {
-                            "type": "number"
+                            "type": "integer"
                           },
                           "wish": {
                             "type": "boolean"
@@ -811,7 +811,7 @@
                             "type": "string"
                           },
                           "giveawayGift": {
-                            "type": "number"
+                            "type": "integer"
                           },
                           "orderFreight": {
                             "type": "boolean"
@@ -872,7 +872,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -896,29 +896,29 @@
                           "type": "string"
                         },
                         "status": {
-                          "type": "number"
+                          "type": "integer"
                         },
                         "frontStatus": {
-                          "type": "number",
+                          "type": "integer",
                           "description": "1-待支付,2-待发货，3-待收货,4-完成,5-关闭"
                         },
                         "statusContent": {
                           "type": "string"
                         },
                         "orderStatus": {
-                          "type": "number"
+                          "type": "integer"
                         },
                         "evaluateStatus": {
-                          "type": "number"
+                          "type": "integer"
                         },
                         "timeoutPeriod": {
-                          "type": "number"
+                          "type": "integer"
                         },
                         "createTime": {
-                          "type": "number"
+                          "type": "integer"
                         },
                         "leftTime": {
-                          "type": "number"
+                          "type": "integer"
                         },
                         "title": {
                           "type": "string"
@@ -939,10 +939,10 @@
                           "type": "string"
                         },
                         "afterSalesExpressMethod": {
-                          "type": "number"
+                          "type": "integer"
                         },
                         "afterSalesState": {
-                          "type": "number"
+                          "type": "integer"
                         },
                         "remark": {
                           "type": "string"
@@ -951,7 +951,7 @@
                           "type": "string"
                         },
                         "supportOnlineAfterSales": {
-                          "type": "number"
+                          "type": "integer"
                         },
                         "receiptPdfLink": {
                           "type": "string"
@@ -966,7 +966,7 @@
                           "type": "string"
                         },
                         "payTime": {
-                          "type": "number"
+                          "type": "integer"
                         },
                         "afterSales": {
                           "type": "boolean"
@@ -1025,7 +1025,7 @@
                           "type": "string"
                         },
                         "id": {
-                          "type": "number"
+                          "type": "integer"
                         }
                       }
                     },
@@ -1065,7 +1065,7 @@
                           "type": "string"
                         },
                         "skuQuantity": {
-                          "type": "number"
+                          "type": "integer"
                         },
                         "currency": {
                           "type": "string"
@@ -1219,7 +1219,7 @@
                           "type": "string"
                         },
                         "createTime": {
-                          "type": "number"
+                          "type": "integer"
                         },
                         "warehouseCode": {
                           "type": "string"
@@ -1265,7 +1265,7 @@
                                 "type": "string"
                               },
                               "quantity": {
-                                "type": "number"
+                                "type": "integer"
                               },
                               "imageUrl": {
                                 "type": "string"
@@ -1351,7 +1351,7 @@
                             "type": "object",
                             "properties": {
                               "id": {
-                                "type": "number"
+                                "type": "integer"
                               },
                               "frontCode": {
                                 "type": "string"
@@ -1363,7 +1363,7 @@
                                 "type": "string"
                               },
                               "time": {
-                                "type": "number"
+                                "type": "integer"
                               },
                               "lastMileMailNo": {
                                 "type": "string"
@@ -1394,7 +1394,7 @@
                         "type": "object",
                         "properties": {
                           "discountType": {
-                            "type": "number"
+                            "type": "integer"
                           },
                           "userCouponCode": {
                             "type": "string"
@@ -1467,7 +1467,7 @@
                                   "type": "string"
                                 },
                                 "quantity": {
-                                  "type": "number"
+                                  "type": "integer"
                                 },
                                 "remark": {
                                   "type": "string"
@@ -1569,7 +1569,7 @@
                                   "type": "string"
                                 },
                                 "quantity": {
-                                  "type": "number"
+                                  "type": "integer"
                                 },
                                 "weight": {
                                   "type": "string"
@@ -1657,7 +1657,7 @@
                       "description": "1: 订单待支付 2:订单待发货(支付成功)"
                     },
                     "targetCurrency": {
-                      "type": "number",
+                      "type": "integer",
                       "description": "订单超时时间，单位：毫秒，如 30 分钟就是 1800000"
                     },
                     "targetPrice": {
@@ -1666,7 +1666,7 @@
                   }
                 },
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -1707,7 +1707,7 @@
                   "type": "string"
                 },
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "data": {
                   "type": "object",
@@ -1753,17 +1753,17 @@
                       "description": "空代表子单，跳转列表，有值是父单，跳转详情"
                     },
                     "orderStatus": {
-                      "type": "number",
+                      "type": "integer",
                       "description": "1: 订单待支付 2:订单待发货(支付成功)"
                     },
                     "timeoutPeriod": {
-                      "type": "number",
+                      "type": "integer",
                       "description": "订单超时时间，单位：毫秒，如 30 分钟就是 1800000"
                     }
                   }
                 },
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -1805,7 +1805,7 @@
                   "properties": {}
                 },
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -1966,11 +1966,11 @@
                                     "description": "法币"
                                   },
                                   "gmtExpectArriveStart": {
-                                    "type": "number",
+                                    "type": "integer",
                                     "description": "预计到达时间戳起始点，单位毫秒"
                                   },
                                   "gmtExpectArriveEnd": {
-                                    "type": "number",
+                                    "type": "integer",
                                     "description": "预计到达时间戳结束点，单位毫秒"
                                   },
                                   "lateCompensation": {
@@ -2592,7 +2592,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -2616,29 +2616,29 @@
                           "type": "string"
                         },
                         "status": {
-                          "type": "number"
+                          "type": "integer"
                         },
                         "frontStatus": {
-                          "type": "number",
+                          "type": "integer",
                           "description": "1-待支付,2-待发货，3-待收货,4-完成,5-关闭"
                         },
                         "statusContent": {
                           "type": "string"
                         },
                         "orderStatus": {
-                          "type": "number"
+                          "type": "integer"
                         },
                         "evaluateStatus": {
-                          "type": "number"
+                          "type": "integer"
                         },
                         "timeoutPeriod": {
-                          "type": "number"
+                          "type": "integer"
                         },
                         "createTime": {
-                          "type": "number"
+                          "type": "integer"
                         },
                         "leftTime": {
-                          "type": "number"
+                          "type": "integer"
                         },
                         "title": {
                           "type": "string"
@@ -2659,10 +2659,10 @@
                           "type": "string"
                         },
                         "afterSalesExpressMethod": {
-                          "type": "number"
+                          "type": "integer"
                         },
                         "afterSalesState": {
-                          "type": "number"
+                          "type": "integer"
                         },
                         "remark": {
                           "type": "string"
@@ -2671,7 +2671,7 @@
                           "type": "string"
                         },
                         "supportOnlineAfterSales": {
-                          "type": "number"
+                          "type": "integer"
                         },
                         "receiptPdfLink": {
                           "type": "string"
@@ -2686,7 +2686,7 @@
                           "type": "string"
                         },
                         "payTime": {
-                          "type": "number"
+                          "type": "integer"
                         },
                         "afterSales": {
                           "type": "boolean"
@@ -2745,7 +2745,7 @@
                           "type": "string"
                         },
                         "id": {
-                          "type": "number"
+                          "type": "integer"
                         }
                       }
                     },
@@ -2785,7 +2785,7 @@
                           "type": "string"
                         },
                         "skuQuantity": {
-                          "type": "number"
+                          "type": "integer"
                         },
                         "currency": {
                           "type": "string"
@@ -2868,7 +2868,7 @@
                           "type": "string"
                         },
                         "createTime": {
-                          "type": "number"
+                          "type": "integer"
                         },
                         "warehouseCode": {
                           "type": "string"
@@ -2914,7 +2914,7 @@
                                 "type": "string"
                               },
                               "quantity": {
-                                "type": "number"
+                                "type": "integer"
                               },
                               "imageUrl": {
                                 "type": "string"
@@ -3000,7 +3000,7 @@
                             "type": "object",
                             "properties": {
                               "id": {
-                                "type": "number"
+                                "type": "integer"
                               },
                               "frontCode": {
                                 "type": "string"
@@ -3012,7 +3012,7 @@
                                 "type": "string"
                               },
                               "time": {
-                                "type": "number"
+                                "type": "integer"
                               },
                               "lastMileMailNo": {
                                 "type": "string"
@@ -3127,7 +3127,7 @@
                         "type": "object",
                         "properties": {
                           "discountType": {
-                            "type": "number"
+                            "type": "integer"
                           },
                           "userCouponCode": {
                             "type": "string"
@@ -3200,7 +3200,7 @@
                                   "type": "string"
                                 },
                                 "quantity": {
-                                  "type": "number"
+                                  "type": "integer"
                                 },
                                 "remark": {
                                   "type": "string"
@@ -3252,7 +3252,7 @@
                                   "type": "string"
                                 },
                                 "quantity": {
-                                  "type": "number"
+                                  "type": "integer"
                                 },
                                 "weight": {
                                   "type": "string"
@@ -3386,7 +3386,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -3404,7 +3404,7 @@
                         "type": "string"
                       },
                       "discountType": {
-                        "type": "number"
+                        "type": "integer"
                       },
                       "discountAmount": {
                         "type": "string"
@@ -3454,7 +3454,7 @@
                             "type": "string"
                           },
                           "couponTitle": {
-                            "type": "number"
+                            "type": "integer"
                           },
                           "isUsed": {
                             "type": "string"
@@ -3466,10 +3466,10 @@
                             "type": "integer"
                           },
                           "discount": {
-                            "type": "number"
+                            "type": "integer"
                           },
                           "limitAmount": {
-                            "type": "number"
+                            "type": "integer"
                           },
                           "currency": {
                             "type": "string"
@@ -3536,7 +3536,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -3553,7 +3553,7 @@
                         "type": "string"
                       },
                       "discountType": {
-                        "type": "number"
+                        "type": "integer"
                       },
                       "discountAmount": {
                         "type": "string"
@@ -3618,7 +3618,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -3633,7 +3633,7 @@
                       "type": "string"
                     },
                     "discountType": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "discountAmount": {
                       "type": "string"
@@ -3697,7 +3697,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -3744,7 +3744,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -3896,7 +3896,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -3905,16 +3905,16 @@
                   "type": "object",
                   "properties": {
                     "total": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "pageSize": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "totalPages": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "current": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "records": {
                       "type": "array",
@@ -3922,16 +3922,16 @@
                         "type": "object",
                         "properties": {
                           "status": {
-                            "type": "number"
+                            "type": "integer"
                           },
                           "frontStatus": {
-                            "type": "number"
+                            "type": "integer"
                           },
                           "statusContent": {
                             "type": "string"
                           },
                           "orderStatus": {
-                            "type": "number"
+                            "type": "integer"
                           },
                           "orderId": {
                             "type": "string"
@@ -3940,7 +3940,7 @@
                             "type": "string"
                           },
                           "quantity": {
-                            "type": "number"
+                            "type": "integer"
                           },
                           "totalAmount": {
                             "type": "string"
@@ -4034,7 +4034,7 @@
                                   "type": "string"
                                 },
                                 "quantity": {
-                                  "type": "number"
+                                  "type": "integer"
                                 },
                                 "skuSpecValues": {
                                   "type": "array",
@@ -4077,7 +4077,7 @@
                                   "type": "null"
                                 },
                                 "quantity": {
-                                  "type": "number"
+                                  "type": "integer"
                                 },
                                 "weight": {
                                   "type": "string"
@@ -4130,7 +4130,7 @@
                                 "type": "string"
                               },
                               "createTime": {
-                                "type": "number"
+                                "type": "integer"
                               },
                               "warehouseCode": {
                                 "type": "string"
@@ -4253,7 +4253,7 @@
                                     "type": "string"
                                   },
                                   "id": {
-                                    "type": "number"
+                                    "type": "integer"
                                   }
                                 }
                               },
@@ -4275,7 +4275,7 @@
                                       "type": "string"
                                     },
                                     "quantity": {
-                                      "type": "number"
+                                      "type": "integer"
                                     },
                                     "imageUrl": {
                                       "type": "string"
@@ -4309,7 +4309,7 @@
                                   "type": "string"
                                 },
                                 "status": {
-                                  "type": "number"
+                                  "type": "integer"
                                 },
                                 "targetTotalPrice": {
                                   "type": "string"
@@ -4363,12 +4363,12 @@
                                 "type": "string"
                               },
                               "id": {
-                                "type": "number"
+                                "type": "integer"
                               }
                             }
                           },
                           "createTime": {
-                            "type": "number"
+                            "type": "integer"
                           },
                           "wish": {
                             "type": "boolean"
@@ -4380,7 +4380,7 @@
                             "type": "string"
                           },
                           "giveawayGift": {
-                            "type": "number"
+                            "type": "integer"
                           },
                           "skuSourceCode": {
                             "type": "string"
@@ -4480,7 +4480,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -4489,16 +4489,16 @@
                   "type": "object",
                   "properties": {
                     "total": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "pageSize": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "totalPages": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "current": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "records": {
                       "type": "array",
@@ -4506,19 +4506,19 @@
                         "type": "object",
                         "properties": {
                           "status": {
-                            "type": "number"
+                            "type": "integer"
                           },
                           "frontStatus": {
-                            "type": "number"
+                            "type": "integer"
                           },
                           "statusContent": {
                             "type": "string"
                           },
                           "orderStatus": {
-                            "type": "number"
+                            "type": "integer"
                           },
                           "quantity": {
-                            "type": "number"
+                            "type": "integer"
                           },
                           "totalAmount": {
                             "type": "string"
@@ -4583,7 +4583,7 @@
                                 "type": "string"
                               },
                               "createTime": {
-                                "type": "number"
+                                "type": "integer"
                               },
                               "warehouseCode": {
                                 "type": "string"
@@ -4706,7 +4706,7 @@
                                     "type": "string"
                                   },
                                   "id": {
-                                    "type": "number"
+                                    "type": "integer"
                                   }
                                 }
                               },
@@ -4728,7 +4728,7 @@
                                       "type": "string"
                                     },
                                     "quantity": {
-                                      "type": "number"
+                                      "type": "integer"
                                     },
                                     "imageUrl": {
                                       "type": "string"
@@ -4793,12 +4793,12 @@
                                 "type": "string"
                               },
                               "id": {
-                                "type": "number"
+                                "type": "integer"
                               }
                             }
                           },
                           "createTime": {
-                            "type": "number"
+                            "type": "integer"
                           },
                           "wish": {
                             "type": "boolean"
@@ -4809,16 +4809,16 @@
                               "type": "object",
                               "properties": {
                                 "status": {
-                                  "type": "number"
+                                  "type": "integer"
                                 },
                                 "frontStatus": {
-                                  "type": "number"
+                                  "type": "integer"
                                 },
                                 "statusContent": {
                                   "type": "string"
                                 },
                                 "orderStatus": {
-                                  "type": "number"
+                                  "type": "integer"
                                 },
                                 "orderId": {
                                   "type": "string"
@@ -4827,7 +4827,7 @@
                                   "type": "string"
                                 },
                                 "quantity": {
-                                  "type": "number"
+                                  "type": "integer"
                                 },
                                 "targetOriginAmount": {
                                   "type": "string"
@@ -4939,7 +4939,7 @@
                                         "type": "string"
                                       },
                                       "quantity": {
-                                        "type": "number"
+                                        "type": "integer"
                                       },
                                       "skuSpecValues": {
                                         "type": "array",
@@ -4979,7 +4979,7 @@
                                         "type": "null"
                                       },
                                       "quantity": {
-                                        "type": "number"
+                                        "type": "integer"
                                       },
                                       "weight": {
                                         "type": "string"
@@ -5035,7 +5035,7 @@
                                       "type": "string"
                                     },
                                     "createTime": {
-                                      "type": "number"
+                                      "type": "integer"
                                     },
                                     "warehouseCode": {
                                       "type": "string"
@@ -5158,7 +5158,7 @@
                                           "type": "string"
                                         },
                                         "id": {
-                                          "type": "number"
+                                          "type": "integer"
                                         }
                                       }
                                     },
@@ -5180,7 +5180,7 @@
                                             "type": "string"
                                           },
                                           "quantity": {
-                                            "type": "number"
+                                            "type": "integer"
                                           },
                                           "imageUrl": {
                                             "type": "string"
@@ -5214,7 +5214,7 @@
                                         "type": "string"
                                       },
                                       "status": {
-                                        "type": "number"
+                                        "type": "integer"
                                       },
                                       "targetTotalPrice": {
                                         "type": "string"
@@ -5268,12 +5268,12 @@
                                       "type": "string"
                                     },
                                     "id": {
-                                      "type": "number"
+                                      "type": "integer"
                                     }
                                   }
                                 },
                                 "createTime": {
-                                  "type": "number"
+                                  "type": "integer"
                                 },
                                 "wish": {
                                   "type": "boolean"
@@ -5320,7 +5320,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -5372,7 +5372,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -5430,7 +5430,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -5477,7 +5477,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -5541,7 +5541,7 @@
                                   "type": "string"
                                 },
                                 "quantity": {
-                                  "type": "number"
+                                  "type": "integer"
                                 },
                                 "remark": {
                                   "type": "string"
@@ -5605,7 +5605,7 @@
                                   "type": "string"
                                 },
                                 "quantity": {
-                                  "type": "number"
+                                  "type": "integer"
                                 },
                                 "weight": {
                                   "type": "string"
@@ -5735,29 +5735,29 @@
                           "type": "string"
                         },
                         "status": {
-                          "type": "number"
+                          "type": "integer"
                         },
                         "frontStatus": {
-                          "type": "number",
+                          "type": "integer",
                           "description": "1-待支付,2-待发货，3-待收货,4-完成,5-关闭"
                         },
                         "statusContent": {
                           "type": "string"
                         },
                         "orderStatus": {
-                          "type": "number"
+                          "type": "integer"
                         },
                         "evaluateStatus": {
-                          "type": "number"
+                          "type": "integer"
                         },
                         "timeoutPeriod": {
-                          "type": "number"
+                          "type": "integer"
                         },
                         "createTime": {
-                          "type": "number"
+                          "type": "integer"
                         },
                         "leftTime": {
-                          "type": "number"
+                          "type": "integer"
                         },
                         "title": {
                           "type": "string"
@@ -5778,10 +5778,10 @@
                           "type": "string"
                         },
                         "afterSalesExpressMethod": {
-                          "type": "number"
+                          "type": "integer"
                         },
                         "afterSalesState": {
-                          "type": "number"
+                          "type": "integer"
                         },
                         "remark": {
                           "type": "string"
@@ -5790,7 +5790,7 @@
                           "type": "string"
                         },
                         "supportOnlineAfterSales": {
-                          "type": "number"
+                          "type": "integer"
                         },
                         "receiptPdfLink": {
                           "type": "string"
@@ -5805,7 +5805,7 @@
                           "type": "string"
                         },
                         "payTime": {
-                          "type": "number"
+                          "type": "integer"
                         },
                         "batchNo": {
                           "type": "string"
@@ -5823,13 +5823,13 @@
                           "type": "null"
                         },
                         "returnType": {
-                          "type": "number"
+                          "type": "integer"
                         },
                         "language": {
                           "type": "null"
                         },
                         "giveawayGift": {
-                          "type": "number"
+                          "type": "integer"
                         },
                         "afterSales": {
                           "type": "boolean"
@@ -5843,7 +5843,7 @@
                       "type": "object",
                       "properties": {
                         "method": {
-                          "type": "number"
+                          "type": "integer"
                         },
                         "methodName": {
                           "type": "string"
@@ -5884,7 +5884,7 @@
                           "type": "string"
                         },
                         "skuQuantity": {
-                          "type": "number"
+                          "type": "integer"
                         },
                         "currency": {
                           "type": "string"
@@ -5982,7 +5982,7 @@
                           "type": "string"
                         },
                         "id": {
-                          "type": "number"
+                          "type": "integer"
                         },
                         "remark": {
                           "type": "null"
@@ -6014,7 +6014,7 @@
                           "type": "string"
                         },
                         "createTime": {
-                          "type": "number"
+                          "type": "integer"
                         },
                         "warehouseCode": {
                           "type": "string"
@@ -6150,7 +6150,7 @@
                               "type": "string"
                             },
                             "id": {
-                              "type": "number"
+                              "type": "integer"
                             },
                             "remark": {
                               "type": "null"
@@ -6187,7 +6187,7 @@
                                 "type": "string"
                               },
                               "quantity": {
-                                "type": "number"
+                                "type": "integer"
                               },
                               "imageUrl": {
                                 "type": "string"
@@ -6259,7 +6259,7 @@
                                   "type": "object",
                                   "properties": {
                                     "id": {
-                                      "type": "number"
+                                      "type": "integer"
                                     },
                                     "subParcelOrderId": {
                                       "type": "string"
@@ -6280,7 +6280,7 @@
                                       "type": "string"
                                     },
                                     "time": {
-                                      "type": "number"
+                                      "type": "integer"
                                     },
                                     "lastMileMailNo": {
                                       "type": "string"
@@ -6304,7 +6304,7 @@
                                 }
                               },
                               "sequenceTime": {
-                                "type": "number"
+                                "type": "integer"
                               }
                             }
                           }
@@ -6352,7 +6352,7 @@
                               "type": "string"
                             },
                             "id": {
-                              "type": "number"
+                              "type": "integer"
                             },
                             "remark": {
                               "type": "string"
@@ -6377,7 +6377,7 @@
                                 "type": "string"
                               },
                               "quantity": {
-                                "type": "number"
+                                "type": "integer"
                               },
                               "imageUrl": {
                                 "type": "string"
@@ -6409,7 +6409,7 @@
                             "type": "object",
                             "properties": {
                               "id": {
-                                "type": "number"
+                                "type": "integer"
                               },
                               "subParcelOrderId": {
                                 "type": "string"
@@ -6430,7 +6430,7 @@
                                 "type": "string"
                               },
                               "time": {
-                                "type": "number"
+                                "type": "integer"
                               },
                               "lastMileMailNo": {
                                 "type": "string"
@@ -6461,7 +6461,7 @@
                         "type": "object",
                         "properties": {
                           "discountType": {
-                            "type": "number"
+                            "type": "integer"
                           },
                           "userCouponCode": {
                             "type": "string"
@@ -6523,7 +6523,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -6547,29 +6547,29 @@
                           "type": "string"
                         },
                         "status": {
-                          "type": "number"
+                          "type": "integer"
                         },
                         "frontStatus": {
-                          "type": "number",
+                          "type": "integer",
                           "description": "1-待支付,2-待发货，3-待收货,4-完成,5-关闭"
                         },
                         "statusContent": {
                           "type": "string"
                         },
                         "orderStatus": {
-                          "type": "number"
+                          "type": "integer"
                         },
                         "evaluateStatus": {
-                          "type": "number"
+                          "type": "integer"
                         },
                         "timeoutPeriod": {
-                          "type": "number"
+                          "type": "integer"
                         },
                         "createTime": {
-                          "type": "number"
+                          "type": "integer"
                         },
                         "leftTime": {
-                          "type": "number"
+                          "type": "integer"
                         },
                         "title": {
                           "type": "string"
@@ -6590,10 +6590,10 @@
                           "type": "string"
                         },
                         "afterSalesExpressMethod": {
-                          "type": "number"
+                          "type": "integer"
                         },
                         "afterSalesState": {
-                          "type": "number"
+                          "type": "integer"
                         },
                         "remark": {
                           "type": "string"
@@ -6602,7 +6602,7 @@
                           "type": "string"
                         },
                         "supportOnlineAfterSales": {
-                          "type": "number"
+                          "type": "integer"
                         },
                         "receiptPdfLink": {
                           "type": "string"
@@ -6617,7 +6617,7 @@
                           "type": "string"
                         },
                         "payTime": {
-                          "type": "number"
+                          "type": "integer"
                         },
                         "afterSales": {
                           "type": "boolean"
@@ -6673,7 +6673,7 @@
                           "type": "string"
                         },
                         "id": {
-                          "type": "number"
+                          "type": "integer"
                         }
                       }
                     },
@@ -6710,7 +6710,7 @@
                           "type": "string"
                         },
                         "skuQuantity": {
-                          "type": "number"
+                          "type": "integer"
                         },
                         "currency": {
                           "type": "string"
@@ -6784,7 +6784,7 @@
                           "type": "string"
                         },
                         "createTime": {
-                          "type": "number"
+                          "type": "integer"
                         },
                         "warehouseCode": {
                           "type": "string"
@@ -6830,7 +6830,7 @@
                                 "type": "string"
                               },
                               "quantity": {
-                                "type": "number"
+                                "type": "integer"
                               },
                               "imageUrl": {
                                 "type": "string"
@@ -6916,7 +6916,7 @@
                             "type": "object",
                             "properties": {
                               "id": {
-                                "type": "number"
+                                "type": "integer"
                               },
                               "frontCode": {
                                 "type": "string"
@@ -6928,7 +6928,7 @@
                                 "type": "string"
                               },
                               "time": {
-                                "type": "number"
+                                "type": "integer"
                               },
                               "lastMileMailNo": {
                                 "type": "string"
@@ -6994,7 +6994,7 @@
                                   "type": "string"
                                 },
                                 "quantity": {
-                                  "type": "number"
+                                  "type": "integer"
                                 },
                                 "remark": {
                                   "type": "string"
@@ -7040,7 +7040,7 @@
                                   "type": "string"
                                 },
                                 "quantity": {
-                                  "type": "number"
+                                  "type": "integer"
                                 },
                                 "weight": {
                                   "type": "string"
@@ -7110,7 +7110,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -7139,29 +7139,29 @@
                                 "type": "string"
                               },
                               "status": {
-                                "type": "number"
+                                "type": "integer"
                               },
                               "frontStatus": {
-                                "type": "number",
+                                "type": "integer",
                                 "description": "1-待支付,2-待发货，3-待收货,4-完成,5-关闭"
                               },
                               "statusContent": {
                                 "type": "string"
                               },
                               "orderStatus": {
-                                "type": "number"
+                                "type": "integer"
                               },
                               "evaluateStatus": {
-                                "type": "number"
+                                "type": "integer"
                               },
                               "timeoutPeriod": {
-                                "type": "number"
+                                "type": "integer"
                               },
                               "createTime": {
-                                "type": "number"
+                                "type": "integer"
                               },
                               "leftTime": {
-                                "type": "number"
+                                "type": "integer"
                               },
                               "title": {
                                 "type": "string"
@@ -7182,10 +7182,10 @@
                                 "type": "string"
                               },
                               "afterSalesExpressMethod": {
-                                "type": "number"
+                                "type": "integer"
                               },
                               "afterSalesState": {
-                                "type": "number"
+                                "type": "integer"
                               },
                               "remark": {
                                 "type": "string"
@@ -7194,7 +7194,7 @@
                                 "type": "string"
                               },
                               "supportOnlineAfterSales": {
-                                "type": "number"
+                                "type": "integer"
                               },
                               "receiptPdfLink": {
                                 "type": "string"
@@ -7209,7 +7209,7 @@
                                 "type": "string"
                               },
                               "payTime": {
-                                "type": "number"
+                                "type": "integer"
                               },
                               "afterSales": {
                                 "type": "boolean"
@@ -7224,7 +7224,7 @@
                                 "type": "boolean"
                               },
                               "giveawayGift": {
-                                "type": "number"
+                                "type": "integer"
                               }
                             }
                           },
@@ -7271,7 +7271,7 @@
                                 "type": "string"
                               },
                               "id": {
-                                "type": "number"
+                                "type": "integer"
                               }
                             }
                           },
@@ -7314,7 +7314,7 @@
                                 "type": "string"
                               },
                               "skuQuantity": {
-                                "type": "number"
+                                "type": "integer"
                               },
                               "currency": {
                                 "type": "string"
@@ -7403,7 +7403,7 @@
                                 "type": "string"
                               },
                               "createTime": {
-                                "type": "number"
+                                "type": "integer"
                               },
                               "warehouseCode": {
                                 "type": "string"
@@ -7449,7 +7449,7 @@
                                       "type": "string"
                                     },
                                     "quantity": {
-                                      "type": "number"
+                                      "type": "integer"
                                     },
                                     "imageUrl": {
                                       "type": "string"
@@ -7535,7 +7535,7 @@
                                   "type": "object",
                                   "properties": {
                                     "id": {
-                                      "type": "number"
+                                      "type": "integer"
                                     },
                                     "frontCode": {
                                       "type": "string"
@@ -7547,7 +7547,7 @@
                                       "type": "string"
                                     },
                                     "time": {
-                                      "type": "number"
+                                      "type": "integer"
                                     },
                                     "lastMileMailNo": {
                                       "type": "string"
@@ -7578,7 +7578,7 @@
                               "type": "object",
                               "properties": {
                                 "discountType": {
-                                  "type": "number"
+                                  "type": "integer"
                                 },
                                 "userCouponCode": {
                                   "type": "string"
@@ -7651,7 +7651,7 @@
                                         "type": "string"
                                       },
                                       "quantity": {
-                                        "type": "number"
+                                        "type": "integer"
                                       },
                                       "remark": {
                                         "type": "string"
@@ -7700,7 +7700,7 @@
                                         "type": "string"
                                       },
                                       "quantity": {
-                                        "type": "number"
+                                        "type": "integer"
                                       },
                                       "weight": {
                                         "type": "string"
@@ -7751,29 +7751,29 @@
                           "type": "string"
                         },
                         "status": {
-                          "type": "number"
+                          "type": "integer"
                         },
                         "frontStatus": {
-                          "type": "number",
+                          "type": "integer",
                           "description": "1-待支付,2-待发货，3-待收货,4-完成,5-关闭"
                         },
                         "statusContent": {
                           "type": "string"
                         },
                         "orderStatus": {
-                          "type": "number"
+                          "type": "integer"
                         },
                         "evaluateStatus": {
-                          "type": "number"
+                          "type": "integer"
                         },
                         "timeoutPeriod": {
-                          "type": "number"
+                          "type": "integer"
                         },
                         "createTime": {
-                          "type": "number"
+                          "type": "integer"
                         },
                         "leftTime": {
-                          "type": "number"
+                          "type": "integer"
                         },
                         "title": {
                           "type": "string"
@@ -7794,10 +7794,10 @@
                           "type": "string"
                         },
                         "afterSalesExpressMethod": {
-                          "type": "number"
+                          "type": "integer"
                         },
                         "afterSalesState": {
-                          "type": "number"
+                          "type": "integer"
                         },
                         "remark": {
                           "type": "string"
@@ -7806,7 +7806,7 @@
                           "type": "string"
                         },
                         "supportOnlineAfterSales": {
-                          "type": "number"
+                          "type": "integer"
                         },
                         "receiptPdfLink": {
                           "type": "string"
@@ -7821,7 +7821,7 @@
                           "type": "string"
                         },
                         "payTime": {
-                          "type": "number"
+                          "type": "integer"
                         },
                         "afterSales": {
                           "type": "boolean"
@@ -7853,7 +7853,7 @@
                           "type": "string"
                         },
                         "createTime": {
-                          "type": "number"
+                          "type": "integer"
                         },
                         "warehouseCode": {
                           "type": "string"
@@ -7899,7 +7899,7 @@
                                 "type": "string"
                               },
                               "quantity": {
-                                "type": "number"
+                                "type": "integer"
                               },
                               "imageUrl": {
                                 "type": "string"
@@ -7985,7 +7985,7 @@
                             "type": "object",
                             "properties": {
                               "id": {
-                                "type": "number"
+                                "type": "integer"
                               },
                               "frontCode": {
                                 "type": "string"
@@ -7997,7 +7997,7 @@
                                 "type": "string"
                               },
                               "time": {
-                                "type": "number"
+                                "type": "integer"
                               },
                               "lastMileMailNo": {
                                 "type": "string"
@@ -8046,7 +8046,7 @@
                                   "type": "object",
                                   "properties": {
                                     "id": {
-                                      "type": "number"
+                                      "type": "integer"
                                     },
                                     "frontCode": {
                                       "type": "string"
@@ -8058,7 +8058,7 @@
                                       "type": "string"
                                     },
                                     "time": {
-                                      "type": "number"
+                                      "type": "integer"
                                     },
                                     "lastMileMailNo": {
                                       "type": "null"
@@ -8133,7 +8133,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -8162,7 +8162,7 @@
                         "type": "object",
                         "properties": {
                           "id": {
-                            "type": "number"
+                            "type": "integer"
                           },
                           "frontCode": {
                             "type": "string"
@@ -8174,7 +8174,7 @@
                             "type": "string"
                           },
                           "time": {
-                            "type": "number"
+                            "type": "integer"
                           },
                           "lastMileMailNo": {
                             "type": "null"
@@ -8279,7 +8279,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -8306,10 +8306,10 @@
                       "type": "string"
                     },
                     "orderLimitAmount": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "shipLimitAmount": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "country": {
                       "type": "string"
@@ -8343,7 +8343,7 @@
                                   "type": "string"
                                 },
                                 "quantity": {
-                                  "type": "number"
+                                  "type": "integer"
                                 },
                                 "targetOriginPrice": {
                                   "type": "string"
@@ -8367,7 +8367,7 @@
                                   "type": "string"
                                 },
                                 "status": {
-                                  "type": "number",
+                                  "type": "integer",
                                   "description": "1-可用 0-不可用，置灰"
                                 },
                                 "sellPrice": {
@@ -8397,7 +8397,7 @@
                                   }
                                 },
                                 "discountAmount": {
-                                  "type": "number"
+                                  "type": "integer"
                                 },
                                 "discountRemark": {
                                   "type": "string"
@@ -8415,7 +8415,7 @@
                                   "type": "string"
                                 },
                                 "canDeliver": {
-                                  "type": "number"
+                                  "type": "integer"
                                 },
                                 "inviteCode": {
                                   "type": "string"
@@ -8583,7 +8583,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -8648,7 +8648,7 @@
                             "type": "string"
                           },
                           "quantity": {
-                            "type": "number"
+                            "type": "integer"
                           },
                           "price": {
                             "type": "null"
@@ -8738,7 +8738,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -8797,7 +8797,7 @@
                             "type": "string"
                           },
                           "quantity": {
-                            "type": "number"
+                            "type": "integer"
                           },
                           "price": {
                             "type": "null"
@@ -8877,13 +8877,13 @@
           "description": "sku列表"
         },
         "userAddressId": {
-          "type": "number"
+          "type": "integer"
         },
         "userAddress": {
           "type": "object",
           "properties": {
             "isDefault": {
-              "type": "number",
+              "type": "integer",
               "description": "是否默认地址1是0否"
             },
             "email": {
@@ -8953,7 +8953,7 @@
               "description": "用户Id"
             },
             "id": {
-              "type": "number",
+              "type": "integer",
               "description": "地址id"
             }
           }
@@ -9088,7 +9088,7 @@
           "type": "string"
         },
         "userAddressId": {
-          "type": "number"
+          "type": "integer"
         },
         "addBatch": {
           "type": "boolean"
@@ -9120,13 +9120,13 @@
           "description": "sku列表"
         },
         "userAddressId": {
-          "type": "number"
+          "type": "integer"
         },
         "userAddress": {
           "type": "object",
           "properties": {
             "isDefault": {
-              "type": "number",
+              "type": "integer",
               "description": "是否默认地址1是0否"
             },
             "email": {
@@ -9196,7 +9196,7 @@
               "description": "用户Id"
             },
             "id": {
-              "type": "number",
+              "type": "integer",
               "description": "地址id"
             }
           }
@@ -9205,7 +9205,7 @@
           "type": "boolean"
         },
         "targetTip": {
-          "type": "number"
+          "type": "integer"
         },
         "paySubmit": {
           "type": "boolean",
@@ -9315,7 +9315,7 @@
                       "type": "integer"
                     },
                     "price": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "remark": {
                       "type": "string"
@@ -9376,7 +9376,7 @@
           "type": "string"
         },
         "userAddressId": {
-          "type": "number"
+          "type": "integer"
         },
         "addBatch": {
           "type": "boolean"
@@ -9408,13 +9408,13 @@
           "description": "sku列表"
         },
         "userAddressId": {
-          "type": "number"
+          "type": "integer"
         },
         "userAddress": {
           "type": "object",
           "properties": {
             "isDefault": {
-              "type": "number",
+              "type": "integer",
               "description": "是否默认地址1是0否"
             },
             "email": {
@@ -9484,7 +9484,7 @@
               "description": "用户Id"
             },
             "id": {
-              "type": "number",
+              "type": "integer",
               "description": "地址id"
             }
           }
@@ -9517,7 +9517,7 @@
           "type": "integer"
         },
         "targetTip": {
-          "type": "number"
+          "type": "integer"
         },
         "skuList": {
           "type": "array",
@@ -9637,7 +9637,7 @@
           "description": "0 不抵扣，1 抵扣"
         },
         "rechargeAmount": {
-          "type": "number",
+          "type": "integer",
           "description": "抵扣金额（CNY）"
         }
       }
@@ -9655,10 +9655,10 @@
                 "type": "string"
               },
               "quantity": {
-                "type": "number"
+                "type": "integer"
               },
               "price": {
-                "type": "number"
+                "type": "integer"
               }
             }
           }
@@ -9732,7 +9732,7 @@
                 "type": "string"
               },
               "quantity": {
-                "type": "number"
+                "type": "integer"
               }
             }
           }
@@ -9751,7 +9751,7 @@
                 "type": "string"
               },
               "quantity": {
-                "type": "number"
+                "type": "integer"
               }
             }
           }
@@ -9770,7 +9770,7 @@
                 "type": "string"
               },
               "comment": {
-                "type": "number"
+                "type": "integer"
               },
               "score": {
                 "type": "string"
@@ -9860,7 +9860,7 @@
                 "type": "string"
               },
               "quantity": {
-                "type": "number",
+                "type": "integer",
                 "description": " 数量"
               },
               "orderUpdate": {
@@ -9888,7 +9888,7 @@
                 "type": "string"
               },
               "quantity": {
-                "type": "number",
+                "type": "integer",
                 "description": "数量"
               },
               "price": {
@@ -9913,10 +9913,10 @@
                 "type": "string"
               },
               "quantity": {
-                "type": "number"
+                "type": "integer"
               },
               "price": {
-                "type": "number"
+                "type": "integer"
               }
             }
           }
@@ -9940,10 +9940,10 @@
                 "type": "string"
               },
               "quantity": {
-                "type": "number"
+                "type": "integer"
               },
               "price": {
-                "type": "number"
+                "type": "integer"
               }
             }
           }

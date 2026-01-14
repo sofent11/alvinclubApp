@@ -61,6 +61,23 @@ def _convert_price_types_to_string(data: object) -> None:
             _convert_price_types_to_string(item)
 
 
+def _convert_number_to_integer(data: object) -> None:
+    """Recursively change type from number to integer unless description contains 'double'."""
+    if isinstance(data, dict):
+        if data.get("type") == "number":
+            description = str(data.get("description", "")).lower()
+            if "double" not in description:
+                data["type"] = "integer"
+                if "format" in data:
+                    data.pop("format")
+
+        for v in data.values():
+            _convert_number_to_integer(v)
+    elif isinstance(data, list):
+        for item in data:
+            _convert_number_to_integer(item)
+
+
 def _sanitize_properties(value):
     if not isinstance(value, dict):
         return value
@@ -153,6 +170,7 @@ def main() -> int:
 
     _strip_required_for_response_schemas(data)
     _convert_price_types_to_string(data)
+    _convert_number_to_integer(data)
 
     # Flatten basePath into paths if present
     base_path = data.get("basePath", "")

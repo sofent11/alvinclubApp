@@ -1525,8 +1525,8 @@ class OrderServiceOrderAppBatchinfosGetRequest {
 
   @JsonKey(name: 'orderId', fromJson: JsonCoerce.asString)
   final String? orderId;
-  @JsonKey(name: 'userAddressId', fromJson: JsonCoerce.asDouble)
-  final double? userAddressId;
+  @JsonKey(name: 'userAddressId', fromJson: JsonCoerce.asInt)
+  final int? userAddressId;
   @JsonKey(name: 'userAddress')
   final OrderServiceOrderAppBatchinfosGetRequest$UserAddress? userAddress;
   @JsonKey(name: 'addBatch', fromJson: JsonCoerce.asBool)
@@ -1654,7 +1654,7 @@ extension $OrderServiceOrderAppBatchinfosGetRequestExtension
     on OrderServiceOrderAppBatchinfosGetRequest {
   OrderServiceOrderAppBatchinfosGetRequest copyWith({
     String? orderId,
-    double? userAddressId,
+    int? userAddressId,
     OrderServiceOrderAppBatchinfosGetRequest$UserAddress? userAddress,
     bool? addBatch,
     bool? paySubmit,
@@ -1689,7 +1689,7 @@ extension $OrderServiceOrderAppBatchinfosGetRequestExtension
 
   OrderServiceOrderAppBatchinfosGetRequest copyWithWrapped({
     Wrapped<String?>? orderId,
-    Wrapped<double?>? userAddressId,
+    Wrapped<int?>? userAddressId,
     Wrapped<OrderServiceOrderAppBatchinfosGetRequest$UserAddress?>? userAddress,
     Wrapped<bool?>? addBatch,
     Wrapped<bool?>? paySubmit,
@@ -1769,8 +1769,8 @@ class OrderServiceOrderAppSubmitPostRequest {
   final int? buyType;
   @JsonKey(name: 'invitedCode', fromJson: JsonCoerce.asString)
   final String? invitedCode;
-  @JsonKey(name: 'userAddressId', fromJson: JsonCoerce.asDouble)
-  final double? userAddressId;
+  @JsonKey(name: 'userAddressId', fromJson: JsonCoerce.asInt)
+  final int? userAddressId;
   @JsonKey(name: 'addBatch', fromJson: JsonCoerce.asBool)
   final bool? addBatch;
   @JsonKey(name: 'remark', fromJson: JsonCoerce.asString)
@@ -1870,7 +1870,7 @@ extension $OrderServiceOrderAppSubmitPostRequestExtension
     String? country,
     int? buyType,
     String? invitedCode,
-    double? userAddressId,
+    int? userAddressId,
     bool? addBatch,
     String? remark,
     bool? isDraft,
@@ -1899,7 +1899,7 @@ extension $OrderServiceOrderAppSubmitPostRequestExtension
     Wrapped<String?>? country,
     Wrapped<int?>? buyType,
     Wrapped<String?>? invitedCode,
-    Wrapped<double?>? userAddressId,
+    Wrapped<int?>? userAddressId,
     Wrapped<bool?>? addBatch,
     Wrapped<String?>? remark,
     Wrapped<bool?>? isDraft,
@@ -1961,14 +1961,14 @@ class OrderServiceOrderAppUpdatePostRequest {
 
   @JsonKey(name: 'orderId', fromJson: JsonCoerce.asString)
   final String? orderId;
-  @JsonKey(name: 'userAddressId', fromJson: JsonCoerce.asDouble)
-  final double? userAddressId;
+  @JsonKey(name: 'userAddressId', fromJson: JsonCoerce.asInt)
+  final int? userAddressId;
   @JsonKey(name: 'userAddress')
   final OrderServiceOrderAppUpdatePostRequest$UserAddress? userAddress;
   @JsonKey(name: 'addBatch', fromJson: JsonCoerce.asBool)
   final bool? addBatch;
-  @JsonKey(name: 'targetTip', fromJson: JsonCoerce.asDouble)
-  final double? targetTip;
+  @JsonKey(name: 'targetTip', fromJson: JsonCoerce.asInt)
+  final int? targetTip;
   @JsonKey(name: 'paySubmit', fromJson: JsonCoerce.asBool)
   final bool? paySubmit;
   @JsonKey(name: 'payFreight', fromJson: JsonCoerce.asBool)
@@ -2098,10 +2098,10 @@ extension $OrderServiceOrderAppUpdatePostRequestExtension
     on OrderServiceOrderAppUpdatePostRequest {
   OrderServiceOrderAppUpdatePostRequest copyWith({
     String? orderId,
-    double? userAddressId,
+    int? userAddressId,
     OrderServiceOrderAppUpdatePostRequest$UserAddress? userAddress,
     bool? addBatch,
-    double? targetTip,
+    int? targetTip,
     bool? paySubmit,
     bool? payFreight,
     bool? submitAnyWay,
@@ -2134,10 +2134,10 @@ extension $OrderServiceOrderAppUpdatePostRequestExtension
 
   OrderServiceOrderAppUpdatePostRequest copyWithWrapped({
     Wrapped<String?>? orderId,
-    Wrapped<double?>? userAddressId,
+    Wrapped<int?>? userAddressId,
     Wrapped<OrderServiceOrderAppUpdatePostRequest$UserAddress?>? userAddress,
     Wrapped<bool?>? addBatch,
-    Wrapped<double?>? targetTip,
+    Wrapped<int?>? targetTip,
     Wrapped<bool?>? paySubmit,
     Wrapped<bool?>? payFreight,
     Wrapped<bool?>? submitAnyWay,
@@ -2265,8 +2265,8 @@ class OrderServiceOrderSubmitPostRequest {
   final int? buyType;
   @JsonKey(name: 'invitedCode', fromJson: JsonCoerce.asString)
   final String? invitedCode;
-  @JsonKey(name: 'userAddressId', fromJson: JsonCoerce.asDouble)
-  final double? userAddressId;
+  @JsonKey(name: 'userAddressId', fromJson: JsonCoerce.asInt)
+  final int? userAddressId;
   @JsonKey(name: 'addBatch', fromJson: JsonCoerce.asBool)
   final bool? addBatch;
   @JsonKey(name: 'remark', fromJson: JsonCoerce.asString)
@@ -2372,7 +2372,7 @@ extension $OrderServiceOrderSubmitPostRequestExtension
     String? country,
     int? buyType,
     String? invitedCode,
-    double? userAddressId,
+    int? userAddressId,
     bool? addBatch,
     String? remark,
     bool? isDraft,
@@ -2403,7 +2403,7 @@ extension $OrderServiceOrderSubmitPostRequestExtension
     Wrapped<String?>? country,
     Wrapped<int?>? buyType,
     Wrapped<String?>? invitedCode,
-    Wrapped<double?>? userAddressId,
+    Wrapped<int?>? userAddressId,
     Wrapped<bool?>? addBatch,
     Wrapped<String?>? remark,
     Wrapped<bool?>? isDraft,
@@ -2467,8 +2467,8 @@ class OrderServiceOrderUpdatePostRequest {
 
   @JsonKey(name: 'orderId', fromJson: JsonCoerce.asString)
   final String? orderId;
-  @JsonKey(name: 'userAddressId', fromJson: JsonCoerce.asDouble)
-  final double? userAddressId;
+  @JsonKey(name: 'userAddressId', fromJson: JsonCoerce.asInt)
+  final int? userAddressId;
   @JsonKey(name: 'userAddress')
   final OrderServiceOrderUpdatePostRequest$UserAddress? userAddress;
   @JsonKey(name: 'addBatch', fromJson: JsonCoerce.asBool)
@@ -2489,8 +2489,8 @@ class OrderServiceOrderUpdatePostRequest {
   final String? remark;
   @JsonKey(name: 'giveawayGift', fromJson: JsonCoerce.asInt)
   final int? giveawayGift;
-  @JsonKey(name: 'targetTip', fromJson: JsonCoerce.asDouble)
-  final double? targetTip;
+  @JsonKey(name: 'targetTip', fromJson: JsonCoerce.asInt)
+  final int? targetTip;
   @JsonKey(name: 'skuList')
   final List<OrderServiceOrderUpdatePostRequest$SkuList$Item>? skuList;
   @JsonKey(name: 'sourceItems')
@@ -2610,7 +2610,7 @@ extension $OrderServiceOrderUpdatePostRequestExtension
     on OrderServiceOrderUpdatePostRequest {
   OrderServiceOrderUpdatePostRequest copyWith({
     String? orderId,
-    double? userAddressId,
+    int? userAddressId,
     OrderServiceOrderUpdatePostRequest$UserAddress? userAddress,
     bool? addBatch,
     bool? paySubmit,
@@ -2621,7 +2621,7 @@ extension $OrderServiceOrderUpdatePostRequestExtension
     bool? removePackage,
     String? remark,
     int? giveawayGift,
-    double? targetTip,
+    int? targetTip,
     List<OrderServiceOrderUpdatePostRequest$SkuList$Item>? skuList,
     List<OrderServiceOrderUpdatePostRequest$SourceItems$Item>? sourceItems,
     List<OrderServiceOrderUpdatePostRequest$ItemList$Item>? itemList,
@@ -2648,7 +2648,7 @@ extension $OrderServiceOrderUpdatePostRequestExtension
 
   OrderServiceOrderUpdatePostRequest copyWithWrapped({
     Wrapped<String?>? orderId,
-    Wrapped<double?>? userAddressId,
+    Wrapped<int?>? userAddressId,
     Wrapped<OrderServiceOrderUpdatePostRequest$UserAddress?>? userAddress,
     Wrapped<bool?>? addBatch,
     Wrapped<bool?>? paySubmit,
@@ -2659,7 +2659,7 @@ extension $OrderServiceOrderUpdatePostRequestExtension
     Wrapped<bool?>? removePackage,
     Wrapped<String?>? remark,
     Wrapped<int?>? giveawayGift,
-    Wrapped<double?>? targetTip,
+    Wrapped<int?>? targetTip,
     Wrapped<List<OrderServiceOrderUpdatePostRequest$SkuList$Item>?>? skuList,
     Wrapped<List<OrderServiceOrderUpdatePostRequest$SourceItems$Item>?>?
     sourceItems,
@@ -2795,8 +2795,8 @@ class OrderServiceOrderSettlementPostRequest {
   final String? orderId;
   @JsonKey(name: 'isRecharge', fromJson: JsonCoerce.asInt)
   final int? isRecharge;
-  @JsonKey(name: 'rechargeAmount', fromJson: JsonCoerce.asDouble)
-  final double? rechargeAmount;
+  @JsonKey(name: 'rechargeAmount', fromJson: JsonCoerce.asInt)
+  final int? rechargeAmount;
   static const fromJsonFactory =
       _$OrderServiceOrderSettlementPostRequestFromJson;
 
@@ -2837,7 +2837,7 @@ extension $OrderServiceOrderSettlementPostRequestExtension
   OrderServiceOrderSettlementPostRequest copyWith({
     String? orderId,
     int? isRecharge,
-    double? rechargeAmount,
+    int? rechargeAmount,
   }) {
     return OrderServiceOrderSettlementPostRequest(
       orderId: orderId ?? this.orderId,
@@ -2849,7 +2849,7 @@ extension $OrderServiceOrderSettlementPostRequestExtension
   OrderServiceOrderSettlementPostRequest copyWithWrapped({
     Wrapped<String?>? orderId,
     Wrapped<int?>? isRecharge,
-    Wrapped<double?>? rechargeAmount,
+    Wrapped<int?>? rechargeAmount,
   }) {
     return OrderServiceOrderSettlementPostRequest(
       orderId: (orderId != null ? orderId.value : this.orderId),
@@ -3797,8 +3797,8 @@ class OrderServiceOrderAppCancelPost$Response {
 
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'data')
   final Object? data;
   static const fromJsonFactory =
@@ -3834,7 +3834,7 @@ extension $OrderServiceOrderAppCancelPost$ResponseExtension
     on OrderServiceOrderAppCancelPost$Response {
   OrderServiceOrderAppCancelPost$Response copyWith({
     String? message,
-    double? code,
+    int? code,
     Object? data,
   }) {
     return OrderServiceOrderAppCancelPost$Response(
@@ -3846,7 +3846,7 @@ extension $OrderServiceOrderAppCancelPost$ResponseExtension
 
   OrderServiceOrderAppCancelPost$Response copyWithWrapped({
     Wrapped<String?>? message,
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<Object?>? data,
   }) {
     return OrderServiceOrderAppCancelPost$Response(
@@ -3876,8 +3876,8 @@ class OrderServiceOrderAppBatchInfosGet$Response {
 
   @JsonKey(name: 'data')
   final OrderServiceOrderAppBatchInfosGet$Response$Data? data;
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   static const fromJsonFactory =
@@ -3910,7 +3910,7 @@ extension $OrderServiceOrderAppBatchInfosGet$ResponseExtension
     on OrderServiceOrderAppBatchInfosGet$Response {
   OrderServiceOrderAppBatchInfosGet$Response copyWith({
     OrderServiceOrderAppBatchInfosGet$Response$Data? data,
-    double? code,
+    int? code,
     String? message,
   }) {
     return OrderServiceOrderAppBatchInfosGet$Response(
@@ -3922,7 +3922,7 @@ extension $OrderServiceOrderAppBatchInfosGet$ResponseExtension
 
   OrderServiceOrderAppBatchInfosGet$Response copyWithWrapped({
     Wrapped<OrderServiceOrderAppBatchInfosGet$Response$Data?>? data,
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
   }) {
     return OrderServiceOrderAppBatchInfosGet$Response(
@@ -3951,8 +3951,8 @@ class OrderServiceOrderAppSubmitPost$Response {
 
   @JsonKey(name: 'data')
   final OrderServiceOrderAppSubmitPost$Response$Data? data;
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   static const fromJsonFactory =
@@ -3985,7 +3985,7 @@ extension $OrderServiceOrderAppSubmitPost$ResponseExtension
     on OrderServiceOrderAppSubmitPost$Response {
   OrderServiceOrderAppSubmitPost$Response copyWith({
     OrderServiceOrderAppSubmitPost$Response$Data? data,
-    double? code,
+    int? code,
     String? message,
   }) {
     return OrderServiceOrderAppSubmitPost$Response(
@@ -3997,7 +3997,7 @@ extension $OrderServiceOrderAppSubmitPost$ResponseExtension
 
   OrderServiceOrderAppSubmitPost$Response copyWithWrapped({
     Wrapped<OrderServiceOrderAppSubmitPost$Response$Data?>? data,
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
   }) {
     return OrderServiceOrderAppSubmitPost$Response(
@@ -4026,8 +4026,8 @@ class OrderServiceOrderAppUpdatePost$Response {
 
   @JsonKey(name: 'data')
   final Object? data;
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   static const fromJsonFactory =
@@ -4060,7 +4060,7 @@ extension $OrderServiceOrderAppUpdatePost$ResponseExtension
     on OrderServiceOrderAppUpdatePost$Response {
   OrderServiceOrderAppUpdatePost$Response copyWith({
     Object? data,
-    double? code,
+    int? code,
     String? message,
   }) {
     return OrderServiceOrderAppUpdatePost$Response(
@@ -4072,7 +4072,7 @@ extension $OrderServiceOrderAppUpdatePost$ResponseExtension
 
   OrderServiceOrderAppUpdatePost$Response copyWithWrapped({
     Wrapped<Object?>? data,
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
   }) {
     return OrderServiceOrderAppUpdatePost$Response(
@@ -4102,8 +4102,8 @@ class OrderServiceOrderAppListGet$Response {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderAppListGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
@@ -4160,7 +4160,7 @@ class OrderServiceOrderAppListGet$Response {
 extension $OrderServiceOrderAppListGet$ResponseExtension
     on OrderServiceOrderAppListGet$Response {
   OrderServiceOrderAppListGet$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     OrderServiceOrderAppListGet$Response$Data? data,
     String? traceId,
@@ -4178,7 +4178,7 @@ extension $OrderServiceOrderAppListGet$ResponseExtension
   }
 
   OrderServiceOrderAppListGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<OrderServiceOrderAppListGet$Response$Data?>? data,
     Wrapped<String?>? traceId,
@@ -4215,8 +4215,8 @@ class OrderServiceOrderAppDetailGet$Response {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderAppDetailGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
@@ -4274,7 +4274,7 @@ class OrderServiceOrderAppDetailGet$Response {
 extension $OrderServiceOrderAppDetailGet$ResponseExtension
     on OrderServiceOrderAppDetailGet$Response {
   OrderServiceOrderAppDetailGet$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     OrderServiceOrderAppDetailGet$Response$Data? data,
     String? traceId,
@@ -4292,7 +4292,7 @@ extension $OrderServiceOrderAppDetailGet$ResponseExtension
   }
 
   OrderServiceOrderAppDetailGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<OrderServiceOrderAppDetailGet$Response$Data?>? data,
     Wrapped<String?>? traceId,
@@ -4328,8 +4328,8 @@ class OrderServiceOrderPrePricingGet$Response {
 
   @JsonKey(name: 'data')
   final OrderServiceOrderPrePricingGet$Response$Data? data;
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   static const fromJsonFactory =
@@ -4362,7 +4362,7 @@ extension $OrderServiceOrderPrePricingGet$ResponseExtension
     on OrderServiceOrderPrePricingGet$Response {
   OrderServiceOrderPrePricingGet$Response copyWith({
     OrderServiceOrderPrePricingGet$Response$Data? data,
-    double? code,
+    int? code,
     String? message,
   }) {
     return OrderServiceOrderPrePricingGet$Response(
@@ -4374,7 +4374,7 @@ extension $OrderServiceOrderPrePricingGet$ResponseExtension
 
   OrderServiceOrderPrePricingGet$Response copyWithWrapped({
     Wrapped<OrderServiceOrderPrePricingGet$Response$Data?>? data,
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
   }) {
     return OrderServiceOrderPrePricingGet$Response(
@@ -4403,8 +4403,8 @@ class OrderServiceOrderCancelPost$Response {
 
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'data')
   final Object? data;
   static const fromJsonFactory = _$OrderServiceOrderCancelPost$ResponseFromJson;
@@ -4439,7 +4439,7 @@ extension $OrderServiceOrderCancelPost$ResponseExtension
     on OrderServiceOrderCancelPost$Response {
   OrderServiceOrderCancelPost$Response copyWith({
     String? message,
-    double? code,
+    int? code,
     Object? data,
   }) {
     return OrderServiceOrderCancelPost$Response(
@@ -4451,7 +4451,7 @@ extension $OrderServiceOrderCancelPost$ResponseExtension
 
   OrderServiceOrderCancelPost$Response copyWithWrapped({
     Wrapped<String?>? message,
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<Object?>? data,
   }) {
     return OrderServiceOrderCancelPost$Response(
@@ -4480,8 +4480,8 @@ class OrderServiceOrderSubmitPost$Response {
 
   @JsonKey(name: 'data')
   final OrderServiceOrderSubmitPost$Response$Data? data;
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   static const fromJsonFactory = _$OrderServiceOrderSubmitPost$ResponseFromJson;
@@ -4513,7 +4513,7 @@ extension $OrderServiceOrderSubmitPost$ResponseExtension
     on OrderServiceOrderSubmitPost$Response {
   OrderServiceOrderSubmitPost$Response copyWith({
     OrderServiceOrderSubmitPost$Response$Data? data,
-    double? code,
+    int? code,
     String? message,
   }) {
     return OrderServiceOrderSubmitPost$Response(
@@ -4525,7 +4525,7 @@ extension $OrderServiceOrderSubmitPost$ResponseExtension
 
   OrderServiceOrderSubmitPost$Response copyWithWrapped({
     Wrapped<OrderServiceOrderSubmitPost$Response$Data?>? data,
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
   }) {
     return OrderServiceOrderSubmitPost$Response(
@@ -4554,8 +4554,8 @@ class OrderServiceOrderUpdatePost$Response {
 
   @JsonKey(name: 'data')
   final Object? data;
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   static const fromJsonFactory = _$OrderServiceOrderUpdatePost$ResponseFromJson;
@@ -4587,7 +4587,7 @@ extension $OrderServiceOrderUpdatePost$ResponseExtension
     on OrderServiceOrderUpdatePost$Response {
   OrderServiceOrderUpdatePost$Response copyWith({
     Object? data,
-    double? code,
+    int? code,
     String? message,
   }) {
     return OrderServiceOrderUpdatePost$Response(
@@ -4599,7 +4599,7 @@ extension $OrderServiceOrderUpdatePost$ResponseExtension
 
   OrderServiceOrderUpdatePost$Response copyWithWrapped({
     Wrapped<Object?>? data,
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
   }) {
     return OrderServiceOrderUpdatePost$Response(
@@ -5144,8 +5144,8 @@ class OrderServiceOrderNoAuthDetailGet$Response {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderNoAuthDetailGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
@@ -5203,7 +5203,7 @@ class OrderServiceOrderNoAuthDetailGet$Response {
 extension $OrderServiceOrderNoAuthDetailGet$ResponseExtension
     on OrderServiceOrderNoAuthDetailGet$Response {
   OrderServiceOrderNoAuthDetailGet$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     OrderServiceOrderNoAuthDetailGet$Response$Data? data,
     String? traceId,
@@ -5221,7 +5221,7 @@ extension $OrderServiceOrderNoAuthDetailGet$ResponseExtension
   }
 
   OrderServiceOrderNoAuthDetailGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<OrderServiceOrderNoAuthDetailGet$Response$Data?>? data,
     Wrapped<String?>? traceId,
@@ -5258,8 +5258,8 @@ class OrderServiceOrderCouponListPost$Response {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderCouponListPost$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
@@ -5317,7 +5317,7 @@ class OrderServiceOrderCouponListPost$Response {
 extension $OrderServiceOrderCouponListPost$ResponseExtension
     on OrderServiceOrderCouponListPost$Response {
   OrderServiceOrderCouponListPost$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     List<OrderServiceOrderCouponListPost$Response$Data$Item>? data,
     String? traceId,
@@ -5335,7 +5335,7 @@ extension $OrderServiceOrderCouponListPost$ResponseExtension
   }
 
   OrderServiceOrderCouponListPost$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<List<OrderServiceOrderCouponListPost$Response$Data$Item>?>? data,
     Wrapped<String?>? traceId,
@@ -5373,8 +5373,8 @@ class OrderServiceOrderDiscountListPost$Response {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderDiscountListPost$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
@@ -5432,7 +5432,7 @@ class OrderServiceOrderDiscountListPost$Response {
 extension $OrderServiceOrderDiscountListPost$ResponseExtension
     on OrderServiceOrderDiscountListPost$Response {
   OrderServiceOrderDiscountListPost$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     List<OrderServiceOrderDiscountListPost$Response$Data$Item>? data,
     String? traceId,
@@ -5450,7 +5450,7 @@ extension $OrderServiceOrderDiscountListPost$ResponseExtension
   }
 
   OrderServiceOrderDiscountListPost$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<List<OrderServiceOrderDiscountListPost$Response$Data$Item>?>? data,
     Wrapped<String?>? traceId,
@@ -5488,8 +5488,8 @@ class OrderServiceOrderAvailableCouponPost$Response {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderAvailableCouponPost$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
@@ -5547,7 +5547,7 @@ class OrderServiceOrderAvailableCouponPost$Response {
 extension $OrderServiceOrderAvailableCouponPost$ResponseExtension
     on OrderServiceOrderAvailableCouponPost$Response {
   OrderServiceOrderAvailableCouponPost$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     OrderServiceOrderAvailableCouponPost$Response$Data? data,
     String? traceId,
@@ -5565,7 +5565,7 @@ extension $OrderServiceOrderAvailableCouponPost$ResponseExtension
   }
 
   OrderServiceOrderAvailableCouponPost$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<OrderServiceOrderAvailableCouponPost$Response$Data?>? data,
     Wrapped<String?>? traceId,
@@ -5603,8 +5603,8 @@ class OrderServiceOrderCouponTitlePost$Response {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderCouponTitlePost$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data', fromJson: JsonCoerce.asString)
@@ -5662,7 +5662,7 @@ class OrderServiceOrderCouponTitlePost$Response {
 extension $OrderServiceOrderCouponTitlePost$ResponseExtension
     on OrderServiceOrderCouponTitlePost$Response {
   OrderServiceOrderCouponTitlePost$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     String? data,
     String? traceId,
@@ -5680,7 +5680,7 @@ extension $OrderServiceOrderCouponTitlePost$ResponseExtension
   }
 
   OrderServiceOrderCouponTitlePost$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<String?>? data,
     Wrapped<String?>? traceId,
@@ -5717,8 +5717,8 @@ class OrderServiceOrderGetReviewGet$Response {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderGetReviewGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
@@ -5776,7 +5776,7 @@ class OrderServiceOrderGetReviewGet$Response {
 extension $OrderServiceOrderGetReviewGet$ResponseExtension
     on OrderServiceOrderGetReviewGet$Response {
   OrderServiceOrderGetReviewGet$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     List<OrderServiceOrderGetReviewGet$Response$Data$Item>? data,
     String? traceId,
@@ -5794,7 +5794,7 @@ extension $OrderServiceOrderGetReviewGet$ResponseExtension
   }
 
   OrderServiceOrderGetReviewGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<List<OrderServiceOrderGetReviewGet$Response$Data$Item>?>? data,
     Wrapped<String?>? traceId,
@@ -5831,8 +5831,8 @@ class OrderServiceOrderListGet$Response {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderListGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
@@ -5889,7 +5889,7 @@ class OrderServiceOrderListGet$Response {
 extension $OrderServiceOrderListGet$ResponseExtension
     on OrderServiceOrderListGet$Response {
   OrderServiceOrderListGet$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     OrderServiceOrderListGet$Response$Data? data,
     String? traceId,
@@ -5907,7 +5907,7 @@ extension $OrderServiceOrderListGet$ResponseExtension
   }
 
   OrderServiceOrderListGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<OrderServiceOrderListGet$Response$Data?>? data,
     Wrapped<String?>? traceId,
@@ -5944,8 +5944,8 @@ class OrderServiceOrderCombineListGet$Response {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderCombineListGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
@@ -6003,7 +6003,7 @@ class OrderServiceOrderCombineListGet$Response {
 extension $OrderServiceOrderCombineListGet$ResponseExtension
     on OrderServiceOrderCombineListGet$Response {
   OrderServiceOrderCombineListGet$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     OrderServiceOrderCombineListGet$Response$Data? data,
     String? traceId,
@@ -6021,7 +6021,7 @@ extension $OrderServiceOrderCombineListGet$ResponseExtension
   }
 
   OrderServiceOrderCombineListGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<OrderServiceOrderCombineListGet$Response$Data?>? data,
     Wrapped<String?>? traceId,
@@ -6058,8 +6058,8 @@ class OrderServiceOrderGetBatchNoGet$Response {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderGetBatchNoGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
@@ -6117,7 +6117,7 @@ class OrderServiceOrderGetBatchNoGet$Response {
 extension $OrderServiceOrderGetBatchNoGet$ResponseExtension
     on OrderServiceOrderGetBatchNoGet$Response {
   OrderServiceOrderGetBatchNoGet$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     OrderServiceOrderGetBatchNoGet$Response$Data? data,
     String? traceId,
@@ -6135,7 +6135,7 @@ extension $OrderServiceOrderGetBatchNoGet$ResponseExtension
   }
 
   OrderServiceOrderGetBatchNoGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<OrderServiceOrderGetBatchNoGet$Response$Data?>? data,
     Wrapped<String?>? traceId,
@@ -6172,8 +6172,8 @@ class OrderServiceOrderGetButtonGet$Response {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderGetButtonGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
@@ -6231,7 +6231,7 @@ class OrderServiceOrderGetButtonGet$Response {
 extension $OrderServiceOrderGetButtonGet$ResponseExtension
     on OrderServiceOrderGetButtonGet$Response {
   OrderServiceOrderGetButtonGet$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     OrderServiceOrderGetButtonGet$Response$Data? data,
     String? traceId,
@@ -6249,7 +6249,7 @@ extension $OrderServiceOrderGetButtonGet$ResponseExtension
   }
 
   OrderServiceOrderGetButtonGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<OrderServiceOrderGetButtonGet$Response$Data?>? data,
     Wrapped<String?>? traceId,
@@ -6286,8 +6286,8 @@ class OrderServiceOrderReviewPost$Response {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderReviewPost$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data', fromJson: JsonCoerce.asString)
@@ -6344,7 +6344,7 @@ class OrderServiceOrderReviewPost$Response {
 extension $OrderServiceOrderReviewPost$ResponseExtension
     on OrderServiceOrderReviewPost$Response {
   OrderServiceOrderReviewPost$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     String? data,
     String? traceId,
@@ -6362,7 +6362,7 @@ extension $OrderServiceOrderReviewPost$ResponseExtension
   }
 
   OrderServiceOrderReviewPost$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<String?>? data,
     Wrapped<String?>? traceId,
@@ -6398,8 +6398,8 @@ class OrderServiceOrderDetailGet$Response {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderDetailGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
@@ -6448,7 +6448,7 @@ class OrderServiceOrderDetailGet$Response {
 extension $OrderServiceOrderDetailGet$ResponseExtension
     on OrderServiceOrderDetailGet$Response {
   OrderServiceOrderDetailGet$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     OrderServiceOrderDetailGet$Response$Data? data,
     String? traceId,
@@ -6464,7 +6464,7 @@ extension $OrderServiceOrderDetailGet$ResponseExtension
   }
 
   OrderServiceOrderDetailGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<OrderServiceOrderDetailGet$Response$Data?>? data,
     Wrapped<String?>? traceId,
@@ -6500,8 +6500,8 @@ class OrderServiceOpenapiOrderDetailGet$Response {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOpenapiOrderDetailGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
@@ -6559,7 +6559,7 @@ class OrderServiceOpenapiOrderDetailGet$Response {
 extension $OrderServiceOpenapiOrderDetailGet$ResponseExtension
     on OrderServiceOpenapiOrderDetailGet$Response {
   OrderServiceOpenapiOrderDetailGet$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     OrderServiceOpenapiOrderDetailGet$Response$Data? data,
     String? traceId,
@@ -6577,7 +6577,7 @@ extension $OrderServiceOpenapiOrderDetailGet$ResponseExtension
   }
 
   OrderServiceOpenapiOrderDetailGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<OrderServiceOpenapiOrderDetailGet$Response$Data?>? data,
     Wrapped<String?>? traceId,
@@ -6615,8 +6615,8 @@ class OrderServiceOrderCombineDetailGet$Response {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderCombineDetailGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
@@ -6674,7 +6674,7 @@ class OrderServiceOrderCombineDetailGet$Response {
 extension $OrderServiceOrderCombineDetailGet$ResponseExtension
     on OrderServiceOrderCombineDetailGet$Response {
   OrderServiceOrderCombineDetailGet$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     OrderServiceOrderCombineDetailGet$Response$Data? data,
     String? traceId,
@@ -6692,7 +6692,7 @@ extension $OrderServiceOrderCombineDetailGet$ResponseExtension
   }
 
   OrderServiceOrderCombineDetailGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<OrderServiceOrderCombineDetailGet$Response$Data?>? data,
     Wrapped<String?>? traceId,
@@ -6730,8 +6730,8 @@ class OrderServiceOrderGetOrderTraceGet$Response {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderGetOrderTraceGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
@@ -6789,7 +6789,7 @@ class OrderServiceOrderGetOrderTraceGet$Response {
 extension $OrderServiceOrderGetOrderTraceGet$ResponseExtension
     on OrderServiceOrderGetOrderTraceGet$Response {
   OrderServiceOrderGetOrderTraceGet$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     OrderServiceOrderGetOrderTraceGet$Response$Data? data,
     String? traceId,
@@ -6807,7 +6807,7 @@ extension $OrderServiceOrderGetOrderTraceGet$ResponseExtension
   }
 
   OrderServiceOrderGetOrderTraceGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<OrderServiceOrderGetOrderTraceGet$Response$Data?>? data,
     Wrapped<String?>? traceId,
@@ -6844,8 +6844,8 @@ class OrderServiceCartListGet$Response {
   Map<String, dynamic> toJson() =>
       _$OrderServiceCartListGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
@@ -6902,7 +6902,7 @@ class OrderServiceCartListGet$Response {
 extension $OrderServiceCartListGet$ResponseExtension
     on OrderServiceCartListGet$Response {
   OrderServiceCartListGet$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     OrderServiceCartListGet$Response$Data? data,
     String? traceId,
@@ -6920,7 +6920,7 @@ extension $OrderServiceCartListGet$ResponseExtension
   }
 
   OrderServiceCartListGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<OrderServiceCartListGet$Response$Data?>? data,
     Wrapped<String?>? traceId,
@@ -7034,8 +7034,8 @@ class OrderServiceCartPricingPost$Response {
   Map<String, dynamic> toJson() =>
       _$OrderServiceCartPricingPost$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
@@ -7084,7 +7084,7 @@ class OrderServiceCartPricingPost$Response {
 extension $OrderServiceCartPricingPost$ResponseExtension
     on OrderServiceCartPricingPost$Response {
   OrderServiceCartPricingPost$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     OrderServiceCartPricingPost$Response$Data? data,
     String? traceId,
@@ -7100,7 +7100,7 @@ extension $OrderServiceCartPricingPost$ResponseExtension
   }
 
   OrderServiceCartPricingPost$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<OrderServiceCartPricingPost$Response$Data?>? data,
     Wrapped<String?>? traceId,
@@ -7135,8 +7135,8 @@ class OrderServiceCartNoAuthPricingPost$Response {
   Map<String, dynamic> toJson() =>
       _$OrderServiceCartNoAuthPricingPost$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
@@ -7186,7 +7186,7 @@ class OrderServiceCartNoAuthPricingPost$Response {
 extension $OrderServiceCartNoAuthPricingPost$ResponseExtension
     on OrderServiceCartNoAuthPricingPost$Response {
   OrderServiceCartNoAuthPricingPost$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     OrderServiceCartNoAuthPricingPost$Response$Data? data,
     String? traceId,
@@ -7202,7 +7202,7 @@ extension $OrderServiceCartNoAuthPricingPost$ResponseExtension
   }
 
   OrderServiceCartNoAuthPricingPost$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<OrderServiceCartNoAuthPricingPost$Response$Data?>? data,
     Wrapped<String?>? traceId,
@@ -7250,8 +7250,8 @@ class OrderServiceOrderAppBatchinfosGetRequest$UserAddress {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderAppBatchinfosGetRequest$UserAddressToJson(this);
 
-  @JsonKey(name: 'isDefault', fromJson: JsonCoerce.asDouble)
-  final double? isDefault;
+  @JsonKey(name: 'isDefault', fromJson: JsonCoerce.asInt)
+  final int? isDefault;
   @JsonKey(name: 'email', fromJson: JsonCoerce.asString)
   final String? email;
   @JsonKey(name: 'country', fromJson: JsonCoerce.asString)
@@ -7284,8 +7284,8 @@ class OrderServiceOrderAppBatchinfosGetRequest$UserAddress {
   final String? zipCode;
   @JsonKey(name: 'userId', fromJson: JsonCoerce.asString)
   final String? userId;
-  @JsonKey(name: 'id', fromJson: JsonCoerce.asDouble)
-  final double? id;
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asInt)
+  final int? id;
   static const fromJsonFactory =
       _$OrderServiceOrderAppBatchinfosGetRequest$UserAddressFromJson;
 
@@ -7396,7 +7396,7 @@ class OrderServiceOrderAppBatchinfosGetRequest$UserAddress {
 extension $OrderServiceOrderAppBatchinfosGetRequest$UserAddressExtension
     on OrderServiceOrderAppBatchinfosGetRequest$UserAddress {
   OrderServiceOrderAppBatchinfosGetRequest$UserAddress copyWith({
-    double? isDefault,
+    int? isDefault,
     String? email,
     String? country,
     String? countryCode,
@@ -7413,7 +7413,7 @@ extension $OrderServiceOrderAppBatchinfosGetRequest$UserAddressExtension
     String? phoneNumber,
     String? zipCode,
     String? userId,
-    double? id,
+    int? id,
   }) {
     return OrderServiceOrderAppBatchinfosGetRequest$UserAddress(
       isDefault: isDefault ?? this.isDefault,
@@ -7438,7 +7438,7 @@ extension $OrderServiceOrderAppBatchinfosGetRequest$UserAddressExtension
   }
 
   OrderServiceOrderAppBatchinfosGetRequest$UserAddress copyWithWrapped({
-    Wrapped<double?>? isDefault,
+    Wrapped<int?>? isDefault,
     Wrapped<String?>? email,
     Wrapped<String?>? country,
     Wrapped<String?>? countryCode,
@@ -7455,7 +7455,7 @@ extension $OrderServiceOrderAppBatchinfosGetRequest$UserAddressExtension
     Wrapped<String?>? phoneNumber,
     Wrapped<String?>? zipCode,
     Wrapped<String?>? userId,
-    Wrapped<double?>? id,
+    Wrapped<int?>? id,
   }) {
     return OrderServiceOrderAppBatchinfosGetRequest$UserAddress(
       isDefault: (isDefault != null ? isDefault.value : this.isDefault),
@@ -7824,8 +7824,8 @@ class OrderServiceOrderAppUpdatePostRequest$UserAddress {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderAppUpdatePostRequest$UserAddressToJson(this);
 
-  @JsonKey(name: 'isDefault', fromJson: JsonCoerce.asDouble)
-  final double? isDefault;
+  @JsonKey(name: 'isDefault', fromJson: JsonCoerce.asInt)
+  final int? isDefault;
   @JsonKey(name: 'email', fromJson: JsonCoerce.asString)
   final String? email;
   @JsonKey(name: 'country', fromJson: JsonCoerce.asString)
@@ -7858,8 +7858,8 @@ class OrderServiceOrderAppUpdatePostRequest$UserAddress {
   final String? zipCode;
   @JsonKey(name: 'userId', fromJson: JsonCoerce.asString)
   final String? userId;
-  @JsonKey(name: 'id', fromJson: JsonCoerce.asDouble)
-  final double? id;
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asInt)
+  final int? id;
   static const fromJsonFactory =
       _$OrderServiceOrderAppUpdatePostRequest$UserAddressFromJson;
 
@@ -7970,7 +7970,7 @@ class OrderServiceOrderAppUpdatePostRequest$UserAddress {
 extension $OrderServiceOrderAppUpdatePostRequest$UserAddressExtension
     on OrderServiceOrderAppUpdatePostRequest$UserAddress {
   OrderServiceOrderAppUpdatePostRequest$UserAddress copyWith({
-    double? isDefault,
+    int? isDefault,
     String? email,
     String? country,
     String? countryCode,
@@ -7987,7 +7987,7 @@ extension $OrderServiceOrderAppUpdatePostRequest$UserAddressExtension
     String? phoneNumber,
     String? zipCode,
     String? userId,
-    double? id,
+    int? id,
   }) {
     return OrderServiceOrderAppUpdatePostRequest$UserAddress(
       isDefault: isDefault ?? this.isDefault,
@@ -8012,7 +8012,7 @@ extension $OrderServiceOrderAppUpdatePostRequest$UserAddressExtension
   }
 
   OrderServiceOrderAppUpdatePostRequest$UserAddress copyWithWrapped({
-    Wrapped<double?>? isDefault,
+    Wrapped<int?>? isDefault,
     Wrapped<String?>? email,
     Wrapped<String?>? country,
     Wrapped<String?>? countryCode,
@@ -8029,7 +8029,7 @@ extension $OrderServiceOrderAppUpdatePostRequest$UserAddressExtension
     Wrapped<String?>? phoneNumber,
     Wrapped<String?>? zipCode,
     Wrapped<String?>? userId,
-    Wrapped<double?>? id,
+    Wrapped<int?>? id,
   }) {
     return OrderServiceOrderAppUpdatePostRequest$UserAddress(
       isDefault: (isDefault != null ? isDefault.value : this.isDefault),
@@ -8496,8 +8496,8 @@ class OrderServiceOrderUpdatePostRequest$UserAddress {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderUpdatePostRequest$UserAddressToJson(this);
 
-  @JsonKey(name: 'isDefault', fromJson: JsonCoerce.asDouble)
-  final double? isDefault;
+  @JsonKey(name: 'isDefault', fromJson: JsonCoerce.asInt)
+  final int? isDefault;
   @JsonKey(name: 'email', fromJson: JsonCoerce.asString)
   final String? email;
   @JsonKey(name: 'country', fromJson: JsonCoerce.asString)
@@ -8530,8 +8530,8 @@ class OrderServiceOrderUpdatePostRequest$UserAddress {
   final String? zipCode;
   @JsonKey(name: 'userId', fromJson: JsonCoerce.asString)
   final String? userId;
-  @JsonKey(name: 'id', fromJson: JsonCoerce.asDouble)
-  final double? id;
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asInt)
+  final int? id;
   static const fromJsonFactory =
       _$OrderServiceOrderUpdatePostRequest$UserAddressFromJson;
 
@@ -8642,7 +8642,7 @@ class OrderServiceOrderUpdatePostRequest$UserAddress {
 extension $OrderServiceOrderUpdatePostRequest$UserAddressExtension
     on OrderServiceOrderUpdatePostRequest$UserAddress {
   OrderServiceOrderUpdatePostRequest$UserAddress copyWith({
-    double? isDefault,
+    int? isDefault,
     String? email,
     String? country,
     String? countryCode,
@@ -8659,7 +8659,7 @@ extension $OrderServiceOrderUpdatePostRequest$UserAddressExtension
     String? phoneNumber,
     String? zipCode,
     String? userId,
-    double? id,
+    int? id,
   }) {
     return OrderServiceOrderUpdatePostRequest$UserAddress(
       isDefault: isDefault ?? this.isDefault,
@@ -8684,7 +8684,7 @@ extension $OrderServiceOrderUpdatePostRequest$UserAddressExtension
   }
 
   OrderServiceOrderUpdatePostRequest$UserAddress copyWithWrapped({
-    Wrapped<double?>? isDefault,
+    Wrapped<int?>? isDefault,
     Wrapped<String?>? email,
     Wrapped<String?>? country,
     Wrapped<String?>? countryCode,
@@ -8701,7 +8701,7 @@ extension $OrderServiceOrderUpdatePostRequest$UserAddressExtension
     Wrapped<String?>? phoneNumber,
     Wrapped<String?>? zipCode,
     Wrapped<String?>? userId,
-    Wrapped<double?>? id,
+    Wrapped<int?>? id,
   }) {
     return OrderServiceOrderUpdatePostRequest$UserAddress(
       isDefault: (isDefault != null ? isDefault.value : this.isDefault),
@@ -9078,10 +9078,10 @@ class OrderServiceOrderPricingPostRequest$SkuList$Item {
 
   @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
   final String? skuCode;
-  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asDouble)
-  final double? quantity;
-  @JsonKey(name: 'price', fromJson: JsonCoerce.asDouble)
-  final double? price;
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asInt)
+  final int? quantity;
+  @JsonKey(name: 'price', fromJson: JsonCoerce.asInt)
+  final int? price;
   static const fromJsonFactory =
       _$OrderServiceOrderPricingPostRequest$SkuList$ItemFromJson;
 
@@ -9118,8 +9118,8 @@ extension $OrderServiceOrderPricingPostRequest$SkuList$ItemExtension
     on OrderServiceOrderPricingPostRequest$SkuList$Item {
   OrderServiceOrderPricingPostRequest$SkuList$Item copyWith({
     String? skuCode,
-    double? quantity,
-    double? price,
+    int? quantity,
+    int? price,
   }) {
     return OrderServiceOrderPricingPostRequest$SkuList$Item(
       skuCode: skuCode ?? this.skuCode,
@@ -9130,8 +9130,8 @@ extension $OrderServiceOrderPricingPostRequest$SkuList$ItemExtension
 
   OrderServiceOrderPricingPostRequest$SkuList$Item copyWithWrapped({
     Wrapped<String?>? skuCode,
-    Wrapped<double?>? quantity,
-    Wrapped<double?>? price,
+    Wrapped<int?>? quantity,
+    Wrapped<int?>? price,
   }) {
     return OrderServiceOrderPricingPostRequest$SkuList$Item(
       skuCode: (skuCode != null ? skuCode.value : this.skuCode),
@@ -9159,8 +9159,8 @@ class OrderServiceOrderAvailableCouponPostRequest$SkuList$Item {
 
   @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
   final String? skuCode;
-  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asDouble)
-  final double? quantity;
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asInt)
+  final int? quantity;
   static const fromJsonFactory =
       _$OrderServiceOrderAvailableCouponPostRequest$SkuList$ItemFromJson;
 
@@ -9194,7 +9194,7 @@ extension $OrderServiceOrderAvailableCouponPostRequest$SkuList$ItemExtension
     on OrderServiceOrderAvailableCouponPostRequest$SkuList$Item {
   OrderServiceOrderAvailableCouponPostRequest$SkuList$Item copyWith({
     String? skuCode,
-    double? quantity,
+    int? quantity,
   }) {
     return OrderServiceOrderAvailableCouponPostRequest$SkuList$Item(
       skuCode: skuCode ?? this.skuCode,
@@ -9204,7 +9204,7 @@ extension $OrderServiceOrderAvailableCouponPostRequest$SkuList$ItemExtension
 
   OrderServiceOrderAvailableCouponPostRequest$SkuList$Item copyWithWrapped({
     Wrapped<String?>? skuCode,
-    Wrapped<double?>? quantity,
+    Wrapped<int?>? quantity,
   }) {
     return OrderServiceOrderAvailableCouponPostRequest$SkuList$Item(
       skuCode: (skuCode != null ? skuCode.value : this.skuCode),
@@ -9231,8 +9231,8 @@ class OrderServiceOrderCoupontitlePostRequest$SkuList$Item {
 
   @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
   final String? skuCode;
-  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asDouble)
-  final double? quantity;
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asInt)
+  final int? quantity;
   static const fromJsonFactory =
       _$OrderServiceOrderCoupontitlePostRequest$SkuList$ItemFromJson;
 
@@ -9266,7 +9266,7 @@ extension $OrderServiceOrderCoupontitlePostRequest$SkuList$ItemExtension
     on OrderServiceOrderCoupontitlePostRequest$SkuList$Item {
   OrderServiceOrderCoupontitlePostRequest$SkuList$Item copyWith({
     String? skuCode,
-    double? quantity,
+    int? quantity,
   }) {
     return OrderServiceOrderCoupontitlePostRequest$SkuList$Item(
       skuCode: skuCode ?? this.skuCode,
@@ -9276,7 +9276,7 @@ extension $OrderServiceOrderCoupontitlePostRequest$SkuList$ItemExtension
 
   OrderServiceOrderCoupontitlePostRequest$SkuList$Item copyWithWrapped({
     Wrapped<String?>? skuCode,
-    Wrapped<double?>? quantity,
+    Wrapped<int?>? quantity,
   }) {
     return OrderServiceOrderCoupontitlePostRequest$SkuList$Item(
       skuCode: (skuCode != null ? skuCode.value : this.skuCode),
@@ -9306,8 +9306,8 @@ class OrderServiceOrderReviewPostRequest$ItemReviewList$Item {
 
   @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
   final String? skuCode;
-  @JsonKey(name: 'comment', fromJson: JsonCoerce.asDouble)
-  final double? comment;
+  @JsonKey(name: 'comment', fromJson: JsonCoerce.asInt)
+  final int? comment;
   @JsonKey(name: 'score', fromJson: JsonCoerce.asString)
   final String? score;
   @JsonKey(name: 'images', defaultValue: <Object>[])
@@ -9359,7 +9359,7 @@ extension $OrderServiceOrderReviewPostRequest$ItemReviewList$ItemExtension
     on OrderServiceOrderReviewPostRequest$ItemReviewList$Item {
   OrderServiceOrderReviewPostRequest$ItemReviewList$Item copyWith({
     String? skuCode,
-    double? comment,
+    int? comment,
     String? score,
     List<Object>? images,
     String? extraComment,
@@ -9375,7 +9375,7 @@ extension $OrderServiceOrderReviewPostRequest$ItemReviewList$ItemExtension
 
   OrderServiceOrderReviewPostRequest$ItemReviewList$Item copyWithWrapped({
     Wrapped<String?>? skuCode,
-    Wrapped<double?>? comment,
+    Wrapped<int?>? comment,
     Wrapped<String?>? score,
     Wrapped<List<Object>?>? images,
     Wrapped<String?>? extraComment,
@@ -9507,8 +9507,8 @@ class OrderServiceCartUpdatePostRequest$Cart$Item {
 
   @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
   final String? skuCode;
-  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asDouble)
-  final double? quantity;
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asInt)
+  final int? quantity;
   @JsonKey(name: 'orderUpdate', fromJson: JsonCoerce.asString)
   final String? orderUpdate;
   @JsonKey(name: 'remark', fromJson: JsonCoerce.asString)
@@ -9555,7 +9555,7 @@ extension $OrderServiceCartUpdatePostRequest$Cart$ItemExtension
     on OrderServiceCartUpdatePostRequest$Cart$Item {
   OrderServiceCartUpdatePostRequest$Cart$Item copyWith({
     String? skuCode,
-    double? quantity,
+    int? quantity,
     String? orderUpdate,
     String? remark,
   }) {
@@ -9569,7 +9569,7 @@ extension $OrderServiceCartUpdatePostRequest$Cart$ItemExtension
 
   OrderServiceCartUpdatePostRequest$Cart$Item copyWithWrapped({
     Wrapped<String?>? skuCode,
-    Wrapped<double?>? quantity,
+    Wrapped<int?>? quantity,
     Wrapped<String?>? orderUpdate,
     Wrapped<String?>? remark,
   }) {
@@ -9601,8 +9601,8 @@ class OrderServiceCartSettlementPostRequest$SkuList$Item {
 
   @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
   final String? skuCode;
-  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asDouble)
-  final double? quantity;
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asInt)
+  final int? quantity;
   @JsonKey(name: 'price', fromJson: JsonCoerce.asString)
   final String? price;
   static const fromJsonFactory =
@@ -9641,7 +9641,7 @@ extension $OrderServiceCartSettlementPostRequest$SkuList$ItemExtension
     on OrderServiceCartSettlementPostRequest$SkuList$Item {
   OrderServiceCartSettlementPostRequest$SkuList$Item copyWith({
     String? skuCode,
-    double? quantity,
+    int? quantity,
     String? price,
   }) {
     return OrderServiceCartSettlementPostRequest$SkuList$Item(
@@ -9653,7 +9653,7 @@ extension $OrderServiceCartSettlementPostRequest$SkuList$ItemExtension
 
   OrderServiceCartSettlementPostRequest$SkuList$Item copyWithWrapped({
     Wrapped<String?>? skuCode,
-    Wrapped<double?>? quantity,
+    Wrapped<int?>? quantity,
     Wrapped<String?>? price,
   }) {
     return OrderServiceCartSettlementPostRequest$SkuList$Item(
@@ -9683,10 +9683,10 @@ class OrderServiceCartPricingPostRequest$SkuList$Item {
 
   @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
   final String? skuCode;
-  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asDouble)
-  final double? quantity;
-  @JsonKey(name: 'price', fromJson: JsonCoerce.asDouble)
-  final double? price;
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asInt)
+  final int? quantity;
+  @JsonKey(name: 'price', fromJson: JsonCoerce.asInt)
+  final int? price;
   static const fromJsonFactory =
       _$OrderServiceCartPricingPostRequest$SkuList$ItemFromJson;
 
@@ -9723,8 +9723,8 @@ extension $OrderServiceCartPricingPostRequest$SkuList$ItemExtension
     on OrderServiceCartPricingPostRequest$SkuList$Item {
   OrderServiceCartPricingPostRequest$SkuList$Item copyWith({
     String? skuCode,
-    double? quantity,
-    double? price,
+    int? quantity,
+    int? price,
   }) {
     return OrderServiceCartPricingPostRequest$SkuList$Item(
       skuCode: skuCode ?? this.skuCode,
@@ -9735,8 +9735,8 @@ extension $OrderServiceCartPricingPostRequest$SkuList$ItemExtension
 
   OrderServiceCartPricingPostRequest$SkuList$Item copyWithWrapped({
     Wrapped<String?>? skuCode,
-    Wrapped<double?>? quantity,
-    Wrapped<double?>? price,
+    Wrapped<int?>? quantity,
+    Wrapped<int?>? price,
   }) {
     return OrderServiceCartPricingPostRequest$SkuList$Item(
       skuCode: (skuCode != null ? skuCode.value : this.skuCode),
@@ -9765,10 +9765,10 @@ class OrderServiceCartNoAuthPricingPostRequest$SkuList$Item {
 
   @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
   final String? skuCode;
-  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asDouble)
-  final double? quantity;
-  @JsonKey(name: 'price', fromJson: JsonCoerce.asDouble)
-  final double? price;
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asInt)
+  final int? quantity;
+  @JsonKey(name: 'price', fromJson: JsonCoerce.asInt)
+  final int? price;
   static const fromJsonFactory =
       _$OrderServiceCartNoAuthPricingPostRequest$SkuList$ItemFromJson;
 
@@ -9805,8 +9805,8 @@ extension $OrderServiceCartNoAuthPricingPostRequest$SkuList$ItemExtension
     on OrderServiceCartNoAuthPricingPostRequest$SkuList$Item {
   OrderServiceCartNoAuthPricingPostRequest$SkuList$Item copyWith({
     String? skuCode,
-    double? quantity,
-    double? price,
+    int? quantity,
+    int? price,
   }) {
     return OrderServiceCartNoAuthPricingPostRequest$SkuList$Item(
       skuCode: skuCode ?? this.skuCode,
@@ -9817,8 +9817,8 @@ extension $OrderServiceCartNoAuthPricingPostRequest$SkuList$ItemExtension
 
   OrderServiceCartNoAuthPricingPostRequest$SkuList$Item copyWithWrapped({
     Wrapped<String?>? skuCode,
-    Wrapped<double?>? quantity,
-    Wrapped<double?>? price,
+    Wrapped<int?>? quantity,
+    Wrapped<int?>? price,
   }) {
     return OrderServiceCartNoAuthPricingPostRequest$SkuList$Item(
       skuCode: (skuCode != null ? skuCode.value : this.skuCode),
@@ -9961,10 +9961,10 @@ class OrderServiceOrderAppSubmitPost$Response$Data {
   final String? orderId;
   @JsonKey(name: 'single', fromJson: JsonCoerce.asBool)
   final bool? single;
-  @JsonKey(name: 'orderStatus', fromJson: JsonCoerce.asDouble)
-  final double? orderStatus;
-  @JsonKey(name: 'timeoutPeriod', fromJson: JsonCoerce.asDouble)
-  final double? timeoutPeriod;
+  @JsonKey(name: 'orderStatus', fromJson: JsonCoerce.asInt)
+  final int? orderStatus;
+  @JsonKey(name: 'timeoutPeriod', fromJson: JsonCoerce.asInt)
+  final int? timeoutPeriod;
   static const fromJsonFactory =
       _$OrderServiceOrderAppSubmitPost$Response$DataFromJson;
 
@@ -10008,8 +10008,8 @@ extension $OrderServiceOrderAppSubmitPost$Response$DataExtension
   OrderServiceOrderAppSubmitPost$Response$Data copyWith({
     String? orderId,
     bool? single,
-    double? orderStatus,
-    double? timeoutPeriod,
+    int? orderStatus,
+    int? timeoutPeriod,
   }) {
     return OrderServiceOrderAppSubmitPost$Response$Data(
       orderId: orderId ?? this.orderId,
@@ -10022,8 +10022,8 @@ extension $OrderServiceOrderAppSubmitPost$Response$DataExtension
   OrderServiceOrderAppSubmitPost$Response$Data copyWithWrapped({
     Wrapped<String?>? orderId,
     Wrapped<bool?>? single,
-    Wrapped<double?>? orderStatus,
-    Wrapped<double?>? timeoutPeriod,
+    Wrapped<int?>? orderStatus,
+    Wrapped<int?>? timeoutPeriod,
   }) {
     return OrderServiceOrderAppSubmitPost$Response$Data(
       orderId: (orderId != null ? orderId.value : this.orderId),
@@ -10055,14 +10055,14 @@ class OrderServiceOrderAppListGet$Response$Data {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderAppListGet$Response$DataToJson(this);
 
-  @JsonKey(name: 'total', fromJson: JsonCoerce.asDouble)
-  final double? total;
-  @JsonKey(name: 'pageSize', fromJson: JsonCoerce.asDouble)
-  final double? pageSize;
-  @JsonKey(name: 'totalPages', fromJson: JsonCoerce.asDouble)
-  final double? totalPages;
-  @JsonKey(name: 'current', fromJson: JsonCoerce.asDouble)
-  final double? current;
+  @JsonKey(name: 'total', fromJson: JsonCoerce.asInt)
+  final int? total;
+  @JsonKey(name: 'pageSize', fromJson: JsonCoerce.asInt)
+  final int? pageSize;
+  @JsonKey(name: 'totalPages', fromJson: JsonCoerce.asInt)
+  final int? totalPages;
+  @JsonKey(name: 'current', fromJson: JsonCoerce.asInt)
+  final int? current;
   @JsonKey(name: 'records')
   final List<OrderServiceOrderAppListGet$Response$Data$Records$Item>? records;
   static const fromJsonFactory =
@@ -10109,10 +10109,10 @@ class OrderServiceOrderAppListGet$Response$Data {
 extension $OrderServiceOrderAppListGet$Response$DataExtension
     on OrderServiceOrderAppListGet$Response$Data {
   OrderServiceOrderAppListGet$Response$Data copyWith({
-    double? total,
-    double? pageSize,
-    double? totalPages,
-    double? current,
+    int? total,
+    int? pageSize,
+    int? totalPages,
+    int? current,
     List<OrderServiceOrderAppListGet$Response$Data$Records$Item>? records,
   }) {
     return OrderServiceOrderAppListGet$Response$Data(
@@ -10125,10 +10125,10 @@ extension $OrderServiceOrderAppListGet$Response$DataExtension
   }
 
   OrderServiceOrderAppListGet$Response$Data copyWithWrapped({
-    Wrapped<double?>? total,
-    Wrapped<double?>? pageSize,
-    Wrapped<double?>? totalPages,
-    Wrapped<double?>? current,
+    Wrapped<int?>? total,
+    Wrapped<int?>? pageSize,
+    Wrapped<int?>? totalPages,
+    Wrapped<int?>? current,
     Wrapped<List<OrderServiceOrderAppListGet$Response$Data$Records$Item>?>?
     records,
   }) {
@@ -10346,8 +10346,8 @@ class OrderServiceOrderPrePricingGet$Response$Data {
   final String? currency;
   @JsonKey(name: 'totalPrice', fromJson: JsonCoerce.asString)
   final String? totalPrice;
-  @JsonKey(name: 'targetCurrency', fromJson: JsonCoerce.asDouble)
-  final double? targetCurrency;
+  @JsonKey(name: 'targetCurrency', fromJson: JsonCoerce.asInt)
+  final int? targetCurrency;
   @JsonKey(name: 'targetPrice', fromJson: JsonCoerce.asString)
   final String? targetPrice;
   static const fromJsonFactory =
@@ -10396,7 +10396,7 @@ extension $OrderServiceOrderPrePricingGet$Response$DataExtension
   OrderServiceOrderPrePricingGet$Response$Data copyWith({
     String? currency,
     String? totalPrice,
-    double? targetCurrency,
+    int? targetCurrency,
     String? targetPrice,
   }) {
     return OrderServiceOrderPrePricingGet$Response$Data(
@@ -10410,7 +10410,7 @@ extension $OrderServiceOrderPrePricingGet$Response$DataExtension
   OrderServiceOrderPrePricingGet$Response$Data copyWithWrapped({
     Wrapped<String?>? currency,
     Wrapped<String?>? totalPrice,
-    Wrapped<double?>? targetCurrency,
+    Wrapped<int?>? targetCurrency,
     Wrapped<String?>? targetPrice,
   }) {
     return OrderServiceOrderPrePricingGet$Response$Data(
@@ -10443,10 +10443,10 @@ class OrderServiceOrderSubmitPost$Response$Data {
 
   @JsonKey(name: 'orderId', fromJson: JsonCoerce.asString)
   final String? orderId;
-  @JsonKey(name: 'orderStatus', fromJson: JsonCoerce.asDouble)
-  final double? orderStatus;
-  @JsonKey(name: 'timeoutPeriod', fromJson: JsonCoerce.asDouble)
-  final double? timeoutPeriod;
+  @JsonKey(name: 'orderStatus', fromJson: JsonCoerce.asInt)
+  final int? orderStatus;
+  @JsonKey(name: 'timeoutPeriod', fromJson: JsonCoerce.asInt)
+  final int? timeoutPeriod;
   static const fromJsonFactory =
       _$OrderServiceOrderSubmitPost$Response$DataFromJson;
 
@@ -10486,8 +10486,8 @@ extension $OrderServiceOrderSubmitPost$Response$DataExtension
     on OrderServiceOrderSubmitPost$Response$Data {
   OrderServiceOrderSubmitPost$Response$Data copyWith({
     String? orderId,
-    double? orderStatus,
-    double? timeoutPeriod,
+    int? orderStatus,
+    int? timeoutPeriod,
   }) {
     return OrderServiceOrderSubmitPost$Response$Data(
       orderId: orderId ?? this.orderId,
@@ -10498,8 +10498,8 @@ extension $OrderServiceOrderSubmitPost$Response$DataExtension
 
   OrderServiceOrderSubmitPost$Response$Data copyWithWrapped({
     Wrapped<String?>? orderId,
-    Wrapped<double?>? orderStatus,
-    Wrapped<double?>? timeoutPeriod,
+    Wrapped<int?>? orderStatus,
+    Wrapped<int?>? timeoutPeriod,
   }) {
     return OrderServiceOrderSubmitPost$Response$Data(
       orderId: (orderId != null ? orderId.value : this.orderId),
@@ -10804,8 +10804,8 @@ class OrderServiceOrderCouponListPost$Response$Data$Item {
   final String? couponCode;
   @JsonKey(name: 'discountInfo', fromJson: JsonCoerce.asString)
   final String? discountInfo;
-  @JsonKey(name: 'discountType', fromJson: JsonCoerce.asDouble)
-  final double? discountType;
+  @JsonKey(name: 'discountType', fromJson: JsonCoerce.asInt)
+  final int? discountType;
   @JsonKey(name: 'discountAmount', fromJson: JsonCoerce.asString)
   final String? discountAmount;
   @JsonKey(name: 'currency', fromJson: JsonCoerce.asString)
@@ -10903,7 +10903,7 @@ extension $OrderServiceOrderCouponListPost$Response$Data$ItemExtension
   OrderServiceOrderCouponListPost$Response$Data$Item copyWith({
     String? couponCode,
     String? discountInfo,
-    double? discountType,
+    int? discountType,
     String? discountAmount,
     String? currency,
     String? targetDiscountAmount,
@@ -10929,7 +10929,7 @@ extension $OrderServiceOrderCouponListPost$Response$Data$ItemExtension
   OrderServiceOrderCouponListPost$Response$Data$Item copyWithWrapped({
     Wrapped<String?>? couponCode,
     Wrapped<String?>? discountInfo,
-    Wrapped<double?>? discountType,
+    Wrapped<int?>? discountType,
     Wrapped<String?>? discountAmount,
     Wrapped<String?>? currency,
     Wrapped<String?>? targetDiscountAmount,
@@ -10993,8 +10993,8 @@ class OrderServiceOrderDiscountListPost$Response$Data$Item {
   final String? couponCode;
   @JsonKey(name: 'discountInfo', fromJson: JsonCoerce.asString)
   final String? discountInfo;
-  @JsonKey(name: 'discountType', fromJson: JsonCoerce.asDouble)
-  final double? discountType;
+  @JsonKey(name: 'discountType', fromJson: JsonCoerce.asInt)
+  final int? discountType;
   @JsonKey(name: 'discountAmount', fromJson: JsonCoerce.asString)
   final String? discountAmount;
   @JsonKey(name: 'currency', fromJson: JsonCoerce.asString)
@@ -11083,7 +11083,7 @@ extension $OrderServiceOrderDiscountListPost$Response$Data$ItemExtension
   OrderServiceOrderDiscountListPost$Response$Data$Item copyWith({
     String? couponCode,
     String? discountInfo,
-    double? discountType,
+    int? discountType,
     String? discountAmount,
     String? currency,
     String? targetDiscountAmount,
@@ -11107,7 +11107,7 @@ extension $OrderServiceOrderDiscountListPost$Response$Data$ItemExtension
   OrderServiceOrderDiscountListPost$Response$Data$Item copyWithWrapped({
     Wrapped<String?>? couponCode,
     Wrapped<String?>? discountInfo,
-    Wrapped<double?>? discountType,
+    Wrapped<int?>? discountType,
     Wrapped<String?>? discountAmount,
     Wrapped<String?>? currency,
     Wrapped<String?>? targetDiscountAmount,
@@ -11168,8 +11168,8 @@ class OrderServiceOrderAvailableCouponPost$Response$Data {
   final String? couponCode;
   @JsonKey(name: 'discountInfo', fromJson: JsonCoerce.asString)
   final String? discountInfo;
-  @JsonKey(name: 'discountType', fromJson: JsonCoerce.asDouble)
-  final double? discountType;
+  @JsonKey(name: 'discountType', fromJson: JsonCoerce.asInt)
+  final int? discountType;
   @JsonKey(name: 'discountAmount', fromJson: JsonCoerce.asString)
   final String? discountAmount;
   @JsonKey(name: 'currency', fromJson: JsonCoerce.asString)
@@ -11258,7 +11258,7 @@ extension $OrderServiceOrderAvailableCouponPost$Response$DataExtension
   OrderServiceOrderAvailableCouponPost$Response$Data copyWith({
     String? couponCode,
     String? discountInfo,
-    double? discountType,
+    int? discountType,
     String? discountAmount,
     String? currency,
     String? targetDiscountAmount,
@@ -11282,7 +11282,7 @@ extension $OrderServiceOrderAvailableCouponPost$Response$DataExtension
   OrderServiceOrderAvailableCouponPost$Response$Data copyWithWrapped({
     Wrapped<String?>? couponCode,
     Wrapped<String?>? discountInfo,
-    Wrapped<double?>? discountType,
+    Wrapped<int?>? discountType,
     Wrapped<String?>? discountAmount,
     Wrapped<String?>? currency,
     Wrapped<String?>? targetDiscountAmount,
@@ -11519,14 +11519,14 @@ class OrderServiceOrderListGet$Response$Data {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderListGet$Response$DataToJson(this);
 
-  @JsonKey(name: 'total', fromJson: JsonCoerce.asDouble)
-  final double? total;
-  @JsonKey(name: 'pageSize', fromJson: JsonCoerce.asDouble)
-  final double? pageSize;
-  @JsonKey(name: 'totalPages', fromJson: JsonCoerce.asDouble)
-  final double? totalPages;
-  @JsonKey(name: 'current', fromJson: JsonCoerce.asDouble)
-  final double? current;
+  @JsonKey(name: 'total', fromJson: JsonCoerce.asInt)
+  final int? total;
+  @JsonKey(name: 'pageSize', fromJson: JsonCoerce.asInt)
+  final int? pageSize;
+  @JsonKey(name: 'totalPages', fromJson: JsonCoerce.asInt)
+  final int? totalPages;
+  @JsonKey(name: 'current', fromJson: JsonCoerce.asInt)
+  final int? current;
   @JsonKey(name: 'records')
   final List<OrderServiceOrderListGet$Response$Data$Records$Item>? records;
   static const fromJsonFactory =
@@ -11573,10 +11573,10 @@ class OrderServiceOrderListGet$Response$Data {
 extension $OrderServiceOrderListGet$Response$DataExtension
     on OrderServiceOrderListGet$Response$Data {
   OrderServiceOrderListGet$Response$Data copyWith({
-    double? total,
-    double? pageSize,
-    double? totalPages,
-    double? current,
+    int? total,
+    int? pageSize,
+    int? totalPages,
+    int? current,
     List<OrderServiceOrderListGet$Response$Data$Records$Item>? records,
   }) {
     return OrderServiceOrderListGet$Response$Data(
@@ -11589,10 +11589,10 @@ extension $OrderServiceOrderListGet$Response$DataExtension
   }
 
   OrderServiceOrderListGet$Response$Data copyWithWrapped({
-    Wrapped<double?>? total,
-    Wrapped<double?>? pageSize,
-    Wrapped<double?>? totalPages,
-    Wrapped<double?>? current,
+    Wrapped<int?>? total,
+    Wrapped<int?>? pageSize,
+    Wrapped<int?>? totalPages,
+    Wrapped<int?>? current,
     Wrapped<List<OrderServiceOrderListGet$Response$Data$Records$Item>?>?
     records,
   }) {
@@ -11625,14 +11625,14 @@ class OrderServiceOrderCombineListGet$Response$Data {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderCombineListGet$Response$DataToJson(this);
 
-  @JsonKey(name: 'total', fromJson: JsonCoerce.asDouble)
-  final double? total;
-  @JsonKey(name: 'pageSize', fromJson: JsonCoerce.asDouble)
-  final double? pageSize;
-  @JsonKey(name: 'totalPages', fromJson: JsonCoerce.asDouble)
-  final double? totalPages;
-  @JsonKey(name: 'current', fromJson: JsonCoerce.asDouble)
-  final double? current;
+  @JsonKey(name: 'total', fromJson: JsonCoerce.asInt)
+  final int? total;
+  @JsonKey(name: 'pageSize', fromJson: JsonCoerce.asInt)
+  final int? pageSize;
+  @JsonKey(name: 'totalPages', fromJson: JsonCoerce.asInt)
+  final int? totalPages;
+  @JsonKey(name: 'current', fromJson: JsonCoerce.asInt)
+  final int? current;
   @JsonKey(name: 'records')
   final List<OrderServiceOrderCombineListGet$Response$Data$Records$Item>?
   records;
@@ -11680,10 +11680,10 @@ class OrderServiceOrderCombineListGet$Response$Data {
 extension $OrderServiceOrderCombineListGet$Response$DataExtension
     on OrderServiceOrderCombineListGet$Response$Data {
   OrderServiceOrderCombineListGet$Response$Data copyWith({
-    double? total,
-    double? pageSize,
-    double? totalPages,
-    double? current,
+    int? total,
+    int? pageSize,
+    int? totalPages,
+    int? current,
     List<OrderServiceOrderCombineListGet$Response$Data$Records$Item>? records,
   }) {
     return OrderServiceOrderCombineListGet$Response$Data(
@@ -11696,10 +11696,10 @@ extension $OrderServiceOrderCombineListGet$Response$DataExtension
   }
 
   OrderServiceOrderCombineListGet$Response$Data copyWithWrapped({
-    Wrapped<double?>? total,
-    Wrapped<double?>? pageSize,
-    Wrapped<double?>? totalPages,
-    Wrapped<double?>? current,
+    Wrapped<int?>? total,
+    Wrapped<int?>? pageSize,
+    Wrapped<int?>? totalPages,
+    Wrapped<int?>? current,
     Wrapped<List<OrderServiceOrderCombineListGet$Response$Data$Records$Item>?>?
     records,
   }) {
@@ -12493,10 +12493,10 @@ class OrderServiceCartListGet$Response$Data {
   final String? totalAmountCur;
   @JsonKey(name: 'targetTotalAmountCur', fromJson: JsonCoerce.asString)
   final String? targetTotalAmountCur;
-  @JsonKey(name: 'orderLimitAmount', fromJson: JsonCoerce.asDouble)
-  final double? orderLimitAmount;
-  @JsonKey(name: 'shipLimitAmount', fromJson: JsonCoerce.asDouble)
-  final double? shipLimitAmount;
+  @JsonKey(name: 'orderLimitAmount', fromJson: JsonCoerce.asInt)
+  final int? orderLimitAmount;
+  @JsonKey(name: 'shipLimitAmount', fromJson: JsonCoerce.asInt)
+  final int? shipLimitAmount;
   @JsonKey(name: 'country', fromJson: JsonCoerce.asString)
   final String? country;
   @JsonKey(name: 'list')
@@ -12584,8 +12584,8 @@ extension $OrderServiceCartListGet$Response$DataExtension
     String? targetTotalAmount,
     String? totalAmountCur,
     String? targetTotalAmountCur,
-    double? orderLimitAmount,
-    double? shipLimitAmount,
+    int? orderLimitAmount,
+    int? shipLimitAmount,
     String? country,
     List<OrderServiceCartListGet$Response$Data$List$Item>? list,
   }) {
@@ -12610,8 +12610,8 @@ extension $OrderServiceCartListGet$Response$DataExtension
     Wrapped<String?>? targetTotalAmount,
     Wrapped<String?>? totalAmountCur,
     Wrapped<String?>? targetTotalAmountCur,
-    Wrapped<double?>? orderLimitAmount,
-    Wrapped<double?>? shipLimitAmount,
+    Wrapped<int?>? orderLimitAmount,
+    Wrapped<int?>? shipLimitAmount,
     Wrapped<String?>? country,
     Wrapped<List<OrderServiceCartListGet$Response$Data$List$Item>?>? list,
   }) {
@@ -13705,8 +13705,8 @@ class OrderServiceOrderSubmitPostRequest$SourceItems$Item$SkuList$Item {
   final String? skuCode;
   @JsonKey(name: 'quantity', fromJson: JsonCoerce.asInt)
   final int? quantity;
-  @JsonKey(name: 'price', fromJson: JsonCoerce.asDouble)
-  final double? price;
+  @JsonKey(name: 'price', fromJson: JsonCoerce.asInt)
+  final int? price;
   @JsonKey(name: 'remark', fromJson: JsonCoerce.asString)
   final String? remark;
   @JsonKey(name: 'inviteCode', fromJson: JsonCoerce.asString)
@@ -13758,7 +13758,7 @@ extension $OrderServiceOrderSubmitPostRequest$SourceItems$Item$SkuList$ItemExten
   OrderServiceOrderSubmitPostRequest$SourceItems$Item$SkuList$Item copyWith({
     String? skuCode,
     int? quantity,
-    double? price,
+    int? price,
     String? remark,
     String? inviteCode,
   }) {
@@ -13775,7 +13775,7 @@ extension $OrderServiceOrderSubmitPostRequest$SourceItems$Item$SkuList$ItemExten
   copyWithWrapped({
     Wrapped<String?>? skuCode,
     Wrapped<int?>? quantity,
-    Wrapped<double?>? price,
+    Wrapped<int?>? price,
     Wrapped<String?>? remark,
     Wrapped<String?>? inviteCode,
   }) {
@@ -14116,20 +14116,20 @@ class OrderServiceOrderAppListGet$Response$Data$Records$Item {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderAppListGet$Response$Data$Records$ItemToJson(this);
 
-  @JsonKey(name: 'status', fromJson: JsonCoerce.asDouble)
-  final double? status;
-  @JsonKey(name: 'frontStatus', fromJson: JsonCoerce.asDouble)
-  final double? frontStatus;
+  @JsonKey(name: 'status', fromJson: JsonCoerce.asInt)
+  final int? status;
+  @JsonKey(name: 'frontStatus', fromJson: JsonCoerce.asInt)
+  final int? frontStatus;
   @JsonKey(name: 'statusContent', fromJson: JsonCoerce.asString)
   final String? statusContent;
-  @JsonKey(name: 'orderStatus', fromJson: JsonCoerce.asDouble)
-  final double? orderStatus;
+  @JsonKey(name: 'orderStatus', fromJson: JsonCoerce.asInt)
+  final int? orderStatus;
   @JsonKey(name: 'orderId', fromJson: JsonCoerce.asString)
   final String? orderId;
   @JsonKey(name: 'parentOrderId', fromJson: JsonCoerce.asString)
   final String? parentOrderId;
-  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asDouble)
-  final double? quantity;
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asInt)
+  final int? quantity;
   @JsonKey(name: 'totalAmount', fromJson: JsonCoerce.asString)
   final String? totalAmount;
   @JsonKey(name: 'targetTotalAmount', fromJson: JsonCoerce.asString)
@@ -14183,16 +14183,16 @@ class OrderServiceOrderAppListGet$Response$Data$Records$Item {
   @JsonKey(name: 'userAddress')
   final OrderServiceOrderAppListGet$Response$Data$Records$Item$UserAddress?
   userAddress;
-  @JsonKey(name: 'createTime', fromJson: JsonCoerce.asDouble)
-  final double? createTime;
+  @JsonKey(name: 'createTime', fromJson: JsonCoerce.asInt)
+  final int? createTime;
   @JsonKey(name: 'wish', fromJson: JsonCoerce.asBool)
   final bool? wish;
   @JsonKey(name: 'targetItemTotalAmount', fromJson: JsonCoerce.asString)
   final String? targetItemTotalAmount;
   @JsonKey(name: 'targetFreightAmount', fromJson: JsonCoerce.asString)
   final String? targetFreightAmount;
-  @JsonKey(name: 'giveawayGift', fromJson: JsonCoerce.asDouble)
-  final double? giveawayGift;
+  @JsonKey(name: 'giveawayGift', fromJson: JsonCoerce.asInt)
+  final int? giveawayGift;
   @JsonKey(name: 'orderFreight', fromJson: JsonCoerce.asBool)
   final bool? orderFreight;
   @JsonKey(name: 'skuSourceCode', fromJson: JsonCoerce.asString)
@@ -14442,13 +14442,13 @@ class OrderServiceOrderAppListGet$Response$Data$Records$Item {
 extension $OrderServiceOrderAppListGet$Response$Data$Records$ItemExtension
     on OrderServiceOrderAppListGet$Response$Data$Records$Item {
   OrderServiceOrderAppListGet$Response$Data$Records$Item copyWith({
-    double? status,
-    double? frontStatus,
+    int? status,
+    int? frontStatus,
     String? statusContent,
-    double? orderStatus,
+    int? orderStatus,
     String? orderId,
     String? parentOrderId,
-    double? quantity,
+    int? quantity,
     String? totalAmount,
     String? targetTotalAmount,
     String? discountAmount,
@@ -14481,11 +14481,11 @@ extension $OrderServiceOrderAppListGet$Response$Data$Records$ItemExtension
     orderBillList,
     OrderServiceOrderAppListGet$Response$Data$Records$Item$UserAddress?
     userAddress,
-    double? createTime,
+    int? createTime,
     bool? wish,
     String? targetItemTotalAmount,
     String? targetFreightAmount,
-    double? giveawayGift,
+    int? giveawayGift,
     bool? orderFreight,
     String? skuSourceCode,
     String? skuSourceCodeTitle,
@@ -14536,13 +14536,13 @@ extension $OrderServiceOrderAppListGet$Response$Data$Records$ItemExtension
   }
 
   OrderServiceOrderAppListGet$Response$Data$Records$Item copyWithWrapped({
-    Wrapped<double?>? status,
-    Wrapped<double?>? frontStatus,
+    Wrapped<int?>? status,
+    Wrapped<int?>? frontStatus,
     Wrapped<String?>? statusContent,
-    Wrapped<double?>? orderStatus,
+    Wrapped<int?>? orderStatus,
     Wrapped<String?>? orderId,
     Wrapped<String?>? parentOrderId,
-    Wrapped<double?>? quantity,
+    Wrapped<int?>? quantity,
     Wrapped<String?>? totalAmount,
     Wrapped<String?>? targetTotalAmount,
     Wrapped<String?>? discountAmount,
@@ -14585,11 +14585,11 @@ extension $OrderServiceOrderAppListGet$Response$Data$Records$ItemExtension
       OrderServiceOrderAppListGet$Response$Data$Records$Item$UserAddress?
     >?
     userAddress,
-    Wrapped<double?>? createTime,
+    Wrapped<int?>? createTime,
     Wrapped<bool?>? wish,
     Wrapped<String?>? targetItemTotalAmount,
     Wrapped<String?>? targetFreightAmount,
-    Wrapped<double?>? giveawayGift,
+    Wrapped<int?>? giveawayGift,
     Wrapped<bool?>? orderFreight,
     Wrapped<String?>? skuSourceCode,
     Wrapped<String?>? skuSourceCodeTitle,
@@ -14738,22 +14738,22 @@ class OrderServiceOrderAppDetailGet$Response$Data$BaseInfo {
   final String? skuSourceCode;
   @JsonKey(name: 'parentOrderId', fromJson: JsonCoerce.asString)
   final String? parentOrderId;
-  @JsonKey(name: 'status', fromJson: JsonCoerce.asDouble)
-  final double? status;
-  @JsonKey(name: 'frontStatus', fromJson: JsonCoerce.asDouble)
-  final double? frontStatus;
+  @JsonKey(name: 'status', fromJson: JsonCoerce.asInt)
+  final int? status;
+  @JsonKey(name: 'frontStatus', fromJson: JsonCoerce.asInt)
+  final int? frontStatus;
   @JsonKey(name: 'statusContent', fromJson: JsonCoerce.asString)
   final String? statusContent;
-  @JsonKey(name: 'orderStatus', fromJson: JsonCoerce.asDouble)
-  final double? orderStatus;
-  @JsonKey(name: 'evaluateStatus', fromJson: JsonCoerce.asDouble)
-  final double? evaluateStatus;
-  @JsonKey(name: 'timeoutPeriod', fromJson: JsonCoerce.asDouble)
-  final double? timeoutPeriod;
-  @JsonKey(name: 'createTime', fromJson: JsonCoerce.asDouble)
-  final double? createTime;
-  @JsonKey(name: 'leftTime', fromJson: JsonCoerce.asDouble)
-  final double? leftTime;
+  @JsonKey(name: 'orderStatus', fromJson: JsonCoerce.asInt)
+  final int? orderStatus;
+  @JsonKey(name: 'evaluateStatus', fromJson: JsonCoerce.asInt)
+  final int? evaluateStatus;
+  @JsonKey(name: 'timeoutPeriod', fromJson: JsonCoerce.asInt)
+  final int? timeoutPeriod;
+  @JsonKey(name: 'createTime', fromJson: JsonCoerce.asInt)
+  final int? createTime;
+  @JsonKey(name: 'leftTime', fromJson: JsonCoerce.asInt)
+  final int? leftTime;
   @JsonKey(name: 'title', fromJson: JsonCoerce.asString)
   final String? title;
   @JsonKey(name: 'subTitle', fromJson: JsonCoerce.asString)
@@ -14768,16 +14768,16 @@ class OrderServiceOrderAppDetailGet$Response$Data$BaseInfo {
   final String? description;
   @JsonKey(name: 'paySuccessDescription', fromJson: JsonCoerce.asString)
   final String? paySuccessDescription;
-  @JsonKey(name: 'afterSalesExpressMethod', fromJson: JsonCoerce.asDouble)
-  final double? afterSalesExpressMethod;
-  @JsonKey(name: 'afterSalesState', fromJson: JsonCoerce.asDouble)
-  final double? afterSalesState;
+  @JsonKey(name: 'afterSalesExpressMethod', fromJson: JsonCoerce.asInt)
+  final int? afterSalesExpressMethod;
+  @JsonKey(name: 'afterSalesState', fromJson: JsonCoerce.asInt)
+  final int? afterSalesState;
   @JsonKey(name: 'remark', fromJson: JsonCoerce.asString)
   final String? remark;
   @JsonKey(name: 'remarkImages', fromJson: JsonCoerce.asString)
   final String? remarkImages;
-  @JsonKey(name: 'supportOnlineAfterSales', fromJson: JsonCoerce.asDouble)
-  final double? supportOnlineAfterSales;
+  @JsonKey(name: 'supportOnlineAfterSales', fromJson: JsonCoerce.asInt)
+  final int? supportOnlineAfterSales;
   @JsonKey(name: 'receiptPdfLink', fromJson: JsonCoerce.asString)
   final String? receiptPdfLink;
   @JsonKey(name: 'afterSalesSupport', fromJson: JsonCoerce.asString)
@@ -14786,8 +14786,8 @@ class OrderServiceOrderAppDetailGet$Response$Data$BaseInfo {
   final String? tenantCode;
   @JsonKey(name: 'shippingCountry', fromJson: JsonCoerce.asString)
   final String? shippingCountry;
-  @JsonKey(name: 'payTime', fromJson: JsonCoerce.asDouble)
-  final double? payTime;
+  @JsonKey(name: 'payTime', fromJson: JsonCoerce.asInt)
+  final int? payTime;
   @JsonKey(name: 'afterSales', fromJson: JsonCoerce.asBool)
   final bool? afterSales;
   @JsonKey(name: 'wish', fromJson: JsonCoerce.asBool)
@@ -14997,29 +14997,29 @@ extension $OrderServiceOrderAppDetailGet$Response$Data$BaseInfoExtension
     String? orderId,
     String? skuSourceCode,
     String? parentOrderId,
-    double? status,
-    double? frontStatus,
+    int? status,
+    int? frontStatus,
     String? statusContent,
-    double? orderStatus,
-    double? evaluateStatus,
-    double? timeoutPeriod,
-    double? createTime,
-    double? leftTime,
+    int? orderStatus,
+    int? evaluateStatus,
+    int? timeoutPeriod,
+    int? createTime,
+    int? leftTime,
     String? title,
     String? subTitle,
     List<String>? operates,
     String? description,
     String? paySuccessDescription,
-    double? afterSalesExpressMethod,
-    double? afterSalesState,
+    int? afterSalesExpressMethod,
+    int? afterSalesState,
     String? remark,
     String? remarkImages,
-    double? supportOnlineAfterSales,
+    int? supportOnlineAfterSales,
     String? receiptPdfLink,
     String? afterSalesSupport,
     String? tenantCode,
     String? shippingCountry,
-    double? payTime,
+    int? payTime,
     bool? afterSales,
     bool? wish,
     bool? removePackage,
@@ -15068,29 +15068,29 @@ extension $OrderServiceOrderAppDetailGet$Response$Data$BaseInfoExtension
     Wrapped<String?>? orderId,
     Wrapped<String?>? skuSourceCode,
     Wrapped<String?>? parentOrderId,
-    Wrapped<double?>? status,
-    Wrapped<double?>? frontStatus,
+    Wrapped<int?>? status,
+    Wrapped<int?>? frontStatus,
     Wrapped<String?>? statusContent,
-    Wrapped<double?>? orderStatus,
-    Wrapped<double?>? evaluateStatus,
-    Wrapped<double?>? timeoutPeriod,
-    Wrapped<double?>? createTime,
-    Wrapped<double?>? leftTime,
+    Wrapped<int?>? orderStatus,
+    Wrapped<int?>? evaluateStatus,
+    Wrapped<int?>? timeoutPeriod,
+    Wrapped<int?>? createTime,
+    Wrapped<int?>? leftTime,
     Wrapped<String?>? title,
     Wrapped<String?>? subTitle,
     Wrapped<List<String>?>? operates,
     Wrapped<String?>? description,
     Wrapped<String?>? paySuccessDescription,
-    Wrapped<double?>? afterSalesExpressMethod,
-    Wrapped<double?>? afterSalesState,
+    Wrapped<int?>? afterSalesExpressMethod,
+    Wrapped<int?>? afterSalesState,
     Wrapped<String?>? remark,
     Wrapped<String?>? remarkImages,
-    Wrapped<double?>? supportOnlineAfterSales,
+    Wrapped<int?>? supportOnlineAfterSales,
     Wrapped<String?>? receiptPdfLink,
     Wrapped<String?>? afterSalesSupport,
     Wrapped<String?>? tenantCode,
     Wrapped<String?>? shippingCountry,
-    Wrapped<double?>? payTime,
+    Wrapped<int?>? payTime,
     Wrapped<bool?>? afterSales,
     Wrapped<bool?>? wish,
     Wrapped<bool?>? removePackage,
@@ -15216,8 +15216,8 @@ class OrderServiceOrderAppDetailGet$Response$Data$UserAddress {
   final String? phoneNumber;
   @JsonKey(name: 'zipCode', fromJson: JsonCoerce.asString)
   final String? zipCode;
-  @JsonKey(name: 'id', fromJson: JsonCoerce.asDouble)
-  final double? id;
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asInt)
+  final int? id;
   static const fromJsonFactory =
       _$OrderServiceOrderAppDetailGet$Response$Data$UserAddressFromJson;
 
@@ -15323,7 +15323,7 @@ extension $OrderServiceOrderAppDetailGet$Response$Data$UserAddressExtension
     String? lastName,
     String? phoneNumber,
     String? zipCode,
-    double? id,
+    int? id,
   }) {
     return OrderServiceOrderAppDetailGet$Response$Data$UserAddress(
       country: country ?? this.country,
@@ -15357,7 +15357,7 @@ extension $OrderServiceOrderAppDetailGet$Response$Data$UserAddressExtension
     Wrapped<String?>? lastName,
     Wrapped<String?>? phoneNumber,
     Wrapped<String?>? zipCode,
-    Wrapped<double?>? id,
+    Wrapped<int?>? id,
   }) {
     return OrderServiceOrderAppDetailGet$Response$Data$UserAddress(
       country: (country != null ? country.value : this.country),
@@ -15528,8 +15528,8 @@ class OrderServiceOrderAppDetailGet$Response$Data$Payments {
   final String? freightAmount;
   @JsonKey(name: 'targetFreightAmount', fromJson: JsonCoerce.asString)
   final String? targetFreightAmount;
-  @JsonKey(name: 'skuQuantity', fromJson: JsonCoerce.asDouble)
-  final double? skuQuantity;
+  @JsonKey(name: 'skuQuantity', fromJson: JsonCoerce.asInt)
+  final int? skuQuantity;
   @JsonKey(name: 'currency', fromJson: JsonCoerce.asString)
   final String? currency;
   @JsonKey(name: 'totalPrice', fromJson: JsonCoerce.asString)
@@ -15734,7 +15734,7 @@ extension $OrderServiceOrderAppDetailGet$Response$Data$PaymentsExtension
     String? itemsTotalAmount,
     String? freightAmount,
     String? targetFreightAmount,
-    double? skuQuantity,
+    int? skuQuantity,
     String? currency,
     String? totalPrice,
     String? targetPrice,
@@ -15792,7 +15792,7 @@ extension $OrderServiceOrderAppDetailGet$Response$Data$PaymentsExtension
     Wrapped<String?>? itemsTotalAmount,
     Wrapped<String?>? freightAmount,
     Wrapped<String?>? targetFreightAmount,
-    Wrapped<double?>? skuQuantity,
+    Wrapped<int?>? skuQuantity,
     Wrapped<String?>? currency,
     Wrapped<String?>? totalPrice,
     Wrapped<String?>? targetPrice,
@@ -16025,8 +16025,8 @@ class OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder {
   final String? parcelStatus;
   @JsonKey(name: 'parcelStatusDesc', fromJson: JsonCoerce.asString)
   final String? parcelStatusDesc;
-  @JsonKey(name: 'createTime', fromJson: JsonCoerce.asDouble)
-  final double? createTime;
+  @JsonKey(name: 'createTime', fromJson: JsonCoerce.asInt)
+  final int? createTime;
   @JsonKey(name: 'warehouseCode', fromJson: JsonCoerce.asString)
   final String? warehouseCode;
   @JsonKey(name: 'warehouseName', fromJson: JsonCoerce.asString)
@@ -16232,7 +16232,7 @@ extension $OrderServiceOrderAppDetailGet$Response$Data$ParcelOrderExtension
     String? parcelOrderId,
     String? parcelStatus,
     String? parcelStatusDesc,
-    double? createTime,
+    int? createTime,
     String? warehouseCode,
     String? warehouseName,
     String? freight,
@@ -16292,7 +16292,7 @@ extension $OrderServiceOrderAppDetailGet$Response$Data$ParcelOrderExtension
     Wrapped<String?>? parcelOrderId,
     Wrapped<String?>? parcelStatus,
     Wrapped<String?>? parcelStatusDesc,
-    Wrapped<double?>? createTime,
+    Wrapped<int?>? createTime,
     Wrapped<String?>? warehouseCode,
     Wrapped<String?>? warehouseName,
     Wrapped<String?>? freight,
@@ -16542,8 +16542,8 @@ class OrderServiceOrderAppDetailGet$Response$Data$DiscountInfos$Item {
         this,
       );
 
-  @JsonKey(name: 'discountType', fromJson: JsonCoerce.asDouble)
-  final double? discountType;
+  @JsonKey(name: 'discountType', fromJson: JsonCoerce.asInt)
+  final int? discountType;
   @JsonKey(name: 'userCouponCode', fromJson: JsonCoerce.asString)
   final String? userCouponCode;
   @JsonKey(name: 'discountAmount', fromJson: JsonCoerce.asString)
@@ -16603,7 +16603,7 @@ class OrderServiceOrderAppDetailGet$Response$Data$DiscountInfos$Item {
 extension $OrderServiceOrderAppDetailGet$Response$Data$DiscountInfos$ItemExtension
     on OrderServiceOrderAppDetailGet$Response$Data$DiscountInfos$Item {
   OrderServiceOrderAppDetailGet$Response$Data$DiscountInfos$Item copyWith({
-    double? discountType,
+    int? discountType,
     String? userCouponCode,
     String? discountAmount,
     String? targetDiscountAmount,
@@ -16620,7 +16620,7 @@ extension $OrderServiceOrderAppDetailGet$Response$Data$DiscountInfos$ItemExtensi
 
   OrderServiceOrderAppDetailGet$Response$Data$DiscountInfos$Item
   copyWithWrapped({
-    Wrapped<double?>? discountType,
+    Wrapped<int?>? discountType,
     Wrapped<String?>? userCouponCode,
     Wrapped<String?>? discountAmount,
     Wrapped<String?>? targetDiscountAmount,
@@ -17216,22 +17216,22 @@ class OrderServiceOrderNoAuthDetailGet$Response$Data$BaseInfo {
   final String? skuSourceCode;
   @JsonKey(name: 'parentOrderId', fromJson: JsonCoerce.asString)
   final String? parentOrderId;
-  @JsonKey(name: 'status', fromJson: JsonCoerce.asDouble)
-  final double? status;
-  @JsonKey(name: 'frontStatus', fromJson: JsonCoerce.asDouble)
-  final double? frontStatus;
+  @JsonKey(name: 'status', fromJson: JsonCoerce.asInt)
+  final int? status;
+  @JsonKey(name: 'frontStatus', fromJson: JsonCoerce.asInt)
+  final int? frontStatus;
   @JsonKey(name: 'statusContent', fromJson: JsonCoerce.asString)
   final String? statusContent;
-  @JsonKey(name: 'orderStatus', fromJson: JsonCoerce.asDouble)
-  final double? orderStatus;
-  @JsonKey(name: 'evaluateStatus', fromJson: JsonCoerce.asDouble)
-  final double? evaluateStatus;
-  @JsonKey(name: 'timeoutPeriod', fromJson: JsonCoerce.asDouble)
-  final double? timeoutPeriod;
-  @JsonKey(name: 'createTime', fromJson: JsonCoerce.asDouble)
-  final double? createTime;
-  @JsonKey(name: 'leftTime', fromJson: JsonCoerce.asDouble)
-  final double? leftTime;
+  @JsonKey(name: 'orderStatus', fromJson: JsonCoerce.asInt)
+  final int? orderStatus;
+  @JsonKey(name: 'evaluateStatus', fromJson: JsonCoerce.asInt)
+  final int? evaluateStatus;
+  @JsonKey(name: 'timeoutPeriod', fromJson: JsonCoerce.asInt)
+  final int? timeoutPeriod;
+  @JsonKey(name: 'createTime', fromJson: JsonCoerce.asInt)
+  final int? createTime;
+  @JsonKey(name: 'leftTime', fromJson: JsonCoerce.asInt)
+  final int? leftTime;
   @JsonKey(name: 'title', fromJson: JsonCoerce.asString)
   final String? title;
   @JsonKey(name: 'subTitle', fromJson: JsonCoerce.asString)
@@ -17246,16 +17246,16 @@ class OrderServiceOrderNoAuthDetailGet$Response$Data$BaseInfo {
   final String? description;
   @JsonKey(name: 'paySuccessDescription', fromJson: JsonCoerce.asString)
   final String? paySuccessDescription;
-  @JsonKey(name: 'afterSalesExpressMethod', fromJson: JsonCoerce.asDouble)
-  final double? afterSalesExpressMethod;
-  @JsonKey(name: 'afterSalesState', fromJson: JsonCoerce.asDouble)
-  final double? afterSalesState;
+  @JsonKey(name: 'afterSalesExpressMethod', fromJson: JsonCoerce.asInt)
+  final int? afterSalesExpressMethod;
+  @JsonKey(name: 'afterSalesState', fromJson: JsonCoerce.asInt)
+  final int? afterSalesState;
   @JsonKey(name: 'remark', fromJson: JsonCoerce.asString)
   final String? remark;
   @JsonKey(name: 'remarkImages', fromJson: JsonCoerce.asString)
   final String? remarkImages;
-  @JsonKey(name: 'supportOnlineAfterSales', fromJson: JsonCoerce.asDouble)
-  final double? supportOnlineAfterSales;
+  @JsonKey(name: 'supportOnlineAfterSales', fromJson: JsonCoerce.asInt)
+  final int? supportOnlineAfterSales;
   @JsonKey(name: 'receiptPdfLink', fromJson: JsonCoerce.asString)
   final String? receiptPdfLink;
   @JsonKey(name: 'afterSalesSupport', fromJson: JsonCoerce.asString)
@@ -17264,8 +17264,8 @@ class OrderServiceOrderNoAuthDetailGet$Response$Data$BaseInfo {
   final String? tenantCode;
   @JsonKey(name: 'shippingCountry', fromJson: JsonCoerce.asString)
   final String? shippingCountry;
-  @JsonKey(name: 'payTime', fromJson: JsonCoerce.asDouble)
-  final double? payTime;
+  @JsonKey(name: 'payTime', fromJson: JsonCoerce.asInt)
+  final int? payTime;
   @JsonKey(name: 'afterSales', fromJson: JsonCoerce.asBool)
   final bool? afterSales;
   @JsonKey(name: 'wish', fromJson: JsonCoerce.asBool)
@@ -17475,29 +17475,29 @@ extension $OrderServiceOrderNoAuthDetailGet$Response$Data$BaseInfoExtension
     String? orderId,
     String? skuSourceCode,
     String? parentOrderId,
-    double? status,
-    double? frontStatus,
+    int? status,
+    int? frontStatus,
     String? statusContent,
-    double? orderStatus,
-    double? evaluateStatus,
-    double? timeoutPeriod,
-    double? createTime,
-    double? leftTime,
+    int? orderStatus,
+    int? evaluateStatus,
+    int? timeoutPeriod,
+    int? createTime,
+    int? leftTime,
     String? title,
     String? subTitle,
     List<String>? operates,
     String? description,
     String? paySuccessDescription,
-    double? afterSalesExpressMethod,
-    double? afterSalesState,
+    int? afterSalesExpressMethod,
+    int? afterSalesState,
     String? remark,
     String? remarkImages,
-    double? supportOnlineAfterSales,
+    int? supportOnlineAfterSales,
     String? receiptPdfLink,
     String? afterSalesSupport,
     String? tenantCode,
     String? shippingCountry,
-    double? payTime,
+    int? payTime,
     bool? afterSales,
     bool? wish,
     bool? removePackage,
@@ -17546,29 +17546,29 @@ extension $OrderServiceOrderNoAuthDetailGet$Response$Data$BaseInfoExtension
     Wrapped<String?>? orderId,
     Wrapped<String?>? skuSourceCode,
     Wrapped<String?>? parentOrderId,
-    Wrapped<double?>? status,
-    Wrapped<double?>? frontStatus,
+    Wrapped<int?>? status,
+    Wrapped<int?>? frontStatus,
     Wrapped<String?>? statusContent,
-    Wrapped<double?>? orderStatus,
-    Wrapped<double?>? evaluateStatus,
-    Wrapped<double?>? timeoutPeriod,
-    Wrapped<double?>? createTime,
-    Wrapped<double?>? leftTime,
+    Wrapped<int?>? orderStatus,
+    Wrapped<int?>? evaluateStatus,
+    Wrapped<int?>? timeoutPeriod,
+    Wrapped<int?>? createTime,
+    Wrapped<int?>? leftTime,
     Wrapped<String?>? title,
     Wrapped<String?>? subTitle,
     Wrapped<List<String>?>? operates,
     Wrapped<String?>? description,
     Wrapped<String?>? paySuccessDescription,
-    Wrapped<double?>? afterSalesExpressMethod,
-    Wrapped<double?>? afterSalesState,
+    Wrapped<int?>? afterSalesExpressMethod,
+    Wrapped<int?>? afterSalesState,
     Wrapped<String?>? remark,
     Wrapped<String?>? remarkImages,
-    Wrapped<double?>? supportOnlineAfterSales,
+    Wrapped<int?>? supportOnlineAfterSales,
     Wrapped<String?>? receiptPdfLink,
     Wrapped<String?>? afterSalesSupport,
     Wrapped<String?>? tenantCode,
     Wrapped<String?>? shippingCountry,
-    Wrapped<double?>? payTime,
+    Wrapped<int?>? payTime,
     Wrapped<bool?>? afterSales,
     Wrapped<bool?>? wish,
     Wrapped<bool?>? removePackage,
@@ -17696,8 +17696,8 @@ class OrderServiceOrderNoAuthDetailGet$Response$Data$UserAddress {
   final String? phoneNumber;
   @JsonKey(name: 'zipCode', fromJson: JsonCoerce.asString)
   final String? zipCode;
-  @JsonKey(name: 'id', fromJson: JsonCoerce.asDouble)
-  final double? id;
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asInt)
+  final int? id;
   static const fromJsonFactory =
       _$OrderServiceOrderNoAuthDetailGet$Response$Data$UserAddressFromJson;
 
@@ -17803,7 +17803,7 @@ extension $OrderServiceOrderNoAuthDetailGet$Response$Data$UserAddressExtension
     String? lastName,
     String? phoneNumber,
     String? zipCode,
-    double? id,
+    int? id,
   }) {
     return OrderServiceOrderNoAuthDetailGet$Response$Data$UserAddress(
       country: country ?? this.country,
@@ -17837,7 +17837,7 @@ extension $OrderServiceOrderNoAuthDetailGet$Response$Data$UserAddressExtension
     Wrapped<String?>? lastName,
     Wrapped<String?>? phoneNumber,
     Wrapped<String?>? zipCode,
-    Wrapped<double?>? id,
+    Wrapped<int?>? id,
   }) {
     return OrderServiceOrderNoAuthDetailGet$Response$Data$UserAddress(
       country: (country != null ? country.value : this.country),
@@ -18004,8 +18004,8 @@ class OrderServiceOrderNoAuthDetailGet$Response$Data$Payments {
   final String? freightAmount;
   @JsonKey(name: 'targetFreightAmount', fromJson: JsonCoerce.asString)
   final String? targetFreightAmount;
-  @JsonKey(name: 'skuQuantity', fromJson: JsonCoerce.asDouble)
-  final double? skuQuantity;
+  @JsonKey(name: 'skuQuantity', fromJson: JsonCoerce.asInt)
+  final int? skuQuantity;
   @JsonKey(name: 'currency', fromJson: JsonCoerce.asString)
   final String? currency;
   @JsonKey(name: 'totalPrice', fromJson: JsonCoerce.asString)
@@ -18172,7 +18172,7 @@ extension $OrderServiceOrderNoAuthDetailGet$Response$Data$PaymentsExtension
     String? itemsTotalAmount,
     String? freightAmount,
     String? targetFreightAmount,
-    double? skuQuantity,
+    int? skuQuantity,
     String? currency,
     String? totalPrice,
     String? targetPrice,
@@ -18218,7 +18218,7 @@ extension $OrderServiceOrderNoAuthDetailGet$Response$Data$PaymentsExtension
     Wrapped<String?>? itemsTotalAmount,
     Wrapped<String?>? freightAmount,
     Wrapped<String?>? targetFreightAmount,
-    Wrapped<double?>? skuQuantity,
+    Wrapped<int?>? skuQuantity,
     Wrapped<String?>? currency,
     Wrapped<String?>? totalPrice,
     Wrapped<String?>? targetPrice,
@@ -18433,8 +18433,8 @@ class OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrder {
   final String? parcelStatus;
   @JsonKey(name: 'parcelStatusDesc', fromJson: JsonCoerce.asString)
   final String? parcelStatusDesc;
-  @JsonKey(name: 'createTime', fromJson: JsonCoerce.asDouble)
-  final double? createTime;
+  @JsonKey(name: 'createTime', fromJson: JsonCoerce.asInt)
+  final int? createTime;
   @JsonKey(name: 'warehouseCode', fromJson: JsonCoerce.asString)
   final String? warehouseCode;
   @JsonKey(name: 'warehouseName', fromJson: JsonCoerce.asString)
@@ -18640,7 +18640,7 @@ extension $OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrderExtension
     String? parcelOrderId,
     String? parcelStatus,
     String? parcelStatusDesc,
-    double? createTime,
+    int? createTime,
     String? warehouseCode,
     String? warehouseName,
     String? freight,
@@ -18700,7 +18700,7 @@ extension $OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrderExtension
     Wrapped<String?>? parcelOrderId,
     Wrapped<String?>? parcelStatus,
     Wrapped<String?>? parcelStatusDesc,
-    Wrapped<double?>? createTime,
+    Wrapped<int?>? createTime,
     Wrapped<String?>? warehouseCode,
     Wrapped<String?>? warehouseName,
     Wrapped<String?>? freight,
@@ -18980,8 +18980,8 @@ class OrderServiceOrderNoAuthDetailGet$Response$Data$DiscountInfos$Item {
         this,
       );
 
-  @JsonKey(name: 'discountType', fromJson: JsonCoerce.asDouble)
-  final double? discountType;
+  @JsonKey(name: 'discountType', fromJson: JsonCoerce.asInt)
+  final int? discountType;
   @JsonKey(name: 'userCouponCode', fromJson: JsonCoerce.asString)
   final String? userCouponCode;
   @JsonKey(name: 'discountAmount', fromJson: JsonCoerce.asString)
@@ -19041,7 +19041,7 @@ class OrderServiceOrderNoAuthDetailGet$Response$Data$DiscountInfos$Item {
 extension $OrderServiceOrderNoAuthDetailGet$Response$Data$DiscountInfos$ItemExtension
     on OrderServiceOrderNoAuthDetailGet$Response$Data$DiscountInfos$Item {
   OrderServiceOrderNoAuthDetailGet$Response$Data$DiscountInfos$Item copyWith({
-    double? discountType,
+    int? discountType,
     String? userCouponCode,
     String? discountAmount,
     String? targetDiscountAmount,
@@ -19058,7 +19058,7 @@ extension $OrderServiceOrderNoAuthDetailGet$Response$Data$DiscountInfos$ItemExte
 
   OrderServiceOrderNoAuthDetailGet$Response$Data$DiscountInfos$Item
   copyWithWrapped({
-    Wrapped<double?>? discountType,
+    Wrapped<int?>? discountType,
     Wrapped<String?>? userCouponCode,
     Wrapped<String?>? discountAmount,
     Wrapped<String?>? targetDiscountAmount,
@@ -19303,18 +19303,18 @@ class OrderServiceOrderCouponListPost$Response$Data$Item$UserCoupon {
   final String? userCouponCode;
   @JsonKey(name: 'couponCode', fromJson: JsonCoerce.asString)
   final String? couponCode;
-  @JsonKey(name: 'couponTitle', fromJson: JsonCoerce.asDouble)
-  final double? couponTitle;
+  @JsonKey(name: 'couponTitle', fromJson: JsonCoerce.asInt)
+  final int? couponTitle;
   @JsonKey(name: 'isUsed', fromJson: JsonCoerce.asString)
   final String? isUsed;
   @JsonKey(name: 'gmtInvalid', fromJson: JsonCoerce.asString)
   final String? gmtInvalid;
   @JsonKey(name: 'type', fromJson: JsonCoerce.asInt)
   final int? type;
-  @JsonKey(name: 'discount', fromJson: JsonCoerce.asDouble)
-  final double? discount;
-  @JsonKey(name: 'limitAmount', fromJson: JsonCoerce.asDouble)
-  final double? limitAmount;
+  @JsonKey(name: 'discount', fromJson: JsonCoerce.asInt)
+  final int? discount;
+  @JsonKey(name: 'limitAmount', fromJson: JsonCoerce.asInt)
+  final int? limitAmount;
   @JsonKey(name: 'currency', fromJson: JsonCoerce.asString)
   final String? currency;
   @JsonKey(name: 'discountTarget', fromJson: JsonCoerce.asString)
@@ -19432,12 +19432,12 @@ extension $OrderServiceOrderCouponListPost$Response$Data$Item$UserCouponExtensio
     msgInfo,
     String? userCouponCode,
     String? couponCode,
-    double? couponTitle,
+    int? couponTitle,
     String? isUsed,
     String? gmtInvalid,
     int? type,
-    double? discount,
-    double? limitAmount,
+    int? discount,
+    int? limitAmount,
     String? currency,
     String? discountTarget,
     String? limitAmountTarget,
@@ -19472,12 +19472,12 @@ extension $OrderServiceOrderCouponListPost$Response$Data$Item$UserCouponExtensio
     msgInfo,
     Wrapped<String?>? userCouponCode,
     Wrapped<String?>? couponCode,
-    Wrapped<double?>? couponTitle,
+    Wrapped<int?>? couponTitle,
     Wrapped<String?>? isUsed,
     Wrapped<String?>? gmtInvalid,
     Wrapped<int?>? type,
-    Wrapped<double?>? discount,
-    Wrapped<double?>? limitAmount,
+    Wrapped<int?>? discount,
+    Wrapped<int?>? limitAmount,
     Wrapped<String?>? currency,
     Wrapped<String?>? discountTarget,
     Wrapped<String?>? limitAmountTarget,
@@ -19729,20 +19729,20 @@ class OrderServiceOrderListGet$Response$Data$Records$Item {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderListGet$Response$Data$Records$ItemToJson(this);
 
-  @JsonKey(name: 'status', fromJson: JsonCoerce.asDouble)
-  final double? status;
-  @JsonKey(name: 'frontStatus', fromJson: JsonCoerce.asDouble)
-  final double? frontStatus;
+  @JsonKey(name: 'status', fromJson: JsonCoerce.asInt)
+  final int? status;
+  @JsonKey(name: 'frontStatus', fromJson: JsonCoerce.asInt)
+  final int? frontStatus;
   @JsonKey(name: 'statusContent', fromJson: JsonCoerce.asString)
   final String? statusContent;
-  @JsonKey(name: 'orderStatus', fromJson: JsonCoerce.asDouble)
-  final double? orderStatus;
+  @JsonKey(name: 'orderStatus', fromJson: JsonCoerce.asInt)
+  final int? orderStatus;
   @JsonKey(name: 'orderId', fromJson: JsonCoerce.asString)
   final String? orderId;
   @JsonKey(name: 'parentOrderId', fromJson: JsonCoerce.asString)
   final String? parentOrderId;
-  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asDouble)
-  final double? quantity;
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asInt)
+  final int? quantity;
   @JsonKey(name: 'totalAmount', fromJson: JsonCoerce.asString)
   final String? totalAmount;
   @JsonKey(name: 'targetTotalAmount', fromJson: JsonCoerce.asString)
@@ -19792,16 +19792,16 @@ class OrderServiceOrderListGet$Response$Data$Records$Item {
   @JsonKey(name: 'userAddress')
   final OrderServiceOrderListGet$Response$Data$Records$Item$UserAddress?
   userAddress;
-  @JsonKey(name: 'createTime', fromJson: JsonCoerce.asDouble)
-  final double? createTime;
+  @JsonKey(name: 'createTime', fromJson: JsonCoerce.asInt)
+  final int? createTime;
   @JsonKey(name: 'wish', fromJson: JsonCoerce.asBool)
   final bool? wish;
   @JsonKey(name: 'targetItemTotalAmount', fromJson: JsonCoerce.asString)
   final String? targetItemTotalAmount;
   @JsonKey(name: 'targetFreightAmount', fromJson: JsonCoerce.asString)
   final String? targetFreightAmount;
-  @JsonKey(name: 'giveawayGift', fromJson: JsonCoerce.asDouble)
-  final double? giveawayGift;
+  @JsonKey(name: 'giveawayGift', fromJson: JsonCoerce.asInt)
+  final int? giveawayGift;
   @JsonKey(name: 'skuSourceCode', fromJson: JsonCoerce.asString)
   final String? skuSourceCode;
   @JsonKey(name: 'skuSourceCodeTitle', fromJson: JsonCoerce.asString)
@@ -20031,13 +20031,13 @@ class OrderServiceOrderListGet$Response$Data$Records$Item {
 extension $OrderServiceOrderListGet$Response$Data$Records$ItemExtension
     on OrderServiceOrderListGet$Response$Data$Records$Item {
   OrderServiceOrderListGet$Response$Data$Records$Item copyWith({
-    double? status,
-    double? frontStatus,
+    int? status,
+    int? frontStatus,
     String? statusContent,
-    double? orderStatus,
+    int? orderStatus,
     String? orderId,
     String? parentOrderId,
-    double? quantity,
+    int? quantity,
     String? totalAmount,
     String? targetTotalAmount,
     String? discountAmount,
@@ -20066,11 +20066,11 @@ extension $OrderServiceOrderListGet$Response$Data$Records$ItemExtension
     orderBillList,
     OrderServiceOrderListGet$Response$Data$Records$Item$UserAddress?
     userAddress,
-    double? createTime,
+    int? createTime,
     bool? wish,
     String? targetItemTotalAmount,
     String? targetFreightAmount,
-    double? giveawayGift,
+    int? giveawayGift,
     String? skuSourceCode,
     String? skuSourceCodeTitle,
     String? targetTipAmount,
@@ -20117,13 +20117,13 @@ extension $OrderServiceOrderListGet$Response$Data$Records$ItemExtension
   }
 
   OrderServiceOrderListGet$Response$Data$Records$Item copyWithWrapped({
-    Wrapped<double?>? status,
-    Wrapped<double?>? frontStatus,
+    Wrapped<int?>? status,
+    Wrapped<int?>? frontStatus,
     Wrapped<String?>? statusContent,
-    Wrapped<double?>? orderStatus,
+    Wrapped<int?>? orderStatus,
     Wrapped<String?>? orderId,
     Wrapped<String?>? parentOrderId,
-    Wrapped<double?>? quantity,
+    Wrapped<int?>? quantity,
     Wrapped<String?>? totalAmount,
     Wrapped<String?>? targetTotalAmount,
     Wrapped<String?>? discountAmount,
@@ -20160,11 +20160,11 @@ extension $OrderServiceOrderListGet$Response$Data$Records$ItemExtension
     orderBillList,
     Wrapped<OrderServiceOrderListGet$Response$Data$Records$Item$UserAddress?>?
     userAddress,
-    Wrapped<double?>? createTime,
+    Wrapped<int?>? createTime,
     Wrapped<bool?>? wish,
     Wrapped<String?>? targetItemTotalAmount,
     Wrapped<String?>? targetFreightAmount,
-    Wrapped<double?>? giveawayGift,
+    Wrapped<int?>? giveawayGift,
     Wrapped<String?>? skuSourceCode,
     Wrapped<String?>? skuSourceCodeTitle,
     Wrapped<String?>? targetTipAmount,
@@ -20291,16 +20291,16 @@ class OrderServiceOrderCombineListGet$Response$Data$Records$Item {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderCombineListGet$Response$Data$Records$ItemToJson(this);
 
-  @JsonKey(name: 'status', fromJson: JsonCoerce.asDouble)
-  final double? status;
-  @JsonKey(name: 'frontStatus', fromJson: JsonCoerce.asDouble)
-  final double? frontStatus;
+  @JsonKey(name: 'status', fromJson: JsonCoerce.asInt)
+  final int? status;
+  @JsonKey(name: 'frontStatus', fromJson: JsonCoerce.asInt)
+  final int? frontStatus;
   @JsonKey(name: 'statusContent', fromJson: JsonCoerce.asString)
   final String? statusContent;
-  @JsonKey(name: 'orderStatus', fromJson: JsonCoerce.asDouble)
-  final double? orderStatus;
-  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asDouble)
-  final double? quantity;
+  @JsonKey(name: 'orderStatus', fromJson: JsonCoerce.asInt)
+  final int? orderStatus;
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asInt)
+  final int? quantity;
   @JsonKey(name: 'totalAmount', fromJson: JsonCoerce.asString)
   final String? totalAmount;
   @JsonKey(name: 'targetTotalAmount', fromJson: JsonCoerce.asString)
@@ -20337,8 +20337,8 @@ class OrderServiceOrderCombineListGet$Response$Data$Records$Item {
   @JsonKey(name: 'userAddress')
   final OrderServiceOrderCombineListGet$Response$Data$Records$Item$UserAddress?
   userAddress;
-  @JsonKey(name: 'createTime', fromJson: JsonCoerce.asDouble)
-  final double? createTime;
+  @JsonKey(name: 'createTime', fromJson: JsonCoerce.asInt)
+  final int? createTime;
   @JsonKey(name: 'wish', fromJson: JsonCoerce.asBool)
   final bool? wish;
   @JsonKey(name: 'orderList')
@@ -20507,11 +20507,11 @@ class OrderServiceOrderCombineListGet$Response$Data$Records$Item {
 extension $OrderServiceOrderCombineListGet$Response$Data$Records$ItemExtension
     on OrderServiceOrderCombineListGet$Response$Data$Records$Item {
   OrderServiceOrderCombineListGet$Response$Data$Records$Item copyWith({
-    double? status,
-    double? frontStatus,
+    int? status,
+    int? frontStatus,
     String? statusContent,
-    double? orderStatus,
-    double? quantity,
+    int? orderStatus,
+    int? quantity,
     String? totalAmount,
     String? targetTotalAmount,
     String? discountAmount,
@@ -20531,7 +20531,7 @@ extension $OrderServiceOrderCombineListGet$Response$Data$Records$ItemExtension
     parcelOrder,
     OrderServiceOrderCombineListGet$Response$Data$Records$Item$UserAddress?
     userAddress,
-    double? createTime,
+    int? createTime,
     bool? wish,
     List<
       OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item
@@ -20569,11 +20569,11 @@ extension $OrderServiceOrderCombineListGet$Response$Data$Records$ItemExtension
   }
 
   OrderServiceOrderCombineListGet$Response$Data$Records$Item copyWithWrapped({
-    Wrapped<double?>? status,
-    Wrapped<double?>? frontStatus,
+    Wrapped<int?>? status,
+    Wrapped<int?>? frontStatus,
     Wrapped<String?>? statusContent,
-    Wrapped<double?>? orderStatus,
-    Wrapped<double?>? quantity,
+    Wrapped<int?>? orderStatus,
+    Wrapped<int?>? quantity,
     Wrapped<String?>? totalAmount,
     Wrapped<String?>? targetTotalAmount,
     Wrapped<String?>? discountAmount,
@@ -20597,7 +20597,7 @@ extension $OrderServiceOrderCombineListGet$Response$Data$Records$ItemExtension
       OrderServiceOrderCombineListGet$Response$Data$Records$Item$UserAddress?
     >?
     userAddress,
-    Wrapped<double?>? createTime,
+    Wrapped<int?>? createTime,
     Wrapped<bool?>? wish,
     Wrapped<
       List<
@@ -20894,22 +20894,22 @@ class OrderServiceOrderDetailGet$Response$Data$BaseInfo {
   final String? skuSourceTitle;
   @JsonKey(name: 'parentOrderId', fromJson: JsonCoerce.asString)
   final String? parentOrderId;
-  @JsonKey(name: 'status', fromJson: JsonCoerce.asDouble)
-  final double? status;
-  @JsonKey(name: 'frontStatus', fromJson: JsonCoerce.asDouble)
-  final double? frontStatus;
+  @JsonKey(name: 'status', fromJson: JsonCoerce.asInt)
+  final int? status;
+  @JsonKey(name: 'frontStatus', fromJson: JsonCoerce.asInt)
+  final int? frontStatus;
   @JsonKey(name: 'statusContent', fromJson: JsonCoerce.asString)
   final String? statusContent;
-  @JsonKey(name: 'orderStatus', fromJson: JsonCoerce.asDouble)
-  final double? orderStatus;
-  @JsonKey(name: 'evaluateStatus', fromJson: JsonCoerce.asDouble)
-  final double? evaluateStatus;
-  @JsonKey(name: 'timeoutPeriod', fromJson: JsonCoerce.asDouble)
-  final double? timeoutPeriod;
-  @JsonKey(name: 'createTime', fromJson: JsonCoerce.asDouble)
-  final double? createTime;
-  @JsonKey(name: 'leftTime', fromJson: JsonCoerce.asDouble)
-  final double? leftTime;
+  @JsonKey(name: 'orderStatus', fromJson: JsonCoerce.asInt)
+  final int? orderStatus;
+  @JsonKey(name: 'evaluateStatus', fromJson: JsonCoerce.asInt)
+  final int? evaluateStatus;
+  @JsonKey(name: 'timeoutPeriod', fromJson: JsonCoerce.asInt)
+  final int? timeoutPeriod;
+  @JsonKey(name: 'createTime', fromJson: JsonCoerce.asInt)
+  final int? createTime;
+  @JsonKey(name: 'leftTime', fromJson: JsonCoerce.asInt)
+  final int? leftTime;
   @JsonKey(name: 'title', fromJson: JsonCoerce.asString)
   final String? title;
   @JsonKey(name: 'subTitle', fromJson: JsonCoerce.asString)
@@ -20924,16 +20924,16 @@ class OrderServiceOrderDetailGet$Response$Data$BaseInfo {
   final String? description;
   @JsonKey(name: 'paySuccessDescription', fromJson: JsonCoerce.asString)
   final String? paySuccessDescription;
-  @JsonKey(name: 'afterSalesExpressMethod', fromJson: JsonCoerce.asDouble)
-  final double? afterSalesExpressMethod;
-  @JsonKey(name: 'afterSalesState', fromJson: JsonCoerce.asDouble)
-  final double? afterSalesState;
+  @JsonKey(name: 'afterSalesExpressMethod', fromJson: JsonCoerce.asInt)
+  final int? afterSalesExpressMethod;
+  @JsonKey(name: 'afterSalesState', fromJson: JsonCoerce.asInt)
+  final int? afterSalesState;
   @JsonKey(name: 'remark', fromJson: JsonCoerce.asString)
   final String? remark;
   @JsonKey(name: 'remarkImages', fromJson: JsonCoerce.asString)
   final String? remarkImages;
-  @JsonKey(name: 'supportOnlineAfterSales', fromJson: JsonCoerce.asDouble)
-  final double? supportOnlineAfterSales;
+  @JsonKey(name: 'supportOnlineAfterSales', fromJson: JsonCoerce.asInt)
+  final int? supportOnlineAfterSales;
   @JsonKey(name: 'receiptPdfLink', fromJson: JsonCoerce.asString)
   final String? receiptPdfLink;
   @JsonKey(name: 'afterSalesSupport', fromJson: JsonCoerce.asString)
@@ -20942,8 +20942,8 @@ class OrderServiceOrderDetailGet$Response$Data$BaseInfo {
   final String? tenantCode;
   @JsonKey(name: 'shippingCountry', fromJson: JsonCoerce.asString)
   final String? shippingCountry;
-  @JsonKey(name: 'payTime', fromJson: JsonCoerce.asDouble)
-  final double? payTime;
+  @JsonKey(name: 'payTime', fromJson: JsonCoerce.asInt)
+  final int? payTime;
   @JsonKey(name: 'batchNo', fromJson: JsonCoerce.asString)
   final String? batchNo;
   @JsonKey(name: 'parcelBatch', fromJson: JsonCoerce.asBool)
@@ -20954,12 +20954,12 @@ class OrderServiceOrderDetailGet$Response$Data$BaseInfo {
   final bool? orderFreight;
   @JsonKey(name: 'logisticsSolutionCode')
   final Object? logisticsSolutionCode;
-  @JsonKey(name: 'returnType', fromJson: JsonCoerce.asDouble)
-  final double? returnType;
+  @JsonKey(name: 'returnType', fromJson: JsonCoerce.asInt)
+  final int? returnType;
   @JsonKey(name: 'language')
   final Object? language;
-  @JsonKey(name: 'giveawayGift', fromJson: JsonCoerce.asDouble)
-  final double? giveawayGift;
+  @JsonKey(name: 'giveawayGift', fromJson: JsonCoerce.asInt)
+  final int? giveawayGift;
   @JsonKey(name: 'afterSales', fromJson: JsonCoerce.asBool)
   final bool? afterSales;
   @JsonKey(name: 'wish', fromJson: JsonCoerce.asBool)
@@ -21208,37 +21208,37 @@ extension $OrderServiceOrderDetailGet$Response$Data$BaseInfoExtension
     String? skuSourceCode,
     String? skuSourceTitle,
     String? parentOrderId,
-    double? status,
-    double? frontStatus,
+    int? status,
+    int? frontStatus,
     String? statusContent,
-    double? orderStatus,
-    double? evaluateStatus,
-    double? timeoutPeriod,
-    double? createTime,
-    double? leftTime,
+    int? orderStatus,
+    int? evaluateStatus,
+    int? timeoutPeriod,
+    int? createTime,
+    int? leftTime,
     String? title,
     String? subTitle,
     List<String>? operates,
     String? description,
     String? paySuccessDescription,
-    double? afterSalesExpressMethod,
-    double? afterSalesState,
+    int? afterSalesExpressMethod,
+    int? afterSalesState,
     String? remark,
     String? remarkImages,
-    double? supportOnlineAfterSales,
+    int? supportOnlineAfterSales,
     String? receiptPdfLink,
     String? afterSalesSupport,
     String? tenantCode,
     String? shippingCountry,
-    double? payTime,
+    int? payTime,
     String? batchNo,
     bool? parcelBatch,
     bool? removePackage,
     bool? orderFreight,
     Object? logisticsSolutionCode,
-    double? returnType,
+    int? returnType,
     Object? language,
-    double? giveawayGift,
+    int? giveawayGift,
     bool? afterSales,
     bool? wish,
   }) {
@@ -21294,37 +21294,37 @@ extension $OrderServiceOrderDetailGet$Response$Data$BaseInfoExtension
     Wrapped<String?>? skuSourceCode,
     Wrapped<String?>? skuSourceTitle,
     Wrapped<String?>? parentOrderId,
-    Wrapped<double?>? status,
-    Wrapped<double?>? frontStatus,
+    Wrapped<int?>? status,
+    Wrapped<int?>? frontStatus,
     Wrapped<String?>? statusContent,
-    Wrapped<double?>? orderStatus,
-    Wrapped<double?>? evaluateStatus,
-    Wrapped<double?>? timeoutPeriod,
-    Wrapped<double?>? createTime,
-    Wrapped<double?>? leftTime,
+    Wrapped<int?>? orderStatus,
+    Wrapped<int?>? evaluateStatus,
+    Wrapped<int?>? timeoutPeriod,
+    Wrapped<int?>? createTime,
+    Wrapped<int?>? leftTime,
     Wrapped<String?>? title,
     Wrapped<String?>? subTitle,
     Wrapped<List<String>?>? operates,
     Wrapped<String?>? description,
     Wrapped<String?>? paySuccessDescription,
-    Wrapped<double?>? afterSalesExpressMethod,
-    Wrapped<double?>? afterSalesState,
+    Wrapped<int?>? afterSalesExpressMethod,
+    Wrapped<int?>? afterSalesState,
     Wrapped<String?>? remark,
     Wrapped<String?>? remarkImages,
-    Wrapped<double?>? supportOnlineAfterSales,
+    Wrapped<int?>? supportOnlineAfterSales,
     Wrapped<String?>? receiptPdfLink,
     Wrapped<String?>? afterSalesSupport,
     Wrapped<String?>? tenantCode,
     Wrapped<String?>? shippingCountry,
-    Wrapped<double?>? payTime,
+    Wrapped<int?>? payTime,
     Wrapped<String?>? batchNo,
     Wrapped<bool?>? parcelBatch,
     Wrapped<bool?>? removePackage,
     Wrapped<bool?>? orderFreight,
     Wrapped<Object?>? logisticsSolutionCode,
-    Wrapped<double?>? returnType,
+    Wrapped<int?>? returnType,
     Wrapped<Object?>? language,
-    Wrapped<double?>? giveawayGift,
+    Wrapped<int?>? giveawayGift,
     Wrapped<bool?>? afterSales,
     Wrapped<bool?>? wish,
   }) {
@@ -21426,8 +21426,8 @@ class OrderServiceOrderDetailGet$Response$Data$PayMethod {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderDetailGet$Response$Data$PayMethodToJson(this);
 
-  @JsonKey(name: 'method', fromJson: JsonCoerce.asDouble)
-  final double? method;
+  @JsonKey(name: 'method', fromJson: JsonCoerce.asInt)
+  final int? method;
   @JsonKey(name: 'methodName', fromJson: JsonCoerce.asString)
   final String? methodName;
   @JsonKey(name: 'payOrderId')
@@ -21480,7 +21480,7 @@ class OrderServiceOrderDetailGet$Response$Data$PayMethod {
 extension $OrderServiceOrderDetailGet$Response$Data$PayMethodExtension
     on OrderServiceOrderDetailGet$Response$Data$PayMethod {
   OrderServiceOrderDetailGet$Response$Data$PayMethod copyWith({
-    double? method,
+    int? method,
     String? methodName,
     Object? payOrderId,
     Object? cardMsg,
@@ -21496,7 +21496,7 @@ extension $OrderServiceOrderDetailGet$Response$Data$PayMethodExtension
   }
 
   OrderServiceOrderDetailGet$Response$Data$PayMethod copyWithWrapped({
-    Wrapped<double?>? method,
+    Wrapped<int?>? method,
     Wrapped<String?>? methodName,
     Wrapped<Object?>? payOrderId,
     Wrapped<Object?>? cardMsg,
@@ -21565,8 +21565,8 @@ class OrderServiceOrderDetailGet$Response$Data$Payments {
   final String? freightAmount;
   @JsonKey(name: 'targetFreightAmount', fromJson: JsonCoerce.asString)
   final String? targetFreightAmount;
-  @JsonKey(name: 'skuQuantity', fromJson: JsonCoerce.asDouble)
-  final double? skuQuantity;
+  @JsonKey(name: 'skuQuantity', fromJson: JsonCoerce.asInt)
+  final int? skuQuantity;
   @JsonKey(name: 'currency', fromJson: JsonCoerce.asString)
   final String? currency;
   @JsonKey(name: 'totalPrice', fromJson: JsonCoerce.asString)
@@ -21784,7 +21784,7 @@ extension $OrderServiceOrderDetailGet$Response$Data$PaymentsExtension
     String? targetItemDiscountAmount,
     String? freightAmount,
     String? targetFreightAmount,
-    double? skuQuantity,
+    int? skuQuantity,
     String? currency,
     String? totalPrice,
     String? targetPrice,
@@ -21843,7 +21843,7 @@ extension $OrderServiceOrderDetailGet$Response$Data$PaymentsExtension
     Wrapped<String?>? targetItemDiscountAmount,
     Wrapped<String?>? freightAmount,
     Wrapped<String?>? targetFreightAmount,
-    Wrapped<double?>? skuQuantity,
+    Wrapped<int?>? skuQuantity,
     Wrapped<String?>? currency,
     Wrapped<String?>? totalPrice,
     Wrapped<String?>? targetPrice,
@@ -21992,8 +21992,8 @@ class OrderServiceOrderDetailGet$Response$Data$UserAddress {
   final String? phoneNumber;
   @JsonKey(name: 'zipCode', fromJson: JsonCoerce.asString)
   final String? zipCode;
-  @JsonKey(name: 'id', fromJson: JsonCoerce.asDouble)
-  final double? id;
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asInt)
+  final int? id;
   @JsonKey(name: 'remark')
   final Object? remark;
   @JsonKey(name: 'accessCode')
@@ -22122,7 +22122,7 @@ extension $OrderServiceOrderDetailGet$Response$Data$UserAddressExtension
     String? lastName,
     String? phoneNumber,
     String? zipCode,
-    double? id,
+    int? id,
     Object? remark,
     Object? accessCode,
     Object? email,
@@ -22164,7 +22164,7 @@ extension $OrderServiceOrderDetailGet$Response$Data$UserAddressExtension
     Wrapped<String?>? lastName,
     Wrapped<String?>? phoneNumber,
     Wrapped<String?>? zipCode,
-    Wrapped<double?>? id,
+    Wrapped<int?>? id,
     Wrapped<Object?>? remark,
     Wrapped<Object?>? accessCode,
     Wrapped<Object?>? email,
@@ -22248,8 +22248,8 @@ class OrderServiceOrderDetailGet$Response$Data$ParcelOrder {
   final String? parcelStatusDesc;
   @JsonKey(name: 'batchNo', fromJson: JsonCoerce.asString)
   final String? batchNo;
-  @JsonKey(name: 'createTime', fromJson: JsonCoerce.asDouble)
-  final double? createTime;
+  @JsonKey(name: 'createTime', fromJson: JsonCoerce.asInt)
+  final int? createTime;
   @JsonKey(name: 'warehouseCode', fromJson: JsonCoerce.asString)
   final String? warehouseCode;
   @JsonKey(name: 'warehouseName', fromJson: JsonCoerce.asString)
@@ -22550,7 +22550,7 @@ extension $OrderServiceOrderDetailGet$Response$Data$ParcelOrderExtension
     String? parcelStatus,
     String? parcelStatusDesc,
     String? batchNo,
-    double? createTime,
+    int? createTime,
     String? warehouseCode,
     String? warehouseName,
     String? solutionCode,
@@ -22638,7 +22638,7 @@ extension $OrderServiceOrderDetailGet$Response$Data$ParcelOrderExtension
     Wrapped<String?>? parcelStatus,
     Wrapped<String?>? parcelStatusDesc,
     Wrapped<String?>? batchNo,
-    Wrapped<double?>? createTime,
+    Wrapped<int?>? createTime,
     Wrapped<String?>? warehouseCode,
     Wrapped<String?>? warehouseName,
     Wrapped<String?>? solutionCode,
@@ -23054,8 +23054,8 @@ class OrderServiceOrderDetailGet$Response$Data$DiscountInfos$Item {
   Map<String, dynamic> toJson() =>
       _$OrderServiceOrderDetailGet$Response$Data$DiscountInfos$ItemToJson(this);
 
-  @JsonKey(name: 'discountType', fromJson: JsonCoerce.asDouble)
-  final double? discountType;
+  @JsonKey(name: 'discountType', fromJson: JsonCoerce.asInt)
+  final int? discountType;
   @JsonKey(name: 'userCouponCode', fromJson: JsonCoerce.asString)
   final String? userCouponCode;
   @JsonKey(name: 'discountAmount', fromJson: JsonCoerce.asString)
@@ -23114,7 +23114,7 @@ class OrderServiceOrderDetailGet$Response$Data$DiscountInfos$Item {
 extension $OrderServiceOrderDetailGet$Response$Data$DiscountInfos$ItemExtension
     on OrderServiceOrderDetailGet$Response$Data$DiscountInfos$Item {
   OrderServiceOrderDetailGet$Response$Data$DiscountInfos$Item copyWith({
-    double? discountType,
+    int? discountType,
     String? userCouponCode,
     String? discountAmount,
     String? targetDiscountAmount,
@@ -23130,7 +23130,7 @@ extension $OrderServiceOrderDetailGet$Response$Data$DiscountInfos$ItemExtension
   }
 
   OrderServiceOrderDetailGet$Response$Data$DiscountInfos$Item copyWithWrapped({
-    Wrapped<double?>? discountType,
+    Wrapped<int?>? discountType,
     Wrapped<String?>? userCouponCode,
     Wrapped<String?>? discountAmount,
     Wrapped<String?>? targetDiscountAmount,
@@ -23206,22 +23206,22 @@ class OrderServiceOpenapiOrderDetailGet$Response$Data$BaseInfo {
   final String? skuSourceCode;
   @JsonKey(name: 'parentOrderId', fromJson: JsonCoerce.asString)
   final String? parentOrderId;
-  @JsonKey(name: 'status', fromJson: JsonCoerce.asDouble)
-  final double? status;
-  @JsonKey(name: 'frontStatus', fromJson: JsonCoerce.asDouble)
-  final double? frontStatus;
+  @JsonKey(name: 'status', fromJson: JsonCoerce.asInt)
+  final int? status;
+  @JsonKey(name: 'frontStatus', fromJson: JsonCoerce.asInt)
+  final int? frontStatus;
   @JsonKey(name: 'statusContent', fromJson: JsonCoerce.asString)
   final String? statusContent;
-  @JsonKey(name: 'orderStatus', fromJson: JsonCoerce.asDouble)
-  final double? orderStatus;
-  @JsonKey(name: 'evaluateStatus', fromJson: JsonCoerce.asDouble)
-  final double? evaluateStatus;
-  @JsonKey(name: 'timeoutPeriod', fromJson: JsonCoerce.asDouble)
-  final double? timeoutPeriod;
-  @JsonKey(name: 'createTime', fromJson: JsonCoerce.asDouble)
-  final double? createTime;
-  @JsonKey(name: 'leftTime', fromJson: JsonCoerce.asDouble)
-  final double? leftTime;
+  @JsonKey(name: 'orderStatus', fromJson: JsonCoerce.asInt)
+  final int? orderStatus;
+  @JsonKey(name: 'evaluateStatus', fromJson: JsonCoerce.asInt)
+  final int? evaluateStatus;
+  @JsonKey(name: 'timeoutPeriod', fromJson: JsonCoerce.asInt)
+  final int? timeoutPeriod;
+  @JsonKey(name: 'createTime', fromJson: JsonCoerce.asInt)
+  final int? createTime;
+  @JsonKey(name: 'leftTime', fromJson: JsonCoerce.asInt)
+  final int? leftTime;
   @JsonKey(name: 'title', fromJson: JsonCoerce.asString)
   final String? title;
   @JsonKey(name: 'subTitle', fromJson: JsonCoerce.asString)
@@ -23236,16 +23236,16 @@ class OrderServiceOpenapiOrderDetailGet$Response$Data$BaseInfo {
   final String? description;
   @JsonKey(name: 'paySuccessDescription', fromJson: JsonCoerce.asString)
   final String? paySuccessDescription;
-  @JsonKey(name: 'afterSalesExpressMethod', fromJson: JsonCoerce.asDouble)
-  final double? afterSalesExpressMethod;
-  @JsonKey(name: 'afterSalesState', fromJson: JsonCoerce.asDouble)
-  final double? afterSalesState;
+  @JsonKey(name: 'afterSalesExpressMethod', fromJson: JsonCoerce.asInt)
+  final int? afterSalesExpressMethod;
+  @JsonKey(name: 'afterSalesState', fromJson: JsonCoerce.asInt)
+  final int? afterSalesState;
   @JsonKey(name: 'remark', fromJson: JsonCoerce.asString)
   final String? remark;
   @JsonKey(name: 'remarkImages', fromJson: JsonCoerce.asString)
   final String? remarkImages;
-  @JsonKey(name: 'supportOnlineAfterSales', fromJson: JsonCoerce.asDouble)
-  final double? supportOnlineAfterSales;
+  @JsonKey(name: 'supportOnlineAfterSales', fromJson: JsonCoerce.asInt)
+  final int? supportOnlineAfterSales;
   @JsonKey(name: 'receiptPdfLink', fromJson: JsonCoerce.asString)
   final String? receiptPdfLink;
   @JsonKey(name: 'afterSalesSupport', fromJson: JsonCoerce.asString)
@@ -23254,8 +23254,8 @@ class OrderServiceOpenapiOrderDetailGet$Response$Data$BaseInfo {
   final String? tenantCode;
   @JsonKey(name: 'shippingCountry', fromJson: JsonCoerce.asString)
   final String? shippingCountry;
-  @JsonKey(name: 'payTime', fromJson: JsonCoerce.asDouble)
-  final double? payTime;
+  @JsonKey(name: 'payTime', fromJson: JsonCoerce.asInt)
+  final int? payTime;
   @JsonKey(name: 'afterSales', fromJson: JsonCoerce.asBool)
   final bool? afterSales;
   @JsonKey(name: 'wish', fromJson: JsonCoerce.asBool)
@@ -23457,29 +23457,29 @@ extension $OrderServiceOpenapiOrderDetailGet$Response$Data$BaseInfoExtension
     String? orderId,
     String? skuSourceCode,
     String? parentOrderId,
-    double? status,
-    double? frontStatus,
+    int? status,
+    int? frontStatus,
     String? statusContent,
-    double? orderStatus,
-    double? evaluateStatus,
-    double? timeoutPeriod,
-    double? createTime,
-    double? leftTime,
+    int? orderStatus,
+    int? evaluateStatus,
+    int? timeoutPeriod,
+    int? createTime,
+    int? leftTime,
     String? title,
     String? subTitle,
     List<String>? operates,
     String? description,
     String? paySuccessDescription,
-    double? afterSalesExpressMethod,
-    double? afterSalesState,
+    int? afterSalesExpressMethod,
+    int? afterSalesState,
     String? remark,
     String? remarkImages,
-    double? supportOnlineAfterSales,
+    int? supportOnlineAfterSales,
     String? receiptPdfLink,
     String? afterSalesSupport,
     String? tenantCode,
     String? shippingCountry,
-    double? payTime,
+    int? payTime,
     bool? afterSales,
     bool? wish,
     bool? removePackage,
@@ -23526,29 +23526,29 @@ extension $OrderServiceOpenapiOrderDetailGet$Response$Data$BaseInfoExtension
     Wrapped<String?>? orderId,
     Wrapped<String?>? skuSourceCode,
     Wrapped<String?>? parentOrderId,
-    Wrapped<double?>? status,
-    Wrapped<double?>? frontStatus,
+    Wrapped<int?>? status,
+    Wrapped<int?>? frontStatus,
     Wrapped<String?>? statusContent,
-    Wrapped<double?>? orderStatus,
-    Wrapped<double?>? evaluateStatus,
-    Wrapped<double?>? timeoutPeriod,
-    Wrapped<double?>? createTime,
-    Wrapped<double?>? leftTime,
+    Wrapped<int?>? orderStatus,
+    Wrapped<int?>? evaluateStatus,
+    Wrapped<int?>? timeoutPeriod,
+    Wrapped<int?>? createTime,
+    Wrapped<int?>? leftTime,
     Wrapped<String?>? title,
     Wrapped<String?>? subTitle,
     Wrapped<List<String>?>? operates,
     Wrapped<String?>? description,
     Wrapped<String?>? paySuccessDescription,
-    Wrapped<double?>? afterSalesExpressMethod,
-    Wrapped<double?>? afterSalesState,
+    Wrapped<int?>? afterSalesExpressMethod,
+    Wrapped<int?>? afterSalesState,
     Wrapped<String?>? remark,
     Wrapped<String?>? remarkImages,
-    Wrapped<double?>? supportOnlineAfterSales,
+    Wrapped<int?>? supportOnlineAfterSales,
     Wrapped<String?>? receiptPdfLink,
     Wrapped<String?>? afterSalesSupport,
     Wrapped<String?>? tenantCode,
     Wrapped<String?>? shippingCountry,
-    Wrapped<double?>? payTime,
+    Wrapped<int?>? payTime,
     Wrapped<bool?>? afterSales,
     Wrapped<bool?>? wish,
     Wrapped<bool?>? removePackage,
@@ -23672,8 +23672,8 @@ class OrderServiceOpenapiOrderDetailGet$Response$Data$UserAddress {
   final String? phoneNumber;
   @JsonKey(name: 'zipCode', fromJson: JsonCoerce.asString)
   final String? zipCode;
-  @JsonKey(name: 'id', fromJson: JsonCoerce.asDouble)
-  final double? id;
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asInt)
+  final int? id;
   static const fromJsonFactory =
       _$OrderServiceOpenapiOrderDetailGet$Response$Data$UserAddressFromJson;
 
@@ -23779,7 +23779,7 @@ extension $OrderServiceOpenapiOrderDetailGet$Response$Data$UserAddressExtension
     String? lastName,
     String? phoneNumber,
     String? zipCode,
-    double? id,
+    int? id,
   }) {
     return OrderServiceOpenapiOrderDetailGet$Response$Data$UserAddress(
       country: country ?? this.country,
@@ -23813,7 +23813,7 @@ extension $OrderServiceOpenapiOrderDetailGet$Response$Data$UserAddressExtension
     Wrapped<String?>? lastName,
     Wrapped<String?>? phoneNumber,
     Wrapped<String?>? zipCode,
-    Wrapped<double?>? id,
+    Wrapped<int?>? id,
   }) {
     return OrderServiceOpenapiOrderDetailGet$Response$Data$UserAddress(
       country: (country != null ? country.value : this.country),
@@ -23975,8 +23975,8 @@ class OrderServiceOpenapiOrderDetailGet$Response$Data$Payments {
   final String? itemsTotalAmount;
   @JsonKey(name: 'freightAmount', fromJson: JsonCoerce.asString)
   final String? freightAmount;
-  @JsonKey(name: 'skuQuantity', fromJson: JsonCoerce.asDouble)
-  final double? skuQuantity;
+  @JsonKey(name: 'skuQuantity', fromJson: JsonCoerce.asInt)
+  final int? skuQuantity;
   @JsonKey(name: 'currency', fromJson: JsonCoerce.asString)
   final String? currency;
   @JsonKey(name: 'totalPrice', fromJson: JsonCoerce.asString)
@@ -24112,7 +24112,7 @@ extension $OrderServiceOpenapiOrderDetailGet$Response$Data$PaymentsExtension
     String? receiptAmount,
     String? itemsTotalAmount,
     String? freightAmount,
-    double? skuQuantity,
+    int? skuQuantity,
     String? currency,
     String? totalPrice,
     String? targetPrice,
@@ -24150,7 +24150,7 @@ extension $OrderServiceOpenapiOrderDetailGet$Response$Data$PaymentsExtension
     Wrapped<String?>? receiptAmount,
     Wrapped<String?>? itemsTotalAmount,
     Wrapped<String?>? freightAmount,
-    Wrapped<double?>? skuQuantity,
+    Wrapped<int?>? skuQuantity,
     Wrapped<String?>? currency,
     Wrapped<String?>? totalPrice,
     Wrapped<String?>? targetPrice,
@@ -24350,8 +24350,8 @@ class OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrder {
   final String? parcelStatus;
   @JsonKey(name: 'parcelStatusDesc', fromJson: JsonCoerce.asString)
   final String? parcelStatusDesc;
-  @JsonKey(name: 'createTime', fromJson: JsonCoerce.asDouble)
-  final double? createTime;
+  @JsonKey(name: 'createTime', fromJson: JsonCoerce.asInt)
+  final int? createTime;
   @JsonKey(name: 'warehouseCode', fromJson: JsonCoerce.asString)
   final String? warehouseCode;
   @JsonKey(name: 'warehouseName', fromJson: JsonCoerce.asString)
@@ -24557,7 +24557,7 @@ extension $OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrderExtension
     String? parcelOrderId,
     String? parcelStatus,
     String? parcelStatusDesc,
-    double? createTime,
+    int? createTime,
     String? warehouseCode,
     String? warehouseName,
     String? freight,
@@ -24617,7 +24617,7 @@ extension $OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrderExtension
     Wrapped<String?>? parcelOrderId,
     Wrapped<String?>? parcelStatus,
     Wrapped<String?>? parcelStatusDesc,
-    Wrapped<double?>? createTime,
+    Wrapped<int?>? createTime,
     Wrapped<String?>? warehouseCode,
     Wrapped<String?>? warehouseName,
     Wrapped<String?>? freight,
@@ -25257,22 +25257,22 @@ class OrderServiceOrderCombineDetailGet$Response$Data$BaseInfo {
   final String? skuSourceCode;
   @JsonKey(name: 'parentOrderId', fromJson: JsonCoerce.asString)
   final String? parentOrderId;
-  @JsonKey(name: 'status', fromJson: JsonCoerce.asDouble)
-  final double? status;
-  @JsonKey(name: 'frontStatus', fromJson: JsonCoerce.asDouble)
-  final double? frontStatus;
+  @JsonKey(name: 'status', fromJson: JsonCoerce.asInt)
+  final int? status;
+  @JsonKey(name: 'frontStatus', fromJson: JsonCoerce.asInt)
+  final int? frontStatus;
   @JsonKey(name: 'statusContent', fromJson: JsonCoerce.asString)
   final String? statusContent;
-  @JsonKey(name: 'orderStatus', fromJson: JsonCoerce.asDouble)
-  final double? orderStatus;
-  @JsonKey(name: 'evaluateStatus', fromJson: JsonCoerce.asDouble)
-  final double? evaluateStatus;
-  @JsonKey(name: 'timeoutPeriod', fromJson: JsonCoerce.asDouble)
-  final double? timeoutPeriod;
-  @JsonKey(name: 'createTime', fromJson: JsonCoerce.asDouble)
-  final double? createTime;
-  @JsonKey(name: 'leftTime', fromJson: JsonCoerce.asDouble)
-  final double? leftTime;
+  @JsonKey(name: 'orderStatus', fromJson: JsonCoerce.asInt)
+  final int? orderStatus;
+  @JsonKey(name: 'evaluateStatus', fromJson: JsonCoerce.asInt)
+  final int? evaluateStatus;
+  @JsonKey(name: 'timeoutPeriod', fromJson: JsonCoerce.asInt)
+  final int? timeoutPeriod;
+  @JsonKey(name: 'createTime', fromJson: JsonCoerce.asInt)
+  final int? createTime;
+  @JsonKey(name: 'leftTime', fromJson: JsonCoerce.asInt)
+  final int? leftTime;
   @JsonKey(name: 'title', fromJson: JsonCoerce.asString)
   final String? title;
   @JsonKey(name: 'subTitle', fromJson: JsonCoerce.asString)
@@ -25287,16 +25287,16 @@ class OrderServiceOrderCombineDetailGet$Response$Data$BaseInfo {
   final String? description;
   @JsonKey(name: 'paySuccessDescription', fromJson: JsonCoerce.asString)
   final String? paySuccessDescription;
-  @JsonKey(name: 'afterSalesExpressMethod', fromJson: JsonCoerce.asDouble)
-  final double? afterSalesExpressMethod;
-  @JsonKey(name: 'afterSalesState', fromJson: JsonCoerce.asDouble)
-  final double? afterSalesState;
+  @JsonKey(name: 'afterSalesExpressMethod', fromJson: JsonCoerce.asInt)
+  final int? afterSalesExpressMethod;
+  @JsonKey(name: 'afterSalesState', fromJson: JsonCoerce.asInt)
+  final int? afterSalesState;
   @JsonKey(name: 'remark', fromJson: JsonCoerce.asString)
   final String? remark;
   @JsonKey(name: 'remarkImages', fromJson: JsonCoerce.asString)
   final String? remarkImages;
-  @JsonKey(name: 'supportOnlineAfterSales', fromJson: JsonCoerce.asDouble)
-  final double? supportOnlineAfterSales;
+  @JsonKey(name: 'supportOnlineAfterSales', fromJson: JsonCoerce.asInt)
+  final int? supportOnlineAfterSales;
   @JsonKey(name: 'receiptPdfLink', fromJson: JsonCoerce.asString)
   final String? receiptPdfLink;
   @JsonKey(name: 'afterSalesSupport', fromJson: JsonCoerce.asString)
@@ -25305,8 +25305,8 @@ class OrderServiceOrderCombineDetailGet$Response$Data$BaseInfo {
   final String? tenantCode;
   @JsonKey(name: 'shippingCountry', fromJson: JsonCoerce.asString)
   final String? shippingCountry;
-  @JsonKey(name: 'payTime', fromJson: JsonCoerce.asDouble)
-  final double? payTime;
+  @JsonKey(name: 'payTime', fromJson: JsonCoerce.asInt)
+  final int? payTime;
   @JsonKey(name: 'afterSales', fromJson: JsonCoerce.asBool)
   final bool? afterSales;
   @JsonKey(name: 'wish', fromJson: JsonCoerce.asBool)
@@ -25524,29 +25524,29 @@ extension $OrderServiceOrderCombineDetailGet$Response$Data$BaseInfoExtension
     String? orderId,
     String? skuSourceCode,
     String? parentOrderId,
-    double? status,
-    double? frontStatus,
+    int? status,
+    int? frontStatus,
     String? statusContent,
-    double? orderStatus,
-    double? evaluateStatus,
-    double? timeoutPeriod,
-    double? createTime,
-    double? leftTime,
+    int? orderStatus,
+    int? evaluateStatus,
+    int? timeoutPeriod,
+    int? createTime,
+    int? leftTime,
     String? title,
     String? subTitle,
     List<String>? operates,
     String? description,
     String? paySuccessDescription,
-    double? afterSalesExpressMethod,
-    double? afterSalesState,
+    int? afterSalesExpressMethod,
+    int? afterSalesState,
     String? remark,
     String? remarkImages,
-    double? supportOnlineAfterSales,
+    int? supportOnlineAfterSales,
     String? receiptPdfLink,
     String? afterSalesSupport,
     String? tenantCode,
     String? shippingCountry,
-    double? payTime,
+    int? payTime,
     bool? afterSales,
     bool? wish,
     bool? removePackage,
@@ -25597,29 +25597,29 @@ extension $OrderServiceOrderCombineDetailGet$Response$Data$BaseInfoExtension
     Wrapped<String?>? orderId,
     Wrapped<String?>? skuSourceCode,
     Wrapped<String?>? parentOrderId,
-    Wrapped<double?>? status,
-    Wrapped<double?>? frontStatus,
+    Wrapped<int?>? status,
+    Wrapped<int?>? frontStatus,
     Wrapped<String?>? statusContent,
-    Wrapped<double?>? orderStatus,
-    Wrapped<double?>? evaluateStatus,
-    Wrapped<double?>? timeoutPeriod,
-    Wrapped<double?>? createTime,
-    Wrapped<double?>? leftTime,
+    Wrapped<int?>? orderStatus,
+    Wrapped<int?>? evaluateStatus,
+    Wrapped<int?>? timeoutPeriod,
+    Wrapped<int?>? createTime,
+    Wrapped<int?>? leftTime,
     Wrapped<String?>? title,
     Wrapped<String?>? subTitle,
     Wrapped<List<String>?>? operates,
     Wrapped<String?>? description,
     Wrapped<String?>? paySuccessDescription,
-    Wrapped<double?>? afterSalesExpressMethod,
-    Wrapped<double?>? afterSalesState,
+    Wrapped<int?>? afterSalesExpressMethod,
+    Wrapped<int?>? afterSalesState,
     Wrapped<String?>? remark,
     Wrapped<String?>? remarkImages,
-    Wrapped<double?>? supportOnlineAfterSales,
+    Wrapped<int?>? supportOnlineAfterSales,
     Wrapped<String?>? receiptPdfLink,
     Wrapped<String?>? afterSalesSupport,
     Wrapped<String?>? tenantCode,
     Wrapped<String?>? shippingCountry,
-    Wrapped<double?>? payTime,
+    Wrapped<int?>? payTime,
     Wrapped<bool?>? afterSales,
     Wrapped<bool?>? wish,
     Wrapped<bool?>? removePackage,
@@ -25738,8 +25738,8 @@ class OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrder {
   final String? parcelStatus;
   @JsonKey(name: 'parcelStatusDesc', fromJson: JsonCoerce.asString)
   final String? parcelStatusDesc;
-  @JsonKey(name: 'createTime', fromJson: JsonCoerce.asDouble)
-  final double? createTime;
+  @JsonKey(name: 'createTime', fromJson: JsonCoerce.asInt)
+  final int? createTime;
   @JsonKey(name: 'warehouseCode', fromJson: JsonCoerce.asString)
   final String? warehouseCode;
   @JsonKey(name: 'warehouseName', fromJson: JsonCoerce.asString)
@@ -25945,7 +25945,7 @@ extension $OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrderExtension
     String? parcelOrderId,
     String? parcelStatus,
     String? parcelStatusDesc,
-    double? createTime,
+    int? createTime,
     String? warehouseCode,
     String? warehouseName,
     String? freight,
@@ -26005,7 +26005,7 @@ extension $OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrderExtension
     Wrapped<String?>? parcelOrderId,
     Wrapped<String?>? parcelStatus,
     Wrapped<String?>? parcelStatusDesc,
-    Wrapped<double?>? createTime,
+    Wrapped<int?>? createTime,
     Wrapped<String?>? warehouseCode,
     Wrapped<String?>? warehouseName,
     Wrapped<String?>? freight,
@@ -26291,16 +26291,16 @@ class OrderServiceOrderGetOrderTraceGet$Response$Data$TraceList$Item {
         this,
       );
 
-  @JsonKey(name: 'id', fromJson: JsonCoerce.asDouble)
-  final double? id;
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asInt)
+  final int? id;
   @JsonKey(name: 'frontCode', fromJson: JsonCoerce.asString)
   final String? frontCode;
   @JsonKey(name: 'icon', fromJson: JsonCoerce.asString)
   final String? icon;
   @JsonKey(name: 'traceMessage', fromJson: JsonCoerce.asString)
   final String? traceMessage;
-  @JsonKey(name: 'time', fromJson: JsonCoerce.asDouble)
-  final double? time;
+  @JsonKey(name: 'time', fromJson: JsonCoerce.asInt)
+  final int? time;
   @JsonKey(name: 'lastMileMailNo')
   final Object? lastMileMailNo;
   @JsonKey(name: 'lastMileMailNoLink', fromJson: JsonCoerce.asString)
@@ -26391,11 +26391,11 @@ class OrderServiceOrderGetOrderTraceGet$Response$Data$TraceList$Item {
 extension $OrderServiceOrderGetOrderTraceGet$Response$Data$TraceList$ItemExtension
     on OrderServiceOrderGetOrderTraceGet$Response$Data$TraceList$Item {
   OrderServiceOrderGetOrderTraceGet$Response$Data$TraceList$Item copyWith({
-    double? id,
+    int? id,
     String? frontCode,
     String? icon,
     String? traceMessage,
-    double? time,
+    int? time,
     Object? lastMileMailNo,
     String? lastMileMailNoLink,
     String? lastMileMailNoTitle,
@@ -26420,11 +26420,11 @@ extension $OrderServiceOrderGetOrderTraceGet$Response$Data$TraceList$ItemExtensi
 
   OrderServiceOrderGetOrderTraceGet$Response$Data$TraceList$Item
   copyWithWrapped({
-    Wrapped<double?>? id,
+    Wrapped<int?>? id,
     Wrapped<String?>? frontCode,
     Wrapped<String?>? icon,
     Wrapped<String?>? traceMessage,
-    Wrapped<double?>? time,
+    Wrapped<int?>? time,
     Wrapped<Object?>? lastMileMailNo,
     Wrapped<String?>? lastMileMailNoLink,
     Wrapped<String?>? lastMileMailNoTitle,
@@ -26676,8 +26676,8 @@ class OrderServiceCartPricingPost$Response$Data$SkuQuantityDTOList$Item {
 
   @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
   final String? skuCode;
-  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asDouble)
-  final double? quantity;
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asInt)
+  final int? quantity;
   @JsonKey(name: 'price')
   final Object? price;
   @JsonKey(name: 'inviteCode')
@@ -26742,7 +26742,7 @@ extension $OrderServiceCartPricingPost$Response$Data$SkuQuantityDTOList$ItemExte
     on OrderServiceCartPricingPost$Response$Data$SkuQuantityDTOList$Item {
   OrderServiceCartPricingPost$Response$Data$SkuQuantityDTOList$Item copyWith({
     String? skuCode,
-    double? quantity,
+    int? quantity,
     Object? price,
     Object? inviteCode,
     Object? createTime,
@@ -26763,7 +26763,7 @@ extension $OrderServiceCartPricingPost$Response$Data$SkuQuantityDTOList$ItemExte
   OrderServiceCartPricingPost$Response$Data$SkuQuantityDTOList$Item
   copyWithWrapped({
     Wrapped<String?>? skuCode,
-    Wrapped<double?>? quantity,
+    Wrapped<int?>? quantity,
     Wrapped<Object?>? price,
     Wrapped<Object?>? inviteCode,
     Wrapped<Object?>? createTime,
@@ -26886,8 +26886,8 @@ class OrderServiceCartNoAuthPricingPost$Response$Data$SkuQuantityDTOList$Item {
 
   @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
   final String? skuCode;
-  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asDouble)
-  final double? quantity;
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asInt)
+  final int? quantity;
   @JsonKey(name: 'price')
   final Object? price;
   @JsonKey(name: 'inviteCode')
@@ -26954,7 +26954,7 @@ extension $OrderServiceCartNoAuthPricingPost$Response$Data$SkuQuantityDTOList$It
   OrderServiceCartNoAuthPricingPost$Response$Data$SkuQuantityDTOList$Item
   copyWith({
     String? skuCode,
-    double? quantity,
+    int? quantity,
     Object? price,
     Object? inviteCode,
     Object? createTime,
@@ -26975,7 +26975,7 @@ extension $OrderServiceCartNoAuthPricingPost$Response$Data$SkuQuantityDTOList$It
   OrderServiceCartNoAuthPricingPost$Response$Data$SkuQuantityDTOList$Item
   copyWithWrapped({
     Wrapped<String?>? skuCode,
-    Wrapped<double?>? quantity,
+    Wrapped<int?>? quantity,
     Wrapped<Object?>? price,
     Wrapped<Object?>? inviteCode,
     Wrapped<Object?>? createTime,
@@ -27122,8 +27122,8 @@ class OrderServiceOrderAppListGet$Response$Data$Records$Item$OrderSkuList$Item {
   final String? targetTotalFinalPrice;
   @JsonKey(name: 'remark', fromJson: JsonCoerce.asString)
   final String? remark;
-  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asDouble)
-  final double? quantity;
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asInt)
+  final int? quantity;
   @JsonKey(name: 'skuSpecValues')
   final List<
     OrderServiceOrderAppListGet$Response$Data$Records$Item$OrderSkuList$Item$SkuSpecValues$Item
@@ -27271,7 +27271,7 @@ extension $OrderServiceOrderAppListGet$Response$Data$Records$Item$OrderSkuList$I
     String? targetSkuFinalPrice,
     String? targetTotalFinalPrice,
     String? remark,
-    double? quantity,
+    int? quantity,
     List<
       OrderServiceOrderAppListGet$Response$Data$Records$Item$OrderSkuList$Item$SkuSpecValues$Item
     >?
@@ -27319,7 +27319,7 @@ extension $OrderServiceOrderAppListGet$Response$Data$Records$Item$OrderSkuList$I
     Wrapped<String?>? targetSkuFinalPrice,
     Wrapped<String?>? targetTotalFinalPrice,
     Wrapped<String?>? remark,
-    Wrapped<double?>? quantity,
+    Wrapped<int?>? quantity,
     Wrapped<
       List<
         OrderServiceOrderAppListGet$Response$Data$Records$Item$OrderSkuList$Item$SkuSpecValues$Item
@@ -27406,8 +27406,8 @@ class OrderServiceOrderAppListGet$Response$Data$Records$Item$SupplyOrderList$Ite
   final String? productName;
   @JsonKey(name: 'imageUrl')
   final Object? imageUrl;
-  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asDouble)
-  final double? quantity;
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asInt)
+  final int? quantity;
   @JsonKey(name: 'weight', fromJson: JsonCoerce.asString)
   final String? weight;
   @JsonKey(name: 'length', fromJson: JsonCoerce.asString)
@@ -27503,7 +27503,7 @@ extension $OrderServiceOrderAppListGet$Response$Data$Records$Item$SupplyOrderLis
     String? productCode,
     String? productName,
     Object? imageUrl,
-    double? quantity,
+    int? quantity,
     String? weight,
     String? length,
     String? width,
@@ -27535,7 +27535,7 @@ extension $OrderServiceOrderAppListGet$Response$Data$Records$Item$SupplyOrderLis
     Wrapped<String?>? productCode,
     Wrapped<String?>? productName,
     Wrapped<Object?>? imageUrl,
-    Wrapped<double?>? quantity,
+    Wrapped<int?>? quantity,
     Wrapped<String?>? weight,
     Wrapped<String?>? length,
     Wrapped<String?>? width,
@@ -27618,8 +27618,8 @@ class OrderServiceOrderAppListGet$Response$Data$Records$Item$ParcelOrder {
   final String? parcelStatus;
   @JsonKey(name: 'parcelStatusDesc', fromJson: JsonCoerce.asString)
   final String? parcelStatusDesc;
-  @JsonKey(name: 'createTime', fromJson: JsonCoerce.asDouble)
-  final double? createTime;
+  @JsonKey(name: 'createTime', fromJson: JsonCoerce.asInt)
+  final int? createTime;
   @JsonKey(name: 'warehouseCode', fromJson: JsonCoerce.asString)
   final String? warehouseCode;
   @JsonKey(name: 'warehouseName', fromJson: JsonCoerce.asString)
@@ -27868,7 +27868,7 @@ extension $OrderServiceOrderAppListGet$Response$Data$Records$Item$ParcelOrderExt
     String? parcelOrderId,
     String? parcelStatus,
     String? parcelStatusDesc,
-    double? createTime,
+    int? createTime,
     String? warehouseCode,
     String? warehouseName,
     String? solutionCode,
@@ -27941,7 +27941,7 @@ extension $OrderServiceOrderAppListGet$Response$Data$Records$Item$ParcelOrderExt
     Wrapped<String?>? parcelOrderId,
     Wrapped<String?>? parcelStatus,
     Wrapped<String?>? parcelStatusDesc,
-    Wrapped<double?>? createTime,
+    Wrapped<int?>? createTime,
     Wrapped<String?>? warehouseCode,
     Wrapped<String?>? warehouseName,
     Wrapped<String?>? solutionCode,
@@ -28084,8 +28084,8 @@ class OrderServiceOrderAppListGet$Response$Data$Records$Item$OrderBillList$Item 
 
   @JsonKey(name: 'billId', fromJson: JsonCoerce.asString)
   final String? billId;
-  @JsonKey(name: 'status', fromJson: JsonCoerce.asDouble)
-  final double? status;
+  @JsonKey(name: 'status', fromJson: JsonCoerce.asInt)
+  final int? status;
   @JsonKey(name: 'targetTotalPrice', fromJson: JsonCoerce.asString)
   final String? targetTotalPrice;
   @JsonKey(name: 'targetCurrency', fromJson: JsonCoerce.asString)
@@ -28131,7 +28131,7 @@ extension $OrderServiceOrderAppListGet$Response$Data$Records$Item$OrderBillList$
   OrderServiceOrderAppListGet$Response$Data$Records$Item$OrderBillList$Item
   copyWith({
     String? billId,
-    double? status,
+    int? status,
     String? targetTotalPrice,
     String? targetCurrency,
   }) {
@@ -28146,7 +28146,7 @@ extension $OrderServiceOrderAppListGet$Response$Data$Records$Item$OrderBillList$
   OrderServiceOrderAppListGet$Response$Data$Records$Item$OrderBillList$Item
   copyWithWrapped({
     Wrapped<String?>? billId,
-    Wrapped<double?>? status,
+    Wrapped<int?>? status,
     Wrapped<String?>? targetTotalPrice,
     Wrapped<String?>? targetCurrency,
   }) {
@@ -28222,8 +28222,8 @@ class OrderServiceOrderAppListGet$Response$Data$Records$Item$UserAddress {
   final String? phoneNumber;
   @JsonKey(name: 'zipCode', fromJson: JsonCoerce.asString)
   final String? zipCode;
-  @JsonKey(name: 'id', fromJson: JsonCoerce.asDouble)
-  final double? id;
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asInt)
+  final int? id;
   static const fromJsonFactory =
       _$OrderServiceOrderAppListGet$Response$Data$Records$Item$UserAddressFromJson;
 
@@ -28330,7 +28330,7 @@ extension $OrderServiceOrderAppListGet$Response$Data$Records$Item$UserAddressExt
     String? lastName,
     String? phoneNumber,
     String? zipCode,
-    double? id,
+    int? id,
   }) {
     return OrderServiceOrderAppListGet$Response$Data$Records$Item$UserAddress(
       country: country ?? this.country,
@@ -28365,7 +28365,7 @@ extension $OrderServiceOrderAppListGet$Response$Data$Records$Item$UserAddressExt
     Wrapped<String?>? lastName,
     Wrapped<String?>? phoneNumber,
     Wrapped<String?>? zipCode,
-    Wrapped<double?>? id,
+    Wrapped<int?>? id,
   }) {
     return OrderServiceOrderAppListGet$Response$Data$Records$Item$UserAddress(
       country: (country != null ? country.value : this.country),
@@ -28693,8 +28693,8 @@ class OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder$ParcelProductDTOLi
   final String? productCode;
   @JsonKey(name: 'productName', fromJson: JsonCoerce.asString)
   final String? productName;
-  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asDouble)
-  final double? quantity;
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asInt)
+  final int? quantity;
   @JsonKey(name: 'imageUrl', fromJson: JsonCoerce.asString)
   final String? imageUrl;
   static const fromJsonFactory =
@@ -28753,7 +28753,7 @@ extension $OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder$ParcelProduct
     String? skuCode,
     String? productCode,
     String? productName,
-    double? quantity,
+    int? quantity,
     String? imageUrl,
   }) {
     return OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder$ParcelProductDTOList$Item(
@@ -28770,7 +28770,7 @@ extension $OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder$ParcelProduct
     Wrapped<String?>? skuCode,
     Wrapped<String?>? productCode,
     Wrapped<String?>? productName,
-    Wrapped<double?>? quantity,
+    Wrapped<int?>? quantity,
     Wrapped<String?>? imageUrl,
   }) {
     return OrderServiceOrderAppDetailGet$Response$Data$ParcelOrder$ParcelProductDTOList$Item(
@@ -29036,16 +29036,16 @@ class OrderServiceOrderAppDetailGet$Response$Data$OrderTrace$TraceList$Item {
         this,
       );
 
-  @JsonKey(name: 'id', fromJson: JsonCoerce.asDouble)
-  final double? id;
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asInt)
+  final int? id;
   @JsonKey(name: 'frontCode', fromJson: JsonCoerce.asString)
   final String? frontCode;
   @JsonKey(name: 'icon', fromJson: JsonCoerce.asString)
   final String? icon;
   @JsonKey(name: 'traceMessage', fromJson: JsonCoerce.asString)
   final String? traceMessage;
-  @JsonKey(name: 'time', fromJson: JsonCoerce.asDouble)
-  final double? time;
+  @JsonKey(name: 'time', fromJson: JsonCoerce.asInt)
+  final int? time;
   @JsonKey(name: 'lastMileMailNo', fromJson: JsonCoerce.asString)
   final String? lastMileMailNo;
   @JsonKey(name: 'lastMileMailNoLink', fromJson: JsonCoerce.asString)
@@ -29129,11 +29129,11 @@ extension $OrderServiceOrderAppDetailGet$Response$Data$OrderTrace$TraceList$Item
     on OrderServiceOrderAppDetailGet$Response$Data$OrderTrace$TraceList$Item {
   OrderServiceOrderAppDetailGet$Response$Data$OrderTrace$TraceList$Item
   copyWith({
-    double? id,
+    int? id,
     String? frontCode,
     String? icon,
     String? traceMessage,
-    double? time,
+    int? time,
     String? lastMileMailNo,
     String? lastMileMailNoLink,
     String? lastMileMailNoTitle,
@@ -29156,11 +29156,11 @@ extension $OrderServiceOrderAppDetailGet$Response$Data$OrderTrace$TraceList$Item
 
   OrderServiceOrderAppDetailGet$Response$Data$OrderTrace$TraceList$Item
   copyWithWrapped({
-    Wrapped<double?>? id,
+    Wrapped<int?>? id,
     Wrapped<String?>? frontCode,
     Wrapped<String?>? icon,
     Wrapped<String?>? traceMessage,
-    Wrapped<double?>? time,
+    Wrapped<int?>? time,
     Wrapped<String?>? lastMileMailNo,
     Wrapped<String?>? lastMileMailNoLink,
     Wrapped<String?>? lastMileMailNoTitle,
@@ -29261,8 +29261,8 @@ class OrderServiceOrderAppDetailGet$Response$Data$OrderList$Item$SkuList$Item {
   final String? currency;
   @JsonKey(name: 'targetCurrency', fromJson: JsonCoerce.asString)
   final String? targetCurrency;
-  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asDouble)
-  final double? quantity;
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asInt)
+  final int? quantity;
   @JsonKey(name: 'remark', fromJson: JsonCoerce.asString)
   final String? remark;
   @JsonKey(name: 'skuSpecValues')
@@ -29425,7 +29425,7 @@ extension $OrderServiceOrderAppDetailGet$Response$Data$OrderList$Item$SkuList$It
     String? targetSkuFinalPrice,
     String? currency,
     String? targetCurrency,
-    double? quantity,
+    int? quantity,
     String? remark,
     List<
       OrderServiceOrderAppDetailGet$Response$Data$OrderList$Item$SkuList$Item$SkuSpecValues$Item
@@ -29478,7 +29478,7 @@ extension $OrderServiceOrderAppDetailGet$Response$Data$OrderList$Item$SkuList$It
     Wrapped<String?>? targetSkuFinalPrice,
     Wrapped<String?>? currency,
     Wrapped<String?>? targetCurrency,
-    Wrapped<double?>? quantity,
+    Wrapped<int?>? quantity,
     Wrapped<String?>? remark,
     Wrapped<
       List<
@@ -29870,8 +29870,8 @@ class OrderServiceOrderAppDetailGet$Response$Data$OrderList$Item$SupplyOrderList
   final String? productName;
   @JsonKey(name: 'imageUrl', fromJson: JsonCoerce.asString)
   final String? imageUrl;
-  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asDouble)
-  final double? quantity;
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asInt)
+  final int? quantity;
   @JsonKey(name: 'weight', fromJson: JsonCoerce.asString)
   final String? weight;
   @JsonKey(name: 'length', fromJson: JsonCoerce.asString)
@@ -29965,7 +29965,7 @@ extension $OrderServiceOrderAppDetailGet$Response$Data$OrderList$Item$SupplyOrde
     String? productCode,
     String? productName,
     String? imageUrl,
-    double? quantity,
+    int? quantity,
     String? weight,
     String? length,
     String? width,
@@ -29994,7 +29994,7 @@ extension $OrderServiceOrderAppDetailGet$Response$Data$OrderList$Item$SupplyOrde
     Wrapped<String?>? productCode,
     Wrapped<String?>? productName,
     Wrapped<String?>? imageUrl,
-    Wrapped<double?>? quantity,
+    Wrapped<int?>? quantity,
     Wrapped<String?>? weight,
     Wrapped<String?>? length,
     Wrapped<String?>? width,
@@ -30515,8 +30515,8 @@ class OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrder$ParcelProductDT
   final String? productCode;
   @JsonKey(name: 'productName', fromJson: JsonCoerce.asString)
   final String? productName;
-  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asDouble)
-  final double? quantity;
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asInt)
+  final int? quantity;
   @JsonKey(name: 'imageUrl', fromJson: JsonCoerce.asString)
   final String? imageUrl;
   static const fromJsonFactory =
@@ -30575,7 +30575,7 @@ extension $OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrder$ParcelProd
     String? skuCode,
     String? productCode,
     String? productName,
-    double? quantity,
+    int? quantity,
     String? imageUrl,
   }) {
     return OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrder$ParcelProductDTOList$Item(
@@ -30592,7 +30592,7 @@ extension $OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrder$ParcelProd
     Wrapped<String?>? skuCode,
     Wrapped<String?>? productCode,
     Wrapped<String?>? productName,
-    Wrapped<double?>? quantity,
+    Wrapped<int?>? quantity,
     Wrapped<String?>? imageUrl,
   }) {
     return OrderServiceOrderNoAuthDetailGet$Response$Data$ParcelOrder$ParcelProductDTOList$Item(
@@ -30859,16 +30859,16 @@ class OrderServiceOrderNoAuthDetailGet$Response$Data$OrderTrace$TraceList$Item {
         this,
       );
 
-  @JsonKey(name: 'id', fromJson: JsonCoerce.asDouble)
-  final double? id;
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asInt)
+  final int? id;
   @JsonKey(name: 'frontCode', fromJson: JsonCoerce.asString)
   final String? frontCode;
   @JsonKey(name: 'icon', fromJson: JsonCoerce.asString)
   final String? icon;
   @JsonKey(name: 'traceMessage', fromJson: JsonCoerce.asString)
   final String? traceMessage;
-  @JsonKey(name: 'time', fromJson: JsonCoerce.asDouble)
-  final double? time;
+  @JsonKey(name: 'time', fromJson: JsonCoerce.asInt)
+  final int? time;
   @JsonKey(name: 'lastMileMailNo', fromJson: JsonCoerce.asString)
   final String? lastMileMailNo;
   @JsonKey(name: 'lastMileMailNoLink', fromJson: JsonCoerce.asString)
@@ -30952,11 +30952,11 @@ extension $OrderServiceOrderNoAuthDetailGet$Response$Data$OrderTrace$TraceList$I
     on OrderServiceOrderNoAuthDetailGet$Response$Data$OrderTrace$TraceList$Item {
   OrderServiceOrderNoAuthDetailGet$Response$Data$OrderTrace$TraceList$Item
   copyWith({
-    double? id,
+    int? id,
     String? frontCode,
     String? icon,
     String? traceMessage,
-    double? time,
+    int? time,
     String? lastMileMailNo,
     String? lastMileMailNoLink,
     String? lastMileMailNoTitle,
@@ -30979,11 +30979,11 @@ extension $OrderServiceOrderNoAuthDetailGet$Response$Data$OrderTrace$TraceList$I
 
   OrderServiceOrderNoAuthDetailGet$Response$Data$OrderTrace$TraceList$Item
   copyWithWrapped({
-    Wrapped<double?>? id,
+    Wrapped<int?>? id,
     Wrapped<String?>? frontCode,
     Wrapped<String?>? icon,
     Wrapped<String?>? traceMessage,
-    Wrapped<double?>? time,
+    Wrapped<int?>? time,
     Wrapped<String?>? lastMileMailNo,
     Wrapped<String?>? lastMileMailNoLink,
     Wrapped<String?>? lastMileMailNoTitle,
@@ -31282,8 +31282,8 @@ class OrderServiceOrderNoAuthDetailGet$Response$Data$OrderList$Item$SkuList$Item
   final String? currency;
   @JsonKey(name: 'targetCurrency', fromJson: JsonCoerce.asString)
   final String? targetCurrency;
-  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asDouble)
-  final double? quantity;
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asInt)
+  final int? quantity;
   @JsonKey(name: 'remark', fromJson: JsonCoerce.asString)
   final String? remark;
   @JsonKey(name: 'skuSpecValues')
@@ -31446,7 +31446,7 @@ extension $OrderServiceOrderNoAuthDetailGet$Response$Data$OrderList$Item$SkuList
     String? targetSkuFinalPrice,
     String? currency,
     String? targetCurrency,
-    double? quantity,
+    int? quantity,
     String? remark,
     List<
       OrderServiceOrderNoAuthDetailGet$Response$Data$OrderList$Item$SkuList$Item$SkuSpecValues$Item
@@ -31499,7 +31499,7 @@ extension $OrderServiceOrderNoAuthDetailGet$Response$Data$OrderList$Item$SkuList
     Wrapped<String?>? targetSkuFinalPrice,
     Wrapped<String?>? currency,
     Wrapped<String?>? targetCurrency,
-    Wrapped<double?>? quantity,
+    Wrapped<int?>? quantity,
     Wrapped<String?>? remark,
     Wrapped<
       List<
@@ -31593,8 +31593,8 @@ class OrderServiceOrderNoAuthDetailGet$Response$Data$OrderList$Item$SupplyOrderL
   final String? productName;
   @JsonKey(name: 'imageUrl', fromJson: JsonCoerce.asString)
   final String? imageUrl;
-  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asDouble)
-  final double? quantity;
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asInt)
+  final int? quantity;
   @JsonKey(name: 'weight', fromJson: JsonCoerce.asString)
   final String? weight;
   @JsonKey(name: 'length', fromJson: JsonCoerce.asString)
@@ -31688,7 +31688,7 @@ extension $OrderServiceOrderNoAuthDetailGet$Response$Data$OrderList$Item$SupplyO
     String? productCode,
     String? productName,
     String? imageUrl,
-    double? quantity,
+    int? quantity,
     String? weight,
     String? length,
     String? width,
@@ -31717,7 +31717,7 @@ extension $OrderServiceOrderNoAuthDetailGet$Response$Data$OrderList$Item$SupplyO
     Wrapped<String?>? productCode,
     Wrapped<String?>? productName,
     Wrapped<String?>? imageUrl,
-    Wrapped<double?>? quantity,
+    Wrapped<int?>? quantity,
     Wrapped<String?>? weight,
     Wrapped<String?>? length,
     Wrapped<String?>? width,
@@ -32149,8 +32149,8 @@ class OrderServiceOrderListGet$Response$Data$Records$Item$OrderSkuList$Item {
   final String? targetTotalFinalPrice;
   @JsonKey(name: 'remark', fromJson: JsonCoerce.asString)
   final String? remark;
-  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asDouble)
-  final double? quantity;
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asInt)
+  final int? quantity;
   @JsonKey(name: 'skuSpecValues')
   final List<
     OrderServiceOrderListGet$Response$Data$Records$Item$OrderSkuList$Item$SkuSpecValues$Item
@@ -32298,7 +32298,7 @@ extension $OrderServiceOrderListGet$Response$Data$Records$Item$OrderSkuList$Item
     String? targetSkuFinalPrice,
     String? targetTotalFinalPrice,
     String? remark,
-    double? quantity,
+    int? quantity,
     List<
       OrderServiceOrderListGet$Response$Data$Records$Item$OrderSkuList$Item$SkuSpecValues$Item
     >?
@@ -32346,7 +32346,7 @@ extension $OrderServiceOrderListGet$Response$Data$Records$Item$OrderSkuList$Item
     Wrapped<String?>? targetSkuFinalPrice,
     Wrapped<String?>? targetTotalFinalPrice,
     Wrapped<String?>? remark,
-    Wrapped<double?>? quantity,
+    Wrapped<int?>? quantity,
     Wrapped<
       List<
         OrderServiceOrderListGet$Response$Data$Records$Item$OrderSkuList$Item$SkuSpecValues$Item
@@ -32433,8 +32433,8 @@ class OrderServiceOrderListGet$Response$Data$Records$Item$SupplyOrderList$Item {
   final String? productName;
   @JsonKey(name: 'imageUrl')
   final Object? imageUrl;
-  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asDouble)
-  final double? quantity;
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asInt)
+  final int? quantity;
   @JsonKey(name: 'weight', fromJson: JsonCoerce.asString)
   final String? weight;
   @JsonKey(name: 'length', fromJson: JsonCoerce.asString)
@@ -32530,7 +32530,7 @@ extension $OrderServiceOrderListGet$Response$Data$Records$Item$SupplyOrderList$I
     String? productCode,
     String? productName,
     Object? imageUrl,
-    double? quantity,
+    int? quantity,
     String? weight,
     String? length,
     String? width,
@@ -32562,7 +32562,7 @@ extension $OrderServiceOrderListGet$Response$Data$Records$Item$SupplyOrderList$I
     Wrapped<String?>? productCode,
     Wrapped<String?>? productName,
     Wrapped<Object?>? imageUrl,
-    Wrapped<double?>? quantity,
+    Wrapped<int?>? quantity,
     Wrapped<String?>? weight,
     Wrapped<String?>? length,
     Wrapped<String?>? width,
@@ -32645,8 +32645,8 @@ class OrderServiceOrderListGet$Response$Data$Records$Item$ParcelOrder {
   final String? parcelStatus;
   @JsonKey(name: 'parcelStatusDesc', fromJson: JsonCoerce.asString)
   final String? parcelStatusDesc;
-  @JsonKey(name: 'createTime', fromJson: JsonCoerce.asDouble)
-  final double? createTime;
+  @JsonKey(name: 'createTime', fromJson: JsonCoerce.asInt)
+  final int? createTime;
   @JsonKey(name: 'warehouseCode', fromJson: JsonCoerce.asString)
   final String? warehouseCode;
   @JsonKey(name: 'warehouseName', fromJson: JsonCoerce.asString)
@@ -32895,7 +32895,7 @@ extension $OrderServiceOrderListGet$Response$Data$Records$Item$ParcelOrderExtens
     String? parcelOrderId,
     String? parcelStatus,
     String? parcelStatusDesc,
-    double? createTime,
+    int? createTime,
     String? warehouseCode,
     String? warehouseName,
     String? solutionCode,
@@ -32968,7 +32968,7 @@ extension $OrderServiceOrderListGet$Response$Data$Records$Item$ParcelOrderExtens
     Wrapped<String?>? parcelOrderId,
     Wrapped<String?>? parcelStatus,
     Wrapped<String?>? parcelStatusDesc,
-    Wrapped<double?>? createTime,
+    Wrapped<int?>? createTime,
     Wrapped<String?>? warehouseCode,
     Wrapped<String?>? warehouseName,
     Wrapped<String?>? solutionCode,
@@ -33111,8 +33111,8 @@ class OrderServiceOrderListGet$Response$Data$Records$Item$OrderBillList$Item {
 
   @JsonKey(name: 'billId', fromJson: JsonCoerce.asString)
   final String? billId;
-  @JsonKey(name: 'status', fromJson: JsonCoerce.asDouble)
-  final double? status;
+  @JsonKey(name: 'status', fromJson: JsonCoerce.asInt)
+  final int? status;
   @JsonKey(name: 'targetTotalPrice', fromJson: JsonCoerce.asString)
   final String? targetTotalPrice;
   @JsonKey(name: 'targetCurrency', fromJson: JsonCoerce.asString)
@@ -33158,7 +33158,7 @@ extension $OrderServiceOrderListGet$Response$Data$Records$Item$OrderBillList$Ite
   OrderServiceOrderListGet$Response$Data$Records$Item$OrderBillList$Item
   copyWith({
     String? billId,
-    double? status,
+    int? status,
     String? targetTotalPrice,
     String? targetCurrency,
   }) {
@@ -33173,7 +33173,7 @@ extension $OrderServiceOrderListGet$Response$Data$Records$Item$OrderBillList$Ite
   OrderServiceOrderListGet$Response$Data$Records$Item$OrderBillList$Item
   copyWithWrapped({
     Wrapped<String?>? billId,
-    Wrapped<double?>? status,
+    Wrapped<int?>? status,
     Wrapped<String?>? targetTotalPrice,
     Wrapped<String?>? targetCurrency,
   }) {
@@ -33249,8 +33249,8 @@ class OrderServiceOrderListGet$Response$Data$Records$Item$UserAddress {
   final String? phoneNumber;
   @JsonKey(name: 'zipCode', fromJson: JsonCoerce.asString)
   final String? zipCode;
-  @JsonKey(name: 'id', fromJson: JsonCoerce.asDouble)
-  final double? id;
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asInt)
+  final int? id;
   static const fromJsonFactory =
       _$OrderServiceOrderListGet$Response$Data$Records$Item$UserAddressFromJson;
 
@@ -33357,7 +33357,7 @@ extension $OrderServiceOrderListGet$Response$Data$Records$Item$UserAddressExtens
     String? lastName,
     String? phoneNumber,
     String? zipCode,
-    double? id,
+    int? id,
   }) {
     return OrderServiceOrderListGet$Response$Data$Records$Item$UserAddress(
       country: country ?? this.country,
@@ -33392,7 +33392,7 @@ extension $OrderServiceOrderListGet$Response$Data$Records$Item$UserAddressExtens
     Wrapped<String?>? lastName,
     Wrapped<String?>? phoneNumber,
     Wrapped<String?>? zipCode,
-    Wrapped<double?>? id,
+    Wrapped<int?>? id,
   }) {
     return OrderServiceOrderListGet$Response$Data$Records$Item$UserAddress(
       country: (country != null ? country.value : this.country),
@@ -33463,8 +33463,8 @@ class OrderServiceOrderCombineListGet$Response$Data$Records$Item$ParcelOrder {
   final String? parcelStatus;
   @JsonKey(name: 'parcelStatusDesc', fromJson: JsonCoerce.asString)
   final String? parcelStatusDesc;
-  @JsonKey(name: 'createTime', fromJson: JsonCoerce.asDouble)
-  final double? createTime;
+  @JsonKey(name: 'createTime', fromJson: JsonCoerce.asInt)
+  final int? createTime;
   @JsonKey(name: 'warehouseCode', fromJson: JsonCoerce.asString)
   final String? warehouseCode;
   @JsonKey(name: 'warehouseName', fromJson: JsonCoerce.asString)
@@ -33714,7 +33714,7 @@ extension $OrderServiceOrderCombineListGet$Response$Data$Records$Item$ParcelOrde
     String? parcelOrderId,
     String? parcelStatus,
     String? parcelStatusDesc,
-    double? createTime,
+    int? createTime,
     String? warehouseCode,
     String? warehouseName,
     String? solutionCode,
@@ -33787,7 +33787,7 @@ extension $OrderServiceOrderCombineListGet$Response$Data$Records$Item$ParcelOrde
     Wrapped<String?>? parcelOrderId,
     Wrapped<String?>? parcelStatus,
     Wrapped<String?>? parcelStatusDesc,
-    Wrapped<double?>? createTime,
+    Wrapped<int?>? createTime,
     Wrapped<String?>? warehouseCode,
     Wrapped<String?>? warehouseName,
     Wrapped<String?>? solutionCode,
@@ -33964,8 +33964,8 @@ class OrderServiceOrderCombineListGet$Response$Data$Records$Item$UserAddress {
   final String? phoneNumber;
   @JsonKey(name: 'zipCode', fromJson: JsonCoerce.asString)
   final String? zipCode;
-  @JsonKey(name: 'id', fromJson: JsonCoerce.asDouble)
-  final double? id;
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asInt)
+  final int? id;
   static const fromJsonFactory =
       _$OrderServiceOrderCombineListGet$Response$Data$Records$Item$UserAddressFromJson;
 
@@ -34073,7 +34073,7 @@ extension $OrderServiceOrderCombineListGet$Response$Data$Records$Item$UserAddres
     String? lastName,
     String? phoneNumber,
     String? zipCode,
-    double? id,
+    int? id,
   }) {
     return OrderServiceOrderCombineListGet$Response$Data$Records$Item$UserAddress(
       country: country ?? this.country,
@@ -34108,7 +34108,7 @@ extension $OrderServiceOrderCombineListGet$Response$Data$Records$Item$UserAddres
     Wrapped<String?>? lastName,
     Wrapped<String?>? phoneNumber,
     Wrapped<String?>? zipCode,
-    Wrapped<double?>? id,
+    Wrapped<int?>? id,
   }) {
     return OrderServiceOrderCombineListGet$Response$Data$Records$Item$UserAddress(
       country: (country != null ? country.value : this.country),
@@ -34181,20 +34181,20 @@ class OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item 
         this,
       );
 
-  @JsonKey(name: 'status', fromJson: JsonCoerce.asDouble)
-  final double? status;
-  @JsonKey(name: 'frontStatus', fromJson: JsonCoerce.asDouble)
-  final double? frontStatus;
+  @JsonKey(name: 'status', fromJson: JsonCoerce.asInt)
+  final int? status;
+  @JsonKey(name: 'frontStatus', fromJson: JsonCoerce.asInt)
+  final int? frontStatus;
   @JsonKey(name: 'statusContent', fromJson: JsonCoerce.asString)
   final String? statusContent;
-  @JsonKey(name: 'orderStatus', fromJson: JsonCoerce.asDouble)
-  final double? orderStatus;
+  @JsonKey(name: 'orderStatus', fromJson: JsonCoerce.asInt)
+  final int? orderStatus;
   @JsonKey(name: 'orderId', fromJson: JsonCoerce.asString)
   final String? orderId;
   @JsonKey(name: 'parentOrderId', fromJson: JsonCoerce.asString)
   final String? parentOrderId;
-  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asDouble)
-  final double? quantity;
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asInt)
+  final int? quantity;
   @JsonKey(name: 'targetOriginAmount', fromJson: JsonCoerce.asString)
   final String? targetOriginAmount;
   @JsonKey(name: 'itemTotalAmount', fromJson: JsonCoerce.asString)
@@ -34252,8 +34252,8 @@ class OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item 
   @JsonKey(name: 'userAddress')
   final OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$UserAddress?
   userAddress;
-  @JsonKey(name: 'createTime', fromJson: JsonCoerce.asDouble)
-  final double? createTime;
+  @JsonKey(name: 'createTime', fromJson: JsonCoerce.asInt)
+  final int? createTime;
   @JsonKey(name: 'wish', fromJson: JsonCoerce.asBool)
   final bool? wish;
   @JsonKey(name: 'giveawayGift', fromJson: JsonCoerce.asInt)
@@ -34469,13 +34469,13 @@ extension $OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$
     on OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item {
   OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item
   copyWith({
-    double? status,
-    double? frontStatus,
+    int? status,
+    int? frontStatus,
     String? statusContent,
-    double? orderStatus,
+    int? orderStatus,
     String? orderId,
     String? parentOrderId,
-    double? quantity,
+    int? quantity,
     String? targetOriginAmount,
     String? itemTotalAmount,
     String? totalAmount,
@@ -34510,7 +34510,7 @@ extension $OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$
     orderBillList,
     OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$UserAddress?
     userAddress,
-    double? createTime,
+    int? createTime,
     bool? wish,
     int? giveawayGift,
   }) {
@@ -34554,13 +34554,13 @@ extension $OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$
 
   OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item
   copyWithWrapped({
-    Wrapped<double?>? status,
-    Wrapped<double?>? frontStatus,
+    Wrapped<int?>? status,
+    Wrapped<int?>? frontStatus,
     Wrapped<String?>? statusContent,
-    Wrapped<double?>? orderStatus,
+    Wrapped<int?>? orderStatus,
     Wrapped<String?>? orderId,
     Wrapped<String?>? parentOrderId,
-    Wrapped<double?>? quantity,
+    Wrapped<int?>? quantity,
     Wrapped<String?>? targetOriginAmount,
     Wrapped<String?>? itemTotalAmount,
     Wrapped<String?>? totalAmount,
@@ -34605,7 +34605,7 @@ extension $OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$
       OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$UserAddress?
     >?
     userAddress,
-    Wrapped<double?>? createTime,
+    Wrapped<int?>? createTime,
     Wrapped<bool?>? wish,
     Wrapped<int?>? giveawayGift,
   }) {
@@ -34755,8 +34755,8 @@ class OrderServiceOrderDetailGet$Response$Data$OrderList$Item$SkuList$Item {
   final String? targetSkuFinalPrice;
   @JsonKey(name: 'targetTotalFinalPrice', fromJson: JsonCoerce.asString)
   final String? targetTotalFinalPrice;
-  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asDouble)
-  final double? quantity;
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asInt)
+  final int? quantity;
   @JsonKey(name: 'remark', fromJson: JsonCoerce.asString)
   final String? remark;
   @JsonKey(name: 'skuSpecValues')
@@ -34939,7 +34939,7 @@ extension $OrderServiceOrderDetailGet$Response$Data$OrderList$Item$SkuList$ItemE
     String? targetSkuDiscountPrice,
     String? targetSkuFinalPrice,
     String? targetTotalFinalPrice,
-    double? quantity,
+    int? quantity,
     String? remark,
     List<
       OrderServiceOrderDetailGet$Response$Data$OrderList$Item$SkuList$Item$SkuSpecValues$Item
@@ -34998,7 +34998,7 @@ extension $OrderServiceOrderDetailGet$Response$Data$OrderList$Item$SkuList$ItemE
     Wrapped<String?>? targetSkuDiscountPrice,
     Wrapped<String?>? targetSkuFinalPrice,
     Wrapped<String?>? targetTotalFinalPrice,
-    Wrapped<double?>? quantity,
+    Wrapped<int?>? quantity,
     Wrapped<String?>? remark,
     Wrapped<
       List<
@@ -35111,8 +35111,8 @@ class OrderServiceOrderDetailGet$Response$Data$OrderList$Item$SupplyOrderList$It
   final String? actualPurchasePrice;
   @JsonKey(name: 'imageUrl', fromJson: JsonCoerce.asString)
   final String? imageUrl;
-  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asDouble)
-  final double? quantity;
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asInt)
+  final int? quantity;
   @JsonKey(name: 'weight', fromJson: JsonCoerce.asString)
   final String? weight;
   @JsonKey(name: 'length', fromJson: JsonCoerce.asString)
@@ -35242,7 +35242,7 @@ extension $OrderServiceOrderDetailGet$Response$Data$OrderList$Item$SupplyOrderLi
     Object? purchasePrice,
     String? actualPurchasePrice,
     String? imageUrl,
-    double? quantity,
+    int? quantity,
     String? weight,
     String? length,
     String? width,
@@ -35281,7 +35281,7 @@ extension $OrderServiceOrderDetailGet$Response$Data$OrderList$Item$SupplyOrderLi
     Wrapped<Object?>? purchasePrice,
     Wrapped<String?>? actualPurchasePrice,
     Wrapped<String?>? imageUrl,
-    Wrapped<double?>? quantity,
+    Wrapped<int?>? quantity,
     Wrapped<String?>? weight,
     Wrapped<String?>? length,
     Wrapped<String?>? width,
@@ -35846,8 +35846,8 @@ class OrderServiceOrderDetailGet$Response$Data$ParcelOrder$ReceiverAddress {
   final String? phoneNumber;
   @JsonKey(name: 'zipCode', fromJson: JsonCoerce.asString)
   final String? zipCode;
-  @JsonKey(name: 'id', fromJson: JsonCoerce.asDouble)
-  final double? id;
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asInt)
+  final int? id;
   @JsonKey(name: 'remark')
   final Object? remark;
   @JsonKey(name: 'accessCode')
@@ -35977,7 +35977,7 @@ extension $OrderServiceOrderDetailGet$Response$Data$ParcelOrder$ReceiverAddressE
     String? lastName,
     String? phoneNumber,
     String? zipCode,
-    double? id,
+    int? id,
     Object? remark,
     Object? accessCode,
     Object? email,
@@ -36020,7 +36020,7 @@ extension $OrderServiceOrderDetailGet$Response$Data$ParcelOrder$ReceiverAddressE
     Wrapped<String?>? lastName,
     Wrapped<String?>? phoneNumber,
     Wrapped<String?>? zipCode,
-    Wrapped<double?>? id,
+    Wrapped<int?>? id,
     Wrapped<Object?>? remark,
     Wrapped<Object?>? accessCode,
     Wrapped<Object?>? email,
@@ -36087,8 +36087,8 @@ class OrderServiceOrderDetailGet$Response$Data$ParcelOrder$ParcelProductDTOList$
   final String? logisticsOrderId;
   @JsonKey(name: 'tradeOrderId', fromJson: JsonCoerce.asString)
   final String? tradeOrderId;
-  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asDouble)
-  final double? quantity;
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asInt)
+  final int? quantity;
   @JsonKey(name: 'imageUrl', fromJson: JsonCoerce.asString)
   final String? imageUrl;
   @JsonKey(name: 'declareName', fromJson: JsonCoerce.asString)
@@ -36176,7 +36176,7 @@ extension $OrderServiceOrderDetailGet$Response$Data$ParcelOrder$ParcelProductDTO
     String? productName,
     String? logisticsOrderId,
     String? tradeOrderId,
-    double? quantity,
+    int? quantity,
     String? imageUrl,
     String? declareName,
     String? declareNameEn,
@@ -36201,7 +36201,7 @@ extension $OrderServiceOrderDetailGet$Response$Data$ParcelOrder$ParcelProductDTO
     Wrapped<String?>? productName,
     Wrapped<String?>? logisticsOrderId,
     Wrapped<String?>? tradeOrderId,
-    Wrapped<double?>? quantity,
+    Wrapped<int?>? quantity,
     Wrapped<String?>? imageUrl,
     Wrapped<String?>? declareName,
     Wrapped<String?>? declareNameEn,
@@ -36273,8 +36273,8 @@ class OrderServiceOrderDetailGet$Response$Data$OrderTrace$GroupTraceList$Item {
     OrderServiceOrderDetailGet$Response$Data$OrderTrace$GroupTraceList$Item$TraceList$Item
   >?
   traceList;
-  @JsonKey(name: 'sequenceTime', fromJson: JsonCoerce.asDouble)
-  final double? sequenceTime;
+  @JsonKey(name: 'sequenceTime', fromJson: JsonCoerce.asInt)
+  final int? sequenceTime;
   static const fromJsonFactory =
       _$OrderServiceOrderDetailGet$Response$Data$OrderTrace$GroupTraceList$ItemFromJson;
 
@@ -36362,7 +36362,7 @@ extension $OrderServiceOrderDetailGet$Response$Data$OrderTrace$GroupTraceList$It
       OrderServiceOrderDetailGet$Response$Data$OrderTrace$GroupTraceList$Item$TraceList$Item
     >?
     traceList,
-    double? sequenceTime,
+    int? sequenceTime,
   }) {
     return OrderServiceOrderDetailGet$Response$Data$OrderTrace$GroupTraceList$Item(
       subParcelOrderId: subParcelOrderId ?? this.subParcelOrderId,
@@ -36392,7 +36392,7 @@ extension $OrderServiceOrderDetailGet$Response$Data$OrderTrace$GroupTraceList$It
       >?
     >?
     traceList,
-    Wrapped<double?>? sequenceTime,
+    Wrapped<int?>? sequenceTime,
   }) {
     return OrderServiceOrderDetailGet$Response$Data$OrderTrace$GroupTraceList$Item(
       subParcelOrderId: (subParcelOrderId != null
@@ -36487,8 +36487,8 @@ class OrderServiceOrderDetailGet$Response$Data$OrderTrace$ReceiverAddress {
   final String? phoneNumber;
   @JsonKey(name: 'zipCode', fromJson: JsonCoerce.asString)
   final String? zipCode;
-  @JsonKey(name: 'id', fromJson: JsonCoerce.asDouble)
-  final double? id;
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asInt)
+  final int? id;
   @JsonKey(name: 'remark', fromJson: JsonCoerce.asString)
   final String? remark;
   @JsonKey(name: 'accessCode', fromJson: JsonCoerce.asString)
@@ -36617,7 +36617,7 @@ extension $OrderServiceOrderDetailGet$Response$Data$OrderTrace$ReceiverAddressEx
     String? lastName,
     String? phoneNumber,
     String? zipCode,
-    double? id,
+    int? id,
     String? remark,
     String? accessCode,
     String? email,
@@ -36660,7 +36660,7 @@ extension $OrderServiceOrderDetailGet$Response$Data$OrderTrace$ReceiverAddressEx
     Wrapped<String?>? lastName,
     Wrapped<String?>? phoneNumber,
     Wrapped<String?>? zipCode,
-    Wrapped<double?>? id,
+    Wrapped<int?>? id,
     Wrapped<String?>? remark,
     Wrapped<String?>? accessCode,
     Wrapped<String?>? email,
@@ -36716,8 +36716,8 @@ class OrderServiceOrderDetailGet$Response$Data$OrderTrace$LogisticsSkuDetailList
 
   @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
   final String? skuCode;
-  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asDouble)
-  final double? quantity;
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asInt)
+  final int? quantity;
   @JsonKey(name: 'imageUrl', fromJson: JsonCoerce.asString)
   final String? imageUrl;
   @JsonKey(name: 'skuName', fromJson: JsonCoerce.asString)
@@ -36786,7 +36786,7 @@ extension $OrderServiceOrderDetailGet$Response$Data$OrderTrace$LogisticsSkuDetai
   OrderServiceOrderDetailGet$Response$Data$OrderTrace$LogisticsSkuDetailList$Item
   copyWith({
     String? skuCode,
-    double? quantity,
+    int? quantity,
     String? imageUrl,
     String? skuName,
     String? skuSpecValues,
@@ -36805,7 +36805,7 @@ extension $OrderServiceOrderDetailGet$Response$Data$OrderTrace$LogisticsSkuDetai
   OrderServiceOrderDetailGet$Response$Data$OrderTrace$LogisticsSkuDetailList$Item
   copyWithWrapped({
     Wrapped<String?>? skuCode,
-    Wrapped<double?>? quantity,
+    Wrapped<int?>? quantity,
     Wrapped<String?>? imageUrl,
     Wrapped<String?>? skuName,
     Wrapped<String?>? skuSpecValues,
@@ -36859,8 +36859,8 @@ class OrderServiceOrderDetailGet$Response$Data$OrderTrace$TraceList$Item {
         this,
       );
 
-  @JsonKey(name: 'id', fromJson: JsonCoerce.asDouble)
-  final double? id;
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asInt)
+  final int? id;
   @JsonKey(name: 'subParcelOrderId', fromJson: JsonCoerce.asString)
   final String? subParcelOrderId;
   @JsonKey(name: 'frontCode', fromJson: JsonCoerce.asString)
@@ -36873,8 +36873,8 @@ class OrderServiceOrderDetailGet$Response$Data$OrderTrace$TraceList$Item {
   final String? icon;
   @JsonKey(name: 'traceMessage', fromJson: JsonCoerce.asString)
   final String? traceMessage;
-  @JsonKey(name: 'time', fromJson: JsonCoerce.asDouble)
-  final double? time;
+  @JsonKey(name: 'time', fromJson: JsonCoerce.asInt)
+  final int? time;
   @JsonKey(name: 'lastMileMailNo', fromJson: JsonCoerce.asString)
   final String? lastMileMailNo;
   @JsonKey(name: 'lastMileCompanyName', fromJson: JsonCoerce.asString)
@@ -36983,14 +36983,14 @@ class OrderServiceOrderDetailGet$Response$Data$OrderTrace$TraceList$Item {
 extension $OrderServiceOrderDetailGet$Response$Data$OrderTrace$TraceList$ItemExtension
     on OrderServiceOrderDetailGet$Response$Data$OrderTrace$TraceList$Item {
   OrderServiceOrderDetailGet$Response$Data$OrderTrace$TraceList$Item copyWith({
-    double? id,
+    int? id,
     String? subParcelOrderId,
     String? frontCode,
     String? frontTitleCode,
     String? frontTitle,
     String? icon,
     String? traceMessage,
-    double? time,
+    int? time,
     String? lastMileMailNo,
     String? lastMileCompanyName,
     String? lastMileMailNoLink,
@@ -37018,14 +37018,14 @@ extension $OrderServiceOrderDetailGet$Response$Data$OrderTrace$TraceList$ItemExt
 
   OrderServiceOrderDetailGet$Response$Data$OrderTrace$TraceList$Item
   copyWithWrapped({
-    Wrapped<double?>? id,
+    Wrapped<int?>? id,
     Wrapped<String?>? subParcelOrderId,
     Wrapped<String?>? frontCode,
     Wrapped<String?>? frontTitleCode,
     Wrapped<String?>? frontTitle,
     Wrapped<String?>? icon,
     Wrapped<String?>? traceMessage,
-    Wrapped<double?>? time,
+    Wrapped<int?>? time,
     Wrapped<String?>? lastMileMailNo,
     Wrapped<String?>? lastMileCompanyName,
     Wrapped<String?>? lastMileMailNoLink,
@@ -37164,8 +37164,8 @@ class OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrder$ParcelProductD
   final String? productCode;
   @JsonKey(name: 'productName', fromJson: JsonCoerce.asString)
   final String? productName;
-  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asDouble)
-  final double? quantity;
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asInt)
+  final int? quantity;
   @JsonKey(name: 'imageUrl', fromJson: JsonCoerce.asString)
   final String? imageUrl;
   static const fromJsonFactory =
@@ -37224,7 +37224,7 @@ extension $OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrder$ParcelPro
     String? skuCode,
     String? productCode,
     String? productName,
-    double? quantity,
+    int? quantity,
     String? imageUrl,
   }) {
     return OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrder$ParcelProductDTOList$Item(
@@ -37241,7 +37241,7 @@ extension $OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrder$ParcelPro
     Wrapped<String?>? skuCode,
     Wrapped<String?>? productCode,
     Wrapped<String?>? productName,
-    Wrapped<double?>? quantity,
+    Wrapped<int?>? quantity,
     Wrapped<String?>? imageUrl,
   }) {
     return OrderServiceOpenapiOrderDetailGet$Response$Data$ParcelOrder$ParcelProductDTOList$Item(
@@ -37508,16 +37508,16 @@ class OrderServiceOpenapiOrderDetailGet$Response$Data$OrderTrace$TraceList$Item 
         this,
       );
 
-  @JsonKey(name: 'id', fromJson: JsonCoerce.asDouble)
-  final double? id;
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asInt)
+  final int? id;
   @JsonKey(name: 'frontCode', fromJson: JsonCoerce.asString)
   final String? frontCode;
   @JsonKey(name: 'icon', fromJson: JsonCoerce.asString)
   final String? icon;
   @JsonKey(name: 'traceMessage', fromJson: JsonCoerce.asString)
   final String? traceMessage;
-  @JsonKey(name: 'time', fromJson: JsonCoerce.asDouble)
-  final double? time;
+  @JsonKey(name: 'time', fromJson: JsonCoerce.asInt)
+  final int? time;
   @JsonKey(name: 'lastMileMailNo', fromJson: JsonCoerce.asString)
   final String? lastMileMailNo;
   @JsonKey(name: 'lastMileMailNoLink', fromJson: JsonCoerce.asString)
@@ -37601,11 +37601,11 @@ extension $OrderServiceOpenapiOrderDetailGet$Response$Data$OrderTrace$TraceList$
     on OrderServiceOpenapiOrderDetailGet$Response$Data$OrderTrace$TraceList$Item {
   OrderServiceOpenapiOrderDetailGet$Response$Data$OrderTrace$TraceList$Item
   copyWith({
-    double? id,
+    int? id,
     String? frontCode,
     String? icon,
     String? traceMessage,
-    double? time,
+    int? time,
     String? lastMileMailNo,
     String? lastMileMailNoLink,
     String? lastMileMailNoTitle,
@@ -37628,11 +37628,11 @@ extension $OrderServiceOpenapiOrderDetailGet$Response$Data$OrderTrace$TraceList$
 
   OrderServiceOpenapiOrderDetailGet$Response$Data$OrderTrace$TraceList$Item
   copyWithWrapped({
-    Wrapped<double?>? id,
+    Wrapped<int?>? id,
     Wrapped<String?>? frontCode,
     Wrapped<String?>? icon,
     Wrapped<String?>? traceMessage,
-    Wrapped<double?>? time,
+    Wrapped<int?>? time,
     Wrapped<String?>? lastMileMailNo,
     Wrapped<String?>? lastMileMailNoLink,
     Wrapped<String?>? lastMileMailNoTitle,
@@ -37716,8 +37716,8 @@ class OrderServiceOpenapiOrderDetailGet$Response$Data$OrderList$Item$SkuList$Ite
   final String? currency;
   @JsonKey(name: 'targetCurrency', fromJson: JsonCoerce.asString)
   final String? targetCurrency;
-  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asDouble)
-  final double? quantity;
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asInt)
+  final int? quantity;
   @JsonKey(name: 'remark', fromJson: JsonCoerce.asString)
   final String? remark;
   @JsonKey(name: 'skuSpecValues')
@@ -37829,7 +37829,7 @@ extension $OrderServiceOpenapiOrderDetailGet$Response$Data$OrderList$Item$SkuLis
     String? targetTotalPrice,
     String? currency,
     String? targetCurrency,
-    double? quantity,
+    int? quantity,
     String? remark,
     List<
       OrderServiceOpenapiOrderDetailGet$Response$Data$OrderList$Item$SkuList$Item$SkuSpecValues$Item
@@ -37865,7 +37865,7 @@ extension $OrderServiceOpenapiOrderDetailGet$Response$Data$OrderList$Item$SkuLis
     Wrapped<String?>? targetTotalPrice,
     Wrapped<String?>? currency,
     Wrapped<String?>? targetCurrency,
-    Wrapped<double?>? quantity,
+    Wrapped<int?>? quantity,
     Wrapped<String?>? remark,
     Wrapped<
       List<
@@ -37938,8 +37938,8 @@ class OrderServiceOpenapiOrderDetailGet$Response$Data$OrderList$Item$SupplyOrder
   final String? productName;
   @JsonKey(name: 'imageUrl', fromJson: JsonCoerce.asString)
   final String? imageUrl;
-  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asDouble)
-  final double? quantity;
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asInt)
+  final int? quantity;
   @JsonKey(name: 'weight', fromJson: JsonCoerce.asString)
   final String? weight;
   @JsonKey(name: 'length', fromJson: JsonCoerce.asString)
@@ -38033,7 +38033,7 @@ extension $OrderServiceOpenapiOrderDetailGet$Response$Data$OrderList$Item$Supply
     String? productCode,
     String? productName,
     String? imageUrl,
-    double? quantity,
+    int? quantity,
     String? weight,
     String? length,
     String? width,
@@ -38062,7 +38062,7 @@ extension $OrderServiceOpenapiOrderDetailGet$Response$Data$OrderList$Item$Supply
     Wrapped<String?>? productCode,
     Wrapped<String?>? productName,
     Wrapped<String?>? imageUrl,
-    Wrapped<double?>? quantity,
+    Wrapped<int?>? quantity,
     Wrapped<String?>? weight,
     Wrapped<String?>? length,
     Wrapped<String?>? width,
@@ -38149,22 +38149,22 @@ class OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$Bas
   final String? skuSourceCode;
   @JsonKey(name: 'parentOrderId', fromJson: JsonCoerce.asString)
   final String? parentOrderId;
-  @JsonKey(name: 'status', fromJson: JsonCoerce.asDouble)
-  final double? status;
-  @JsonKey(name: 'frontStatus', fromJson: JsonCoerce.asDouble)
-  final double? frontStatus;
+  @JsonKey(name: 'status', fromJson: JsonCoerce.asInt)
+  final int? status;
+  @JsonKey(name: 'frontStatus', fromJson: JsonCoerce.asInt)
+  final int? frontStatus;
   @JsonKey(name: 'statusContent', fromJson: JsonCoerce.asString)
   final String? statusContent;
-  @JsonKey(name: 'orderStatus', fromJson: JsonCoerce.asDouble)
-  final double? orderStatus;
-  @JsonKey(name: 'evaluateStatus', fromJson: JsonCoerce.asDouble)
-  final double? evaluateStatus;
-  @JsonKey(name: 'timeoutPeriod', fromJson: JsonCoerce.asDouble)
-  final double? timeoutPeriod;
-  @JsonKey(name: 'createTime', fromJson: JsonCoerce.asDouble)
-  final double? createTime;
-  @JsonKey(name: 'leftTime', fromJson: JsonCoerce.asDouble)
-  final double? leftTime;
+  @JsonKey(name: 'orderStatus', fromJson: JsonCoerce.asInt)
+  final int? orderStatus;
+  @JsonKey(name: 'evaluateStatus', fromJson: JsonCoerce.asInt)
+  final int? evaluateStatus;
+  @JsonKey(name: 'timeoutPeriod', fromJson: JsonCoerce.asInt)
+  final int? timeoutPeriod;
+  @JsonKey(name: 'createTime', fromJson: JsonCoerce.asInt)
+  final int? createTime;
+  @JsonKey(name: 'leftTime', fromJson: JsonCoerce.asInt)
+  final int? leftTime;
   @JsonKey(name: 'title', fromJson: JsonCoerce.asString)
   final String? title;
   @JsonKey(name: 'subTitle', fromJson: JsonCoerce.asString)
@@ -38179,16 +38179,16 @@ class OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$Bas
   final String? description;
   @JsonKey(name: 'paySuccessDescription', fromJson: JsonCoerce.asString)
   final String? paySuccessDescription;
-  @JsonKey(name: 'afterSalesExpressMethod', fromJson: JsonCoerce.asDouble)
-  final double? afterSalesExpressMethod;
-  @JsonKey(name: 'afterSalesState', fromJson: JsonCoerce.asDouble)
-  final double? afterSalesState;
+  @JsonKey(name: 'afterSalesExpressMethod', fromJson: JsonCoerce.asInt)
+  final int? afterSalesExpressMethod;
+  @JsonKey(name: 'afterSalesState', fromJson: JsonCoerce.asInt)
+  final int? afterSalesState;
   @JsonKey(name: 'remark', fromJson: JsonCoerce.asString)
   final String? remark;
   @JsonKey(name: 'remarkImages', fromJson: JsonCoerce.asString)
   final String? remarkImages;
-  @JsonKey(name: 'supportOnlineAfterSales', fromJson: JsonCoerce.asDouble)
-  final double? supportOnlineAfterSales;
+  @JsonKey(name: 'supportOnlineAfterSales', fromJson: JsonCoerce.asInt)
+  final int? supportOnlineAfterSales;
   @JsonKey(name: 'receiptPdfLink', fromJson: JsonCoerce.asString)
   final String? receiptPdfLink;
   @JsonKey(name: 'afterSalesSupport', fromJson: JsonCoerce.asString)
@@ -38197,8 +38197,8 @@ class OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$Bas
   final String? tenantCode;
   @JsonKey(name: 'shippingCountry', fromJson: JsonCoerce.asString)
   final String? shippingCountry;
-  @JsonKey(name: 'payTime', fromJson: JsonCoerce.asDouble)
-  final double? payTime;
+  @JsonKey(name: 'payTime', fromJson: JsonCoerce.asInt)
+  final int? payTime;
   @JsonKey(name: 'afterSales', fromJson: JsonCoerce.asBool)
   final bool? afterSales;
   @JsonKey(name: 'wish', fromJson: JsonCoerce.asBool)
@@ -38207,8 +38207,8 @@ class OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$Bas
   final bool? removePackage;
   @JsonKey(name: 'orderFreight', fromJson: JsonCoerce.asBool)
   final bool? orderFreight;
-  @JsonKey(name: 'giveawayGift', fromJson: JsonCoerce.asDouble)
-  final double? giveawayGift;
+  @JsonKey(name: 'giveawayGift', fromJson: JsonCoerce.asInt)
+  final int? giveawayGift;
   static const fromJsonFactory =
       _$OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$BaseInfoFromJson;
 
@@ -38419,34 +38419,34 @@ extension $OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Ite
     String? orderId,
     String? skuSourceCode,
     String? parentOrderId,
-    double? status,
-    double? frontStatus,
+    int? status,
+    int? frontStatus,
     String? statusContent,
-    double? orderStatus,
-    double? evaluateStatus,
-    double? timeoutPeriod,
-    double? createTime,
-    double? leftTime,
+    int? orderStatus,
+    int? evaluateStatus,
+    int? timeoutPeriod,
+    int? createTime,
+    int? leftTime,
     String? title,
     String? subTitle,
     List<String>? operates,
     String? description,
     String? paySuccessDescription,
-    double? afterSalesExpressMethod,
-    double? afterSalesState,
+    int? afterSalesExpressMethod,
+    int? afterSalesState,
     String? remark,
     String? remarkImages,
-    double? supportOnlineAfterSales,
+    int? supportOnlineAfterSales,
     String? receiptPdfLink,
     String? afterSalesSupport,
     String? tenantCode,
     String? shippingCountry,
-    double? payTime,
+    int? payTime,
     bool? afterSales,
     bool? wish,
     bool? removePackage,
     bool? orderFreight,
-    double? giveawayGift,
+    int? giveawayGift,
   }) {
     return OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$BaseInfo(
       userId: userId ?? this.userId,
@@ -38493,34 +38493,34 @@ extension $OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Ite
     Wrapped<String?>? orderId,
     Wrapped<String?>? skuSourceCode,
     Wrapped<String?>? parentOrderId,
-    Wrapped<double?>? status,
-    Wrapped<double?>? frontStatus,
+    Wrapped<int?>? status,
+    Wrapped<int?>? frontStatus,
     Wrapped<String?>? statusContent,
-    Wrapped<double?>? orderStatus,
-    Wrapped<double?>? evaluateStatus,
-    Wrapped<double?>? timeoutPeriod,
-    Wrapped<double?>? createTime,
-    Wrapped<double?>? leftTime,
+    Wrapped<int?>? orderStatus,
+    Wrapped<int?>? evaluateStatus,
+    Wrapped<int?>? timeoutPeriod,
+    Wrapped<int?>? createTime,
+    Wrapped<int?>? leftTime,
     Wrapped<String?>? title,
     Wrapped<String?>? subTitle,
     Wrapped<List<String>?>? operates,
     Wrapped<String?>? description,
     Wrapped<String?>? paySuccessDescription,
-    Wrapped<double?>? afterSalesExpressMethod,
-    Wrapped<double?>? afterSalesState,
+    Wrapped<int?>? afterSalesExpressMethod,
+    Wrapped<int?>? afterSalesState,
     Wrapped<String?>? remark,
     Wrapped<String?>? remarkImages,
-    Wrapped<double?>? supportOnlineAfterSales,
+    Wrapped<int?>? supportOnlineAfterSales,
     Wrapped<String?>? receiptPdfLink,
     Wrapped<String?>? afterSalesSupport,
     Wrapped<String?>? tenantCode,
     Wrapped<String?>? shippingCountry,
-    Wrapped<double?>? payTime,
+    Wrapped<int?>? payTime,
     Wrapped<bool?>? afterSales,
     Wrapped<bool?>? wish,
     Wrapped<bool?>? removePackage,
     Wrapped<bool?>? orderFreight,
-    Wrapped<double?>? giveawayGift,
+    Wrapped<int?>? giveawayGift,
   }) {
     return OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$BaseInfo(
       userId: (userId != null ? userId.value : this.userId),
@@ -38650,8 +38650,8 @@ class OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$Use
   final String? phoneNumber;
   @JsonKey(name: 'zipCode', fromJson: JsonCoerce.asString)
   final String? zipCode;
-  @JsonKey(name: 'id', fromJson: JsonCoerce.asDouble)
-  final double? id;
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asInt)
+  final int? id;
   static const fromJsonFactory =
       _$OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$UserAddressFromJson;
 
@@ -38760,7 +38760,7 @@ extension $OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Ite
     String? lastName,
     String? phoneNumber,
     String? zipCode,
-    double? id,
+    int? id,
   }) {
     return OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$UserAddress(
       country: country ?? this.country,
@@ -38795,7 +38795,7 @@ extension $OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Ite
     Wrapped<String?>? lastName,
     Wrapped<String?>? phoneNumber,
     Wrapped<String?>? zipCode,
-    Wrapped<double?>? id,
+    Wrapped<int?>? id,
   }) {
     return OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$UserAddress(
       country: (country != null ? country.value : this.country),
@@ -38981,8 +38981,8 @@ class OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$Pay
   final String? freightAmount;
   @JsonKey(name: 'targetFreightAmount', fromJson: JsonCoerce.asString)
   final String? targetFreightAmount;
-  @JsonKey(name: 'skuQuantity', fromJson: JsonCoerce.asDouble)
-  final double? skuQuantity;
+  @JsonKey(name: 'skuQuantity', fromJson: JsonCoerce.asInt)
+  final int? skuQuantity;
   @JsonKey(name: 'currency', fromJson: JsonCoerce.asString)
   final String? currency;
   @JsonKey(name: 'totalPrice', fromJson: JsonCoerce.asString)
@@ -39175,7 +39175,7 @@ extension $OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Ite
     String? itemsTotalAmount,
     String? freightAmount,
     String? targetFreightAmount,
-    double? skuQuantity,
+    int? skuQuantity,
     String? currency,
     String? totalPrice,
     String? targetPrice,
@@ -39228,7 +39228,7 @@ extension $OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Ite
     Wrapped<String?>? itemsTotalAmount,
     Wrapped<String?>? freightAmount,
     Wrapped<String?>? targetFreightAmount,
-    Wrapped<double?>? skuQuantity,
+    Wrapped<int?>? skuQuantity,
     Wrapped<String?>? currency,
     Wrapped<String?>? totalPrice,
     Wrapped<String?>? targetPrice,
@@ -39460,8 +39460,8 @@ class OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$Par
   final String? parcelStatus;
   @JsonKey(name: 'parcelStatusDesc', fromJson: JsonCoerce.asString)
   final String? parcelStatusDesc;
-  @JsonKey(name: 'createTime', fromJson: JsonCoerce.asDouble)
-  final double? createTime;
+  @JsonKey(name: 'createTime', fromJson: JsonCoerce.asInt)
+  final int? createTime;
   @JsonKey(name: 'warehouseCode', fromJson: JsonCoerce.asString)
   final String? warehouseCode;
   @JsonKey(name: 'warehouseName', fromJson: JsonCoerce.asString)
@@ -39670,7 +39670,7 @@ extension $OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Ite
     String? parcelOrderId,
     String? parcelStatus,
     String? parcelStatusDesc,
-    double? createTime,
+    int? createTime,
     String? warehouseCode,
     String? warehouseName,
     String? freight,
@@ -39731,7 +39731,7 @@ extension $OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Ite
     Wrapped<String?>? parcelOrderId,
     Wrapped<String?>? parcelStatus,
     Wrapped<String?>? parcelStatusDesc,
-    Wrapped<double?>? createTime,
+    Wrapped<int?>? createTime,
     Wrapped<String?>? warehouseCode,
     Wrapped<String?>? warehouseName,
     Wrapped<String?>? freight,
@@ -39993,8 +39993,8 @@ class OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$Dis
         this,
       );
 
-  @JsonKey(name: 'discountType', fromJson: JsonCoerce.asDouble)
-  final double? discountType;
+  @JsonKey(name: 'discountType', fromJson: JsonCoerce.asInt)
+  final int? discountType;
   @JsonKey(name: 'userCouponCode', fromJson: JsonCoerce.asString)
   final String? userCouponCode;
   @JsonKey(name: 'discountAmount', fromJson: JsonCoerce.asString)
@@ -40056,7 +40056,7 @@ extension $OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Ite
         OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$DiscountInfos$Item {
   OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$DiscountInfos$Item
   copyWith({
-    double? discountType,
+    int? discountType,
     String? userCouponCode,
     String? discountAmount,
     String? targetDiscountAmount,
@@ -40073,7 +40073,7 @@ extension $OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Ite
 
   OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$DiscountInfos$Item
   copyWithWrapped({
-    Wrapped<double?>? discountType,
+    Wrapped<int?>? discountType,
     Wrapped<String?>? userCouponCode,
     Wrapped<String?>? discountAmount,
     Wrapped<String?>? targetDiscountAmount,
@@ -40315,8 +40315,8 @@ class OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrder$ParcelProductD
   final String? productCode;
   @JsonKey(name: 'productName', fromJson: JsonCoerce.asString)
   final String? productName;
-  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asDouble)
-  final double? quantity;
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asInt)
+  final int? quantity;
   @JsonKey(name: 'imageUrl', fromJson: JsonCoerce.asString)
   final String? imageUrl;
   static const fromJsonFactory =
@@ -40375,7 +40375,7 @@ extension $OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrder$ParcelPro
     String? skuCode,
     String? productCode,
     String? productName,
-    double? quantity,
+    int? quantity,
     String? imageUrl,
   }) {
     return OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrder$ParcelProductDTOList$Item(
@@ -40392,7 +40392,7 @@ extension $OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrder$ParcelPro
     Wrapped<String?>? skuCode,
     Wrapped<String?>? productCode,
     Wrapped<String?>? productName,
-    Wrapped<double?>? quantity,
+    Wrapped<int?>? quantity,
     Wrapped<String?>? imageUrl,
   }) {
     return OrderServiceOrderCombineDetailGet$Response$Data$ParcelOrder$ParcelProductDTOList$Item(
@@ -40659,16 +40659,16 @@ class OrderServiceOrderCombineDetailGet$Response$Data$OrderTrace$TraceList$Item 
         this,
       );
 
-  @JsonKey(name: 'id', fromJson: JsonCoerce.asDouble)
-  final double? id;
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asInt)
+  final int? id;
   @JsonKey(name: 'frontCode', fromJson: JsonCoerce.asString)
   final String? frontCode;
   @JsonKey(name: 'icon', fromJson: JsonCoerce.asString)
   final String? icon;
   @JsonKey(name: 'traceMessage', fromJson: JsonCoerce.asString)
   final String? traceMessage;
-  @JsonKey(name: 'time', fromJson: JsonCoerce.asDouble)
-  final double? time;
+  @JsonKey(name: 'time', fromJson: JsonCoerce.asInt)
+  final int? time;
   @JsonKey(name: 'lastMileMailNo', fromJson: JsonCoerce.asString)
   final String? lastMileMailNo;
   @JsonKey(name: 'lastMileMailNoLink', fromJson: JsonCoerce.asString)
@@ -40752,11 +40752,11 @@ extension $OrderServiceOrderCombineDetailGet$Response$Data$OrderTrace$TraceList$
     on OrderServiceOrderCombineDetailGet$Response$Data$OrderTrace$TraceList$Item {
   OrderServiceOrderCombineDetailGet$Response$Data$OrderTrace$TraceList$Item
   copyWith({
-    double? id,
+    int? id,
     String? frontCode,
     String? icon,
     String? traceMessage,
-    double? time,
+    int? time,
     String? lastMileMailNo,
     String? lastMileMailNoLink,
     String? lastMileMailNoTitle,
@@ -40779,11 +40779,11 @@ extension $OrderServiceOrderCombineDetailGet$Response$Data$OrderTrace$TraceList$
 
   OrderServiceOrderCombineDetailGet$Response$Data$OrderTrace$TraceList$Item
   copyWithWrapped({
-    Wrapped<double?>? id,
+    Wrapped<int?>? id,
     Wrapped<String?>? frontCode,
     Wrapped<String?>? icon,
     Wrapped<String?>? traceMessage,
-    Wrapped<double?>? time,
+    Wrapped<int?>? time,
     Wrapped<String?>? lastMileMailNo,
     Wrapped<String?>? lastMileMailNoLink,
     Wrapped<String?>? lastMileMailNoTitle,
@@ -41029,8 +41029,8 @@ class OrderServiceCartListGet$Response$Data$List$Item$Records$Item {
   final String? shopImage;
   @JsonKey(name: 'shopId', fromJson: JsonCoerce.asString)
   final String? shopId;
-  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asDouble)
-  final double? quantity;
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asInt)
+  final int? quantity;
   @JsonKey(name: 'targetOriginPrice', fromJson: JsonCoerce.asString)
   final String? targetOriginPrice;
   @JsonKey(name: 'targetOriginTotalPrice', fromJson: JsonCoerce.asString)
@@ -41045,8 +41045,8 @@ class OrderServiceCartListGet$Response$Data$List$Item$Records$Item {
   final String? productCode;
   @JsonKey(name: 'remarkList', fromJson: JsonCoerce.asString)
   final String? remarkList;
-  @JsonKey(name: 'status', fromJson: JsonCoerce.asDouble)
-  final double? status;
+  @JsonKey(name: 'status', fromJson: JsonCoerce.asInt)
+  final int? status;
   @JsonKey(name: 'sellPrice', fromJson: JsonCoerce.asString)
   final String? sellPrice;
   @JsonKey(name: 'sellCur', fromJson: JsonCoerce.asString)
@@ -41060,8 +41060,8 @@ class OrderServiceCartListGet$Response$Data$List$Item$Records$Item {
     OrderServiceCartListGet$Response$Data$List$Item$Records$Item$SkuOptions$Item
   >?
   skuOptions;
-  @JsonKey(name: 'discountAmount', fromJson: JsonCoerce.asDouble)
-  final double? discountAmount;
+  @JsonKey(name: 'discountAmount', fromJson: JsonCoerce.asInt)
+  final int? discountAmount;
   @JsonKey(name: 'discountRemark', fromJson: JsonCoerce.asString)
   final String? discountRemark;
   @JsonKey(name: 'skuSourceCode', fromJson: JsonCoerce.asString)
@@ -41072,8 +41072,8 @@ class OrderServiceCartListGet$Response$Data$List$Item$Records$Item {
   final String? weight;
   @JsonKey(name: 'weightUnit', fromJson: JsonCoerce.asString)
   final String? weightUnit;
-  @JsonKey(name: 'canDeliver', fromJson: JsonCoerce.asDouble)
-  final double? canDeliver;
+  @JsonKey(name: 'canDeliver', fromJson: JsonCoerce.asInt)
+  final int? canDeliver;
   @JsonKey(name: 'inviteCode', fromJson: JsonCoerce.asString)
   final String? inviteCode;
   @JsonKey(name: 'qualityImages', defaultValue: <Object>[])
@@ -41283,7 +41283,7 @@ extension $OrderServiceCartListGet$Response$Data$List$Item$Records$ItemExtension
     String? shopName,
     String? shopImage,
     String? shopId,
-    double? quantity,
+    int? quantity,
     String? targetOriginPrice,
     String? targetOriginTotalPrice,
     String? totalPrice,
@@ -41291,7 +41291,7 @@ extension $OrderServiceCartListGet$Response$Data$List$Item$Records$ItemExtension
     String? productName,
     String? productCode,
     String? remarkList,
-    double? status,
+    int? status,
     String? sellPrice,
     String? sellCur,
     String? targetSellPrice,
@@ -41300,13 +41300,13 @@ extension $OrderServiceCartListGet$Response$Data$List$Item$Records$ItemExtension
       OrderServiceCartListGet$Response$Data$List$Item$Records$Item$SkuOptions$Item
     >?
     skuOptions,
-    double? discountAmount,
+    int? discountAmount,
     String? discountRemark,
     String? skuSourceCode,
     String? skuSourceTitle,
     String? weight,
     String? weightUnit,
-    double? canDeliver,
+    int? canDeliver,
     String? inviteCode,
     List<Object>? qualityImages,
     String? remark,
@@ -41355,7 +41355,7 @@ extension $OrderServiceCartListGet$Response$Data$List$Item$Records$ItemExtension
     Wrapped<String?>? shopName,
     Wrapped<String?>? shopImage,
     Wrapped<String?>? shopId,
-    Wrapped<double?>? quantity,
+    Wrapped<int?>? quantity,
     Wrapped<String?>? targetOriginPrice,
     Wrapped<String?>? targetOriginTotalPrice,
     Wrapped<String?>? totalPrice,
@@ -41363,7 +41363,7 @@ extension $OrderServiceCartListGet$Response$Data$List$Item$Records$ItemExtension
     Wrapped<String?>? productName,
     Wrapped<String?>? productCode,
     Wrapped<String?>? remarkList,
-    Wrapped<double?>? status,
+    Wrapped<int?>? status,
     Wrapped<String?>? sellPrice,
     Wrapped<String?>? sellCur,
     Wrapped<String?>? targetSellPrice,
@@ -41374,13 +41374,13 @@ extension $OrderServiceCartListGet$Response$Data$List$Item$Records$ItemExtension
       >?
     >?
     skuOptions,
-    Wrapped<double?>? discountAmount,
+    Wrapped<int?>? discountAmount,
     Wrapped<String?>? discountRemark,
     Wrapped<String?>? skuSourceCode,
     Wrapped<String?>? skuSourceTitle,
     Wrapped<String?>? weight,
     Wrapped<String?>? weightUnit,
-    Wrapped<double?>? canDeliver,
+    Wrapped<int?>? canDeliver,
     Wrapped<String?>? inviteCode,
     Wrapped<List<Object>?>? qualityImages,
     Wrapped<String?>? remark,
@@ -41866,8 +41866,8 @@ class OrderServiceOrderAppListGet$Response$Data$Records$Item$ParcelOrder$Receive
   final String? phoneNumber;
   @JsonKey(name: 'zipCode', fromJson: JsonCoerce.asString)
   final String? zipCode;
-  @JsonKey(name: 'id', fromJson: JsonCoerce.asDouble)
-  final double? id;
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asInt)
+  final int? id;
   static const fromJsonFactory =
       _$OrderServiceOrderAppListGet$Response$Data$Records$Item$ParcelOrder$ReceiverAddressFromJson;
 
@@ -41976,7 +41976,7 @@ extension $OrderServiceOrderAppListGet$Response$Data$Records$Item$ParcelOrder$Re
     String? lastName,
     String? phoneNumber,
     String? zipCode,
-    double? id,
+    int? id,
   }) {
     return OrderServiceOrderAppListGet$Response$Data$Records$Item$ParcelOrder$ReceiverAddress(
       country: country ?? this.country,
@@ -42011,7 +42011,7 @@ extension $OrderServiceOrderAppListGet$Response$Data$Records$Item$ParcelOrder$Re
     Wrapped<String?>? lastName,
     Wrapped<String?>? phoneNumber,
     Wrapped<String?>? zipCode,
-    Wrapped<double?>? id,
+    Wrapped<int?>? id,
   }) {
     return OrderServiceOrderAppListGet$Response$Data$Records$Item$ParcelOrder$ReceiverAddress(
       country: (country != null ? country.value : this.country),
@@ -42067,8 +42067,8 @@ class OrderServiceOrderAppListGet$Response$Data$Records$Item$ParcelOrder$ParcelP
   final String? productName;
   @JsonKey(name: 'logisticsOrderId', fromJson: JsonCoerce.asString)
   final String? logisticsOrderId;
-  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asDouble)
-  final double? quantity;
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asInt)
+  final int? quantity;
   @JsonKey(name: 'imageUrl', fromJson: JsonCoerce.asString)
   final String? imageUrl;
   @JsonKey(name: 'declareName', fromJson: JsonCoerce.asString)
@@ -42150,7 +42150,7 @@ extension $OrderServiceOrderAppListGet$Response$Data$Records$Item$ParcelOrder$Pa
     String? productCode,
     String? productName,
     String? logisticsOrderId,
-    double? quantity,
+    int? quantity,
     String? imageUrl,
     String? declareName,
     String? declareNameEn,
@@ -42173,7 +42173,7 @@ extension $OrderServiceOrderAppListGet$Response$Data$Records$Item$ParcelOrder$Pa
     Wrapped<String?>? productCode,
     Wrapped<String?>? productName,
     Wrapped<String?>? logisticsOrderId,
-    Wrapped<double?>? quantity,
+    Wrapped<int?>? quantity,
     Wrapped<String?>? imageUrl,
     Wrapped<String?>? declareName,
     Wrapped<String?>? declareNameEn,
@@ -42406,10 +42406,10 @@ class OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$Recom
   @JsonKey(name: 'freightFreeThresholdCurrency')
   final OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$RecommendSolution$FreightFreeThresholdCurrency?
   freightFreeThresholdCurrency;
-  @JsonKey(name: 'gmtExpectArriveStart', fromJson: JsonCoerce.asDouble)
-  final double? gmtExpectArriveStart;
-  @JsonKey(name: 'gmtExpectArriveEnd', fromJson: JsonCoerce.asDouble)
-  final double? gmtExpectArriveEnd;
+  @JsonKey(name: 'gmtExpectArriveStart', fromJson: JsonCoerce.asInt)
+  final int? gmtExpectArriveStart;
+  @JsonKey(name: 'gmtExpectArriveEnd', fromJson: JsonCoerce.asInt)
+  final int? gmtExpectArriveEnd;
   @JsonKey(name: 'lateCompensation', fromJson: JsonCoerce.asString)
   final String? lateCompensation;
   @JsonKey(name: 'lateCompensationCurrency')
@@ -42512,8 +42512,8 @@ extension $OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$
     String? freightFreeThreshold,
     OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$RecommendSolution$FreightFreeThresholdCurrency?
     freightFreeThresholdCurrency,
-    double? gmtExpectArriveStart,
-    double? gmtExpectArriveEnd,
+    int? gmtExpectArriveStart,
+    int? gmtExpectArriveEnd,
     String? lateCompensation,
     OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$RecommendSolution$LateCompensationCurrency?
     lateCompensationCurrency,
@@ -42548,8 +42548,8 @@ extension $OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$
       OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$RecommendSolution$FreightFreeThresholdCurrency?
     >?
     freightFreeThresholdCurrency,
-    Wrapped<double?>? gmtExpectArriveStart,
-    Wrapped<double?>? gmtExpectArriveEnd,
+    Wrapped<int?>? gmtExpectArriveStart,
+    Wrapped<int?>? gmtExpectArriveEnd,
     Wrapped<String?>? lateCompensation,
     Wrapped<
       OrderServiceOrderConfirmPost$Response$Data$Pricing$SolutionList$Item$RecommendSolution$LateCompensationCurrency?
@@ -43726,8 +43726,8 @@ class OrderServiceOrderListGet$Response$Data$Records$Item$ParcelOrder$ReceiverAd
   final String? phoneNumber;
   @JsonKey(name: 'zipCode', fromJson: JsonCoerce.asString)
   final String? zipCode;
-  @JsonKey(name: 'id', fromJson: JsonCoerce.asDouble)
-  final double? id;
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asInt)
+  final int? id;
   static const fromJsonFactory =
       _$OrderServiceOrderListGet$Response$Data$Records$Item$ParcelOrder$ReceiverAddressFromJson;
 
@@ -43836,7 +43836,7 @@ extension $OrderServiceOrderListGet$Response$Data$Records$Item$ParcelOrder$Recei
     String? lastName,
     String? phoneNumber,
     String? zipCode,
-    double? id,
+    int? id,
   }) {
     return OrderServiceOrderListGet$Response$Data$Records$Item$ParcelOrder$ReceiverAddress(
       country: country ?? this.country,
@@ -43871,7 +43871,7 @@ extension $OrderServiceOrderListGet$Response$Data$Records$Item$ParcelOrder$Recei
     Wrapped<String?>? lastName,
     Wrapped<String?>? phoneNumber,
     Wrapped<String?>? zipCode,
-    Wrapped<double?>? id,
+    Wrapped<int?>? id,
   }) {
     return OrderServiceOrderListGet$Response$Data$Records$Item$ParcelOrder$ReceiverAddress(
       country: (country != null ? country.value : this.country),
@@ -43927,8 +43927,8 @@ class OrderServiceOrderListGet$Response$Data$Records$Item$ParcelOrder$ParcelProd
   final String? productName;
   @JsonKey(name: 'logisticsOrderId', fromJson: JsonCoerce.asString)
   final String? logisticsOrderId;
-  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asDouble)
-  final double? quantity;
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asInt)
+  final int? quantity;
   @JsonKey(name: 'imageUrl', fromJson: JsonCoerce.asString)
   final String? imageUrl;
   @JsonKey(name: 'declareName', fromJson: JsonCoerce.asString)
@@ -44010,7 +44010,7 @@ extension $OrderServiceOrderListGet$Response$Data$Records$Item$ParcelOrder$Parce
     String? productCode,
     String? productName,
     String? logisticsOrderId,
-    double? quantity,
+    int? quantity,
     String? imageUrl,
     String? declareName,
     String? declareNameEn,
@@ -44033,7 +44033,7 @@ extension $OrderServiceOrderListGet$Response$Data$Records$Item$ParcelOrder$Parce
     Wrapped<String?>? productCode,
     Wrapped<String?>? productName,
     Wrapped<String?>? logisticsOrderId,
-    Wrapped<double?>? quantity,
+    Wrapped<int?>? quantity,
     Wrapped<String?>? imageUrl,
     Wrapped<String?>? declareName,
     Wrapped<String?>? declareNameEn,
@@ -44321,8 +44321,8 @@ class OrderServiceOrderCombineListGet$Response$Data$Records$Item$ParcelOrder$Rec
   final String? phoneNumber;
   @JsonKey(name: 'zipCode', fromJson: JsonCoerce.asString)
   final String? zipCode;
-  @JsonKey(name: 'id', fromJson: JsonCoerce.asDouble)
-  final double? id;
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asInt)
+  final int? id;
   static const fromJsonFactory =
       _$OrderServiceOrderCombineListGet$Response$Data$Records$Item$ParcelOrder$ReceiverAddressFromJson;
 
@@ -44431,7 +44431,7 @@ extension $OrderServiceOrderCombineListGet$Response$Data$Records$Item$ParcelOrde
     String? lastName,
     String? phoneNumber,
     String? zipCode,
-    double? id,
+    int? id,
   }) {
     return OrderServiceOrderCombineListGet$Response$Data$Records$Item$ParcelOrder$ReceiverAddress(
       country: country ?? this.country,
@@ -44466,7 +44466,7 @@ extension $OrderServiceOrderCombineListGet$Response$Data$Records$Item$ParcelOrde
     Wrapped<String?>? lastName,
     Wrapped<String?>? phoneNumber,
     Wrapped<String?>? zipCode,
-    Wrapped<double?>? id,
+    Wrapped<int?>? id,
   }) {
     return OrderServiceOrderCombineListGet$Response$Data$Records$Item$ParcelOrder$ReceiverAddress(
       country: (country != null ? country.value : this.country),
@@ -44522,8 +44522,8 @@ class OrderServiceOrderCombineListGet$Response$Data$Records$Item$ParcelOrder$Par
   final String? productName;
   @JsonKey(name: 'logisticsOrderId', fromJson: JsonCoerce.asString)
   final String? logisticsOrderId;
-  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asDouble)
-  final double? quantity;
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asInt)
+  final int? quantity;
   @JsonKey(name: 'imageUrl', fromJson: JsonCoerce.asString)
   final String? imageUrl;
   @JsonKey(name: 'declareName', fromJson: JsonCoerce.asString)
@@ -44605,7 +44605,7 @@ extension $OrderServiceOrderCombineListGet$Response$Data$Records$Item$ParcelOrde
     String? productCode,
     String? productName,
     String? logisticsOrderId,
-    double? quantity,
+    int? quantity,
     String? imageUrl,
     String? declareName,
     String? declareNameEn,
@@ -44628,7 +44628,7 @@ extension $OrderServiceOrderCombineListGet$Response$Data$Records$Item$ParcelOrde
     Wrapped<String?>? productCode,
     Wrapped<String?>? productName,
     Wrapped<String?>? logisticsOrderId,
-    Wrapped<double?>? quantity,
+    Wrapped<int?>? quantity,
     Wrapped<String?>? imageUrl,
     Wrapped<String?>? declareName,
     Wrapped<String?>? declareNameEn,
@@ -44720,8 +44720,8 @@ class OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$
   final String? targetTotalFinalPrice;
   @JsonKey(name: 'remark', fromJson: JsonCoerce.asString)
   final String? remark;
-  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asDouble)
-  final double? quantity;
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asInt)
+  final int? quantity;
   @JsonKey(name: 'skuSpecValues')
   final List<
     OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$OrderSkuList$Item$SkuSpecValues$Item
@@ -44876,7 +44876,7 @@ extension $OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$
     String? targetSkuFinalPrice,
     String? targetTotalFinalPrice,
     String? remark,
-    double? quantity,
+    int? quantity,
     List<
       OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$OrderSkuList$Item$SkuSpecValues$Item
     >?
@@ -44927,7 +44927,7 @@ extension $OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$
     Wrapped<String?>? targetSkuFinalPrice,
     Wrapped<String?>? targetTotalFinalPrice,
     Wrapped<String?>? remark,
-    Wrapped<double?>? quantity,
+    Wrapped<int?>? quantity,
     Wrapped<
       List<
         OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$OrderSkuList$Item$SkuSpecValues$Item
@@ -45017,8 +45017,8 @@ class OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$
   final String? productName;
   @JsonKey(name: 'imageUrl')
   final Object? imageUrl;
-  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asDouble)
-  final double? quantity;
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asInt)
+  final int? quantity;
   @JsonKey(name: 'weight', fromJson: JsonCoerce.asString)
   final String? weight;
   @JsonKey(name: 'length', fromJson: JsonCoerce.asString)
@@ -45123,7 +45123,7 @@ extension $OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$
     String? productCode,
     String? productName,
     Object? imageUrl,
-    double? quantity,
+    int? quantity,
     String? weight,
     String? length,
     String? width,
@@ -45157,7 +45157,7 @@ extension $OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$
     Wrapped<String?>? productCode,
     Wrapped<String?>? productName,
     Wrapped<Object?>? imageUrl,
-    Wrapped<double?>? quantity,
+    Wrapped<int?>? quantity,
     Wrapped<String?>? weight,
     Wrapped<String?>? length,
     Wrapped<String?>? width,
@@ -45242,8 +45242,8 @@ class OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$
   final String? parcelStatus;
   @JsonKey(name: 'parcelStatusDesc', fromJson: JsonCoerce.asString)
   final String? parcelStatusDesc;
-  @JsonKey(name: 'createTime', fromJson: JsonCoerce.asDouble)
-  final double? createTime;
+  @JsonKey(name: 'createTime', fromJson: JsonCoerce.asInt)
+  final int? createTime;
   @JsonKey(name: 'warehouseCode', fromJson: JsonCoerce.asString)
   final String? warehouseCode;
   @JsonKey(name: 'warehouseName', fromJson: JsonCoerce.asString)
@@ -45494,7 +45494,7 @@ extension $OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$
     String? parcelOrderId,
     String? parcelStatus,
     String? parcelStatusDesc,
-    double? createTime,
+    int? createTime,
     String? warehouseCode,
     String? warehouseName,
     String? solutionCode,
@@ -45567,7 +45567,7 @@ extension $OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$
     Wrapped<String?>? parcelOrderId,
     Wrapped<String?>? parcelStatus,
     Wrapped<String?>? parcelStatusDesc,
-    Wrapped<double?>? createTime,
+    Wrapped<int?>? createTime,
     Wrapped<String?>? warehouseCode,
     Wrapped<String?>? warehouseName,
     Wrapped<String?>? solutionCode,
@@ -45710,8 +45710,8 @@ class OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$
 
   @JsonKey(name: 'billId', fromJson: JsonCoerce.asString)
   final String? billId;
-  @JsonKey(name: 'status', fromJson: JsonCoerce.asDouble)
-  final double? status;
+  @JsonKey(name: 'status', fromJson: JsonCoerce.asInt)
+  final int? status;
   @JsonKey(name: 'targetTotalPrice', fromJson: JsonCoerce.asString)
   final String? targetTotalPrice;
   @JsonKey(name: 'targetCurrency', fromJson: JsonCoerce.asString)
@@ -45758,7 +45758,7 @@ extension $OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$
   OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$OrderBillList$Item
   copyWith({
     String? billId,
-    double? status,
+    int? status,
     String? targetTotalPrice,
     String? targetCurrency,
   }) {
@@ -45773,7 +45773,7 @@ extension $OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$
   OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$OrderBillList$Item
   copyWithWrapped({
     Wrapped<String?>? billId,
-    Wrapped<double?>? status,
+    Wrapped<int?>? status,
     Wrapped<String?>? targetTotalPrice,
     Wrapped<String?>? targetCurrency,
   }) {
@@ -45849,8 +45849,8 @@ class OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$
   final String? phoneNumber;
   @JsonKey(name: 'zipCode', fromJson: JsonCoerce.asString)
   final String? zipCode;
-  @JsonKey(name: 'id', fromJson: JsonCoerce.asDouble)
-  final double? id;
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asInt)
+  final int? id;
   static const fromJsonFactory =
       _$OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$UserAddressFromJson;
 
@@ -45959,7 +45959,7 @@ extension $OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$
     String? lastName,
     String? phoneNumber,
     String? zipCode,
-    double? id,
+    int? id,
   }) {
     return OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$UserAddress(
       country: country ?? this.country,
@@ -45994,7 +45994,7 @@ extension $OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$
     Wrapped<String?>? lastName,
     Wrapped<String?>? phoneNumber,
     Wrapped<String?>? zipCode,
-    Wrapped<double?>? id,
+    Wrapped<int?>? id,
   }) {
     return OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$UserAddress(
       country: (country != null ? country.value : this.country),
@@ -46117,8 +46117,8 @@ class OrderServiceOrderDetailGet$Response$Data$OrderTrace$GroupTraceList$Item$Tr
         this,
       );
 
-  @JsonKey(name: 'id', fromJson: JsonCoerce.asDouble)
-  final double? id;
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asInt)
+  final int? id;
   @JsonKey(name: 'subParcelOrderId', fromJson: JsonCoerce.asString)
   final String? subParcelOrderId;
   @JsonKey(name: 'frontCode', fromJson: JsonCoerce.asString)
@@ -46131,8 +46131,8 @@ class OrderServiceOrderDetailGet$Response$Data$OrderTrace$GroupTraceList$Item$Tr
   final String? icon;
   @JsonKey(name: 'traceMessage', fromJson: JsonCoerce.asString)
   final String? traceMessage;
-  @JsonKey(name: 'time', fromJson: JsonCoerce.asDouble)
-  final double? time;
+  @JsonKey(name: 'time', fromJson: JsonCoerce.asInt)
+  final int? time;
   @JsonKey(name: 'lastMileMailNo', fromJson: JsonCoerce.asString)
   final String? lastMileMailNo;
   @JsonKey(name: 'lastMileCompanyName', fromJson: JsonCoerce.asString)
@@ -46243,14 +46243,14 @@ extension $OrderServiceOrderDetailGet$Response$Data$OrderTrace$GroupTraceList$It
         OrderServiceOrderDetailGet$Response$Data$OrderTrace$GroupTraceList$Item$TraceList$Item {
   OrderServiceOrderDetailGet$Response$Data$OrderTrace$GroupTraceList$Item$TraceList$Item
   copyWith({
-    double? id,
+    int? id,
     String? subParcelOrderId,
     String? frontCode,
     String? frontTitleCode,
     String? frontTitle,
     String? icon,
     String? traceMessage,
-    double? time,
+    int? time,
     String? lastMileMailNo,
     String? lastMileCompanyName,
     String? lastMileMailNoLink,
@@ -46278,14 +46278,14 @@ extension $OrderServiceOrderDetailGet$Response$Data$OrderTrace$GroupTraceList$It
 
   OrderServiceOrderDetailGet$Response$Data$OrderTrace$GroupTraceList$Item$TraceList$Item
   copyWithWrapped({
-    Wrapped<double?>? id,
+    Wrapped<int?>? id,
     Wrapped<String?>? subParcelOrderId,
     Wrapped<String?>? frontCode,
     Wrapped<String?>? frontTitleCode,
     Wrapped<String?>? frontTitle,
     Wrapped<String?>? icon,
     Wrapped<String?>? traceMessage,
-    Wrapped<double?>? time,
+    Wrapped<int?>? time,
     Wrapped<String?>? lastMileMailNo,
     Wrapped<String?>? lastMileCompanyName,
     Wrapped<String?>? lastMileMailNoLink,
@@ -46494,8 +46494,8 @@ class OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$Par
   final String? productCode;
   @JsonKey(name: 'productName', fromJson: JsonCoerce.asString)
   final String? productName;
-  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asDouble)
-  final double? quantity;
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asInt)
+  final int? quantity;
   @JsonKey(name: 'imageUrl', fromJson: JsonCoerce.asString)
   final String? imageUrl;
   static const fromJsonFactory =
@@ -46554,7 +46554,7 @@ extension $OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Ite
     String? skuCode,
     String? productCode,
     String? productName,
-    double? quantity,
+    int? quantity,
     String? imageUrl,
   }) {
     return OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$ParcelOrder$ParcelProductDTOList$Item(
@@ -46571,7 +46571,7 @@ extension $OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Ite
     Wrapped<String?>? skuCode,
     Wrapped<String?>? productCode,
     Wrapped<String?>? productName,
-    Wrapped<double?>? quantity,
+    Wrapped<int?>? quantity,
     Wrapped<String?>? imageUrl,
   }) {
     return OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$ParcelOrder$ParcelProductDTOList$Item(
@@ -46839,16 +46839,16 @@ class OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$Ord
         this,
       );
 
-  @JsonKey(name: 'id', fromJson: JsonCoerce.asDouble)
-  final double? id;
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asInt)
+  final int? id;
   @JsonKey(name: 'frontCode', fromJson: JsonCoerce.asString)
   final String? frontCode;
   @JsonKey(name: 'icon', fromJson: JsonCoerce.asString)
   final String? icon;
   @JsonKey(name: 'traceMessage', fromJson: JsonCoerce.asString)
   final String? traceMessage;
-  @JsonKey(name: 'time', fromJson: JsonCoerce.asDouble)
-  final double? time;
+  @JsonKey(name: 'time', fromJson: JsonCoerce.asInt)
+  final int? time;
   @JsonKey(name: 'lastMileMailNo', fromJson: JsonCoerce.asString)
   final String? lastMileMailNo;
   @JsonKey(name: 'lastMileMailNoLink', fromJson: JsonCoerce.asString)
@@ -46933,11 +46933,11 @@ extension $OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Ite
         OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$OrderTrace$TraceList$Item {
   OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$OrderTrace$TraceList$Item
   copyWith({
-    double? id,
+    int? id,
     String? frontCode,
     String? icon,
     String? traceMessage,
-    double? time,
+    int? time,
     String? lastMileMailNo,
     String? lastMileMailNoLink,
     String? lastMileMailNoTitle,
@@ -46960,11 +46960,11 @@ extension $OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Ite
 
   OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$OrderTrace$TraceList$Item
   copyWithWrapped({
-    Wrapped<double?>? id,
+    Wrapped<int?>? id,
     Wrapped<String?>? frontCode,
     Wrapped<String?>? icon,
     Wrapped<String?>? traceMessage,
-    Wrapped<double?>? time,
+    Wrapped<int?>? time,
     Wrapped<String?>? lastMileMailNo,
     Wrapped<String?>? lastMileMailNoLink,
     Wrapped<String?>? lastMileMailNoTitle,
@@ -47064,8 +47064,8 @@ class OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$Ord
   final String? currency;
   @JsonKey(name: 'targetCurrency', fromJson: JsonCoerce.asString)
   final String? targetCurrency;
-  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asDouble)
-  final double? quantity;
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asInt)
+  final int? quantity;
   @JsonKey(name: 'remark', fromJson: JsonCoerce.asString)
   final String? remark;
   @JsonKey(name: 'skuSpecValues')
@@ -47221,7 +47221,7 @@ extension $OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Ite
     String? targetTotalFinalPrice,
     String? currency,
     String? targetCurrency,
-    double? quantity,
+    int? quantity,
     String? remark,
     List<
       OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$OrderList$Item$SkuList$Item$SkuSpecValues$Item
@@ -47272,7 +47272,7 @@ extension $OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Ite
     Wrapped<String?>? targetTotalFinalPrice,
     Wrapped<String?>? currency,
     Wrapped<String?>? targetCurrency,
-    Wrapped<double?>? quantity,
+    Wrapped<int?>? quantity,
     Wrapped<String?>? remark,
     Wrapped<
       List<
@@ -47363,8 +47363,8 @@ class OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Item$Ord
   final String? productName;
   @JsonKey(name: 'imageUrl', fromJson: JsonCoerce.asString)
   final String? imageUrl;
-  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asDouble)
-  final double? quantity;
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asInt)
+  final int? quantity;
   @JsonKey(name: 'weight', fromJson: JsonCoerce.asString)
   final String? weight;
   @JsonKey(name: 'length', fromJson: JsonCoerce.asString)
@@ -47466,7 +47466,7 @@ extension $OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Ite
     String? productCode,
     String? productName,
     String? imageUrl,
-    double? quantity,
+    int? quantity,
     String? weight,
     String? length,
     String? width,
@@ -47497,7 +47497,7 @@ extension $OrderServiceOrderCombineDetailGet$Response$Data$BatchOrderDetails$Ite
     Wrapped<String?>? productCode,
     Wrapped<String?>? productName,
     Wrapped<String?>? imageUrl,
-    Wrapped<double?>? quantity,
+    Wrapped<int?>? quantity,
     Wrapped<String?>? weight,
     Wrapped<String?>? length,
     Wrapped<String?>? width,
@@ -47557,16 +47557,16 @@ class OrderServiceOrderCombineDetailGet$Response$Data$OrderTrace$GroupTraceList$
         this,
       );
 
-  @JsonKey(name: 'id', fromJson: JsonCoerce.asDouble)
-  final double? id;
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asInt)
+  final int? id;
   @JsonKey(name: 'frontCode', fromJson: JsonCoerce.asString)
   final String? frontCode;
   @JsonKey(name: 'icon', fromJson: JsonCoerce.asString)
   final String? icon;
   @JsonKey(name: 'traceMessage', fromJson: JsonCoerce.asString)
   final String? traceMessage;
-  @JsonKey(name: 'time', fromJson: JsonCoerce.asDouble)
-  final double? time;
+  @JsonKey(name: 'time', fromJson: JsonCoerce.asInt)
+  final int? time;
   @JsonKey(name: 'lastMileMailNo')
   final Object? lastMileMailNo;
   @JsonKey(name: 'lastMileMailNoLink', fromJson: JsonCoerce.asString)
@@ -47659,11 +47659,11 @@ extension $OrderServiceOrderCombineDetailGet$Response$Data$OrderTrace$GroupTrace
         OrderServiceOrderCombineDetailGet$Response$Data$OrderTrace$GroupTraceList$Item$TraceList$Item {
   OrderServiceOrderCombineDetailGet$Response$Data$OrderTrace$GroupTraceList$Item$TraceList$Item
   copyWith({
-    double? id,
+    int? id,
     String? frontCode,
     String? icon,
     String? traceMessage,
-    double? time,
+    int? time,
     Object? lastMileMailNo,
     String? lastMileMailNoLink,
     String? lastMileMailNoTitle,
@@ -47688,11 +47688,11 @@ extension $OrderServiceOrderCombineDetailGet$Response$Data$OrderTrace$GroupTrace
 
   OrderServiceOrderCombineDetailGet$Response$Data$OrderTrace$GroupTraceList$Item$TraceList$Item
   copyWithWrapped({
-    Wrapped<double?>? id,
+    Wrapped<int?>? id,
     Wrapped<String?>? frontCode,
     Wrapped<String?>? icon,
     Wrapped<String?>? traceMessage,
-    Wrapped<double?>? time,
+    Wrapped<int?>? time,
     Wrapped<Object?>? lastMileMailNo,
     Wrapped<String?>? lastMileMailNoLink,
     Wrapped<String?>? lastMileMailNoTitle,
@@ -49025,8 +49025,8 @@ class OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$
   final String? phoneNumber;
   @JsonKey(name: 'zipCode', fromJson: JsonCoerce.asString)
   final String? zipCode;
-  @JsonKey(name: 'id', fromJson: JsonCoerce.asDouble)
-  final double? id;
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asInt)
+  final int? id;
   static const fromJsonFactory =
       _$OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$ParcelOrder$ReceiverAddressFromJson;
 
@@ -49135,7 +49135,7 @@ extension $OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$
     String? lastName,
     String? phoneNumber,
     String? zipCode,
-    double? id,
+    int? id,
   }) {
     return OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$ParcelOrder$ReceiverAddress(
       country: country ?? this.country,
@@ -49170,7 +49170,7 @@ extension $OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$
     Wrapped<String?>? lastName,
     Wrapped<String?>? phoneNumber,
     Wrapped<String?>? zipCode,
-    Wrapped<double?>? id,
+    Wrapped<int?>? id,
   }) {
     return OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$ParcelOrder$ReceiverAddress(
       country: (country != null ? country.value : this.country),
@@ -49226,8 +49226,8 @@ class OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$Item$
   final String? productName;
   @JsonKey(name: 'logisticsOrderId', fromJson: JsonCoerce.asString)
   final String? logisticsOrderId;
-  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asDouble)
-  final double? quantity;
+  @JsonKey(name: 'quantity', fromJson: JsonCoerce.asInt)
+  final int? quantity;
   @JsonKey(name: 'imageUrl', fromJson: JsonCoerce.asString)
   final String? imageUrl;
   @JsonKey(name: 'declareName', fromJson: JsonCoerce.asString)
@@ -49309,7 +49309,7 @@ extension $OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$
     String? productCode,
     String? productName,
     String? logisticsOrderId,
-    double? quantity,
+    int? quantity,
     String? imageUrl,
     String? declareName,
     String? declareNameEn,
@@ -49332,7 +49332,7 @@ extension $OrderServiceOrderCombineListGet$Response$Data$Records$Item$OrderList$
     Wrapped<String?>? productCode,
     Wrapped<String?>? productName,
     Wrapped<String?>? logisticsOrderId,
-    Wrapped<double?>? quantity,
+    Wrapped<int?>? quantity,
     Wrapped<String?>? imageUrl,
     Wrapped<String?>? declareName,
     Wrapped<String?>? declareNameEn,

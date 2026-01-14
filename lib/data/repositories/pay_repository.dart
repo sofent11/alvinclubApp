@@ -237,7 +237,7 @@ class PayRepository {
         chainId: input.chainId,
         payTokenSymbol: input.payTokenSymbol,
         callbackUrl: input.callbackUrl,
-        uiType: input.uiType?.toDouble(),
+        uiType: input.uiType,
       ),
     );
 

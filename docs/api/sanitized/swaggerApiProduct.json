@@ -90,7 +90,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -99,16 +99,16 @@
                   "type": "object",
                   "properties": {
                     "current": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "size": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "total": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "pages": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "records": {
                       "type": "array",
@@ -116,7 +116,7 @@
                         "type": "object",
                         "properties": {
                           "id": {
-                            "type": "number"
+                            "type": "integer"
                           },
                           "username": {
                             "type": "string"
@@ -125,7 +125,7 @@
                             "type": "string"
                           },
                           "score": {
-                            "type": "number"
+                            "type": "integer"
                           },
                           "images": {
                             "type": "array",
@@ -140,7 +140,7 @@
                             "type": "string"
                           },
                           "salesQuantity": {
-                            "type": "number"
+                            "type": "integer"
                           }
                         }
                       }
@@ -187,7 +187,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -199,10 +199,10 @@
                       "type": "string"
                     },
                     "reviewCount": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "averageScore": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "aiSummary": {
                       "type": "string"
@@ -213,7 +213,7 @@
                         "type": "object",
                         "properties": {
                           "id": {
-                            "type": "number"
+                            "type": "integer"
                           },
                           "username": {
                             "type": "string"
@@ -222,7 +222,7 @@
                             "type": "string"
                           },
                           "score": {
-                            "type": "number"
+                            "type": "integer"
                           },
                           "images": {
                             "type": "array",
@@ -237,7 +237,7 @@
                             "type": "string"
                           },
                           "salesQuantity": {
-                            "type": "number"
+                            "type": "integer"
                           }
                         }
                       }
@@ -266,7 +266,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -280,16 +280,16 @@
                         "type": "object",
                         "properties": {
                           "id": {
-                            "type": "number"
+                            "type": "integer"
                           },
                           "parentId": {
-                            "type": "number"
+                            "type": "integer"
                           },
                           "level": {
-                            "type": "number"
+                            "type": "integer"
                           },
                           "showOrder": {
-                            "type": "number"
+                            "type": "integer"
                           },
                           "name": {
                             "type": "string"
@@ -303,16 +303,16 @@
                               "type": "object",
                               "properties": {
                                 "id": {
-                                  "type": "number"
+                                  "type": "integer"
                                 },
                                 "parentId": {
-                                  "type": "number"
+                                  "type": "integer"
                                 },
                                 "level": {
-                                  "type": "number"
+                                  "type": "integer"
                                 },
                                 "showOrder": {
-                                  "type": "number"
+                                  "type": "integer"
                                 },
                                 "name": {
                                   "type": "string"
@@ -326,7 +326,7 @@
                                     "type": "object",
                                     "properties": {
                                       "id": {
-                                        "type": "number"
+                                        "type": "integer"
                                       },
                                       "name": {
                                         "type": "string"
@@ -335,10 +335,10 @@
                                         "type": "string"
                                       },
                                       "parentId": {
-                                        "type": "number"
+                                        "type": "integer"
                                       },
                                       "level": {
-                                        "type": "number"
+                                        "type": "integer"
                                       }
                                     }
                                   }
@@ -409,7 +409,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -439,10 +439,10 @@
                             "description": "即将开始:UPCOMING,正在进行:ONGOING,已结束:ENDED"
                           },
                           "startTime": {
-                            "type": "number"
+                            "type": "integer"
                           },
                           "endTime": {
-                            "type": "number"
+                            "type": "integer"
                           },
                           "names": {
                             "type": "array",
@@ -1153,7 +1153,7 @@
                       "categoryTree": {
                         "type": "array",
                         "items": {
-                          "type": "number"
+                          "type": "integer"
                         }
                       },
                       "skuCode": {
@@ -1352,7 +1352,7 @@
                     "description": "货币单位"
                   },
                   "quantity": {
-                    "type": "number",
+                    "type": "integer",
                     "description": "购买数量"
                   },
                   "purchaseDate": {
@@ -1384,7 +1384,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -1425,7 +1425,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -1980,7 +1980,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -2017,10 +2017,10 @@
                               "type": "object",
                               "properties": {
                                 "width": {
-                                  "type": "number"
+                                  "type": "integer"
                                 },
                                 "height": {
-                                  "type": "number"
+                                  "type": "integer"
                                 },
                                 "url": {
                                   "type": "string"
@@ -2060,10 +2060,10 @@
                               "type": "object",
                               "properties": {
                                 "width": {
-                                  "type": "number"
+                                  "type": "integer"
                                 },
                                 "height": {
-                                  "type": "number"
+                                  "type": "integer"
                                 },
                                 "url": {
                                   "type": "string"
@@ -2080,10 +2080,10 @@
                               "type": "object",
                               "properties": {
                                 "width": {
-                                  "type": "number"
+                                  "type": "integer"
                                 },
                                 "height": {
-                                  "type": "number"
+                                  "type": "integer"
                                 },
                                 "url": {
                                   "type": "string"
@@ -2092,7 +2092,7 @@
                             }
                           },
                           "categoryId": {
-                            "type": "number"
+                            "type": "integer"
                           },
                           "productOptions": {
                             "type": "array",
@@ -2103,7 +2103,7 @@
                                   "type": "string"
                                 },
                                 "type": {
-                                  "type": "number"
+                                  "type": "integer"
                                 },
                                 "optionValues": {
                                   "type": "array",
@@ -2205,16 +2205,16 @@
                       }
                     },
                     "total": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "pageSize": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "current": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "totalPages": {
-                      "type": "number"
+                      "type": "integer"
                     }
                   }
                 },
@@ -2271,7 +2271,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -2280,16 +2280,16 @@
                   "type": "object",
                   "properties": {
                     "total": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "pageSize": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "totalPages": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "current": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "records": {
                       "type": "array",
@@ -2317,10 +2317,10 @@
                               "type": "object",
                               "properties": {
                                 "width": {
-                                  "type": "number"
+                                  "type": "integer"
                                 },
                                 "height": {
-                                  "type": "number"
+                                  "type": "integer"
                                 },
                                 "url": {
                                   "type": "string"
@@ -2343,10 +2343,10 @@
                               "type": "object",
                               "properties": {
                                 "width": {
-                                  "type": "number"
+                                  "type": "integer"
                                 },
                                 "height": {
-                                  "type": "number"
+                                  "type": "integer"
                                 },
                                 "url": {
                                   "type": "string"
@@ -2363,10 +2363,10 @@
                               "type": "object",
                               "properties": {
                                 "width": {
-                                  "type": "number"
+                                  "type": "integer"
                                 },
                                 "height": {
-                                  "type": "number"
+                                  "type": "integer"
                                 },
                                 "url": {
                                   "type": "string"
@@ -2375,7 +2375,7 @@
                             }
                           },
                           "categoryId": {
-                            "type": "number"
+                            "type": "integer"
                           },
                           "productOptions": {
                             "type": "array",
@@ -2386,7 +2386,7 @@
                                   "type": "string"
                                 },
                                 "type": {
-                                  "type": "number"
+                                  "type": "integer"
                                 },
                                 "optionValues": {
                                   "type": "array",
@@ -2526,7 +2526,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -2759,7 +2759,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -2788,10 +2788,10 @@
                         "type": "object",
                         "properties": {
                           "width": {
-                            "type": "number"
+                            "type": "integer"
                           },
                           "height": {
-                            "type": "number"
+                            "type": "integer"
                           },
                           "url": {
                             "type": "string"
@@ -2831,10 +2831,10 @@
                         "type": "object",
                         "properties": {
                           "width": {
-                            "type": "number"
+                            "type": "integer"
                           },
                           "height": {
-                            "type": "number"
+                            "type": "integer"
                           },
                           "url": {
                             "type": "string"
@@ -2851,10 +2851,10 @@
                         "type": "object",
                         "properties": {
                           "width": {
-                            "type": "number"
+                            "type": "integer"
                           },
                           "height": {
-                            "type": "number"
+                            "type": "integer"
                           },
                           "url": {
                             "type": "string"
@@ -2881,7 +2881,7 @@
                       "description": "尺码表图片集"
                     },
                     "categoryId": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "productOptions": {
                       "type": "array",
@@ -2892,7 +2892,7 @@
                             "type": "string"
                           },
                           "type": {
-                            "type": "number"
+                            "type": "integer"
                           },
                           "optionValues": {
                             "type": "array",
@@ -3034,7 +3034,7 @@
                     "categoryTree": {
                       "type": "array",
                       "items": {
-                        "type": "number"
+                        "type": "integer"
                       }
                     },
                     "ext": {
@@ -3148,7 +3148,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -3162,16 +3162,16 @@
                         "type": "object",
                         "properties": {
                           "id": {
-                            "type": "number"
+                            "type": "integer"
                           },
                           "parentId": {
-                            "type": "number"
+                            "type": "integer"
                           },
                           "level": {
-                            "type": "number"
+                            "type": "integer"
                           },
                           "showOrder": {
-                            "type": "number"
+                            "type": "integer"
                           },
                           "name": {
                             "type": "string"
@@ -3185,16 +3185,16 @@
                               "type": "object",
                               "properties": {
                                 "id": {
-                                  "type": "number"
+                                  "type": "integer"
                                 },
                                 "parentId": {
-                                  "type": "number"
+                                  "type": "integer"
                                 },
                                 "level": {
-                                  "type": "number"
+                                  "type": "integer"
                                 },
                                 "showOrder": {
-                                  "type": "number"
+                                  "type": "integer"
                                 },
                                 "name": {
                                   "type": "string"
@@ -3607,7 +3607,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -3616,16 +3616,16 @@
                   "type": "object",
                   "properties": {
                     "total": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "pageSize": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "totalPages": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "current": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "records": {
                       "type": "array",
@@ -3642,10 +3642,10 @@
                             "type": "object",
                             "properties": {
                               "width": {
-                                "type": "number"
+                                "type": "integer"
                               },
                               "height": {
-                                "type": "number"
+                                "type": "integer"
                               },
                               "url": {
                                 "type": "string"
@@ -3658,10 +3658,10 @@
                               "type": "object",
                               "properties": {
                                 "width": {
-                                  "type": "number"
+                                  "type": "integer"
                                 },
                                 "height": {
-                                  "type": "number"
+                                  "type": "integer"
                                 },
                                 "url": {
                                   "type": "string"
@@ -3684,7 +3684,7 @@
                                   "type": "string"
                                 },
                                 "type": {
-                                  "type": "number"
+                                  "type": "integer"
                                 },
                                 "optionValues": {
                                   "type": "array",
@@ -3734,7 +3734,7 @@
                             "type": "string"
                           },
                           "skuCount": {
-                            "type": "number"
+                            "type": "integer"
                           },
                           "marketingInfo": {
                             "type": "string"
@@ -3751,10 +3751,10 @@
                                   "type": "string"
                                 },
                                 "order": {
-                                  "type": "number"
+                                  "type": "integer"
                                 },
                                 "frontShow": {
-                                  "type": "number"
+                                  "type": "integer"
                                 }
                               }
                             }
@@ -3870,7 +3870,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -3901,10 +3901,10 @@
                           "type": "object",
                           "properties": {
                             "width": {
-                              "type": "number"
+                              "type": "integer"
                             },
                             "height": {
-                              "type": "number"
+                              "type": "integer"
                             },
                             "url": {
                               "type": "string"
@@ -3930,10 +3930,10 @@
                               "type": "string"
                             },
                             "width": {
-                              "type": "number"
+                              "type": "integer"
                             },
                             "height": {
-                              "type": "number"
+                              "type": "integer"
                             }
                           }
                         }
@@ -3944,10 +3944,10 @@
                           "type": "object",
                           "properties": {
                             "width": {
-                              "type": "number"
+                              "type": "integer"
                             },
                             "height": {
-                              "type": "number"
+                              "type": "integer"
                             },
                             "url": {
                               "type": "string"
@@ -3967,10 +3967,10 @@
                           "type": "object",
                           "properties": {
                             "width": {
-                              "type": "number"
+                              "type": "integer"
                             },
                             "height": {
-                              "type": "number"
+                              "type": "integer"
                             },
                             "url": {
                               "type": "string"
@@ -3979,7 +3979,7 @@
                         }
                       },
                       "categoryId": {
-                        "type": "number"
+                        "type": "integer"
                       },
                       "productOptions": {
                         "type": "array",
@@ -3990,7 +3990,7 @@
                               "type": "string"
                             },
                             "type": {
-                              "type": "number"
+                              "type": "integer"
                             },
                             "optionValues": {
                               "type": "array",
@@ -4206,7 +4206,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -4215,16 +4215,16 @@
                   "type": "object",
                   "properties": {
                     "total": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "pageSize": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "totalPages": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "current": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "records": {
                       "type": "array",
@@ -4252,10 +4252,10 @@
                               "type": "object",
                               "properties": {
                                 "width": {
-                                  "type": "number"
+                                  "type": "integer"
                                 },
                                 "height": {
-                                  "type": "number"
+                                  "type": "integer"
                                 },
                                 "url": {
                                   "type": "string"
@@ -4278,10 +4278,10 @@
                               "type": "object",
                               "properties": {
                                 "width": {
-                                  "type": "number"
+                                  "type": "integer"
                                 },
                                 "height": {
-                                  "type": "number"
+                                  "type": "integer"
                                 },
                                 "url": {
                                   "type": "string"
@@ -4298,10 +4298,10 @@
                               "type": "object",
                               "properties": {
                                 "width": {
-                                  "type": "number"
+                                  "type": "integer"
                                 },
                                 "height": {
-                                  "type": "number"
+                                  "type": "integer"
                                 },
                                 "url": {
                                   "type": "string"
@@ -4310,7 +4310,7 @@
                             }
                           },
                           "categoryId": {
-                            "type": "number"
+                            "type": "integer"
                           },
                           "productOptions": {
                             "type": "array",
@@ -4321,7 +4321,7 @@
                                   "type": "string"
                                 },
                                 "type": {
-                                  "type": "number"
+                                  "type": "integer"
                                 },
                                 "optionValues": {
                                   "type": "array",
@@ -4607,7 +4607,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -4638,10 +4638,10 @@
                           "type": "object",
                           "properties": {
                             "width": {
-                              "type": "number"
+                              "type": "integer"
                             },
                             "height": {
-                              "type": "number"
+                              "type": "integer"
                             },
                             "url": {
                               "type": "string"
@@ -4667,10 +4667,10 @@
                               "type": "string"
                             },
                             "width": {
-                              "type": "number"
+                              "type": "integer"
                             },
                             "height": {
-                              "type": "number"
+                              "type": "integer"
                             }
                           }
                         }
@@ -4681,10 +4681,10 @@
                           "type": "object",
                           "properties": {
                             "width": {
-                              "type": "number"
+                              "type": "integer"
                             },
                             "height": {
-                              "type": "number"
+                              "type": "integer"
                             },
                             "url": {
                               "type": "string"
@@ -4704,10 +4704,10 @@
                           "type": "object",
                           "properties": {
                             "width": {
-                              "type": "number"
+                              "type": "integer"
                             },
                             "height": {
-                              "type": "number"
+                              "type": "integer"
                             },
                             "url": {
                               "type": "string"
@@ -4716,7 +4716,7 @@
                         }
                       },
                       "categoryId": {
-                        "type": "number"
+                        "type": "integer"
                       },
                       "productOptions": {
                         "type": "array",
@@ -4727,7 +4727,7 @@
                               "type": "string"
                             },
                             "type": {
-                              "type": "number"
+                              "type": "integer"
                             },
                             "optionValues": {
                               "type": "array",
@@ -4915,7 +4915,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -4924,16 +4924,16 @@
                   "type": "object",
                   "properties": {
                     "total": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "pageSize": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "totalPages": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "current": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "records": {
                       "type": "array",
@@ -4961,10 +4961,10 @@
                               "type": "object",
                               "properties": {
                                 "width": {
-                                  "type": "number"
+                                  "type": "integer"
                                 },
                                 "height": {
-                                  "type": "number"
+                                  "type": "integer"
                                 },
                                 "url": {
                                   "type": "string"
@@ -4987,10 +4987,10 @@
                               "type": "object",
                               "properties": {
                                 "width": {
-                                  "type": "number"
+                                  "type": "integer"
                                 },
                                 "height": {
-                                  "type": "number"
+                                  "type": "integer"
                                 },
                                 "url": {
                                   "type": "string"
@@ -5007,10 +5007,10 @@
                               "type": "object",
                               "properties": {
                                 "width": {
-                                  "type": "number"
+                                  "type": "integer"
                                 },
                                 "height": {
-                                  "type": "number"
+                                  "type": "integer"
                                 },
                                 "url": {
                                   "type": "string"
@@ -5019,7 +5019,7 @@
                             }
                           },
                           "categoryId": {
-                            "type": "number"
+                            "type": "integer"
                           },
                           "productOptions": {
                             "type": "array",
@@ -5030,7 +5030,7 @@
                                   "type": "string"
                                 },
                                 "type": {
-                                  "type": "number"
+                                  "type": "integer"
                                 },
                                 "optionValues": {
                                   "type": "array",
@@ -5170,7 +5170,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -5223,7 +5223,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -5257,10 +5257,10 @@
                                   "type": "object",
                                   "properties": {
                                     "width": {
-                                      "type": "number"
+                                      "type": "integer"
                                     },
                                     "height": {
-                                      "type": "number"
+                                      "type": "integer"
                                     },
                                     "url": {
                                       "type": "string"
@@ -5295,7 +5295,7 @@
                                   "type": "string"
                                 },
                                 "skuCount": {
-                                  "type": "number"
+                                  "type": "integer"
                                 },
                                 "marketingInfo": {
                                   "type": "string"
@@ -5979,7 +5979,7 @@
         "categoryIds": {
           "type": "array",
           "items": {
-            "type": "number"
+            "type": "integer"
           }
         },
         "brandName": {

@@ -158,7 +158,7 @@ class _CartScreenState extends ConsumerState<CartScreen> {
                         height: 12,
                         child: LinearProgressIndicator(minHeight: 2),
                       ),
-                      error: (_, __) => Text(
+                      error: (err, stack) => Text(
                         'Address Error',
                         style: TextStyle(fontSize: 12, color: Colors.red[300]),
                       ),
@@ -342,7 +342,7 @@ class _CartItemView extends ConsumerWidget {
               width: 76,
               height: 76,
               fit: BoxFit.cover,
-              errorWidget: (_, __, ___) => Container(
+              errorWidget: (context, url, error) => Container(
                 color: colors.mutedBackground,
                 width: 76,
                 height: 76,

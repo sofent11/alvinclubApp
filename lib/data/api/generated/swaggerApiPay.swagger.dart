@@ -692,8 +692,8 @@ class PayServiceRechargeCreateorderPostRequest {
   final String? currency;
   @JsonKey(name: 'relatedOrderId', fromJson: JsonCoerce.asString)
   final String? relatedOrderId;
-  @JsonKey(name: 'relatedOrderType', fromJson: JsonCoerce.asDouble)
-  final double? relatedOrderType;
+  @JsonKey(name: 'relatedOrderType', fromJson: JsonCoerce.asInt)
+  final int? relatedOrderType;
   static const fromJsonFactory =
       _$PayServiceRechargeCreateorderPostRequestFromJson;
 
@@ -738,7 +738,7 @@ extension $PayServiceRechargeCreateorderPostRequestExtension
     String? amount,
     String? currency,
     String? relatedOrderId,
-    double? relatedOrderType,
+    int? relatedOrderType,
   }) {
     return PayServiceRechargeCreateorderPostRequest(
       amount: amount ?? this.amount,
@@ -752,7 +752,7 @@ extension $PayServiceRechargeCreateorderPostRequestExtension
     Wrapped<String?>? amount,
     Wrapped<String?>? currency,
     Wrapped<String?>? relatedOrderId,
-    Wrapped<double?>? relatedOrderType,
+    Wrapped<int?>? relatedOrderType,
   }) {
     return PayServiceRechargeCreateorderPostRequest(
       amount: (amount != null ? amount.value : this.amount),
@@ -797,8 +797,8 @@ class PayServicePayPayPostRequest {
   final String? payTokenSymbol;
   @JsonKey(name: 'callbackUrl', fromJson: JsonCoerce.asString)
   final String? callbackUrl;
-  @JsonKey(name: 'uiType', fromJson: JsonCoerce.asDouble)
-  final double? uiType;
+  @JsonKey(name: 'uiType', fromJson: JsonCoerce.asInt)
+  final int? uiType;
   static const fromJsonFactory = _$PayServicePayPayPostRequestFromJson;
 
   @override
@@ -862,7 +862,7 @@ extension $PayServicePayPayPostRequestExtension on PayServicePayPayPostRequest {
     String? chainId,
     String? payTokenSymbol,
     String? callbackUrl,
-    double? uiType,
+    int? uiType,
   }) {
     return PayServicePayPayPostRequest(
       orderId: orderId ?? this.orderId,
@@ -882,7 +882,7 @@ extension $PayServicePayPayPostRequestExtension on PayServicePayPayPostRequest {
     Wrapped<String?>? chainId,
     Wrapped<String?>? payTokenSymbol,
     Wrapped<String?>? callbackUrl,
-    Wrapped<double?>? uiType,
+    Wrapped<int?>? uiType,
   }) {
     return PayServicePayPayPostRequest(
       orderId: (orderId != null ? orderId.value : this.orderId),
@@ -916,8 +916,8 @@ class PayServiceWithdrawOrdersGet$Response {
   Map<String, dynamic> toJson() =>
       _$PayServiceWithdrawOrdersGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
@@ -966,7 +966,7 @@ class PayServiceWithdrawOrdersGet$Response {
 extension $PayServiceWithdrawOrdersGet$ResponseExtension
     on PayServiceWithdrawOrdersGet$Response {
   PayServiceWithdrawOrdersGet$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     PayServiceWithdrawOrdersGet$Response$Data? data,
     String? traceId,
@@ -982,7 +982,7 @@ extension $PayServiceWithdrawOrdersGet$ResponseExtension
   }
 
   PayServiceWithdrawOrdersGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<PayServiceWithdrawOrdersGet$Response$Data?>? data,
     Wrapped<String?>? traceId,
@@ -1016,8 +1016,8 @@ class PayServiceWithdrawApplyPost$Response {
   Map<String, dynamic> toJson() =>
       _$PayServiceWithdrawApplyPost$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
@@ -1066,7 +1066,7 @@ class PayServiceWithdrawApplyPost$Response {
 extension $PayServiceWithdrawApplyPost$ResponseExtension
     on PayServiceWithdrawApplyPost$Response {
   PayServiceWithdrawApplyPost$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     PayServiceWithdrawApplyPost$Response$Data? data,
     String? traceId,
@@ -1082,7 +1082,7 @@ extension $PayServiceWithdrawApplyPost$ResponseExtension
   }
 
   PayServiceWithdrawApplyPost$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<PayServiceWithdrawApplyPost$Response$Data?>? data,
     Wrapped<String?>? traceId,
@@ -1114,8 +1114,8 @@ class PayServiceCommissionSummaryGet$Response {
   Map<String, dynamic> toJson() =>
       _$PayServiceCommissionSummaryGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
@@ -1152,7 +1152,7 @@ class PayServiceCommissionSummaryGet$Response {
 extension $PayServiceCommissionSummaryGet$ResponseExtension
     on PayServiceCommissionSummaryGet$Response {
   PayServiceCommissionSummaryGet$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     PayServiceCommissionSummaryGet$Response$Data? data,
   }) {
@@ -1164,7 +1164,7 @@ extension $PayServiceCommissionSummaryGet$ResponseExtension
   }
 
   PayServiceCommissionSummaryGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<PayServiceCommissionSummaryGet$Response$Data?>? data,
   }) {
@@ -1196,8 +1196,8 @@ class PayServiceCommissionTransactionGet$Response {
   Map<String, dynamic> toJson() =>
       _$PayServiceCommissionTransactionGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
@@ -1255,7 +1255,7 @@ class PayServiceCommissionTransactionGet$Response {
 extension $PayServiceCommissionTransactionGet$ResponseExtension
     on PayServiceCommissionTransactionGet$Response {
   PayServiceCommissionTransactionGet$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     PayServiceCommissionTransactionGet$Response$Data? data,
     String? traceId,
@@ -1273,7 +1273,7 @@ extension $PayServiceCommissionTransactionGet$ResponseExtension
   }
 
   PayServiceCommissionTransactionGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<PayServiceCommissionTransactionGet$Response$Data?>? data,
     Wrapped<String?>? traceId,
@@ -1310,8 +1310,8 @@ class PayServiceRechargeBalanceGet$Response {
   Map<String, dynamic> toJson() =>
       _$PayServiceRechargeBalanceGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
@@ -1369,7 +1369,7 @@ class PayServiceRechargeBalanceGet$Response {
 extension $PayServiceRechargeBalanceGet$ResponseExtension
     on PayServiceRechargeBalanceGet$Response {
   PayServiceRechargeBalanceGet$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     PayServiceRechargeBalanceGet$Response$Data? data,
     String? traceId,
@@ -1387,7 +1387,7 @@ extension $PayServiceRechargeBalanceGet$ResponseExtension
   }
 
   PayServiceRechargeBalanceGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<PayServiceRechargeBalanceGet$Response$Data?>? data,
     Wrapped<String?>? traceId,
@@ -1423,8 +1423,8 @@ class PayServiceRechargeOrdersGet$Response {
   Map<String, dynamic> toJson() =>
       _$PayServiceRechargeOrdersGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
@@ -1473,7 +1473,7 @@ class PayServiceRechargeOrdersGet$Response {
 extension $PayServiceRechargeOrdersGet$ResponseExtension
     on PayServiceRechargeOrdersGet$Response {
   PayServiceRechargeOrdersGet$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     PayServiceRechargeOrdersGet$Response$Data? data,
     String? traceId,
@@ -1489,7 +1489,7 @@ extension $PayServiceRechargeOrdersGet$ResponseExtension
   }
 
   PayServiceRechargeOrdersGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<PayServiceRechargeOrdersGet$Response$Data?>? data,
     Wrapped<String?>? traceId,
@@ -1525,8 +1525,8 @@ class PayServiceRechargeCreateOrderPost$Response {
   Map<String, dynamic> toJson() =>
       _$PayServiceRechargeCreateOrderPost$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
@@ -1584,7 +1584,7 @@ class PayServiceRechargeCreateOrderPost$Response {
 extension $PayServiceRechargeCreateOrderPost$ResponseExtension
     on PayServiceRechargeCreateOrderPost$Response {
   PayServiceRechargeCreateOrderPost$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     PayServiceRechargeCreateOrderPost$Response$Data? data,
     String? traceId,
@@ -1602,7 +1602,7 @@ extension $PayServiceRechargeCreateOrderPost$ResponseExtension
   }
 
   PayServiceRechargeCreateOrderPost$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<PayServiceRechargeCreateOrderPost$Response$Data?>? data,
     Wrapped<String?>? traceId,
@@ -1637,8 +1637,8 @@ class PayServicePayPayPost$Response {
   static const toJsonFactory = _$PayServicePayPayPost$ResponseToJson;
   Map<String, dynamic> toJson() => _$PayServicePayPayPost$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
@@ -1695,7 +1695,7 @@ class PayServicePayPayPost$Response {
 extension $PayServicePayPayPost$ResponseExtension
     on PayServicePayPayPost$Response {
   PayServicePayPayPost$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     PayServicePayPayPost$Response$Data? data,
     String? traceId,
@@ -1713,7 +1713,7 @@ extension $PayServicePayPayPost$ResponseExtension
   }
 
   PayServicePayPayPost$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<PayServicePayPayPost$Response$Data?>? data,
     Wrapped<String?>? traceId,
@@ -1750,8 +1750,8 @@ class PayServicePayPayResultGet$Response {
   Map<String, dynamic> toJson() =>
       _$PayServicePayPayResultGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
@@ -1808,7 +1808,7 @@ class PayServicePayPayResultGet$Response {
 extension $PayServicePayPayResultGet$ResponseExtension
     on PayServicePayPayResultGet$Response {
   PayServicePayPayResultGet$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     PayServicePayPayResultGet$Response$Data? data,
     String? traceId,
@@ -1826,7 +1826,7 @@ extension $PayServicePayPayResultGet$ResponseExtension
   }
 
   PayServicePayPayResultGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<PayServicePayPayResultGet$Response$Data?>? data,
     Wrapped<String?>? traceId,
@@ -1863,8 +1863,8 @@ class PayServicePayPayTypeGet$Response {
   Map<String, dynamic> toJson() =>
       _$PayServicePayPayTypeGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
@@ -1921,7 +1921,7 @@ class PayServicePayPayTypeGet$Response {
 extension $PayServicePayPayTypeGet$ResponseExtension
     on PayServicePayPayTypeGet$Response {
   PayServicePayPayTypeGet$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     PayServicePayPayTypeGet$Response$Data? data,
     String? traceId,
@@ -1939,7 +1939,7 @@ extension $PayServicePayPayTypeGet$ResponseExtension
   }
 
   PayServicePayPayTypeGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<PayServicePayPayTypeGet$Response$Data?>? data,
     Wrapped<String?>? traceId,
@@ -1976,8 +1976,8 @@ class PayServiceEchoooCoinTypeGet$Response {
   Map<String, dynamic> toJson() =>
       _$PayServiceEchoooCoinTypeGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
@@ -2034,7 +2034,7 @@ class PayServiceEchoooCoinTypeGet$Response {
 extension $PayServiceEchoooCoinTypeGet$ResponseExtension
     on PayServiceEchoooCoinTypeGet$Response {
   PayServiceEchoooCoinTypeGet$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     List<PayServiceEchoooCoinTypeGet$Response$Data$Item>? data,
     String? traceId,
@@ -2052,7 +2052,7 @@ extension $PayServiceEchoooCoinTypeGet$ResponseExtension
   }
 
   PayServiceEchoooCoinTypeGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<List<PayServiceEchoooCoinTypeGet$Response$Data$Item>?>? data,
     Wrapped<String?>? traceId,
@@ -2089,8 +2089,8 @@ class PayServiceEchoooCoinInfoGet$Response {
   Map<String, dynamic> toJson() =>
       _$PayServiceEchoooCoinInfoGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
@@ -2147,7 +2147,7 @@ class PayServiceEchoooCoinInfoGet$Response {
 extension $PayServiceEchoooCoinInfoGet$ResponseExtension
     on PayServiceEchoooCoinInfoGet$Response {
   PayServiceEchoooCoinInfoGet$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     PayServiceEchoooCoinInfoGet$Response$Data? data,
     String? traceId,
@@ -2165,7 +2165,7 @@ extension $PayServiceEchoooCoinInfoGet$ResponseExtension
   }
 
   PayServiceEchoooCoinInfoGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<PayServiceEchoooCoinInfoGet$Response$Data?>? data,
     Wrapped<String?>? traceId,
@@ -2202,8 +2202,8 @@ class PayServiceEchoooCoinLogGet$Response {
   Map<String, dynamic> toJson() =>
       _$PayServiceEchoooCoinLogGet$ResponseToJson(this);
 
-  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
-  final double? code;
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asInt)
+  final int? code;
   @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
   final String? message;
   @JsonKey(name: 'data')
@@ -2260,7 +2260,7 @@ class PayServiceEchoooCoinLogGet$Response {
 extension $PayServiceEchoooCoinLogGet$ResponseExtension
     on PayServiceEchoooCoinLogGet$Response {
   PayServiceEchoooCoinLogGet$Response copyWith({
-    double? code,
+    int? code,
     String? message,
     PayServiceEchoooCoinLogGet$Response$Data? data,
     String? traceId,
@@ -2278,7 +2278,7 @@ extension $PayServiceEchoooCoinLogGet$ResponseExtension
   }
 
   PayServiceEchoooCoinLogGet$Response copyWithWrapped({
-    Wrapped<double?>? code,
+    Wrapped<int?>? code,
     Wrapped<String?>? message,
     Wrapped<PayServiceEchoooCoinLogGet$Response$Data?>? data,
     Wrapped<String?>? traceId,
@@ -2317,14 +2317,14 @@ class PayServiceWithdrawOrdersGet$Response$Data {
 
   @JsonKey(name: 'records')
   final List<PayServiceWithdrawOrdersGet$Response$Data$Records$Item>? records;
-  @JsonKey(name: 'total', fromJson: JsonCoerce.asDouble)
-  final double? total;
-  @JsonKey(name: 'size', fromJson: JsonCoerce.asDouble)
-  final double? size;
-  @JsonKey(name: 'current', fromJson: JsonCoerce.asDouble)
-  final double? current;
-  @JsonKey(name: 'pages', fromJson: JsonCoerce.asDouble)
-  final double? pages;
+  @JsonKey(name: 'total', fromJson: JsonCoerce.asInt)
+  final int? total;
+  @JsonKey(name: 'size', fromJson: JsonCoerce.asInt)
+  final int? size;
+  @JsonKey(name: 'current', fromJson: JsonCoerce.asInt)
+  final int? current;
+  @JsonKey(name: 'pages', fromJson: JsonCoerce.asInt)
+  final int? pages;
   static const fromJsonFactory =
       _$PayServiceWithdrawOrdersGet$Response$DataFromJson;
 
@@ -2367,10 +2367,10 @@ extension $PayServiceWithdrawOrdersGet$Response$DataExtension
     on PayServiceWithdrawOrdersGet$Response$Data {
   PayServiceWithdrawOrdersGet$Response$Data copyWith({
     List<PayServiceWithdrawOrdersGet$Response$Data$Records$Item>? records,
-    double? total,
-    double? size,
-    double? current,
-    double? pages,
+    int? total,
+    int? size,
+    int? current,
+    int? pages,
   }) {
     return PayServiceWithdrawOrdersGet$Response$Data(
       records: records ?? this.records,
@@ -2384,10 +2384,10 @@ extension $PayServiceWithdrawOrdersGet$Response$DataExtension
   PayServiceWithdrawOrdersGet$Response$Data copyWithWrapped({
     Wrapped<List<PayServiceWithdrawOrdersGet$Response$Data$Records$Item>?>?
     records,
-    Wrapped<double?>? total,
-    Wrapped<double?>? size,
-    Wrapped<double?>? current,
-    Wrapped<double?>? pages,
+    Wrapped<int?>? total,
+    Wrapped<int?>? size,
+    Wrapped<int?>? current,
+    Wrapped<int?>? pages,
   }) {
     return PayServiceWithdrawOrdersGet$Response$Data(
       records: (records != null ? records.value : this.records),
@@ -2426,8 +2426,8 @@ class PayServiceWithdrawApplyPost$Response$Data {
   final String? amount;
   @JsonKey(name: 'currency', fromJson: JsonCoerce.asString)
   final String? currency;
-  @JsonKey(name: 'status', fromJson: JsonCoerce.asDouble)
-  final double? status;
+  @JsonKey(name: 'status', fromJson: JsonCoerce.asInt)
+  final int? status;
   @JsonKey(name: 'rejectReason', fromJson: JsonCoerce.asString)
   final String? rejectReason;
   @JsonKey(name: 'createTime', fromJson: JsonCoerce.asString)
@@ -2493,7 +2493,7 @@ extension $PayServiceWithdrawApplyPost$Response$DataExtension
     String? orderNo,
     String? amount,
     String? currency,
-    double? status,
+    int? status,
     String? rejectReason,
     String? createTime,
     String? completedTime,
@@ -2513,7 +2513,7 @@ extension $PayServiceWithdrawApplyPost$Response$DataExtension
     Wrapped<String?>? orderNo,
     Wrapped<String?>? amount,
     Wrapped<String?>? currency,
-    Wrapped<double?>? status,
+    Wrapped<int?>? status,
     Wrapped<String?>? rejectReason,
     Wrapped<String?>? createTime,
     Wrapped<String?>? completedTime,
@@ -2565,8 +2565,8 @@ class PayServiceCommissionSummaryGet$Response$Data {
   final String? withdrawableBalance;
   @JsonKey(name: 'pendingCommission', fromJson: JsonCoerce.asString)
   final String? pendingCommission;
-  @JsonKey(name: 'totalPoints', fromJson: JsonCoerce.asDouble)
-  final double? totalPoints;
+  @JsonKey(name: 'totalPoints', fromJson: JsonCoerce.asInt)
+  final int? totalPoints;
   @JsonKey(name: 'pendingWithdrawAmount', fromJson: JsonCoerce.asString)
   final String? pendingWithdrawAmount;
   static const fromJsonFactory =
@@ -2636,7 +2636,7 @@ extension $PayServiceCommissionSummaryGet$Response$DataExtension
     String? withdrawAmount,
     String? withdrawableBalance,
     String? pendingCommission,
-    double? totalPoints,
+    int? totalPoints,
     String? pendingWithdrawAmount,
   }) {
     return PayServiceCommissionSummaryGet$Response$Data(
@@ -2657,7 +2657,7 @@ extension $PayServiceCommissionSummaryGet$Response$DataExtension
     Wrapped<String?>? withdrawAmount,
     Wrapped<String?>? withdrawableBalance,
     Wrapped<String?>? pendingCommission,
-    Wrapped<double?>? totalPoints,
+    Wrapped<int?>? totalPoints,
     Wrapped<String?>? pendingWithdrawAmount,
   }) {
     return PayServiceCommissionSummaryGet$Response$Data(
@@ -2703,14 +2703,14 @@ class PayServiceCommissionTransactionGet$Response$Data {
   Map<String, dynamic> toJson() =>
       _$PayServiceCommissionTransactionGet$Response$DataToJson(this);
 
-  @JsonKey(name: 'total', fromJson: JsonCoerce.asDouble)
-  final double? total;
-  @JsonKey(name: 'pageSize', fromJson: JsonCoerce.asDouble)
-  final double? pageSize;
-  @JsonKey(name: 'totalPages', fromJson: JsonCoerce.asDouble)
-  final double? totalPages;
-  @JsonKey(name: 'current', fromJson: JsonCoerce.asDouble)
-  final double? current;
+  @JsonKey(name: 'total', fromJson: JsonCoerce.asInt)
+  final int? total;
+  @JsonKey(name: 'pageSize', fromJson: JsonCoerce.asInt)
+  final int? pageSize;
+  @JsonKey(name: 'totalPages', fromJson: JsonCoerce.asInt)
+  final int? totalPages;
+  @JsonKey(name: 'current', fromJson: JsonCoerce.asInt)
+  final int? current;
   @JsonKey(name: 'records')
   final List<PayServiceCommissionTransactionGet$Response$Data$Records$Item>?
   records;
@@ -2758,10 +2758,10 @@ class PayServiceCommissionTransactionGet$Response$Data {
 extension $PayServiceCommissionTransactionGet$Response$DataExtension
     on PayServiceCommissionTransactionGet$Response$Data {
   PayServiceCommissionTransactionGet$Response$Data copyWith({
-    double? total,
-    double? pageSize,
-    double? totalPages,
-    double? current,
+    int? total,
+    int? pageSize,
+    int? totalPages,
+    int? current,
     List<PayServiceCommissionTransactionGet$Response$Data$Records$Item>?
     records,
   }) {
@@ -2775,10 +2775,10 @@ extension $PayServiceCommissionTransactionGet$Response$DataExtension
   }
 
   PayServiceCommissionTransactionGet$Response$Data copyWithWrapped({
-    Wrapped<double?>? total,
-    Wrapped<double?>? pageSize,
-    Wrapped<double?>? totalPages,
-    Wrapped<double?>? current,
+    Wrapped<int?>? total,
+    Wrapped<int?>? pageSize,
+    Wrapped<int?>? totalPages,
+    Wrapped<int?>? current,
     Wrapped<
       List<PayServiceCommissionTransactionGet$Response$Data$Records$Item>?
     >?
@@ -3024,14 +3024,14 @@ class PayServiceRechargeOrdersGet$Response$Data {
 
   @JsonKey(name: 'records')
   final List<PayServiceRechargeOrdersGet$Response$Data$Records$Item>? records;
-  @JsonKey(name: 'total', fromJson: JsonCoerce.asDouble)
-  final double? total;
-  @JsonKey(name: 'size', fromJson: JsonCoerce.asDouble)
-  final double? size;
-  @JsonKey(name: 'current', fromJson: JsonCoerce.asDouble)
-  final double? current;
-  @JsonKey(name: 'pages', fromJson: JsonCoerce.asDouble)
-  final double? pages;
+  @JsonKey(name: 'total', fromJson: JsonCoerce.asInt)
+  final int? total;
+  @JsonKey(name: 'size', fromJson: JsonCoerce.asInt)
+  final int? size;
+  @JsonKey(name: 'current', fromJson: JsonCoerce.asInt)
+  final int? current;
+  @JsonKey(name: 'pages', fromJson: JsonCoerce.asInt)
+  final int? pages;
   static const fromJsonFactory =
       _$PayServiceRechargeOrdersGet$Response$DataFromJson;
 
@@ -3074,10 +3074,10 @@ extension $PayServiceRechargeOrdersGet$Response$DataExtension
     on PayServiceRechargeOrdersGet$Response$Data {
   PayServiceRechargeOrdersGet$Response$Data copyWith({
     List<PayServiceRechargeOrdersGet$Response$Data$Records$Item>? records,
-    double? total,
-    double? size,
-    double? current,
-    double? pages,
+    int? total,
+    int? size,
+    int? current,
+    int? pages,
   }) {
     return PayServiceRechargeOrdersGet$Response$Data(
       records: records ?? this.records,
@@ -3091,10 +3091,10 @@ extension $PayServiceRechargeOrdersGet$Response$DataExtension
   PayServiceRechargeOrdersGet$Response$Data copyWithWrapped({
     Wrapped<List<PayServiceRechargeOrdersGet$Response$Data$Records$Item>?>?
     records,
-    Wrapped<double?>? total,
-    Wrapped<double?>? size,
-    Wrapped<double?>? current,
-    Wrapped<double?>? pages,
+    Wrapped<int?>? total,
+    Wrapped<int?>? size,
+    Wrapped<int?>? current,
+    Wrapped<int?>? pages,
   }) {
     return PayServiceRechargeOrdersGet$Response$Data(
       records: (records != null ? records.value : this.records),
@@ -3248,10 +3248,10 @@ class PayServicePayPayResultGet$Response$Data {
   Map<String, dynamic> toJson() =>
       _$PayServicePayPayResultGet$Response$DataToJson(this);
 
-  @JsonKey(name: 'payStatus', fromJson: JsonCoerce.asDouble)
-  final double? payStatus;
-  @JsonKey(name: 'orderType', fromJson: JsonCoerce.asDouble)
-  final double? orderType;
+  @JsonKey(name: 'payStatus', fromJson: JsonCoerce.asInt)
+  final int? payStatus;
+  @JsonKey(name: 'orderType', fromJson: JsonCoerce.asInt)
+  final int? orderType;
   @JsonKey(name: 'currency')
   final PayServicePayPayResultGet$Response$Data$Currency? currency;
   @JsonKey(name: 'payAmount', fromJson: JsonCoerce.asString)
@@ -3300,8 +3300,8 @@ class PayServicePayPayResultGet$Response$Data {
 extension $PayServicePayPayResultGet$Response$DataExtension
     on PayServicePayPayResultGet$Response$Data {
   PayServicePayPayResultGet$Response$Data copyWith({
-    double? payStatus,
-    double? orderType,
+    int? payStatus,
+    int? orderType,
     PayServicePayPayResultGet$Response$Data$Currency? currency,
     String? payAmount,
   }) {
@@ -3314,8 +3314,8 @@ extension $PayServicePayPayResultGet$Response$DataExtension
   }
 
   PayServicePayPayResultGet$Response$Data copyWithWrapped({
-    Wrapped<double?>? payStatus,
-    Wrapped<double?>? orderType,
+    Wrapped<int?>? payStatus,
+    Wrapped<int?>? orderType,
     Wrapped<PayServicePayPayResultGet$Response$Data$Currency?>? currency,
     Wrapped<String?>? payAmount,
   }) {
@@ -3391,8 +3391,8 @@ class PayServiceEchoooCoinTypeGet$Response$Data$Item {
   Map<String, dynamic> toJson() =>
       _$PayServiceEchoooCoinTypeGet$Response$Data$ItemToJson(this);
 
-  @JsonKey(name: 'type', fromJson: JsonCoerce.asDouble)
-  final double? type;
+  @JsonKey(name: 'type', fromJson: JsonCoerce.asInt)
+  final int? type;
   @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
   static const fromJsonFactory =
@@ -3421,7 +3421,7 @@ class PayServiceEchoooCoinTypeGet$Response$Data$Item {
 extension $PayServiceEchoooCoinTypeGet$Response$Data$ItemExtension
     on PayServiceEchoooCoinTypeGet$Response$Data$Item {
   PayServiceEchoooCoinTypeGet$Response$Data$Item copyWith({
-    double? type,
+    int? type,
     String? name,
   }) {
     return PayServiceEchoooCoinTypeGet$Response$Data$Item(
@@ -3431,7 +3431,7 @@ extension $PayServiceEchoooCoinTypeGet$Response$Data$ItemExtension
   }
 
   PayServiceEchoooCoinTypeGet$Response$Data$Item copyWithWrapped({
-    Wrapped<double?>? type,
+    Wrapped<int?>? type,
     Wrapped<String?>? name,
   }) {
     return PayServiceEchoooCoinTypeGet$Response$Data$Item(
@@ -3460,8 +3460,8 @@ class PayServiceEchoooCoinInfoGet$Response$Data {
   Map<String, dynamic> toJson() =>
       _$PayServiceEchoooCoinInfoGet$Response$DataToJson(this);
 
-  @JsonKey(name: 'balance', fromJson: JsonCoerce.asDouble)
-  final double? balance;
+  @JsonKey(name: 'balance', fromJson: JsonCoerce.asInt)
+  final int? balance;
   @JsonKey(name: 'percentage', fromJson: JsonCoerce.asString)
   final String? percentage;
   @JsonKey(name: 'deductibleAmount', fromJson: JsonCoerce.asString)
@@ -3520,7 +3520,7 @@ class PayServiceEchoooCoinInfoGet$Response$Data {
 extension $PayServiceEchoooCoinInfoGet$Response$DataExtension
     on PayServiceEchoooCoinInfoGet$Response$Data {
   PayServiceEchoooCoinInfoGet$Response$Data copyWith({
-    double? balance,
+    int? balance,
     String? percentage,
     String? deductibleAmount,
     String? accumulateAmount,
@@ -3536,7 +3536,7 @@ extension $PayServiceEchoooCoinInfoGet$Response$DataExtension
   }
 
   PayServiceEchoooCoinInfoGet$Response$Data copyWithWrapped({
-    Wrapped<double?>? balance,
+    Wrapped<int?>? balance,
     Wrapped<String?>? percentage,
     Wrapped<String?>? deductibleAmount,
     Wrapped<String?>? accumulateAmount,
@@ -3574,14 +3574,14 @@ class PayServiceEchoooCoinLogGet$Response$Data {
   Map<String, dynamic> toJson() =>
       _$PayServiceEchoooCoinLogGet$Response$DataToJson(this);
 
-  @JsonKey(name: 'total', fromJson: JsonCoerce.asDouble)
-  final double? total;
-  @JsonKey(name: 'pageSize', fromJson: JsonCoerce.asDouble)
-  final double? pageSize;
-  @JsonKey(name: 'totalPages', fromJson: JsonCoerce.asDouble)
-  final double? totalPages;
-  @JsonKey(name: 'current', fromJson: JsonCoerce.asDouble)
-  final double? current;
+  @JsonKey(name: 'total', fromJson: JsonCoerce.asInt)
+  final int? total;
+  @JsonKey(name: 'pageSize', fromJson: JsonCoerce.asInt)
+  final int? pageSize;
+  @JsonKey(name: 'totalPages', fromJson: JsonCoerce.asInt)
+  final int? totalPages;
+  @JsonKey(name: 'current', fromJson: JsonCoerce.asInt)
+  final int? current;
   @JsonKey(name: 'records')
   final List<PayServiceEchoooCoinLogGet$Response$Data$Records$Item>? records;
   static const fromJsonFactory =
@@ -3628,10 +3628,10 @@ class PayServiceEchoooCoinLogGet$Response$Data {
 extension $PayServiceEchoooCoinLogGet$Response$DataExtension
     on PayServiceEchoooCoinLogGet$Response$Data {
   PayServiceEchoooCoinLogGet$Response$Data copyWith({
-    double? total,
-    double? pageSize,
-    double? totalPages,
-    double? current,
+    int? total,
+    int? pageSize,
+    int? totalPages,
+    int? current,
     List<PayServiceEchoooCoinLogGet$Response$Data$Records$Item>? records,
   }) {
     return PayServiceEchoooCoinLogGet$Response$Data(
@@ -3644,10 +3644,10 @@ extension $PayServiceEchoooCoinLogGet$Response$DataExtension
   }
 
   PayServiceEchoooCoinLogGet$Response$Data copyWithWrapped({
-    Wrapped<double?>? total,
-    Wrapped<double?>? pageSize,
-    Wrapped<double?>? totalPages,
-    Wrapped<double?>? current,
+    Wrapped<int?>? total,
+    Wrapped<int?>? pageSize,
+    Wrapped<int?>? totalPages,
+    Wrapped<int?>? current,
     Wrapped<List<PayServiceEchoooCoinLogGet$Response$Data$Records$Item>?>?
     records,
   }) {
@@ -3691,8 +3691,8 @@ class PayServiceWithdrawOrdersGet$Response$Data$Records$Item {
   final String? amount;
   @JsonKey(name: 'currency', fromJson: JsonCoerce.asString)
   final String? currency;
-  @JsonKey(name: 'status', fromJson: JsonCoerce.asDouble)
-  final double? status;
+  @JsonKey(name: 'status', fromJson: JsonCoerce.asInt)
+  final int? status;
   @JsonKey(name: 'remark', fromJson: JsonCoerce.asString)
   final String? remark;
   @JsonKey(name: 'createTime', fromJson: JsonCoerce.asString)
@@ -3776,7 +3776,7 @@ extension $PayServiceWithdrawOrdersGet$Response$Data$Records$ItemExtension
     String? orderNo,
     String? amount,
     String? currency,
-    double? status,
+    int? status,
     String? remark,
     String? createTime,
     String? completedTime,
@@ -3802,7 +3802,7 @@ extension $PayServiceWithdrawOrdersGet$Response$Data$Records$ItemExtension
     Wrapped<String?>? orderNo,
     Wrapped<String?>? amount,
     Wrapped<String?>? currency,
-    Wrapped<double?>? status,
+    Wrapped<int?>? status,
     Wrapped<String?>? remark,
     Wrapped<String?>? createTime,
     Wrapped<String?>? completedTime,
@@ -4010,8 +4010,8 @@ class PayServiceRechargeBalanceGet$Response$Data$RechargeReward {
 
   @JsonKey(name: 'amount', fromJson: JsonCoerce.asString)
   final String? amount;
-  @JsonKey(name: 'expireAt', fromJson: JsonCoerce.asDouble)
-  final double? expireAt;
+  @JsonKey(name: 'expireAt', fromJson: JsonCoerce.asInt)
+  final int? expireAt;
   static const fromJsonFactory =
       _$PayServiceRechargeBalanceGet$Response$Data$RechargeRewardFromJson;
 
@@ -4042,7 +4042,7 @@ extension $PayServiceRechargeBalanceGet$Response$Data$RechargeRewardExtension
     on PayServiceRechargeBalanceGet$Response$Data$RechargeReward {
   PayServiceRechargeBalanceGet$Response$Data$RechargeReward copyWith({
     String? amount,
-    double? expireAt,
+    int? expireAt,
   }) {
     return PayServiceRechargeBalanceGet$Response$Data$RechargeReward(
       amount: amount ?? this.amount,
@@ -4052,7 +4052,7 @@ extension $PayServiceRechargeBalanceGet$Response$Data$RechargeRewardExtension
 
   PayServiceRechargeBalanceGet$Response$Data$RechargeReward copyWithWrapped({
     Wrapped<String?>? amount,
-    Wrapped<double?>? expireAt,
+    Wrapped<int?>? expireAt,
   }) {
     return PayServiceRechargeBalanceGet$Response$Data$RechargeReward(
       amount: (amount != null ? amount.value : this.amount),
@@ -4156,8 +4156,8 @@ class PayServiceRechargeOrdersGet$Response$Data$Records$Item {
   Map<String, dynamic> toJson() =>
       _$PayServiceRechargeOrdersGet$Response$Data$Records$ItemToJson(this);
 
-  @JsonKey(name: 'id', fromJson: JsonCoerce.asDouble)
-  final double? id;
+  @JsonKey(name: 'id', fromJson: JsonCoerce.asInt)
+  final int? id;
   @JsonKey(name: 'userId', fromJson: JsonCoerce.asString)
   final String? userId;
   @JsonKey(name: 'tenantCode', fromJson: JsonCoerce.asString)
@@ -4174,10 +4174,10 @@ class PayServiceRechargeOrdersGet$Response$Data$Records$Item {
   final String? gmtCreate;
   @JsonKey(name: 'gmtUpdate', fromJson: JsonCoerce.asString)
   final String? gmtUpdate;
-  @JsonKey(name: 'status', fromJson: JsonCoerce.asDouble)
-  final double? status;
-  @JsonKey(name: 'payType', fromJson: JsonCoerce.asDouble)
-  final double? payType;
+  @JsonKey(name: 'status', fromJson: JsonCoerce.asInt)
+  final int? status;
+  @JsonKey(name: 'payType', fromJson: JsonCoerce.asInt)
+  final int? payType;
   @JsonKey(name: 'payAmount', fromJson: JsonCoerce.asString)
   final String? payAmount;
   @JsonKey(name: 'payFee', fromJson: JsonCoerce.asString)
@@ -4273,7 +4273,7 @@ class PayServiceRechargeOrdersGet$Response$Data$Records$Item {
 extension $PayServiceRechargeOrdersGet$Response$Data$Records$ItemExtension
     on PayServiceRechargeOrdersGet$Response$Data$Records$Item {
   PayServiceRechargeOrdersGet$Response$Data$Records$Item copyWith({
-    double? id,
+    int? id,
     String? userId,
     String? tenantCode,
     String? amount,
@@ -4282,8 +4282,8 @@ extension $PayServiceRechargeOrdersGet$Response$Data$Records$ItemExtension
     String? targetCurrency,
     String? gmtCreate,
     String? gmtUpdate,
-    double? status,
-    double? payType,
+    int? status,
+    int? payType,
     String? payAmount,
     String? payFee,
     String? payOrderId,
@@ -4307,7 +4307,7 @@ extension $PayServiceRechargeOrdersGet$Response$Data$Records$ItemExtension
   }
 
   PayServiceRechargeOrdersGet$Response$Data$Records$Item copyWithWrapped({
-    Wrapped<double?>? id,
+    Wrapped<int?>? id,
     Wrapped<String?>? userId,
     Wrapped<String?>? tenantCode,
     Wrapped<String?>? amount,
@@ -4316,8 +4316,8 @@ extension $PayServiceRechargeOrdersGet$Response$Data$Records$ItemExtension
     Wrapped<String?>? targetCurrency,
     Wrapped<String?>? gmtCreate,
     Wrapped<String?>? gmtUpdate,
-    Wrapped<double?>? status,
-    Wrapped<double?>? payType,
+    Wrapped<int?>? status,
+    Wrapped<int?>? payType,
     Wrapped<String?>? payAmount,
     Wrapped<String?>? payFee,
     Wrapped<String?>? payOrderId,
@@ -4673,12 +4673,12 @@ class PayServiceEchoooCoinLogGet$Response$Data$Records$Item {
   Map<String, dynamic> toJson() =>
       _$PayServiceEchoooCoinLogGet$Response$Data$Records$ItemToJson(this);
 
-  @JsonKey(name: 'actualAmount', fromJson: JsonCoerce.asDouble)
-  final double? actualAmount;
-  @JsonKey(name: 'gmtCreate', fromJson: JsonCoerce.asDouble)
-  final double? gmtCreate;
-  @JsonKey(name: 'type', fromJson: JsonCoerce.asDouble)
-  final double? type;
+  @JsonKey(name: 'actualAmount', fromJson: JsonCoerce.asInt)
+  final int? actualAmount;
+  @JsonKey(name: 'gmtCreate', fromJson: JsonCoerce.asInt)
+  final int? gmtCreate;
+  @JsonKey(name: 'type', fromJson: JsonCoerce.asInt)
+  final int? type;
   @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
   final String? name;
   static const fromJsonFactory =
@@ -4719,9 +4719,9 @@ class PayServiceEchoooCoinLogGet$Response$Data$Records$Item {
 extension $PayServiceEchoooCoinLogGet$Response$Data$Records$ItemExtension
     on PayServiceEchoooCoinLogGet$Response$Data$Records$Item {
   PayServiceEchoooCoinLogGet$Response$Data$Records$Item copyWith({
-    double? actualAmount,
-    double? gmtCreate,
-    double? type,
+    int? actualAmount,
+    int? gmtCreate,
+    int? type,
     String? name,
   }) {
     return PayServiceEchoooCoinLogGet$Response$Data$Records$Item(
@@ -4733,9 +4733,9 @@ extension $PayServiceEchoooCoinLogGet$Response$Data$Records$ItemExtension
   }
 
   PayServiceEchoooCoinLogGet$Response$Data$Records$Item copyWithWrapped({
-    Wrapped<double?>? actualAmount,
-    Wrapped<double?>? gmtCreate,
-    Wrapped<double?>? type,
+    Wrapped<int?>? actualAmount,
+    Wrapped<int?>? gmtCreate,
+    Wrapped<int?>? type,
     Wrapped<String?>? name,
   }) {
     return PayServiceEchoooCoinLogGet$Response$Data$Records$Item(

@@ -65,7 +65,7 @@ void main() {
     await tester.pump();
 
     if (find.byType(CircularProgressIndicator).evaluate().isNotEmpty) {
-      print('DEBUG: Still showing CircularProgressIndicator');
+      // debugPrint('DEBUG: Still showing CircularProgressIndicator');
     }
 
     expect(find.text('Test Product'), findsOneWidget);

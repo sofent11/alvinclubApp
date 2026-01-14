@@ -108,7 +108,7 @@ class AddressRepository {
         street: address.addressLine1,
         apartment: address.addressLine2,
         zipCode: address.zipCode,
-        isDefault: address.isDefault ? 1.0 : 0.0,
+        isDefault: address.isDefault ? 1 : 0,
       ),
     );
 
@@ -122,7 +122,7 @@ class AddressRepository {
     final api = _ref.read(swaggerUserApiProvider);
     final response = await api.userServiceAddressUpdatePost(
       root: user.UserServiceAddressUpdatePostRequest(
-        id: double.tryParse(address.id),
+        id: int.tryParse(address.id),
         firstName: address.firstName,
         lastName: address.lastName,
         phoneNumber: address.phone,
@@ -133,7 +133,7 @@ class AddressRepository {
         street: address.addressLine1,
         apartment: address.addressLine2,
         zipCode: address.zipCode,
-        isDefault: address.isDefault ? 1.0 : 0.0,
+        isDefault: address.isDefault ? 1 : 0,
       ),
     );
 
@@ -277,27 +277,6 @@ class AddressRepository {
       securityCode: null,
       deliveryInstruction: null,
     );
-  }
-
-  Map<String, dynamic> _addressToMap(ShippingAddress address) {
-    return {
-      'id': int.tryParse(address.id),
-      'firstName': address.firstName,
-      'lastName': address.lastName,
-      'phone': address.phone,
-      'email': address.email,
-      'country': address.country,
-      'countryCode': address.country,
-      'province': address.province,
-      'city': address.city,
-      'district': address.district,
-      'addressLine1': address.addressLine1,
-      'addressLine2': address.addressLine2,
-      'zipCode': address.zipCode,
-      'isDefault': address.isDefault ? 1 : 0,
-      'securityCode': address.securityCode,
-      'deliveryInstruction': address.deliveryInstruction,
-    };
   }
 }
 

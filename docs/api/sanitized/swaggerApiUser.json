@@ -77,13 +77,13 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
                 },
                 "data": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "traceId": {
                   "type": "string"
@@ -124,13 +124,13 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
                 },
                 "data": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "traceId": {
                   "type": "string"
@@ -175,7 +175,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -216,10 +216,10 @@
                         "type": "string"
                       },
                       "latitude": {
-                        "type": "number"
+                        "type": "integer"
                       },
                       "longitude": {
-                        "type": "number"
+                        "type": "integer"
                       }
                     }
                   }
@@ -255,7 +255,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -294,7 +294,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -305,7 +305,7 @@
                     "type": "object",
                     "properties": {
                       "id": {
-                        "type": "number"
+                        "type": "integer"
                       },
                       "tenantCode": {
                         "type": "string"
@@ -314,7 +314,7 @@
                         "type": "string"
                       },
                       "isDefault": {
-                        "type": "number"
+                        "type": "integer"
                       },
                       "country": {
                         "type": "string"
@@ -362,10 +362,10 @@
                         "type": "string"
                       },
                       "deleted": {
-                        "type": "number"
+                        "type": "integer"
                       },
                       "isDelivered": {
-                        "type": "number"
+                        "type": "integer"
                       },
                       "gmtCreate": {
                         "type": "string"
@@ -418,7 +418,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -522,13 +522,13 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
                 },
                 "data": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "traceId": {
                   "type": "string"
@@ -574,7 +574,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -691,7 +691,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -759,7 +759,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -850,7 +850,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -898,7 +898,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -937,7 +937,7 @@
                       "type": "string"
                     },
                     "expiresIn": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "tokenType": {
                       "type": "string"
@@ -952,10 +952,10 @@
                       "type": "string"
                     },
                     "loginStatus": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "timestamp": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "success": {
                       "type": "boolean"
@@ -973,7 +973,7 @@
                       "type": "string"
                     },
                     "finalSuccess": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "message": {
                       "type": "string"
@@ -1028,7 +1028,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -1083,7 +1083,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -1159,7 +1159,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -1198,7 +1198,7 @@
                       "type": "string"
                     },
                     "expiresIn": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "tokenType": {
                       "type": "string"
@@ -1213,10 +1213,10 @@
                       "type": "string"
                     },
                     "loginStatus": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "timestamp": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "success": {
                       "type": "boolean"
@@ -1234,7 +1234,7 @@
                       "type": "string"
                     },
                     "finalSuccess": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "message": {
                       "type": "string"
@@ -1289,7 +1289,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -1328,7 +1328,7 @@
                       "type": "string"
                     },
                     "expiresIn": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "tokenType": {
                       "type": "string"
@@ -1343,10 +1343,10 @@
                       "type": "string"
                     },
                     "loginStatus": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "timestamp": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "success": {
                       "type": "boolean"
@@ -1364,7 +1364,7 @@
                       "type": "string"
                     },
                     "finalSuccess": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "message": {
                       "type": "string"
@@ -1416,7 +1416,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -1455,7 +1455,7 @@
                       "type": "string"
                     },
                     "expiresIn": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "tokenType": {
                       "type": "string"
@@ -1470,10 +1470,10 @@
                       "type": "string"
                     },
                     "loginStatus": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "timestamp": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "success": {
                       "type": "boolean"
@@ -1491,7 +1491,7 @@
                       "type": "string"
                     },
                     "finalSuccess": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "message": {
                       "type": "string"
@@ -1566,7 +1566,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -1721,7 +1721,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -1811,17 +1811,17 @@
                             "type": "string"
                           },
                           "discountType": {
-                            "type": "number",
+                            "type": "integer",
                             "description": "0 打折     1 立减"
                           },
                           "discountInfo": {
-                            "type": "number"
+                            "type": "integer"
                           },
                           "limitAmount": {
-                            "type": "number"
+                            "type": "integer"
                           },
                           "invalidPeriod": {
-                            "type": "number"
+                            "type": "integer"
                           },
                           "userCouponCode": {
                             "type": "string",
@@ -1882,7 +1882,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -1906,7 +1906,7 @@
                       "description": "优惠券名称"
                     },
                     "isUsed": {
-                      "type": "number",
+                      "type": "integer",
                       "description": "是否被用"
                     },
                     "gmtInvalid": {
@@ -1914,7 +1914,7 @@
                       "description": "失效时间"
                     },
                     "type": {
-                      "type": "number",
+                      "type": "integer",
                       "description": "优惠券类型，0-打折，1-立减"
                     },
                     "discount": {
@@ -2007,7 +2007,7 @@
                               "type": "string"
                             },
                             "invalidPeriod": {
-                              "type": "number"
+                              "type": "integer"
                             },
                             "currencySymbol": {
                               "type": "string"
@@ -2017,10 +2017,10 @@
                               "description": "0-折扣 1-立减"
                             },
                             "discountInfo": {
-                              "type": "number"
+                              "type": "integer"
                             },
                             "limitAmount": {
-                              "type": "number"
+                              "type": "integer"
                             }
                           }
                         }
@@ -2050,7 +2050,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -2100,7 +2100,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -2134,7 +2134,7 @@
                               "description": "优惠券名称"
                             },
                             "isUsed": {
-                              "type": "number",
+                              "type": "integer",
                               "description": "是否被用"
                             },
                             "gmtInvalid": {
@@ -2142,7 +2142,7 @@
                               "description": "失效时间"
                             },
                             "type": {
-                              "type": "number",
+                              "type": "integer",
                               "description": "优惠券类型，0-打折，1-立减"
                             },
                             "discount": {
@@ -2173,7 +2173,7 @@
                               "type": "string"
                             },
                             "invalidPeriod": {
-                              "type": "number"
+                              "type": "integer"
                             }
                           }
                         }
@@ -2223,7 +2223,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -2270,7 +2270,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -2331,14 +2331,14 @@
                             "type": "string"
                           },
                           "discountType": {
-                            "type": "number",
+                            "type": "integer",
                             "description": "0 打折     1 立减"
                           },
                           "discountInfo": {
-                            "type": "number"
+                            "type": "integer"
                           },
                           "limitAmount": {
-                            "type": "number"
+                            "type": "integer"
                           }
                         }
                       }
@@ -2381,7 +2381,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -2407,7 +2407,7 @@
                         "description": "优惠券名称"
                       },
                       "isUsed": {
-                        "type": "number",
+                        "type": "integer",
                         "description": "是否被用"
                       },
                       "gmtInvalid": {
@@ -2415,7 +2415,7 @@
                         "description": "失效时间"
                       },
                       "type": {
-                        "type": "number",
+                        "type": "integer",
                         "description": "优惠券类型，0-打折，1-立减"
                       },
                       "discount": {
@@ -2487,7 +2487,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -2513,7 +2513,7 @@
                         "description": "优惠券名称"
                       },
                       "isUsed": {
-                        "type": "number",
+                        "type": "integer",
                         "description": "是否被用"
                       },
                       "gmtInvalid": {
@@ -2521,7 +2521,7 @@
                         "description": "失效时间"
                       },
                       "type": {
-                        "type": "number",
+                        "type": "integer",
                         "description": "优惠券类型，0-打折，1-立减"
                       },
                       "discount": {
@@ -2668,7 +2668,7 @@
                       "type": "string"
                     },
                     "sex": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "category": {
                       "type": "string"
@@ -2692,37 +2692,37 @@
                       "type": "string"
                     },
                     "lock_after_minute": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "setting": {
                       "type": "object",
                       "properties": {
                         "search_by_phone": {
-                          "type": "number"
+                          "type": "integer"
                         },
                         "search_by_short": {
-                          "type": "number"
+                          "type": "integer"
                         },
                         "new_msg_notice": {
-                          "type": "number"
+                          "type": "integer"
                         },
                         "msg_show_detail": {
-                          "type": "number"
+                          "type": "integer"
                         },
                         "voice_on": {
-                          "type": "number"
+                          "type": "integer"
                         },
                         "shock_on": {
-                          "type": "number"
+                          "type": "integer"
                         },
                         "offline_protection": {
-                          "type": "number"
+                          "type": "integer"
                         },
                         "device_lock": {
-                          "type": "number"
+                          "type": "integer"
                         },
                         "mute_of_app": {
-                          "type": "number"
+                          "type": "integer"
                         }
                       }
                     },
@@ -2730,13 +2730,13 @@
                       "type": "string"
                     },
                     "short_status": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "msg_expire_second": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "showStatus": {
-                      "type": "number",
+                      "type": "integer",
                       "description": "0仅显示邮箱,  1显示邮箱,客服,电话"
                     }
                   }
@@ -2780,7 +2780,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -2810,7 +2810,7 @@
                         "type": "string"
                       },
                       "rewardAmount": {
-                        "type": "number"
+                        "type": "integer"
                       },
                       "currency": {
                         "type": "string"
@@ -2867,7 +2867,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -2895,7 +2895,7 @@
                       "type": "string"
                     },
                     "rewardAmount": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "currency": {
                       "type": "string"
@@ -2944,7 +2944,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -2980,7 +2980,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -3029,7 +3029,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -3112,7 +3112,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -3130,7 +3130,7 @@
                       "type": "string"
                     },
                     "gender": {
-                      "type": "number",
+                      "type": "integer",
                       "description": "性别：0保密 1男 2女"
                     },
                     "birthday": {
@@ -3147,7 +3147,7 @@
                       "type": "string"
                     },
                     "signUpType": {
-                      "type": "number",
+                      "type": "integer",
                       "description": "1email 2phone 3google 4apple -1 unkonw"
                     },
                     "platform": {
@@ -3209,7 +3209,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -3256,7 +3256,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -3298,7 +3298,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -3334,7 +3334,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -3343,14 +3343,14 @@
                   "type": "object",
                   "properties": {
                     "inviteTotalNum": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "inviteNum": {
-                      "type": "number",
+                      "type": "integer",
                       "description": "一级邀请人数"
                     },
                     "subInviteNum": {
-                      "type": "number",
+                      "type": "integer",
                       "description": "二级邀请人数"
                     }
                   }
@@ -3394,7 +3394,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -3445,7 +3445,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -3497,7 +3497,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -3507,14 +3507,14 @@
                   "title": "empty object",
                   "properties": {
                     "age": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "sex": {
-                      "type": "number",
+                      "type": "integer",
                       "description": "1 male,2 female, 3 unknown"
                     },
                     "birthday": {
-                      "type": "number",
+                      "type": "integer",
                       "description": "epoch sec from 1970"
                     },
                     "nickname": {
@@ -3570,7 +3570,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -3580,14 +3580,14 @@
                   "title": "empty object",
                   "properties": {
                     "age": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "sex": {
-                      "type": "number",
+                      "type": "integer",
                       "description": "1 male,2 female, 3 unknown"
                     },
                     "birthday": {
-                      "type": "number",
+                      "type": "integer",
                       "description": "epoch sec from 1970"
                     },
                     "nickname": {
@@ -3643,7 +3643,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -3690,7 +3690,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -3700,14 +3700,14 @@
                   "title": "empty object",
                   "properties": {
                     "age": {
-                      "type": "number"
+                      "type": "integer"
                     },
                     "sex": {
-                      "type": "number",
+                      "type": "integer",
                       "description": "1 male,2 female, 3 unknown"
                     },
                     "birthday": {
-                      "type": "number",
+                      "type": "integer",
                       "description": "epoch sec from 1970"
                     },
                     "nickname": {
@@ -3758,7 +3758,7 @@
               "type": "object",
               "properties": {
                 "code": {
-                  "type": "number"
+                  "type": "integer"
                 },
                 "message": {
                   "type": "string"
@@ -3784,7 +3784,7 @@
                         "description": "优惠券名称"
                       },
                       "isUsed": {
-                        "type": "number",
+                        "type": "integer",
                         "description": "是否被用"
                       },
                       "gmtInvalid": {
@@ -3792,7 +3792,7 @@
                         "description": "失效时间"
                       },
                       "type": {
-                        "type": "number",
+                        "type": "integer",
                         "description": "优惠券类型，0-打折，1-立减"
                       },
                       "discount": {
@@ -3858,7 +3858,7 @@
       "type": "object",
       "properties": {
         "isDefault": {
-          "type": "number",
+          "type": "integer",
           "description": "是否默认地址1是0否"
         },
         "country": {
@@ -3924,7 +3924,7 @@
           "description": "用户Id"
         },
         "id": {
-          "type": "number",
+          "type": "integer",
           "description": "地址id"
         },
         "remark": {
@@ -3946,7 +3946,7 @@
       "type": "object",
       "properties": {
         "isDefault": {
-          "type": "number",
+          "type": "integer",
           "description": "是否默认地址 1是0否"
         },
         "username": {
@@ -4061,11 +4061,11 @@
           }
         },
         "authWay": {
-          "type": "number",
+          "type": "integer",
           "description": "1:密码登录 2:邮箱验证码 3:手机验证码 4第三方登入"
         },
         "source": {
-          "type": "number",
+          "type": "integer",
           "description": "0 web"
         }
       }
@@ -4109,7 +4109,7 @@
       "title": "empty object",
       "properties": {
         "authWay": {
-          "type": "number",
+          "type": "integer",
           "description": "1:密码登录 2:邮箱验证码 3:手机验证码 4第三方登入"
         },
         "code": {
@@ -4238,7 +4238,7 @@
           "type": "string"
         },
         "gender": {
-          "type": "number",
+          "type": "integer",
           "description": "性别：0保密 1男 2女',"
         },
         "birthday": {
@@ -4293,14 +4293,14 @@
       "title": "empty object",
       "properties": {
         "age": {
-          "type": "number"
+          "type": "integer"
         },
         "sex": {
-          "type": "number",
+          "type": "integer",
           "description": "1 male,2 female, 3 unknown"
         },
         "birthday": {
-          "type": "number",
+          "type": "integer",
           "description": "epoch sec from 1970"
         },
         "nickname": {
@@ -4325,14 +4325,14 @@
       "title": "empty object",
       "properties": {
         "age": {
-          "type": "number"
+          "type": "integer"
         },
         "sex": {
-          "type": "number",
+          "type": "integer",
           "description": "1 male,2 female, 3 unknown"
         },
         "birthday": {
-          "type": "number",
+          "type": "integer",
           "description": "epoch sec from 1970"
         },
         "nickname": {
