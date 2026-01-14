@@ -73,6 +73,8 @@ class UpdateOrderInput {
     this.remark,
     this.items,
     this.submitAnyway,
+    this.paySubmit,
+    this.removePackage,
   });
 
   final String orderId;
@@ -81,6 +83,8 @@ class UpdateOrderInput {
   final String? remark;
   final List<UpdateOrderItem>? items;
   final bool? submitAnyway;
+  final bool? paySubmit;
+  final bool? removePackage;
 }
 
 class OrderPricingSummary {
@@ -214,6 +218,80 @@ class OrderListParams {
   final String? keyword;
 }
 
+class OrderPaymentSubjoin {
+  const OrderPaymentSubjoin({
+    required this.title,
+    required this.content,
+    required this.amount,
+    this.type,
+    this.showIcon = false,
+    this.questionIconContent,
+  });
+
+  final String title;
+  final String content;
+  final String amount;
+  final String? type;
+  final bool showIcon;
+  final String? questionIconContent;
+}
+
+class OrderPayments {
+  const OrderPayments({
+    required this.totalAmount,
+    required this.currency,
+    this.itemsTotalAmount,
+    this.freightAmount,
+    this.discountAmount,
+    this.subjoins = const [],
+  });
+
+  final double totalAmount;
+  final String currency;
+  final double? itemsTotalAmount;
+  final double? freightAmount;
+  final double? discountAmount;
+  final List<OrderPaymentSubjoin> subjoins;
+}
+
+class OrderAddress {
+  const OrderAddress({
+    required this.firstName,
+    required this.lastName,
+    required this.phone,
+    required this.addressLine,
+    required this.city,
+    required this.province,
+    required this.country,
+    this.zipCode,
+  });
+
+  final String firstName;
+  final String lastName;
+  final String phone;
+  final String addressLine;
+  final String city;
+  final String province;
+  final String country;
+  final String? zipCode;
+}
+
+class OrderDetail {
+  const OrderDetail({
+    required this.orderId,
+    required this.status,
+    this.address,
+    this.payments,
+    this.items = const [],
+  });
+
+  final String orderId;
+  final int status;
+  final OrderAddress? address;
+  final OrderPayments? payments;
+  final List<OrderSkuItem> items;
+}
+
 class OrderRepository {
   OrderRepository(this._ref);
 
@@ -325,6 +403,8 @@ class OrderRepository {
       'userCouponCode': input.couponCode,
       'remark': input.remark,
       'submitAnyWay': input.submitAnyway ?? false,
+      'paySubmit': input.paySubmit ?? false,
+      'removePackage': input.removePackage,
     };
 
     if (input.items != null && input.items!.isNotEmpty) {
@@ -343,6 +423,126 @@ class OrderRepository {
     if (_parseInt(body.code) != 0) {
       throw _createApiError(body.message ?? '更新订单失败', body);
     }
+  }
+
+  Future<OrderDetail> getOrderDetail(String orderId) async {
+    if (orderId.isEmpty) {
+      throw _createApiError('订单详情需要提供订单号', null);
+    }
+
+    final api = _ref.read(swaggerOrderApiProvider);
+    final response = await api.orderServiceOrderAppDetailGet(orderId: orderId);
+
+    final body = response.body;
+    if (body == null) {
+      throw _createApiError('获取订单详情失败', response.error);
+    }
+    final data = body.data;
+    if (_parseInt(body.code) != 0 || data == null) {
+      throw _createApiError(body.message ?? '获取订单详情失败', body);
+    }
+
+    final baseInfo = data.baseInfo;
+    final addressData = data.userAddress;
+    final paymentsData = data.payments;
+    final orderList = data.orderList ?? [];
+
+    OrderAddress? address;
+    if (addressData != null) {
+      address = OrderAddress(
+        firstName: addressData.firstName ?? '',
+        lastName: addressData.lastName ?? '',
+        phone: addressData.phoneNumber ?? '',
+        addressLine: addressData.address ?? '',
+        city: addressData.city ?? '',
+        province: addressData.state ?? '',
+        country: addressData.country ?? '',
+        zipCode: addressData.zipCode,
+      );
+    }
+
+    OrderPayments? payments;
+    if (paymentsData != null) {
+      final subjoins = (paymentsData.paymentSubjoins ?? []).map((sub) {
+        return OrderPaymentSubjoin(
+          title: sub.title ?? '',
+          content: sub.content ?? '',
+          amount: sub.amount ?? '',
+          type: sub.type,
+          showIcon: sub.showIcon ?? false,
+          questionIconContent: sub.questionIconContent,
+        );
+      }).toList();
+
+      payments = OrderPayments(
+        totalAmount:
+            _parseOptionalDouble(
+              paymentsData.targetActualAmount ?? paymentsData.totalPrice,
+            ) ??
+            0.0,
+        currency: paymentsData.targetCurrency ?? paymentsData.currency ?? 'USD',
+        itemsTotalAmount: _parseOptionalDouble(
+          paymentsData.targetItemsTotalAmount ?? paymentsData.itemsTotalAmount,
+        ),
+        freightAmount: _parseOptionalDouble(
+          paymentsData.targetFreightAmount ?? paymentsData.freightAmount,
+        ),
+        discountAmount: _parseOptionalDouble(
+          paymentsData.targetDiscountAmount ?? paymentsData.discountAmount,
+        ),
+        subjoins: subjoins,
+      );
+    }
+
+    final items = <OrderSkuItem>[];
+    for (final order in orderList) {
+      final list = order.skuList ?? [];
+      final mapped = list
+          .map((item) {
+            final productCode = item.productCode ?? '';
+            final skuCode = item.skuCode ?? '';
+            if (productCode.isEmpty || skuCode.isEmpty) {
+              return null;
+            }
+
+            final options = (item.skuSpecValues ?? const [])
+                .map((option) {
+                  final name = option.name;
+                  final value = option.value;
+                  if (name == null && value == null) return null;
+                  return OrderSkuOption(name: name, value: value);
+                })
+                .whereType<OrderSkuOption>()
+                .toList();
+
+            return OrderSkuItem(
+              productName: item.productName ?? '',
+              productCode: productCode,
+              skuCode: skuCode,
+              image: item.image,
+              quantity: item.quantity?.toInt() ?? 0,
+              price: _parseOptionalDouble(
+                item.targetSellPrice ?? item.sellPrice,
+              ),
+              totalPrice: _parseOptionalDouble(
+                item.targetTotalPrice ?? item.totalPrice,
+              ),
+              currency: item.targetCurrency ?? item.currency,
+              options: options,
+            );
+          })
+          .whereType<OrderSkuItem>()
+          .toList();
+      items.addAll(mapped);
+    }
+
+    return OrderDetail(
+      orderId: baseInfo?.orderId ?? orderId,
+      status: baseInfo?.orderStatus?.toInt() ?? 0,
+      address: address,
+      payments: payments,
+      items: items,
+    );
   }
 
   Future<OrderPricingSummary> priceOrder(
