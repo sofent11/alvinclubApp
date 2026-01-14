@@ -15,6 +15,10 @@
       "description": null
     },
     {
+      "name": "商品广告位",
+      "description": null
+    },
+    {
       "name": "FlashSale",
       "description": null
     },
@@ -472,6 +476,21 @@
                 }
               }
             }
+          }
+        }
+      }
+    },
+    "/product/ad-position/page": {
+      "get": {
+        "tags": [
+          "商品广告位"
+        ],
+        "summary": "分页查询广告位",
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {}
           }
         }
       }
@@ -1577,6 +1596,77 @@
                   "type": "string"
                 },
                 "data": {
+                  "type": "boolean"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/size-chart/no-auth/translate/callback": {
+      "post": {
+        "tags": [
+          "外部信息"
+        ],
+        "summary": "更新尺码图回调接口",
+        "description": "",
+        "consumes": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "root",
+            "in": "body",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "taskId": {
+                  "type": "string"
+                },
+                "imageUrl": {
+                  "type": "string"
+                },
+                "taskResult": {
+                  "type": "string"
+                },
+                "translateSource": {
+                  "type": "string"
+                },
+                "errorMessage": {
+                  "type": "string"
+                },
+                "status": {
+                  "type": "string"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "successful operation",
+            "schema": {
+              "$schema": "http://json-schema.org/draft-04/schema#",
+              "type": "object",
+              "properties": {
+                "code": {
+                  "type": "number"
+                },
+                "message": {
+                  "type": "string"
+                },
+                "data": {
+                  "type": "null"
+                },
+                "reasonCode": {
+                  "type": "null"
+                },
+                "traceId": {
+                  "type": "string"
+                },
+                "success": {
                   "type": "boolean"
                 }
               }
@@ -3218,6 +3308,29 @@
                         ]
                       }
                     },
+                    "imgSizeChart": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "width": {
+                            "type": "string"
+                          },
+                          "height": {
+                            "type": "string"
+                          },
+                          "url": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "width",
+                          "height",
+                          "url"
+                        ]
+                      },
+                      "description": "尺码表图片集"
+                    },
                     "categoryId": {
                       "type": "number"
                     },
@@ -3822,17 +3935,17 @@
             "type": "string"
           },
           {
-            "name": "productCode",
-            "in": "query",
-            "required": false,
-            "description": "",
-            "type": "string"
-          },
-          {
             "name": "categoryId",
             "in": "query",
             "required": false,
             "description": "分类 ID",
+            "type": "string"
+          },
+          {
+            "name": "productCode",
+            "in": "query",
+            "required": false,
+            "description": "",
             "type": "string"
           }
         ],
@@ -4140,20 +4253,62 @@
                                 "url": {
                                   "type": "string"
                                 }
-                              },
-                              "required": [
-                                "width",
-                                "height",
-                                "url"
-                              ]
-                            },
-                            "description": "图集"
+                              }
+                            }
                           },
                           "sourcePlatform": {
                             "type": "string"
                           },
                           "platformProductId": {
                             "type": "string"
+                          },
+                          "productOptions": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "name": {
+                                  "type": "string"
+                                },
+                                "type": {
+                                  "type": "number"
+                                },
+                                "optionValues": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "object",
+                                    "properties": {
+                                      "value": {
+                                        "type": "string"
+                                      },
+                                      "image": {
+                                        "type": [
+                                          "null",
+                                          "string"
+                                        ]
+                                      },
+                                      "imageWidth": {
+                                        "type": "null"
+                                      },
+                                      "imageHeight": {
+                                        "type": "null"
+                                      }
+                                    },
+                                    "required": [
+                                      "value",
+                                      "image",
+                                      "imageWidth",
+                                      "imageHeight"
+                                    ]
+                                  }
+                                }
+                              },
+                              "required": [
+                                "name",
+                                "type",
+                                "optionValues"
+                              ]
+                            }
                           },
                           "skuCode": {
                             "type": "string"
@@ -4289,7 +4444,9 @@
                           "sellQuantity",
                           "skuCount",
                           "marketingInfo",
-                          "tags"
+                          "tags",
+                          "imgCollection",
+                          "productOptions"
                         ]
                       }
                     }

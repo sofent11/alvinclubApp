@@ -122,6 +122,29 @@ final class _$SwaggerApiProduct extends SwaggerApiProduct {
   }
 
   @override
+  Future<Response<dynamic>> _productServiceProductAdPositionPageGet({
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '分页查询广告位',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["商品广告位"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse('/product-service/product/ad-position/page');
+    final Request $request = Request(
+      'GET',
+      $url,
+      client.baseUrl,
+      tag: swaggerMetaData,
+    );
+    return client.send<dynamic, dynamic>($request);
+  }
+
+  @override
   Future<Response<ProductServiceActivityNoAuthFlashSaleActivityGet$Response>>
   _productServiceActivityNoAuthFlashSaleActivityGet({
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
@@ -322,6 +345,38 @@ final class _$SwaggerApiProduct extends SwaggerApiProduct {
     return client.send<
       ProductServiceExternalPurchaseRecordPost$Response,
       ProductServiceExternalPurchaseRecordPost$Response
+    >($request);
+  }
+
+  @override
+  Future<Response<ProductServiceSizeChartNoAuthTranslateCallbackPost$Response>>
+  _productServiceSizeChartNoAuthTranslateCallbackPost({
+    Object? root,
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '更新尺码图回调接口',
+      operationId: '',
+      consumes: ["application/json"],
+      produces: [],
+      security: [],
+      tags: ["外部信息"],
+      deprecated: false,
+    ),
+  }) {
+    final Uri $url = Uri.parse(
+      '/product-service/size-chart/no-auth/translate/callback',
+    );
+    final $body = root;
+    final Request $request = Request(
+      'POST',
+      $url,
+      client.baseUrl,
+      body: $body,
+      tag: swaggerMetaData,
+    );
+    return client.send<
+      ProductServiceSizeChartNoAuthTranslateCallbackPost$Response,
+      ProductServiceSizeChartNoAuthTranslateCallbackPost$Response
     >($request);
   }
 
@@ -662,8 +717,8 @@ final class _$SwaggerApiProduct extends SwaggerApiProduct {
   _productServiceProductNoAuthHotProductV2Get({
     String? current,
     String? size,
-    String? productCode,
     String? categoryId,
+    String? productCode,
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '热门商品-V2',
@@ -681,8 +736,8 @@ final class _$SwaggerApiProduct extends SwaggerApiProduct {
     final Map<String, dynamic> $params = <String, dynamic>{
       'current': current,
       'size': size,
-      'productCode': productCode,
       'categoryId': categoryId,
+      'productCode': productCode,
     };
     final Request $request = Request(
       'GET',

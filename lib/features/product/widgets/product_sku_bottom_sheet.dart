@@ -12,6 +12,7 @@ import '../../../shared/widgets/themed_button.dart';
 import '../../../shared/widgets/toast.dart';
 import '../product_detail_controller.dart';
 import '../../../core/auth/auth_store.dart';
+import '../../cart/cart_providers.dart';
 
 class ProductSkuBottomSheet extends ConsumerStatefulWidget {
   const ProductSkuBottomSheet({
@@ -95,6 +96,10 @@ class _ProductSkuBottomSheetState extends ConsumerState<ProductSkuBottomSheet> {
           .addToCart(
             AddToCartInput(skuCode: selectedSku.code, quantity: quantity),
           );
+
+      // Force refresh of cart state
+      ref.invalidate(cartProvider);
+
       if (!mounted) return;
       AppToast.success(context, '已加入购物车');
       Navigator.pop(context); // Close bottom sheet on success

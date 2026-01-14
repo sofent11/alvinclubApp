@@ -4,6 +4,9 @@ import 'package:go_router/go_router.dart';
 
 import '../../../data/repositories/product_repository.dart';
 import '../../../shared/utils/price_utils.dart';
+import '../../../shared/widgets/toast.dart';
+import '../../product/product_detail_controller.dart';
+import '../../product/widgets/product_sku_bottom_sheet.dart';
 import '../application/micro_detail_providers.dart';
 
 class MicroDetailPage extends ConsumerStatefulWidget {
@@ -119,17 +122,60 @@ class _MicroDetailPageState extends ConsumerState<MicroDetailPage> {
   }
 }
 
-class _MicroDetailItem extends StatefulWidget {
+class _MicroDetailItem extends ConsumerStatefulWidget {
   const _MicroDetailItem({required this.product});
 
   final ProductItem product;
 
   @override
-  State<_MicroDetailItem> createState() => _MicroDetailItemState();
+  ConsumerState<_MicroDetailItem> createState() => _MicroDetailItemState();
 }
 
-class _MicroDetailItemState extends State<_MicroDetailItem> {
+class _MicroDetailItemState extends ConsumerState<_MicroDetailItem> {
   int _currentImageIndex = 0;
+
+  Future<void> _showSkuBottomSheet() async {
+    final product = widget.product;
+
+    // Show loading dialog
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (context) =>
+          const Center(child: CircularProgressIndicator(color: Colors.white)),
+    );
+
+    try {
+      final repo = ref.read(productRepositoryProvider);
+      final results = await Future.wait([
+        repo.getProductDetail(product.id),
+        repo.getProductSkus(product.id),
+      ]);
+
+      if (!mounted) return;
+      // Dismiss loading dialog
+      Navigator.of(context).pop();
+
+      final detail = results[0] as ProductDetail;
+      final skus = results[1] as List<ProductSku>;
+
+      // Initialize controller
+      ref.read(productDetailControllerProvider.notifier).init(detail, skus);
+
+      showModalBottomSheet(
+        context: context,
+        isScrollControlled: true,
+        backgroundColor: Colors.transparent,
+        builder: (context) =>
+            ProductSkuBottomSheet(product: detail, skus: skus),
+      );
+    } catch (e) {
+      if (!mounted) return;
+      // Dismiss loading dialog
+      Navigator.of(context).pop();
+      AppToast.error(context, 'Failed to load product info');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -347,9 +393,7 @@ class _MicroDetailItemState extends State<_MicroDetailItem> {
                           icon: const Icon(Icons.shopping_cart_outlined),
                           color: Colors.black,
                           iconSize: 20,
-                          onPressed: () {
-                            // TODO: Add cart logic
-                          },
+                          onPressed: _showSkuBottomSheet,
                         ),
                       ),
                       const SizedBox(width: 12),
@@ -357,11 +401,7 @@ class _MicroDetailItemState extends State<_MicroDetailItem> {
                         child: SizedBox(
                           height: 44,
                           child: ElevatedButton(
-                            onPressed: () {
-                              ScaffoldMessenger.of(context).showSnackBar(
-                                const SnackBar(content: Text("Added to cart")),
-                              );
-                            },
+                            onPressed: _showSkuBottomSheet,
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.pinkAccent,
                               foregroundColor: Colors.white,

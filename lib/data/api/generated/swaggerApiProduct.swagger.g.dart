@@ -218,6 +218,30 @@ Map<String, dynamic> _$ProductServiceExternalPurchaseRecordPost$ResponseToJson(
   'data': instance.data,
 };
 
+ProductServiceSizeChartNoAuthTranslateCallbackPost$Response
+_$ProductServiceSizeChartNoAuthTranslateCallbackPost$ResponseFromJson(
+  Map<String, dynamic> json,
+) => ProductServiceSizeChartNoAuthTranslateCallbackPost$Response(
+  code: JsonCoerce.asDouble(json['code']),
+  message: JsonCoerce.asString(json['message']),
+  data: json['data'],
+  reasonCode: json['reasonCode'],
+  traceId: JsonCoerce.asString(json['traceId']),
+  success: JsonCoerce.asBool(json['success']),
+);
+
+Map<String, dynamic>
+_$ProductServiceSizeChartNoAuthTranslateCallbackPost$ResponseToJson(
+  ProductServiceSizeChartNoAuthTranslateCallbackPost$Response instance,
+) => <String, dynamic>{
+  'code': instance.code,
+  'message': instance.message,
+  'data': instance.data,
+  'reasonCode': instance.reasonCode,
+  'traceId': instance.traceId,
+  'success': instance.success,
+};
+
 ProductServiceProductNoAuthPushProductGet$Response
 _$ProductServiceProductNoAuthPushProductGet$ResponseFromJson(
   Map<String, dynamic> json,
@@ -1334,6 +1358,14 @@ _$ProductServiceProductNoAuthGetProductInfoGet$Response$DataFromJson(
             ),
       )
       .toList(),
+  imgSizeChart: (json['imgSizeChart'] as List<dynamic>?)
+      ?.map(
+        (e) =>
+            ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgSizeChart$Item.fromJson(
+              e as Map<String, dynamic>,
+            ),
+      )
+      .toList(),
   categoryId: JsonCoerce.asDouble(json['categoryId']),
   productOptions: (json['productOptions'] as List<dynamic>?)
       ?.map(
@@ -1417,6 +1449,7 @@ _$ProductServiceProductNoAuthGetProductInfoGet$Response$DataToJson(
   'imgCollection': instance.imgCollection?.map((e) => e.toJson()).toList(),
   'textDetail': instance.textDetail,
   'imgDetail': instance.imgDetail?.map((e) => e.toJson()).toList(),
+  'imgSizeChart': instance.imgSizeChart?.map((e) => e.toJson()).toList(),
   'categoryId': instance.categoryId,
   'productOptions': instance.productOptions?.map((e) => e.toJson()).toList(),
   'productAttrs': instance.productAttrs?.map((e) => e.toJson()).toList(),
@@ -2977,6 +3010,26 @@ _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgDetail$ItemToJso
   'url': instance.url,
 };
 
+ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgSizeChart$Item
+_$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgSizeChart$ItemFromJson(
+  Map<String, dynamic> json,
+) =>
+    ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgSizeChart$Item(
+      width: JsonCoerce.asString(json['width']),
+      height: JsonCoerce.asString(json['height']),
+      url: JsonCoerce.asString(json['url']),
+    );
+
+Map<String, dynamic>
+_$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgSizeChart$ItemToJson(
+  ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgSizeChart$Item
+  instance,
+) => <String, dynamic>{
+  'width': instance.width,
+  'height': instance.height,
+  'url': instance.url,
+};
+
 ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item
 _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$ItemFromJson(
   Map<String, dynamic> json,
@@ -3304,6 +3357,14 @@ _$ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$ItemFromJson(
       .toList(),
   sourcePlatform: JsonCoerce.asString(json['sourcePlatform']),
   platformProductId: JsonCoerce.asString(json['platformProductId']),
+  productOptions: (json['productOptions'] as List<dynamic>?)
+      ?.map(
+        (e) =>
+            ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$ProductOptions$Item.fromJson(
+              e as Map<String, dynamic>,
+            ),
+      )
+      .toList(),
   skuCode: JsonCoerce.asString(json['skuCode']),
   sellPriceCur: JsonCoerce.asString(json['sellPriceCur']),
   sellPrice: JsonCoerce.asString(json['sellPrice']),
@@ -3350,6 +3411,7 @@ _$ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$ItemToJson(
   'imgCollection': instance.imgCollection?.map((e) => e.toJson()).toList(),
   'sourcePlatform': instance.sourcePlatform,
   'platformProductId': instance.platformProductId,
+  'productOptions': instance.productOptions?.map((e) => e.toJson()).toList(),
   'skuCode': instance.skuCode,
   'sellPriceCur': instance.sellPriceCur,
   'sellPrice': instance.sellPrice,
@@ -4924,6 +4986,32 @@ _$ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$ImgColle
   'url': instance.url,
 };
 
+ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$ProductOptions$Item
+_$ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$ProductOptions$ItemFromJson(
+  Map<String, dynamic> json,
+) => ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$ProductOptions$Item(
+  name: JsonCoerce.asString(json['name']),
+  type: JsonCoerce.asDouble(json['type']),
+  optionValues: (json['optionValues'] as List<dynamic>?)
+      ?.map(
+        (e) =>
+            ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item.fromJson(
+              e as Map<String, dynamic>,
+            ),
+      )
+      .toList(),
+);
+
+Map<String, dynamic>
+_$ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$ProductOptions$ItemToJson(
+  ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$ProductOptions$Item
+  instance,
+) => <String, dynamic>{
+  'name': instance.name,
+  'type': instance.type,
+  'optionValues': instance.optionValues?.map((e) => e.toJson()).toList(),
+};
+
 ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$Tags$Item
 _$ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$Tags$ItemFromJson(
   Map<String, dynamic> json,
@@ -5581,6 +5669,28 @@ _$ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$Pro
 Map<String, dynamic>
 _$ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$ItemToJson(
   ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item
+  instance,
+) => <String, dynamic>{
+  'value': instance.value,
+  'image': instance.image,
+  'imageWidth': instance.imageWidth,
+  'imageHeight': instance.imageHeight,
+};
+
+ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item
+_$ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$ProductOptions$Item$OptionValues$ItemFromJson(
+  Map<String, dynamic> json,
+) =>
+    ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item(
+      value: JsonCoerce.asString(json['value']),
+      image: JsonCoerce.asString(json['image']),
+      imageWidth: json['imageWidth'],
+      imageHeight: json['imageHeight'],
+    );
+
+Map<String, dynamic>
+_$ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$ProductOptions$Item$OptionValues$ItemToJson(
+  ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item
   instance,
 ) => <String, dynamic>{
   'value': instance.value,

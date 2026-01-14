@@ -172,6 +172,27 @@ abstract class SwaggerApiProduct extends ChopperService {
     ),
   });
 
+  ///分页查询广告位
+  Future<chopper.Response> productServiceProductAdPositionPageGet() {
+    return _productServiceProductAdPositionPageGet();
+  }
+
+  ///分页查询广告位
+  @GET(path: '/product-service/product/ad-position/page')
+  Future<chopper.Response> _productServiceProductAdPositionPageGet({
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '分页查询广告位',
+      operationId: '',
+      consumes: [],
+      produces: [],
+      security: [],
+      tags: ["商品广告位"],
+      deprecated: false,
+    ),
+  });
+
   ///查询FlashSale活动列表
   Future<
     chopper.Response<ProductServiceActivityNoAuthFlashSaleActivityGet$Response>
@@ -412,6 +433,46 @@ abstract class SwaggerApiProduct extends ChopperService {
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
       summary: '导入外部购物记录',
+      operationId: '',
+      consumes: ["application/json"],
+      produces: [],
+      security: [],
+      tags: ["外部信息"],
+      deprecated: false,
+    ),
+  });
+
+  ///更新尺码图回调接口
+  ///@param root
+  Future<
+    chopper.Response<
+      ProductServiceSizeChartNoAuthTranslateCallbackPost$Response
+    >
+  >
+  productServiceSizeChartNoAuthTranslateCallbackPost({Object? root}) {
+    generatedMapping.putIfAbsent(
+      ProductServiceSizeChartNoAuthTranslateCallbackPost$Response,
+      () => ProductServiceSizeChartNoAuthTranslateCallbackPost$Response
+          .fromJsonFactory,
+    );
+
+    return _productServiceSizeChartNoAuthTranslateCallbackPost(root: root);
+  }
+
+  ///更新尺码图回调接口
+  ///@param root
+  @POST(path: '/product-service/size-chart/no-auth/translate/callback')
+  Future<
+    chopper.Response<
+      ProductServiceSizeChartNoAuthTranslateCallbackPost$Response
+    >
+  >
+  _productServiceSizeChartNoAuthTranslateCallbackPost({
+    @Body() Object? root,
+    @chopper.Tag()
+    SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
+      description: '',
+      summary: '更新尺码图回调接口',
       operationId: '',
       consumes: ["application/json"],
       produces: [],
@@ -853,14 +914,14 @@ abstract class SwaggerApiProduct extends ChopperService {
   ///热门商品-V2
   ///@param current 当前页码，默认为1
   ///@param size 分页大小，默认为10
-  ///@param productCode
   ///@param categoryId 分类 ID
+  ///@param productCode
   Future<chopper.Response<ProductServiceProductNoAuthHotProductV2Get$Response>>
   productServiceProductNoAuthHotProductV2Get({
     String? current,
     String? size,
-    String? productCode,
     String? categoryId,
+    String? productCode,
   }) {
     generatedMapping.putIfAbsent(
       ProductServiceProductNoAuthHotProductV2Get$Response,
@@ -870,23 +931,23 @@ abstract class SwaggerApiProduct extends ChopperService {
     return _productServiceProductNoAuthHotProductV2Get(
       current: current,
       size: size,
-      productCode: productCode,
       categoryId: categoryId,
+      productCode: productCode,
     );
   }
 
   ///热门商品-V2
   ///@param current 当前页码，默认为1
   ///@param size 分页大小，默认为10
-  ///@param productCode
   ///@param categoryId 分类 ID
+  ///@param productCode
   @GET(path: '/product-service/product/no-auth/hotProduct/v2')
   Future<chopper.Response<ProductServiceProductNoAuthHotProductV2Get$Response>>
   _productServiceProductNoAuthHotProductV2Get({
     @Query('current') String? current,
     @Query('size') String? size,
-    @Query('productCode') String? productCode,
     @Query('categoryId') String? categoryId,
+    @Query('productCode') String? productCode,
     @chopper.Tag()
     SwaggerMetaData swaggerMetaData = const SwaggerMetaData(
       description: '',
@@ -2195,6 +2256,123 @@ extension $ProductServiceExternalPurchaseRecordPost$ResponseExtension
       code: (code != null ? code.value : this.code),
       message: (message != null ? message.value : this.message),
       data: (data != null ? data.value : this.data),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class ProductServiceSizeChartNoAuthTranslateCallbackPost$Response {
+  const ProductServiceSizeChartNoAuthTranslateCallbackPost$Response({
+    this.code,
+    this.message,
+    this.data,
+    this.reasonCode,
+    this.traceId,
+    this.success,
+  });
+
+  factory ProductServiceSizeChartNoAuthTranslateCallbackPost$Response.fromJson(
+    Map<String, dynamic> json,
+  ) => _$ProductServiceSizeChartNoAuthTranslateCallbackPost$ResponseFromJson(
+    json,
+  );
+
+  static const toJsonFactory =
+      _$ProductServiceSizeChartNoAuthTranslateCallbackPost$ResponseToJson;
+  Map<String, dynamic> toJson() =>
+      _$ProductServiceSizeChartNoAuthTranslateCallbackPost$ResponseToJson(this);
+
+  @JsonKey(name: 'code', fromJson: JsonCoerce.asDouble)
+  final double? code;
+  @JsonKey(name: 'message', fromJson: JsonCoerce.asString)
+  final String? message;
+  @JsonKey(name: 'data')
+  final Object? data;
+  @JsonKey(name: 'reasonCode')
+  final Object? reasonCode;
+  @JsonKey(name: 'traceId', fromJson: JsonCoerce.asString)
+  final String? traceId;
+  @JsonKey(name: 'success', fromJson: JsonCoerce.asBool)
+  final bool? success;
+  static const fromJsonFactory =
+      _$ProductServiceSizeChartNoAuthTranslateCallbackPost$ResponseFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other is ProductServiceSizeChartNoAuthTranslateCallbackPost$Response &&
+            (identical(other.code, code) ||
+                const DeepCollectionEquality().equals(other.code, code)) &&
+            (identical(other.message, message) ||
+                const DeepCollectionEquality().equals(
+                  other.message,
+                  message,
+                )) &&
+            (identical(other.data, data) ||
+                const DeepCollectionEquality().equals(other.data, data)) &&
+            (identical(other.reasonCode, reasonCode) ||
+                const DeepCollectionEquality().equals(
+                  other.reasonCode,
+                  reasonCode,
+                )) &&
+            (identical(other.traceId, traceId) ||
+                const DeepCollectionEquality().equals(
+                  other.traceId,
+                  traceId,
+                )) &&
+            (identical(other.success, success) ||
+                const DeepCollectionEquality().equals(other.success, success)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(code) ^
+      const DeepCollectionEquality().hash(message) ^
+      const DeepCollectionEquality().hash(data) ^
+      const DeepCollectionEquality().hash(reasonCode) ^
+      const DeepCollectionEquality().hash(traceId) ^
+      const DeepCollectionEquality().hash(success) ^
+      runtimeType.hashCode;
+}
+
+extension $ProductServiceSizeChartNoAuthTranslateCallbackPost$ResponseExtension
+    on ProductServiceSizeChartNoAuthTranslateCallbackPost$Response {
+  ProductServiceSizeChartNoAuthTranslateCallbackPost$Response copyWith({
+    double? code,
+    String? message,
+    Object? data,
+    Object? reasonCode,
+    String? traceId,
+    bool? success,
+  }) {
+    return ProductServiceSizeChartNoAuthTranslateCallbackPost$Response(
+      code: code ?? this.code,
+      message: message ?? this.message,
+      data: data ?? this.data,
+      reasonCode: reasonCode ?? this.reasonCode,
+      traceId: traceId ?? this.traceId,
+      success: success ?? this.success,
+    );
+  }
+
+  ProductServiceSizeChartNoAuthTranslateCallbackPost$Response copyWithWrapped({
+    Wrapped<double?>? code,
+    Wrapped<String?>? message,
+    Wrapped<Object?>? data,
+    Wrapped<Object?>? reasonCode,
+    Wrapped<String?>? traceId,
+    Wrapped<bool?>? success,
+  }) {
+    return ProductServiceSizeChartNoAuthTranslateCallbackPost$Response(
+      code: (code != null ? code.value : this.code),
+      message: (message != null ? message.value : this.message),
+      data: (data != null ? data.value : this.data),
+      reasonCode: (reasonCode != null ? reasonCode.value : this.reasonCode),
+      traceId: (traceId != null ? traceId.value : this.traceId),
+      success: (success != null ? success.value : this.success),
     );
   }
 }
@@ -6594,6 +6772,7 @@ class ProductServiceProductNoAuthGetProductInfoGet$Response$Data {
     this.imgCollection,
     this.textDetail,
     this.imgDetail,
+    this.imgSizeChart,
     this.categoryId,
     this.productOptions,
     this.productAttrs,
@@ -6663,6 +6842,11 @@ class ProductServiceProductNoAuthGetProductInfoGet$Response$Data {
     ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgDetail$Item
   >?
   imgDetail;
+  @JsonKey(name: 'imgSizeChart')
+  final List<
+    ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgSizeChart$Item
+  >?
+  imgSizeChart;
   @JsonKey(name: 'categoryId', fromJson: JsonCoerce.asDouble)
   final double? categoryId;
   @JsonKey(name: 'productOptions')
@@ -6788,6 +6972,11 @@ class ProductServiceProductNoAuthGetProductInfoGet$Response$Data {
                   other.imgDetail,
                   imgDetail,
                 )) &&
+            (identical(other.imgSizeChart, imgSizeChart) ||
+                const DeepCollectionEquality().equals(
+                  other.imgSizeChart,
+                  imgSizeChart,
+                )) &&
             (identical(other.categoryId, categoryId) ||
                 const DeepCollectionEquality().equals(
                   other.categoryId,
@@ -6910,6 +7099,7 @@ class ProductServiceProductNoAuthGetProductInfoGet$Response$Data {
       const DeepCollectionEquality().hash(imgCollection) ^
       const DeepCollectionEquality().hash(textDetail) ^
       const DeepCollectionEquality().hash(imgDetail) ^
+      const DeepCollectionEquality().hash(imgSizeChart) ^
       const DeepCollectionEquality().hash(categoryId) ^
       const DeepCollectionEquality().hash(productOptions) ^
       const DeepCollectionEquality().hash(productAttrs) ^
@@ -6961,6 +7151,10 @@ extension $ProductServiceProductNoAuthGetProductInfoGet$Response$DataExtension
       ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgDetail$Item
     >?
     imgDetail,
+    List<
+      ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgSizeChart$Item
+    >?
+    imgSizeChart,
     double? categoryId,
     List<
       ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item
@@ -7008,6 +7202,7 @@ extension $ProductServiceProductNoAuthGetProductInfoGet$Response$DataExtension
       imgCollection: imgCollection ?? this.imgCollection,
       textDetail: textDetail ?? this.textDetail,
       imgDetail: imgDetail ?? this.imgDetail,
+      imgSizeChart: imgSizeChart ?? this.imgSizeChart,
       categoryId: categoryId ?? this.categoryId,
       productOptions: productOptions ?? this.productOptions,
       productAttrs: productAttrs ?? this.productAttrs,
@@ -7065,6 +7260,12 @@ extension $ProductServiceProductNoAuthGetProductInfoGet$Response$DataExtension
       >?
     >?
     imgDetail,
+    Wrapped<
+      List<
+        ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgSizeChart$Item
+      >?
+    >?
+    imgSizeChart,
     Wrapped<double?>? categoryId,
     Wrapped<
       List<
@@ -7129,6 +7330,9 @@ extension $ProductServiceProductNoAuthGetProductInfoGet$Response$DataExtension
           : this.imgCollection),
       textDetail: (textDetail != null ? textDetail.value : this.textDetail),
       imgDetail: (imgDetail != null ? imgDetail.value : this.imgDetail),
+      imgSizeChart: (imgSizeChart != null
+          ? imgSizeChart.value
+          : this.imgSizeChart),
       categoryId: (categoryId != null ? categoryId.value : this.categoryId),
       productOptions: (productOptions != null
           ? productOptions.value
@@ -13734,6 +13938,86 @@ extension $ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgDetail$
 }
 
 @JsonSerializable(explicitToJson: true)
+class ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgSizeChart$Item {
+  const ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgSizeChart$Item({
+    this.width,
+    this.height,
+    this.url,
+  });
+
+  factory ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgSizeChart$Item.fromJson(
+    Map<String, dynamic> json,
+  ) =>
+      _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgSizeChart$ItemFromJson(
+        json,
+      );
+
+  static const toJsonFactory =
+      _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgSizeChart$ItemToJson;
+  Map<String, dynamic> toJson() =>
+      _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgSizeChart$ItemToJson(
+        this,
+      );
+
+  @JsonKey(name: 'width', fromJson: JsonCoerce.asString)
+  final String? width;
+  @JsonKey(name: 'height', fromJson: JsonCoerce.asString)
+  final String? height;
+  @JsonKey(name: 'url', fromJson: JsonCoerce.asString)
+  final String? url;
+  static const fromJsonFactory =
+      _$ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgSizeChart$ItemFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other
+                is ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgSizeChart$Item &&
+            (identical(other.width, width) ||
+                const DeepCollectionEquality().equals(other.width, width)) &&
+            (identical(other.height, height) ||
+                const DeepCollectionEquality().equals(other.height, height)) &&
+            (identical(other.url, url) ||
+                const DeepCollectionEquality().equals(other.url, url)));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(width) ^
+      const DeepCollectionEquality().hash(height) ^
+      const DeepCollectionEquality().hash(url) ^
+      runtimeType.hashCode;
+}
+
+extension $ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgSizeChart$ItemExtension
+    on ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgSizeChart$Item {
+  ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgSizeChart$Item
+  copyWith({String? width, String? height, String? url}) {
+    return ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgSizeChart$Item(
+      width: width ?? this.width,
+      height: height ?? this.height,
+      url: url ?? this.url,
+    );
+  }
+
+  ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgSizeChart$Item
+  copyWithWrapped({
+    Wrapped<String?>? width,
+    Wrapped<String?>? height,
+    Wrapped<String?>? url,
+  }) {
+    return ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ImgSizeChart$Item(
+      width: (width != null ? width.value : this.width),
+      height: (height != null ? height.value : this.height),
+      url: (url != null ? url.value : this.url),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
 class ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item {
   const ProductServiceProductNoAuthGetProductInfoGet$Response$Data$ProductOptions$Item({
     this.name,
@@ -15096,6 +15380,7 @@ class ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item {
     this.imgCollection,
     this.sourcePlatform,
     this.platformProductId,
+    this.productOptions,
     this.skuCode,
     this.sellPriceCur,
     this.sellPrice,
@@ -15142,6 +15427,11 @@ class ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item {
   final String? sourcePlatform;
   @JsonKey(name: 'platformProductId', fromJson: JsonCoerce.asString)
   final String? platformProductId;
+  @JsonKey(name: 'productOptions')
+  final List<
+    ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$ProductOptions$Item
+  >?
+  productOptions;
   @JsonKey(name: 'skuCode', fromJson: JsonCoerce.asString)
   final String? skuCode;
   @JsonKey(name: 'sellPriceCur', fromJson: JsonCoerce.asString)
@@ -15209,6 +15499,11 @@ class ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item {
                 const DeepCollectionEquality().equals(
                   other.platformProductId,
                   platformProductId,
+                )) &&
+            (identical(other.productOptions, productOptions) ||
+                const DeepCollectionEquality().equals(
+                  other.productOptions,
+                  productOptions,
                 )) &&
             (identical(other.skuCode, skuCode) ||
                 const DeepCollectionEquality().equals(
@@ -15287,6 +15582,7 @@ class ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item {
       const DeepCollectionEquality().hash(imgCollection) ^
       const DeepCollectionEquality().hash(sourcePlatform) ^
       const DeepCollectionEquality().hash(platformProductId) ^
+      const DeepCollectionEquality().hash(productOptions) ^
       const DeepCollectionEquality().hash(skuCode) ^
       const DeepCollectionEquality().hash(sellPriceCur) ^
       const DeepCollectionEquality().hash(sellPrice) ^
@@ -15318,6 +15614,10 @@ extension $ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item
     imgCollection,
     String? sourcePlatform,
     String? platformProductId,
+    List<
+      ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$ProductOptions$Item
+    >?
+    productOptions,
     String? skuCode,
     String? sellPriceCur,
     String? sellPrice,
@@ -15345,6 +15645,7 @@ extension $ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item
       imgCollection: imgCollection ?? this.imgCollection,
       sourcePlatform: sourcePlatform ?? this.sourcePlatform,
       platformProductId: platformProductId ?? this.platformProductId,
+      productOptions: productOptions ?? this.productOptions,
       skuCode: skuCode ?? this.skuCode,
       sellPriceCur: sellPriceCur ?? this.sellPriceCur,
       sellPrice: sellPrice ?? this.sellPrice,
@@ -15378,6 +15679,12 @@ extension $ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item
     imgCollection,
     Wrapped<String?>? sourcePlatform,
     Wrapped<String?>? platformProductId,
+    Wrapped<
+      List<
+        ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$ProductOptions$Item
+      >?
+    >?
+    productOptions,
     Wrapped<String?>? skuCode,
     Wrapped<String?>? sellPriceCur,
     Wrapped<String?>? sellPrice,
@@ -15417,6 +15724,9 @@ extension $ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item
       platformProductId: (platformProductId != null
           ? platformProductId.value
           : this.platformProductId),
+      productOptions: (productOptions != null
+          ? productOptions.value
+          : this.productOptions),
       skuCode: (skuCode != null ? skuCode.value : this.skuCode),
       sellPriceCur: (sellPriceCur != null
           ? sellPriceCur.value
@@ -22261,6 +22571,107 @@ extension $ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item
 }
 
 @JsonSerializable(explicitToJson: true)
+class ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$ProductOptions$Item {
+  const ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$ProductOptions$Item({
+    this.name,
+    this.type,
+    this.optionValues,
+  });
+
+  factory ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$ProductOptions$Item.fromJson(
+    Map<String, dynamic> json,
+  ) =>
+      _$ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$ProductOptions$ItemFromJson(
+        json,
+      );
+
+  static const toJsonFactory =
+      _$ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$ProductOptions$ItemToJson;
+  Map<String, dynamic> toJson() =>
+      _$ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$ProductOptions$ItemToJson(
+        this,
+      );
+
+  @JsonKey(name: 'name', fromJson: JsonCoerce.asString)
+  final String? name;
+  @JsonKey(name: 'type', fromJson: JsonCoerce.asDouble)
+  final double? type;
+  @JsonKey(name: 'optionValues')
+  final List<
+    ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item
+  >?
+  optionValues;
+  static const fromJsonFactory =
+      _$ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$ProductOptions$ItemFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other
+                is ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$ProductOptions$Item &&
+            (identical(other.name, name) ||
+                const DeepCollectionEquality().equals(other.name, name)) &&
+            (identical(other.type, type) ||
+                const DeepCollectionEquality().equals(other.type, type)) &&
+            (identical(other.optionValues, optionValues) ||
+                const DeepCollectionEquality().equals(
+                  other.optionValues,
+                  optionValues,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(name) ^
+      const DeepCollectionEquality().hash(type) ^
+      const DeepCollectionEquality().hash(optionValues) ^
+      runtimeType.hashCode;
+}
+
+extension $ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$ProductOptions$ItemExtension
+    on
+        ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$ProductOptions$Item {
+  ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$ProductOptions$Item
+  copyWith({
+    String? name,
+    double? type,
+    List<
+      ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item
+    >?
+    optionValues,
+  }) {
+    return ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$ProductOptions$Item(
+      name: name ?? this.name,
+      type: type ?? this.type,
+      optionValues: optionValues ?? this.optionValues,
+    );
+  }
+
+  ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$ProductOptions$Item
+  copyWithWrapped({
+    Wrapped<String?>? name,
+    Wrapped<double?>? type,
+    Wrapped<
+      List<
+        ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item
+      >?
+    >?
+    optionValues,
+  }) {
+    return ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$ProductOptions$Item(
+      name: (name != null ? name.value : this.name),
+      type: (type != null ? type.value : this.type),
+      optionValues: (optionValues != null
+          ? optionValues.value
+          : this.optionValues),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
 class ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$Tags$Item {
   const ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$Tags$Item({
     this.tagCode,
@@ -25201,6 +25612,107 @@ extension $ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records
     Wrapped<Object?>? imageHeight,
   }) {
     return ProductServiceProductNoAuthNewArrivalProductGet$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item(
+      value: (value != null ? value.value : this.value),
+      image: (image != null ? image.value : this.image),
+      imageWidth: (imageWidth != null ? imageWidth.value : this.imageWidth),
+      imageHeight: (imageHeight != null ? imageHeight.value : this.imageHeight),
+    );
+  }
+}
+
+@JsonSerializable(explicitToJson: true)
+class ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item {
+  const ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item({
+    this.value,
+    this.image,
+    this.imageWidth,
+    this.imageHeight,
+  });
+
+  factory ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item.fromJson(
+    Map<String, dynamic> json,
+  ) =>
+      _$ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$ProductOptions$Item$OptionValues$ItemFromJson(
+        json,
+      );
+
+  static const toJsonFactory =
+      _$ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$ProductOptions$Item$OptionValues$ItemToJson;
+  Map<String, dynamic> toJson() =>
+      _$ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$ProductOptions$Item$OptionValues$ItemToJson(
+        this,
+      );
+
+  @JsonKey(name: 'value', fromJson: JsonCoerce.asString)
+  final String? value;
+  @JsonKey(name: 'image', fromJson: JsonCoerce.asString)
+  final String? image;
+  @JsonKey(name: 'imageWidth')
+  final Object? imageWidth;
+  @JsonKey(name: 'imageHeight')
+  final Object? imageHeight;
+  static const fromJsonFactory =
+      _$ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$ProductOptions$Item$OptionValues$ItemFromJson;
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other
+                is ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item &&
+            (identical(other.value, value) ||
+                const DeepCollectionEquality().equals(other.value, value)) &&
+            (identical(other.image, image) ||
+                const DeepCollectionEquality().equals(other.image, image)) &&
+            (identical(other.imageWidth, imageWidth) ||
+                const DeepCollectionEquality().equals(
+                  other.imageWidth,
+                  imageWidth,
+                )) &&
+            (identical(other.imageHeight, imageHeight) ||
+                const DeepCollectionEquality().equals(
+                  other.imageHeight,
+                  imageHeight,
+                )));
+  }
+
+  @override
+  String toString() => jsonEncode(this);
+
+  @override
+  int get hashCode =>
+      const DeepCollectionEquality().hash(value) ^
+      const DeepCollectionEquality().hash(image) ^
+      const DeepCollectionEquality().hash(imageWidth) ^
+      const DeepCollectionEquality().hash(imageHeight) ^
+      runtimeType.hashCode;
+}
+
+extension $ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$ProductOptions$Item$OptionValues$ItemExtension
+    on
+        ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item {
+  ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item
+  copyWith({
+    String? value,
+    String? image,
+    Object? imageWidth,
+    Object? imageHeight,
+  }) {
+    return ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item(
+      value: value ?? this.value,
+      image: image ?? this.image,
+      imageWidth: imageWidth ?? this.imageWidth,
+      imageHeight: imageHeight ?? this.imageHeight,
+    );
+  }
+
+  ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item
+  copyWithWrapped({
+    Wrapped<String?>? value,
+    Wrapped<String?>? image,
+    Wrapped<Object?>? imageWidth,
+    Wrapped<Object?>? imageHeight,
+  }) {
+    return ProductServiceProductNoAuthHotProductV3Get$Response$Data$Records$Item$ProductOptions$Item$OptionValues$Item(
       value: (value != null ? value.value : this.value),
       image: (image != null ? image.value : this.image),
       imageWidth: (imageWidth != null ? imageWidth.value : this.imageWidth),

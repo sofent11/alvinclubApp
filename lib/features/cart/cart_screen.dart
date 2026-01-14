@@ -25,14 +25,30 @@ class _CartScreenState extends ConsumerState<CartScreen> {
   Widget build(BuildContext context) {
     final cartAsync = ref.watch(cartProvider);
     final selection = ref.watch(cartControllerProvider).selectedSkuCodes;
-    final colors = context.appColors;
 
     return Scaffold(
       backgroundColor: const Color(0xFFF7F8FA), // Light grey background
       body: cartAsync.when(
         data: (payload) {
           if (payload.items.isEmpty) {
-            return EmptyCartState(onShopNow: () => context.go(RoutePaths.home));
+            return RefreshIndicator(
+              onRefresh: () => ref.refresh(cartProvider.future),
+              child: LayoutBuilder(
+                builder: (context, constraints) {
+                  return SingleChildScrollView(
+                    physics: const AlwaysScrollableScrollPhysics(),
+                    child: ConstrainedBox(
+                      constraints: BoxConstraints(
+                        minHeight: constraints.maxHeight,
+                      ),
+                      child: EmptyCartState(
+                        onShopNow: () => context.go(RoutePaths.home),
+                      ),
+                    ),
+                  );
+                },
+              ),
+            );
           }
 
           // Init selection if needed
@@ -50,18 +66,21 @@ class _CartScreenState extends ConsumerState<CartScreen> {
                 ),
                 _buildPromoBanner(),
                 Expanded(
-                  child: ListView(
-                    padding: const EdgeInsets.all(16),
-                    children: [
-                      _buildShippingHeader(),
-                      const SizedBox(height: 12),
-                      ...payload.items.map((item) {
-                        return Padding(
-                          padding: const EdgeInsets.only(bottom: 16),
-                          child: _CartItemView(item: item),
-                        );
-                      }),
-                    ],
+                  child: RefreshIndicator(
+                    onRefresh: () => ref.refresh(cartProvider.future),
+                    child: ListView(
+                      padding: const EdgeInsets.all(16),
+                      children: [
+                        _buildShippingHeader(),
+                        const SizedBox(height: 12),
+                        ...payload.items.map((item) {
+                          return Padding(
+                            padding: const EdgeInsets.only(bottom: 16),
+                            child: _CartItemView(item: item),
+                          );
+                        }),
+                      ],
+                    ),
                   ),
                 ),
                 _CartBottomBar(items: payload.items),
@@ -269,9 +288,6 @@ class _CartItemView extends ConsumerWidget {
     final colors = context.appColors;
     final symbol = PriceUtils.getCurrencySymbol(item.currency);
 
-    // Determine check color: purple if selected
-    final checkColor = isSelected ? const Color(0xFF9F7AEA) : Colors.grey[400];
-
     return Container(
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
@@ -279,7 +295,7 @@ class _CartItemView extends ConsumerWidget {
         borderRadius: BorderRadius.circular(12),
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.05),
+            color: Colors.black.withValues(alpha: 0.05),
             blurRadius: 8,
             offset: const Offset(0, 2),
           ),
@@ -511,7 +527,7 @@ class _CartBottomBar extends ConsumerWidget {
         color: Colors.white,
         boxShadow: [
           BoxShadow(
-            color: Colors.black.withOpacity(0.05),
+            color: Colors.black.withValues(alpha: 0.05),
             offset: const Offset(0, -2),
             blurRadius: 10,
           ),
