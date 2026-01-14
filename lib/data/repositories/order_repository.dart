@@ -283,6 +283,8 @@ class OrderDetail {
     this.address,
     this.payments,
     this.items = const [],
+    this.removePackage = false,
+    this.remark,
   });
 
   final String orderId;
@@ -290,6 +292,8 @@ class OrderDetail {
   final OrderAddress? address;
   final OrderPayments? payments;
   final List<OrderSkuItem> items;
+  final bool removePackage;
+  final String? remark;
 }
 
 class OrderRepository {
@@ -366,8 +370,12 @@ class OrderRepository {
         userCouponCode: input.couponCode,
         remark: input.remark,
         isDraft: input.submitAsDraft ?? false,
+        submitAnyWay: false,
+        removePackage: false,
         sourceItems: [
           order.OrderServiceOrderAppSubmitPostRequest$SourceItems$Item(
+            addBatch: false,
+            removePackage: false,
             skuList: input.items
                 .map(
                   (item) =>
@@ -413,7 +421,8 @@ class OrderRepository {
         remark: input.remark,
         submitAnyWay: input.submitAnyway ?? false,
         paySubmit: input.paySubmit ?? false,
-        removePackage: input.removePackage,
+        removePackage: input.removePackage ?? false,
+        addBatch: false,
         itemList: input.items
             ?.map(
               (item) =>
@@ -552,6 +561,8 @@ class OrderRepository {
       address: address,
       payments: payments,
       items: items,
+      removePackage: baseInfo?.removePackage ?? false,
+      remark: baseInfo?.remark,
     );
   }
 

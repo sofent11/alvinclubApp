@@ -94,18 +94,24 @@ class CheckoutController extends StateNotifier<CheckoutState> {
   Future<void> init(List<CartPricingRequestItem> items) async {
     if (items.isEmpty) return;
 
-    state = state.copyWith(items: items, isLoading: true);
+    state = state.copyWith(items: items, isLoading: true, error: null);
 
     try {
       // 1. Get Default Address
-      final address = await _addressRepository.getDefaultShippingAddress();
-      state = state.copyWith(address: address);
+      ShippingAddress? address;
+      try {
+        address = await _addressRepository.getDefaultShippingAddress();
+        state = state.copyWith(address: address);
+      } catch (e) {
+        // Log address error but continue to create order
+        print('Error getting default address: $e');
+      }
 
       // 2. Create Draft Order
       final submitResult = await _orderRepository.submitOrder(
         SubmitOrderInput(
           items: items,
-          country: address?.country ?? 'US', // Default to US if no address?
+          country: address?.countryCode ?? 'US', // Default to US if no address?
           userAddressId: address != null ? int.tryParse(address.id) : null,
           submitAsDraft: true,
         ),
@@ -143,6 +149,7 @@ class CheckoutController extends StateNotifier<CheckoutState> {
         orderDetail: detail,
         paymentMethods: methods,
         selectedPaymentMethod: currentMethod ?? defaultMethod,
+        remark: detail.remark ?? state.remark,
         error: null,
       );
     } catch (e) {
@@ -160,6 +167,8 @@ class CheckoutController extends StateNotifier<CheckoutState> {
         UpdateOrderInput(
           orderId: orderId,
           userAddressId: int.tryParse(address.id),
+          removePackage: state.orderDetail?.removePackage,
+          remark: state.remark,
         ),
       );
       await _refreshOrderDetail(orderId);
@@ -183,7 +192,12 @@ class CheckoutController extends StateNotifier<CheckoutState> {
 
     try {
       await _orderRepository.updateOrder(
-        UpdateOrderInput(orderId: orderId, couponCode: code),
+        UpdateOrderInput(
+          orderId: orderId,
+          couponCode: code,
+          removePackage: state.orderDetail?.removePackage,
+          remark: state.remark,
+        ),
       );
       await _refreshOrderDetail(orderId);
     } catch (e) {
@@ -213,6 +227,8 @@ class CheckoutController extends StateNotifier<CheckoutState> {
           orderId: orderId,
           couponCode:
               '', // Empty string to remove? or null? Typically empty string if API expects it.
+          removePackage: state.orderDetail?.removePackage,
+          remark: state.remark,
         ),
       );
       await _refreshOrderDetail(orderId);
@@ -226,12 +242,25 @@ class CheckoutController extends StateNotifier<CheckoutState> {
     }
   }
 
-  void setRemark(String remark) {
-    state = state.copyWith(remark: remark);
-    // Optionally update draft immediately or debounce?
-    // For now, assume it's sent on confirm or we can add a saveRemark method.
-    // Given the flow "If adjustment call update", maybe we should update.
-    // But typing remark sends many requests. Let's send it on confirmOrder.
+  Future<void> setRemark(String remark) async {
+    state = state.copyWith(remark: remark, isLoading: true);
+    final orderId = state.orderId;
+    if (orderId == null) return;
+
+    try {
+      await _orderRepository.updateOrder(
+        UpdateOrderInput(
+          orderId: orderId,
+          remark: remark,
+          removePackage: state.orderDetail?.removePackage,
+        ),
+      );
+      await _refreshOrderDetail(orderId);
+    } catch (e) {
+      state = state.copyWith(error: 'Failed to update remark: $e');
+    } finally {
+      state = state.copyWith(isLoading: false);
+    }
   }
 
   Future<void> updateQuantity(String skuCode, int quantity) async {
@@ -266,7 +295,11 @@ class CheckoutController extends StateNotifier<CheckoutState> {
 
     try {
       await _orderRepository.updateOrder(
-        UpdateOrderInput(orderId: orderId, removePackage: remove),
+        UpdateOrderInput(
+          orderId: orderId,
+          removePackage: remove,
+          remark: state.remark,
+        ),
       );
       await _refreshOrderDetail(orderId);
     } catch (e) {

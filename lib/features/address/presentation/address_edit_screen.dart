@@ -68,7 +68,7 @@ class _AddressEditScreenState extends ConsumerState<AddressEditScreen> {
     _deliveryInstructionController = TextEditingController(
       text: a?.deliveryInstruction,
     );
-    _selectedCountry = a?.country;
+    _selectedCountry = a?.countryCode;
     _isDefault = a?.isDefault ?? false;
 
     if (_selectedCountry != null) {
@@ -123,13 +123,22 @@ class _AddressEditScreenState extends ConsumerState<AddressEditScreen> {
       return;
     }
 
+    final countries = ref.read(supportCountriesProvider).value ?? [];
+    final countryName = countries
+        .firstWhere(
+          (c) => c.code == _selectedCountry,
+          orElse: () => CountryData(code: _selectedCountry!, name: ''),
+        )
+        .name;
+
     final address = ShippingAddress(
       id: widget.address?.id ?? '',
       firstName: _firstNameController.text,
       lastName: _lastNameController.text,
       phone: '$_phonePrefix+${_phoneController.text}',
       email: _emailController.text,
-      country: _selectedCountry!,
+      country: countryName.isEmpty ? _selectedCountry! : countryName,
+      countryCode: _selectedCountry!,
       province: _provinceController.text,
       city: _cityController.text,
       district: '',

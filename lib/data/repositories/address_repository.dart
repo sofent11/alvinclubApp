@@ -41,6 +41,7 @@ class ShippingAddress {
     required this.phone,
     required this.email,
     required this.country,
+    required this.countryCode,
     required this.province,
     required this.city,
     required this.district,
@@ -58,6 +59,7 @@ class ShippingAddress {
   final String phone;
   final String email;
   final String country;
+  final String countryCode;
   final String province;
   final String city;
   final String district;
@@ -103,6 +105,7 @@ class AddressRepository {
         phoneNumber: address.phone,
         email: address.email,
         country: address.country,
+        countryCode: address.countryCode,
         state: address.province,
         city: address.city,
         street: address.addressLine1,
@@ -128,6 +131,7 @@ class AddressRepository {
         phoneNumber: address.phone,
         email: address.email,
         country: address.country,
+        countryCode: address.countryCode,
         state: address.province,
         city: address.city,
         street: address.addressLine1,
@@ -158,7 +162,13 @@ class AddressRepository {
     final response = await api.userServiceGetDefaultShippingAddressGet();
 
     final body = response.body;
-    if (body == null || _parseInt(body.code) != 0) {
+    if (body == null) {
+      throw _createApiError('获取默认地址失败', response.error);
+    }
+    if (_parseInt(body.code) != 0) {
+      // If code is not 0, it might mean no default address or other error
+      // But typically we should handle it as no address if the message indicates so,
+      // or throw if it's a real error. For now, let's keep it safe but log if possible.
       return null;
     }
 
@@ -244,6 +254,7 @@ class AddressRepository {
       phone: item.phoneNumber ?? '',
       email: '',
       country: item.country ?? '',
+      countryCode: item.countryCode ?? '',
       province: item.state ?? '',
       city: item.city ?? '',
       district: '',
@@ -267,6 +278,7 @@ class AddressRepository {
       phone: data.phoneNumber ?? '',
       email: data.email ?? '',
       country: data.country ?? '',
+      countryCode: data.countryCode ?? '',
       province: data.state ?? '',
       city: data.city ?? '',
       district: '',

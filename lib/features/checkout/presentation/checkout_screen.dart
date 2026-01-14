@@ -20,8 +20,6 @@ class CheckoutScreen extends ConsumerStatefulWidget {
 }
 
 class _CheckoutScreenState extends ConsumerState<CheckoutScreen> {
-  final _remarkController = TextEditingController();
-
   @override
   void initState() {
     super.initState();
@@ -32,14 +30,11 @@ class _CheckoutScreenState extends ConsumerState<CheckoutScreen> {
 
   @override
   void dispose() {
-    _remarkController.dispose();
     super.dispose();
   }
 
   Future<void> _confirmOrder() async {
     final controller = ref.read(checkoutControllerProvider.notifier);
-    controller.setRemark(_remarkController.text);
-
     final result = await controller.confirmOrder();
 
     if (result != null && mounted) {
@@ -70,7 +65,35 @@ class _CheckoutScreenState extends ConsumerState<CheckoutScreen> {
     final colors = context.appColors;
 
     if (state.isLoading && state.orderDetail == null) {
-      return const Scaffold(body: Center(child: CircularProgressIndicator()));
+      return Scaffold(
+        appBar: AppBar(title: const Text('Checkout')),
+        body: const Center(child: CircularProgressIndicator()),
+      );
+    }
+
+    if (state.error != null && state.orderDetail == null) {
+      return Scaffold(
+        appBar: AppBar(title: const Text('Checkout')),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              const Icon(Icons.error_outline, color: Colors.red, size: 60),
+              const SizedBox(height: 16),
+              Text(state.error!, textAlign: TextAlign.center),
+              const SizedBox(height: 24),
+              ElevatedButton(
+                onPressed: () {
+                  ref
+                      .read(checkoutControllerProvider.notifier)
+                      .init(widget.items);
+                },
+                child: const Text('Retry'),
+              ),
+            ],
+          ),
+        ),
+      );
     }
 
     return Scaffold(
@@ -250,45 +273,18 @@ class _CheckoutScreenState extends ConsumerState<CheckoutScreen> {
             ),
           const SizedBox(height: 6),
           Row(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              _buildQtyBtn(Icons.remove, () {
-                if (item.quantity > 1) {
-                  ref
-                      .read(checkoutControllerProvider.notifier)
-                      .updateQuantity(item.skuCode, item.quantity - 1);
-                }
-              }),
-              Expanded(
-                child: Text(
-                  '${item.quantity}',
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(fontSize: 12),
+              Text(
+                'Qty: ${item.quantity}',
+                style: const TextStyle(
+                  fontSize: 12,
+                  fontWeight: FontWeight.w500,
                 ),
               ),
-              _buildQtyBtn(Icons.add, () {
-                ref
-                    .read(checkoutControllerProvider.notifier)
-                    .updateQuantity(item.skuCode, item.quantity + 1);
-              }),
             ],
           ),
         ],
-      ),
-    );
-  }
-
-  Widget _buildQtyBtn(IconData icon, VoidCallback onTap) {
-    final colors = context.appColors;
-    return InkWell(
-      onTap: onTap,
-      borderRadius: BorderRadius.circular(4),
-      child: Container(
-        padding: const EdgeInsets.all(2),
-        decoration: BoxDecoration(
-          border: Border.all(color: colors.border),
-          borderRadius: BorderRadius.circular(4),
-        ),
-        child: Icon(icon, size: 12, color: colors.text),
       ),
     );
   }
@@ -343,8 +339,7 @@ class _CheckoutScreenState extends ConsumerState<CheckoutScreen> {
             child: FittedBox(
               fit: BoxFit.contain,
               child: Switch(
-                value:
-                    false, // TODO: Bind to state if OrderDetail has this field
+                value: state.orderDetail?.removePackage ?? false,
                 onChanged: (val) {
                   ref
                       .read(checkoutControllerProvider.notifier)
@@ -359,31 +354,109 @@ class _CheckoutScreenState extends ConsumerState<CheckoutScreen> {
   }
 
   Widget _buildRemarkSection(CheckoutState state) {
+    final colors = context.appColors;
+    final remark = state.remark;
+
     return _buildSectionCard(
-      child: Row(
-        children: [
-          const Icon(Icons.edit_note, size: 18),
-          const SizedBox(width: 8),
-          const Text('Remarks', style: TextStyle(fontSize: 13)),
-          const Spacer(),
-          Expanded(
-            flex: 2,
-            child: TextField(
-              controller: _remarkController,
-              textAlign: TextAlign.end,
-              style: const TextStyle(fontSize: 13),
-              decoration: const InputDecoration(
-                hintText: 'halo >',
-                border: InputBorder.none,
-                isDense: true,
-                contentPadding: EdgeInsets.zero,
+      child: InkWell(
+        onTap: () => _showRemarkBottomSheet(context, remark),
+        child: Row(
+          children: [
+            const Icon(Icons.edit_note, size: 18),
+            const SizedBox(width: 8),
+            const Text('Remarks', style: TextStyle(fontSize: 13)),
+            const Spacer(),
+            Expanded(
+              flex: 2,
+              child: Text(
+                remark.isEmpty ? '' : remark,
+                textAlign: TextAlign.end,
+                style: TextStyle(
+                  fontSize: 13,
+                  color: remark.isEmpty ? colors.textMuted : colors.text,
+                ),
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
               ),
-              onChanged: (val) {
-                ref.read(checkoutControllerProvider.notifier).setRemark(val);
-              },
             ),
-          ),
-        ],
+            Icon(Icons.chevron_right, size: 16, color: colors.textMuted),
+          ],
+        ),
+      ),
+    );
+  }
+
+  void _showRemarkBottomSheet(BuildContext context, String currentRemark) {
+    final controller = TextEditingController(text: currentRemark);
+    final colors = context.appColors;
+
+    showModalBottomSheet(
+      context: context,
+      isScrollControlled: true,
+      backgroundColor: Colors.transparent,
+      builder: (context) => Container(
+        decoration: BoxDecoration(
+          color: colors.surface,
+          borderRadius: const BorderRadius.vertical(top: Radius.circular(20)),
+        ),
+        padding: EdgeInsets.only(
+          bottom: MediaQuery.of(context).viewInsets.bottom,
+          left: 20,
+          right: 20,
+          top: 20,
+        ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Text(
+                  'Edit Remarks',
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                ),
+                IconButton(
+                  onPressed: () => Navigator.pop(context),
+                  icon: const Icon(Icons.close),
+                ),
+              ],
+            ),
+            const SizedBox(height: 16),
+            TextField(
+              controller: controller,
+              maxLines: 4,
+              decoration: InputDecoration(
+                hintText: 'Enter your remarks here...',
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(12),
+                  borderSide: BorderSide(color: colors.border),
+                ),
+                filled: true,
+                fillColor: colors.mutedBackground,
+              ),
+            ),
+            const SizedBox(height: 24),
+            ElevatedButton(
+              onPressed: () {
+                ref
+                    .read(checkoutControllerProvider.notifier)
+                    .setRemark(controller.text);
+                Navigator.pop(context);
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color(0xFFFF4081),
+                foregroundColor: Colors.white,
+                padding: const EdgeInsets.symmetric(vertical: 14),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
+              ),
+              child: const Text('Save'),
+            ),
+            const SizedBox(height: 32),
+          ],
+        ),
       ),
     );
   }

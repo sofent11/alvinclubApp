@@ -5,6 +5,7 @@ import 'package:chopper/chopper.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../../core/auth/auth_store.dart';
+import '../../core/device/device_id_service.dart';
 import '../../core/env/env_config.dart';
 import '../../core/logging/logger.dart';
 import 'generated/swaggerApiCombo.swagger.dart' as combo;
@@ -30,6 +31,10 @@ class ApiInterceptor implements Interceptor {
     headers['X-VIEW-URI'] = EnvConfig.current.referer;
     headers['PortalCode'] = userInfo?.portalCode ?? 'US';
     headers['Currency'] = userInfo?.currency ?? 'USD';
+
+    final deviceIdService = _ref.read(deviceIdServiceProvider);
+    headers['DeviceId'] = deviceIdService.deviceId ?? '';
+    headers['Platform'] = deviceIdService.platform;
 
     final token = authState.tokens.accessToken;
     if (token != null && token.isNotEmpty) {
