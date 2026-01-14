@@ -36,6 +36,7 @@ import '../../features/favorites/presentation/favorites_screen.dart';
 import '../../features/flash_sale/presentation/flash_sale_screen.dart';
 import '../../features/order/presentation/order_list_screen.dart';
 import '../../features/product/product_detail_screen.dart';
+import '../../features/product/product_reviews_screen.dart';
 import '../../features/wallet/presentation/wallet_screen.dart';
 import '../../features/search/presentation/search_results_screen.dart';
 import '../../features/search/presentation/search_screen.dart';
@@ -102,6 +103,13 @@ final routerProvider = Provider<GoRouter>((ref) {
         path: RoutePaths.productDetail,
         name: RoutePaths.productDetail,
         builder: (context, state) => ProductDetailScreen(
+          productCode: state.pathParameters['productCode'] ?? '',
+        ),
+      ),
+      GoRoute(
+        path: RoutePaths.productReviews,
+        name: RoutePaths.productReviews,
+        builder: (context, state) => ProductReviewsScreen(
           productCode: state.pathParameters['productCode'] ?? '',
         ),
       ),

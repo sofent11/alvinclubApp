@@ -121,7 +121,10 @@ class ProductCard extends StatelessWidget {
 - **Secrets**: NEVER commit `.env` files.
 - **Storage**: Use `flutter_secure_storage` for tokens/credentials.
 
-## 6. Common Tasks Checklist
+## 6. Global Rules
+- **Price Formatting**: NEVER display currency codes (e.g., "USD") directly. ALWAYS use `PriceUtils.getCurrencySymbol(currency)` from `lib/shared/utils/price_utils.dart` to display symbols (e.g., "$").
+
+## 7. Common Tasks Checklist
 - [ ] **New Feature**: Create directory in `features/`. Add `StateNotifier`. Add Repository.
 - [ ] **New API Endpoint**: Update Swagger spec -> Sanitize -> Run build_runner.
 - [ ] **UI Change**: Update Widget. Verify Dark/Light mode.

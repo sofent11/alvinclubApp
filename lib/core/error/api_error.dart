@@ -14,14 +14,25 @@ class ApiError {
   final String message;
   final Map<String, dynamic>? details;
   final Object? raw;
+
+  @override
+  String toString() {
+    final sb = StringBuffer(message);
+    if (code != null) {
+      sb.write(' (Code: $code)');
+    }
+    if (details != null && details!.isNotEmpty) {
+      sb.write('\nDetails: $details');
+    }
+    if (raw != null) {
+      sb.write('\nCaused by: $raw');
+    }
+    return sb.toString();
+  }
 }
 
 ApiError normalizeApiError(Object? error) {
-  final fallback = ApiError(
-    status: 0,
-    message: '网络异常，请稍后再试',
-    raw: error,
-  );
+  final fallback = ApiError(status: 0, message: '网络异常，请稍后再试', raw: error);
 
   if (error == null) {
     return fallback;

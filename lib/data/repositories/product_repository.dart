@@ -302,12 +302,16 @@ class ProductReviewSummary {
     required this.totalReviews,
     required this.ratingDistribution,
     required this.positiveRate,
+    this.aiSummary,
+    this.featuredReviews = const [],
   });
 
   final double averageRating;
   final int totalReviews;
   final List<ProductReviewDistribution> ratingDistribution;
   final int positiveRate;
+  final String? aiSummary;
+  final List<ProductReview> featuredReviews;
 }
 
 class ProductReviewDistribution {
@@ -1413,12 +1417,13 @@ class ProductRepository {
       productCode: productCode,
       current: page.toString(),
       size: pageSize.toString(),
-      root: {'current': page, 'pageSize': pageSize, 'categoryId': 0},
+      root: null,
     );
 
     final body = response.body;
     if (body == null) {
-      throw _createApiError('获取商品评论失败', response.error);
+      final errorDetail = response.error?.toString() ?? 'Unknown error';
+      throw _createApiError('获取商品评论失败 ($errorDetail)', response.error);
     }
     if (_parseInt(body.code) != 0) {
       throw _createApiError(body.message ?? '获取商品评论失败', body);
@@ -1476,7 +1481,7 @@ class ProductRepository {
     final api = _ref.read(swaggerProductApiProvider);
     final response = await api.productServiceProductReviewNoAuthSummaryGet(
       productCode: productCode,
-      root: {'current': 1, 'pageSize': 1, 'categoryId': 0},
+      root: null,
     );
 
     final body = response.body;
@@ -1515,11 +1520,35 @@ class ProductRepository {
               .round()
         : 0;
 
+    final featuredReviews = (data.featuredReviews ?? const []).map((item) {
+      final images = (item.images ?? const [])
+          .whereType<String>()
+          .map((s) => s.trim())
+          .where((s) => s.isNotEmpty)
+          .toList();
+
+      final id = item.id?.toInt().toString() ?? '';
+      return ProductReview(
+        id: id,
+        userId: id,
+        userName: item.username ?? '匿名用户',
+        userAvatar: null,
+        rating: item.score?.toInt() ?? 0,
+        content: item.comment ?? '',
+        images: images.isEmpty ? null : images,
+        createdAt: item.reviewTime ?? '',
+        helpfulCount: 0,
+        specInfo: item.extraComment,
+      );
+    }).toList();
+
     return ProductReviewSummary(
       averageRating: averageRating,
       totalReviews: totalReviews,
       ratingDistribution: distribution,
       positiveRate: positiveRate,
+      aiSummary: data.aiSummary,
+      featuredReviews: featuredReviews,
     );
   }
 

@@ -6,24 +6,29 @@ class ProductDetailState {
   const ProductDetailState({
     required this.selectedOptions,
     this.selectedSku,
+    this.quantity = 1,
   });
 
   final Map<String, String> selectedOptions;
   final ProductSku? selectedSku;
+  final int quantity;
 
   ProductDetailState copyWith({
     Map<String, String>? selectedOptions,
     ProductSku? selectedSku,
+    int? quantity,
   }) {
     return ProductDetailState(
       selectedOptions: selectedOptions ?? this.selectedOptions,
       selectedSku: selectedSku ?? this.selectedSku,
+      quantity: quantity ?? this.quantity,
     );
   }
 }
 
 class ProductDetailController extends StateNotifier<ProductDetailState> {
-  ProductDetailController() : super(const ProductDetailState(selectedOptions: {}));
+  ProductDetailController()
+    : super(const ProductDetailState(selectedOptions: {}));
 
   void init(ProductDetail detail, List<ProductSku> skus) {
     if (state.selectedSku != null) return; // Already initialized
@@ -34,7 +39,9 @@ class ProductDetailController extends StateNotifier<ProductDetailState> {
     // 1. Try recommended SKU
     if (detail.recommendedSkuCode != null) {
       try {
-        initialSku = skus.firstWhere((s) => s.code == detail.recommendedSkuCode);
+        initialSku = skus.firstWhere(
+          (s) => s.code == detail.recommendedSkuCode,
+        );
       } catch (_) {}
     }
 
@@ -50,6 +57,7 @@ class ProductDetailController extends StateNotifier<ProductDetailState> {
     state = state.copyWith(
       selectedOptions: initialOptions,
       selectedSku: initialSku,
+      quantity: 1,
     );
   }
 
@@ -76,9 +84,17 @@ class ProductDetailController extends StateNotifier<ProductDetailState> {
       selectedSku: matchingSku,
     );
   }
+
+  void updateQuantity(int quantity) {
+    if (quantity < 1) return;
+    state = state.copyWith(quantity: quantity);
+  }
 }
 
 final productDetailControllerProvider =
-    StateNotifierProvider.autoDispose<ProductDetailController, ProductDetailState>((ref) {
-  return ProductDetailController();
-});
+    StateNotifierProvider.autoDispose<
+      ProductDetailController,
+      ProductDetailState
+    >((ref) {
+      return ProductDetailController();
+    });

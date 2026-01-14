@@ -74,6 +74,7 @@ If the API specs in `docs/api/` change:
     *   Repositories should map API DTOs (generated) to cleaner Domain Models.
     *   Handle errors and parsing robustly within Repositories (see `ProductRepository` as reference).
 *   **Styling:** Follow `flutter_lints` rules.
+*   **Price Formatting:** NEVER display currency codes (e.g., "USD") directly. ALWAYS use `PriceUtils.getCurrencySymbol(currency)` from `lib/shared/utils/price_utils.dart` to display symbols (e.g., "$").
 *   **Testing:** Run tests with `flutter test`.
 
 ## Key Commands
