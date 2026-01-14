@@ -59,14 +59,18 @@ class CategoryProductsNotifier extends StateNotifier<CategoryProductsState> {
           pageSize: _pageSize,
         ),
       );
-      state = state.copyWith(
-        products: response.products,
-        hasMore: response.hasMore,
-        page: 1,
-        isLoading: false,
-      );
+      if (mounted) {
+        state = state.copyWith(
+          products: response.products,
+          hasMore: response.hasMore,
+          page: 1,
+          isLoading: false,
+        );
+      }
     } catch (e) {
-      state = state.copyWith(isLoading: false, error: e.toString());
+      if (mounted) {
+        state = state.copyWith(isLoading: false, error: e.toString());
+      }
     }
   }
 
@@ -84,14 +88,18 @@ class CategoryProductsNotifier extends StateNotifier<CategoryProductsState> {
           pageSize: _pageSize,
         ),
       );
-      state = state.copyWith(
-        products: [...state.products, ...response.products],
-        hasMore: response.hasMore,
-        page: nextPage,
-        isLoading: false,
-      );
+      if (mounted) {
+        state = state.copyWith(
+          products: [...state.products, ...response.products],
+          hasMore: response.hasMore,
+          page: nextPage,
+          isLoading: false,
+        );
+      }
     } catch (e) {
-      state = state.copyWith(isLoading: false, error: e.toString());
+      if (mounted) {
+        state = state.copyWith(isLoading: false, error: e.toString());
+      }
     }
   }
 }
@@ -125,14 +133,18 @@ class CategoryHotProductsNotifier extends StateNotifier<CategoryProductsState> {
           categoryId: _categoryId,
         ),
       );
-      state = state.copyWith(
-        products: response.products,
-        hasMore: response.hasMore,
-        page: 1,
-        isLoading: false,
-      );
+      if (mounted) {
+        state = state.copyWith(
+          products: response.products,
+          hasMore: response.hasMore,
+          page: 1,
+          isLoading: false,
+        );
+      }
     } catch (e) {
-      state = state.copyWith(isLoading: false, error: e.toString());
+      if (mounted) {
+        state = state.copyWith(isLoading: false, error: e.toString());
+      }
     }
   }
 
@@ -150,14 +162,18 @@ class CategoryHotProductsNotifier extends StateNotifier<CategoryProductsState> {
           categoryId: _categoryId,
         ),
       );
-      state = state.copyWith(
-        products: [...state.products, ...response.products],
-        hasMore: response.hasMore,
-        page: nextPage,
-        isLoading: false,
-      );
+      if (mounted) {
+        state = state.copyWith(
+          products: [...state.products, ...response.products],
+          hasMore: response.hasMore,
+          page: nextPage,
+          isLoading: false,
+        );
+      }
     } catch (e) {
-      state = state.copyWith(isLoading: false, error: e.toString());
+      if (mounted) {
+        state = state.copyWith(isLoading: false, error: e.toString());
+      }
     }
   }
 }
