@@ -1,3 +1,4 @@
+import 'dart:math' as math;
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -194,20 +195,113 @@ class _MagazineDetailScreenState extends State<MagazineDetailScreen> {
 
                         // Pages
                         Expanded(
-                          child: PageView.builder(
-                            controller: _pageController,
-                            physics: const BouncingScrollPhysics(),
-                            onPageChanged: (index) {
-                              setState(() {
-                                _currentIndex = index;
-                              });
-                            },
-                            itemCount: mockMagazineDetails.length,
-                            itemBuilder: (context, index) {
-                              return _MagazinePage(
-                                issue: mockMagazineDetails[index],
-                              );
-                            },
+                          child: Stack(
+                            children: [
+                              // 1. Visual Stack (Bottom: Next Page, Top: Current Flipping Page)
+                              Positioned.fill(
+                                child: LayoutBuilder(
+                                  builder: (context, constraints) {
+                                    return AnimatedBuilder(
+                                      animation: _pageController,
+                                      builder: (context, child) {
+                                        double page = 0.0;
+                                        if (_pageController.hasClients &&
+                                            _pageController
+                                                .position
+                                                .haveDimensions) {
+                                          page = _pageController.page ?? 0.0;
+                                        } else {
+                                          page = _currentIndex.toDouble();
+                                        }
+
+                                        final int currentIndex = page.floor();
+                                        final double percent =
+                                            page - currentIndex;
+
+                                        return Stack(
+                                          children: [
+                                            // BOTTOM LAYER: Next Page (Static Background)
+                                            if (currentIndex + 1 <
+                                                mockMagazineDetails.length)
+                                              Positioned.fill(
+                                                child: _MagazinePage(
+                                                  issue:
+                                                      mockMagazineDetails[currentIndex +
+                                                          1],
+                                                ),
+                                              ),
+
+                                            // TOP LAYER: Current Page (Flipping)
+                                            if (currentIndex <
+                                                mockMagazineDetails.length)
+                                              Positioned.fill(
+                                                child: Transform(
+                                                  transform: Matrix4.identity()
+                                                    ..setEntry(3, 2, 0.001)
+                                                    ..rotateY(
+                                                      percent * math.pi / 2,
+                                                    ),
+                                                  alignment:
+                                                      Alignment.centerLeft,
+                                                  child: Stack(
+                                                    children: [
+                                                      _MagazinePage(
+                                                        issue:
+                                                            mockMagazineDetails[currentIndex],
+                                                      ),
+                                                      // Dynamic Shadow Overlay
+                                                      if (percent > 0)
+                                                        Container(
+                                                          decoration: BoxDecoration(
+                                                            gradient: LinearGradient(
+                                                              begin: Alignment
+                                                                  .centerLeft,
+                                                              end: Alignment
+                                                                  .centerRight,
+                                                              colors: [
+                                                                Colors.black
+                                                                    .withOpacity(
+                                                                      percent *
+                                                                          0.1,
+                                                                    ),
+                                                                Colors.black
+                                                                    .withOpacity(
+                                                                      percent *
+                                                                          0.3,
+                                                                    ),
+                                                              ],
+                                                            ),
+                                                          ),
+                                                        ),
+                                                    ],
+                                                  ),
+                                                ),
+                                              ),
+                                          ],
+                                        );
+                                      },
+                                    );
+                                  },
+                                ),
+                              ),
+
+                              // 2. Invisible PageView for Gestures
+                              Positioned.fill(
+                                child: PageView.builder(
+                                  controller: _pageController,
+                                  physics: const BouncingScrollPhysics(),
+                                  onPageChanged: (index) {
+                                    setState(() {
+                                      _currentIndex = index;
+                                    });
+                                  },
+                                  itemCount: mockMagazineDetails.length,
+                                  itemBuilder: (context, index) {
+                                    return Container(color: Colors.transparent);
+                                  },
+                                ),
+                              ),
+                            ],
                           ),
                         ),
 
@@ -435,138 +529,141 @@ class _MagazinePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListView.separated(
-      padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16),
-      itemCount: issue.looks.length,
-      separatorBuilder: (context, index) => const SizedBox(height: 40),
-      itemBuilder: (context, index) {
-        final look = issue.looks[index];
-        return Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            // Sticker Title Mock
-            Container(
-              padding: const EdgeInsets.all(8),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                border: Border.all(width: 2),
-                borderRadius: BorderRadius.circular(8),
-                boxShadow: [
-                  const BoxShadow(color: Colors.black, offset: Offset(2, 2)),
-                ],
-              ),
-              child: const Text(
-                'After\nHOURS',
-                style: TextStyle(
-                  fontFamily: 'monospace',
-                  fontWeight: FontWeight.bold,
-                  height: 1.0,
+    return Container(
+      color: Colors.white,
+      child: ListView.separated(
+        padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16),
+        itemCount: issue.looks.length,
+        separatorBuilder: (context, index) => const SizedBox(height: 40),
+        itemBuilder: (context, index) {
+          final look = issue.looks[index];
+          return Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              // Sticker Title Mock
+              Container(
+                padding: const EdgeInsets.all(8),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  border: Border.all(width: 2),
+                  borderRadius: BorderRadius.circular(8),
+                  boxShadow: [
+                    const BoxShadow(color: Colors.black, offset: Offset(2, 2)),
+                  ],
+                ),
+                child: const Text(
+                  'After\nHOURS',
+                  style: TextStyle(
+                    fontFamily: 'monospace',
+                    fontWeight: FontWeight.bold,
+                    height: 1.0,
+                  ),
                 ),
               ),
-            ),
-            const SizedBox(height: 12),
+              const SizedBox(height: 12),
 
-            // Collage Image (Mocked as single image for now)
-            Stack(
-              children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(12),
-                  child: CachedNetworkImage(
-                    imageUrl: look.imageUrl,
-                    fit: BoxFit.cover,
-                    width: double.infinity,
-                    height: 400,
-                  ),
-                ),
-                // Try On Button overlay
-                Positioned(
-                  bottom: 20,
-                  left: 0,
-                  right: 0,
-                  child: Center(
-                    child: Container(
-                      padding: const EdgeInsets.symmetric(
-                        horizontal: 24,
-                        vertical: 12,
-                      ),
-                      decoration: BoxDecoration(
-                        color: const Color(0xFFCCFF00),
-                        borderRadius: BorderRadius.circular(24),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.black.withValues(alpha: 0.2),
-                            blurRadius: 8,
-                            offset: const Offset(0, 4),
-                          ),
-                        ],
-                      ),
-                      child: Row(
-                        mainAxisSize: MainAxisSize.min,
-                        children: const [
-                          Text(
-                            'Try On the Look',
-                            style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              fontSize: 14,
-                            ),
-                          ),
-                          SizedBox(width: 4),
-                          Icon(Icons.auto_awesome, size: 16),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            const SizedBox(height: 16),
-
-            // AI Comment
-            Container(
-              padding: const EdgeInsets.all(12),
-              decoration: BoxDecoration(
-                color: Colors.white,
-                borderRadius: BorderRadius.circular(8),
-                border: Border.all(color: Colors.blue.withValues(alpha: 0.1)),
-                boxShadow: [
-                  BoxShadow(
-                    color: Colors.black.withValues(alpha: 0.05),
-                    blurRadius: 4,
-                    offset: const Offset(0, 2),
-                  ),
-                ],
-              ),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.start,
+              // Collage Image (Mocked as single image for now)
+              Stack(
                 children: [
-                  const Text('🤖 ', style: TextStyle(fontSize: 16)),
-                  Expanded(
-                    child: RichText(
-                      text: TextSpan(
-                        style: const TextStyle(
-                          fontSize: 13,
-                          height: 1.4,
-                          color: Colors.black87,
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(12),
+                    child: CachedNetworkImage(
+                      imageUrl: look.imageUrl,
+                      fit: BoxFit.cover,
+                      width: double.infinity,
+                      height: 400,
+                    ),
+                  ),
+                  // Try On Button overlay
+                  Positioned(
+                    bottom: 20,
+                    left: 0,
+                    right: 0,
+                    child: Center(
+                      child: Container(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 24,
+                          vertical: 12,
                         ),
-                        children: [
-                          const TextSpan(
-                            text: 'AI点评: ',
-                            style: TextStyle(
-                              color: Colors.blue,
-                              fontWeight: FontWeight.bold,
+                        decoration: BoxDecoration(
+                          color: const Color(0xFFCCFF00),
+                          borderRadius: BorderRadius.circular(24),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.black.withValues(alpha: 0.2),
+                              blurRadius: 8,
+                              offset: const Offset(0, 4),
                             ),
-                          ),
-                          TextSpan(text: look.aiComment),
-                        ],
+                          ],
+                        ),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          children: const [
+                            Text(
+                              'Try On the Look',
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                                fontSize: 14,
+                              ),
+                            ),
+                            SizedBox(width: 4),
+                            Icon(Icons.auto_awesome, size: 16),
+                          ],
+                        ),
                       ),
                     ),
                   ),
                 ],
               ),
-            ),
-          ],
-        );
-      },
+              const SizedBox(height: 16),
+
+              // AI Comment
+              Container(
+                padding: const EdgeInsets.all(12),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(8),
+                  border: Border.all(color: Colors.blue.withValues(alpha: 0.1)),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withValues(alpha: 0.05),
+                      blurRadius: 4,
+                      offset: const Offset(0, 2),
+                    ),
+                  ],
+                ),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    const Text('🤖 ', style: TextStyle(fontSize: 16)),
+                    Expanded(
+                      child: RichText(
+                        text: TextSpan(
+                          style: const TextStyle(
+                            fontSize: 13,
+                            height: 1.4,
+                            color: Colors.black87,
+                          ),
+                          children: [
+                            const TextSpan(
+                              text: 'AI点评: ',
+                              style: TextStyle(
+                                color: Colors.blue,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            TextSpan(text: look.aiComment),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          );
+        },
+      ),
     );
   }
 }
