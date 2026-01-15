@@ -8,7 +8,6 @@ import '../../core/navigation/route_paths.dart';
 import '../../core/theme/app_theme.dart';
 import '../../data/repositories/user_repository.dart';
 import '../../shared/widgets/empty_state.dart';
-import '../../shared/widgets/themed_text.dart';
 import 'application/profile_providers.dart';
 
 class AccountScreen extends ConsumerWidget {
@@ -21,10 +20,11 @@ class AccountScreen extends ConsumerWidget {
 
     return Scaffold(
       backgroundColor: colors.background,
-      appBar: AppBar(title: const Text('Account')),
-      body: authState.status == AuthStatus.anonymous
-          ? _buildAnonymousState(context)
-          : _buildProfile(context, ref),
+      body: SafeArea(
+        child: authState.status == AuthStatus.anonymous
+            ? _buildAnonymousState(context)
+            : _buildProfile(context, ref),
+      ),
     );
   }
 
@@ -34,13 +34,12 @@ class AccountScreen extends ConsumerWidget {
       title: 'Sign in to continue',
       description: 'Access your orders, coupons, and profile settings.',
       actionLabel: 'Sign In',
-      onAction: () => context.go(RoutePaths.signIn),
+      onAction: () => context.push(RoutePaths.signIn),
     );
   }
 
   Widget _buildProfile(BuildContext context, WidgetRef ref) {
     final profileAsync = ref.watch(userProfileProvider);
-    final colors = context.appColors;
 
     return profileAsync.when(
       data: (profile) {
@@ -49,62 +48,79 @@ class AccountScreen extends ConsumerWidget {
           children: [
             _ProfileHeader(profile: profile),
             const SizedBox(height: 20),
-            _SectionCard(
-              child: Column(
-                children: [
-                  _AccountTile(
-                    icon: Icons.receipt_long_outlined,
-                    label: 'My Orders',
-                    onTap: () => context.go(RoutePaths.orderList),
-                  ),
-                  _AccountTile(
-                    icon: Icons.local_offer_outlined,
-                    label: 'Coupons',
-                    onTap: () => context.go(RoutePaths.coupon),
-                  ),
-                  _AccountTile(
-                    icon: Icons.favorite_border,
-                    label: 'Favorites',
-                    onTap: () => context.go(RoutePaths.favorite),
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(height: 16),
-            _SectionCard(
-              child: Column(
-                children: [
-                  _AccountTile(
-                    icon: Icons.location_on_outlined,
-                    label: 'Shipping Address',
-                    onTap: () => context.go(RoutePaths.addressList),
-                  ),
-                  _AccountTile(
-                    icon: Icons.account_circle_outlined,
-                    label: 'Edit Profile',
-                    onTap: () => context.go(RoutePaths.profileEdit),
-                  ),
-                  _AccountTile(
-                    icon: Icons.wallet_outlined,
-                    label: 'Wallet',
-                    onTap: () => context.go(RoutePaths.wallet),
-                  ),
-                ],
-              ),
-            ),
+            const _OrdersSection(),
             const SizedBox(height: 16),
             _SectionCard(
               child: _AccountTile(
-                icon: Icons.logout,
-                label: 'Sign Out',
-                onTap: () => _confirmSignOut(context, ref),
+                icon: Icons.favorite_border,
+                label: 'Favorites',
+                onTap: () => context.push(RoutePaths.favorite),
               ),
             ),
             const SizedBox(height: 12),
-            Text(
-              'Need help? Contact support from the web or social channels.',
-              style: TextStyle(color: colors.textMuted, fontSize: 12),
-              textAlign: TextAlign.center,
+            _SectionCard(
+              child: _AccountTile(
+                icon: Icons.local_offer_outlined,
+                label: 'Coupons',
+                onTap: () => context.push(RoutePaths.coupon),
+              ),
+            ),
+            const SizedBox(height: 12),
+            _SectionCard(
+              child: _AccountTile(
+                icon: Icons.monetization_on_outlined,
+                label: 'Echooo Coins',
+                // TODO: Add route
+              ),
+            ),
+            const SizedBox(height: 12),
+            _SectionCard(
+              child: _AccountTile(
+                icon: Icons.card_giftcard,
+                label: 'Gift Card',
+                // TODO: Add route
+              ),
+            ),
+            const SizedBox(height: 12),
+            _SectionCard(
+              child: _AccountTile(
+                icon: Icons.location_on_outlined,
+                label: 'Addresses',
+                onTap: () => context.push(RoutePaths.addressList),
+              ),
+            ),
+            const SizedBox(height: 12),
+            _SectionCard(
+              child: _AccountTile(
+                icon: Icons.headset_mic_outlined,
+                label: 'Help Center',
+                // TODO: Add route
+              ),
+            ),
+            const SizedBox(height: 12),
+            _SectionCard(
+              child: _AccountTile(
+                icon: Icons.menu_book_outlined,
+                label: 'User Guide',
+                // TODO: Add route
+              ),
+            ),
+            const SizedBox(height: 12),
+            _SectionCard(
+              child: _AccountTile(
+                icon: Icons.translate,
+                label: 'Language',
+                subtitle: 'English',
+                // TODO: Add route
+              ),
+            ),
+            const SizedBox(height: 12),
+            _SectionCard(
+              child: _AccountTile(
+                icon: Icons.settings_outlined,
+                label: 'Settings',
+                onTap: () => _openSettings(context, ref),
+              ),
             ),
           ],
         );
@@ -116,6 +132,12 @@ class AccountScreen extends ConsumerWidget {
         onRetry: () => ref.invalidate(userProfileProvider),
       ),
     );
+  }
+
+  void _openSettings(BuildContext context, WidgetRef ref) {
+    // For now, show sign out dialog as part of settings or direct action
+    // In real app, navigate to settings screen
+    _confirmSignOut(context, ref);
   }
 
   Future<void> _confirmSignOut(BuildContext context, WidgetRef ref) async {
@@ -156,46 +178,158 @@ class _ProfileHeader extends StatelessWidget {
     final name = profile.nickname?.isNotEmpty == true
         ? profile.nickname!
         : 'Member';
-    final subtitle = profile.email ?? profile.phone ?? 'Welcome back';
 
-    return _SectionCard(
-      child: Row(
-        children: [
-          CircleAvatar(
-            radius: 30,
-            backgroundColor: colors.mutedBackground,
-            backgroundImage: profile.avatar?.isNotEmpty == true
-                ? CachedNetworkImageProvider(profile.avatar!)
-                : null,
-            child: profile.avatar?.isNotEmpty == true
-                ? null
-                : Icon(Icons.person_outline, color: colors.textMuted, size: 28),
+    return Row(
+      children: [
+        CircleAvatar(
+          radius: 24,
+          backgroundColor: colors.mutedBackground,
+          backgroundImage: profile.avatar?.isNotEmpty == true
+              ? CachedNetworkImageProvider(profile.avatar!)
+              : null,
+          child: profile.avatar?.isNotEmpty == true
+              ? null
+              : Icon(Icons.person_outline, color: colors.textMuted, size: 24),
+        ),
+        const SizedBox(width: 12),
+        Expanded(
+          child: Text(
+            name,
+            style: TextStyle(
+              fontSize: 20,
+              fontWeight: FontWeight.bold,
+              color: colors.text,
+            ),
+            maxLines: 1,
+            overflow: TextOverflow.ellipsis,
           ),
-          const SizedBox(width: 16),
-          Expanded(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+        ),
+        Container(
+          padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
+          decoration: BoxDecoration(
+            color: colors.surface,
+            borderRadius: BorderRadius.circular(20),
+            border: Border.all(color: colors.border),
+          ),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              // Placeholder for US Flag. Ideally use an asset or emoji
+              const Text('🇺🇸', style: TextStyle(fontSize: 16)),
+              const SizedBox(width: 4),
+              Text(
+                'Switch',
+                style: TextStyle(fontSize: 14, color: colors.textMuted),
+              ),
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+}
+
+class _OrdersSection extends StatelessWidget {
+  const _OrdersSection();
+
+  @override
+  Widget build(BuildContext context) {
+    final colors = context.appColors;
+    return _SectionCard(
+      child: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(bottom: 16, top: 8),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                ThemedText(name, type: ThemedTextType.subtitle),
-                const SizedBox(height: 4),
                 Text(
-                  subtitle,
-                  style: TextStyle(color: colors.textMuted, fontSize: 13),
+                  'My Orders',
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w600,
+                    color: colors.text,
+                  ),
+                ),
+                GestureDetector(
+                  onTap: () => context.push(RoutePaths.orderList),
+                  child: Row(
+                    children: [
+                      Text(
+                        'More',
+                        style: TextStyle(fontSize: 13, color: colors.textMuted),
+                      ),
+                      Icon(
+                        Icons.chevron_right,
+                        size: 16,
+                        color: colors.textMuted,
+                      ),
+                    ],
+                  ),
                 ),
               ],
             ),
           ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: const [
+              _OrderStatusItem(icon: Icons.payment_outlined, label: 'Pending'),
+              _OrderStatusItem(
+                icon: Icons.inventory_2_outlined,
+                label: 'Unshipped',
+              ),
+              _OrderStatusItem(
+                icon: Icons.local_shipping_outlined,
+                label: 'Shipped',
+              ),
+              _OrderStatusItem(
+                icon: Icons.assignment_turned_in_outlined,
+                label: 'Completed',
+              ),
+              _OrderStatusItem(
+                icon: Icons.assignment_return_outlined,
+                label: 'Returns',
+              ),
+            ],
+          ),
+          const SizedBox(height: 8),
         ],
       ),
     );
   }
 }
 
-class _AccountTile extends StatelessWidget {
-  const _AccountTile({required this.icon, required this.label, this.onTap});
+class _OrderStatusItem extends StatelessWidget {
+  const _OrderStatusItem({required this.icon, required this.label});
 
   final IconData icon;
   final String label;
+
+  @override
+  Widget build(BuildContext context) {
+    final colors = context.appColors;
+    return Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Icon(icon, size: 26, color: colors.text), // Darker icon color
+        const SizedBox(height: 8),
+        Text(label, style: TextStyle(fontSize: 12, color: colors.textMuted)),
+      ],
+    );
+  }
+}
+
+class _AccountTile extends StatelessWidget {
+  const _AccountTile({
+    required this.icon,
+    required this.label,
+    this.subtitle,
+    this.onTap,
+  });
+
+  final IconData icon;
+  final String label;
+  final String? subtitle;
   final VoidCallback? onTap;
 
   @override
@@ -205,26 +339,30 @@ class _AccountTile extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Padding(
-        padding: const EdgeInsets.symmetric(vertical: 12),
+        padding: const EdgeInsets.symmetric(vertical: 4),
         child: Row(
           children: [
-            Container(
-              width: 36,
-              height: 36,
-              decoration: BoxDecoration(
-                color: colors.mutedBackground,
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: Icon(icon, color: colors.tint, size: 20),
-            ),
+            Icon(icon, color: colors.text, size: 22),
             const SizedBox(width: 12),
             Expanded(
-              child: Text(
-                label,
-                style: TextStyle(fontSize: 15, color: colors.text),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    label,
+                    style: TextStyle(fontSize: 15, color: colors.text),
+                  ),
+                  if (subtitle != null) ...[
+                    const SizedBox(height: 2),
+                    Text(
+                      subtitle!,
+                      style: TextStyle(fontSize: 12, color: colors.textMuted),
+                    ),
+                  ],
+                ],
               ),
             ),
-            Icon(Icons.chevron_right, color: colors.textMuted),
+            Icon(Icons.chevron_right, color: colors.textMuted, size: 20),
           ],
         ),
       ),
