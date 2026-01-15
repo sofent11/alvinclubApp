@@ -52,6 +52,7 @@ import '../../features/home/presentation/celebrity_list_screen.dart';
 import '../../features/home/presentation/magazine_detail_screen.dart';
 
 import '../../features/home/presentation/magazine_list_screen.dart';
+import '../../features/brands/presentation/brands_screen.dart';
 
 final routerProvider = Provider<GoRouter>((ref) {
   final authState = ref.watch(authControllerProvider);
@@ -350,6 +351,11 @@ final routerProvider = Provider<GoRouter>((ref) {
         path: RoutePaths.magazineList,
         name: RoutePaths.magazineList,
         builder: (context, state) => const MagazineListScreen(),
+      ),
+      GoRoute(
+        path: RoutePaths.brandList,
+        name: RoutePaths.brandList,
+        builder: (context, state) => const BrandsScreen(),
       ),
     ],
     redirect: (context, state) {

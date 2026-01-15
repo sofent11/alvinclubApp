@@ -1,3 +1,5 @@
+import 'package:go_router/go_router.dart';
+import '../../../core/navigation/route_paths.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'dart:ui'; // For ImageFilter
@@ -41,7 +43,7 @@ class BrandSectionWidget extends StatelessWidget {
                 ],
               ),
               GestureDetector(
-                onTap: () {},
+                onTap: () => context.push(RoutePaths.brandList),
                 child: const Text(
                   'SHOP ALL BRANDS ►',
                   style: TextStyle(
@@ -84,57 +86,52 @@ class BrandSectionWidget extends StatelessWidget {
                       topLeft: Radius.circular(10),
                       topRight: Radius.circular(10),
                     ),
-                    child: BackdropFilter(
-                      filter: ImageFilter.blur(
-                        sigmaX: 2,
-                        sigmaY: 2,
-                      ), // Reduced blur for clearer glass
-                      child: Container(
-                        decoration: BoxDecoration(
-                          color: const Color(0xFFADE887).withValues(alpha: 0.3),
-                          border: Border.all(
-                            color: Colors.white.withValues(
-                              alpha: 0.2,
-                            ), // Subtler border
-                            width: 1,
-                          ),
+                    // Removed BackdropFilter/Blur here for clear glass effect
+                    child: Container(
+                      decoration: BoxDecoration(
+                        color: const Color(0xFFADE887).withValues(alpha: 0.3),
+                        border: Border.all(
+                          color: Colors.white.withValues(
+                            alpha: 0.2,
+                          ), // Subtler border
+                          width: 1,
                         ),
-                        child: Stack(
-                          children: [
-                            // Glossy Reflection
-                            Positioned(
-                              top: 0,
-                              left: 0,
-                              right: 0,
-                              height: 12, // Reduced height
-                              child: Container(
-                                decoration: BoxDecoration(
-                                  gradient: LinearGradient(
-                                    begin: Alignment.topCenter,
-                                    end: Alignment.bottomCenter,
-                                    colors: [
-                                      Colors.white.withValues(
-                                        alpha: 0.3,
-                                      ), // Subtler reflection
-                                      Colors.white.withValues(alpha: 0.0),
-                                    ],
-                                  ),
+                      ),
+                      child: Stack(
+                        children: [
+                          // Glossy Reflection
+                          Positioned(
+                            top: 0,
+                            left: 0,
+                            right: 0,
+                            height: 12, // Reduced height
+                            child: Container(
+                              decoration: BoxDecoration(
+                                gradient: LinearGradient(
+                                  begin: Alignment.topCenter,
+                                  end: Alignment.bottomCenter,
+                                  colors: [
+                                    Colors.white.withValues(
+                                      alpha: 0.3,
+                                    ), // Subtler reflection
+                                    Colors.white.withValues(alpha: 0.0),
+                                  ],
                                 ),
                               ),
                             ),
-                            // Bolts
-                            Positioned(
-                              left: 10, // Adjusted padding
-                              bottom: 10,
-                              child: _MetalBolt(),
-                            ),
-                            Positioned(
-                              right: 10,
-                              bottom: 10,
-                              child: _MetalBolt(),
-                            ),
-                          ],
-                        ),
+                          ),
+                          // Bolts
+                          Positioned(
+                            left: 10, // Adjusted padding
+                            bottom: 10,
+                            child: _MetalBolt(),
+                          ),
+                          Positioned(
+                            right: 10,
+                            bottom: 10,
+                            child: _MetalBolt(),
+                          ),
+                        ],
                       ),
                     ),
                   ),
@@ -218,28 +215,6 @@ class _BrandItem extends StatelessWidget {
                       ),
                     ),
                   ),
-                  if (brand.logoUrl.isNotEmpty)
-                    Positioned(
-                      bottom: 5,
-                      right: 5,
-                      child: Container(
-                        width: 16, // Adjusted to 16
-                        height: 16, // Adjusted to 16
-                        decoration: const BoxDecoration(
-                          color: Colors.white,
-                          shape: BoxShape.circle,
-                        ),
-                        padding: const EdgeInsets.all(1.5),
-                        child: ClipOval(
-                          child: CachedNetworkImage(
-                            imageUrl: brand.logoUrl,
-                            fit: BoxFit.contain,
-                            errorWidget: (context, url, error) =>
-                                const Icon(Icons.error, size: 7),
-                          ),
-                        ),
-                      ),
-                    ),
                 ],
               ),
             ),
