@@ -47,4 +47,5 @@ class RoutePaths {
   static const brandList = '/brand-list';
   static const brandDetail = '/brand/:id';
   static const celebrityProfile = '/celebrity/:id';
+  static const celebrityTopicDetail = '/celebrity/topic/:id';
 }

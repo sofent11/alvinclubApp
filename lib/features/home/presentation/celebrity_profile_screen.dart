@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import '../../../../core/navigation/route_paths.dart';
 import '../celebrity_profile_mock_data.dart';
 
 class CelebrityProfileScreen extends StatelessWidget {
@@ -151,94 +152,108 @@ class _CelebrityPostCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        Expanded(
-          child: Stack(
-            fit: StackFit.expand,
-            children: [
-              ClipRRect(
-                borderRadius: BorderRadius.circular(8),
-                child: CachedNetworkImage(
-                  imageUrl: post.imageUrl,
-                  fit: BoxFit.cover,
-                ),
-              ),
-              if (post.hasTryOn)
-                Positioned(
-                  right: 12,
-                  bottom: 12,
-                  child: Container(
-                    padding: const EdgeInsets.symmetric(
-                      horizontal: 10,
-                      vertical: 6,
-                    ),
-                    decoration: BoxDecoration(
-                      color: Colors.white.withValues(alpha: 0.8),
-                      borderRadius: BorderRadius.circular(16),
-                    ),
-                    child: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: const [
-                        Text(
-                          'Try On',
-                          style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 12,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                        SizedBox(width: 4),
-                        Icon(Icons.auto_awesome, size: 12, color: Colors.black),
-                      ],
-                    ),
+    return GestureDetector(
+      onTap: () {
+        context.pushNamed(
+          RoutePaths.celebrityTopicDetail,
+          pathParameters: {'id': post.id},
+        );
+      },
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          Expanded(
+            child: Stack(
+              fit: StackFit.expand,
+              children: [
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(8),
+                  child: CachedNetworkImage(
+                    imageUrl: post.imageUrl,
+                    fit: BoxFit.cover,
                   ),
                 ),
+                if (post.hasTryOn)
+                  Positioned(
+                    right: 12,
+                    bottom: 12,
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(
+                        horizontal: 10,
+                        vertical: 6,
+                      ),
+                      decoration: BoxDecoration(
+                        color: Colors.white.withValues(alpha: 0.8),
+                        borderRadius: BorderRadius.circular(16),
+                      ),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.min,
+                        children: const [
+                          Text(
+                            'Try On',
+                            style: TextStyle(
+                              color: Colors.black,
+                              fontSize: 12,
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                          SizedBox(width: 4),
+                          Icon(
+                            Icons.auto_awesome,
+                            size: 12,
+                            color: Colors.black,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+              ],
+            ),
+          ),
+          const SizedBox(height: 12),
+          Text(
+            post.title,
+            maxLines: 2,
+            overflow: TextOverflow.ellipsis,
+            style: const TextStyle(
+              color: Colors.black,
+              fontSize: 15,
+              fontWeight: FontWeight.w500,
+              height: 1.2,
+            ),
+          ),
+          const SizedBox(height: 8),
+          Row(
+            children: [
+              CircleAvatar(
+                radius: 10,
+                backgroundImage: CachedNetworkImageProvider(
+                  post.authorAvatarUrl,
+                ),
+              ),
+              const SizedBox(width: 6),
+              Expanded(
+                child: Text(
+                  post.authorName,
+                  maxLines: 1,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(color: Colors.grey[600], fontSize: 12),
+                ),
+              ),
+              Icon(Icons.favorite, size: 14, color: const Color(0xFFFF6B81)),
+              const SizedBox(width: 4),
+              Text(
+                post.likes.toString(),
+                style: TextStyle(
+                  color: Colors.grey[900],
+                  fontSize: 12,
+                  fontWeight: FontWeight.w500,
+                ),
+              ),
             ],
           ),
-        ),
-        const SizedBox(height: 12),
-        Text(
-          post.title,
-          maxLines: 2,
-          overflow: TextOverflow.ellipsis,
-          style: const TextStyle(
-            color: Colors.black,
-            fontSize: 15,
-            fontWeight: FontWeight.w500,
-            height: 1.2,
-          ),
-        ),
-        const SizedBox(height: 8),
-        Row(
-          children: [
-            CircleAvatar(
-              radius: 10,
-              backgroundImage: CachedNetworkImageProvider(post.authorAvatarUrl),
-            ),
-            const SizedBox(width: 6),
-            Expanded(
-              child: Text(
-                post.authorName,
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-                style: TextStyle(color: Colors.grey[600], fontSize: 12),
-              ),
-            ),
-            Icon(Icons.favorite, size: 14, color: const Color(0xFFFF6B81)),
-            const SizedBox(width: 4),
-            Text(
-              post.likes.toString(),
-              style: TextStyle(
-                color: Colors.grey[900],
-                fontSize: 12,
-                fontWeight: FontWeight.w500,
-              ),
-            ),
-          ],
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
