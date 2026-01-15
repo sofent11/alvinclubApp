@@ -1,10 +1,9 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:go_router/go_router.dart';
 
-import '../../../core/navigation/route_paths.dart';
 import '../../../core/theme/app_theme.dart';
+import '../../../shared/utils/stripe_payment_handler.dart';
 import '../../../data/repositories/order_repository.dart';
 import '../../../shared/widgets/empty_state.dart';
 import '../../../shared/widgets/themed_button.dart';
@@ -138,13 +137,13 @@ class _OrderListTabState extends ConsumerState<_OrderListTab>
   }
 }
 
-class OrderCard extends StatelessWidget {
+class OrderCard extends ConsumerWidget {
   const OrderCard({super.key, required this.order});
 
   final OrderListItem order;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final currency = order.targetCurrency ?? order.currency ?? 'USD';
     final total = order.payableAmount ?? order.totalAmount ?? 0;
     final colors = context.appColors;
@@ -285,10 +284,10 @@ class OrderCard extends StatelessWidget {
                   variant: ThemedButtonVariant.primary,
                   size: ThemedButtonSize.sm,
                   onPressed: () {
-                    context.pushNamed(
-                      RoutePaths.orderPay,
-                      pathParameters: {'orderId': order.orderId},
-                    );
+                    StripePaymentHandler(
+                      ref: ref,
+                      context: context,
+                    ).showPaymentSelectorAndPay(orderId: order.orderId);
                   },
                 ),
               ],

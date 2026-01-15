@@ -75,6 +75,7 @@ class UpdateOrderInput {
     this.submitAnyway,
     this.paySubmit,
     this.removePackage,
+    this.payFreight,
   });
 
   final String orderId;
@@ -85,6 +86,7 @@ class UpdateOrderInput {
   final bool? submitAnyway;
   final bool? paySubmit;
   final bool? removePackage;
+  final bool? payFreight;
 }
 
 class OrderPricingSummary {
@@ -422,6 +424,7 @@ class OrderRepository {
         submitAnyWay: input.submitAnyway ?? false,
         paySubmit: input.paySubmit ?? false,
         removePackage: input.removePackage ?? false,
+        payFreight: input.payFreight ?? false,
         addBatch: false,
         itemList: input.items
             ?.map(

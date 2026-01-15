@@ -354,6 +354,13 @@ StripeParamResult _extractStripeParams(String? thirdPayParam) {
   if (thirdPayParam == null || thirdPayParam.isEmpty) {
     return const StripeParamResult();
   }
+
+  // If it looks like JSON, try JSON first
+  if (thirdPayParam.trim().startsWith('{')) {
+    final fromJson = _parseStripeFromJson(thirdPayParam);
+    if (fromJson != null) return fromJson;
+  }
+
   return _parseStripeFromUrl(thirdPayParam) ??
       _parseStripeFromJson(thirdPayParam) ??
       const StripeParamResult();
@@ -370,17 +377,25 @@ StripeParamResult? _parseStripeFromUrl(String raw) {
       uri = Uri.parse('https://placeholder.local/$raw');
     }
 
+    final publicKey =
+        uri.queryParameters['publicKey'] ??
+        uri.queryParameters['publishableKey'] ??
+        uri.queryParameters['publickkey'];
+    final clientSecret =
+        uri.queryParameters['clientSecret'] ?? uri.queryParameters['secret'];
+    final intentId =
+        uri.queryParameters['intentId'] ??
+        uri.queryParameters['paymentIntentId'] ??
+        uri.queryParameters['intent'];
+
+    if (publicKey == null && clientSecret == null) {
+      return null;
+    }
+
     return StripeParamResult(
-      publicKey:
-          uri.queryParameters['publicKey'] ??
-          uri.queryParameters['publishableKey'] ??
-          uri.queryParameters['publickkey'],
-      clientSecret:
-          uri.queryParameters['clientSecret'] ?? uri.queryParameters['secret'],
-      intentId:
-          uri.queryParameters['intentId'] ??
-          uri.queryParameters['paymentIntentId'] ??
-          uri.queryParameters['intent'],
+      publicKey: publicKey,
+      clientSecret: clientSecret,
+      intentId: intentId,
     );
   } catch (_) {
     return null;
@@ -395,14 +410,21 @@ StripeParamResult? _parseStripeFromJson(String raw) {
     }
     String? read(String key) {
       final value = decoded[key];
-      return value is String ? value : null;
+      return value?.toString();
+    }
+
+    final publicKey =
+        read('publishableKey') ?? read('publicKey') ?? read('publickkey');
+    final clientSecret =
+        read('paymentIntent') ?? read('clientSecret') ?? read('secret');
+
+    if (publicKey == null && clientSecret == null) {
+      return null;
     }
 
     return StripeParamResult(
-      publicKey:
-          read('publishableKey') ?? read('publicKey') ?? read('publickkey'),
-      clientSecret:
-          read('paymentIntent') ?? read('clientSecret') ?? read('secret'),
+      publicKey: publicKey,
+      clientSecret: clientSecret,
       intentId:
           read('id') ??
           read('intentId') ??

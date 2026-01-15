@@ -5,12 +5,34 @@ class StripeService {
   static final StripeService instance = StripeService._();
   StripeService._();
 
-  bool _isInitialized = false;
+  String? _publishableKey;
+  String? _merchantIdentifier;
+  String? _urlScheme;
 
-  void initialize(String publishableKey) {
-    if (_isInitialized) return;
+  Future<void> initialize(
+    String publishableKey, {
+    String? merchantIdentifier,
+    String? urlScheme,
+  }) async {
+    final shouldUpdate =
+        _publishableKey != publishableKey ||
+        _merchantIdentifier != merchantIdentifier ||
+        _urlScheme != urlScheme;
+    if (!shouldUpdate) return;
+
     Stripe.publishableKey = publishableKey;
-    _isInitialized = true;
+    if (merchantIdentifier != null && merchantIdentifier.isNotEmpty) {
+      Stripe.merchantIdentifier = merchantIdentifier;
+    }
+    if (urlScheme != null && urlScheme.isNotEmpty) {
+      Stripe.urlScheme = urlScheme;
+    }
+
+    await Stripe.instance.applySettings();
+
+    _publishableKey = publishableKey;
+    _merchantIdentifier = merchantIdentifier;
+    _urlScheme = urlScheme;
   }
 
   Future<void> handlePaymentSheet({

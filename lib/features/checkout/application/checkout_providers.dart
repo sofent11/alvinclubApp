@@ -176,6 +176,7 @@ class CheckoutController extends StateNotifier<CheckoutState> {
           userAddressId: int.tryParse(address.id),
           removePackage: state.orderDetail?.removePackage,
           remark: state.remark,
+          payFreight: false,
         ),
       );
       await _refreshOrderDetail(orderId);
@@ -204,6 +205,7 @@ class CheckoutController extends StateNotifier<CheckoutState> {
           couponCode: code,
           removePackage: state.orderDetail?.removePackage,
           remark: state.remark,
+          payFreight: false,
         ),
       );
       await _refreshOrderDetail(orderId);
@@ -236,6 +238,7 @@ class CheckoutController extends StateNotifier<CheckoutState> {
               '', // Empty string to remove? or null? Typically empty string if API expects it.
           removePackage: state.orderDetail?.removePackage,
           remark: state.remark,
+          payFreight: false,
         ),
       );
       await _refreshOrderDetail(orderId);
@@ -260,6 +263,7 @@ class CheckoutController extends StateNotifier<CheckoutState> {
           orderId: orderId,
           remark: remark,
           removePackage: state.orderDetail?.removePackage,
+          payFreight: false,
         ),
       );
       await _refreshOrderDetail(orderId);
@@ -281,6 +285,7 @@ class CheckoutController extends StateNotifier<CheckoutState> {
         UpdateOrderInput(
           orderId: orderId,
           items: [UpdateOrderItem(skuCode: skuCode, quantity: quantity)],
+          payFreight: false,
         ),
       );
       await _refreshOrderDetail(orderId);
@@ -306,6 +311,7 @@ class CheckoutController extends StateNotifier<CheckoutState> {
           orderId: orderId,
           removePackage: remove,
           remark: state.remark,
+          payFreight: false,
         ),
       );
       await _refreshOrderDetail(orderId);
@@ -344,6 +350,7 @@ class CheckoutController extends StateNotifier<CheckoutState> {
           orderId: orderId,
           remark: state.remark,
           paySubmit: true,
+          payFreight: false,
         ),
       );
 
