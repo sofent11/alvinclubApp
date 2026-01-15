@@ -47,6 +47,10 @@ import 'route_paths.dart';
 
 import '../../features/account/presentation/developer_settings_screen.dart';
 
+import '../../features/home/presentation/celebrity_list_screen.dart';
+
+import '../../features/home/presentation/magazine_detail_screen.dart';
+
 final routerProvider = Provider<GoRouter>((ref) {
   final authState = ref.watch(authControllerProvider);
 
@@ -326,6 +330,19 @@ final routerProvider = Provider<GoRouter>((ref) {
         path: RoutePaths.developerSettings,
         name: RoutePaths.developerSettings,
         builder: (context, state) => const DeveloperSettingsScreen(),
+      ),
+      GoRoute(
+        path: RoutePaths.celebrityList,
+        name: RoutePaths.celebrityList,
+        builder: (context, state) => const CelebrityListScreen(),
+      ),
+      GoRoute(
+        path: RoutePaths.magazineDetail,
+        name: RoutePaths.magazineDetail,
+        builder: (context, state) {
+          final id = state.pathParameters['id'] ?? '';
+          return MagazineDetailScreen(magazineId: id);
+        },
       ),
     ],
     redirect: (context, state) {
