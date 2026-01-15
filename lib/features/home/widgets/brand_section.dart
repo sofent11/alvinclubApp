@@ -55,7 +55,7 @@ class BrandSectionWidget extends StatelessWidget {
           ),
         ),
         SizedBox(
-          height: 80, // Reduced from 100
+          height: 94, // Slightly larger than original 80
           child: Stack(
             children: [
               // Main content
@@ -64,7 +64,7 @@ class BrandSectionWidget extends StatelessWidget {
                 scrollDirection: Axis.horizontal,
                 itemCount: mockBrands.length,
                 separatorBuilder: (context, index) =>
-                    const SizedBox(width: 8), // Reduced from 10
+                    const SizedBox(width: 8), // Back to original spacing
                 itemBuilder: (context, index) {
                   final brand = mockBrands[index];
                   return _BrandItem(brand: brand);
@@ -75,7 +75,7 @@ class BrandSectionWidget extends StatelessWidget {
                 bottom: 0,
                 left: 16,
                 right: 16,
-                height: 30, // Reduced from 40
+                height: 32, // Adjusted for proportion
                 child: IgnorePointer(
                   child: ClipRRect(
                     borderRadius: const BorderRadius.only(
@@ -91,18 +91,7 @@ class BrandSectionWidget extends StatelessWidget {
                       ), // Reduced blur for clearer glass
                       child: Container(
                         decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                            begin: Alignment.topCenter,
-                            end: Alignment.bottomCenter,
-                            colors: [
-                              const Color(
-                                0xFFCCFF00,
-                              ).withValues(alpha: 0.05), // More transparent
-                              const Color(
-                                0xFFCCFF00,
-                              ).withValues(alpha: 0.2), // Less opaque green
-                            ],
-                          ),
+                          color: const Color(0xFFADE887).withValues(alpha: 0.3),
                           border: Border.all(
                             color: Colors.white.withValues(
                               alpha: 0.2,
@@ -191,13 +180,15 @@ class _BrandItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: 64, // Reduced from 80
+      width: 74, // Slightly larger than original 64
       child: Column(
         children: [
           Expanded(
             child: Container(
               decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8), // Reduced radius
+                borderRadius: BorderRadius.circular(
+                  9,
+                ), // Slightly adjusted radius
                 image: DecorationImage(
                   image: CachedNetworkImageProvider(brand.imageUrl),
                   fit: BoxFit.cover,
@@ -210,7 +201,7 @@ class _BrandItem extends StatelessWidget {
                     left: 0,
                     right: 0,
                     child: Container(
-                      height: 24, // Reduced height
+                      height: 26, // Slightly larger height
                       decoration: BoxDecoration(
                         gradient: LinearGradient(
                           begin: Alignment.bottomCenter,
@@ -221,19 +212,19 @@ class _BrandItem extends StatelessWidget {
                           ],
                         ),
                         borderRadius: const BorderRadius.only(
-                          bottomLeft: Radius.circular(8),
-                          bottomRight: Radius.circular(8),
+                          bottomLeft: Radius.circular(9),
+                          bottomRight: Radius.circular(9),
                         ),
                       ),
                     ),
                   ),
                   if (brand.logoUrl.isNotEmpty)
                     Positioned(
-                      bottom: 4,
-                      right: 4,
+                      bottom: 5,
+                      right: 5,
                       child: Container(
-                        width: 14, // Reduced from 16
-                        height: 14, // Reduced from 16
+                        width: 16, // Adjusted to 16
+                        height: 16, // Adjusted to 16
                         decoration: const BoxDecoration(
                           color: Colors.white,
                           shape: BoxShape.circle,
@@ -244,7 +235,7 @@ class _BrandItem extends StatelessWidget {
                             imageUrl: brand.logoUrl,
                             fit: BoxFit.contain,
                             errorWidget: (context, url, error) =>
-                                const Icon(Icons.error, size: 6),
+                                const Icon(Icons.error, size: 7),
                           ),
                         ),
                       ),

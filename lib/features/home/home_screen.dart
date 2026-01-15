@@ -94,7 +94,9 @@ class _HomeScreenState extends ConsumerState<HomeScreen> {
 
                   const SliverToBoxAdapter(
                     child: Padding(
-                      padding: EdgeInsets.only(bottom: 16), // Reduced
+                      padding: EdgeInsets.only(
+                        bottom: 4,
+                      ), // Reduced to minimize gap
                       child: CelebrityListWidget(),
                     ),
                   ),
