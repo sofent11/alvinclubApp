@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../../core/navigation/route_paths.dart';
+import '../../../core/payment/stripe_service.dart';
 import '../../../core/theme/app_theme.dart';
 import '../../../data/repositories/address_repository.dart';
 import '../../../data/repositories/cart_repository.dart';
 import '../../../data/repositories/order_repository.dart';
+import '../../../data/repositories/pay_repository.dart';
 import '../../../shared/utils/price_utils.dart';
 import '../application/checkout_providers.dart';
 
@@ -38,6 +41,63 @@ class _CheckoutScreenState extends ConsumerState<CheckoutScreen> {
     final result = await controller.confirmOrder();
 
     if (result != null && mounted) {
+      // Handle Stripe Payment
+      if (result.stripeClientSecret != null && result.stripePublicKey != null) {
+        try {
+          StripeService.instance.initialize(result.stripePublicKey!);
+
+          final selectedMethod = ref
+              .read(checkoutControllerProvider)
+              .selectedPaymentMethod;
+          final isApplePay = selectedMethod?.type == '5';
+          final isGooglePay = selectedMethod?.type == '6';
+
+          await StripeService.instance.handlePaymentSheet(
+            clientSecret: result.stripeClientSecret!,
+            merchantDisplayName: 'Alvin Club',
+            customerId: result.stripeCustomerId,
+            ephemeralKeySecret: result.stripeEphemeralKey,
+            applePayMerchantId: isApplePay
+                ? 'merchant.com.echoo.w2c'
+                : null, // Replace with real ID
+            googlePay: isGooglePay,
+            testEnv: false, // TODO: Use EnvConfig to determine
+          );
+
+          // Verify payment status
+          final orderId = ref.read(checkoutControllerProvider).orderId;
+          if (orderId != null) {
+            final payResult = await ref
+                .read(payRepositoryProvider)
+                .getPayResult(orderId);
+            if (payResult.isSuccess && mounted) {
+              context.goNamed(RoutePaths.orderSuccess);
+            } else if (mounted) {
+              ScaffoldMessenger.of(context).showSnackBar(
+                SnackBar(
+                  content: Text('Payment Status: ${payResult.statusText}'),
+                ),
+              );
+            }
+          }
+        } on StripeException catch (e) {
+          if (mounted) {
+            ScaffoldMessenger.of(context).showSnackBar(
+              SnackBar(
+                content: Text(e.error.localizedMessage ?? 'Payment canceled'),
+              ),
+            );
+          }
+        } catch (e) {
+          if (mounted) {
+            ScaffoldMessenger.of(
+              context,
+            ).showSnackBar(SnackBar(content: Text('Payment error: $e')));
+          }
+        }
+        return;
+      }
+
       if (result.receiptAddress != null) {
         // TODO: Handle Web Payment / WebView
         ScaffoldMessenger.of(context).showSnackBar(

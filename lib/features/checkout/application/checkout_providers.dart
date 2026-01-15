@@ -141,13 +141,20 @@ class CheckoutController extends StateNotifier<CheckoutState> {
         GetPaymentMethodsInput(orderId: orderId),
       );
 
+      // Filter payment methods to only include types 3, 4, 5, 6
+      final filteredMethods = methods
+          .where((m) => ['3', '4', '5', '6'].contains(m.type))
+          .toList();
+
       // Auto-select first payment method if none selected
       final currentMethod = state.selectedPaymentMethod;
-      final defaultMethod = methods.isNotEmpty ? methods.first : null;
+      final defaultMethod = filteredMethods.isNotEmpty
+          ? filteredMethods.first
+          : null;
 
       state = state.copyWith(
         orderDetail: detail,
-        paymentMethods: methods,
+        paymentMethods: filteredMethods,
         selectedPaymentMethod: currentMethod ?? defaultMethod,
         remark: detail.remark ?? state.remark,
         error: null,
@@ -345,8 +352,15 @@ class CheckoutController extends StateNotifier<CheckoutState> {
         InitiatePaymentInput(
           orderId: orderId,
           payType: state.selectedPaymentMethod!.type,
+          uiType: 3,
         ),
       );
+
+      if (state.selectedPaymentMethod!.type == '4') {
+        // For type 4 (Balance/Recharge Card), we might need to check result immediately
+        // or let the UI handle it via the returned result.
+        // Usually, the backend handles the balance deduction during initiatePayment.
+      }
 
       state = state.copyWith(isSubmitting: false);
       return result;

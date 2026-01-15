@@ -74,6 +74,8 @@ class InitiatePaymentResult {
     this.stripePublicKey,
     this.stripeClientSecret,
     this.stripeIntentId,
+    this.stripeCustomerId,
+    this.stripeEphemeralKey,
   });
 
   final String? receiptAddress;
@@ -81,6 +83,8 @@ class InitiatePaymentResult {
   final String? stripePublicKey;
   final String? stripeClientSecret;
   final String? stripeIntentId;
+  final String? stripeCustomerId;
+  final String? stripeEphemeralKey;
 }
 
 /// Payment status enum with localized display text.
@@ -272,6 +276,8 @@ class PayRepository {
       stripePublicKey: stripeParams.publicKey,
       stripeClientSecret: stripeParams.clientSecret,
       stripeIntentId: stripeParams.intentId,
+      stripeCustomerId: stripeParams.customerId,
+      stripeEphemeralKey: stripeParams.ephemeralKey,
     );
   }
 
@@ -303,11 +309,19 @@ final payRepositoryProvider = Provider<PayRepository>((ref) {
 });
 
 class StripeParamResult {
-  const StripeParamResult({this.publicKey, this.clientSecret, this.intentId});
+  const StripeParamResult({
+    this.publicKey,
+    this.clientSecret,
+    this.intentId,
+    this.customerId,
+    this.ephemeralKey,
+  });
 
   final String? publicKey;
   final String? clientSecret;
   final String? intentId;
+  final String? customerId;
+  final String? ephemeralKey;
 }
 
 String? _extractPayInfoKey(String? thirdPayParam) {
@@ -386,9 +400,16 @@ StripeParamResult? _parseStripeFromJson(String raw) {
 
     return StripeParamResult(
       publicKey:
-          read('publicKey') ?? read('publishableKey') ?? read('publickkey'),
-      clientSecret: read('clientSecret') ?? read('secret'),
-      intentId: read('intentId') ?? read('paymentIntentId') ?? read('intent'),
+          read('publishableKey') ?? read('publicKey') ?? read('publickkey'),
+      clientSecret:
+          read('paymentIntent') ?? read('clientSecret') ?? read('secret'),
+      intentId:
+          read('id') ??
+          read('intentId') ??
+          read('paymentIntentId') ??
+          read('intent'),
+      customerId: read('customer'),
+      ephemeralKey: read('ephemeralKey'),
     );
   } catch (_) {
     return null;
