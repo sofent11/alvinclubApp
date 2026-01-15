@@ -25,10 +25,15 @@ class CelebrityTopicDetailScreen extends StatelessWidget {
         actions: [
           Padding(
             padding: const EdgeInsets.only(right: 16),
-            child: CircleAvatar(
-              radius: 16,
-              backgroundImage: CachedNetworkImageProvider(
-                mockCelebrityProfile.avatarUrl,
+            child: CachedNetworkImage(
+              imageUrl: mockCelebrityProfile.avatarUrl,
+              imageBuilder: (context, imageProvider) =>
+                  CircleAvatar(radius: 16, backgroundImage: imageProvider),
+              placeholder: (context, url) =>
+                  const CircleAvatar(radius: 16, backgroundColor: Colors.grey),
+              errorWidget: (context, url, error) => const CircleAvatar(
+                radius: 16,
+                child: Icon(Icons.person, size: 16),
               ),
             ),
           ),
@@ -132,7 +137,14 @@ class _TopicLookItem extends StatelessWidget {
       children: [
         AspectRatio(
           aspectRatio: 3 / 4, // Portrait ratio for lookbook
-          child: CachedNetworkImage(imageUrl: look.imageUrl, fit: BoxFit.cover),
+          child: CachedNetworkImage(
+            imageUrl: look.imageUrl,
+            fit: BoxFit.cover,
+            errorWidget: (context, url, error) => Container(
+              color: Colors.grey[200],
+              child: const Icon(Icons.broken_image, color: Colors.grey),
+            ),
+          ),
         ),
         if (look.isNew)
           Positioned(
@@ -245,6 +257,16 @@ class _ProductItem extends StatelessWidget {
               width: 80,
               height: 80,
               fit: BoxFit.cover,
+              errorWidget: (context, url, error) => Container(
+                width: 80,
+                height: 80,
+                color: Colors.grey[200],
+                child: const Icon(
+                  Icons.broken_image,
+                  size: 24,
+                  color: Colors.grey,
+                ),
+              ),
             ),
           ),
           const SizedBox(width: 12),

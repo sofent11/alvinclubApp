@@ -182,41 +182,61 @@ class _BrandItem extends StatelessWidget {
         child: Column(
           children: [
             Expanded(
-              child: Container(
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(
-                    9,
-                  ), // Slightly adjusted radius
-                  image: DecorationImage(
-                    image: CachedNetworkImageProvider(brand.imageUrl),
-                    fit: BoxFit.cover,
+              child: CachedNetworkImage(
+                imageUrl: brand.imageUrl,
+                imageBuilder: (context, imageProvider) => Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(9),
+                    image: DecorationImage(
+                      image: imageProvider,
+                      fit: BoxFit.cover,
+                    ),
                   ),
-                ),
-                child: Stack(
-                  children: [
-                    Positioned(
-                      bottom: 0,
-                      left: 0,
-                      right: 0,
-                      child: Container(
-                        height: 26, // Slightly larger height
-                        decoration: BoxDecoration(
-                          gradient: LinearGradient(
-                            begin: Alignment.bottomCenter,
-                            end: Alignment.topCenter,
-                            colors: [
-                              Colors.black.withValues(alpha: 0.6),
-                              Colors.transparent,
-                            ],
-                          ),
-                          borderRadius: const BorderRadius.only(
-                            bottomLeft: Radius.circular(9),
-                            bottomRight: Radius.circular(9),
+                  child: Stack(
+                    children: [
+                      Positioned(
+                        bottom: 0,
+                        left: 0,
+                        right: 0,
+                        child: Container(
+                          height: 26, // Slightly larger height
+                          decoration: BoxDecoration(
+                            gradient: LinearGradient(
+                              begin: Alignment.bottomCenter,
+                              end: Alignment.topCenter,
+                              colors: [
+                                Colors.black.withValues(alpha: 0.6),
+                                Colors.transparent,
+                              ],
+                            ),
+                            borderRadius: const BorderRadius.only(
+                              bottomLeft: Radius.circular(9),
+                              bottomRight: Radius.circular(9),
+                            ),
                           ),
                         ),
                       ),
+                    ],
+                  ),
+                ),
+                placeholder: (context, url) => Container(
+                  decoration: BoxDecoration(
+                    color: Colors.grey[200],
+                    borderRadius: BorderRadius.circular(9),
+                  ),
+                ),
+                errorWidget: (context, url, error) => Container(
+                  decoration: BoxDecoration(
+                    color: Colors.grey[200],
+                    borderRadius: BorderRadius.circular(9),
+                  ),
+                  child: const Center(
+                    child: Icon(
+                      Icons.broken_image,
+                      size: 24,
+                      color: Colors.grey,
                     ),
-                  ],
+                  ),
                 ),
               ),
             ),

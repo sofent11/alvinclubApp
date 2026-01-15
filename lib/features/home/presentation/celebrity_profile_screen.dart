@@ -49,48 +49,6 @@ class CelebrityProfileScreen extends StatelessWidget {
         icon: const Icon(Icons.arrow_back_ios_new, color: Colors.white),
         onPressed: () => context.pop(),
       ),
-      actions: [
-        Container(
-          margin: const EdgeInsets.only(right: 16, top: 8),
-          child: Column(
-            children: [
-              Container(
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  border: Border.all(color: Colors.white, width: 2),
-                ),
-                child: CircleAvatar(
-                  radius: 20,
-                  backgroundImage: CachedNetworkImageProvider(
-                    profile.avatarUrl,
-                  ),
-                ),
-              ),
-              const SizedBox(height: 4),
-              Container(
-                padding: const EdgeInsets.symmetric(
-                  horizontal: 12,
-                  vertical: 4,
-                ),
-                decoration: BoxDecoration(
-                  color: const Color(
-                    0xFFCCFF00,
-                  ), // Lime green/yellow from design
-                  borderRadius: BorderRadius.circular(12),
-                ),
-                child: const Text(
-                  '+ 关注',
-                  style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 10,
-                    fontWeight: FontWeight.bold,
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ),
-      ],
       flexibleSpace: FlexibleSpaceBar(
         background: Stack(
           fit: StackFit.expand,
@@ -98,6 +56,10 @@ class CelebrityProfileScreen extends StatelessWidget {
             CachedNetworkImage(
               imageUrl: profile.headerImageUrl,
               fit: BoxFit.cover,
+              errorWidget: (context, url, error) => Container(
+                color: Colors.grey[900],
+                child: const Icon(Icons.broken_image, color: Colors.white54),
+              ),
             ),
             // Gradient overlay for text readability
             const DecoratedBox(
@@ -107,6 +69,63 @@ class CelebrityProfileScreen extends StatelessWidget {
                   end: Alignment.bottomCenter,
                   colors: [Colors.black12, Colors.transparent, Colors.black54],
                   stops: [0.0, 0.6, 1.0],
+                ),
+              ),
+            ),
+            Positioned(
+              right: 16,
+              top: 0,
+              child: SafeArea(
+                child: Padding(
+                  padding: const EdgeInsets.only(top: 8),
+                  child: Column(
+                    children: [
+                      Container(
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          border: Border.all(color: Colors.white, width: 2),
+                        ),
+                        child: CachedNetworkImage(
+                          imageUrl: profile.avatarUrl,
+                          imageBuilder: (context, imageProvider) =>
+                              CircleAvatar(
+                                radius: 20,
+                                backgroundImage: imageProvider,
+                              ),
+                          placeholder: (context, url) => const CircleAvatar(
+                            radius: 20,
+                            backgroundColor: Colors.grey,
+                          ),
+                          errorWidget: (context, url, error) =>
+                              const CircleAvatar(
+                                radius: 20,
+                                child: Icon(Icons.person),
+                              ),
+                        ),
+                      ),
+                      const SizedBox(height: 4),
+                      Container(
+                        padding: const EdgeInsets.symmetric(
+                          horizontal: 12,
+                          vertical: 4,
+                        ),
+                        decoration: BoxDecoration(
+                          color: const Color(
+                            0xFFCCFF00,
+                          ), // Lime green/yellow from design
+                          borderRadius: BorderRadius.circular(12),
+                        ),
+                        child: const Text(
+                          '+ 关注',
+                          style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 10,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -171,6 +190,10 @@ class _CelebrityPostCard extends StatelessWidget {
                   child: CachedNetworkImage(
                     imageUrl: post.imageUrl,
                     fit: BoxFit.cover,
+                    errorWidget: (context, url, error) => Container(
+                      color: Colors.grey[200],
+                      child: const Icon(Icons.broken_image, color: Colors.grey),
+                    ),
                   ),
                 ),
                 if (post.hasTryOn)
@@ -225,10 +248,17 @@ class _CelebrityPostCard extends StatelessWidget {
           const SizedBox(height: 8),
           Row(
             children: [
-              CircleAvatar(
-                radius: 10,
-                backgroundImage: CachedNetworkImageProvider(
-                  post.authorAvatarUrl,
+              CachedNetworkImage(
+                imageUrl: post.authorAvatarUrl,
+                imageBuilder: (context, imageProvider) =>
+                    CircleAvatar(radius: 10, backgroundImage: imageProvider),
+                placeholder: (context, url) => const CircleAvatar(
+                  radius: 10,
+                  backgroundColor: Colors.grey,
+                ),
+                errorWidget: (context, url, error) => const CircleAvatar(
+                  radius: 10,
+                  child: Icon(Icons.person, size: 12),
                 ),
               ),
               const SizedBox(width: 6),

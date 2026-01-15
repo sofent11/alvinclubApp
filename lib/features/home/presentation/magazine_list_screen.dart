@@ -242,6 +242,11 @@ class _MagazineCoverCard extends StatelessWidget {
                     child: CachedNetworkImage(
                       imageUrl: item.imageUrl,
                       fit: BoxFit.contain,
+                      placeholder: (context, url) =>
+                          Container(color: Colors.grey[200]),
+                      errorWidget: (context, url, error) => const Center(
+                        child: Icon(Icons.broken_image, color: Colors.grey),
+                      ),
                     ),
                   ),
                 ),

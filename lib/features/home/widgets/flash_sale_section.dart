@@ -443,14 +443,38 @@ class _FlashSaleItem extends StatelessWidget {
             Expanded(
               child: Stack(
                 children: [
-                  Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(14),
-                      color: Colors.white,
-                      border: Border.all(color: const Color(0xFFEFE7E1)),
-                      image: DecorationImage(
-                        image: CachedNetworkImageProvider(product.imageUrl),
-                        fit: BoxFit.cover,
+                  CachedNetworkImage(
+                    imageUrl: product.imageUrl,
+                    imageBuilder: (context, imageProvider) => Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(14),
+                        color: Colors.white,
+                        border: Border.all(color: const Color(0xFFEFE7E1)),
+                        image: DecorationImage(
+                          image: imageProvider,
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                    placeholder: (context, url) => Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(14),
+                        color: Colors.grey[200],
+                        border: Border.all(color: const Color(0xFFEFE7E1)),
+                      ),
+                    ),
+                    errorWidget: (context, url, error) => Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(14),
+                        color: Colors.grey[200],
+                        border: Border.all(color: const Color(0xFFEFE7E1)),
+                      ),
+                      child: const Center(
+                        child: Icon(
+                          Icons.broken_image,
+                          size: 24,
+                          color: Colors.grey,
+                        ),
                       ),
                     ),
                   ),

@@ -572,6 +572,21 @@ class _MagazinePage extends StatelessWidget {
                       fit: BoxFit.cover,
                       width: double.infinity,
                       height: 400,
+                      placeholder: (context, url) => Container(
+                        width: double.infinity,
+                        height: 400,
+                        color: Colors.grey[200],
+                      ),
+                      errorWidget: (context, url, error) => Container(
+                        width: double.infinity,
+                        height: 400,
+                        color: Colors.grey[200],
+                        child: const Icon(
+                          Icons.broken_image,
+                          size: 48,
+                          color: Colors.grey,
+                        ),
+                      ),
                     ),
                   ),
                   // Try On Button overlay
