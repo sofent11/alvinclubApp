@@ -83,73 +83,81 @@ class _CelebrityItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      mainAxisSize: MainAxisSize.min,
-      children: [
-        Container(
-          width: 52, // Reduced from 60
-          height: 52, // Reduced from 60
-          decoration: BoxDecoration(
-            shape: BoxShape.circle,
-            border: Border.all(
-              color: item.isForYou ? Colors.transparent : Colors.white,
-              width: 1.5, // Slightly thinner border
-            ),
-            boxShadow: [
-              BoxShadow(
-                color: Colors.black.withValues(alpha: 0.1),
-                blurRadius: 4,
-                offset: const Offset(0, 2),
+    return GestureDetector(
+      onTap: () {
+        context.pushNamed(
+          RoutePaths.celebrityProfile,
+          pathParameters: {'id': item.id},
+        );
+      },
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          Container(
+            width: 52, // Reduced from 60
+            height: 52, // Reduced from 60
+            decoration: BoxDecoration(
+              shape: BoxShape.circle,
+              border: Border.all(
+                color: item.isForYou ? Colors.transparent : Colors.white,
+                width: 1.5, // Slightly thinner border
               ),
-            ],
-          ),
-          child: item.isForYou
-              ? Container(
-                  decoration: const BoxDecoration(
-                    color: Color(0xFFCCFF00),
-                    shape: BoxShape.circle,
-                  ),
-                  child: Center(
-                    child: Text(
-                      'For\nYou',
-                      textAlign: TextAlign.center,
-                      style: TextStyle(
-                        fontSize: 10, // Reduced from 12
-                        fontWeight: FontWeight.bold,
-                        height: 1.0,
-                        color: Colors.black,
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withValues(alpha: 0.1),
+                  blurRadius: 4,
+                  offset: const Offset(0, 2),
+                ),
+              ],
+            ),
+            child: item.isForYou
+                ? Container(
+                    decoration: const BoxDecoration(
+                      color: Color(0xFFCCFF00),
+                      shape: BoxShape.circle,
+                    ),
+                    child: Center(
+                      child: Text(
+                        'For\nYou',
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          fontSize: 10, // Reduced from 12
+                          fontWeight: FontWeight.bold,
+                          height: 1.0,
+                          color: Colors.black,
+                        ),
                       ),
                     ),
+                  )
+                : ClipOval(
+                    child: CachedNetworkImage(
+                      imageUrl: item.imageUrl,
+                      fit: BoxFit.cover,
+                      placeholder: (context, url) =>
+                          Container(color: Colors.grey[200]),
+                      errorWidget: (context, url, error) =>
+                          const Icon(Icons.person, size: 20),
+                    ),
                   ),
-                )
-              : ClipOval(
-                  child: CachedNetworkImage(
-                    imageUrl: item.imageUrl,
-                    fit: BoxFit.cover,
-                    placeholder: (context, url) =>
-                        Container(color: Colors.grey[200]),
-                    errorWidget: (context, url, error) =>
-                        const Icon(Icons.person, size: 20),
-                  ),
-                ),
-        ),
-        const SizedBox(height: 6), // Reduced from 8
-        Text(
-          item.name,
-          style: const TextStyle(
-            color: Colors.white,
-            fontSize: 11, // Reduced from 12
-            fontWeight: FontWeight.w500,
-            shadows: [
-              Shadow(
-                color: Colors.black45,
-                offset: Offset(0, 1),
-                blurRadius: 2,
-              ),
-            ],
           ),
-        ),
-      ],
+          const SizedBox(height: 6), // Reduced from 8
+          Text(
+            item.name,
+            style: const TextStyle(
+              color: Colors.white,
+              fontSize: 11, // Reduced from 12
+              fontWeight: FontWeight.w500,
+              shadows: [
+                Shadow(
+                  color: Colors.black45,
+                  offset: Offset(0, 1),
+                  blurRadius: 2,
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
