@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_stripe/flutter_stripe.dart' hide PaymentMethod;
 import 'package:go_router/go_router.dart';
 
+import '../../core/env/env_config.dart';
 import '../../core/logging/logger.dart';
 import '../../core/navigation/route_paths.dart';
 import '../../core/payment/stripe_service.dart';
@@ -44,7 +45,9 @@ class StripePaymentHandler {
               ? 'merchant.com.echoo.w2c'
               : null, // Replace with real ID
           googlePay: isGooglePay,
-          testEnv: false,
+          testEnv:
+              EnvConfig.current.appEnv == AppEnvironment.test ||
+              EnvConfig.current.appEnv == AppEnvironment.dev,
         );
 
         // Verify payment status

@@ -40,4 +40,5 @@ class RoutePaths {
   static const fashionOutfitResult = '/fashion/outfit-result';
   static const fashionHistory = '/fashion/history';
   static const fashionPost = '/fashion/post/:id';
+  static const developerSettings = '/developer-settings';
 }

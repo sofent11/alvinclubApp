@@ -34,7 +34,7 @@ class EnvConfig {
 
   static late EnvConfig current;
 
-  static Future<void> load({String? envFile}) async {
+  static Future<void> load({String? envFile, bool forceProd = false}) async {
     final fileName =
         envFile ??
         const String.fromEnvironment('ENV_FILE', defaultValue: '.env.dev');
@@ -54,6 +54,18 @@ class EnvConfig {
       );
     }
 
+    // Default to Test Environment in Debug mode, unless forced to use loaded config (Prod)
+    if (kDebugMode && !forceProd) {
+      current = EnvConfig(
+        apiBaseUrl: 'https://decom-api.valleysound.xyz',
+        appEnv: AppEnvironment.test,
+        defaultLocale: rawLocale ?? fallbackLocale,
+        referer: 'https://ai.decom.valleysound.xyz',
+        uploadPrefix: rawUploadPrefix ?? '',
+      );
+      return;
+    }
+
     current = EnvConfig(
       apiBaseUrl: rawApiBase,
       appEnv: _parseEnvironment(rawEnv),
@@ -64,4 +76,14 @@ class EnvConfig {
   }
 
   static bool get isProd => current.appEnv == AppEnvironment.prod;
+
+  static void switchToTest() {
+    current = EnvConfig(
+      apiBaseUrl: 'https://decom-api.valleysound.xyz',
+      appEnv: AppEnvironment.test,
+      defaultLocale: 'en-US',
+      referer: 'https://ai.decom.valleysound.xyz',
+      uploadPrefix: current.uploadPrefix, // Keep existing or clear?
+    );
+  }
 }

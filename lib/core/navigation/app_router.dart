@@ -45,6 +45,8 @@ import '../../shared/widgets/placeholder_screen.dart';
 import '../../shared/widgets/webview_screen.dart';
 import 'route_paths.dart';
 
+import '../../features/account/presentation/developer_settings_screen.dart';
+
 final routerProvider = Provider<GoRouter>((ref) {
   final authState = ref.watch(authControllerProvider);
 
@@ -319,6 +321,11 @@ final routerProvider = Provider<GoRouter>((ref) {
         name: RoutePaths.fashionPost,
         builder: (context, state) =>
             PostDetailScreen(postId: state.pathParameters['id'] ?? ''),
+      ),
+      GoRoute(
+        path: RoutePaths.developerSettings,
+        name: RoutePaths.developerSettings,
+        builder: (context, state) => const DeveloperSettingsScreen(),
       ),
     ],
     redirect: (context, state) {

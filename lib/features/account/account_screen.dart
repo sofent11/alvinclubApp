@@ -1,4 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter/foundation.dart'; // Add for kDebugMode
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -122,6 +123,16 @@ class AccountScreen extends ConsumerWidget {
                 onTap: () => _openSettings(context, ref),
               ),
             ),
+            if (kDebugMode) ...[
+              const SizedBox(height: 12),
+              _SectionCard(
+                child: _AccountTile(
+                  icon: Icons.developer_mode,
+                  label: 'Developer Settings',
+                  onTap: () => context.push(RoutePaths.developerSettings),
+                ),
+              ),
+            ],
           ],
         );
       },
