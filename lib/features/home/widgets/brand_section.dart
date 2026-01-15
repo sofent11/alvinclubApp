@@ -2,7 +2,6 @@ import 'package:go_router/go_router.dart';
 import '../../../core/navigation/route_paths.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'dart:ui'; // For ImageFilter
 import '../home_mock_data.dart';
 
 class BrandSectionWidget extends StatelessWidget {
@@ -91,9 +90,7 @@ class BrandSectionWidget extends StatelessWidget {
                       decoration: BoxDecoration(
                         color: const Color(0xFFADE887).withValues(alpha: 0.3),
                         border: Border.all(
-                          color: Colors.white.withValues(
-                            alpha: 0.2,
-                          ), // Subtler border
+                          color: const Color(0xFFADE887),
                           width: 1,
                         ),
                       ),

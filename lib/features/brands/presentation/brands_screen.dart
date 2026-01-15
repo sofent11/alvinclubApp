@@ -331,8 +331,8 @@ class _ContinuousGlassOverlay extends StatelessWidget {
               ],
             ),
             border: Border.all(
-              color: Colors.white.withValues(alpha: 0.4),
-              width: 0.5,
+              color: glassColor.withValues(alpha: 1.0),
+              width: 1,
             ),
           ),
           child: Stack(
