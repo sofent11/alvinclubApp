@@ -17,11 +17,18 @@ class MagazineDetailScreen extends StatefulWidget {
 class _MagazineDetailScreenState extends State<MagazineDetailScreen> {
   int _currentIndex = 0;
   late PageController _pageController;
+  final List<ScrollController> _scrollControllers = [];
 
   @override
   void initState() {
     super.initState();
     _pageController = PageController(initialPage: _currentIndex);
+
+    // Initialize scroll controllers for each page
+    for (int i = 0; i < mockMagazineDetails.length; i++) {
+      _scrollControllers.add(ScrollController());
+    }
+
     final index = mockMagazineDetails.indexWhere(
       (m) => m.id == widget.magazineId,
     );
@@ -34,6 +41,9 @@ class _MagazineDetailScreenState extends State<MagazineDetailScreen> {
   @override
   void dispose() {
     _pageController.dispose();
+    for (var controller in _scrollControllers) {
+      controller.dispose();
+    }
     super.dispose();
   }
 
@@ -269,6 +279,9 @@ class _MagazineDetailScreenState extends State<MagazineDetailScreen> {
                                                     issue:
                                                         mockMagazineDetails[currentIndex +
                                                             1],
+                                                    scrollController:
+                                                        _scrollControllers[currentIndex +
+                                                            1],
                                                   ),
                                                 ),
 
@@ -296,6 +309,8 @@ class _MagazineDetailScreenState extends State<MagazineDetailScreen> {
                                                         _MagazinePage(
                                                           issue:
                                                               mockMagazineDetails[currentIndex],
+                                                          scrollController:
+                                                              _scrollControllers[currentIndex],
                                                         ),
                                                         // Dynamic Shadow Overlay
                                                         if (percent > 0)
@@ -576,14 +591,17 @@ class SpiralBindingPainter extends CustomPainter {
 
 class _MagazinePage extends StatelessWidget {
   final MagazineIssueDetail issue;
+  final ScrollController? scrollController;
 
-  const _MagazinePage({required this.issue});
+  const _MagazinePage({required this.issue, this.scrollController});
 
   @override
   Widget build(BuildContext context) {
     return Container(
       color: Colors.white,
       child: ListView.separated(
+        key: PageStorageKey('magazine_page_${issue.id}'),
+        controller: scrollController,
         padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16),
         itemCount: issue.looks.length,
         separatorBuilder: (context, index) => const SizedBox(height: 40),
