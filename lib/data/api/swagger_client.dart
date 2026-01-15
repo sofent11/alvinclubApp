@@ -55,6 +55,48 @@ class ApiInterceptor implements Interceptor {
       await _ref.read(authControllerProvider.notifier).clearSession();
     }
 
+    if (response.isSuccessful) {
+      final body = response.body;
+      if (body is Map<String, dynamic>) {
+        final code = body['code'];
+        // 20201: Login failed / Token expired / Invalid session
+        if (code == 20201 || code == '20201') {
+          logDebug('⚠️ API Error 20201: Session invalid. Clearing session.');
+          await _ref.read(authControllerProvider.notifier).clearSession();
+        }
+      } else if (body is String) {
+        try {
+          final json = jsonDecode(body);
+          if (json is Map<String, dynamic>) {
+            final code = json['code'];
+            if (code == 20201 || code == '20201') {
+              logDebug(
+                '⚠️ API Error 20201: Session invalid. Clearing session.',
+              );
+              await _ref.read(authControllerProvider.notifier).clearSession();
+            }
+          }
+        } catch (_) {}
+      } else if (body != null) {
+        // Handle generated Chopper objects (strong types)
+        try {
+          // Use dynamic access to check for 'code' property
+          final dynamic dBody = body;
+          // Verify if 'code' exists and matches
+          // We wrap in try-catch to handle NoSuchMethodError if 'code' doesn't exist
+          final code = dBody.code;
+          if (code == 20201 || code == '20201') {
+            logDebug(
+              '⚠️ API Error 20201: Session invalid (Typed Object). Clearing session.',
+            );
+            await _ref.read(authControllerProvider.notifier).clearSession();
+          }
+        } catch (_) {
+          // Property 'code' does not exist or access failed
+        }
+      }
+    }
+
     return response;
   }
 }

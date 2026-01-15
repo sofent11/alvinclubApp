@@ -40,6 +40,14 @@ class AccountScreen extends ConsumerWidget {
   }
 
   Widget _buildProfile(BuildContext context, WidgetRef ref) {
+    // Listen to auth state changes to force rebuild/redirect if session cleared
+    ref.listen(authControllerProvider, (previous, next) {
+      if (next.status == AuthStatus.anonymous) {
+        // Session cleared, UI will update automatically due to ConsumerWidget
+        // but we can also force navigation if needed, or show a toast.
+      }
+    });
+
     final profileAsync = ref.watch(userProfileProvider);
 
     return profileAsync.when(

@@ -39,10 +39,21 @@ class UserRepository {
 
     final body = response.body;
     if (body == null) {
-      throw _createApiError('获取用户信息失败', response.error);
+      throw _createApiError('Failed to fetch user profile', response.error);
     }
-    if (_parseInt(body.code) != 0) {
-      throw _createApiError(body.message ?? '获取用户信息失败', body);
+
+    // Check for 20201 specifically, although interceptor should handle it.
+    // If we are here, it means interceptor didn't throw (maybe because it's a 200 OK)
+    // but the session is invalid.
+    final code = _parseInt(body.code);
+    if (code != 0) {
+      // If code is 20201, propagate it so UI or Interceptor can react
+      // However, interceptor runs BEFORE this.
+      // If interceptor cleared session, we might still be here.
+      throw _createApiError(
+        body.message ?? 'Failed to fetch user profile',
+        body,
+      );
     }
 
     final data = body.data;

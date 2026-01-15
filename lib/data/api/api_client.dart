@@ -70,6 +70,17 @@ final dioProvider = Provider<Dio>((ref) {
         logDebug(
           '✅ API Response: ${response.requestOptions.method.toUpperCase()} ${response.requestOptions.path}',
         );
+
+        // Check for 20201 error code in successful responses
+        final data = response.data;
+        if (data is Map<String, dynamic>) {
+          final code = data['code'];
+          if (code == 20201 || code == '20201') {
+            logDebug('⚠️ API Error 20201: Session invalid. Clearing session.');
+            ref.read(authControllerProvider.notifier).clearSession();
+          }
+        }
+
         handler.next(response);
       },
       onError: (error, handler) {
