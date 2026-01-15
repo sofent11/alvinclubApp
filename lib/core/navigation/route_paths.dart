@@ -45,4 +45,5 @@ class RoutePaths {
   static const magazineDetail = '/magazine-detail/:id';
   static const magazineList = '/magazine-list';
   static const brandList = '/brand-list';
+  static const brandDetail = '/brand/:id';
 }

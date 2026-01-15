@@ -1,9 +1,8 @@
-import 'dart:ui';
-
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
+import '../../../core/navigation/route_paths.dart';
 import '../../../shared/widgets/themed_text.dart';
 import '../../home/home_mock_data.dart';
 import '../data/brands_mock_data.dart';
@@ -58,12 +57,21 @@ class BrandsScreen extends StatelessWidget {
                     scrollDirection: Axis.horizontal,
                     itemCount: mockBrandsWeLove.length,
                     itemBuilder: (context, index) {
+                      final brand = mockBrandsWeLove[index];
                       return Padding(
                         padding: const EdgeInsets.only(right: 12),
                         child: SizedBox(
                           width: 80, // Reduced width
-                          child: _BrandImageCard(
-                            brand: mockBrandsWeLove[index],
+                          child: GestureDetector(
+                            onTap: () {
+                              context.push(
+                                RoutePaths.brandDetail.replaceAll(
+                                  ':id',
+                                  brand.id,
+                                ),
+                              );
+                            },
+                            child: _BrandImageCard(brand: brand),
                           ),
                         ),
                       );
@@ -197,7 +205,17 @@ class _BrandRowItem extends StatelessWidget {
                           padding: EdgeInsets.only(
                             right: i == 2 ? 0 : 12,
                           ), // Gap between items
-                          child: _BrandImageCard(brand: brands[i]),
+                          child: GestureDetector(
+                            onTap: () {
+                              context.push(
+                                RoutePaths.brandDetail.replaceAll(
+                                  ':id',
+                                  brands[i].id,
+                                ),
+                              );
+                            },
+                            child: _BrandImageCard(brand: brands[i]),
+                          ),
                         )
                       : const SizedBox(), // Placeholder for empty slots
                 ),

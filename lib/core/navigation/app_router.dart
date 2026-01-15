@@ -53,6 +53,7 @@ import '../../features/home/presentation/magazine_detail_screen.dart';
 
 import '../../features/home/presentation/magazine_list_screen.dart';
 import '../../features/brands/presentation/brands_screen.dart';
+import '../../features/brands/presentation/brand_detail_screen.dart';
 
 final routerProvider = Provider<GoRouter>((ref) {
   final authState = ref.watch(authControllerProvider);
@@ -356,6 +357,12 @@ final routerProvider = Provider<GoRouter>((ref) {
         path: RoutePaths.brandList,
         name: RoutePaths.brandList,
         builder: (context, state) => const BrandsScreen(),
+      ),
+      GoRoute(
+        path: RoutePaths.brandDetail,
+        name: RoutePaths.brandDetail,
+        builder: (context, state) =>
+            BrandDetailScreen(id: state.pathParameters['id'] ?? ''),
       ),
     ],
     redirect: (context, state) {
