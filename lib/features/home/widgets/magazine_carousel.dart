@@ -1,4 +1,3 @@
-import 'dart:math' as math;
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -97,19 +96,13 @@ class _MagazineCarouselWidgetState extends State<MagazineCarouselWidget> {
       // Visibility check (optimization)
       if (absOffset > 3.0) continue;
 
-      // React Style Logic:
-      // const zIndex = 50 - absOffset;
-      // const scale = 1 - (absOffset * 0.05);
-      // const xOffset = offset * 10;
-      // const rotation = offset * 7; (degrees)
-
       // Flutter Translation:
       final zIndex = 50 - absOffset.round();
       final scale = (1.0 - (absOffset * 0.1)).clamp(
         0.0,
         1.0,
       ); // Slightly more aggressive scale for mobile
-      final dx = totalOffset * 40.0; // Spread horizontally
+      final dx = totalOffset * 30.0; // Spread horizontally
       final rotation =
           totalOffset * 0.15; // Radians. 0.15rad approx 8.5 degrees
 
@@ -129,7 +122,7 @@ class _MagazineCarouselWidgetState extends State<MagazineCarouselWidget> {
     layoutItems.sort((a, b) => a.zIndex.compareTo(b.zIndex));
 
     return SizedBox(
-      height: 380, // Container Height
+      height: 280, // Container Height
       child: GestureDetector(
         onHorizontalDragUpdate: _handleDragUpdate,
         onHorizontalDragEnd: _handleDragEnd,
@@ -211,11 +204,11 @@ class _AnimatedCard extends StatelessWidget {
           }
         },
         child: Container(
-          width: 260, // Fixed Card Width
-          height: 340, // Fixed Card Height
+          width: 190, // Fixed Card Width
+          height: 250, // Fixed Card Height
           decoration: BoxDecoration(
             color: Colors.white,
-            borderRadius: BorderRadius.circular(16),
+            borderRadius: BorderRadius.circular(12),
             boxShadow: [
               BoxShadow(
                 color: Colors.black.withValues(alpha: 0.15),
@@ -239,7 +232,7 @@ class _AnimatedCard extends StatelessWidget {
                 bottom: 0,
                 left: 0,
                 right: 0,
-                height: 120,
+                height: 100,
                 child: DecoratedBox(
                   decoration: BoxDecoration(
                     gradient: LinearGradient(
@@ -255,9 +248,9 @@ class _AnimatedCard extends StatelessWidget {
               ),
               // Text Content
               Positioned(
-                bottom: 20,
-                left: 16,
-                right: 16,
+                bottom: 16,
+                left: 12,
+                right: 12,
                 child: Column(
                   mainAxisSize: MainAxisSize.min,
                   children: [
@@ -266,18 +259,18 @@ class _AnimatedCard extends StatelessWidget {
                       textAlign: TextAlign.center,
                       style: const TextStyle(
                         color: Colors.white,
-                        fontSize: 12,
+                        fontSize: 10,
                         fontWeight: FontWeight.w600,
                         letterSpacing: 1.2,
                       ),
                     ),
-                    const SizedBox(height: 4),
+                    const SizedBox(height: 2),
                     Text(
                       item.title,
                       textAlign: TextAlign.center,
                       style: const TextStyle(
                         color: Colors.white,
-                        fontSize: 24,
+                        fontSize: 18,
                         fontWeight: FontWeight.bold,
                         fontFamily: 'serif',
                         height: 1.0,

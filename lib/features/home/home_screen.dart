@@ -1,6 +1,3 @@
-import 'dart:async';
-import 'dart:math' as math;
-
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -8,7 +5,6 @@ import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../core/navigation/route_paths.dart';
-import '../../core/theme/app_theme.dart';
 import '../../shared/widgets/themed_text.dart';
 import 'home_mock_data.dart';
 import 'home_providers.dart';
@@ -16,8 +12,6 @@ import 'widgets/brand_section.dart';
 import 'widgets/celebrity_list.dart';
 import 'widgets/home_feed_card.dart';
 import 'widgets/magazine_carousel.dart';
-
-const _homeBackground = Color(0xFF1A1A1A);
 
 class HomeScreen extends ConsumerStatefulWidget {
   const HomeScreen({super.key});
@@ -174,8 +168,6 @@ class _HomeHeaderBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final colors = context.appColors;
-
     return Padding(
       padding: const EdgeInsets.fromLTRB(16, 6, 16, 8),
       child: Row(

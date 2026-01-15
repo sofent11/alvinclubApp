@@ -130,7 +130,7 @@ final List<Brand> mockBrands = [
     id: '1',
     name: 'Miu Miu',
     imageUrl:
-        'https://images.unsplash.com/photo-1550614000-4b9519e090eb?auto=format&fit=crop&q=80&w=300',
+        'https://images.unsplash.com/photo-1576566588028-4147f3842f27?auto=format&fit=crop&q=80&w=300',
     logoUrl: 'https://logo.clearbit.com/miumiu.com',
   ),
   const Brand(
@@ -144,7 +144,7 @@ final List<Brand> mockBrands = [
     id: '3',
     name: 'Vogue',
     imageUrl:
-        'https://images.unsplash.com/photo-1529139574466-a302c27524ed?auto=format&fit=crop&q=80&w=300',
+        'https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&q=80&w=300',
     logoUrl: 'https://logo.clearbit.com/vogue.com',
   ),
   const Brand(

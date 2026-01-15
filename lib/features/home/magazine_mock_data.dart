@@ -63,7 +63,7 @@ final List<MagazineIssueDetail> mockMagazineDetails = [
       ),
       MagazineLook(
         imageUrl:
-            'https://images.unsplash.com/photo-1550614000-4b9519e090eb?auto=format&fit=crop&q=80&w=800',
+            'https://images.unsplash.com/photo-1576566588028-4147f3842f27?auto=format&fit=crop&q=80&w=800',
         aiComment: 'Mixing textures adds depth to this monochromatic ensemble.',
       ),
     ],
@@ -77,7 +77,7 @@ final List<MagazineIssueDetail> mockMagazineDetails = [
     looks: [
       MagazineLook(
         imageUrl:
-            'https://images.unsplash.com/photo-1529139574466-a302c27524ed?auto=format&fit=crop&q=80&w=800',
+            'https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&q=80&w=800',
         aiComment:
             'Bold red accents bring good fortune and high energy to your new year look.',
       ),

@@ -43,4 +43,5 @@ class RoutePaths {
   static const developerSettings = '/developer-settings';
   static const celebrityList = '/celebrity-list';
   static const magazineDetail = '/magazine-detail/:id';
+  static const magazineList = '/magazine-list';
 }

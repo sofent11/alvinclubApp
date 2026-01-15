@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import '../../../core/navigation/route_paths.dart';
 import '../magazine_mock_data.dart';
 
 class MagazineDetailScreen extends StatefulWidget {
@@ -109,19 +110,22 @@ class _MagazineDetailScreenState extends State<MagazineDetailScreen> {
                     color: const Color(0xFFF9F9F4),
                     isActive: false,
                     zIndex: 0,
-                    width: 80, // Reduced width slightly
+                    width: 70, // Reduced from 80
+                    onTap: () {
+                      context.push(RoutePaths.magazineList);
+                    },
                   ),
                 ),
                 // "Next" Tab - Middle
                 Positioned(
-                  left: 130, // Reduced offset
+                  left: 130,
                   bottom: 0,
                   child: _OverlappingTab(
                     text: 'Next JAN.3TH',
-                    color: const Color(0xFFF5EBEB), // Pinkish tint
+                    color: const Color(0xFFF5EBEB),
                     isActive: false,
                     zIndex: 1,
-                    width: 140, // Reduced width
+                    width: 130, // Reduced from 140
                     onTap: () => _goToPage(_currentIndex + 1),
                   ),
                 ),
@@ -132,10 +136,10 @@ class _MagazineDetailScreenState extends State<MagazineDetailScreen> {
                   child: _OverlappingTab(
                     text: 'Previous JAN.8TH',
                     color: Colors.white,
-                    isActive: true, // Visually dominant
+                    isActive: true,
                     zIndex: 2,
-                    width: 150, // Reduced width
-                    hasShadow: true, // Only the front one has prominent shadow
+                    width: 140, // Reduced from 150
+                    hasShadow: true,
                     onTap: () => _goToPage(_currentIndex - 1),
                   ),
                 ),
@@ -337,9 +341,9 @@ class _OverlappingTab extends StatelessWidget {
         child: Text(
           text,
           style: TextStyle(
-            fontSize: 13, // Reduced from 15
+            fontSize: 12, // Reduced from 13
             fontWeight: FontWeight.w500,
-            color: const Color(0xFF5D4037), // Brownish text color from design
+            color: const Color(0xFF5D4037),
             letterSpacing: -0.5,
           ),
         ),
@@ -379,7 +383,7 @@ class _MagazinePage extends StatelessWidget {
     return ListView.separated(
       padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 16),
       itemCount: issue.looks.length,
-      separatorBuilder: (_, __) => const SizedBox(height: 40),
+      separatorBuilder: (context, index) => const SizedBox(height: 40),
       itemBuilder: (context, index) {
         final look = issue.looks[index];
         return Column(

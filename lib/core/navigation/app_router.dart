@@ -51,6 +51,8 @@ import '../../features/home/presentation/celebrity_list_screen.dart';
 
 import '../../features/home/presentation/magazine_detail_screen.dart';
 
+import '../../features/home/presentation/magazine_list_screen.dart';
+
 final routerProvider = Provider<GoRouter>((ref) {
   final authState = ref.watch(authControllerProvider);
 
@@ -343,6 +345,11 @@ final routerProvider = Provider<GoRouter>((ref) {
           final id = state.pathParameters['id'] ?? '';
           return MagazineDetailScreen(magazineId: id);
         },
+      ),
+      GoRoute(
+        path: RoutePaths.magazineList,
+        name: RoutePaths.magazineList,
+        builder: (context, state) => const MagazineListScreen(),
       ),
     ],
     redirect: (context, state) {

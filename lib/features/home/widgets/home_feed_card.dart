@@ -216,7 +216,7 @@ class HomeFeedCard extends StatelessWidget {
                           width: 16, // Reduced
                           height: 16, // Reduced
                           fit: BoxFit.cover,
-                          errorWidget: (_, __, ___) =>
+                          errorWidget: (context, url, error) =>
                               const Icon(Icons.person, size: 14),
                         ),
                       ),
