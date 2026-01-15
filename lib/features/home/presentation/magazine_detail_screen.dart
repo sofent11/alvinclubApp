@@ -184,15 +184,9 @@ class _MagazineDetailScreenState extends State<MagazineDetailScreen> {
                             physics: const NeverScrollableScrollPhysics(),
                             itemCount: 20,
                             itemBuilder: (context, index) {
-                              return Container(
-                                height: 40,
-                                alignment: Alignment.center,
-                                child: Image.network(
-                                  'https://cdn-icons-png.flaticon.com/512/56/56828.png',
-                                  width: 24,
-                                  height: 24,
-                                  color: Colors.black87,
-                                ),
+                              return CustomPaint(
+                                size: const Size(40, 40),
+                                painter: SpiralBindingPainter(),
                               );
                             },
                           ),
@@ -367,6 +361,67 @@ class GridPainter extends CustomPainter {
     for (double y = 0; y < size.height; y += step) {
       canvas.drawLine(Offset(0, y), Offset(size.width, y), paint);
     }
+  }
+
+  @override
+  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
+}
+
+class SpiralBindingPainter extends CustomPainter {
+  @override
+  void paint(Canvas canvas, Size size) {
+    final centerY = size.height / 2;
+
+    // 1. Draw Hole
+    final holePaint = Paint()
+      ..color = const Color(0xFF2D2D2D)
+      ..style = PaintingStyle.fill;
+
+    // Hole positioned towards the right side (where paper is)
+    final holeCenter = Offset(size.width * 0.7, centerY);
+    final holeRadius = 5.0;
+
+    canvas.drawCircle(holeCenter, holeRadius, holePaint);
+
+    // 2. Draw Wire Ring
+    final wirePaint = Paint()
+      ..color =
+          const Color(0xFF90A4AE) // Metallic blue-grey
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 4.0
+      ..strokeCap = StrokeCap.round;
+
+    final shadowPaint = Paint()
+      ..color = Colors.black.withOpacity(0.2)
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 4.0
+      ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 2);
+
+    final highlightPaint = Paint()
+      ..color = Colors.white.withOpacity(0.5)
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = 1.5
+      ..strokeCap = StrokeCap.round;
+
+    // Path representing the spiral wire looping from hole to left edge
+    final path = Path();
+    path.moveTo(holeCenter.dx, holeCenter.dy);
+    // Control points to create a realistic metal coil curve
+    path.cubicTo(
+      holeCenter.dx - 15,
+      centerY - 12, // Control 1: Up and left
+      5,
+      centerY + 5, // Control 2: Down and left
+      -5,
+      centerY + 8, // End: Off screen left
+    );
+
+    // Draw shadow first for depth
+    canvas.drawPath(path, shadowPaint);
+    // Draw main wire
+    canvas.drawPath(path, wirePaint);
+    // Draw highlight for 3D effect
+    canvas.drawPath(path, highlightPaint);
   }
 
   @override
