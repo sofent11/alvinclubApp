@@ -195,113 +195,165 @@ class _MagazineDetailScreenState extends State<MagazineDetailScreen> {
 
                         // Pages
                         Expanded(
-                          child: Stack(
-                            children: [
-                              // 1. Visual Stack (Bottom: Next Page, Top: Current Flipping Page)
-                              Positioned.fill(
-                                child: LayoutBuilder(
-                                  builder: (context, constraints) {
-                                    return AnimatedBuilder(
-                                      animation: _pageController,
-                                      builder: (context, child) {
-                                        double page = 0.0;
-                                        if (_pageController.hasClients &&
-                                            _pageController
-                                                .position
-                                                .haveDimensions) {
-                                          page = _pageController.page ?? 0.0;
-                                        } else {
-                                          page = _currentIndex.toDouble();
-                                        }
+                          child: GestureDetector(
+                            onHorizontalDragUpdate: (details) {
+                              if (!_pageController.hasClients) return;
+                              final position = _pageController.position;
+                              final double newPixels =
+                                  position.pixels - details.delta.dx;
+                              // Clamp to valid scroll range to prevent errors
+                              final clampedPixels = newPixels.clamp(
+                                position.minScrollExtent,
+                                position.maxScrollExtent,
+                              );
+                              position.jumpTo(clampedPixels);
+                            },
+                            onHorizontalDragEnd: (details) {
+                              if (!_pageController.hasClients) return;
+                              final double velocity =
+                                  details.primaryVelocity ?? 0;
+                              final int currentPage =
+                                  _pageController.page?.round() ??
+                                  _currentIndex;
+                              int targetPage = currentPage;
 
-                                        final int currentIndex = page.floor();
-                                        final double percent =
-                                            page - currentIndex;
+                              // Fast swipe logic
+                              if (velocity < -500) {
+                                targetPage = currentPage + 1;
+                              } else if (velocity > 500) {
+                                targetPage = currentPage - 1;
+                              }
 
-                                        return Stack(
-                                          children: [
-                                            // BOTTOM LAYER: Next Page (Static Background)
-                                            if (currentIndex + 1 <
-                                                mockMagazineDetails.length)
-                                              Positioned.fill(
-                                                child: _MagazinePage(
-                                                  issue:
-                                                      mockMagazineDetails[currentIndex +
-                                                          1],
-                                                ),
-                                              ),
+                              // Clamp target page
+                              targetPage = targetPage.clamp(
+                                0,
+                                mockMagazineDetails.length - 1,
+                              );
 
-                                            // TOP LAYER: Current Page (Flipping)
-                                            if (currentIndex <
-                                                mockMagazineDetails.length)
-                                              Positioned.fill(
-                                                child: Transform(
-                                                  transform: Matrix4.identity()
-                                                    ..setEntry(3, 2, 0.001)
-                                                    ..rotateY(
-                                                      percent * math.pi / 2,
-                                                    ),
-                                                  alignment:
-                                                      Alignment.centerLeft,
-                                                  child: Stack(
-                                                    children: [
-                                                      _MagazinePage(
-                                                        issue:
-                                                            mockMagazineDetails[currentIndex],
-                                                      ),
-                                                      // Dynamic Shadow Overlay
-                                                      if (percent > 0)
-                                                        Container(
-                                                          decoration: BoxDecoration(
-                                                            gradient: LinearGradient(
-                                                              begin: Alignment
-                                                                  .centerLeft,
-                                                              end: Alignment
-                                                                  .centerRight,
-                                                              colors: [
-                                                                Colors.black
-                                                                    .withOpacity(
-                                                                      percent *
-                                                                          0.1,
-                                                                    ),
-                                                                Colors.black
-                                                                    .withOpacity(
-                                                                      percent *
-                                                                          0.3,
-                                                                    ),
-                                                              ],
-                                                            ),
-                                                          ),
-                                                        ),
-                                                    ],
+                              _pageController.animateToPage(
+                                targetPage,
+                                duration: const Duration(milliseconds: 300),
+                                curve: Curves.easeOut,
+                              );
+                            },
+                            child: Stack(
+                              children: [
+                                // 1. Visual Stack (Bottom: Next Page, Top: Current Flipping Page)
+                                Positioned.fill(
+                                  child: LayoutBuilder(
+                                    builder: (context, constraints) {
+                                      return AnimatedBuilder(
+                                        animation: _pageController,
+                                        builder: (context, child) {
+                                          double page = 0.0;
+                                          if (_pageController.hasClients &&
+                                              _pageController
+                                                  .position
+                                                  .haveDimensions) {
+                                            page = _pageController.page ?? 0.0;
+                                          } else {
+                                            page = _currentIndex.toDouble();
+                                          }
+
+                                          final int currentIndex = page.floor();
+                                          final double percent =
+                                              page - currentIndex;
+
+                                          return Stack(
+                                            children: [
+                                              // BOTTOM LAYER: Next Page (Static Background)
+                                              if (currentIndex + 1 <
+                                                  mockMagazineDetails.length)
+                                                Positioned.fill(
+                                                  child: _MagazinePage(
+                                                    issue:
+                                                        mockMagazineDetails[currentIndex +
+                                                            1],
                                                   ),
                                                 ),
-                                              ),
-                                          ],
-                                        );
-                                      },
-                                    );
-                                  },
-                                ),
-                              ),
 
-                              // 2. Invisible PageView for Gestures
-                              Positioned.fill(
-                                child: PageView.builder(
-                                  controller: _pageController,
-                                  physics: const BouncingScrollPhysics(),
-                                  onPageChanged: (index) {
-                                    setState(() {
-                                      _currentIndex = index;
-                                    });
-                                  },
-                                  itemCount: mockMagazineDetails.length,
-                                  itemBuilder: (context, index) {
-                                    return Container(color: Colors.transparent);
-                                  },
+                                              // TOP LAYER: Current Page (Flipping)
+                                              if (currentIndex <
+                                                  mockMagazineDetails.length)
+                                                Positioned.fill(
+                                                  child: Transform(
+                                                    transform:
+                                                        Matrix4.identity()
+                                                          ..setEntry(
+                                                            3,
+                                                            2,
+                                                            0.001,
+                                                          )
+                                                          ..rotateY(
+                                                            percent *
+                                                                math.pi /
+                                                                2,
+                                                          ),
+                                                    alignment:
+                                                        Alignment.centerLeft,
+                                                    child: Stack(
+                                                      children: [
+                                                        _MagazinePage(
+                                                          issue:
+                                                              mockMagazineDetails[currentIndex],
+                                                        ),
+                                                        // Dynamic Shadow Overlay
+                                                        if (percent > 0)
+                                                          Container(
+                                                            decoration: BoxDecoration(
+                                                              gradient: LinearGradient(
+                                                                begin: Alignment
+                                                                    .centerLeft,
+                                                                end: Alignment
+                                                                    .centerRight,
+                                                                colors: [
+                                                                  Colors.black
+                                                                      .withOpacity(
+                                                                        percent *
+                                                                            0.1,
+                                                                      ),
+                                                                  Colors.black
+                                                                      .withOpacity(
+                                                                        percent *
+                                                                            0.3,
+                                                                      ),
+                                                                ],
+                                                              ),
+                                                            ),
+                                                          ),
+                                                      ],
+                                                    ),
+                                                  ),
+                                                ),
+                                            ],
+                                          );
+                                        },
+                                      );
+                                    },
+                                  ),
                                 ),
-                              ),
-                            ],
+
+                                // 2. Invisible PageView for Gestures (Modified to pass touches)
+                                Positioned.fill(
+                                  child: IgnorePointer(
+                                    child: PageView.builder(
+                                      controller: _pageController,
+                                      physics:
+                                          const NeverScrollableScrollPhysics(),
+                                      onPageChanged: (index) {
+                                        setState(() {
+                                          _currentIndex = index;
+                                        });
+                                      },
+                                      itemCount: mockMagazineDetails.length,
+                                      itemBuilder: (context, index) {
+                                        return const SizedBox.expand();
+                                      },
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
                           ),
                         ),
 
