@@ -47,6 +47,12 @@ const mockBrandProducts = [
     price: 3500.0,
     currency: 'USD',
     imageUrl: 'https://picsum.photos/seed/product1/800/800',
+    images: [
+      'https://picsum.photos/seed/product1/800/800',
+      'https://picsum.photos/seed/product1_1/800/800',
+      'https://picsum.photos/seed/product1_2/800/800',
+      'https://picsum.photos/seed/product1_3/800/800',
+    ],
   ),
   ProductItem(
     id: '2',
@@ -54,6 +60,12 @@ const mockBrandProducts = [
     price: 1150.0,
     currency: 'USD',
     imageUrl: 'https://picsum.photos/seed/product2/800/800',
+    images: [
+      'https://picsum.photos/seed/product2/800/800',
+      'https://picsum.photos/seed/product2_1/800/800',
+      'https://picsum.photos/seed/product2_2/800/800',
+      'https://picsum.photos/seed/product2_3/800/800',
+    ],
   ),
   ProductItem(
     id: '3',
@@ -61,6 +73,12 @@ const mockBrandProducts = [
     price: 4900.0,
     currency: 'USD',
     imageUrl: 'https://picsum.photos/seed/product3/800/800',
+    images: [
+      'https://picsum.photos/seed/product3/800/800',
+      'https://picsum.photos/seed/product3_1/800/800',
+      'https://picsum.photos/seed/product3_2/800/800',
+      'https://picsum.photos/seed/product3_3/800/800',
+    ],
   ),
   ProductItem(
     id: '4',
@@ -68,6 +86,12 @@ const mockBrandProducts = [
     price: 3250.0,
     currency: 'USD',
     imageUrl: 'https://picsum.photos/seed/product4/800/800',
+    images: [
+      'https://picsum.photos/seed/product4/800/800',
+      'https://picsum.photos/seed/product4_1/800/800',
+      'https://picsum.photos/seed/product4_2/800/800',
+      'https://picsum.photos/seed/product4_3/800/800',
+    ],
   ),
   ProductItem(
     id: '5',
@@ -75,6 +99,12 @@ const mockBrandProducts = [
     price: 3800.0,
     currency: 'USD',
     imageUrl: 'https://picsum.photos/seed/product5/800/800',
+    images: [
+      'https://picsum.photos/seed/product5/800/800',
+      'https://picsum.photos/seed/product5_1/800/800',
+      'https://picsum.photos/seed/product5_2/800/800',
+      'https://picsum.photos/seed/product5_3/800/800',
+    ],
   ),
   ProductItem(
     id: '6',
@@ -82,14 +112,21 @@ const mockBrandProducts = [
     price: 1090.0,
     currency: 'USD',
     imageUrl: 'https://picsum.photos/seed/product6/800/800',
+    images: [
+      'https://picsum.photos/seed/product6/800/800',
+      'https://picsum.photos/seed/product6_1/800/800',
+      'https://picsum.photos/seed/product6_2/800/800',
+      'https://picsum.photos/seed/product6_3/800/800',
+    ],
   ),
 ];
 
 final mockBrandDetail = BrandDetailData(
   id: '1',
-  name: 'DIOR',
-  logoUrl: 'https://ui-avatars.com/api/?name=Dior&background=random',
+  name: 'Louis Vuitton',
+  logoUrl: 'https://ui-avatars.com/api/?name=LV&background=000&color=fff',
+  bannerUrl: 'https://picsum.photos/seed/lv_runway/800/600',
   outfits: mockBrandOutfits,
-  categories: ['View all', 'Bags', 'Shoes', 'Belts & Scarves', 'Jewelry'],
+  categories: ['Look', 'Shop'],
   hotItems: mockBrandProducts,
 );
